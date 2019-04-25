@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5e3005eb8f548e562e037431ae5fd89f82ec2100
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812079"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150088"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights
 
@@ -28,6 +28,9 @@ En este tutorial, obtendrá información sobre lo siguiente:
 > * La aplicación de ejemplo de TSI.
 > * La biblioteca cliente JavaScript de TSI.
 > * Cómo usa la aplicación de ejemplo la biblioteca para visualizar datos de TSI.
+
+> [!NOTE]
+> Los archivos de origen de la aplicación de ejemplo de Time Series Insights se pueden encontrar en el [repositorio de ejemplo de GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial) que se proporciona.
 
 ## <a name="video"></a>Vídeo: 
 
@@ -57,7 +60,7 @@ En este tutorial se usa la aplicación de Time Series Insights de ejemplo para e
 
 ### <a name="page-source-and-structure"></a>Estructura y origen de la página
 
-En primer lugar, veamos el código fuente HTML y JavaScript que hay detrás de la página que se representa en el explorador. No vamos a recorrer todos los elementos, pero verá las secciones principales para hacerse una idea de cómo funciona la página:
+En primer lugar, veamos el [código fuente HTML y JavaScript](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) que hay detrás de la página que se representa en el explorador. No vamos a recorrer todos los elementos, pero verá las secciones principales para hacerse una idea de cómo funciona la página:
 
 1. Abra **Herramientas de desarrollo** en el explorador. Inspeccione los elementos HTML que componen la página actual (también conocidos como árbol de DOM o HTML).
 
@@ -109,7 +112,7 @@ Como ya se ha mencionado, este ejemplo es una aplicación de página única que 
 
 2. Más adelante, la aplicación solicita un "token de acceso " de Azure AD. El token de acceso se genera para un conjunto finito de permisos para un identificador de servicio o API concreto https://api.timeseries.azure.com. El identificador de servicio o API también se conoce como "audiencia" del token. Los permisos de token se emiten en nombre del usuario con la sesión iniciada. El identificador del servicio o la API es otra propiedad que se incluye en el registro de Azure AD de la aplicación. Una vez que ADAL devuelve el token de acceso a la aplicación, se pasa como un "token de portador" al acceder a las API del servicio TSI.
 
-   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=145-204&highlight=4-9,36-39)]
+   [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=4-9,36-39)]
 
 ### <a name="control-identification"></a>Identificación del control
 
@@ -191,7 +194,7 @@ Examinemos el código que está detrás de algunos de los controles de gráfico 
 
 Recuerde que en el paso 3 de la [sección Estructura y origen de la página](#page-source-and-structure) los controles de gráfico se organizan en filas en la página, cada una de las cuales tiene una fila que es el título descriptivo. En este ejemplo, los tres gráficos se rellenan en el elemento `<div>` del título "Multiple Chart Types From the Same Data" (Varios tipos de gráfico con los mismos datos) y se enlazan a los tres elementos `<div>` que se encuentran debajo de dicho título:
 
-[!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
+[!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
 La siguiente sección del código JavaScript usa los patrones que se esbozaron anteriormente: generar expresiones de agregado de TSI, usarlas para realizar consultas en los datos de TSI y representar los tres gráficos. Observe los tres tipos que se usan del espacio de nombres `tsiClient.ux`: `LineChart`, `BarChart` y `PieChart`, para crear y representar los respectivos gráficos. Tenga también en cuenta que los tres gráficos pueden usar los mismos datos de expresiones de agregado `transformedResult`:
 
@@ -283,9 +286,12 @@ En este tutorial aprendió lo siguiente:
 > * Usar las API de la biblioteca cliente JavaScript de TSI.
 > * Usar JavaScript para crear y rellenar controles de gráfico con los datos de TSI.
 
-Tal y como hemos explicado, la aplicación de ejemplo de TSI usa un conjunto de datos de demostración. Para aprender a crear un entorno de TSI y un conjunto de datos propios, pase al siguiente artículo:
+Como ya se ha visto, la aplicación de ejemplo de TSI usa un conjunto de datos de demostración. Para aprender a crear un entorno de TSI y un conjunto de datos propios, pase al siguiente artículo:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Creación de un entorno de Azure Time Series Insights](tutorial-create-populate-tsi-environment.md)
 
+O bien, vea los archivos de origen de la aplicación de ejemplo de TSI:
 
+> [!div class="nextstepaction"]
+> [Repositorio de la aplicación de ejemplo de TSI](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)

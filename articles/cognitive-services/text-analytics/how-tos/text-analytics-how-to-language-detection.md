@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 8197d091763709282c42379a7ca0ea802e5c6fdf
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886798"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002279"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Ejemplo: Cómo detectar el idioma con Text Analytics
 
-[Language Detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) evalúa la entrada de texto y, para cada documento, devuelve identificadores de idioma con una puntuación que indica la solidez del análisis. Text Analytics reconoce hasta 120 idiomas.
+[Language Detection API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) evalúa la entrada de texto y, para cada documento, devuelve identificadores de idioma con una puntuación que indica la solidez del análisis. Text Analytics reconoce hasta 120 idiomas.
 
 Esta capacidad es útil para los almacenes de contenido que recopilan texto arbitrario, donde el idioma es desconocido. Puede analizar los resultados del análisis para determinar el idioma que se usa en el documento de entrada. La respuesta también devuelve una puntuación que refleja la confianza del modelo (un valor entre 0 y 1).
 
@@ -27,7 +27,7 @@ Esta capacidad es útil para los almacenes de contenido que recopilan texto arbi
 
 ## <a name="preparation"></a>Preparación
 
-Debe tener documentos JSON en este formato: identificador, texto
+Debe tener documentos JSON en este formato: Identificador, texto
 
 El tamaño del documento debe ser inferior a 5120 caracteres por documento y puede tener hasta 1000 elementos (identificadores) por colección. La colección se envía en el cuerpo de la solicitud. En el siguiente ejemplo se presenta contenido que se podría enviar para la detección del idioma.
 
@@ -62,16 +62,16 @@ El tamaño del documento debe ser inferior a 5120 caracteres por documento y pue
 
 Se pueden encontrar detalles sobre la definición de la solicitud en [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Cómo llamar a Text Analytics API). Recapitulamos los siguientes puntos para su comodidad:
 
-+ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [API de detección de idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
++ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [API de detección de idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 
-+ Establezca el punto de conexión de HTTP para la detección de lenguaje, mediante un recurso de Text Analytics en Azure o un [contenedor de Text Analytics](text-analytics-how-to-install-containers.md) con instancias. Debe incluir el recurso `/languages`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
++ Establezca el punto de conexión de HTTP para la detección de lenguaje, mediante un recurso de Text Analytics en Azure o un [contenedor de Text Analytics](text-analytics-how-to-install-containers.md) con instancias. Debe incluir el recurso `/languages`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
 
 + Establezca un encabezado de solicitud para incluir la clave de acceso para las operaciones de Text Analytics. Para obtener más información, consulte [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Cómo buscar puntos de conexión y claves de acceso).
 
 + En el cuerpo de la solicitud, proporcione la colección de documentos JSON que preparó para este análisis.
 
 > [!Tip]
-> Use [Postman](text-analytics-how-to-call-api.md) o abra la **consola de prueba de la API** en la [documentación](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) para estructurar y enviar una solicitud POST al servicio.
+> Use [Postman](text-analytics-how-to-call-api.md) o abra la **consola de prueba de la API** en la [documentación](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) para estructurar y enviar una solicitud POST al servicio.
 
 ## <a name="step-2-post-the-request"></a>Paso 2: Publicar la solicitud
 
@@ -206,7 +206,7 @@ La salida resultante está formada por el idioma predominante, con una puntuaci�
 
 En este artículo, ha aprendido los conceptos y el flujo de trabajo de la detección del idioma mediante Text Analytics de Cognitive Services. A continuación, se muestra un recordatorio rápido de los puntos principales explicados y mostrados anteriormente:
 
-+ [Language detection API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) está disponible para 120 idiomas.
++ [Language detection API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) está disponible para 120 idiomas.
 + Los documentos JSON del cuerpo de la solicitud incluyen un identificador y texto.
 + La solicitud POST se realiza a un punto de conexión `/languages`, con una [clave de acceso y un punto de conexión](text-analytics-how-to-access-key.md) personalizados, que son válidos para la suscripción.
 + La salida de la respuesta, que consta de identificadores de idioma para cada id. de documento, se puede transmitir a cualquier aplicación que acepte JSON, incluidas Excel y Power BI, por nombrar algunas.

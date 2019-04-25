@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Archivo de registros de Azure Active Directory en una cuenta de Storage (versión preliminar) | Microsoft Docs'
-description: Aprenda a configurar Azure Diagnostics para insertar los registros de Azure Active Directory en una cuenta de Azure Storage (versión preliminar)
+title: 'Tutorial: Archivo de registros de Azure Active Directory en una cuenta de Storage | Microsoft Docs'
+description: Aprenda a configurar Azure Diagnostics para insertar los registros de Azure Active Directory en una cuenta de almacenamiento.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d34b41e780466d9ab734b9dbd0e58016dba7b10
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 0198fe1ce61c8f78e315d1166a7ea03aae20d592
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434728"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999508"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Tutorial: Archivado de registros de Azure AD en una cuenta de Azure Storage (versión preliminar)
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Tutorial: Archivo de registros de Azure AD en una cuenta de Azure Storage
 
 En este tutorial, aprenderá a configurar los valores de diagnóstico de Azure Monitor para enrutar los registros de Azure Active Directory en una cuenta de Azure Storage.
 

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
 ms.openlocfilehash: 6dea36afd3a426bbbd0c28a96f21ccad1a82ea88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329852"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Mejorar la respuesta del sitio web mediante Traffic Manager
 
@@ -57,11 +57,11 @@ En esta sección, creará dos máquinas virtuales *myIISVMEastUS* y *myIISVMWEur
 
     |Configuración|Valor|
     |---|---|
-    |NOMBRE|myIISVMEastUS|
+    |Name|myIISVMEastUS|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupos de recursos| Seleccione **Nuevo** y luego escriba *myResourceGroupTM1*.|
-    |Ubicación| Seleccione **Este de EE. UU**.|
+    |Location| Seleccione **Este de EE. UU**.|
     |||
 
 4. Seleccione un tamaño de máquina virtual en **Elegir un tamaño**.
@@ -78,10 +78,10 @@ En esta sección, creará dos máquinas virtuales *myIISVMEastUS* y *myIISVMWEur
 
 7. Complete de nuevo los pasos del 1 al 6, con los cambios siguientes:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
     |Grupos de recursos | Seleccione **Nuevo** y, a continuación, escriba *myResourceGroupTM2*|
-    |Ubicación|Europa occidental|
+    |Location|Europa occidental|
     |Nombre de la máquina virtual | myIISVMWEurope|
     |Virtual network | Seleccione **Red virtual**, en **Crear red virtual**, para **Nombre**, escriba *myVNet2*, para cada subred, escriba *mySubnet*.|
     |||
@@ -134,7 +134,7 @@ En esta sección, creará una máquina virtual (*mVMEastUS* and *myVMWestEurope*
 
     |Configuración|Valor|
     |---|---|
-    |NOMBRE|myVMEastUS|
+    |Name|myVMEastUS|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupos de recursos| Seleccione **Existente** y, a continuación, seleccione *myResourceGroupTM1*.|
@@ -154,7 +154,7 @@ En esta sección, creará una máquina virtual (*mVMEastUS* and *myVMWestEurope*
 
 7. Complete de nuevo los pasos del 1 al 5, con los cambios siguientes:
 
-    |Configuración|Valor|
+    |Configuración|Value|
     |---|---|
     |Nombre de la máquina virtual | *myVMWEurope*|
     |Grupos de recursos | Seleccione **Existente** y escriba *myResourceGroupTM2*.|
@@ -171,11 +171,11 @@ Cree un perfil de Traffic Manager que dirija el tráfico de usuario mediante el 
 
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
-    | NOMBRE                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
+    | Name                   | Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS, trafficmanager.net, que se usa para acceder al perfil de Traffic Manager.                                   |
     | Método de enrutamiento          | Seleccione el método de enrutamiento de **rendimiento**.                                       |
     | Subscription            | Seleccione su suscripción.                          |
     | Grupos de recursos          | Haga clic en **Crear nuevo** y escriba *myResourceGroupTM1*. |
-    | Ubicación                | Seleccione **Este de EE. UU**. Esta configuración se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre el perfil de Traffic Manager que se implementará globalmente.                              |
+    | Location                | Seleccione **Este de EE. UU**. Esta configuración se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre el perfil de Traffic Manager que se implementará globalmente.                              |
     |
 
     ![Crear un perfil de Traffic Manager](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)
@@ -191,7 +191,7 @@ Agregue las dos máquinas virtuales que ejecutan los servidores IIS (*myIISVMEas
     | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Type                    | Punto de conexión de Azure                                   |
-    | NOMBRE           | myEastUSEndpoint                                        |
+    | Name           | myEastUSEndpoint                                        |
     | Tipo de recurso de destino           | Dirección IP pública                          |
     | Recurso de destino          | **Elija una dirección IP pública** para mostrar la lista de recursos con direcciones IP públicas en la misma suscripción. En **Recurso**, seleccione la dirección IP pública denominada *myIISVMEastUS-ip*. Se trata de la dirección IP pública de la máquina virtual del servidor IIS en la región Este de EE. UU.|
     |        |           |

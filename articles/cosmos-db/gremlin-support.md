@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.openlocfilehash: fd49cc6810f4a3a479748180ddb0c44aedf04e89
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275562"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Compatibilidad de Azure Cosmos DB con grafos Gremlin
@@ -156,11 +156,11 @@ Ahora, echemos un vistazo a los pasos de Gremlin que Azure Cosmos DB admite. Par
 | --- | --- | --- |
 | `addE` | Agrega una arista entre dos vértices. | [Paso addE](https://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
 | `addV` | Agrega un vértice al grafo. | [Paso addV](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
-| `and` | Garantiza que todos los recorridos devuelven un valor. | [y un paso.](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
-| `as` | Modulador de pasos para asignar una variable a la salida de un paso. | [Paso as](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | Modulador de pasos que se usa con `group` y `order` | [con el paso by](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `and` | Garantiza que todos los recorridos devuelven un valor. | [y un paso](https://tinkerpop.apache.org/docs/current/reference/#and-step). |
+| `as` | Modulador de pasos para asignar una variable a la salida de un paso. | [paso as](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
+| `by` | Modulador de pasos que se usa con `group` y `order`. | [paso by](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
 | `coalesce` | Devuelve el primer recorrido que devuelve un resultado. | [paso coalesce](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | Devuelve un valor constante. Se usa con `coalesce`| [paso constant](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `constant` | Devuelve un valor constante. Se usa con `coalesce`.| [paso constant](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
 | `count` | Devuelve el número del recorrido. | [paso count](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
 | `dedup` | Devuelve los valores sin duplicados. | [paso dedup](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
 | `drop` | Quita los valores (vértice/arista). | [paso drop](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |

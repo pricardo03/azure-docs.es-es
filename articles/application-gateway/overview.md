@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/20/2019
+ms.date: 4/18/2019
 ms.author: victorh
-ms.openlocfilehash: 447c5b1e94b848e9e560db1188a767f2040740c0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 91e94c70444430725ffec836d1663aef99eb5496
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546857"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003367"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -51,7 +51,7 @@ Application Gateway es compatible con la terminación SSL en la puerta de enlace
 
 ## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Versión preliminar del controlador de entrada de Azure Kubernetes Service (AKS) 
 
-El controlador de entrada de Application Gateway se ejecuta como un pod en el clúster de AKS y permite a Application Gateway actuar como entrada para un clúster de AKS. 
+El controlador de entrada de Application Gateway se ejecuta como un pod en el clúster de AKS y permite a Application Gateway actuar como entrada para un clúster de AKS. Este es compatible solo con Application Gateway v2.
 
 Para más información, consulte [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) (Controlador de entrada de Azure Application Gateway).
 

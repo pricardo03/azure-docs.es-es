@@ -10,10 +10,10 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: b93fb92c9170f3e0fb7bd6ee754dde5df729e299
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358169"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastres en Azure
@@ -90,4 +90,4 @@ Si desea conectarse a máquinas virtuales de Azure mediante RDP/SSH después de 
 > [!div class="nextstepaction"]
 > [Ejecución de una conmutación por error y una conmutación por recuperación en máquinas virtuales de VMware](vmware-azure-tutorial-failover-failback.md).
 > [Ejecución de una conmutación por error y una conmutación por recuperación en máquinas virtuales de Hyper-V](hyper-v-azure-failover-failback-tutorial.md).
-> [Ejecución de una conmutación por error y una conmutación por recuperación en equipos físicos](physical-to-azure-failover-failback.md)
+> [Ejecución de una conmutación por error y una conmutación por recuperación en máquinas físicas](physical-to-azure-failover-failback.md)

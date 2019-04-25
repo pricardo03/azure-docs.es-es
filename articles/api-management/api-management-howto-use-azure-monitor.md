@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622202"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680254"
 ---
 # <a name="monitor-published-apis"></a>Supervisión de las API publicadas
 
@@ -185,16 +185,16 @@ Actualmente, API Management proporciona registros de diagnóstico (de los que se
 | isRequestSuccess | boolean | True si la solicitud HTTP se completó con el código de estado de respuesta dentro del intervalo 2xx o 3xx |
 | time | date-time | Marca de tiempo de la recepción de la solicitud HTTP por parte de la puerta de enlace |
 | operationName | string | Valor constante "Microsoft.ApiManagement/GatewayLogs" |
-| category | string | Valor constante "GatewayLogs" |
+| categoría | string | Valor constante "GatewayLogs" |
 | durationMs | integer | Número de milisegundos transcurridos desde el momento en que la puerta de enlace recibió la solicitud hasta que se envió toda la respuesta |
 | callerIpAddress | string | Dirección IP del llamador inmediato de la puerta de enlace (puede ser un intermediario) |
 | correlationId | string | Identificador único de la solicitud HTTP asignado por API Management |
 | location | string | Nombre de la región de Azure donde se encontraba la puerta de enlace que procesó la solicitud |
 | httpStatusCodeCategory | string | Categoría del código de estado de respuesta HTTP: Correcto (301 o menos, 304 o 307), No autorizado (401, 403, 429), Erróneo (400, entre 500 y 600), Otro |
-| resourceId | string | Identificador del recurso de API Management /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
-| properties | objeto | Propiedades de la solicitud actual |
-| method | string | Método HTTP de la solicitud entrante |
-| url | string | Dirección URL de la solicitud entrante |
+| ResourceId | string | Identificador del recurso de API Management /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
+| propiedades | objeto | Propiedades de la solicitud actual |
+| estático | string | Método HTTP de la solicitud entrante |
+| URL | string | Dirección URL de la solicitud entrante |
 | clientProtocol | string | Versión del protocolo HTTP de la solicitud entrante |
 | responseCode | integer | Código de estado de la respuesta HTTP enviada a un cliente |
 | backendMethod | string | Método HTTP de la solicitud enviada a un back-end |
@@ -213,13 +213,13 @@ Actualmente, API Management proporciona registros de diagnóstico (de los que se
 | userId | string | Identificador de la entidad del usuario de la solicitud actual | 
 | apimSubscriptionId | string | Identificador de la entidad de la suscripción de la solicitud actual | 
 | backendId | string | Identificador de la entidad del back-end de la solicitud actual | 
-| lastError | objeto | Último error de procesamiento de la solicitud | 
+| LastError | objeto | Último error de procesamiento de la solicitud | 
 | elapsed | integer | Número de milisegundos transcurridos desde que la puerta de enlace recibió una solicitud hasta el momento en que se produjo el error | 
-| source | string | Nombre del controlador interno del procesamiento o de la directiva que produjo el error | 
-| scope | string | Ámbito del documento de directiva que contiene la directiva que produjo el error | 
+| de origen | string | Nombre del controlador interno del procesamiento o de la directiva que produjo el error | 
+| ámbito | string | Ámbito del documento de directiva que contiene la directiva que produjo el error | 
 | section | string | Sección del documento de directiva que contiene la directiva que produjo el error | 
 | reason | string | Motivo del error | 
-| message | string | Mensaje de error | 
+| Mensaje | string | Mensaje de error | 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

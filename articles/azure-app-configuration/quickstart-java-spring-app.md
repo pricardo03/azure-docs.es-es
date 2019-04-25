@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 6df44531e8879783bba6b49a0db44f87af71fb5f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: d023c6ec9c3d24400fd2b7b9fcce9568aa851214
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050516"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000035"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Inicio rápido: Creación de una aplicación de Java Spring con App Configuration
 
@@ -35,26 +35,7 @@ Para completar este inicio rápido, instale una instancia de [Java Development K
 
 ## <a name="create-an-app-configuration-store"></a>Creación de un almacén de configuración de aplicaciones
 
-1. Para crear un almacén de configuración de aplicaciones, primero inicie sesión en [Azure Portal](https://aka.ms/azconfig/portal). En la esquina superior izquierda de la página, seleccione **+ Crear un recurso**. En el cuadro **Buscar en Marketplace**, escriba **App Configuration** y presione Entrar.
-
-    ![Buscar App Configuration](./media/quickstarts/azure-app-configuration-new.png)
-
-2. Seleccione **Configuración de la aplicación** en los resultados de la búsqueda y, después, **Crear**.
-
-3. En la página **Configuración de la aplicación** > **Crear**, escriba la siguiente configuración.
-
-    | Configuración | Valor sugerido | DESCRIPCIÓN |
-    |---|---|---|
-    | **Nombre del recurso** | Nombre único globalmente | Escriba un nombre de recurso único para usarlo en el recurso del almacén de configuración de aplicaciones. El nombre debe ser una cadena de entre 1 y 63 caracteres y solo puede contener números, letras y el carácter `-`. El nombre no puede comenzar ni terminar por el carácter `-` y no se pueden usar varios caracteres `-` consecutivos.  |
-    | **Subscription** | Su suscripción | Seleccione la suscripción de Azure que desee usar para probar App Configuration. Si su cuenta solo dispone de una suscripción, esta se seleccionará automáticamente y la lista desplegable **Suscripción** no aparecerá. |
-    | **Grupos de recursos** | *AppConfigTestResources* | Seleccione o cree un grupo de recursos para el recurso del almacén de configuración de aplicaciones. Este grupo es útil para organizar los distintos recursos que quiera eliminar al mismo tiempo mediante la eliminación del grupo de recursos. Para más información, consulte [Administración de los recursos de Azure a través del Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-    | **Ubicación** | *Centro de EE. UU.* | Use **Ubicación** para especificar la ubicación geográfica en la que se hospeda el recurso SignalR. Para optimizar el rendimiento, cree el recurso en la misma región que los demás componentes de la aplicación. |
-
-    ![Creación de un almacén de configuración de aplicaciones](./media/quickstarts/azure-app-configuration-create.png)
-
-4. Seleccione **Crear**. La implementación puede tardar unos minutos en finalizar.
-
-5. Una vez finalizada la implementación, seleccione **Configuración** > **Claves de acceso**. Anote la cadena de conexión de la clave principal de solo lectura o de la clave principal de lectura y escritura. Usará esta cadena de conexión más adelante para configurar la aplicación y que se comunique con el almacén de configuración de aplicaciones recién creado.
+[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
 6. Haga clic en **Explorador de pares clave-valor** > **+ Crear** para agregar los siguientes pares clave-valor:
 
@@ -172,4 +153,4 @@ En este inicio rápido, ha creado un almacén de configuración de aplicaciones 
 Para más información acerca del uso de App Configuration, continúe con el siguiente tutorial, ya que en él se muestra cómo realizar la autenticación.
 
 > [!div class="nextstepaction"]
-> [Integración de identidades administradas para recursos de Azure](./integrate-azure-managed-service-identity.md)
+> [Integración de identidades administradas](./howto-integrate-azure-managed-service-identity.md)

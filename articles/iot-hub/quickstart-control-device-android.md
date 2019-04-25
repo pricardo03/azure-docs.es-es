@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: e3b0c0703cb46087db38121055117b50f97ad03f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4f9f4ccb53f9530122f0a2463f8f45b596856282
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006574"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149689"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Guía de inicio rápido: Control de un dispositivo conectado a IoT Hub (Android)
 
@@ -125,15 +125,13 @@ La aplicación de ejemplo SDK de dispositivo se puede ejecutar en un dispositivo
    > * Las versiones del complemento Gradle para Android y Gradle al que se hace referencia en el proyecto están en desuso para su versión de Android Studio. Siga [estas instrucciones](https://developer.android.com/studio/releases/gradle-plugin) para hacer referencia a las versiones correctas del complemento y de Gradle e instalarlas.
    > * No se ha firmado el contrato de licencia de Android SDK. Siga las instrucciones de la salida de compilación para firmar el contrato de licencia y descargar el SDK.
 
-
 4. Una vez completada la compilación, haga clic en **Run**(Ejecutar) > **Run 'app'** (Ejecutar "aplicación"). Configure la aplicación para que se ejecute en un dispositivo Android físico o un emulador de Android. Para más información sobre la ejecución de una aplicación de Android en un dispositivo físico o en un emulador, consulte [Ejecutar la aplicación](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Cuando se cargue la aplicación, haga clic en el botón **Iniciar** para empezar a enviar datos de telemetría a IoT Hub:
 
-    ![Application](media/quickstart-send-telemetry-android/sample-screenshot.png)
+    ![Captura de pantalla de ejemplo de la aplicación Android del dispositivo cliente](media/quickstart-control-device-android/sample-screenshot.png)
 
 Esta aplicación debe dejarse en ejecución en un dispositivo físico o en un emulador mientras ejecuta la aplicación de ejemplo SDK de servicio para actualizar el intervalo de telemetría durante el tiempo de ejecución.
-
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Lectura de los datos de telemetría procedentes de su instancia de IoT Hub
 
@@ -146,12 +144,12 @@ En esta sección, usará Azure Cloud Shell con la [extensión de IoT](https://do
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+
     La siguiente captura de pantalla muestra la salida en la que IoT Hub recibe los datos de telemetría que el dispositivo Android ha enviado:
 
-      ![Leer los mensajes de dispositivo mediante la CLI de Azure](media/quickstart-send-telemetry-android/read-data.png)
+      ![Leer los mensajes de dispositivo mediante la CLI de Azure](media/quickstart-control-device-android/read-data.png)
 
 De forma predeterminada la aplicación de telemetría envía datos de telemetría desde el dispositivo Android cada 5 segundos. En la sección siguiente, usará una llamada al método directo para actualizar el intervalo de telemetría del dispositivo IoT de Android.
-
 
 ## <a name="call-the-direct-method"></a>Llamar al método directo
 
@@ -180,7 +178,6 @@ Una aplicación de servicio de back-end de IoT Hub normalmente se ejecuta en la 
    > * Las versiones del complemento Gradle para Android y Gradle al que se hace referencia en el proyecto están en desuso para su versión de Android Studio. Siga [estas instrucciones](https://developer.android.com/studio/releases/gradle-plugin) para hacer referencia a las versiones correctas del complemento y de Gradle e instalarlas.
    > * No se ha firmado el contrato de licencia de Android SDK. Siga las instrucciones de la salida de compilación para firmar el contrato de licencia y descargar el SDK.
 
-
 4. Una vez completada la compilación, haga clic en **Run**(Ejecutar) > **Run 'app'** (Ejecutar "aplicación"). Configure la aplicación para que se ejecute en un dispositivo Android físico independiente o un emulador de Android. Para más información sobre la ejecución de una aplicación de Android en un dispositivo físico o en un emulador, consulte [Ejecutar la aplicación](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Cuando se cargue la aplicación, actualice el valor **Set Messaging Interval** (Establecer intervalo de mensajes) en **1000** y haga clic en **Invoke** (Invocar).
@@ -192,8 +189,6 @@ Una aplicación de servicio de back-end de IoT Hub normalmente se ejecuta en la 
 6. La aplicación recibirá una confirmación que indica si el método se ha ejecutado correctamente o no.
 
     ![Confirmación del método directo](media/quickstart-control-device-android/direct-method-ack.png)
-
-
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: fb684a59362e0f7b6ccdc2ca05fda1b89def2835
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: feafb983a7b9e4aea6091753842b03a65ccd3ca5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351854"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001565"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Análisis de vídeos en tiempo real
 
@@ -216,7 +216,7 @@ Las funcionalidades de comprensión de imágenes, voces, vídeos o texto de Vide
 
 ## <a name="summary"></a>Resumen
 
-En esta guía, ha aprendido a ejecutar análisis casi en tiempo real en las secuencias de vídeo en directo Face API, Computer Vision API y Emotion API, y a utilizar el código de ejemplo para empezar a trabajar. Puede empezar a compilar su aplicación con las claves de API gratuitas disponibles en la [página de registro de Microsoft Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). 
+En esta guía, ha aprendido a ejecutar análisis casi en tiempo real en las secuencias de vídeo en directo Face API, Computer Vision API y Emotion API, y a utilizar el código de ejemplo para empezar a trabajar. Puede empezar a compilar su aplicación con las claves de API gratuitas disponibles en la [página de registro de Azure Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). 
 
 No dude en enviar sus comentarios y sugerencias al [repositorio de GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) o, para enviar comentarios más amplios sobre la API, a nuestro  [sitio de UserVoice](https://cognitive.uservoice.com/).
 

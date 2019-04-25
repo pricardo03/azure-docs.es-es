@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fb7302497d4331a9e39c8a3c50393646b663f7d8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 81aa38c1c7783c7e0357f8f69f4d4484d26873e9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283144"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006960"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Tutorial: Integración de Azure Active Directory con RealtimeBoard
 
@@ -53,7 +53,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de RealtimeBoard en Azure AD, será preciso agregar RealtimeBoard desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar RealtimeBoard desde la galería, siga estos pasos:**
+**Para agregar RealtimeBoard desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -131,7 +131,7 @@ Para configurar el inicio de sesión único de Azure AD con RealtimeBoard, reali
 
 ### <a name="configure-realtimeboard-single-sign-on"></a>Configuración del inicio de sesión único de RealtimeBoard
 
-Para configurar el inicio de sesión único en **RealtimeBoard**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de RealtimeBoard](). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **RealtimeBoard**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al equipo de soporte técnico de RealtimeBoard. Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 

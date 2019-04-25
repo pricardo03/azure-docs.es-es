@@ -1,24 +1,24 @@
 ---
-title: 'Crear una puerta de enlace de aplicaciones que hospede varios sitios web: Azure Portal'
-description: Aprenda a crear una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure Portal.
+title: 'Tutorial: Creación de una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure Portal'
+description: En este tutorial, aprenderá a crear una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure Portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 2/20/2019
+ms.topic: tutorial
+ms.date: 4/18/2019
 ms.author: victorh
-ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3e27a79c7a6e3d39679118f532dd464a32463d69
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080174"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999032"
 ---
-# <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Creación y configuración de una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure Portal
+# <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Creación y configuración de una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure Portal
 
-Puede usar Azure Portal para configurar el [hospedaje de varios sitios web](multiple-site-overview.md) al crear una [puerta de enlace de aplicaciones](overview.md). En este artículo se definen grupos de direcciones de back-end mediante máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este artículo se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www.contoso.com* y *www.fabrikam.com*.
+Puede usar Azure Portal para configurar el [hospedaje de varios sitios web](multiple-site-overview.md) al crear una [puerta de enlace de aplicaciones](overview.md). En este tutorial se definen grupos de direcciones de back-end mediante máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este tutorial se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www.contoso.com* y *www.fabrikam.com*.
 
-En este artículo, aprenderá a:
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Creación de una puerta de enlace de aplicaciones
@@ -115,7 +115,7 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
       -Settings $publicSettings
     ```
 
-3. Cree la segunda máquina virtual e instale IIS siguiendo los pasos que acaba de finalizar. Escriba los nombres de *fabrikamVM* para el nombre y el valor de VMName en Set-AzVMExtension.
+3. Cree la segunda máquina virtual e instale IIS siguiendo los pasos que acaba de finalizar. Escriba los nombres de *fabrikamVM* como nombre y valor de VMName en Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Creación de grupos de servidores back-end con las máquinas virtuales
 
@@ -146,7 +146,7 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
 
 Las reglas se procesan en el orden en que aparecen y el tráfico se dirige utilizando la primera regla que dé una coincidencia, sin tener en cuenta su especificidad. Por ejemplo, si tiene una regla que usa un agente de escucha básico y una regla que usa un agente de escucha multisitio en el mismo puerto, la regla con el agente de escucha multisitio debe aparecer antes que la regla con el agente de escucha básico para que la regla multisitio funcione según lo previsto. 
 
-En este ejemplo, va a crear dos reglas nuevas y a eliminar la regla predeterminada que se creó junto con la puerta de enlace de aplicaciones. 
+En este ejemplo, va a crear dos reglas nuevas y a eliminar la regla predeterminada creada junto con la puerta de enlace de aplicaciones.
 
 1. Haga clic en **Reglas** y en **Básica**.
 2. Escriba *contosoRule* como nombre.
@@ -179,6 +179,18 @@ Después de crear la puerta de enlace de aplicaciones con la dirección IP públ
 
     ![Prueba del sitio de fabrikam en la puerta de enlace de aplicaciones](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando ya no necesite los recursos que ha creado con la puerta de enlace de aplicaciones, elimine el grupo de recursos. Mediante la eliminación del grupo de recursos también elimina la puerta de enlace de aplicaciones y todos sus recursos relacionados.
+
+Para eliminar el grupo de recursos:
+
+1. En el menú de la izquierda de Azure Portal, seleccione **Grupos de recursos**.
+2. En la página **Grupos de recursos**, busque **myResourceGroupAG** en la lista y selecciónelo.
+3. En la **página del grupo de recursos**, seleccione **Eliminar grupo de recursos**.
+4. Escriba *myResourceGroupAG* en **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar**.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Configuración de App Service con Application Gateway](create-web-app.md)
+> [!div class="nextstepaction"]
+> [Más información sobre lo que se puede hacer con Azure Application Gateway](application-gateway-introduction.md)

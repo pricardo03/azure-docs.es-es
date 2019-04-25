@@ -1,22 +1,22 @@
 ---
 title: 'Sample: Exploración de una aplicación de procesamiento de imágenes en C#'
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Explore una aplicación básica de Windows que usa Computer Vision API de Microsoft Cognitive Services. Realice OCR, cree miniaturas y trabaje con características visuales en una imagen.
+titleSuffix: Azure Cognitive Services
+description: Explore una aplicación básica de Windows que usa Computer Vision API de Azure Cognitive Services. Realice OCR, cree miniaturas y trabaje con características visuales en una imagen.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 02/08/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a23e45cb1e75305f41c81077c90282352327b72d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310956"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004030"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Sample: Exploración de una aplicación de procesamiento de imágenes con C#
 
@@ -33,7 +33,7 @@ Explore una aplicación Windows básica que utiliza Computer Vision para realiza
 Antes de explorar la aplicación de ejemplo, asegúrese de haber cumplido los requisitos previos siguientes:
 
 * Debe tener [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) o posterior.
-* Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Cómo obtener las claves de suscripción).
+* Debe tener una clave de suscripción para Computer Vision. Puede obtener una clave de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). O bien, siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision y obtener su clave.
 
 ## <a name="get-the-sample-app"></a>Obtención de la aplicación de ejemplo
 

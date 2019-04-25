@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563377"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011263"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Ejemplo: Cómo llamar a Computer Vision API
 
@@ -47,8 +47,7 @@ Las características se dividen en:
 
 Cada llamada a Computer Vision API requiere una clave de suscripción. Esta clave se debe pasar a través de un parámetro de cadena de consulta o se debe especificar en el encabezado de la solicitud.
 
-Para obtener una clave de suscripción, vea [Cómo obtener las claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md
-).
+Para obtener una clave de evaluación gratuita, consulte la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). O bien, siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision y obtener su clave.
 
 1. Pasar la clave de suscripción mediante una cadena de consulta; vea a continuación un ejemplo de Computer Vision API:
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 14d4bf6d7e1d1f474e2388c4e2ce232574ebf0d8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247909"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682804"
 ---
 # <a name="add-an-api-manually"></a>Adición manual de una API
 
@@ -26,11 +26,11 @@ En los pasos de este artículo se explica cómo usar Azure Portal para agregar m
 
 Si desea importar una API existente, consulte la sección de [temas relacionados](#related-topics).
 
-En este artículo, creará una API en blanco y especificará [httpbin.org](http://httpbin.org) (un servicio de prueba público) como API de back-end.
+En este artículo, creará una API en blanco y especificará [httpbin.org](https://httpbin.org) (un servicio de prueba público) como API de back-end.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
+Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -48,7 +48,7 @@ Completar la guía de inicio rápido siguiente: [Creación de una instancia de A
     |**Nombre**|**Valor**|**Descripción**|
     |---|---|---|
     |**Nombre para mostrar**|"*API en blanco*" |El nombre se muestra en el Portal para desarrolladores.|
-    |**Dirección URL de servicio web** (opcional)| "*http://httpbin.org*"| Si desea simular una API, recomendamos no escribir nada. <br/>En este caso, escribimos [http://httpbin.org](http://httpbin.org). Se trata de un servicio de prueba público. <br/>Si desea importar una API que se asigne automáticamente a un back-end, consulte uno de los temas de la sección de [temas relacionados](#related-topics).|
+    |**Dirección URL de servicio web** (opcional)| "*https://httpbin.org*"| Si desea simular una API, recomendamos no escribir nada. <br/>En este caso, escribimos [https://httpbin.org](https://httpbin.org). Se trata de un servicio de prueba público. <br/>Si desea importar una API que se asigne automáticamente a un back-end, consulte uno de los temas de la sección de [temas relacionados](#related-topics).|
     |**Esquema URL**|"*HTTPS*"|En este caso, aunque el back-end tenga acceso HTTP no seguro, especifique un acceso HTTPS de APIM seguro al back-end. <br/>Este tipo de escenario (HTTPS a HTTP) se denomina "terminación HTTPS". Podría hacerlo si su API se encuentra dentro de una red virtual (donde sabe que el acceso está protegido aunque no se utilice HTTPS). <br/>Puede usar la terminación HTTPS para ahorrar algunos ciclos de CPU.|
     |**Sufijo de dirección URL**|"*hbin*"| El sufijo es un nombre que identifica esta API concreta en esta instancia de APIM. Debe ser exclusivo en esta instancia de APIM.|
     |**Productos**|"*Sin límite*" |Publique la API asociándola a un producto. Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.<br/><br/>Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. <br/>En primer lugar, los desarrolladores deben suscribirse a un producto para acceder a la API. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto. Si creó la instancia de APIM, ya es un administrador, así que, de forma predeterminada, está suscrito a todos los productos.<br/><br/> De forma predeterminada, cada instancia de API Management incluye dos productos de ejemplo: **Starter** y **Unlimited**.| 

@@ -4,302 +4,286 @@ description: Obtenga información sobre cómo configurar el inicio de sesión ú
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 3cd92319-7964-41eb-8712-444f5c8b4d15
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/12/2017
+ms.topic: tutorial
+ms.date: 04/16/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7f047d784796b9e7c59d95863aa74b3f72da324
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: bcad6232de7fa257b58fe6d84f2c2ff794b64589
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995632"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005424"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Tutorial: Integración de Azure Active Directory con SilkRoad Life Suite
 
 En este tutorial, aprenderá a integrar SilkRoad Life Suite con Azure Active Directory (Azure AD).
-
 La integración de SilkRoad Life Suite con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a SilkRoad Life Suite.
-- Puede permitir que los usuarios inicien sesión automáticamente en SilkRoad Life Suite (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a SilkRoad Life Suite.
+* Puede permitir que los usuarios inicien sesión automáticamente en SilkRoad Life Suite (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con SilkRoad Life Suite, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en SilkRoad Life Suite
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
+* Una suscripción habilitada para el inicio de sesión único en SilkRoad Life Suite
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de SilkRoad Life Suite desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* SilkRoad Life Suite admite SSO iniciado por **SP**
 
 ## <a name="adding-silkroad-life-suite-from-the-gallery"></a>Adición de SilkRoad Life Suite desde la galería
+
 Para configurar la integración de SilkRoad Life Suite en Azure AD, deberá agregar SilkRoad Life Suite desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar SilkRoad Life Suite desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Botón Nueva aplicación][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **SilkRoad Life Suite**, seleccione **SilkRoad Life Suite** en el panel de resultados y, después, haga clic en el botón **Agregar** para agregar la aplicación.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![SilkRoad Life Suite en la lista de resultados](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_addfromgallery.png)
+4. En el cuadro de búsqueda, escriba **SilkRoad Life Suite**, seleccione **SilkRoad Life Suite** en el panel de resultados y, después, haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![SilkRoad Life Suite en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con SilkRoad Life Suite con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de SilkRoad Life Suite para un usuario de Azure AD. Es decir, hay que establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de SilkRoad Life Suite.
-
-Para establecer la relación de vínculo, en SilkRoad Life Suite, asigne el valor de **nombre de usuario** de Azure AD como valor de **Nombre de usuario**.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con SilkRoad Life Suite con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de SilkRoad Life Suite.
 
 Para configurar y probar el inicio de sesión único de Azure AD con SilkRoad Life Suite, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de SilkRoad Life Suite](#create-a-silkroad-life-suite-test-user)** : para tener un homólogo de Britta Simon en SilkRoad Life Suite que esté vinculado a la representación de ella en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+2. **[Configuración del inicio de sesión único de SilkRoad Life Suite](#configure-silkroad-life-suite-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en SilkRoad Life Suite](#create-silkroad-life-suite-test-user)**: para tener un homólogo de Britta Simon en SilkRoad Life Suite que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación SilkRoad Life Suite.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con SilkRoad Life Suite, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con SilkRoad Life Suite, siga estos pasos:
 
-1. En Azure Portal, en la página de integración de la aplicación **SilkRoad Life Suite**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **SilkRoad Life Suite**, haga clic en **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **SilkRoad Life Suite Domain and URLs** (Dominio y direcciones URL de SilkRoad Life Suite), lleve a cabo los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de SilkRoad Life Suite](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_url1.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.silkroad-eng.com/Authentication/`.
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente modelo: 
+4. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
+
+    > [!NOTE]
+    > Obtendrá el **archivo de metadatos del proveedor de servicios**, que se explicará más adelante.
+
+     a. Haga clic en **Cargar el archivo de metadatos**.
+
+    ![imagen](common/upload-metadata.png)
+
+    b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
+
+    ![imagen](common/browse-upload-metadata.png)
+
+    c. Una vez que se haya cargado correctamente el archivo de metadatos, los valores de **Identificador** y **URL de respuesta** se rellenan automáticamente en la sección Configuración básica de SAML:
+
+    ![imagen](common/sp-identifier-reply.png)
+
+    > [!Note]
+    > Si los valores **Identificador** y **Dirección URL de respuesta** no se rellenan automáticamente, hágalo manualmente según sus necesidades.
+
+    d. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.silkroad-eng.com/Authentication/`
+
+5. En la sección **Configuración básica de SAML**, si no tiene el **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de SilkRoad Life Suite](common/sp-identifier-reply.png)
+
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.silkroad-eng.com/Authentication/`
+
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
 
     | |
     |--|
-    | `https://<subdomain>.silkroad-eng.com/Authentication/SP` |
-    | `https://<subdomain>.silkroad.com/Authentication/SP` |
+    | `https://<subdomain>.silkroad-eng.com/Authentication/SP`|
+    | `https://<subdomain>.silkroad.com/Authentication/SP`|
 
-    c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: 
-    
+    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
+
     | |
     |--|
-    | `https://<subdomain>.silkroad-eng.com/Authentication/` |
-    | `https://<subdomain>.silkroad.com/Authentication/` |
-     
-    > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de SilkRoad Life Suite](https://www.silkroad.com/locations/) para obtener estos valores. 
+    | `https://<subdomain>.silkroad-eng.com/Authentication/`|
+    | `https://<subdomain>.silkroad.com/Authentication/`|
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+    > [!NOTE]
+    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de atención al cliente de SilkRoad Life Suite](https://www.silkroad.com/locations/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-    ![Vínculo de descarga del certificado](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_certificate.png) 
+6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-1. Haga clic en el botón **Guardar** .
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-    ![Botón Configurar inicio de sesión único](./media/silkroad-life-suite-tutorial/tutorial_general_400.png)
-    
-1. En la sección **SilkRoad Life Suite Configuration** (Configuración de SilkRoad Life Suite), haga clic en **Configure SilkRoad Life Suite** (Configurar SilkRoad Life Suite) para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+7. En la sección **Set up SilkRoad Life Suite** (Configurar SilkRoad Life Suite), copie las direcciones URL adecuadas según sus necesidades.
 
-    ![Configuración de SilkRoad Life Suite](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_configure.png) 
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-1. Inicie sesión en su sitio de la compañía de SilkRoad Life Suite como administrador. 
- 
-    >[!NOTE] 
+    a. URL de inicio de sesión
+
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-silkroad-life-suite-single-sign-on"></a>Configuración del inicio de sesión único en SilkRoad Life Suite
+
+1. Inicie sesión en su sitio de la compañía SilkRoad como administrador.
+
+    > [!NOTE]
     > Para obtener acceso a la aplicación de autenticación de SilkRoad Life Suite para configurar la federación con Microsoft Azure AD, póngase en contacto con el soporte técnico o el representante de servicios de SilkRoad.
 
-1. Vaya a **Proveedor de servicios** y, luego, haga clic en **Detalles de federación**. 
-   
-    ![Inicio de sesión único de Azure AD ][10]
+1. Vaya a **Proveedor de servicios** y, luego, haga clic en **Detalles de federación**.
 
-1. Haga clic en **Download Federation Metadata** (Descargar los metadatos de federación). Después, guarde el archivo de metadatos en el equipo.
-   
-    ![Inicio de sesión único de Azure AD ][11] 
+    ![Inicio de sesión único de Azure AD ](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
+
+1. Haga clic en **Download Federation Metadata** (Descargar los metadatos de federación). Después, guarde el archivo de metadatos en el equipo. Use los metadatos de federación descargados como **archivo de metadatos del proveedor de servicios** en la sección **Configuración básica de SAML** de Azure Portal.
+
+    ![Inicio de sesión único de Azure AD ](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
 
 1. En la aplicación **SilkRoad**, haga clic en **Authentication Sources** (Orígenes de autenticación).
-   
-    ![Inicio de sesión único de Azure AD ][12] 
 
-1. Haga clic en **Add Authentication Source**(Agregar origen de autenticación). 
-   
-    ![Inicio de sesión único de Azure AD ][13] 
+    ![Inicio de sesión único de Azure AD ](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
 
-1. En la sección **Add Authentication Source** (Agregar origen de autenticación), realice los siguientes pasos: 
-   
-    ![Inicio de sesión único de Azure AD ][14]
+1. Haga clic en **Add Authentication Source**(Agregar origen de autenticación).
+
+    ![Inicio de sesión único de Azure AD ](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
+
+1. En la sección **Add Authentication Source** (Agregar origen de autenticación), realice los siguientes pasos:
+
+    ![Inicio de sesión único de Azure AD ](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
   
      a. En **Option 2 - Metadata File** (Opción 2 - Archivo de metadatos), haga clic en **Examinar** para cargar el archivo de metadatos descargado de Azure Portal.
   
     b. Haga clic en **Create Identity Provider using File Data**(Crear proveedor de identidades con los datos del archivo).
 
-1. En la sección **Authentication Sources** (Orígenes de autenticación), haga clic en **Edit** (Editar). 
-    
-     ![Inicio de sesión único de Azure AD ][15] 
+1. En la sección **Authentication Sources** (Orígenes de autenticación), haga clic en **Edit** (Editar).
 
-1. En el cuadro de diálogo **Edit Authentication Source** (Editar origen de autenticación), realice los siguientes pasos: 
-    
-     ![Inicio de sesión único de Azure AD ][16] 
+    ![Inicio de sesión único de Azure AD ](./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png)
+
+1. En el cuadro de diálogo **Edit Authentication Source** (Editar origen de autenticación), realice los siguientes pasos:
+
+    ![Inicio de sesión único de Azure AD ](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
 
      a. En **Enabled** (Habilitado), seleccione **Yes** (Sí).
 
-    b. En el cuadro de texto **EntityId**, pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que copió de Azure Portal.
-   
+    b. En el cuadro de texto **EntityId** (Identificador de entidad), pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
+
     c. En el cuadro de texto **IdP Description** (Descripción de IdP), escriba la descripción de la configuración (por ejemplo, *SSO de Azure AD*).
 
     d. En el cuadro de texto **Archivo de metadatos**, cargue el archivo de **metadatos** que descargó de Azure Portal.
   
     e. En el cuadro de texto **IdP Name** (Nombre de IdP), escriba un nombre que sea específico para su configuración (por ejemplo, *Azure SP*).
   
-    f. En el cuadro de texto **Logout Service URL** (Dirección URL del servicio de cierre de sesión), pegue el valor de la **dirección URL de cierre de sesión** que copió de Azure Portal.
+    f. En el cuadro de texto **Logout Service URL** (Dirección URL de cierre de sesión), pegue el valor de la **URL de cierre de sesión** que ha copiado de Azure Portal.
 
-    g. En el cuadro de texto **sign-on service URL** (URL de servicio de inicio de sesión), pegue el valor de **SAML Single Sign-On Service URL** (URL de servicio de inicio de sesión único de SAML) que copió de Azure Portal.
+    g. En el cuadro de texto **Sign-on Service URL** (Dirección URL de inicio de sesión), pegue el valor de **URL de inicio de sesión** que ha copiado de Azure Portal.
 
     h. Haga clic en **Save**(Guardar).
 
-1. Deshabilite todos los demás orígenes de autenticación. 
-    
-     ![Inicio de sesión único de Azure AD ][17]
+1. Deshabilite todos los demás orígenes de autenticación.
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+    ![Inicio de sesión único de Azure AD ](./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/silkroad-life-suite-tutorial/create_aaduser_01.png)
+    ![Botón Nuevo usuario](common/new-user.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/silkroad-life-suite-tutorial/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`.  
+    Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/silkroad-life-suite-tutorial/create_aaduser_03.png)
-
-1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/silkroad-life-suite-tutorial/create_aaduser_04.png)
-
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="create-a-silkroad-life-suite-test-user"></a>Creación de un usuario de prueba de SilkRoad Life Suite
-
-En esta sección, creará el usuario Britta Simon en SilkRoad Life Suite. Trabaje con el  [equipo de soporte técnico al cliente de SilkRoad Life Suite](https://www.silkroad.com/locations/)  para agregar los usuarios a la plataforma SilkRoad Life Suite. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a SilkRoad Life Suite.
 
-![Asignación de rol de usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **SilkRoad Life Suite**.
 
-**Para asignar Britta Simon a SilkRoad Life Suite, realice los pasos siguientes:**
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+2. En la lista de aplicaciones, seleccione **SilkRoad Life Suite**.
 
-    ![Asignar usuario][201] 
+    ![Vínculo de SilkRoad Life Suite en la lista de aplicaciones](common/all-applications.png)
 
-1. En la lista de aplicaciones, seleccione **SilkRoad Life Suite**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Vínculo de SilkRoad Life Suite en la lista de aplicaciones](./media/silkroad-life-suite-tutorial/tutorial_silkroadlifesuite_app.png)  
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Vínculo "Usuarios y grupos"][202]
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-    ![Panel Agregar asignación][203]
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+### <a name="create-silkroad-life-suite-test-user"></a>Creación de un usuario de prueba en SilkRoad Life Suite
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
+En esta sección, creará el usuario Britta Simon en SilkRoad Life Suite. Trabaje con el [equipo de atención al cliente de SilkRoad Life Suite](https://www.silkroad.com/locations/) para agregar los usuarios a la plataforma SilkRoad Life Suite. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono SilkRoad Life Suite en el panel de acceso, debería iniciar sesión automáticamente en su aplicación de SilkRoad Life Suite.
-Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de SilkRoad Life Suite en el panel de acceso, debería iniciar sesión automáticamente en la instancia de SilkRoad Life Suite para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/silkroad-life-suite-tutorial/tutorial_general_01.png
-[2]: ./media/silkroad-life-suite-tutorial/tutorial_general_02.png
-[3]: ./media/silkroad-life-suite-tutorial/tutorial_general_03.png
-[4]: ./media/silkroad-life-suite-tutorial/tutorial_general_04.png
-
-[100]: ./media/silkroad-life-suite-tutorial/tutorial_general_100.png
-
-[200]: ./media/silkroad-life-suite-tutorial/tutorial_general_200.png
-[201]: ./media/silkroad-life-suite-tutorial/tutorial_general_201.png
-[202]: ./media/silkroad-life-suite-tutorial/tutorial_general_202.png
-[203]: ./media/silkroad-life-suite-tutorial/tutorial_general_203.png
-[10]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png
-[11]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png
-[12]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png
-[13]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png
-[14]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png
-[15]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png
-[16]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png
-[17]: ./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

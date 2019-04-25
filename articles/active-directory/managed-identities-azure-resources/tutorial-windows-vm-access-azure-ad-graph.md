@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b402fa754105b734bfc7abbd2790a2a12afc6ff4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 60938f26c27b9f94046b1be8e3d0cb6b247017c9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523365"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997791"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Uso de una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure AD Graph API
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-En este tutorial, se explica cómo se utiliza una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Microsoft Graph API para recuperar su pertenencia al grupo. Azure administra automáticamente Managed Identities for Azure Resources, que le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código.  Para este tutorial, deberá consultar la pertenencia de su identidad de máquina virtual a los grupos de Azure AD. Por ejemplo, la información de grupo se usa a menudo en las decisiones de autorización. En segundo plano, la identidad administrada de la máquina virtual se representa mediante una **entidad de servicio** en Azure AD. Antes de realizar la consulta del grupo, agregue la entidad de servicio que representa la identidad de la máquina virtual a un grupo en Azure AD. Para ello, puede usar Azure PowerShell, Azure AD PowerShell o la CLI de Azure.
+En este tutorial, se explica cómo usar una identidad administrada asignada por el sistema de una máquina virtual (VM) Windows para acceder a Azure AD Graph API para recuperar su pertenencia al grupo. Azure administra automáticamente Managed Identities for Azure Resources, que le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código.  Para este tutorial, deberá consultar la pertenencia de su identidad de máquina virtual a los grupos de Azure AD. Por ejemplo, la información de grupo se usa a menudo en las decisiones de autorización. En segundo plano, la identidad administrada de la máquina virtual se representa mediante una **entidad de servicio** en Azure AD. Antes de realizar la consulta del grupo, agregue la entidad de servicio que representa la identidad de la máquina virtual a un grupo en Azure AD. Para ello, puede usar Azure PowerShell, Azure AD PowerShell o la CLI de Azure.
 
 > [!div class="checklist"]
 > * Conectarse a Azure

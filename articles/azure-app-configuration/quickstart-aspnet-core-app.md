@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 6c9b257ab88b3564253b0f48d953094f84a1d71d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 29cea7e72d6bd7f64f6cf2a68b7620090ea4eef3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051446"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995941"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación ASP.NET Core con Azure App Configuration
 
@@ -38,6 +38,17 @@ Para realizar este inicio rápido, instale el [SDK de .NET Core](https://dotnet.
 ## <a name="create-an-app-configuration-store"></a>Creación de un almacén de configuración de aplicaciones
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Haga clic en **Explorador de pares clave-valor** > **+ Crear** para agregar los siguientes pares clave-valor:
+
+    | Clave | Valor |
+    |---|---|
+    | TestApp:Settings:BackgroundColor | Blanco |
+    | TestApp:Settings:FontSize | 24 |
+    | TestApp:Settings:FontColor | Negro |
+    | TestApp:Settings:Message | Datos de Azure App Configuration |
+
+    Deje **Etiqueta** y **Tipo de contenido** en blanco, por ahora.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Cree una aplicación web ASP.NET Core
 
@@ -191,4 +202,4 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 En este inicio rápido, ha creado un almacén de configuración de aplicaciones y lo ha usado con una aplicación web de ASP.NET Core a través del [proveedor de App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664). Para más información acerca del uso de App Configuration, continúe con el siguiente tutorial, ya que en él se muestra cómo realizar la autenticación.
 
 > [!div class="nextstepaction"]
-> [Integración de identidades administradas para recursos de Azure](./integrate-azure-managed-service-identity.md)
+> [Integración de identidades administradas](./howto-integrate-azure-managed-service-identity.md)

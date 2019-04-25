@@ -4,20 +4,20 @@ description: Sepa cómo encontrar el cargo de unidad de solicitud de cualquier o
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: e3175ee136057c695ceef3cd1976b447a529c803
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 833f815f0c84584f084e4d4637c0318f7c2daec0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59053045"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683841"
 ---
 # <a name="find-the-request-unit-ru-charge-in-azure-cosmos-db"></a>Búsqueda del cargo de unidad de solicitud (RU) en Azure Cosmos DB
 
 En este artículo se presentan las distintas formas de encontrar el consumo de [unidades de solicitud](request-units.md) de cualquier operación que se ejecuta en un contenedor de Azure Cosmos. Actualmente, es posible medir este consumo con Azure Portal o por medio de la inspección de la respuesta enviada desde Azure Cosmos DB mediante uno de los SDK.
 
-## <a name="core-api"></a>Core API
+## <a name="sql-core-api"></a>SQL API (Core)
 
 ### <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
@@ -25,7 +25,7 @@ Azure Portal permite actualmente buscar el cargo de solicitud de una única cons
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-1. [Cree una cuenta de Azure Cosmos DB](create-sql-api-dotnet.md#create-account) y suminístrele datos, o seleccione una cuenta existente que ya contenga datos.
+1. [Cree una cuenta de Azure Cosmos](create-sql-api-dotnet.md#create-account) y suminístrele datos, o seleccione una cuenta existente de Azure Cosmos que ya contenga datos.
 
 1. Abra el panel **Data Explorer** y seleccione el contenedor en el que quiere trabajar.
 
@@ -147,7 +147,7 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 ## <a name="azure-cosmos-dbs-api-for-mongodb"></a>API de Azure Cosmos DB para MongoDB
 
-El cargo de unidad de solicitud se expone mediante un [comando de base de datos](https://docs.mongodb.com/manual/reference/command/) personalizado llamado `getLastRequestStatistics`. Este comando devuelve un documento que contiene el nombre de la última operación ejecutada, el cargo de la solicitud y su duración.
+El cargo de la unidad de solicitud lo expone un [comando de la base de datos](https://docs.mongodb.com/manual/reference/command/) personalizado denominado `getLastRequestStatistics.`. Este comando devuelve un documento que contiene el nombre de la última operación ejecutada, el cargo de la solicitud y su duración.
 
 ### <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
@@ -155,7 +155,7 @@ Azure Portal permite actualmente buscar el cargo de solicitud de una única cons
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-1. [Cree una cuenta de Azure Cosmos DB](create-mongodb-dotnet.md#create-a-database-account) y suminístrele datos, o seleccione una cuenta existente que ya contenga datos.
+1. [Cree una cuenta de Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) y suminístrele datos, o seleccione una cuenta existente que ya contenga datos.
 
 1. Abra el panel **Data Explorer** y seleccione la colección en la que quiere trabajar.
 
@@ -195,7 +195,7 @@ Double requestCharge = stats.getDouble("RequestCharge");
 
 ### <a name="use-the-mongodb-nodejs-driver"></a>Uso del controlador de Node.js de MongoDB
 
-Cuando se usa el [controlador oficial de Node.js de MongoDB](https://mongodb.github.io/node-mongodb-native/) (consulte [este inicio rápido](create-mongodb-nodejs.md) respecto a su uso), se pueden ejecutar los comandos mediante una llamada al método `command` de un objeto `Db`.
+Cuando se usa el [controlador oficial de Node.js de MongoDB](https://mongodb.github.io/node-mongodb-native/) (consulte [este inicio rápido](create-mongodb-nodejs.md) respecto a su uso), se pueden ejecutar los comandos mediante una llamada al método `command` de un objeto `db`.
 
 ```javascript
 db.command({ getLastRequestStatistics: 1 }, function(err, result) {
@@ -267,5 +267,9 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 
 Consulte los siguientes artículos para saber cómo optimizar el consumo de unidades de solicitud:
 
+* [Rendimiento y unidades de solicitud en Azure Cosmos DB](request-units.md)
 * [Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB](optimize-cost-throughput.md)
 * [Optimización de los costos de consulta de Azure Cosmos DB](optimize-cost-queries.md)
+* [Escalado global del rendimiento aprovisionado](scaling-throughput.md)
+* [Aprovisionamiento del rendimiento en contenedores y bases de datos](set-throughput.md)
+* [How to provision throughput for a container](how-to-provision-container-throughput.md) (Aprovisionamiento del rendimiento de un contenedor)

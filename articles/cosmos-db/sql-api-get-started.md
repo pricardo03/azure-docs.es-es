@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: a8d144b2cb8ee18c69dc4c4768b09422d44bade2
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 64aef17663fdc28a467172bbe8954fc06fdb7ff0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617328"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680406"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Compilación de una aplicación de consola .NET para administrar datos de la cuenta de API de SQL de Azure Cosmos DB
 
@@ -91,7 +91,10 @@ Siga estas instrucciones para crear una cuenta de Azure Cosmos DB en Azure Porta
 1. Busque y seleccione **Microsoft.Azure.DocumentDB** y, después, seleccione **Instalar** si aún no está instalado.
    
    El identificador del paquete de la biblioteca de cliente de la API de SQL de Azure Cosmos DB es [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
-   
+
+   > [!NOTE]
+   > Si usa .NET Core, consulte la [documentación de .NET Core](./sql-api-dotnetcore-get-started.md).
+
    ![Captura de pantalla del menú NuGet para encontrar el SDK de cliente de Azure Cosmos DB](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
    
    Si recibe un mensaje sobre cómo revisar los cambios en la solución, seleccione **Aceptar**. Si recibe un mensaje acerca de la aceptación de la licencia, seleccione **Acepto**.

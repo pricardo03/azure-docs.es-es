@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Generación de metadatos para imágenes de Azure Storage'
+title: 'Tutorial: Generación de metadatos para imágenes de Azure'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial, aprenderá a integrar el servicio Azure Computer Vision en una aplicación web para generar metadatos para las imágenes.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448006"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006002"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Uso de Computer Vision para generar metadatos de imágenes en Azure Storage
 
@@ -52,11 +52,11 @@ Deberá crear un recurso de Computer Vision para su cuenta de Azure; este recurs
 
 1. Vuelva al menú del grupo de recursos y haga clic en la suscripción de Computer Vision API que acaba de crear. Copie la dirección URL de **Punto de conexión** a cualquier lugar en que pueda recuperarla fácilmente en un momento. Luego, haga clic en **Show access keys** (Mostrar claves de acceso).
 
-    ![Visualización de las claves de acceso](../Images/copy-vision-endpoint.png)
+    ![Página de Azure Portal con el vínculo a las claves de acceso y a la dirección URL del punto de conexión resaltado](../Images/copy-vision-endpoint.png)
 
 1. En la ventana siguiente, copie el valor de **KEY 1** en el Portapapeles.
 
-    ![Copia de la clave de acceso](../Images/copy-vision-key.png)
+    ![Cuadro de diálogo Administrar claves con el botón Copiar resaltado](../Images/copy-vision-key.png)
 
 ## <a name="add-computer-vision-credentials"></a>Adición de credenciales de Computer Vision
 
@@ -136,7 +136,7 @@ Guarde los cambios en Visual Studio y presione **Ctrl+F5** para iniciar la aplic
 
 Para ver todos los metadatos adjuntos, use el Explorador de Azure Storage para ver el contenedor de almacenamiento que usa para las imágenes. Haga clic con el botón derecho en cualquiera de los blobs del mismo y seleccione **Propiedades**. En el cuadro de diálogo, verá una lista de pares clave-valor. La descripción de la imagen generada por el equipo se almacena en el elemento "Caption" y las palabras clave de búsqueda se almacenan en "Tag0", "Tag1", y así sucesivamente. Cuando haya terminado, haga clic en **Cancelar** para cerrar el cuadro de diálogo.
 
-![Metadatos de blob](../Images/blob-metadata.png)
+![Ventana del cuadro de diálogo Propiedades de imagen en la que se muestran las etiquetas de metadatos](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

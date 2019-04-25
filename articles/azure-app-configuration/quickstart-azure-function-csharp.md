@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 9b0c48b3a3fb3a1b4e4fbe94a368297823a86778
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8167f10391f426c50120a224eea44e6db846fbb1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579587"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003248"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Inicio rápido: Creación de una función de Azure con App Configuration
 
@@ -38,6 +38,14 @@ Para realizar este inicio rápido, instale [Visual Studio 2017](https://visualst
 ## <a name="create-an-app-configuration-store"></a>Creación de un almacén de configuración de aplicaciones
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Haga clic en **Explorador de pares clave-valor** > **+ Crear** para agregar los siguientes pares clave-valor:
+
+    | Clave | Valor |
+    |---|---|
+    | TestApp:Settings:Message | Datos de Azure App Configuration |
+
+    Deje **Etiqueta** y **Tipo de contenido** en blanco, por ahora.
 
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función
 
@@ -114,4 +122,4 @@ Para realizar este inicio rápido, instale [Visual Studio 2017](https://visualst
 En este tutorial, ha creado un nuevo almacén de configuración de aplicaciones y lo ha usado con una función de Azure. Para más información acerca del uso de App Configuration, continúe con el siguiente tutorial, ya que en él se muestra cómo realizar la autenticación.
 
 > [!div class="nextstepaction"]
-> [Integración de Managed Identities for Azure Resources](./integrate-azure-managed-service-identity.md)
+> [Integración de identidades administradas](./howto-integrate-azure-managed-service-identity.md)

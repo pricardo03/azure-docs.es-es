@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 94e2f007f70d55387b641b3d9166fa84f26f16ba
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: f589c5e23be105086d2908fb7db72e69c781e726
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59580974"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678265"
 ---
 # <a name="azure-hdinsight-net-samples"></a>Azure HDInsight: ejemplos de .NET
 
@@ -41,7 +41,7 @@ Puede [activar los beneficios de suscripción a Visual Studio](https://azure.mic
 * [Creación de un clúster de Spark con Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateHadoopClusterWithAdlsGen2Sample.cs)
 * [Creación de un clúster de Spark con Enterprise Security Package (ESP)](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateEspClusterSample.cs)
 
-Para obtener estos ejemplos para .NET, puede clonar el repositorio de GitHub [hdinsight-python-sdk-samples](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples).
+Para obtener estos ejemplos para .NET, clone el repositorio de GitHub [hdinsight-dotnet-sdk-samples](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples).
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 

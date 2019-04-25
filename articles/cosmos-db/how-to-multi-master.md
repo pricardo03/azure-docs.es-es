@@ -1,21 +1,21 @@
 ---
 title: Configuración de la arquitectura multimaestro en Azure Cosmos DB
 description: Aprenda a configurar la arquitectura multimaestro en las aplicaciones de Azure Cosmos DB
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 2/12/2019
-ms.author: mjbrown
-ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: b862c59002369662d37b6d6a9de28370b0000497
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312147"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682277"
 ---
 # <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configuración de la arquitectura multimaestro en las aplicaciones que usan Azure Cosmos DB
 
-Para usar las características de la arquitectura multimaestro en las aplicaciones, deberá habilitar la escritura de varias regiones y configurar la funcionalidad de host múltiple. El hospedaje múltiple se configura mediante el establecimiento de la región actual donde se implementa la aplicación.
+Para usar la característica de la arquitectura multimaestro en la aplicación, deberá habilitar la escritura en varias regiones y configurar la funcionalidad de hospedaje múltiple en Azure Cosmos DB. El hospedaje múltiple se configura mediante el establecimiento de la región donde se implementa la aplicación.
 
 ## <a id="netv2"></a>.NET SDK v2
 
@@ -43,7 +43,7 @@ CosmosClient client = new CosmosClient(config);
 
 ## <a id="java"></a>SDK asincrónico para Java
 
-Para habilitar la arquitectura multimaestro en las aplicaciones, establezca `policy.setUsingMultipleWriteLocations(true)` en true y configure `policy.setPreferredLocations` para la región en la que se va a implementar la aplicación y se replica Cosmos DB.
+Para habilitar la arquitectura multimaestro en las aplicaciones, establezca `policy.setUsingMultipleWriteLocations(true)` y configure `policy.setPreferredLocations` para la región en la que se va a implementar la aplicación y se replica Cosmos DB.
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -89,14 +89,14 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre la arquitectura multimaestro, la distribución global y la coherencia en Azure Cosmos DB. Consulte los artículos siguientes:
+Ahora puede pasar a la lectura de los artículos siguientes:
 
 * [Usar tokens de sesión para administrar la coherencia en Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-
 * [Tipos de conflicto y directivas de resolución de conflictos en Azure Cosmos DB](conflict-resolution-policies.md)
-
 * [Alta disponibilidad en Azure Cosmos DB](high-availability.md)
-
+* [Niveles de coherencia en Azure Cosmos DB](consistency-levels.md)
 * [Selección del nivel de coherencia adecuado en Azure Cosmos DB](consistency-levels-choosing.md)
-
 * [Inconvenientes de la coherencia, disponibilidad y rendimiento en Azure Cosmos DB](consistency-levels-tradeoffs.md)
+* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromisos entre rendimiento y disponibilidad en los distintos niveles de coherencia)
+* [Escalado del rendimiento aprovisionado globalmente](scaling-throughput.md)
+* [Distribución global en segundo plano](global-dist-under-the-hood.md)

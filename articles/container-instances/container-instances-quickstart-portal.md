@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 008d6d2a9a4a20e9fd083e9e2f009396a7f14df2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369452"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995921"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Inicio rápido: Implementación de una instancia de contenedor en Azure mediante Azure Portal
 
@@ -35,31 +35,29 @@ Seleccione **Crear un recurso** > **Contenedores** > **Container Instances**.
 
 ![Comenzar a crear una instancia de contenedor nueva en Azure Portal][aci-portal-01]
 
-Escriba los valores siguientes en los cuadros de texto **Nombre de contenedor**, **Imagen de contenedor** y **Grupo de recursos**. Deje los otros valores predeterminados y haga clic en **Aceptar**.
+En la página **Aspectos básicos**, escriba los siguientes valores en los cuadros de texto **Grupo de recursos**, **Nombre de contenedor** e **Imagen de contenedor**. Deje los otros valores predeterminados y haga clic en **Aceptar**.
 
+* Grupo de recursos: **Crear nuevo** > `myresourcegroup`
 * Nombre de contenedor: `mycontainer`
 * Imagen de contenedor: `mcr.microsoft.com/azuredocs/aci-helloworld`
-* Grupo de recursos: **Crear nuevo** > `myResourceGroup`
 
 ![Configuración básica de una instancia de contenedor nueva en Azure Portal][aci-portal-03]
 
-En este artículo de inicio rápido, deje el valor predeterminado **Público** para implementar la imagen pública de Microsoft `aci-helloworld`. Esta imagen empaqueta una pequeña aplicación web escrita en Node.js que sirve una página HTML estática.
+En este inicio rápido, usará como **Tipo de imagen** el valor predeterminado de **Público** para implementar la imagen `aci-helloworld` pública de Microsoft. Esta imagen de Linux empaqueta una pequeña aplicación web escrita en Node.js que suministra una página HTML estática.
 
-En **Configuración**, especifique una **etiqueta de nombre DNS** para el contenedor. El nombre debe ser único dentro de la región de Azure en la que crea la instancia de contenedor. El contenedor estará públicamente accesible en `<dns-name-label>.<region>.azurecontainer.io`. Si recibe un mensaje de error "DNS name label not available" (La etiqueta de nombre DNS no está disponible), pruebe otra etiqueta de nombre DNS diferente.
-
-Deje los otros valores en **Configuration** en su configuración predeterminada y seleccione **Aceptar** para validar la configuración.
+En la página **Redes**, especifique una **etiqueta de nombre DNS** para el contenedor. El nombre debe ser único dentro de la región de Azure en la que crea la instancia de contenedor. El contenedor estará públicamente accesible en `<dns-name-label>.<region>.azurecontainer.io`. Si recibe un mensaje de error "DNS name label not available" (La etiqueta de nombre DNS no está disponible), pruebe otra etiqueta de nombre DNS diferente.
 
 ![Configuración de una instancia de contenedor nueva en Azure Portal][aci-portal-04]
 
-Cuando se complete la validación, verá un resumen de la configuración del contenedor. Seleccione **Aceptar** para enviar la solicitud de implementación de contenedor.
+Deje el resto de opciones con sus valores predeterminados y, luego, seleccione **Revisar y crear**.
+
+Cuando se complete la validación, verá un resumen de la configuración del contenedor. Seleccione **Crear** para enviar la solicitud de implementación de contenedor.
 
 ![Resumen de la configuración de una instancia de contenedor nueva en Azure Portal][aci-portal-05]
 
 Cuando se inicia una implementación, aparece una notificación que indica que la implementación está en curso. Aparecerá otra notificación cuando se haya implementado el grupo de contenedores.
 
-![Progreso de la creación de una instancia de contenedor nueva en Azure Portal][aci-portal-08]
-
-Para abrir la información general del grupo de contenedores, vaya a **Grupos de recursos** > **myResourceGroup** > **mycontainer**. Tome nota del **FQDN** (el nombre de dominio completo) de la instancia de contenedor y también de su **estado**.
+Para abrir la información general del grupo de contenedores, vaya a **Grupos de recursos** > **myresourcegroup** > **mycontainer**. Tome nota del **FQDN** (el nombre de dominio completo) de la instancia de contenedor y también de su **estado**.
 
 ![Información general del grupo de contenedores en Azure Portal][aci-portal-06]
 

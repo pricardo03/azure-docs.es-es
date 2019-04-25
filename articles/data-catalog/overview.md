@@ -1,17 +1,17 @@
 ---
 title: Introducción a Azure Data Catalog
 description: En este artículo se proporciona información general de Microsoft Azure Data Catalog, incluidas sus características y los problemas que soluciona. Data Catalog permite a cualquier usuario registrar, detectar, comprender y consumir orígenes de datos.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: cd20fc6ae71a0dd96a0006de8c81050bb0646905
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 87c86ddeaa24693d393d250e1dc699b9a15ea84b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288984"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010167"
 ---
 # <a name="what-is-azure-data-catalog"></a>¿Qué es Azure Data Catalog?
 
@@ -72,5 +72,5 @@ Para más información acerca de las funcionalidades de Data Catalog, consulte:
 
 Introducción a Data Catalog:
 
-* [Inicio rápido: Creación de una instancia de Azure Data Catalog](data-catalog-get-started.md)
-* [Apertura de Azure Data Catalog](https://www.azuredatacatalog.com)
+* [Inicio rápido: Creación de una instancia de Azure Data Catalog](data-catalog-get-started.md)
+* [Apertura de Azure Data Catalog](https://www.azuredatacatalog.com)
