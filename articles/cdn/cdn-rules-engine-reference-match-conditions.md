@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323831"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de Azure CDN 
 En este artículo se muestran descripciones detalladas de las condiciones de coincidencia disponibles para el [motor de reglas](cdn-rules-engine.md) de Azure Content Delivery Network (CDN).
@@ -35,7 +35,7 @@ Por ejemplo, puede usar una condición de coincidencia para:
 
 La condición de coincidencia Siempre aplica un conjunto predeterminado de características a todas las solicitudes.
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Siempre](#always) | Se aplica un conjunto predeterminado de características a todas las solicitudes.
 
@@ -43,7 +43,7 @@ NOMBRE | Propósito
 
 La condición de coincidencia Dispositivo identifica solicitudes realizadas desde un dispositivo móvil en función de sus propiedades.  
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Dispositivo](#device) | Identifica solicitudes realizadas desde un dispositivo móvil en función de sus propiedades.
 
@@ -51,7 +51,7 @@ NOMBRE | Propósito
 
 Las condiciones de coincidencia Ubicación identifican solicitudes en función de la ubicación del solicitante.
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Número de sistema autónomo (AS)](#as-number) | Identifica solicitudes que se originan en una red determinada.
 [País](#country) | Identifica solicitudes que se originan en países determinados.
@@ -60,7 +60,7 @@ NOMBRE | Propósito
 
 Las condiciones de coincidencia Origen identifican solicitudes que señalan al servidor de origen de un cliente o de almacenamiento de Content Delivery Network.
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Origen de red CDN](#cdn-origin) | Identifica las solicitudes de contenido almacenado en el almacenamiento de Content Delivery Network.
 [Origen de cliente](#customer-origin) | Identifica solicitudes de contenido almacenado en el servidor de origen de un cliente específico.
@@ -69,7 +69,7 @@ NOMBRE | Propósito
 
 Las condiciones de coincidencia Solicitud identifican solicitudes en función de sus propiedades.
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Dirección IP de cliente](#client-ip-address) | Identifica solicitudes que se originan en una dirección IP determinada.
 [Parámetro de cookie](#cookie-parameter) | Busca el valor especificado en las cookies asociadas a cada solicitud.
@@ -86,7 +86,7 @@ NOMBRE | Propósito
 
 Las condiciones de coincidencia URL identifican solicitudes en función de sus direcciones URL.
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Directorio de la ruta de acceso URL](#url-path-directory) | Identifica solicitudes por su ruta de acceso relativa.
 [Extensión de la ruta de acceso URL](#url-path-extension) | Identifica solicitudes por su extensión de nombre de archivo.
@@ -752,7 +752,7 @@ Información importante:
 
 En las configuraciones de ejemplo de la tabla siguiente se da por supuesto que esta condición de coincidencia se cumple cuando una solicitud coincide con una de los patrones de URL especificados:
 
-Valor                   | Relativo a    | Resultado 
+Value                   | Relativo a    | Resultado 
 ------------------------|----------------|-------
 \*/test.html \*/test.php  | Raíz u origen | Este patrón coincide con solicitudes de recursos llamados "test.html" o "test.php" en cualquier carpeta.
 /80ABCD/origin/text/*   | Raíz           | Este patrón coincide cuando el recurso solicitado cumple los criterios siguientes: <br />- Debe residir en un origen de cliente que se llama "origin". <br />- La ruta de acceso relativa debe comenzar con una carpeta llamada "text". Es decir, el recurso solicitado puede residir en la carpeta "text" o una de sus subcarpetas recursivas.
@@ -868,7 +868,7 @@ Información importante:
 #### <a name="sample-scenarios"></a>Escenarios de ejemplo
 En el ejemplo siguiente se muestra cómo funciona esta opción en situaciones específicas:
 
-NOMBRE  | Valor |  Resultado
+Name  | Value |  Resultado
 ------|-------|--------
 Usuario  | Joe   | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada es "?user=joe".
 Usuario  | *     | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada contiene el parámetro User.
@@ -895,7 +895,7 @@ Información importante:
     
 - Ciertos caracteres requieren codificación URL. Utilice el símbolo de porcentaje para codificar en formato URL los caracteres siguientes:
 
-   Character | Codificación URL | Valor
+   Character | Codificación URL | Value
    ----------|--------------|------
    Espacio     | %20          | \%20
    &         | %25          | \%25
@@ -906,7 +906,7 @@ Información importante:
 
    Por ejemplo: 
 
-   Valor | Se interpreta como 
+   Value | Se interpreta como 
    ------|---------------
    \\+    | +
    \\\\+   | \\+
@@ -960,7 +960,7 @@ Información importante:
 #### <a name="sample-scenarios"></a>Escenarios de ejemplo
 En el ejemplo siguiente se muestra cómo funciona esta opción en situaciones específicas:
 
- NOMBRE                 | DESCRIPCIÓN
+ Name                 | DESCRIPCIÓN
  ---------------------|------------
 user=joe              | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada es "?user=joe".
 \*user=\* \*optout=\* | Este patrón coincide cuando la consulta URL de la red CDN contiene el parámetro user o el parámetro optout.

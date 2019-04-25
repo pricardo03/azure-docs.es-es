@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 48f439a566a8067e153aab4fb789937d2f91268d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: be761f0a2e59878139ae54dba62634a53b172711
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109973"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303033"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Uso de las acciones del menú de MMC en Administrador de instantáneas StorSimple
 
@@ -87,7 +87,7 @@ Use la acción **Exportar lista** para guardar una lista en un archivo de valore
    1. En el cuadro **Nombre de archivo** , escriba el nombre del archivo CSV o haga clic en la flecha para seleccionarlo en la lista desplegable.
    2. En el cuadro **Guardar como tipo** , haga clic en la flecha y seleccione un tipo de archivo en la lista desplegable.
    3. Para guardar solo los elementos seleccionados, seleccione las filas y haga clic en la casilla **Guardar solo las filas seleccionadas** . Para guardar todas las listas exportadas, desactive la casilla **Guardar solo las filas seleccionadas** .
-   4. Haga clic en **Guardar**.
+   4. Haga clic en **Save**(Guardar).
       
       ![Exportación de una lista como un archivo de valores separados por comas](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 

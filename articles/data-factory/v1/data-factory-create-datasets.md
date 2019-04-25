@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487268"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -316,7 +316,7 @@ Los conjuntos de datos externos son los que no son producidos por una canalizaci
 
 A menos que se esté produciendo un conjunto de datos mediante Data Factory, debe marcarse como **external**. Generalmente, esta configuración se aplicará a las entradas de la primera actividad de una canalización a menos que se desee usar el encadenamiento de actividades o canalizaciones.
 
-| NOMBRE | DESCRIPCIÓN | Obligatorio | Valor predeterminado |
+| Name | DESCRIPCIÓN | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- |
 | dataDelay |Tiempo de retraso de la comprobación de la disponibilidad de los datos externos para el segmento especificado. Por ejemplo, puede retrasar una comprobación horaria mediante esta configuración.<br/><br/>Esta configuración solo se aplica a la hora actual. Por ejemplo, si es la 1:00 p.m. y este valor es de 10 minutos, la validación se inicia a la 1:10 p.m.<br/><br/>Tenga en cuenta que esta configuración no afecta a los segmentos del pasado. Los segmentos con **Slice End Time** + **dataDelay** < **Now** se procesan sin retraso.<br/><br/>Los tiempos mayores que 23:59 horas se deben especificar mediante el formato `day.hours:minutes:seconds`. Por ejemplo, para especificar 24 horas, no use 24:00:00. En su lugar, use 1.00:00:00. Si usa 24:00:00, se tratará como 24 días (24.00:00:00). Para 1 día y 4 horas, especifique 1:04:00:00. |Sin  |0 |
 | retryInterval |El tiempo de espera entre un error y el siguiente intento. Esta configuración se aplica a la hora actual. Si se ha producido algún error en el intento anterior, el siguiente intento se realiza después del período **retryInterval**. <br/><br/>Si ahora es la 1:00 p. m., empezaremos el primer intento. Si la duración para completar la primera comprobación de validación es 1 minuto y la operación produce un error, el siguiente reintento será a la 1:00 + 1 minuto (duración) + 1 minuto (intervalo de reintento) = 1:02 p.m. <br/><br/>En el caso de los segmentos en el pasado, no habrá ningún retraso. El reintento se producirá inmediatamente. |Sin  |00:01:00 (1 minuto) |

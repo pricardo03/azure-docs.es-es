@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311953"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrar de contrato Enterprise a las API de acuerdo al cliente de Microsoft
 
@@ -180,14 +180,14 @@ Cambiar el nombre de propiedad que contiene la matriz de registros de uso de dat
 | Servicio consumido | consumedService | Pueden diferir los valores de cadena exacto. |
 | Id. del servicio consumido | None | &nbsp; |
 | CostCenter | costCenter | &nbsp; |
-| Fecha y usageStartDate | fecha | &nbsp;  |
+| Fecha y usageStartDate | date | &nbsp;  |
 | Día | None | Analiza el día de la fecha. |
 | Id. de departamento | invoiceSectionId | Difieren de los valores exactos. |
 | DepartmentName | invoiceSectionName | Pueden diferir los valores de cadena exacto. Configure las secciones de la factura para que coincida con los departamentos de TI, si es necesario. |
 | ExtendedCost y costo | costInBillingCurrency | &nbsp;  |
-| InstanceId | ResourceId | &nbsp;  |
+| InstanceId | resourceId | &nbsp;  |
 | Es un cargo periódico | None | &nbsp;  |
-| Ubicación | location | &nbsp;  |
+| Location | location | &nbsp;  |
 | Categoría del medidor | meterCategory | Pueden diferir los valores de cadena exacto. |
 | Id. del medidor | meterId | Difieren de los valores de cadena exacto. |
 | Nombre del medidor | meterName | Pueden diferir los valores de cadena exacto. |
@@ -218,7 +218,7 @@ Cambiar el nombre de propiedad que contiene la matriz de registros de uso de dat
 | SubscriptionName | subscriptionName | &nbsp;  |
 | Etiquetas | etiquetas | La propiedad tags se aplica al objeto raíz, no a la propiedad de las propiedades anidadas. |
 | Unidad de medida | unitOfMeasure | Difieren de los valores de cadena exacto. |
-| usageEndDate | fecha | &nbsp;  |
+| usageEndDate | date | &nbsp;  |
 | Year | None | Analiza el año de fecha. |
 | (nueva) | billingCurrency | Moneda usada para la carga. |
 | (nueva) | billingProfileId | Identificador único para el perfil de facturación (igual que la inscripción). |

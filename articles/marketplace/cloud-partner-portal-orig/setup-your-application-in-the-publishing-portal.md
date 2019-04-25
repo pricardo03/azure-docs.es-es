@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483237"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configuración de la aplicación en el portal de publicación
 
@@ -59,7 +59,7 @@ Por ejemplo, si un publicador **"contoso"** publicadores crea una oferta con el 
 
 Esta lista desplegable permite elegir el perfil del publicador en el que desea publicar esta oferta. Este campo queda bloqueado en cuanto se lanza una oferta.
 
-### <a name="name"></a>NOMBRE
+### <a name="name"></a>Name
 
 Se trata del nombre para mostrar de la oferta. Este es el nombre que se mostrará en [AppSource](https://appsource.microsoft.com/). Puede tener un máximo de 50 caracteres.
 

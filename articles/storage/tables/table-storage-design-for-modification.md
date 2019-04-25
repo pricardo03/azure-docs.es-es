@@ -9,11 +9,11 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325891"
 ---
 # <a name="design-for-data-modification"></a>Diseño para la modificación de datos
 Este artículo se centra en las consideraciones de diseño para optimizar las inserciones, actualizaciones y eliminaciones. En algunos casos, deberá evaluar el equilibrio entre los diseños que se optimizan para realizar una consulta en diseños que optimizan la modificación de datos como lo hace usted en los diseños de bases de datos relacionales (aunque las técnicas para administrar las ventajas y desventajas de diseño son diferentes en una base de datos relacional). En la sección Patrones de diseño de tablas se describen algunos modelos de diseño detallados para Table service y se destacan algunas de estas ventajas e inconvenientes. En la práctica, encontrará que muchos diseños optimizados para consultar entidades también funcionan bien para la modificación de entidades.  

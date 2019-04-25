@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
-ms.subservice: alerts
+ms.component: alerts
 ms.openlocfilehash: 11fd6a2c58671cc5d0bcf0593239eb9e62aca834
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109498"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60346655"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Limitación del número de SMS, llamadas de voz, correos electrónicos, notificaciones push de App de Azure y publicaciones de webhooks
 La limitación de número supone una suspensión de las notificaciones que se produce cuando se envían demasiadas a un número de teléfono, dirección de correo electrónico o dispositivo determinados. La limitación del índice asegura que las alertas son fáciles de administrar y procesar.
@@ -35,4 +35,3 @@ Los umbrales del límite de número son:
 * Más información sobre el [comportamiento de las alertas por SMS](alerts-sms-behavior.md).
 * Consulte la [introducción a las alertas del registro de actividad](alerts-overview.md) y aprenda cómo puede recibir alertas.  
 * Aprenda a [configurar alertas siempre que se publique una notificación de mantenimiento de un servicio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-

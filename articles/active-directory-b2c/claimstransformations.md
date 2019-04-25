@@ -3,7 +3,7 @@ title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Definición del elemento ClaimsTransformations en el esquema del marco de experiencia de identidad de Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: bc6cc7b07d3dce43a666b3e5b0a958b41cdd3131
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313824"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -96,7 +96,7 @@ El elemento **InputParameters** contiene el siguiente elemento:
 | --------- | ----------- |----------- |
 | Id | Sí | Un identificador que es una referencia a un parámetro del método de transformación de notificaciones. Cada método de transformación de notificaciones tiene sus propios valores. Consulte la tabla de la transformación de notificaciones para obtener una lista completa de los valores disponibles. |
 | DataType | Sí | El tipo de datos del parámetro, como String, Boolean, Int o DateTime, según la enumeración DataType en el esquema XML de la directiva personalizada. Este tipo se usa para realizar operaciones aritméticas correctamente. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
-| Valor | Sí | Un valor que se pasa de forma literal a la transformación. Algunos de los valores son arbitrarios, algunos de ellos se seleccionan desde el método de transformación de notificaciones. |
+| Value | Sí | Un valor que se pasa de forma literal a la transformación. Algunos de los valores son arbitrarios, algunos de ellos se seleccionan desde el método de transformación de notificaciones. |
 
 ### <a name="outputclaims"></a>OutputClaims
 

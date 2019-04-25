@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 90d1d752481ada33c038ab563f6bd0d3bf5fad08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251074"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Crear una máquina virtual a partir de un VHD especializado en una cuenta de almacenamiento
 
@@ -31,7 +31,7 @@ Tiene dos opciones:
 * [Carga de un disco duro virtual](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [Copiar el VHD de una máquina virtual de Azure existente](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## <a name="option-1-upload-a-specialized-vhd"></a>Opción 1: Carga de un disco duro virtual especializado

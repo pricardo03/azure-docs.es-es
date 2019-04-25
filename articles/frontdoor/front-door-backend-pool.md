@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000596"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193720"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-end y grupos de back-end en Azure Front Door Service
 En este artículo se describe conceptos acerca de cómo asignar la implementación de aplicaciones con el servicio de puerta de entrada de Azure. También explica los distintos términos de configuración de la puerta delantera alrededor de back-ends de aplicación.

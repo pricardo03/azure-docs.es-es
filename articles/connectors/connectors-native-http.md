@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442212"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447610"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Llamada a puntos de conexión HTTP o HTTPS con Azure Logic Apps
 

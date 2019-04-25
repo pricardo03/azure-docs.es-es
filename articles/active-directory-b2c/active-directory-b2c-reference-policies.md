@@ -3,7 +3,7 @@ title: Flujos de usuario de Azure Active Directory B2C | Microsoft Docs
 description: Obtenga más información sobre el marco de directiva extensible de Azure Active Directory B2C y cómo crear distintos flujos de usuario.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 67db13c8a36977f2614ba7b0e263919bd0405bc7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585600"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316959"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flujos de usuario en Azure Active Directory B2C
 

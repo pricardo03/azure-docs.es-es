@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
 ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498532"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solución de Azure Key Vault Analytics en Azure Monitor
 
@@ -108,7 +108,7 @@ La solución de Azure Key Vault analiza los registros que tienen un tipo de **Ke
 | Type |*AzureDiagnostics* |
 | SourceSystem |*Las tablas de Azure* |
 | CallerIpAddress |Dirección IP del cliente que realizó la solicitud. |
-| Categoría | *AuditEvent* |
+| Category | *AuditEvent* |
 | CorrelationId |Un GUID opcional que el cliente puede pasar para correlacionar los registros del lado cliente con los registros del lado servicio (Key Vault). |
 | DurationMs |Tiempo que tardó en atender la solicitud de API de REST, en milisegundos. Este tiempo no incluye la latencia de red, por lo que el tiempo que se mide en el cliente podría no coincidir con este tiempo. |
 | httpStatusCode_d |Código de estado HTTP devuelto por la solicitud (por ejemplo, *200*) |
@@ -119,7 +119,7 @@ La solución de Azure Key Vault analiza los registros que tienen un tipo de **Ke
 | requestUri_s |URI de la solicitud. |
 | Recurso |Nombre del almacén de claves. |
 | ResourceGroup |Grupo de recursos del almacén de claves. |
-| ResourceId |Identificador de recursos del Administrador de recursos de Azure Para los registros de Key Vault, siempre es el identificador de recurso de Key Vault. |
+| resourceId |Identificador de recursos del Administrador de recursos de Azure Para los registros de Key Vault, siempre es el identificador de recurso de Key Vault. |
 | ResourceProvider |*MICROSOFT.KEYVAULT* |
 | ResourceType | *ALMACENES* |
 | ResultSignature |Código de estado HTTP (por ejemplo, *OK*) |

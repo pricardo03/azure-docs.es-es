@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
 ms.openlocfilehash: a7d440509e2b823400cde83c1ac2ec054c37eb74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896218"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311920"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Almacenamiento de credenciales en Azure Key Vault
 
@@ -43,7 +43,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Ke
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **AzureKeyVault**. | Sí |
+| type | La propiedad type debe establecerse en: **AzureKeyVault**. | Sí |
 | baseUrl | Especifique la dirección URL de Azure Key Vault. | Sí |
 
 **Uso de la IU de creación:**

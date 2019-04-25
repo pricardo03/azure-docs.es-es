@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c7fe0d6f8e03501cca7a8b98f95286b6a21c0476
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58114152"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232791"
 ---
 ## <a name="multi-and-single-instance-vms"></a>Máquinas virtuales de instancia única o instancias múltiples
 Muchos clientes que ejecutan en Azure consideran fundamental que puedan programar cuándo sus máquinas virtuales deben someterse a un mantenimiento planeado debido al período de inactividad (unos 15 minutos) que se produce durante el mantenimiento. Puede usar los conjuntos de disponibilidad para ayudar a controlar cuándo las máquinas virtuales aprovisionadas reciben el mantenimiento planeado.

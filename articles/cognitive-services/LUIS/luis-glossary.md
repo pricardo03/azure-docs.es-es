@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: ced83b83c2d64ba5c4816f378c66dae9f4210391
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874488"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193635"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio de API de LUIS.

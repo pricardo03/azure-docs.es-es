@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
 ms.openlocfilehash: d3586293574cc71011ad96fece5e5a4fdfa0b70f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417236"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver errores de directorios que no coinciden en dominios administrados existentes de Azure AD Domain Services
 Ya dispone de un dominio administrado con Azure AD Domain Services. Cuando navega a Azure Portal y ve el dominio administrado, aparece el siguiente mensaje de error:

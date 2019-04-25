@@ -9,11 +9,11 @@ ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
 ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347487"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Información general sobre las alertas en Microsoft Azure 
 
@@ -108,7 +108,7 @@ Para filtrar esta vista, seleccione valores en los menús desplegables que apare
 
 Seleccione los valores siguientes en la parte superior de la página Alertas para abrir otra página.
 
-| Valor | DESCRIPCIÓN |
+| Value | DESCRIPCIÓN |
 |:---|:---|
 | Total de alertas | Número total de las alertas que coinciden con los criterios seleccionados. Seleccione este valor para abrir sin ningún filtro la vista Todas las alertas. |
 | Grupos inteligentes | Número total de grupos inteligentes creados a partir de las alertas que coinciden con los criterios seleccionados. Seleccione este valor para abrir la lista de grupos inteligentes en la vista Todas las alertas.

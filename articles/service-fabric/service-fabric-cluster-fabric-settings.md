@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
 ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386829"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).

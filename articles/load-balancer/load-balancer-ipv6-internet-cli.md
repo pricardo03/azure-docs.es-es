@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
 ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516660"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Creación de un equilibrador de carga público con IPv6 mediante la CLI de Azure
 

@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006726"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197143"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Descripción de las asignaciones de denegación para recursos de Azure
 
@@ -47,12 +47,12 @@ En este artículo se describe cómo se definen las asignaciones de denegación.
 > | `Permissions.DataActions` | Al menos una Actions o una DataActions | String[] | Una matriz de cadenas que especifican las operaciones de datos a las que la asignación de denegación bloquea el acceso. |
 > | `Permissions.NotDataActions` | Sin  | String[] | Una matriz de cadenas que especifican las operaciones de datos que deben excluirse de la asignación de denegación. |
 > | `Scope` | Sin  | string | Una cadena que especifica el ámbito al que se aplica la asignación de denegación. |
-> | `DoNotApplyToChildScopes` | Sin  | boolean | Especifica si la asignación de denegación se aplica a los ámbitos secundarios. El valor predeterminado es False. |
+> | `DoNotApplyToChildScopes` | Sin  | Boolean | Especifica si la asignación de denegación se aplica a los ámbitos secundarios. El valor predeterminado es False. |
 > | `Principals[i].Id` | Sí | String[] | Matriz de identificadores de objetos de entidad de seguridad de Azure AD (usuario, grupo o entidad de servicio) a los que se aplica la asignación de denegación. Establézcala en un GUID `00000000-0000-0000-0000-000000000000` vacío para representar a todas las entidades de seguridad. |
 > | `Principals[i].Type` | Sin  | String[] | Una matriz de tipos de objetos representados por Principals[i].Id. Establézcala en `SystemDefined` para representar a todas las entidades de seguridad. |
 > | `ExcludePrincipals[i].Id` | Sin  | String[] | Matriz de identificadores de objetos de entidades de seguridad de Azure AD (usuario, grupo o entidad de servicio) a los que no se aplica la asignación de denegación. |
 > | `ExcludePrincipals[i].Type` | Sin  | String[] | Una matriz de tipos de objetos representados por ExcludePrincipals[i].Id. |
-> | `IsSystemProtected` | Sin  | boolean | Especifica si Azure ha creado esta asignación de denegación y no se puede editar ni eliminar. Actualmente, el sistema protege todas las asignaciones de denegación. |
+> | `IsSystemProtected` | Sin  | Boolean | Especifica si Azure ha creado esta asignación de denegación y no se puede editar ni eliminar. Actualmente, el sistema protege todas las asignaciones de denegación. |
 
 ## <a name="system-defined-principal"></a>Entidad de seguridad definida por el sistema
 

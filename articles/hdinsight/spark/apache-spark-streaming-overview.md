@@ -2,19 +2,27 @@
 title: Spark Streaming en Azure HDInsight
 description: En este artículo se describe cómo usar las aplicaciones de Spark Streaming en los clústeres de HDInsight Spark.
 services: hdinsight
+documentationcenter: ''
+tags: azure-portal
+author: maxluk
+manager: jhubbard
+editor: cgronlun
+ms.assetid: ''
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 03/11/2019
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 03/11/2019
+ms.date: 04/15/2019
+ms.author: v-yiso
 ms.openlocfilehash: 3ecabd683ed4303a7ff54780299ed0e83aa14c26
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892086"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539322"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Introducción a Apache Spark Streaming
 
@@ -34,7 +42,7 @@ Comience con un solo evento, por ejemplo, una lectura de temperatura en un termo
 
 Cada RDD representa eventos recopilados a través de un período definido por el usuario llamado *intervalo entre lotes*. Cuando transcurre cada intervalo entre lotes, se genera un nuevo diseño que contiene todos los datos de ese intervalo. El conjunto continuo de RDD se recopila en un flujo DStream. Por ejemplo, si el intervalo entre lotes es de un segundo, el flujo DStream emite un lote cada segundo con un RDD que contiene todos los datos ingeridos durante ese segundo. Al procesar el flujo DStream, el evento de temperatura se muestra en uno de estos lotes. Una aplicación de Spark Streaming procesa los lotes que contienen los eventos y, en última instancia, actúa en los datos almacenados en cada RDD.
 
-![Flujo DStream de ejemplo con eventos de temperatura](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+![Flujo DStream de ejemplo con eventos de temperatura ](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Estructura de una aplicación de Spark Streaming
 
@@ -54,8 +62,7 @@ La definición de la lógica de la aplicación consta de cuatro pasos:
 Esta definición es estática y no se procesa ningún dato hasta que se ejecuta la aplicación.
 
 #### <a name="create-a-streamingcontext"></a>Creación de un objeto StreamingContext
-
-Cree un objeto StreamingContext desde el objeto SparkContext que apunta al clúster. Al crear un objeto StreamingContext, especifique el tamaño del lote en segundos, por ejemplo:  
+Cree un objeto StreamingContext desde el objeto SparkContext que apunta al clúster. Al crear un objeto StreamingContext, especifique el tamaño del lote en segundos, por ejemplo:
 
 ```
 import org.apache.spark._
@@ -91,7 +98,6 @@ wordCounts.print()
 ```
 
 ### <a name="run-the-application"></a>Ejecución de la aplicación
-
 Inicie la aplicación de streaming y ejecútela hasta que se reciba una señal de finalización.
 
 ```
@@ -106,44 +112,44 @@ La siguiente aplicación de ejemplo es independiente, así que puede ejecutarla 
 ```
 class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 
-    /** Start the thread that simulates receiving data */
-    def onStart() {
-        new Thread("Dummy Source") { override def run() { receive() } }.start()
-    }
+        /** Start the thread that simulates receiving data */
+        def onStart() {
+            new Thread("Dummy Source") { override def run() { receive() } }.start()
+        }
 
-    def onStop() {  }
+        def onStop() {  }
 
-    /** Periodically generate a random number from 0 to 9, and the timestamp */
-    private def receive() {
-        var counter = 0  
-        while(!isStopped()) {
+        /** Periodically generate a random number from 0 to 9, and the timestamp */
+        private def receive() {
+            var counter = 0  
+            while(!isStopped()) {
             store(Iterator((counter, System.currentTimeMillis)))
             counter += 1
             Thread.sleep(5000)
+            }
         }
     }
-}
 
-// A batch is created every 30 seconds
-val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
+    // A batch is created every 30 seconds
+    val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
 
-// Set the active SQLContext so that we can access it statically within the foreachRDD
-org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
+    // Set the active SQLContext so that we can access it statically within the foreachRDD
+    org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
 
-// Create the stream
-val stream = ssc.receiverStream(new DummySource())
+    // Create the stream
+    val stream = ssc.receiverStream(new DummySource())
 
-// Process RDDs in the batch
-stream.foreachRDD { rdd =>
+    // Process RDDs in the batch
+    stream.foreachRDD { rdd =>
 
-    // Access the SQLContext and create a table called demo_numbers we can query
-    val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
-    _sqlContext.createDataFrame(rdd).toDF("value", "time")
-        .registerTempTable("demo_numbers")
-} 
+        // Access the SQLContext and create a table called demo_numbers we can query
+        val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
+        _sqlContext.createDataFrame(rdd).toDF("value", "time")
+            .registerTempTable("demo_numbers")
+    } 
 
-// Start the stream processing
-ssc.start()
+    // Start the stream processing
+    ssc.start()
 ```
 
 Espere unos 30 segundos después de iniciar la aplicación anterior.  A continuación, puede consultar la trama de datos periódicamente para ver el conjunto actual de los valores presentes en el lote, por ejemplo, mediante esta consulta SQL:
@@ -155,7 +161,7 @@ SELECT * FROM demo_numbers
 
 El resultado tendrá un aspecto similar al siguiente:
 
-| value | Twitter en tiempo |
+| value | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -223,7 +229,7 @@ ssc.start()
 
 Después del primer minuto, hay doce entradas: seis entradas de cada uno de los dos lotes recopilados en la ventana.
 
-| value | Twitter en tiempo |
+| value | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158

@@ -2,7 +2,6 @@
 title: ¿Qué son Apache Hive y HiveQL en Azure HDInsight?
 description: Apache Hive es un sistema de almacenamiento de datos para Apache Hadoop. Puede consultar datos almacenados en Hive mediante HiveQL, que se parece a Transact-SQL. En este documento, aprenda a usar Hive y HiveQL con Azure HDInsight.
 keywords: hiveql,qué es hive,hadoop hiveql,cómo usar hive,aprender hive,qué es hive
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -11,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.openlocfilehash: 1f0746436fa980b6becfa7a88560734aa07a54e2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60342838"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>¿Qué son Apache Hive y HiveQL en Azure HDInsight?
 

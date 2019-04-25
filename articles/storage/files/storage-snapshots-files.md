@@ -2,18 +2,18 @@
 title: Introducción a las instantáneas de recurso compartido de Azure Files | Microsoft Docs
 description: Una instantánea de recurso compartido es una versión de solo lectura de un recurso compartido de Azure Files que se usa en un momento dado como método para realizar una copia de seguridad del recurso compartido.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 01/17/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 8d6bca12ae1df0cab7be3e1c54467d32063bacaf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444102"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Información general de las instantáneas de recurso compartido de Azure Files 
 Azure Files proporciona la funcionalidad de tomar instantáneas de recurso compartido de recursos compartidos de archivos. Las instantáneas de recursos compartidos capturan el estado del recurso compartido en ese momento dado. En este artículo se describen las funcionalidades que proporcionan las instantáneas de recurso compartido y cómo se puede sacar provecho de ellas en el caso de uso personalizado.

@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307939"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensión de máquina virtual de diagnóstico de rendimiento de Azure para Windows
 
@@ -81,7 +81,7 @@ El siguiente código JSON muestra el esquema de la extensión de máquina virtua
 |storPortTrace|s|Opción para habilitar el seguimiento de StorPort. Los valores válidos son **s** o un valor vacío. Si no desea capturar este seguimiento, deje el valor vacío.
 |srNumber|123452016365929|El número de incidencia de soporte técnico, si está disponible. Deje el valor vacío si no dispone de él.
 |requestTimeUtc|2017-09-28T22:08:53.736Z|Hora de fecha actual en UTC. No tiene que proporcionar este valor si usa el portal para instalar esta extensión.
-|ResourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|El identificador único de una máquina virtual.
+|resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|El identificador único de una máquina virtual.
 |storageAccountName|mystorageaccount|El nombre de la cuenta de almacenamiento para almacenar los registros de diagnóstico y los resultados.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|La clave de la cuenta de almacenamiento.
 
@@ -247,7 +247,7 @@ También puede descargar el archivo ZIP directamente del portal seleccionando la
 > [!NOTE]
 > Puede que el vínculo SAS que se muestra en el portal a veces no funcione. El motivo puede ser una dirección URL con un formato incorrecto durante las operaciones de codificación y decodificación. Si este es su caso, obtenga el vínculo directamente del archivo *_saslink.txt de la máquina virtual.
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
+## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
 
 - El estado de implementación de la extensión (en el área de notificación) puede mostrar "Implementación en curso" a pesar de que se haya realizado un aprovisionamiento correcto de la extensión.
 

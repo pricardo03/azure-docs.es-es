@@ -16,11 +16,11 @@ ms.date: 10/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d42c86ec262cd9d3d3db3035d252429e44c1208f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884887"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285644"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Tutorial: integración de Azure Active Directory con Adaptive Insights
 
@@ -62,19 +62,19 @@ Para configurar la integración de Adaptive Insights con Azure AD, deberá agreg
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-    ![imagen](./media/adaptivesuite-tutorial/selectazuread.png)
+    ![image](./media/adaptivesuite-tutorial/selectazuread.png)
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![imagen](./media/adaptivesuite-tutorial/a_select_app.png)
+    ![image](./media/adaptivesuite-tutorial/a_select_app.png)
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![imagen](./media/adaptivesuite-tutorial/a_new_app.png)
+    ![image](./media/adaptivesuite-tutorial/a_new_app.png)
 
 4. Para agregar la aplicación, escriba **Adaptive Insights** en el cuadro de búsqueda, seleccione **Adaptive Insights** en el panel de resultados y, luego, haga clic en el botón **Agregar**.
 
-     ![imagen](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_addfromgallery.png)
+     ![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
@@ -98,19 +98,19 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Adaptive Insights**, seleccione **Inicio de sesión único**.
 
-    ![imagen](./media/adaptivesuite-tutorial/B1_B2_Select_SSO.png)
+    ![image](./media/adaptivesuite-tutorial/B1_B2_Select_SSO.png)
 
 2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML** para habilitar el inicio de sesión único.
 
-    ![imagen](./media/adaptivesuite-tutorial/b1_b2_saml_sso.png)
+    ![image](./media/adaptivesuite-tutorial/b1_b2_saml_sso.png)
 
 3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    ![imagen](./media/adaptivesuite-tutorial/b1-domains_and_urlsedit.png)
+    ![image](./media/adaptivesuite-tutorial/b1-domains_and_urlsedit.png)
 
 4. En la sección **Configuración de SAML básica**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
 
-    ![imagen](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
+    ![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
 
      a. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
@@ -121,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** y guárdelo en su equipo.
 
-    ![imagen](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_certficate.png) 
+    ![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_certficate.png) 
 
 6. En la sección **Configurar Adaptive Insights**, copie la dirección URL adecuada según sus necesidades.
 
@@ -133,7 +133,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     c. URL de cierre de sesión
 
-    ![imagen](./media/adaptivesuite-tutorial/d1_samlsonfigure.png) 
+    ![image](./media/adaptivesuite-tutorial/d1_samlsonfigure.png) 
 
 7. En otra ventana del explorador web, inicie sesión en el sitio de Adaptive Insights de la compañía como administrador.
 
@@ -179,19 +179,19 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-    ![imagen](./media/adaptivesuite-tutorial/d_users_and_groups.png)
+    ![image](./media/adaptivesuite-tutorial/d_users_and_groups.png)
 
 2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![imagen](./media/adaptivesuite-tutorial/d_adduser.png)
+    ![image](./media/adaptivesuite-tutorial/d_adduser.png)
 
 3. En las propiedades Usuario, siga estos pasos.
 
-    ![imagen](./media/adaptivesuite-tutorial/d_userproperties.png)
+    ![image](./media/adaptivesuite-tutorial/d_userproperties.png)
 
      a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el **nombre de usuario** tipo de campo **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
@@ -233,19 +233,19 @@ En esta sección, concederá acceso a Adaptive Insights a Britta Simon para perm
 
 1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
 
-    ![imagen](./media/adaptivesuite-tutorial/d_all_applications.png)
+    ![image](./media/adaptivesuite-tutorial/d_all_applications.png)
 
 2. En la lista de aplicaciones, seleccione **Adaptive Insights**.
 
-    ![imagen](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_app.png)
+    ![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_app.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![imagen](./media/adaptivesuite-tutorial/d_leftpaneusers.png)
+    ![image](./media/adaptivesuite-tutorial/d_leftpaneusers.png)
 
 4. Seleccione el botón **Agregar** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![imagen](./media/adaptivesuite-tutorial/d_assign_user.png)
+    ![image](./media/adaptivesuite-tutorial/d_assign_user.png)
 
 4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 

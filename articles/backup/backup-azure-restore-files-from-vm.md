@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
 ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259554"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240021"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -213,7 +213,7 @@ En Linux, el sistema operativo del equipo usado para restaurar archivos debe adm
 
 El script también requiere los componentes Python y Bash para realizar la ejecución y la conexión al punto de recuperación con seguridad.
 
-|Componente | Versión  |
+|Componente | Version  |
 | --------------- | ---- |
 | Bash | 4 y posterior |
 | Python | 2.6.6 y posterior  |

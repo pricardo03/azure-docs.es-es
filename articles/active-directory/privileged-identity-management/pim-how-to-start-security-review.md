@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5cbf96c165d79c26985663ef5a9d64bbf8f9892
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575001"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60438006"
 ---
 # <a name="start-an-access-review-for-azure-ad-roles-in-pim"></a>Inicie una revisión de acceso para roles de Azure AD en PIM
 Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tienen acceso con privilegios que ya no necesitan. A fin de reducir el riesgo asociado a estas asignaciones de roles obsoletos, los administradores de roles con privilegios o los administradores globales deben revisar regularmente los accesos para así poder supervisar los roles que se han concedido a los usuarios. Este documento describe los pasos para iniciar una revisión de acceso en Azure Active Directory (Azure AD) Privileged Identity Management (PIM).

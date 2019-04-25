@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
 ms.openlocfilehash: 0955d95ebfd9e1f72ed1da577bf3520a70b71624
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506024"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuración de la tunelización forzada mediante el modelo de implementación clásica
 

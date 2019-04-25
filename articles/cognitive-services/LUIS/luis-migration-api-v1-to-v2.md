@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793559"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196038"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guía de migración la API v1 a v2 para las aplicaciones de LUIS
 La versión 1 de las API de [punto de conexión](https://aka.ms/v1-endpoint-api-docs) y [creación](https://aka.ms/v1-authoring-api-docs) va a quedar en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de [punto de conexión](https://aka.ms/luis-endpoint-apis) y [creación](https://aka.ms/luis-authoring-apis). 

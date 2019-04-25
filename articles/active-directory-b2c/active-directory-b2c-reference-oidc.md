@@ -3,7 +3,7 @@ title: 'Inicio de sesión web con OpenID Connect: Azure Active Directory B2C | M
 description: Cree aplicaciones web mediante el protocolo de autenticación OpenID Connect en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 6285a90a9dca305f3a9cd909af6c084c747daf99
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679064"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317129"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Inicio de sesión web con OpenID Connect en Azure Active Directory B2C
 

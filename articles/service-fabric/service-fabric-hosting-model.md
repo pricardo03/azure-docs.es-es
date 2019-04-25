@@ -13,11 +13,11 @@ ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
 ms.openlocfilehash: d2d958a89bff40483e1cd473538f7d1a6971d266
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663288"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483636"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modelo de hospedaje de Service Fabric
 En este artículo se ofrece información general sobre los modelos de hospedaje de aplicaciones que Azure Service Fabric proporciona y, además, se describen las diferencias entre los modelos de **proceso compartido** y **proceso exclusivo**. Se describe el aspecto de una aplicación implementada en un nodo de Service Fabric y la relación entre las réplicas (o instancias) del servicio y el proceso de host de servicio.

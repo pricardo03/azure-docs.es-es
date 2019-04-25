@@ -16,11 +16,11 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 210d69256f2e7f4727ee866af71dd72e765fb0b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205773"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60266973"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>Tutorial: Integración de Azure Active Directory con Kantega SSO para Confluence
 

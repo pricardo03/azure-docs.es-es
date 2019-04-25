@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122984"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244024"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronización de Azure AD Connect: cambio en la configuración predeterminada
 El objetivo de este artículo es guiarle para realizar cambios en la configuración predeterminada de la sincronización de Azure Active Directory (Azure AD) Connect. Proporciona las instrucciones para algunos escenarios comunes. Con este conocimiento, podrá realizar cambios sencillos en su propia configuración en función de sus propias reglas de negocio.
@@ -278,7 +278,7 @@ La regla de sincronización de entrada permite enviar el valor del atributo desd
 
 5. Vaya a la pestaña **Filtro de ámbito** y agregue un **solo grupo de filtro de ámbito** con la siguiente cláusula:
 
-    | Atributo | Operador | Valor |
+    | Atributo | Operador | Value |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Usuario\_ |
 

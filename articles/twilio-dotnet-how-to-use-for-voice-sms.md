@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 3b8b21de9664a969e8b1ce5699034aa9ab41d0f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329502"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Uso de Twilio para funciones de voz y SMS desde Azure
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de API de Twilio en Azure. Entre los escenarios descritos se incluyen realizar una llamada telefónica y enviar un mensaje de servicio de mensajes cortos (SMS). Para obtener más información sobre Twilio y el uso de voz y mensajes SMS en sus aplicaciones, consulte la sección [Pasos siguientes](#NextSteps) .

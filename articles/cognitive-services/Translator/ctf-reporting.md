@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917403"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60513712"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Cómo usar los informes de Collaborative Translation Framework (CTF)
 
@@ -36,7 +36,7 @@ El punto de conexión de la API de informes de CTF es https://api.microsofttrans
 
 
 ## <a name="methods"></a>Métodos
-| NOMBRE |    DESCRIPCIÓN|
+| Name |    DESCRIPCIÓN|
 |:---|:---|
 | Método GetUserTranslationCounts | Obtiene los recuentos de las traducciones creadas por el usuario. |
 | Método GetUserTranslations | Recupera las traducciones creadas por el usuario. |
@@ -83,7 +83,7 @@ Este método obtiene el recuento de traducciones que se crean por el usuario. Pr
 | minRating| **Opcional** Un valor entero que representa la clasificación de calidad mínima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
 | maxRating| **Opcional** Un valor entero que representa la clasificación de calidad máxima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
 | user | **Opcional** Una cadena que se utiliza para filtrar los resultados según el autor del envío. |
-| categoría| **Opcional** Una cadena que contiene la categoría o el dominio de la traducción. Este parámetro admite solo la opción predeterminada general.|
+| category| **Opcional** Una cadena que contiene la categoría o el dominio de la traducción. Este parámetro admite solo la opción predeterminada general.|
 | minDateUtc| **Opcional** La fecha desde la que desea recuperar las traducciones. La fecha debe tener el formato UTC. |
 | maxDateUtc| **Opcional** La fecha hasta la que desea recuperar las traducciones. La fecha debe tener el formato UTC. |
 | skip| **Opcional** El número de resultados que desea omitir en una página. Por ejemplo, si desea omitir las 20 primeras filas de los resultados y ver a partir del 21º registro de resultados, especifique 20 en este parámetro. El valor predeterminado para este parámetro es 0.|
@@ -154,7 +154,7 @@ Este método recupera las traducciones creadas por el usuario. Proporciona las t
 | minRating| **Opcional** Un valor entero que representa la clasificación de calidad mínima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
 | maxRating| **Opcional** Un valor entero que representa la clasificación de calidad máxima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
 | user| **Opcional. Una cadena que se utiliza para filtrar los resultados según el autor del envío**|
-| categoría| **Opcional** Una cadena que contiene la categoría o el dominio de la traducción. Este parámetro admite solo la opción predeterminada general.|
+| category| **Opcional** Una cadena que contiene la categoría o el dominio de la traducción. Este parámetro admite solo la opción predeterminada general.|
 | minDateUtc| **Opcional** La fecha desde la que desea recuperar las traducciones. La fecha debe tener el formato UTC.|
 | maxDateUtc| **Opcional** La fecha hasta la que desea recuperar las traducciones. La fecha debe tener el formato UTC.|
 | skip| **Opcional** El número de resultados que desea omitir en una página. Por ejemplo, si desea omitir las 20 primeras filas de los resultados y ver a partir del 21º registro de resultados, especifique 20 en este parámetro. El valor predeterminado para este parámetro es 0.|

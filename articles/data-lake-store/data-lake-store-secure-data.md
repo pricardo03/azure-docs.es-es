@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198333"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protección de los datos almacenados en Azure Data Lake Storage Gen1
 Para proteger los datos en Azure Data Lake Storage Gen1, se adopta un enfoque de tres pasos.  Es necesario que esté configurado tanto el control de acceso basado en rol como las listas de control de acceso para permitir un acceso total a los datos para los usuarios y los grupos de seguridad.

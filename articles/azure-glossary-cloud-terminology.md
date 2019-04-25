@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823865"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325432"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma de Azure
 
 El glosario de Microsoft Azure es un breve diccionario de terminología de la nube para la plataforma Azure. Consulte también:
 
-* [Microsoft Azure y Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/): definiciones de los servicios de Azure y sus equivalentes de AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
+* [Microsoft Azure y Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -definiciones de servicios de Azure y sus equivalentes de AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Términos de informática en la nube](https://azure.microsoft.com/overview/cloud-computing-dictionary/): términos generales sobre informática en la nube.
 
 ## <a name="account"></a>account
@@ -66,10 +66,10 @@ Vea [Regiones de Azure](best-practices-availability-paired-regions.md)
 
 ## <a name="geo-replication"></a>replicación geográfica
 El proceso de replicación automática de contenido como blobs, tablas y colas entre zonas regionales emparejadas.  
-Consulte [Replicación geográfica activa para Azure SQL Database](sql-database/sql-database-geo-replication-overview.md)
+Vea [Replicación geográfica activa para Azure SQL Database](sql-database/sql-database-geo-replication-overview.md)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
-## <a name="image"></a>imagen
+## <a name="image"></a>image
 Un archivo que contiene la configuración del sistema operativo y la aplicación que puede utilizarse para crear cualquier cantidad de máquinas virtuales. En Azure existen dos tipos de imágenes: Imagen de máquina virtual e imagen del sistema operativo. Una imagen de máquina virtual incluye un sistema operativo y todos los discos conectados a una máquina virtual cuando se crea la imagen. Una imagen de sistema operativo contiene solo un sistema operativo generalizado sin configuraciones de disco de datos.  
 Vea [Navegación y selección de las imágenes de máquina virtual Windows en Azure con Powershell o la CLI](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

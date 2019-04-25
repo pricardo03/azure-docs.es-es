@@ -17,11 +17,11 @@ ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f8c9c6be51a30fd4e30fedc85f8d17d16324391
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292644"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solución de problemas y mensajes de error de Proxy de aplicación
 Si se producen errores al obtener acceso a una aplicación publicada o al publicar aplicaciones, compruebe las siguientes opciones para ver si Proxy de aplicación de Microsoft Azure AD funciona correctamente:

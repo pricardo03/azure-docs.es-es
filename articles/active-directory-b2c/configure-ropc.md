@@ -3,7 +3,7 @@ title: Configuración del flujo de credenciales de contraseña de propietario de
 description: Averigüe cómo puede configurar el flujo de credenciales de contraseña de propietario del recurso en Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: ca3fd76cfeb09fe4e18a04bff38e166928ef38b2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401772"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313364"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configuración del flujo de credenciales de contraseña de propietario del recurso en Azure AD B2C
 
@@ -51,7 +51,7 @@ No se admiten los siguientes flujos:
    `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
 
 
-## <a name="register-an-application"></a>Registrar una aplicación
+## <a name="register-an-application"></a>Registro de una aplicación
 
 1. En la configuración de B2C, seleccione **Aplicaciones** y luego seleccione **Agregar**.
 2. Escriba un nombre para la aplicación, como *ROPC_Auth_app*.
@@ -68,11 +68,11 @@ Use su aplicación favorita de desarrollo de API para generar una llamada API y 
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Clave | Valor |
+| Clave | Value |
 | --- | ----- |
-| nombre de usuario | leadiocl@outlook.com |
-| contraseña | Passxword1 |
-| grant_type | contraseña |
+| username | leadiocl@outlook.com |
+| password | Passxword1 |
+| grant_type | password |
 | ámbito | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | id_token del token |
@@ -108,12 +108,12 @@ Cree una llamada POST similar a la que se muestra aquí, con la información que
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Clave | Valor |
+| Clave | Value |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | ID_token |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
-| Recurso | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| resource | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* y *resource* son los valores que anotó anteriormente como identificadores de la aplicación. *Refresh_token* es el token que recibió en la llamada de autenticación que se ha mencionado anteriormente.

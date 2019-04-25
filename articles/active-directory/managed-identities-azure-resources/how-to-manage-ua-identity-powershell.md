@@ -16,11 +16,11 @@ ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 886b56de194f38fbb4b94f96b92bff11f2288b37
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448600"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293518"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Crear, enumerar y eliminar una identidad administrada que haya asignado el usuario mediante Azure PowerShell
 

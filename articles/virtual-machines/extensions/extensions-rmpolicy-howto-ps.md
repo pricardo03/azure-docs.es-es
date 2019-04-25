@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 4dc68127f2d19426c372be027634bb2563dbfa6c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: dfaeff5e8f90e72645293d15c454f78f17b08fb0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341664"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387339"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Uso de Azure Policy para restringir la instalación de extensiones en máquinas virtuales Linux
 
@@ -26,7 +26,7 @@ Si desea impedir el uso o la instalación de determinadas extensiones en las má
 
 En este tutorial se usa Azure PowerShell dentro de Cloud Shell, que se actualiza constantemente a la versión más reciente. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-rules-file"></a>Creación de un archivo de reglas
 

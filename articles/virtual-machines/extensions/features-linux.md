@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.openlocfilehash: bf6eca33eb1448eb84065fb7fe184d01e77feb61
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387287"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Características y extensiones de las máquinas virtuales para Linux
 
@@ -221,7 +221,7 @@ Los agentes y las extensiones comparten el mismo mecanismo de actualización. Al
 
 Cuando hay disponible una actualización, solo se instala en la máquina virtual cuando se produce un cambio en las extensiones y otros cambios del modelo de máquina virtual, como:
 
-- Discos de datos
+- Discos de datos.
 - Extensiones
 - Contenedor de diagnósticos de arranque
 - Secretos del sistema operativo invitado

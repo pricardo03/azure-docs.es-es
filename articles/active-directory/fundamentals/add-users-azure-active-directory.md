@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60247739"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Incorporación o eliminación de usuarios mediante Azure Active Directory
 Agregar nuevos usuarios o eliminar usuarios existentes de la organización de Azure Active Directory (Azure AD).

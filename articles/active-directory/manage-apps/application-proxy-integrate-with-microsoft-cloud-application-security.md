@@ -12,11 +12,11 @@ ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 21c197dace3088ceb89270b7e3e8a1b91e9c8ebc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176567"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292816"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Configuración de la supervisión del acceso a las aplicaciones en tiempo real con Microsoft Cloud App Security y Azure Active Directory
 Configure una aplicación local en Azure Active Directory (Azure AD) para usar Microsoft Cloud App Security (MCAS) para la supervisión en tiempo real. MCAS usa Control de aplicaciones de acceso condicional para supervisar y controlar sesiones en tiempo real basadas en directivas de acceso condicional. Puede aplicar estas directivas a aplicaciones locales que usen el proxy de aplicación en Azure Active Directory (Azure AD).

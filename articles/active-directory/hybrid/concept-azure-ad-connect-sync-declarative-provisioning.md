@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60246230"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronización de Azure AD Connect: Descripción del aprovisionamiento declarativo
 Este tema explica el modelo de configuración de Azure AD Connect. El modelo se denomina aprovisionamiento declarativo y permite cambiar una configuración con facilidad. Muchas cosas descritas en este tema son avanzadas y no son necesarias para la mayoría de los escenarios de los clientes.

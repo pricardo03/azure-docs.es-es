@@ -15,11 +15,11 @@ ms.workload: Supportability
 ms.date: 02/11/2019
 ms.author: stbaron
 ms.openlocfilehash: 6054b33e4068d36c5bfbb80120086a92a03525c8
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506797"
 ---
 # <a name="azure-status"></a>Estado de Azure
 [Estado de Azure](https://azure.microsoft.com/status/) proporciona una visión global del estado de los servicios y regiones de Azure. Con el estado de Azure, puede obtener información actualizada sobre la disponibilidad del servicio. El estado de Azure está disponible para que todos los usuarios puedan ver todos los servicios que informan del estado del servicio, así como los incidentes con gran impacto. Sin embargo, si es un usuario de Azure actual, se recomienda encarecidamente utilizar la experiencia personalizada de [Azure Service Health](https://aka.ms/azureservicehealth). Azure Service Health incluye información acerca de todas las interrupciones, las próximas actividades de mantenimiento planeado y las advertencias de servicio.

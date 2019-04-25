@@ -9,11 +9,11 @@ ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: 59cb14c86963d956b0bd63f65b10776dff4aa97f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698083"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452728"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Ejemplos de inicio rápido de PowerShell de Azure Monitor
 En este artículo se muestran comandos de PowerShell de ejemplo para ayudarle a acceder a las características de Azure Monitor.
@@ -142,7 +142,7 @@ En la tabla siguiente se describen los parámetros y valores utilizados para cre
 
 | Parámetro | value |
 | --- | --- |
-| NOMBRE |simpletestdiskwrite |
+| Name |simpletestdiskwrite |
 | Ubicación (Location) de esta regla de alerta |Este de EE. UU |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |

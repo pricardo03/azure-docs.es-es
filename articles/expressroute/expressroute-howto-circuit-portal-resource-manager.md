@@ -9,11 +9,11 @@ ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103033"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60366552"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creación y modificación de un circuito ExpressRoute
 
@@ -84,19 +84,19 @@ En esta página, en **Estado de proveedor** se ofrece información sobre el esta
 Cuando se crea un nuevo circuito ExpressRoute, dicho circuito tiene el siguiente estado:
 
 Estado de proveedor: No aprovisionado<BR>
-Estado de circuito: habilitado
+Estado de circuito: Enabled
 
 ![Inicio del proceso de aprovisionamiento](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 El circuito pasa al estado siguiente cuando el proveedor de conectividad se encuentra en el proceso de habilitarlo:
 
 Estado de proveedor: Aprovisionamiento<BR>
-Estado de circuito: habilitado
+Estado de circuito: Enabled
 
 Para poder usar un circuito ExpressRoute, dicho circuito tiene que estar en el siguiente estado.
 
 Estado de proveedor: aprovisionado<BR>
-Estado de circuito: habilitado
+Estado de circuito: Enabled
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Comprobación periódica del estado y la condición de la clave del circuito
 

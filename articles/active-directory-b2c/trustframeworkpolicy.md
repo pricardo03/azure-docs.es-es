@@ -3,7 +3,7 @@ title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Especifique el elemento TrustFrameworkPolicy de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 558e9c3a3bfd43f6ceb958bc3be55d58e1eb7f91
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150247"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360493"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -40,11 +40,11 @@ El elemento **TrustFrameworkPolicy** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | SÍ | Versión del esquema que se usará para ejecutar la directiva. El valor debe ser `0.3.0.0` |
+| PolicySchemaVersion | Sí | Versión del esquema que se usará para ejecutar la directiva. El valor debe ser `0.3.0.0` |
 | TenantObjectId | Sin  | Identificador de objeto único del inquilino de Azure Active Directory (Azure AD) B2C. |
-| TenantId | SÍ | Identificador único del inquilino al que pertenece esta directiva. |
-| PolicyId | SÍ | Identificador único de la directiva. Es necesario agregar el prefijo *B2C_1A_* al identificador. |
-| PublicPolicyUri | SÍ | URI de la directiva, que es una combinación del id. de inquilino y el id. de directiva. |
+| TenantId | Sí | Identificador único del inquilino al que pertenece esta directiva. |
+| PolicyId | Sí | Identificador único de la directiva. Es necesario agregar el prefijo *B2C_1A_* al identificador. |
+| PublicPolicyUri | Sí | URI de la directiva, que es una combinación del id. de inquilino y el id. de directiva. |
 | DeploymentMode | Sin  | Valores posibles: `Production`, `Debugging` o `Development`. `Production` es el valor predeterminado. Use esta propiedad para depurar la directiva. Para obtener más información, vea [Recopilación de registros](active-directory-b2c-troubleshoot-custom.md). |
 | UserJourneyRecorderEndpoint | Sin  | Punto de conexión que se usará cuando **DeploymentMode** se establece en `Development`. El valor tiene que ser `urn:journeyrecorder:applicationinsights`. Para obtener más información, vea [Recopilación de registros](active-directory-b2c-troubleshoot-custom.md). |
 

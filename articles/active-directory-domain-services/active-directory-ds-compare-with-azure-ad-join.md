@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: ergreenl
 ms.openlocfilehash: d4f50ea89f2623d387fb77acb09e609def547468
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178943"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359439"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Elección entre Azure Active Directory Join y Azure Active Directory Domain Services
 En este artículo se describen las diferencias entre Azure Active Directory (AD) Join y Azure AD Domain Services para ayudarle a elegir lo que más le convenga según sus casos de uso.
@@ -58,7 +58,7 @@ En una máquina unida a un dominio, la autenticación de usuario se realiza con 
 |:---| --- | --- |
 | Dispositivo controlado por | Azure AD | Dominio administrado con Azure AD Domain Services |
 | Representación en el directorio | Objetos de dispositivo en el directorio de Azure AD | Objetos de equipo en el dominio administrado por AAD-DS |
-| Autenticación | Protocolos basados en OAuth y OpenID Connect | Protocolos de Kerberos y NTLM |
+| Authentication | Protocolos basados en OAuth y OpenID Connect | Protocolos de Kerberos y NTLM |
 | Administración | Software de administración de dispositivos móviles (MSM), como Intune | Directiva de grupo |
 | Redes | Funciona a través de Internet | Las máquinas deben estar en la misma red virtual que el dominio administrado.|
 | Ideal para... | Dispositivos móviles o de escritorio de usuario final | Máquinas virtuales de servidor implementadas en Azure |

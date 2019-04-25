@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 15d0d537a23e21eeda3b284e7ec706cde2b443e7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014086"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60241705"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Cambio de la contraseña de la cuenta del servicio de sincronización de Azure AD Connect
 Si cambia la contraseña de la cuenta del servicio de sincronización de Azure AD Connect, el servicio de sincronización no podrá iniciarse correctamente hasta que haya abandonado la clave de cifrado y reinicializado la contraseña de la cuenta del servicio de sincronización de Azure AD Connect. 

@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.openlocfilehash: 506f623fe928cf122a16630844996c981cc20e9e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791735"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330353"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API Table de .NET de Azure Cosmos DB: descarga y notas de la versión
 
@@ -82,7 +82,7 @@ Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK a
 El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un SDK retirado.
 <br/>
 
-| Versión | Fecha de lanzamiento | Fecha de retirada |
+| Version | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
 | [2.1.0](#2.1.0) |22 de enero de 2019|--- |
 | [2.0.0](#2.0.0) |26 de septiembre de 2018|--- |

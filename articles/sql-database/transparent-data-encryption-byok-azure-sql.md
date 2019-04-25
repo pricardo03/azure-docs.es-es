@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
 ms.openlocfilehash: 6ad4cf251ad09adb7e1f11ebd42d7eab0d6a9183
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60330982"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente de Azure Key Vault: compatibilidad con Bring Your Own Key
 

@@ -10,11 +10,11 @@ ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 4d11dfcb66a545cbecc80b6bdad558ca6d328ed2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999680"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60499263"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migración de las implementaciones de actualizaciones de OMS a Azure
 
@@ -59,7 +59,7 @@ Para actualizar las máquinas, seleccione la búsqueda guardada usada por la imp
 
 | Propiedad | Descripción |
 | --- | --- |
-|NOMBRE |Nombre único para identificar la implementación de actualizaciones. |
+|Name |Nombre único para identificar la implementación de actualizaciones. |
 |Sistema operativo| Seleccione **Linux** o **Windows**.|
 |Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md) |
 |Clasificaciones de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite. CentOS no admite estas clasificaciones de forma nativa.|

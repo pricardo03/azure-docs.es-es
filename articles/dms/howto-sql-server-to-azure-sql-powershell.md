@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 599fc7e1eb021e3c519047a14145c292623d7508
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336208"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533850"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migración de SQL Server local a Azure SQL Database mediante Azure PowerShell
 En este artículo, migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2016 a una instancia de Azure SQL Database mediante Microsoft Azure PowerShell. Puede migrar bases de datos desde una instancia de SQL Server local a Azure SQL Database mediante el módulo `Az.DataMigration` en Microsoft Azure PowerShell.

@@ -1,19 +1,19 @@
 ---
 title: Migración de las alertas de eventos de administración de Azure a Alertas del registro de actividad
 description: Las Alertas de eventos de administración se retirarán el 1 de octubre. Prepárese migrando las alertas existentes.
-author: johnkemnetz
+author: lingliw
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/14/2017
-ms.author: johnkem
+ms.date: 04/12/19
+ms.author: v-lingwu
 ms.subservice: alerts
 ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60255926"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migración de las alertas de eventos de administración de Azure a Alertas del registro de actividad
 
@@ -32,7 +32,7 @@ Azure Monitor (anteriormente Azure Insights) ofrecía una funcionalidad para cre
 El siguiente script de PowerShell devuelve una lista de todas las alertas de eventos de administración que tiene en su suscripción, así como las condiciones establecidas en cada alerta.
 
 ```powershell
-Connect-AzAccount
+Connect-AzAccount -Environment AzureChinaCloud
 $alerts = $null
 foreach ($rg in Get-AzResourceGroup ) {
   $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
@@ -115,4 +115,3 @@ Las alertas de eventos de administración que haya creado previamente no se migr
 * Revisión del [esquema de webhook de alertas del registro de actividad](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 * Más información sobre las [notificaciones del servicio](../../azure-monitor/platform/service-notifications.md)
 * Más información sobre los [grupos de acciones](../../azure-monitor/platform/action-groups.md)
-

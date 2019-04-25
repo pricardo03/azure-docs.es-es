@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
 ms.openlocfilehash: 7c8459a6694663a49203b6ec21a760d3e6bd60c3
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60480759"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Flujo de trabajo de la arquitectura de máquina virtual clásica de Windows Azure 
 En este artículo se proporciona información general de los procesos de flujo de trabajo que se producen al implementar o actualizar un recurso de Azure como una máquina virtual. 

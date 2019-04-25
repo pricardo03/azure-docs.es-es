@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997955"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311307"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Pestaña Detalles del escaparate electrónico para Dynamics 365 for Customer Engagement
 

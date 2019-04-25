@@ -12,11 +12,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835250"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400089"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Ciencia de datos escalables con Azure Data Lake: tutorial completo
 En este tutorial se muestra cómo utilizar Azure Data Lake para realizar las tareas de exploración de datos y clasificación binaria en un ejemplo del conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York para predecir si se dará una propina por tarifa. Le guía por los pasos de todo el [proceso de la ciencia de datos en equipos](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), desde la adquisición de los datos al entrenamiento del modelo y, a continuación, a la implementación de un servicio web que publique el modelo.

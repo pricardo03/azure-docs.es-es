@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
 ms.openlocfilehash: 44ff08c84b3e95a5b598ebf4279fc2ffc46313e3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369521"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Registrarse para obtener una suscripción de Azure con su cuenta de Office 365
 Si tiene una suscripción de Office 365, puede usar su cuenta de Office 365 para crear una suscripción de Azure. Inicie sesión en [Azure Portal](https://portal.azure.com/) con su nombre de usuario y contraseña de Office 365. Si desea configurar máquinas virtuales o usar otros servicios de Azure, debe suscribirse a una suscripción de Azure. Puede compartir su suscripción de Azure con otras personas y [usar el control de acceso basado en roles para administrar el acceso a su suscripción de Azure y a sus recursos](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)

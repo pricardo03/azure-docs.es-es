@@ -14,11 +14,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd26fa53c91c53893c7f326afda5158fa430be1e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248147"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Asignación de roles de administrador y de no administrador a usuarios con Azure Active Directory
 Si un usuario de su organización necesita permiso para administrar recursos de Azure Active Directory (Azure AD), debe asignar al usuario un rol adecuado en Azure AD, en función de las acciones para las que el usuario necesita permisos.

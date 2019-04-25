@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: bwren
 ms.openlocfilehash: 25d6b582ed4d4e24df3841f4191471296e25abd8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60519363"
 ---
 # <a name="writing-efficient-log-queries-in-azure-monitor"></a>Escritura de consultas de registro eficaces en Azure Monitor
 Este artículo ofrece recomendaciones sobre cómo escribir consultas de registro eficaces en Azure Monitor. Con estas estrategias puede garantizar que las consultas se ejecutarán rápidamente y con una mínima sobrecarga.

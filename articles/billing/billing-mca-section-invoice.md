@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371613"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Crear secciones de la factura para organizar los costos
 
@@ -38,7 +38,7 @@ Para crear una sección de la factura, debe ser un **propietario del perfil de f
 
    ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/billing-mca-section-invoice/billing-mca-list-invoice-sections.png)
 
-4. En la parte superior de la página, seleccione **agregar**.
+4. En la parte superior de la página, seleccione **Agregar**.
 
 5. Escriba el nombre de la sección de factura.
 

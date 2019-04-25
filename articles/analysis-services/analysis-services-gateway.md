@@ -9,11 +9,11 @@ ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497406"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local
 La puerta de enlace de datos local proporciona una transferencia de datos segura entre orígenes de datos locales y los servidores de Azure Analysis Services en la nube. Además de funcionar con varios servidores de Azure Analysis Services en la misma región, la versión más reciente de la puerta de enlace también funciona con Azure Logic Apps, Power BI, Power Apps y Microsoft Flow. Puede asociar varios servicios de la misma suscripción y región con una sola puerta de enlace. 

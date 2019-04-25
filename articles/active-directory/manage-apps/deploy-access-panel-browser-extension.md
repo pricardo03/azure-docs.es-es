@@ -17,11 +17,11 @@ ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c7dfdd46714d367b61248d9376ce3e8888bb1ef7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176975"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292561"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo
 En este tutorial se muestra cómo usar la directiva de grupo para instalar de forma remota la extensión de panel de acceso para Internet Explorer en los equipos de los usuarios. Esta extensión es necesaria para los usuarios de Internet Explorer que deben iniciar sesión en aplicaciones que están configuradas con un [inicio de sesión único basado en contraseña](what-is-single-sign-on.md#password-based-sso).

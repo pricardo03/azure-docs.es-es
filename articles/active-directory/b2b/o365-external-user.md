@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 388d42cd41d34a8aebed41dafc48e42006a78457
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60355213"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Uso compartido externo de Office 365 y colaboración B2B de Azure Active Directory
 

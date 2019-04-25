@@ -3,7 +3,7 @@ title: Versiones de flujos de usuario de Azure Active Directory B2C | Microsoft 
 description: Obtenga información sobre las versiones de los flujos de usuario disponibles en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/09/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b3750768eb7346938faec7e3c1ead232923a68bd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159495"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359762"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versiones de flujos de usuario de Azure Active Directory B2C
 
@@ -30,12 +30,12 @@ Los nuevos flujos de usuario se agregan como versiones nuevas. Cuando un flujo d
 
 | Flujo de usuario | Recomendado | DESCRIPCIÓN |
 | --------- | ----------- | ----------- |
-| Restablecimiento de contraseña | SÍ | Permite a los usuarios elegir una contraseña nueva después de verificar el correo electrónico. Con este flujo de usuario, puede configurar: <ul><li>[Multi-factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>Configuración de compatibilidad de tokens</li><li>[Requisitos de complejidad de la contraseña](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| Edición de perfiles | SÍ | Permite al usuario configurar los atributos de usuario. Con este flujo de usuario, puede configurar: <ul><li>[Vigencia de tokens](active-directory-b2c-reference-tokens.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li></ul> |
+| Restablecimiento de contraseña | Sí | Permite a los usuarios elegir una contraseña nueva después de verificar el correo electrónico. Con este flujo de usuario, puede configurar: <ul><li>[Multi-factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>Configuración de compatibilidad de tokens</li><li>[Requisitos de complejidad de la contraseña](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| Edición de perfiles | Sí | Permite al usuario configurar los atributos de usuario. Con este flujo de usuario, puede configurar: <ul><li>[Vigencia de tokens](active-directory-b2c-reference-tokens.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li></ul> |
 | Propietario del recurso | Sin  | Permite a los usuarios con una cuenta local iniciar sesión directamente en las aplicaciones nativas (no se necesita un explorador). Con este flujo de usuario, puede configurar: <ul><li>[Vigencia de tokens](active-directory-b2c-reference-tokens.md)</li><li>Configuración de compatibilidad de tokens</li></ul> |
 | Iniciar sesión | Sin  | Permite a los usuarios iniciar sesión en sus cuentas. Con este flujo de usuario, puede configurar: <ul><li>[Multi-factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Vigencia de tokens](active-directory-b2c-reference-tokens.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li><li>Bloqueo de inicios de sesión</li><li>Forzar el restablecimiento de contraseñas</li><li>Mantener la sesión iniciada (KMSI)</ul><br>No se puede personalizar la interfaz de usuario con este flujo de usuario. |
 | Suscripción | Sin  | Permite a los usuarios crear una cuenta. Con este flujo de usuario, puede configurar: <ul><li>[Multi-factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Vigencia de tokens](active-directory-b2c-reference-tokens.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li><li>[Requisitos de complejidad de la contraseña](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| Registrarse e iniciar sesión | SÍ | Permite a los usuarios crear una cuenta o iniciar sesión en sus cuentas. Con este flujo de usuario, puede configurar: <ul><li>[Multi-factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Vigencia de tokens](active-directory-b2c-reference-tokens.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li><li>[Requisitos de complejidad de la contraseña](active-directory-b2c-reference-password-complexity.md)</li></ul>|
+| Registrarse e iniciar sesión | Sí | Permite a los usuarios crear una cuenta o iniciar sesión en sus cuentas. Con este flujo de usuario, puede configurar: <ul><li>[Multi-factor Authentication](active-directory-b2c-reference-mfa.md)</li><li>[Vigencia de tokens](active-directory-b2c-reference-tokens.md)</li><li>Configuración de compatibilidad de tokens</li><li>Comportamiento de la sesión</li><li>[Requisitos de complejidad de la contraseña](active-directory-b2c-reference-password-complexity.md)</li></ul>|
 
 ## <a name="v2"></a>V2
 

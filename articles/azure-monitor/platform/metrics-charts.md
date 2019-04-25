@@ -1,19 +1,19 @@
 ---
 title: Características avanzadas del explorador de métricas de Azure
 description: Obtenga información sobre las características avanzadas del explorador de métricas de Azure Monitor
-author: vgorbenko
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.author: vitalyg
+ms.date: 04/12/19
+ms.author: v-lingwu
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271686"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60256760"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Características avanzadas del explorador de métricas de Azure
 
@@ -77,7 +77,7 @@ Puede aplicar filtros a los gráficos que muestran métricas con dimensiones. Po
 
 Puede dividir una métrica por dimensión para visualizar cómo se comparan entre sí los distintos segmentos de la métrica, y para identificar los segmentos no relevantes de una dimensión.
 
-### <a name="apply-splitting"></a>Aplicar división
+### <a name="apply-splitting"></a>Aplicación de la división
 
 1. Haga clic en **Aplicar separación** encima del gráfico.
  
@@ -149,4 +149,3 @@ Consulte este [artículo](alerts-metric.md) para obtener más información sobre
 ## <a name="next-steps"></a>Pasos siguientes
 
   Lea [Creating custom KPI dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) (Creación de paneles de KPI personalizados) para obtener información sobre las prácticas recomendadas para la creación de paneles accionables con métricas.
-

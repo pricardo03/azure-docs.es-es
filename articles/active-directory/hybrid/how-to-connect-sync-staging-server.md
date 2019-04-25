@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381593"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Almacenamiento provisional y recuperación ante desastres
 Con un servidor en modo provisional puede realizar cambios en la configuración y obtener una vista previa de los cambios antes de activar el servidor. También permite ejecutar una importación y sincronización completas para comprobar que se esperan todos los cambios antes de realizarlos en el entorno de producción.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: spelluru
-ms.openlocfilehash: d93818cd875c4050b1b35f21ce580933776c5bc5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
-ms.translationtype: HT
+ms.openlocfilehash: 2cd6998c7ac11638ead67fde384bdf4599692781
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201794"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>Configuración y uso de entornos públicos en Azure DevTest Labs
 Azure DevTest Labs tiene un [repositorio público de plantillas de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) que puede usar para crear entornos sin tener que conectarse a un origen externo de GitHub por sí mismo. Este repositorio incluye plantillas usadas con frecuencia, como Azure Web Apps, Clúster de Service Fabric y entorno de desarrollo de Granja de SharePoint. Esta característica es similar al repositorio público de artefactos que se incluye para todos los laboratorios que cree. El repositorio de entorno le permite empezar a trabajar rápidamente con las plantillas de entorno ya creadas, con el mínimo de parámetros de entrada, para proporcionarle una experiencia de introducción sin problemas a los recursos de PaaS en laboratorios. 

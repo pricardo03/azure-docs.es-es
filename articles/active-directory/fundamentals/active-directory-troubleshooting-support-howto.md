@@ -16,11 +16,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248051"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Instrucciones para buscar ayuda y abrir una incidencia de soporte técnico para Azure Active Directory
 Microsoft proporciona internacionalmente soporte técnico de preventa, facturación y suscripción para Azure Active Directory (Azure AD). El soporte técnico está disponible tanto en línea como por teléfono para las suscripciones de prueba y de pago de Microsoft Azure. El soporte técnico por teléfono y el soporte técnico para la facturación en línea están disponibles en otros idiomas. 

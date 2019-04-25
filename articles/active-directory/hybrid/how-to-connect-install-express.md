@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24143f8c94a294da90be84bacfe633db0cd24f85
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244498"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introducción a Azure AD Connect mediante la configuración rápida
 La **configuración rápida** de Azure AD Connect se usa cuando se tiene una topología de bosque único y una [sincronización de hash de contraseñas](how-to-connect-password-hash-synchronization.md) para la autenticación. **Configuración rápida** es la opción predeterminada y se utiliza en los escenarios implementados más habituales. Ya solo le faltan uno cuantos clics para extender su directorio local a la nube.

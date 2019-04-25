@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/25/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 373312b4c7f05fe41c9ca8165b8ff6f1b0e56f1b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322861"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Pestaña Versión de prueba de la aplicación Dynamics 365 for Customer Engagement
 
@@ -47,7 +47,7 @@ En la tabla siguiente se describen los campos obligatorios para configurar la ve
 |    ---------                  |  ---------------                |
 |      DESCRIPCIÓN              |   Describe lo que puede realizarse en la versión de prueba. Puede usar etiquetas HTML básicas para dar formato a esta descripción. Por ejemplo, &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; y títulos.  |
 |  Manual del usuario                  |   Cargue un manual del usuario que los clientes puedan usar para completar la experiencia de versión de prueba. Este documento debe ser un archivo PDF.              |
-|  Vídeo de demostración de la versión de prueba (opcional) |  Puede proporcionar un tutorial en vídeo de la versión de prueba. Un cliente puede ver este vídeo antes de realizar una prueba. Proporcione una dirección URL de YouTube o Vimeo para el vídeo. Si selecciona **+ Agregar vídeo**, se le solicitará que proporcione la siguiente información:<ul><li>NOMBRE</li><li>URL</li><li>Miniatura (formato PNG, 533 x 324 píxeles)</li></ul>  |
+|  Vídeo de demostración de la versión de prueba (opcional) |  Puede proporcionar un tutorial en vídeo de la versión de prueba. Un cliente puede ver este vídeo antes de realizar una prueba. Proporcione una dirección URL de YouTube o Vimeo para el vídeo. Si selecciona **+ Agregar vídeo**, se le solicitará que proporcione la siguiente información:<ul><li>Name</li><li>URL</li><li>Miniatura (formato PNG, 533 x 324 píxeles)</li></ul>  |
 |   |   |
 
 
