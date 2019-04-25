@@ -49,7 +49,7 @@
       items:
         - name: Seguridad de Azure Storage
           href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Cifrado de datos en reposo
+        - name: Cifrado de la cuenta de almacenamiento
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Autenticación de Azure AD sobre SMB
           href: storage-files-active-directory-overview.md

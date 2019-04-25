@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58762946"
@@ -248,8 +248,8 @@ Automation crea dos tipos de registros en el área de trabajo de Log Analytics: 
 
 |Propiedad | DESCRIPCIÓN|
 |----------|----------|
-|Caller |  La persona que inicia la operación. Los valores posibles son una dirección de correo electrónico o el sistema para los trabajos programados.|
-|Category | Clasificación del tipo de datos. Para Automation, el valor será JobLogs.|
+|Autor de llamada |  La persona que inicia la operación. Los valores posibles son una dirección de correo electrónico o el sistema para los trabajos programados.|
+|Categoría | Clasificación del tipo de datos. Para Automation, el valor será JobLogs.|
 |CorrelationId | GUID que es el identificador de correlación del trabajo de Runbook.|
 |JobId | GUID que es el identificador del trabajo de Runbook.|
 |operationName | Especifica el tipo de operación realizada en Azure. En Automation, el valor es Job.|
@@ -263,14 +263,14 @@ Automation crea dos tipos de registros en el área de trabajo de Log Analytics: 
 |SourceSystem | Especifica el sistema de origen para los datos enviados. En Automation, el valor es OpsManager|
 |StreamType | Especifica el tipo de evento. Los valores posibles son:<br>- Detallado<br>- Salida<br>error<br>Warning (Advertencia)|
 |SubscriptionId | Especifica el identificador de suscripción del trabajo.
-|Time | Fecha y hora en que se ejecuta el trabajo de Runbook.|
+|Hora | Fecha y hora en que se ejecuta el trabajo de Runbook.|
 
 ### <a name="job-streams"></a>Transmisiones de trabajo
 
 |Propiedad | DESCRIPCIÓN|
 |----------|----------|
-|Caller |  La persona que inicia la operación. Los valores posibles son una dirección de correo electrónico o el sistema para los trabajos programados.|
-|Category | Clasificación del tipo de datos. Para Automation, el valor es JobStreams.|
+|Autor de llamada |  La persona que inicia la operación. Los valores posibles son una dirección de correo electrónico o el sistema para los trabajos programados.|
+|Categoría | Clasificación del tipo de datos. Para Automation, el valor es JobStreams.|
 |JobId | GUID que es el identificador del trabajo de Runbook.|
 |operationName | Especifica el tipo de operación realizada en Azure. En Automation, el valor es Job.|
 |ResourceGroup | Especifica el nombre del grupo de recursos del trabajo de Runbook.|
@@ -282,7 +282,7 @@ Automation crea dos tipos de registros en el área de trabajo de Log Analytics: 
 |RunbookName | El nombre del Runbook.|
 |SourceSystem | Especifica el sistema de origen para los datos enviados. En Automation, el valor es OpsManager.|
 |StreamType | El tipo de flujo de trabajo. Los valores posibles son:<br>- Progreso<br>- Salida<br>Warning (Advertencia)<br>Error<br>DEBUG<br>- Detallado|
-|Time | Fecha y hora en que se ejecuta el trabajo de Runbook.|
+|Hora | Fecha y hora en que se ejecuta el trabajo de Runbook.|
 
 Cuando se realiza cualquier búsqueda de registros que devuelve registros de la categoría **JobLogs** o **JobStreams**, puede seleccionar las vistas **JobLogs** o **JobStreams**, que muestran un conjunto de iconos que resumen las actualizaciones devueltas en la búsqueda.
 

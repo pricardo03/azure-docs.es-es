@@ -1,79 +1,72 @@
-items:
 - name: Azure Dev Spaces
   items:
-  - name: Información general
-    href: index.yml
-  - name: Guías de inicio rápido
-    items:
-    - name: Java (VS Code y CLI)
-      href: quickstart-java.md
-    - name: .NET Core (VS Code y CLI)
-      href: quickstart-netcore.md
-    - name: .NET Core (Visual Studio 2017)
-      href: quickstart-netcore-visualstudio.md
-    - name: Node.js (VS Code y CLI)
-      href: quickstart-nodejs.md
-  - name: Tutoriales
-    items:
-    - name: Java (VS Code y CLI)
+    - name: Información general
+      href: index.yml
+    - name: Guías de inicio rápido
       items:
-      - name: 1 - Introducción
-        href: get-started-java.md
-      - name: 2 - Desarrollo de varios servicios
-        href: multi-service-java.md
-      - name: 3 - Desarrollo en equipo
-        href: team-development-java.md
-    - name: .NET Core (VS Code y CLI)
+        - name: Java (VS Code y CLI)
+          href: quickstart-java.md
+        - name: .NET Core (VS Code y CLI)
+          href: quickstart-netcore.md
+        - name: .NET Core (Visual Studio 2017)
+          href: quickstart-netcore-visualstudio.md
+        - name: Node.js (VS Code y CLI)
+          href: quickstart-nodejs.md
+    - name: Tutoriales
       items:
-      - name: 1 - Introducción
-        href: get-started-netcore.md
-      - name: 2 - Desarrollo de varios servicios
-        href: multi-service-netcore.md
-      - name: 3 - Desarrollo en equipo
-        href: team-development-netcore.md
-    - name: .NET Core (Visual Studio 2017)
+        - name: Java (VS Code y CLI)
+          items:
+            - name: 1 - Introducción
+              href: get-started-java.md
+            - name: 2 - Desarrollo de varios servicios
+              href: multi-service-java.md
+            - name: 3 - Desarrollo en equipo
+              href: team-development-java.md
+        - name: .NET Core (VS Code y CLI)
+          items:
+            - name: 1 - Introducción
+              href: get-started-netcore.md
+            - name: 2 - Desarrollo de varios servicios
+              href: multi-service-netcore.md
+            - name: 3 - Desarrollo en equipo
+              href: team-development-netcore.md
+        - name: .NET Core (Visual Studio 2017)
+          items:
+            - name: 1 - Introducción
+              href: get-started-netcore-visualstudio.md
+            - name: 2 - Desarrollo de varios servicios
+              href: multi-service-netcore-visualstudio.md
+            - name: 3 - Desarrollo en equipo
+              href: team-development-netcore-visualstudio.md
+        - name: Node.js (VS Code y CLI)
+          items:
+            - name: 1 - Introducción
+              href: get-started-nodejs.md
+            - name: 2 - Desarrollo de varios servicios
+              href: multi-service-nodejs.md
+            - name: 3 - Desarrollo en equipo
+              href: team-development-nodejs.md
+    - name: Conceptos
       items:
-      - name: 1 - Introducción
-        href: get-started-netcore-visualstudio.md
-      - name: 2 - Desarrollo de varios servicios
-        href: multi-service-netcore-visualstudio.md
-      - name: 3 - Desarrollo en equipo
-        href: team-development-netcore-visualstudio.md
-    - name: Node.js (VS Code y CLI)
+        - name: Funcionamiento de Dev Spaces
+          href: how-dev-spaces-works.md
+    - name: Procedimientos
       items:
-      - name: 1 - Introducción
-        href: get-started-nodejs.md
-      - name: 2 - Desarrollo de varios servicios
-        href: multi-service-nodejs.md
-      - name: 3 - Desarrollo en equipo
-        href: team-development-nodejs.md
-  - name: Conceptos
-    items:
-    - name: Funcionamiento de Dev Spaces
-      href: how-dev-spaces-works.md
-  - name: Procedimientos
-    items:
-    - name: Creación de un clúster de Kubernetes mediante Azure Cloud Shell
-      href: how-to/create-cluster-cloud-shell.md
-    - name: Uso compartido de Azure Dev Spaces
-      href: how-to/share-dev-spaces.md
-    - name: Administración de secretos
-      href: how-to/manage-secrets.md
-    - name: Uso de una fuente NuGet personalizada
-      href: how-to/use-custom-nuget-feed.md
-    - name: Uso de kubectl con Azure Dev Spaces
-      href: how-to/use-kubectl-with-azure-dev-spaces.md
-    - name: Actualización de las herramientas de Azure Dev Spaces
-      href: how-to/upgrade-tools.md
-    - name: Uso de CI/CD con Azure Dev Spaces
-      href: how-to/setup-cicd.md
-    - name: Continuidad empresarial y recuperación ante desastres para Azure Dev Spaces
-      href: how-to/dev-spaces-business-continuity.md
-  - name: solución de problemas
-    href: troubleshooting.md
-ms.openlocfilehash: 2584af119ba13e87d4249ce7cc7f605d88baa88e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341329"
+        - name: Creación de un clúster de Kubernetes mediante Azure Cloud Shell
+          href: how-to/create-cluster-cloud-shell.md
+        - name: Uso compartido de Azure Dev Spaces
+          href: how-to/share-dev-spaces.md
+        - name: Administración de secretos
+          href: how-to/manage-secrets.md
+        - name: Uso de una fuente NuGet personalizada
+          href: how-to/use-custom-nuget-feed.md
+        - name: Uso de kubectl con Azure Dev Spaces
+          href: how-to/use-kubectl-with-azure-dev-spaces.md
+        - name: Actualización de las herramientas de Azure Dev Spaces
+          href: how-to/upgrade-tools.md
+        - name: Uso de CI/CD con Azure Dev Spaces
+          href: how-to/setup-cicd.md
+        - name: Continuidad empresarial y recuperación ante desastres para Azure Dev Spaces
+          href: how-to/dev-spaces-business-continuity.md
+    - name: solución de problemas
+      href: troubleshooting.md

@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496597"
@@ -97,9 +97,9 @@ Diagnósticos de Azure Automation crea dos tipos de registros en los registros d
 | Tenant_g | GUID que identifica al inquilino para el llamador. |
 | JobId_g |GUID que es el identificador del trabajo de Runbook. |
 | ResultType |El estado del trabajo de Runbook. Los valores posibles son:<br>- New<br>Started<br>Stopped<br>Suspended<br>Con error<br>Completado |
-| Category | Clasificación del tipo de datos. Para Automation, el valor será JobLogs. |
-| OperationName | Especifica el tipo de operación realizada en Azure. En Automation, el valor es Job. |
-| Resource | Nombre de la cuenta de Automation |
+| Categoría | Clasificación del tipo de datos. Para Automation, el valor será JobLogs. |
+| nombreOperación | Especifica el tipo de operación realizada en Azure. En Automation, el valor es Job. |
+| Recurso | Nombre de la cuenta de Automation |
 | SourceSystem | Cómo los registros de Azure Monitor recopilan los datos. Siempre *Azure* para Diagnósticos de Azure. |
 | ResultDescription |Describe el estado de resultado del trabajo de Runbook. Los valores posibles son:<br>- Se inicia el trabajo<br>- Error del trabajo<br>- Trabajo completado |
 | CorrelationId |GUID que es el identificador de correlación del trabajo de Runbook. |
@@ -120,9 +120,9 @@ Diagnósticos de Azure Automation crea dos tipos de registros en los registros d
 | Tenant_g | GUID que identifica al inquilino para el llamador. |
 | JobId_g |GUID que es el identificador del trabajo de Runbook. |
 | ResultType |El estado del trabajo de Runbook. Los valores posibles son:<br>- In Progress |
-| Category | Clasificación del tipo de datos. Para Automation, el valor es JobStreams. |
-| OperationName | Especifica el tipo de operación realizada en Azure. En Automation, el valor es Job. |
-| Resource | Nombre de la cuenta de Automation |
+| Categoría | Clasificación del tipo de datos. Para Automation, el valor es JobStreams. |
+| nombreOperación | Especifica el tipo de operación realizada en Azure. En Automation, el valor es Job. |
+| Recurso | Nombre de la cuenta de Automation |
 | SourceSystem | Cómo los registros de Azure Monitor recopilan los datos. Siempre *Azure* para Diagnósticos de Azure. |
 | ResultDescription |Incluye la secuencia de salida del Runbook. |
 | CorrelationId |GUID que es el identificador de correlación del trabajo de Runbook. |

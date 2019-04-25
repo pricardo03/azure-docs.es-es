@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ceffd2a6e4bfcfac167ab26de757286c6905e9b3
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096480"
 documentType: LandingData
 title: Documentación de Project URL Preview
 metadata:
@@ -18,6 +12,6 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 03/19/2018
-  ms.author: rosh, v-gedod
+  ms.author: 'rosh, v-gedod'
 abstract:
-  description: Bing URL Preview API obtiene información breve sobre una dirección URL de destino, incluida la descripción, la marca isFamilyFriendly, la imagen representativa y el vínculo a la página.
+  description: 'Bing URL Preview API obtiene información breve sobre una dirección URL de destino, incluida la descripción, la marca isFamilyFriendly, la imagen representativa y el vínculo a la página.'

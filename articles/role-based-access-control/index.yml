@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2f0465b954e48822470374abeadb13e90a03fa3a
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408738"
 documentType: LandingData
 title: Documentación sobre el control de acceso basado en rol para recursos de Azure
 metadata:
-  document_id: 
+  document_id: null
   title: Documentación sobre el control de acceso basado en rol (RBAC) para recursos de Azure | Microsoft Docs
-  description: Aprenda a usar el control de acceso basado en rol (RBAC) para administrar quién puede acceder a los recursos de Azure, qué pueden hacer con esos recursos y a qué áreas pueden acceder.
+  description: 'Aprenda a usar el control de acceso basado en rol (RBAC) para administrar quién puede acceder a los recursos de Azure, qué pueden hacer con esos recursos y a qué áreas pueden acceder.'
   services: active-directory
   author: rolyon
   manager: mtillman
@@ -24,39 +18,39 @@ abstract:
   description: El control de acceso basado en rol (RBAC) es un sistema que permite realizar una administración avanzada del acceso a los recursos de Azure. También podrá repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
   aside:
     image:
-      alt: 
+      alt: null
       height: 112
       src: media/index/video-thumb-get-started.png
       width: 200
-    title: Bloqueo del acceso a Azure (1:16)
-    href: https://www.youtube.com/embed/FKBoWWKRnvI
+    title: 'Bloqueo del acceso a Azure (1:16)'
+    href: 'https://www.youtube.com/embed/FKBoWWKRnvI'
     width: 200
 sections:
-- title: Inicios rápidos en 5 minutos
-  items:
-  - type: list
-    style: unordered
+  - title: Inicios rápidos en 5 minutos
     items:
-    - html: <a href="/azure/role-based-access-control/check-access">Visualización del acceso de un usuario</a>
-- title: Tutoriales detallados
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/role-based-access-control/check-access">Visualización del acceso de un usuario</a>
+  - title: Tutoriales detallados
     items:
-    - html: '<a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Concesión de acceso a un usuario: Portal</a>'
-    - html: '<a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Concesión de acceso a un grupo: PowerShell</a>'
-    - html: '<a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Creación de un rol personalizado: PowerShell</a>'
-    - html: '<a href="/azure/role-based-access-control/tutorial-custom-role-cli">Creación de un rol personalizado: CLI</a>'
-- title: Desarrollo de aptitudes con Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="/azure/role-based-access-control/quickstart-assign-role-user-portal">Concesión de acceso a un usuario: Portal</a>'
+          - html: '<a href="/azure/role-based-access-control/tutorial-role-assignments-group-powershell">Concesión de acceso a un grupo: PowerShell</a>'
+          - html: '<a href="/azure/role-based-access-control/tutorial-custom-role-powershell">Creación de un rol personalizado: PowerShell</a>'
+          - html: '<a href="/azure/role-based-access-control/tutorial-custom-role-cli">Creación de un rol personalizado: CLI</a>'
+  - title: Desarrollo de aptitudes con Microsoft Learn
     items:
-    - title: Protección de los recursos de Azure con el control de acceso basado en rol (RBAC)
-      href: /learn/modules/secure-azure-resources-with-rbac/
-      image:
-        src: /learn/achievements/secure-azure-resources-with-rbac.svg
-        href: /learn/modules/secure-azure-resources-with-rbac/
-  - type: paragraph
-    text: <a href="/learn/browse/?products=azure-active-directory">Más aprendizaje interactivo...</a>
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Protección de los recursos de Azure con el control de acceso basado en rol (RBAC)
+            href: /learn/modules/secure-azure-resources-with-rbac/
+            image:
+              src: /learn/achievements/secure-azure-resources-with-rbac.svg
+              href: /learn/modules/secure-azure-resources-with-rbac/
+      - type: paragraph
+        text: <a href="/learn/browse/?products=azure-active-directory">Más aprendizaje interactivo...</a>

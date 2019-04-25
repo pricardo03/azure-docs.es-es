@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3fa75710adacf71214c977465bcd696500c55e32
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733453"
 documentType: LandingData
 title: Documentación de Microsoft Genomics
 metadata:
@@ -20,14 +14,14 @@ metadata:
 abstract:
   description: Conozca cómo Microsoft Genomics puede potenciar la secuenciación del genoma mediante una implementación en la nube de Burrows-Wheeler Aligner (BWA) y de Genome Analysis Toolkit (GATK) para análisis secundario.
 sections:
-- title: Inicios rápidos en 5 minutos
-  items:
-  - type: paragraph
-    text: Envíe un flujo de trabajo a través del servicio Microsoft Genomics.
-  - type: list
-    style: icon48
+  - title: Inicio rápido en 5 minutos
     items:
-    - image:
-        src: media/index/helix-blue-orange.svg
-      text: Envío de un flujo de trabajo
-      href: quickstart-run-genomics-workflow-portal
+      - type: paragraph
+        text: Envíe un flujo de trabajo a través del servicio Microsoft Genomics.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/helix-blue-orange.svg
+            text: Envío de un flujo de trabajo
+            href: quickstart-run-genomics-workflow-portal
