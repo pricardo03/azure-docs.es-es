@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847372"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502114"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Herramientas de aprendizaje automático y ciencia de datos
 Azure Data Science Virtual Machine tiene un amplio conjunto de herramientas y bibliotecas para el aprendizaje automático (ML), disponibles en lenguajes conocidos como Python, R o Julia. 

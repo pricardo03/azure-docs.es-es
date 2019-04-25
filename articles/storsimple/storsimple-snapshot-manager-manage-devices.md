@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: f5e3186a4271e0be781f367fa75ada195c58c960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 51632b8b68640814fc113a94925b6d6deaca4c5c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111443"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482583"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Uso de Administrador de instantáneas StorSimple para conectar y administrar dispositivos StorSimple
 ## <a name="overview"></a>Información general
@@ -27,16 +27,16 @@ Puede usar los nodos en el panel **Ámbito** de Administrador de instantáneas S
 
 ![Dispositivos conectados](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
 
-**Ilustración 1: Dispositivo conectado a Administrador de instantáneas StorSimple** 
+**Figura 1: Dispositivo conectado a StorSimple Snapshot Manager** 
 
 Dependiendo de su selección de **Vista**, el panel **Resultados** muestra la siguiente información sobre cada dispositivo. Para obtener más información acerca de cómo configurar una vista, vaya a [Menú Ver](storsimple-use-snapshot-manager.md#view-menu).
 
-| Columna Resultados | Descripción |
+| Columna Resultados | DESCRIPCIÓN |
 |:--- |:--- |
-| Nombre |El nombre del dispositivo tal como está configurado en el Portal de Azure clásico |
+| Name |El nombre del dispositivo tal como está configurado en el Portal de Azure clásico |
 | Modelo |El número de modelo del dispositivo |
-| Versión |La versión del software instalado en el dispositivo |
-| Estado |Si el dispositivo está disponible |
+| Version |La versión del software instalado en el dispositivo |
+| Status |Si el dispositivo está disponible |
 | Última sincronización |Fecha y hora cuando el dispositivo se sincronizó por última vez |
 | Nº de serie |El número de serie del dispositivo |
 
@@ -64,7 +64,7 @@ Este tutorial explica cómo usar Administrador de instantáneas StorSimple para 
 * Conexión de un dispositivo y comprobación de las importaciones
 * Actualización de los dispositivos conectados
 * Autenticar un dispositivo
-* Vista de detalles de dispositivo
+* Ver los detalles de dispositivo
 * Actualización de un dispositivo individual
 * Eliminación de una configuración de dispositivo
 * Cambio de una contraseña de dispositivo caducada
@@ -83,7 +83,7 @@ Utilice el procedimiento siguiente para agregar o reemplazar un dispositivo Stor
    
     ![Configuración de un dispositivo StorSimple](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_config_device.png) 
 3. En la lista desplegable **Dispositivo** , seleccione la dirección IP del dispositivo o el dispositivo virtual. 
-4. En la casilla **Contraseña** , escriba la contraseña de StorSimple Snapshot Manager que creó para el dispositivo en el Portal de Azure clásico. Haga clic en **Aceptar**. Administrador de instantáneas StorSimple busca el dispositivo que ha identificado. 
+4. En la casilla **Contraseña** , escriba la contraseña de StorSimple Snapshot Manager que creó para el dispositivo en el Portal de Azure clásico. Haga clic en **OK**. Administrador de instantáneas StorSimple busca el dispositivo que ha identificado. 
    
    * Si el dispositivo está disponible, Administrador de instantáneas StorSimple agrega una conexión.
    * Si el dispositivo no está disponible por alguna razón, Administrador de instantáneas StorSimple devuelve un mensaje de error. Haga clic en **Aceptar** para cerrar el mensaje de error y, luego, haga clic en **Cancelar** para cerrar el cuadro de diálogo **Configurar un dispositivo**.
@@ -101,7 +101,7 @@ Utilice el siguiente procedimiento para conectar un dispositivo de StorSimple y 
 3. Haga clic con el botón derecho en el primer nodo del panel **Ámbito** y, luego, haga clic en **Alternar vista de importaciones**.
    
     ![Selección de Alternar visualización de importaciones](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Toggle_Imports_Display.png) 
-4. El cuadro de diálogo **Alternar visualización de importaciones** aparece y muestra el estado de los grupos de volúmenes y las copias de seguridad importados. Haga clic en **Aceptar**.
+4. El cuadro de diálogo **Alternar visualización de importaciones** aparece y muestra el estado de los grupos de volúmenes y las copias de seguridad importados. Haga clic en **OK**.
 
 Después de que se hayan importado correctamente los grupos de volúmenes y las copias de seguridad, puede usar Administrador de instantáneas StorSimple para administrarlos, tal como administraría los grupos de volúmenes y copias de seguridad que haya creado y configurado con Administrador de instantáneas StorSimple. 
 
@@ -127,7 +127,7 @@ Utilice el procedimiento siguiente para autenticar un dispositivo de StorSimple 
    
     ![Cuadro de diálogo autenticar](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Authenticate.png) 
 
-## <a name="view-device-details"></a>Vista de detalles de dispositivo
+## <a name="view-device-details"></a>Ver los detalles de dispositivo
 Utilice el procedimiento siguiente para ver los detalles de un dispositivo de StorSimple y, si es necesario, vuelva a sincronizar el dispositivo con Administrador de instantáneas StorSimple.
 
 #### <a name="to-view-and-resynchronize-device-details"></a>Para ver y volver a sincronizar los detalles del dispositivo
@@ -182,7 +182,7 @@ Para autenticar a un dispositivo de StorSimple con Administrador de instantánea
 Si un dispositivo StorSimple falla y se sustituye por un dispositivo en espera (conmutación por error), siga estos pasos para conectar con el nuevo dispositivo y ver las copias de seguridad asociadas.
 
 #### <a name="to-connect-to-a-new-device-after-failover"></a>Para conectarse a un nuevo dispositivo después de la conmutación por error
-1. Volver a configurar la conexión iSCSI al nuevo dispositivo. Para obtener instrucciones, consulte "Paso 7: Montar, inicializar y formatear un volumen" en [Implementar el dispositivo de StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
+1. Volver a configurar la conexión iSCSI al nuevo dispositivo. Para obtener instrucciones, vaya a "paso 7: Montar, inicializar y formatear un volumen"en [implementar el dispositivo de StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 
 > [!NOTE]
 > Si el nuevo dispositivo de StorSimple tiene la misma dirección IP que el antiguo, puede conectarse con la configuración anterior.
@@ -204,9 +204,9 @@ Si un dispositivo StorSimple falla y se sustituye por un dispositivo en espera (
    2. En la ventana **Servicios**, seleccione **Microsoft StorSimple Management Service**.
    3. En el panel derecho, en **Microsoft StorSimple Management Service**, haga clic en **Reiniciar el servicio**.
 4. Inicie Administrador de instantáneas StorSimple.
-5. Para configurar el nuevo dispositivo StorSimple, complete los pasos que encontrará en Paso 2: Conexión a un dispositivo StorSimple en [Implementación del Administrador de instantáneas StorSimple](storsimple-snapshot-manager-deployment.md).
+5. Para configurar el nuevo dispositivo de StorSimple, complete los pasos en el paso 2: Conectar un dispositivo de StorSimple en [implementar StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 6. Haga clic con el botón derecho en el nodo de nivel superior en el panel **Ámbito** (StorSimple Snapshot Manager en el ejemplo) y, luego, haga clic en **Alternar vista de importaciones**. 
-7. Aparece un mensaje cuando los grupos de volúmenes importados y las copias de seguridad son visibles en Administrador de instantáneas StorSimple. Haga clic en **Aceptar**.
+7. Aparece un mensaje cuando los grupos de volúmenes importados y las copias de seguridad son visibles en Administrador de instantáneas StorSimple. Haga clic en **OK**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).

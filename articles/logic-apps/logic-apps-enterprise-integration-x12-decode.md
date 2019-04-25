@@ -4,18 +4,18 @@ description: Valide EDI y genere confirmaciones con el descodificador de mensaje
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.openlocfilehash: e3d2a458c2cece5e3f01fdb9e3d403b3fb78dd2b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a952685353214e116219fc63c4acbeac188765ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427536"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Decodificación de mensajes X12 en Azure Logic Apps con Enterprise Integration Pack
 
@@ -89,13 +89,13 @@ El conector de descodificación X12 lleva a cabo estas tareas:
   * Comprueba el número de control del grupo en relación con otros números de control de grupo en el intercambio.
   * Comprueba el número de control del conjunto de transacciones con otros números de control del conjunto de transacciones de dicho grupo.
 * Divide el intercambio en conjuntos de transacciones o conserva todo el intercambio:
-  * Divide el intercambio como conjuntos de transacciones (suspende conjuntos de transacciones en caso de error): divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
+  * Dividir intercambio como conjuntos de transacciones: suspender conjuntos de transacciones en caso de error: Divide el intercambio en la transacción se establece y analiza cada conjunto de transacciones. 
   La acción de descodificación X12 solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
-  * Divide el intercambio como conjuntos de transacciones (suspende el intercambio en caso de error): divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
+  * Dividir intercambio como conjuntos de transacciones: suspender intercambio en caso de error: Divide el intercambio en la transacción se establece y analiza cada conjunto de transacciones. 
   Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de X12 establece todos los conjuntos de transacciones del intercambio en `badMessages`.
-  * Conserva el intercambio (suspende conjuntos de transacciones en caso de error): conserva el intercambio y procesa todo el intercambio por lotes. 
+  * Conservar intercambio: suspender conjuntos de transacciones en caso de error: Conservar el intercambio y procesa todo el intercambio por lotes. 
   La acción de descodificación X12 solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
-  * Conserva el intercambio (suspende el intercambio en caso de error): conserva el intercambio y procesa todo el intercambio por lotes. 
+  * Conservar intercambio: suspender intercambio en caso de error: Conservar el intercambio y procesa todo el intercambio por lotes. 
   Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de X12 establece todos los conjuntos de transacciones del intercambio en `badMessages`. 
 * Genera una confirmación técnica o funcional (si esta opción está configurada).
   * Se genera una confirmación técnica como resultado de la validación del encabezado. La confirmación técnica informa del estado del procesamiento de un encabezado y finalizador de intercambio por parte del receptor de la dirección.

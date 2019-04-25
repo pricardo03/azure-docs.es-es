@@ -13,22 +13,22 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295630"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412829"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
 
 Los correos electrónicos de invitación son un componente fundamental para incorporar a los asociados como usuarios de colaboración B2B en Azure AD. Puede usarlos para aumentar la confianza del destinatario. Puede agregar legitimidad y prueba social al correo electrónico para asegurarse de que el destinatario se sienta cómodo al seleccionar el botón **Empezar** para aceptar la invitación. Esta confianza es clave para reducir la fricción en el uso compartido. Y puede que también quiera que el correo electrónico tenga un buen aspecto.
 
-![Captura de pantalla muestra el correo electrónico de invitación de B2B](media/invitation-email-elements/invitation-email.png)
+![Captura de pantalla que muestra el correo electrónico de invitación de B2B](media/invitation-email-elements/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>Explicación del correo electrónico
 Se van a tratar algunos elementos del correo electrónico para saber cómo hacer el mejor uso de estas funcionalidades.
 
-### <a name="subject"></a>Asunto
+### <a name="subject"></a>Subject
 El asunto del correo electrónico sigue este patrón: está invitado a la organización de &lt;nombreInquilino&gt;.
 
 ### <a name="from-address"></a>Dirección De

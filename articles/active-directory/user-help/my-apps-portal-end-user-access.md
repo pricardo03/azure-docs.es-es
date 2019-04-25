@@ -14,19 +14,19 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eaed7357221f5b766bfb8b9e1a9031c08854ac9a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340130"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60477283"
 ---
 # <a name="access-and-use-apps-on-the-my-apps-portal"></a>Aplicaciones de acceso y el uso en el portal mis aplicaciones
-Puede usar su cuenta profesional o educativa con basada en web **mis aplicaciones** portal para ver e iniciar muchas de las aplicaciones basadas en la nube de su organización, para actualizar parte de la información de perfil y cuenta, para ver su **grupos** información así como para realizar **las revisiones de acceso** para sus aplicaciones y grupos. Si no tiene acceso a la **mis aplicaciones** portal, debe ponerse en contacto con su departamento de soporte técnico para el permiso.
+Puede usar su cuenta profesional o educativa con el portal **Aplicaciones** basado en web para ver e iniciar muchas de las aplicaciones de su organización basadas en la nube, actualizar información de su perfil y cuenta, ver su información de **Grupos** y realizar **revisiones de acceso** para sus aplicaciones y grupos. Si no tiene acceso al portal **Aplicaciones**, debe ponerse en contacto con su departamento de soporte técnico para obtener permiso.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Este contenido está diseñado para usuarios. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar las aplicaciones basadas en la nube en el [documentación de administración de la aplicación](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Este contenido está diseñado para usuarios. Si es administrador, puede encontrar más información acerca de cómo configurar y administrar aplicaciones basadas en la nube en la [Documentación sobre la administración de aplicaciones](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="supported-browsers"></a>Exploradores compatibles
 Puede tener acceso a la **mis aplicaciones** portal desde cualquiera de los exploradores web siguientes:

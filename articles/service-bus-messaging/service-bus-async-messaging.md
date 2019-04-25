@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 50778ae742c1ec66857a6c2fa6250dc3d67e5601
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531117"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Patrones de mensajería asincrónica y alta disponibilidad
 

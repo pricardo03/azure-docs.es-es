@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
 ms.openlocfilehash: c41057203da949e371f62332e938feb92e84534f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422821"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Realización de una llamada telefónica con Twilio en un rol web en Azure
 En esta guía se describe cómo usar Twilio para realizar una llamada desde una página web hospedada en Azure. La aplicación resultante pide al usuario que llame a un determinado número y deje un mensaje, como se muestra en la siguiente captura de pantalla.

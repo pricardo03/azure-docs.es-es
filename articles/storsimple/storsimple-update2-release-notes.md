@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: v-sharos
-ms.openlocfilehash: 0667c62e2ee2039c2b96b8c4ba81619969c3611b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: HT
+ms.openlocfilehash: f23a507ab631be553613e22cafa037291548a8aa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34058002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60530855"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>Notas de la versión de la actualización 2 de la serie StorSimple 8000
 
@@ -53,7 +53,7 @@ La actualización 2 presenta las siguientes características nuevas.
   * Mejoras de enrutamiento con métricas fijas para bloques habilitados para la nube.
   * Reintento en línea de recursos con errores antes de una conmutación por error.
   * Nuevas alertas para errores de servicio.
-* **Mejoras en las actualizaciones** : en la actualización 1.2 y en las versiones anteriores, la serie StorSimple 8000 se ha actualizado a través de dos canales: Windows Update para la agrupación en clústeres, iSCSI, y así sucesivamente, y Microsoft Update para los archivos binarios y el firmware.
+* **Mejoras en las actualizaciones** : en la actualización 1.2 y versiones anteriores, se actualizó la serie 8000 de StorSimple a través de dos canales: Actualización de Windows para la agrupación en clústeres, iSCSI y así sucesivamente y Microsoft Update para los archivos binarios y firmware.
     La actualización 2 usa Microsoft Update para todos los paquetes de actualizaciones. Esto debería reducir el tiempo de la aplicación de revisiones o de la realización de conmutaciones por error. 
 * **Actualizaciones de firmware** : se incluyen las siguientes actualizaciones del firmware:
   
@@ -64,7 +64,7 @@ La actualización 2 presenta las siguientes características nuevas.
 ## <a name="issues-fixed-in-update-2"></a>Problemas corregidos en la actualización 2
 En las tablas siguientes se ofrece un resumen de los problemas corregidos en la actualización 2.    
 
-| Nº | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+|  No. | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- |
 | 1 |Interfaces de red |Después de actualizar a la actualización 1, el servicio del administrador de StorSimple informó que se habían producido errores en los puertos Data2 y Data3 de un controlador. Ahora se ha corregido. |Sí |Sin  |
 | 2 |Actualizaciones |Una vez realizada la actualización 1, se generaron alertas audibles en el Portal de Azure clásico en varios dispositivos. Ahora se ha corregido. |Sí |Sin  |
@@ -73,7 +73,7 @@ En las tablas siguientes se ofrece un resumen de los problemas corregidos en la 
 ## <a name="known-issues-in-update-2"></a>Problemas conocidos de la actualización 2
 En la tabla siguiente se proporciona un resumen de los problemas conocidos de esta versión.
 
-| Nº | Característica | Problema | Comentarios / solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+|  No. | Característica | Problema | Comentarios / solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Cuórum de disco |En raras ocasiones, si se desconecta la mayoría de los discos en el revestimiento de EBOD de un dispositivo 8600 y no se produce un cuórum de disco, el grupo de almacenamiento se desconectará. Seguirá desconectado incluso si se vuelven a conectar los discos. |Necesitará reiniciar el dispositivo. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. |Sí |Sin  |
 | 2 |Identificador de controlador incorrecto |Cuando se realiza un reemplazo de controlador, el controlador 0 puede aparecer como controlador 1. Durante el reemplazo de controlador, cuando se carga la imagen desde el nodo del mismo nivel, el identificador de controlador puede mostrarse inicialmente como el identificador del controlador del mismo nivel. En raras ocasiones, este comportamiento también puede aparecer después del reinicio del sistema. |No se requiere ninguna acción del usuario. La situación se solucionará una vez completado el reemplazo del controlador. |Sí |Sin  |
@@ -83,7 +83,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 6 |Proxy web |Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo. |Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](storsimple-configure-web-proxy.md). |Sí |Sin  |
 | 7 |Proxy web |Si configura y habilita el proxy web en un dispositivo registrado, será necesario reiniciar el controlador activo en el dispositivo. | |Sí |Sin  |
 | 8 |Latencia alta de la nube y alta carga de trabajo de E/S |Cuando el dispositivo StorSimple encuentra una combinación de latencias muy altas de la nube (del orden de segundos) y alta carga de trabajo de E/S, los volúmenes del dispositivo pasan a un estado degradado y las operaciones de E/S pueden fallar con el error «el dispositivo no está listo». |Necesitará reiniciar los controladores de dispositivo de forma manual o realizar una conmutación por error del dispositivo para recuperarse de esta situación. |Sí |Sin  |
-| 9 |Azure PowerShell |Cuando se usa el cmdlet de StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para seleccionar el primer objeto y crear un nuevo objeto **VolumeContainer**, el cmdlet devuelve todos los objetos. |Escriba el cmdlet entre paréntesis, como se indica a continuación: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait**. |Sí |Sí |
+| 9 |Azure PowerShell |Cuando se usa el cmdlet de StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para seleccionar el primer objeto y crear un nuevo objeto **VolumeContainer**, el cmdlet devuelve todos los objetos. |Encapsule el cmdlet entre paréntesis, como se indica a continuación: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sí |Sí |
 | 10 |Migración |Cuando se pasan varios contenedores de volúmenes para la migración, el ETA de la copia de seguridad más reciente solo es preciso en el primer contenedor de volúmenes. Además, la migración paralela se iniciará después de que se hayan migrado las cuatro primeras copias de seguridad del primer contenedor de volúmenes. |Se recomienda migrar los contenedores de volúmenes de uno en uno. |Sí |Sin  |
 | 11 |Migración |Después de la restauración, los volúmenes no se agregan a la directiva de copia de seguridad ni al grupo de discos virtuales. |Para crear copias de seguridad, será preciso agregar estos volúmenes a una directiva de copia de seguridad. |Sí |Sí |
 | 12 |Migración |Una vez completada la migración, el dispositivo de las series 5000/7000 no debe tener acceso a los contenedores de datos migrados. |Cuando la migración finaliza y se envía, se recomienda eliminar los contenedores de datos migrados. |Sí |Sin  |

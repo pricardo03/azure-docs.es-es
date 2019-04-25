@@ -14,11 +14,11 @@ ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524380"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474538"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Una su dispositivo de trabajo a la red de su organización
 Una su dispositivo Windows 10 de trabajo a la red de su organización para poder tener acceso a recursos potencialmente restringidos.

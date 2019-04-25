@@ -12,11 +12,11 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675116"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539186"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
@@ -70,7 +70,7 @@ Una vez establecida la conexión, el cliente comienza a transmitir audio al serv
 
 La entrada de audio está en el formato de archivo de audio de forma de onda (WAVE o, más comúnmente conocido como WAV, debido a su extensión de nombre de archivo). La aplicación cliente debe transmitir un audio de PCM firmado de 16 bits de canal único muestreado a 16 kHz. El primer conjunto de bytes que transmita el cliente incluirá el encabezado WAV. Un encabezado de 44 bytes para una secuencia de PCM firmada de 16 bits firmada de canal único muestreada a 16 kHz es:
 
-|Offset|Valor|
+|Offset|Value|
 |:---|:---|
 |0 - 3|"RIFF"|
 |4 - 7|0|
@@ -166,7 +166,7 @@ Cuando una aplicación cliente ha terminado de transmitir el audio y ha recibido
 
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|Value|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:---|:---|:---|:---|:---|
 |api-version|1.0|Versión de la API que el cliente solicitó. Los valores permitidos son: `1.0`.|query   |string|
 |De|(vacío)   |Especifica el idioma de la voz de entrada. El valor es uno de los identificadores de idioma del ámbito `speech` de la respuesta de la API de idiomas.|query|string|

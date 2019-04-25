@@ -3,7 +3,7 @@ title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
 description: Especifique el elemento ContentDefinitions de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: e36eb3816d6f465552c4db740508d5e7f5fa1331
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313330"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -63,7 +63,7 @@ El elemento **ContentDefinition** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Id | SÍ | Un identificador de una definición de contenido. El valor se especifica en la sección **Id. de definición de contenido** más adelante en esta página. |
+| Id | Sí | Un identificador de una definición de contenido. El valor se especifica en la sección **Id. de definición de contenido** más adelante en esta página. |
 
 El elemento **ContentDefinition** contiene los elementos siguientes:
 
@@ -79,7 +79,7 @@ El elemento **ContentDefinition** contiene los elementos siguientes:
 
 El elemento **DataUri** se usa para especificar el identificador de página. Azure AD B2C usa el identificador de página para cargar e iniciar elementos de la interfaz de usuario y código JavaScript del lado cliente. El formato del valor es `urn:com:microsoft:aad:b2c:elements:page-name:version`.  En la tabla siguiente, se muestra una lista de los identificadores de página que puede usar.
 
-| Valor |   DESCRIPCIÓN |
+| Value |   DESCRIPCIÓN |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Muestra una página de error cuando se produce una excepción o un error. |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Muestra una lista de los proveedores de identidades que los usuarios pueden elegir durante el inicio de sesión. | 
@@ -101,8 +101,8 @@ El elemento **LocalizedResourcesReferences** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Idioma | SÍ | Una cadena que contiene un idioma admitido para la directiva según RFC 5646 (etiquetas para identificar idiomas). |
-| LocalizedResourcesReferenceId | SÍ | El identificador del elemento **LocalizedResources**. |
+| Idioma | Sí | Una cadena que contiene un idioma admitido para la directiva según RFC 5646 (etiquetas para identificar idiomas). |
+| LocalizedResourcesReferenceId | Sí | El identificador del elemento **LocalizedResources**. |
 
 En el ejemplo siguiente, se muestra una definición de contenido de registro o inicio de sesión:
 

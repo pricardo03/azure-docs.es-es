@@ -9,16 +9,16 @@ ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
-ms.date: 03/12/2018
-ms.author: ghogen
+origin.date: 03/12/2018
+ms.date: 09/03/2018
+ms.author: v-junlch
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6bbbef3f48eb55c863fdd286113297d79f9b9e02
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208510"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60296850"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Introducción a Azure Active Directory (proyectos ASP.NET MVC)
 
@@ -87,3 +87,5 @@ Para agregar los controles SignIn/SignOut a su vista, puede usar la vista parcia
 
 - [Escenarios de autenticación para Azure Active Directory](authentication-scenarios.md)
 - [Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET](quickstart-v1-aspnet-webapp.md)
+
+<!-- Update_Description: link update -->

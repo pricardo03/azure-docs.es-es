@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
 ms.openlocfilehash: 7d99f5a5d027c825fa1145328bb9576229ce39b4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416524"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services: solución de problemas de alertas
 En este artículo se brinda guías para la solución de problemas de cualquier alerta que pueda recibir en su dominio administrado.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916664"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406402"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tareas de inicio comunes para los servicios en la nube
 Este artículo proporciona algunos ejemplos de tareas comunes de inicio que puede realizar en su servicio en la nube. Puede usar las tareas de inicio para realizar operaciones antes de que se inicie un rol. Estas operaciones incluyen la instalación de un componente, el registro de componentes COM, el establecimiento de las claves del registro o el inicio de un proceso de ejecución largo. 

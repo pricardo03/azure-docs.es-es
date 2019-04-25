@@ -2,7 +2,6 @@
 title: Carga de datos para trabajos de Apache Hadoop en HDInsight
 description: Aprenda a cargar datos de trabajos de Apache Hadoop, y a acceder a ellos, con la CLI de Azure clásica, el Explorador de Azure Storage, Azure PowerShell, la línea de comandos de Hadoop o Sqoop.
 keywords: extracción, transformación y carga de datos de hadoop, obtención de datos en hadoop, carga de datos de hadoop
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
@@ -11,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.openlocfilehash: a56f2546eec12d04dcc64665e60a9874b8e991b6
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486331"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carga de datos para trabajos de Apache Hadoop en HDInsight
 

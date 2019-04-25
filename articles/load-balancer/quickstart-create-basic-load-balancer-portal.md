@@ -16,11 +16,11 @@ ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57869819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60507970"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Inicio rápido: Creación de un equilibrador de carga básico público mediante Azure Portal
 
@@ -37,11 +37,11 @@ En primer lugar, cree un equilibrador de carga básico público desde el portal.
 1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Azure Load Balancer**.
 2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
 
-    | Configuración                 | Valor                                              |
+    | Configuración                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
     | Grupos de recursos         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLB* en el cuadro de texto.|
-    | NOMBRE                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Europa Occidental**.                                        |
     | Type          | Seleccione **Público**.                                        |
     | SKU           | Seleccione **Básica**.                          |

@@ -3,7 +3,7 @@ title: Cambio a un inquilino B2C en Azure Active Directory B2C | Microsoft Docs
 description: Cómo cambiar al contexto del inquilino de Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 4/13/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 9315b3a5e1641098daf2c7dadf9fa4f09d0cb2a7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317621"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Cambio a inquilino de Azure AD B2C
 

@@ -9,11 +9,11 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 66e6b4713591f099769543a75dcddec34f3d2e2b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534324"
 ---
 # <a name="alias-server-names"></a>Alias de nombre de servidor
 
@@ -53,7 +53,7 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Bibliotecas de cliente](analysis-services-data-providers.md)   
 [Conexión con Power BI Desktop](analysis-services-connect-pbi.md)

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661707"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516760"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Administración de consumo y carga de recursos en Service Fabric con métricas
 *Métricas* son los recursos por los que se interesan sus servicios y que proporcionan los nodos del clúster. Una métrica es cualquier cosa que debe administrar para mejorar o supervisar el rendimiento de los servicios. Por ejemplo, podría observar el consumo de memoria para saber si el servicio está sobrecargado. Otro uso es averiguar si el servicio se podría mover a cualquier otro lugar en el que la memoria esté menos restringida, para poder obtener un mejor rendimiento.

@@ -2,17 +2,18 @@
 title: 'Conceptos: almacenamiento en Azure Kubernetes Service (AKS)'
 description: Obtenga información sobre el almacenamiento en Azure Kubernetes Service (AKS), incluidos los volúmenes, los volúmenes persistentes, las clases de almacenamiento y las notificaciones
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.author: iainfou
+origin.date: 03/01/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466824"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)
 

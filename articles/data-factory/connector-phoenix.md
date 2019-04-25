@@ -3,21 +3,22 @@ title: Copia de datos de Phoenix con Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos de Phoenix en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: jingwang
+origin.date: 12/07/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: 012057c7d01924ab1998a010b6ea0c7d83651a4d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405930"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar datos de Phoenix con Azure Data Factory 
 
@@ -41,13 +42,13 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Phoenix:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Phoenix** | SÍ |
-| host | Dirección IP o nombre de host del servidor de Phoenix. (es, decir 192.168.222.160)  | SÍ |
+| type | La propiedad type debe establecerse en: **Phoenix** | Sí |
+| host | Dirección IP o nombre de host del servidor de Phoenix. (es, decir 192.168.222.160)  | Sí |
 | puerto | Puerto TCP que el servidor de Phoenix utiliza para escuchar las conexiones del cliente. El valor predeterminado es 8765. Si se conecta a Azure HDInsights, especifique el puerto 443. | Sin  |
 | httpPath | Dirección URL parcial correspondiente al servidor de Phoenix. (es decir, /gateway/sandbox/phoenix/version). Especifique `/hbasephoenix0` si se usa el clúster de HDInsights.  | Sin  |
-| authenticationType | Mecanismo de autenticación utilizado para conectarse al servidor de Phoenix. <br/>Los valores permitidos son: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | SÍ |
-| nombre de usuario | Nombre de usuario que se usa para conectarse al servidor de Phoenix.  | Sin  |
-| contraseña | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
+| authenticationType | Mecanismo de autenticación utilizado para conectarse al servidor de Phoenix. <br/>Los valores permitidos son: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sí |
+| username | Nombre de usuario que se usa para conectarse al servidor de Phoenix.  | Sin  |
+| password | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin  |
 | trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de SSL. Esta propiedad solo puede establecerse al utilizar SSL en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | Sin  |
 | useSystemTrustStore | Especifica si se utiliza un certificado de CA del almacén de confianza del sistema o de un archivo PEM especificado. El valor predeterminado es false.  | Sin  |
@@ -66,7 +67,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Phoenix:
     "properties": {
         "type": "Phoenix",
         "typeProperties": {
-            "host" : "<cluster>.azurehdinsight.net",
+            "host" : "<cluster>.azurehdinsight.cn",
             "port" : "443",
             "httpPath" : "/hbasephoenix0",
             "authenticationType" : "WindowsAzureHDInsightService",
@@ -88,7 +89,7 @@ Para copiar datos de Phoenix, establezca la propiedad type del conjunto de datos
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **PhoenixObject** | SÍ |
+| type | La propiedad type del conjunto de datos debe establecerse en: **PhoenixObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -117,7 +118,7 @@ Para copiar datos de Phoenix, establezca el tipo de origen de la actividad de co
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **PhoenixSource** | SÍ |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **PhoenixSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

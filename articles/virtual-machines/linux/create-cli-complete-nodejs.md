@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
 ms.openlocfilehash: 04c1d69fc46b9a918038e93c4fc56681f225d365
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006231"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328721"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Creación de un entorno de Linux completo con la CLI clásica de Azure
 En este artículo, vamos a crear una red sencilla con un equilibrador de carga y un par de máquinas virtuales útiles para el desarrollo y la computación simple. Lo vamos a guiar por el proceso comando a comando, hasta que tenga funcionando dos máquinas virtuales Linux seguras a las que se pueda conectar desde cualquier parte de Internet. Luego, podrá pasar a redes y entornos más complejos.

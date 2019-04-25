@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
 ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60319332"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alerta y supervisión de factorías de datos mediante Azure Monitor
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
@@ -110,9 +110,9 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | workspaceId | Tipo complejo | Matriz de intervalos de agregación de métricas y sus directivas de retención. Actualmente, esta propiedad está vacía. |
 |Métricas| Valores de parámetros de la ejecución de canalización que se pasan a la canalización invocada| Un objeto JSON que asigna nombres de parámetro a los valores de argumento |
 | logs| Tipo complejo| Nombre de una categoría de registro de diagnóstico para un tipo de recurso. Para obtener la lista de categorías de registro de diagnóstico para un recurso, realice primero una operación de configuración de diagnóstico GET. |
-| categoría| string| Matriz de las categorías de registro y sus directivas de retención |
+| category| string| Matriz de las categorías de registro y sus directivas de retención |
 | timeGrain | string | La granularidad de las métricas que se capturan en formato de duración ISO 8601. Debe ser PT1M (un minuto).|
-| Enabled| boolean | Especifica si la colección de esa categoría de métrica o registro está habilitada para este recurso.|
+| Enabled| Boolean | Especifica si la colección de esa categoría de métrica o registro está habilitada para este recurso.|
 | retentionPolicy| Tipo complejo| Describe la directiva de retención para una categoría de métrica o registro. Se utiliza solamente para la opción de cuenta de almacenamiento.|
 | days| Int| Número de días para retener las métricas o registros. Con el valor cero, se retienen los registros indefinidamente. Se utiliza solamente para la opción de cuenta de almacenamiento. |
 
@@ -277,11 +277,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nivel |string | Nivel de los registros de diagnóstico. El nivel 4 siempre es el caso de los registros de ejecución de actividad. | `4`  |
 | correlationId |string | Identificador único para realizar el seguimiento de una solicitud determinada completa | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| Twitter en tiempo | string | Hora del evento de intervalo de tiempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | string | Hora del evento de intervalo de tiempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| string| Identificador de la ejecución de la actividad | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| string| Identificador de la ejecución de canalización | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|ResourceId| string | Identificador de recurso asociado para el recurso de la factoría de datos | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|categoría| string | Categoría de los registros de diagnóstico. Establezca esta propiedad en "ActivityRuns". | `ActivityRuns` |
+|resourceId| string | Identificador de recurso asociado para el recurso de la factoría de datos | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| string | Categoría de los registros de diagnóstico. Establezca esta propiedad en "ActivityRuns". | `ActivityRuns` |
 |level| string | Nivel de los registros de diagnóstico. Establezca esta propiedad en "Informational". | `Informational` |
 |operationName| string |Nombre de la actividad con estado. Si el estado es el latido de inicio, es `MyActivity -`. Si el estado es el latido final, es `MyActivity - Succeeded` con estado final | `MyActivity - Succeeded` |
 |pipelineName| string | Nombre de la canalización | `MyPipeline` |
@@ -323,10 +323,10 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nivel |string | Nivel de los registros de diagnóstico. El nivel 4 es el caso de los registros de ejecución de actividad. | `4`  |
 | correlationId |string | Identificador único para realizar el seguimiento de una solicitud determinada completa | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| Twitter en tiempo | string | Hora del evento de intervalo de tiempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | string | Hora del evento de intervalo de tiempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| string| Identificador de la ejecución de canalización | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|ResourceId| string | Identificador de recurso asociado para el recurso de la factoría de datos | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|categoría| string | Categoría de los registros de diagnóstico. Establezca esta propiedad en "PipelineRuns". | `PipelineRuns` |
+|resourceId| string | Identificador de recurso asociado para el recurso de la factoría de datos | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| string | Categoría de los registros de diagnóstico. Establezca esta propiedad en "PipelineRuns". | `PipelineRuns` |
 |level| string | Nivel de los registros de diagnóstico. Establezca esta propiedad en "Informational". | `Informational` |
 |operationName| string |Nombre de la canalización con estado. "Pipeline - Succeeded" (Canalización - Correcto) con estado final cuando se ha completado la ejecución de canalización| `MyPipeline - Succeeded` |
 |pipelineName| string | Nombre de la canalización | `MyPipeline` |
@@ -367,10 +367,10 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nivel |string | Nivel de los registros de diagnóstico. Se establece en el nivel 4 para registros de ejecución de actividad. | `4`  |
 | correlationId |string | Identificador único para realizar el seguimiento de una solicitud determinada completa | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| Twitter en tiempo | string | Hora del evento de intervalo de tiempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | string | Hora del evento de intervalo de tiempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| string| Identificador de la ejecución del desencadenador | `08587023010602533858661257311` |
-|ResourceId| string | Identificador de recurso asociado para el recurso de la factoría de datos | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|categoría| string | Categoría de los registros de diagnóstico. Establezca esta propiedad en "PipelineRuns". | `PipelineRuns` |
+|resourceId| string | Identificador de recurso asociado para el recurso de la factoría de datos | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|category| string | Categoría de los registros de diagnóstico. Establezca esta propiedad en "PipelineRuns". | `PipelineRuns` |
 |level| string | Nivel de los registros de diagnóstico. Establezca esta propiedad en "Informational". | `Informational` |
 |operationName| string |Nombre del desencadenador con estado final si activa correctamente. "MyTrigger - Succeeded" (MyTrigger - Correcto) si el latido se realizó correctamente.| `MyTrigger - Succeeded` |
 |triggerName| string | Nombre del desencadenador | `MyTrigger` |

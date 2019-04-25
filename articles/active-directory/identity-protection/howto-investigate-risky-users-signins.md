@@ -18,11 +18,11 @@ ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60296051"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Instrucciones: Investigación sobre usuarios e inicios de sesión de riesgo 
 
@@ -46,7 +46,7 @@ El primer punto de entrada de este informe es la sección **Investigar** de la p
 
 El informe de usuarios de riesgo tiene una vista predeterminada que muestra lo siguiente:
 
-- NOMBRE
+- Name
 
 - Estado de riesgo
 
@@ -105,7 +105,7 @@ Además, puede:
 
 Para restringir los datos del informe a un nivel que se adapte a sus necesidades, puede filtrar los datos de los usuarios de riesgo con los siguientes campos predeterminados:
 
-- NOMBRE
+- Name
 
 - Nombre de usuario
 

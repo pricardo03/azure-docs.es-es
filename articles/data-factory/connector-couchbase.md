@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 27f327493fbf3d7856b9488ecd0dd2509976ccfc
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657152"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533994"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copiar datos de Couchbase con Azure Data Factory (versión preliminar)
 
@@ -44,7 +44,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Couchbas
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Couchbase** | Sí |
+| type | La propiedad type debe establecerse en: **Couchbase** | Sí |
 | connectionString | Cadena de conexión de ODBC para conectarse a Couchbase. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la cadena de credenciales en Azure Key Vault y extraer la configuración `credString` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
@@ -106,7 +106,7 @@ Para copiar datos de Couchbase, establezca la propiedad type del conjunto de dat
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **CouchbaseTable** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **CouchbaseTable** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 
@@ -136,7 +136,7 @@ Para copiar datos de Couchbase, establezca el tipo de origen de la actividad de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **CouchbaseSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **CouchbaseSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

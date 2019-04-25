@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 937aa5d5874ff2915bfb51d289bfb1aac44a0530
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60300536"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Protocolos de autenticación de Azure Active Directory
 Azure Active Directory (Azure AD) admite varios de los protocolos de autenticación y autorización utilizados más comúnmente. En los temas de esta sección se describen los protocolos admitidos y su implementación en Azure AD. En los temas se incluye una revisión de los tipos de notificación compatibles, una introducción al uso de los metadatos de federación, documentación de referencia detallada sobre los protocolos OAuth 2.0. y SAML 2.0, y una sección de solución de problemas.
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD) admite varios de los protocolos de autenticaci
 * [Llamadas de servicio a servicio con el flujo En nombre de](v1-oauth2-on-behalf-of-flow.md): aprenda a usar el flujo "En nombre de" de OAuth 2.0 en las llamadas de servicio a servicio.
 * [Referencia del protocolo SAML](active-directory-saml-protocol-reference.md) : obtenga información sobre los perfiles SAML de inicio de sesión único y de cierre de sesión único de Azure AD.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Guía del desarrollador de Azure Active Directory](v1-overview.md)
 
 [Ejemplos de código de Azure Active Directory](sample-v1-code.md)

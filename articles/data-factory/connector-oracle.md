@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405943"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copia de datos con Oracle como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -283,7 +283,7 @@ Al copiar datos con Oracle como origen o destino, se usan las siguientes asignac
 | BLOB |Byte[]<br/>(solo se admite en Oracle 10g y versiones posteriores) |
 | CHAR |string |
 | CLOB |string |
-| DATE |DateTime |
+| DATE |Datetime |
 | FLOAT |Decimal, String (si la precisión > 28) |
 | INTEGER |Decimal, String (si la precisión > 28) |
 | LONG |string |
@@ -294,7 +294,7 @@ Al copiar datos con Oracle como origen o destino, se usan las siguientes asignac
 | NVARCHAR2 |string |
 | RAW |Byte[] |
 | ROWID |string |
-| TIMESTAMP |DateTime |
+| TIMESTAMP |Datetime |
 | TIMESTAMP WITH LOCAL TIME ZONE |string |
 | TIMESTAMP WITH TIME ZONE |string |
 | UNSIGNED INTEGER |NUMBER |

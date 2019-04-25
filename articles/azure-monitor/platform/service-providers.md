@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756562"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452660"
 ---
 # <a name="azure-monitor-for-service-providers"></a>Azure Monitor para proveedores de servicios
 Áreas de trabajo de log Analytics en Azure Monitor pueden ayudar a los proveedores de servicios administrados (MSP), las grandes empresas, proveedores de software independientes (ISV) y proveedores de servicio de hospedaje administrar y supervisar los servidores de infraestructura de nube o local del cliente. 

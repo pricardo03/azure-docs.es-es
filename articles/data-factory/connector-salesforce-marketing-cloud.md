@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: jingwang
 ms.openlocfilehash: de472cd25997b0c48f258927b2617c2399b2bb21
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405450"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Copiar datos desde Salesforce Marketing Cloud con Azure Data Factory (versión preliminar)
 
@@ -47,9 +47,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado Salesforce 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **SalesforceMarketingCloud** | SÍ |
-| clientId | El identificador de cliente asociado a la aplicación Salesforce Marketing Cloud.  | SÍ |
-| clientSecret | El secreto de cliente asociado a la aplicación Salesforce Marketing Cloud. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia de ADF incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | SÍ |
+| type | La propiedad type debe establecerse en: **SalesforceMarketingCloud** | Sí |
+| clientId | El identificador de cliente asociado a la aplicación Salesforce Marketing Cloud.  | Sí |
+| clientSecret | El secreto de cliente asociado a la aplicación Salesforce Marketing Cloud. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia de ADF incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
@@ -84,7 +84,7 @@ Para copiar datos desde y hacia Salesforce Marketing Cloud, establezca la propie
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **SalesforceMarketingCloudObject** | SÍ |
+| type | La propiedad type del conjunto de datos debe establecerse en: **SalesforceMarketingCloudObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -113,7 +113,7 @@ Para copiar datos desde y hacia Salesforce Marketing Cloud, establezca el tipo d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SalesforceMarketingCloudSource** | SÍ |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **SalesforceMarketingCloudSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

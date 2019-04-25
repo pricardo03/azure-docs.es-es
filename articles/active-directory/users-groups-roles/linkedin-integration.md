@@ -14,11 +14,11 @@ ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e07c53192ea2c8b792256af944c81c9c909dc55
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368133"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469683"
 ---
 # <a name="consent-to-linkedin-account-connections-for-an-azure-active-directory-organization"></a>Dar su consentimiento a las conexiones de cuentas de LinkedIn para una organización de Azure Active Directory
 

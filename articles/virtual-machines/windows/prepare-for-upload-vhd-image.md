@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
 ms.openlocfilehash: 0988902e0a2154f2935a01ddcfb6a460be693df3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60460060"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 Antes de cargar una máquina virtual Windows desde un entorno local en Microsoft Azure, debe preparar el disco duro virtual (VHD o VHDX). Azure admite **solo máquinas virtuales de generación 1** que estén en el formato de archivo VHD y tengan un disco de tamaño fijo. El tamaño máximo permitido para los discos duros virtuales es de 1023 GB. Puede convertir una máquina virtual de generación 1 del sistema de archivos VHDX a VHD y de un disco de expansión dinámica a uno de tamaño fijo. Sin embargo, no puede cambiar la generación de una máquina virtual. Para obtener más información, consulte [¿Debería crear una máquina virtual de generación 1 o 2 en Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
@@ -198,7 +198,7 @@ Asegúrese de que la siguiente configuración está establecida correctamente pa
 
 9. Si la máquina virtual va a formar parte de un dominio, compruebe toda la configuración siguiente para asegurarse de que la configuración anterior no se revierte. Las directivas que deben comprobarse son los siguientes:
     
-    | Objetivo                                     | Directiva                                                                                                                                                       | Valor                                                                                    |
+    | Objetivo                                     | Directiva                                                                                                                                                       | Value                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP está habilitado                           | Configuración del equipo\Directivas\Configuración de Windows\Plantillas administrativas\ Componentes\Servicios de Escritorio remoto\Host de sesión de Escritorio remoto\Conexiones         | Permitir a los usuarios conectarse de forma remota desde el Escritorio remoto                                  |
     | Directiva de grupo de NLA                         | Configuración\Plantillas administrativas\Componentes\Servicios de Escritorio remoto\Host de sesión de Escritorio remoto\Seguridad                                                    | Exigir la autenticación de usuarios para conexiones remotas mediante Autenticación a nivel de red |
@@ -232,7 +232,7 @@ Asegúrese de que la siguiente configuración está establecida correctamente pa
    ``` 
 5. Si la máquina virtual va a formar parte de un dominio, compruebe la configuración siguiente para asegurarse de que la configuración anterior no se revierte. Las directivas de AD que deben comprobarse son las siguientes:
 
-    | Objetivo                                 | Directiva                                                                                                                                                  | Valor                                   |
+    | Objetivo                                 | Directiva                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | Habilitar los perfiles de Firewall de Windows | Configuración del equipo\Directivas\Configuración de Windows\Plantillas administrativas\Red\Conexión de red\Firewall de Windows\Perfil de dominio\Firewall de Window   | Proteger todas las conexiones de red         |
     | Habilitar RDP                           | Configuración del equipo\Directivas\Configuración de Windows\Plantillas administrativas\Red\Conexión de red\Firewall de Windows\Perfil de dominio\Firewall de Window   | Permitir excepciones de Escritorio remoto entrantes |

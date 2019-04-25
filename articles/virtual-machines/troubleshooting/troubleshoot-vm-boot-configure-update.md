@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: c6d9f46582e1c618de6bfccea9328fb35aea7875
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c3592529d20680c6920e569887effee4ffe38344
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443864"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>El inicio de la máquina virtual está detenido en "Preparando Windows. No apague el equipo"en Azure
 
 Este artículo le ayudará a solucionar el problema cuando la máquina virtual (VM) está bloqueada en la fase "Preparando Windows. No apague el equipo" durante el inicio.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="symptoms"></a>Síntomas
 

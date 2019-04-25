@@ -2,17 +2,18 @@
 title: 'Procedimientos recomendados de operador: características avanzadas del programador en Azure Kubernetes Service (AKS)'
 description: Conozca las prácticas recomendadas de operador de clúster para usar características avanzadas de programador como taints y tolerations, los selectores de nodo y la afinidad o falta de afinidad entre pods en Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
-ms.author: iainfou
+origin.date: 11/26/2018
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175988"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60464975"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 
@@ -52,7 +53,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
   resources:
     requests:
       cpu: 0.5
@@ -95,7 +96,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -125,7 +126,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5

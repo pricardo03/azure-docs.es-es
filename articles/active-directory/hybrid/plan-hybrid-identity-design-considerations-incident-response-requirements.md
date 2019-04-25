@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 32efe76ac2fce4c4541287e96c3a495f3eb9031b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455812"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de respuesta a incidentes para su solución de identidad híbrida
 La mayoría de las organizaciones grandes y medianas contarán probablemente con una [respuesta a los incidentes de seguridad](https://technet.microsoft.com/library/cc700825.aspx) para ayudar al responsable de TI a emprender acciones en función del nivel de incidente. El sistema de administración de identidades es un componente importante en el proceso de respuesta a incidentes, ya que se puede usar para ayudar a identificar quién ha realizado una acción específica en el destino. La solución de identidad híbrida debe ser capaz de proporcionar funcionalidades de supervisión e informes que TI puede aprovechar para realizar acciones con el fin de identificar y mitigar las posibles amenazas. En un plan de respuesta a incidentes típico tendrá las siguientes fases:
@@ -67,6 +67,6 @@ Durante la fase de control de daños y reducción de riesgos, es importante redu
 ## <a name="next-steps"></a>Pasos siguientes
 [Definición de la estrategia de protección de datos](plan-hybrid-identity-design-considerations-data-protection-strategy.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
 

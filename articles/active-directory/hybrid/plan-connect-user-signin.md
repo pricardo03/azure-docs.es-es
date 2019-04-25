@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60296454"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opciones para el inicio de sesión de los usuarios en Azure AD Connect
 Azure Active Directory (Azure AD) Connect permite que los usuarios inicien sesión en los recursos en la nube y locales con las mismas contraseñas. En este artículo se describen los conceptos clave para cada modelo de identidad para ayudarlo a elegir la identidad que desea utilizar con el fin de iniciar sesión en Azure AD.

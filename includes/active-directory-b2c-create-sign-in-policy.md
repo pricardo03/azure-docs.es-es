@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 0ab34d6234db9c13ffe82ccd0e8580217085f631
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "58115629"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456039"
 ---
 Si solo quiere habilitar el inicio de sesión en la aplicación, deberá usar un flujo de usuario de **inicio de sesión**. Este flujo de usuario describe las experiencias de los consumidores durante el inicio de sesión y el contenido de los tokens que recibirá la aplicación al realizarse el inicio de sesión correctamente.
 
@@ -39,3 +40,4 @@ Haga clic en **Ejecutar flujo de usuario**. Se abrirá una nueva pestaña del ex
 > [!NOTE]
 > Tiene que transcurrir hasta un minuto para que se cree el flujo de usuario y las actualizaciones surtan efecto.
 >
+

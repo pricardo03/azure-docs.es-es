@@ -16,11 +16,11 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419227"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montaje de un volumen de disco confiable de Service Fabric en una aplicación de Service Fabric Mesh 
 El método habitual para conservar el estado con aplicaciones de contenedor es usar un almacenamiento remoto como Azure File Storage o una base de datos como Azure Cosmos DB. Esto supone una importante latencia de red de lectura y escritura en el almacenamiento remoto.

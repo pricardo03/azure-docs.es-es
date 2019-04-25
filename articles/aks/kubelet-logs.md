@@ -2,17 +2,18 @@
 title: Visualización de registros de kubelet desde Azure Kubernetes Service (AKS)
 description: Obtenga información sobre cómo ver información de solución de problemas en los registros de kubelet desde nodos de Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 03/05/2019
-ms.author: iainfou
+origin.date: 03/05/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: b381145fef7e6fb399fac3387ab01fdc9a51b154
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534027"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465026"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obtención de registros de kubelet desde nodos de clúster de Azure Kubernetes Service (AKS)
 

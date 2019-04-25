@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: 5508a1dbd105fc47a4ed7b3484f55532904956ff
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407138"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante la CLI de Azure
 

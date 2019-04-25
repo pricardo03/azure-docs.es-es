@@ -3,7 +3,7 @@ title: 'Tutorial: Creación de flujos de usuario en Azure Active Directory B2C |
 description: Obtenga información acerca de cómo crear flujos de usuario para las aplicaciones en Azure Active Directory B2C con Azure Portal.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
@@ -11,11 +11,11 @@ ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b76d56b17973c04992a8855917c814ced649bd0f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418847"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario en Azure Active Directory B2C
 

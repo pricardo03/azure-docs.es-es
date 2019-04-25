@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo
 ms.openlocfilehash: 193a24aebff8f7de60752e53bbc1b18dd5c54f33
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482205"
 ---
 # <a name="remove-a-service-fabric-node-type"></a>Quitar un tipo de nodo de Service Fabric
 En este artículo, se explica cómo escalar un clúster de Azure Service Fabric quitando un tipo de nodo existente de un clúster. Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado. Después de crear un clúster de Service Fabric, puede escalarlo horizontalmente quitando un tipo de nodo (conjunto de escalado de máquinas virtuales) junto con todos sus nodos.  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.

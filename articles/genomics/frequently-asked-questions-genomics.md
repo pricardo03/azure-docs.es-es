@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Genomics: preguntas más frecuentes | Microsoft Docs'
+title: 'Microsoft Genomics: Preguntas frecuentes: preguntas más frecuentes | Microsoft Docs'
 titleSuffix: Azure
 description: Aquí encontrará respuestas a las preguntas que hicieron los clientes sobre Microsoft Genomics.
 services: genomics
@@ -9,14 +9,14 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 56256a6c10ecb0d06dfd6194668b9c32c5540c0e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: HT
+ms.openlocfilehash: 7198e64a11a3aa23643cc2bfb5ecff884c6a1b48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683907"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445556"
 ---
-# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: preguntas frecuentes
+# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Preguntas frecuentes
 
 En este artículo se enumeran las principales consultas que pueden surgir en relación con Microsoft Genomics. Para más información acerca del servicio de Microsoft Genomics, consulte [¿Qué es Microsoft Genomics?](overview-what-is-genomics.md). Para más información acerca de cómo solucionar problemas, consulte el documento [Troubleshooting guide](troubleshooting-guide-genomics.md) (Guía para la solución de problemas). 
 
@@ -73,6 +73,7 @@ La clave de cuenta de almacenamiento se usa para crear tokens de acceso a corto 
 ## <a name="what-genome-references-can-i-use"></a>¿Qué referencias genómicas puedo usar?
 
 Se admiten estas referencias:
+
  |Referencia              | Valor de `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
@@ -84,19 +85,19 @@ Se admiten estas referencias:
 
 msgen comprende los archivos de configuración en el formato siguiente:
 * Todas las opciones se proporcionan como pares clave-valor con valores separados de las claves mediante dos puntos.
-Se ignora el espacio en blanco.
+  Se ignora el espacio en blanco.
 * Las líneas que empiezan con `#` se ignoran.
 * Cualquier argumento de la línea de comandos que tenga un formato largo se puede convertir en una clave; para ello, hay que quitar los guiones principales y reemplazar los que están entre las palabras con guiones bajos. Estos son algunos ejemplos de conversión:
 
- |Argumento de línea de comandos            | Línea del archivo de configuración |
- |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:KEY*              |      
- |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
+  |Argumento de línea de comandos            | Línea del archivo de configuración |
+  |:-------------                   |:-------------                 |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-k/--access-key KEY`            | *access_key:KEY*              |      
+  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Use los siguientes recursos para empezar a trabajar con Microsoft Genomics:
-- Ejecutar el primer flujo de trabajo mediante el servicio de Microsoft Genomics. [Run a workflow through the Microsoft Genomics service ](quickstart-run-genomics-workflow-portal.md) (Ejecutar un flujo de trabajo mediante el servicio Microsoft Genomics)
+- Ejecutar el primer flujo de trabajo mediante el servicio de Microsoft Genomics. [Ejecutar un flujo de trabajo a través del servicio Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
 - Enviar sus propios datos para que el servicio de Microsoft Genomics los procese: [FASTQ emparejados](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [varios FASTQ o BAM](quickstart-input-multiple.md) 
 

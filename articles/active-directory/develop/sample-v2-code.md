@@ -19,11 +19,11 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9a04dfd7009028197bee2602394a34803b1f8c6
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565876"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298501"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Ejemplos de código de plataforma de identidad de Microsoft (punto de conexión v2.0)
 

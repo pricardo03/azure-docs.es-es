@@ -16,11 +16,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7460c3a7d957634d14186d313994c65d89fa4a32
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217877"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60468188"
 ---
 # <a name="administrator-roles-for-microsoft-365-workloads"></a>Roles de administrador para cargas de trabajo de Microsoft 365
 
@@ -40,7 +40,7 @@ Puntuación segura | [Roles de administrador de Azure AD](directory-assign-admin
 Administrador de cumplimiento | [Roles del Administrador de cumplimiento](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud#permissions-and-role-based-access-control) | No disponible
 Azure Information Protection | [Roles de administrador de Azure AD](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Obtener asignaciones de roles](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Microsoft Cloud App Security | [Control de acceso basado en rol](https://docs.microsoft.com/cloud-app-security/manage-admins) | [Referencia de API](https://docs.microsoft.com/cloud-app-security/api-tokens) 
-Azure Advanced Threat Protection | [Grupos de roles de ATP de Azure](https://docs.microsoft.com/azure-advanced-threat-protection/atp-role-groups) | No disponible
+Azure Advanced Threat Protection | [Grupos de roles de Azure ATP](https://docs.microsoft.com/azure-advanced-threat-protection/atp-role-groups) | No disponible
 Advanced Threat Protection de Windows Defender | [Control de acceso basado en roles de ATP de Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/rbac-windows-defender-advanced-threat-protection) | No disponible
 Privileged Identity Management | [Roles de administrador de Azure AD](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Obtener asignaciones de roles](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Intune | [Control de acceso basado en roles de Intune](https://docs.microsoft.com/intune/role-based-access-control) | [Graph API](https://docs.microsoft.com/graph/api/resources/intune-rbac-conceptual?view=graph-rest-beta)<br>[Obtener asignaciones de roles](https://docs.microsoft.com/graph/api/intune-rbac-roledefinition-list?view=graph-rest-beta)

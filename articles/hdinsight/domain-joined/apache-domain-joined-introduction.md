@@ -1,7 +1,6 @@
 ---
 title: Introducción a la seguridad de Apache Hadoop con Enterprise Security Package
 description: Obtenga información sobre el modo en que Enterprise Security Package es compatible con los cuatro pilares de seguridad de la empresa.
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.openlocfilehash: 8a568302b2fd8ed0140c2ad084495d41cc09ed8f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994595"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536868"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Introducción a la seguridad de Apache Hadoop con Enterprise Security Package
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
 ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60535327"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 
@@ -65,8 +65,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 | deploymentType | El tipo de implementación de la instancia de Dynamics. Debe ser **"Online"** para Dynamics Online. | Sí |
 | serviceUri | Dirección URL de la instancia de Dynamics, por ejemplo, `https://adfdynamics.crm.dynamics.com`. | Sí |
 | authenticationType | Tipo de autenticación para conectarse a un servidor de Dynamics. Especifique **"Office365"** para Dynamics Online. | Sí |
-| nombre de usuario | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
-| contraseña | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| username | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
+| password | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | "No" para el origen, "Sí" para el receptor si el servicio vinculado al origen no tiene ningún entorno de ejecución de integración. |
 
 >[!IMPORTANT]
@@ -113,8 +113,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 | puerto | El puerto del servidor local de Dynamics. | No (el valor predeterminado es 443) |
 | organizationName | El nombre de la organización de la instancia de Dynamics. | Sí |
 | authenticationType | Tipo de autenticación para conectarse al servidor de Dynamics. Especifique **"Ifd"** para Dynamics local con IFD. | Sí |
-| nombre de usuario | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
-| contraseña | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| username | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
+| password | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | No para el origen, sí para el receptor |
 
 >[!IMPORTANT]
@@ -329,7 +329,7 @@ Configure el tipo de datos de Data Factory correspondiente en la estructura del 
 | Tipo de datos de Dynamics | Tipo de datos provisionales de Data Factory | Se admite como origen | Se admite como receptor |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | boolean | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
@@ -337,7 +337,7 @@ Configure el tipo de datos de Data Factory correspondiente en la estructura del 
 | AttributeType.EntityName | string | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (con el destino único asociado) |
-| AttributeType.ManagedProperty | boolean | ✓ | |
+| AttributeType.ManagedProperty | Boolean | ✓ | |
 | AttributeType.Memo | string | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |

@@ -5,24 +5,24 @@ services: active-directory
 keywords: AADSTS70002, AADSTS50054, Procedimiento para restablecer la contraseña de la cuenta de servicio del conector de Azure AD Connect Sync
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/12/2017
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.topic: article
+origin.date: 07/12/2017
+ms.date: 11/08/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: f88318c87e29567b40b5eacf10f3b6f259adee8b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351023"
 ---
 # <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Sincronización de Azure AD Connect: Administración de la cuenta de servicio de Azure AD
 Se supone que la cuenta de servicio utilizada por el conector de Azure AD está libre de servicio. Si necesita restablecer sus credenciales, este tema le interesa. Por ejemplo, si un administrador global ha restablecido la contraseña por error en la cuenta de servicio mediante PowerShell.
@@ -53,6 +53,7 @@ AADSTS70002: error al validar las credenciales. AADSTS50054: Se utilizó una con
 ## <a name="next-steps"></a>Pasos siguientes
 **Temas de introducción**
 
-* [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](how-to-connect-sync-whatis.md)
-* [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md)
+- [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](how-to-connect-sync-whatis.md)
+- [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md)
+
 

@@ -1,7 +1,6 @@
 ---
 title: Uso de flujos de trabajo de Oozie de Hadoop en Azure HDInsight basado en Linux
 description: Use Oozie de Hadoop en HDInsight basado en Linux. Aprenda a definir un flujo de trabajo de Oozie y enviar un trabajo de Oozie.
-services: hdinsight
 ms.service: hdinsight
 ms.custom: hdinsightactive
 author: omidm1
@@ -10,11 +9,11 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: daee7ddd0a09d43132bbcf0f4553601846d31433
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486793"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Uso de Apache Oozie con Apache Hadoop para definir y ejecutar un flujo de trabajo en Azure HDInsight basado en Linux
 

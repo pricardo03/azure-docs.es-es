@@ -9,11 +9,11 @@ ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 2307fa985c88608d80400c8951c47b9f20caa1dc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799310"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515527"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
 Cuando se [crea una alerta de registro en Azure](alerts-log.md), tiene la opción de [configurarla mediante grupos de acciones](action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.

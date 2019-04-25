@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 17c0213d63879687e9c6d5f8dca06b9113c44af8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "58114790"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456907"
 ---
 Si solo quiere habilitar el registro en su aplicación, use un flujo de usuario de **registro**. Este flujo de usuario describe las experiencias de los clientes durante el registro y el contenido de los tokens que recibe la aplicación al completarse la operación correctamente.
 
@@ -44,3 +45,4 @@ Haga clic en **Ejecutar flujo de usuario**. Se abrirá una nueva pestaña del ex
 > [!NOTE]
 > Tiene que transcurrir hasta un minuto para que se cree el flujo de usuario y las actualizaciones surtan efecto.
 >
+

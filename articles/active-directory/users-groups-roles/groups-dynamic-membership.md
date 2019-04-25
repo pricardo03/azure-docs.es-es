@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471649"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -40,7 +40,7 @@ Una regla de pertenencia que rellena automáticamente un grupo con usuarios o di
 
 * Propiedad
 * Operador
-* Valor
+* Value
 
 El orden de los elementos de una expresión es importante para evitar errores de sintaxis.
 
@@ -60,7 +60,7 @@ Los paréntesis son opcionales para una expresión única. La longitud total del
 
 Hay tres tipos de propiedades que se pueden usar para construir una regla de pertenencia.
 
-* boolean
+* Boolean
 * string
 * Colección de cadenas
 

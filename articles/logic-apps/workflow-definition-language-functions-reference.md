@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
 ms.openlocfilehash: d7ea62c51065cbe85a905b4ff78743fdc11c1e10
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618216"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502281"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Referencia de funciones de lenguaje de definición de flujo de trabajo en Azure Logic Apps y Microsoft Flow
 
@@ -641,14 +641,14 @@ addProperty(<object>, '<property>', <value>)
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*objeto*> | Sí | Objeto | Objeto JSON al que desea agregar una propiedad |
+| <*objeto*> | Sí | Object | Objeto JSON al que desea agregar una propiedad |
 | <*propiedad*> | Sí | string | Nombre de la propiedad que se va a agregar |
 | <*valor*> | Sí | Cualquiera | Valor de la propiedad |
 |||||
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*objeto-actualizado*> | Objeto | Objeto JSON actualizado con la propiedad especificada |
+| <*objeto-actualizado*> | Object | Objeto JSON actualizado con la propiedad especificada |
 ||||
 
 *Ejemplo*
@@ -759,12 +759,12 @@ and(<expression1>, <expression2>, ...)
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*expresión1*>, <*expresión2*>, ... | Sí | boolean | Expresiones que se van a comprobar |
+| <*expresión1*>, <*expresión2*>, ... | Sí | Boolean | Expresiones que se van a comprobar |
 |||||
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | -----| ----------- |
-| true o false | boolean | Devuelve true si todas las expresiones son verdaderas. Devuelve false cuando al menos una expresión es falsa. |
+| true o false | Boolean | Devuelve true si todas las expresiones son verdaderas. Devuelve false cuando al menos una expresión es falsa. |
 ||||
 
 *Ejemplo 1*
@@ -1020,7 +1020,7 @@ bool(<value>)
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Versión booleana del valor especificado |
+| true o false | Boolean | Versión booleana del valor especificado |
 ||||
 
 *Ejemplo*
@@ -1131,7 +1131,7 @@ En concreto, esta función funciona en estos tipos de colección:
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Devuelve true cuando se encuentra el elemento. Devuelve false si no se encuentra. |
+| true o false | Boolean | Devuelve true cuando se encuentra el elemento. Devuelve false si no se encuentra. |
 ||||
 
 *Ejemplo 1*
@@ -1678,7 +1678,7 @@ empty([<collection>])
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Devuelve true cuando la colección está vacía. Devuelve false si no está vacía. |
+| true o false | Boolean | Devuelve true cuando la colección está vacía. Devuelve false si no está vacía. |
 ||||
 
 *Ejemplo*
@@ -1715,7 +1715,7 @@ endsWith('<text>', '<searchText>')
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| true o false  | boolean | Devuelve true cuando se encuentra la subcadena final. Devuelve false si no se encuentra. |
+| true o false  | Boolean | Devuelve true cuando se encuentra la subcadena final. Devuelve false si no se encuentra. |
 ||||
 
 *Ejemplo 1*
@@ -1756,7 +1756,7 @@ equals('<object1>', '<object2>')
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Devuelve true cuando ambos son equivalentes. Devuelve false cuando no son equivalentes. |
+| true o false | Boolean | Devuelve true cuando ambos son equivalentes. Devuelve false cuando no son equivalentes. |
 ||||
 
 *Ejemplo*
@@ -2041,7 +2041,7 @@ greater('<value>', '<compareTo>')
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Devuelve true si el primer valor es mayor que el segundo. Devuelve false si el primer valor es igual o menor que el segundo. |
+| true o false | Boolean | Devuelve true si el primer valor es mayor que el segundo. Devuelve false si el primer valor es igual o menor que el segundo. |
 ||||
 
 *Ejemplo*
@@ -2078,7 +2078,7 @@ greaterOrEquals('<value>', '<compareTo>')
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Devuelve true si el primer valor es mayor o igual que el segundo. Devuelve false si el primer valor es menor que el segundo. |
+| true o false | Boolean | Devuelve true si el primer valor es mayor o igual que el segundo. Devuelve false si el primer valor es menor que el segundo. |
 ||||
 
 *Ejemplo*
@@ -2144,7 +2144,7 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*expresión*> | Sí | boolean | Expresión que se va a evaluar |
+| <*expresión*> | Sí | Boolean | Expresión que se va a evaluar |
 | <*valor_si_es_true*> | Sí | Cualquiera | Valor que se devuelve cuando la expresión es verdadera |
 | <*valor_si_es_false*> | Sí | Cualquiera | Valor que se devuelve cuando la expresión es falsa |
 |||||
@@ -2530,7 +2530,7 @@ less('<value>', '<compareTo>')
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Devuelve true si el primer valor es menor que el segundo valor. Devuelve false si el primer valor es igual o mayor que el segundo. |
+| true o false | Boolean | Devuelve true si el primer valor es menor que el segundo valor. Devuelve false si el primer valor es igual o mayor que el segundo. |
 ||||
 
 *Ejemplo*
@@ -2567,7 +2567,7 @@ lessOrEquals('<value>', '<compareTo>')
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| true o false  | boolean | Devuelve true si el primer valor es menor o igual que el segundo. Devuelve false si el primer valor es mayor que el segundo. |
+| true o false  | Boolean | Devuelve true si el primer valor es menor o igual que el segundo. Devuelve false si el primer valor es mayor que el segundo. |
 ||||
 
 *Ejemplo*
@@ -2773,12 +2773,12 @@ not(<expression>)
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*expresión*> | Sí | boolean | Expresión que se va a evaluar |
+| <*expresión*> | Sí | Boolean | Expresión que se va a evaluar |
 |||||
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Devuelve true cuando la expresión es falsa. Devuelve false cuando la expresión es verdadera. |
+| true o false | Boolean | Devuelve true cuando la expresión es falsa. Devuelve false cuando la expresión es verdadera. |
 ||||
 
 *Ejemplo 1*
@@ -2822,12 +2822,12 @@ or(<expression1>, <expression2>, ...)
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*expresión1*>, <*expresión2*>, ... | Sí | boolean | Expresiones que se van a comprobar |
+| <*expresión1*>, <*expresión2*>, ... | Sí | Boolean | Expresiones que se van a comprobar |
 |||||
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| true o false | boolean | Devuelve true cuando al menos una expresión es verdadera. Devuelve false si todas las expresiones son falsas. |
+| true o false | Boolean | Devuelve true cuando al menos una expresión es verdadera. Devuelve false si todas las expresiones son falsas. |
 ||||
 
 *Ejemplo 1*
@@ -3002,13 +3002,13 @@ removeProperty(<object>, '<property>')
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*objeto*> | Sí | Objeto | Objeto JSON del que desea eliminar una propiedad |
+| <*objeto*> | Sí | Object | Objeto JSON del que desea eliminar una propiedad |
 | <*propiedad*> | Sí | string | Nombre de la propiedad que se va a eliminar |
 |||||
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*objeto-actualizado*> | Objeto | Objeto JSON actualizado sin la propiedad especificada |
+| <*objeto-actualizado*> | Object | Objeto JSON actualizado sin la propiedad especificada |
 ||||
 
 *Ejemplo*
@@ -3032,14 +3032,14 @@ setProperty(<object>, '<property>', <value>)
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 | --------- | -------- | ---- | ----------- |
-| <*objeto*> | Sí | Objeto | Objeto JSON cuya propiedad desea establecer |
+| <*objeto*> | Sí | Object | Objeto JSON cuya propiedad desea establecer |
 | <*propiedad*> | Sí | string | Nombre de la propiedad existente o nueva que se va a establecer |
 | <*valor*> | Sí | Cualquiera | Valor que se va a establecer para la propiedad especificada |
 |||||
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*objeto-actualizado*> | Objeto | Objeto JSON actualizado cuya propiedad se ha establecido |
+| <*objeto-actualizado*> | Object | Objeto JSON actualizado cuya propiedad se ha establecido |
 ||||
 
 *Ejemplo*
@@ -3226,7 +3226,7 @@ startsWith('<text>', '<searchText>')
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| true o false  | boolean | Devuelve true cuando se encuentra la subcadena inicial. Devuelve false si no se encuentra. |
+| true o false  | Boolean | Devuelve true cuando se encuentra la subcadena inicial. Devuelve false si no se encuentra. |
 ||||
 
 *Ejemplo 1*
@@ -4091,7 +4091,7 @@ workflow().run.name
 
 <a name="xml"></a>
 
-### <a name="xml"></a>xml
+### <a name="xml"></a>Xml
 
 Devuelve la versión XML de una cadena que contiene un objeto JSON.
 
@@ -4106,7 +4106,7 @@ xml('<value>')
 
 | Valor devuelto | Type | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
-| <*versión-xml*> | Objeto | XML codificado de la cadena u objeto JSON especificados |
+| <*versión-xml*> | Object | XML codificado de la cadena u objeto JSON especificados |
 ||||
 
 *Ejemplo 1*

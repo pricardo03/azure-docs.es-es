@@ -9,11 +9,11 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7e97bd50e3d37218e0f88f722387fd1a53167e27
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187117"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534168"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Uso de la puerta de enlace para orígenes de datos en una red virtual de Azure (VNet)
 
@@ -34,7 +34,7 @@ Si el acceso a sus orígenes de datos se realiza a través de una red virtual, e
     ![Propiedad AlwaysUseGateway](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Conexión a orígenes de datos locales](analysis-services-gateway.md)   
 [Instalación y configuración de una puerta de enlace de datos local](analysis-services-gateway-install.md)   
 [Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md)   

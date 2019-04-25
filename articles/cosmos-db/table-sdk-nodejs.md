@@ -9,11 +9,11 @@ ms.date: 11/20/2017
 author: wmengmsft
 ms.author: wmeng
 ms.openlocfilehash: 1cf72069d545fc1f4c337a1b67f5fd4aa2ef143c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043726"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406028"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Table API de Azure Cosmos DB para Node.js: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelac
 
 Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible. 
 
-| Versión | Fecha de lanzamiento | Fecha de retirada |
+| Version | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 de noviembre de 2017 |--- |
 

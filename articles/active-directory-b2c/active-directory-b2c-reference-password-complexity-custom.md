@@ -3,7 +3,7 @@ title: Configuración de la complejidad de las contraseñas con directivas perso
 description: Cómo configurar los requisitos de complejidad de las contraseñas con una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 12/13/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: e8e3157bc9dfc97d364effee2ea90cfad85d18ff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167848"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317146"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración de la complejidad de las contraseñas con directivas personalizadas en Azure Active Directory B2C
 

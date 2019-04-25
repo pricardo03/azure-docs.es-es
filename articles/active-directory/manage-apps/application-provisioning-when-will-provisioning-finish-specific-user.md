@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d2bb3b7385467d2606a2a4fa0afb43b9440ab79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163111"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293705"
 ---
 # <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Averiguar cuándo un usuario específico podrá acceder a una aplicación
 Cuando se utiliza el aprovisionamiento automático de usuarios con una aplicación, Azure AD aprovisiona y actualiza automáticamente las cuentas de usuario en una aplicación en función de aspectos tales como la [asignación de usuario y grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) con un intervalo programado periódicamente, normalmente cada 10 minutos.

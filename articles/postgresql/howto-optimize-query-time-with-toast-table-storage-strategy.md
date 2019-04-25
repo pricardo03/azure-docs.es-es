@@ -1,17 +1,19 @@
 ---
 title: Optimización del tiempo de consulta en un servidor de Azure Database for PostgreSQL mediante la estrategia de almacenamiento de tablas TOAST
 description: En este artículo se describe cómo optimizar el tiempo de consulta con la estrategia de almacenamiento de tablas TOAST en un servidor de Azure Database for PostgreSQL.
-author: dianaputnam
-ms.author: dianas
+author: WenJason
+ms.author: v-jay
+editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/22/2018
+origin.date: 10/22/2018
+ms.date: 02/18/2019
 ms.openlocfilehash: 96793cb1785a7ffa86331285f401453641b50dac
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820885"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421063"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Optimización del tiempo de consulta con la estrategia de almacenamiento de tablas TOAST 
 En este artículo se describe cómo optimizar los tiempos de consulta con la estrategia de almacenamiento de tablas TOAST (técnica de almacenamiento de atributos de gran tamaño).

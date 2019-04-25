@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173862"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532799"
 ---
 # <a name="monitor-migration-activity"></a>Supervisión de la actividad de migración
 En este artículo, aprenderá a supervisar el progreso de una migración tanto de nivel de base de datos como de tabla.

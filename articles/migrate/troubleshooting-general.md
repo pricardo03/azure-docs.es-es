@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533244"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 
@@ -82,7 +82,7 @@ Si no puede exportar el informe de evaluación del portal, pruebe a usar la API 
 
 ### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Datos de rendimiento de CPU, memoria y discos aparecen como ceros
 
-Azure Migrate perfiles continuamente el entorno local para recopilar datos de rendimiento de las máquinas virtuales de un entorno local. Si acaba de iniciar la detección de su entorno, deberá esperar al menos un día para la recopilación de datos de rendimiento a realizarse. Si se crea una evaluación sin tener que esperar durante un día, las métricas de rendimiento se mostrarán como ceros. Después de esperar durante un día, puede crear una nueva evaluación o actualizar la evaluación existente mediante la opción "Recalcular" en el informe de evaluación.
+Azure Migrate crea continuamente perfiles del entorno local para recopilar datos de rendimiento de las máquinas virtuales de un entorno local. Si acaba de iniciar la detección de su entorno, deberá esperar al menos un día para poder realizar la recopilación de datos de rendimiento. Si se crea una evaluación sin esperar un día, las métricas de rendimiento se mostrarán como ceros. Después de esperar un día, puede crear una nueva evaluación o actualizar la evaluación existente mediante la opción "Recalcular" en el informe de evaluación.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Especifiqué una ubicación geográfica de Azure al crear un proyecto de migración, ¿cómo puedo saber en qué región exacta de Azure se almacenarían los metadatos detectados?
 

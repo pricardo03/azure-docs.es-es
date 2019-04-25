@@ -16,11 +16,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5773924e98b7ea13c180979dba1325eb8919ff3a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090634"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469902"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
 Este artículo contiene instrucciones para usar cmdlets de PowerShell de Azure Active Directory (Azure AD) para crear y actualizar grupos. Este contenido se aplica únicamente a grupos de Office 365, también conocidos como grupos unificados. 
@@ -95,18 +95,18 @@ Esta es la configuración definida en el objeto SettingsTemplate Group.Unified. 
 
 | **Configuración** | **Descripción** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Escriba:  boolean<li>Valor predeterminado: True |Marca que indica si se permite la creación de grupos de Office 365 en el directorio por parte de usuarios que no sean administradores. Este valor no requiere una licencia Azure Active Directory Premium P1.|
+|  <ul><li>EnableGroupCreation<li>Escriba:  Boolean<li>Valor predeterminado: True |Marca que indica si se permite la creación de grupos de Office 365 en el directorio por parte de usuarios que no sean administradores. Este valor no requiere una licencia Azure Active Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Escriba:  string<li>Valor predeterminado: “” |El GUID del grupo de seguridad para el que se permite a los miembros crear grupos de Office 365 incluso cuando EnableGroupCreation == false. |
 |  <ul><li>UsageGuidelinesUrl<li>Escriba:  string<li>Valor predeterminado: “” |Un vínculo a las instrucciones de uso de grupos. |
 |  <ul><li>ClassificationDescriptions<li>Escriba:  string<li>Valor predeterminado: “” | Una lista delimitada por comas de las descripciones de clasificación. El valor de ClassificationDescriptions solo es válido en este formato:<br>$setting ["ClassificationDescriptions"] = "Clasificación: Description, descripción de clasificación:"<br>donde clasificación coincide con las cadenas en el ClassificationList.|
 |  <ul><li>DefaultClassification<li>Escriba:  string<li>Valor predeterminado: “” | La clasificación que se va a utilizar como la clasificación predeterminada para un grupo si no se ha especificado ninguno.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Escriba:  string<li>Valor predeterminado: “” | Cadena de una longitud máxima de 64 caracteres que define la convención de nomenclatura configurada para los grupos de Office 365. Para más información, consulte [Aplicación de una directiva de nomenclatura para grupos de Office 365](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Escriba:  string<li>Valor predeterminado: “” | Cadena de frases separadas por comas que los usuarios no tendrán permiso para usar en los nombres de grupos o alias. Para más información, consulte [Aplicación de una directiva de nomenclatura para grupos de Office 365](groups-naming-policy.md). |
-| <ul><li>EnableMSStandardBlockedWords<li>Escriba:  boolean<li>Valor predeterminado: “False” | No usar
-|  <ul><li>AllowGuestsToBeGroupOwner<li>Escriba:  boolean<li>Valor predeterminado: False | Valor booleano que indica si un usuario invitado puede ser o no un propietario de grupos. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Escriba:  boolean<li>Valor predeterminado: True | Valor booleano que indica si un usuario invitado puede tener o no acceso al contenido de grupos de Office 365.  Este valor no requiere una licencia Azure Active Directory Premium P1.|
+| <ul><li>EnableMSStandardBlockedWords<li>Escriba:  Boolean<li>Valor predeterminado: “False” | No usar
+|  <ul><li>AllowGuestsToBeGroupOwner<li>Escriba:  Boolean<li>Valor predeterminado: False | Valor booleano que indica si un usuario invitado puede ser o no un propietario de grupos. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Escriba:  Boolean<li>Valor predeterminado: True | Valor booleano que indica si un usuario invitado puede tener o no acceso al contenido de grupos de Office 365.  Este valor no requiere una licencia Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Escriba:  string<li>Valor predeterminado: “” | La dirección URL de un vínculo a las instrucciones de uso del invitado. |
-|  <ul><li>AllowToAddGuests<li>Escriba:  boolean<li>Valor predeterminado: True | Un valor booleano que indica si está permitido o no agregar invitados a este directorio.|
+|  <ul><li>AllowToAddGuests<li>Escriba:  Boolean<li>Valor predeterminado: True | Un valor booleano que indica si está permitido o no agregar invitados a este directorio.|
 |  <ul><li>ClassificationList<li>Escriba:  string<li>Valor predeterminado: “” |Lista de valores de clasificación delimitados por coma que se puede aplicar a grupos de Office 365. |
 
 ## <a name="read-settings-at-the-directory-level"></a>Lectura de la configuración en el nivel de directorio

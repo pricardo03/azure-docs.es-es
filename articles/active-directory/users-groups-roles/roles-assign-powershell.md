@@ -14,11 +14,11 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f6877c3e547d625cf58129a546dae798b37a24ae
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469101"
 ---
 # <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Asignar roles de administrador de Azure Active Directory mediante PowerShell
 

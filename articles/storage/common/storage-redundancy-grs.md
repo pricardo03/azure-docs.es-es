@@ -9,11 +9,11 @@ ms.date: 10/20/2018
 ms.author: jeking
 ms.subservice: common
 ms.openlocfilehash: 2dc409743ce94ecb73e351b839a5a2fb09eadab2
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516252"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Almacenamiento con redundancia geográfica (GRS): replicación entre regiones para Azure Storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -44,7 +44,7 @@ Tenga en cuenta lo siguiente cuando use RA-GRS:
 ## <a name="paired-regions"></a>Regiones emparejadas 
 Cuando crea una cuenta de almacenamiento, selecciona la región principal de la cuenta. La región secundaria emparejada se determina según la región primaria y no es posible cambiarla. Para información actualizada sobre las regiones que admite Azure, consulte [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 - [Replicación de Azure Storage](storage-redundancy.md)
 - [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](storage-redundancy-lrs.md)
 - [Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad](storage-redundancy-zrs.md)

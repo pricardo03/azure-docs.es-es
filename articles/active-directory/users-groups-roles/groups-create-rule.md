@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199688"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472177"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creación de un grupo dinámico y comprobación de su estado
 
@@ -48,9 +48,9 @@ Para obtener ejemplos de sintaxis, las propiedades admitidas, operadores y valor
 
 Si la regla que escribió no es válida, obtener una explicación de por qué no se pudo procesar la regla se muestra en la esquina superior derecha del portal. Léala con cuidado para saber cómo corregir la regla.
 
-## <a name="turn-on-or-off-welcome-email"></a>Activar o desactivar el correo electrónico de bienvenida
+## <a name="turn-on-or-off-welcome-email"></a>Activación o desactivación del correo electrónico de bienvenida
 
-Cuando se crea un nuevo grupo de Office 365, se envía a una notificación bienvenida a los usuarios que se agregan al grupo. Más adelante, si cambian los atributos de un usuario o dispositivo, se procesan todas las reglas de grupo dinámico de la organización para los cambios de pertenencia. A continuación, los usuarios que se agregan también reciben la notificación de bienvenida. Puede desactivar este comportamiento en [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Cuando se crea un nuevo grupo de Office 365, se envía a una notificación bienvenida a los usuarios que se agregan al grupo. Más adelante, si cambian los atributos de un usuario o dispositivo, se procesan todas las reglas de grupo dinámico de la organización para los cambios de pertenencia. Los usuarios que se agregan también reciben la notificación de bienvenida. Puede desactivar este comportamiento en [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## <a name="check-processing-status-for-a-rule"></a>Comprobación del estado de procesamiento de una regla
 

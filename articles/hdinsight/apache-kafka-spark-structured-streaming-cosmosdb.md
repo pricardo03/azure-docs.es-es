@@ -2,19 +2,25 @@
 title: 'Flujo estructurado de Apache Spark de Apache Kafka a Azure Cosmos DB: Azure HDInsight'
 description: Obtenga información acerca de cómo usar el flujo estructurado de Apache Spark para leer datos de Apache Kafka y, después, almacenarlos en Azure Cosmos DB. En este ejemplo, se transmiten datos con Jupyter Notebook de Spark en HDInsight.
 services: hdinsight
-author: hrasheed-msft
-ms.reviewer: jasonh
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: hrasheed
+ms.tgt_pltfrm: na
+ms.workload: big-data
+origin.date: 11/06/2018
+ms.author: v-yiso
+ms.date: 01/21/2019
 ms.openlocfilehash: 9d29608ded920b14af1be6d4d68ab1d77c3c8cb5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099161"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60538080"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Uso del flujo estructurado de Apache Spark con Apache Kafka y Azure Cosmos DB
 
@@ -24,7 +30,7 @@ Aprenda a usar [Apache Spark](https://spark.apache.org/) y su [flujo estructurad
 
 El flujo estructurado de Spark es un motor de procesamiento de flujo basado en Spark SQL. Permite expresar los cálculos de streaming de la misma forma que el cálculo por lotes de los datos estáticos. Para obtener más información sobre el flujo estructurado, consulte el artículo [Structured Streaming Programming Guide](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) (Guía de programación de flujo estructurado) en Apache.org.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > En este ejemplo, se utiliza Spark 2.2 en HDInsight 3.6.
 >
 > Los pasos que se describen en este documento crean un grupo de recursos de Azure que contiene un clúster Spark de HDInsight y un clúster Kafka de HDInsight. Estos dos clústeres se encuentran en una instancia de Azure Virtual Network, lo que permite al clúster Spark comunicarse directamente con el clúster Kafka.
@@ -37,14 +43,14 @@ Apache Kafka en HDInsight no proporciona acceso a los agentes de Kafka a través
 
 ![Diagrama de clústeres Spark y Kafka en una red virtual de Azure](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
-> [!NOTE]  
+> [!NOTE]
 > El servicio Kafka se limita a la comunicación dentro de la red virtual. Se puede acceder a otros servicios del clúster, como SSH y Ambari, a través de Internet. Para más información sobre los puertos públicos disponibles en HDInsight, consulte [Puertos e identificadores URI usados en HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y Spark, resulta más sencillo utilizar una plantilla de Azure Resource Manager. Siga los pasos que se indican a continuación para implementar una red virtual de Azure y los clústeres Kafka y Spark en la suscripción de Azure.
 
 1. Utilice el siguiente botón para iniciar sesión en Azure y abrir la plantilla en Azure Portal.
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
     <img src="https://azuredeploy.net/deploybutton.png"/>
     </a>
 
@@ -58,12 +64,12 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
    * Una instancia de Azure Virtual Network, que contiene los clústeres de HDInsight.
 
-       > [!NOTE]  
+       > [!NOTE]
        > La red virtual creada por la plantilla utiliza el espacio de direcciones 10.0.0.0/16.
 
    * Una base de datos de la API de SQL de Azure Cosmos DB.
 
-     > [!IMPORTANT]  
+     > [!IMPORTANT]
      > El cuaderno de flujo estructurado que se utiliza en este ejemplo requiere Spark en HDInsight 3.6. Si usa una versión anterior de Spark en HDInsight, recibirá errores al usar dicho cuaderno.
 
 2. Utilice los datos siguientes para rellenar las entradas de la sección **Implementación personalizada**:
@@ -82,7 +88,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
     * **Versión del clúster**: versión del clúster de HDInsight.
 
-        > [!IMPORTANT]  
+        > [!IMPORTANT]
         > Este ejemplo se ha probado con HDInsight 3.6 y podría no funcionar con otros tipos de clúster.
 
     * **Nombre de usuario de inicio de sesión del clúster**: nombre de usuario del administrador de los clústeres Spark y Kafka.
@@ -97,7 +103,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
 
 4. Por último, seleccione **Adquirir**. Se tarda aproximadamente 20 minutos en crear los clústeres.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Puede tardar hasta 45 minutos en crear los clústeres, la red virtual y la cuenta de Cosmos DB.
 
 ## <a name="create-the-cosmos-db-database-and-collection"></a>Creación de la base de datos y la colección de Cosmos DB
@@ -140,7 +146,7 @@ La información del punto de conexión del documento y de la clave principal es 
 "YqPXw3RP7TsJoBF5imkYR0QNA02IrreNAlkrUMkL8EW94YHs41bktBhIgWq4pqj6HCGYijQKMRkCTsSaKUO2pw=="
 ```
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Guarde los valores de punto de conexión y de clave, ya que son necesarios en las instancias de Jupyter Notebook.
 
 ## <a name="get-the-apache-kafka-brokers"></a>Obtención de los agentes de Apache Kafka
@@ -158,20 +164,20 @@ $brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
 
-> [!NOTE]  
+> [!NOTE]
 > En el ejemplo de Bash, se espera que `$CLUSTERNAME` contenga el nombre del clúster de Kafka.
 >
 > En este ejemplo se utiliza la utilidad [jq](https://stedolan.github.io/jq/) para analizar datos a partir del documento JSON.
 
 ```bash
-curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
+curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 ```
 
 Cuando se lo pidan, escriba la contraseña de la cuenta de inicio sesión del clúster (admin).
 
 La salida será similar al siguiente texto:
 
-`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
+`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.chinacloudapp.cn:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.chinacloudapp.cn:9092`
 
 Guarde esta información, ya que se utilizará en las siguientes secciones de este documento.
 
@@ -185,7 +191,7 @@ Siga estos pasos para cargar los cuadernos del proyecto en el clúster de Spark 
 
 1. En el explorador web, conéctese al cuaderno de Jupyter Notebook en el clúster de Spark. En la siguiente URL, reemplace `CLUSTERNAME` por el nombre del clúster de __Spark__:
 
-        https://CLUSTERNAME.azurehdinsight.net/jupyter
+        https://CLUSTERNAME.azurehdinsight.cn/jupyter
 
     Cuando se lo soliciten, escriba el nombre de inicio de sesión del clúster (administrador) y la contraseña que utilizó cuando creó el clúster.
 

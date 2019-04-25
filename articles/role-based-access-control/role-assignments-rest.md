@@ -16,11 +16,11 @@ ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531837"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Administración del acceso a recursos de Azure mediante RBAC y la API de REST
 

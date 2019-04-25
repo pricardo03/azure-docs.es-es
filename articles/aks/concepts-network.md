@@ -2,17 +2,18 @@
 title: 'Conceptos: Redes en Azure Kubernetes Service (AKS)'
 description: Obtenga más información sobre las redes en Azure Kubernetes Service (AKS), incluidas las redes de kubenet y Azure CNI, los controladores de entrada, los equilibradores de carga y las direcciones IP estáticas.
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.author: iainfou
+origin.date: 02/28/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: cbdbf7dcd6269991d23c61d316dcee68e6678171
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467292"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -64,6 +65,7 @@ En AKS, puede implementar un clúster que use uno de los dos siguientes modelos 
 - Red de *kubenet*: los recursos de la red normalmente se crean y se configuran cuando se implementa el clúster de AKS.
 - Red de *Azure Container Networking Interface (CNI)*: el clúster de AKS se conecta a los recursos y configuraciones de la red virtual existentes.
 
+<a name="kubenet-basic-networking"></a>
 ### <a name="kubenet-basic-networking"></a>Red (básica) de kubenet
 
 La opción de red de *kubenet* es la configuración predeterminada para la creación del clúster de AKS. Con *kubenet*, los nodos obtienen una dirección IP de una subred de la red virtual de Azure. Los pods reciben una dirección IP de un espacio de direcciones lógicamente distinto a la subred de red virtual de Azure de los nodos. A continuación, se configura la traducción de direcciones de red (NAT) para que los pods puedan acceder a los recursos en la red virtual de Azure. La dirección IP de origen del tráfico se somete a un proceso NAT hacia la dirección IP principal del nodo.
@@ -72,6 +74,7 @@ Los nodos usan el complemento [kubenet][kubenet] de Kubernetes. Puede dejar que 
 
 Para obtener más información, consulte [Configure kubenet networking for an AKS cluster][aks-configure-kubenet-networking] (Configuración de la red de kubenet para un clúster de AKS).
 
+<a name="azure-cni-advanced-networking"></a>
 ### <a name="azure-cni-advanced-networking"></a>Redes (avanzadas) de Azure CNI
 
 Con Azure CNI, cada pod obtiene una dirección IP de la subred y se puede acceder a ella directamente. Estas direcciones IP deben ser únicas en el espacio de la red y deben planificarse de antemano. Cada nodo tiene un parámetro de configuración para el número máximo de pods que admite. Luego, el número equivalente de direcciones IP por nodo se reserva por adelantado para ese nodo. Este enfoque requiere más planificación y a menudo lleva al agotamiento de direcciones IP o a la necesidad de volver a generar los clústeres en una subred mayor, a medida que crecen las exigencias de la aplicación.
@@ -139,7 +142,10 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
-[aks-ingress-tls]: ingress.md
+[aks-ingress-tls]: ingress-tls.md
+
+<!--Mooncake : URL redirect to ingress-tls.md-->
+
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md

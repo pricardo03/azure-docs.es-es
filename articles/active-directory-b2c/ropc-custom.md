@@ -3,7 +3,7 @@ title: Configuración del flujo de credenciales de contraseña de propietario de
 description: Obtenga información sobre cómo configurar el flujo de credenciales de contraseña de propietario del recurso en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 265f1405a8779cdca101f18cf37b64f1933c2ff3
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419194"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configure el flujo de credenciales de contraseña de propietario del recurso en Azure Active Directory B2C con una directiva personalizada.
 
@@ -39,7 +39,7 @@ No se admiten los siguientes flujos:
 
 Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="register-an-application"></a>Registrar una aplicación
+## <a name="register-an-application"></a>Registro de una aplicación
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
@@ -267,11 +267,11 @@ Use su aplicación favorita de desarrollo de API para generar una llamada de API
 - Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C.
 - Reemplace `B2C_1A_ROPC_Auth` por el nombre completo de la directiva de credenciales de contraseña del propietario de recursos.
 
-| Clave | Valor |
+| Clave | Value |
 | --- | ----- |
-| nombre de usuario | `user-account` |
-| contraseña | `password1` |
-| grant_type | contraseña |
+| username | `user-account` |
+| password | `password1` |
+| grant_type | password |
 | ámbito | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | id_token del token |
@@ -312,12 +312,12 @@ Cree una llamada POST como la que se muestra aquí. Use la información de la ta
 - Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C.
 - Reemplace `B2C_1A_ROPC_Auth` por el nombre completo de la directiva de credenciales de contraseña del propietario de recursos.
 
-| Clave | Valor |
+| Clave | Value |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | ID_token |
 | client_id | `application-id` |
-| Recurso | `application-id` |
+| resource | `application-id` |
 | refresh_token | `refresh-token` |
 
 - Reemplace `application-id` por el identificador de aplicación del registro *ROPC_Auth_app*.

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 542505c5a6c3af91669ebe28287ae6e1477e214d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 8f5b470cb3f75f434033a245f4aaa185aeb665c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325989"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configuración de un grupo de disponibilidad AlwaysOn en máquinas virtuales de Azure en distintas regiones
 
@@ -165,7 +165,7 @@ Para probar la conectividad del agente de escucha con la región remota, puede c
 
 Después de probar la conectividad, mueva la réplica principal de nuevo a su centro de datos principal y vuelva a establecer el modo de disponibilidad en su configuración de funcionamiento normal. En la tabla siguiente se muestra la configuración de funcionamiento normal de la arquitectura descrita en este documento:
 
-| Ubicación | Instancia del servidor | Rol | Modo de disponibilidad | Modo de conmutación por error
+| Location | Instancia del servidor | Rol | Modo de disponibilidad | Modo de conmutación por error
 | ----- | ----- | ----- | ----- | -----
 | Centro de datos principal | SQL-1 | Principal | Sincrónico | Automático
 | Centro de datos principal | SQL-2 | Secundario | Sincrónico | Automático

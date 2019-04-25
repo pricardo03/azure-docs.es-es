@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: iainfou
 ms.openlocfilehash: 10690f156e81c4adebe6cf11d651791f7c05e735
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681070"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466080"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada HTTPS en Azure Kubernetes Service (AKS)
 
