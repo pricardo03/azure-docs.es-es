@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8ca48ec812c2c9ea4b6aac814c77f0554bd9ae0a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765705"
 documentType: LandingData
 title: Terraform en la documentación de Azure
 metadata:
@@ -12,58 +6,58 @@ metadata:
   description: Aprenda a usar Terraform para aprovisionar de forma confiable las máquinas virtuales y otras infraestructuras en Azure.
   services: terraform
   ms.service: azure
-  keywords: terraform, azure, devops, tutoriales, ejemplos, referencia
+  keywords: 'terraform, azure, devops, tutoriales, ejemplos, referencia'
   author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing-page
   ms.date: 08/31/2018
 abstract:
-  description: Use Terraform para controlar las versiones de forma confiable y crear infraestructura en Azure. Aprenda a crear recursos, usar los módulos de Azure Terraform y mantener la infraestructura con código mediante nuestros inicios rápidos y tutoriales.
+  description: 'Use Terraform para controlar las versiones de forma confiable y crear infraestructura en Azure. Aprenda a crear recursos, usar los módulos de Azure Terraform y mantener la infraestructura con código mediante nuestros inicios rápidos y tutoriales.'
 sections:
-- title: Guías de inicio rápido
-  items:
-  - type: paragraph
-    text: Configure Terraform y úselo para crear una máquina virtual Linux en Azure.
-  - type: list
-    style: icon48
+  - title: Guías de inicio rápido
     items:
-    - image:
-        src: https://docs.microsoft.com/azure/media/index/azure_dev-9.svg
-      text: Instalación y configuración de Terraform
-      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure
-    - image:
-        src: https://docs.microsoft.com/azure/media/index/VirtualMachine.svg
-      text: Creación de una máquina virtual Linux
-      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm
-- title: Tutoriales detallados
-  items:
-  - type: paragraph
-    text: Aprenda a crear una infraestructura de procesos y redes de Azure mediante código con Terraform.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Configure Terraform y úselo para crear una máquina virtual Linux en Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/media/index/azure_dev-9.svg'
+            text: Instalación y configuración de Terraform
+            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure'
+          - image:
+              src: 'https://docs.microsoft.com/azure/media/index/VirtualMachine.svg'
+            text: Creación de una máquina virtual Linux
+            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm'
+  - title: Tutoriales detallados
     items:
-    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">Cree un clúster de Kubernetes con AKS</a>.
-    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-aks-applicationgateway-ingress">Cree un clúster de Kubernetes con Application Gateway como controlador de entrada con AKS</a>.
-    - html: <a href="/azure/terraform/terraform-vm-msi">Cree una máquina virtual de Terraform con autenticación MSI habilitada mediante una imagen de Azure Marketplace</a>.
-    - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Cree un clúster de máquinas virtuales con equilibrio de carga mediante módulos de Azure Terraform</a>.
-    - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Cree un clúster de máquinas virtuales con equilibrio de carga en Azure Cloud Shell</a>.
-    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Configuración de un conjunto de escalado de máquinas virtuales con redes y almacenamiento</a>
-    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Aprovisionamiento de un conjunto de escalado de máquinas virtuales a partir de una imagen de Packer personalizada</a>
-- title: Ejemplos
-  items:
-  - type: paragraph
-    text: Plantillas de configuración de ejemplos para tareas comunes de implementación.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Aprenda a crear una infraestructura de procesos y redes de Azure mediante código con Terraform.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">Cree un clúster de Kubernetes con AKS</a>.
+          - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-aks-applicationgateway-ingress">Cree un clúster de Kubernetes con Application Gateway como controlador de entrada con AKS</a>.
+          - html: <a href="/azure/terraform/terraform-vm-msi">Cree una máquina virtual de Terraform con autenticación MSI habilitada mediante una imagen de Azure Marketplace</a>.
+          - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Cree un clúster de máquinas virtuales con equilibrio de carga mediante módulos de Azure Terraform</a>.
+          - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Cree un clúster de máquinas virtuales con equilibrio de carga en Azure Cloud Shell</a>.
+          - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Configuración de un conjunto de escalado de máquinas virtuales con redes y almacenamiento</a>
+          - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Aprovisionamiento de un conjunto de escalado de máquinas virtuales a partir de una imagen de Packer personalizada</a>
+  - title: Ejemplos
     items:
-    - html: <a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>
-- title: Referencia
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Plantillas de configuración de ejemplos para tareas comunes de implementación.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>'
+  - title: Referencia
     items:
-    - title: Módulos de Azure Terraform
-      html: <p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure Resource Manager para Database</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure Resource Manager para Load Balancer</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Azure Resource Manager para Compute Group</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Red de Azure Resource Manager</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Azure Resource Manager para Compute</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Módulos de Azure Terraform
+            html: '<p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure Resource Manager para Database</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure Resource Manager para Load Balancer</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Azure Resource Manager para Compute Group</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Red de Azure Resource Manager</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Azure Resource Manager para Compute</a></p>'

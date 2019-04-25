@@ -1,84 +1,77 @@
-items:
 - name: Documentación de Bing Autosuggest
   href: index.yml
 - name: Información general
   items:
-  - name: ¿Qué es Bing Autosuggest?
-    href: get-suggested-search-terms.md
-  - name: Comparación entre las versiones de Bing Search API
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
+    - name: ¿Qué es Bing Autosuggest?
+      href: get-suggested-search-terms.md
+    - name: Comparación entre las versiones de Bing Search API
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Guías de inicio rápido de API REST
-  items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
   expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
 - name: Tutoriales
   items:
-  - name: Aplicación web de una sola página
-    href: tutorials/autosuggest.md
+    - name: Aplicación web de una sola página
+      href: tutorials/autosuggest.md
 - name: Guías de procedimientos
   items:
-  - name: Actualizar de v5 a v7
-    href: bing-autosuggest-upgrade-guide-v5-to-v7.md
+    - name: Actualizar de v5 a v7
+      href: bing-autosuggest-upgrade-guide-v5-to-v7.md
 - name: Conceptos
   items:
-  - name: Sugerencia de términos de consulta
-    href: concepts/get-suggestions.md
-  - name: Envío de solicitudes
-    href: concepts/sending-requests.md
+    - name: Sugerencia de términos de consulta
+      href: concepts/get-suggestions.md
+    - name: Envío de solicitudes
+      href: concepts/sending-requests.md
 - name: Referencia
   items:
-  - name: Bing Autosuggest API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference
-  - name: Bing Autosuggest API v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference
-  - name: SDK
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable
-    - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
-  - name: Requisitos de uso y visualización
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
+    - name: Bing Autosuggest API v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference'
+    - name: Bing Autosuggest API v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference'
+    - name: SDK
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable'
+        - name: Go
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest'
+    - name: Requisitos de uso y visualización
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
 - name: Recursos
   items:
-  - name: Precios
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598198-bing-autosuggest
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=bing+autosuggest
-  - name: Disponibilidad regional
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
-  - name: Obtener clave de API
-    href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
-  - name: ¡Pruébelo!
-    href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
-  - name: Compatibilidad de idioma y región
-    href: language-support.md
-  - name: Análisis de Bing Autosuggest API
-    href: bing-autosuggest-stats.md
-ms.openlocfilehash: 5e0a0f0734b694a098cc6685e337aa24b41962d5
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011541"
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598198-bing-autosuggest'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+autosuggest'
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: Obtener clave de API
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api'
+    - name: ¡Pruébelo!
+      href: 'https://azure.microsoft.com/services/cognitive-services/autosuggest/'
+    - name: Compatibilidad de idioma y región
+      href: language-support.md
+    - name: Análisis de Bing Autosuggest API
+      href: bing-autosuggest-stats.md

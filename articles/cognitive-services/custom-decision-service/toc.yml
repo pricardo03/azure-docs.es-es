@@ -1,52 +1,45 @@
-items:
 - name: Documentación de Custom Decision Service
   href: index.yml
 - name: Información general
   items:
-  - name: ¿Qué es Custom Decision Service?
-    href: custom-decision-service-overview.md
-  - name: Flujo de trabajo de Custom Decision Service
-    href: custom-decision-service-workflow.md
+    - name: ¿Qué es Custom Decision Service?
+      href: custom-decision-service-overview.md
+    - name: Flujo de trabajo de Custom Decision Service
+      href: custom-decision-service-workflow.md
 - name: Guías de inicio rápido
-  items:
-  - name: Registrar su aplicación
-    href: custom-decision-service-get-started-register.md
-  - name: Llamada a la API desde un explorador
-    href: custom-decision-service-get-started-browser.md
-  - name: Llamada a la API desde una aplicación
-    href: custom-decision-service-get-started-app.md
   expanded: true
+  items:
+    - name: Registrar su aplicación
+      href: custom-decision-service-get-started-register.md
+    - name: Llamada a la API desde un explorador
+      href: custom-decision-service-get-started-browser.md
+    - name: Llamada a la API desde una aplicación
+      href: custom-decision-service-get-started-app.md
 - name: Tutoriales
   items:
-  - name: Personalización de artículos
-    href: custom-decision-service-tutorial-news.md
-  - name: Machine Learning
-    href: custom-decision-service-tutorial-ml.md
+    - name: Personalización de artículos
+      href: custom-decision-service-tutorial-news.md
+    - name: Machine Learning
+      href: custom-decision-service-tutorial-ml.md
 - name: Referencia
   items:
-  - name: API
-    href: custom-decision-service-api-reference.md
-  - name: Experimentación
-    href: custom-decision-service-experimentation-reference.md
-  - name: LogDownloader
-    href: custom-decision-service-log-downloader-reference.md
+    - name: API
+      href: custom-decision-service-api-reference.md
+    - name: Experimentación
+      href: custom-decision-service-experimentation-reference.md
+    - name: LogDownloader
+      href: custom-decision-service-log-downloader-reference.md
 - name: Recursos
   items:
-  - name: Disponibilidad regional
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Precios (gratis)
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/custom-decision-service/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598138-custom-decision-service
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 7ab7a5126602d2efb3c568cd547900e527740587
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363539"
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Precios (gratis)
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/custom-decision-service/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598138-custom-decision-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase'
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'

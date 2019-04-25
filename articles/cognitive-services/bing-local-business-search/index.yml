@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 888ed15344ff3709a7a84d5be7e863535bed1792
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734700"
 documentType: LandingData
 title: Documentación de Bing Local Business Search API
 titleSuffix: Azure Cognitive Services
@@ -19,44 +13,45 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/02/2018
-  ms.author: rosh, v-gedod
+  ms.author: 'rosh, v-gedod'
 abstract:
   description: Bing Local Business Search API permite a las aplicaciones buscar información acerca de la ubicación y forma de contacto de empresas locales en función de las consultas de búsquedas.
 sections:
-- title: Guías de inicio rápido
-  items:
-  - type: paragraph
-    text: 'Empiece a usar Bing Local Business Search API mediante el envío de consultas de búsqueda y la visualización de la respuesta JSON:'
-  - type: list
-    style: icon48
+  - title: Guías de inicio rápido
     items:
-    - image:
-        src: media/logo_csharp.svg
-      href: quickstarts/local-quickstart.md
-      text: C#
-    - image:
-        src: media/logo_java.svg
-      href: quickstarts/local-search-java-quickstart.md
-      text: Java
-    - image:
-        src: media/logo_nodejs.svg
-      href: quickstarts/local-search-node-quickstart.md
-      text: Nodo
-    - image:
-        src: media/logo_python.svg
-      href: quickstarts/local-search-python-quickstart.md
-      text: Python
-- title: Referencia
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Empiece a usar Bing Local Business Search API mediante el envío de consultas de búsqueda y la visualización de la respuesta JSON:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/logo_csharp.svg
+            href: quickstarts/local-quickstart.md
+            text: 'C#'
+          - image:
+              src: media/logo_java.svg
+            href: quickstarts/local-search-java-quickstart.md
+            text: Java
+          - image:
+              src: media/logo_nodejs.svg
+            href: quickstarts/local-search-node-quickstart.md
+            text: Nodo
+          - image:
+              src: media/logo_python.svg
+            href: quickstarts/local-search-python-quickstart.md
+            text: Python
+  - title: Referencia
     items:
-    - title: API DE REST
-      html: >
-        <p><a href="local-search-reference.md">Referencia de API de REST</a></p>
-    - title: PowerShell
-      html: >
-        <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI de Azure</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API DE REST
+            html: |
+              <p><a href="local-search-reference.md">Referencia de API de REST</a></p>
+          - title: PowerShell
+            html: |
+              <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
+          - title: CLI
+            html: |
+              <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI de Azure</a></p>

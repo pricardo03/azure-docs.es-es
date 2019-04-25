@@ -1,119 +1,112 @@
-items:
 - name: Documentación de Bing Custom Search
   href: index.yml
 - name: Información general
-  items:
-  - name: ¿Qué es Bing Custom Search API?
-    href: overview.md
-  - name: Comparación entre las versiones de Bing Search API
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
   expanded: true
+  items:
+    - name: ¿Qué es Bing Custom Search API?
+      href: overview.md
+    - name: Comparación entre las versiones de Bing Search API
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Guías de inicio rápido
-  items:
-  - name: Creación de una instancia de búsqueda personalizada
-    href: quick-start.md
-  - name: Obtención de resultados de búsqueda a partir de la instancia
-    items:
-    - name: API DE REST
-      items:
-      - name: Con C#
-        href: call-endpoint-csharp.md
-      - name: Usar Java
-        href: call-endpoint-java.md
-      - name: Uso de Node.js
-        href: call-endpoint-nodejs.md
-      - name: Usar Python
-        href: call-endpoint-python.md
-    - name: SDK
-      items:
-      - name: Con C#
-        href: sdk-csharp-quick-start.md
-      - name: Usar Python
-        href: sdk-python-quickstart.md
   expanded: true
+  items:
+    - name: Creación de una instancia de búsqueda personalizada
+      href: quick-start.md
+    - name: Obtención de resultados de búsqueda a partir de la instancia
+      items:
+        - name: API DE REST
+          items:
+            - name: 'Con C#'
+              href: call-endpoint-csharp.md
+            - name: Usar Java
+              href: call-endpoint-java.md
+            - name: Uso de Node.js
+              href: call-endpoint-nodejs.md
+            - name: Usar Python
+              href: call-endpoint-python.md
+        - name: SDK
+          items:
+            - name: 'Con C#'
+              href: sdk-csharp-quick-start.md
+            - name: Usar Python
+              href: sdk-python-quickstart.md
 - name: Tutoriales
   items:
-  - name: Creación de una página web de Custom Search
-    href: ./tutorials/custom-search-web-page.md
+    - name: Creación de una página web de Custom Search
+      href: ./tutorials/custom-search-web-page.md
 - name: Ejemplos
   items:
-  - name: Ejemplos de código
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search
+    - name: Ejemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search'
 - name: Guías de procedimientos
   items:
-  - name: Configuración de la experiencia de búsqueda personalizada
-    href: define-your-custom-view.md
-  - name: Llamada a su instancia de búsqueda personalizada
-    href: search-your-custom-view.md
-  - name: Configuración e integración de una interfaz de usuario hospedada
-    href: hosted-ui.md
-  - name: Uso compartido de la instancia de búsqueda personalizada
-    href: share-your-custom-search.md
-  - name: Obtención de imágenes desde la instancia de búsqueda
-    href: get-images-from-instance.md
-  - name: Obtención de vídeos desde la instancia de búsqueda
-    href: get-videos-from-instance.md
-  - name: Configuración de una experiencia de sugerencias automáticas personalizada
-    href: define-custom-suggestions.md
-  - name: Controlar resaltado de referencias
-    href: hit-highlighting.md
-  - name: Paginación mediante páginas web
-    href: page-webpages.md
+    - name: Configuración de la experiencia de búsqueda personalizada
+      href: define-your-custom-view.md
+    - name: Llamada a su instancia de búsqueda personalizada
+      href: search-your-custom-view.md
+    - name: Configuración e integración de una interfaz de usuario hospedada
+      href: hosted-ui.md
+    - name: Uso compartido de la instancia de búsqueda personalizada
+      href: share-your-custom-search.md
+    - name: Obtención de imágenes desde la instancia de búsqueda
+      href: get-images-from-instance.md
+    - name: Obtención de vídeos desde la instancia de búsqueda
+      href: get-videos-from-instance.md
+    - name: Configuración de una experiencia de sugerencias automáticas personalizada
+      href: define-custom-suggestions.md
+    - name: Controlar resaltado de referencias
+      href: hit-highlighting.md
+    - name: Paginación mediante páginas web
+      href: page-webpages.md
 - name: Referencia
   items:
-  - name: Referencia de Bing Custom Autosuggest API
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference
-  - name: Referencia de Bing Custom Image Search API
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference
-  - name: Referencia de Bing Custom Search API
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
-  - name: Referencia de Bing Custom Video Search API
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference
-  - name: Requisitos de uso y visualización de Bing Search API
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
-  - name: SDK
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
-    - name: 'Java: Custom Search'
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customsearch?view=azure-java-stable
-    - name: 'Java: Custom Image Search'
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customimagesearch?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/customsearch?view=azure-node-latest
-    - name: 'Go: Custom Search'
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch
-    - name: 'Go: Custom Image Search'
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch
+    - name: Referencia de Bing Custom Autosuggest API
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference'
+    - name: Referencia de Bing Custom Image Search API
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference'
+    - name: Referencia de Bing Custom Search API
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference'
+    - name: Referencia de Bing Custom Video Search API
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference'
+    - name: Requisitos de uso y visualización de Bing Search API
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
+    - name: SDK
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet'
+        - name: 'Java: Custom Search'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customsearch?view=azure-java-stable'
+        - name: 'Java: Custom Image Search'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customimagesearch?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/customsearch?view=azure-node-latest'
+        - name: 'Go: Custom Search'
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch'
+        - name: 'Go: Custom Image Search'
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch'
 - name: Recursos
   items:
-  - name: Precios
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598147-bing-custom-search-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=bing+custom+search
-  - name: Disponibilidad regional
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
-  - name: Obtener clave de API
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
-  - name: ¡Pruébelo!
-    href: https://aka.ms/bingcustomsearchtryit
-  - name: Punto de conexión de Bing Custom Search
-    href: endpoint-custom.md
-  - name: Compatibilidad de idioma y región
-    href: language-support.md
-ms.openlocfilehash: eee327b77fa3c0d46d47bb3ac6644fb175249618
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568907"
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598147-bing-custom-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+custom+search'
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: Obtener clave de API
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api'
+    - name: ¡Pruébelo!
+      href: 'https://aka.ms/bingcustomsearchtryit'
+    - name: Punto de conexión de Bing Custom Search
+      href: endpoint-custom.md
+    - name: Compatibilidad de idioma y región
+      href: language-support.md

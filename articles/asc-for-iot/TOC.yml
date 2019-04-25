@@ -1,77 +1,70 @@
-items:
 - name: Documentación sobre la versión preliminar de Azure Security Center (ASC) para IoT
   href: index.yml
 - name: Información general
   href: overview.md
   items:
-  - name: Arquitectura de la solución
-    href: architecture.md
-  - name: Agentes de seguridad
-    href: security-agent-architecture.md
-  - name: Módulo de seguridad de Edge
-    href: security-edge-architecture.md
-  - name: Requisitos previos de servicios
-    href: service-prerequisites.md
-  - name: Introducción a ASC para IoT
-    href: getting-started.md
+    - name: Arquitectura de la solución
+      href: architecture.md
+    - name: Agentes de seguridad
+      href: security-agent-architecture.md
+    - name: Módulo de seguridad de Edge
+      href: security-edge-architecture.md
+    - name: Requisitos previos de servicios
+      href: service-prerequisites.md
+    - name: Introducción a ASC para IoT
+      href: getting-started.md
 - name: Guías de inicio rápido
-  items:
-  - name: Habilitar ASC para IoT en IoT Hub
-    href: quickstart-onboard-iot-hub.md
-  - name: Configuración de la solución
-    href: quickstart-configure-your-solution.md
-  - name: Creación de un módulo gemelo de ASC para IoT
-    href: quickstart-create-security-twin.md
-  - name: Creación de alertas de seguridad personalizadas
-    href: quickstart-create-custom-alerts.md
   expanded: true
+  items:
+    - name: Habilitar ASC para IoT en IoT Hub
+      href: quickstart-onboard-iot-hub.md
+    - name: Configuración de la solución
+      href: quickstart-configure-your-solution.md
+    - name: Creación de un módulo gemelo de ASC para IoT
+      href: quickstart-create-security-twin.md
+    - name: Creación de alertas de seguridad personalizadas
+      href: quickstart-create-custom-alerts.md
 - name: Conceptos
   items:
-  - name: Autenticación del agente de seguridad
-    href: concept-security-agent-authentication-methods.md
-  - name: Módulo de seguridad
-    href: concept-security-module.md
-  - name: Alertas de seguridad
-    href: concept-security-alerts.md
-  - name: Recomendaciones de seguridad
-    href: concept-recommendations.md
-  - name: Precios y costos asociados
-    href: concept-pricing.md
+    - name: Autenticación del agente de seguridad
+      href: concept-security-agent-authentication-methods.md
+    - name: Módulo de seguridad
+      href: concept-security-module.md
+    - name: Alertas de seguridad
+      href: concept-security-alerts.md
+    - name: Recomendaciones de seguridad
+      href: concept-recommendations.md
+    - name: Precios y costos asociados
+      href: concept-pricing.md
 - name: Guías de procedimientos
   items:
-  - name: ¿Qué agente debo implementar?
-    items:
-    - name: Selección de un agente para su implementación
-      href: how-to-deploy-agent.md
-    - name: Implementación de un agente de seguridad basado en C# en un dispositivo Windows
-      href: how-to-deploy-windows-cs.md
-    - name: Implementación de un agente de seguridad basado en C# en un dispositivo Linux
-      href: how-to-deploy-linux-cs.md
-    - name: Implementación de un agente de seguridad basado en C en un dispositivo Linux
-      href: how-to-deploy-linux-c.md
-  - name: Implementación del módulo de seguridad de Edge
-    href: how-to-deploy-edge.md
-  - name: Configuración de agentes de seguridad
-    href: how-to-agent-configuration.md
-  - name: Envío de sus propios mensajes de seguridad
-    href: how-to-send-security-messages.md
-  - name: Acceso a datos de seguridad sin procesar
-    href: how-to-security-data-access.md
-  - name: Investigación de un dispositivo
-    href: how-to-investigate-device.md
+    - name: ¿Qué agente debo implementar?
+      items:
+        - name: Selección de un agente para su implementación
+          href: how-to-deploy-agent.md
+        - name: 'Implementación de un agente de seguridad basado en C# en un dispositivo Windows'
+          href: how-to-deploy-windows-cs.md
+        - name: 'Implementación de un agente de seguridad basado en C# en un dispositivo Linux'
+          href: how-to-deploy-linux-cs.md
+        - name: Implementación de un agente de seguridad basado en C en un dispositivo Linux
+          href: how-to-deploy-linux-c.md
+    - name: Implementación del módulo de seguridad de Edge
+      href: how-to-deploy-edge.md
+    - name: Configuración de agentes de seguridad
+      href: how-to-agent-configuration.md
+    - name: Envío de sus propios mensajes de seguridad
+      href: how-to-send-security-messages.md
+    - name: Acceso a datos de seguridad sin procesar
+      href: how-to-security-data-access.md
+    - name: Investigación de un dispositivo
+      href: how-to-investigate-device.md
 - name: Recursos
   items:
-  - name: Preguntas más frecuentes
-    href: resources-frequently-asked-questions.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Blog sobre seguridad, privacidad y cumplimiento de Azure
-    href: http://blogs.msdn.com/b/azuresecurity/
-  - name: Disponibilidad regional
-    href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 1d9d2b51fb1a07081c4ac2f4b115363c74cca6d0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754579"
+    - name: Preguntas más frecuentes
+      href: resources-frequently-asked-questions.md
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: 'Blog sobre seguridad, privacidad y cumplimiento de Azure'
+      href: 'http://blogs.msdn.com/b/azuresecurity/'
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/regions/services/'

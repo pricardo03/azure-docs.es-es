@@ -36,7 +36,7 @@ Las programaciones tienen las propiedades de la siguiente tabla.
 |:--- |:--- |
 | Interval |Frecuencia con que se realiza la búsqueda. Se mide en minutos. |
 | QueryTimeSpan |Intervalo de tiempo en el que se evalúan los criterios. Debe ser igual o mayor que Intervalo. Se mide en minutos. |
-| Version |Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
+| `Version` |Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
 
 Por ejemplo, en una consulta de evento con un valor de Intervalo de 15 minutos y un valor de Timespan de 30 minutos, la consulta se ejecutaría cada 15 minutos y se desencadenaría una alerta si los criterios siguieran evaluándose como True durante un intervalo de 30 minutos.
 

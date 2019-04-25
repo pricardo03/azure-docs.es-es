@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b22a7a86862f02c3320b7c14cc1ed878a57bd23d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d1c10d9df85b04cf7b8ea7e0020bc8e802a0d5d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901957"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698935"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Tutorial: Integración de Azure Active Directory con BlueJeans
 
@@ -38,7 +39,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para configurar la integración de Azure AD con BlueJeans, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
 * Suscripción habilitada para el inicio de sesión único en BlueJeans
 
 ## <a name="scenario-description"></a>Descripción del escenario
@@ -105,14 +106,16 @@ Para configurar el inicio de sesión único de Azure AD con BlueJeans, realice l
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de BlueJeans](common/sp-signonurl.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de BlueJeans](common/sp-identifier.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.BlueJeans.com`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.BlueJeans.com`
+
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL: `http://samlsp.bluejeans.com`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de BlueJeans](https://support.bluejeans.com/contact) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de BlueJeans](https://support.bluejeans.com/contact) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -132,11 +135,11 @@ Para configurar el inicio de sesión único de Azure AD con BlueJeans, realice l
 
 2. Vaya a **ADMIN \> CONFIGURACIÓN DE GRUPO \> SEGURIDAD**.
 
-    ![Administración](./media/bluejeans-tutorial/IC785868.png "Administración")
+    ![Administración](./media/bluejeans-tutorial/ic785868.png "Administración")
 
 3. En la sección **SEGURIDAD**, realice estos pasos:
 
-    ![Inicio de sesión único de SAML](./media/bluejeans-tutorial/IC785869.png "Inicio de sesión único de SAML")
+    ![Inicio de sesión único de SAML](./media/bluejeans-tutorial/ic785869.png "Inicio de sesión único de SAML")
 
      a. Seleccione **SAML Single Sign On**(Inicio de sesión único de SAML).
 
@@ -144,7 +147,7 @@ Para configurar el inicio de sesión único de Azure AD con BlueJeans, realice l
 
 4. Continúe con los siguiente pasos:
 
-    ![Ruta del certificado](./media/bluejeans-tutorial/IC785870.png "Ruta del certificado")
+    ![Ruta del certificado](./media/bluejeans-tutorial/ic785870.png "Ruta del certificado")
 
      a. Haga clic en **Elegir archivo** para cargar el certificado codificado en base 64 que descargó de Azure Portal.
 
@@ -156,7 +159,7 @@ Para configurar el inicio de sesión único de Azure AD con BlueJeans, realice l
 
 5. Continúe con los siguiente pasos:
 
-    ![Guardar cambios](./media/bluejeans-tutorial/IC785874.png "Guardar cambios")
+    ![Guardar cambios](./media/bluejeans-tutorial/ic785874.png "Guardar cambios")
 
      a. En el cuadro de texto **Id. de usuario**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
@@ -182,8 +185,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
-    Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario**, escriba `brittasimon\@yourcompanydomain.extension`. Por ejemplo, BrittaSimon@contoso.com.
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
@@ -221,22 +223,22 @@ El objetivo de esta sección es crear un usuario llamado Britta Simon en BlueJea
 
 **Para crear un usuario manualmente, siga los pasos siguientes:**
 
-1. Inicie sesión como administrador en el sitio de la compañía de **BlueJeans** .
+1. Inicie sesión como administrador en el sitio de la compañía de **BlueJeans**.
 
 2. Vaya a **ADMIN \> ADMINISTRAR USUARIOS \> AGREGAR USUARIO**.
 
-    ![Administración](./media/bluejeans-tutorial/IC785877.png "Administración")
+    ![Administración](./media/bluejeans-tutorial/ic785877.png "Administración")
 
-    >[!IMPORTANT]
-    >La pestaña **AGREGAR USUARIO** está disponible solo si en la pestaña **SEGURIDAD**, está desactivada la opción **Habilitar aprovisionamiento automático**. 
+    > [!IMPORTANT]
+    > La pestaña **AGREGAR USUARIO** está disponible solo si en la pestaña **SEGURIDAD**, está desactivada la opción **Habilitar aprovisionamiento automático**.
 
 3. En la sección **AGREGAR USUARIO**, lleve a cabo estos pasos:
 
-    ![Agregar usuario](./media/bluejeans-tutorial/IC785886.png "Agregar usuario")
+    ![Agregar usuario](./media/bluejeans-tutorial/ic785886.png "Agregar usuario")
 
      a. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso **Britta**.
 
-    b. En el cuadro de texto **Last Name** (Apellidos), escriba los apellidos del usuario, en este caso **Simon**.
+    b. En el cuadro de texto **Last Name** (Apellidos), escriba el nombre de usuario, en este caso **Simon**.
 
     c. En el cuadro de texto **Elegir un nombre de usuario de BlueJeans**, escriba el nombre de usuario del usuario, como **Brittasimon**
 
@@ -244,7 +246,7 @@ El objetivo de esta sección es crear un usuario llamado Britta Simon en BlueJea
 
     e. En el cuadro de texto **Compañía**, escriba su compañía.
 
-    f. En el cuadro de texto **Email Address** (Dirección de correo electrónico), escriba el correo electrónico del usuario; por ejemplo, **brittasimon\@contoso.com**.
+    f. En el cuadro de texto **Dirección de correo electrónico**, escriba el correo electrónico del usuario; por ejemplo, `brittasimon\@contoso.com`.
 
     g. En el cuadro de texto **Create a BlueJeans Meeting I.D** (Crear un id. de reunión de BlueJeans), escriba el identificador de la reunión.
 
@@ -252,7 +254,7 @@ El objetivo de esta sección es crear un usuario llamado Britta Simon en BlueJea
 
     i. Haga clic en **CONTINUE** (Continuar).
 
-    ![Agregar usuario](./media/bluejeans-tutorial/IC785887.png "Agregar usuario")
+    ![Agregar usuario](./media/bluejeans-tutorial/ic785887.png "Agregar usuario")
 
     J. Haga clic en **ADD USER** (Agregar usuario).
 
@@ -272,4 +274,3 @@ Al hacer clic en el icono de BlueJeans en el panel de acceso y debería iniciar 
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

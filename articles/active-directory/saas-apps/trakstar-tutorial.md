@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.openlocfilehash: ac21071b958942d7d689f1e9c2c49f02a3599ac4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Tutorial: Integración de Azure Active Directory con Trakstar
@@ -53,7 +53,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Trakstar en Azure AD, será preciso que agregue Trakstar desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Trakstar desde la galería, siga estos pasos:**
+**Para agregar Trakstar desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con Trakstar, siga estos
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Trakstar](common/sp-identifier.png)
 
-     a. En el cuadro de texto **Dirección URL de inicio de sesión**, copie el valor de **ACS (Consumer) URL** (Dirección URL de ACS [Consumidor]) en Trakstar (Settings > Authentication & SSO [Configuración > Autenticación y SSO]) con el formato: `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
+     a. En el cuadro de texto **Dirección URL de inicio de sesión**, copie el valor de **ACS (Consumer) URL** (Dirección URL de ACS [Consumidor]) en Trakstar (Settings > Authentication & SSO [Configuración > Autenticación y SSO]) con el formato:`https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
     b. En el cuadro de texto **Identificador (id. de entidad)**, deje el valor predeterminado: `https://app.trakstar.com`
 

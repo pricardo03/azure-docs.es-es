@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b9f4cd78288d1b9868a823c5e0ccd0b68b324229
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400241"
 documentType: LandingData
 title: Documentación sobre la versión preliminar de Windows Virtual Desktop
 metadata:
@@ -18,30 +12,30 @@ metadata:
   ms.date: 02/20/2019
   ms.author: helohr
 abstract:
-  description: Proporcione una experiencia de escritorio virtual y aplicaciones remotas en cualquier dispositivo. Combine Microsoft 365 y Azure para ofrecer a los usuarios la única experiencia con Windows 10 multisesión, con una escalabilidad excepcional y costos de TI más bajos.
+  description: 'Proporcione una experiencia de escritorio virtual y aplicaciones remotas en cualquier dispositivo. Combine Microsoft 365 y Azure para ofrecer a los usuarios la única experiencia con Windows 10 multisesión, con una escalabilidad excepcional y costos de TI más bajos.'
 sections:
-- title: Información general
-  items:
-  - type: paragraph
-    text: Más información acerca de la versión preliminar de Windows Virtual Desktop y cómo usarla. Tutoriales, procedimientos, contenido de referencia, etc, que le muestran cómo configurar los inquilinos y los grupos host y cómo asignar roles a los usuarios para el entorno de Windows Virtual Desktop.
-  - type: list
-    style: unordered
+  - title: Información general
     items:
-    - html: <a href="/azure/virtual-desktop/overview">¿Qué es la versión preliminar de Windows Virtual Desktop?</a>
-- title: Tutoriales detallados
-  items:
-  - type: paragraph
-    text: Aprenda a instalar y configurar Windows Virtual Desktop y a cómo conectarse al cliente cuando esté listo.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Más información acerca de la versión preliminar de Windows Virtual Desktop y cómo usarla. Tutoriales, procedimientos, contenido de referencia, etc, que le muestran cómo configurar los inquilinos y los grupos host y cómo asignar roles a los usuarios para el entorno de Windows Virtual Desktop.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/virtual-desktop/overview">¿Qué es la versión preliminar de Windows Virtual Desktop?</a>
+  - title: Tutoriales detallados
     items:
-    - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Creación de un inquilino en Windows Virtual Desktop</a>
-    - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Creación de un grupo host con Azure Marketplace</a>
-    - html: <a href="/azure/virtual-desktop/manage-app-groups">Administración de grupos de aplicaciones de Windows Virtual Desktop</a>
-    - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Creación de entidades de servicio y asignaciones de roles con PowerShell</a>
-- title: Referencia
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Aprenda a instalar y configurar Windows Virtual Desktop y a cómo conectarse al cliente cuando esté listo.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Creación de un inquilino en Windows Virtual Desktop</a>
+          - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Creación de un grupo host con Azure Marketplace</a>
+          - html: <a href="/azure/virtual-desktop/manage-app-groups">Administración de grupos de aplicaciones de Windows Virtual Desktop</a>
+          - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Creación de entidades de servicio y asignaciones de roles con PowerShell</a>
+  - title: Referencia
     items:
-    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>

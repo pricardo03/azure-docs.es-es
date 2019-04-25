@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838415"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420211"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Exposición de un servicio WCF local a una aplicación web en la nube con Azure Relay 
 En este artículo se muestra cómo compilar una aplicación de nube híbrida con Microsoft Azure y Visual Studio. Va a crear una aplicación que utiliza varios recursos de Azure funcionando en la nube.
@@ -185,7 +185,7 @@ En primer lugar, cree un sistema de catálogo de productos local ficticio.  Este
         }
     }
     ```
-12. En el Explorador de soluciones, haga doble clic en el archivo **App.config** para abrirlo en el editor de Visual Studio. En la parte inferior de la `<system.ServiceModel>` elemento (pero aún dentro `<system.ServiceModel>`), agregue el código XML siguiente: Asegúrese de reemplazar yourServiceNamespace por el nombre de su espacio de nombres y *yourKey* por la clave SAS que recuperó anteriormente en el portal:
+12. En el Explorador de soluciones, haga doble clic en el archivo **App.config** para abrirlo en el editor de Visual Studio. En la parte inferior de la `<system.ServiceModel>` elemento (pero aún dentro `<system.ServiceModel>`), agregue el código XML siguiente: Asegúrese de reemplazar *yourServiceNamespace* por el nombre de su espacio de nombres y *yourKey* por la clave SAS que recuperó anteriormente en el portal:
 
     ```xml
     <system.serviceModel>
@@ -350,7 +350,7 @@ El siguiente paso es conectar el servidor de productos local con la aplicación 
 
    ![Incorporación como vínculo][24]
 
-6. Abra ahora el **HomeController.cs** de archivos en el editor de Visual Studio y reemplace la definición de espacio de nombres con el código siguiente: Asegúrese de reemplazar yourServiceNamespace por el nombre de su espacio de nombres de servicio y *yourKey* por su clave de SAS. Esto permite que el cliente llame al servicio local y que se devuelva el resultado de la llamada.
+6. Abra ahora el **HomeController.cs** de archivos en el editor de Visual Studio y reemplace la definición de espacio de nombres con el código siguiente: Asegúrese de reemplazar *yourServiceNamespace* por el nombre de su espacio de nombres de servicio y *yourKey* por su clave de SAS. Esto permite que el cliente llame al servicio local y que se devuelva el resultado de la llamada.
 
    ```csharp
    namespace ProductsWeb.Controllers

@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a639b14c9313179816f6376aa0c5642a645ea344
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456001"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Solución de problemas de sincronización de atributos en Azure AD Connect
 
@@ -43,7 +43,7 @@ Antes de investigar los problemas de sincronización de un atributo, revisemos e
 
 * Importar desde AAD: los objetos de Azure Active Directory se incorporan al espacio conector de AAD.
 
-* Sincronización: **reglas de sincronización entrantes** y reglas de sincronización salientes se ejecutan de menor a mayor según el número de orden de prioridad. Para ver las reglas de sincronización, puede ir al **Editor de reglas de sincronización** desde las aplicaciones de escritorio. Las **reglas de sincronización entrantes** transfieren los datos del espacio conector al metaverso. Las **reglas de sincronización salientes** transfieren los datos del metaverso al espacio conector.
+* Sincronización: **reglas de sincronización entrantes** y **reglas de sincronización salientes** se ejecutan de menor a mayor según el número de orden de prioridad. Para ver las reglas de sincronización, puede ir al **Editor de reglas de sincronización** desde las aplicaciones de escritorio. Las **reglas de sincronización entrantes** transfieren los datos del espacio conector al metaverso. Las **reglas de sincronización salientes** transfieren los datos del metaverso al espacio conector.
 
 * Exportar a AD: después de ejecutar la sincronización, se exportan objetos del espacio conector de AD a **Active Directory**.
 

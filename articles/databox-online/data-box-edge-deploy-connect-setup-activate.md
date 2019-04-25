@@ -5,18 +5,18 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: ad288067fdd40dbfa84352916e84fa1e3ab9af8e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: b97334ae60715f021cce387f9d73b5ea69eea7fc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629134"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998114"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: Conectarse, configurar y activar el borde del cuadro de datos de Azure 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: Conexión, configuración y activación de Azure Data Box Edge 
 
 En este tutorial se describe cómo se puede conectar, configurar y activar el dispositivo Azure Data Box Edge mediante la interfaz de usuario web local.
 
@@ -37,9 +37,9 @@ Antes de configurar e instalar el dispositivo Data Box Edge, asegúrese de que:
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Conexión a la configuración de la interfaz de usuario web local 
 
-1. Configure el adaptador Ethernet en el equipo para conectarse al dispositivo de borde del cuadro de datos con una dirección IP estática de 192.168.100.5 y la subred de 255.255.255.0.
+1. Configure el adaptador Ethernet en el equipo para conectarse al dispositivo Data Box Edge con la dirección IP estática 192.168.100.5 y la subred 255.255.255.0.
 
-2. Conecte el equipo a PUERTO 1 en el dispositivo. Use la siguiente ilustración para identificar el puerto 1 en el dispositivo.
+2. Conecte el equipo a PUERTO 1 en el dispositivo. Use la siguiente ilustración para identificar el PUERTO 1 en el dispositivo.
 
     ![Placa posterior de un dispositivo cableado](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
@@ -59,7 +59,7 @@ Antes de configurar e instalar el dispositivo Data Box Edge, asegúrese de que:
     ![Página de inicio de sesión del dispositivo Data Box Edge](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
 
 6. En el aviso, cambie la contraseña del administrador de dispositivos.  
-    La nueva contraseña debe contener entre 8 y 16 caracteres. Esta debe contener tres de los siguientes caracteres: mayúsculas, minúsculas, números y caracteres especiales.
+    Recuerde que la nueva contraseña debe tener entre 8 y 16 caracteres. Esta debe contener tres de los siguientes caracteres: mayúsculas, minúsculas, números y caracteres especiales.
 
 Ahora está en el panel del dispositivo.
 
@@ -67,17 +67,17 @@ Ahora está en el panel del dispositivo.
  
 El panel muestra los distintos valores necesarios para configurar y registrar el dispositivo físico en el servicio Data Box Edge. Las opciones **Nombre de dispositivo**, **Configuración de red**, **Configuración de proxy web** y **Configuración horaria** son opcionales. Los únicos valores obligatorios son **Configuración de la nube**.
    
-!["Panel" de la IU web local página](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
+![Página "Panel" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
 1. En el panel izquierdo, seleccione **Nombre de dispositivo**y escriba un nombre descriptivo para el dispositivo.  
-    El nombre descriptivo debe contener entre 1 y 15 caracteres y tener letras, números y guiones.
+    Dicho nombre debe tener entre 1 y 15 caracteres, así como letras, números y guiones.
 
-    ![Página de "Nombre del dispositivo" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
+    ![Página de "Nombre de dispositivo" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (Opcional) En el panel izquierdo, seleccione **Configuración de red** y configure los distintos valores.  
-    En el dispositivo físico, hay seis interfaces de red. PUERTO 1 y PUERTO 2 son interfaces de red de 1 Gbps. El puerto 3, 4 de puerto, puerto 5 y 6 de puerto son todas las interfaces de red 25 Gbps que pueden actuar también como interfaces de red de 10 Gbps. PUERTO 1 se configura automáticamente como puerto solo de administración y PUERTO 2 a PUERTO 6 son los puertos de datos. El **configuración de red** página es tal como se muestra a continuación.
+    En el dispositivo físico hay seis interfaces de red. PUERTO 1 y PUERTO 2 son interfaces de red de 1 Gbps. PUERTO 3, PUERTO 4, PUERTO 5 y PUERTO 6 son interfaces de red de 25 Gbps que también pueden actuar como interfaces de red de 10 Gbps. PUERTO 1 se configura automáticamente como puerto solo de administración y PUERTO 2 a PUERTO 6 son los puertos de datos. La página **Configuración de red** es tal como se muestra a continuación.
     
-    ![Página de "Configuración de red" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
+    ![Página "Configuración de red" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
     Al configurar la red, tenga en cuenta lo siguiente:
 
@@ -90,7 +90,7 @@ El panel muestra los distintos valores necesarios para configurar y registrar el
 
 3. (Opcional) En el panel izquierdo, seleccione **Configuración de proxy web** y, después, configure el servidor proxy web. Aunque la configuración del proxy web es opcional, si usa un proxy web, solo puede configurarlo aquí.
    
-   ![Página de "Configuración del proxy Web" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
+   ![Página "Configuración de proxy web" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
    
    En la página **Configuración de proxy web** haga lo siguiente:
    
@@ -115,33 +115,33 @@ El panel muestra los distintos valores necesarios para configurar y registrar el
 
     3. Si lo desea, en el cuadro **Servidor NTP secundario**, escriba un servidor secundario para el dispositivo.
 
-    4. Para validar y aplicar la configuración de tiempo configurado, seleccione **aplicar configuración**.
+    4. Seleccione **Aplicar configuración** para validar y aplicar la configuración horaria.
 
-        ![Página de "Configuración de tiempo" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
+        ![Página "Configuración horaria" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. (Opcional) En el panel izquierdo, seleccione **configuración de almacenamiento** para configurar la resistencia de almacenamiento en el dispositivo. Esta funcionalidad actualmente está en su versión preliminar. De forma predeterminada, el almacenamiento en el dispositivo no es resistente y no hay pérdida de datos si se produce un error en un disco de datos en el dispositivo. Cuando se habilita la opción resistente, se reconfigura el almacenamiento en el dispositivo y el dispositivo puede resistir el error de un disco de datos sin pérdida de datos. Configuración del almacenamiento como resistente, se reducirá la capacidad utilizable del dispositivo.
+5. (Opcional) En el panel izquierdo, seleccione **Configuración de almacenamiento** para configurar la resistencia de almacenamiento en el dispositivo. Esta funcionalidad actualmente está en su versión preliminar. De manera predeterminada, el almacenamiento en el dispositivo no es resistente y hay pérdida de datos si se produce un error en un disco de datos del dispositivo. Cuando se habilita la opción resistente, se vuelve a configurar el almacenamiento en el dispositivo y el dispositivo puede resistir el error de un disco de datos sin pérdida de datos. La configuración del almacenamiento como resistente reducirá la capacidad utilizable del dispositivo.
 
     > [!IMPORTANT] 
-    > Solo se puede configurar la resistencia antes de activar el dispositivo. 
+    > La resistencia solo se puede configurar antes de activar el dispositivo. 
 
-    ![Página de "Configuración de almacenamiento" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+    ![Página "Configuración de almacenamiento" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
 
 6. En el panel izquierdo, seleccione **Configuración de la nube**  y active el dispositivo con el servicio Data Box Edge en Azure Portal.
     
     1. En el cuadro **Clave de activación**, escriba la que obtuvo en [Obtención de la clave de activación](data-box-edge-deploy-prep.md#get-the-activation-key) para Data Box Edge.
     2. Seleccione **Aplicar**.
        
-        ![Página de "Configuración de la nube" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
+        ![Página "Configuración de nube" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
 
-    3. En primer lugar, el dispositivo está activado. El dispositivo, a continuación, se analiza para todas las actualizaciones críticas y si está disponible, las actualizaciones se aplican automáticamente. Verá una notificación al respecto.
+    3. En primer lugar, se activa el dispositivo. A continuación, se analiza para comprobar si hay actualizaciones críticas y, en caso de que haya alguna disponible, se aplica automáticamente. Verá una notificación al respecto.
 
-        El cuadro de diálogo también tiene una clave de recuperación que debe copiar y guardarla en una ubicación segura. Esta clave se usa para recuperar los datos en caso de que el dispositivo no puede arrancar.
+        El cuadro de diálogo también tiene una clave de recuperación que debe copiar y guardar en una ubicación segura. Esta clave se usa para recuperar los datos en caso de que el dispositivo no pueda iniciarse.
 
-        ![Página de "Configuración de la nube" de la interfaz de usuario web local actualizado](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
+        ![Página "Configuración de nube" actualizada de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
 
-    4. Es posible que deba esperar unos minutos después de la actualización se ha completado correctamente. La página se actualiza para indicar que el dispositivo se ha activado correctamente.
+    4. Es posible que deba esperar varios minutos después de que la actualización se complete correctamente. La página se actualiza para indicar que el dispositivo se ha activado correctamente.
 
-        ![Página de "Configuración de la nube" de la interfaz de usuario web local actualizado](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
+        ![Página "Configuración de nube" actualizada de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 La instalación del dispositivo está completa. Ahora puede agregar recursos compartidos en el dispositivo.
 

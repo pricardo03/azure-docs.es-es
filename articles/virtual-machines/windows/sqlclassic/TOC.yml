@@ -1,97 +1,90 @@
-items:
 - name: Información general
   items:
-  - name: Máquinas virtuales Windows con SQL Server
-    href: ../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-  - name: Precios
-    href: https://azure.microsoft.com/pricing/details/virtual-machines/windows/
-  - name: Preguntas más frecuentes
-    href: ../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: Máquinas virtuales Windows con SQL Server
+      href: ../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/virtual-machines/windows/'
+    - name: Preguntas más frecuentes
+      href: ../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
 - name: Introducción
   items:
-  - name: Aprovisionamiento de una máquina virtual en Azure Portal
-    href: ../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-  - name: Aprovisionamiento de una máquina virtual con Azure PowerShell
-    href: virtual-machines-windows-classic-ps-sql-create.md
-  - name: Conexión a una máquina virtual
-    href: virtual-machines-windows-classic-sql-connect.md
-  - name: Migración de una base de datos de SQL Server
-    href: ../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: Aprovisionamiento de una máquina virtual en Azure Portal
+      href: ../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: Aprovisionamiento de una máquina virtual con Azure PowerShell
+      href: virtual-machines-windows-classic-ps-sql-create.md
+    - name: Conexión a una máquina virtual
+      href: virtual-machines-windows-classic-sql-connect.md
+    - name: Migración de una base de datos de SQL Server
+      href: ../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
 - name: Procedimientos
   items:
-  - name: Configuración para alta disponibilidad
-    items:
-    - name: Opciones de alta disponibilidad
-      href: ../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-    - name: Configuración de grupos de disponibilidad Always On con PowerShell
-      href: virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
-    - name: Configuración de un agente de escucha interno para un grupo de disponibilidad
-      href: virtual-machines-windows-classic-ps-sql-int-listener.md
-    - name: Configuración de un agente de escucha externo para un grupo de disponibilidad
-      href: virtual-machines-windows-classic-ps-sql-ext-listener.md
-    - name: Ampliación de los grupos de disponibilidad locales a Azure
-      href: virtual-machines-windows-classic-sql-onprem-availability.md
-  - name: administración
-    items:
-    - name: Uso de la Extensión Agente de IaaS de SQL Server
-      href: virtual-machines-windows-classic-sql-server-agent-extension.md
-    - name: Aplicación de revisiones automatizada
-      href: virtual-machines-windows-classic-sql-automated-patching.md
-    - name: Configuración de la integración de Azure Key Vault
-      href: virtual-machines-windows-classic-ps-sql-keyvault.md
-    - name: Uso de Premium Storage
-      href: virtual-machines-windows-classic-sql-server-premium-storage.md
-    - name: Consideraciones sobre la seguridad
-      href: ../sql/virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-  - name: Copia de seguridad y restauración
-    items:
+    - name: Configuración para alta disponibilidad
+      items:
+        - name: Opciones de alta disponibilidad
+          href: ../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+        - name: Configuración de grupos de disponibilidad Always On con PowerShell
+          href: virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+        - name: Configuración de un agente de escucha interno para un grupo de disponibilidad
+          href: virtual-machines-windows-classic-ps-sql-int-listener.md
+        - name: Configuración de un agente de escucha externo para un grupo de disponibilidad
+          href: virtual-machines-windows-classic-ps-sql-ext-listener.md
+        - name: Ampliación de los grupos de disponibilidad locales a Azure
+          href: virtual-machines-windows-classic-sql-onprem-availability.md
+    - name: administración
+      items:
+        - name: Uso de la Extensión Agente de IaaS de SQL Server
+          href: virtual-machines-windows-classic-sql-server-agent-extension.md
+        - name: Aplicación de revisiones automatizada
+          href: virtual-machines-windows-classic-sql-automated-patching.md
+        - name: Configuración de la integración de Azure Key Vault
+          href: virtual-machines-windows-classic-ps-sql-keyvault.md
+        - name: Uso de Premium Storage
+          href: virtual-machines-windows-classic-sql-server-premium-storage.md
+        - name: Consideraciones sobre la seguridad
+          href: ../sql/virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
     - name: Copia de seguridad y restauración
-      href: ../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-    - name: Copia de seguridad automatizada
-      href: virtual-machines-windows-classic-sql-automated-backup.md
-    - name: Uso de Azure Storage para la copia de seguridad y la restauración
-      href: ../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-  - name: Inteligencia empresarial
-    items:
-    - name: Inteligencia empresarial de SQL Server en máquinas virtuales de Azure
-      href: virtual-machines-windows-classic-ps-sql-bi.md
-    - name: Uso de ReportViewer en un sitio web hospedado en Azure
-      href: virtual-machines-windows-classic-sql-server-reportviewer.md
-    - name: Uso de Azure PowerShell para crear una máquina virtual de Azure con un servidor de informes
-      href: virtual-machines-windows-classic-ps-sql-report.md
-  - name: Procedimientos recomendados para mejorar el rendimiento
-    href: ../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
-  - name: Patrones de aplicación
-    href: ../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+      items:
+        - name: Copia de seguridad y restauración
+          href: ../sql/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+        - name: Copia de seguridad automatizada
+          href: virtual-machines-windows-classic-sql-automated-backup.md
+        - name: Uso de Azure Storage para la copia de seguridad y la restauración
+          href: ../sql/virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: Inteligencia empresarial
+      items:
+        - name: Inteligencia empresarial de SQL Server en máquinas virtuales de Azure
+          href: virtual-machines-windows-classic-ps-sql-bi.md
+        - name: Uso de ReportViewer en un sitio web hospedado en Azure
+          href: virtual-machines-windows-classic-sql-server-reportviewer.md
+        - name: Uso de Azure PowerShell para crear una máquina virtual de Azure con un servidor de informes
+          href: virtual-machines-windows-classic-ps-sql-report.md
+    - name: Procedimientos recomendados para mejorar el rendimiento
+      href: ../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
+    - name: Patrones de aplicación
+      href: ../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json
 - name: Referencia
   items:
-  - name: Azure PowerShell
-    href: /powershell/azure/overview?view=azuresmps-3.7.0
-  - name: Azure CLI
-    href: /cli/azure/
-  - name: T-SQL
-    href: https://docs.microsoft.com/sql/t-sql/language-reference
-  - name: Controladores de SQL Server
-    href: https://docs.microsoft.com/sql/connect/sql-server-drivers
-  - name: REST
-    href: /rest/api/
+    - name: Azure PowerShell
+      href: /powershell/azure/overview?view=azuresmps-3.7.0
+    - name: Azure CLI
+      href: /cli/azure/
+    - name: T-SQL
+      href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
+    - name: Controladores de SQL Server
+      href: 'https://docs.microsoft.com/sql/connect/sql-server-drivers'
+    - name: REST
+      href: /rest/api/
 - name: Recursos
   items:
-  - name: Foro de MSDN
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server
-  - name: Calculadora de precios
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: SQL Server Data Tools (SSDT)
-    href: https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
-  - name: SQL Server Management Studio (SSMS)
-    href: https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms
-  - name: Herramientas de SQL Server
-    href: https://docs.microsoft.com/sql/tools/overview-sql-tools
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server
-ms.openlocfilehash: 66cc42f9be1a2147597e81ec774b01aa7b59e383
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341176"
+    - name: Foro de MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: SQL Server Data Tools (SSDT)
+      href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
+    - name: SQL Server Management Studio (SSMS)
+      href: 'https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms'
+    - name: Herramientas de SQL Server
+      href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'
