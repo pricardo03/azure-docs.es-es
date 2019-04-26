@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337874"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308251"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Creación de un índice básico en Azure Search
 
@@ -30,7 +30,7 @@ Para llegar al diseño adecuado del índice, se necesitan normalmente varias ite
 
 1. Determine si puede usar un [indexador](search-indexer-overview.md#supported-data-sources). Si los datos externos son uno de los orígenes de datos admitidos, puede crear un prototipo y cargar un índice mediante el [**Asistente para importar datos**](search-import-data-portal.md).
 
-2. Si no puede usar dicho asistente, puede [crear un índice inicial en el portal **, y agregar campos y tipos de datos y asignar atributos mediante los controles de la página **Add Index** (Agregar índice). El portal muestra los atributos que están disponibles para diferentes tipos de datos. Si no está familiarizado con el diseño de índices, esta información resulta útil.
+2. Si no puede usar dicho asistente, puede [crear un índice inicial en el portal](search-create-index-portal.md), y agregar campos y tipos de datos y asignar atributos mediante los controles de la página **Add Index** (Agregar índice)**.** El portal muestra los atributos que están disponibles para diferentes tipos de datos. Si no está familiarizado con el diseño de índices, esta información resulta útil.
 
    ![Agregar página de índice que muestra atributos por tipo de datos](media/search-create-index-portal/field-attributes.png "Add index page showing attributes by data type")
   
@@ -170,7 +170,7 @@ El índice se basa en el origen de datos [ejemplo de realestate integrado](searc
 
 ![Tamaño de índice según la selección de atributos](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
 
-Aunque estas variantes de índice son artificiales, se puede hacer referencia a ellas en comparaciones más amplias de cómo los atributos afectan al almacenamiento. ¿El valor **retrievable** aumenta el tamaño del índice?  No. ¿Agregar campos a un **proveedor de sugerencias** aumenta el tamaño del índice? Sí.
+Aunque estas variantes de índice son artificiales, se puede hacer referencia a ellas en comparaciones más amplias de cómo los atributos afectan al almacenamiento. ¿El valor **retrievable** aumenta el tamaño del índice? No. ¿Agregar campos a un **proveedor de sugerencias** aumenta el tamaño del índice? Sí.
 
 Los índices que admiten ordenación y filtrado son en proporción más grandes que aquellos que solo admiten búsqueda de texto completo. El motivo es que la consulta de ordenación y filtrado se realiza por coincidencias exactas, de forma que los documentos se almacenan intactos. En cambio, los campos que permiten búsquedas que admiten búsqueda de texto completo y búsqueda parcial usan índices invertidos, que se rellenan con términos acortados que consumen menos espacio que los documentos completos.
 
