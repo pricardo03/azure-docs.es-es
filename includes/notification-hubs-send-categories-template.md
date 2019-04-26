@@ -31,7 +31,7 @@ En esta sección se envían noticias de última hora como notificaciones de plan
     ```
    
 3. Seleccione **Entrar**.  
-    Esta acción agrega una referencia al SDK de Azure Notification Hubs mediante el [paquete NuGet Microsoft.Azure.Notification Hubs].
+    Esta acción agrega una referencia al SDK de Azure Notification Hubs mediante el [paquete NuGet Microsoft.Azure.NotificationHubs].
 
 4. Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
    
@@ -85,4 +85,4 @@ En esta sección se envían noticias de última hora como notificaciones de plan
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 [Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
-[paquete NuGet Microsoft.Azure.Notification Hubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
+[paquete NuGet Microsoft.Azure.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
