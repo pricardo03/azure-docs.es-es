@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 042aedf1a043cd89d74ff099554642d38a3c7dd3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122988"
 ---
 ## <a name="what-is-table-storage"></a>¿Qué es Table Storage?
 Azure Table Storage permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales. Table Storage suele usarse para realizar las siguientes tareas:
@@ -26,15 +26,15 @@ Table Storage contiene los siguientes componentes:
 
 ![Diagrama de componentes de Table Storage][Table1]
 
-* **Formato de la dirección URL:** las cuentas de Azure Table Storage utilizan este formato: `http://<storage account>.table.core.windows.net/<table>`
+* **Formato de dirección URL**: las cuentas de Azure Table Storage utilizan este formato: `http://<storage account>.table.core.windows.net/<table>`
 
   Las cuentas de Table API de Azure Cosmos DB utilizan este formato:`http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
   Puede desviar las tablas de Azure directamente mediante esta dirección con el protocolo OData. Para más información, consulte [OData.org][OData.org].
-* **Cuentas**: todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../articles/storage/common/storage-scalability-targets.md) para obtener información sobre la capacidad de la cuenta de almacenamiento. 
+* **Cuentas:** Todo el acceso a Azure Storage se realiza a través de una cuenta de almacenamiento. Consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../articles/storage/common/storage-scalability-targets.md) para obtener información sobre la capacidad de la cuenta de almacenamiento. 
 
     Todo el acceso a Azure Cosmos DB se realiza a través de una cuenta de Table API. Consulte [Creación de una cuenta de Table API](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) para obtener información sobre cómo crear una cuenta de Table API.
-* **Tabla**: una tabla es una colección de entidades. Las tablas no exigen un esquema sobre entidades, lo que significa que una única tabla puede contener entidades que dispongan de diferentes conjuntos de propiedades.  
+* **Tabla**: Una tabla es una colección de entidades. Las tablas no exigen un esquema sobre entidades, lo que significa que una única tabla puede contener entidades que dispongan de diferentes conjuntos de propiedades.  
 * **Entidad**: una entidad es un conjunto de propiedades, similar a una fila de base de datos. Una entidad en Azure Storage puede tener hasta 1 MB. Una entidad en Azure Cosmos DB puede tener hasta 2 MB.
 * **Propiedades**: una propiedad es un par nombre-valor. Cada entidad puede incluir hasta 252 propiedades para almacenar datos. Cada entidad dispone también de tres propiedades del sistema que especifican una clave de partición, una clave de fila y una marca de tiempo. Pueden realizarse consultas en las entidades con la misma partición de manera más rápida e insertarse o actualizarse en operaciones atómicas. Una clave de fila de la entidad es el identificador exclusivo en una partición.
 
