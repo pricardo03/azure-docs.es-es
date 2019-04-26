@@ -54,8 +54,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de tabla we
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Web** |SÍ |
-| URL | Dirección URL para el origen de Web |SÍ |
+| type | La propiedad type debe establecerse en: **Web** |SÍ |
+| url | Dirección URL para el origen de Web |SÍ |
 | authenticationType | El valor permitido es: **Anónima**. |SÍ |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |SÍ |
 
@@ -86,7 +86,7 @@ Para copiar datos desde una tabla web, establezca la propiedad type del conjunto
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **WebTable** | SÍ |
+| type | La propiedad type del conjunto de datos debe establecerse en: **WebTable** | SÍ |
 | path |Dirección URL relativa al recurso que contiene la tabla. | No. Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición de servicio vinculado. |
 | index |Índice de la tabla en el recurso. Consulte la sección [Obtención de índice de una tabla en una página HTML](#get-index-of-a-table-in-an-html-page) para saber los pasos necesarios para obtener el índice de una tabla en una página HTML. |SÍ |
 
