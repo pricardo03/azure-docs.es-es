@@ -52,13 +52,13 @@ Para administrar el costo y la complejidad, los registros de conexión no repres
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-|Dirección |Dirección de la conexión; el valor es *inbound* u *outbound* |
-|Máquina |FQDN del equipo |
-|Proceso |Identidad de proceso o grupos de procesos; iniciar/aceptar la conexión |
+|Direction |Dirección de la conexión; el valor es *inbound* u *outbound* |
+|Machine |FQDN del equipo |
+|Process |Identidad de proceso o grupos de procesos; iniciar/aceptar la conexión |
 |SourceIp |Dirección IP de origen |
 |DestinationIp |Dirección IP de destino. |
 |DestinationPort |Número de puerto de destino |
-|Protocolo |Protocolo utilizado para la conexión.  Los valores son *tcp*. |
+|Protocol |Protocolo utilizado para la conexión.  Los valores son *tcp*. |
 
 Para tener en cuenta el impacto de la agrupación, se proporciona información sobre el número de conexiones físicas agrupadas en las siguientes propiedades del registro:
 
@@ -112,10 +112,10 @@ Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un 
 |:--|:--|
 |MaliciousIP |Dirección RemoteIp |
 |IndicatorThreadType |El indicador de amenazas detectado es uno de los siguientes valores: *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|DESCRIPCIÓN |Descripción de la amenaza observada. |
+|Description |Descripción de la amenaza observada. |
 |TLPLevel |Nivel de protocolo de semáforo (TLP) es uno de los valores definidos: *blanco*, *verde*, *ámbar*, *rojo*. |
-|Confianza |Los valores válidos se encuentran entre *0 y 100*. |
-|Gravedad |Los valores se encuentran entre *0 y 5*, donde *5* es el más grave y *0* no es grave en absoluto. El valor predeterminado es *3*.  |
+|Confidence |Los valores válidos se encuentran entre *0 y 100*. |
+|Severity |Los valores se encuentran entre *0 y 5*, donde *5* es el más grave y *0* no es grave en absoluto. El valor predeterminado es *3*.  |
 |FirstReportedDateTime |La primera vez que el proveedor informó sobre el indicador. |
 |LastReportedDateTime |La última vez que Interflow ha visto el indicador. |
 |IsActive |Indica que los indicadores se desactivan con el valor *True* o *False*. |
@@ -127,7 +127,7 @@ Puertos en una máquina que activamente acepten el tráfico entrante o potencial
 
 >[!NOTE]
 >Azure Monitor para las máquinas virtuales no admite recopilar y registrar datos de puerto en un área de trabajo de Log Analytics en las siguientes regiones:  
->- Este de EE. UU  
+>- Este de EE. UU  
 >- Europa occidental
 >
 > Recopilar estos datos está habilitada en el otro [regiones admitidas](vminsights-onboard.md#log-analytics) para Azure Monitor para las máquinas virtuales. 
@@ -136,11 +136,11 @@ Todos los registros de VMBoundPort se identifican mediante los siguientes campos
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-|Proceso | Identidad de proceso (o grupos de procesos) que está asociado con el puerto.|
-|IP | Dirección IP de puerto (puede ser la dirección IP de carácter comodín, *0.0.0.0*) |
+|Process | Identidad de proceso (o grupos de procesos) que está asociado con el puerto.|
+|Ip | Dirección IP de puerto (puede ser la dirección IP de carácter comodín, *0.0.0.0*) |
 |Port |El número de puerto |
-|Protocolo | El protocolo.  Ejemplo, *tcp* o *udp* (sólo *tcp* actualmente se admite).|
- 
+|Protocol | El protocolo.  Ejemplo, *tcp* o *udp* (sólo *tcp* actualmente se admite).|
+
 La identidad de un puerto se deriva de los cinco campos anteriores y se almacena en la propiedad PortId. Esta propiedad se puede usar para buscar rápidamente los registros para un puerto específico a través del tiempo. 
 
 #### <a name="metrics"></a>Métricas 
