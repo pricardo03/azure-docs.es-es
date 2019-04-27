@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: e3fc5a3dc5dc40078ca3a4733f6a2ba11da450f1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b97d21503e8dcd75906581faf1851533bcd69fa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681223"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009351"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -399,22 +399,29 @@ En la siguiente sección obtendrá más información sobre cómo usar PolyBase p
 
 Usar [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) es una manera eficaz de cargar grandes cantidades de datos en Azure SQL Data Warehouse con un alto rendimiento. Verá una gran mejora en el rendimiento mediante el uso de PolyBase en lugar del mecanismo BULKINSERT predeterminado. Consulte [Performance reference](copy-activity-performance.md#performance-reference) (Referencia de rendimiento) para obtener una comparación detallada. Para un tutorial con un caso de uso, consulte [Load 1 TB into Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse) (Carga de 1 TB en Azure SQL Data Warehouse).
 
-* Si los datos de origen están en Azure Blob Storage o Azure Data Lake Store y el formato es compatible con PolyBase, puede realizar las copias directamente desde Azure SQL Data Warehouse con PolyBase. Consulte **[Copia directa con PolyBase](#direct-copy-by-using-polybase)** para obtener detalles.
+* Si los datos de origen están en **Azure Data Lake Storage Gen1, Gen2 de almacenamiento de Azure Data Lake o Azure Blob**y el **formato es compatible con PolyBase**, puede usar la actividad de copia para invocar directamente PolyBase para permitir que Azure SQL Data Warehouse extraer los datos de origen. Consulte **[Copia directa con PolyBase](#direct-copy-by-using-polybase)** para obtener detalles.
 * Si el formato y el almacenamiento de datos de origen no es compatible originalmente con PolyBase, use en su lugar la característica **[Copia almacenada provisionalmente con PolyBase](#staged-copy-by-using-polybase)**. La característica de copia almacenada provisionalmente también proporciona un mejor rendimiento. Convierte automáticamente los datos a formato compatible con PolyBase. Y almacena los datos en Azure Blob Storage. Luego los carga en SQL Data Warehouse.
 
 ### <a name="direct-copy-by-using-polybase"></a>Copia directa con PolyBase
 
-PolyBase de SQL Data Warehouse admite directamente Azure Blob y Azure Data Lake Store. Usa una entidad de servicio como origen y tiene requisitos específicos de formato de archivo. Si los datos de origen cumplen los criterios descritos en esta sección, use PolyBase para copiar directamente desde el almacén de datos de origen en Azure SQL Data Warehouse. De lo contrario, use [Copia almacenada provisionalmente con PolyBase](#staged-copy-by-using-polybase).
+PolyBase en SQL Data Warehouse admite directamente Azure Blob, Azure Data Lake Storage Gen1 y Gen2 de almacenamiento de Azure Data Lake. Si los datos de origen cumplen los criterios descritos en esta sección, use PolyBase para copiar directamente desde el almacén de datos de origen a Azure SQL Data Warehouse. De lo contrario, use [Copia almacenada provisionalmente con PolyBase](#staged-copy-by-using-polybase).
 
 > [!TIP]
-> Para copiar datos desde Data Lake Store en SQL Data Warehouse de forma eficaz, obtenga más información en [Azure Data Factory makes it even easier and convenient to uncover insights from data when using Data Lake Store with SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/) (Azure Data Factory hace incluso más fácil y cómodo el descubrimiento de información de datos cuando se usa Data Lake Store con SQL Data Warehouse).
+> Para copiar datos de forma eficaz en SQL Data Warehouse, obtenga más información en [Azure Data Factory hace incluso más fácil y cómodo el descubrimiento de conocimiento a partir de datos cuando se usa Data Lake Store con SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
 
 Si no se cumplen los requisitos, Azure Data Factory comprobará la configuración y volverá automáticamente al mecanismo BULKINSERT para realizar el movimiento de datos.
 
-1. El **servicio vinculado de origen** es de tipo de almacenamiento de blobs de Azure (**AzureBLobStorage**/**AzureStorage**) con **autenticación de clave de cuenta**  o Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) con **autenticación de entidad de servicio**.
-2. El tipo de **conjunto de datos de entrada** es **AzureBlob** o **AzureDataLakeStoreFile**. El tipo de formato de `type` es **OrcFormat**, **ParquetFormat** o **TextFormat**, con las configuraciones siguientes:
+1. El **servicio vinculado de origen** es con los siguientes tipos y métodos de autenticación:
 
-   1. `fileName` no contiene el filtro de comodín.
+    | Tipo de almacén de datos de origen compatible | Admite el tipo de autenticación de origen |
+    |:--- |:--- |
+    | [Azure Blob](connector-azure-blob-storage.md) | Autenticación de clave de cuenta |
+    | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Autenticación de entidad de servicio |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Autenticación de clave de cuenta |
+
+2. El **formato de conjunto de datos de origen** es de **ParquetFormat**, **OrcFormat**, o **TextFormat**, con las siguientes configuraciones:
+
+   1. `folderPath` y `fileName` no contienen el filtro de comodín.
    2. `rowDelimiter` debe ser **\n**.
    3. `nullValue` se establece en **cadena vacía** ("") o se deja como valor predeterminado, y `treatEmptyAsNull` se deja como valor predeterminado o se establece en true.
    4. `encodingName` se establece en **utf-8**, que es el valor predeterminado.
@@ -423,7 +430,7 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
 
       ```json
       "typeProperties": {
-        "folderPath": "<blobpath>",
+        "folderPath": "<path>",
         "format": {
             "type": "TextFormat",
             "columnDelimiter": "<any delimiter>",
@@ -431,10 +438,6 @@ Si no se cumplen los requisitos, Azure Data Factory comprobará la configuració
             "nullValue": "",
             "encodingName": "utf-8",
             "firstRowAsHeader": <any>
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
         }
       },
       ```
