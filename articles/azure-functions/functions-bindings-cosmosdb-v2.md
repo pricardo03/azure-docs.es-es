@@ -2345,7 +2345,7 @@ En esta sección se describen las opciones de configuración globales disponible
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
 |GatewayMode|Puerta de enlace|Modo de conexión que usa la función al conectarse al servicio de Azure Cosmos DB. Las opciones son `Direct` y `Gateway`|
-|Protocolo|Https|Protocolo de conexión que usa la función al conectarse al servicio de Azure Cosmos DB.  Lea [aquí para obtener una explicación de los dos modos](../cosmos-db/performance-tips.md#networking)| 
+|Protocol|Https|Protocolo de conexión que usa la función al conectarse al servicio de Azure Cosmos DB.  Lea [aquí para obtener una explicación de los dos modos](../cosmos-db/performance-tips.md#networking)| 
 |leasePrefix|N/D|Prefijo de concesión que se usará en todas las funciones de una aplicación.| 
 
 ## <a name="next-steps"></a>Pasos siguientes
