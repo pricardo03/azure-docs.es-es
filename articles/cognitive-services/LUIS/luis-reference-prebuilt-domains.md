@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: e1e579233a5ad1af1ef8ee84019cd995959d3b2b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433780"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712636"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referencia de dominio creado previamente para la aplicación de LUIS
 Esta referencia ofrece información sobre los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md), que son colecciones creadas previamente de intenciones y entidades que LUIS ofrece.
@@ -68,8 +68,8 @@ El dominio de calendario ofrece intenciones y entidades relacionadas con las ent
 ### <a name="entities"></a>Entidades
 | Nombre de entidad | DESCRIPCIÓN | Ejemplos |
 | ---------------- |-----------------------|----|
-| Ubicación | Ubicación de elementos, reuniones o citas del calendario. Las direcciones, las ciudades y las regiones son buenos ejemplos de ubicaciones.| 209 Nashville Gym <br/><br/>897 Pancake house<br/><br/>Garaje|
-| Asunto | El título de una reunión o de una cita.| Cita con el dentista <br/><br/>Almuerzo con Julia<br/><br/>Cita con el médico|
+| Location | Ubicación de elementos, reuniones o citas del calendario. Las direcciones, las ciudades y las regiones son buenos ejemplos de ubicaciones.| 209 Nashville Gym <br/><br/>897 Pancake house<br/><br/>Garaje|
+| Subject | El título de una reunión o de una cita.| Cita con el dentista <br/><br/>Almuerzo con Julia<br/><br/>Cita con el médico|
 
 ## <a name="camera"></a>Cámara 
 El dominio de cámara ofrece intenciones y entidades relacionadas con el uso de una cámara. Las intenciones abarcan la captura de una foto, selfie, captura de pantalla o vídeo, así como la difusión de vídeo en una aplicación.
@@ -131,13 +131,13 @@ El dominio de comunicación ofrece intenciones y entidades relacionadas con el c
 | Nombre de entidad | DESCRIPCIÓN | Ejemplos |
 | ---------------- |-----------------------|----|
 | AudioDeviceType | Tipo de dispositivo de audio (altavoces, auriculares, micrófono, etc.).| Orador<br/>Manos libres<br/>Bluetooth|
-| Categoría | La categoría de un mensaje o correo electrónico.| Importante<br/>Prioridad alta|
+| Category | La categoría de un mensaje o correo electrónico.| Importante<br/>Prioridad alta|
 | ContactAttribute | Un atributo del contacto sobre el que el usuario pregunta.| Cumpleaños<br/>Dirección<br/>Número de teléfono|
 | ContactName | El nombre de un contacto o del destinatario de un mensaje.| Carol<br/>Jim<br/>Chris|
 | EmailSubject | El texto que se utiliza como la línea de asunto de un correo electrónico.| RE: caso interesante|
 | Línea | La línea que el usuario desea usar para realizar una llamada o enviar un texto o correo electrónico.| Línea del trabajo<br/>Teléfono británico<br/>Skype|
 | Message | Mensaje que se va a enviar como un texto o correo electrónico.| Ha sido un auténtico placer verlo hoy. Espero verlo pronto.|
-| MessageType | El nombre de un contacto o del destinatario de un mensaje.| Texto<br/>Email|
+| MessageType | El nombre de un contacto o del destinatario de un mensaje.| Text<br/>Email|
 | OrderReference | La posición ordinal o relativa en una lista, que identifica un elemento que se va a recuperar. Por ejemplo, "último" o "reciente" en "¿cuál fue el último mensaje enviado?"| Último<br/>Reciente|
 | SenderName | El nombre del remitente.| Patti Owens|
 
@@ -327,7 +327,7 @@ El dominio de notas ofrece intenciones y entidades relacionadas con la creación
 | ContactName | El nombre de un contacto en una nota.|Carol<br/>Jim<br/>Chris|
 | DataSource | Ubicación de las notas.|OneDrive<br/>Google Docs<br/>Mi PC|
 | DataType | El tipo de archivo o documento, asociado normalmente con programas de software específicos.|Diapositivas<br/>Hoja de cálculo<br/>Hoja de cálculo|
-| Texto | El texto de una nota o un aviso.|Estirar antes de andar<br/>Correr mucho mañana|
+| Text | El texto de una nota o un aviso.|Estirar antes de andar<br/>Correr mucho mañana|
 | Título | Título de una nota.|Lista de la compra<br/>Personas a las que llamar<br/>Tareas pendientes|
 
 ## <a name="ondevice"></a>OnDevice 
@@ -477,7 +477,7 @@ El dominio de recordatorio ofrece intenciones y entidades relacionadas con la cr
 ### <a name="entities"></a>Entidades
 | Nombre de entidad | DESCRIPCIÓN | Ejemplos |
 | ---------------- |-----------------------|----|
-| Texto | Descripción de texto de un recordatorio.|Recoger la colada cuando esté seca<br/>Llevar mi coche al taller|
+| Text | Descripción de texto de un recordatorio.|Recoger la colada cuando esté seca<br/>Llevar mi coche al taller|
 
 ## <a name="restaurantreservation"></a>RestaurantReservation 
 El dominio RestaurantReservation ofrece intenciones y entidades relacionadas con la administración de reservas en restaurantes.
@@ -561,7 +561,7 @@ El dominio de traducción ofrece intenciones y entidades relacionadas con la tra
 | Nombre de entidad | DESCRIPCIÓN | Ejemplos |
 | ---------------- |-----------------------|----|
 | TargetLanguage | El idioma de destino de una traducción.|Francés<br/>Alemán<br/>Coreano|
-| Texto | Texto que se traducirá.|Hello World<br/>Good morning<br/>Good evening|
+| Text | Texto que se traducirá.|Hello World<br/>Good morning<br/>Good evening|
 
 ## <a name="tv"></a>TV 
  
@@ -634,7 +634,7 @@ El dominio de tiempo ofrece intenciones y entidades para obtener informes y prev
 ### <a name="entities"></a>Entidades
 | Nombre de entidad | DESCRIPCIÓN | Ejemplos |
 | ---------------- |-----------------------|----|
-| Ubicación| La ubicación absoluta de una solicitud de tiempo.|Seattle<br/>París<br/>Palo Alto|
+| Location| La ubicación absoluta de una solicitud de tiempo.|Seattle<br/>París<br/>Palo Alto|
 
 ## <a name="web"></a>Web 
 El dominio Web ofrece una intención para navegar a un sitio web.

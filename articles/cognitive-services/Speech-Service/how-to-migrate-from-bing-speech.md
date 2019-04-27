@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
 ms.openlocfilehash: 6324da55c8af4934185fa39a106939844788adba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848973"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653723"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar de Bing Speech al servicio Voz
 
@@ -37,7 +37,7 @@ El [Speech SDK](speech-sdk.md) es un reemplazo funcional para las bibliotecas de
 
 Los servicios de voz son muy similares a Bing Speech, con las siguientes diferencias.
 
-Característica | Bing Speech | Servicios de voz | Detalles
+Característica | Bing Speech | Speech Services | Detalles
 -|-|-|-
 SDK de C++ | :heavy_minus_sign: | :heavy_check_mark: | Servicios de voz es compatible con Windows y Linux.
 SDK de Java | :heavy_check_mark: | :heavy_check_mark: | Servicios de voz es compatible con dispositivos Android y voz.

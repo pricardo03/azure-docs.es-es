@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605115"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Languages
 
@@ -40,7 +40,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
     <td><em>Parámetro obligatorio</em>.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`.</td>
   </tr>
   <tr>
-    <td>ámbito</td>
+    <td>scope</td>
     <td>*Parámetro opcional*.<br/>Lista de nombres separados por comas que definen el grupo de idiomas que se devolverá. Los nombres de grupo permitidos son: `translation`, `transliteration` y `dictionary`. Si no se proporciona ningún ámbito, se devuelven todos los grupos, lo que es equivalente a pasar `scope=translation,transliteration,dictionary`. Para decidir qué conjunto de idiomas admitidos es adecuado para su escenario, vea la descripción del [objeto de respuesta](#response-body).</td>
   </tr>
 </table> 
