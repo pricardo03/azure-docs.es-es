@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 88776e2f4167c950d60c0405dcf950b5173fb989
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870935"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814137"
 ---
 # <a name="interpret-method"></a>Método interpret
 
@@ -25,7 +25,7 @@ El método *interpret* toma una cadena de consulta de lenguaje natural y devuelv
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-NOMBRE|Valor| DESCRIPCIÓN
+NOMBRE|Value| DESCRIPCIÓN
 ----|----|----
 query    | Cadena de texto | Consulta especificada por el usuario.  Si complete se establece en 1, la consulta se interpretará como un prefijo para generar sugerencias de finalización automática para la consulta.        
 complete | 0 (valor predeterminado) o 1 | 1 significa que se generan sugerencias de finalización automática en función de los datos de gramática e índice.         

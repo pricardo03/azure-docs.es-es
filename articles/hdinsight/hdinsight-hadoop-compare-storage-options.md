@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361786"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60921998"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparación de opciones de almacenamiento para los clústeres de Azure HDInsight
 
@@ -29,9 +29,9 @@ En la tabla siguiente se resume los servicios de almacenamiento de Azure que son
 | Servicio de almacenamiento | Tipo de cuenta | Tipo de Namespace | Servicios admitidos | Niveles de rendimiento admitidos | Niveles de acceso admitidos | Versión de HDInsight | Tipo de clúster |
 |---|---|---|---|---|---|---|---|
 |Azure Data Lake Storage Gen2| Uso general v2 | Jerárquica (sistema de archivos) | Blob | Estándar | Frecuente, acceso esporádico, archivar | 3.6+ | Todo |
-|Azure Storage| Uso general v2 | Objeto | Blob | Estándar | Frecuente, acceso esporádico, archivar | 3.6+ | Todo |
-|Azure Storage| Uso general v1 | Objeto | Blob | Estándar | N/D | Todo | Todo |
-|Azure Storage| Blob Storage | Objeto | Blob | Estándar | Frecuente, acceso esporádico, archivar | Todo | Todo |
+|Azure Storage| Uso general v2 | Object | Blob | Estándar | Frecuente, acceso esporádico, archivar | 3.6+ | Todo |
+|Azure Storage| Uso general v1 | Object | Blob | Estándar | N/D | Todo | Todo |
+|Azure Storage| Blob Storage | Object | Blob | Estándar | Frecuente, acceso esporádico, archivar | Todo | Todo |
 |Azure Data Lake Storage Gen1| N/D | Jerárquica (sistema de archivos) | N/D | N/D | N/D | Solo 3.6 | Todos excepto HBase |
 
 Para obtener más información sobre los niveles de acceso de almacenamiento de Azure, consulte [almacenamiento de blobs de Azure: Premium (versión preliminar), los niveles de almacenamiento de acceso frecuente, esporádico y archivo](../storage/blobs/storage-blob-storage-tiers.md)
