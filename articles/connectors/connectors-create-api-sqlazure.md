@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38544030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60541156"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Conexión con el servidor SQL Server o Azure SQL Database desde Azure Logic Apps
 
@@ -24,9 +24,9 @@ En este artículo se muestra cómo puede acceder a los datos de la base de datos
 
 Puede crear aplicaciones lógicas que se ejecutan cuando las desencadenan eventos en la base de datos SQL o en otros sistemas,como Dynamics CRM Online. Asimismo, las aplicaciones lógicas también pueden obtener, insertar o eliminar datos y, además, pueden ejecutar consultas SQL o procedimientos almacenados. Por ejemplo, puede compilar una aplicación lógica que comprueba automáticamente si hay registros nuevos en Dynamics CRM Online, agrega elementos a la base de datos SQL para cualquier registro nuevo y envía alertas de correo electrónico.
 
-Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. Si nunca trabajó con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el artículo sobre [Inicio rápido: creación de su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para información técnica específica del conector, consulte la <a href="https://docs.microsoft.com/connectors/sql/" target="blank">referencia sobre el conector de SQL Server</a>.
+Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para información técnica específica del conector, consulte la <a href="https://docs.microsoft.com/connectors/sql/" target="blank">referencia sobre el conector de SQL Server</a>.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * La aplicación lógica en la que necesita acceso a la base de datos SQL. Para iniciar la aplicación lógica con un desencadenador de SQL, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
@@ -56,7 +56,7 @@ En Azure Logic Apps, cada aplicación lógica debe comenzar con un [desencadenad
 
 2. En el cuadro de búsqueda, escriba "sql server" como filtro. En la lista de desencadenadores, seleccione el desencadenador de SQL que desee. 
 
-   En este ejemplo, seleccione el desencadenador: **SQL Server - When an item is created** (SQL Server: cuando se crea un elemento)
+   En este ejemplo, seleccione este desencadenador: **SQL Server: cuando se crea un elemento**
 
    ![Selección del desencadenador "SQL Server - When an item is created" (SQL Server: cuando se crea un elemento)](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
@@ -94,7 +94,7 @@ En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-ap
 
 2. En el cuadro de búsqueda, escriba "sql server" como filtro. En la lista de acciones, seleccione la acción SQL que quiera. 
 
-   En este ejemplo seleccione esta acción, que obtiene un solo registro: **SQL Server - Get row** (SQL Server: obtener fila)
+   En este ejemplo, seleccione esta acción, que obtiene un único registro: **SQL Server - obtener fila**
 
    ![Escribir "sql server", seleccionar "SQL Server - Get row" (SQL Server: obtener fila)](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 
