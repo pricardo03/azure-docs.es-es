@@ -3,8 +3,8 @@ title: 'Solución de problemas de conexiones con Azure Network Watcher: Azure Po
 description: Obtenga información sobre cómo usar la funcionalidad de solución de problemas de conexiones de Azure Network Watcher con Azure Portal.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
-ms.author: jdial
-ms.openlocfilehash: 21e004e12a5111eb0e5fc7764c1e07fcb68c447d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: kumud
+ms.openlocfilehash: 65afc3374a306cf2bb1b80baa2aa0949240a674a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986207"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60681600"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Solución de problemas de conexiones con Azure Network Watcher mediante Azure Portal
 

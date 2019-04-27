@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-gedod
 ms.openlocfilehash: 3c2aa4b22c8e679f73692978d9e1f8009f11a46b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875236"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598516"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Punto de conexión de Bing Entity Search API
 
@@ -35,6 +35,6 @@ Para obtener resultados de entidades mediante **Bing API**, envíe una solicitud
 > [!div class="nextstepaction"]
 > [¿Qué es Bing Entity Search API?](overview.md)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Vea también 
 
 Para más información sobre encabezados, parámetros, códigos de mercado, objetos de respuesta, errores etc, consulte la referencia sobre [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference).

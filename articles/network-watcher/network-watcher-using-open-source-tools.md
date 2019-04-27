@@ -3,8 +3,8 @@ title: Visualización de los patrones de tráfico de red con Azure Network Watch
 description: Esta página describe cómo utilizar la captura de paquetes de Network Watcher con Capanalysis para visualizar los patrones de tráfico de entrada y salida de las máquinas virtuales.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 7b1e1383e8e244a7cdb30be1e08514a6a4dd7b14
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: kumud
+ms.openlocfilehash: 7c239bbf577645ddb8ab12c525d1b3a8832421df
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302240"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60680562"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualización de los patrones de tráfico de red de entrada y salida de las máquinas virtuales utilizando herramientas de código abierto
 
@@ -94,10 +94,10 @@ La característica de captura de paquetes de Network Watcher permite capturar lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de los registros de flujo de NSG, visite el artículo sobre [Registros de flujo de NSG](network-watcher-nsg-flow-logging-overview.md).
+Para más información acerca de los registros de flujo de NSG, visite el artículo sobre [Registros de flujo de NSG](network-watcher-nsg-flow-logging-overview.md)
 
-Aprenda a visualizar los registros de flujo del grupo de seguridad de red con Power BI en el artículo [Visualización de registros de flujo del grupo de seguridad de red con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-<!--Image references-->.
+Aprenda a visualizar los registros de flujo de grupos de seguridad de red con Power BI en el artículo [Visualización de registros de flujo del grupo de seguridad de red de Azure con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+<!--Image references-->
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png
 [2]: ./media/network-watcher-using-open-source-tools/figure2.png

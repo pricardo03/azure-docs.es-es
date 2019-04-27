@@ -12,11 +12,11 @@ ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232899"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60642833"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos y estructura de las respuestas de Bing Web Search API  
 
@@ -479,6 +479,6 @@ A continuación se muestra cómo utiliza Bing la sugerencia ortográfica.
 
 * Revisión de la documentación de [limitación de solicitudes](throttling-requests.md).  
 
-## <a name="see-also"></a>Otras referencias  
+## <a name="see-also"></a>Vea también  
 
 * [Referencia de Bing Web Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
