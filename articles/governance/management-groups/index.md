@@ -4,15 +4,15 @@ description: Más información sobre los grupos de administración, el funcionam
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 04/17/2019
+ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ceb606f2243ef723866e485c6580a6323c1c92ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60874357"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
 
@@ -47,9 +47,8 @@ Este grupo de administración raíz está integrado en la jerarquía de manera q
 
 ### <a name="important-facts-about-the-root-management-group"></a>Hechos importantes acerca de los grupos de administración raíz
 
-- El nombre y el identificador del grupo de administración raíz se proporcionan de forma predeterminada. El nombre para mostrar se puede actualizar en cualquier momento para mostrarse diferente en Azure Portal. Para [cambiar el nombre](manage.md#change-the-name-of-a-management-group), se debe asignar a su cuenta el rol de Propietario o Colaborador en el grupo de administración raíz.
-  - El nombre será "Grupo raíz de inquilino".
-  - El identificador será el de Azure Active Directory.
+- De forma predeterminada, el nombre para mostrar del grupo de administración raíz es **Grupo raíz de inquilino**. El identificador es el de Azure Active Directory.
+- Para cambiar el nombre para mostrar, se debe asignar a su cuenta el rol de Propietario o Colaborador en el grupo de administración raíz. Para conocer los pasos para cambiar el nombre, consulte [Cambio del nombre de un grupo de administración](manage.md#change-the-name-of-a-management-group).
 - El grupo de administración raíz no se puede mover ni eliminar, a diferencia de los demás.  
 - Todas las suscripciones y los grupos de administración se incluyen en el grupo de administración raíz único del directorio.
   - Todos los recursos del directorio pertenecen al grupo de administración raíz para la administración global.
