@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: aaa5b3a85c08f11d821557257de451b8ffc8a3fc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860463"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814180"
 ---
 # <a name="calchistogram-method"></a>Método calcHistogram
 El método *calcHistogram* calcula los objetos que coinciden con una expresión de consulta estructurada y estima la distribución de sus valores de atributo.
@@ -23,7 +23,7 @@ El método *calcHistogram* calcula los objetos que coinciden con una expresión 
 ## <a name="request"></a>Solicitud
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
-NOMBRE|Valor|DESCRIPCIÓN
+NOMBRE|Value|DESCRIPCIÓN
 ----|-----|-----------
 expr | Cadena de texto | Una expresión de consulta estructurada que especifica las entidades de índice sobre las que se calculan los histogramas.
 attributes | Cadena de texto (valor predeterminado= "") | Lista delimitada por comas de atributos para incluir en la respuesta.

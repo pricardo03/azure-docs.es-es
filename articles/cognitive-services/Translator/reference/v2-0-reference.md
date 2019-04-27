@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
 ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61467163"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -76,14 +76,14 @@ Tipo de contenido de la respuesta: application/xml
 
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN    |Tipo de parámetro|Tipo de datos|
+|Parámetro|Value|DESCRIPCIÓN    |Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
 |appid  |(vacío)    |Necesario. Si se usa el encabezado Ocp-Apim-Subscription-Key o de autorización, deje el campo appid vacío o incluya una cadena que contenga "Portador" + " " + "access_token".|query|string|
 |text|(vacío)   |Necesario. Una cadena que representa el texto que se va a traducir. El tamaño del texto no debe superarlos 10 000 caracteres.|query|string|
 |De|(vacío)   |Opcional. Una cadena que representa el código de idioma del texto de traducción. Por ejemplo, en para inglés.|query|string|
 |to|(vacío) |Necesario. Una cadena que representa el código de idioma al que se va a traducir el texto.|query|string|
 |contentType|(vacío)    |Opcional. El formato del texto que se va a traducir. Los formatos admitidos son text/plain (valor predeterminado) y text/html. El código HTML debe ser un elemento completo y bien formado.|query|string|
-|categoría|(vacío)   |Opcional. Una cadena que contiene la categoría (dominio) de la traducción. El valor predeterminado es "general".|query|string|
+|category|(vacío)   |Opcional. Una cadena que contiene la categoría (dominio) de la traducción. El valor predeterminado es "general".|query|string|
 |Autorización|(vacío)  |Es necesario si no se ha especificado el campo appid o el encabezado Ocp-Apim-Subscription-Key. Token de autorización:  "Portador" + " " + "token_de_acceso".|encabezado|string|
 |Ocp-Apim-Subscription-Key|(vacío)  |Es necesario si no se ha especificado el campo appid o el encabezado de autorización.|encabezado|string|
 
@@ -181,7 +181,7 @@ Tipo de contenido de la respuesta: application/xml
 
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|Value|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
 |Autorización|(vacío)) |Es necesario si no se ha especificado el campo appid o el encabezado Ocp-Apim-Subscription-Key. Token de autorización:  "Portador" + " " + "token_de_acceso".|encabezado|string|
 |Ocp-Apim-Subscription-Key|(vacío)|Es necesario si no se ha especificado el campo appid o el encabezado de autorización.|encabezado|string|
@@ -222,7 +222,7 @@ Tipo de contenido de la respuesta: application/xml
  
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|Value|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
 |appid|(vacío)|Necesario. Si se usa el encabezado `Authorization` o `Ocp-Apim-Subscription-Key`, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.|query|string|
 |locale|(vacío) |Necesario. Una cadena que representa una combinación de un código de referencia cultural de dos letras minúsculas de ISO 639 asociado con un idioma y un código de referencia de subcultura de dos letras mayúsculas de ISO 3166 para localizar los nombres de idiomas o un código de referencia cultural en minúscula de ISO 639 por sí solo.|query|string|
@@ -256,7 +256,7 @@ Tipo de contenido de la respuesta: application/xml
  
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|Value|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
 |appid|(vacío)|Necesario. Si se usa el encabezado `Authorization` o `Ocp-Apim-Subscription-Key`, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.|query|string|
 |Autorización|(vacío)  |Es necesario si no se ha especificado el campo `appid` o el encabezado `Ocp-Apim-Subscription-Key`. Token de autorización: `"Bearer" + " " + "access_token"`.|encabezado|string|
@@ -289,7 +289,7 @@ Tipo de contenido de la respuesta: application/xml
 
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|Value|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
 |appid|(vacío)|Necesario. Si se usa el encabezado `Authorization` o `Ocp-Apim-Subscription-Key`, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.|query|string|
 |Autorización|(vacío)|Es necesario si no se ha especificado el campo `appid` o el encabezado `Ocp-Apim-Subscription-Key`. Token de autorización: `"Bearer" + " " + "access_token"`.|encabezado|string|
@@ -321,7 +321,7 @@ Tipo de contenido de la respuesta: application/xml
 
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|Value|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
 |appid|(vacío)|Necesario. Si se usa el encabezado `Authorization` o `Ocp-Apim-Subscription-Key`, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.|query|string|
 |text|(vacío)   |Necesario. Una cadena que contiene una o varias oraciones del idioma especificado que se va a reproducir para la secuencia con formato WAVE. El tamaño del texto que se va a reproducir no debe superar los 2000 caracteres.|query|string|
@@ -357,7 +357,7 @@ Tipo de contenido de la respuesta: application/xml
 
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|Value|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
 |appid|(vacío)  |Necesario. Si se usa el encabezado `Authorization` o `Ocp-Apim-Subscription-Key`, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.|query|string|
 |text|(vacío)|Necesario. Una cadena que contiene el texto cuyo idioma se va a identificar. El tamaño del texto no debe superarlos 10 000 caracteres.|query| string|
@@ -412,7 +412,7 @@ Tipo de contenido de la respuesta: application/xml
  
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|Value|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
 |appid|(vacío)|Necesario. Si se usa el encabezado `Authorization` o `Ocp-Apim-Subscription-Key`, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.|query|string|
 |Autorización|(vacío)|Es necesario si no se ha especificado el campo `appid` o el encabezado `Ocp-Apim-Subscription-Key`. Token de autorización: `"Bearer" + " " + "access_token"`.|encabezado|string|
@@ -446,7 +446,7 @@ Tipo de contenido de la respuesta: aplicación: xml
  
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos   |
+|Parámetro|Value|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos   |
 |:--|:--|:--|:--|:--|
 |appid|(vacío)|Necesario. Si se usa el encabezado `Authorization` o `Ocp-Apim-Subscription-Key`, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.|query|string|
 |originalText|(vacío)|Necesario. Una cadena que contiene el texto del que se va a traducir. La cadena tiene una longitud máxima de 1000 caracteres.|query|string|
@@ -455,7 +455,7 @@ Tipo de contenido de la respuesta: aplicación: xml
 |to|(vacío)|Necesario. Una cadena que representa el código de idioma al que se va a traducir el texto.|query|string|
 |rating|(vacío) |Opcional. Un entero que representa la clasificación de calidad de esta cadena. Valor entre -10 y 10. De manera predeterminada, su valor es 1.|query|integer|
 |contentType|(vacío)    |Opcional. El formato del texto que se va a traducir. Los formatos admitidos son "text/plain" and "text/html". El código HTML debe ser un elemento completo y bien formado.   |query|string|
-|categoría|(vacío)|Opcional. Una cadena que contiene la categoría (dominio) de la traducción. El valor predeterminado es "general".|query|string|
+|category|(vacío)|Opcional. Una cadena que contiene la categoría (dominio) de la traducción. El valor predeterminado es "general".|query|string|
 |user|(vacío)|Necesario. Una cadena que se usa para realizar el seguimiento del envío.|query|string|
 |uri|(vacío)|Opcional. Una cadena que contiene la ubicación del contenido de esta traducción.|query|string|
 |Autorización|(vacío)|Es necesario si no se ha especificado el campo appid o el encabezado `Ocp-Apim-Subscription-Key`. Token de autorización: `"Bearer" + " " + "access_token"`.    |encabezado|string|
@@ -523,7 +523,7 @@ Tipo de contenido de la respuesta: application/xml
  
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|Value|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
 |Autorización|(vacío)|Es necesario si no se ha especificado el campo appid o el encabezado Ocp-Apim-Subscription-Key. Token de autorización:  "Portador" + " " + "token_de_acceso".|encabezado|string|
 |Ocp-Apim-Subscription-Key|(vacío)|Es necesario si no se ha especificado el campo appid o el encabezado de autorización.|encabezado|string|
@@ -556,7 +556,7 @@ Tipo de contenido de la respuesta: application/xml
 
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|Value|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
 |appid|(vacío)  |Necesario. Si se usa el encabezado Ocp-Apim-Subscription-Key o de autorización, deje el campo appid vacío o incluya una cadena que contenga "Portador" + " " + "access_token".|query| string|
 |text|(vacío)   |Necesario. Una cadena que representa el texto que se va a dividir en oraciones. El tamaño del texto no debe superarlos 10 000 caracteres.|query|string|
@@ -650,7 +650,7 @@ Tipo de contenido de la respuesta: application/xml
  
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|Value|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
 |appid|(vacío)|Necesario. Si se usa el encabezado `Authorization` o `Ocp-Apim-Subscription-Key`, deje el campo appid vacío o incluya una cadena que contenga `"Bearer" + " " + "access_token"`.|query|string|
 |text|(vacío)|Necesario. Una cadena que representa el texto que se va a traducir. El tamaño del texto no debe superarlos 10 000 caracteres.|query|string|
@@ -770,7 +770,7 @@ Tipo de contenido de la respuesta: application/xml
  
 ### <a name="parameters"></a>Parámetros
 
-|Parámetro|Valor|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
+|Parámetro|Value|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|:--|
 |Autorización  |(vacío)    |Es necesario si no se ha especificado el campo `appid` o el encabezado `Ocp-Apim-Subscription-Key`. Token de autorización: `"Bearer" + " " + "access_token"`.|encabezado|string|
 |Ocp-Apim-Subscription-Key|(vacío)  |Es necesario si no se ha especificado el campo `appid` o el encabezado `Authorization`.|encabezado|string|

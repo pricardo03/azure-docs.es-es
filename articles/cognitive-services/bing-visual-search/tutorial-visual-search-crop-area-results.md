@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: rosh
 ms.openlocfilehash: a6a98d9ddf76e86feb35c6d3d71f7777b0edd51d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109988"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutorial: Recortar una imagen con el SDK de Bing Visual Search para C#
 
@@ -110,7 +110,7 @@ Para la obtención de las direcciones URL de imágenes reales se requiere una co
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Crear una aplicación web de una página de búsqueda Visual](tutorial-bing-visual-search-single-page-app.md)
+> [Creación de una aplicación web de página única de Visual Search](tutorial-bing-visual-search-single-page-app.md)
 
 ## <a name="see-also"></a>Vea también
 > [¿Qué es la API de Bing Visual Search?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: sajagtap
 ms.openlocfilehash: df8d957fc2de620d63567a9cc1b14b24b73052bb
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61268928"
 ---
 # <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 
@@ -37,7 +37,7 @@ El contenido es de su propiedad y Microsoft no puede retenerlo sin su consentimi
 
 ### <a name="can-i-use-content-moderator-to-screen-for-illegal-child-exploitation-images"></a>¿Puedo usar Content Moderator para filtrar imágenes ilegales de explotación infantil?
 
- No. Sin embargo, las organizaciones cualificadas pueden usar [PhotoDNA Cloud Service](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") para filtrar este tipo de contenido.
+No. Sin embargo, las organizaciones cualificadas pueden usar [PhotoDNA Cloud Service](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") para filtrar este tipo de contenido.
 
 ### <a name="how-many-review-teams-can-a-user-join-can-the-user-switch-between-teams"></a>¿Cuántos revisión los equipos pueden una combinación de usuario? ¿Puede el usuario cambiar entre equipos?
 

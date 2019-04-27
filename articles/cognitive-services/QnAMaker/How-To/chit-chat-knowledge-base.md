@@ -12,11 +12,11 @@ ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: d40330f257694e81704bf6fffa1fd2df8ed86c06
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61376115"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adición de una charla a la base de conocimiento
 
@@ -24,7 +24,8 @@ La incorporación de charlas al bot lo hace más atractivo y conversacional. La 
 
 Este conjunto de datos tiene aproximadamente 100 escenarios de charla en la voz de tres roles: el profesional, el amigo y el cómico. Elija el rol que más se parezca a la voz del bot. Dada una consulta de usuario, QnA Maker intenta hacerla coincidir con la QnA de charla conocida más parecida. 
 
-Algunos ejemplos de las distintas personalidades: <!-- added quotes so acrolinx doesn't score these sentences -->
+Algunos ejemplos de las personalidades diferentes:
+<!-- added quotes so acrolinx doesn't score these sentences -->
 |Consulta de usuario|El profesional|El amigo|El cómico|
 |--|--|--|--|
 |`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|
@@ -66,6 +67,6 @@ Seleccione la base de conocimiento y vaya hasta la página **Settings** (Configu
 > [!div class="nextstepaction"]
 > [Importación de una base de conocimiento](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Vea también 
 
 [Introducción de QnA Maker](../Overview/overview.md)

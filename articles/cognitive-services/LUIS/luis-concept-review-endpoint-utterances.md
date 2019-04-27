@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: diberry
 ms.openlocfilehash: 2af11d7776a29288801e5db049262481ae27c102
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813339"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceptos para habilitar el aprendizaje activo mediante la revisión de expresiones de punto de conexión
 El aprendizaje activo es una de las tres estrategias para mejorar la precisión de la predicción y la más fácil de implementar. Con el aprendizaje activo, puede revisar las expresiones de punto de conexión para intenciones y entidades correctas. LUIS elige las expresiones de punto de conexión de las cuales no está seguro.

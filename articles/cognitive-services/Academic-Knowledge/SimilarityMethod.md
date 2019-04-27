@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 44930ad0f941ea174d95658f220db7aa95012133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7f692c08f8af322bf7e6ab576e2e6f516594a6c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868691"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61336524"
 ---
 # <a name="similarity-method"></a>Método de similitud
 
@@ -28,26 +28,34 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ```
 
 ## <a name="request-parameters"></a>Parámetros de solicitud
+
 Parámetro        |Tipo de datos      |Obligatorio | DESCRIPCIÓN
 ----------|----------|----------|------------
-**s1**        |string   |Sí  |Cadena* que se va a comparar
-**s2**        |string   |Sí  |Cadena* que se va a comparar
+**s1**        |String   |Sí  |Cadena* que se va a comparar
+**s2**        |String   |Sí  |Cadena* que se va a comparar
+
 <sub> *Las cadenas que se van a comparar tienen una longitud máxima de 1 MB. </sub>
 <br>
+
 ## <a name="response"></a>Response
+
 NOMBRE | DESCRIPCIÓN
 --------|---------
 **SimilarityScore**        |Valor de punto flotante que representa la similitud de coseno de s1 y s2, con valores cercanos a 1.0, lo que significa que son más similares, y valores cercanos a -1,0, lo que significa que son menos similares
+
 <br>
 
 ## <a name="successerror-conditions"></a>Condiciones de éxito/error
+
 Estado HTTP | Motivo | Response
 -----------|----------|--------
 **200**         |Correcto | Número de punto flotante
 **400**         | Solicitud incorrecta o solicitud no válida | Mensaje de error      
 **500**         |Error interno del servidor | Mensaje de error
 **Timed out**     | Se ha agotado el tiempo de espera para la solicitud.  | Mensaje de error
+
 <br>
+
 ## <a name="example-calculate-similarity-of-two-partial-abstracts"></a>Ejemplo: Calcular la similitud de dos resúmenes parciales
 #### <a name="request"></a>Solicitud:
 ```

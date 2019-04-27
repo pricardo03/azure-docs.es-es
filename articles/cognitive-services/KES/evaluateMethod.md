@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: dcfa9bb7931cf3b682bacf722b67acd6d4a370c0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860735"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814112"
 ---
 # <a name="evaluate-method"></a>Método evaluate
 
@@ -27,7 +27,7 @@ Normalmente, una expresión se obtiene de una respuesta al método interpret.  P
 
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
-NOMBRE|Valor|DESCRIPCIÓN
+NOMBRE|Value|DESCRIPCIÓN
 ----|----|----
 expr       | Cadena de texto | Expresión de consulta estructurada que selecciona un subconjunto de entidades de índice.
 attributes | Cadena de texto | Lista delimitada por comas de atributos para incluir en la respuesta.

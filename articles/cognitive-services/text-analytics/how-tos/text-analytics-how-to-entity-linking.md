@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997315"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829725"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Cómo usar el reconocimiento de entidades con nombre en el análisis de texto
 
@@ -52,14 +52,14 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 | Cantidad      | Moneda      | "10,99 $"     | 
 | Cantidad      | Dimension Data     | "10 millas", "40 cm"     | 
 | Cantidad      | Temperatura   | "32 grados"    |
-| Datetime      | N/D\*         | "6:30 p. m., 4 de febrero de 2012"      | 
-| Datetime      | Date          | "2 de mayo de 2017", "02/05/2017"   | 
-| Datetime      | Hora          | "8 a. m.", "8:00"  | 
-| Datetime      | DateRange     | "Del 2 de mayo al 5 de mayo"    | 
-| Datetime      | TimeRange     | "De las 6 p. m. a las 7 p. m."     | 
-| Datetime      | Duration      | "1 minuto y 45 segundos"   | 
-| Datetime      | Set           | "Todos los martes"     | 
-| Datetime      | TimeZone      |    | 
+| DateTime      | N/D\*         | "6:30 p. m., 4 de febrero de 2012"      | 
+| DateTime      | Date          | "2 de mayo de 2017", "02/05/2017"   | 
+| DateTime      | Hora          | "8 a. m.", "8:00"  | 
+| DateTime      | DateRange     | "Del 2 de mayo al 5 de mayo"    | 
+| DateTime      | TimeRange     | "De las 6 p. m. a las 7 p. m."     | 
+| DateTime      | Duration      | "1 minuto y 45 segundos"   | 
+| DateTime      | Set           | "Todos los martes"     | 
+| DateTime      | TimeZone      |    | 
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 
@@ -69,7 +69,7 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 
 ## <a name="preparation"></a>Preparación
 
-Debe tener los documentos JSON en este formato: Id. de texto, el lenguaje
+Debe tener documentos JSON en este formato: identificador, texto, idioma
 
 Para conocer los idiomas admitidos actualmente, consulte [esta lista](../text-analytics-supported-languages.md).
 
@@ -279,7 +279,7 @@ A continuación se muestra un ejemplo de la salida de la vinculación de entidad
 En este artículo, ha aprendido los conceptos y el flujo de trabajo de vinculación de entidad mediante Text Analytics de Cognitive Services. En resumen:
 
 + [Entities API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) está disponible para los idiomas seleccionados.
-+ Documentos JSON en el cuerpo de solicitud incluyen un código de identificador, texto y lenguaje.
++ Los documentos JSON del cuerpo de la solicitud incluyen un identificador, un texto y el código de idioma.
 + La solicitud POST se realiza a un punto de conexión `/entities`, con una [clave de acceso y un punto de conexión](text-analytics-how-to-access-key.md) personalizados, que son válidos para la suscripción.
 + La salida de respuesta, que consta de entidades vinculadas (incluidas las puntuaciones de confianza, los desplazamientos y los vínculos web de cada id. de documento) se puede usar en cualquier aplicación.
 

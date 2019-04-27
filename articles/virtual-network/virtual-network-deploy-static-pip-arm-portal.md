@@ -3,8 +3,8 @@ title: Creación de una máquina virtual con una dirección IP pública estátic
 description: Obtenga información sobre cómo crear una máquina virtual con una dirección IP pública estática mediante Azure Portal.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: 42e035b9dca6168fe77e6982505692cf18bfcb40
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743179"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Creación de una máquina virtual con una dirección IP pública estática mediante Azure Portal
 
@@ -43,7 +43,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Seleccione su suscripción.|
     |Grupos de recursos| Seleccione **Usar existente** y, a continuación, **myResourceGroup**.|
-    |Ubicación| Seleccione **Este de EE. UU**.|
+    |Location| Seleccione **Este de EE. UU**.|
 
 4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
 5. En **Configuración**, seleccione **Dirección IP pública**.

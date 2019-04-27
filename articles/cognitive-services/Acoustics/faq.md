@@ -11,11 +11,11 @@ ms.topic: resources
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317313"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61335337"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Preguntas más frecuentes sobre el proyecto acústica
 
@@ -45,7 +45,7 @@ La acústica usa aproximadamente el 0,01 % de CPU por origen por fotograma. El u
  
 ## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>¿Es necesario simplificar la geometría de nivel? ¿Controlar el recuento de triángulos? ¿Hacer que las mallas sean estancas?
 
- No. El sistema ingerirá directamente la geometría de nivel detallada. Se voxelizará para procesamiento interno.
+No. El sistema ingerirá directamente la geometría de nivel detallada. Se voxelizará para procesamiento interno.
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>¿Qué hay en la tabla de búsqueda del entorno de ejecución?
 
@@ -57,7 +57,7 @@ Sí, proyecto acústica consulta la tabla de búsqueda y actualiza el audio DSP 
  
 ## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>¿Es capaz de geometría dinámica acústica proyecto? ¿El cierre de puertas? ¿Las paredes destruidas?
 
- No. Los parámetros acústicos se procesan previamente en función del estado estático de un nivel de juego. Se recomienda dejar la geometría puerta fuera acústica y aplicando después oclusión adicional según el estado de puede destruir y puede mover objetos de juego mediante establece técnicas.
+No. Los parámetros acústicos se procesan previamente en función del estado estático de un nivel de juego. Se recomienda dejar la geometría puerta fuera acústica y aplicando después oclusión adicional según el estado de puede destruir y puede mover objetos de juego mediante establece técnicas.
  
 ## <a name="does-project-acoustics-use-acoustic-materials"></a>¿Acústica proyecto utiliza materiales acústicos?
 

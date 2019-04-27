@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815395"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar los contenedores de Face en Docker
 
@@ -53,7 +53,7 @@ No olvide agregar el _cara_ tal como se muestra en el ejemplo de enrutamiento pa
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
-|Sí| `Billing` | string | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|Sí| `Billing` | String | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
 <!-- specific to face only -->
 
@@ -63,7 +63,7 @@ Las opciones de configuración de la sección `CloudAI` proporcionan opciones es
 
 | NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |------|-----------|-------------|
-| `Storage` | Objeto | Escenario de almacenamiento utilizado por el contenedor de Face. Para obtener más información sobre los escenarios de almacenamiento y la configuración asociada para el objeto `Storage`, consulte [Configuración del escenario de almacenamiento](#storage-scenario-settings) |
+| `Storage` | Object | Escenario de almacenamiento utilizado por el contenedor de Face. Para obtener más información sobre los escenarios de almacenamiento y la configuración asociada para el objeto `Storage`, consulte [Configuración del escenario de almacenamiento](#storage-scenario-settings) |
 
 ### <a name="storage-scenario-settings"></a>Configuración del escenario de almacenamiento
 
@@ -82,9 +82,9 @@ Los escenarios de almacenamiento y las opciones de configuración asociadas se a
 
 | NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |------|-----------|-------------|
-| `StorageScenario` | string | Escenario de almacenamiento admitido por el contenedor. Están disponibles los valores siguientes:<br/>`Memory`: valor predeterminado. El contenedor usa un almacenamiento en memoria, no persistente y no distribuido para uso temporal y de nodo único. Si el contenedor se detiene o elimina, se destruye el almacenamiento de dicho contenedor.<br/>`Azure`: el contenedor usa recursos de Azure para el almacenamiento. Si el contenedor se detiene o elimina, se conserva el almacenamiento de dicho contenedor.|
-| `ConnectionStringOfAzureStorage` | string | Cadena de conexión para el recurso de Azure Storage usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
-| `ConnectionStringOfCosmosMongo` | string | Cadena de conexión de MongoDB para el recurso de Azure Cosmos DB usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
+| `StorageScenario` | String | Escenario de almacenamiento admitido por el contenedor. Están disponibles los valores siguientes:<br/>`Memory`: valor predeterminado. El contenedor usa un almacenamiento en memoria, no persistente y no distribuido para uso temporal y de nodo único. Si el contenedor se detiene o elimina, se destruye el almacenamiento de dicho contenedor.<br/>`Azure`: el contenedor usa recursos de Azure para el almacenamiento. Si el contenedor se detiene o elimina, se conserva el almacenamiento de dicho contenedor.|
+| `ConnectionStringOfAzureStorage` | String | Cadena de conexión para el recurso de Azure Storage usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
+| `ConnectionStringOfCosmosMongo` | String | Cadena de conexión de MongoDB para el recurso de Azure Cosmos DB usado por el contenedor.<br/>Esta configuración solo se aplica si se especifica `Azure` para la opción de configuración `StorageScenario`. |
 
 Por ejemplo, el siguiente comando especifica el escenario de almacenamiento de Azure y proporciona las cadenas de conexión de ejemplo para los recursos de Azure Storage y Cosmos DB usados para almacenar datos del contenedor de Face.
 
@@ -124,8 +124,8 @@ La sintaxis exacta de la ubicación de montaje del host varía según el sistema
 
 |Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |-------|------|-----------|-------------|
-|No permitida| `Input` | string | Los contenedores de Face no usan esto.|
-|Opcional| `Output` | string | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|No permitida| `Input` | String | Los contenedores de Face no usan esto.|
+|Opcional| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run 
 
@@ -136,7 +136,7 @@ Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo 
 
 Reemplace {_argument_name_} por sus propios valores:
 
-| Marcador de posición | Valor | Formato o ejemplo |
+| Marcador de posición | Value | Formato o ejemplo |
 |-------------|-------|---|
 |{BILLING_KEY} | La clave de punto de conexión del recurso de Cognitive Services. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | El valor de punto de conexión facturación incluidas la región y el enrutamiento de cara.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|

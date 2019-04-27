@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526296"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812819"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraer datos de texto utterance (dictado) con las intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
@@ -46,9 +46,9 @@ Los datos principales son el **nombre de la intención** de puntuación superior
 }
 ```
 
-|Objeto de datos|Tipo de datos|Ubicación de los datos|Valor|
+|Objeto de datos|Tipo de datos|Ubicación de los datos|Value|
 |--|--|--|--|
-|Intención|string|topScoringIntent.intent|"GetStoreInfo"|
+|Intención|String|topScoringIntent.intent|"GetStoreInfo"|
 
 Si el bot de chat o aplicación de llamada a LUIS toma una decisión en función de más de una puntuación de intención, devuelve todas las puntuaciones de intenciones al configurar el parámetro de querystring `verbose=true`. La respuesta del punto de conexión es:
 
@@ -75,10 +75,10 @@ Si el bot de chat o aplicación de llamada a LUIS toma una decisión en función
 
 Las intenciones se ordenan de mayor a menor puntuación.
 
-|Objeto de datos|Tipo de datos|Ubicación de los datos|Valor|Score|
+|Objeto de datos|Tipo de datos|Ubicación de los datos|Value|Score|
 |--|--|--|--|:--|
-|Intención|string|intents[0].intent|"GetStoreInfo"|0.984749258|
-|Intención|string|intents[1].intent|"None"|0.0168218873|
+|Intención|String|intents[0].intent|"GetStoreInfo"|0.984749258|
+|Intención|String|intents[1].intent|"None"|0.0168218873|
 
 Si agrega dominios creados previamente, el nombre de la intención indica el dominio, como `Utilties` o `Communication`, así como la intención:
 
@@ -106,11 +106,11 @@ Si agrega dominios creados previamente, el nombre de la intención indica el dom
 }
 ```
 
-|Dominio|Objeto de datos|Tipo de datos|Ubicación de los datos|Valor|
+|Dominio|Objeto de datos|Tipo de datos|Ubicación de los datos|Value|
 |--|--|--|--|--|
-|Sectores públicos|Intención|string|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Comunicación|Intención|string|intents[1].intent|<b>Communication</b>.StartOver"|
-||Intención|string|intents[2].intent|"None"|
+|Sectores públicos|Intención|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Comunicación|Intención|String|intents[1].intent|<b>Communication</b>.StartOver"|
+||Intención|String|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Datos de entidades
@@ -168,7 +168,7 @@ Los datos devueltos desde el punto de conexión incluyen el nombre de la entidad
 ]
 ```
 
-|Objeto de datos|Nombre de entidad|Valor|
+|Objeto de datos|Nombre de entidad|Value|
 |--|--|--|
 |Entidad simple|`Customer`|`bob jones`|
 
@@ -196,9 +196,9 @@ Los datos devueltos desde el punto de conexión incluyen el nombre de la entidad
 ]
 ```
 
-|Objeto de datos|Elemento principal|Elemento secundario|Valor|
+|Objeto de datos|Elemento principal|Elemento secundario|Value|
 |--|--|--|--|
-|Entidad jerárquica|Ubicación|ToLocation|"paris"|
+|Entidad jerárquica|Location|ToLocation|"paris"|
 
 ## <a name="composite-entity-data"></a>Datos de entidad compuesta
 Las entidades [compuestas](luis-concept-entity-types.md) son de aprendizaje automático y pueden incluir una palabra o frase. Por ejemplo, considere una entidad compuesta de las entidades `number` y `Location::ToLocation` creadas previamente con la expresión siguiente:
@@ -255,7 +255,7 @@ Las entidades compuestas se devuelven en una matriz `compositeEntities` y todas 
   ]
 ```    
 
-|Objeto de datos|Nombre de entidad|Valor|
+|Objeto de datos|Nombre de entidad|Value|
 |--|--|--|
 |Entidad creada previamente de número|"builtin.number"|"2"|
 |Entidad jerárquica de ubicación|"Location::ToLocation"|"paris"|

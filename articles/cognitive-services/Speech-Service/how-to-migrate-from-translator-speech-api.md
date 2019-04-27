@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
 ms.openlocfilehash: 35f970e81d27511bd35610bc2988a5ea4832906b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898642"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60995751"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar de Translator Speech API al servicio Voz
 
@@ -26,7 +26,7 @@ Use este artículo para obtener información sobre cómo migrar sus aplicaciones
 
 ## <a name="comparison-of-features"></a>Comparación de características
 
-| Característica                                           | Translator Speech API                                  | Servicios de voz | Detalles                                                                                                                                                                                                                                                                            |
+| Característica                                           | Translator Speech API                                  | Speech Services | Detalles                                                                                                                                                                                                                                                                            |
 |---------------------------------------------------|-----------------------------------------------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Traducción a texto                               | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Traducción a voz                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |

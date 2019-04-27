@@ -12,11 +12,11 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435769"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60827908"
 ---
 # <a name="translator-speech-api-languages"></a>Translator Speech API: Languages
 
@@ -141,7 +141,7 @@ X-RequestId|Valor generado por el servidor para identificar la solicitud y que s
 |Parámetro|DESCRIPCIÓN|Tipo de parámetro|Tipo de datos|
 |:--|:--|:--|:--|
 |api-version    |Versión de la API que el cliente solicitó. Los valores permitidos son: `1.0`.|query|string|
-|ámbito  |Conjuntos de idiomas o voces admitidos que se devolverán al cliente. Este parámetro se especifica como una lista de palabras clave separadas por comas. Las palabras clave siguientes están disponibles:<ul><li>`speech`: proporciona el conjunto de idiomas admitidos para la transcripción de voz.</li><li>`tts`: proporciona el conjunto de voces admitidas para la conversión de texto a voz.</li><li>`text`: proporciona el conjunto de idiomas admitidos para traducir texto.</li></ul>Si no se especifica un valor, el valor `scope` se establece en `text` de manera predeterminada.|query|string|
+|scope  |Conjuntos de idiomas o voces admitidos que se devolverán al cliente. Este parámetro se especifica como una lista de palabras clave separadas por comas. Las palabras clave siguientes están disponibles:<ul><li>`speech`: proporciona el conjunto de idiomas admitidos para la transcripción de voz.</li><li>`tts`: proporciona el conjunto de voces admitidas para la conversión de texto a voz.</li><li>`text`: proporciona el conjunto de idiomas admitidos para traducir texto.</li></ul>Si no se especifica un valor, el valor `scope` se establece en `text` de manera predeterminada.|query|string|
 |X-ClientTraceId    |GUID generado por el cliente que se utiliza para realizar un seguimiento de una solicitud. Para facilitar la solución de problemas, los clientes deben proporcionar y registrar un nuevo valor con cada solicitud.|encabezado|string|
 |Accept-Language    |Algunos de los campos de la respuesta son nombres de idiomas o regiones. Utilice este parámetro para definir el idioma en que se devuelven los nombres. El idioma se especifica al proporcionar una etiqueta de idioma BCP 47 con formato correcto. Seleccione una etiqueta de la lista de identificadores de idioma que se devuelva con el ámbito `text`. Para los idiomas no admitidos, se proporcionan los nombres en inglés.<br/>Por ejemplo, utilice el valor `fr` para solicitar nombres en francés o utilice el valor `zh-Hant` para solicitar nombres en chino tradicional.|encabezado|string|
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814479"
 ---
 # <a name="semantic-interpretation"></a>Interpretación semántica
 
@@ -35,7 +35,7 @@ A continuación se muestra una lista de los tipos de datos que se admiten actual
 
 |Type|DESCRIPCIÓN|Ejemplos|
 |----|----|----|
-|string|Secuencia de 0 o más caracteres|"Hello World!"<br/>""|
+|String|Secuencia de 0 o más caracteres|"Hello World!"<br/>""|
 |Bool|Valor booleano|true<br/>false|
 |Int32|Entero con signo de 32 bits.  -2.1e9 a 2.1e9|123<br/>-321|
 |Int64|Entero con signo de 64 bits. -9.2e18 y 9.2e18|9876543210|

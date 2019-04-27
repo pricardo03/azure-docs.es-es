@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
 ms.openlocfilehash: bd37665e962ada59149b54075d7f8acbea895c50
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437469"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61336831"
 ---
 # <a name="paper-entity"></a>Entidad de documento
 
@@ -25,26 +25,26 @@ ms.locfileid: "57437469"
 NOMBRE    |DESCRIPCIÓN                                        |Type       | Operaciones
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Id      |El identificador de entidad                                          |Int64      |Equals
-Ti      |Título del documento                                        |string     |Equals,<br/>StartsWith
-L       |Código de idioma del documento separado con "\@@@"            |string     |Equals
+Ti      |Título del documento                                        |String     |Equals,<br/>StartsWith
+L       |Código de idioma del documento separado con "\@@@"            |String     |Equals
 Y       |Año del documento                                         |Int32      |Equals,<br/>IsBetween
 D       |Fecha del documento                                         |Date       |Equals,<br/>IsBetween
 CC      |Recuento de citas                                     |Int32      |None  
 ECC     |Recuento de citas estimado                           |Int32      |None
-AA.AuN  |Nombre del autor                                        |string     |Equals,<br/>StartsWith
+AA.AuN  |Nombre del autor                                        |String     |Equals,<br/>StartsWith
 AA.AuId |Identificador del autor                                          |Int64      |Equals
-AA.AfN  |Nombre de afiliación del autor                            |string     |Equals,<br/>StartsWith
+AA.AfN  |Nombre de afiliación del autor                            |String     |Equals,<br/>StartsWith
 AA.AfId |Identificador de afiliación del autor                              |Int64      |Equals
 AA.S    |Orden del autor para el documento                         |Int32      |Equals
-F.FN    |Nombre de campo de estudio                                |string     |Equals,<br/>StartsWith
+F.FN    |Nombre de campo de estudio                                |String     |Equals,<br/>StartsWith
 F.FId   |Identificador de campo de estudio                                  |Int64      |Equals
-J.JN    |Nombre del diario                                       |string     |Equals,<br/>StartsWith
+J.JN    |Nombre del diario                                       |String     |Equals,<br/>StartsWith
 J.JId   |Identificador del diario                                         |Int64      |Equals
-C.CN    |Nombre de la serie de conferencias                             |string     |Equals,<br/>StartsWith
+C.CN    |Nombre de la serie de conferencias                             |String     |Equals,<br/>StartsWith
 C.CId   |Identificador de la serie de conferencias                               |Int64      |Equals
 RId     |Identificador de los documentos a los que se hace referencia                              |Int64[]    |Equals
 W       |Palabras del título del documento y descripción breve                |String[]   |Equals
-E       |Metadatos ampliados (consulte la tabla siguiente)                |string     |None  
+E       |Metadatos ampliados (consulte la tabla siguiente)                |String     |None  
         
 
 

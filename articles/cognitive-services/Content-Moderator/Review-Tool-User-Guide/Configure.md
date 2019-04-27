@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756513"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61285549"
 ---
-# <a name="configure-the-review-tool"></a>Configurar la herramienta de revisión
+# <a name="configure-the-review-tool"></a>Configuración de la herramienta de revisión
 
 El [herramienta de revisión](https://contentmoderator.cognitive.microsoft.com) tiene varias características importantes que puede tener acceso a través de la **configuración** menú en el panel.
 

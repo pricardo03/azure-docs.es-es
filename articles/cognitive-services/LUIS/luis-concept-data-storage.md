@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: diberry
 ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893204"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812943"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Almacenamiento y eliminación de datos en Cognitive Services de Language Understanding (LUIS)
 LUIS almacena datos cifrados en un almacén de datos de Azure correspondiente a la región especificada por la clave. Estos datos se almacenan durante 30 días. 

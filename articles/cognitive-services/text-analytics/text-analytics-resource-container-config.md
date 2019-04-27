@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: 1333aefc145e95223624f42a28ec0bb31ab70065
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011765"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60828129"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Configuración de los contenedores de docker de Text Analytics
 
@@ -51,7 +51,7 @@ Este valor se puede encontrar en el siguiente lugar:
 
 Deberá agregar el `text/analytics/v2.0` enrutamiento para el URI del extremo, tal como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI.
 
-|Obligatorio| Name | Tipo de datos | DESCRIPCIÓN |
+|Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
 |Sí| `Billing` | String | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
@@ -79,7 +79,7 @@ El contenedor de Text Analytics no usa los montajes de entrada o salida para alm
 
 La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](how-tos/text-analytics-how-to-install-containers.md#the-host-computer) puede no estar accesible debido a un conflicto entre los permisos que utiliza la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host. 
 
-|Opcional| Name | Tipo de datos | DESCRIPCIÓN |
+|Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |-------|------|-----------|-------------|
 |No permitida| `Input` | String | Los contenedores de Text Analytics no usan esto.|
 |Opcional| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|

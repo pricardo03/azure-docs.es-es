@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: a544cdca1ef4be56fcf368a39040f4ee85076a9e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60815100"
 ---
 # <a name="structured-query-expression"></a>Expresiones de consulta estructuradas
 
@@ -31,9 +31,9 @@ Una expresión de consulta de atributo identifica un conjunto de objetos basados
 
 | Type | Operación | Ejemplos |
 |------|-------------|------------|
-| string | equals | Title='latent semantic analysis'  (canonical + synonyms) |
-| string | equals | Author.Name=='susan t dumais'  (canonical only)|
-| string | starts_with | Title='latent s'... |
+| String | equals | Title='latent semantic analysis'  (canonical + synonyms) |
+| String | equals | Author.Name=='susan t dumais'  (canonical only)|
+| String | starts_with | Title='latent s'... |
 | Int32/Int64/Double | equals | Year=2000 |
 | Int32/Int64/Double | starts_with | Year='20'... (any decimal value starting with "20") |
 | Int32/Int64/Double | is_between | Year&lt;2000 <br/> Year&lt;=2000 <br/> Year&gt;2000 <br/> Year&gt;=2000 <br/> Year=[2010,2012) *(includes only left boundary value: 2010, 2011)* <br/> Year=[2000,2012] *(includes both boundary values: 2010, 2011, 2012)* |

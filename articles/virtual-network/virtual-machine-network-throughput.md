@@ -3,8 +3,8 @@ title: Rendimiento de la red de máquinas virtual de Azure | Microsoft Docs
 description: Aprenda acerca del rendimiento de la red de máquinas virtuales de Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
-ms.author: jdial
-ms.openlocfilehash: f22b6f361f0c5bea547721309bb0f75b62f18d92
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.author: kumud
+ms.openlocfilehash: 29c4926f56070874fe17622170e697986df0fbc3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27778962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743094"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Ancho de banda de la red de máquinas virtuales
 
@@ -39,12 +39,12 @@ Las máquinas virtuales de Azure deben tener una interfaz de red, pero pueden te
 El rendimiento de salida esperado y el número de interfaces de red compatibles con cada tamaño de máquina virtual se detallan en los tamaños de máquinas virtuales [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure. Seleccione un tipo, como fin general, y luego seleccione una serie de tamaños en la página resultante, como la serie Dv2. Cada serie tiene una tabla con las especificaciones de red en la última columna con el nombre **N.º máx. NIC/rendimiento de red esperado (Mbps)**. 
 
 El límite de rendimiento se aplica a la máquina virtual. El rendimiento no se ve afectado por los siguientes factores:
-- **Número de interfaces de red**: el límite de ancho de banda es el cúmulo de todo el tráfico saliente de la máquina virtual.
-- **Redes aceleradas**: aunque la característica puede ser útil para lograr el límite publicado, no cambia el límite.
-- **Destino del tráfico**: todos los destinos se cuentan para el límite de salida.
-- **Protocolo**: todo el tráfico saliente a través de todos los protocolos cuenta para el límite.
+- **Número de interfaces de red**: El límite de ancho de banda es acumulativo de todo el tráfico saliente desde la máquina virtual.
+- **Las redes aceleradas**: Aunque la característica puede ser útil para lograr el límite publicado, no cambia el límite.
+- **Destino del tráfico**: Todos los destinos se cuentan para el límite de salida.
+- **Protocolo**: Todo el tráfico saliente a través de todos los protocolos cuenta para el límite.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Optimización del rendimiento de red en un sistema operativo de máquina virtual](virtual-network-optimize-network-bandwidth.md)
 - [Prueba de rendimiento de red](virtual-network-bandwidth-testing.md) para una máquina virtual.

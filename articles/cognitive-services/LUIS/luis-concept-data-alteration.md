@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: c43d3738b23037432ecdfe3aa872950f6a7b863e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860599"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812803"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Modificación de datos de expresiones antes o durante la predicción
 LUIS proporciona distintos métodos para manipular la expresión antes o durante la predicción. Entre ellos se incluyen la corrección de la ortografía y la solución de problemas de zona horaria para elementos datetimeV2 creados previamente. 
@@ -30,7 +30,7 @@ El uso de la clave en el panel Prueba y en el punto de conexión cuentan para la
 
 El punto de conexión requiere dos parámetros para que las correcciones ortográficas funcionen:
 
-|Parámetro|Valor|
+|Parámetro|Value|
 |--|--|
 |`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|Clave de punto de conexión de [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
@@ -58,7 +58,7 @@ Cuando una aplicación de LUIS usa la entidad datetimeV2 creada previamente, se 
 ### <a name="endpoint-querystring-parameter"></a>Parámetro de cadena de consulta de punto de conexión
 La zona horaria se puede corregir agregando la zona horaria del usuario al [punto de conexión](https://aka.ms/luis-endpoint-apis) mediante el parámetro `timezoneOffset`. El valor de `timezoneOffset` debe ser un número positivo o negativo (en minutos) para modificar la hora.  
 
-|Parámetro|Valor|
+|Parámetro|Value|
 |--|--|
 |`timezoneOffset`|número positivo o negativo (en minutos)|
 

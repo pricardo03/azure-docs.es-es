@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129651"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configuración de la experiencia de Bing Custom Search
 
@@ -129,7 +129,7 @@ De manera predeterminada, las páginas web solo están ancladas al principio de 
 > [!NOTE]
 > Todas las comparaciones entre la consulta de búsqueda del usuario y la consulta de búsqueda del anclaje distinguen mayúsculas de minúsculas.
 
-| Valor | DESCRIPCIÓN                                                                          |
+| Value | DESCRIPCIÓN                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | Empieza por | El anclaje coincide si la cadena de consulta del usuario empieza por lo mismo que la de anclaje. |
 | Termina por   | El anclaje coincide si la cadena de consulta del usuario termina por lo mismo que la de anclaje.  |

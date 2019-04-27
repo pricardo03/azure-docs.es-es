@@ -12,11 +12,11 @@ ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 0e91aefb800eba42b715cb70d42ce09ad134fabb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243813"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60912470"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-java"></a>Cómo usar la API REST de QnA Maker con Java 
 <a name="HOLTop"></a>
@@ -2133,6 +2133,6 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [!div class="nextstepaction"]
 > [Referencia de QnA Maker (V4) REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Vea también 
 
 [Introducción de QnA Maker](../Overview/overview.md)

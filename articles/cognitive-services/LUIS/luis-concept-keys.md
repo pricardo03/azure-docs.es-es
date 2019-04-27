@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
 ms.openlocfilehash: 1f5aab607c5046df0dee4db5caf36b0b7de53c4d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813893"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Claves de creación y del punto de conexión de consulta de predicciones en LUIS
 LUIS usa dos claves: de [creación](#programmatic-key) y [punto de conexión](#endpoint-key). La clave de creación se crea automáticamente al crear la cuenta de LUIS. Cuando esté listo para publicar la aplicación de LUIS, tiene que [crear la clave de punto de conexión](luis-how-to-azure-subscription.md), [asignarla](luis-how-to-azure-subscription.md) a la aplicación de LUIS y [usarla con la consulta de punto de conexión](#use-endpoint-key-in-query). 

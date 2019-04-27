@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: aahi
 ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831425"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Cómo llamar a la API REST de Text Analytics
 

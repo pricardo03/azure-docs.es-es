@@ -3,7 +3,7 @@ title: Conexión híbrida con aplicación de 2 niveles | Microsoft Docs
 description: Obtenga información sobre cómo implementar aplicaciones virtuales y UDR para crear un entorno de aplicaciones de niveles múltiples en Azure
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 manager: carmonm
 editor: tysonn
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
-ms.author: jdial
-ms.openlocfilehash: 544ba6484b23da425d53594622122b1e18b92359
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: kumud
+ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2017
-ms.locfileid: "23643869"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61034156"
 ---
 # <a name="virtual-appliance-scenario"></a>Escenario de aplicación virtual
-Un escenario común entre los clientes de Azure de mayor tamaño es la necesidad de ofrecer una aplicación en 2 niveles expuesta a Internet a la vez que permiten el acceso al nivel posterior desde un centro de datos local. Este documento le guiará en un escenario con Rutas definidas por el usuario (UDR), una Puerta de enlace de VPN y aplicaciones virtuales de red para implementar un entorno de 2 niveles que cumple los siguientes requisitos:
+Un escenario común entre los clientes de Azure de mayor tamaño es la necesidad de ofrecer una aplicación en 2 niveles expuesta a Internet a la vez que permiten el acceso al nivel posterior desde un centro de datos local. Este documento le guiará en un escenario con Rutas definidas por el usuario (UDR), una instancia de VPN Gateway y aplicaciones virtuales de red para implementar un entorno de 2 niveles que cumple los siguientes requisitos:
 
 * Solo se debe poder tener acceso a la aplicación web desde una red pública de Internet.
 * El servidor web que hospeda la aplicación debe poder tener acceso a un servidor de aplicaciones back-end.
 * Todo el tráfico desde Internet a la aplicación web debe pasar por una aplicación virtual de firewall. Esta aplicación virtual se usará solo para el tráfico de Internet.
-* Todo el tráfico que vaya al servidor de aplicaciones debe pasar por una aplicación virtual de firewall. Esta aplicación virtual se usará para tener acceso al servidor back-end y el acceso entrante provendrá de la red local a través de una Puerta de enlace de VPN.
+* Todo el tráfico que vaya al servidor de aplicaciones debe pasar por una aplicación virtual de firewall. Esta aplicación virtual se usará para tener acceso al servidor back-end y el acceso entrante provendrá de la red local a través de VPN Gateway.
 * Los administradores deberán poder administrar las aplicaciones virtuales de firewall desde los equipos locales con una tercera aplicación virtual de firewall que se usará exclusivamente para la administración.
 
 Este es un escenario de red perimetral estándar con una red perimetral y una red protegida. Dicho escenario se puede construir en Azure con NSG, aplicaciones virtuales de firewall o una combinación de ambos elementos. La tabla a continuación muestra algunas de las ventajas y desventajas entre los NSG y las aplicaciones virtuales de firewall.
@@ -64,7 +64,7 @@ En este ejemplo hay una suscripción que contiene lo siguiente:
   * **azsn2**. Subred de front-end que hospeda una máquina virtual que se ejecuta como servidor web al que se tendrá acceso desde Internet.
   * **azsn3**. Subred de back-end que hospeda una máquina virtual que ejecuta un servidor de aplicaciones back-end al que tendrá acceso el servidor web de front-end.
   * **azsn4**. Subred de administración que se usa exclusivamente para brindar acceso de administración a todas las aplicaciones virtuales de firewall. Esta subred solo contiene una tarjeta NIC para cada aplicación virtual de firewall que se usa en la solución.
-  * **GatewaySubnet**. Subred de conexión híbrida de Azure que se requiere para que ExpressRoute y Puerta de enlace de VPN proporcionen conectividad entre redes virtuales de Azure y otras redes. 
+  * **GatewaySubnet**. Subred de conexión híbrida de Azure que se requiere para que ExpressRoute y VPN Gateway proporcionen conectividad entre redes virtuales de Azure y otras redes. 
 * Hay 3 aplicaciones virtuales de firewall en la red **azurevnet** . 
   * **AZF1**. Firewall externo expuesto a la red pública de Internet mediante un recurso de dirección IP pública en Azure. Debe asegurarse de tener una plantilla proveniente de Marketplace, o bien directamente desde el proveedor de aplicaciones, que aprovisione una aplicación virtual de 3 NIC.
   * **AZF2**. Firewall interno que se usa para controlar el tráfico entre **azsn2** y **azsn3**. También es una aplicación virtual de 3 NIC.
@@ -134,19 +134,19 @@ Como se describió anteriormente, Reenvío IP solo asegura que los paquetes se e
 ### <a name="opfw"></a>OPFW
 OPFW representa un dispositivo local que contiene las siguientes reglas:
 
-* **Ruta**: todo el tráfico a 10.0.0.0/16 (**azurevnet**) se debe enviar a través del túnel **ONPREMAZURE**.
-* **Directiva**: permita todo el tráfico bidireccional entre **port2** y **ONPREMAZURE**.
+* **ruta**: Todo el tráfico a 10.0.0.0/16 (**azurevnet**) se deben enviar a través de túnel **ONPREMAZURE**.
+* **Directiva**: Permitir todo el tráfico bidireccional entre **port2** y **ONPREMAZURE**.
 
 ### <a name="azf1"></a>AZF1
 AZF1 representa una aplicación virtual de Azure que incluye las siguientes reglas:
 
-* **Directiva**: permita todo el tráfico bidireccional entre **port1** y **port2**.
+* **Directiva**: Permitir todo el tráfico bidireccional entre **port1** y **port2**.
 
 ### <a name="azf2"></a>AZF2
 AZF2 representa una aplicación de Azure que contiene las siguientes reglas:
 
-* **Ruta**: todo el tráfico a 10.0.0.0/16 (**onpremvnet**) se debe enviar a la dirección IP de la puerta de enlace de Azure (es decir, 10.0.0.1) a través de **port1**.
-* **Directiva**: permita todo el tráfico bidireccional entre **port1** y **port2**.
+* **ruta**: Todo el tráfico a 10.0.0.0/16 (**onpremvnet**) se deben enviar a la puerta de enlace Azure dirección IP (es decir, 10.0.0.1) a través de **port1**.
+* **Directiva**: Permitir todo el tráfico bidireccional entre **port1** y **port2**.
 
 ## <a name="network-security-groups-nsgs"></a>Grupos de seguridad de red (NSG)
 En este escenario, no se usan los NSG. Sin embargo, podría aplicar los NSG a cada subred para restringir el tráfico entrante y saliente. Por ejemplo, podría aplicar las siguientes reglas de NSG a la subred de firewall externo.

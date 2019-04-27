@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62117455"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Use una entidad de lista para aumentar la detección de entidades 
 En este tutorial se muestra el uso de una [entidad de lista](luis-concept-entity-types.md) para aumentar la detección de entidades. No es necesario etiquetar las entidades de lista ya que son una coincidencia exacta de términos.  
