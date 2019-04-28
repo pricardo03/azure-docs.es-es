@@ -6,15 +6,16 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/12/2018
-ms.author: glenga
+origin.date: 09/12/2018
+ms.date: 10/19/2018
+ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 2808264b4641bda49a53677ebe216a3b53b7d0d9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 27dc1b1315a8e33b8ac13b34d4a86ad0343388b4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293824"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731250"
 ---
 El código de todas las funciones de una aplicación de función está ubicado en una carpeta de proyecto raíz que contiene un archivo de configuración de host y una o varias subcarpetas. Cada subcarpeta contiene el código de una función diferente como se puede ver en la representación siguiente:
 
@@ -35,11 +36,12 @@ En la versión 2.x del sistema en ejecución de Functions, todas las funciones d
 
 El archivo [host.json](../articles/azure-functions/functions-host-json.md), que contiene alguna configuración específica del tiempo de ejecución, se coloca en la carpeta principal de la aplicación de función. Un carpeta `bin` contiene paquetes y otros archivos de biblioteca requeridos por la aplicación de función. Consulte los requisitos específicos de idioma para un proyecto de aplicación de función:
 
-* [Biblioteca de clases C# (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
-* [Script de C# (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
-* [Script de F#](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
-* [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
-* [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
+- [Biblioteca de clases C# (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
+- [Script de C# (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
+- [Script de F#](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
+- [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
+- [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
 
 
+<!-- ms.date: 10/19/2018 -->
 

@@ -1,15 +1,16 @@
 ---
-author: vhorne
+author: WenJason
 ms.service: dns
 ms.topic: include
-ms.date: 11/25/2018
+origin.date: 11/25/2018
+ms.date: 12/24/2018
 ms.author: victorh
 ms.openlocfilehash: 74031a8dbc9b64d6a09533789eed1296ff334d47
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563385"
 ---
 Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Para iniciar el hospedaje de su dominio en DNS de Azure, debe crear una zona DNS para ese nombre de dominio. Cada registro DNS del dominio se crea luego en esta zona DNS.
 

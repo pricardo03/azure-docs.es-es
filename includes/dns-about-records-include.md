@@ -1,15 +1,16 @@
 ---
-author: vhorne
+author: WenJason
 ms.service: dns
 ms.topic: include
-ms.date: 11/25/2018
-ms.author: victorh
+origin.date: 11/25/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563390"
 ---
 ### <a name="record-names"></a>Nombres de registro
 
@@ -21,7 +22,7 @@ Un registro de *vértice* es un registro DNS en la raíz (o *vértice*) de una z
 
 Cada registro DNS tiene un nombre y un tipo. Los registros se organizan en distintos tipos según los datos que contengan. El tipo más común es un registro "A", que asigna un nombre a una dirección IPv4. Otro tipo común es un registro "MX", que asigna un nombre a un servidor de correo.
 
-Azure DNS es compatible con todos los tipos de registro DNS comunes: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV y TXT. Tenga en cuenta que [los registros de SPF se representan mediante registros TXT](../articles/dns/dns-zones-records.md#spf-records).
+Azure DNS admite todos los tipos de registro DNS comunes: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV y TXT. Tenga en cuenta que [los registros de SPF se representan mediante registros TXT](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Conjuntos de registros
 

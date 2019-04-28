@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: f84fe995e65d2b67aaaf4ff9acc4a6a44ce607dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888957"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60633416"
 ---
 > [!NOTE]
 > Al realizar cambios en la configuración de RBS del adaptador de StorSimple para SharePoint, es necesario haber iniciado sesión con una cuenta de usuario que pertenezca al grupo Admins. del dominio. Además, debe tener acceso a la página de configuración desde un explorador que se ejecuta en el mismo host que la Administración central.

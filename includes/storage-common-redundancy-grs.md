@@ -9,11 +9,11 @@ ms.date: 03/26/2018
 ms.author: jeking
 ms.custom: include file
 ms.openlocfilehash: efa593d0ff0043d81574b67192deed30933e1e40
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219858"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516274"
 ---
 El almacenamiento con redundancia geográfica(GRS) está diseñado para proporcionar al menos el 99.99999999999999 % (dieciséis nueves) de durabilidad de objetos a lo largo de un año. Para ello, replica los datos a una región secundaria que se encuentra a cientos de kilómetros de la región primaria. Si la cuenta de almacenamiento tiene habilitado GRS, sus datos se mantienen incluso ante un apagón regional completo o un desastre del cual la región principal no se puede recuperar.
 
@@ -24,7 +24,7 @@ Si opta por GRS, tiene dos opciones relacionadas para elegir:
 
 Para una cuenta de almacenamiento con que tiene habilitado GRS o RA-GRS, todos los datos primero se replican con el almacenamiento con redundancia local (LRS). Una actualización se confirma primero en la ubicación principal y se replican mediante LRS. La actualización luego se replica de manera asincrónica en la región secundaria con GRS. Cuando los datos se escriben en la ubicación secundaria, también se replican dentro de esa ubicación con LRS. 
 
-Las regiones primarias y secundarias administran las réplicas entre dominios de error y de actualización diferentes dentro de una unidad de escalado de almacenamiento. La unidad de escalado de almacenamiento es la unidad de replicación básica dentro del centro de datos. LRS proporciona la replicación en este nivel. Para más información, consulte [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](../articles/storage/common/storage-redundancy-lrs.md).
+Las regiones primarias y secundarias administran las réplicas entre dominios de error y de actualización diferentes dentro de una unidad de escalado de almacenamiento. La unidad de escalado de almacenamiento es la unidad de replicación básica dentro del centro de datos. La replicación en este nivel se realiza por LRS; Para obtener más información, consulte [almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](../articles/storage/common/storage-redundancy-lrs.md).
 
 Tenga en cuenta estos puntos cuando decida qué opción de replicación usar:
 

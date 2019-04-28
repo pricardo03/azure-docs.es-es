@@ -5,21 +5,20 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 02/15/2019
+ms.date: 02/22/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: d9562bb9c91700e817c120934e59c0c308d1e55b
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 498a4471d1ba6803d68e0b497c7c8352f19ff743
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56323377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60768664"
 ---
-| Categoría | Almacén de datos |
+| Category | Almacén de datos |
 |:--- |:--- |
 | **Las tablas de Azure** |[Almacenamiento de blobs de Azure](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (API de SQL)](../articles/data-factory/connector-azure-cosmos-db.md) |
-| &nbsp; |[API de Azure Cosmos DB para MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |
 | &nbsp; |[Azure Data Explorer](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |
@@ -58,7 +57,6 @@ ms.locfileid: "56323377"
 | &nbsp; |[Vertica](../articles/data-factory/connector-vertica.md) |
 | **NoSQL** |[Cassandra](../articles/data-factory/connector-cassandra.md) |
 | &nbsp; |[Couchbase (versión preliminar)](../articles/data-factory/connector-couchbase.md) |
-| &nbsp; |[MongoDB](../articles/data-factory/connector-mongodb.md) |
 | **Archivo** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |
 | &nbsp; |[Sistema de archivos](../articles/data-factory/connector-file-system.md) |
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |
@@ -68,7 +66,6 @@ ms.locfileid: "56323377"
 | **Protocolo genérico** |[HTTP genérico](../articles/data-factory/connector-http.md) |
 | &nbsp; |[OData genérico](../articles/data-factory/connector-odata.md) |
 | &nbsp; |[ODBC genérico](../articles/data-factory/connector-odbc.md) |
-| &nbsp; |[REST genérico](../articles/data-factory/connector-rest.md) |
 | **Servicios y aplicaciones** |[Servicio web de Amazon Marketplace (versión preliminar)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
 | &nbsp; |[Common Data Service for Apps](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓
 | &nbsp; |[Concur (versión preliminar)](../articles/data-factory/connector-concur.md) |
@@ -82,7 +79,8 @@ ms.locfileid: "56323377"
 | &nbsp; |[Marketo (versión preliminar)](../articles/data-factory/connector-marketo.md) |
 | &nbsp; |[Oracle Eloqua (versión preliminar)](../articles/data-factory/connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys (versión preliminar)](../articles/data-factory/connector-oracle-responsys.md) |
-| &nbsp; |[Oracle Service Cloud (versión preliminar)](../articles/data-factory/connector-oracle-service-cloud.md) || &nbsp; |[Paypal (versión preliminar)](../articles/data-factory/connector-paypal.md) |
+| &nbsp; |[Oracle Service Cloud (versión preliminar)](../articles/data-factory/connector-oracle-service-cloud.md) |
+| &nbsp; |[Paypal (versión preliminar)](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks (versión preliminar)](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
 | &nbsp; |[Servicio de Salesforce en la nube](../articles/data-factory/connector-salesforce.md) |
