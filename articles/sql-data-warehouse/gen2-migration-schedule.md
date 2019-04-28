@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d642addac36c6f3dbf361ec71102eabc00efd191
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361135"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764259"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Actualización del almacenamiento de datos a Gen2
 
@@ -33,7 +33,7 @@ En la tabla siguiente se resume por región cuándo estará disponible el nivel 
 | **Región** | **Proceso inferior Gen2 disponible** | **Fecha de inicio de la actualización automática** |
 |:--- |:--- |:--- |
 | Este de Australia |Disponible |1 de junio de 2019 |
-| Sudeste de Australia |15 de abril de 2019 |1 de mayo de 2019 |
+| Sudeste de Australia |26 de abril de 2019 |1 de mayo de 2019 |
 | Sur de Brasil |15 de mayo de 2019 |1 de junio de 2019 |
 | Centro de Canadá |Disponible |1 de junio de 2019 |
 | Este de Canadá |\* |\* |
@@ -49,16 +49,16 @@ En la tabla siguiente se resume por región cuándo estará disponible el nivel 
 | Centro de Alemania |\* |\* |
 | Centro occidental de Alemania |1 de septiembre de 2019|2 de enero de 2020 |
 | India central |Disponible |1 de junio de 2019 |
-| Sur de India |15 de abril de 2019 |1 de junio de 2019 |
+| Sur de India |26 de abril de 2019 |1 de junio de 2019 |
 | Este de Japón |Disponible |1 de junio de 2019 |
 | Oeste de Japón |Disponible |1 de mayo de 2019 |
-| Corea Central |15 de abril de 2019 |1 de junio de 2019 |
-| Corea del Sur |15 de abril de 2019 |1 de mayo de 2019 |
-| Centro-Norte de EE. UU |15 de abril de 2019 |1 de mayo de 2019 |
+| Corea Central |26 de abril de 2019 |1 de junio de 2019 |
+| Corea del Sur |26 de abril de 2019 |1 de mayo de 2019 |
+| Centro-Norte de EE. UU |26 de abril de 2019 |1 de mayo de 2019 |
 | Europa del Norte |Disponible |1 de junio de 2019 |
 | Centro-Sur de EE. UU |Disponible |1 de junio de 2019 |
 | Sudeste de Asia |Disponible |1 de junio de 2019 |
-| Sur de Reino Unido 2 |15 de abril de 2019 |1 de junio de 2019 |
+| Sur de Reino Unido 2 |26 de abril de 2019 |1 de junio de 2019 |
 | Oeste de Reino Unido |\*|\* |
 | Centro occidental de EE.UU. |2 de septiembre de 2019 |2 de enero de 2020|
 | Europa occidental |Disponible |1 de junio de 2019 |
@@ -131,7 +131,7 @@ Para obtener más información, vea [Actualización a Gen2](upgrade-to-latest-ge
 - R: Si usa DW600 o DW1200 en Gen1, se recomienda usar DW500c o DW1000c respectivamente, ya que Gen2 proporciona más cantidad de memoria, recursos y rendimiento que Gen1.
 
 **P: ¿Puedo deshabilitar la copia de seguridad con redundancia geográfica?**
-- R:  No. La copia de seguridad con redundancia geográfica es una característica empresarial que mantiene la disponibilidad del almacenamiento de datos en caso de que una región deje de estar disponible. Abra una [solicitud de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) si tiene más problemas.
+- R: No. La copia de seguridad con redundancia geográfica es una característica empresarial que mantiene la disponibilidad del almacenamiento de datos en caso de que una región deje de estar disponible. Abra una [solicitud de soporte técnico](sql-data-warehouse-get-started-create-support-ticket.md) si tiene más problemas.
 
 **P: ¿Hay alguna diferencia de sintaxis de T-SQL entre Gen1 y Gen2?**
 
@@ -143,7 +143,7 @@ Para obtener más información, vea [Actualización a Gen2](upgrade-to-latest-ge
 
 **P: ¿Podré crear una nueva instancia de Gen1 después de actualizar mi región?**
 
-- R:  No. Después de haber actualizado una región, se deshabilitará la creación de instancias de Gen1.
+- R: No. Después de haber actualizado una región, se deshabilitará la creación de instancias de Gen1.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

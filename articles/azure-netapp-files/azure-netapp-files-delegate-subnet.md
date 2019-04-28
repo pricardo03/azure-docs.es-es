@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: fd8e380ad68b86b9ffd0f1e40efde8bdadfb19c5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434779"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763315"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegación de una subred en Azure NetApp Files 
 
@@ -30,7 +30,7 @@ Debe delegar una subred en Azure NetApp Files.   Cuando se crea un volumen, debe
 * En cada red virtual de Azure (VNet), solo puede delegarse una subred a Azure NetApp Files.
 * No se puede designar un grupo de seguridad de red o punto de conexión de servicio en la subred delegada. Si lo hace, se producirá un error en la delegación de subred.
 * Actualmente no admite el acceso a un volumen desde una red virtual emparejada globalmente.
-* Creación de [rutas personalizadas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) en subredes de máquina virtual con dirección prefijo (destino) a una subred que se delegan a Azure Files de NetApp, no se admite y afecta a la conectividad de máquina virtual.
+* Creación de [rutas personalizadas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) en subredes de máquina virtual con la dirección no se admite el prefijo (destino) a una subred que se delegan a Azure Files de NetApp. Si lo hace, verá afectado conectividad de máquina virtual.
 
 ## <a name="steps"></a>Pasos 
 1.  Vaya a la hoja **Redes virtuales** de Azure Portal y seleccione la red virtual que desea usar para Azure NetApp Files.    

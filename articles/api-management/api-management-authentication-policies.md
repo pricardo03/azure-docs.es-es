@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 9ee4a9fb5c63061eed32389b5672652aad01208a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994959"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764344"
 ---
 # <a name="api-management-authentication-policies"></a>Directivas de autenticación de Azure API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -49,13 +49,13 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Name|DESCRIPCIÓN|Obligatorio|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
 |authentication-basic|Elemento raíz.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Name|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
 |username|Especifica el nombre de usuario de la credencial básica.|Sí|N/D|  
 |password|Especifica la contraseña de usuario de la credencial básica.|Sí|N/D|  
@@ -73,26 +73,32 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ### <a name="policy-statement"></a>Instrucción de la directiva  
   
 ```xml  
-<authentication-certificate thumbprint="thumbprint" />  
+<authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>  
 ```  
   
-### <a name="example"></a>Ejemplo  
+### <a name="examples"></a>Ejemplos  
   
+En este ejemplo de cliente el certificado se identifica mediante su huella digital.
 ```xml  
-<authentication-certificate thumbprint="....." />  
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />  
+``` 
+En este ejemplo el certificado de cliente se identifica por nombre de recurso.
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ```  
-  
+
 ### <a name="elements"></a>Elementos  
   
-|Name|DESCRIPCIÓN|Obligatorio|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
 |authentication-certificate|Elemento raíz.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Name|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|La huella digital del certificado de cliente.|Sí|N/D|  
+|thumbprint|La huella digital del certificado de cliente.|Ya sea `thumbprint` o `certificate-id` debe estar presente.|N/D|  
+|certificate-id|El nombre del recurso de certificado.|Ya sea `thumbprint` o `certificate-id` debe estar presente.|N/D|  
   
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
@@ -118,13 +124,13 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ### <a name="elements"></a>Elementos  
   
-|Name|DESCRIPCIÓN|Obligatorio|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
 |authentication-managed-identity |Elemento raíz.|Sí|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Name|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
+|NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|  
 |----------|-----------------|--------------|-------------|  
 |resource|String. El URI de Id. de aplicación de la API (recurso seguro) de la web de destino en Azure Active Directory.|Sí|N/D|  
 |output-token-variable-name|String. Nombre de la variable de contexto que recibirá el valor del token como un tipo de objeto `string`.|Sin |N/D|  

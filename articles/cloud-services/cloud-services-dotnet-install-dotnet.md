@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 4b6aeb2968d7642881535753cb6c8434cfe10886
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc861b6730e8bf9db6ba2ab005496914f7b9ed89
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409314"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759802"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instalación de .NET en roles de Azure Cloud Services
 En este artículo se describe cómo instalar versiones de .NET Framework que no viene con el SO invitado de Azure. Puede usar .NET en el SO invitado para configurar el rol de trabajo y el rol web del servicio en la nube.
@@ -34,6 +34,7 @@ Para instalar .NET en el rol de trabajo y el rol web, incluya el instalador web 
 ## <a name="add-the-net-installer-to-your-project"></a>Agregar el instalador de .NET al proyecto
 Para descargar el instalador web de .NET Framework, elija la versión que desea instalar:
 
+* [Instalador web de .NET 4.8](https://dotnet.microsoft.com/download/thank-you/net48)
 * [Instalador web de .NET 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [Instalador web de .NET 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
@@ -102,7 +103,8 @@ Puede usar las tareas de inicio para realizar operaciones antes de que se inicie
    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** https://go.microsoft.com/fwlink/?LinkId=852095
    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** https://go.microsoft.com/fwlink/?LinkId=863262
    set netfx="NDP472"
-   
+   REM ***** To install .NET 4.8 set the variable netfx to "NDP48" ***** https://dotnet.microsoft.com/download/thank-you/net48
+      
    REM ***** Set script start timestamp *****
    set timehour=%time:~0,2%
    set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%

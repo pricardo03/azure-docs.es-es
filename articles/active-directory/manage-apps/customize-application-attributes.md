@@ -15,15 +15,15 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291694"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759777"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios
-Microsoft Azure AD proporciona soporte para el aprovisionamiento de usuarios para aplicaciones SaaS de terceros como Salesforce, Google Apps y otras. Si habilita el aprovisionamiento de usuarios para una aplicación de SaaS de terceros, el portal de Azure controla sus valores de atributo a través de asignaciones de atributos.
+Microsoft Azure AD proporciona soporte técnico para el aprovisionamiento de usuarios para aplicaciones de SaaS de terceros como Salesforce, G Suite y otros. Si habilita el aprovisionamiento de usuarios para una aplicación de SaaS de terceros, el portal de Azure controla sus valores de atributo a través de asignaciones de atributos.
 
 Hay un conjunto preconfigurado de atributos y asignaciones de atributos entre los objetos de usuario de Azure AD y los objetos de usuario de cada aplicación SaaS. Algunas aplicaciones administran otros tipos de objetos, junto con los usuarios, como los grupos.
 
@@ -84,7 +84,7 @@ Junto con esta propiedad, asignaciones de atributos también admiten los siguien
 
 ## <a name="editing-group-attribute-mappings"></a>Edición de asignaciones de atributos de grupo
 
-Un número seleccionado de aplicaciones, como ServiceNow, Box y Google Apps, admite la capacidad de aprovisionar objetos de grupo y los objetos de usuario. Objetos de grupo pueden contener propiedades de grupo como nombres para mostrar y alias, junto con los miembros del grupo de correo electrónico.
+Un número seleccionado de aplicaciones, como ServiceNow, Box y G Suite, admite la capacidad de aprovisionar objetos de grupo y los objetos de usuario. Objetos de grupo pueden contener propiedades de grupo como nombres para mostrar y alias, junto con los miembros del grupo de correo electrónico.
 
 ![ServiceNow](./media/customize-application-attributes/24.png)
 

@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f466a1c3fd0b2d527fc4ab407d096f6bb9b7d8b9
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001089"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766908"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Información general sobre las funcionalidades de seguridad de Azure SQL Database
 
@@ -66,19 +66,17 @@ La autenticación es el proceso por el cual se demuestra que el usuario es quien
 > [!IMPORTANT]
 > La administración de bases de datos y servidores en Azure se controla mediante las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información sobre este artículo, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md). El control de acceso con reglas de firewall *no* se aplica a **una instancia administrada**. Para más información acerca de la configuración de red necesaria, consulte el artículo siguiente sobre cómo [conectarse a una instancia administrada](sql-database-managed-instance-connect-app.md).
 
-Autorización hace referencia a los permisos asignados a un usuario dentro de Azure SQL Database, y determina qué puede hacer el usuario. Los permisos se controlan mediante la adición de cuentas de usuario a [roles de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles) que definen los permisos de nivel de base de datos o conceden al usuario determinados [permisos de nivel de objeto](/sql/relational-databases/security/permissions-database-engine). Para más información, consulte [Inicios de sesión y usuarios](sql-database-manage-logins.md).
+## <a name="authorization"></a>Autorización
 
-Como procedimiento recomendado, agregue usuarios al rol con los privilegios mínimos necesarios para realizar su función de trabajo. La cuenta de administrador del servidor es un miembro del rol db_owner, que tiene amplios permisos, y se debe conceder con precaución a los usuarios. Al usar aplicaciones con Azure SQL Database, use [Roles de aplicación](/sql/relational-databases/security/authentication-access/application-roles) con permisos limitados. Esto garantiza que la aplicación que se conecta a la base de datos tenga los privilegios mínimos necesarios para la aplicación.
+Autorización hace referencia a los permisos asignados a un usuario dentro de Azure SQL Database, y determina qué puede hacer el usuario. Los permisos se controlan mediante la adición de cuentas de usuario [roles de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles) y asignar permisos de nivel de base de datos a dichas funciones o concediendo al usuario determinado [permisos de nivel de objeto](/sql/relational-databases/security/permissions-database-engine). Para más información, consulte [Inicios de sesión y usuarios](sql-database-manage-logins.md).
+
+Como práctica recomendada, crear funciones personalizadas cuando sea necesario. Agregar usuarios a la función con los privilegios mínimos necesarios para realizar su función de trabajo. No asigne permisos directamente a los usuarios. La cuenta de administrador del servidor es un miembro del rol db_owner integrados, que tiene amplios permisos y solo se debe conceder a algunos usuarios con derechos administrativos. Para las aplicaciones de Azure SQL Database, use el [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar el contexto de ejecución del módulo llamado o usar [Roles de aplicación](/sql/relational-databases/security/authentication-access/application-roles) con permisos limitados. Esta práctica garantiza que la aplicación que se conecta a la base de datos tiene los privilegios mínimos necesarios para la aplicación. También se sigue estos procedimientos recomendados fomenta la separación de obligaciones.
 
 ### <a name="row-level-security"></a>Seguridad de nivel de fila
 
-La seguridad de nivel de fila permite a los clientes controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (como, por ejemplo, la pertenencia a un grupo o el contexto de ejecución). Para más información, consulte [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security).
+La seguridad de nivel de fila permite a los clientes controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (como, por ejemplo, la pertenencia a un grupo o el contexto de ejecución). Seguridad de nivel de fila también puede utilizarse para implementar los conceptos de seguridad personalizado basado en etiquetas. Para más información, consulte [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security).
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
-
-  Este método de autenticación utiliza un nombre de usuario y una contraseña. 
-
-Para información general de los permisos en Azure SQL Database, consulte [Inicios de sesión y usuarios](sql-database-manage-logins.md#permissions)
 
 ## <a name="threat-protection"></a>Protección contra amenazas
 

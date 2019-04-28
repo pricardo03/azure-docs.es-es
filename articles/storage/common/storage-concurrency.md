@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
-ms.openlocfilehash: c45061db77c21b82744f69f00265870d5e1a8d00
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883848"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766198"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Administración de la simultaneidad en Almacenamiento de Microsoft Azure
 ## <a name="overview"></a>Información general
 Las aplicaciones modernas basadas en Internet, normalmente tienen varios usuarios que ven y actualizan datos simultáneamente. Esto requiere que los desarrolladores de las aplicaciones piensen detenidamente cómo proporcionar una experiencia predecible a sus usuarios finales, especialmente para escenarios donde varios usuarios pueden actualizar los mismos datos. Hay tres estrategias principales de simultaneidad de datos que normalmente tienen en cuenta los desarrolladores:  
 
 1. Simultaneidad optimista: una aplicación que realiza una actualización comprobará, como parte de dicha actualización, si los datos han cambiado desde que la aplicación leyera por última vez esos datos. Por ejemplo, si dos usuarios que ven una página wiki realizan una actualización en la misma página, entonces la plataforma wiki debe asegurarse de que la segunda actualización no sobrescribe la primera y que ambos usuarios comprenden si sus actualizaciones se realizaron correctamente o no. Esta estrategia se usa con más frecuencia en aplicaciones web.
-2. Simultaneidad pesimista: una aplicación que pretende realizar una actualización realizará un bloqueo en un objeto evitando que otros usuarios actualicen los datos hasta que el bloqueo se libere. Por ejemplo, en un escenario de replicación de datos maestro/subordinado, donde solamente el maestro realiza actualizaciones, el maestro normalmente mantendrá un bloqueo exclusivo durante un período de tiempo extendido en los datos para garantizar que ninguna otra persona puede actualizarlos.
+2. Simultaneidad pesimista: una aplicación que pretende realizar una actualización realizará un bloqueo en un objeto evitando que otros usuarios actualicen los datos hasta que el bloqueo se libere. Por ejemplo, en un escenario de replicación de datos maestro/subordinado donde solamente el maestro realiza actualizaciones el maestro normalmente mantendrá un bloqueo exclusivo durante un largo período de tiempo en los datos para asegurarse de que nadie más puede actualizarlo.
 3. El último en escribir gana: enfoque que permite que cualquier operación de actualización se lleve a cabo sin comprobar si ninguna otra aplicación ha actualizado los datos desde la primera vez que la aplicación leyó los datos. Esta estrategia (o ausencia de una estrategia formal) normalmente se usa donde los datos están particionados de tal forma que no existe probabilidad de que varios usuarios obtengan acceso a los mismos datos. También puede resultar útil donde se procesen transmisiones de datos de corta duración.  
 
 Este artículo proporciona información general de cómo la plataforma Almacenamiento de Azure simplifica el desarrollo proporcionando soporte de primera clase para estas tres estrategias de simultaneidad.  

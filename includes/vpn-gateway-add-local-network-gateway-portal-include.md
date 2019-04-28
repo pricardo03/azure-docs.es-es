@@ -2,18 +2,19 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/19/2018
-ms.author: cherylmc
+origin.date: 12/19/2018
+ms.date: 01/14/2019
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 03a4005da7794a989166f914e4ba4d03f93ae8b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58115536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407788"
 ---
 1. En el portal, haga clic en **+Crear un recurso**.
 2. En el cuadro de búsqueda, escriba **puerta de enlace de red local**, a continuación, presione **Entrar** para buscar. Se devolverá una lista de resultados. Haga clic en **Puerta de enlace de red local** y haga clic en el botón **Crear** para abrir la página **Crear puerta de enlace de red local**.

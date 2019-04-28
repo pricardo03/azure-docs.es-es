@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e67737e26edfee94a5a4d740d6c575817c66ff0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306873"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766182"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de Azure Blob Storage para Azure Functions
 
@@ -426,7 +426,7 @@ Azure Functions almacena confirmaciones de blobs en un contenedor llamado *azure
 * El nombre del blob
 * ETag (un identificador de la versión del blob, por ejemplo: "0x8D1DC6E70A277EF")
 
-Si desea forzar el reprocesamiento de un blob, puede eliminar manualmente la recepción de ese blob desde el contenedor *azure-webjobs-hosts* .
+Si desea forzar el reprocesamiento de un blob, puede eliminar manualmente la recepción de ese blob desde el contenedor *azure-webjobs-hosts* . Mientras reprocesamiento podría no producirse inmediatamente, está garantizada para que se produzca en un momento posterior en el tiempo.
 
 ## <a name="trigger---poison-blobs"></a>Desencadenador: blobs dudosos
 
@@ -450,9 +450,13 @@ Las funciones de JavaScript y Java cargan el blob entero a la memoria, mientras 
 
 ## <a name="trigger---polling"></a>Desencadenador: sondeo
 
-Si el contenedor de blobs supervisado contiene más de 10 000 blobs (en todos los contenedores), el tiempo de ejecución de Functions examinará los archivos para detectar los blobs nuevos o modificados de registro. Este proceso puede provocar retrasos. Una función podría tardar en desencadenarse varios minutos o más después de crear el blob. Además, [se crean registros de almacenamiento basados en el principio del "mejor esfuerzo"](/rest/api/storageservices/About-Storage-Analytics-Logging). No hay ninguna garantía de que se capturen todos los eventos. En algunos casos, podrían faltar registros.
+Si el contenedor de blobs supervisado contiene más de 10 000 blobs (en todos los contenedores), el tiempo de ejecución de Functions examinará los archivos para detectar los blobs nuevos o modificados de registro. Este proceso puede provocar retrasos. Una función podría tardar en desencadenarse varios minutos o más después de crear el blob.
 
-Si necesita un procesamiento de blobs más rápido o confiable, considere crear un [mensaje de cola](../storage/queues/storage-dotnet-how-to-use-queues.md) al crear el blob. A continuación, use un [desencadenador de cola](functions-bindings-storage-queue.md), en lugar de un desencadenador de blob, para procesar el blob. Otra opción consiste en usar Event Grid; consulte el tutorial [Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+> [!WARNING]
+> Además, [se crean registros de almacenamiento basados en el principio del "mejor esfuerzo"](/rest/api/storageservices/About-Storage-Analytics-Logging). No hay ninguna garantía de que se capturen todos los eventos. En algunos casos, podrían faltar registros.
+> 
+> Si necesita un procesamiento de blobs más rápido o confiable, considere crear un [mensaje de cola](../storage/queues/storage-dotnet-how-to-use-queues.md) al crear el blob. A continuación, use un [desencadenador de cola](functions-bindings-storage-queue.md), en lugar de un desencadenador de blob, para procesar el blob. Otra opción consiste en usar Event Grid; consulte el tutorial [Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="input"></a>Entrada
 

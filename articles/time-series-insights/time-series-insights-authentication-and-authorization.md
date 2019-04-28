@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: b9f3561155038e91bc278f5d7ddc995adb53ad78
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 66a3c40bf1e1e1dc6253520a555e19ebf011297c
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198004"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761627"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticación y autorización para la API de Azure Time Series Insights
 
@@ -105,8 +105,9 @@ Estos son los pasos detallados:
 Use el identificador y la clave de la aplicación para autenticarse en Azure Time Series Insights. 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Para consultar código de ejemplo que llama a la API de Time Series Insights, vea [Consulta de datos mediante C#](time-series-insights-query-data-csharp.md).
+
 - Para obtener información de referencia de la API, vea la [referencia sobre la API de consulta](/rest/api/time-series-insights/ga-query-api).
 
-> [!div class="nextstepaction"]
-> [Creación de una entidad de servicio](../active-directory/develop/howto-create-service-principal-portal.md)
+- Obtenga información sobre cómo [crear una entidad de servicio](../active-directory/develop/howto-create-service-principal-portal.md).

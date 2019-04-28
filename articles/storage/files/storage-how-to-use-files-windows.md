@@ -2,18 +2,18 @@
 title: Uso de un recurso compartido de archivos de Azure con Windows | Microsoft Docs
 description: Aprenda a usar un recurso compartido de archivos de Azure con Windows y Windows Server.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/07/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ae097cb1c778c0ad60512753ae6ef28da04e8004
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048850"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764377"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
@@ -237,13 +237,13 @@ En la tabla siguiente se proporciona información detallada sobre el estado de S
 | Windows Server 2019 (versión preliminar)             | Disabled             | Quitar con la característica de Windows |
 | Windows Server, versiones 1709 +            | Disabled             | Quitar con la característica de Windows |
 | Windows 10, versiones 1709 +                | Disabled             | Quitar con la característica de Windows |
-| Windows Server 2016                       | habilitado              | Quitar con la característica de Windows |
-| Windows 10, versiones 1507, 1607 y 1703 | habilitado              | Quitar con la característica de Windows |
-| Windows Server 2012 R2                    | habilitado              | Quitar con la característica de Windows | 
-| Windows 8.1                               | habilitado              | Quitar con la característica de Windows | 
-| Windows Server 2012                       | habilitado              | Deshabilitar con el Registro       | 
-| Windows Server 2008 R2                    | habilitado              | Deshabilitar con el Registro       |
-| Windows 7                                 | habilitado              | Deshabilitar con el Registro       | 
+| Windows Server 2016                       | Enabled              | Quitar con la característica de Windows |
+| Windows 10, versiones 1507, 1607 y 1703 | Enabled              | Quitar con la característica de Windows |
+| Windows Server 2012 R2                    | Enabled              | Quitar con la característica de Windows | 
+| Windows 8.1                               | Enabled              | Quitar con la característica de Windows | 
+| Windows Server 2012                       | Enabled              | Deshabilitar con el Registro       | 
+| Windows Server 2008 R2                    | Enabled              | Deshabilitar con el Registro       |
+| Windows 7                                 | Enabled              | Deshabilitar con el Registro       | 
 
 ### <a name="auditing-smb-1-usage"></a>Auditoría del uso de SMB 1
 > Se aplica a Windows Server 2019 (versión preliminar), el canal semestral de Windows Server (versiones 1709 y 1803), Windows Server 2016, Windows 10 (versiones 1507, 1607, 1703, 1709 y 1803), Windows Server 2012 R2 y Windows 8.1.

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 30cd77799837f9b1ef08a9c609e518fd679b9b15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 393b87aeed759950b946ccb45a008da9af4b7ebe
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322308"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766843"
 ---
 # <a name="live-event-latency-in-media-services"></a>Latencia de objeto LiveEvent en Media Services
 
@@ -27,7 +27,7 @@ En este artículo se muestra cómo establecer una latencia baja en un objeto [Li
 Para usar la nueva característica **LowLatency**, puede establecer **StreamOptionsFlag** en **LowLatency** en **LiveEvent**. Al crear [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) para la reproducción de HLS, establezca [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) en 1. Una vez que la transmisión esté en funcionamiento, puede usar la página de demostración de [Azure Media Player](https://ampdemo.azureedge.net/) (AMP) y establecer las opciones de reproducción para usar "Low Latency Heuristics Profile" (Perfil de heurística de baja latencia).
 
 > [!NOTE]
-> Actualmente, LowLatency HeuristicProfile en Azure Media Player está diseñado para volver a reproducir secuencias en protocolo DASH o HLS con CMAF. Si tiene como destino dispositivos iOS o MacOS a través de HLS con TS (por ejemplo, `format=m3u8-aapl` o `format=m3u8-aapl-v3`), no debe usar esta opción porque AMP usa directamente el reproductor nativo proporcionado por el sistema operativo en este caso.
+> Actualmente, el LowLatency HeuristicProfile en Azure Media Player está diseñado para reproducir secuencias de protocolo de MPEG-DASH, con formato CSF o CMAF (por ejemplo, `format=mdp-time-csf` o `format=mdp-time-cmaf`). 
 
 El siguiente ejemplo de .NET muestra cómo establecer **LowLatency** en **LiveEvent**:
 

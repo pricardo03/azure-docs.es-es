@@ -11,24 +11,27 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558529"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759552"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Concesión de acceso a datos en un entorno
 
 En este artículo se tratan los dos tipos de directivas de acceso de la versión preliminar de Azure Time Series Insights.
 
-## <a name="grant-data-access"></a>Concesión de acceso a datos
-
-Siga estos pasos para conceder acceso a datos a una entidad de seguridad de usuario.
+## <a name="sign-in-to-tsi"></a>Inicie sesión en TSI
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 1. Busque el entorno de Time Series Insights. Especifique `Time Series` en el cuadro **Búsqueda**. Seleccione **Entorno de Time Series** en los resultados de búsqueda.
 1. Seleccione el entorno de Time Series Insights de la lista.
+
+## <a name="grant-data-access"></a>Concesión de acceso a datos
+
+Siga estos pasos para conceder acceso a datos a una entidad de seguridad de usuario.
+
 1. Seleccione **Directivas de acceso a datos** y, luego, **+ Agregar**.
 
     ![Acceso a datos: uno][1]
@@ -55,15 +58,12 @@ Siga estos pasos para conceder acceso a datos a una entidad de seguridad de usua
 
     ![Acceso a datos: cinco][5]
 
-## <a name="provide-guest-access-to-a-user-from-another-azure-active-directory-tenant"></a>Proporcionar acceso de invitado a un usuario desde otro inquilino de Azure Active Directory
+## <a name="provide-guest-access-from-another-aad-tenant"></a>Proporcionar acceso de invitados de otro inquilino AAD
 
 `Guest` no es un rol de administración. Se trata de un término que se usa para una cuenta a la que se ha invitado desde un inquilino a otro. Después de que la cuenta de invitado se haya invitado al directorio del inquilino, se le puede aplicar el mismo control de acceso que a cualquier otra cuenta. Puede conceder acceso de administración a un entorno de Time Series Insights mediante la hoja de Control de acceso (IAM). O puede conceder acceso a los datos del entorno utilizando la hoja Directivas de acceso a datos. Para más información sobre el acceso de invitado de inquilino de Azure Active Directory (Azure AD), consulte [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 Siga estos pasos para conceder acceso de invitado a un entorno de Time Series Insights a un usuario de Azure AD desde otro inquilino.
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-1. Busque el entorno de Time Series Insights. Escriba **Time Series** en el cuadro de **búsqueda**. Seleccione **Entorno de Time Series** en los resultados de búsqueda.
-1. Seleccione el entorno de Time Series Insights de la lista.
 1. Seleccione **Directivas de acceso a datos** y, luego, **+ Invitar**.
 
     ![Acceso a datos: seis][6]
@@ -112,12 +112,14 @@ Siga estos pasos para conceder acceso de invitado a un entorno de Time Series In
 
     ![Acceso a datos: quince][15]
 
-Una vez que el usuario invitado selecciona su inquilino, verá el entorno de Time Series Insights al que le ha proporcionado acceso. Ahora tienen todas las funcionalidades asociadas al rol que le ha proporcionado en el paso 8.
+Una vez que el usuario invitado selecciona su inquilino, verá el entorno de Time Series Insights al que le ha proporcionado acceso. Ahora tienen todas las funcionalidades asociadas con el rol que se les proporcionó con en **paso 5**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Aprenda [cómo agregar un origen del evento de Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) al entorno de Time Series Insights.
+
 * Envíe [eventos al origen del evento](./time-series-insights-send-events.md).
+
 * Visualice [el entorno en el explorador de la versión preliminar de Time Series Insights](./time-series-insights-update-explorer.md).
 
 <!-- Images -->

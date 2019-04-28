@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437353"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763555"
 ---
 # <a name="azure-maps-supported-categories"></a>Categorías admitidas en Azure Maps
 
@@ -105,7 +105,7 @@ Al realizar una [búsqueda de categoría](https://docs.microsoft.com/rest/api/ma
 | REPAIR\_FACILITY | carrocería, cambio de neumáticos, talleres de reparación, sustitución de lunas, servicio de reparación de automóviles general, instalación y venta de accesorios de automóvil, reparación de motos, centro de reparación |
 | RESEARCH\_FACILITY | centro de investigación |
 | RESIDENTIAL\_ACCOMMODATION | comunidad de jubilados, complejo de casas adosadas, pisos/complejo de apartamentos, complejo de condominios, urbanización, alojamiento residencial |
-| RESTAURANT | alemán, cajún y criollo, holandés, sala de banquetes, bistró, israelí, eslovaco, jamaicano, vegetariano, marisquería, vietnamita, maltés, Sichuán, galés, chino, japonés, argelino, californiano, fusión, Shandong, bar de ensaladas, Savoya, español, etíope, taiwanés, donuts, iraní, canadiense, americano, noruego, francés, Hunan, polinesio, afgano, restaurante de carretera, oriental, suizo, erótico, crepería, surinamés, egipcio, húngaro, nepalí, barbacoa, caldero mongol, hamburguesas, comida mediterránea, latino, tapas, británico, mexicano, Guangdong, asiático (otro), buffet, sushi, mongol, internacional, mejillones, tailandés, venezolano, rumano, pollo, sopa, kosher, carnes a la parrilla, bar de zumos/yogures, italiano, coreano, chipriota, bosnio, boliviano, dominicano, belga, tunecino, escocés, inglés, paquistaní, checo, hawaiano, magrebí, tibetano, árabe, oriente medio, chileno, Shanghái, polaco, filipino, sudanés, armenio, birmano, brasileño, escandinavo, búlgaro, soul food, colombiano, judío, pizza, siciliano, orgánico, griego, vasco, uruguayo, cafeterías, finlandés, africano, corso, sirio, caribeño, Dongbei, ruso, asador, comida para llevar, comida rápida, australiano, irlandés, comida de pub, fondue, libanés, indonesio, danés, provenzal, teppanyaki, indio, mauritano, europeo, peruano, camboyano, snacks, sueco, macrobiótico, heladería, eslavo, turco, argentino, austriaco, exótico, portugués, luxemburgués, marroquí, bocatería, cubana, restaurante |
+| RESTAURANT | Alemán, haitiano Cajun, holandés, salas de cena de regalo, bistro, Israel, eslovaco, Jamaica, Vegetariano, mariscos, vietnamita, Malta, Sichuan, galés, chino, japonés, argelino, Californian, fusión, Shandong, bar de ensaladas, Savoie (Saboya) un, español, birr, taiwanés, donuts, iraní, Canadá, American, noruego, francés, Hunan, Polinesia, afghan, carretera, Asia, Suiza, erotic, crêperie, Surinamese, egipcio, húngaro, Nepalí, barbacoa, pot frecuente, de las hamburguesas, Mediterráneo, América Latina, tapas, British, México, Guangdong, Asia (otros), buffet, international mongol, de identidad (phishing), mejillones, tailandés, Venezuela, Rumanian, pollo, sopa, como Dios manda, casa bistec, barra yogur/zumo, italiano, coreano, Cypriot, Bosnio, Boliviano, República Dominicana, Bélgica, tunecino, Gaélico, Inglés, paquistaní, checo, hawaiano, Maghrib, tibetano, clip, en el medio Oriente, chileno, Shanghái, polaco, Filipino, sudanés, armenio, Birmano, Brasil, escandinavos, búlgaro, alma alimentos, Colombia, judía, pizza, Siciliano, ecológica, griego, Euskera, Uruguayo, cafeterías, finés, África, Corsican, Siria, Caribe, Dongbei, ruso, de la parrilla, lleve a cabo, comida rápida, pub Irlanda, Australia, comida, fondee libanesa, indonesio, danés, Provenzal, teppanyaki, territorio continental de India, Mauricio, occidental Peruano, Camboya, refrigerios, sueco, macrobiotic, helado salón, Eslavo, turco, argentino, Austria, exóticos, portugués, Luxemburgo, Maroko, restaurante cubano, sándwich, |
 | RESTAURANT\_AREA | área de restaurante |
 | REST\_AREA | área de descanso, zona de descanso |
 | SCENIC\_PANORAMIC\_VIEW | vista panorámica/paisajes, mirador |

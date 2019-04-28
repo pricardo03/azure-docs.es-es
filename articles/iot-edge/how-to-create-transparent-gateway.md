@@ -4,21 +4,21 @@ description: Uso de un dispositivo Azure IoT Edge como una puerta de enlace tran
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/29/2018
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 95ee0a4d5d150741e59c0c2d20abebe9609e179f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 722ee6197b467454818026c960e1ce0e5b39efb4
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699020"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766308"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente
 
-Este artículo proporciona instrucciones detalladas para configurar dispositivos IoT Edge para que funcionen como una puerta de enlace transparente para que otros dispositivos se comuniquen con IoT Hub. En este artículo, el término *puerta de enlace IoT Edge* hace referencia a un dispositivo IoT Edge que se usa como una puerta de enlace transparente. Para obtener información más detallada, consulte [Uso de un dispositivo IoT Edge como puerta de enlace](./iot-edge-as-gateway.md), que brinda información general conceptual.
+Este artículo proporciona instrucciones detalladas para configurar dispositivos IoT Edge para que funcionen como una puerta de enlace transparente para que otros dispositivos se comuniquen con IoT Hub. En este artículo, el término *puerta de enlace IoT Edge* hace referencia a un dispositivo IoT Edge que se usa como una puerta de enlace transparente. Para obtener más información, consulte [cómo un dispositivo IoT Edge puede utilizarse como una puerta de enlace](./iot-edge-as-gateway.md).
 
 >[!NOTE]
 >Actualmente:
@@ -26,21 +26,21 @@ Este artículo proporciona instrucciones detalladas para configurar dispositivos
 > * Los dispositivos habilitados para Edge no pueden conectarse a puertas de enlace de IoT Edge. 
 > * Los dispositivos de bajada no pueden usar la carga de archivos.
 
-Para que un dispositivo funcione como una puerta de enlace, debe poder conectarse de forma segura a los dispositivos de bajada. Azure IoT Edge le permite usar una infraestructura de clave pública (PKI) para configurar conexiones seguras entre los dispositivos. En este caso, vamos a permitir que un dispositivo de bajada se conecte a un dispositivo IoT Edge que actúa como puerta de enlace transparente. Para mantener una seguridad razonable, el dispositivo de bajada debe confirmar la identidad del dispositivo Edge, porque lo que quiere es que los dispositivos solo se conecten a sus puertas de enlace y no a una puerta de enlace que puede ser malintencionada.
+Para que un dispositivo funcione como una puerta de enlace, debe poder conectarse de forma segura a los dispositivos de bajada. Azure IoT Edge le permite usar una infraestructura de clave pública (PKI) para configurar conexiones seguras entre los dispositivos. En este caso, vamos a permitir que un dispositivo de bajada se conecte a un dispositivo IoT Edge que actúa como puerta de enlace transparente. Para mantener una seguridad razonable, el dispositivo de nivel inferior debe confirmar la identidad del dispositivo IoT Edge. Desea que los dispositivos se conectan a solo las puertas de enlace, no las puertas de enlace potencialmente malintencionados.
 
 Un dispositivo de bajada puede ser cualquier aplicación o plataforma que tenga una identidad creada con el servicio en la nube [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub). En muchos casos, estas aplicaciones utilizan el [SDK de dispositivo IoT de Azure](../iot-hub/iot-hub-devguide-sdks.md). En la práctica, un dispositivo de bajada podría ser incluso una aplicación que se ejecuta en el propio dispositivo de puerta de enlace IoT Edge. 
 
-Puede crear cualquier infraestructura de certificados que permita la confianza necesaria para la topología de la puerta de enlace de dispositivo. En este artículo, se da por hecho que usa la misma configuración de certificado que usaría para habilitar la [seguridad de entidad de certificación X.509](../iot-hub/iot-hub-x509ca-overview.md) en IoT Hub, lo que implica un certificado de entidad de certificación X.509 asociado a una instancia de IoT Hub específica (la entidad de certificación del propietario de la instancia de IoT Hub) y una serie de certificados, firmados con esta entidad de certificación, y una entidad de certificación para el dispositivo Edge.
+Puede crear cualquier infraestructura de certificados que permita la confianza necesaria para la topología de la puerta de enlace de dispositivo. En este artículo, se supone que la misma configuración de certificado que usaría para habilitar [seguridad de la entidad de certificación X.509](../iot-hub/iot-hub-x509ca-overview.md) en IoT Hub, lo que implica un certificado de entidad de certificación X.509 asociado a un centro de IoT específico (el propietario de hub IoT CA) y una serie de certificados, firmados con esta entidad de certificación y una entidad de certificación para el dispositivo de IoT Edge.
 
 ![Configuración del certificado de puerta de enlace](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
-La puerta de enlace presenta su certificado de entidad de certificación de Edge al dispositivo de bajada durante el inicio de la conexión. El dispositivo de bajada comprueba que el certificado de entidad de certificación del dispositivo Edge está firmado con el certificado de entidad de certificación del propietario. Este proceso permite que el dispositivo de bajada confirme que la puerta de enlace procede de un origen de confianza.
+La puerta de enlace presenta su IoT Edge certificado de entidad emisora de certificados de dispositivo para el dispositivo de nivel inferior durante el inicio de la conexión. El dispositivo de nivel inferior se comprueba para asegurarse de que el certificado de entidad emisora de certificados de dispositivo IoT Edge está firmado por el certificado de entidad de certificación del propietario. Este proceso permite que el dispositivo de bajada confirme que la puerta de enlace procede de un origen de confianza.
 
 Los pasos siguientes le guían por el proceso de crear los certificados e instalarlos en los lugares adecuados.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Un dispositivo Azure IoT Edge para su configuración como una puerta de enlace. Puede usar la máquina de desarrollo o una máquina virtual como dispositivo IoT Edge siguiendo los pasos que se indican para los sistemas operativos siguientes:
+Un dispositivo Azure IoT Edge para su configuración como una puerta de enlace. Use los pasos de instalación de IoT Edge para los sistemas operativos siguientes:
 * [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
@@ -52,7 +52,7 @@ Puede usar cualquier máquina para generar los certificados y, a continuación, 
 
 ## <a name="generate-certificates-with-windows"></a>Generación de certificados con Windows
 
-Use los pasos de esta sección para generar certificados de prueba en un dispositivo Windows. Puede generar los certificados en el propio dispositivo IoT Edge o utilizar un equipo independiente y copiar los certificados finales en cualquier dispositivo IoT Edge que ejecute un sistema operativo compatible. 
+Use los pasos de esta sección para generar certificados de prueba en un dispositivo Windows. Puede utilizar estos pasos para generar los certificados en un dispositivo Windows IoT Edge. O bien, puede generar los certificados en el equipo de desarrollo de Windows y, a continuación, cópielos en cualquier dispositivo de IoT Edge. 
 
 Los certificados generados en esta sección están pensados solo para fines de prueba. 
 
@@ -133,13 +133,13 @@ En esta sección, se crean tres certificados y, a continuación, se conectan en 
       New-CACertsCertChain rsa
       ```
 
-2. Cree el certificado de entidad de certificación del dispositivo Edge y una clave privada con el siguiente comando. Proporcione un nombre para el dispositivo de puerta de enlace, que se usará para dar nombre a los archivos y durante la generación del certificado. 
+2. Crear IoT Edge de certificado de entidad emisora de certificados de dispositivo y la clave privada con el siguiente comando. Proporcione un nombre para el dispositivo de puerta de enlace, que se usará para dar nombre a los archivos y durante la generación del certificado. 
 
    ```powershell
    New-CACertsEdgeDevice "<gateway name>"
    ```
 
-3. Cree una cadena de certificado a partir del certificado de la entidad de certificación del propietario, el certificado intermedio y el certificado de la entidad de certificación del dispositivo Edge con el siguiente comando. 
+3. Crear una cadena de certificados desde el certificado de entidad de certificación del propietario, el certificado intermedio y el certificado de entidad emisora de certificados de dispositivo IoT Edge con el siguiente comando. 
 
    ```powershell
    Write-CACertsCertificatesForEdgeDevice "<gateway name>"
@@ -193,7 +193,7 @@ En esta sección, se crean tres certificados y, a continuación, se conectan en 
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2. Cree el certificado de entidad de certificación del dispositivo Edge y una clave privada con el siguiente comando. Proporcione un nombre para el dispositivo de puerta de enlace, que se usará para dar nombre a los archivos y durante la generación del certificado. 
+2. Crear IoT Edge de certificado de entidad emisora de certificados de dispositivo y la clave privada con el siguiente comando. Proporcione un nombre para el dispositivo de puerta de enlace, que se usará para dar nombre a los archivos y durante la generación del certificado. 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"
@@ -203,7 +203,7 @@ En esta sección, se crean tres certificados y, a continuación, se conectan en 
    * `<WRKDIR>/certs/new-edge-device.*`
    * `<WRKDIR>/private/new-edge-device.key.pem`
 
-3. Cree una cadena de certificados llamada **new-edge-device-full-chain.cert.pem** a partir del certificado de la entidad de certificación del propietario, el certificado intermedio y el certificado de la entidad de certificación del dispositivo Edge.
+3. Crear una cadena de certificados denominada **nueva-edge-dispositivo-full-chain.cert.pem** desde el certificado de entidad de certificación del propietario, certificados intermedios y certificado de entidad emisora de certificados de dispositivo IoT Edge.
 
    ```bash
    cat ./certs/new-edge-device.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/new-edge-device-full-chain.cert.pem
@@ -215,7 +215,7 @@ Ahora que ha creado una cadena de certificados, debe instalarla en el dispositiv
 
 1. Copie los archivos siguientes desde *\<WRKDIR>*. Guárdelos en cualquier lugar en el dispositivo IoT Edge. Nos referiremos al directorio de destino en el dispositivo IoT Edge como *\<CERTDIR>*. 
 
-   Si ha generado los certificados en el propio dispositivo Edge, puede omitir este paso y usar la ruta de acceso al directorio de trabajo.
+   Si ha generado los certificados en el propio dispositivo de IoT Edge, puede omitir este paso y usar la ruta de acceso al directorio de trabajo.
 
    * Certificado de entidad de certificación del dispositivo: `<WRKDIR>\certs\new-edge-device-full-chain.cert.pem`
    * Clave privada de entidad de certificación del dispositivo: `<WRKDIR>\private\new-edge-device.key.pem`
@@ -228,16 +228,28 @@ Ahora que ha creado una cadena de certificados, debe instalarla en el dispositiv
 
 3. Establezca las propiedades del **certificado** en el archivo config.yaml en la ruta de acceso en la que ha colocado los archivos de certificado y de clave en el dispositivo IoT Edge.
 
-```yaml
-certificates:
-  device_ca_cert: "<CERTDIR>\\certs\\new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "<CERTDIR>\\private\\new-edge-device.key.pem"
-  trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
-```
+   * Windows:
+
+      ```yaml
+      certificates:
+        device_ca_cert: "<CERTDIR>\\certs\\new-edge-device-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>\\private\\new-edge-device.key.pem"
+        trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
+      ```
+   
+   * Linux: 
+      ```yaml
+      certificates:
+        device_ca_cert: "<CERTDIR>/certs/new-edge-device-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>/private/new-edge-device.key.pem"
+        trusted_ca_certs: "<CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem"
+      ```
+
+4. En los dispositivos de Linux, asegúrese de que el usuario **iotedge** tiene permisos para el directorio que contiene los certificados de lectura. 
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>Implementación de EdgeHub en la puerta de enlace
 
-Cuando se instala por primera vez IoT Edge en un dispositivo, se inicia automáticamente un único módulo del sistema: el agente de Edge. Para que el dispositivo funcione como una puerta de enlace, necesita ambos módulos del sistema. Si nunca ha implementado módulos en el dispositivo de puerta de enlace, cree una implementación para que el dispositivo inicie el segundo módulo del sistema, el centro de Edge. La implementación parecerá vacía porque no agrega ningún módulo en el asistente, pero implementará ambos módulos del sistema. 
+Cuando instala por primera vez IoT Edge en un dispositivo, el módulo de un único sistema se inicia automáticamente: el agente de IoT Edge. Para que el dispositivo funcione como una puerta de enlace, necesita ambos módulos del sistema. Si no ha implementado todos los módulos en el dispositivo de puerta de enlace antes de, cree una implementación del dispositivo iniciar el segundo módulo del sistema, el centro de IoT Edge. La implementación parecerá vacía porque no agrega ningún módulo en el asistente, pero implementará ambos módulos del sistema. 
 
 Puede comprobar qué módulos se ejecutan en un dispositivo con el comando `iotedge list`.
 
@@ -265,7 +277,7 @@ Puede comprobar qué módulos se ejecutan en un dispositivo con el comando `iote
 
 Los dispositivos de IoT Edge estándares no necesitan conectividad entrante a la función, porque toda la comunicación con IoT Hub se realiza a través de las conexiones salientes. Sin embargo, los dispositivos de puerta de enlace son diferentes porque tienen que ser capaz de recibir mensajes desde sus dispositivos de nivel inferior.
 
-Para que un escenario de puerta de enlace trabajar, al menos uno de los protocolos admitidos del centro de IoT Edge debe estar abierto para el tráfico entrante desde dispositivos de nivel inferior. El portocols admitidos son MQTT, AMQP y HTTPS.
+Para que un escenario de puerta de enlace trabajar, al menos uno de los protocolos admitidos del centro de IoT Edge debe estar abierto para el tráfico entrante desde dispositivos de nivel inferior. Los protocolos compatibles son MQTT, AMQP y HTTPS.
 
 | Port | Protocolo |
 | ---- | -------- |
@@ -274,7 +286,7 @@ Para que un escenario de puerta de enlace trabajar, al menos uno de los protocol
 | 443 | HTTPS <br> MQTT + WS <br> AMQP + WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>Enrutamiento de mensajes desde dispositivos de bajada
-El entorno de ejecución de Azure IoT Edge puede enrutar los mensajes enviados desde dispositivos de bajada igual que los mensajes enviados por los módulos. Esto le permite realizar análisis en un módulo que se ejecuta en la puerta de enlace antes de enviar datos a la nube. 
+El entorno de ejecución de Azure IoT Edge puede enrutar los mensajes enviados desde dispositivos de bajada igual que los mensajes enviados por los módulos. Esta característica permite realizar análisis en un módulo que se ejecutan en la puerta de enlace antes de enviar datos a la nube. 
 
 Actualmente, la manera de enrutar los mensajes enviados por los dispositivos de bajada es diferenciándolos de los mensajes enviados por los módulos. Los mensajes enviados por los módulos contienen una propiedad del sistema denominada **connectionModuleId**, pero los mensajes enviados por los dispositivos de bajada no la tienen. Puede usar la cláusula WHERE de la ruta para excluir los mensajes que contengan dicha propiedad del sistema. 
 

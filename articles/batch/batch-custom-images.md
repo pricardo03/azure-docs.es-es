@@ -6,14 +6,14 @@ author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 0bc43b82a987ab065677bdbb56de73ef341c249d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752133"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764282"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Uso de una imagen personalizada para crear un grupo de máquinas virtuales 
 
@@ -48,9 +48,9 @@ El uso de una imagen personalizada configurada para su escenario puede proporcio
 
 En Azure se puede preparar una imagen administrada a partir de instantáneas del sistema operativo de la máquina virtual de Azure y discos de datos, una máquina virtual de Azure general con discos administrados o un disco duro virtual local general que cargue. Para escalar grupos de Batch de forma confiable con una imagen personalizada se recomienda crear una imagen administrada *solo* con el primer método: instantáneas de los discos de la máquina virtual. Consulte los siguientes pasos para preparar la máquina virtual, tomar una instantánea y crear una imagen a partir de ella. 
 
-### <a name="prepare-a-vm"></a>Preparación de la máquina virtual 
+### <a name="prepare-a-vm"></a>Preparación de la máquina virtual
 
-Si va a crear una máquina virtual para la imagen, use una imagen de Azure Marketplace admitida por Batch como imagen base para la imagen administrada y, luego, personalícela.  Para obtener una lista de las referencias de imagen de Marketplace de Azure compatibles con Azure Batch, consulte la operación [List node agent SKUs](/rest/api/batchservice/account/listnodeagentskus). 
+Si va a crear una nueva máquina virtual para la imagen, use una imagen primera entidad Marketplace de Azure compatible con Batch, como la imagen base de la imagen administrada. Solo pueden usarse imágenes de usuario como una imagen base. Para obtener una lista completa de las referencias de imagen de Marketplace de Azure compatibles con Azure Batch, consulte el [SKU del agente de nodo de lista](/rest/api/batchservice/account/listnodeagentskus) operación.
 
 > [!NOTE]
 > No se puede usar una imagen de terceros que tenga licencias adicionales y términos de compra como imagen base. Para información sobre estas imágenes de Marketplace, consulte las instrucciones para las máquinas virtuales [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
@@ -78,6 +78,7 @@ Una vez que guarde la imagen personalizada y conozca su identificador de recurso
 > [!NOTE]
 > Si va a crear el grupo mediante una de las API de Batch, asegúrese de que la identidad que usa para la autenticación de AAD tiene permisos para el recurso de imagen. Vea [Autenticación de soluciones de servicio de Batch con Active Directory](batch-aad-auth.md).
 >
+> Debe existir el recurso para la imagen administrada para la duración del grupo. Si se elimina el recurso subyacente, no se puede escalar el grupo. 
 
 1. Vaya a la cuenta de Batch en Azure Portal. Esta cuenta debe estar en la misma suscripción y región que el grupo de recursos que contiene la imagen personalizada. 
 2. En la ventana **Configuración** que aparece a la izquierda, seleccione el elemento de menú **Grupos**.
@@ -109,6 +110,16 @@ También tenga en cuenta lo siguiente:
 - **Tiempo de espera del cambio de tamaño**: si el grupo contiene un número de nodos fijo (no se escala automáticamente), aumente la propiedad resizeTimeout del grupo a un valor de 20 a 30 minutos. Si el grupo no alcanza su tamaño de destino en el tiempo de espera, realice otra [operación de cambio de tamaño](/rest/api/batchservice/pool/resize).
 
   Si tiene previsto un grupo con más de 300 nodos de proceso, es posible que necesite cambiar el tamaño del grupo varias veces para alcanzar el objetivo.
+
+## <a name="considerations-for-using-packer"></a>Consideraciones sobre el uso de Packer
+
+Creación de un recurso de imagen administrada directamente con Packer solo puede realizarse con cuentas de Batch de modo de suscripción de usuario. Para las cuentas de modo de servicio de Batch, deberá crear primero un disco duro virtual y, después, importar el disco duro virtual a un recurso de imagen administrada. Varían según el modo de asignación de grupo (suscripción de usuario o servicio de Batch), los pasos para crear un recurso de imagen administrada.
+
+Asegúrese de que existe el recurso utilizado para crear la imagen administrada de las duraciones de cualquier grupo que hacen referencia a la imagen personalizada. Si no lo hace puede dar lugar a errores de asignación de grupo o cambiar el tamaño de los errores. 
+
+Si se quita la imagen o el recurso subyacente, puede obtener un error similar a: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. Si esto ocurre, asegúrese de que no se ha quitado el recurso subyacente.
+
+Para obtener más información sobre el uso de Packer para crear una máquina virtual, consulte [cree una imagen de Linux con Packer](../virtual-machines/linux/build-image-with-packer.md) o [cree una imagen de Windows con Packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

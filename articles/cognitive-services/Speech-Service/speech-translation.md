@@ -12,11 +12,11 @@ ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 95682612b4b0fdb1baa5038039630e74abddb1a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61460327"
 ---
 # <a name="what-is-speech-translation"></a>¿Qué es la traducción de voz?
 
@@ -67,11 +67,11 @@ Si sus aplicaciones, herramientas o productos usa Translator Speech, hemos cread
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
-* [API REST: Speech-to-text](rest-speech-to-text.md)
-* [API REST: Text-to-speech](rest-text-to-speech.md)
-* [API REST: Personalización y transcripción de lote](https://westus.cris.ai/swagger/ui/index)
+* [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
+* [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
+* [API REST: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index) (API de REST: Transcripción y personalización de Azure Batch)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtenga una clave de suscripción de servicios de voz de forma gratuita](get-started.md)
+* [Get a Speech Services subscription key for free](get-started.md) (Consiga una clave de suscripción a los servicios de voz gratis)
 * [Obtención de Speech SDK](speech-sdk.md)

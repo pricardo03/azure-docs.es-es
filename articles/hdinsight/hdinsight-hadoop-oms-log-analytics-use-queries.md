@@ -1,7 +1,6 @@
 ---
 title: Los registros de consulta de Azure Monitor para supervisar clústeres de HDInsight de Azure
 description: Obtenga información sobre cómo ejecutar consultas en los registros de Azure Monitor para supervisar trabajos que se ejecutan en un clúster de HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2ca2fdc2627245a8b7676ed0d6d5877788eb7930
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: cbaaed3fff99778bfab1feeacdab02bf8245a85a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336803"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761221"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Los registros de consulta de Azure Monitor para supervisar clústeres de HDInsight
 

@@ -13,7 +13,7 @@ ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60187690"
+ms.locfileid: "60418664"
 ---
 Si tiene problemas al realizar cualquier operación en galerías de imágenes compartidas, definiciones de imágenes y versiones de imágenes, vuelva a ejecutar el comando con errores en modo de depuración. El modo de depuración se activa al pasar el conmutador **-debug** con la CLI y el conmutador **-debug** con PowerShell. Una vez que haya encontrado el error, siga este documento para solucionar los errores.
 

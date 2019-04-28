@@ -2,18 +2,19 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/01/2019
-ms.author: cherylmc
+origin.date: 02/01/2019
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 820a6a4da9f5c466e694f247d09393474d8464ee
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407767"
 ---
 Puede conectarse a una máquina virtual que se ha implementado en la red virtual mediante la creación de una conexión a Escritorio remoto a la máquina virtual. La mejor manera de comprobar inicialmente que puede conectarse a la máquina virtual es hacerlo mediante su dirección IP privada, en lugar del nombre de equipo. Con este método prueba si puede conectarse, no si la resolución de nombres está configurada correctamente.
 
@@ -23,7 +24,7 @@ Puede conectarse a una máquina virtual que se ha implementado en la red virtual
 
    - PowerShell: utilice el ejemplo para ver una lista de las máquinas virtuales y las direcciones IP privadas de los grupos de recursos. No es preciso modificar el ejemplo para usarlo.
 
-     ```azurepowershell-interactive
+     ```azurepowershell
      $VMs = Get-AzVM
      $Nics = Get-AzNetworkInterface | Where VirtualMachine -ne $null
 

@@ -9,13 +9,13 @@ ms.date: 02/26/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: 223d38044b5e31c9c8e61fff74e1dd823970debd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825381"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387784"
 ---
-| Categoría | Almacén de datos | Se admite como origen | Se admite como receptor | Compatible con [IR de Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Compatible con [IR autohospedado](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
+| Category | Almacén de datos | Se admite como origen | Se admite como receptor | Compatible con [IR de Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Compatible con [IR autohospedado](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Las tablas de Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB (API de SQL)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |

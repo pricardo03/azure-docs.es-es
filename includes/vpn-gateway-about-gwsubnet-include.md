@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3d76f955f8d8d3d2b269c09387717a6571adf8c3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: 0334f9fd2d749b88580ff3857d705de2ae961902
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407800"
 ---
 La puerta de enlace de red virtual usa una subred concreta llamada la subred de la puerta de enlace. Esta subred forma parte del intervalo de direcciones IP de red virtual que se especifican al configurar una red virtual. Contiene las direcciones IP que usan los recursos y servicios de puerta de enlace de la red virtual. La subred debe llamarse "GatewaySubnet" para que Azure implemente los recursos de la puerta de enlace. No se puede especificar otra subred en la que implementar los recursos de la puerta de enlace. Si no dispone de una subred llamada "GatewaySubnet", al crear la puerta de enlace de VPN, se producirá un error.
 

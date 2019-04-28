@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: f69fd7af23c360edc208561f915bd351c3fd373c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336803"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760586"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
@@ -42,11 +42,11 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
   </tr>
   <tr>
     <td>De</td>
-    <td><em>Parámetro opcional</em>.<br/>Especifica el idioma del texto de entrada. Busque los idiomas que están disponibles desde los que realizar la traducción mediante la busca de [idiomas admitidos](./v3-0-languages.md) con el ámbito <code>translation</code>. Si no se ha especificado el parámetro <code>from</code>, se aplica la detección de idioma automática para determinar el idioma de origen.</td>
+    <td><em>Parámetro opcional</em>.<br/>Especifica el idioma del texto de entrada. Busque los idiomas que están disponibles desde los que realizar la traducción mediante la busca de <a href="./v3-0-languages.md">idiomas admitidos</a> con el ámbito <code>translation</code>. Si no se ha especificado el parámetro <code>from</code>, se aplica la detección de idioma automática para determinar el idioma de origen.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td><em>Parámetro obligatorio</em>.<br/>Especifica el idioma del texto de salida. El idioma de destino debe ser uno de los [idiomas admitidos](./v3-0-languages.md) que están incluidos en el ámbito <code>translation</code>. Por ejemplo, utilice <code>to=de</code> para traducir al alemán.<br/>Es posible traducir a varios idiomas simultáneamente mediante la repetición del parámetro en la cadena de consulta. Por ejemplo, utilice <code>to=de&to=it</code> para traducir al alemán e italiano.</td>
+    <td><em>Parámetro obligatorio</em>.<br/>Especifica el idioma del texto de salida. El idioma de destino debe ser uno de los <a href="./v3-0-languages.md">idiomas admitidos</a> que están incluidos en el ámbito <code>translation</code>. Por ejemplo, utilice <code>to=de</code> para traducir al alemán.<br/>Es posible traducir a varios idiomas simultáneamente mediante la repetición del parámetro en la cadena de consulta. Por ejemplo, utilice <code>to=de&to=it</code> para traducir al alemán e italiano.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -54,15 +54,15 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Parámetro opcional</em>.<br/>Una cadena que especifica la categoría (dominio) de la traducción. Este parámetro se utiliza para obtener las traducciones de un sistema personalizado creado con [Custom Translator](../customization.md). Añada el identificador de categoría de su proyecto de Traductor personalizado a este parámetro para usar el sistema personalizado implementado. El valor predeterminado es <code>general</code>.</td>
+    <td><em>Parámetro opcional</em>.<br/>Una cadena que especifica la categoría (dominio) de la traducción. Este parámetro se utiliza para obtener las traducciones de un sistema personalizado creado con <a href="../customization.md">Custom Translator</a>. Añada el identificador de categoría de su proyecto de Traductor personalizado a este parámetro para usar el sistema personalizado implementado. El valor predeterminado es <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
-    <td><em>Parámetro opcional</em>.<br/>Especifica cómo se deben tratar las palabras soeces en las traducciones. Los valores posibles son <code>NoAction</code> (valor predeterminado), <code>Marked</code> o <code>Deleted</code>. Para entender las maneras de tratar las palabras soeces, consulte [Control de palabras soeces](#handle-profanity).</td>
+    <td><em>Parámetro opcional</em>.<br/>Especifica cómo se deben tratar las palabras soeces en las traducciones. Los valores posibles son <code>NoAction</code> (valor predeterminado), <code>Marked</code> o <code>Deleted</code>. Para entender las maneras de tratar las palabras soeces, consulte <a href="#handle-profanity">Control de palabras soeces</a>.</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td><em>Parámetro opcional</em>.<br/>Especifica cómo deben marcarse las palabras soeces en las traducciones. Los valores posibles son <code>Asterisk</code> (valor predeterminado) o <code>Tag</code>. Para entender las maneras de tratar las palabras soeces, consulte [Control de palabras soeces](#handle-profanity).</td>
+    <td><em>Parámetro opcional</em>.<br/>Especifica cómo deben marcarse las palabras soeces en las traducciones. Los valores posibles son <code>Asterisk</code> (valor predeterminado) o <code>Tag</code>. Para entender las maneras de tratar las palabras soeces, consulte <a href="#handle-profanity">Control de palabras soeces</a>.</td>
   </tr>
   <tr>
     <td>includeAlignment</td>

@@ -2,17 +2,17 @@
 title: 'Introducción de la autenticación de Azure Active Directory sobre SMB para Azure Files (versión preliminar): Azure Storage'
 description: Azure Files admite la autenticación basada en identidades sobre SMB (Bloque de mensajes del servidor) (versión preliminar) mediante Azure Active Directory (Azure AD) Domain Services. Las máquinas virtuales Windows unidas al dominio pueden entonces acceder a los recursos compartidos de archivos de Azure con las credenciales de Azure AD.
 services: storage
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
-ms.author: tamram
-ms.openlocfilehash: 1962a3237fb54409d17fefa314605bafa91c3e9c
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.author: rogarana
+ms.openlocfilehash: 7010425ba8acff4ed223e2a402d7a927a91c06b6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427644"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766481"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Introducción a la autenticación de Azure Active Directory sobre SMB para Azure Files (versión preliminar)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -35,11 +35,11 @@ Es útil entender algunos términos clave relacionados con la autenticación de 
 
     Kerberos es un protocolo de autenticación que se utiliza para comprobar la identidad de un usuario o un host. Para más información sobre Kerberos, consulte [Introducción a la autenticación Kerberos](https://docs.microsoft.com/windows-server/security/kerberos/kerberos-authentication-overview).
 
--  **Protocolo de bloque de mensajes del servidor (SMB)**  
+-  **Protocolo Bloque de mensajes del servidor (SMB)**  
     SMB es un protocolo de uso compartido de archivos de red estándar del sector. SMB también se conoce como sistema de archivos de Internet común o CIFS. Para más información sobre SMB, consulte [Microsoft SMB Protocol and CIFS Protocol Overview](https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview) (Introducción a los protocolos CIFS y SMB de Microsoft).
 
 ## <a name="advantages-of-azure-ad-authentication"></a>Ventajas de la autenticación de Azure AD
-Azure AD sobre SMB para Azure Files ofrece varias ventajas respecto al uso de autenticación de clave compartida:
+Azure AD sobre SMB para Azure Files ofrece varias ventajas respecto al uso de la autenticación de clave compartida:
 
 -   **Ampliar la experiencia tradicional de acceso compartido de archivos basada en identidad en la nube con Azure AD**  
     Si tiene previsto llevar la aplicación a la nube, mediante el reemplazo de los servidores de archivos tradicionales con Azure Files, tal vez quiera que la aplicación se autentique con Azure AD para acceder a los datos de los archivos. Azure Files admite el uso de credenciales de Azure AD desde máquinas virtuales unidas al dominio sobre SMB para acceder a recursos compartidos de archivo, directorios o archivos. También puede optar por sincronizar todos los objetos de Active Directory locales con Azure AD para conservar los nombres de usuario, las contraseñas y otras asignaciones de grupo.
@@ -62,12 +62,12 @@ Puede habilitar la autenticación de Azure AD sobre SMB para Azure Files en las 
 
 Antes de habilitar la autenticación de Azure AD sobre SMB, compruebe que Azure AD Domain Services se haya implementado para el inquilino principal de Azure AD con el que está asociada la cuenta de almacenamiento. Si aún no ha configurado Azure AD Domain Services, siga la guía paso a paso proporcionada en [Habilitación de Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
 
-La implementación de Azure AD Domain Services normalmente tarda de 10 a 15 minutos. Después de implementar Azure AD Domain Services, puede habilitar la autenticación de Azure AD sobre SMB para Azure Files. Para más información, consulte [Habilitación de la autenticación de Azure Active Directory sobre SMB para Azure Files (versión preliminar)](storage-files-active-directory-enable.md). 
+La implementación de Azure AD Domain Services normalmente tarda de 10 a 15 minutos. Después de implementar Azure AD Domain Services, puede habilitar la autenticación de Azure AD sobre SMB para Azure Files. Para más información, consulte [Habilitación de la autenticación de Azure Active Directory a través de SMB para Azure Files (versión preliminar)](storage-files-active-directory-enable.md). 
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Configuración de los permisos de nivel de recurso compartido para Azure Files
 Cuando se ha habilitado la autenticación de Azure AD, puede configurar roles de RBAC personalizados para las identidades de Azure AD y asignar derechos de acceso a cualquier recurso compartido de archivos en la cuenta de almacenamiento.
 
-Cuando una aplicación que se ejecuta en una máquina virtual unida a un dominio intenta montar un recurso compartido de archivos de Azure o acceder a un directorio o archivo, se comprueban las credenciales de Azure AD de la aplicación para garantizar los permisos adecuados de nivel de recurso compartido y los permisos NTFS. Para más información sobre cómo configurar permisos de nivel de recurso compartido, consulte [Enable Azure Active Directory authentication over SMB (Preview)](storage-files-active-directory-enable.md) (Habilitación de la autenticación de Azure Active Directory sobre SMB [versión preliminar]).
+Cuando una aplicación que se ejecuta en una máquina virtual unida a un dominio intenta montar un recurso compartido de archivos de Azure o acceder a un directorio o archivo, se comprueban las credenciales de Azure AD de la aplicación para garantizar los permisos adecuados de nivel de recurso compartido y los permisos NTFS. Para más información sobre cómo configurar permisos de nivel de recurso compartido, consulte [Habilitación de la autenticación de Azure Active Directory a través de SMB para Azure Files (versión preliminar)](storage-files-active-directory-enable.md).
 
 ### <a name="configure-directory--or-file-level-permissions-for-azure-files"></a>Configuración de los permisos de nivel de archivo o directorio para Azure Files 
 Azure Files aplica permisos de archivo NTFS estándar en el nivel de archivo y directorio, incluido el directorio raíz. La configuración de permisos de nivel de archivo o directorio solo se admite sobre SMB. Monte el recurso compartido de archivos de destino de la máquina virtual y configure los permisos mediante el comando de Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) o [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl). 
@@ -91,5 +91,5 @@ No hay ningún cargo adicional por servicio para habilitar la autenticación de 
 Para más información sobre Azure Files y la autenticación de Azure AD a través de SMB, consulte estos recursos:
 
 - [Introducción a Azure Files](storage-files-introduction.md)
-- [Habilitación de la autenticación de Azure Active Directory sobre SMB para Azure Files (versión preliminar)](storage-files-active-directory-enable.md)
+- [Habilitación de la autenticación de Azure Active Directory a través de SMB para Azure Files (versión preliminar)](storage-files-active-directory-enable.md)
 - [P+F](storage-files-faq.md)

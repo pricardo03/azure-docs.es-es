@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: de5432c4e04fb0cfaf0517426fe9ee9da2a57b37
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 09f9731f78093354f324f263899519bc5d31fa5d
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266994"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760782"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -33,6 +33,10 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 > Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API de REST](https://aka.ms/ams-v3-rest-sdk), la CLI o uno de los SDK admitidos.
 
 Para más información, consulte [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="april-2019"></a>Abril de 2019
+
+[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) se ha agregado a los valores preestablecidos de analizador integrados.
 
 ## <a name="march-2019"></a>Marzo de 2019
 
@@ -200,6 +204,10 @@ Las siguientes características están presentes en el SDK. NET:
 ### <a name="known-issues"></a>Problemas conocidos
 
 * Al enviar un trabajo, puede especificar que se ingiera el vídeo de origen mediante direcciones URL HTTPS, URL SAS o rutas de acceso a archivos ubicados en Azure Blob Storage. Actualmente, AMS v3 no admite la codificación de transferencia fragmentada a través de direcciones URL HTTPS.
+
+## <a name="provide-feedback"></a>Envío de comentarios
+
+Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

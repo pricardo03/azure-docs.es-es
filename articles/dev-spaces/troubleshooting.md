@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 4617e878f2af446608ede4e0aed644848564a074
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 044e997703f5b274215fb05c7152186948b331b4
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609082"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761407"
 ---
 # <a name="troubleshooting-guide"></a>Guía de solución de problemas
 
@@ -296,7 +296,7 @@ Reiniciar los nodos de agente en el clúster normalmente resuelve este problema.
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>El proxy de Azure Dev Spaces puede interferir con otros pods que se ejecutan en un espacio de desarrollo
 
 ### <a name="reason"></a>Motivo
-Cuando se habilita Dev Spaces en un espacio de nombres en el clúster de AKS, se instala un contenedor adicional denominado _mindaro-proxy_ en cada uno de los pods que se ejecutan dentro de ese espacio de nombres. Este contenedor intercepta las llamadas a los servicios del pod, lo que es parte integral de las funcionalidades de desarrollo del equipo de Dev Spaces; sin embargo, puede interferir con determinados servicios que se ejecutan en esos pods. Se sabe que interfiere con los pods que ejecutan Azure Cache for Redis, lo que provoca errores de conexión y de comunicación entre el servidor principal y el subordinado.
+Cuando se habilita Dev Spaces en un espacio de nombres en el clúster de AKS, se instala un contenedor adicional denominado _mindaro-proxy_ en cada uno de los pods que se ejecutan dentro de ese espacio de nombres. Este contenedor intercepta las llamadas a los servicios del pod, lo que es parte integral de las funcionalidades de desarrollo del equipo de Dev Spaces; sin embargo, puede interferir con determinados servicios que se ejecutan en esos pods. Se sabe que interfieren con pods ejecutando la caché de Azure para Redis, provocando errores de conexión y errores de comunicación principal o secundaria.
 
 ### <a name="try"></a>Pruebe lo siguiente:
 Puede mover los pods afectados a un espacio de nombres dentro del clúster que _no_ tenga habilitado Dev Spaces. El resto de la aplicación puede seguir ejecutándose dentro de un espacio de nombres habilitado para Dev Spaces. Dev Spaces no instala el contenedor _mindaro-proxy_ dentro de contenedores no habilitados para Dev Spaces.

@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/23/2019
 ms.author: carlrab
-ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495112"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759456"
 ---
 # <a name="sql-database-release-notes"></a>Notas de la base de datos SQL
 
@@ -45,6 +45,22 @@ En este artículo se enumera las nuevas características y mejoras en el servici
 |SQL Analytics|Para obtener información, consulte [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
 | Compatibilidad de zona horaria para las instancias administradas|Para obtener más información, consulte [zona horaria en la instancia administrada de Azure SQL Database](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="april-2019"></a>Abril de 2019
+
+### <a name="service-improvements"></a>Mejoras en el servicio
+
+| Mejoras en el servicio | Detalles |
+| --- | --- |
+| Puntos de conexión públicos para la instancia administrada | Para obtener más información, consulte [uso de Azure SQL Database administra la instancia de forma segura con el punto de conexión público](sql-database-managed-instance-public-endpoint-securely.md)
+| Compatibilidad de zona horaria para la instancia administrada | Para obtener más información, consulte [zona horaria en Azure SQL Database Managed Instance (versión preliminar)](sql-database-managed-instance-timezone.md)
+
+### <a name="documentation-improvements"></a>Mejoras en la documentación
+
+| Mejoras en la documentación | Detalles |
+| --- | --- |
+| Puntos de conexión públicos para la instancia administrada | Para obtener más información, consulte [uso de Azure SQL Database administra la instancia de forma segura con el punto de conexión público](sql-database-managed-instance-public-endpoint-securely.md)
+| Compatibilidad de zona horaria para la instancia administrada | Para obtener más información, consulte [zona horaria en Azure SQL Database Managed Instance (versión preliminar)](sql-database-managed-instance-timezone.md)
 
 ## <a name="march-2019"></a>Marzo de 2019
 

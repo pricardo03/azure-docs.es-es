@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7f1352b018fe9ea46b0f0824ba53ee0204c7dc7c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 711f6395959b3718ca0a094a03c07c4381892104
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005526"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762847"
 ---
 # <a name="api-management-policies"></a>Directivas de administración de API
 En esta sección se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](api-management-howto-policies.md).  
@@ -53,7 +53,7 @@ En esta sección se proporciona una referencia para las siguientes directivas de
 -   [Directivas de autenticación](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Autenticar con opción básica](api-management-authentication-policies.md#Basic) : autenticar con un servicio de back-end mediante la autenticación básica.  
     -   [Autenticar con certificado de cliente](api-management-authentication-policies.md#ClientCertificate) : autenticar con un servicio de back-end mediante certificados de cliente.  
-    -   [Autenticar con identidad administrada](api-management-authentication-policies.md#ManagedIdentity) -autenticar con un servicio back-end mediante certificados de cliente.  
+    -   [Autenticar con identidad administrada](api-management-authentication-policies.md#ManagedIdentity) -autenticar con un servicio back-end mediante un [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Caching policies](api-management-caching-policies.md#CachingPolicies)  
     -   [Obtener de caché](api-management-caching-policies.md#GetFromCache) : realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando esté disponible.  
     -   [Almacenar en caché](api-management-caching-policies.md#StoreToCache) : almacena en caché la respuesta de acuerdo con la configuración de control de caché especificada.  

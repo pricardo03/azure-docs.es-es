@@ -1,18 +1,17 @@
 ---
 title: Solución de problemas de YARN en Azure HDInsight
 description: Obtenga respuestas a las preguntas más comunes sobre cómo trabajar con Apache Hadoop YARN y Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: d5582038c35ba3b599be89b7b7939e644d55ea78
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4ca3dddb2b5ea4897ff82f1d91e88dc656305453
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408837"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764289"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Solucione problemas de YARN de Apache Hadoop con Azure HDInsight.
 
@@ -25,8 +24,9 @@ Obtenga información sobre los principales problemas y sus soluciones al trabaja
 Para crear una nueva cola de YARN y equilibrar la asignación de capacidad en todas las colas, siga estos pasos en Ambari. 
 
 En este ejemplo, se cambia la capacidad de las dos colas existentes (**default** (predeterminado) y **thriftsvr**) del 50% al 25%, lo que proporciona una capacidad del 50% a la nueva cola (spark).
+
 | Cola | Capacity | Capacidad máxima |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | default | 25 % | 50 % |
 | thrftsvr | 25 % | 50 % |
 | spark | 50 % | 50 % |
@@ -135,5 +135,5 @@ Estos cambios están visibles inmediatamente en la interfaz de usuario de YARN S
 - [Apache Hadoop Yarn concepts and applications](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/) (Conceptos y aplicaciones de YARN en Apache Hadoop)
 
 
-### <a name="see-also"></a>Otras referencias
+### <a name="see-also"></a>Vea también
 [Solución de problemas mediante Azure HDInsight](hdinsight-troubleshoot-guide.md)

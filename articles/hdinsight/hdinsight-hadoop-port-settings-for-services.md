@@ -1,7 +1,6 @@
 ---
 title: Puertos utilizados por los servicios Hadoop en HDInsight (Azure)
 description: Una lista de puertos utilizados por los servicios Hadoop que se ejecutan en HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: be264be41b198e95dae64730ef31f431ec06a2e7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715467"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761257"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Apache Hadoop en HDInsight
 
@@ -56,7 +55,7 @@ Las siguientes opciones están disponibles para determinados tipos de clúster:
 | Servidor Thrift de Spark |443 |HTTPS |Spark |El servidor Thrift de Spark que se usa para enviar consultas de Hive. Consulte [Beeline con Apache Hive en HDInsight](hadoop/apache-hadoop-use-hive-beeline.md). |
 | Storm |443 |HTTPS |Storm |La interfaz de usuario web de Storm. Consulte [Implementación y administración de topologías de Apache Storm en HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md). |
 
-### <a name="authentication"></a>Autenticación
+### <a name="authentication"></a>Authentication
 
 Todos los servicios expuestos públicamente en Internet se deben autenticar:
 

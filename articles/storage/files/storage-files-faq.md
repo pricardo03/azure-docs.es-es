@@ -2,18 +2,18 @@
 title: Preguntas más frecuentes (P+F) sobre Azure Files | Microsoft Docs
 description: Obtenga respuestas a algunas preguntas frecuentes sobre Azure Files.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.date: 01/02/2019
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 561c8c9d942210a9bbdc70feff9bc468fa69967e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 77f07394eb895c08ef3e366bd486b4270714c2fc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995855"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766268"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -254,7 +254,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="expressroute-not-required"></a>
  **¿Tengo que usar Azure ExpressRoute para conectarme a Azure Files o debo usar Azure File Sync en un entorno local?**  
 
-     No. No es necesario ExpressRoute para obtener acceso a un recurso compartido de archivos de Azure. Si está montando un recurso compartido de archivos de Azure directamente en un entorno local, lo único que se necesita es tener abierto el puerto 445 (salida TCP) para tener acceso a Internet (este es el puerto que SMB usa para comunicarse). Si usa Azure File Sync, lo único que se necesita es el puerto 443 (salida TCP) para el acceso HTTPS (no se necesita SMB). Pero *puede usar* ExpressRoute con cualquiera de estas opciones de acceso.
+    No. No es necesario ExpressRoute para obtener acceso a un recurso compartido de archivos de Azure. Si está montando un recurso compartido de archivos de Azure directamente en un entorno local, lo único que se necesita es tener abierto el puerto 445 (salida TCP) para tener acceso a Internet (este es el puerto que SMB usa para comunicarse). Si usa Azure File Sync, lo único que se necesita es el puerto 443 (salida TCP) para el acceso HTTPS (no se necesita SMB). Pero *puede usar* ExpressRoute con cualquiera de estas opciones de acceso.
 
 * <a id="mount-locally"></a>
  **¿Cómo puedo montar un recurso compartido de archivos de Azure en mi máquina local?**  
@@ -357,7 +357,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="need-larger-share"></a>
 **Necesito un recurso compartido de archivos mayor que las opciones que ofrece Azure Files. ¿Puedo aumentar el tamaño del recurso compartido de archivos de Azure?**  
-     No. El tamaño máximo de un recurso compartido de archivos de Azure es de 5 TB. Actualmente, este es un límite estricto que no se puede ajustar. Estamos trabajando en una solución que le permitirá aumentar el tamaño del recurso compartido a 100 TB, pero aún no sabemos cuándo estará preparada.
+    No. El tamaño máximo de un recurso compartido de archivos de Azure es de 5 TB. Actualmente, este es un límite estricto que no se puede ajustar. Estamos trabajando en una solución que le permitirá aumentar el tamaño del recurso compartido a 100 TB, pero aún no sabemos cuándo estará preparada.
 
 * <a id="open-handles-quota"></a>
  **¿Cuántos clientes pueden obtener acceso al mismo archivo simultáneamente?**   
@@ -386,7 +386,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 
 * <a id="nested-shares"></a>
  **¿Puedo configurar recursos compartidos anidados, es decir, un recurso compartido en otro recurso compartido?**  
-     No. El recurso compartido de archivos *es* el controlador virtual que se puede montar, por lo que no se admiten recursos compartidos anidados.
+    No. El recurso compartido de archivos *es* el controlador virtual que se puede montar, por lo que no se admiten recursos compartidos anidados.
 
 * <a id="ibm-mq"></a>
  **¿Cómo se usa Azure Files con IBM MQ?**  

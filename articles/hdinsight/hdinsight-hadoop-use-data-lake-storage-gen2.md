@@ -1,19 +1,18 @@
 ---
 title: Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 description: Aprenda a usar Azure Data Lake Storage Gen2 con clústeres de HDInsight de Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43f335bdd8b918fa717d9084d3c9c30d97920c10
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 6452e73b2429ab89a466b1c3b59cc892eca31205
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004965"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766927"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 
@@ -69,7 +68,7 @@ Asignar la identidad administrada para el **propietario del almacenamiento de da
         ![Configuración de identidad para usar Data Lake Storage Gen2 con Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
         
 > [!Note]
-> Puede agregar una o varias cuentas de almacenamiento Gen2 de Data Lake como almacenamiento secundario en el mismo clúster. Basta con repetir los pasos anteriores en cada cuenta de Data Lake Storage Gen2 que desea agregar utilizando la misma identidad administrada.
+> Para agregar una cuenta de Data Lake Storage Gen2 secundaria, en el nivel de cuenta de almacenamiento, asigne simplemente la identidad administrada creada anteriormente a la nueva cuenta de almacenamiento de Data Lake Storage Gen2 que desea agregar. Tenga en cuenta que no se admite la adición de una cuenta de Data Lake Storage Gen2 secundaria a través de la hoja "cuentas de almacenamiento adicionales" en HDInsight. 
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Crear un clúster con Data Lake Storage Gen2 mediante la CLI de Azure
 

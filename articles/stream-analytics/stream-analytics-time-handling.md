@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543294"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760847"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Descripción del control del tiempo en Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Para contextualizar la discusión, vamos a definir algunos conceptos de fondo:
 
 - **Tiempo de procesamiento**: el tiempo que transcurre desde que el evento llega al sistema de procesamiento y se observa. Por ejemplo, cuando un sensor de la cabina de peaje detecta el automóvil y el sistema informático tarda unos instantes en procesar los datos.
 
-- **Marca de agua**: un marcador de hora de evento que indica que todos los eventos que, hasta un punto, han ingresado en el procesador de transmisión. Las marcas de agua permiten al sistema indicar el progreso claro sobre la ingesta de eventos. Por la naturaleza de las transmisiones, los datos de evento entrantes nunca se detienen, por lo que las marcas de agua indican el progreso a un determinado punto en la transmisión.
+- **Marca de agua**: Un marcador de tiempo del evento que indica hasta qué punto los eventos se han midió al procesador de transmisión por secuencias. Las marcas de agua permiten al sistema indicar el progreso claro sobre la ingesta de eventos. Por la naturaleza de las transmisiones, los datos de evento entrantes nunca se detienen, por lo que las marcas de agua indican el progreso a un determinado punto en la transmisión.
 
    El concepto de marca de agua es importante. Las marcas de agua permiten a Stream Analytics determinar cuándo el sistema puede producir resultados completos, correctos y repetibles que no necesitan retirarse. El procesamiento puede realizarse de una forma garantizada, que es predecible y repetible. Por ejemplo, si es necesario realizar un recuento para alguna condición de control de errores, las marcas de agua son puntos de inicio y finalización seguros.
 

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683622"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765649"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obtener una respuesta de conocimiento con la API de GenerateAnswer y metadatos
 
@@ -83,6 +83,7 @@ El cuerpo JSON tiene varias opciones:
 |`question`|requerido|string|Una pregunta de usuario se envíen a la base de conocimiento.|
 |`top`|opcional|integer|número de resultados clasificados por orden de prioridad que se incluirá en la salida. El valor predeterminado es 1.|
 |`userId`|opcional|string|identificador único que identifica el usuario. Este identificador se registrará en los registros de chat.|
+|`scoreThreshold`|opcional|integer|Se devolverá sólo las respuestas con la puntuación de confianza por encima del umbral. El valor predeterminado es 0.|
 |`isTest`|opcional|boolean|Si establece en true, devuelve los resultados desde `testkb` índice de búsqueda en lugar de índice publicado.|
 |`strictFilters`|opcional|string|si se especifica, indica a QnA Maker que solo devuelva las respuestas que tienen los metadatos especificados. Use `none` para indicar la respuesta no debe tener ningún filtro de metadatos. |
 
@@ -93,6 +94,7 @@ Un cuerpo JSON de ejemplo tiene el siguiente aspecto:
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
+    "scoreThreshold": 20,
     "strictFilters": [
     {
         "name": "category",
@@ -114,7 +116,7 @@ Una respuesta correcta devuelve el estado de 200 y una respuesta JSON.
 |Id|identificador único asignado a la respuesta.|
 |Preguntas|preguntas proporcionadas por el usuario.|
 |answer (responder)|la respuesta a la pregunta.|
-|de origen|nombre del origen desde el que se extrajo la respuesta o se guardó en la base de conocimiento.|
+|source|nombre del origen desde el que se extrajo la respuesta o se guardó en la base de conocimiento.|
 |metadata|metadatos asociados a la respuesta.|
 |metadata.name|nombre de los metadatos. (cadena, longitud máx.: 100, requerido)|
 |metadata.value: valor de los metadatos. (cadena, longitud máx.: 100, requerido)|

@@ -9,11 +9,11 @@ ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: 50a215175d7305834a64b7e0cfbc153431b10b7c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739208"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301755"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visualización de las máquinas virtuales programadas para mantenimiento en el portal
 
@@ -31,7 +31,7 @@ Puede usar Azure Portal y buscar máquinas virtuales con mantenimiento programad
 
    **Mantenimiento**: muestra el estado de mantenimiento para la máquina virtual. Estos son los valores posibles:
       
-      | Valor | DESCRIPCIÓN |
+      | Value | DESCRIPCIÓN |
       |-------|-------------|
       | Empezar ahora | La máquina virtual está en la ventana de mantenimiento de autoservicio, lo que le permite iniciar el mantenimiento usted mismo. Vea a continuación cómo iniciar el mantenimiento en la máquina virtual. | 
       | Programado | La máquina virtual está programada para el mantenimiento sin opción de que inicie el mantenimiento. Puede obtener información de la ventana de mantenimiento mediante la selección de la ventana Mantenimiento: Programado en esta vista o haciendo clic en la máquina virtual. | 

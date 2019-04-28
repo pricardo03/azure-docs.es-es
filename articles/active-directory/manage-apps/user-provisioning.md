@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291214"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759791"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 
@@ -143,7 +143,7 @@ Cuando se inicia el servicio de aprovisionamiento, la primera sincronización qu
 6. Si las asignaciones de atributos contienen atributos de "referencia", el servicio realiza actualizaciones adicionales en el sistema de destino para crear y vincular los objetos que se hace referencia. Por ejemplo, un usuario puede tener un atributo "Administrador" en el sistema de destino, que está vinculado a otro usuario creado en el sistema de destino.
 7. Conservar una marca de agua al final de la sincronización inicial, que proporciona el punto de partida para las sincronizaciones incrementales más adelante.
 
-Algunas aplicaciones, como ServiceNow, Google Apps y Box no solo admiten el aprovisionamiento de usuarios, sino también el de los grupos y sus miembros. En esos casos, si el aprovisionamiento de grupos está habilitado en el [asignaciones](customize-application-attributes.md), el servicio de aprovisionamiento sincroniza los usuarios y los grupos y, a continuación, más adelante se sincroniza la pertenencia a grupos. 
+Algunas aplicaciones como la compatibilidad con ServiceNow, G Suite y Box no solo el aprovisionamiento de usuarios, sino también aprovisionamiento de grupos y sus miembros. En esos casos, si el aprovisionamiento de grupos está habilitado en el [asignaciones](customize-application-attributes.md), el servicio de aprovisionamiento sincroniza los usuarios y los grupos y, a continuación, más adelante se sincroniza la pertenencia a grupos. 
 
 ### <a name="incremental-syncs"></a>Sincronizaciones incrementales
 
@@ -196,7 +196,7 @@ Para **inicial se sincroniza**, el tiempo de trabajo depende de muchos factores,
 
 En cuanto a las **sincronizaciones incrementales**, el tiempo de trabajo depende del número de cambios detectados en ese ciclo de sincronización. Si hay menos de 5000 cambios de pertenencia de un grupo o usuario, el trabajo puede finalizar dentro de un solo ciclo de sincronización incremental. 
 
-En la siguiente tabla se resumen los tiempos de sincronización de escenarios comunes de aprovisionamiento. En estos escenarios, el sistema de origen es Azure AD y el sistema de destino es una aplicación SaaS. Los tiempos de sincronización se derivan de un análisis estadístico de trabajos de sincronización para las aplicaciones SaaS de ServiceNow, Workplace, Salesforce y Google Apps.
+En la siguiente tabla se resumen los tiempos de sincronización de escenarios comunes de aprovisionamiento. En estos escenarios, el sistema de origen es Azure AD y el sistema de destino es una aplicación SaaS. Los tiempos de sincronización se derivan de un análisis estadístico de los trabajos de sincronización para las aplicaciones de SaaS Workplace, ServiceNow, Salesforce y G Suite.
 
 
 | Configuración de ámbito | Usuarios, grupos y miembros del ámbito | Hora de sincronización inicial | Hora de sincronización incremental |
@@ -269,7 +269,7 @@ Sin embargo, el uso de grupos dinámicos puede afectar al rendimiento general de
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>¿Funciona el aprovisionamiento automático de usuarios para aplicaciones SaaS con grupos anidados en Azure AD?
 
- No. Cuando se configura en "Sincronizar solo asignada los usuarios y grupos", el servicio de aprovisionamiento de usuario de Azure AD no puede leer ni aprovisionar los usuarios que están en grupos anidados. Solo es capaz de leer y aprovisionamiento de usuarios que son miembros inmediatos del grupo asignado explícitamente.
+No. Cuando se configura en "Sincronizar solo asignada los usuarios y grupos", el servicio de aprovisionamiento de usuario de Azure AD no puede leer ni aprovisionar los usuarios que están en grupos anidados. Solo es capaz de leer y aprovisionamiento de usuarios que son miembros inmediatos del grupo asignado explícitamente.
 
 Esta es una limitación de las "asignaciones basadas en grupos a aplicaciones" que también afecta al inicio de sesión único y se describe en [Uso de un grupo para administrar el acceso a aplicaciones SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 

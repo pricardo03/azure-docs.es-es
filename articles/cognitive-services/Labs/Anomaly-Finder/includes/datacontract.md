@@ -11,11 +11,11 @@ ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
 ms.openlocfilehash: 3cc0e521e43f6855397a19fe34fce99da3e20494
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228874"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408321"
 ---
 Con [Anomaly Finder API](https://labs.cognitive.microsoft.com/en-us/project-anomaly-finder), puede cargar datos de serie temporal en formato JSON en el punto de conexión de API y luego leer el resultado de la respuesta de la API. Puede cargar los datos de serie temporal, y cada punto de datos incluye:  
 * Marca de tiempo: la marca de tiempo del punto de datos. Asegúrese de que usa una cadena de tiempo de fecha UTC; por ejemplo, "2017-08-01T00:00:00Z".

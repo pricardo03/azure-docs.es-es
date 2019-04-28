@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 522dddde4994bb019e6547fcd18465b201f048d8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: c2803ba598895834bb197f4a06ff0635354fcaca
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401724"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759988"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Desarrollar un C# módulo IoT Edge para mover los archivos de datos de cuadro de borde
 
@@ -36,7 +36,7 @@ El dispositivo Data Box Edge puede implementar y ejecutar módulos de IoT Edge. 
 2. El generador de eventos de archivo crea un evento de archivo para cada archivo escrito en el recurso compartido local. Los eventos de archivo también se generan cuando se modifica un archivo. Los eventos de archivo se envían luego al centro de IoT Edge (en el entorno de ejecución de IoT Edge).
 3. El módulo personalizado de IoT Edge procesa el evento de archivo para crear un objeto de evento de archivo que también contiene una ruta de acceso relativa para el archivo. El módulo genera una ruta de acceso absoluta mediante la ruta de acceso de archivo relativa y copia el archivo del recurso compartido local al recurso compartido de nube. El módulo elimina entonces el archivo del recurso compartido local.
 
-![Funcionamiento del módulo de Azure IoT Edge en Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
+![Funcionamiento del módulo de Azure IoT Edge en Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
 
 Una vez que el archivo está en el recurso compartido en la nube, se carga automáticamente en la cuenta de Azure Storage.
 
@@ -73,7 +73,7 @@ Azure Container Registry es un registro privado de Docker en Azure donde se pued
    5. Establezca **Usuario administrador** en **Habilitar**.
    6. Establezca la SKU en **Básica**.
 
-      ![Crear Registro de contenedor](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![Crear un registro de contenedor](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. Seleccione **Crear**.
 5. Una vez que se haya creado el Registro de contenedor, desplácese hasta él y seleccione **Claves de acceso**.
@@ -87,7 +87,7 @@ Azure Container Registry es un registro privado de Docker en Azure donde se pued
 
 Mediante los pasos siguientes se crea un proyecto de módulo de IoT Edge basado en el SDK de .NET Core 2.1. El proyecto usa Visual Studio Code y la extensión Azure IoT Edge.
 
-### <a name="create-a-new-solution"></a>Crear una solución nueva
+### <a name="create-a-new-solution"></a>Creación de una nueva solución
 
 Cree una plantilla de solución de C que pueda personalizar con su propio código.
 

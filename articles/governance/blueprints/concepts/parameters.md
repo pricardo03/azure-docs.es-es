@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279982"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63767020"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 
@@ -169,7 +169,7 @@ La creación de **parámetros estáticos** en un artefacto es parecida, pero tom
 
 ### <a name="dynamic-parameters"></a>Parámetros dinámicos
 
-Lo contrario de un parámetro estático es un **parámetro dinámico**. Este parámetro no se define en el plano técnico, sino que se define durante cada asignación del mismo. En el ejemplo de grupo de recursos, el uso de un **parámetro dinámico** tiene sentido para el nombre del grupo de recursos. Proporciona un nombre diferente para cada asignación del plano técnico.
+Lo contrario de un parámetro estático es un **parámetro dinámico**. Este parámetro no se define en el plano técnico, sino que se define durante cada asignación del mismo. En el ejemplo de grupo de recursos, el uso de un **parámetro dinámico** tiene sentido para el nombre del grupo de recursos. Proporciona un nombre diferente para cada asignación del plano técnico. Para obtener una lista de funciones de plano técnico, consulte el [blueprint funciones](../reference/blueprint-functions.md) referencia.
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Establecimiento de parámetros dinámicos en el portal
 
@@ -185,9 +185,7 @@ Lo contrario de un parámetro estático es un **parámetro dinámico**. Este par
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Establecimiento de parámetros dinámicos desde la API REST
 
-Para establecer **parámetros dinámicos** durante la asignación, debe escribir el valor directamente.
-En lugar de usar una función, como `parameters()`, el valor proporcionado es una cadena adecuada.
-Los artefactos para un grupo de recursos se definen con un "nombre de plantilla" y las propiedades **name** y **location**. Todos los demás parámetros para el artefacto incluido se definen en **parámetros** con un par de clave **\<name\>** y **value**. Si el plano técnico se configura para un parámetro dinámico que no se proporciona durante la asignación, se producirá un error en esta.
+Para establecer **parámetros dinámicos** durante la asignación, debe escribir el valor directamente. En lugar de usar una función, como [parameters()](../reference/blueprint-functions.md#parameters), el valor proporcionado es una cadena adecuada. Los artefactos para un grupo de recursos se definen con un "nombre de plantilla" y las propiedades **name** y **location**. Todos los demás parámetros para el artefacto incluido se definen en **parámetros** con un par de clave **\<name\>** y **value**. Si el plano técnico se configura para un parámetro dinámico que no se proporciona durante la asignación, se producirá un error en esta.
 
 - URI DE LA API REST
 
@@ -240,6 +238,7 @@ Los artefactos para un grupo de recursos se definen con un "nombre de plantilla"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Ver la lista de [blueprint funciones](../reference/blueprint-functions.md).
 - Más información sobre el [ciclo de vida del plano técnico](lifecycle.md)
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](resource-locking.md).
