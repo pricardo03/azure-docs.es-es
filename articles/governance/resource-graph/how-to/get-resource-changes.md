@@ -1,5 +1,5 @@
 ---
-title: Obtener los cambios de recursos
+title: Obtención de los cambios del recurso
 description: Comprenda cómo averiguar cuándo se cambió un recurso y obtener una lista de las propiedades que puede cambiar.
 services: resource-graph
 author: DCtheGeek
@@ -8,20 +8,20 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f4618e945db443e8d7cf9fdcc49e20e5a09ebd39
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014609"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760813"
 ---
-# <a name="get-resource-changes"></a>Obtener los cambios de recursos
+# <a name="get-resource-changes"></a>Obtención de los cambios del recurso
 
 Los cambios a lo largo de uso diario, reconfiguración y reimplementación incluso los recursos.
 Cambio puede proceder de un usuario individual o por un proceso automatizado. La mayoría de cambios es así por diseño, pero a veces no lo es. Con los últimos 14 días del historial de cambios, gráfico de recursos de Azure le permite:
 
-- Buscar cuando se detectaron cambios en una propiedad de Azure Resource Manager.
-- Vea lo que cambiar las propiedades como parte de ese evento de cambio.
+- Buscar cuándo se detectaron cambios en una propiedad de Azure Resource Manager.
+- Ver qué propiedades cambiaron como parte de ese evento de cambio.
 
 Detección de cambios y los detalles son valiosos para los escenarios de ejemplo siguiente:
 
@@ -39,7 +39,7 @@ En este artículo se muestra cómo recopilar esta información a través del SDK
 
 ## <a name="find-when-changes-were-detected"></a>Buscar cuando se detectaron cambios
 
-El primer paso para ver qué cambió en un recurso es encontrar los eventos de cambio relacionados con ese recurso dentro de una ventana de tiempo. Este paso se realiza a través de la [resourceChanges](/rest/api/azureresourcegraph/resourceChanges) extremo REST.
+El primer paso para ver qué cambió en un recurso es encontrar los eventos de cambio relacionados con ese recurso dentro de una ventana de tiempo. Este paso se realiza a través de la **resourceChanges** extremo REST.
 
 El **resourceChanges** extremo requiere dos parámetros en el cuerpo de solicitud:
 
@@ -95,7 +95,7 @@ Se ha producido el evento de cambio en algún momento en esta ventana de tiempo.
 
 ## <a name="see-what-properties-changed"></a>Vea lo que cambiar las propiedades
 
-Con el **changeId** desde el **resourceChanges** punto de conexión, el [resourceChangeDetails](/rest/api/azureresourcegraph/resourceChangeDetails) extremo REST, a continuación, se utiliza para obtener detalles del evento de cambio.
+Con el **changeId** desde el **resourceChanges** punto de conexión, el **resourceChangeDetails** extremo REST, a continuación, se utiliza para obtener detalles del evento de cambio.
 
 El **resourceChangeDetails** extremo requiere dos parámetros en el cuerpo de solicitud:
 
@@ -108,7 +108,6 @@ Ejemplo del cuerpo de solicitud:
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
     "changeId": "53dc0515-b86b-4bc2-979b-e4694ab4a556"
-    }
 }
 ```
 
