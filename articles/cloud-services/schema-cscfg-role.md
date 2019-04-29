@@ -1,8 +1,9 @@
 ---
 title: Esquema de rol de Azure Cloud Services | Microsoft Docs
 ms.custom: ''
-ms.date: 12/07/2016
-services: cloud-services
+origin.date: 12/07/2016
+ms.date: 11/06/2017
+ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -10,15 +11,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: jpconnock
-ms.author: jeconnoc
+author: ''
+ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 20f4186426152d2dc9b445981a69881c35587eb6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: aa6f8a821edea6261d64bb411154e82fdf212a8d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130252"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Esquema de rol de configuración de Azure Cloud Services
 
@@ -45,7 +46,7 @@ En el ejemplo siguiente se muestra el elemento `Role` y sus elementos secundario
 
 En la tabla siguiente se describen los atributos del elemento `Role`.
 
-| Atributo | DESCRIPCIÓN |
+| Atributo | Descripción |
 | --------- | ----------- |
 | Nombre   | Necesario. Especifica el nombre del rol. El nombre debe coincidir con el nombre proporcionado en el rol en el archivo de definición de servicio.|
 | vmName | Opcional. Especifica el nombre DNS de una máquina virtual. El nombre debe tener 10 caracteres como máximo.|
@@ -58,5 +59,5 @@ En la siguiente tabla se describen los elementos secundarios del elemento `Role`
 | Configuración   | Opcional. Especifica un nombre y un valor de configuración en una colección de valores para un rol. El nombre de la configuración se define mediante una cadena en el atributo `name` y el valor de configuración se define mediante una cadena en el atributo `value`.|
 | Certificate | Opcional. Especifica el nombre, la huella digital y el algoritmo de un certificado de servicio que se va a asociar con el rol. El nombre del certificado se define mediante una cadena en el atributo `name`. La huella digital del certificado se define mediante una cadena de números hexadecimales que no contienen espacios en el atributo `thumbprint`. Los números hexadecimales deben estar representados por dígitos y caracteres alfanuméricos en mayúscula. El algoritmo de certificado se define mediante una cadena en el atributo `thumbprintAlgorithm`.|
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Cloud Service (classic) Configuration Schema](schema-cscfg-file.md) (Esquema de configuración de Cloud Service [clásico])

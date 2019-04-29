@@ -45,7 +45,7 @@ Cree un registro de contenedor mediante el comando [az acr create][az-acr-create
 az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
 ```
 
-Este ejemplo crea un registro *Básico*, una opción rentable para los desarrolladores que aprenden sobre Azure Container Registry. Para más información sobre los niveles de servicio disponibles, consulte [SKU de Azure Container Registry][container-registry-skus].
+Este ejemplo crea un registro *Básico*, una opción rentable para los desarrolladores que aprenden sobre Azure Container Registry. Para más información sobre los niveles de servicio disponibles, consulte [SKU de Azure Container Registry][container-registry-skus].
 
 ## <a name="build-an-image-from-a-dockerfile"></a>Creación de una imagen desde Dockerfile
 

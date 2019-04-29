@@ -8,11 +8,11 @@ services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004114"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447648"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalización y reimplementación de un microservicio
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 Para utilizar este tutorial, necesitará:
 
 >[!div class="checklist"]
-> * [Implementación local del acelerador de la solución Supervisión remota](iot-accelerators-remote-monitoring-deploy-local.md)
+> * [Implementación local del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-deploy-local.md)
 > * [Una cuenta de Docker](https://hub.docker.com/)
 > * [Postman](https://www.getpostman.com/): necesario para ver la respuesta de la API
 

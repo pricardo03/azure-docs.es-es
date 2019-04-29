@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: xingwan
-ms.openlocfilehash: 62964d0c5d75168226a35b25e5c256a1b57f3f81
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
-ms.translationtype: HT
+ms.openlocfilehash: a57899e36a6716a6fd59cb018119c225b7396c0d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
-ms.locfileid: "24870585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60649134"
 ---
 # <a name="region-or-sku-unavailable"></a>Región o SKU no disponible
 En este artículo se describe cómo resolver el problema de que una suscripción a Azure no tenga acceso a una región o a la SKU de una máquina virtual.

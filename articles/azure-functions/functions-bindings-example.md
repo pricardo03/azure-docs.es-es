@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 03/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 6d5f9b171a4efc5e52d281655de143ac9d40d437
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437895"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Ejemplo de desencadenador y enlace de Azure Functions
 
@@ -141,3 +142,4 @@ Ahora tiene una función de trabajo desencadenado por almacenamiento de tablas d
 
 > [!div class="nextstepaction"]
 > [Los patrones de expresiones de enlace de Azure Functions](./functions-bindings-expressions-patterns.md)
+

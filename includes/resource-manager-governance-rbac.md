@@ -2,18 +2,20 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: azure-resource-manager
-author: tfitzmac
+author: rockboyfor
+manager: digimobile
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/16/2018
-ms.author: tomfitz
+origin.date: 02/16/2018
+ms.date: 04/30/2018
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b4b06119b9d46781b967fc8d98808c60d2b41ccb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: f77a5d482c3f8632a3d86bd8e027fbb4418168c3
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38753693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122913"
 ---
 Desea asegurarse de que los usuarios de una organización tengan el nivel adecuado de acceso a estos recursos. No desea conceder acceso ilimitado a los usuarios, pero también es necesario garantizar que puedan realizar su trabajo. El control de acceso basado en rol (RBAC) le permite administrar los usuarios con permiso para completar acciones específicas en un ámbito. Un rol define un conjunto de acciones permitidas. Asigne el rol a un ámbito y especifique los usuarios que pertenecen a ese rol para el ámbito.
 
@@ -28,3 +30,4 @@ A la mayoría de usuarios se les concede [roles específicos de recursos](../art
 ### <a name="who-can-assign-roles"></a>Quién puede asignar roles
 
 Para crear y quitar las asignaciones de rol, los usuarios deben tener acceso a `Microsoft.Authorization/roleAssignments/*`. Esta acción se concede mediante los roles Propietario o Administrador de acceso de usuario.
+<!--ms.date: 04/30/2018-->

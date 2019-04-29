@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 37eb8ca3c25268dd7923087439a8fbf0fd1f168b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 56e87da0353a41504035a070d4c10bab0dda2279
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551760"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agregaciones avanzadas en consultas de registros de Azure Monitor
 
@@ -38,7 +38,8 @@ Event
 | order by TimeGenerated desc
 | summarize makelist(EventID) by Computer
 ```
-|Equipo|list_EventID|
+
+|Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085,704,704,701] |
 | computer2 | [326,105,302,301,300,102] |
@@ -54,7 +55,8 @@ Event
 | order by TimeGenerated desc
 | summarize makeset(EventID) by Computer
 ```
-|Equipo|list_EventID|
+
+|Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085] |
 | computer2 | [326,105,302,301,300,102] |
@@ -71,12 +73,12 @@ Heartbeat
 | project Computer, Solutions
 ```
 
-| Equipo | Soluciones | 
+| Computer | Soluciones | 
 |--------------|----------------------|
 | computer1 | "security", "updates", "changeTracking" |
 | computer2 | "security", "updates" |
 | computer3 | "antiMalware", "changeTracking" |
-| ... | ... | ... |
+| ... | ... |
 
 Use `mvexpand` para mostrar cada valor en una fila separada, en lugar de una lista separada por comas:
 
@@ -87,7 +89,7 @@ Heartbeat
 | mvexpand Solutions
 ```
 
-| Equipo | Soluciones | 
+| Computer | Soluciones | 
 |--------------|----------------------|
 | computer1 | "security" |
 | computer1 | "updates" |
@@ -96,7 +98,7 @@ Heartbeat
 | computer2 | "updates" |
 | computer3 | "antiMalware" |
 | computer3 | "changeTracking" |
-| ... | ... | ... |
+| ... | ... |
 
 
 Luego puede usar `makelist` de nuevo para agrupar elementos y, esta vez, ver la lista de equipos por solución:
@@ -108,6 +110,7 @@ Heartbeat
 | mvexpand Solutions
 | summarize makelist(Computer) by tostring(Solutions) 
 ```
+
 |Soluciones | list_Computer |
 |--------------|----------------------|
 | "security" | ["computer1", "computer2"] |
@@ -124,6 +127,7 @@ Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
+
 | Categoría | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Agente directo | 2017-06-06T17:00:00Z | 15 |
@@ -153,6 +157,7 @@ Heartbeat
 | mvexpand TimeGenerated, count_
 | project Category, TimeGenerated, count_
 ```
+
 | Categoría | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Agente directo | 2017-06-06T17:00:00Z | 15 |

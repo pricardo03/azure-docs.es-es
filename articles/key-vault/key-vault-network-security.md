@@ -12,7 +12,7 @@ ms.date: 01/02/2019
 ms.author: ambapat
 ms.openlocfilehash: c54b78a24068758fabb0918cfeb7d6516fd1bce5
 ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58487250"
@@ -31,7 +31,7 @@ Así es cómo puede configurar firewalls y redes virtuales de Key Vault mediante
 1. Vaya al almacén de claves que quiere proteger.
 2. Seleccione **Firewalls y redes virtuales**.
 3. Haga clic en **Redes seleccionadas** en **Permitir el acceso desde**.
-4. Para agregar redes virtuales existentes a las reglas de firewall y de red virtual, haga clic en **+ Agregar redes virtuales existentes**.
+4. Para agregar redes virtuales existentes a los firewall y las reglas de red virtual, haga clic en **+ Agregar redes virtuales existentes**.
 5. En la nueva hoja que se abrirá, seleccione la suscripción, las redes virtuales y las subredes a las cuales desea otorgar acceso a este almacén de claves. Si las redes virtuales y subredes que seleccionó no tienen puntos de conexión de servicio habilitados, confirme que desea habilitar los puntos de conexión de servicio y seleccione **Habilitar**. Esta operación podría tardar hasta 15 minutos en surtir efecto.
 6. En **Redes IP**, agregue rangos de direcciones IPv4; para ello, escriba los rangos de direcciones IPv4 en la [notación CIDR (enrutamiento de interdominios sin clases)](https://tools.ietf.org/html/rfc4632) o en las direcciones IP individuales.
 7. Seleccione **Guardar**.
@@ -44,7 +44,7 @@ Estos son los pasos para configurar firewalls y redes virtuales de Key Vault med
 
 1. [Instale la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [inicie sesión](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
-2. Se muestra la lista de reglas de redes virtuales disponibles. Si no ha establecido ninguna regla para este almacén de claves, la lista estará vacía.
+2. Se muestra la lista de reglas de red virtual disponibles. Si no ha establecido ninguna regla para este almacén de claves, la lista estará vacía.
    ```azurecli
    az keyvault network-rule list --resource-group myresourcegroup --name mykeyvault
    ```
@@ -83,7 +83,7 @@ Estas son las instrucciones para configurar los firewalls y las redes virtuales 
 
 1. Instale la última versión de [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) e [inicie sesión](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
-2. Se muestra la lista de reglas de redes virtuales disponibles. Si no ha establecido ninguna regla para este almacén de claves, la lista estará vacía.
+2. Se muestra la lista de reglas de red virtual disponibles. Si no ha establecido ninguna regla para este almacén de claves, la lista estará vacía.
    ```powershell
    (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
    ```

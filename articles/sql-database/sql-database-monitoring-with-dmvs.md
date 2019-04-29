@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/19/2018
 ms.openlocfilehash: 371632a28d22583f8b206e4d8b9d2b6b4e510ab0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103770"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Supervisión del rendimiento en Azure SQL Database con vistas de administración dinámica
 
@@ -121,7 +121,7 @@ Utilice la vista [sys.dm_exec_requests](https://docs.microsoft.com/sql/relationa
 
 #### <a name="identify-data-and-log-io-usage"></a>Identificar el uso de E/S de registros y datos
 
-Utilice la siguiente consulta para identificar el uso de E/S de registros y datos: Si la E/S de registros o datos es superior al 80 %, implica que los usuarios han utilizado la E/S disponible para el nivel del servicio SQL DB.
+Utilice la siguiente consulta para identificar el uso de E/S de registros y datos: Si la E/S de registros o datos es superior al 80 %, implica que los usuarios han utilizado la E/S disponible para el nivel del servicio SQL DB.
 
 ```sql
 SELECT end_time, avg_data_io_percent, avg_log_write_percent
@@ -485,7 +485,7 @@ GO
 
 ## <a name="monitoring-connections"></a>Supervisión de conexiones
 
-Puede usar la vista [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) para recuperar información sobre las conexiones establecidas con un servidor concreto de Azure SQL Database y los detalles de cada conexión. Además, la vista [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) resulta útil para recuperar información sobre todas las conexiones de usuario activas y las tareas internas.
+Puede usar la vista [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) para recuperar información sobre las conexiones establecidas con un servidor concreto de Azure SQL Database y los detalles de cada conexión. Además, la vista [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) resulta útil para recuperar información sobre todas las conexiones de usuario activas y las tareas internas.
 La siguiente consulta recupera información sobre la conexión actual:
 
 ```sql
@@ -733,6 +733,6 @@ Un plan de consulta ineficaz también puede aumentar el consumo de CPU. En el ej
     ORDER BY highest_cpu_queries.total_worker_time DESC;
     ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Introducción a SQL Database](sql-database-technical-overview.md)

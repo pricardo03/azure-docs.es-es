@@ -32,7 +32,7 @@ Para obtener información general práctica acerca del uso de la solución Azure
 
 ## <a name="connected-sources"></a>Orígenes conectados
 
-Azure SQL Analytics es una solución de supervisión de uso solo en la nube que admite el streaming de telemetría de diagnósticos para instancias de Azure SQL Database: bases de datos únicas, agrupadas y de instancia administrada. Como la solución no usa agentes para conectarse a Azure Monitor, la solución no admite la supervisión de SQL Server hospedado localmente o en máquinas virtuales, vea la siguiente tabla de compatibilidad.
+Azure SQL Analytics es una solución de supervisión de uso solo en la nube que admite el streaming de datos de telemetría de diagnóstico para bases de datos de Azure SQL: bases de datos únicas, agrupadas y de instancia administrada. Como la solución no usa agentes para conectarse a Azure Monitor, la solución no admite la supervisión de SQL Server hospedado localmente o en máquinas virtuales, vea la siguiente tabla de compatibilidad.
 
 | Origen conectado | Compatible | DESCRIPCIÓN |
 | --- | --- | --- |

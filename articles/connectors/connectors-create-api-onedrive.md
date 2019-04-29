@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 50bd9ecdd665cf72c146c63ae25efa6773934a3e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 840a010f8606387a250552d884621a96d0031f90
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106234"
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Introducción al conector de OneDrive
 Conéctese a OneDrive para administrar los archivos, incluyendo las tareas de carga, obtención y eliminación de archivos, y muchas más. 
@@ -62,7 +62,7 @@ Un desencadenador es un evento que se puede utilizar para iniciar el flujo de tr
 ## <a name="use-an-action"></a>Uso de una acción
 Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Seleccione el signo más. Aparecen varias opciones: **Agregar una acción**, **Agregar una condición** o una de las opciones de **Más**.
+1. Seleccione el signo más. Aparecen varias opciones: **Agregar una acción**, **agregar una condición**, o uno de los **más** opciones.
    
     ![](./media/connectors-create-api-onedrive/add-action.png)
 2. Elija **Add an action**(Agregar una acción).

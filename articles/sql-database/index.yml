@@ -39,10 +39,10 @@ sections:
               src: media/index/i_managed.svg
             title: Completamente administrada
           - href: /azure/sql-database/sql-database-service-tiers
-            html: <p>Adapte la relación precio-rendimiento a sus necesidades con los niveles de rendimiento flexible que van desde unos asequibles 5 EUR al mes hasta potentes bases de datos con 80 núcleos.</p>
+            html: <p>Adapte la relación precio-rendimiento a sus necesidades con los niveles de servicio flexible que van desde unos asequibles 5 EUR al mes hasta potentes bases de datos con 80 núcleos.</p>
             image:
               src: media/index/i_perftier.svg
-            title: Niveles de precios y servicios
+            title: Planes de tarifas y niveles de servicio
           - href: /azure/sql-database/sql-database-scalability-index
             html: '<p>Fácil escalado vertical, escalado horizontal o partición de base de datos según sus necesidades para mejorar el rendimiento de la aplicación.</p>'
             image:

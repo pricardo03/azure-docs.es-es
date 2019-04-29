@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: f8fc1f7e338f69b42df69d9a8983e8ce3bb409e3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d7d1bc95a646527ccdf9d2808aefe6b8f46d7e9a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359658"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111772"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>El nivel de servicio Premium RS de Azure SQL Database (versión preliminar) se está retirando: opciones de migración
 
@@ -27,7 +27,7 @@ A continuación se indican los destinos de migración y las opciones de precios 
 
 - Niveles de servicio de núcleo virtual
 
-  En el artículo se describen los niveles de servicio **Uso general** y **Crítico para la empresa** en el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). Estos dos niveles de servicio están disponibles para el público general. El modelo de compra basado en núcleos virtuales también ofrece el nivel de servicio **Hiperescala** (en versión preliminar pública), que se adapta a petición a las necesidades de su carga de trabajo con escalado automático hasta 100 TB por base de datos. El nivel de servicio Hiperescala proporciona un rendimiento de E/S comparable al nivel de servicio Premium en el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) a un precio más cercano al del nivel de servicio Premium RS.
+  En el artículo se describen los niveles de servicio **Uso general** y **Crítico para la empresa** en el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md). Estos dos niveles de servicio están disponibles para el público general. El modelo de compra basado en núcleo virtual también ofrece el nivel de servicio **Hiperescala** (en versión preliminar pública), que se adapta a petición a las necesidades de su carga de trabajo con escalado automático hasta 100 TB por base de datos. El nivel de servicio Hiperescala proporciona un rendimiento de E/S comparable al nivel de servicio Premium en el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) a un precio más cercano al del nivel de servicio Premium RS.
 - Precios para desarrollo/pruebas
 
   [Precios para desarrollo/pruebas](https://azure.microsoft.com/pricing/dev-test/) proporciona un ahorro de hasta el 55 % en comparación con las tarifas de licencia incluida con su suscripción a Visual Studio.
@@ -84,7 +84,7 @@ Se recomienda migrar las bases de datos únicas con un tráfico intensivo de E/S
 
 ## <a name="take-advantage-of-our-new-offers"></a>Aprovechar las ventajas de las nuevas ofertas
 
-Nuestros niveles de servicio del modelo de compra basado en núcleos virtuales son aptos para las ofertas especiales que le pueden ayudar a ahorrar hasta un 80 % en comparación con los precios de licencia incluida. Use sus licencias de SQL Server Standard o Enterprise Edition con Software Assurance activo para ahorrar hasta un 55 % en comparación con los precios de licencia incluida con [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Puede combinar el precio de la ventaja híbrida con el de la [capacidad reservada de Azure SQL Database](sql-database-reserved-capacity.md) y ahorrar hasta un 80 % al confirmar por adelantado un período de uno o tres años.  Active ambas ventajas hoy mismo desde Azure Portal.
+Nuestros niveles de servicio del modelo de compra basado en núcleo virtual son aptos para las ofertas especiales que le pueden ayudar a ahorrar hasta un 80 % en comparación con los precios de licencia incluida. Use sus licencias de SQL Server Standard o Enterprise Edition con Software Assurance activo para ahorrar hasta un 55 % en comparación con los precios de licencia incluida con [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Puede combinar el precio de la ventaja híbrida con el de la [capacidad reservada de Azure SQL Database](sql-database-reserved-capacity.md) y ahorrar hasta un 80 % al confirmar por adelantado un período de uno o tres años.  Active ambas ventajas hoy mismo desde Azure Portal.
 
 Si tiene alguna pregunta o preocupación respecto a este cambio o si necesita ayuda con la migración, póngase en contacto con [Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
@@ -100,5 +100,5 @@ Puede copiar cualquier base de datos con un tamaño de proceso de Premium RS en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre las opciones de tamaños de proceso y de tamaños de almacenamiento específicas que hay disponibles para las bases de datos únicas, consulte [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) (Límites de recursos basados en núcleos virtuales de SQL Database para bases de datos únicas).
+- Para obtener más información sobre las opciones de tamaños de proceso y de tamaños de almacenamiento específicas que hay disponibles para las bases de datos únicas, consulte [Límites de recursos basados en núcleos virtuales de SQL Database para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier).
 - Para más información sobre las opciones de tamaño de proceso y de tamaño de almacenamiento específicas que hay disponibles para los grupos elásticos, consulte [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) (Límites de recursos basados en núcleos virtuales de Azure SQL Database para grupos elásticos).

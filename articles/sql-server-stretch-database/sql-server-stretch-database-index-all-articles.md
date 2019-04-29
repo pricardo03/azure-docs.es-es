@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
 ms.openlocfilehash: 02089d69ec8e049b2d0d0daf1c76875a9ebab403
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992556"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60708811"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Todos los temas del servicio SQL Server Stretch Database de Azure
 En este documento se muestran todos los temas relacionados directamente con el servicio **SQL Server Stretch Database** de Azure. Puede buscar en esta página web las palabras clave mediante **Ctrl+F**, para encontrar los temas de interés.

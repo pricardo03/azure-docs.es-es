@@ -13,16 +13,16 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: e9f40e749642f2025c5298df74f9d8ff87aec14b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709335"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Nivel Crítico para la empresa: Azure SQL Database
 
 > [!NOTE]
-> El nivel Crítico para la empresa se denomina Premium en el modelo de compra basado en la unidad de transacción de base de datos. Para ver una comparación entre el modelo de compra basado en núcleos virtuales y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](sql-database-purchase-models.md).
+> El nivel Crítico para la empresa se denomina Premium en el modelo de compra basado en la unidad de transacción de base de datos. Para ver una comparación entre el modelo de compra basado en núcleo virtual y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](sql-database-purchase-models.md).
 
 Azure SQL Database se basa en la arquitectura del motor de base de datos de SQL Server que se ajusta al entorno en la nube, con el fin de garantizar una disponibilidad del 99,99 % incluso en los casos de error de la infraestructura. Hay tres modelos de arquitectura que se usan en Azure SQL Database:
 - De uso general/Estándar 
@@ -33,7 +33,7 @@ El modelo de nivel de servicio Crítico para la empresa/Premium se basa en un cl
 
 Azure actualiza y revisa los sistemas operativos subyacentes, los controladores y el Motor de base de datos de SQL Server de forma transparente con el mínimo tiempo de inactividad para los usuarios finales. 
 
-La disponibilidad Premium está habilitada en los niveles Premium y Crítico para la empresa y se ha diseñado para cargas de trabajo intensivas que no pueden tolerar ningún impacto en el rendimiento debido a operaciones de mantenimiento continuado.
+La disponibilidad Premium está habilitada en los niveles Premium y Crítico para la empresa, y se ha diseñado para cargas de trabajo intensivas que no pueden tolerar ningún impacto en el rendimiento debido a operaciones de mantenimiento continuado.
 
 En el modelo Premium, Azure SQL Database integra el proceso y el almacenamiento en un único nodo. La alta disponibilidad en este modelo de arquitectura se logra mediante la replicación del proceso (proceso del motor de base de datos de SQL Server) y el almacenamiento (SSD conectado localmente) implementados en un clúster de cuatro nodos, con una tecnología parecida a la de los [Grupos de disponibilidad AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) de SQL Server.
 

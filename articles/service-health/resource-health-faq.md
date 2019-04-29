@@ -8,11 +8,11 @@ ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
 ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579570"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620834"
 ---
 # <a name="azure-resource-health-faq"></a>P+F sobre Azure Resource Health
 Aprenda las respuestas a las preguntas más frecuentes sobre Azure Resource Health.
@@ -80,7 +80,7 @@ Es importante tener en cuenta que, para proporcionar visibilidad completa de los
 No, la información de estado está disponible para todos los tipos de recursos a través de Resource Health. 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>¿Es necesario habilitar Resource Health para la organización?
- No.  Azure Resource Health es accesible desde Azure Portal, sin requisitos de configuración.
+No.  Azure Resource Health es accesible desde Azure Portal, sin requisitos de configuración.
 
 ## <a name="is-resource-health-available-free-of-charge"></a>¿Está Resource Health disponible de forma gratuita?
 Sí.  Azure Resource Health es gratuito.

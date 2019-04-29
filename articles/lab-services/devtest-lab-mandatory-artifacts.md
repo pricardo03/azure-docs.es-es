@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795413"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60562264"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Especificación de artefactos obligatorios para su laboratorio de Azure DevTest Labs
 Como propietario de un laboratorio, puede especificar obligatorios artefactos que se aplican a cada máquina creada en el laboratorio. Imagine un escenario donde quiere que cada máquina del laboratorio se conecte a la red corporativa. En este caso, cada usuario del laboratorio tendría que agregar un artefacto de unión a un dominio durante la creación de máquinas virtuales para asegurarse de que su equipo está conectado al dominio corporativo. En otras palabras, los usuarios del laboratorio esencialmente tendrían que volver a crear una máquina en caso de que se olviden de aplicar artefactos obligatorios en su equipo. Como propietario del laboratorio, convierte el artefacto de unión a un dominio en un artefacto obligatorio en el laboratorio. Con este paso se asegura de que cada máquina está conectada a la red corporativa y ahorra tiempo y esfuerzo a los usuarios del laboratorio.

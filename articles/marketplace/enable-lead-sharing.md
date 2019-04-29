@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3fea858f23c6b271a117f2edcc749e0c6b737e27
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.openlocfilehash: 346ebd9636623a2fc8b08d42c2170a21a5e9a316
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160004"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121085"
 ---
 # <a name="enable-lead-sharing"></a>Habilitar el uso compartido de clientes potenciales
 Asegurarse de que la administración de clientes potenciales está habilitada para la publicación de anuncios en [Azure Marketplace](https://azuremarketplace.microsoft.com) o [Microsoft AppSource](https://appsource.microsoft.com) puede contribuir a que reciba información de contacto de las siguientes audiencias:

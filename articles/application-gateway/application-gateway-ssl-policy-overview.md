@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure services
-ms.date: 08/03/2017
-ms.author: amsriva
+origin.date: 08/03/2017
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122241"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Introducción a la directiva SSL de Application Gateway
 
@@ -64,9 +65,9 @@ Si una directiva SSL predefinida se debe configurar de acuerdo con sus requisito
  
 ### <a name="ssl-protocol-versions"></a>Versiones del protocolo SSL
 
-* SSL 2.0 y 3.0 están deshabilitados de forma predeterminada en todas las instancias de Application Gateway. Estas versiones de protocolo no son configurables.
-* Una directiva SSL personalizada le ofrece la opción de seleccionar cualquiera de los siguientes tres protocolos como la versión mínima del protocolo SSL para la puerta de enlace: TLSv1_0, TLSv1_1 y TLSv1_2.
-* Si no se define ninguna directiva SSL, los tres protocolos (TLSv1_0, TLSv1_1 y TLSv1_2) están habilitados.
+- SSL 2.0 y 3.0 están deshabilitados de forma predeterminada en todas las instancias de Application Gateway. Estas versiones de protocolo no son configurables.
+- Una directiva SSL personalizada le ofrece la opción de seleccionar cualquiera de los siguientes tres protocolos como la versión mínima del protocolo SSL para la puerta de enlace: TLSv1_0, TLSv1_1 y TLSv1_2.
+- Si no se define ninguna directiva SSL, los tres protocolos (TLSv1_0, TLSv1_1 y TLSv1_2) están habilitados.
 
 ### <a name="cipher-suites"></a>Conjuntos de cifrado
 
@@ -105,3 +106,5 @@ Application Gateway admite los siguientes conjuntos de cifrado desde los que pue
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si desea aprender a configurar la descarga de SSL, consulte [Configuración de una directiva SSL en Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
+
+<!-- Update_Description: wording update -->

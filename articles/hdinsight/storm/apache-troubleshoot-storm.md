@@ -2,7 +2,6 @@
 title: Solución de problemas de Storm mediante Azure HDInsight
 description: Obtenga respuestas a las preguntas comunes sobre cómo usar con Apache Storm con Azure HDInsight.
 keywords: Azure HDInsight, Storm, preguntas más frecuentes, guía de solución de problemas, problemas comunes
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5634d812b3fbd4e904516767b008f63104b3d7b7
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3866e25cc3c87f569e84b2d5639d25aa9386cc78
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116455"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Solución de problemas de Apache Storm mediante Azure HDInsight
 
@@ -148,5 +147,5 @@ El archivo de configuración Log4J de trabajo se lee de /usr/hdp/\<versión de H
  
 Ejemplos: /usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
-### <a name="see-also"></a>Otras referencias
+### <a name="see-also"></a>Vea también
 [Solución de problemas mediante Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)

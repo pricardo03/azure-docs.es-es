@@ -9,17 +9,17 @@ ms.date: 02/12/2019
 ms.author: jeking
 ms.subservice: common
 ms.openlocfilehash: 30470f7313fb198aedd89f5dd37325359f0d7a9e
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232952"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729649"
 ---
 # <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage
 
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-lrs.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 - [Replicación de Azure Storage](storage-redundancy.md)
 - [Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad](storage-redundancy-zrs.md)

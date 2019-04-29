@@ -3,17 +3,17 @@ title: Preguntas más frecuentes sobre las colecciones de áreas de trabajo de P
 description: Preguntas más frecuentes relacionadas con las colecciones de área de trabajo de Power BI.
 services: power-bi-workspace-collections
 ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: 2de9d57e6febd0f0bec3bbbf1a175700c5b0bf71
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: e3c28cc28261e65e945887d7ad9bfa5fd3984605
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110589"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Preguntas más frecuentes sobre las colecciones de áreas de trabajo de Power BI
 
@@ -72,7 +72,7 @@ Sí. Puede usar su suscripción de Azure existente para aprovisionar y usar el s
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>¿Necesitan los usuarios finales de mi aplicación una licencia de Power BI?
 
- No. Los usuarios finales de su aplicación no tienen que comprar una suscripción de Power BI por separado para acceder a las visualizaciones de datos en aplicación. En el modelo de las colecciones de áreas de trabajo de Power BI, al proveedor de la aplicación se le factura el servicio mediante el medidor de consumo de Azure. Consulte la [página de precios y licencia](https://go.microsoft.com/fwlink/?LinkId=760527).
+No. Los usuarios finales de su aplicación no tienen que comprar una suscripción de Power BI por separado para acceder a las visualizaciones de datos en aplicación. En el modelo de las colecciones de áreas de trabajo de Power BI, al proveedor de la aplicación se le factura el servicio mediante el medidor de consumo de Azure. Consulte la [página de precios y licencia](https://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>¿Cómo funciona la autenticación de usuarios con las colecciones de áreas de trabajo de Power BI?
 

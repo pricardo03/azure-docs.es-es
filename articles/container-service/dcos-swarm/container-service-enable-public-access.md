@@ -10,11 +10,11 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457385"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(EN DESUSO) Permitir el acceso público a una aplicación de Azure Container Service
 
@@ -40,7 +40,7 @@ En primer lugar, es necesario abrir el puerto que desee.
    | NOMBRE |Un nombre descriptivo del sondeo. |
    | Port |El puerto del contenedor que se va a probar. |
    | Ruta de acceso |(Cuando está en modo HTTP) La ruta de acceso relativa del sitio de web para sondear. HTTPS no es compatible. |
-   | Intervalo |La cantidad de tiempo entre los intentos de sonde, en segundos. |
+   | Interval |La cantidad de tiempo entre los intentos de sonde, en segundos. |
    | Umbral incorrecto |Número de intentos de sondeo consecutivos antes de considerar que el contenedor es incorrecto. |
 6. En las propiedades del equilibrador de carga del agente, haga clic en **Reglas de equilibrio de carga** y luego en **Agregar**.
    

@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
-ms.author: cshoe
+origin.date: 02/18/2019
+ms.date: 04/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5534086d5754691f650370e465fa2c63210e0dc7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740506"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437861"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrar las extensiones de enlace de Azure Functions
 
@@ -37,7 +38,7 @@ Los siguientes tipos de enlace son excepciones que no requieren ningún registro
 
 ## <a name="azure-portal-development"></a>Desarrollo con Azure Portal
 
-Al crear una función o agregar un enlace, se le avisa cuando hay que registrar la extensión para el desencadenador o el enlace que requieren el registro. Responda a la pregunta haciendo clic en **Instalar** para registrar la extensión. La instalación puede tardar hasta 10 minutos en un plan de consumo.
+Al crear una función o agregar un enlace, se le avisa cuando hay que registrar la extensión para el desencadenador o el enlace que requieren el registro. Responda a la pregunta haciendo clic en **Instalar** para registrar la extensión. La instalación puede tardar hasta 10 minutos en un plan de consumo. 
 
 Solo necesita instalar cada extensión una vez para una aplicación de función determinada. Para los enlaces admitidos que no están disponibles en el portal o para actualizar una extensión instalada, también puede [instalar o actualizar manualmente las extensiones de enlace de Azure Functions desde el portal](install-update-binding-extensions-manual.md).  
 
@@ -75,4 +76,5 @@ Reemplace `<target_version>` en el ejemplo con una versión específica del paqu
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Ejemplo de desencadenador y enlace de Azure (función)](./functions-bindings-example.md)
+
 

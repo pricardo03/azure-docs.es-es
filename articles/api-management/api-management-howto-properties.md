@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791633"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60658042"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Cómo usar valores con nombre en las directivas de Azure API Management
 En API Management, las directivas constituyen una funcionalidad eficaz del sistema que permite a Azure Portal cambiar el comportamiento de la API mediante la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Las instrucciones de las directivas se pueden crear con valores de texto literal, expresiones de directiva y valores con nombre. 
@@ -27,10 +27,10 @@ Cada instancia del servicio de API Management tiene una colección de propiedade
 
 | Atributo | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| `Display name` |string |Cadena alfanumérica que se usa para hacer referencia a la propiedad en las directivas. |
-| `Value` |string |El valor de la propiedad. No puede estar vacío ni contener solo espacios en blanco. |
-| `Secret` |boolean|Determina si el valor es secreto y si se debe cifrar.|
-| `Tags` |matriz de cadena |Etiquetas opcionales que, cuando se proporcionan, pueden usarse para filtrar la lista de propiedades. |
+| Nombre para mostrar |string |Cadena alfanumérica que se usa para hacer referencia a la propiedad en las directivas. |
+| Valor |string |El valor de la propiedad. No puede estar vacío ni contener solo espacios en blanco. |
+|Secret|boolean|Determina si el valor es secreto y si se debe cifrar.|
+| Etiquetas |matriz de cadena |Etiquetas opcionales que, cuando se proporcionan, pueden usarse para filtrar la lista de propiedades. |
 
 ![Valores con nombre](./media/api-management-howto-properties/named-values.png)
 

@@ -46,7 +46,7 @@ En los pasos de configuración se incluyen los siguientes procedimientos para co
 
 1. Cree y rellene una instancia de Azure AD.
 2. Opcional: asocie o cambie la instancia de Active Directory que esté asociada a la suscripción de Azure.
-3. Cree un administrador de Azure Active Directory para el servidor de Azure SQL Server, Instancia administrada o [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+3. Cree un administrador de Azure Active Directory para el servidor de Azure SQL Database, la instancia administrada o la instancia de [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 4. Configure los equipos cliente.
 5. Cree usuarios de bases de datos independientes en la base de datos y asignados a identidades de Azure AD.
 6. Conéctese a la base de datos mediante identidades de Azure AD.
@@ -132,7 +132,7 @@ Se admiten los siguientes métodos de autenticación para entidades de seguridad
 ### <a name="additional-considerations"></a>Consideraciones adicionales
 
 - Para mejorar la capacidad de administración, se recomienda que aprovisione un grupo dedicado de Azure AD como administrador.   
-- Solo un administrador de Azure AD (un usuario o grupo) se puede configurar en un servidor de Azure SQL Server o Azure SQL Data Warehouse en cualquier momento.
+- Solo se puede configurar un administrador de Azure AD (un usuario o grupo) en un servidor de Azure SQL Server o Azure SQL Data Warehouse al mismo tiempo.
   - La adición de entidades de seguridad (inicios de sesión) de un servidor de Azure AD para instancias administradas (**versión preliminar pública**) ofrece la posibilidad de crear varias de estas entidades que se pueden agregar al rol `sysadmin`.
 - Inicialmente, solo un administrador de Azure AD para SQL Server puede conectarse al servidor de Azure SQL Database, a Instancia administrada o a Azure SQL Data Warehouse con una cuenta de Azure Active Directory. El administrador de Active Directory puede configurar los usuarios de la base de datos de Azure AD sucesivos.   
 - Se recomienda establecer el tiempo de espera de conexión a 30 segundos.   

@@ -3,21 +3,22 @@ title: Copia de datos desde SAP ECC mediante Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos desde SAP ECC en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2018
-ms.author: jingwang
+origin.date: 04/26/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121968"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128124"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copia de datos de SAP ECC mediante Azure Data Factory
 
@@ -53,10 +54,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP ECC:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **SapEcc** | Sí |
-| URL | La dirección URL del servicio SAP ECC OData. | Sí |
-| nombre de usuario | Nombre de usuario usado para conectarse a SAP ECC. | Sin  |
-| contraseña | Contraseña de texto no cifrado que se usa para conectarse a SAP ECC. | Sin  |
+| type | La propiedad type debe establecerse en: **SapEcc** | Sí |
+| url | La dirección URL del servicio SAP ECC OData. | Sí |
+| username | Nombre de usuario usado para conectarse a SAP ECC. | Sin  |
+| password | Contraseña de texto no cifrado que se usa para conectarse a SAP ECC. | Sin  |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
@@ -120,7 +121,7 @@ Para copiar datos desde SAP ECC, establezca el tipo de origen de la actividad de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SapEccSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **SapEccSource** | Sí |
 | query | Opciones de consulta de OData para filtrar los datos. Ejemplo: "$select=Name,Description&$top=10".<br/><br/>El conector de SAP ECC copia datos de la dirección URL combinada: (dirección URL especificada en el servicio vinculado) / (ruta de acceso especificada en el conjunto de datos)?(consulta especificada en el origen de la actividad de copia). Consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Sin  |
 
 **Ejemplo:**
@@ -161,14 +162,14 @@ Al copiar datos desde SAP ECC, se utilizan las siguientes asignaciones de tipos 
 
 | Tipo de datos de OData | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| Edm.Binary | string |
+| Edm.Binary | String |
 | Edm.Boolean | Bool |
-| Edm.Byte | string |
+| Edm.Byte | String |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
-| Edm.Guid | string |
+| Edm.Guid | String |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |

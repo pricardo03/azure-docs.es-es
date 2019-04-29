@@ -21,7 +21,7 @@ ms.locfileid: "59360004"
 ---
 # <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Uso de la CLI para escalar un grupo elástico en Azure SQL Database
 
-Este script de ejemplo de la CLI de Azure crea grupos elásticos, traslada las bases de datos de los grupos y cambia los tamaños de proceso de los grupos.
+Este script de ejemplo de la CLI de Azure crea grupos elásticos, traslada las bases de datos agrupadas y cambia el tamaño de proceso de los grupos elásticos.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

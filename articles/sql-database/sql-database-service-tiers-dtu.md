@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
 ms.openlocfilehash: 57a20ac29ec3a15db26e0ab2c0b61b57ab3a5882
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004013"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709066"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 
@@ -26,7 +26,7 @@ Los niveles de servicio en el modelo de compra basado en DTU se diferencian por 
 > [!IMPORTANT]
 > Instancia administrada de SQL Database no admite un modelo de compra basado en DTU. Para más información, consulte [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md).
 > [!NOTE]
-> Para obtener información sobre los niveles de servicio basados en núcleos virtuales, consulte el artículo sobre [niveles de servicio basados en núcleos virtuales](sql-database-service-tiers-vcore.md). Para obtener información acerca de cómo distinguir los niveles de servicio basados en DTU y los niveles de servicio basados en núcleos virtuales, consulte [Modelos de compra de Azure SQL Database](sql-database-purchase-models.md).
+> Para obtener información sobre los niveles de servicio basados en núcleos virtuales, consulte el artículo sobre [niveles de servicio basados en núcleos virtuales](sql-database-service-tiers-vcore.md). Para más información acerca de cómo distinguir los niveles de servicio basados en DTU y los niveles de servicio basados en núcleo virtual, consulte [Modelos de compra de Azure SQL Database](sql-database-purchase-models.md).
 
 ## <a name="compare-the-dtu-based-service-tiers"></a>Comparación de los niveles de servicio basados en DTU
 

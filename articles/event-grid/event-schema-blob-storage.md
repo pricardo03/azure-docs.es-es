@@ -8,11 +8,11 @@ ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614901"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos de Azure Event Grid para Blob Storage
 
@@ -110,7 +110,7 @@ El objeto data tiene las siguientes propiedades:
 | contentType | string | Tipo de contenido especificado para el blob. |
 | contentLength | integer | Tamaño del blob en bytes. |
 | blobType | string | El tipo de blob. Los valores válidos son "BlockBlob" o "PageBlob". |
-| URL | string | Ruta de acceso al blob. |
+| url | string | Ruta de acceso al blob. |
 | sequencer | string | Valor controlado por el usuario que puede usar para realizar un seguimiento de las solicitudes. |
 | storageDiagnostics | objeto | Información sobre los diagnósticos de almacenamiento. |
  

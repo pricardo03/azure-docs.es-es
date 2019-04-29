@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 17b712afff293dba8c353767fc326761bcb53ba3
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57860744"
@@ -36,7 +36,7 @@ Los cmdlets usados en el ejemplo de código son los siguientes:
 
 ## <a name="dns-alias-in-connection-string"></a>Alias DNS en la cadena de conexión
 
-Para conectar un servidor determinado de Azure SQL Database, un cliente como SQL Server Management Studio (SSMS) puede proporcionar el nombre del alias DNS en lugar del nombre verdadero del servidor. En la siguiente cadena de servidor de ejemplo, el alias *any-unique-alias-name* reemplaza al primer nodo delimitado por puntos en la cadena de servidor de cuatro nodos:
+Para conectarse a un servidor determinado de Azure SQL Database, un cliente como SQL Server Management Studio (SSMS) puede proporcionar el nombre del alias DNS en lugar del nombre verdadero del servidor. En la siguiente cadena de servidor de ejemplo, el alias *any-unique-alias-name* reemplaza al primer nodo delimitado por puntos en la cadena de servidor de cuatro nodos:
 
 - Ejemplo de cadena de servidor: `any-unique-alias-name.database.windows.net`.
 

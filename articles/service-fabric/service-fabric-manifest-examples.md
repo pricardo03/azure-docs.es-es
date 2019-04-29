@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: 85a3066095cfc30da19b06d26f41bdc156f85832
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664699"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60718230"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Ejemplos de manifiestos de servicio y de aplicación de Service Fabric
 Esta sección contiene ejemplos de manifiestos de servicio y de aplicación. Estos ejemplos no están diseñados para mostrar escenarios importantes, sino para explicar las distintas configuraciones que están disponibles y cómo usarlas. 
@@ -28,7 +28,7 @@ El siguiente es un índice de las características mostradas y los manifiestos d
 
 |Característica|Manifest|
 |---|---|
-|[Regulación de recursos](service-fabric-resource-governance.md)|[Manifiesto de aplicación de Reliable Services](service-fabric-manifest-example-reliable-services-app.md#application-manifest), [Manifiesto de aplicación de contenedor](service-fabric-manifest-example-container-app.md#application-manifest)|
+|[Gobernanza de recursos](service-fabric-resource-governance.md)|[Manifiesto de aplicación de Reliable Services](service-fabric-manifest-example-reliable-services-app.md#application-manifest), [Manifiesto de aplicación de contenedor](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Ejecución de un servicio como una cuenta de administrador local](service-fabric-application-runas-security.md)|[Implementación de una aplicación de Reliable Services](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|
 |[Aplicación de una directiva predeterminada a todos los paquetes de código de servicio](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages)|[Implementación de una aplicación de Reliable Services](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|
 |[Creación de entidades de usuario y grupo](service-fabric-application-runas-security.md)|[Implementación de una aplicación de Reliable Services](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|

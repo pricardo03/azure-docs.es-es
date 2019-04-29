@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: cithomas
 ms.openlocfilehash: 8243523887ec9861459b2d196126237cf89bad97
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288372"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691349"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicaciones de ASP.NET Core
 
@@ -311,7 +311,7 @@ public class HomeController : Controller
 
 *4. ¿Puedo habilitar la supervisión de Application Insights con herramientas como Monitor de estado?*
 
-*  No. [Monitor de estado](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now) y su reemplazo próximas [IISConfigurator](https://github.com/Microsoft/ApplicationInsights-Announcements/issues/21) actualmente, solo admite ASP.NET. El documento se actualizará cuando se admite para la aplicación de ASP.NET Core está disponible.
+* No. [Monitor de estado](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now) y su reemplazo próximas [IISConfigurator](https://github.com/Microsoft/ApplicationInsights-Announcements/issues/21) actualmente, solo admite ASP.NET. El documento se actualizará cuando se admite para la aplicación de ASP.NET Core está disponible.
 
 *5. ¿Tengo una aplicación ASP.NET Core 2.0? ¿No es Application Insights habilita automáticamente para ellos sin que hiciera nada?*
 

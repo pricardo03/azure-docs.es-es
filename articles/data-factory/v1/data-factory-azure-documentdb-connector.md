@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bda3df3ce869d7717f572f72c38472e7eae4a0ef
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567221"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Movimiento de datos hacia y desde Azure Cosmos DB mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -484,16 +484,16 @@ Azure Cosmos DB es un almacén NoSQL para documentos JSON, en el que se permiten
 ## <a name="appendix"></a>Anexo
 1. **Pregunta:** ¿Admite la actividad de copia la actualización de los registros existentes?
 
-    **Respuesta:**  No.
+    **Respuesta:** No.
 2. **Pregunta:** ¿Cómo hace frente el reintento de una copia en Azure Cosmos DB a los registros ya copiados?
 
     **Respuesta:** Si los registros tienen un campo "Id" y la operación de copia intenta insertar un registro con el mismo identificador, la operación de copia genera un error.
 3. **Pregunta:** ¿Admite Data Factory el [intervalo o las particiones de datos basadas en hash](../../cosmos-db/sql-api-partition-data.md)?
 
-    **Respuesta:**  No.
+    **Respuesta:** No.
 4. **Pregunta:** ¿Puedo especificar más de una colección de Azure Cosmos DB para una tabla?
 
-    **Respuesta:**  No. Solo se puede especificar una colección cada vez.
+    **Respuesta:** No. Solo se puede especificar una colección cada vez.
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.

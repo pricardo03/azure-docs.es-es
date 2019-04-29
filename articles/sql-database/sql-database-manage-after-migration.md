@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703378"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de las bases de datos únicas o agrupadas en Azure SQL Database
 
@@ -111,7 +111,7 @@ Existen varias técnicas a su disposición que podría utilizar para alcanzar la
 
 Un firewall impide el acceso al servidor desde una entidad externa al permitir que solo entidades específicas obtengan acceso al servidor de SQL Database. De forma predeterminada, todas las conexiones y bases de datos del servidor de SQL Database están prohibidas, excepto las conexiones que proceden de otros servicios de Azure. Con una regla de firewall puede abrir el acceso al servidor únicamente a las entidades (por ejemplo, una máquina de desarrollador) que apruebe al permitir la dirección IP de ese equipo a través del firewall. También permite especificar un intervalo de direcciones IP al que quiere permitir el acceso al servidor de SQL Database. Por ejemplo, las direcciones IP de una máquina de desarrollador de su organización pueden agregarse a la vez mediante la especificación de un intervalo en la página Configuración del firewall.
 
-Puede crear reglas de firewall en el nivel de servidor o el nivel de base de datos. Las reglas de firewall de IP en el nivel de servidor pueden crearse mediante Azure Portal o con SSMS. Para más información acerca de cómo configurar una regla de firewall en el nivel de servidor y en el de base de datos, consulte el tema sobre la [creación de reglas de firewall de IP en SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
+Puede crear reglas de firewall en el nivel de servidor o el nivel de base de datos. Las reglas de firewall de IP en el nivel de servidor pueden crearse mediante Azure Portal o con SSMS. Para más información acerca de cómo configurar una regla de firewall en el nivel de servidor y en el de base de datos, consulte el tema sobre la [creación de reglas de firewall de IP en SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Puntos de conexión de servicio
 
@@ -277,7 +277,7 @@ Asimismo, si observa una degradación del rendimiento general de la base de dato
 
 Para obtener un conjunto completo de recomendaciones para ajustar los problemas de rendimiento, consulte el tema sobre el [ajuste de la base de datos](sql-database-performance-guidance.md#tune-your-database).
 
-### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>Cómo me aseguro de que utilizo el plan de servicio y el tamaño de proceso adecuados
+### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>¿Cómo me aseguro de que estoy usando el nivel de servicio y el tamaño de proceso adecuados?
 
 SQL Database ofrece varios niveles de servicio: Básico, Estándar y Premium. Con cada nivel de servicio obtiene un rendimiento predecible garantizado asociado a ese nivel de servicio. En función de la carga de trabajo, puede que tenga ráfagas de actividad donde el uso de recursos podría alcanzar el techo del tamaño de proceso actual en el que se encuentra. En tales casos, resulta útil empezar evaluando si los ajustes pueden ser de ayuda (por ejemplo, agregar o modificar un índice). Si sigue teniendo problemas de límite, considere la posibilidad de cambiar a un nivel de servicio o tamaño de proceso superior.
 

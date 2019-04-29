@@ -1,7 +1,6 @@
 ---
 title: Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal
 description: Aprenda a crear y administrar clústeres de HDInsight mediante el portal de Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 80c27d588bb8b4c60ae8432fbd3a2ac3d2db1394
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 003aeadba1f4683af40f390d40dd3bbe32e02a83
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096372"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal
 
@@ -107,7 +106,7 @@ En la [página principal del clúster](#homePage), en **Configuración**, selecc
 |Fecha de creación|la fecha en que se implementó el clúster.|
 |Sistema operativo|**Windows** o **Linux**.|
 |Type|Hadoop, HBase, Storm o Spark.|
-|Versión|Consulte [Versiones de HDInsight](hdinsight-component-versioning.md).|
+|`Version`|Consulte [Versiones de HDInsight](hdinsight-component-versioning.md).|
 |Subscription|el nombre de la suscripción.|
 |Origen de datos predeterminado|el sistema de archivos predeterminado del clúster.|
 |Tamaño de los nodos de trabajo|el tamaño de máquina virtual seleccionado de los nodos de trabajo.|

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484702"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551317"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Administrar grupos de recursos de Azure Resource Manager mediante el portal de Azure
 
@@ -123,7 +123,7 @@ Hay dos maneras de exportar una plantilla:
 Este método exporta las plantillas para algunas implementaciones. Si han cambiado los recursos desde el portal o a agregar o quitar recursos en varias implementaciones, consulte [exportar plantillas de grupos de recursos](#export-templates-from-resource-groups).
 
 1. Abra el grupo de recursos que desea exportar.  Consulte [abrir grupos de recursos](#open-resource-groups).
-2. En el panel izquierdo, seleccione **implementaciones**, o seleccione el vínculo situado bajo **implementaciones**.  En la captura de pantalla siguiente se muestra **Succeeded 4** porque había cuatro implementaciones separadas con cuatro nombres de implementación diferentes. Es posible que vea **1 correcto**.
+2. En el panel izquierdo, seleccione **Implementaciones** o seleccione el vínculo situado bajo **Implementaciones**.  En la captura de pantalla siguiente se muestra **Succeeded 4** porque había cuatro implementaciones separadas con cuatro nombres de implementación diferentes. Es posible que vea **1 correcto**.
 
     ![plantillas de exportación del grupo de recursos de Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: spelluru
 ms.openlocfilehash: 6faf32232c42f863bff52fdfb3c0714aee8e9b88
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190596"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702441"
 ---
 # <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>Crear un entorno con varias máquinas virtuales dentro de una máquina virtual de un laboratorio de clase de plantilla
 Actualmente Azure Lab Services le permite configurar la máquina virtual de una plantilla en un laboratorio y realizar una copia única disponible para cada uno de los usuarios. Pero si es un profesor que enseña una clase de TI acerca de cómo configurar los firewalls o servidores, puede que necesite proporcionar a cada uno de los estudiantes un entorno en el que varias máquinas virtuales pueden comunicarse entre sí a través de una red.

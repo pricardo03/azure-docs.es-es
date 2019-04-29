@@ -12,7 +12,7 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: 5f6e24dfa1b5c4ea4f0748af81104edfe88ceeae
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58099110"
@@ -100,7 +100,7 @@ Los roles integrados para los recursos de Azure, tales como Colaborador de base 
 Para ver la configuración actual de DWU:
 
 1. Abra el Explorador de objetos de SQL Server en Visual Studio.
-2. Conéctese a la base de datos maestra asociada al servidor lógico de SQL Database.
+2. Conéctese a la base de datos maestra asociada al servidor de SQL Database lógico.
 3. Seleccione en la vista de administración dinámica sys.database_service_objectives. Este es un ejemplo: 
 
 ```sql

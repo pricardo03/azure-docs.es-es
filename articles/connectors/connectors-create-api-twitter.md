@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230666"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104993"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Supervisión y administración de Twitter con Azure Logic Apps
 
@@ -70,15 +70,15 @@ Puede usar desencadenadores que obtengan respuestas de su cuenta de Twitter y pe
 
 ## <a name="examples"></a>Ejemplos
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Desencadenador de Twitter: cuando se publica un nuevo tweet
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Desencadenador de Twitter: Cuando se publique un nuevo tweet
 
 Este desencadenador inicia un flujo de trabajo de la aplicación lógica cuando detecta un nuevo tweet, por ejemplo, con el hashtag #Seattle. Por ejemplo, cuando se detectan estos tweets, puede agregar un archivo con el contenido de los tweets al almacenamiento, por ejemplo, una cuenta de Dropbox mediante el conector de Dropbox. 
 
 Opcionalmente, puede incluir una condición de que los tweets válidos deben provenir de los usuarios con al menos un número especificado de seguidores.
 
-**Ejemplo empresarial**: puede usar este desencadenador para supervisar los tweets sobre su empresa y cargar el contenido de los tweets en una base de datos SQL.
+**Ejemplo Enterprise**: Puede utilizar este desencadenador para supervisar los tweets sobre su empresa y cargar contenido de los tweets en una base de datos SQL.
 
-### <a name="twitter-action-post-a-tweet"></a>Acción de Twitter: publicación de un tweet
+### <a name="twitter-action-post-a-tweet"></a>Acción de Twitter: Publicar un tweet
 
 Esta acción publica un tweet, pero puede configurarla para que el tweet incluya el contenido de los tweets encontrados por el desencadenador descrito anteriormente. 
 

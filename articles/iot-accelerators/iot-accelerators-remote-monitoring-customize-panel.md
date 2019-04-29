@@ -1,19 +1,20 @@
 ---
-title: 'Adición de un panel a la interfaz de usuario de la solución de supervisión remota: Azure | Microsoft Docs'
+title: Agregar un panel a la solución de supervisión remota UI - Azure | Microsoft Docs
 description: En este artículo se muestra cómo agregar un nuevo panel a la interfaz de usuario web del acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/05/2018
+origin.date: 10/05/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165885"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447070"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de un panel personalizado al panel de la interfaz de usuario web del acelerador de soluciones de supervisión remota
 
@@ -45,7 +46,6 @@ Para comenzar, la carpeta **src/walkthrough/components/pages/dashboard/panels/ex
 
 **examplePanel.js**
 
-[!code-javascript[Example panel](~/remote-monitoring-webui/src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel.js?name=panel "Example panel")]
 
 Copie la carpeta **src/walkthrough/components/pages/dashboard/panels/examplePanel** en la carpeta **src/components/pages/dashboard/panels**.
 
@@ -96,4 +96,4 @@ El comando anterior ejecuta la interfaz de usuario localmente en [http://localho
 
 En este artículo, aprendió sobre los recursos que tiene a su disposición para ayudarle a agregar o personalizar paneles en la interfaz de usuario web del acelerador de la solución de supervisión remota.
 
-Para información más conceptual sobre el acelerador de la solución de supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Para información más conceptual sobre el acelerador de soluciones de supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).

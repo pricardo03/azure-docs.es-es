@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: b661499786057a3083f79684dfd12c85266b7b5c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: b9e5d034db4711384d2ac8a1083da5c93ea11900
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128798"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437249"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guía para la optimización del rendimiento de MapReduce en HDInsight y Azure Data Lake Storage Gen1
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* **Una cuenta de Azure Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
-* **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen1. Consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1 mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
+* **Una cuenta de Azure Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Clúster de Azure HDInsight** con acceso a una cuenta de Data Lake Storage Gen1. Consulte [Creación de un clúster de HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
 * **Uso de MapReduce en HDInsight**.  Para más información, consulte [Uso de MapReduce en Hadoop en HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce).
 * **Guía para la optimización del rendimiento en Data Lake Storage Gen1**.  Para conocer los conceptos generales sobre rendimiento, consulte [Guía para la optimización del rendimiento de Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).
 
@@ -44,20 +44,20 @@ Al ejecutar trabajos de MapReduce, estos son los parámetros más importantes qu
 
 ## <a name="guidance"></a>Guía
 
-**Paso 1: Determinación del número de trabajos que se ejecutan**: de forma predeterminada, MapReduce usará todo el clúster para el trabajo.  Puede usar una cantidad menor del clúster usando menos asignadores que contenedores haya disponibles.  En las instrucciones de este documento se asume que la aplicación es la única aplicación que se ejecuta en el clúster.      
+**Paso 1: Determinar el número de trabajos que se ejecutan** : de forma predeterminada, MapReduce usará todo el clúster para su trabajo.  Puede usar una cantidad menor del clúster usando menos asignadores que contenedores haya disponibles.  En las instrucciones de este documento se asume que la aplicación es la única aplicación que se ejecuta en el clúster.      
 
-**Paso 2: Establecimiento de mapreduce.map.memory/mapreduce.reduce.memory**: el tamaño de la memoria para las tareas de asignación y reducción dependerá del trabajo específico.  Puede reducir el tamaño de memoria si quiere aumentar la simultaneidad.  El número de tareas en ejecución al mismo tiempo depende del número de contenedores.  Al reducir la cantidad de memoria por asignador o reductor, pueden crearse más contenedores, que permiten que más asignadores o reductores se ejecuten a la vez.  Si se reduce demasiado la cantidad de memoria puede provocar que algunos procesos se ejecuten con memoria insuficiente.  Si recibe un error de heap cuando se ejecuta el trabajo, debe aumentar la memoria por asignador o reductor.  Debe tener en cuenta que agregar más contenedores supondrá una sobrecarga adicional para cada contenedor de más, lo que podría reducir el rendimiento.  Otra alternativa consiste en obtener más memoria mediante un clúster que tenga mayor cantidad de memoria o aumentar el número de nodos en el clúster.  Más memoria permitirá que se usen más contenedores, lo que se traduce en una mayor simultaneidad.  
+**Paso 2: Establecimiento de mapreduce.map.memory/mapreduce.reduce.memory** : el tamaño de la memoria de mapa y reducir tareas dependerá del trabajo específico.  Puede reducir el tamaño de memoria si quiere aumentar la simultaneidad.  El número de tareas en ejecución al mismo tiempo depende del número de contenedores.  Al reducir la cantidad de memoria por asignador o reductor, pueden crearse más contenedores, que permiten que más asignadores o reductores se ejecuten a la vez.  Si se reduce demasiado la cantidad de memoria puede provocar que algunos procesos se ejecuten con memoria insuficiente.  Si recibe un error de heap cuando se ejecuta el trabajo, debe aumentar la memoria por asignador o reductor.  Debe tener en cuenta que agregar más contenedores supondrá una sobrecarga adicional para cada contenedor de más, lo que podría reducir el rendimiento.  Otra alternativa consiste en obtener más memoria mediante un clúster que tenga mayor cantidad de memoria o aumentar el número de nodos en el clúster.  Más memoria permitirá que se usen más contenedores, lo que se traduce en una mayor simultaneidad.  
 
-**Paso 3: Determinación de la memoria de YARN total**: para optimizar mapreduce.job.maps/mapreduce.job.reduces, debería considerar la cantidad de memoria YARN total disponible para su uso.  Esta información está disponible en Ambari.  Vaya a YARN y examine la pestaña de configuración.  En esta ventana se muestra el tamaño de la memoria de YARN.  Para obtener la memoria de YARN total, debe multiplicar la memoria de YARN por el número de nodos que tiene en el clúster.
+**Paso 3: Determinación de la memoria de YARN Total** : para optimizar mapreduce.job.maps/mapreduce.job.reduces, debería considerar la cantidad de memoria YARN total disponible para su uso.  Esta información está disponible en Ambari.  Vaya a YARN y examine la pestaña de configuración.  En esta ventana se muestra el tamaño de la memoria de YARN.  Para obtener la memoria de YARN total, debe multiplicar la memoria de YARN por el número de nodos que tiene en el clúster.
 
     Total YARN memory = nodes * YARN memory per node
 Si va a usar un clúster vacío, la memoria puede ser la memoria de YARN total para en el clúster.  Si otras aplicaciones usan memoria, puede elegir usar solamente una parte de la memoria del clúster; para ello, reduzca el número de asignadores o reductores al número de contenedores que quiere usar.  
 
-**Paso 4: Cálculo del número de contenedores YARN**: los contenedores YARN dictaminan la cantidad de simultaneidad disponible para el trabajo.  Tome la memoria de YARN total y divídala entre el valor de mapreduce.map.memory.  
+**Paso 4: Calcular el número de contenedores YARN** – contenedores YARN dictaminan la cantidad de simultaneidad disponible para el trabajo.  Tome la memoria de YARN total y divídala entre el valor de mapreduce.map.memory.  
 
     # of YARN containers = total YARN memory / mapreduce.map.memory
 
-**Paso 5: Establecer mapreduce.job.maps/mapreduce.job.reduces** Establece mapreduce.job.maps/mapreduce.job.reduces en al menos el número de contenedores disponibles.  Puede seguir experimentando y aumentar el número de asignadores y reductores para ver si obtiene mejor rendimiento.  Tenga en cuenta que cuantos más asignadores más sobrecarga, por lo que tener demasiados asignadores puede reducir el rendimiento.  
+**Paso 5: Establecer mapreduce.job.maps/mapreduce.job.reduces** establece mapreduce.job.maps/mapreduce.job.reduces en al menos el número de contenedores disponibles.  Puede seguir experimentando y aumentar el número de asignadores y reductores para ver si obtiene mejor rendimiento.  Tenga en cuenta que cuantos más asignadores más sobrecarga, por lo que tener demasiados asignadores puede reducir el rendimiento.  
 
 Nota: la programación de CPU y el aislamiento de CPU están desactivadas de forma predeterminada, de modo que el número de contenedores de YARN está restringido por la memoria.
 
@@ -65,12 +65,12 @@ Nota: la programación de CPU y el aislamiento de CPU están desactivadas de for
 
 Supongamos que tiene actualmente un clúster compuesto de 8 nodos D14 y quiere ejecutar un trabajo de uso intensivo de E/S.  Estos son los cálculos que se debe realizar:
 
-**Paso 1: Determinación del número de trabajos que se ejecutan**. En nuestro ejemplo, suponemos que nuestro trabajo es el único en ejecución.  
+**Paso 1: Determinar el número de trabajos que se ejecutan** -nuestro ejemplo, suponemos que nuestro trabajo es el único en ejecución.  
 
-**Paso 2: Configuración de mapreduce.map.memory/mapreduce.reduce.memory**: en nuestro ejemplo, está ejecutando un trabajo de uso intensivo de E/S y decide que 3 GB de memoria para las tareas de asignación será suficiente.
+**Paso 2: Establecimiento de mapreduce.map.memory/mapreduce.reduce.memory** : en nuestro ejemplo, está ejecutando un trabajo con uso intensivo de E/S y decide que 3 GB de memoria para las tareas de asignación será suficiente.
 
     mapreduce.map.memory = 3GB
-**Paso 3: Determinación de la memoria de YARN total**
+**Paso 3: Determinación de la memoria de YARN total**
 
     total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
 **Paso 4: Cálculo del número de contenedores de YARN**

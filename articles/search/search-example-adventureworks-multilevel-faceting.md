@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: chstone
 ms.openlocfilehash: 7fa17528931be40109d81edac0f15a6a6822ec01
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61291782"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>Ejemplo: Facetas de varios niveles en Azure Search
 
@@ -97,6 +97,6 @@ Esta técnica escalará para abarcar escenarios más complejos, como árboles ta
 > [!TIP]
 > El número de facetas devueltas afecta la velocidad de la consulta. Para admitir conjuntos taxonómicos de gran tamaño, considere la posibilidad de agregar un campo **Edm.String** en facetas para contener el valor taxonómico de nivel superior de cada documento. Luego, aplique la misma técnica anterior, pero solo realice la consulta de faceta de colección (filtrada en el campo de taxonomía raíz) cuando el usuario se expanda a un nodo de nivel superior. O bien, si no se requiere una recuperación del 100 %, simplemente disminuya el recuento de facetas a un número razonable y asegúrese de que las entradas de facetas se ordenan por recuento.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Ejemplo: Model the AdventureWorks Inventory database for Azure Search](search-example-adventureworks-modeling.md) (Modelo de la base de datos del inventario de AdventureWorks para Azure Search)

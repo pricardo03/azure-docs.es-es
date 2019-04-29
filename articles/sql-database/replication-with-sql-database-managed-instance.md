@@ -1,6 +1,6 @@
 ---
-title: Configuración de la replicación de una base de datos de instancias administradas de Azure SQL Database | Microsoft Docs
-description: Aprenda a configurar la replicación transaccional en una base de datos de instancias administradas de Azure SQL Database
+title: Configuración de la replicación de una base de datos de instancia administrada de Azure SQL Database | Microsoft Docs
+description: Aprenda a configurar la replicación transaccional en una base de datos de instancia administrada de Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -13,15 +13,15 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: b20a119a69ac796bc9ea85083d335f0a7d2fdf2d
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646771"
 ---
-# <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configuración de la replicación en una base de datos de instancias administradas de Azure SQL Database
+# <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configuración de la replicación en una base de datos de instancia administrada de Azure SQL Database
 
-La replicación transaccional permite replicar datos en una base de datos de instancias administradas de Azure SQL Database desde una base de datos de SQL Server u otro tipo de bases de datos de instancias. También puede usar la replicación transaccional para insertar los cambios realizados en una base de datos de Instancia administrada de Azure SQL Database en una base de datos de SQL Server, en una base de datos única de Azure SQL Database o en una base de datos agrupada en un grupo elástico de Azure SQL Database. La replicación está disponible en versión preliminar pública en [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). Una Instancia administrada puede hospedar bases de datos del publicador, distribuidor y suscriptor. Consulte las [configuraciones de la replicación transaccional](sql-database-managed-instance-transactional-replication.md#common-configurations) para ver las opciones disponibles.
+La replicación transaccional permite replicar datos en una base de datos de instancia administrada de Azure SQL Database desde una base de datos de SQL Server u otro tipo de bases de datos de instancias. También puede usar la replicación transaccional para insertar los cambios realizados en una base de datos de Instancia administrada de Azure SQL Database en una base de datos de SQL Server, en una base de datos única de Azure SQL Database o en una base de datos agrupada en un grupo elástico de Azure SQL Database. La replicación está disponible en versión preliminar pública en [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). Una Instancia administrada puede hospedar bases de datos del publicador, distribuidor y suscriptor. Consulte las [configuraciones de la replicación transaccional](sql-database-managed-instance-transactional-replication.md#common-configurations) para ver las opciones disponibles.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -60,9 +60,9 @@ La siguientes características no pueden utilizarse en las instancias administra
 
    Asegúrese de copiar las claves de almacenamiento. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../storage/common/storage-account-manage.md#access-keys
 ).
-3. Cree una base de datos de instancias para el publicador.
+3. Cree una base de datos de instancia para el publicador.
 
-   En los scripts de ejemplo siguientes, reemplace `<Publishing_DB>` por el nombre de esta base de datos de instancias.
+   En los scripts de ejemplo siguientes, reemplace `<Publishing_DB>` por el nombre de esta base de datos de instancia.
 
 4. Cree un usuario de base de datos con autenticación de SQL para el distribuidor. Utilice una contraseña segura.
 

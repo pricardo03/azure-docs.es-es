@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: spelluru
 ms.openlocfilehash: 4d2ba11181977f1976b5ae933e8b93a92424fa96
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56809423"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60695290"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Usar laboratorios educativos para aprendizajes
 Puede configurar un laboratorio para aprendizajes. Laboratorios de aula en Azure Lab Services permiten crear un laboratorio para el entrenamiento donde cada aprendiz usa entornos idénticos y aislados para el entrenamiento. Puede aplicar directivas para garantizar que los entornos de entrenamiento estarán disponibles para cada aprendiz solo cuando sea necesario y cuando contengan los suficientes recursos necesarios como, por ejemplo, máquinas virtuales, para el entrenamiento. 

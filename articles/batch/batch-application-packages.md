@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/15/2018
+ms.date: 04/05/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fd3eccf3de5d46520dc5a50cab66667c875799e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee54d37050991763e60a6feb96c75d80384a42ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60722223"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
 
@@ -29,14 +29,11 @@ La característica de paquetes de aplicación de Azure Batch permite administrar
 En este artículo, aprenderá cómo cargar y administrar paquetes de aplicación en Azure Portal. A continuación, aprenderá a instalarlos en nodos de proceso de un grupo mediante la biblioteca de [.NET para Batch][api_net].
 
 > [!NOTE]
-> 
 > Los paquetes de aplicaciones se admiten en todos los grupos de Batch creados después del 5 de julio de 2017. Se admiten en los grupos de Batch creados entre el 10 de marzo de 2016 y el 5 de julio de 2017 únicamente si el grupo se creó mediante una configuración de Cloud Services. Los grupos de Batch creados antes del 10 de marzo de 2016 no admiten los paquetes de aplicaciones.
 >
 > Las API para crear y administrar paquetes de aplicaciones forman parte de la biblioteca [Batch Management .NET][api_net_mgmt]. Las API para la instalación de paquetes de aplicaciones en un nodo de proceso forman parte de la biblioteca [.NET de lotes][api_net]. Las características comparables están en las API de Batch disponibles para otros idiomas. 
 >
 > La característica de paquetes de aplicaciones que se describe aquí reemplaza a la característica de aplicaciones de Batch disponible en versiones anteriores del servicio.
-> 
-> 
 
 ## <a name="application-package-requirements"></a>Requisitos de los paquetes de aplicación
 Para utilizar paquetes de aplicación, primero se debe [vincular una cuenta de Azure Storage](#link-a-storage-account) a su cuenta de Batch.
@@ -116,6 +113,14 @@ Esta ventana muestra el identificador de cada aplicación en su cuenta y las pro
 * **Paquetes**: el número de versiones asociadas a la aplicación.
 * **Versión predeterminada**: la versión de la aplicación que se instala si no indica ninguna versión al especificar la aplicación para un grupo. Esta configuración es opcional.
 * **Permitir actualizaciones**: el valor que especifica si se permiten las actualizaciones, eliminaciones y adiciones en el paquete. Si se establece en **No**, las actualizaciones y eliminaciones se deshabilitan para la aplicación. Solo se pueden agregar versiones nuevas del paquete de aplicación. El valor predeterminado es **Sí**.
+
+Si gustaría ver la estructura de archivos del paquete de aplicación en el nodo de proceso, vaya a la cuenta de Batch en el portal. En su cuenta de Batch, vaya a **grupos**. Seleccione el grupo que contiene los nodos de proceso que le interesa.
+
+![Nodos de grupo][13]
+
+Una vez que haya seleccionado el grupo, navegue hasta el nodo de proceso que está instalado el paquete de aplicación en. Desde allí, los detalles del paquete de aplicación se encuentran en el **aplicaciones** carpeta. Carpetas adicionales en el nodo de proceso contienen otros archivos, como las tareas de inicio, archivos de salida, la salida de errores, etcetera.
+
+![Archivos en el nodo][14]
 
 ### <a name="view-application-details"></a>Visualización de los detalles de una aplicación
 Para consultar los detalles de una aplicación, selecciónela en la ventana **Aplicaciones**.
@@ -374,3 +379,5 @@ Con los paquetes de aplicación puede ayudar a los clientes a seleccionar las ap
 [10]: ./media/batch-application-packages/app_pkg_10.png "Hoja Elegir de cuenta de almacenamiento en Azure Portal"
 [11]: ./media/batch-application-packages/app_pkg_11.png "Hoja Actualizar paquete en Azure Portal"
 [12]: ./media/batch-application-packages/app_pkg_12.png "Cuadro de diálogo de confirmación de eliminación de paquetes en Azure Portal"
+[13]: ./media/batch-application-packages/package-file-structure.png "Calcular la información del nodo en el portal de Azure"
+[14]: ./media/batch-application-packages/package-file-structure-node.png "Archivos en el nodo de proceso que se muestra en el portal de Azure"

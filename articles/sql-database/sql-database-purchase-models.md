@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360191"
@@ -28,8 +28,8 @@ Azure SQL Database le permite comprar fácilmente motores de base de datos PaaS 
 
 Hay disponibles distintos modelos de compra en los modelos de implementación de Azure SQL Database:
 
-- Las opciones de implementación de [base de datos única](sql-database-single-databases-manage.md) y [grupo elástico](sql-database-elastic-pool.md) de [Azure SQL Database](sql-database-technical-overview.md) ofrecen ambas el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
-- La opción de implementación de [instancia administrada](sql-database-managed-instance.md) de Azure SQL Database solo ofrece el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
+- Las opciones de implementación de [base de datos única](sql-database-single-databases-manage.md) y [grupo elástico](sql-database-elastic-pool.md) de [Azure SQL Database](sql-database-technical-overview.md) ofrecen ambas el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
+- La opción de implementación de [instancia administrada](sql-database-managed-instance.md) de Azure SQL Database solo ofrece el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
 > El [nivel de servicio de hiperescala (versión preliminar)](sql-database-service-tier-hyperscale.md) está en versión preliminar pública solo para las bases de datos únicas que usan el modelo de compra basado en núcleos virtuales.
@@ -39,14 +39,14 @@ En la tabla y el gráfico siguientes se comparan y contrastan estos dos modelos 
 |**Modelo de compra**|**Descripción**|**Más adecuado para**|
 |---|---|---|
 |Modelo basado en DTU|Este modelo se basa en una medida agrupada de recursos de proceso, almacenamiento y E/S. Los tamaños de proceso se expresan como unidades de transacción de base de datos (DTU) para las bases de datos únicas y como unidades de transacción de base de datos elásticas (eDTU) para los grupos elásticos. Para más información sobre las DTU y las eDTU, consulte [¿Qué son las DTU y las eDTU?](sql-database-purchase-models.md#dtu-based-purchasing-model)|Recomendado para los clientes que desean opciones de recursos simples y configuradas previamente.|
-|Modelo basado en núcleos virtuales|Este modelo le permite elegir los recursos de proceso y almacenamiento de manera independiente. El modelo de compra basado en núcleos virtuales también le permite usar la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para ahorrar en los costos.|Recomendado para los clientes que valoran la flexibilidad, el control y la transparencia.|
+|Modelo basado en núcleos virtuales|Este modelo le permite elegir los recursos de proceso y almacenamiento de manera independiente. El modelo de compra basado en núcleo virtual también le permite usar la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para ahorrar en los costos.|Recomendado para los clientes que valoran la flexibilidad, el control y la transparencia.|
 ||||  
 
 ![Modelo de precios](./media/sql-database-service-tiers/pricing-model.png)
 
 ## <a name="compute-costs"></a>Costos de proceso
 
-El costo de proceso refleja la capacidad de proceso total que se ha aprovisionado para la aplicación. En el nivel de servicio Crítico para la empresa, se asignan automáticamente como mínimo tres réplicas. Para reflejar esta asignación adicional de recursos de proceso, el precio del núcleo virtual es aproximadamente 2,7 veces más elevado en el nivel Crítico para la empresa que en el nivel de uso general. Por la misma razón, el precio de almacenamiento más alto por GB en el nivel Crítico para la empresa refleja la E/S alta y la baja latencia del almacenamiento SSD. Al mismo tiempo, el costo de almacenamiento de copia de seguridad no es diferente entre estos dos niveles de servicio porque en ambos casos se usa una clase de almacenamiento estándar.
+El costo de proceso refleja la capacidad de proceso total que se ha aprovisionado para la aplicación. En el nivel de servicio Crítico para la empresa, se asignan automáticamente como mínimo tres réplicas. Para reflejar esta asignación adicional de recursos de proceso, el precio del núcleo virtual es aproximadamente 2,7 veces más elevado en el nivel Crítico para la empresa que en el nivel Uso general. Por la misma razón, el mayor precio del almacenamiento por GB en el nivel Crítico para la empresa refleja la E/S alta y la baja latencia del almacenamiento SSD. Al mismo tiempo, el costo de almacenamiento de copia de seguridad no es diferente entre estos dos niveles de servicio porque en ambos casos se usa una clase de almacenamiento estándar.
 
 ## <a name="storage-costs"></a>Costos de almacenamiento
 
@@ -56,11 +56,11 @@ De forma predeterminada, se realizan copias de seguridad automatizadas de las ba
 
 Para más información sobre los precios de almacenamiento, consulte la página de [precios](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleos virtuales
+## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleo virtual
 
-Un núcleo virtual representa la CPU lógica que ofrece una opción para elegir entre varias generaciones de hardware y las características físicas de hardware (por ejemplo, el número de núcleos, memoria, el tamaño de almacenamiento). El modelo de compra basado en núcleos virtuales le ofrece flexibilidad, control, transparencia de consumo de recursos individuales y una manera sencilla de trasladar los requisitos de carga de trabajo locales a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de la carga de trabajo. En el modelo de compra basado en núcleos virtuales, puede elegir entre los niveles de servicio [De uso general](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) y [Crítico para la empresa](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para [bases de datos únicas](sql-database-single-database-scale.md), [grupos elásticos](sql-database-elastic-pool.md) e [instancias administradas](sql-database-managed-instance.md). Para las bases de datos únicas, también puede elegir el [nivel de servicio de hiperescala (versión preliminar)](sql-database-service-tier-hyperscale.md).
+Un núcleo virtual representa la CPU lógica que ofrece una opción para elegir entre varias generaciones de hardware y las características físicas de hardware (por ejemplo, el número de núcleos, memoria, el tamaño de almacenamiento). El modelo de compra basado en núcleo virtual le ofrece flexibilidad, control, transparencia de consumo de recursos individuales y una manera sencilla de trasladar los requisitos de carga de trabajo locales a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de la carga de trabajo. En el modelo de compra basado en núcleo virtual, puede elegir entre los niveles de servicio [Uso general](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) y [Crítico para la empresa](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para [bases de datos únicas](sql-database-single-database-scale.md), [grupos elásticos](sql-database-elastic-pool.md) e [instancias administradas](sql-database-managed-instance.md). Para las bases de datos únicas, también puede elegir el [nivel de servicio de hiperescala (versión preliminar)](sql-database-service-tier-hyperscale.md).
 
-El modelo de compra basado en núcleos virtuales permite elegir los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. En un modelo de compra basado en núcleos virtuales, los clientes pagan por:
+El modelo de compra basado en núcleo virtual permite elegir los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. En un modelo de compra basado en núcleo virtual, los clientes pagan por:
 
 - Proceso (nivel de servicio + número de núcleos virtuales y cantidad de memoria + generación de hardware)
 - Tipo y cantidad de almacenamiento de datos y registros
@@ -71,7 +71,7 @@ El modelo de compra basado en núcleos virtuales permite elegir los recursos de 
 > **Limitaciones regionales:** Para conocer la lista actual de regiones admitidas, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Si desea crear una instancia administrada en una región que no se admita actualmente, puede [enviar la solicitud de soporte técnico a través de Azure Portal](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-Si su base de datos única o un grupo elástico consume más de 300 DTU, cambiar al modelo de compra basado en núcleos virtuales puede reducir los costos. Si decide cambiarlo, puede realizar la conversión mediante la API de su elección o usar Azure Portal, sin experimentar tiempo de inactividad. Sin embargo, la conversión no es necesaria y no se realiza automáticamente. Si el modelo de compra basado en DTU satisface sus requisitos de rendimiento y empresariales, debe seguir usándolo. Si decide cambiar del modelo de compra basado en DTU al modelo basado en núcleos virtuales, seleccione el tamaño de proceso mediante las siguientes reglas generales:
+Si su base de datos única o un grupo elástico consume más de 300 DTU, cambiar al modelo de compra basado en núcleo virtual puede reducir los costos. Si decide cambiarlo, puede realizar la conversión mediante la API de su elección o usar Azure Portal, sin experimentar tiempo de inactividad. Sin embargo, la conversión no es necesaria y no se realiza automáticamente. Si el modelo de compra basado en DTU satisface sus requisitos de rendimiento y empresariales, debe seguir usándolo. Si decide cambiar del modelo de compra basado en DTU al modelo de compra basado en núcleo virtual, seleccione el tamaño de proceso mediante las siguientes reglas generales:
 
 - Cada 100 DTU del nivel Estándar requiere al menos 1 núcleo virtual en el nivel de uso general
 - Cada 125 DTU del nivel Premium requiere como mínimo 1 núcleo virtual en el nivel crítico para la empresa
@@ -86,7 +86,7 @@ Para una base de datos única en un tamaño de proceso específico dentro de un 
 
 ![rectángulo de selección](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-Las DTU son especialmente útiles para comprender la cantidad relativa de recursos entre bases de datos de Azure SQL en diferentes tamaños de proceso y niveles de servicio. Por ejemplo, duplicar el número de DTU al aumentar el tamaño de proceso de una base de datos equivale a duplicar el conjunto de recursos disponibles para esa base de datos. Por ejemplo, una base de datos Premium P11 con 1750 DTU proporciona una potencia de proceso de DTU 350 veces mayor que una base de datos básica con 5 DTU.  
+Las DTU son especialmente útiles para comprender la cantidad relativa de recursos entre las bases de datos de Azure SQL en los diferentes tamaños de proceso y niveles de servicio. Por ejemplo, duplicar el número de DTU al aumentar el tamaño de proceso de una base de datos equivale a duplicar el conjunto de recursos disponibles para esa base de datos. Por ejemplo, una base de datos Premium P11 con 1750 DTU proporciona una potencia de proceso de DTU 350 veces mayor que una base de datos básica con 5 DTU.  
 
 Para más información sobre el consumo de recursos (DTU) de la carga de trabajo, use [Información de rendimiento de consultas](sql-database-query-performance.md) para:
 
@@ -116,11 +116,11 @@ Los grupos son apropiados para un amplio número de bases de datos con patrones 
 
 Los nuevos niveles de servicio ofrecen un método sencillo de conversión en línea similar al proceso existente de actualizar las bases de datos desde el nivel de servicio Estándar a Premium, y viceversa. Esta conversión puede iniciarse con Azure Portal, PowerShell, la CLI de Azure, T-SQL o la API de REST. Consulte [Administración de bases de datos únicas](sql-database-single-database-scale.md) y [Administración de grupos elásticos](sql-database-elastic-pool.md).
 
-### <a name="can-i-convert-a-database-from-a-service-tier-using-the-vcore-based-purchase-to-a-service-tier-using-the-dtu-based-purchasing-model"></a>¿Se puede cambiar una base de datos de un nivel de servicio que usa el modelo de compra basado en núcleos virtuales a otro nivel de servicio que use el modelo basado en DTU?
+### <a name="can-i-convert-a-database-from-a-service-tier-using-the-vcore-based-purchase-to-a-service-tier-using-the-dtu-based-purchasing-model"></a>¿Se puede cambiar una base de datos de un nivel de servicio que usa el modelo de compra basado en núcleo virtual a otro nivel de servicio que use el modelo de compra basado en DTU?
 
 Sí, puede convertir fácilmente su base de datos a cualquier objetivo de rendimiento compatible usando Azure Portal, PowerShell, la CLI de Azure, T-SQL o la API de REST. Consulte [Administración de bases de datos únicas](sql-database-single-database-scale.md) y [Administración de grupos elásticos](sql-database-elastic-pool.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte este artículo sobre el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) si quiere obtener más información al respecto.
+- Consulte este artículo sobre el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) si quiere obtener más información al respecto.
 - Con respecto al modelo de compra basado en DTU, consulte [Modelo de compra basado en DTU](sql-database-service-tiers-dtu.md).

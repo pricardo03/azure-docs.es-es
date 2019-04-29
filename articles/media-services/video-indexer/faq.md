@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892666"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553698"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -160,7 +160,7 @@ Video Indexer usa un sencillo modelo de precios de pago por uso según la duraci
 
 ### <a name="when-am-i-billed-for-using-video-indexer"></a>¿Cuándo se factura usando Video Indexer?
 
-Al enviar un vídeo que se deben indexar, el usuario definirá la indexación para que sea el análisis de video, análisis de audio o ambos. Esto determinará qué SKU se cobrará. Si hay un error de nivel crítico durante el procesamiento, se devolverá un código de error como respuesta. En tal caso, se produce ninguna facturación.  Un error crítico puede deberse a un error en nuestro código o tiene un error crítico en una dependencia interna del servicio. No se consideran errores como la extracción de identificación o información errónea como críticas y se devuelve una respuesta. En cualquier caso donde se devuelve una respuesta válida (código de error no), se produce la facturación.
+Al enviar un vídeo que se va a indexar, el usuario definirá la indexación de modo que sea análisis de vídeos, análisis de audio o ambos. Esto determinará qué SKU se cobrará. Si se produce un error de nivel crítico durante el procesamiento, se devolverá un código de error como respuesta. En dicho caso, no se realiza facturación.  Un error crítico puede provocarlo un error en nuestro código o un fallo crítico en una dependencia interna del servicio. Errores como una incorrecta identificación o la extracción de conclusiones no se consideran críticos, devolviéndose una respuesta. En los casos en los que se devuelva una respuesta válida (código sin errores), se realizará facturación.
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>¿Video Indexer ofrece una evaluación gratuita?
 

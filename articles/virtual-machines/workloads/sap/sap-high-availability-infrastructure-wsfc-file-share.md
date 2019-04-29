@@ -18,11 +18,11 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60637767"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con un clúster de conmutación por error de Windows y el recurso compartido de archivos para instancias de SAP ASCS/SCS
 
@@ -322,7 +322,7 @@ La plantilla de Azure Resource Manager para implementar el servidor de archivos 
 
 Se recomienda usar Managed Disks.
 
-![Ilustración 1: Pantalla de la interfaz de usuario para la plantilla del Administrador de recursos del servidor de archivos de escalabilidad horizontal con discos administrados][sap-ha-guide-figure-8010]
+![Figura 1: Pantalla de la interfaz de usuario para la plantilla del Administrador de recursos del servidor de archivos de escalabilidad horizontal con discos administrados][sap-ha-guide-figure-8010]
 
 _**Figura 1**: Pantalla de la interfaz de usuario para la plantilla del Administrador de recursos del servidor de archivos de escalabilidad horizontal con discos administrados_
 

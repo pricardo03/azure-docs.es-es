@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
 ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650104"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703785"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configuración de los valores y directivas de uso
 En este artículo se describe cómo agregar usuarios al laboratorio, registrarlos en el laboratorio, controlar el número de horas que pueden usar la máquina virtual y mucho más. 
@@ -47,15 +47,15 @@ Si el **acceso restringido** se habilita para el laboratorio, solo los usuarios 
 Azure Lab Services permite a los profesores a enviar por correo electrónico a todas las invitaciones de laboratorio o estudiantes seleccionados sin tener que usar otro cliente de correo electrónico. Pueden mantener los profesores de estudiantes individuales en la lista para ver el icono de correo electrónico para cada alumno o seleccionados uno o varios alumnos y usar **Enviar invitación** en la barra de herramientas. Esta característica envía un correo electrónico con un vínculo de registro y agrega un mensaje (si existe) por el profesor. Después de que se envió la invitación, cambia el estado de la invitación a **invitación enviada** para que los profesores pueden realizar un seguimiento de los estudiantes ya ha recibido el vínculo de registro y la fecha en se envió.
 
 1. Cambie a la vista **Users** (Usuarios) si aún no está en la página. 
-2. Seleccione usuarios específicos o todos ellos en la lista. Para seleccionar usuarios específicos, active las casillas de la primera columna de la lista. Para seleccionar todos los usuarios, seleccione la casilla situada delante del título de la primera columna (**Nombre**) o seleccione todas las casillas d todos los usuarios de la lista. Puede ver el estado de la **estado invitación** en esta lista.  En la siguiente imagen, se establece el estado de la invitación para todos los estudiantes en **invitación no enviada**. 
+2. Seleccione usuarios específicos o todos ellos en la lista. Para seleccionar usuarios específicos, active las casillas de la primera columna de la lista. Para seleccionar todos los usuarios, seleccione la casilla situada delante del título de la primera columna (**Nombre**) o seleccione todas las casillas d todos los usuarios de la lista. Puede ver el **estado de la invitación** en esta lista.  En la siguiente imagen, se establece el estado de la invitación para todos los alumnos en **Invitación no enviada**. 
 
-    ![Seleccionar alumnos](../media/tutorial-setup-classroom-lab/select-students.png)
-1. Seleccione el **icono de correo electrónico (envelope)** en una de las filas (o) seleccione **Enviar invitación** en la barra de herramientas. También puede mantener el mouse sobre el nombre de un estudiante en la lista para ver el icono de correo electrónico. 
+    ![Selección de alumnos](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Seleccione el **icono de correo electrónico (sobre)** en una de las filas o seleccione **Enviar invitación** en la barra de herramientas. También puede mantener el ratón sobre un nombre de alumno en la lista para ver el icono de correo electrónico. 
 
     ![Envío del vínculo de registro por correo electrónico](../media/tutorial-setup-classroom-lab/send-email.png)
 4. En la página **Send registration link by email** (Enviar vínculo de registro por correo electrónico), siga estos pasos: 
     1. Escriba un **mensaje opcional** que desee enviar a los alumnos. El correo electrónico incluye automáticamente el vínculo de registro. 
-    2. En la página **Send registration link by email** (Enviar vínculo de registro por correo electrónico), seleccione **Enviar**. Puede ver el estado de la invitación al cambiar a **enviando invitación** y, a continuación, en **invitación enviada**. 
+    2. En la página **Send registration link by email** (Enviar vínculo de registro por correo electrónico), seleccione **Enviar**. Puede ver cómo cambia el estado de la invitación a **Enviando invitación** y, a continuación, a **Invitación enviada**. 
         
         ![Invitaciones enviadas](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 

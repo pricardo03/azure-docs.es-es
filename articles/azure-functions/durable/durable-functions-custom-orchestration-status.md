@@ -2,20 +2,21 @@
 title: Estado de orquestación personalizada en Durable Functions - Azure
 description: Obtenga información acerca de cómo configurar y usar el estado de orquestación personalizada en Durable Functions.
 services: functions
-author: ggailey777
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: azfuncdf
+origin.date: 12/07/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: 8d36c797e80702302a1954d2f00e1e4daabcaa88
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710007"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Estado de orquestación personalizada en Durable Functions (Azure Functions)
 
@@ -346,3 +347,7 @@ Los clientes obtendrán la siguiente respuesta:
 
 > [!div class="nextstepaction"]
 > [Obtenga más información acerca de las API de HTTP en Durable Functions](durable-functions-http-api.md)
+
+
+
+<!-- Update_Description: wording update -->

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: 4a65e88e3f94f64a56bde882b535030968ae354d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560236"
 ---
 # <a name="create-highlights-from-existing-videos"></a>Creación de información detallada a partir de vídeos existentes
 
@@ -52,6 +52,6 @@ Una vez creada la nueva lista de reproducción, puede seguir procesándola, tal 
 - [Proceso de contenido con Video Indexer REST API](video-indexer-use-apis.md)
 - [Inserción de widgets visuales en la aplicación](video-indexer-embed-widgets.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Introducción a Video Indexer](video-indexer-overview.md) 

@@ -23,7 +23,7 @@ Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Micr
 
 > [!div class="checklist"]
 > - Creación de una base de datos única mediante Azure Portal*
-> - Configuración de una regla de firewall por IP de nivel de servidor mediante Azure Portal
+> - Configuración de una regla de firewall de IP de nivel de servidor mediante Azure Portal
 > - Conéctese a la base de datos con SSMS
 > - Crear tablas con SSMS
 > - Carga masiva de datos con BCP
@@ -89,9 +89,9 @@ Siga estos pasos para crear una base de datos única en blanco.
 
    ![notificación](./media/sql-database-design-first-database/notification.png)
 
-## <a name="create-a-server-level-ip-firewall-rule"></a>Creación de una regla de firewall de nivel de servidor
+## <a name="create-a-server-level-ip-firewall-rule"></a>Creación de una regla de firewall de IP de nivel de servidor
 
-El servicio SQL Database crea un firewall por IP en el nivel de servidor. Este firewall evita que las herramientas y aplicaciones externas se conecten al servidor o a las bases de datos de este, a menos que una regla de firewall permita sus direcciones IP. Para habilitar la conectividad externa a la base de datos única, primero debe agregar una regla de firewall para la dirección IP (o un intervalo de direcciones IP). Siga estos pasos para crear una [regla de firewall por IP de nivel de servidor de SQL Database](sql-database-firewall-configure.md).
+El servicio SQL Database crea un firewall por IP en el nivel de servidor. Este firewall evita que las herramientas y aplicaciones externas se conecten al servidor o a las bases de datos de este, a menos que una regla de firewall permita sus direcciones IP. Para habilitar la conectividad externa a la base de datos única, primero debe agregar una regla de firewall de IP para su dirección IP (o intervalo de direcciones IP). Siga estos pasos para crear una [regla de firewall de IP de nivel de servidor de SQL Database](sql-database-firewall-configure.md).
 
 > [!IMPORTANT]
 > El servicio SQL Database se comunica a través del puerto 1433. Si intenta conectarse a este servicio desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. En ese caso, no puede conectarse a la base de datos única, salvo que el administrador abra el puerto 1433.
@@ -106,7 +106,7 @@ El servicio SQL Database crea un firewall por IP en el nivel de servidor. Este f
 
    ![Regla de firewall de IP en el nivel de servidor](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall por IP. La regla de firewall por IP puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
+4. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall de IP. La regla de firewall de IP puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
 5. Haga clic en **Save**(Guardar). Se crea una regla de firewall de IP en el nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor de SQL Database.
 
@@ -271,7 +271,7 @@ En este tutorial, ha aprendido muchas tareas de base de datos básicas. Ha apren
 
 > [!div class="checklist"]
 > - Creación de una base de datos única
-> - Configuración de una regla de firewall por IP de nivel de servidor
+> - Configuración de una regla de firewall de IP de nivel de servidor
 > - Conectarse a la base de datos con [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 > - Cree las tablas.
 > - Realizar cargas masivas de datos

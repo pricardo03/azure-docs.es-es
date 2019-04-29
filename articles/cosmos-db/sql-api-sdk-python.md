@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
 ms.openlocfilehash: 9903339cbf0958893fb0d11a8c1b6ab7d156aae7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548224"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626798"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python para Azure Cosmos DB para SQL API: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -151,7 +151,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 <br/>
 
-| Versión | Fecha de lanzamiento | Fecha de retirada |
+| `Version` | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
 | [3.0.2](#3.0.2) |15 de noviembre de 2018 |--- |
 | [3.0.1](#3.0.1) |04 de octubre de 2018 |--- |

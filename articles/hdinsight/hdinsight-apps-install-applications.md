@@ -1,7 +1,6 @@
 ---
 title: Instalación de aplicaciones de terceros en Azure HDInsight
 description: Aprenda a instalar aplicaciones de Hadoop de terceros en Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 810f9bb81d367cfe70e59d62d81a9e129cf80e6b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 7cbcc8ac05e4541406abd08c14006a8abc0c91ca
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097372"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalación de aplicaciones de Apache Hadoop de terceros en Azure HDInsight
 

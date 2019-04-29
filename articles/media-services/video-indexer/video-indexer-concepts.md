@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: c7bbe8c6b2ad51ed7272cd215552807c7cea3aee
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559831"
 ---
 # <a name="video-indexer-concepts"></a>Conceptos de Video Indexer
  
@@ -36,6 +36,6 @@ Los bloques están pensados para que resulte más fácil el recorrido por los da
 
 Para obtener información sobre cómo empezar, consulte [Suscripción y carga del primer vídeo](video-indexer-get-started.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Introducción a Video Indexer](video-indexer-overview.md)

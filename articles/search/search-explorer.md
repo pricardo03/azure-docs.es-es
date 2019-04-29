@@ -10,11 +10,11 @@ ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 85e574a56380384b10d0916385a8816fd26c2eeb
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61292477"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Explorador de búsqueda para consultar datos en Azure Search 
 
@@ -27,7 +27,7 @@ Para obtener ayuda para empezar, consulte [Iniciar el explorador de búsqueda](#
 
 ## <a name="basic-search-strings"></a>Cadenas de búsqueda básica
 
-En los ejemplos siguientes se utiliza el índice realestate de ejemplo integrado. Para obtener ayuda para crear este índice, vea [Quickstart: Import, index, and query in Azure portal](search-get-started-portal.md) (Inicio rápido: importación, creación de índices y consultas en Azure Portal).
+En los ejemplos siguientes se utiliza el índice realestate de ejemplo integrado. Para obtener ayuda para crear este índice, vea [Quickstart: Import, index, and query in Azure portal](search-get-started-portal.md) (Quickstart: importación, creación de índices y consultas en Azure Portal).
 
 ### <a name="example-1---empty-search"></a>Ejemplo 1: búsqueda vacía
 

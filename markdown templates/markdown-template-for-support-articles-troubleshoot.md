@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
 ms.openlocfilehash: 46a7bc52e94189b932b0475e80f55d880a2e3ee9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58191733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61215957"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Título (máximo 120 caracteres, la palabra clave principal de destino)
 *Usar palabras clave secundaria de 2-3 en la descripción.*

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
 ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609496"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481216"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 En este artículo se describe los tipos de salidas disponibles para un trabajo de Azure Stream Analytics. Las salidas le permiten almacenar y guardar los resultados de los trabajos de Stream Analytics. Mediante el uso de los datos de salida, puede realizar más análisis de negocios y el almacenamiento de datos de los datos.
@@ -82,7 +82,7 @@ En la tabla siguiente se enumera los nombres de propiedad y su descripción para
 | --- | --- |
 | Alias de salida |Un nombre descriptivo usado en las consultas para dirigir la salida de la consulta a esta base de datos. |
 | Base de datos | El nombre de la base de datos donde está enviando la salida. |
-| Nombre de servidor | El nombre del servidor SQL Database. |
+| Nombre de servidor | El nombre del servidor de SQL Database. |
 | Nombre de usuario | El nombre de usuario que tiene acceso de escritura a la base de datos. Stream Analytics admite solo la autenticación de SQL. |
 | Contraseña | La contraseña para conectarse a la base de datos. |
 | Tabla | El nombre de la tabla donde se escribe la salida. El nombre de tabla distingue mayúsculas de minúsculas. El esquema de esta tabla debe coincidir exactamente con el número de campos y los tipos que genera la salida del trabajo. |
@@ -187,8 +187,8 @@ Esta tabla muestran las conversiones de tipos de datos de [tipos de datos de Str
 De Stream Analytics | A Power BI
 -----|-----
 bigint | Int64
-nvarchar(max) | string
-Datetime | DateTime
+nvarchar(max) | String
+datetime | DateTime
 float | Double
 Matriz de registro | Cadena de tipo, valor constante "IRecord" o "IArray"
 
@@ -198,12 +198,12 @@ Stream Analytics deduce el esquema de modelo de datos basándose en el primer co
 Evitar la `SELECT *` consulta para evitar que la actualización de esquema dinámico en las filas. Además de posibles implicaciones de rendimiento, podría dar como resultado la incertidumbre del tiempo necesario para los resultados. Seleccione los campos exactos que necesitan mostrarse en el panel de Power BI. Además, los valores de datos deben ser compatibles con el tipo de datos elegido.
 
 
-Anterior o actual | Int64 | string | DateTime | Double
+Anterior o actual | Int64 | String | DateTime | Double
 -----------------|-------|--------|----------|-------
-Int64 | Int64 | string | string | Double
-Double | Double | string | string | Double
-string | string | string | string | string 
-DateTime | string | string |  DateTime | string
+Int64 | Int64 | String | String | Double
+Double | Double | String | String | Double
+String | string | string | string | String 
+DateTime | String | String |  DateTime | String
 
 
 ### <a name="renew-power-bi-authorization"></a>Renovación de la autorización de Power BI

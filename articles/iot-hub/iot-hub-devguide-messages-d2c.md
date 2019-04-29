@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576351"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61364516"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usar el enrutamiento de mensajes de IoT Hub para enviar mensajes de dispositivo a nube a distintos puntos de conexión
 
@@ -39,7 +39,7 @@ Puede usar la [integración y los SDK de Event Hubs](iot-hub-devguide-messages-r
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-IoT Hub admite la escritura de datos en Azure Blob Storage en el [Apache Avro](https://avro.apache.org/) , así como el formato JSON. La capacidad de codificar en formato JSON está en versión preliminar en todas las regiones que centro de IoT está disponible, excepto este de Estados Unidos, oeste de Estados Unidos y Europa occidental. El valor predeterminado es AVRO. El formato de codificación puede establecerse solo cuando se configura el punto de conexión de almacenamiento de blobs. No se puede editar el formato para un extremo existente. Cuando se usa la codificación JSON, debe establecer el tipo de contenido a JSON y contentEncoding a UTF-8 en el mensaje [las propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties). Puede seleccionar el formato de codificación mediante IoT Hub Create o la API de REST de actualización, específicamente el [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), el Portal de Azure, [CLI de Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). El diagrama siguiente muestra cómo seleccionar el formato de codificación en el Portal de Azure.
+IoT Hub admite la escritura de datos en Azure Blob Storage en el [Apache Avro](https://avro.apache.org/) , así como el formato JSON. La funcionalidad de codificar en formato JSON está en versión preliminar en todas las regiones donde IoT Hub está disponible, excepto en el Este de Estados Unidos, el Oeste de Estados Unidos y Europa occidental. El valor predeterminado es AVRO. El formato de codificación puede establecerse solo cuando se configura el punto de conexión de almacenamiento de blobs. No se puede editar el formato para un extremo existente. Cuando se usa la codificación JSON, debe establecer el tipo de contenido a JSON y contentEncoding a UTF-8 en el mensaje [las propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties). Puede seleccionar el formato de codificación mediante IoT Hub Create o la API de REST de actualización, específicamente el [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), el Portal de Azure, [CLI de Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). El diagrama siguiente muestra cómo seleccionar el formato de codificación en el Portal de Azure.
 
 ![Codificación de punto de conexión de almacenamiento de blobs](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -51,7 +51,7 @@ IoT Hub agrupa los mensajes por lotes y escribe los datos en un blob cuando el l
 
 Puede usar cualquier convención de nomenclatura de archivos, aunque debe usar todos los tokens de la lista. IoT Hub escribirá en un blob vacío si no hay datos que escribir.
 
-Cuando el enrutamiento para el almacenamiento de blobs, se recomienda dar de alta los blobs y, a continuación, efectuar una iteración sobre ellos, para asegurarse de que se leen todos los contenedores sin realizar ninguna suposición de partición. El intervalo de partición podría potencialmente cambiar durante una [conmutación por error iniciadas por Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) o IoT Hub [conmutación por error manual](iot-hub-ha-dr.md#manual-failover-preview). Puede usar el [API de lista de Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar la lista de blobs. Consulte el ejemplo siguiente como guía.
+Al enrutar a Blob Storage, se recomienda dar de alta los blobs e iterar sobre ellos para garantizar que se leen todos los contenedores sin pasar por alto ninguna partición. El intervalo de partición podría cambiar durante una [conmutación por error iniciada por Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) o una [conmutación por error manual](iot-hub-ha-dr.md#manual-failover-preview) de IoT Hub. Puede usar el [API de lista de Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) para enumerar la lista de blobs. Consulte el ejemplo siguiente como guía.
 
    ```csharp
         public void ListBlobsInContainer(string containerName, string iothub)

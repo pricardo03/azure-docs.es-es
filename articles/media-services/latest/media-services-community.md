@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: ff5d6aef48542ee18f6de91ddc418c0fcab70ece
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a3c02c1f14c37317a03cb6ebe63bcddc92f3253
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322444"
+ms.locfileid: "62117015"
 ---
 # <a name="azure-media-services-community"></a>Comunidad de Azure Media Services  
 
@@ -54,11 +54,9 @@ La siguiente tabla enumera el correo electrónico de los subequipos de las carac
 
 | Característica | Email |
 | --- | --- |
-| Análisis multimedia de Azure |amsanalytics@microsoft.com |
 | Azure Media Player |ampinfo@microsoft.com |
 | Azure Media Explorer |amse@microsoft.com |
 | Diseñador de flujo de trabajo |mepd@microsoft.com |
-| Streaming y empaquetado de archivos |amsstreaming@microsoft.com |
 | Streaming en vivo y empaquetado |amslived@microsoft.com |
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -220,7 +220,7 @@ En este paso, vinculará su cuenta de Base de datos SQL de Azure con su factorí
     ProvisioningState : Succeeded
     ```
 
-   Confirme que la opción **Permitir el acceso a los servicios de Azure** esté activada para el servidor de bases de datos SQL. Para comprobarla y activarla, siga estos pasos:
+   Confirme que la opción **Permitir el acceso a los servicios de Azure** esté activada para el servidor de SQL Database. Para comprobarla y activarla, siga estos pasos:
 
     1. Inicie sesión en el [Azure Portal](https://portal.azure.com)
     1. Haga clic en **Más servicios >** a la izquierda, y haga clic en **Servidores SQL** en la categoría **BASES DE DATOS**.

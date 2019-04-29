@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 90a103bcdfdcd5d61433c05d4cadfa746c67e192
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980359"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472743"
 ---
 # <a name="container-support-tab"></a>Pestaña de soporte técnico de contenedor
 
-Use la pestaña **Soporte técnico** de la página **Nueva oferta** para proporcionar recursos técnicos y de soporte técnico a los usuarios en relación con la oferta.  En el formulario Soporte se proporcionan las siguientes áreas de entrada: **Contacto de ingeniería**, **Soporte al cliente** y **Direcciones URL de soporte técnico**. Un asterisco (*) junto al nombre del campo indica que es obligatorio.
+Use la pestaña **Soporte técnico** de la página **Nueva oferta** para proporcionar recursos técnicos y de soporte técnico a los usuarios en relación con la oferta.  Se proporcionan las siguientes áreas de entrada en el formulario de soporte técnico: **Contacto de ingeniería**, **soporte al cliente**, y **admite direcciones URL**. Un asterisco (*) junto al nombre del campo indica que es obligatorio.
 
 ## <a name="support-form-fields"></a>Campos del formulario de soporte técnico
 

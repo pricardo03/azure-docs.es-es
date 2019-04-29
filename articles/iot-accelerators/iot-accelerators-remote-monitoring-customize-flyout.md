@@ -1,19 +1,20 @@
 ---
-title: 'Adición de un control flotante a la interfaz de usuario de la solución de supervisión remota: Azure | Microsoft Docs'
+title: Agregar un control flotante para la solución de supervisión remota UI - Azure | Microsoft Docs
 description: En este artículo se muestra cómo agregar un nuevo control flotante en una pagina de la interfaz de usuario web del acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/05/2018
+origin.date: 10/05/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167433"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447121"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de un control flotante personalizado a la interfaz de usuario web del acelerador de soluciones de supervisión remota
 
@@ -36,7 +37,7 @@ Para completar los pasos de esta guía, necesita que el software siguiente esté
 Debe completar los pasos descritos en los artículos siguientes antes de continuar:
 
 - [Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-page.md).
-- [Adición de un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-service.md)
+- [Adición de un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-service.md)
 - [Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-grid.md)
 
 ## <a name="add-a-flyout"></a>Agregar un control flotante
@@ -49,11 +50,11 @@ Para comenzar, la carpeta **src/walkthrough/components/pages/pageWithFlyout/flyo
 
 **exampleFlyout.container.js**
 
-[!code-javascript[Example flyout container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example flyout container")]
+
 
 **exampleFlyout.js**
 
-[!code-javascript[Example flyout](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example flyout")]
+
 
 Copie la carpeta **src/walkthrough/components/pages/pageWithFlyout/flyouts** a la carpeta **src/components/pages/example**.
 
@@ -141,4 +142,4 @@ En este artículo, aprendió sobre los recursos que tiene a su disposición para
 
 Ya ha definido un control flotante en una página, el paso siguiente consiste en [agregar un panel al panel personalizado en la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-panel.md).
 
-Para información más conceptual sobre el acelerador de la solución de supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Para información más conceptual sobre el acelerador de soluciones de supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).

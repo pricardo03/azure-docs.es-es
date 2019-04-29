@@ -10,11 +10,11 @@ ms.date: 1/10/2017
 ms.author: saurse
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646959"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Traslado del almacenamiento a largo plazo de la cinta a la nube de Azure
 Los clientes de Microsoft Azure Backup y System Center Data Protection Manager pueden:
@@ -44,10 +44,10 @@ El número total de "puntos de retención" especificado en esta directiva es de 
 ## <a name="example--putting-both-together"></a>Ejemplo: reunir ambos
 ![Pantalla de ejemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Directiva de retención diaria**: las copias de seguridad realizadas diariamente se almacenan durante 7 días.
-2. **Directiva de retención semanal**: las copias de seguridad realizadas todos los días a medianoche y el sábado a las 18:00 h se conservan durante 4 semanas.
-3. **Directiva de retención mensual**: las copias de seguridad realizadas a medianoche y a las 18:00 h del último sábado de cada mes se conservarán durante 12 meses.
-4. **Directiva de retención anual**: las copias de seguridad realizadas del último sábado de cada mes de marzo se conservarán durante 10 años.
+1. **Directiva de retención diaria**: Las copias de seguridad realizadas diariamente se almacenan durante siete días.
+2. **Directiva de retención semanal**: Las copias de seguridad realizadas cada día a medianoche y 6 p. M. el sábado se conservan durante cuatro semanas
+3. **Directiva de retención mensual**: Se conservan las copias de seguridad realizadas a medianoche y 6 p. m. el último sábado de cada mes durante 12 meses
+4. **Directiva de retención anual**: Copias de seguridad realizadas en la medianoche del último sábado de cada mes de marzo se conservarán durante 10 años
 
 El número total de "puntos de retención" (desde los que un cliente puede restaurar datos) en el diagrama anterior se calcula de la forma siguiente:
 

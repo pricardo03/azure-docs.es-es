@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Creación de directivas de copia de seguridad mediante la API REST'
+title: 'Azure Backup: Crear directivas de copia de seguridad mediante la API de REST'
 description: Administración de directivas de copia de seguridad (programación y retención) mediante la API REST
 services: backup
 author: pvrk
@@ -11,11 +11,11 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648812"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creación de directivas de copia de seguridad de Azure Recovery Services mediante API REST
 
@@ -30,8 +30,8 @@ Los pasos para crear una directiva de copia de seguridad para un almacén de Azu
   - Recurso compartido de archivos de Azure
 - Una directiva puede asignarse a muchos recursos. Una directiva de copia de seguridad de Azure VM puede usarse para proteger varias máquinas virtuales de Azure.
 - Una directiva consta de dos componentes:
-  - Programación: cuándo realizar la copia de seguridad.
-  - Retención: cuánto tiempo debe retenerse cada copia de seguridad.
+  - Programación: Cuándo realizar la copia de seguridad
+  - Retención: Durante cuánto tiempo deben retenerse cada copia de seguridad.
 - La programación puede definirse como "diaria" o "semanal" con un punto específico en el tiempo.
 - La retención puede definirse para los puntos de copia de seguridad "diarios", "semanal", "mensual" o "anual" .
 - "Semanal" se refiere a una copia de seguridad en un determinado día de la semana, "mensual" significa una copia de seguridad en un determinado día del mes y "anual" a una copia de seguridad en un determinado día del año.
@@ -50,10 +50,10 @@ Los valores de `{policyName}` y `{vaultName}` se proporcionan en el URI. Se prop
 
 Por ejemplo, para crear una directiva para la copia de seguridad de las máquinas virtuales de Azure, los siguientes son los componentes del cuerpo de la solicitud.
 
-|NOMBRE  |Obligatorio  |Escriba  |DESCRIPCIÓN  |
+|NOMBRE  |Obligatorio  |Type  |DESCRIPCIÓN  |
 |---------|---------|---------|---------|
-|propiedades     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propiedades de ProtectionPolicyResource        |
-|etiquetas     |         | Objeto        |  Etiquetas del recurso       |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propiedades de ProtectionPolicyResource        |
+|etiquetas     |         | Object        |  Etiquetas del recurso       |
 
 Para obtener una lista completa de las definiciones en el cuerpo de la solicitud, consulte el [documento de la directiva de copia de seguridad de API REST](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
 
@@ -156,9 +156,9 @@ La directiva indica:
 
 La creación o actualización de las directivas de copia de seguridad es una [operación asincrónica](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa que esta operación crea otra que tiene que ser seguida por separado.
 
-Devuelve dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra operación y, a continuación, 200 (OK) cuando se completa dicha operación.
+Devuelve las dos respuestas: 202 (Accepted) (aceptado) cuando se crea otra operación y, a continuación, 200 (OK) cuando se completa dicha operación.
 
-|NOMBRE  |Escriba  |DESCRIPCIÓN  |
+|NOMBRE  |Type  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |200 OK     |    [Protection PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 - Aceptado     |         |     Accepted    |

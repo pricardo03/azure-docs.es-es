@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001694"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61417395"
 ---
 # <a name="sql-database-audit-log-format"></a>Formato de registro de auditoría de base de datos SQL
 
@@ -60,7 +60,7 @@ Eventos de auditoría se escriben en el área de trabajo de Log Analytics defini
 | database_principal_id | database_principal_id_d | Id. del contexto del usuario de base de datos que se realiza la acción | int | int |
 | database_principal_name | database_principal_name_s | Nombre del contexto del usuario de base de datos en el que se realiza la acción | sysname | string |
 | duration_milliseconds | duration_milliseconds_d | Duración de la ejecución de consulta en milisegundos | bigint | int |
-| event_time | event_time_t | Fecha y hora cuando se desencadena la acción auditable | datetime2 | Datetime |
+| event_time | event_time_t | Fecha y hora cuando se desencadena la acción auditable | datetime2 | datetime |
 | host_name | N/D | Nombre de host del cliente | string | N/D |
 | is_column_permission | is_column_permission_s | Marca que indica si se trata de un permiso de nivel de columna. 1 = true, 0 = false | bit | string |
 | N/D | is_server_level_audit_s | Marca que indica si esta auditoría está en el nivel de servidor | N/D | string |

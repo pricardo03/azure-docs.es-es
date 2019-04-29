@@ -129,7 +129,7 @@
           href: event-hubs-messaging-exceptions.md
     - name: Uso de firewalls
       href: event-hubs-ip-filtering.md
-    - name: Uso de puntos de conexión del servicio de redes virtuales
+    - name: Uso de puntos de conexión de servicio de red virtual
       href: event-hubs-service-endpoints.md
     - name: Escalado automático de las unidades de rendimiento
       href: event-hubs-auto-inflate.md

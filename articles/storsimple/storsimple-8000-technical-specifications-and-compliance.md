@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: HT
+ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631897"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificaciones técnicas y cumplimiento normativo para el dispositivo StorSimple
 
@@ -37,14 +37,14 @@ El revestimiento de EBOD usa un PCM de 580 W, y el revestimiento principal usa 
 | --- | --- | --- |
 | Potencia de salida máxima |580 W |764 |
 | Frecuencia |50/60 Hz |50/60 Hz |
-| Selección del intervalo de voltaje |Intervalo automático: 90-264 V CA, 47/63 Hz |Intervalo automático: 90-264 V CA, 47/63 Hz |
+| Selección del intervalo de voltaje |Intervalo automático: 90 – 264 V CA, 47/63 Hz |Intervalo automático: 90 - 264 V CA, 47/63 Hz |
 | Corriente de entrada máxima |20 A |20 A |
 | Corrección del factor de potencia |>95% del voltaje de entrada nominal  |>95% del voltaje de entrada nominal  |
 | Armónicos |Cumple la norma EN 61000-3-2 |Cumple la norma EN 61000-3-2 |
 | Salida |Voltaje en espera de 5 V \@ 2,0 A |Voltaje en espera de 5 V \@ 2,7 A |
 | +5 V \@ 42 A |+5 V \@ 40 A | |
 | +12 V \@ 38 A |+12 V \@ 38 A | |
-| Conectable en funcionamiento |SÍ |SÍ |
+| Conectable en funcionamiento |Sí |Sí |
 | Conmutadores y LED |Conmutador de encendido y apagado de CA y cuatro LED indicadores de estado |Conmutador de encendido y apagado de CA y seis LED indicadores de estado |
 | Refrigeración del revestimiento |Ventiladores axiales de refrigeración con control de velocidad del ventilador variable |Ventiladores axiales de refrigeración con control de velocidad del ventilador variable |
 
@@ -149,8 +149,8 @@ El dispositivo de Microsoft Azure StorSimple cumple los estándares internaciona
 
 El dispositivo de Microsoft Azure StorSimple cumple las clasificaciones de seguridad siguientes:
 
-* Homologación del tipo de producto de sistema: UL, cUL, CE
-* Cumplimiento de seguridad: UL 60950, CEI 60950, EN 60950
+* Aprobación de tipo de producto del sistema: UL, cUL, CE
+* Cumplimiento de seguridad: UL 60950, IEC 60950, EN 60950
 
 ## <a name="emc-compliance"></a>Cumplimiento de normas de CEM
 
@@ -160,8 +160,8 @@ El dispositivo de Microsoft Azure StorSimple cumple las siguientes clasificacion
 
 El dispositivo es compatible con las exigencias de CEM para los niveles de emisiones radiadas y conducidas.
 
-* Niveles límite de emisiones conducidas: CFR 47 parte 15B clase A, EN 55022 clase A, CISPR clase A
-* Niveles límite de emisiones radiadas: CFR 47 parte 15B clase A, EN 55022 clase A, CISPR clase A
+* Lleva a cabo niveles límite de emisiones: CFR 47 parte 15B clase A EN55022 Clase A CISPR clase A
+* Niveles límite de emisiones de radiadas: CFR 47 parte 15B clase A EN55022 Clase A CISPR clase A
 
 ### <a name="harmonics-and-flicker"></a>Armónicos y parpadeo
 

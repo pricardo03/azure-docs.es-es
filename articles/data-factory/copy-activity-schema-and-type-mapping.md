@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267130"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615637"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Asignación de esquemas en la actividad de copia
 Este artículo describe el modo en que la actividad de copia de Azure Data Factory realiza la asignación de esquemas y la asignación del tipo de datos desde datos de origen hasta datos receptores al ejecutar la copia de datos.
@@ -229,7 +229,7 @@ Puede encontrar la asignación entre un tipo nativo y un tipo provisional en la 
 Data Factory admite los siguientes tipos de datos provisionales: Puede especificar los siguientes valores cuando configure la información del tipo en la configuración de la [estructura del conjunto de datos](concepts-datasets-linked-services.md#dataset-structure):
 
 * Byte[]
-* boolean
+* Boolean
 * DateTime
 * Datetimeoffset
 * Decimal
@@ -239,7 +239,7 @@ Data Factory admite los siguientes tipos de datos provisionales: Puede especific
 * Int32
 * Int64
 * Single
-* string
+* String
 * TimeSpan
 
 ### <a name="explicit-data-type-conversion"></a>Conversión de tipos de datos explícitos

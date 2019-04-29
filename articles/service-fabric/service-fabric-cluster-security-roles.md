@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 39b77813e3494e809b92738924544e196d89a166
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: ed000dc4be1ae45382d688d4a596ec745c69d0bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204658"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711166"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Control de acceso basado en roles para clientes de Service Fabric
 Azure Service Fabric admite dos tipos distintos de control de acceso para los clientes que están conectados a un clúster de Service Fabric: administrador y usuario. El control de acceso permite al administrador de clústeres limitar el acceso a determinadas operaciones de clúster para distintos grupos de usuarios, lo que aumenta la seguridad del clúster.  
@@ -52,9 +52,9 @@ El tipo de control de acceso del administrador permite acceder a todas las API d
 * **RecoverSystemPartitions**: recuperación de particiones de servicio de sistema                             
 
 ### <a name="cluster-operations"></a>Operaciones del clúster
-* **ProvisionFabric**: aprovisionamiento de MSI o manifiesto de clúster                             
+* **ProvisionFabric**: MSI o manifiesto de clúster de aprovisionamiento                             
 * **UpgradeFabric**: inicio de actualizaciones del clúster                             
-* **UnprovisionFabric**: desaprovisionamiento de MSI o manifiesto de clúster                         
+* **UnprovisionFabric**: MSI o manifiesto de clúster                         
 * **MoveNextFabricUpgradeDomain**: reanudación de las actualizaciones del clúster con un dominio de actualización explícito                             
 * **ReportFabricUpgradeHealth**: reanudación de las actualizaciones del clúster con el progreso de actualización actual                             
 * **StartInfrastructureTask**: inicio de tareas de infraestructura                             

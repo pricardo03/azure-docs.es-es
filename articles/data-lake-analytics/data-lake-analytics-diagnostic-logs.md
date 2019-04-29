@@ -9,11 +9,11 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616520"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acceso a los registros de diagnóstico de Azure Data Lake Analytics
 
@@ -127,26 +127,26 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
-| ResourceId |string |Identificador del recurso en el que tuvo lugar la operación |
-| categoría |string |Categoría del registro. Por ejemplo, **Requests**. |
-| operationName |string |Nombre de la operación que se registra. Por ejemplo, GetAggregatedJobHistory. |
-| resultType |string |Estado de la operación. Por ejemplo, 200. |
-| callerIpAddress |string |Dirección IP del cliente que realiza la solicitud. |
-| correlationId |string |Identificador del registro. Este valor puede utilizarse para agrupar un conjunto de entradas de registro relacionadas. |
-| identidad |Objeto |Identidad que ha generado el registro. |
-| propiedades |JSON |Consulte la siguiente sección (Esquema de propiedades de un registro de solicitud) para más información |
+| time |String |Marca de tiempo (en UTC) del registro. |
+| resourceId |String |Identificador del recurso en el que tuvo lugar la operación |
+| category |String |Categoría del registro. Por ejemplo, **Requests**. |
+| operationName |String |Nombre de la operación que se registra. Por ejemplo, GetAggregatedJobHistory. |
+| resultType |String |Estado de la operación. Por ejemplo, 200. |
+| callerIpAddress |String |Dirección IP del cliente que realiza la solicitud. |
+| correlationId |String |Identificador del registro. Este valor puede utilizarse para agrupar un conjunto de entradas de registro relacionadas. |
+| identidad |Object |Identidad que ha generado el registro. |
+| properties |JSON |Consulte la siguiente sección (Esquema de propiedades de un registro de solicitud) para más información |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propiedades de un registro de solicitud
 
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| HttpMethod |string |Método HTTP usado en la operación. Por ejemplo, GET. |
-| Ruta de acceso |string |Ruta de acceso en la que se ha realizado la operación. |
+| HttpMethod |String |Método HTTP usado en la operación. Por ejemplo, GET. |
+| Ruta de acceso |String |Ruta de acceso en la que se ha realizado la operación. |
 | RequestContentLength |int |Longitud del contenido de la solicitud HTTP. |
-| ClientRequestId |string |El identificador que distingue de manera exclusiva esta solicitud |
-| StartTime |string |Hora a la que el servidor ha recibido la solicitud. |
-| EndTime |string |Hora a la que el servidor ha enviado una respuesta. |
+| ClientRequestId |String |El identificador que distingue de manera exclusiva esta solicitud |
+| StartTime |String |Hora a la que el servidor ha recibido la solicitud. |
+| EndTime |String |Hora a la que el servidor ha enviado una respuesta. |
 
 ### <a name="audit-logs"></a>Registros de auditoría
 
@@ -179,14 +179,14 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
-| ResourceId |string |Identificador del recurso en el que tuvo lugar la operación |
-| categoría |string |Categoría del registro. Por ejemplo, **Audit**. |
-| operationName |string |Nombre de la operación que se registra. Por ejemplo, JobSubmitted. |
-| resultType |string |Un subestado para el estado del trabajo (operationName). |
-| resultSignature |string |Detalles adicionales sobre el estado del trabajo (operationName). |
-| identidad |string |El usuario que solicitó la operación. Por ejemplo, susan@contoso.com. |
-| propiedades |JSON |Consulte la siguiente sección (Esquema de propiedades de un registro de auditoría) para más información |
+| time |String |Marca de tiempo (en UTC) del registro. |
+| resourceId |String |Identificador del recurso en el que tuvo lugar la operación |
+| category |String |Categoría del registro. Por ejemplo, **Audit**. |
+| operationName |String |Nombre de la operación que se registra. Por ejemplo, JobSubmitted. |
+| resultType |String |Un subestado para el estado del trabajo (operationName). |
+| resultSignature |String |Detalles adicionales sobre el estado del trabajo (operationName). |
+| identidad |String |El usuario que solicitó la operación. Por ejemplo, susan@contoso.com. |
+| properties |JSON |Consulte la siguiente sección (Esquema de propiedades de un registro de auditoría) para más información |
 
 > [!NOTE]
 > **resultType** y **resultSignature** proporcionan información sobre el resultado de una operación y solo contienen un valor si se ha completado una operación. Por ejemplo, solo contienen un valor cuando **operationName** contiene un valor de **JobStarted** o **JobEnded**.
@@ -197,13 +197,13 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| JobId |string |El identificador asignado al trabajo |
-| JobName |string |El nombre que se proporcionó para el trabajo |
-| JobRunTime |string |El tiempo de ejecución utilizado para procesar el trabajo |
-| SubmitTime |string |La hora (en UTC) en la que se envió el trabajo |
-| StartTime |string |La hora en la que el trabajo empezó a ejecutarse tras el envío (en UTC) |
-| EndTime |string |La hora de finalización del trabajo |
-| Paralelismo |string |El número de unidades de Data Lake Analytics solicitadas para este trabajo durante el envío |
+| JobId |String |El identificador asignado al trabajo |
+| JobName |String |El nombre que se proporcionó para el trabajo |
+| JobRunTime |String |El tiempo de ejecución utilizado para procesar el trabajo |
+| SubmitTime |String |La hora (en UTC) en la que se envió el trabajo |
+| StartTime |String |La hora en la que el trabajo empezó a ejecutarse tras el envío (en UTC) |
+| EndTime |String |La hora de finalización del trabajo |
+| Paralelismo |String |El número de unidades de Data Lake Analytics solicitadas para este trabajo durante el envío |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime** y **Parallelism** proporcionan información sobre una operación. Estas entradas solo contienen un valor si la operación se ha iniciado o completado. Por ejemplo, **SubmitTime** contiene un valor después de que **operationName** tenga el valor **JobSubmitted**.

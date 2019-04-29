@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 4750ba55c08ebac244e7515cae4e998155a79599
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628888"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple para el programa de proveedores de soluciones en la nube: Preguntas frecuentes
 
@@ -50,7 +50,7 @@ Sí. Este es un modelo de descuento a mayoristas idéntico al de otros servicios
 Los mismos SKU que están disponibles con los servicios de StorSimple independiente. 
 
 ### <a name="is-there-any-difference-between-the-storsimple-directly-purchased-from-microsoft-under-ea-and-storsimple-as-a-part-of-csp"></a>¿Hay alguna diferencia entre la versión de StorSimple que se adquiere directamente a Microsoft en EA y la que forma parte del CSP?
- No. En el CSP, los clientes también pueden adquirir otros servicios que ofrece el asociado de CSP junto con StorSimple Virtual Array (SVA) en una sola factura. Tenga en cuenta que los clientes deben adquirir el dispositivo físico de la serie 8000 de StorSimple a través de EA. 
+No. En el CSP, los clientes también pueden adquirir otros servicios que ofrece el asociado de CSP junto con StorSimple Virtual Array (SVA) en una sola factura. Tenga en cuenta que los clientes deben adquirir el dispositivo físico de la serie 8000 de StorSimple a través de EA. 
 
 ### <a name="in-which-markets-is-storsimple-available-for-csp-at-launch"></a>¿En qué mercados está StorSimple disponible para CSP en el lanzamiento?
 StorSimple Virtual Array para CSP está disponible en todos los mercados en los que ya se puede encontrar StorSimple. Para más información, vaya a la [lista de regiones en las que StorSimple está disponible](https://azure.microsoft.com/regions/services/).
@@ -75,7 +75,7 @@ Las suscripciones de StorSimple Virtual Array se pueden agregar a la cuenta de l
 Sí. Con StorSimple Virtual Array para CSP, la mejor forma de que los asociados accedan a Azure Portal es a través del [Centro de partners](https://partnercenter.microsoft.com/), que es el lugar en el que pueden administrar los clientes y las suscripciones. Para administrar las suscripciones de StorSimple, el asociado o cliente (en función de los permisos concedidos) debe iniciar sesión en Azure Portal. 
 
 ### <a name="is-microsoft-shipping-a-new-portal-for-storsimple-for-csp"></a>¿Envía Microsoft un nuevo portal para StorSimple para CSP? 
- No. StorSimple Virtual Array en CSP se podrá administrar a través de Azure Portal.
+No. StorSimple Virtual Array en CSP se podrá administrar a través de Azure Portal.
 
 ### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>He aprovisionado una suscripción independiente de StorSimple para mi cliente. ¿Tengo que usar Azure Portal para administrar el dispositivo? 
 Sí. 

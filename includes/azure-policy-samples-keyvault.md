@@ -19,4 +19,4 @@ ms.locfileid: "55105058"
 
 |  |  |
 |---------|---------|
-| [Auditoría de almacenes que no tienen puntos de conexión de red virtual](../articles/governance/policy/samples/keyvault-no-vnet-rules.md) | Audita los almacenes de Key Vault para detectar instancias que no tienen ningún punto de conexión de red virtual. |
+| [Auditoría de almacenes que no tienen puntos de conexión de red virtual](../articles/governance/policy/samples/keyvault-no-vnet-rules.md) | Audita los almacenes de Key Vault para detectar instancias que no tienen ningún punto de conexión de servicio de red virtual. |

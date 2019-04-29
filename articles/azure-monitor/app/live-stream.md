@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009972"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115368"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo
 
@@ -50,10 +50,13 @@ Las métricas activas actualmente se admiten para las aplicaciones ASP.NET, ASP.
 
 4. [Proteja el canal de control](#secure-the-control-channel) si puede que vaya a usar información confidencial como nombres de clientes en los filtros.
 
+### <a name="nodejs"></a>Node.js
+
+Para utilizar Live Metrics con Node.js, debe actualizar a la versión 1,30 o mayor del SDK. De forma predeterminada, Live Metrics está deshabilitada en el SDK de Node.js. Para habilitar Live Metrics agregar `setSendLiveMetrics(true)` a su [métodos de configuración](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) como inicializar el SDK.
+
 ### <a name="no-data-check-your-server-firewall"></a>¿No hay datos? Comprobación del firewall del servidor
 
 Compruebe que [los puertos de salida de Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) estén abiertos en el firewall de los servidores. 
-
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>¿En qué se diferencia Live Metrics Stream de Explorador de métricas y Analytics?
 
@@ -65,7 +68,6 @@ Compruebe que [los puertos de salida de Live Metrics Stream](../../azure-monitor
 |Gratuito|No se efectúa ningún cargo por los datos de Live Stream.|Están sujetos a aplicación de [precios](../../azure-monitor/app/pricing.md).
 |muestreo|Se transmiten todas las métricas y los contadores seleccionados. Se muestrean los errores y seguimientos de la pila. No se aplican elementos TelemetryProcessor.|Se pueden [muestrear](../../azure-monitor/app/api-filtering-sampling.md) eventos.|
 |Canal de control|Las señales de control de filtro se envían al SDK. Se recomienda proteger este canal.|La comunicación es unidireccional, hacia el portal.|
-
 
 ## <a name="select-and-filter-your-metrics"></a>Selección y filtrado de métricas
 

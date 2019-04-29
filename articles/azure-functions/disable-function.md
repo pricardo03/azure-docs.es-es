@@ -3,29 +3,33 @@ title: Deshabilitamiento de funciones en Azure Functions
 description: Aprenda a deshabilitar y a habilitar las funciones de Azure Functions 1.x y 2.x.
 services: functions
 documentationcenter: ''
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
-ms.topic: conceptual
-ms.date: 07/24/2018
-ms.author: glenga
-ms.openlocfilehash: ab9cf429a0af69db116fe910ab90b83d404afbb7
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+author: tdykstra
+manager: cfowler
+editor: ''
+ms.service: functions
+ms.workload: na
+ms.devlang: na
+ms.topic: article
+origin.date: 07/24/2018
+ms.date: 08/31/2018
+ms.author: v-junlch
+ms.openlocfilehash: a32b4815a2716428ceeec034ddc5589e3aa062e8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093641"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710578"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Deshabilitamiento de funciones en Azure Functions
 
 En este artículo se explica cómo deshabilitar una función de Azure Functions. *Deshabilitar* una función significa hacer que el entorno en tiempo de ejecución omita el desencadenador automático que se ha definido para esa función. La forma de hacerlo dependerá de la versión del entorno en tiempo de ejecución y del lenguaje de programación:
 
-* Functions 1.x
-  * Lenguajes de scripting
-  * Biblioteca de clases de C#
-* Functions 2.x
-  * Una forma para todos los lenguajes
-  * Forma opcional para las bibliotecas de clases de C#
+- Functions 1.x
+  - Lenguajes de scripting
+  - Biblioteca de clases de C#
+- Functions 2.x
+  - Una forma para todos los lenguajes
+  - Forma opcional para las bibliotecas de clases de C#
 
 ## <a name="functions-1x---scripting-languages"></a>Functions 1.x: lenguajes de scripting
 
@@ -58,7 +62,7 @@ En el segundo ejemplo, la función se deshabilita cuando hay una configuración 
 
 Puede editar el archivo en Azure Portal o utilizar el conmutador **Estado de la función** en la pestaña **Administrar** de la función. El modificador del portal funciona modificando el archivo *function.json*.
 
-![Conmutador Estado de la función](media/disable-function/function-state-switch.png)
+![Conmutador Estado de la función](./media/disable-function/function-state-switch.png)
 
 ## <a name="functions-1x---c-class-libraries"></a>Functions 1.x: bibliotecas de clases de C#
 
@@ -109,7 +113,7 @@ Este método le permite habilitar y deshabilitar la función cambiando la config
 
 En Functions 2.x puede deshabilitar una función mediante una configuración de aplicación. Por ejemplo, para deshabilitar una función denominada `QueueTrigger`, cree una configuración de aplicación denominada `AzureWebJobs.QueueTrigger.Disabled` y establézcala en `true`. Para habilitar la función, establezca la configuración de la aplicación en `false`. También puede usar el conmutador **Estado de la función** en la pestaña **Administrar** de la función. El conmutador funciona mediante la creación y eliminación de la configuración de la aplicación `AzureWebJobs.<functionname>.Disabled`.
 
-![Conmutador Estado de la función](media/disable-function/function-state-switch.png)
+![Conmutador Estado de la función](./media/disable-function/function-state-switch.png)
 
 ## <a name="functions-2x---c-class-libraries"></a>Functions 2.x: bibliotecas de clases de C#
 
@@ -118,3 +122,4 @@ En una biblioteca de clases de Functions 2.x, se recomienda que utilice el méto
 ## <a name="next-steps"></a>Pasos siguientes
 
 Este artículo trata acerca de cómo deshabilitar los desencadenadores automáticos. Para más información sobre desencadenadores, consulte [Desencadenadores y enlaces](functions-triggers-bindings.md).
+

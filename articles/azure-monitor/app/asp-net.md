@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437823"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691689"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -127,7 +127,7 @@ Si ha hecho alguna personalización en ApplicationInsights.config, guarde una co
 
 ## <a name="video"></a>Vídeo
 
-* Externo vídeo paso a paso acerca de cómo [configurar Application Insights con una aplicación .NET desde el principio](https://www.youtube.com/watch?v=blnGAVgMAfA).
+* Vídeo externo detallado sobre la [configuración de Application Insights con una aplicación .NET desde cero](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

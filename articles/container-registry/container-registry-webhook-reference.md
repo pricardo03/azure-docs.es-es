@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: danlep
 ms.openlocfilehash: 4c0845b9cf5194ecbd0ab813997e17e070840f44
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61331348"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referencia de webhook de Azure Container Registry
 
@@ -42,9 +42,9 @@ Webhook que se desencadena cuando se inserta una imagen de contenedor en un repo
 
 |Elemento|Type|DESCRIPCIÓN|
 |-------------|----------|-----------|
-|`id`|string|El identificador del evento de webhook.|
+|`id`|String|El identificador del evento de webhook.|
 |`timestamp`|DateTime|La hora en la que se desencadenó el evento de webhook.|
-|`action`|string|La acción que desencadenó el evento de webhook.|
+|`action`|String|La acción que desencadenó el evento de webhook.|
 |[Destino](#target)|Tipo complejo|El destino del evento que desencadenó el evento de webhook.|
 |[Solicitud](#request)|Tipo complejo|La solicitud que generó el evento de webhook.|
 
@@ -52,21 +52,21 @@ Webhook que se desencadena cuando se inserta una imagen de contenedor en un repo
 
 |Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`mediaType`|string|El tipo MIME del objeto al que se hace referencia.|
+|`mediaType`|String|El tipo MIME del objeto al que se hace referencia.|
 |`size`|Int32|El número de bytes del contenido. Igual que el campo de longitud.|
-|`digest`|string|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
+|`digest`|String|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
 |`length`|Int32|El número de bytes del contenido. Igual que el campo de tamaño.|
-|`repository`|string|El nombre del repositorio.|
-|`tag`|string|El nombre de etiqueta de imagen.|
+|`repository`|String|El nombre del repositorio.|
+|`tag`|String|El nombre de etiqueta de imagen.|
 
 ### <a name="request"></a>request
 
 |Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`id`|string|El identificador de la solicitud que inició el evento.|
-|`host`|string|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
-|`method`|string|El método de la solicitud que generó el evento.|
-|`useragent`|string|El encabezado de agente de usuario de la solicitud.|
+|`id`|String|El identificador de la solicitud que inició el evento.|
+|`host`|String|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
+|`method`|String|El método de la solicitud que generó el evento.|
+|`useragent`|String|El encabezado de agente de usuario de la solicitud.|
 
 ### <a name="payload-example-image-push-event"></a>Ejemplo de carga: evento de inserción de imagen
 
@@ -106,22 +106,22 @@ Se desencadena cuando se inserta un gráfico de Helm en un repositorio de Webhoo
 
 |Elemento|Type|DESCRIPCIÓN|
 |-------------|----------|-----------|
-|`id`|string|El identificador del evento de webhook.|
+|`id`|String|El identificador del evento de webhook.|
 |`timestamp`|DateTime|La hora en la que se desencadenó el evento de webhook.|
-|`action`|string|La acción que desencadenó el evento de webhook.|
+|`action`|String|La acción que desencadenó el evento de webhook.|
 |[Destino](#helm_target)|Tipo complejo|El destino del evento que desencadenó el evento de webhook.|
 
 ### <a name="helm_target"></a>Destino
 
 |Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`mediaType`|string|El tipo MIME del objeto al que se hace referencia.|
+|`mediaType`|String|El tipo MIME del objeto al que se hace referencia.|
 |`size`|Int32|El número de bytes del contenido.|
-|`digest`|string|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
-|`repository`|string|El nombre del repositorio.|
-|`tag`|string|El nombre de etiqueta del gráfico.|
-|`name`|string|El nombre del gráfico.|
-|`version`|string|La versión del gráfico.|
+|`digest`|String|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
+|`repository`|String|El nombre del repositorio.|
+|`tag`|String|El nombre de etiqueta del gráfico.|
+|`name`|String|El nombre del gráfico.|
+|`version`|String|La versión del gráfico.|
 
 ### <a name="payload-example-chart-push-event"></a>Ejemplo de carga: evento de inserción de gráfico
 
@@ -156,9 +156,9 @@ Webhook se desencadena cuando un repositorio de imágenes o se elimina el manifi
 
 |Elemento|Type|DESCRIPCIÓN|
 |-------------|----------|-----------|
-|`id`|string|El identificador del evento de webhook.|
+|`id`|String|El identificador del evento de webhook.|
 |`timestamp`|DateTime|La hora en la que se desencadenó el evento de webhook.|
-|`action`|string|La acción que desencadenó el evento de webhook.|
+|`action`|String|La acción que desencadenó el evento de webhook.|
 |[Destino](#delete_target)|Tipo complejo|El destino del evento que desencadenó el evento de webhook.|
 |[Solicitud](#delete_request)|Tipo complejo|La solicitud que generó el evento de webhook.|
 
@@ -166,18 +166,18 @@ Webhook se desencadena cuando un repositorio de imágenes o se elimina el manifi
 
 |Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`mediaType`|string|El tipo MIME del objeto al que se hace referencia.|
-|`digest`|string|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
-|`repository`|string|El nombre del repositorio.|
+|`mediaType`|String|El tipo MIME del objeto al que se hace referencia.|
+|`digest`|String|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
+|`repository`|String|El nombre del repositorio.|
 
 ### <a name="delete_request"></a> solicitud
 
 |Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`id`|string|El identificador de la solicitud que inició el evento.|
-|`host`|string|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
-|`method`|string|El método de la solicitud que generó el evento.|
-|`useragent`|string|El encabezado de agente de usuario de la solicitud.|
+|`id`|String|El identificador de la solicitud que inició el evento.|
+|`host`|String|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
+|`method`|String|El método de la solicitud que generó el evento.|
+|`useragent`|String|El encabezado de agente de usuario de la solicitud.|
 
 ### <a name="payload-example-image-delete-event"></a>Ejemplo de carga: evento de eliminación de imagen
 
@@ -218,22 +218,22 @@ Webhook que se desencadena cuando se elimina un repositorio o un gráfico de Hel
 
 |Elemento|Type|DESCRIPCIÓN|
 |-------------|----------|-----------|
-|`id`|string|El identificador del evento de webhook.|
+|`id`|String|El identificador del evento de webhook.|
 |`timestamp`|DateTime|La hora en la que se desencadenó el evento de webhook.|
-|`action`|string|La acción que desencadenó el evento de webhook.|
+|`action`|String|La acción que desencadenó el evento de webhook.|
 |[Destino](#chart_delete_target)|Tipo complejo|El destino del evento que desencadenó el evento de webhook.|
 
 ### <a name="chart_delete_target"></a> destino
 
 |Elemento|Type|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`mediaType`|string|El tipo MIME del objeto al que se hace referencia.|
+|`mediaType`|String|El tipo MIME del objeto al que se hace referencia.|
 |`size`|Int32|El número de bytes del contenido.|
-|`digest`|string|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
-|`repository`|string|El nombre del repositorio.|
-|`tag`|string|El nombre de etiqueta del gráfico.|
-|`name`|string|El nombre del gráfico.|
-|`version`|string|La versión del gráfico.|
+|`digest`|String|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
+|`repository`|String|El nombre del repositorio.|
+|`tag`|String|El nombre de etiqueta del gráfico.|
+|`name`|String|El nombre del gráfico.|
+|`version`|String|La versión del gráfico.|
 
 ### <a name="payload-example-chart-delete-event"></a>Ejemplo de carga: evento de eliminación del gráfico
 

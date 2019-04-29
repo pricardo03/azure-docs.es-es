@@ -40,7 +40,7 @@ ms.locfileid: "59357119"
   |||
 
   > [!IMPORTANT]
-  > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works a una base de datos de la instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
+  > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works en una base de datos de instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
 
 ## <a name="install-visual-studio-code"></a>Instalación de Visual Studio Code
 
@@ -93,7 +93,7 @@ En Visual Studio Code, establezca el modo de lenguaje en **SQL** para habilitar 
 
 ## <a name="connect-to-your-database"></a>Conectarse a la base de datos
 
-Use Visual Studio Code para establecer una conexión con el servidor de Azure SQL Database.
+Use Visual Studio Code para establecer una conexión con el servidor de Azure SQL Database.
 
 > [!IMPORTANT]
 > Antes de continuar, asegúrese de tener preparados el servidor y la información de inicio de sesión. Cuando comience a escribir la información de perfil de conexión, si cambia el foco de Visual Studio Code, tendrá que reiniciar la creación del perfil.

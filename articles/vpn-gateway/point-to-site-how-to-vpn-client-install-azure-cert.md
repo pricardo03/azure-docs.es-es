@@ -1,5 +1,5 @@
 ---
-title: 'Instalación de un certificado de cliente de punto a sitio: Azure | Microsoft Docs'
+title: 'Instalar un certificado de cliente de punto a sitio: Azure | Microsoft Docs'
 description: 'Instale un certificado de cliente para la autenticación de certificados de conexiones de punto a sitio: Windows, Mac y Linux.'
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: eec15b84e4bdb8df3fe84a53909d5da4b39545ff
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: c278c1c85961fbeb0779cad98f8ac16d4961ba75
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294449"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679990"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Instalación de un certificado de cliente para conexiones de punto a sitio con autenticación de certificados
 

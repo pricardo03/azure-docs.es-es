@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230512"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106157"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Envío de correo electrónico desde la cuenta de SMTP con Azure Logic Apps
 
@@ -55,10 +55,10 @@ Con Azure Logic Apps y el conector de SMTP (protocolo simple de transferencia de
 
    | Propiedad | Obligatorio | DESCRIPCIÓN |
    |----------|----------|-------------|
-   | **Nombre de la conexión** | SÍ | Un nombre para la conexión al servidor SMTP | 
-   | **Dirección del servidor SMTP** | SÍ | La dirección del servidor SMTP | 
-   | **Nombre de usuario** | SÍ | El nombre de usuario de la cuenta de SMTP | 
-   | **Contraseña** | SÍ | La contraseña de la cuenta de SMTP | 
+   | **Nombre de la conexión** | Sí | Un nombre para la conexión al servidor SMTP | 
+   | **Dirección del servidor SMTP** | Sí | La dirección del servidor SMTP | 
+   | **Nombre de usuario** | Sí | El nombre de usuario de la cuenta de SMTP | 
+   | **Contraseña** | Sí | La contraseña de la cuenta de SMTP | 
    | **Puerto del servidor SMTP** | Sin  | El puerto específico del servidor SMTP que desea usar | 
    | **¿Quiere habilitar SSL?** | Sin  | Activar o desactivar el cifrado SSL. | 
    |||| 

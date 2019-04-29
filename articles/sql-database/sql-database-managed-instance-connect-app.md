@@ -13,11 +13,11 @@ ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
 ms.openlocfilehash: ed9fbdd3e999cfd262ecbcf05a843c19cc969ed1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60701303"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL Database
 
@@ -138,7 +138,7 @@ Para solucionar problemas de conectividad, consulte la siguiente información:
 
 Si desea conectarse a Instancia administrada, se recomiendan las siguientes versiones mínimas de las herramientas y los controladores:
 
-| Controlador/Herramienta | Versión |
+| Controlador/Herramienta | `Version` |
 | --- | --- |
 |.NET Framework | 4.6.1 o .NET Core |
 |Controlador ODBC| v17 |

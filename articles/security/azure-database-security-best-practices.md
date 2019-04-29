@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
 ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117976"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587532"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedimientos recomendados para la seguridad de las bases de datos de Azure
 La seguridad es un aspecto importante a la hora de administrar bases de datos, y siempre ha sido una prioridad para [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Las bases de datos pueden protegerse de forma estricta para ayudar a satisfacer la mayoría de los requisitos de seguridad o legales, como HIPAA, ISO 27001/27002 y PCI DSS nivel 1. En el [sitio del Centro de confianza de Microsoft](https://azure.microsoft.com/support/trust-center/services/) hay disponible una lista actualizada de certificaciones de cumplimiento de seguridad. También puede colocar las bases de datos en centros de datos de Azure específicos en función de los requisitos normativos.
@@ -55,7 +55,7 @@ Como parte del proceso de conexión, las conexiones de máquinas virtuales de Az
 Para más información general acerca de las reglas de firewall de SQL Database, consulte [Introducción a las reglas de firewall de Azure SQL Database](../sql-database/sql-database-firewall-configure.md).
 
 > [!Note]
-> Además de reglas IP, el firewall administra reglas de red virtual. Las reglas de red virtual se basan en los puntos de conexión del servicio Virtual Network. Es posible que las reglas de red virtual sean preferibles a las reglas IP en algunos casos. Para obtener más información, vea [Uso de reglas y puntos de conexión del servicio Virtual Network para Azure SQL Database y SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md).
+> Además de reglas de IP, el firewall administra reglas de red virtual. Las reglas de red virtual se basan en los puntos de conexión de servicio de red virtual. Es posible que las reglas de red virtual sean preferibles a las reglas de IP en algunos casos. Para obtener más información, vea [Uso de reglas y puntos de conexión de servicio de red virtual para Azure SQL Database y SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md).
 
 ## <a name="enable-database-authentication"></a>Habilitación de la autenticación de bases de datos
 SQL Database admite dos tipos de autenticación: autenticación de SQL Server y autenticación de Azure AD.

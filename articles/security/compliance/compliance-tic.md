@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341731"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60608090"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Guía de conexiones a Internet de confianza
 
@@ -125,7 +125,7 @@ Los servicios de PaaS de Azure, como Azure Storage, son accesibles mediante una 
 Cuando los servicios de PaaS de Azure están integrados con una red virtual, el servicio es accesible de forma privada desde esa red virtual. Puede aplicar enrutamiento personalizado para 0.0.0.0/0 mediante rutas definidas por el usuario o BGP. El enrutamiento personalizado asegura que todo el tráfico vinculado a Internet se enruta de forma local para transcurrir por la TIC. Puede integrar los servicios de Azure en redes virtuales mediante el uso de los siguientes patrones:
 
 - **Implementación de una instancia dedicada de un servicio**: cada vez son más los servicios PaaS que se pueden implementar como instancias dedicadas con puntos de conexión vinculados a la red virtual. Puede implementar App Service Environment para PowerApps en el modo "Aislado" para permitir que el punto de conexión de red se pueda restringir a una red virtual. App Service Environment puede hospedar así muchos servicios de PaaS de Azure, como Azure Web Apps, Azure API Management y Azure Functions.
-- **Uso de puntos de conexión de servicio de redes virtuales**: cada vez son más los servicios PaaS que brindan la posibilidad de trasladar el punto de conexión a una dirección IP privada de una red virtual en lugar de a una dirección pública.
+- **Uso de puntos de conexión de servicio de red virtual**: cada vez son más los servicios PaaS que brindan la posibilidad de trasladar el punto de conexión a una dirección IP privada de una red virtual en lugar de a una dirección pública.
 
 Los servicios que admiten la implementación de instancias dedicadas en una red virtual o el uso de puntos de conexión de servicio, a partir de mayo de 2018, se enumeran en las tablas siguientes.
 
@@ -159,7 +159,7 @@ Los servicios que admiten la implementación de instancias dedicadas en una red 
 |Entorno de App Service               | GA               |
 |Azure Cache for Redis                     | GA               |
 |HDInsight de Azure                       | GA               |
-|Conjunto de escalado de máquina virtual             | GA               |
+|Conjunto de escalas de máquina virtual             | GA               |
 |Azure Cloud Services                  | GA               |
 
 
@@ -184,7 +184,7 @@ La inserción de red virtual permite que los clientes puedan implementar de form
 
 ![Introducción a la inserción de red virtual](media/tic-diagram-f.png)
 
-#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Opción B: Uso de puntos de conexión de servicio de redes virtuales (túnel de servicio)
+#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Opción B: Uso de puntos de conexión de servicio de red virtual (túnel de servicio)
 
 Un número creciente de servicios multiinquilino de Azure ofrecen "puntos de conexión de servicio". Los puntos de conexión de servicio son un método alternativo para la integración con las redes virtuales de Azure. Los puntos de conexión de servicio de red virtual extienden el espacio de direcciones IP de la red virtual y la identidad de la red virtual a los servicios de Azure sobre una conexión directa. El tráfico desde la red virtual al servicio de Azure siempre permanece dentro de la red troncal de Azure. 
 
@@ -251,7 +251,7 @@ Puede configurar fácilmente el acceso de Microsoft Azure, Office 365 y Dynamics
 |---------|---------|---------|---------|--------|
 | Proceso | Máquinas virtuales Linux en Azure | Sí | | |
 | Proceso | Máquinas virtuales Windows en Azure | Sí | | |
-| Proceso | Conjuntos de escalado de máquinas virtuales | Sí | | |
+| Proceso | Conjuntos de escalas de máquina virtual | Sí | | |
 | Proceso | Azure Functions | | Entorno de App Service | |
 | Web y móviles | Aplicación web interna | | Entorno de App Service| |
 | Web y móviles | Aplicación móvil interna | | Entorno de App Service | |
