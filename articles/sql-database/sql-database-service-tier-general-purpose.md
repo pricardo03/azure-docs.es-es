@@ -1,5 +1,5 @@
 ---
-title: 'Nivel de servicio de uso general: Azure SQL Database | Microsoft Docs'
+title: 'Nivel de servicio Uso general: Azure SQL Database | Microsoft Docs'
 description: Obtenga información sobre el nivel de uso general de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -13,16 +13,16 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: dc379f1ee67174cd806840e4244054701d18f0d4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784029"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709165"
 ---
-# <a name="general-purpose-service-tier---azure-sql-database"></a>Nivel de servicio de uso general: Azure SQL Database
+# <a name="general-purpose-service-tier---azure-sql-database"></a>Nivel de servicio Uso general: Azure SQL Database
 
 > [!NOTE]
-> El nivel de servicio de uso general del modelo de compra basado en núcleos virtuales se denomina el nivel de servicio estándar en el modelo de compra basado en DTU. Para ver una comparación entre el modelo de compra basado en núcleos virtuales y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](sql-database-purchase-models.md).
+> El nivel de servicio Uso general del modelo de compra basado en núcleo virtual se denomina el nivel de servicio estándar en el modelo de compra basado en DTU. Para ver una comparación entre el modelo de compra basado en núcleo virtual y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](sql-database-purchase-models.md).
 
 Azure SQL Database se basa en la arquitectura del motor de base de datos de SQL Server adaptada al entorno en la nube, con el fin de garantizar una disponibilidad del 99,99 % incluso en los casos de error de la infraestructura. Hay tres niveles de servicio que se usan en Azure SQL Database, cada uno con diferentes modelos de arquitectura. Estos niveles de servicio son:
 

@@ -9,11 +9,11 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 03b504524b2f489f1ee042c6e825ccffe0a60bb3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478477"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparación de unidades de disco duro para un trabajo de importación
 Para preparar una o varias unidades de disco duro para un trabajo de importación, siga estos pasos:
@@ -141,8 +141,7 @@ Para preparar una o varias unidades de disco duro para un trabajo de importació
 |----------------------------|-----------------|
 |**/srcfile:**&lt;SourceFile\>|`Required.`La ruta de acceso completa al archivo que se va a copiar. La ruta del directorio debe ser una ruta absoluta (no una ruta de acceso relativa).|
 |**/dstblob:**&lt;DestinationBlobPath\>|`Required.` La ruta de acceso al blob de destino en la cuenta de Windows Azure Storage. El blob puede existir ya o no.<br /><br /> Especifique el nombre de blob comenzando con el nombre del contenedor. Ni el nombre del blob ni el de la cuenta de almacenamiento pueden comenzar con "/". Para más información sobre las reglas de nomenclatura de blobs, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br /> Si el contenedor de destino es el contenedor raíz, debe especificar de forma explícita `$root` como contenedor como, por ejemplo, `$root/sample.txt`. Tenga en cuenta que los blobs del contenedor raíz no pueden incluir "/" en sus nombres.|
-|
-  **/Disposition:**&amp;lt;rename&#124;no-overwrite&#124;overwrite&amp;gt;|`Optional.`Especifica el comportamiento cuando un blob con la dirección especificada ya existe. Los valores válidos para este parámetro son: `rename`, `no-overwrite` y `overwrite`. Tenga en cuenta que estos valores distinguen mayúsculas de minúsculas. Si no se especifica ningún valor, el valor predeterminado será `rename`.|
+|**/Disposition:**&amp;amp;lt;rename&amp;#124;no-overwrite&amp;#124;overwrite&amp;amp;gt;|`Optional.`Especifica el comportamiento cuando un blob con la dirección especificada ya existe. Los valores válidos para este parámetro son: `rename`, `no-overwrite` y `overwrite`. Tenga en cuenta que estos valores distinguen mayúsculas de minúsculas. Si no se especifica ningún valor, el valor predeterminado será `rename`.|
 |**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Especifica el tipo de blob para los blobs de destino. Los valores válidos son: `BlockBlob` y `PageBlob`. Tenga en cuenta que estos valores distinguen mayúsculas de minúsculas. Si no se especifica ningún valor, el valor predeterminado será `BlockBlob`.<br /><br /> En la mayoría de los casos, se recomienda `BlockBlob`. Si especifica `PageBlob`, la longitud de cada archivo del directorio debe ser un múltiplo de 512, el tamaño de una página para los blobs en páginas.|
 |**/PropertyFile:**&lt;PropertyFile\>|`Optional.` Ruta de acceso al archivo de propiedades para los blobs de destino. Para obtener más información, consulte [Formato de archivo de propiedades y metadatos del servicio Import/Export](../storage-import-export-file-format-metadata-and-properties.md).|
 |**/MetadataFile:**&lt;MetadataFile\>|`Optional.` Ruta de acceso al archivo de metadatos para los blobs de destino. Para obtener más información, consulte [Formato de archivo de propiedades y metadatos del servicio Import/Export](../storage-import-export-file-format-metadata-and-properties.md).|

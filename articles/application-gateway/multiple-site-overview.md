@@ -4,15 +4,16 @@ description: Este artículo proporciona información general de la compatibilida
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 1/17/2019
-ms.author: amsriva
+origin.date: 01/17/2019
+ms.date: 04/16/2019
+ms.author: v-junlch
 ms.topic: conceptual
 ms.openlocfilehash: 335545f86c9c23feefb6ac21ca9cc5c8fcb5e7fb
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790619"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715859"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedaje de varios sitios de Application Gateway
 
@@ -124,3 +125,5 @@ No se requiere ningún cambio en la regla de enrutamiento. La regla de enrutamie
 
 Ahora que conoce el hospedaje de varios sitios, vaya a la sección sobre cómo [crear una puerta de enlace de aplicaciones mediante el hospedaje de varios sitios](tutorial-multiple-sites-powershell.md) para crear una puerta de enlace de aplicaciones con la capacidad de admitir más de una aplicación web.
 
+
+<!-- Update_Description: update metedata properties -->

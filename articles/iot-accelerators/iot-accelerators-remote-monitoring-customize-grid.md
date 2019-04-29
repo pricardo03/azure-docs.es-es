@@ -3,17 +3,18 @@ title: 'Incorporación de una cuadrícula a la interfaz de usuario de la soluci�
 description: En este artículo se muestra cómo agregar una nueva cuadrícula en una pagina de la interfaz de usuario web del acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/04/2018
+origin.date: 10/04/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496444"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447104"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota
 
@@ -36,7 +37,7 @@ Para completar los pasos de esta guía, necesita que el software siguiente esté
 Debe completar los pasos descritos en los artículos siguientes antes de continuar:
 
 - [Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-page.md).
-- [Adición de un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-service.md)
+- [Adición de un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-service.md)
 
 ## <a name="add-a-grid"></a>Agregar una cuadrícula
 
@@ -48,11 +49,11 @@ Para comenzar, la carpeta **src/walkthrough/components/pages/pageWithGrid/exampl
 
 **exampleGrid.js**
 
-[!code-javascript[Example grid](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGrid.js?name=grid "Example grid")]
+
 
 **exampleGridConfig.js**
 
-[!code-javascript[Example grid configuration](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithGrid/exampleGrid/exampleGridConfig.js?name=gridconfig "Example grid configuration")]
+
 
 Copie la carpeta **src/walkthrough/components/pages/pageWithGrid/exampleGrid** en la carpeta **src/components/pages/example**.
 
@@ -239,7 +240,7 @@ Si un usuario necesita actuar en varias filas al mismo tiempo, use las casillas 
     ```js
     doSomething = () => {
       //Just for demo purposes. Don't console log in a real grid.
-      console.log('Hard selected rows', this.gridApi.getSelectedRows());
+      console.log('hard selected rows', this.gridApi.getSelectedRows());
     };
     ```
 
@@ -263,16 +264,16 @@ Si el usuario necesita actuar en una sola fila, puede configurar un vínculo de 
 1. Cuando se hace clic en un vínculo de selección temporal, se desencadena el evento **onSoftSelectChange**. Puede realizar cualquier acción que desee para esa fila, como abrir un control flotante con detalles. En este ejemplo sencillamente se escribe en la consola:
 
     ```js
-    onSoftSelectChange = (rowId, rowData) => {
-      //Note: only the Id is reliable, rowData may be out of date
+    onSoftSelectChange = (rowId, rowEvent) => {
       const { onSoftSelectChange } = this.props;
-      if (rowId) {
+      const obj = (this.gridApi.getDisplayedRowAtIndex(rowId) || {}).data;
+      if (obj) {
         //Just for demo purposes. Don't console log a real grid.
-        console.log('Soft selected', rowId);
-        this.setState({ softSelectedId: rowId });
+        console.log('Soft selected', obj);
+        this.setState({ softSelectedObj: obj });
       }
       if (isFunc(onSoftSelectChange)) {
-        onSoftSelectChange(rowId, rowData);
+        onSoftSelectChange(obj, rowEvent);
       }
     }
     ```
@@ -283,4 +284,4 @@ En este artículo, aprendió sobre los recursos que tiene a su disposición para
 
 Ya ha definido una cuadrícula, el paso siguiente consiste en la [Adición de un control flotante personalizado a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-flyout.md) que se muestra en la página de ejemplo.
 
-Para información más conceptual sobre el acelerador de la solución de supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Para información más conceptual sobre el acelerador de soluciones de supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).

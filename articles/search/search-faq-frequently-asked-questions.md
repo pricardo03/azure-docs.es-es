@@ -10,11 +10,11 @@ ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312823"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61290455"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Microsoft Azure Search: preguntas más frecuentes (P+F)
 
@@ -94,7 +94,7 @@ La mayoría de los clientes eligen campos dedicados en una colección cuando se 
 
 ¿Es su pregunta acerca de una característica o funcionalidad que falta? Solicite la característica en el [sitio web de User Voice](https://feedback.azure.com/forums/263029-azure-search).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
  [StackOverflow: Azure Search](https://stackoverflow.com/questions/tagged/azure-search)   
  [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md)  

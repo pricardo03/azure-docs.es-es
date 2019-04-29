@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: bd1761ecf16bbfb0d3fdc354ab1b9fa1f42f9c17
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9253051d907a811ffedad3a714112c9b25543a35
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60667454"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso: Escalado de una migración en Azure
 
@@ -293,6 +293,7 @@ Contoso necesita averiguar cómo implementar estos componentes, en función de l
 **Servidor de proceso** | Contoso implementará un servidor de procesos dedicado e independiente con capacidad para replicar entre 100 y 200 máquinas virtuales:<br/><br/> CPU: 16 vCPUs (2 sockets * 8 núcleos @ 2,5 GHz)<br/><br/> Memoria: 32 GB<br/><br/> Disco de caché: 1 TB<br/><br/> Frecuencia de cambio de datos: 1 TB a 2 TB.<br/><br/> El servidor de procesos trabajará duro y como tal debe estar ubicado en un host ESXi que pueda manejar la E/S del disco, el tráfico de red y la CPU requeridos para la replicación. Contoso se planteará la posibilidad de contar con un host dedicado para este fin. 
 **Redes** | Contoso ha revisado la infraestructura VPN de sitio a sitio actual y decidió implementar Azure ExpressRoute. La implementación es fundamental porque reducirá la latencia y mejorará el ancho de banda en la región principal Este de EE. UU. 2 de Azure de Contoso.<br/><br/> **Supervisión**: Contoso deberá supervisar cuidadosamente los datos que fluyen desde el servidor de procesos. Si los datos sobrecargan el ancho de banda, Contoso considerará [limitar el ancho de banda del servidor de procesos](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 **Almacenamiento de Azure** | Para la migración, Contoso debe identificar el tipo y el número correctos de cuentas de Azure Storage de destino.  Site Recovery replica los datos de máquina virtual en Azure Storage.<br/><br/> Site Recovery puede replicar en cuentas de almacenamiento estándar o premium (SSD).<br/><br/> Para decidir sobre el almacenamiento, Contoso debe revisar [los límites de almacenamiento](../virtual-machines/windows/disks-types.md) y tener en cuenta el crecimiento esperado y el aumento del uso a lo largo del tiempo. Dada la velocidad y la prioridad de las migraciones, Contoso ha decidido usar discos SSD Premium.<br/><br/>
+
 Contoso ha tomado la decisión de usar discos administrados para todas las máquinas virtuales que se implementan en Azure.  El número de IOPS necesario determinará si los discos serán HDD estándar, SSD estándar o Premium (SSD).<br/><br/>
 
 #### <a name="data-migration-service"></a>Data Migration Service
@@ -379,7 +380,7 @@ Contoso confiará en Azure Security Center para lograr una administración unifi
 
 ### <a name="monitoring"></a>Supervisión
 
-Contoso necesita visibilidad sobre el estado y el rendimiento de las aplicaciones recién migradas, así como sobre la infraestructura y los datos que ahora se está ejecutando en Azure. Contoso aprovechará las herramientas integradas de supervisión de la nube de Azure, como Azure Monitor, Log Analytics y Application Insights.
+Contoso necesita visibilidad sobre el estado y el rendimiento de las aplicaciones recién migradas, así como sobre la infraestructura y los datos que ahora se está ejecutando en Azure. Contoso aprovechará la nube de Azure integrada las herramientas como Azure Monitor, el área de trabajo de Log Analytics y Application Insights de supervisión.
  
 - Con estas herramientas, Contoso puede recopilar datos fácilmente de diversos orígenes y obtener conocimiento con ellos. Por ejemplo, Contoso puede medir el uso de CPU, disco y memoria de sus máquinas virtuales, ver las dependencias de aplicaciones y red entre varias máquinas virtuales y mantener un seguimiento del rendimiento de las aplicaciones.
 - Contoso usará estas herramientas de supervisión en la nube para tomar medidas e integrarlas con las soluciones de servicios.

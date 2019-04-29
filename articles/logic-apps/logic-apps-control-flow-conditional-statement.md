@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230342"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684803"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Crear instrucciones condicionales que controlen las acciones de los flujo de trabajo en Azure Logic Apps
 
@@ -45,7 +45,7 @@ Por ejemplo, suponga que tiene una aplicación lógica que envía demasiados cor
 
    Si desea agregar una condición al final del flujo de trabajo, en la parte inferior de la aplicación lógica elija **+ Nuevo paso** > **Agregar una acción**.
 
-1. En el cuadro de búsqueda, escriba "condición" como filtro. Seleccione esta acción: **Condición: Control**
+1. En el cuadro de búsqueda, escriba "condición" como filtro. Seleccione esta acción: **Condición - Control**
 
    ![Incorporación de una condición](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 

@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/18/2019
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004778"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125566"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
@@ -200,7 +200,7 @@ Revise los [requisitos previos](vmware-azure-deploy-configuration-server.md#prer
 Se recomienda [crear la máquina virtual del servidor de configuración](vmware-azure-deploy-configuration-server.md) con la versión más reciente de la plantilla OVF. Si por algún motivo no puede, por ejemplo no tiene acceso al servidor de VMware, puede [descargar](physical-azure-set-up-source.md) el archivo de instalación del portal y configurar el servidor de configuración.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>¿Un servidor de configuración se puede replicar en más de una región?
- No. Para ello, necesita un servidor de configuración en cada región.
+No. Para ello, necesita un servidor de configuración en cada región.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>¿Puedo hospedar un servidor de configuración en Azure?
 Si bien es posible, la máquina virtual de Azure que ejecuta el servidor de configuración necesitaría comunicarse con las máquinas virtuales y la infraestructura de VMware locales. Esto agrega latencia y afecta a la replicación en curso.
@@ -233,7 +233,7 @@ No, solo se debe usar la máquina virtual para el servidor de configuración.
 No, debe configurar un servidor de configuración actualizados para evitar problemas de registro.
 
 ### <a name="can-i-change-the-vault-in-which-the-configuration-server-is-registered"></a>¿Puedo cambiar el almacén en el que está registrado el servidor de configuración?
- No. Después de un almacén está asociado con el servidor de configuración, no se puede cambiar. Revisión [en este artículo](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) para obtener información acerca de cómo volver a registrar.
+No. Después de un almacén está asociado con el servidor de configuración, no se puede cambiar. Revisión [en este artículo](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) para obtener información acerca de cómo volver a registrar.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>¿Se puede usar el mismo servidor de configuración para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos?
 Sí, pero tenga en cuenta que solo se puede con errores de esa máquina física a una VM de VMware.
@@ -245,11 +245,15 @@ Sí, pero tenga en cuenta que solo se puede con errores de esa máquina física 
 
 En el almacén de Recovery Services, haga clic en **servidores de configuración** en **infraestructura de Site Recovery** > **administrar**. A continuación, en **servidores**, seleccione **Descargar clave de registro** para descargar el archivo de credenciales de almacén.
 
+## <a name="process-server"></a>Servidor de procesos
 
+### <a name="unable-to-select-process-server-during-enable-replication"></a>No se puede seleccionar el servidor de procesos durante la habilitación de la replicación
 
+Desde la versión 9.24, se han realizado mejoras para proporcionar [del producto orientación](vmware-azure-manage-process-server.md#process-server-selection-guidance) sobre cuándo configurar un servidor de procesos de escalado horizontal. Esto es para evitar la limitación del servidor de proceso y evitar el uso del servidor de procesos en mal estado.
 
+### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>¿Qué debo hacer para obtener el estado de mantenimiento exacta del servidor de procesos?
 
-
+Actualizar componentes de Site Recovery para la [versiones más recientes](service-updates-how-to.md#links-to-currently-supported-update-rollups) (al menos 9.24 o superior).
 
 ## <a name="failover-and-failback"></a>Conmutación por error y conmutación por recuperación
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>¿Puedo usar el servidor de procesos en un entorno local para la conmutación por recuperación?

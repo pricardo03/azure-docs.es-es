@@ -17,11 +17,11 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: ae59f54de9c02bfc4e538dd10c809ba398d599ee
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61222244"
 ---
 > [!NOTE]
 > Algunas de las siguientes directrices solo funcionen en Windows o Linux App Services. Por ejemplo, App Services de Linux se ejecute en modo de 64 bits de forma predeterminada.

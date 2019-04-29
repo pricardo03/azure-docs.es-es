@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9926c9a0443eb5220e7689dfc6e49e4b8d661d65
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433410"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909855"
 ---
 # <a name="iot-edge-module-support-tab"></a>Pestaña Soporte técnico de los módulos IoT Edge
 
-Use la pestaña **Soporte técnico** de la página **Nueva oferta** para proporcionar recursos técnicos y de soporte técnico a los usuarios en relación con la oferta.  En el formulario Soporte se proporcionan las siguientes áreas de entrada: **Contacto de ingeniería**, **Soporte al cliente** y **Direcciones URL de soporte técnico**. Un asterisco (*) junto al nombre del campo indica que es obligatorio.
+Use la pestaña **Soporte técnico** de la página **Nueva oferta** para proporcionar recursos técnicos y de soporte técnico a los usuarios en relación con la oferta.  Se proporcionan las siguientes áreas de entrada en el formulario de soporte técnico: **Contacto de ingeniería**, **soporte al cliente**, y **admite direcciones URL**. Un asterisco (*) junto al nombre del campo indica que es obligatorio.
 
 ![Pestaña Soporte técnico en el formulario Nueva oferta de Módulos IoT Edge](./media/iot-edge-module-support-tab.png)
 

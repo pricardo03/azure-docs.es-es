@@ -1,7 +1,6 @@
 ---
 title: Creación de clústeres de Apache Hadoop con un explorador web, Azure HDInsight
 description: Aprenda a crear clústeres de Apache Hadoop, Apache HBase, Apache Storm o Apache Spark en Linux para HDInsight con un explorador web y el portal de vista previa de Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 13d053c14b083390bfdd28fdad616caf13e7e4e0
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 9da9c6c438aac2c160a9ec7bc658e5d7b4ea207e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124805"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creación de clústeres basados en Linux en HDInsight mediante Azure Portal
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -81,7 +80,7 @@ El Portal de Azure expone la mayor parte de las propiedades del clúster. Median
 
      ![Defina la configuración de almacenamiento](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Creación de un clúster en Azure Portal")
 
-     | Storage                                      | DESCRIPCIÓN |
+     | Almacenamiento                                      | DESCRIPCIÓN |
      |----------------------------------------------|-------------|
      | **Blobs de Azure Storage como almacenamiento predeterminado**   | <ul><li>En **Tipo de almacenamiento principal**, seleccione **Azure Storage**. Como **Método de selección**, elija **Mis suscripciones** si desea especificar una cuenta de almacenamiento que forme parte de su suscripción de Azure. Después, seleccione la cuenta de almacenamiento. De lo contrario, seleccione **Clave de acceso**. A continuación, proporcione la información de la cuenta de almacenamiento que desee elegir fuera de la suscripción de Azure.</li><li>En **Contenedor predeterminado**, elija el nombre de contenedor predeterminado que se sugiere en el portal o especifique uno propio.</li><li>Si Azure Blob Storage es el almacenamiento predeterminado, puede también seleccionar **Cuentas de almacenamiento adicionales** para especificar cuentas de almacenamiento adicionales que se van a asociar con el clúster. Para **Claves de Azure Storage**, seleccione **Add a storage key** (Agregar una clave de almacenamiento). A continuación, puede proporcionar una cuenta de almacenamiento de las suscripciones de Azure o de otras. Proporcione la clave de acceso de la cuenta de almacenamiento.</li><li>Si Blob Storage es el almacenamiento predeterminado, puede también seleccionar **Data Lake Storage access** (Acceso a Data Lake Storage) para especificar Azure Data Lake Storage como almacenamiento adicional. Para más información, consulte [Inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
      | **Azure Data Lake Storage como almacenamiento predeterminado** | Para **Tipo de almacenamiento principal**, seleccione **Azure Data Lake Storage Gen1** o **Azure Data Lake Storage Gen2**. A continuación, consulte el artículo [Inicio rápido: Creación de un clúster de HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) para más información. |

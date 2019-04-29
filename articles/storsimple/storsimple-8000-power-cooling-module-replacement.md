@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 7d181e6e434c998573dbea4b541cfacf7a28ee66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108603"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60632508"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Reemplazar un Módulo de alimentación y de refrigeración en el dispositivo StorSimple
 ## <a name="overview"></a>Información general
@@ -61,7 +61,7 @@ Siga estas instrucciones cuando esté preparado para quitar un Módulo de alimen
    
      **Figura 1** Panel frontal del dispositivo  
    
-   | Etiqueta | Descripción |
+   | Etiqueta | DESCRIPCIÓN |
    |:--- |:--- |
    | 1 |Botón Silencio |
    | 2 |Alimentación del sistema |
@@ -74,7 +74,7 @@ Siga estas instrucciones cuando esté preparado para quitar un Módulo de alimen
    
      **Figura 2** Parte posterior del PCM con LED indicadores
    
-   | Etiqueta | Descripción |
+   | Etiqueta | DESCRIPCIÓN |
    |:--- |:--- |
    | 1 |Error de corriente alterna |
    | 2 |Error del ventilador |
@@ -88,7 +88,7 @@ Siga estas instrucciones cuando esté preparado para quitar un Módulo de alimen
    
      **Figura 3** Parte posterior de dispositivo con módulos de complementos 
    
-   | Etiqueta | Descripción |
+   | Etiqueta | DESCRIPCIÓN |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |

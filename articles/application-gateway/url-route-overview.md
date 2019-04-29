@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/23/2018
-ms.author: victorh
+origin.date: 04/23/2018
+ms.date: 04/17/2019
+ms.author: v-junlch
 ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895590"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61361965"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Introducción al enrutamiento basado en la ruta de acceso URL con Azure Application Gateway
 
@@ -100,3 +101,5 @@ Fragmento de código de la regla PathBasedRouting:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que conoce el enrutamiento de contenido basado en URL, vaya a [Create an application gateway using URL based routing](tutorial-url-route-powershell.md) (Creación de una puerta de enlace de aplicaciones mediante el enrutamiento basado en URL) para crear una puerta de enlace de aplicaciones con reglas de enrutamiento de direcciones URL.
+
+<!-- Update_Description: update metedata properties -->

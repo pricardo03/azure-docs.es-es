@@ -1,5 +1,5 @@
 ---
-title: 'Adición de una página a la interfaz de usuario de la solución de supervisión remota: Azure | Microsoft Docs'
+title: Agregue una página a la solución de supervisión remota UI - Azure | Microsoft Docs
 description: En este artículo se muestra cómo agregar una nueva página a la interfaz de usuario web del acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 95830cdffb232e16f9fbae51cfa11fbd18172c3c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094520"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447087"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota
 

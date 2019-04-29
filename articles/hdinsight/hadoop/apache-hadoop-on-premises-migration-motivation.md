@@ -1,7 +1,6 @@
 ---
 title: Motivación y ventajas de migrar clústeres locales de Apache Hadoop a Azure HDInsight
 description: Obtenga información acerca de la motivación y ventajas de almacenamiento para migrar clústeres locales de Apache Hadoop a Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 73a2f0754cafaa5da09ebd437ecd62813296ffd9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: b45fb5cbfbef334b40ccadecd32f65fa9a59a610
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890086"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095547"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Motivación y ventajas de migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -139,10 +138,10 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Destinos de datos|HDFS, RDBMS, Kafka, MPP ||
 |**Tema**: **Metadatos**|||
 |Tipo de base de datos de Hive|Mysql, Postgres||
-| No. de instancias de Hive Metastore|2||
-| No. de tablas de Hive|100||
-| No. de directivas de Ranger|20||
-| No. de flujos de trabajo de Oozie|100||
+|No. de instancias de Hive Metastore|2||
+|No. de tablas de Hive|100||
+|No. de directivas de Ranger|20||
+|No. de flujos de trabajo de Oozie|100||
 |**Tema**: **Escala**|||
 |Volumen de datos, incluida la replicación|100 TB||
 |Volumen diario de ingesta|50 GB||
@@ -154,11 +153,11 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Espacio en disco usado|75 %||
 |% medio de red usada|25 %
 |**Tema**: **personal**|||
-| No. de administradores|2||
-| No. de desarrolladores|10||
-| No. de usuarios finales|100||
+|No. de administradores|2||
+|No. de desarrolladores|10||
+|No. de usuarios finales|100||
 |Aptitudes|Hadoop, Spark||
-| No. de recursos disponibles para los esfuerzos de migración|2||
+|No. de recursos disponibles para los esfuerzos de migración|2||
 |**Tema**: **Limitaciones**|||
 |Limitaciones actuales|La latencia es alta||
 |Desafíos actuales|Problema de simultaneidad||
@@ -182,7 +181,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |¿Canalización de datos privada y protegida?|Sí||
 |¿Un clúster unido a un dominio (ESP)?|     Sí||
 |¿Sincronización de AD local en la nube?|     Sí||
-| No. de usuarios de AD para sincronizar|          100||
+|No. de usuarios de AD para sincronizar|          100||
 |¿Aceptar sincronizar contraseñas en la nube?|    Sí||
 |¿Solo usuarios en la nube?|                 Sí||
 |¿MFA necesario?|                       Sin || 

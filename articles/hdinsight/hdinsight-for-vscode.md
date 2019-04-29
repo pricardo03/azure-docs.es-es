@@ -2,7 +2,6 @@
 title: 'Herramientas de Azure HDInsight: uso de Visual Studio Code para Hive, LLAP o PySpark | Microsoft Docs'
 description: Aprenda a usar Obtenga información sobre cómo usar Herramientas de Azure HDInsight para Visual Studio Code para crear y enviar consultas y scripts.
 Keywords: Código de Visual Studio, herramientas de Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Hive interactivo, consulta interactiva
-services: HDInsight
 documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 71e12e661c704af028ac4dc48f255bdee980619c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098344"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Uso de las Herramientas de Azure HDInsight para Visual Studio Code
 
@@ -332,7 +331,7 @@ Envíe un archivo; observe que la carpeta .vscode se agrega automáticamente a l
     | Nombre | description | Tipo | 
     | :- | :- | :- | 
     | id | Identificador de sesión | int | 
-    | appId | Identificador de la aplicación de esta sesión |  string |
+    | appId | Identificador de la aplicación de esta sesión |  String |
     | appInfo | Información detallada de la aplicación | Asignación de clave = val |
     | log | Líneas de registro | lista de cadenas |
     | state |   Estado de lote | string |
