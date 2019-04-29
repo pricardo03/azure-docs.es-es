@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 18f00391beded0744c80eab73bb1efe1c6ab8dbc
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807203"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625047"
 ---
 <a name="cancel-operation"></a>Cancelar operación 
 =================
@@ -35,8 +35,8 @@ Puede proporcionar una lista de direcciones de correo electrónico delimitadas p
 
 |  **Nombre**    |      **Descripción**                                  |    **Tipo de datos**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identificador del editor, por ejemplo, `contoso`         |   string          |
-| offerId      |  Identificador de la oferta                                     |   string          |
+| publisherId  |  Identificador del editor, por ejemplo, `contoso`         |   String          |
+| offerId      |  Identificador de la oferta.                                     |   String          |
 | api-version  |  Versión actual de la API                               |    Date           |
 |  |  |  |
 

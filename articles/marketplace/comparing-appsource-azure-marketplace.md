@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: f204f01fae0bd01f9f2f0e242c63ec2070d6d195
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678056"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121167"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Comparación de AppSource y Azure Marketplace
 Los escaparates de [Azure Marketplace](https://azuremarketplace.microsoft.com) y [Microsoft AppSource](https://appsource.microsoft.com) atienden los requisitos únicos de los clientes. Utilice los escaparates para dirigirse a los clientes por rol. Puede ofrecer la solución o el servicio correctos en función del cliente.

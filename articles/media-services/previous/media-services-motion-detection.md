@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: milanga;juliako;
 ms.openlocfilehash: e0b083cba575f4d1c0eb19afb76fca29431ae75e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259111"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463538"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detección de movimientos con Análisis multimedia de Azure
 ## <a name="overview"></a>Información general
@@ -94,14 +94,14 @@ En la tabla siguiente, se describen elementos del archivo JSON de salida.
 
 | Elemento | DESCRIPCIÓN |
 | --- | --- |
-| Versión |Esto se refiere a la versión de la API de vídeo. La versión actual es 2. |
+| `Version` |Esto se refiere a la versión de la API de vídeo. La versión actual es 2. |
 | Escala de tiempo |"Tics" por segundo del vídeo. |
 | Offset |La diferencia de tiempo para las marcas de tiempo en "tics". En la versión 1.0 de las API de vídeo, será siempre 0. En los escenarios futuros que se admitan, este valor puede cambiar. |
 | Framerate |Fotogramas por segundo del vídeo. |
 | Ancho, alto |Se refiere al ancho y alto del vídeo en píxeles. |
 | Iniciar |La marca de tiempo de inicio en "tics". |
 | Duration |La longitud del evento, en "tics". |
-| Intervalo |El intervalo de cada entrada del evento, en "tics". |
+| Interval |El intervalo de cada entrada del evento, en "tics". |
 | Eventos |Cada fragmento de evento contiene el movimiento detectado dentro de esa duración. |
 | Type |En la versión actual, este valor siempre es "2" para el movimiento genérico. Esta etiqueta brinda a las API de vídeo la flexibilidad para clasificar el movimiento en las versiones futuras. |
 | RegionID |Tal como se explicó anteriormente, este valor siempre será 0 en esta versión. Esta etiqueta brinda a la API de vídeo la flexibilidad para encontrar el movimiento en diversas regiones en las versiones futuras. |

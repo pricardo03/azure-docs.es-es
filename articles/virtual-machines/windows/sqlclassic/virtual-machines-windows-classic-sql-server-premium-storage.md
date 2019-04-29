@@ -17,11 +17,11 @@ ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583269"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar Azure Premium Storage con SQL Server en máquinas virtuales
 
@@ -54,7 +54,7 @@ Hay varios requisitos previos para usar Premium Storage.
 
 Para usar Premium Storage, debe usar máquinas virtuales (VM) de la serie DS. Si nunca usó máquinas de la serie DS en el servicio en la nube, debe eliminar la máquina virtual existente, mantener los discos conectados y, a continuación, crear un nuevo servicio en la nube antes de volver a crear la máquina virtual como un tamaño de rol DS*. Para más información sobre los tamaños de las máquinas virtuales, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-### <a name="cloud-services"></a>Servicios en la nube
+### <a name="cloud-services"></a>Cloud Services
 
 Solo puede usar máquinas virtuales DS* con Premium Storage cuando se crean en un servicio en la nube nuevo. Si usa SQL Server AlwaysOn en Azure, el agente de escucha de AlwaysOn hará referencia a la dirección IP del equilibrador de carga interno o externo de Azure que está asociada a un servicio en la nube. Este artículo se centra en cómo migrar manteniendo al mismo tiempo la disponibilidad en este escenario.
 

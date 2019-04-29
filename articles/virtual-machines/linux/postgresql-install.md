@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
 ms.openlocfilehash: 76f1ddeebb173bf19b15753d12e4374e6365bf8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998992"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474234"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalación y configuración de PostgreSQL en Azure
 PostgreSQL es una base de datos de código abierto avanzada similar a DB2 y Oracle. Incluye características preparadas para el ámbito empresarial, como el cumplimiento de ACID completo, un procesamiento transaccional confiable y un control de simultaneidad de múltiples versiones. También admite estándares como ANSI SQL y SQL/MED (incluidos los contenedores de datos externos para Oracle, MySQL, MongoDB y muchas otras). Es altamente extensible al admitir más de 12 lenguajes procedimentales, índices GIN y GiST, datos espaciales y múltiples características NoSQL para JSON o aplicaciones basadas en clave-valor.
@@ -126,7 +126,7 @@ Conéctese a la máquina virtual Linux que creó mediante PuTTY. Si es la primer
    
     Debe recibir los siguientes resultados:
 
-![imagen](./media/postgresql-install/no1.png)
+![image](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>Configuración de PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
@@ -143,7 +143,7 @@ Modifique dos variables en el archivo /etc/init.d/postgresql. El prefijo se esta
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![imagen](./media/postgresql-install/no2.png)
+![image](./media/postgresql-install/no2.png)
 
 Cambie el archivo para que sea ejecutable:
 
@@ -159,7 +159,7 @@ Compruebe si el extremo de PostgreSQL está activado:
 
 Debería ver la siguiente salida:
 
-![imagen](./media/postgresql-install/no3.png)
+![image](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>Conexión a la base de datos de Postgres
 Cambie de nuevo al usuario postgres:
@@ -190,11 +190,11 @@ Ahora hemos configurado una tabla de cuatro columnas con los siguientes nombres 
 
 Verá lo siguiente si la tabla se ha creado correctamente:
 
-![imagen](./media/postgresql-install/no4.png)
+![image](./media/postgresql-install/no4.png)
 
 También puede comprobar la estructura de tabla con el comando siguiente:
 
-![imagen](./media/postgresql-install/no5.png)
+![image](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>Incorporación de datos a una tabla
 En primer lugar, inserte información en una fila:
@@ -203,7 +203,7 @@ En primer lugar, inserte información en una fila:
 
 Debería ver este resultado:
 
-![imagen](./media/postgresql-install/no6.png)
+![image](./media/postgresql-install/no6.png)
 
 También puede agregar un par de personas más a la tabla. Estas son algunas opciones, o bien puede crear las suyas propias:
 
@@ -220,7 +220,7 @@ Use el siguiente comando para mostrar una tabla:
 
 La salida es la siguiente:
 
-![imagen](./media/postgresql-install/no7.png)
+![image](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>Eliminación de datos de una tabla
 Use el comando siguiente para eliminar datos de una tabla:
@@ -229,7 +229,7 @@ Use el comando siguiente para eliminar datos de una tabla:
 
 Esto elimina toda la información de la fila "John". La salida es la siguiente:
 
-![imagen](./media/postgresql-install/no8.png)
+![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Actualización de los datos de una tabla
 Use el comando siguiente para actualizar los datos de una tabla: En esta ocasión, Sandy ha confirmado que asistirá, por lo que se cambiará su respuesta de "N" a "Y":

@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
 ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116782"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557076"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Uso de la restauración geográfica para recuperar una aplicación SaaS multiinquilino a partir de copias de seguridad de base de datos
 
@@ -97,7 +97,7 @@ Antes de comenzar el proceso de recuperación, revise el estado de mantenimiento
 
 3. En [Azure Portal](https://portal.azure.com), revise y abra el grupo de recursos en el que se implementó la aplicación.
 
-   Tenga en cuenta los recursos y la región donde se implementan los componentes de servicio de aplicaciones y los servidores SQL Database.
+   Tenga en cuenta los recursos y la región donde se implementan los componentes de servicio de aplicaciones y los servidores de SQL Database.
 
 ## <a name="sync-the-tenant-configuration-into-the-catalog"></a>Sincronización de la configuración del inquilino con el catálogo
 

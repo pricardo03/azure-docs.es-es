@@ -1,27 +1,22 @@
 ---
-title: 'Desarrollo de acciones de script con HDInsight basado en Linux: Azure'
-description: Obtenga información sobre cómo usar scripts de Bash para personalizar clústeres de HDInsight basado en Linux. La característica de acción de script de HDInsight le permite ejecutar scripts durante o después de la creación del clúster. Los scripts se pueden usar para cambiar la configuración de clúster o instalar software adicional.
-services: hdinsight
+title: Desarrollo acciones de script para personalizar clústeres de HDInsight de Azure
+description: Obtenga información sobre cómo usar scripts de Bash para personalizar clústeres de HDInsight. Las acciones de script permiten ejecutar scripts durante o después de la creación del clúster para cambiar la configuración de clúster o instalar software adicional.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/15/2019
-ms.author: hrasheed
-ms.openlocfilehash: 0d56d901ca932f044ef71ef2bc24933bcf18c24a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60590792"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desarrollo de la acción de script con HDInsight
 
 Obtenga información sobre cómo personalizar su clúster de HDInsight mediante scripts de Bash. Las acciones de script son una forma de personalizar HDInsight durante la creación del clúster o después de crearlo.
-
-> [!IMPORTANT]  
-> Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>¿Qué son las acciones de script?
 
@@ -61,13 +56,28 @@ Al desarrollar un script personalizado para un clúster de HDInsight, hay varios
 
 Las distintas versiones de HDInsight tienen distintas versiones de componentes y servicios de Hadoop instalados. Si su script espera una versión específica de un servicio o componente, debe usar solamente el script con la versión de HDInsight que incluye los componentes necesarios. Puede encontrar información sobre las versiones de los componentes incluidos con HDInsight mediante el documento [Versiones de HDInsight y componentes](hdinsight-component-versioning.md) .
 
-### <a name="bps10"></a> Concentrarse en el sistema operativo
+### <a name="checking-the-operating-system-version"></a>Comprobación de la versión del sistema operativo
+
+Las distintas versiones de HDInsight se basan en versiones específicas de Ubuntu. Puede haber diferencias entre las versiones del sistema operativo que debe comprobar en el script. Por ejemplo, debe instalar un archivo binario que esté asociado a la versión de Ubuntu.
+
+Para comprobar la versión del sistema operativo, use `lsb_release`. Por ejemplo, el script siguiente muestra cómo hacer referencia a un archivo tar específico en función de la versión del sistema operativo:
+
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+```
+
+### <a name="bps10"></a> La versión del sistema operativo de destino
 
 HDInsight basado en Linux utiliza como cimientos la distribución de Ubuntu Linux. Las distintas versiones de HDInsight se basan en diferentes versiones de Ubuntu, que podrían cambiar el funcionamiento del script. Por ejemplo, HDInsight 3.4 y versiones anteriores se basan en versiones de Ubuntu que emplean Upstart. La versión 3.5 y superiores se basan en Ubuntu 16.04, que utiliza Systemd. Systemd y Upstart se basan en comandos diferentes, por lo que debe escribirse el script para usar los dos.
 
-Otra diferencia importante entre HDInsight 3.4 y 3.5 es que `JAVA_HOME` ahora apunta a Java 8.
-
-Puede comprobar la versión del sistema operativo mediante `lsb_release`. El código siguiente demuestra cómo determinar si el script se ejecuta en Ubuntu 14 o 16:
+Otra diferencia importante entre HDInsight 3.4 y 3.5 es que `JAVA_HOME` ahora apunta a Java 8. El código siguiente demuestra cómo determinar si el script se ejecuta en Ubuntu 14 o 16:
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -136,10 +146,10 @@ Los clústeres de HDInsight basados en Linux proporcionan dos nodos principales 
 
 Los componentes que instaló en el clúster podrían tener una configuración predeterminada que usa el almacenamiento Sistema de archivos distribuido de Apache Hadoop (HDFS). HDInsight usa Azure Storage o Data Lake Storage como almacén predeterminado. Ambas soluciones proporcionan un sistema de archivos compatible con HDFS que conserva los datos incluso si se elimina el clúster. Podría tener que configurar los componentes instalados para que usen WASB o ADL en lugar de HDFS.
 
-En la mayoría de las operaciones, no es necesario especificar el sistema de archivos. Por ejemplo, lo siguiente copia el archivo giraph-examples.jar del sistema de archivos local a un almacenamiento de clúster:
+En la mayoría de las operaciones, no es necesario especificar el sistema de archivos. Por ejemplo, la siguiente copia el archivo hadoop common.jar desde el sistema de archivos local al almacenamiento de clúster:
 
 ```bash
-hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
 ```
 
 En este ejemplo, el comando `hdfs` usa de forma transparente el almacenamiento de clúster predeterminado. En algunas operaciones debe especificar el URI. Por ejemplo, `adl:///example/jars` para Azure Data Lake Storage Gen1, `abfs:///example/jars` para Data Lake Storage Gen2 o `wasb:///example/jars` para Azure Storage.
@@ -289,23 +299,6 @@ Almacenar los archivos en una cuenta de Azure Storage o Azure Data Lake Storage 
 
 > [!NOTE]  
 > El formato de URI que se use para hacer referencia al script difiere en función del servicio que se utilice. Para las cuentas de almacenamiento asociadas con el clúster de HDInsight, use `wasb://` o `wasbs://`. Para los URI legibles públicamente, use `http://` o `https://`. Para Data Lake Storage, use `adl://`.
-
-### <a name="checking-the-operating-system-version"></a>Comprobación de la versión del sistema operativo
-
-Las distintas versiones de HDInsight se basan en versiones específicas de Ubuntu. Puede haber diferencias entre las versiones del sistema operativo que debe comprobar en el script. Por ejemplo, debe instalar un archivo binario que esté asociado a la versión de Ubuntu.
-
-Para comprobar la versión del sistema operativo, use `lsb_release`. Por ejemplo, el script siguiente muestra cómo hacer referencia a un archivo tar específico en función de la versión del sistema operativo:
-
-```bash
-OS_VERSION=$(lsb_release -sr)
-if [[ $OS_VERSION == 14* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
-    HUE_TARFILE=hue-binaries-14-04.tgz
-elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
-    HUE_TARFILE=hue-binaries-16-04.tgz
-fi
-```
 
 ## <a name="deployScript"></a>Lista de comprobación para implementar una acción de script
 

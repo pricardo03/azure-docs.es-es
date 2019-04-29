@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c62f8808565022371484b936f5a2bdaba1f8900e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: e7080901118dde33ed07c8a80f254b9b0d2e221c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623039"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Direcciones IP compartidas en Azure DevTest Labs
 
@@ -30,25 +30,25 @@ Cuando se crea un laboratorio, reside en una subred de una red virtual.  De form
 
 ![Nueva subred de laboratorio](media/devtest-lab-shared-ip/lab-subnet.png)
 
-Para habilitar esta opción en laboratorios existentes, seleccione **Configuration and policies (Directivas y configuración) > Redes virtuales**. Después, seleccione una red virtual de la lista y elija **HABILITAR IP PÚBLICA COMPARTIDA**  para la subred seleccionada. También puede deshabilitar esta opción en cualquier laboratorio si no quiere compartir una dirección IP pública en todas las máquinas virtuales del laboratorio.
+Para habilitar esta opción en laboratorios existentes, seleccione **Configuration and policies (Directivas y configuración) > Redes virtuales**. Después, seleccione una red virtual de la lista y elija **HABILITAR IP PÚBLICA COMPARTIDA**  para la subred seleccionada. También puede deshabilitar esta opción en cualquier laboratorio si no desea compartir una dirección IP pública en máquinas virtuales de laboratorio.
 
 Las máquinas virtuales creadas en este laboratorio usarán una dirección IP compartida de forma predeterminada.  Al crear la máquina virtual, esta configuración se puede encontrar en la hoja **Configuración avanzada**, bajo **Configuración de dirección IP**.
 
 ![Nueva máquina virtual](media/devtest-lab-shared-ip/new-vm.png)
 
-- **Compartido:** todas las máquinas virtuales creadas como **Compartido** se colocan en un solo grupo de recursos. Se asigna una sola dirección IP al grupo de recursos y todas las máquinas virtuales usarán esa dirección IP.
-- **Público:** todas las máquinas virtuales que se crean tienen su propia dirección IP y se crean en su propio grupo de recursos.
-- **Privado:** todas las máquinas virtuales que se crean usan una dirección IP privada. No podrá conectarse a estas máquinas virtuales directamente desde Internet mediante Escritorio remoto.
+- **Compartido:** Todas las máquinas virtuales creadas como **Shared** se colocan en un grupo de recursos (RG). Se asigna una sola dirección IP al grupo de recursos y todas las máquinas virtuales usarán esa dirección IP.
+- **Pública:** Cada máquina virtual que crea tiene su propia dirección IP y se crea en su propio grupo de recursos.
+- **Privada:** Cada máquina virtual que crea usa una dirección IP privada. No podrá conectarse a estas máquinas virtuales directamente desde Internet mediante Escritorio remoto.
 
-Siempre que se agrega una máquina virtual con la dirección IP compartida a la subred, DevTest Labs agrega automáticamente la máquina virtual a un equilibrador de carga y le asigna un número de puerto TCP en la dirección IP pública, que se reenvía al puerto RDP de la máquina virtual.  
+Cuando una máquina virtual con dirección IP compartida habilitada se agregue a la subred, DevTest Labs agrega automáticamente la máquina virtual a un equilibrador de carga y asigna a un número de puerto TCP en la dirección IP pública, reenvía el puerto RDP en la máquina virtual.  
 
 ## <a name="using-the-shared-ip"></a>Uso de la dirección IP compartida
 
-- **Usuarios de Linux:** use SSH para conectarse a la máquina virtual con la dirección IP o el nombre de dominio completo, seguido de dos puntos y del puerto. Por ejemplo, en la imagen siguiente, la dirección RDP para conectarse a la máquina virtual es `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.
+- **Usuarios de Linux:** SSH en la máquina virtual con la dirección IP o nombre de dominio completo, seguido de dos puntos, seguido por el puerto. Por ejemplo, en la imagen siguiente, la dirección RDP para conectarse a la máquina virtual es `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.
 
   ![Ejemplo de máquina virtual](media/devtest-lab-shared-ip/vm-info.png)
 
-- **Usuarios de Windows:** en Azure Portal, seleccione el botón **Conectar** para descargar un archivo RDP preconfigurado y acceder a la máquina virtual.
+- **Usuarios de Windows:** Seleccione el **Connect** botón en el portal de Azure para descargar un archivo RDP preconfigurado y acceder a la máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

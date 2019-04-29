@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 034/08/2019
+ms.date: 04/08/2019
 ms.openlocfilehash: 0437ba24727c06e874b49908a5a22d0063de72fd
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
@@ -21,7 +21,7 @@ ms.locfileid: "60331543"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Bases de datos únicas en Azure SQL Database
 
-La opción de implementación de una base de datos única crea una base de datos en Azure SQL Database con su propio conjunto de recursos y se administra a través de un servidor de SQL Database. Con una base de datos única, cada base de datos está aislada de las demás y es portátil, ya que cada una tiene su propio nivel de servicio dentro del [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) y un tamaño de proceso garantizado.
+La opción de implementación de una base de datos única crea una base de datos en Azure SQL Database con su propio conjunto de recursos y se administra a través de un servidor de SQL Database. Con una base de datos única, cada base de datos está aislada de las demás y es portátil, ya que cada una tiene su propio nivel de servicio dentro del [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) y un tamaño de proceso garantizado.
 
 > [!IMPORTANT]
 > La base de datos única es una de las tres opciones de implementación de Azure SQL Database. Las otras dos son los [grupos elásticos](sql-database-elastic-pool.md) y la [instancia administrada](sql-database-managed-instance.md).

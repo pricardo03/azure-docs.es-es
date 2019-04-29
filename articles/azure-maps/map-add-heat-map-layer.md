@@ -10,11 +10,11 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 82a6d6b2af7df91696844b09fb7650c547cb6bd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108641"
 ---
 # <a name="add-a-heat-map-layer"></a>Adición de una capa de mapa térmico
 
@@ -96,4 +96,4 @@ Para más ejemplos de código para agregar a los mapas, consulte los siguientes 
 > [Adición de una capa de símbolo](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md) (Uso de expresiones de estilo controladas por datos)
+> [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md)

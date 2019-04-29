@@ -1,7 +1,6 @@
 ---
 title: Procedimientos recomendados de infraestructura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 description: Obtenga información acerca de las prácticas recomendadas de infraestructura para migrar clústeres locales de Apache Hadoop a Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonwhowell
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4fe47feff6ac3a58ba4db8c700a3e34b2cdc0df9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 1bd06507bd8a20cf504c1ff4cd9fe7e3b9196a3c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129321"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Procedimientos recomendados de infraestructura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -171,13 +170,13 @@ Para más información, consulte los siguientes artículos.
 - [¿Qué es Azure Virtual Network?](../../virtual-network/virtual-networks-overview.md)
 - [Extender Azure HDInsight mediante una instancia de Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md)
 
-## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Conexión de forma segura a servicios de Azure con los puntos de conexión del servicio Azure Virtual Network
+## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Conexión de forma segura a servicios de Azure con puntos de conexión de servicio de red virtual de Azure
 
 HDInsight admite [puntos de conexión de servicio de red virtual](../../virtual-network/virtual-network-service-endpoints-overview.md), que le permiten conectarse de forma segura a bases de datos de Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB y SQL. Al habilitar un punto de conexión de servicio para Azure HDInsight, el tráfico fluye a través de una ruta protegida desde dentro del centro de datos de Azure. Con este nivel mejorado de seguridad en el nivel de red, puede bloquear las cuentas de almacenamiento de macrodatos en sus redes virtuales especificadas y seguir usando clústeres de HDInsight sin problemas para obtener acceso a los datos y procesarlos.
 
 Para más información, consulte los siguientes artículos.
 
-- [Puntos de conexión del servicio de redes virtuales](../../virtual-network/virtual-network-service-endpoints-overview.md)
+- [Puntos de conexión de servicio de red virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/) (Mejora de la seguridad de HDInsight con puntos de conexión de servicio)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>Conexión de HDInsight a la red local

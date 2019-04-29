@@ -14,11 +14,11 @@ ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0de8d4145ff41b498149774af8ed74c56375dea9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605173"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Movimiento de datos de Sybase mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,14 +66,14 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |La propiedad type debe establecerse en: **OnPremisesSybase** |SÍ |
-| Servidor |Nombre del servidor de Sybase. |SÍ |
-| Base de datos |Nombre de la base de datos Sybase. |SÍ |
+| type |La propiedad type debe establecerse en: **OnPremisesSybase** |Sí |
+| Servidor |Nombre del servidor de Sybase. |Sí |
+| Base de datos |Nombre de la base de datos Sybase. |Sí |
 | schema |Nombre del esquema de la base de datos. |Sin  |
-| authenticationType |Tipo de autenticación usado para conectarse a la base de datos Sybase. Los valores posibles son: Anonymous, Basic y Windows. |SÍ |
-| nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
-| contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
-| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de Sybase local. |SÍ |
+| authenticationType |Tipo de autenticación usado para conectarse a la base de datos Sybase. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
+| username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
+| password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
+| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de Sybase local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).

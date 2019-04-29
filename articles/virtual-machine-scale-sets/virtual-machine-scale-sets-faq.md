@@ -17,11 +17,11 @@ ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
 ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683960"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620250"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -134,7 +134,7 @@ Para configurar el escalado automático en un conjunto de escalado de máquinas 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>¿Si he detenido (desasignado) una máquina virtual, esa máquina virtual se inicia como parte de una operación de escalado automático?
 
- No. Si las reglas de escalado automático requieren instancias adicionales de máquina virtual como parte de un conjunto de escalado, se crea una nueva instancia de máquina virtual. Las instancias de máquina virtual detenidas (desasignadas) no se inician como parte de un evento de escalado automático. Sin embargo, es posible que esas máquinas virtuales detenidas (desasignadas) se eliminen como parte de un evento de escalado automático que escala en el número de instancias, del mismo modo que se puede eliminar cualquier instancia de máquina virtual según el orden del identificador de instancia de máquina virtual.
+No. Si las reglas de escalado automático requieren instancias adicionales de máquina virtual como parte de un conjunto de escalado, se crea una nueva instancia de máquina virtual. Las instancias de máquina virtual detenidas (desasignadas) no se inician como parte de un evento de escalado automático. Sin embargo, es posible que esas máquinas virtuales detenidas (desasignadas) se eliminen como parte de un evento de escalado automático que escala en el número de instancias, del mismo modo que se puede eliminar cualquier instancia de máquina virtual según el orden del identificador de instancia de máquina virtual.
 
 
 
@@ -236,8 +236,8 @@ Puede proporcionar claves públicas SSH en texto sin formato al crear una máqui
 Nombre del elemento de linuxConfiguration | Obligatorio | Type | DESCRIPCIÓN
 --- | --- | --- | --- 
 ssh | Sin  | Colección | Especifica la configuración de la clave SSH para un sistema operativo Linux
-path | Sí | string | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
-keyData | Sí | string | Especifica una clave pública SSH codificada en base64
+path | Sí | String | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
+keyData | Sí | String | Especifica una clave pública SSH codificada en base64
 
 Para ver un ejemplo, consulte [la plantilla de inicio rápido de GitHub 101-vm-sshkey ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 

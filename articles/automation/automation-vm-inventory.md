@@ -11,11 +11,11 @@ ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441396"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61304151"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Administración de una máquina virtual de Azure con la recopilación de inventario
 
@@ -62,7 +62,7 @@ Las tablas siguientes proporcionan información sobre cada propiedad que se pued
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-|habilitado     | Determina si se aplica la configuración        |
+|Enabled     | Determina si se aplica la configuración        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
 |Clave del registro de Windows   | La ruta de acceso para buscar el archivo, por ejemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
@@ -71,7 +71,7 @@ Las tablas siguientes proporcionan información sobre cada propiedad que se pued
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-|habilitado     | Determina si se aplica la configuración        |
+|Enabled     | Determina si se aplica la configuración        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
 |Indicar ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\myfile.txt"
@@ -80,7 +80,7 @@ Las tablas siguientes proporcionan información sobre cada propiedad que se pued
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-|habilitado     | Determina si se aplica la configuración        |
+|Enabled     | Determina si se aplica la configuración        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
 |Indicar ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "/etc/*.conf"       |

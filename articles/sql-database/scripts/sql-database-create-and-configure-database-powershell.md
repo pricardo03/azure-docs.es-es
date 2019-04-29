@@ -19,7 +19,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59356668"
 ---
-# <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>Uso de PowerShell para crear una base de datos única de Azure SQL y configurar una regla de firewall de SQL Database
+# <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>Uso de PowerShell para crear una base de datos de Azure SQL única y configurar una regla de firewall de servidor de SQL Database
 
 Este ejemplo de script de PowerShell crea una instancia de Azure SQL Database y configura una regla de firewall en el nivel de servidor. Después de ejecutar el script correctamente, SQL Database es accesible desde todos los servicios de Azure y la dirección IP configurada.
 

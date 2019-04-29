@@ -2,18 +2,19 @@
 title: Administración de aplicaciones de Azure Service Fabric mediante la CLI de Azure Service Fabric (sfctl)
 description: Aprenda a implementar y quitar aplicaciones de un clúster de Azure Service Fabric mediante la CLI de Azure Service Fabric.
 services: service-fabric
-author: Christina-Kang
-manager: chackdan
+author: rockboyfor
+manager: digimobile
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 07/31/2018
-ms.author: bikang
+origin.date: 07/31/2018
+ms.date: 04/29/2019
+ms.author: v-yeche
 ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621384"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Administración de una aplicación de Azure Service Fabric mediante la CLI de Azure Service Fabric (sfctl)
 
@@ -170,3 +171,5 @@ Finalmente, si una actualización está en curso y es necesario cancelarla, pued
 * [Conceptos básicos de la CLI de Service Fabric](service-fabric-cli.md)
 * [Introducción a Service Fabric con Linux](service-fabric-get-started-linux.md)
 * [Inicio de una la actualización de una aplicación de Service Fabric](service-fabric-application-upgrade.md)
+
+<!--Update_Description: update meta properties -->

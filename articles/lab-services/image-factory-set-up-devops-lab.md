@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: abb85d568e26e4b6f85b960a2560aae570daf201
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149187"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320840"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Ejecución de una fábrica de imágenes desde AzureDevOps
 En este artículo se trata todos los preparativos necesarios para ejecutar el generador de imágenes de DevOps de Azure (anteriormente Visual Studio Team Services).
@@ -78,7 +78,7 @@ En este punto, tiene los archivos de origen almacenados en un repositorio de Git
 Para simplificar los parámetros de línea de comandos, encapsulan los valores de clave que impulsan el generador de imágenes a un conjunto de variables de compilación. Seleccione el **Variables** pestaña y verá una lista de varias variables de forma predeterminada. Esta es la lista de variables que escriba en a DevOps de Azure:
 
 
-| Nombre de la variable | Value | Notas |
+| Nombre de la variable | Valor | Notas |
 | ------------- | ----- | ----- |
 | ConfigurationLocation | /Scripts/ImageFactory/Configuration | Se trata de la ruta de acceso completa del repositorio para la **configuración** carpeta. Si ha importado el repositorio completo anterior, el valor a la izquierda es correcto. En caso contrario, se actualice para que apunte a la ubicación de configuración. |
 | DevTestLabName | MyImageFactory | El nombre del laboratorio en Azure DevTest Labs usa como el generador para producir imágenes. Si no tiene uno, cree uno. Asegúrese de que el laboratorio está en la misma suscripción que el punto de conexión de servicio tiene acceso. |

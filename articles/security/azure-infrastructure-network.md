@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/20/2019
 ms.author: terrylan
 ms.openlocfilehash: 48a7e52d4284e5c2db1d77d24d91fd4701aad8d7
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587158"
 ---
 # <a name="azure-network-architecture"></a>Arquitectura de red de Azure
 La arquitectura de red de Azure sigue una versión modificada del modelo estándar de núcleo/distribución/acceso del sector, con distintas capas de hardware. Las capas incluyen:

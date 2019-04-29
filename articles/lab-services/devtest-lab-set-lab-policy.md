@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: aa0ffbd69e73ddbef72e0eabf79f2736079c3d23
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636526"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Administración de todas las directivas para un laboratorio de Azure DevTest Labs
 
@@ -91,7 +91,7 @@ Como propietario del laboratorio, puede configurar una programación de apagado 
 
 1. En la página principal del laboratorio, seleccione **Configuration and policies** (Configuración y directivas).
 2. Seleccione **Auto shutdown policy** (Directiva de apagado automático) en la sección **Schedules** (Programaciones) del menú izquierdo.
-3. Seleccione una de las opciones. En las secciones siguientes se proporcionan más detalles sobre estas opciones: la directiva establecida se aplica únicamente a las nuevas máquinas virtuales creadas en el laboratorio y no a las máquinas virtuales ya existentes. 
+3. Seleccione una de las opciones. Las secciones siguientes proporcionan más detalles sobre estas opciones: La directiva establecida se aplica solo a nuevas máquinas virtuales creadas en el laboratorio y no a las máquinas virtuales ya existentes. 
 
     ![Opciones de la directiva de apagado automático](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: 342c7903e58a5c3bc41278152630187fa0c63b7b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425053"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119154"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicaciones multiempresa en Azure
 Una aplicación multiempresa es un recurso compartido que permite a usuarios independientes, o "inquilinos", ver la aplicación como si fuera propia. Un escenario típico de una aplicación multiempresa es aquel en que todos los usuarios de la aplicación pueden querer personalizar la experiencia de usuario pero, por otra parte, tienen los mismos requisitos empresariales básicos. Office 365, Outlook.com y visualstudio.com son ejemplos de grandes aplicaciones multiempresa.
@@ -28,16 +28,16 @@ Desde la perspectiva del proveedor de una aplicación, los beneficios de la arqu
 
 A continuación se ofrece una lista de los objetivos y los requisitos más importantes desde la perspectiva de un proveedor.
 
-* **Aprovisionamiento**: debe tener la capacidad de aprovisionar nuevos inquilinos para la aplicación.  En aplicaciones multiempresa con un gran número de inquilinos, suele ser necesario automatizar este proceso mediante la habilitación del aprovisionamiento de autoservicio.
-* **Mantenimiento**: bebe tener la capacidad de actualizar la aplicación y ejecutar otras tareas de mantenimiento mientras varios inquilinos la utilizan.
-* **Supervisión**: debe tener la capacidad de supervisar la aplicación en todo momento para identificar todos los problemas y solucionarlos. Esto comprende supervisar el uso que cada inquilino hace de la aplicación.
+* **Aprovisionamiento**: Debe ser capaz de aprovisionar a nuevos inquilinos para la aplicación.  En aplicaciones multiempresa con un gran número de inquilinos, suele ser necesario automatizar este proceso mediante la habilitación del aprovisionamiento de autoservicio.
+* **Mantenimiento**: Debe ser capaz de actualizar la aplicación y realizar otras tareas de mantenimiento mientras varios inquilinos la utilizan.
+* **Supervisión**: Debe ser capaz de supervisar la aplicación en todo momento para identificar problemas y solucionarlos. Esto comprende supervisar el uso que cada inquilino hace de la aplicación.
 
 Una aplicación multiempresa correctamente implementada ofrece los siguientes beneficios a los usuarios.
 
-* **Aislamiento**: las actividades de los inquilinos a nivel individual no afectan al uso que otros inquilinos hacen de la aplicación. Los inquilinos no pueden tener acceso a los datos de los demás. Ante el inquilino, parecerán tener uso exclusivo de la aplicación.
-* **Disponibilidad**: los inquilinos individuales desean que la aplicación esté constantemente disponible, quizá con garantías definidas en un contrato de nivel de servicio. De nuevo, las actividades de otros inquilinos no deben afectar a la disponibilidad de la aplicación.
-* **Escalabilidad**: la aplicación se escala para satisfacer la demanda de cada uno de los inquilinos. La presencia y las acciones de otros inquilinos no deben afectar al rendimiento de la aplicación.
-* **Costes**: los costes son más bajos en comparación con la ejecución de una aplicación dedicada de un solo inquilino, ya que la arquitectura multiempresa permite compartir recursos.
+* **Aislamiento**: Las actividades de inquilinos individuales no afecta el uso de la aplicación de otros inquilinos. Los inquilinos no pueden tener acceso a los datos de los demás. Ante el inquilino, parecerán tener uso exclusivo de la aplicación.
+* **Disponibilidad**: Los inquilinos individuales desean que la aplicación esté constantemente disponible, quizás con garantías definidas en un SLA. De nuevo, las actividades de otros inquilinos no deben afectar a la disponibilidad de la aplicación.
+* **Escalabilidad**: La aplicación se escala para satisfacer la demanda de los inquilinos individuales. La presencia y las acciones de otros inquilinos no deben afectar al rendimiento de la aplicación.
+* **Costos**: Los costos son menores que la ejecución de una aplicación dedicada y un único inquilino porque la arquitectura multiempresa permite el uso compartido de recursos.
 * **Personalización**. la capacidad de personalizar la aplicación para un inquilino individual de varias formas, como agregar o eliminar características, cambiar el color y los logotipos o incluso agregar su propio código o script.
 
 En resumen, si bien hay muchas consideraciones que debe tener en cuenta para ofrecer un servicio de alta escalabilidad, también hay una serie de objetivos y requisitos comunes a muchas aplicaciones multiempresa. Algunos pueden no resultar pertinentes en escenarios específicos y la importancia de los objetivos y requisitos individuales variará en cada escenario. Como proveedor de la aplicación multiempresa, también tendrá objetivos y requisitos como satisfacer los requisitos y los objetivos de los inquilinos, rentabilidad, facturación, varios niveles de servicio, aprovisionamiento, mantenimiento, supervisión y automatización.

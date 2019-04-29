@@ -6,12 +6,12 @@ ms.author: TomSh
 ms.date: 09/05/2018
 ms.topic: article
 ms.service: security
-ms.openlocfilehash: 2ce3aec3b7a588076584ebdf400f8cafcdeb02fe
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
-ms.translationtype: HT
+ms.openlocfilehash: 0f892767bb7ab8202a27f298b1cb708d9802aaa4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60590092"
 ---
 # <a name="container-security-in-microsoft-azure"></a>Seguridad de contenedores en Microsoft Azure
 ## <a name="abstract"></a>Descripción breve

@@ -8,11 +8,11 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 6ce27ba699ae766ed4d2428f67d91379464bb9f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783469"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730995"
 ---
 # <a name="azure-data-factory-mapping-data-flow-exists-transformation"></a>Transformación Existe de Azure Data Factory Mapping Data Flow
 

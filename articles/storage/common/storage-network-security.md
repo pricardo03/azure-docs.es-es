@@ -10,7 +10,7 @@ ms.author: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 6d6ca1fe1256f1571079027ebd299492bfa62f41
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280747"
@@ -115,7 +115,7 @@ Puede configurar las cuentas de almacenamiento para permitir el acceso solo desd
 
 Habilite un [punto de conexión de servicio](/azure/virtual-network/virtual-network-service-endpoints-overview) para Azure Storage dentro de la red virtual. Este punto de conexión proporciona al tráfico una ruta óptima hasta el servicio de Azure Storage. Las identidades de la red virtual y la subred también se transmiten con cada solicitud. Luego, los administradores pueden configurar reglas de red para la cuenta de almacenamiento que permitan que se reciban solicitudes desde subredes específicas en la red virtual. Los clientes a los que se concedió acceso a través de estas reglas de red deben seguir cumpliendo los requisitos de autorización de la cuenta de almacenamiento para acceder a los datos.
 
-Cada cuenta de almacenamiento admite hasta 100 reglas de red virtual, que se pueden combinar con [reglas de red IP](#grant-access-from-an-internet-ip-range).
+Cada cuenta de almacenamiento admite hasta 100 reglas de red virtual, que se pueden combinar con [reglas de red de IP](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Regiones de red virtual disponibles
 
@@ -235,7 +235,7 @@ Las reglas de red IP solo se permiten para direcciones IP de **Internet público
 
 Solo se admiten direcciones IPV4 en este momento.
 
-Cada cuenta de almacenamiento admite hasta 100 reglas de red IP, que se pueden combinar con [reglas de red virtual](#grant-access-from-a-virtual-network).
+Cada cuenta de almacenamiento admite hasta 100 reglas de red de IP, que se pueden combinar con [reglas de red virtual](#grant-access-from-a-virtual-network).
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configuración del acceso desde redes locales
 

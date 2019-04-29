@@ -9,11 +9,11 @@ ms.date: 03/23/2019
 ms.author: mhopkins
 ms.subservice: blobs
 ms.openlocfilehash: 9be62e09fbf65081f166c89f5358cdb6677c22c6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004234"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61426806"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Almacenamiento de blobs de Azure: frecuente, esporádico y niveles de acceso de archivo
 
@@ -197,7 +197,7 @@ Sí, puede cambiar el nivel de acceso predeterminada estableciendo la **nivel de
 
 **¿Puedo establecer el nivel de acceso de cuenta predeterminado en archivo?**
 
- No. Solo se pueden establecer los niveles de acceso frecuente y esporádico como el nivel de acceso de cuenta predeterminada. El nivel de acceso de archivo solo puede establecerse en el nivel de objeto.
+No. Solo se pueden establecer los niveles de acceso frecuente y esporádico como el nivel de acceso de cuenta predeterminada. El nivel de acceso de archivo solo puede establecerse en el nivel de objeto.
 
 **En el que las regiones son el acceso frecuente, esporádico y disponibles en niveles de acceso de archivo?**
 

@@ -4,18 +4,18 @@ description: Valide EDI y genere confirmaciones con el descodificador de mensaje
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.date: 01/27/2017
-ms.openlocfilehash: b101922d15a3f90c29eff51c223d2ea7dc30ddf2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ccad6eab68fff0891ba287a076692f9437495a4c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125359"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097834"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Descodificación de mensajes EDIFACT para Azure Logic Apps con Enterprise Integration Pack
 
@@ -81,14 +81,14 @@ El conector de descodificación EDIFACT lleva a cabo estas tareas:
   * Comprueba el número de control del grupo en relación con otros números de control de grupo en el intercambio. 
   * Comprueba el número de control del conjunto de transacciones con otros números de control del conjunto de transacciones de dicho grupo.
 * Divide el intercambio en conjuntos de transacciones o conserva todo el intercambio:
-  * Divide el intercambio como conjuntos de transacciones (suspende conjuntos de transacciones en caso de error): divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
+  * Dividir intercambio como conjuntos de transacciones: suspender conjuntos de transacciones en caso de error: Divide el intercambio en la transacción se establece y analiza cada conjunto de transacciones. 
   La acción de descodificación X12 solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
-  * Divide el intercambio como conjuntos de transacciones (suspende el intercambio en caso de error): divide el intercambio en conjuntos de transacciones y analiza cada conjunto de transacciones. 
+  * Dividir intercambio como conjuntos de transacciones: suspender intercambio en caso de error: Divide el intercambio en la transacción se establece y analiza cada conjunto de transacciones. 
   Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de X12 establece todos los conjuntos de transacciones del intercambio en `badMessages`.
-  * Conserva el intercambio (suspende conjuntos de transacciones en caso de error): conserva el intercambio y procesa todo el intercambio por lotes. 
+  * Conservar intercambio: suspender conjuntos de transacciones en caso de error: Conservar el intercambio y procesa todo el intercambio por lotes. 
   La acción de descodificación X12 solo genera esos conjuntos de transacciones que no superan la validación para `badMessages` y los resultados de las transacciones restantes se establecen en `goodMessages`.
-  * Conserva el intercambio (suspende el intercambio en caso de error): conserva el intercambio y procesa todo el intercambio por lotes. 
-  Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción X12 Decode establece todos los conjuntos de transacciones del intercambio en `badMessages`.
+  * Conservar intercambio: suspender intercambio en caso de error: Conservar el intercambio y procesa todo el intercambio por lotes. 
+  Si uno o varios conjuntos de transacciones del intercambio no superan la validación, la acción de descodificación de X12 establece todos los conjuntos de transacciones del intercambio en `badMessages`.
 * Genera una confirmación técnica (control) o funcional (si esta opción está configurada).
   * Una confirmación técnica o ACK CONTRL informa de los resultados de una comprobación sintáctica de todo el intercambio recibido.
   * Una confirmación funcional confirma la aceptación o el rechazo de un intercambio recibido o un grupo

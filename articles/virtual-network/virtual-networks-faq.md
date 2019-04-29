@@ -195,7 +195,7 @@ Sí. Para más información, consulte [Integración de red virtual para los serv
 
 ### <a name="which-azure-paas-resources-can-i-restrict-access-to-from-a-vnet"></a>¿A qué recursos de PaaS de Azure se puede restringir el acceso desde una red virtual?
 
-Se puede restringir el acceso a los recursos implementados mediante algunos servicios de PaaS de Azure (como Azure Storage y Azure SQL Database) en una red virtual solo mediante el uso de puntos de conexión de servicio de red virtual. Para más información, consulte [Puntos de conexión del servicio de redes virtuales](virtual-network-service-endpoints-overview.md).
+Se puede restringir el acceso a los recursos implementados mediante algunos servicios de PaaS de Azure (como Azure Storage y Azure SQL Database) en una red virtual solo mediante el uso de puntos de conexión de servicio de red virtual. Para más información, consulte [Puntos de conexión de servicio de red virtual](virtual-network-service-endpoints-overview.md).
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>¿Puedo mover mis servicios dentro y fuera de las redes virtuales?
 No. No se pueden mover los servicios dentro y fuera de las redes virtuales. Para mover un recurso a otra red virtual, tendrá que eliminar el recurso y volver a implementarlo.
@@ -305,7 +305,7 @@ Virtual network TAP está en versión preliminar. Durante la versión preliminar
 
 Podrá agregar una configuración de TAP en una interfaz de red asociada a una máquina virtual que esté habilitada con redes aceleradas. Pero el rendimiento y la latencia en la máquina virtual se verán afectados por la adición de la configuración de TAP, ya que la descarga para reflejar el tráfico no se admite actualmente por la red acelerada de Azure.
 
-## <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio Virtual Network
+## <a name="virtual-network-service-endpoints"></a>Puntos de conexión de servicio de red virtual
 
 ### <a name="what-is-the-right-sequence-of-operations-to-set-up-service-endpoints-to-an-azure-service"></a>¿Cuál es la secuencia correcta de operaciones para configurar los puntos de conexión de servicio en un servicio de Azure?
 Existen dos pasos para asegurar un recurso de servicio de Azure mediante de puntos de conexión de servicio:
@@ -368,7 +368,7 @@ La eliminación de redes virtuales y subredes son operaciones independientes y s
 La eliminación de la cuenta del servicio de Azure es una operación independiente y se admite incluso cuando el punto de conexión de servicio está habilitado en el lado de la red y las ACL de la red virtual se configuran en el lado del servicio de Azure. 
 
 ### <a name="what-happens-to-the-source-ip-address-of-a-resource-like-a-vm-in-a-subnet-that-has-vnet-service-endpoint-enabled"></a>¿Qué sucede con la dirección IP de origen de un recurso (como una máquina virtual en una subred) que tiene habilitado el punto de conexión de servicio de la red virtual?
-Si los puntos de conexión de servicio de Virtual Network están habilitados, las direcciones IP de los recursos de la subred de la red virtual pasarán de usar las direcciones IPV4 públicas a usar las direcciones IP privadas de Azure Virtual Network para el tráfico que fluye hacia el servicio de Azure. Tenga en cuenta que esto puede provocar un error en el firewall de IP específico que se configura en una dirección IPV4 pública que estaba anteriormente en los servicios de Azure. 
+Si los puntos de conexión de servicio de red virtual están habilitados, las direcciones IP de los recursos de la subred de la red virtual pasarán de usar las direcciones IPV4 públicas a usar las direcciones IP privadas de Azure Virtual Network para el tráfico que fluye hacia el servicio de Azure. Tenga en cuenta que esto puede provocar un error en el firewall de IP específico que se configura en una dirección IPV4 pública que estaba anteriormente en los servicios de Azure. 
 
 ### <a name="does-service-endpoint-route-always-take-precedence"></a>¿La ruta del punto de conexión de servicio siempre tiene prioridad?
 Los puntos de conexión de servicio agregan una ruta de sistema que tiene prioridad sobre las rutas BGP y que proporcionan un enrutamiento óptimo para el tráfico del punto de conexión de servicio. Los puntos de conexión de servicio siempre toman el tráfico del servicio directamente de la red virtual al servicio en la red troncal de Microsoft Azure. Para obtener más información sobre cómo Azure selecciona una ruta, consulte [el enrutamiento de tráfico de red Virtual de Azure](virtual-networks-udr-overview.md).

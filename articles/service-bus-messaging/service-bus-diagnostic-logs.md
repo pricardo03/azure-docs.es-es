@@ -16,11 +16,11 @@ ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 7d4cb8e55c5d1561c09cf85122550a66e3671f17
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216346"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714158"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Registros de diagnóstico de Service Bus
 
@@ -68,13 +68,13 @@ NOMBRE | Descripción
 ------- | -------
 ActivityId | El identificador interno, usado con fines de seguimiento
 EventName | Nombre de la operación           
-ResourceId | El identificador de recursos de Azure Resource Manager
+resourceId | El identificador de recursos de Azure Resource Manager
 SubscriptionId | Id. de suscripción
 EventTimeString | Hora de la operación
 EventProperties | Propiedades de la operación
 Status | Estado de la operación
 Autor de llamada | Autor de la llamada de la operación (Azure Portal o Management Client)
-categoría | OperationalLogs
+category | OperationalLogs
 
 Este es un ejemplo de una cadena JSON de registro operativo:
 

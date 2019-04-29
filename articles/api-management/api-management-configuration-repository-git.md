@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793278"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657949"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 
@@ -165,7 +165,7 @@ Cada carpeta puede contener uno o varios archivos y, en algunos casos, una o var
 | --- | --- |
 | json |Información de configuración acerca de la entidad correspondiente |
 | html |Descripción de la entidad, a menudo mostrada en el portal para desarrolladores |
-| xml |Policy statements |
+| Xml |Policy statements |
 | css |Hojas de estilo para la personalización del portal para desarrolladores |
 
 Estos archivos se pueden crear, eliminar, editar y administrar en el sistema de archivos local, y los cambios se pueden implementar de nuevo en la instancia de servicio de API Management.

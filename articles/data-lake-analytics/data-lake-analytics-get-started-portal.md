@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 1e6c71a68c4357d82d086f3e2ca098e4039def5a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: 25d58bdc5791de868c6302b4d2763fa34e98af17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615040"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Introducción a Azure Data Lake Analytics mediante Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -32,11 +32,11 @@ Ahora, creará una instancia de Data Lake Analytics y una cuenta de Azure Data L
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Crear un recurso** >  **Datos y análisis** > **Data Lake Analytics**.
 3. Seleccione los valores de los siguientes elementos:
-   * **Nombre**: nombre de la cuenta de Data Lake Analytics (solo se permiten letras minúsculas y números).
-   * **Suscripción**: seleccione la suscripción de Azure usada para la cuenta de Analytics.
+   * **Nombre**: Nombre de su cuenta de Data Lake Analytics (se permiten números y letras minúsculas única).
+   * **Suscripción**: Elija la suscripción de Azure usada para la cuenta de análisis.
    * **Grupo de recursos**. seleccione un grupo de recursos de Azure existente o cree uno nuevo.
    * **Ubicación**. seleccione un centro de datos de Azure para la cuenta de Análisis de Data Lake.
-   * **Data Lake Storage Gen1**: siga las instrucciones para crear una nueva cuenta de Data Lake Storage Gen1 o seleccione una existente. 
+   * **Data Lake Storage Gen1**: Siga las instrucciones para crear una nueva cuenta de Data Lake Storage Gen1, o seleccione uno existente. 
 4. Si lo desea, seleccione un plan de tarifa para la cuenta de Data Lake Analytics.
 5. Haga clic en **Create**(Crear). 
 
@@ -66,7 +66,7 @@ OUTPUT @a
 4. Supervise el **estado** del trabajo y espere a que este cambie a **Correcto**.
 5. Seleccione la pestaña **Datos** y, después, seleccione la pestaña **Salidas**. Seleccione el archivo de salida denominado `data.csv` y vea los datos de salida.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 * Para empezar a desarrollar aplicaciones con U-SQL, consulte [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 * Para obtener más información sobre U-SQL, consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md).

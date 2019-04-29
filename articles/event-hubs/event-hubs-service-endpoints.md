@@ -1,5 +1,5 @@
 ---
-title: Puntos de conexión de servicio de Virtual Network - Azure Event Hubs | Microsoft Docs
+title: puntos de conexión de servicio de red virtual - Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo agregar un punto de conexión de servicio de Microsoft.EventHub a una red virtual.
 services: event-hubs
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60343450"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar puntos de conexión de servicio de Virtual Network con Azure Event Hubs
+# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar puntos de conexión de servicio de red virtual con Azure Event Hubs
 
 La integración de Event Hubs con los [puntos de conexión de servicio de Virtual Network (VNet)][vnet-sep] permite el acceso seguro a las funcionalidades de mensajería de cargas de trabajo tales como las máquinas virtuales que están enlazadas a redes virtuales, con una ruta de acceso del tráfico de red que está protegida en ambos extremos.
 
@@ -59,7 +59,7 @@ Esto significa que sus soluciones confidenciales en la nube no solo obtienen acc
 
 Las *reglas de red virtual* son una característica de firewall que controla si el espacio de nombres de Azure Event Hubs acepta las conexiones de una subred determinada de una red virtual.
 
-Enlazar un espacio de nombres de Event Hubs a una red virtual es un proceso de dos pasos. Primero debe crear un **punto de conexión de servicio de Virtual Network** en una subred de Virtual Network y habilitarlo para "Microsoft.EventHub", tal como se explicó en la [introducción a los puntos de conexión de servicio][vnet-sep]. Una vez que haya agregado el punto de conexión de servicio, enlácelo con el espacio de nombres de Event Hubs con una *regla de red virtual*.
+Enlazar un espacio de nombres de Event Hubs a una red virtual es un proceso de dos pasos. Primero debe crear un **punto de conexión de servicio de red virtual** en una subred de Virtual Network y habilitarlo para "Microsoft.EventHub", tal como se explicó en la [introducción a los puntos de conexión de servicio][vnet-sep]. Una vez que haya agregado el punto de conexión de servicio, enlácelo con el espacio de nombres de Event Hubs con una *regla de red virtual*.
 
 La regla de red virtual es una asociación del espacio de nombres de Event Hubs con una subred de red virtual. Mientras exista la regla, se les concederá acceso a todas las cargas de trabajo que estén enlazadas a la subred, al espacio de nombres de Event Hubs. Event Hubs no establece nunca por sí mismo conexiones de salida, no necesita obtener acceso y, por tanto, nunca se le concede acceso a la subred habilitando esta regla.
 
@@ -70,7 +70,7 @@ La siguiente plantilla de Resource Manager permite agregar una regla de red virt
 Parámetros de plantilla:
 
 * **namespaceName**: espacio de nombres de Event Hubs.
-* **vnetRuleName**: nombre de la regla de Virtual Network que se va a crear.
+* **vnetRuleName**: nombre de la regla de red virtual que se va a crear.
 * **virtualNetworkingSubnetId**: ruta de acceso completa de Resource Manager para la subred de la red virtual; por ejemplo, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para la subred predeterminada de una red virtual.
 
 > [!NOTE]

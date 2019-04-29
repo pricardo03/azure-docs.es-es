@@ -14,7 +14,7 @@ ms.author: sawinark
 manager: craigg
 ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57848735"
@@ -204,7 +204,7 @@ En el paso siguiente, necesita  [Microsoft SQL Server Management Studio](https:
 
 ## <a name="provision-azure-ssis-ir-in-azure-portaladf-app"></a>Aprovisionar Azure-SSIS IR en Azure Portal o ADF
 
-Al aprovisionar Azure-SSIS IR en Azure Portal o la aplicación AFD, en la página **Configuración de SQL**, seleccione la opción **Use AAD authentication with the managed identity for your ADF** (Usar autenticación de AAD con la identidad administrada de ADF). En la captura de pantalla siguiente se muestra la configuración para IR con el servidor de Azure SQL Database que hospeda SSISDB. Para IR con la instancia administrada que hospeda SSISDB, los valores **Catalog Database Service Tier** (Nivel de servicio de base de datos del catálogo) y **Allow Azure services to access** no son aplicables, mientras que otros valores son los mismos.
+Al aprovisionar Azure-SSIS IR en Azure Portal o la aplicación AFD, en la página **Configuración de SQL**, seleccione la opción **Use AAD authentication with the managed identity for your ADF** (Usar autenticación de AAD con la identidad administrada de ADF). En la captura de pantalla siguiente se muestra la configuración del entorno de ejecución de integración con el servidor de Azure SQL Database que hospeda SSISDB. Para IR con la instancia administrada que hospeda SSISDB, los valores **Catalog Database Service Tier** (Nivel de servicio de base de datos del catálogo) y **Allow Azure services to access** no son aplicables, mientras que otros valores son los mismos.
 
 Para más información sobre cómo crear una instancia de Azure-SSIS IR, consulte [Creación de una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
 ms.openlocfilehash: b066296ca52d3067f8985245161eb4fa7b484a07
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669119"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60720134"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Creación de pruebas unitarias para servicios con estado
 Las pruebas unitarias para los servicios con estado de Service Fabric detectan errores comunes que no necesariamente detectaría una prueba unitaria convencional específica para dominios o aplicaciones. Durante el desarrollo de pruebas unitarias para los servicios con estado, hay algunas consideraciones especiales que deben tenerse en cuenta.

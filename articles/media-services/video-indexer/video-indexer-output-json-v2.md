@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
 ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560047"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine la salida de Video Indexer producida por la API
 
@@ -405,7 +405,7 @@ Ejemplo:
 
 #### <a name="scenes"></a>scenes
 
-|Name|Descripción|
+|NOMBRE|Descripción|
 |---|---|
 |id|Identificador de la escena.|
 |instances|Una lista de intervalos de tiempo de esta escena (una escena puede tener solo 1 instancia).|
@@ -557,7 +557,7 @@ Nombres de empresas y marcas de productos detectados en la transcripción de voz
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Name|Descripción|
+|NOMBRE|Descripción|
 |---|---|
 |id|Identificador del efecto de audio.|
 |Tipo|Tipo de efecto de audio (por ejemplo, aplausos, voz, silencio).|
@@ -661,7 +661,7 @@ Los vídeos en los que se encuentre contenido para adultos o subido de tono podr
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|Descripción|
+|NOMBRE|Descripción|
 |---|---|
 |id|Identificador de la moderación de contenido textual.|
 |bannedWordsCount |Número de palabras no permitidas.|
@@ -671,7 +671,7 @@ Los vídeos en los que se encuentre contenido para adultos o subido de tono podr
 
 Video Indexer identifica emociones en función de las indicaciones para voz y audio. La emoción identificada podría ser: felicidad, tristeza, ira o miedo.
 
-|Name|Descripción|
+|NOMBRE|Descripción|
 |---|---|
 |id|Identificador de la emoción.|
 |Tipo|Momento de la emoción que se identificó en función de las indicaciones para voz y audio. La emoción podría ser: felicidad, tristeza, ira o miedo.|
@@ -761,7 +761,7 @@ Video Indexer identifica emociones en función de las indicaciones para voz y au
 
 Video Indexer saca conclusiones de los temas principales a partir de las transcripciones. Cuando es posible, se incluye la taxonomía [IPTC](https://iptc.org/standards/media-topics/) de primer nivel. 
 
-|Name|Descripción|
+|NOMBRE|Descripción|
 |---|---|
 |id|Identificador del tema.|
 |Nombre|El nombre del tema, por ejemplo: "productos farmacéuticos".|

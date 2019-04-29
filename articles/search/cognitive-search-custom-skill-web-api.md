@@ -12,11 +12,11 @@ ms.date: 01/31/2019
 ms.author: luisca
 ms.custom: seojan2018
 ms.openlocfilehash: 1fcb12fc2cfae98376210e1924a670cce444f4f2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757351"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61343349"
 ---
 # <a name="custom-web-api-skill"></a>Aptitud API web personalizada
 
@@ -201,7 +201,7 @@ Además de una API web no disponible o del envío de códigos de estado no corre
 
 En los casos en que la API web no está disponible o devuelve un error HTTP, se agregará un error descriptivo con todos los detalles disponibles sobre el error HTTP al historial de ejecución del indizador.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Cómo agregar una aptitud personalizada a una canalización de Cognitive Search](cognitive-search-custom-skill-interface.md)

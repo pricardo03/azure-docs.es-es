@@ -1,90 +1,61 @@
 ---
-title: Azure Storage Service Encryption para datos en reposo | Microsoft Docs
-description: Use la característica Azure Storage Service Encryption para cifrar Azure Managed Disks, Azure Blob Storage, Azure Files, Azure Queue Storage y Azure Table Storage en el servicio cuando se almacenan los datos y descifrarlos cuando se recuperan.
+title: Cifrado de Azure Storage para datos en reposo | Microsoft Docs
+description: Almacenamiento de Azure protege los datos cifrándolos automáticamente guardarlos antes en la nube. Todos los datos en Azure Storage, ya sea en discos, blobs, archivos, colas o tablas, se cifra y descifra de forma transparente mediante cifrado AES de 256 bits y es compatible con FIPS 140-2.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/01/2018
-ms.author: lakasa
+ms.date: 04/16/2019
+ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 059091315c378ab6e2bb857e580c02df968b5092
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 211cfeb3aba29245e154f4a7db86fb4a3659c36f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457180"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730842"
 ---
-# <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption para datos en reposo
-Azure Storage Service Encryption para datos en reposo le ayuda a proteger sus datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. Con esta característica, la plataforma de almacenamiento de Azure cifra automáticamente los datos antes de almacenarlos en Azure Managed Disks, Azure Blob, Queue o Table Storage, o Azure Files y los descifra antes de recuperarlos. El control del cifrado, el cifrado en reposo, el descifrado y la administración de claves en Cifrado del servicio Storage es transparente para los usuarios. Todos los datos escritos en la plataforma de almacenamiento de Azure se cifran mediante [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más fuertes disponibles.
+# <a name="azure-storage-encryption-for-data-at-rest"></a>Cifrado de Azure Storage para datos en reposo
 
-El Cifrado del servicio Storage está habilitado para todas las cuentas de almacenamiento nuevas y existentes y no se puede deshabilitar. Dado que los datos están protegidos de forma predeterminada, no es necesario modificar el código o las aplicaciones para aprovechar el Cifrado del servicio Storage.
+Azure Storage cifra automáticamente los datos al almacenarlos en la nube. El cifrado protege los datos y para ayudar a satisfacer los compromisos de cumplimiento y seguridad organizativos. Datos de Azure Storage se cifra y descifra de forma transparente de 256 bits [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), uno de los bloques más sólidos disponibles, y es compatible con FIPS 140-2. Cifrado de almacenamiento de Azure es similar a cifrado de BitLocker en Windows.
 
-La característica cifra los datos automáticamente en:
+Cifrado de almacenamiento de Azure está habilitado para todas las cuentas de almacenamiento nuevas y existentes y no se puede deshabilitar. Dado que los datos están protegidos de forma predeterminada, no es necesario modificar el código o las aplicaciones para aprovechar las ventajas del cifrado de almacenamiento de Azure. Las cuentas de almacenamiento se cifran independientemente de su nivel de rendimiento (estándar o premium) o el modelo de implementación (Azure Resource Manager o clásico). Todas las opciones de redundancia de almacenamiento de Azure admiten el cifrado, y se cifran todas las copias de una cuenta de almacenamiento. Se cifran todos los recursos de Azure Storage, incluidos blobs, discos, archivos, colas y tablas.
 
-- Servicios de Azure Storage:
-    - Azure Managed Disks
-    - Azure Blob Storage
-    - Archivos de Azure
-    - Azure Queue Storage
-    - Azure Table Storage  
-- Ambos niveles de rendimiento (ediciones Estándar y Premium).
-- Ambos modelos de implementación (Azure Resource Manager y clásica).
+El cifrado no afectar al rendimiento de Azure Storage. No hay ningún costo adicional para el cifrado de almacenamiento de Azure.
 
-Storage Service Encryption no afecta al rendimiento del almacenamiento de Azure.
+Para obtener más información acerca de los módulos criptográficos subyacente cifrado de almacenamiento de Azure, consulte [Cryptography API: última generación](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
-Puede usar las claves de cifrado administradas por Microsoft con el Cifrado del servicio Storage, o puede usar sus propias claves de cifrado. Para más información sobre el uso de sus propias claves, consulte [Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+## <a name="key-management"></a>Administración de claves
 
-## <a name="view-encryption-settings-in-the-azure-portal"></a>Visualización de la configuración de cifrado en Azure Portal
-Para ver la configuración de Cifrado del servicio Storage, inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione una cuenta de almacenamiento. En el panel **Configuración**, seleccione la opción **Cifrado**.
+Puede confiar en las claves administradas por Microsoft para el cifrado de la cuenta de almacenamiento, o puede administrar el cifrado con sus propias claves, junto con Azure Key Vault.
 
-![Captura de pantalla del portal con la configuración de Cifrado](./media/storage-service-encryption/image1.png)
+### <a name="microsoft-managed-keys"></a>Claves administradas por Microsoft
 
-## <a name="faq-for-storage-service-encryption"></a>Preguntas frecuentes sobre el Cifrado del servicio Storage
-**¿Cómo cifro los datos de una cuenta de almacenamiento de Resource Manager?**  
-Storage Service Encryption está habilitado para todas las cuentas de almacenamiento (clásicas y de Resource Manager) y para los archivos existentes en la cuenta de almacenamiento que creó antes de habilitar el cifrado se cifrarán con carácter retroactivo mediante un proceso de cifrado en segundo plano.
+De forma predeterminada, la cuenta de almacenamiento utiliza claves de cifrado administradas por Microsoft. Puede ver la configuración de cifrado para la cuenta de almacenamiento en el **cifrado** sección de la [portal Azure](https://portal.azure.com), tal y como se muestra en la siguiente imagen.
 
-**¿Se habilita Storage Service Encryption de forma predeterminada al crear una cuenta de almacenamiento?**  
-Sí, la característica Storage Service Encryption está habilitada para todas las cuentas de almacenamiento y para todos los servicios de almacenamiento de Azure.
+![Ver cuenta cifrada con claves administradas por Microsoft](media/storage-service-encryption/encryption-microsoft-managed-keys.png)
 
-**Tengo una cuenta de almacenamiento de Resource Manager. ¿Puedo habilitar en ella el Cifrado del servicio Storage?**  
-La característica Storage Service Encryption está habilitada de forma predeterminada en todas las cuentas de almacenamiento existentes de Resource Manager. Esto se aplica a Azure Blob Storage, Azure Files, Azure Queue Storage y Table Storage. 
+### <a name="customer-managed-keys"></a>Claves administradas por el cliente
 
-**¿Puedo deshabilitar el cifrado en mi cuenta de almacenamiento?**  
-El cifrado está habilitado de forma predeterminada y no hay ninguna forma de deshabilitarlo en la cuenta de almacenamiento. 
+Puede administrar el cifrado de almacenamiento de Azure con claves administradas por el cliente. Claves administradas por el cliente proporcionan más flexibilidad para crear, girar, deshabilitar y revocar el acceso a los controles. También puede auditar las claves de cifrado utilizadas para proteger los datos. 
 
-**¿Cuánto aumenta el costo de Azure Storage si se habilita Storage Service Encryption?**  
-No hay costo adicional.
+Usar Azure Key Vault para administrar las claves y auditar su uso. Puede crear sus propias claves y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generar las claves. La cuenta de almacenamiento y el almacén de claves deben estar en la misma región, pero pueden estar en distintas suscripciones. Para obtener más información sobre Azure Key Vault, consulte [¿qué es Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
-**¿Puedo usar mis propias claves de cifrado?**  
-Sí, para Azure Blob Storage y Azure Files, puede usar sus propias claves de cifrado. Las claves administradas por el cliente no se admiten actualmente en Azure Managed Disks. Para más información, consulte [Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+Para revocar el acceso a las claves administradas por el cliente, consulte [PowerShell de Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) y [CLI de Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). Revocar acceso eficazmente bloquea el acceso a todos los datos en la cuenta de almacenamiento, como la clave de cifrado no es accesible mediante el almacenamiento de Azure.
 
-**¿Puedo revocar el acceso a las claves de cifrado?**  
-Sí, si [utiliza sus propias claves de cifrado](storage-service-encryption-customer-managed-keys.md) en Azure Key Vault.
+Para obtener información sobre cómo usar claves administradas por el cliente con el almacenamiento de Azure, consulte uno de estos artículos:
 
-**¿En qué se diferencia Storage Service Encryption de Azure Disk Encryption?**  
-Azure Disk Encryption proporciona integración entre soluciones basadas en el sistema operativo, como BitLocker y DM-Crypt, y Azure Key Vault. Storage Service Encryption proporciona cifrado de forma nativa en la capa de la plataforma de almacenamiento de Azure, debajo de la máquina virtual.
+- [Configurar las claves administradas por el cliente para el cifrado de almacenamiento de Azure desde el portal de Azure](storage-encryption-keys-portal.md)
+- [Configurar las claves administradas por el cliente para el cifrado de almacenamiento de Azure desde PowerShell](storage-encryption-keys-powershell.md)
+- [Usar claves administradas por el cliente con el cifrado de almacenamiento de Azure desde la CLI de Azure](storage-encryption-keys-cli.md)
 
-**Tengo una cuenta de almacenamiento clásica. ¿Puedo habilitar en ella el Cifrado del servicio Storage?**  
-La característica Storage Service Encryption está habilitada para todas las cuentas de almacenamiento (clásicas y de Resource Manager).
+> [!NOTE]  
+> No se admiten claves administradas por el cliente para [discos administrados de Azure](../../virtual-machines/windows/managed-disks-overview.md).
 
-**¿Cómo puedo cifrar datos en mi cuenta de almacenamiento clásico?**  
-Con el cifrado habilitado de forma predeterminada, cualquier dato almacenado en los servicios de almacenamiento de Azure se cifra automáticamente. 
+## <a name="azure-storage-encryption-versus-disk-encryption"></a>Cifrado de almacenamiento de Azure frente a cifrado de disco
 
-**¿Puedo crear cuentas de almacenamiento con la característica Storage Service Encryption habilitada mediante Azure PowerShell y la CLI de Azure?**  
-La característica Storage Service Encryption se habilita de forma predeterminada en el momento de crear cualquier cuenta de almacenamiento (clásica o de Resource Manager). Puede comprobar las propiedades de la cuenta con Azure PowerShell y la CLI de Azure.
-
-**Mi cuenta de almacenamiento está configurada para la replicación con redundancia geográfica. Con el Cifrado del servicio Storage, ¿también se cifra mi copia redundante?**  
-Sí, se cifran todas las copias de la cuenta de almacenamiento. Se admiten todas las opciones con redundancia de zona: almacenamiento con redundancia local, almacenamiento con redundancia de zona y almacenamiento con redundancia geográfica con acceso de lectura.
-
-**¿Se permite Storage Service Encryption únicamente en determinadas regiones?**  
-La característica Storage Service Encryption está disponible en todas las regiones.
-
-**¿Es Storage Service Encryption compatible con FIPS 140-2?**  
-Sí, la característica Storage Service Encryption es compatible con FIPS 140-2. Para obtener más información acerca de los módulos criptográficos subyacentes de Storage Service Encryption, consulte [Cryptography API: última generación](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
-
-**¿Con quién me puedo comunicar si tengo problemas o quiero proporcionar algunos comentarios?**  
-Si tiene algún problema o quiere realizar algún comentario en relación con la característica Storage Service Encryption, envíe un correo electrónico a [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com).
+Con el cifrado de almacenamiento de Azure, se cifran todas las cuentas de almacenamiento de Azure y los recursos que contienen, incluidos los blobs de página que guardan los discos de máquina virtual de Azure. Además, se pueden cifrar los discos de máquina virtual de Azure con [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md). Azure Disk Encryption usa estándar del sector [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) en Windows y [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) en Linux para ofrecer soluciones de cifrado basado en el sistema operativo que se integran con Azure Key Vault.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Azure Storage proporciona un completo conjunto de funcionalidades de seguridad que, juntas, ayudan a los desarrolladores a crear aplicaciones seguras. Para más información, consulte la [Guía de seguridad de Azure Storage](../storage-security-guide.md).
+
+- [¿Qué es Azure Key Vault?](../../key-vault/key-vault-overview.md)

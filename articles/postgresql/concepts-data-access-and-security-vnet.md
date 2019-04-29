@@ -1,19 +1,20 @@
 ---
 title: Introducción al punto de conexión de servicios de red virtual del servidor de Azure Database for PostgreSQL
 description: Obtenga información sobre el funcionamiento de los puntos de conexión de servicio de red virtual del servidor de Azure Database for PostgreSQL.
-author: bolzmj
-ms.author: mbolz
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/20/2018
+origin.date: 08/20/2018
+ms.date: 04/22/2019
 ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560132"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Uso de reglas y puntos de conexión del servicio Virtual Network para Azure Database for PostgreSQL
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for PostgreSQL
 
 Las *reglas de red virtual* son una característica de firewall que controla si el servidor de Azure Database for PostgreSQL acepta las comunicaciones que se envían desde subredes específicas en redes virtuales. En este artículo se explica por qué la característica de la regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con el servidor de Azure Database for PostgreSQL.
 
@@ -77,7 +78,7 @@ En esta sección se describen varios detalles acerca de las reglas de red virtua
 
 ### <a name="only-one-geographic-region"></a>Solo una región geográfica
 
-Cada punto de conexión del servicio de Virtual Network se aplica solo a una región de Azure. El punto de conexión no permite que otras regiones acepten la comunicación de la subred.
+Cada punto de conexión de servicio de red virtual se aplica solo a una región de Azure. El punto de conexión no permite que otras regiones acepten la comunicación de la subred.
 
 Cualquier regla de red virtual se limita a la región a la que se aplica su punto de conexión subyacente.
 
@@ -87,14 +88,14 @@ Cada regla de red virtual se aplica a todo el servidor de Azure Database for Pos
 
 #### <a name="security-administration-roles"></a>Roles de administración de la seguridad
 
-Existe una separación de los roles de seguridad en la administración de puntos de conexión del servicio de Virtual Network. Se requiere una acción de cada uno de los roles siguientes:
+Existe una separación de los roles de seguridad en la administración de puntos de conexión de servicio de red virtual. Se requiere una acción de cada uno de los roles siguientes:
 
 - **Administrador de red:** &nbsp; se activa el punto de conexión.
 - **Administrador de base de datos:** &nbsp; se actualiza la lista de control de acceso (ACL) que se va a agregar a la subred proporcionada en el servidor de Azure Database for PostgreSQL.
 
 *Alternativa de RBAC:*
 
-Las funciones de administrador de red y de base de datos tienen más capacidades de las que se necesitan para administrar las reglas de red virtual. Solo se necesita un subconjunto de sus capacidades.
+Los roles de administrador de red y de base de datos tienen más funcionalidades de las que se necesitan para administrar las reglas de red virtual. Solo se necesita un subconjunto de sus capacidades.
 
 Si quiere, puede optar por la opción de usar el [control de acceso basado en rol (RBAC)] [ rbac-what-is-813s] en Azure para crear un rol personalizado único que tenga solo el subconjunto necesario de capacidades. Se podría usar el rol personalizado en lugar del administrador de red o el administrador de la base de datos. El área expuesta de la exposición de seguridad es inferior si agrega un usuario a un rol personalizado, en lugar de agregar el usuario a los otros dos roles de administrador principales.
 
@@ -113,7 +114,7 @@ Para Azure Database for PostgreSQL, la característica de las reglas de red virt
 
 - Cada servidor de Azure Database for PostgreSQL puede tener hasta 128 entradas de ACL para cualquier red virtual proporcionada.
 
-- Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásico][arm-deployment-model-568f].
+- Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásico][arm-deployment-model-568f].
 
 - Al activar los puntos de conexión de servicio de red virtual en Azure Database for PostgreSQL con la etiqueta de servicio **Microsoft.Sql** también se habilitan los puntos de conexión de todos los servicios de Azure Database: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database y Azure SQL Data Warehouse.
 

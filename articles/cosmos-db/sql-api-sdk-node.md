@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: dech
 ms.openlocfilehash: 1cb6889305e5f6bce5728039712a1834dc2e9353
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626747"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Azure Cosmos DB para .NET para SQL API: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -212,7 +212,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 <br/>
 
-| Versión | Fecha de lanzamiento | Fecha de retirada |
+| `Version` | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
 | [2.0.0-3 (RC)](#2.0.0-3) |2 de agosto de 2018 |--- |
 | [1.14.4](#1.14.4) |3 de mayo de 2018 |--- |

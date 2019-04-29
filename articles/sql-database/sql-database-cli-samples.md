@@ -1,6 +1,6 @@
 ---
 title: Ejemplos de script de la CLI de Azure para SQL Database | Microsoft Docs
-description: Ejemplos de script de la CLI de Azure para crear y administrar servidores de Azure SQL Database, grupos elásticos, bases de datos y firewalls.
+description: Ejemplos de script de la CLI de Azure para crear y administrar servidores, grupos elásticos, bases de datos y firewalls de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service

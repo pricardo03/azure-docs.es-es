@@ -1,5 +1,5 @@
 ---
-title: Escribir funciones avanzadas de R
+title: Escritura de funciones de R avanzadas
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: Obtenga información sobre cómo escribir una función de R para el cálculo estadístico avanzada en Azure SQL Database mediante Machine Learning Services (versión preliminar).
 services: sql-database
@@ -14,11 +14,11 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ms.openlocfilehash: 939798d5d9eb2843d7bbbbe74680342e4ce6ce95
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702459"
 ---
 # <a name="write-advanced-r-functions-in-azure-sql-database-using-machine-learning-services-preview"></a>Escribir funciones avanzadas de R en Azure SQL Database mediante Machine Learning Services (versión preliminar)
 
@@ -30,9 +30,9 @@ En este artículo se describe cómo insertar R matemática y funciones de utilid
 
 - Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.com/free/) antes de empezar.
 
-- Para ejecutar el código de ejemplo en estos ejercicios, primero debe tener una base de datos de SQL Azure con Machine Learning Services (con R) habilitado. Durante la versión preliminar pública, Microsoft le incorporará y habilitará el aprendizaje automático para la base de datos nueva o existente. Siga los pasos que se indican en [Suscríbase a la versión preliminar](sql-database-machine-learning-services-overview.md#signup).
+- Para ejecutar el código de ejemplo en estos ejercicios, primero debe tener una instancia de Azure SQL Database con Machine Learning Services (con R) habilitada. Durante la versión preliminar pública, Microsoft le incorporará y habilitará el aprendizaje automático para la base de datos nueva o existente. Siga los pasos que se indican en [Suscríbase a la versión preliminar](sql-database-machine-learning-services-overview.md#signup).
 
-- Asegúrese de que ha instalado la versión más reciente [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Puede ejecutar scripts de R mediante otra administración de base de datos o las herramientas de consulta, pero en este tutorial usará SSMS.
+- Asegúrese de que tiene instalada la versión más reciente de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Puede ejecutar los scripts de R con herramientas de consulta o de otro tipo de administración de base de datos, pero en este tutorial usará SSMS.
 
 ## <a name="create-a-stored-procedure-to-generate-random-numbers"></a>Crear un procedimiento almacenado para generar números aleatorios
 

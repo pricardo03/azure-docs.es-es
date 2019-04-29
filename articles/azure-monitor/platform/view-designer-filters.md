@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888353"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551743"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtros en las vistas de Azure Monitor
 Un **filtro** en un [vista de Azure Monitor](view-designer.md) permite a los usuarios filtrar los datos en la vista por el valor de una propiedad determinada sin modificar la propia vista.  Por ejemplo, podría permitir que los usuarios de la vista la filtraran por los datos de solo un determinado equipo o conjunto de equipos.  Puede crear varios filtros en una sola vista para permitir que los usuarios filtren por varias propiedades.  En este artículo se describe cómo usar un filtro y agregar uno a una vista personalizada.
@@ -56,7 +56,7 @@ En la tabla siguiente se incluyen algunos ejemplos de filtros comunes.
 
 | Nombre del campo | Consultar valores | Etiqueta |
 |:--|:--|:--|
-| Equipo   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Equipos |
+| Computer   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Equipos |
 | EventLevelName | Event &#124; distinct EventLevelName | Gravedad |
 | SeverityLevel | Syslog &#124; distinct SeverityLevel | Gravedad |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |

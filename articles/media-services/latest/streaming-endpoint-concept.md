@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125430"
 ---
 # <a name="streaming-endpoints"></a>Extremos de streaming
 
@@ -35,7 +35,7 @@ Para los puntos de conexión adicionales: `{EndpointName}-{AccountName}-{Datacen
 
 ## <a name="types"></a>Tipos  
 
-Existen dos tipos de **puntos de conexión de streaming**: Estándar y **Premium**. El tipo se define por el número de unidades de escalado (`scaleUnits`) que se asignan para el punto de conexión de streaming. 
+Existen dos tipos de **puntos de conexión de streaming**: **Estándar** y **Premium**. El tipo se define por el número de unidades de escalado (`scaleUnits`) que se asignan para el punto de conexión de streaming. 
 
 En la tabla se describen los tipos:  
 
@@ -149,6 +149,10 @@ La integración de la red CDN está habilitada en todos los centros de datos de 
 ### <a name="determine-if-dns-change-has-been-made"></a>Determinar si se ha realizado el cambio DNS
 
 Puede determinar si se ha realizado el cambio DNS en un extremo de Streaming (el tráfico se dirige a la red CDN de Azure) mediante https://www.digwebinterface.com. Si los resultados tiene nombres de dominio azureedge.net en los resultados, el tráfico que apuntan ahora a la red CDN.
+
+## <a name="provide-feedback"></a>Envío de comentarios
+
+Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

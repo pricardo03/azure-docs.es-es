@@ -2,20 +2,21 @@
 title: Uso de Queue Storage en Node.js | Microsoft Docs
 description: Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Ejemplos escritos en Node.js.
 services: storage
-author: tamram
+author: WenJason
 ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
-ms.author: tamram
-ms.subservice: queues
+origin.date: 12/08/2016
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.component: queues
 ms.openlocfilehash: 31f0be804085643d048a35dd61da9156f291f7da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006453"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109601"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Uso del almacenamiento de colas de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -335,14 +336,14 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 
-[using the REST API]: https://msdn.microsoft.com/library/azure/hh264518.aspx
+[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 
-[Azure Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.cn
 
 [Creación de una aplicación web de Node.js en Azure App Service](../../app-service/app-service-web-get-started-nodejs.md)
 
 [Creación e implementación de una aplicación Node.js en un servicio en la nube de Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/

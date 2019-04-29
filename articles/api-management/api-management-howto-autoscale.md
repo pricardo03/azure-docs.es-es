@@ -9,14 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: apimpm
+origin.date: 06/20/2018
+ms.date: 12/31/2018
+ms.author: v-yiso
 ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123474"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Escalado automático de una instancia de Azure API Management  
 

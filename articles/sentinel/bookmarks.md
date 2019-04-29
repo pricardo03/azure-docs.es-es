@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 9a7ceeab6d2ad761752f778038692256bd87624b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596962"
 ---
 # <a name="keep-track-of-data-during-hunting"></a>Realizar un seguimiento de los datos durante la búsqueda
 
 > [!IMPORTANT]
-> Sentinel Azure está actualmente en versión preliminar pública.
+> Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 Búsqueda de amenazas normalmente requiere revisión montañas de datos de registro para buscar evidencia de comportamientos malintencionados. Durante este proceso, investigadores de buscar eventos que desean Recuerde, revisar y analizar como parte de la validación posibles hipótesis y comprender la historia completa de un compromiso.
@@ -95,7 +95,7 @@ Eliminando el marcador, quita el marcador de la lista en el **marcador** ficha. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha aprendido cómo ejecutar una investigación caza uso de marcadores en Centinela de Azure. Para obtener más información acerca de Centinela de Azure, consulte los artículos siguientes:
+En este artículo, ha aprendido cómo ejecutar una investigación caza uso de marcadores en Centinela de Azure. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 
 
 - [Captura de forma proactiva en busca de amenazas](hunting.md)

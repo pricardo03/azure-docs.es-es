@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: e9fd818990c8a985a77c2e7eeea19bf63c440e4e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61347758"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copia de datos de Teradata mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,12 +54,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado Teradata:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Teradata** | SÍ |
-| Servidor | Nombre del servidor de Teradata. | SÍ |
-| authenticationType | Tipo de autenticación usado para conectarse a la base de datos Teradata.<br/>Los valores permitidos son: **Basic** y **Windows**. | SÍ |
-| nombre de usuario | Especifique el nombre de usuario para conectarse a la base de datos Teradata. | SÍ |
-| contraseña | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |SÍ |
+| type | La propiedad type debe establecerse en: **Teradata** | Sí |
+| Servidor | Nombre del servidor de Teradata. | Sí |
+| authenticationType | Tipo de autenticación usado para conectarse a la base de datos Teradata.<br/>Los valores permitidos son: **Basic** y **Windows**. | Sí |
+| username | Especifique el nombre de usuario para conectarse a la base de datos Teradata. | Sí |
+| password | Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo:**
 
@@ -93,7 +93,7 @@ Para copiar datos desde Teradata, establezca la propiedad type del conjunto de d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | SÍ |
+| type | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
 | tableName | Nombre de la tabla de la base de datos Teradata. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo:**
@@ -122,7 +122,7 @@ Para copiar datos desde Teradata, establezca el tipo de origen de la actividad d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | SÍ |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
@@ -167,41 +167,41 @@ Al copiar datos desde Teradata, se usan las siguientes asignaciones de tipos de 
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |string |
-| Clob |string |
-| Date |Datetime |
-| DECIMAL |DECIMAL |
-| Doble |Doble |
-| Graphic |string |
+| Char |String |
+| Clob |String |
+| Date |DateTime |
+| Decimal |Decimal |
+| Double |Double |
+| Graphic |String |
 | Entero |Int32 |
-| Interval Day |timespan |
-| Interval Day To Hour |timespan |
-| Interval Day To Minute |timespan |
-| Interval Day To Second |timespan |
-| Interval Hour |timespan |
-| Interval Hour To Minute |timespan |
-| Interval Hour To Second |timespan |
-| Interval Minute |timespan |
-| Interval Minute To Second |timespan |
-| Interval Month |string |
-| Interval Second |timespan |
-| Interval Year |string |
-| Interval Year To Month |string |
-| Number |Doble |
-| Period(Date) |string |
-| Period(Time) |string |
-| Period(Time With Time Zone) |string |
-| Period(Timestamp) |string |
-| Period(Timestamp With Time Zone) |string |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Month |String |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
+| Number |Double |
+| Period(Date) |String |
+| Period(Time) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
 | SmallInt |Int16 |
-| Hora |timespan |
-| Time With Time Zone |string |
-| Timestamp |Datetime |
+| Hora |TimeSpan |
+| Time With Time Zone |String |
+| Timestamp |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
-| VarChar |string |
-| VarGraphic |string |
-| xml |string |
+| VarChar |String |
+| VarGraphic |String |
+| Xml |String |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

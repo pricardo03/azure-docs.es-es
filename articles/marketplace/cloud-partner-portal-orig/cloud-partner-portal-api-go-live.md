@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60624979"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -33,8 +33,8 @@ Esta API inicia el proceso para insertar una aplicación en producción. Esta op
 
 |  **Nombre**      |   **Descripción**                                                           | **Tipo de datos** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identificador del anunciante de la oferta que se va a recuperar, por ejemplo `contoso`       |  string       |
-| offerId        | Identificador de la oferta que se va a recuperar                                   |  string       |
+| publisherId    | Identificador del anunciante de la oferta que se va a recuperar, por ejemplo `contoso`       |  String       |
+| offerId        | Identificador de la oferta que se va a recuperar                                   |  String       |
 | api-version    | La versión más reciente de la API                                                   |  Date         |
 |  |  |  |
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 5dc4a98bf889d38c62c76364289c2d58c14d771e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 079a2f153f257040d1899a33c9e255d633e526ad
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576379"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Conmutación por error y recuperación ante desastres para dispositivos de StorSimple de la serie 8000
 
@@ -50,8 +50,8 @@ En la serie StorSimple 8000, las directivas de copia de seguridad están asociad
 
 Supongamos que hay dos directivas de copia de seguridad, *defaultPol* y *customPol*:
 
-* *defaultPol*: Un volumen, *vol1*; se ejecuta diariamente a las 22:30.
-* *customPol*: Cuatro volúmenes, *vol1*, *vol2*, *vol3* y *vol4*, se ejecuta diariamente a las 22:00.
+* *defaultPol*: Un volumen, *vol1*, se ejecuta diariamente a las 22:30.
+* *customPol*: Cuatro volúmenes, *vol1*, *vol2*, *vol3*, *vol4*, se ejecuta diariamente a las 10:00.
 
 En este caso, StorSimple establece la prioridad para la coherencia de bloqueos y usa *customPol*, ya que tiene más volúmenes. La copia de seguridad más reciente de esta directiva se usa para restaurar los datos. Para más información sobre cómo crear y administrar directivas de copia de seguridad, vaya a [Use the StorSimple Device Manager service to manage backup policies](storsimple-8000-manage-backup-policies-u2.md) (Usar el servicio Administrador de dispositivos de StorSimple para administrar las directivas de copia de seguridad).
 

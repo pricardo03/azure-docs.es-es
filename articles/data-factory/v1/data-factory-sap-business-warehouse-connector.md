@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61258665"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Movimiento de datos de SAP Business Warehouse mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,8 +67,8 @@ Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | string | Sí
 systemNumber | Número del sistema de SAP BW. | Número decimal de dos dígitos que se representa en forma de cadena. | Sí
 clientId | Identificador del cliente en el sistema SAP W. | Número decimal de tres dígitos que se representa en forma de cadena. | Sí
-nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
-contraseña | Contraseña del usuario. | string | Sí
+username | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
+password | Contraseña del usuario. | string | Sí
 gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP BW local. | string | Sí
 encryptedCredential | La cadena de credenciales cifrada. | string | Sin 
 
@@ -312,7 +312,7 @@ STRING | String
 UNIDAD | String
 DATS | String
 NUMC | String
-TIMS | string
+TIMS | String
 
 > [!NOTE]
 > Para asignar columnas del conjunto de datos de origen a columnas del conjunto de datos del receptor, consulte [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Asignación de columnas de conjunto de datos en Azure Data Factory).

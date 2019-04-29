@@ -11,18 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 2646941e2384acf6d303615f564b65d616931180
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c00f703c5cfa606eaeb6ea0dea5fe5d754d3de5d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794259"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108091"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas en Azure Monitor
 
 > [!NOTE]
 > La plataforma de datos de Azure Monitor se basa en dos tipos de datos fundamentales: Métricas y registros. En este artículo se describe las métricas. Consulte [inicia sesión en Azure Monitor](data-platform-logs.md) para obtener una descripción detallada de los registros y a [platforn de datos de Azure Monitor](data-platform.md) para ver una comparación de los dos.
-
 
 Las métricas en Azure Monitor son ligeras y capaz de admitir escenarios en tiempo real que sean especialmente útiles para casi rápida y alertas de detección de problemas. En este artículo se describe cómo se estructuran las métricas, lo que puede hacer con ellos e identifica diferentes orígenes de datos que almacenan datos en las métricas.
 
@@ -42,7 +41,6 @@ En la tabla siguiente se enumera las distintas formas que puede usar datos de m�
 | Recuperar | Tener acceso a los valores de métrica desde una línea de comandos mediante [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Obtener acceso a los valores de métrica de aplicación personalizada con [API de REST](rest-api-walkthrough.md).<br>Tener acceso a los valores de métrica desde una línea de comandos mediante [CLI](/cli/azure/monitor/metrics). |
 | Archivar | [Archivar](..//learn/tutorial-archive-data.md) el historial de rendimiento o estado del recurso para fines de cumplimiento, auditoría o creación de informes sin conexión. |
 
-
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>¿Cómo son datos de métricas de Azure Monitor estructurado?
 Datos recopilados por las métricas en Microsoft Azure se almacenan en una base de datos de serie temporal que está optimizado para analizar los datos con marca de tiempo. Cada conjunto de valores de métrica es una serie temporal con las siguientes propiedades:
 
@@ -52,8 +50,6 @@ Datos recopilados por las métricas en Microsoft Azure se almacenan en una base 
 * Un nombre de métrica
 * El propio valor
 * Algunas métricas pueden tener varias dimensiones, como se describe en [métricas multidimensionales](#multi-dimensional-metrics). Las métricas personalizadas pueden tener hasta 10 dimensiones.
-
-Las métricas en Azure se almacenan durante 93 días. También puede [enviar métricas de la plataforma para recursos de Azure Monitor a un área de trabajo de Log Analytics](diagnostic-logs-stream-log-store.md) para detectar tendencias a largo plazo.
 
 ## <a name="multi-dimensional-metrics"></a>Métricas multidimensionales
 Uno de los desafíos a los datos de métricas es que a menudo tiene limitada información para proporcionar contexto para los valores recopilados. Azure Monitor aborda este reto con métricas multidimensionales. Las dimensiones de una métrica son pares nombre-valor que transportan datos adicionales para describir el valor de la métrica. Por ejemplo, una métrica _espacio en disco disponible_ podría tener una dimensión denominada _unidad_ con valores _C:_, _D:_, lo que le permitiría ver el espacio en disco disponible en todas las unidades o individualmente para cada unidad.
@@ -101,6 +97,13 @@ Las **métricas de aplicación** se crean mediante Application Insights para sus
 
 **Métricas personalizadas** son las métricas que defina además de las métricas estándares que están disponibles automáticamente. También puede [define métricas personalizadas en la aplicación](../app/api-custom-events-metrics.md) que se supervisa mediante Application Insights o crear métricas personalizadas para un servicio de Azure con el [métricas personalizadas API](metrics-store-custom-rest-api.md).
 
+## <a name="retention-of-metrics"></a>Retención de métricas
+Para la mayoría de los recursos en Azure, se almacenan las métricas para 93 días. Existen algunas excepciones:
+  * **Métricas de SO invitado clásicas**. Métricas de SO invitado clásica se conservan durante 14 días. Para la retención más largo, se recomienda usar nuevas métricas de SO invitado que se recopilan con [extensión de diagnóstico de Windows (WAD)](../platform/diagnostics-extension-overview.md) y las máquinas virtuales de Linux con [InfluxData Telegraf agente](https://www.influxdata.com/time-series-platform/telegraf/).
+  * **Métricas de Application Insights basado en registro**. Segundo plano, [basado en registro métricas](../app/pre-aggregated-metrics-log-metrics.md) traducir en consultas de registros. Su retención coincide con el período de retención de eventos en registros subyacentes. Para los recursos de Application Insights, los registros se almacenan durante 90 días. 
+
+> [!NOTE]
+> También puede [enviar métricas de la plataforma para recursos de Azure Monitor a un área de trabajo de Log Analytics](diagnostic-logs-stream-log-store.md) para detectar tendencias a largo plazo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

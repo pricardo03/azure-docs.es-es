@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357394"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61318400"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrar entornos en las canalizaciones de CI/CD de Azure DevOps
 Puede usar la extensión de Azure DevTest Labs Tasks que está instalada en los servicios de DevOps de Azure (anteriormente conocido como Visual Studio Team Services) para integrar fácilmente la integración continua (CI) / canalización de compilación y versión entrega continua (CD) con Azure DevTest Labs. Estas extensiones que sea más fácil implementar rápidamente un [entorno](devtest-lab-test-env.md) una determinada tarea de prueba y, a continuación, eliminarlo cuando finalice la prueba. 

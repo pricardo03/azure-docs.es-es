@@ -2,7 +2,7 @@
 title: Evento completo de tarea de Azure Batch | Microsoft Docs
 description: Referencia del evento completo de tarea de Batch.
 services: batch
-author: laurenhughes
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/20/2017
-ms.author: lahugh
+origin.date: 04/20/2017
+ms.date: 05/14/2018
+ms.author: v-junlch
 ms.openlocfilehash: b5fd1a8020c8e95323bc2333c0583dafe58e8456
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459254"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549978"
 ---
 # <a name="task-complete-event"></a>Evento de tarea completada
 
@@ -54,9 +55,9 @@ ms.locfileid: "55459254"
 
 |Nombre del elemento|Type|Notas|
 |------------------|----------|-----------|
-|jobId|string|Identificador del trabajo que contiene la tarea.|
-|id|string|Identificador de la tarea.|
-|taskType|string|Tipo de la tarea. Puede ser "JobManager", que indica que es una tarea del administrador de trabajos, o "User", que indica que no lo es. Este evento no se emite para tareas de preparación de trabajos, tareas de liberación de trabajo ni tareas de inicio.|
+|jobId|String|Identificador del trabajo que contiene la tarea.|
+|id|String|Identificador de la tarea.|
+|taskType|String|Tipo de la tarea. Puede ser "JobManager", que indica que es una tarea del administrador de trabajos, o "User", que indica que no lo es. Este evento no se emite para tareas de preparación de trabajos, tareas de liberación de trabajo ni tareas de inicio.|
 |systemTaskVersion|Int32|Se trata del contador interno de reintentos de una tarea. De manera interna, el servicio de Batch puede reintentar una tarea para tener en cuenta los problemas transitorios. Estos problemas pueden incluir errores internos de programación o intentos de recuperación a partir de nodos de proceso en estado no válido.|
 |[nodeInfo](#nodeInfo)|Tipo complejo|Contiene información sobre el nodo de ejecución en que se ejecutó la tarea.|
 |[multiInstanceSettings](#multiInstanceSettings)|Tipo complejo|Especifica que la tarea es una tarea de instancias múltiples que requiere varios nodos de proceso.  Consulte [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) para detalles.|
@@ -67,8 +68,8 @@ ms.locfileid: "55459254"
 
 |Nombre del elemento|Type|Notas|
 |------------------|----------|-----------|
-|poolId|string|Identificador del grupo en que se ejecutó la tarea.|
-|nodeId|string|Identificador del nodo en que se ejecutó la tarea.|
+|poolId|String|Identificador del grupo en que se ejecutó la tarea.|
+|nodeId|String|Identificador del nodo en que se ejecutó la tarea.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
@@ -91,3 +92,5 @@ ms.locfileid: "55459254"
 |exitCode|Int32|Código de salida de la tarea.|
 |retryCount|Int32|Cantidad de veces que el servicio de Batch reintentó la tarea. La tarea se reintenta si el código de salida es distinto de cero, hasta el valor MaxTaskRetryCount especificado.|
 |requeueCount|Int32|Cantidad de veces que el servicio de Batch volvió a poner en cola la tarea como resultado de una solicitud de usuario.<br /><br /> Cuando el usuario quita nodos de un grupo (ya sea debido a que cambia o disminuye el tamaño del grupo), o bien cuando se deshabilita el trabajo, el usuario puede especificar que las tareas en ejecución en los nodos se vuelvan a poner en cola para su ejecución. Este conteo hace un seguimiento de las veces en que la tarea se volvió a poner en cola por estos motivos.|
+
+<!-- Update_Description: update metedata properties -->

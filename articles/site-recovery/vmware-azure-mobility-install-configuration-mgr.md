@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598272"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatización de la instalación de Mobility Service con System Center Configuration Manager
 
@@ -172,7 +172,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
    | **Nombre de parámetro** | **Valor** |
    |--|--|
-   | Name | Instalación del Servicio de movilidad de Microsoft Azure (Windows) |
+   | NOMBRE | Instalación del Servicio de movilidad de Microsoft Azure (Windows) |
    | Línea de comandos | install.bat |
    | El programa se puede ejecutar | Tanto si un usuario inició sesión como si no |
 
@@ -397,7 +397,7 @@ cd /tmp
 
     | **Nombre de parámetro** | **Valor** |
    |--|--|
-   | Name | Instalación del Servicio de movilidad de Microsoft Azure (Linux) |
+   | NOMBRE | Instalación del Servicio de movilidad de Microsoft Azure (Linux) |
    | Línea de comandos | ./install_linux.sh |
    | El programa se puede ejecutar | Tanto si un usuario inició sesión como si no |
 

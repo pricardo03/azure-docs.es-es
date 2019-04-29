@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
 ms.openlocfilehash: 2755232ea81f1551477431f4eb1f0aeab8b8bfe8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734048"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726660"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar la opción de publicación
 La opción de publicación que elige para su oferta está relacionada directamente con los requisitos de idoneidad y las ventajas de GTM de Marketplace. Y, aún más importante, la selección de la opción de publicación y el tipo de oferta en Cloud Partner Portal define cómo interactúan los usuarios con su oferta de Marketplace.
