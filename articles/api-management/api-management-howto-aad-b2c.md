@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: db701a239aedb312c7671e403cdfde7135130c6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60558485"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory B2C en Azure API Management
 
@@ -69,29 +69,20 @@ Azure Active Directory B2C es una solución de administración de identidades en
    ![Identificador de aplicación 1][api-management-howto-aad-b2c-app-id]
 
 9. Vuelva al panel **Agregar proveedor de identidades** de API Management y pegue el identificador en el cuadro de texto **Id. de cliente**.
-
-   ![Identificador de aplicación 2][api-management-howto-aad-b2c-client-id]
-
+    
 10. Vuelva al registro de la aplicación B2C, haga clic en el botón **Claves** y, luego, haga clic en **Generar clave**. Haga clic en **Guardar** para guardar la configuración y mostrar la **clave de la aplicación**. Copie la clave en el Portapapeles.
 
     ![Clave de aplicación 1][api-management-howto-aad-b2c-app-key]
 
 11. Vuelva al panel **Agregar proveedor de identidades** de API Management y pegue la clave en el cuadro de texto **Secreto de cliente**.
+    
+12. Especifique el nombre de dominio del inquilino de Azure Active Directory B2C en **Signin inquilino**.
 
-    ![Clave de aplicación 2][api-management-howto-aad-b2c-client-secret]
+13. El **autoridad** campo permite controlar la dirección URL de inicio de sesión de Azure AD B2C para usar. Establezca el valor en **< your_b2c_tenant_name >. b2clogin.com**.
 
-12. Especifique el nombre de dominio del inquilino de Azure Active Directory B2C en **Inquilino permitido**.
+14. Especifique la **directiva de registro** y la **directiva de inicio de sesión** en las directivas del inquilino de B2C. Si lo desea, también puede proporcionar la **directiva de edición de perfil** y la **directiva de restablecimiento de contraseña**.
 
-    ![Inquilino permitido][api-management-howto-aad-b2c-allowed-tenant]
-
-13. Especifique la **directiva de registro** y la **directiva de inicio de sesión** en las directivas del inquilino de B2C. Si lo desea, también puede proporcionar la **directiva de edición de perfil** y la **directiva de restablecimiento de contraseña**.
-
-    ![Directivas][api-management-howto-aad-b2c-policies]
-
-    > [!NOTE]
-    > Para más información sobre las directivas, vea [Azure Active Directory B2C: Marco de directiva extensible].
-
-14. Una vez que especifique la configuración deseada, haga clic en **Guardar**.
+15. Una vez que especifique la configuración deseada, haga clic en **Guardar**.
 
     Una vez que se guardan los cambios, los desarrolladores podrán crear cuentas nuevas e iniciar sesión en el portal para desarrolladores con Azure Active Directory B2C.
 

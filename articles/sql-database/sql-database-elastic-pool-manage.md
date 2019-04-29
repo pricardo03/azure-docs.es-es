@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: debf91f04cff3cb9705ebc5915e2e665679230a9
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267589"
@@ -99,7 +99,7 @@ Para crear y mover bases de datos en grupos elásticos existentes o para devolve
 
 ## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>API REST: administración de grupos elásticos y bases de datos agrupadas
 
-Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Database, use estas solicitudes de la API de REST.
+Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Database, use estas solicitudes de la API REST.
 
 | Get-Help | DESCRIPCIÓN |
 | --- | --- |

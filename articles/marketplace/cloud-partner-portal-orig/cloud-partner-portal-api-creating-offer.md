@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: c7aed97c442c414e86c9531f9b0a8431e22b8b44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60624996"
 ---
 <a name="create-or-modify-an-offer"></a>Creación o modificación de una oferta
 =========================
@@ -34,8 +34,8 @@ Esta llamada actualiza una oferta específica dentro del espacio de nombres del 
 
 |  **Nombre**         |  **Descripción**                      |  **Tipo de datos**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Identificador del editor, por ejemplo `contoso` |   string |
-| offerId           |  Identificador de la oferta                     |   string        |
+| publisherId       |  Identificador del publicador, por ejemplo `contoso`. |   String |
+| offerId           |  Identificador de la oferta.                     |   String        |
 | api-version       |  La versión más reciente de la API            |   Date           |
 |  |  |  |
 

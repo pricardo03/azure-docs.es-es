@@ -1,8 +1,9 @@
 ---
 title: Esquema LoadBalancerProbe de definición de Azure Cloud Services | Microsoft Docs
 ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+origin.date: 04/14/2015
+ms.date: 11/06/2017
+ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -10,15 +11,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: jpconnock
-ms.author: jeconnoc
+author: thraka
+ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: f7b0ba3b4797149798037dee0188850eff6baf1d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: de365de7bf93c0a612f102b3ec2b25c79d1c3d18
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613875"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definición de Azure Cloud Services
 El sondeo del equilibrador de carga es un sondeo de mantenimiento definido por el cliente de los puntos de conexión UDP y los puntos de conexión de las instancias de rol. El elemento `LoadBalancerProbe` no es un elemento independiente; se combina con el rol web o el rol de trabajo en un archivo de definición de servicio. Un elemento `LoadBalancerProbe` se puede usar en más de un rol.
@@ -59,7 +60,7 @@ El elemento `LoadBalancerProbe` define el sondeo de mantenimiento de un modelo. 
 
 En la tabla siguiente se describen los atributos del elemento `LoadBalancerProbe`:
 
-|Atributo|type|DESCRIPCIÓN|
+|Atributo|Type|DESCRIPCIÓN|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Necesario. El nombre del sondeo del equilibrador de carga. El nombre debe ser único.|
 | `protocol`          | `string` | Necesario. Especifica el protocolo del punto de conexión. Los valores posibles son `http` o `tcp`. Si se especifica `tcp`, se es necesario recibir una confirmación para que el sondeo se realice correctamente. Si se especifica `http`, se necesita una respuesta 200 OK del URI especificado para que el sondeo se realice correctamente.|
@@ -68,5 +69,5 @@ En la tabla siguiente se describen los atributos del elemento `LoadBalancerProbe
 | `intervalInSeconds` | `integer` | Opcional. El intervalo, en segundos, de la frecuencia de sondeo del punto de conexión para conocer el estado de mantenimiento. Normalmente, el intervalo es algo inferior a la mitad del período de tiempo de expiración asignado (en segundos), lo que permite dos sondeos completos antes de sacar la instancia de la rotación.<br /><br /> El valor predeterminado es 15 y el valor mínimo es 5.|
 | `timeoutInSeconds`  | `integer` | Opcional. El período de tiempo de expiración, en segundos, aplicado al sondeo cuando no hay respuesta provocará que se impida que el posterior tráfico se entregue en el punto de conexión. Este valor permite sacar de la rotación los puntos de conexión de manera más rápida o lenta que los tiempos habituales usados en Azure (que son los predeterminados).<br /><br /> El valor predeterminado es 31 y el valor mínimo es 11.|
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Esquema de definición de servicio en la nube [clásico])

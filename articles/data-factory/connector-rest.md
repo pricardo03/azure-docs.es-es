@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: jingwang
 ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546649"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión REST mediante Azure Data Factory
 
@@ -56,7 +56,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de REST:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | El **tipo** propiedad debe establecerse en **RestService**. | Sí |
-| URL | La dirección URL base del servicio REST. | Sí |
+| url | La dirección URL base del servicio REST. | Sí |
 | enableServerCertificateValidation | Si se debe validar el certificado SSL del lado servidor al conectarse al punto de conexión. | Sin <br /> (El valor predeterminado es: **true**) |
 | authenticationType | El tipo de autenticación usado para conectarse al servicio REST. Los valores que se permiten son: **Anónima**, **Básica**, **AadServicePrincipal** y **ManagedServiceIdentity**. Haga referencia a las siguientes secciones correspondientes para obtener más información sobre propiedades y ejemplos, respectivamente. | Sí |
 | connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un IR autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica, esta propiedad se usará Azure Integration Runtime. |Sin  |
@@ -68,7 +68,7 @@ Establezca la propiedad **authenticationType** en **Basic**. Además de las prop
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | userName | El nombre de usuario para acceder al punto de conexión REST. | Sí |
-| contraseña | Contraseña del usuario (valor **userName**). Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| password | Contraseña del usuario (valor **userName**). Marque este campo como de tipo **SecureString** para almacenarlo de forma segura en Data Factory. También puede [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 
 **Ejemplo**
 
@@ -173,7 +173,7 @@ Para copiar datos de REST, se admiten las siguientes propiedades:
 | relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, solo se usa la dirección URL especificada en la definición del servicio vinculado. | Sin  |
 | requestMethod | Método HTTP. Los valores permitidos son **Get** (valor predeterminado) y **Post**. | Sin  |
 | additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin  |
-| requestBody | Cuerpo de la solicitud HTTP. | No |
+| requestBody | Cuerpo de la solicitud HTTP. | Sin  |
 | paginationRules | Las reglas de paginación para componer las solicitudes de página siguiente. Vea la sección [Compatibilidad con la paginación](#pagination-support) para obtener más información. | Sin  |
 
 **Ejemplo 1: Mediante el método Get con la paginación**
@@ -233,7 +233,7 @@ Se admiten las siguientes propiedades en la sección **source** de la actividad 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en **RestSource**. | Sí |
-| httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**.  | No |
+| httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**.  | Sin  |
 | requestInterval | El tiempo de espera antes de enviar la solicitud de página siguiente. El valor predeterminado es **00:00:01** |  Sin  |
 
 **Ejemplo**
@@ -285,7 +285,7 @@ Este conector REST genérico admite los siguientes patrones de paginación:
 
 **Claves admitidas** en las reglas de paginación:
 
-| Key | DESCRIPCIÓN |
+| Clave | DESCRIPCIÓN |
 |:--- |:--- |
 | AbsoluteUrl | Indica la dirección URL para emitir la siguiente solicitud. Puede ser **dirección URL absoluta o relativa URL**. |
 | QueryParameters.*request_query_parameter* O QueryParameters["request_query_parameter"] | El usuario define "request_query_parameter", que hace referencia a un nombre de parámetro de consulta en la siguiente dirección URL de solicitud HTTP. |

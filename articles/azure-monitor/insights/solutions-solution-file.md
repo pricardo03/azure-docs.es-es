@@ -15,11 +15,11 @@ ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60595764"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creación de un archivo de solución de administración en Azure (versión preliminar)
 > [!NOTE]
@@ -71,7 +71,7 @@ En la tabla siguiente se describen los atributos de un parámetro.
 | Atributo | DESCRIPCIÓN |
 |:--- |:--- |
 | Tipo |Tipo de datos para el parámetro. El control de entrada que se muestra para el usuario depende del tipo de datos.<br><br>bool: cuadro desplegable<br>string: cuadro de texto<br>int: cuadro de texto<br>Securestring: campo de contraseña<br> |
-| categoría |Categoría opcional para el parámetro.  Los parámetros de la misma categoría se agrupan juntos. |
+| category |Categoría opcional para el parámetro.  Los parámetros de la misma categoría se agrupan juntos. |
 | control |Funcionalidad adicional para los parámetros de cadena.<br><br>datetime: se muestra el control de fecha y hora.<br>guid: el valor del GUID se genera automáticamente y no se muestra el parámetro. |
 | description |Descripción opcional del parámetro.  Se muestra en un globo de información junto al parámetro. |
 

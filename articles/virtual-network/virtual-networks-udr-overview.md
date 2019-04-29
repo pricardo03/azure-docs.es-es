@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop;kumud
 ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878509"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596317"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -65,7 +65,7 @@ Azure agrega rutas del sistema predeterminadas adicionales de sistema para difer
 
 - **Emparejamiento de red virtual (VNet)**: al crear un emparejamiento entre dos redes virtuales, se agrega una ruta para cada intervalo de direcciones en el espacio de direcciones de cada red virtual para la que se crea un emparejamiento. Más información acerca del [emparejamiento de red virtual](virtual-network-peering-overview.md).  
 - **Puerta de enlace de red virtual**: cuando una puerta de enlace de red virtual se agrega a una red virtual, se agregan también una o varias rutas en las que *Puerta de enlace de red virtual* aparece como el tipo de próximo salto. El origen es también una *puerta de enlace de red virtual*, ya que la puerta de enlace agrega las rutas a la subred. Si la puerta de enlace de red local intercambia las rutas del protocolo Border Gateway Protocol ([BGP](#border-gateway-protocol)) con una puerta de enlace de red virtual de Azure, se agrega una ruta por cada ruta que se propaga desde la puerta de enlace de red local. Se recomienda resumir las rutas locales en los intervalos de direcciones mayores posibles, con el fin de que se propague el menor número de rutas a una puerta de enlace de red virtual de Azure. Hay límites en el número de rutas que se pueden propagar a una puerta de enlace de red virtual de Azure. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
-- **VirtualNetworkServiceEndpoint**: Azure agrega las direcciones IP públicas de determinados servicios a la tabla de rutas cuando se habilita un punto de conexión para el servicio. Los puntos de conexión de servicio se habilitan para las subredes individuales de una red virtual, por lo que la ruta solo se agrega a la tabla de rutas de una subred para la que haya algún punto de conexión de servicio habilitado. Las direcciones IP públicas de los servicios de Azure cambian periódicamente. Azure administra automáticamente las direcciones en la tabla de rutas cuando cambian. Obtenga más información acerca de los [puntos de conexión de servicio una red virtual](virtual-network-service-endpoints-overview.md) y los servicios para los que se pueden crear puntos de conexión de servicio. 
+- **VirtualNetworkServiceEndpoint**: Azure agrega las direcciones IP públicas de determinados servicios a la tabla de rutas cuando se habilita un punto de conexión para el servicio. Los puntos de conexión de servicio se habilitan para las subredes individuales de una red virtual, por lo que la ruta solo se agrega a la tabla de rutas de una subred para la que haya algún punto de conexión de servicio habilitado. Las direcciones IP públicas de los servicios de Azure cambian periódicamente. Azure administra automáticamente las direcciones en la tabla de rutas cuando cambian. Obtenga más información acerca de los [puntos de conexión de servicio de red virtual](virtual-network-service-endpoints-overview.md) y los servicios para los que se pueden crear puntos de conexión de servicio. 
 
 > [!NOTE]
 > El tipos de próximo salto **Emparejamiento de VNet** y **VirtualNetworkServiceEndpoint** solo se agregan a las tablas de rutas de las subredes de las redes virtuales creadas a través del modelo de implementación de Azure Resource Manager. Los tipos de próximo salto no se agregan a las tablas de rutas asociadas a las subredes de redes virtuales creadas mediante el modelo de implementación clásica. Obtenga más información acerca de los [modelos de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -110,7 +110,7 @@ El nombre que se muestra y al que hace referencia en los tipos de próximo salto
 |Aplicación virtual               |VirtualAppliance                                |VirtualAppliance|
 |None                            |None                                            |Null (no disponible en la CLI clásica en modo asm)|
 |Emparejamiento de redes virtuales de Azure         |Emparejamiento de VNET                                    |No aplicable|
-|Puntos de conexión de servicio Virtual Network|VirtualNetworkServiceEndpoint                   |No aplicable|
+|Puntos de conexión de servicio de red virtual|VirtualNetworkServiceEndpoint                   |No aplicable|
 
 ### <a name="border-gateway-protocol"></a>Border Gateway Protocol
 
@@ -134,7 +134,7 @@ Si varias rutas contienen el mismo prefijo de dirección, Azure selecciona el ti
 3. Ruta del sistema
 
 > [!NOTE]
-> Las rutas de sistema para el tráfico relacionado con la red virtual, los emparejamientos de la red virtual o los puntos de conexión del servicio de red virtual son las rutas preferidas, aunque las rutas BGP sean más específicas.
+> Las rutas de sistema para el tráfico relacionado con la red virtual, los emparejamientos de la red virtual o los puntos de conexión de servicio de red virtual son las rutas preferidas, aunque las rutas BGP sean más específicas.
 
 Por ejemplo, una tabla de rutas contiene las rutas siguientes:
 

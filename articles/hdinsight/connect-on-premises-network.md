@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537911"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conexión de HDInsight a la red local
 
@@ -78,7 +78,7 @@ Los pasos siguientes usan [Azure Portal](https://portal.azure.com) para crear un
     |Nombre de la máquina virtual | Escriba un nombre descriptivo que identifique esta máquina virtual. En este ejemplo se utiliza **DNSProxy**.|
     |Region | Seleccione la misma región que la de la red virtual que creó anteriormente.  No todos los tamaños de máquina virtual están disponibles en todas las regiones.  |
     |Opciones de disponibilidad |  Seleccione el nivel de disponibilidad que desee.  Azure ofrece varias opciones para administrar la disponibilidad y resistencia de las aplicaciones.  Diseñe su solución para que use las máquinas virtuales replicadas en Availability Zones o en conjuntos de disponibilidad para proteger sus aplicaciones y datos de las interrupciones del centro de datos y de los eventos de mantenimiento. En este ejemplo se usa **No se requiere redundancia de la infraestructura**. |
-    |Imagen | Deje en **LTS de Ubuntu Server 18.04**. |
+    |Image | Deje en **LTS de Ubuntu Server 18.04**. |
     |Tipo de autenticación | __Contraseña__ o __Clave pública SSH__: El método de autenticación de la cuenta SSH. Se recomienda usar claves públicas, porque son más seguras. Este ejemplo se utiliza **contraseña**.  Para más información, consulte el documento [Creación y uso de claves SSH para máquinas virtuales Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
     |Nombre de usuario |Escriba el nombre de usuario del administrador de la máquina virtual.  En el ejemplo se utiliza **sshuser**.|
     |Contraseña o clave pública SSH | El campo disponible lo determina la opción elegida en **Tipo de autenticación**.  Escriba el valor adecuado.|

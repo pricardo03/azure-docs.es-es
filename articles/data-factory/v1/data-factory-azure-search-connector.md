@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567238"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Inserción de datos en un índice de Azure Search mediante el uso de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,9 +58,9 @@ En la tabla siguiente se proporcionan descripciones de los elementos JSON espec�
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
-| type | La propiedad type debe establecerse en: **AzureSearch**. | SÍ |
-| url | La URL del servicio Azure Search. | SÍ |
-| key | La clave de administración del servicio Azure Search. | SÍ |
+| type | La propiedad type debe establecerse en: **AzureSearch**. | Sí |
+| url | La URL del servicio Azure Search. | Sí |
+| key | La clave de administración del servicio Azure Search. | Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
@@ -68,8 +68,8 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
-| type | La propiedad type debe establecerse en **AzureSearchIndex**.| SÍ |
-| indexName | Nombre del índice de Azure Search. Data Factory no crea el índice. El índice debe existir en Azure Search. | SÍ |
+| Tipo | La propiedad type debe establecerse en **AzureSearchIndex**.| Sí |
+| indexName | Nombre del índice de Azure Search. Data Factory no crea el índice. El índice debe existir en Azure Search. | Sí |
 
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia

@@ -41,7 +41,7 @@ Para completar este inicio rápido necesita instalar:
   |||
 
   > [!IMPORTANT]
-  > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works a una base de datos de la instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
+  > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works en una base de datos de instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
 
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional o Enterprise.
 

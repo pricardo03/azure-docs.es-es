@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 73609e802eceea6aa94d77cef6ca1d654264973d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 2bde63bb668188936b3dd3cf5ecbf3b8c604eb95
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564328"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Control de errores en las directivas de API Management
 
@@ -73,19 +73,19 @@ La sección de directivas `on-error` se puede utilizar en cualquier ámbito. Los
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
-## <a name="lasterror"></a>LastError
+## <a name="lasterror"></a>lastError
 
  Cuando se produce un error y el control salta a la sección de directivas `on-error`, el error se almacena en la propiedad [context.LastError](api-management-policy-expressions.md#ContextVariables) a la que pueden acceder las directivas de la sección `on-error`. LastError tiene las siguientes propiedades:  
   
-| NOMBRE     | Escriba   | DESCRIPCIÓN                                                                                               | Obligatorio |
+| NOMBRE     | Type   | DESCRIPCIÓN                                                                                               | Obligatorio |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| `Source`   | string | Nombre del elemento donde se produjo el error. Puede ser el nombre de una directiva o el nombre de un paso de canalización integrado.     | Sí      |
-| `Reason`   | string | Código de error reconocible por la máquina, que se puede utilizar en el control de errores.                                       | Sin        |
-| `Message`  | string | Descripción del error legible para el usuario.                                                                         | Sí      |
-| `Scope`    | string | Nombre del ámbito donde se produjo el error; podría ser "global", "producto", "api" u "operación" | Sin        |
-| `Section`  | string | Nombre de la sección donde se produjo el error. Valores posibles: "inbound", "backend", "outbound" u "on-error".       | Sin        |
-| `Path`     | string | Especifica directivas anidadas, por ejemplo, "choose[3]/when[2]".                                                        | Sin        |
-| `PolicyId` | string | Valor del atributo `id`, si lo especifica el cliente, en la directiva donde se produjo el error.             | Sin        |
+| Origen   | string | Nombre del elemento donde se produjo el error. Puede ser el nombre de una directiva o el nombre de un paso de canalización integrado.     | Sí      |
+| Motivo   | string | Código de error reconocible por la máquina, que se puede utilizar en el control de errores.                                       | Sin        |
+| Message  | string | Descripción del error legible para el usuario.                                                                         | Sí      |
+| Ámbito    | string | Nombre del ámbito donde se produjo el error; podría ser "global", "producto", "api" u "operación" | Sin        |
+| Sección  | string | Nombre de la sección donde se produjo el error. Valores posibles: "inbound", "backend", "outbound" u "on-error".       | Sin        |
+| Ruta de acceso     | string | Especifica directivas anidadas, por ejemplo, "choose[3]/when[2]".                                                        | Sin        |
+| PolicyId | string | Valor del atributo `id`, si lo especifica el cliente, en la directiva donde se produjo el error.             | Sin        |
 
 > [!TIP]
 > Se puede acceder al código de estado con context.Response.StatusCode.  

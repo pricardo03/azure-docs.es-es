@@ -1,6 +1,6 @@
 ---
 title: Configuración del acceso basado en red virtual y subred para la cuenta de Azure Cosmos DB
-description: En este documento se describen los pasos necesarios para configurar un punto de conexión de servicio de Virtual Network en Azure Cosmos DB.
+description: En este documento se describen los pasos necesarios para configurar un punto de conexión de servicio de red virtual en Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 11/06/2018
 ms.author: govindk
 ms.openlocfilehash: c0b1b415db9d8a530a495e09805ad9788c1edfbe
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59785037"
@@ -22,9 +22,9 @@ Puede configurar las cuentas de Azure Cosmos DB para permitir el acceso solo des
 1. Agregue una regla en la cuenta de Azure Cosmos DB para especificar la subred como origen desde el cual se puede tener acceso a la cuenta.
 
 > [!NOTE]
-> Una vez que un punto de conexión de servicio para su cuenta de Azure Cosmos DB esté habilitada en una subred, el origen del tráfico que llegue a Azure Cosmos DB cambia de una dirección IP pública a una red virtual y subred. La conmutación de tráfico se aplica a cualquier cuenta de Azure Cosmos DB a la que se tenga acceso desde esta subred. Si las cuentas de Azure Cosmos DB tienen un firewall basado en IP para permitir esta subred, las solicitudes de la subred habilitada por el servicio ya no coincidirán con las reglas de firewall por IP y se rechazarán. 
+> Una vez que un punto de conexión de servicio para su cuenta de Azure Cosmos DB esté habilitada en una subred, el origen del tráfico que llegue a Azure Cosmos DB cambia de una dirección IP pública a una red virtual y subred. La conmutación de tráfico se aplica a cualquier cuenta de Azure Cosmos DB a la que se tenga acceso desde esta subred. Si las cuentas de Azure Cosmos DB tienen un firewall basado en IP para permitir esta subred, las solicitudes de la subred habilitada por el servicio ya no coincidirán con las reglas de firewall de IP y se rechazarán. 
 >
-> Para más información, consulte los pasos descritos en la sección [Migración desde una regla de firewall por IP a una lista de control de acceso de la red virtual](#migrate-from-firewall-to-vnet) de este artículo. 
+> Para más información, consulte los pasos descritos en la sección [Migración desde una regla de firewall de IP a una lista de control de acceso de red virtual](#migrate-from-firewall-to-vnet) de este artículo. 
 
 En las secciones siguientes se describe cómo configurar un punto de conexión de servicio de red virtual para una cuenta de Azure Cosmos DB.
 
@@ -172,7 +172,7 @@ Use los pasos siguientes para configurar un punto de conexión de servicio de un
      -Properties $CosmosDBProperties
    ```
 
-1. Ejecute el siguiente comando para verificar que la cuenta de Azure Cosmos DB se ha actualizado con el punto de conexión de servicio de Virtual Network que configuró en el paso anterior:
+1. Ejecute el siguiente comando para verificar que la cuenta de Azure Cosmos DB se ha actualizado con el punto de conexión de servicio de red virtual que configuró en el paso anterior:
 
    ```powershell
    $UpdatedcosmosDBConfiguration = Get-AzResource `
@@ -217,7 +217,7 @@ Use los pasos siguientes para configurar un punto de conexión de servicio de un
 
 ## <a id="migrate-from-firewall-to-vnet"></a>Migración de una regla de firewall de dirección IP a una ACL de red virtual 
 
-Use los pasos siguientes solo para las cuentas de Azure Cosmos DB con reglas de firewall de dirección IP existentes que permiten una subred cuando quiera usar las ACL basadas en la red virtual y la subred en lugar de la regla de firewall de dirección IP.
+Use los pasos siguientes solo para las cuentas de Azure Cosmos DB con reglas de firewall de IP existentes que permiten una subred cuando quiera usar las ACL basadas en la red virtual y la subred en lugar de la regla de firewall de IP.
 
 Una vez que un punto de conexión de servicio para una cuenta de Azure Cosmos DB esté activada para una subred, las solicitudes se enviarán con un origen que contiene información de la red virtual y de la subred en lugar de una dirección IP pública. Estas solicitudes no coinciden con un filtro de IP. Este cambio de origen se produce para todas las cuentas de Azure Cosmos DB que obtienen acceso desde la subred con un punto de conexión de servicio habilitado. Con el fin de evitar tiempos de inactividad, siga los pasos a continuación:
 
@@ -298,7 +298,7 @@ Una vez que un punto de conexión de servicio para una cuenta de Azure Cosmos DB
        -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
     ```
 
-1. Quite la regla de firewall de dirección IP para la subred.
+1. Quite la regla de firewall de IP para la subred.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

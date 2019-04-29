@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: a49d30d3058a6cf3ce82d56076f348861ad631ff
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585141"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ajuste manual del rendimiento de consultas en Azure SQL Database
 
@@ -263,6 +263,6 @@ Algunas aplicaciones de base de datos tienen cargas de trabajo con operaciones d
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre los niveles de servicio basados en DTU, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md).
-- Para obtener más información sobre los niveles de servicio basados en núcleos virtuales, consulte [Modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
+- Para obtener más información sobre los niveles de servicio basados en núcleos virtuales, consulte [Modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 - Para obtener más información sobre los grupos elásticos, consulte [¿Qué es un grupo elástico de Azure?](sql-database-elastic-pool.md)
 - Para información sobre el rendimiento y los grupos elásticos, consulte [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool-guidance.md)

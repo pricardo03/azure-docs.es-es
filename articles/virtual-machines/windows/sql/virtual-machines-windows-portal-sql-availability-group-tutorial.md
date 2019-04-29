@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593793"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutorial: Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
 
@@ -402,7 +402,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
-   | **Nombre** | Texto | SQLAlwaysOnEndPointProbe |
+   | **Nombre** | Text | SQLAlwaysOnEndPointProbe |
    | **Protocolo** | Elija TCP | TCP |
    | **Puerto** | Cualquier puerto no utilizado | 59999 |
    | **Intervalo**  | Cantidad de tiempo entre los intentos de sondeo, en segundos |5 |
@@ -418,7 +418,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
-   | **Nombre** | Texto | SQLAlwaysOnEndPointListener |
+   | **Nombre** | Text | SQLAlwaysOnEndPointListener |
    | **Frontend IP address** (Dirección IP de front-end) | Elija una dirección |Use la dirección que creó al crear el equilibrador de carga. |
    | **Protocolo** | Elija TCP |TCP |
    | **Puerto** | Uso del puerto del agente de escucha de grupo de disponibilidad | 1433 |
@@ -426,7 +426,7 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
    | **Sondeo** |Nombre especificado para el sondeo | SQLAlwaysOnEndPointProbe |
    | **Persistencia de la sesión** | Lista desplegable | **None** |
    | **Tiempo de espera de inactividad** | Minutos para mantener abierta una conexión TCP | 4 |
-   | **IP flotante (Direct Server Return)** | |habilitado |
+   | **IP flotante (Direct Server Return)** | |Enabled |
 
    > [!WARNING]
    > Direct Server Return se establece durante la creación. No se puede modificar.
@@ -445,7 +445,7 @@ La dirección IP de WSFC también debe estar en el equilibrador de carga.
 
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
-   | **Nombre** | Texto | WSFCEndPointProbe |
+   | **Nombre** | Text | WSFCEndPointProbe |
    | **Protocolo** | Elija TCP | TCP |
    | **Puerto** | Cualquier puerto no utilizado | 58888 |
    | **Intervalo**  | Cantidad de tiempo entre los intentos de sondeo, en segundos |5 |
@@ -459,7 +459,7 @@ La dirección IP de WSFC también debe estar en el equilibrador de carga.
 
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
-   | **Nombre** | Texto | WSFCEndPoint |
+   | **Nombre** | Text | WSFCEndPoint |
    | **Frontend IP address** (Dirección IP de front-end) | Elija una dirección |Use la dirección que creó al configurar la dirección IP de WSFC. Esto es diferente de la dirección IP del agente de escucha |
    | **Protocolo** | Elija TCP |TCP |
    | **Puerto** | Use el puerto para la dirección IP del clúster. Se trata de un puerto disponible que no se usa para el puerto de sondeo del agente de escucha. | 58888 |
@@ -467,7 +467,7 @@ La dirección IP de WSFC también debe estar en el equilibrador de carga.
    | **Sondeo** |Nombre especificado para el sondeo | WSFCEndPointProbe |
    | **Persistencia de la sesión** | Lista desplegable | **None** |
    | **Tiempo de espera de inactividad** | Minutos para mantener abierta una conexión TCP | 4 |
-   | **IP flotante (Direct Server Return)** | |habilitado |
+   | **IP flotante (Direct Server Return)** | |Enabled |
 
    > [!WARNING]
    > Direct Server Return se establece durante la creación. No se puede modificar.

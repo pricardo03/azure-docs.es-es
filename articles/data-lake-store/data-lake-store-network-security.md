@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60612700"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integración de la red virtual en Azure Data Lake Storage Gen1
 
@@ -38,7 +38,7 @@ Con la integración de red virtual de Data Lake Storage Gen1, puede restringir e
 ![Diagrama del escenario de integración de red virtual de Data Lake Storage Gen1](media/data-lake-store-network-security/scenario-diagram.png)
 
 > [!NOTE]
-> Además de las reglas de red virtual, también se pueden usar reglas de firewall de IP existentes para permitir el acceso desde redes locales. 
+> Además de las reglas de red virtual, también se pueden usar las reglas de firewall de IP existentes para permitir el acceso desde redes locales. 
 
 ## <a name="optimal-routing-with-data-lake-storage-gen1-virtual-network-integration"></a>Enrutamiento óptimo con la integración de red virtual de Data Lake Storage Gen1
 

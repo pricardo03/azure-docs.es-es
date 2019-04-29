@@ -1,8 +1,14 @@
---- 
+---
 layout: HubPage
 hide_bc: true
 title: Documentación de Microsoft Azure
-description: 'Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc.'
+description: Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc.
+ms.openlocfilehash: 936200f304a1c2f923797b3664e4b2ecd9799e65
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425683"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1427,7 +1433,7 @@ description: 'Aprenda a compilar y administrar aplicaciones eficaces mediante Mi
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>Repositorio a hiperescala para cargas de trabajo de análisis de macrodatos</p>
+                                                    <p>Repositorio de hiperescala para cargas de trabajo de análisis de macrodatos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2174,7 +2180,7 @@ description: 'Aprenda a compilar y administrar aplicaciones eficaces mediante Mi
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>Repositorio a hiperescala para cargas de trabajo de análisis de macrodatos</p>
+                                                    <p>Repositorio de hiperescala para cargas de trabajo de análisis de macrodatos</p>
                                                 </div>
                                             </div>
                                         </div>

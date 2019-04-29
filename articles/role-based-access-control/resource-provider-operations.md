@@ -15,7 +15,7 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 6c3accdd74ce3277181f6cdfc890de0d8c55bf07
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60344638"
@@ -690,9 +690,9 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.Cache/operations/read | Enumera las operaciones que admite el proveedor "Microsoft.Cache". |
 > | . | Microsoft.Cache/redis/delete | Elimina la instancia completa de Redis Cache |
 > | . | Microsoft.Cache/redis/export/action | Exporta datos de Redis a blobs de almacenamiento prefijados en un formato especificado |
-> | . | Microsoft.Cache/redis/firewallRules/delete | Elimina las reglas de firewall IP de una instancia de Redis Cache |
-> | . | Microsoft.Cache/redis/firewallRules/read | Obtiene las reglas de firewall IP de una instancia de Redis Cache |
-> | . | Microsoft.Cache/redis/firewallRules/write | Edita las reglas de firewall IP de una instancia de Redis Cache |
+> | . | Microsoft.Cache/redis/firewallRules/delete | Elimina las reglas de firewall de IP de una instancia de Redis Cache |
+> | . | Microsoft.Cache/redis/firewallRules/read | Obtiene las reglas de firewall de IP de una instancia de Redis Cache |
+> | . | Microsoft.Cache/redis/firewallRules/write | Edita las reglas de firewall de IP de una instancia de Redis Cache |
 > | . | Microsoft.Cache/redis/forceReboot/action | Fuerza el reinicio de una instancia de memoria caché, posiblemente con pérdida de datos. |
 > | . | Microsoft.Cache/redis/import/action | Importa datos de un formato especificado desde varios blobs en Redis |
 > | . | Microsoft.Cache/redis/linkedservers/delete | Elimina un servidor vinculado de una instancia de Redis Cache |
@@ -1890,7 +1890,7 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.DBforMariaDB/servers/securityAlertPolicies/read | Recupera detalles de la directiva de detección de amenazas del servidor configurada en un servidor determinado |
 > | . | Microsoft.DBforMariaDB/servers/securityAlertPolicies/write | Cambia la directiva de detección de amenazas del servidor para un servidor determinado. |
 > | . | Microsoft.DBforMariaDB/servers/updateConfigurations/action | Actualizar las configuraciones para el servidor especificado. |
-> | . | Microsoft.DBforMariaDB/servers/virtualNetworkRules/delete | Elimina una regla de Virtual Network existente. |
+> | . | Microsoft.DBforMariaDB/servers/virtualNetworkRules/delete | Elimina una regla de red virtual existente. |
 > | . | Microsoft.DBforMariaDB/servers/virtualNetworkRules/read | Devuelve la lista de reglas de red virtual u obtiene las propiedades de una regla de red virtual específica. |
 > | . | Microsoft.DBforMariaDB/servers/virtualNetworkRules/write | Crea una regla de red virtual con los parámetros especificados o actualiza las propiedades o etiquetas de la regla de red virtual especificada. |
 > | . | Microsoft.DBforMariaDB/servers/write | Crea un servidor con los parámetros especificados o actualiza las propiedades o etiquetas del servidor especificado. |
@@ -1919,7 +1919,7 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.DBforMySQL/servers/securityAlertPolicies/write | Cambia la directiva de detección de amenazas del servidor para un servidor determinado. |
 > | . | Microsoft.DBforMySQL/servers/topQueryStatistics/read | Devuelve la lista de las estadísticas de consulta para las consultas principales. |
 > | . | Microsoft.DBforMySQL/servers/updateConfigurations/action | Actualizar las configuraciones para el servidor especificado. |
-> | . | Microsoft.DBforMySQL/servers/virtualNetworkRules/delete | Elimina una regla de Virtual Network existente. |
+> | . | Microsoft.DBforMySQL/servers/virtualNetworkRules/delete | Elimina una regla de red virtual existente. |
 > | . | Microsoft.DBforMySQL/servers/virtualNetworkRules/read | Devuelve la lista de reglas de red virtual u obtiene las propiedades de una regla de red virtual específica. |
 > | . | Microsoft.DBforMySQL/servers/virtualNetworkRules/write | Crea una regla de red virtual con los parámetros especificados o actualiza las propiedades o etiquetas de la regla de red virtual especificada. |
 > | . | Microsoft.DBforMySQL/servers/write | Crea un servidor con los parámetros especificados o actualiza las propiedades o etiquetas del servidor especificado. |
@@ -1952,7 +1952,7 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.DBforPostgreSQL/servers/securityAlertPolicies/write | Cambia la directiva de detección de amenazas del servidor para un servidor determinado. |
 > | . | Microsoft.DBforPostgreSQL/servers/topQueryStatistics/read | Devuelve la lista de las estadísticas de consulta para las consultas principales. |
 > | . | Microsoft.DBforPostgreSQL/servers/updateConfigurations/action | Actualizar las configuraciones para el servidor especificado. |
-> | . | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/delete | Elimina una regla de Virtual Network existente. |
+> | . | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/delete | Elimina una regla de red virtual existente. |
 > | . | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/read | Devuelve la lista de reglas de red virtual u obtiene las propiedades de una regla de red virtual específica. |
 > | . | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/write | Crea una regla de red virtual con los parámetros especificados o actualiza las propiedades o etiquetas de la regla de red virtual especificada. |
 > | . | Microsoft.DBforPostgreSQL/servers/waitStatistics/read | Devuelve estadísticas de espera para una instancia. |
@@ -4818,7 +4818,7 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.Sql/managedInstances/databases/delete | Elimina una base de datos administrada ya existente. |
 > | . | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
 > | . | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
-> | . | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de las bases de datos de instancias administradas. |
+> | . | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | Obtiene los registros disponibles de las bases de datos de instancia administrada. |
 > | . | Microsoft.Sql/managedInstances/databases/read | Obtiene una base de datos administrada ya existente. |
 > | . | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | Enumera las etiquetas de confidencialidad de una base de datos determinada. |
 > | . | Microsoft.Sql/managedInstances/databases/schemas/read | Obtener un esquema de base de datos administrados. |
@@ -5078,7 +5078,7 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.Sql/servers/syncAgents/write | Crea un agente de sincronización con los parámetros especificados o actualiza las propiedades de un agente de sincronización específico. |
 > | . | Microsoft.Sql/servers/tdeCertificates/action | Crea o actualiza el certificado de TDE. |
 > | . | Microsoft.Sql/servers/usages/read | Devuelve la cuota de DTU del servidor y el consumo actual de DTU de todas las bases de datos del servidor |
-> | . | Microsoft.Sql/servers/virtualNetworkRules/delete | Elimina una regla de Virtual Network existente. |
+> | . | Microsoft.Sql/servers/virtualNetworkRules/delete | Elimina una regla de red virtual existente. |
 > | . | Microsoft.Sql/servers/virtualNetworkRules/read | Devuelve la lista de reglas de red virtual u obtiene las propiedades de una regla de red virtual específica. |
 > | . | Microsoft.Sql/servers/virtualNetworkRules/write | Crea una regla de red virtual con los parámetros especificados o actualiza las propiedades o etiquetas de la regla de red virtual especificada. |
 > | . | Microsoft.Sql/servers/vulnerabilityAssessments/delete | Quita la evaluación de vulnerabilidades de un servidor determinado. |

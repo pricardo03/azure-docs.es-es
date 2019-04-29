@@ -13,11 +13,11 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703510"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights
 
@@ -29,7 +29,7 @@ Esta página proporciona información sobre los problemas de rendimiento de Azur
 
 ## <a name="detectable-database-performance-patterns"></a>Patrones de rendimiento de la base de datos detectables
 
-Intelligent Insights detecta automáticamente los problemas de rendimiento con las bases de datos de SQL Database e Instancia administrada en función de los tiempos de espera o los errores en la ejecución de consultas. Envía los patrones de rendimiento detectados al registro de diagnóstico. Los patrones de rendimiento detectables se resumen en la tabla siguiente.
+Intelligent Insights detecta automáticamente los problemas de rendimiento de las bases de datos SQL y de instancia administrada en función de los tiempos de espera o los errores en la ejecución de consultas. Envía los patrones de rendimiento detectados al registro de diagnóstico. Los patrones de rendimiento detectables se resumen en la tabla siguiente.
 
 | Patrones de rendimiento detectables | Descripción de Azure SQL Database y los grupos elásticos | Descripción de las bases de datos en Instancia administrada |
 | :------------------- | ------------------- | ------------------- |

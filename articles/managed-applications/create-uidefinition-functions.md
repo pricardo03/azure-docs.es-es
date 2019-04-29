@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587927"
 ---
 # <a name="createuidefinition-functions"></a>Funciones CreateUiDefinition
 Esta sección contiene las firmas de todas las funciones compatibles de una CreateUiDefinition.

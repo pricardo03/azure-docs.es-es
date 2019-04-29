@@ -19,11 +19,11 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60331747"
 ---
-# <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Creación y administración de servidores y bases de datos únicas de SQL Database en Azure SQL Database
+# <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Creación y administración de servidores de bases de datos y bases de datos únicas en Azure SQL Database
 
-Puede crear y administrar servidores y bases de datos únicas de SQL Database con Azure Portal, PowerShell, la CLI de Azure, la API de REST y Transact-SQL.
+Puede crear y administrar servidores y bases de datos únicas de SQL Database con Azure Portal, PowerShell, la CLI de Azure, la API REST y Transact-SQL.
 
-## <a name="azure-portal-manage-sql-database-servers-and-single-databases"></a>Azure Portal: Administración de servidores y bases de datos únicas de SQL Database
+## <a name="azure-portal-manage-sql-database-servers-and-single-databases"></a>Azure Portal: Administración de servidores y bases de datos únicas de SQL Database
 
 Puede crear el grupo de recursos de la base de datos SQL de Azure con antelación o mientras crea el propio servidor. Existen varios métodos para obtener un nuevo formulario de servidor SQL, bien mediante la creación de un nuevo servidor SQL o como parte de la creación de una base de datos nueva.
 
@@ -38,11 +38,11 @@ Para crear una base de datos única de Azure SQL en [Azure Portal](https://porta
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> Para obtener información sobre cómo seleccionar el plan de tarifa de la base de datos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
+> Para obtener información sobre cómo seleccionar el plan de tarifa de la base de datos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 
 Para crear una instancia administrada, consulte [Creación de una instancia administrada](sql-database-managed-instance-get-started.md).
 
-## <a name="manage-an-existing-sql-database-server"></a>Administración de un servidor existente de SQL Database
+## <a name="manage-an-existing-sql-database-server"></a>Administración de un servidor de SQL Database existente
 
 Para administrar un servidor de SQL Database existente, vaya al servidor mediante una serie de métodos, como la página específica de SQL Database, la página de **Servidores SQL** o la página **Todos los recursos**.
 
@@ -51,11 +51,11 @@ Para administrar una base de datos existente, vaya a la página de **SQL Databas
    ![regla de firewall del servidor](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
 > [!IMPORTANT]
-> Para configurar las propiedades de rendimiento de una base de datos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
+> Para configurar las propiedades de rendimiento de una base de datos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 > [!TIP]
 > Para acceder a una guía de inicio rápido de Azure Portal, consulte [Creación de una instancia de Azure SQL Database en Azure Portal](sql-database-single-database-get-started.md).
 
-## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: Administración de servidores y bases de datos únicas de SQL Database
+## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: Administración de servidores y bases de datos únicas de SQL Database
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -64,7 +64,7 @@ Para administrar una base de datos existente, vaya a la página de **SQL Databas
 Para crear y administrar servidores de Azure SQL Database, bases de datos únicas y agrupadas y firewalls de servidor de SQL Database con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell).
 
 > [!TIP]
-> Por scripts de PowerShell de ejemplo, consulte [Uso de PowerShell para crear una instancia única de Azure SQL Database y configurar una regla de firewall](scripts/sql-database-create-and-configure-database-powershell.md) y [Uso de PowerShell para supervisar y escalar una sola base de datos SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Para ver scripts de PowerShell de ejemplo, consulte [Uso de PowerShell para crear una base de datos de Azure SQL única y configurar una regla de firewall](scripts/sql-database-create-and-configure-database-powershell.md) y [Uso de PowerShell para supervisar y escalar una base de datos SQL única](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 | Cmdlet | DESCRIPCIÓN |
 | --- | --- |
@@ -83,7 +83,7 @@ Para crear y administrar servidores de Azure SQL Database, bases de datos única
 |[Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule)|Obtiene una regla de firewall de un servidor.|
 | New-AzSqlServerVirtualNetworkRule | Permite crear una [*regla de red virtual*](sql-database-vnet-service-endpoint-rule-overview.md) basada en una subred que es un punto de conexión de servicio de red virtual. |
 
-## <a name="azure-cli-manage-sql-database-servers-and-single-databases"></a>CLI de Azure: Administración de servidores y bases de datos únicas de SQL Database
+## <a name="azure-cli-manage-sql-database-servers-and-single-databases"></a>CLI de Azure: Administración de servidores y bases de datos únicas de SQL Database
 
 Para crear y administrar servidores, bases de datos y firewalls SQL Azure con la [CLI de Azure](/cli/azure), use los siguientes comandos de la [CLI de Azure SQL Database](/cli/azure/sql/db). Use [Cloud Shell](/azure/cloud-shell/overview) para ejecutar la CLI en el explorador o [instálela](/cli/azure/install-azure-cli) en Windows, Linux o macOS. Para crear y administrar grupos elásticos, consulte [Grupos elásticos](sql-database-elastic-pool.md).
 
@@ -113,7 +113,7 @@ Para crear y administrar servidores, bases de datos y firewalls SQL Azure con la
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Actualiza una regla de firewall.|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Elimina una regla de firewall.|
 
-## <a name="transact-sql-manage-sql-database-servers-and-single-databases"></a>Transact-SQL: Administración de servidores y bases de datos únicas de SQL Database
+## <a name="transact-sql-manage-sql-database-servers-and-single-databases"></a>Transact-SQL: Administración de servidores y bases de datos únicas de SQL Database
 
 Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con Transact-SQL, use los siguientes comandos de Transact-SQL. Puede emitir estos comandos mediante Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) o cualquier otro programa que pueda conectarse a un servidor de Azure SQL Database y pasar comandos de Transact-SQL. Para administrar grupos de bases de datos elásticas, consulte [Grupos elásticos](sql-database-elastic-pool.md).
 
@@ -139,7 +139,7 @@ Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con
 |[sys.database_firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Devuelve información sobre la configuración del firewall de nivel de base de datos asociada a Microsoft Azure SQL Database. |
 |[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Quita las reglas de firewall de nivel de base de datos de la instancia de Azure SQL Database o SQL Data Warehouse. |
 
-## <a name="rest-api-manage-sql-database-servers-and-single-databases"></a>API REST: Administración de servidores y bases de datos únicas de SQL Database
+## <a name="rest-api-manage-sql-database-servers-and-single-databases"></a>API REST: Administración de servidores y bases de datos únicas de SQL Database
 
 Para crear y administrar servidores, bases de datos y firewalls de Azure SQL, use estas solicitudes de la API REST.
 

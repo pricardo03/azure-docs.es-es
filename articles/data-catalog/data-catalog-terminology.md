@@ -7,11 +7,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: a6f2cf1dcee6a85376c8d767e57c504b6b246e5d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011391"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60580466"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminología de Azure Data Catalog
 
@@ -86,4 +86,4 @@ El registro es el acto de extraer metadatos de recursos de datos de un origen de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Inicio rápido: Crear un catálogo de datos de Azure](data-catalog-get-started.md) 
+[Inicio rápido: Creación de una instancia de Azure Data Catalog](data-catalog-get-started.md) 

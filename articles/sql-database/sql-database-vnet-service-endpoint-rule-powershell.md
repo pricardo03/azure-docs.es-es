@@ -1,5 +1,5 @@
 ---
-title: PowerShell para los puntos de conexión de red virtual y reglas para las bases de datos únicas y agrupadas en Azure SQL | Microsoft Docs
+title: PowerShell para los puntos de conexión de red virtual y reglas para las bases de datos únicas y agrupadas en Azure SQL | Microsoft Docs
 description: Proporciona scripts de PowerShell para crear y administrar puntos de conexión del servicio virtual para su Azure SQL Database y SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -209,7 +209,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 ## <a name="script-3-create-an-endpoint-and-a-rule"></a>Script 3: Creación de un punto de conexión y una regla
 
-Este script crea una red virtual con una subred. A continuación, el script asigna el tipo de punto de conexión **Microsoft.Sql** a la subred. Por último, el script agrega su subred a la lista de control de acceso (ACL) de su servidor SQL Database, de modo que crea una regla.
+Este script crea una red virtual con una subred. A continuación, el script asigna el tipo de punto de conexión **Microsoft.Sql** a la subred. Por último, el script agrega su subred a la lista de control de acceso (ACL) de su servidor de SQL Database, de modo que crea una regla.
 
 ### <a name="powershell-script-3-source-code"></a>Código fuente del script 3 de PowerShell
 

@@ -37,7 +37,7 @@ Escriba valores para **Nombre del Registro** y **Grupo de recursos**. El nombre 
 
 ![Creación de un registro de contenedor en Azure Portal][qs-portal-03]
 
-En este inicio rápido se crea un registro *Básico*, que es una opción rentable para los desarrolladores que aprenden sobre Azure Container Registry. Para más información sobre los niveles de servicio disponibles, consulte [SKU de Azure Container Registry][container-registry-skus].
+En este inicio rápido se crea un registro *Básico*, que es una opción rentable para los desarrolladores que aprenden sobre Azure Container Registry. Para más información sobre los niveles de servicio disponibles, consulte [SKU de Azure Container Registry][container-registry-skus].
 
 Cuando aparezca el mensaje **Implementación correcta**, seleccione el registro de contenedor en el portal. 
 

@@ -13,11 +13,11 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60332862"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Uso de reglas y puntos de conexión del servicio Virtual Network para Azure Database for MariaDB
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for MariaDB
 
 Las *reglas de red virtual* son una característica de seguridad de firewall que controla si el servidor de Azure Database for MariaDB acepta las comunicaciones que se envían desde subredes específicas en redes virtuales. En este artículo se explica por qué la característica de la regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con el servidor de Azure Database for MariaDB.
 
-Para crear una regla de red virtual, primero debe haber una [red virtual][vm-virtual-network-overview] (VNET) y un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] para la regla a la que hacer referencia. En la imagen siguiente se muestra cómo funciona un punto de conexión de servicio de Virtual Network con Azure Database for MariaDB:
+Para crear una regla de red virtual, primero debe haber una [red virtual][vm-virtual-network-overview] (VNET) y un [punto de conexión de servicio de red virtual][vm-virtual-network-service-endpoints-overview-649d] para la regla a la que hacer referencia. En la imagen siguiente se muestra cómo funciona un punto de conexión de servicio de red virtual con Azure Database for MariaDB:
 
 ![Ejemplo de cómo funciona un punto de conexión de servicio de red virtual](media/concepts-data-access-security-vnet/vnet-concept.png)
 
@@ -64,7 +64,7 @@ Sin embargo, el enfoque de IP estática puede resultar difícil de administrar, 
 
 ### <a name="c-cannot-yet-have-azure-database-for-mariadb-on-a-subnet-without-defining-a-service-endpoint"></a>C. Todavía no se puede tener Azure Database for MariaDB en una subred sin definir ningún punto de conexión de servicio
 
-Si su servidor de **Microsoft.Sql** fuera un nodo de una subred de la red virtual, todos los nodos de la red virtual podrían comunicarse con su servidor de Azure Database for MariaDB. En este caso, las máquinas virtuales podrían comunicarse con Azure Database for MariaDB sin necesitar ninguna regla IP ni reglas de red virtual.
+Si su servidor de **Microsoft.Sql** fuera un nodo de una subred de la red virtual, todos los nodos de la red virtual podrían comunicarse con su servidor de Azure Database for MariaDB. En este caso, las máquinas virtuales podrían comunicarse con Azure Database for MariaDB sin necesitar ninguna regla de IP ni reglas de red virtual.
 
 No obstante, a fecha de agosto de 2018, el servicio de Azure Database for MariaDB aún no se encuentra entre los servicios que se pueden asignar directamente a una subred.
 
@@ -76,7 +76,7 @@ En esta sección se describen varios detalles acerca de las reglas de red virtua
 
 ### <a name="only-one-geographic-region"></a>Solo una región geográfica
 
-Cada punto de conexión del servicio de Virtual Network se aplica solo a una región de Azure. El punto de conexión no permite que otras regiones acepten la comunicación de la subred.
+Cada punto de conexión de servicio de red virtual se aplica solo a una región de Azure. El punto de conexión no permite que otras regiones acepten la comunicación de la subred.
 
 Cualquier regla de red virtual se limita a la región a la que se aplica su punto de conexión subyacente.
 
@@ -86,14 +86,14 @@ Cada regla de red virtual se aplica a todo el servidor de Azure Database for Mar
 
 ### <a name="security-administration-roles"></a>Roles de administración de la seguridad
 
-Existe una separación de los roles de seguridad en la administración de puntos de conexión del servicio de Virtual Network. Se requiere una acción de cada uno de los roles siguientes:
+Existe una separación de los roles de seguridad en la administración de puntos de conexión de servicio de red virtual. Se requiere una acción de cada uno de los roles siguientes:
 
 - **Administrador de red:** &nbsp; se activa el punto de conexión.
 - **Administrador de base de datos:** &nbsp; se actualiza la lista de control de acceso (ACL) que se va a agregar a la subred proporcionada en el servidor de Azure Database for MariaDB.
 
 *Alternativa de RBAC:*
 
-Las funciones de administrador de red y de base de datos tienen más capacidades de las que se necesitan para administrar las reglas de red virtual. Solo se necesita un subconjunto de sus capacidades.
+Los roles de administrador de red y de base de datos tienen más funcionalidades de las que se necesitan para administrar las reglas de red virtual. Solo se necesita un subconjunto de sus capacidades.
 
 Si quiere, puede optar por la opción de usar el [control de acceso basado en rol (RBAC)] [ rbac-what-is-813s] en Azure para crear un rol personalizado único que tenga solo el subconjunto necesario de capacidades. Se podría usar el rol personalizado en lugar del administrador de red o el administrador de la base de datos. El área expuesta de la exposición de seguridad es inferior si agrega un usuario a un rol personalizado, en lugar de agregar el usuario a los otros dos roles de administrador principales.
 
@@ -112,7 +112,7 @@ Para Azure Database for MariaDB, la característica de las reglas de red virtual
 
 - Cada servidor de Azure Database for MariaDB puede tener hasta 128 entradas de ACL para cualquier red virtual dada.
 
-- Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásico][resource-manager-deployment-model-568f].
+- Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásico][resource-manager-deployment-model-568f].
 
 - Al activar los puntos de conexión de servicio de red virtual en Azure Database for MariaDB con la etiqueta de servicio **Microsoft.Sql** también se habilitan los puntos de conexión de todos los servicios de Azure Database: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database y Azure SQL Data Warehouse.
 

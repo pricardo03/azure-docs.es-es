@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: ca54ae11390b388c3158bd220ee5c7829172a5c3
 ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58620485"
@@ -71,7 +71,7 @@ No existe ninguna funcionalidad integrada para restaurar de forma masiva. El scr
 
 ## <a name="point-in-time-restore"></a>Restauración a un momento dado
 
-Puede restaurar una base de datos independiente, agrupada o de instancia a un momento dado como una nueva base de datos en el mismo servidor con Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) o la [API de REST](https://docs.microsoft.com/rest/api/sql/databases). Una base de datos se puede restaurar a cualquier nivel de servicio o tamaño de proceso. Asegúrese de que haya suficientes recursos en el servidor en el que se va a restaurar la base de datos. Una vez finalizada, la base de datos restaurada es una base de datos normal, totalmente accesible en línea. La base de datos restaurada se cobra según la tarifa normal en función de su nivel de servicio y tamaño de proceso. No se incurre en gastos hasta que finaliza la restauración de la base de datos.
+Puede restaurar una base de datos independiente, agrupada o de instancia a un momento dado como una nueva base de datos en el mismo servidor con Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) o la [API REST](https://docs.microsoft.com/rest/api/sql/databases). Una base de datos se puede restaurar a cualquier nivel de servicio o tamaño de proceso. Asegúrese de que haya suficientes recursos en el servidor en el que se va a restaurar la base de datos. Una vez finalizada, la base de datos restaurada es una base de datos normal, totalmente accesible en línea. La base de datos restaurada se cobra según la tarifa normal en función de su nivel de servicio y tamaño de proceso. No se incurre en gastos hasta que finaliza la restauración de la base de datos.
 
 Por lo general, una base de datos se restaura a un punto anterior para fines de recuperación. Cuando lo haga, puede tratar la base de datos restaurada como sustituto de la base de datos original o utilizarla para recuperar datos y actualizar después la base de datos original.
 

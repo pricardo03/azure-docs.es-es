@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586801"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Instalaciones de Azure, entornos locales y seguridad física
 Azure está formada por una [infraestructura de centros de datos distribuida globalmente](https://azure.microsoft.com/global-infrastructure/) que da soporte a miles de servicios en línea y abarca más de 100 instalaciones de alta seguridad en todo el mundo.

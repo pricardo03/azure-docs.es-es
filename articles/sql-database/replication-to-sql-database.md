@@ -13,13 +13,13 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860710"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646813"
 ---
-# <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicación en base de datos agrupadas y únicas de SQL Database
+# <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicación en bases de datos agrupadas y únicas de SQL Database
 
 La replicación de SQL Server puede configurarse para bases de datos únicas y agrupadas en un [servidor de SQL Server](sql-database-servers.md) en Azure SQL Database.  
 

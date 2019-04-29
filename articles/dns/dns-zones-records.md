@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7f69d77ac7a6c2a17ef2568f0c7edaef2e1ee3f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174296"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563399"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Información general sobre zonas y registros de DNS
 
@@ -59,7 +59,7 @@ Para crear un conjunto de registros comodín, utilice el nombre de conjunto de r
 ### <a name="caa-records"></a>Registros CAA
 
 Los registros CAA permiten a los propietarios especificar qué entidades de certificación (CA) están autorizadas para emitir certificados para su dominio. Esto permite a las entidades de certificación evitar certificados no emitidos en algunas circunstancias. Los registros CAA tienen tres propiedades:
-* **Marcas**: se trata de un número entero entre 0 y 255, que se utiliza para representar la marca crítica que tiene un significado especial según el [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Marcas**: Se trata de un número entero entre 0 y 255, que se utiliza para representar la marca crítica que tiene un significado especial según el [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Etiqueta**: una cadena ASCII que puede ser una de las siguientes:
     * **issue**: utilice esta etiqueta si desea especificar entidades de certificación a las que se les permite emitir certificados (todos los tipos).
     * **issuewild**: utilice esta etiqueta si desea especificar entidades de certificación a las que se les permite emitir certificados (solo certificados comodín)

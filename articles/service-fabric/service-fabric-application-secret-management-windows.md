@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
 ms.openlocfilehash: 3d324c54d10433520a73f2bd836c26bd79f1b3bb
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615270"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Configuración de un certificado de cifrado y cifrado de secretos en clústeres Windows
 En este artículo se muestra cómo configurar un certificado de cifrado y usarlo para cifrar secretos en clústeres Windows. Para los clústeres Linux, consulte [Configuración de un certificado de cifrado y cifrado de secretos en clústeres Linux][secret-management-linux-specific-link].

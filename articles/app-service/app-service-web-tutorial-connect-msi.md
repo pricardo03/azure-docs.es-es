@@ -83,7 +83,7 @@ A continuación, conceda a la base de datos acceso a la identidad administrada d
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
 ```
 
-La identidad administrada ya tiene acceso al servidor de Azure SQL Database.
+La identidad administrada ya tiene acceso al servidor de Azure SQL Database.
 
 ## <a name="modify-connection-string"></a>Modificación de la cadena de conexión
 
@@ -172,7 +172,7 @@ Si desea ver la salida JSON completa para cada comando, use los parámetros `--q
 
 ### <a name="reconfigure-azure-ad-administrator"></a>Reconfiguración del administrador de Azure AD
 
-Anteriormente, asignó la identidad administrada como administrador de Azure AD para la instancia de SQL Database. No se puede usar esta identidad para el inicio de sesión interactivo (para agregar usuarios de la base de datos), por lo que deberá usar su usuario real de Azure AD. Para agregar su usuario de Azure AD, siga los pasos descritos en [Aprovisionamiento de un administrador de Azure Active Directory para el servidor de Azure SQL Database](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server). 
+Anteriormente, asignó la identidad administrada como administrador de Azure AD para la instancia de SQL Database. No se puede usar esta identidad para el inicio de sesión interactivo (para agregar usuarios de la base de datos), por lo que deberá usar su usuario real de Azure AD. Para agregar su usuario de Azure AD, siga los pasos descritos en [Aprovisionamiento de un administrador de Azure Active Directory para el servidor de Azure SQL Database](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server). 
 
 > [!IMPORTANT]
 > Una vez agregado, no quite este administrador de Azure AD para SQL Database a menos que desee deshabilitar el acceso de Azure AD a SQL Database completamente (de todas las cuentas de Azure AD).

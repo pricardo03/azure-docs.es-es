@@ -19,7 +19,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56108966"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Inicio rápido: Creación de una regla de firewall de nivel de servidor para bases de datos únicas y agrupadas mediante Azure Portal
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Inicio rápido: Creación de una regla de firewall de nivel de servidor para bases de datos únicas y agrupadas mediante Azure Portal
 
 Este inicio rápido le guía en la creación de una [regla de firewall de nivel de servidor](sql-database-firewall-configure.md) para bases de datos agrupadas y únicas en Azure SQL Database mediante Azure Portal para que pueda conectarse a servidores de base de datos, bases de datos únicas y grupos elásticos y sus bases de datos. Una regla de firewall es necesaria para conectarse desde otros recursos de Azure y desde recursos locales.
 
@@ -31,14 +31,14 @@ En este inicio rápido se usan los recursos creados en [Creación de una base de
 
 Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-server-level-ip-firewall-rule"></a>Creación de una regla de firewall de nivel de servidor
+## <a name="create-a-server-level-ip-firewall-rule"></a>Creación de una regla de firewall de IP de nivel de servidor
 
 El servicio SQL Database crea un firewall en el nivel de servidor de bases de datos para bases de datos únicas y agrupadas. Este firewall evita que las aplicaciones cliente se conecten al servidor o a cualquiera de sus bases de datos únicas o agrupadas a menos que se cree una regla de firewall de IP para abrir el firewall. Para una conexión desde una dirección IP fuera de Azure, cree una regla de firewall para una dirección IP específica o para el intervalo de direcciones al desee conectarse. Para más información acerca de las reglas de firewall de IP en los niveles de base de datos y de servidor, consulte [Reglas de firewall de Azure SQL Database y SQL Data Warehouse](sql-database-firewall-configure.md).
 
 > [!NOTE]
 > SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433.
 > [!IMPORTANT]
-> Una regla de firewall de 0.0.0.0 permite que todos los servicios de Azure pasen a través de la regla de firewall de nivel de servidor e intenten conectarse a una base de datos única o agrupada a través del servidor. Para más información sobre el uso de reglas de red virtual, consulte [Reglas de red virtual alternativas a las reglas IP](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules).
+> Una regla de firewall de 0.0.0.0 permite que todos los servicios de Azure pasen a través de la regla de firewall de nivel de servidor e intenten conectarse a una base de datos única o agrupada a través del servidor. Para más información sobre el uso de reglas de red virtual, consulte [Reglas de red virtual alternativas a las reglas de IP](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules).
 
 Siga estos pasos para crear una regla de firewall de IP de nivel de servidor para la dirección IP de su cliente y habilite la conectividad externa mediante el firewall de SQL Database solo para su dirección IP.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f3ac9545a341fc24ca12c9f2547805d6956cd98a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5fcf95a1a3033a5150945dbd841f12d50ebb023b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60577266"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Conmutación por error a un dispositivo físico de la serie StorSimple 8000
 
@@ -61,7 +61,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo físico de desti
 
         ![Seleccionar destino](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev6.png)
 
-   3. Por último, revise toda la configuración de conmutación por error en **Resumen**. Una vez que haya revisado la configuración, seleccione la casilla que indica que los volúmenes de los contenedores de volumen seleccionados están sin conexión. Haga clic en **Aceptar**.
+   3. Por último, revise toda la configuración de conmutación por error en **Resumen**. Una vez que haya revisado la configuración, seleccione la casilla que indica que los volúmenes de los contenedores de volumen seleccionados están sin conexión. Haga clic en **OK**.
 
        ![Revisar la configuración de conmutación por error](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev8.png)
   

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 82eb9c895f016efe569651dc89885d2e4850fd59
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60685770"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Control de tipos de contenido en Azure Logic Apps
 
@@ -140,15 +140,15 @@ Para conservar algunos tipos de datos, Logic Apps convierte el contenido en una 
 
 En esta lista se describe cómo Logic Apps convierte el contenido al usar estas [funciones](../logic-apps/workflow-definition-language-functions-reference.md):
 
-* `json()`: convierte los datos a `application/json`.
-* `xml()`: convierte los datos a `application/xml`.
-* `binary()`: convierte los datos a `application/octet-stream`.
-* `string()`: convierte los datos a `text/plain`.
-* `base64()`: convierte el contenido a una cadena base64.
-* `base64toString()`: convierte una cadena codificada en base64 a `text/plain`.
-* `base64toBinary()`: convierte una cadena codificada en base64 a `application/octet-stream`.
-* `encodeDataUri()`: codifica una cadena como una matriz de bytes dataUri.
-* `decodeDataUri()`: descodifica una `dataUri` en una matriz de bytes.
+* `json()`: Conversiones de tipos de datos a `application/json`
+* `xml()`: Conversiones de tipos de datos a `application/xml`
+* `binary()`: Conversiones de tipos de datos a `application/octet-stream`
+* `string()`: Conversiones de tipos de datos a `text/plain`
+* `base64()`: Convierte el contenido en una cadena base64
+* `base64toString()`: Convierte una cadena codificada en base64 en `text/plain`
+* `base64toBinary()`: Convierte una cadena codificada en base64 en `application/octet-stream`
+* `encodeDataUri()`: Codifica una cadena como una matriz de bytes dataUri
+* `decodeDataUri()`: Descodifica un `dataUri` en una matriz de bytes
 
 Por ejemplo, si recibe una solicitud HTTP donde `Content-Type` se establece en `application/xml`, por ejemplo, este contenido:
 

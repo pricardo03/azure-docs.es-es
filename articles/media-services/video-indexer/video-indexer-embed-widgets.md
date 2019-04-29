@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006495"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560442"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Inserción de widgets de Video Indexer en las aplicaciones
 
@@ -28,7 +28,7 @@ A partir de la versión 2, la dirección URL base del widget incluye la región 
 
 El widget **Cognitive Insights** incluye toda la información detallada visual que se extrajo del proceso de indexación de vídeo. El widget de información detallada admite los siguientes parámetros de URL opcionales:
 
-|Name|Definición|DESCRIPCIÓN|
+|NOMBRE|Definición|DESCRIPCIÓN|
 |---|---|---|
 |widgets|Cadenas separadas por coma|Le permite controlar la información detallada que desea representar. <br/>Ejemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` representará solo la información detallada de la interfaz de usuario de personas y marcas<br/>Opciones disponibles: personas, palabras clave, anotaciones, marcas, opiniones, transcripción y búsqueda.<br/>No se admite a través de la dirección URL en la versión=2<br/><br/>**Nota:** No se admite el parámetro de dirección URL de widgets en la versión 2. |
 
@@ -36,7 +36,7 @@ El widget **Cognitive Insights** incluye toda la información detallada visual q
 
 El widget **Player** le permite transmitir el vídeo con velocidad de bits adaptable. El widget Player admite los siguientes parámetros de URL opcionales:
 
-|Name|Definición|DESCRIPCIÓN|
+|NOMBRE|Definición|DESCRIPCIÓN|
 |---|---|---|
 |t|Segundos desde el inicio|Hace que el reproductor comience a reproducir desde un momento de tiempo determinado.<br/>Ejemplo: t=60|
 |captions|Código de idioma|Recupera el título en el idioma dado durante la carga del widget para que esté disponible en el menú de títulos.<br/>Ejemplo: captions=en-US|

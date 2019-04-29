@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 24bb7a1fcb1569922fb34034fb3c0d003cdd7061
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572700"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335396"
 ---
 ## <a name="repeatability-during-copy"></a>Repetibilidad durante la copia
 Cuando se copian datos en Azure SQL o SQL Server desde otros almacenes de datos, es necesario tener en mente la repetibilidad para evitar resultados imprevistos. 

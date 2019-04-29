@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 20bf38b87ce29f8506a5611ecd25cf38f6d4ed61
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550757"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Administrar recursos de Azure mediante el portal de Azure
 
@@ -103,7 +103,7 @@ Para obtener más información, consulte [Bloqueo de recursos con el Administrad
 El etiquetado ayuda a organizar lógicamente de su grupo de recursos. 
 
 1. Abra el recurso en el portal. Para conocer los pasos, consulte [abrir recursos](#open-resources).
-2. Seleccione **etiquetas**. Captura de pantalla siguiente muestra las opciones de administración para una cuenta de almacenamiento.
+2. Seleccione **Etiquetas**. Captura de pantalla siguiente muestra las opciones de administración para una cuenta de almacenamiento.
 
     ![recursos de la etiqueta de azure](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
 3. Especificar las propiedades de etiqueta y, a continuación, seleccione **guardar**.

@@ -40,7 +40,7 @@ Para completar este ejemplo, asegúrese de que cumple los siguientes requisitos 
   |||
 
   > [!IMPORTANT]
-  > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works a una base de datos de la instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
+  > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works en una base de datos de instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
 
 
 - Software relacionado con Node.js para el sistema operativo:

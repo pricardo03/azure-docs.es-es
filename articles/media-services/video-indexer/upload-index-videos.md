@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 89903d3f65c74da6903e53284f168d2d6a12168a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559915"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
 
@@ -32,7 +32,7 @@ Una vez cargado el vídeo, Video Indexer codifica opcionalmente el vídeo (lo cu
 
 - Al cargar el vídeo según la dirección URL (opción preferida) el punto de conexión debe estar protegido con TLS 1.2 (o una versión posterior).
 - El tamaño de carga con la opción de dirección URL se limita a 30GB
-- En la mayoría de los exploradores, longitud de dirección URL se limita a 2000 caracteres
+- La longitud de la dirección URL de solicitud se limita a 2048 caracteres
 - El tamaño de carga con la opción de matriz de bytes se limita a 2 GB
 - La opción de matriz de bytes agota el tiempo de espera a los 30 minutos
 - La dirección URL que se proporciona en el parámetro `videoURL` debe estar codificada.

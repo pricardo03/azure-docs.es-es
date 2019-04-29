@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: srinathv
 ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618199"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550029"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solución de problemas de copia de seguridad de máquinas virtuales de Azure
 Puede solucionar los errores detectados al usar Azure Backup Server con la información incluida en la tabla siguiente:
@@ -40,7 +40,7 @@ La operación de copia de seguridad porque la máquina virtual está en estado d
 ### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - no se pudieron inmovilizar uno o varios puntos de montaje de la máquina virtual para tomar una instantánea coherente del sistema de archivos
 
 Código de error: UserErrorFsFreezeFailed <br/>
-Mensaje de error: No se pudieron inmovilizar uno o varios puntos de montaje de la máquina virtual para tomar una instantánea coherente del sistema de archivos.
+Mensaje de error: No se pudieron inmovilizar uno o varios puntos de montaje de la máquina virtual para tomar una instantánea coherente con el sistema de archivos.
 
 * Compruebe el estado del sistema de archivos de todos los dispositivos montados con el **tune2fs** comando, por ejemplo **tune2fs -l/dev/sdb1 \\** .\| grep **delestadodesistemadearchivos**.
 * Desmonte los dispositivos que no se ha limpiado el estado del sistema de archivos, utilizando el **umount** comando.

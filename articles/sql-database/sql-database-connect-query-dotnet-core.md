@@ -41,7 +41,7 @@ En este tutorial, necesitará:
   |||
 
   > [!IMPORTANT]
-  > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works a una base de datos de la instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
+  > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works en una base de datos de instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
 
 - Se instaló [.NET Core para su sistema operativo](https://www.microsoft.com/net/core).
 

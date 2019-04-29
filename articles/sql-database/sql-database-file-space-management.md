@@ -1,6 +1,6 @@
 ---
 title: Administración del espacio de archivo de bases de datos únicas o agrupadas de Azure SQL Database | Microsoft Docs
-description: En esta página se describe cómo administrar el espacio de archivo con bases de datos únicas o agrupadas de Azure SQL Database, y se proporcionan ejemplos de código para determinar si se debe reducir una base de datos única o agrupadas y cómo hacerlo.
+description: En esta página se describe cómo administrar el espacio de archivo con bases de datos únicas o agrupadas de Azure SQL Database, y se proporcionan ejemplos de código para determinar si se debe reducir una base de datos única o agrupada, y cómo hacerlo.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57881170"

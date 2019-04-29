@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: 7fdc1417ac524b422a12a087cf1661040efb9f8a
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60582828"
 ---
 # <a name="azure-container-registry-skus"></a>SKU de Azure Container Registry
 
@@ -28,7 +28,7 @@ Azure Container Registry (ACR) está disponible en varios niveles de servicio, c
 > [!IMPORTANT]
 > El registro clásico se va SKU **en desuso**y no estará disponible después de **abril de 2019**. Se recomienda usar básico, estándar o Premium para todos los registros nuevos. Todos los registros clásicos existentes deben actualizarse antes de abril de 2019. Para obtener información de actualización, vea [actualizar un registro clásico][container-registry-upgrade].
 
-Básico, estándar y Premium SKU (denominados *administra registros*) proporcionan las mismas funcionalidades de programación. También se beneficiarán de [almacenamiento de imágenes] [ container-registry-storage] administradas completamente por Azure. Elegir una SKU de nivel superior proporciona más rendimiento y escalabilidad. Con varios niveles de servicio, puede empezar a trabajar con Basic, a continuación, pasar a Standard y luego Premium a medida que aumente su uso del registro.
+Básico, estándar y Premium SKU (denominados *administra registros*) proporcionan las mismas funcionalidades de programación. También se beneficiarán de [almacenamiento de imágenes] [ container-registry-storage] administradas completamente por Azure. Elegir una SKU de nivel superior proporciona más rendimiento y escalabilidad. Con varios niveles de servicio, puede empezar a trabajar con el nivel Básico y, después, cambiar a Estándar y a Premium a medida que aumente su uso del registro.
 
 ## <a name="sku-feature-matrix"></a>Matriz de características de la SKU
 
