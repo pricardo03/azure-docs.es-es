@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59805159"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297710"
 ---
 ## <a name="test-your-code"></a>Prueba del código
 
@@ -44,7 +44,7 @@ Después de iniciar sesión, verá la información del perfil de usuario que dev
 |Propiedad  |Formato  |DESCRIPCIÓN |
 |---------|---------|---------|
 
-|**Nombre de usuario**  | <span> user@domain.com </span> | El nombre de usuario que se usa para identificar al usuario. | | **Token expira** | Fecha y hora | La hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario. |
+|**Nombre de usuario**  | <span> user@domain.com </span> | El nombre de usuario que se utiliza para identificar al usuario. | | **Token expira** | Fecha y hora | La hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
 
 
 <!--start-collapse-->
