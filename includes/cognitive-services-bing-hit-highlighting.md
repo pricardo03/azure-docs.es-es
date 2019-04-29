@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60527895"
 ---
 Bing admite el resaltado de aciertos, que marca los términos de la consulta (u otros términos que Bing considere relevantes) en las cadenas de presentación de algunas de las respuestas. Por ejemplo, los campos `name`, `displayUrl` y `snippet` de una página web pueden marcar los términos de la consulta.
 

@@ -1,15 +1,16 @@
 ---
-author: kumudD
+author: WenJason
 ms.service: load-balancer
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: kumud
+origin.date: 11/09/2018
+ms.date: 12/31/2018
+ms.author: v-jay
 ms.openlocfilehash: 459c99d1b45af9c98cc1a6d0d7dd7a9a04c824ec
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52272325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516979"
 ---
 Azure Load Balancer es un equilibrador de carga de nivel 4 (TCP y UDP) que distribuye proporcionando una alta disponibilidad el tráfico entrante entre las instancias de servicio correctas de los servicios en la nube o las máquinas virtuales de un conjunto de carga equilibrada. Azure Load Balancer también pueden presentar prestar servicios en varios puertos, varias direcciones IP o ambos.
 

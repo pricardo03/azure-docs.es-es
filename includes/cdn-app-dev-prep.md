@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564238"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de escribir el código de administración de la red CDN, tiene que realizar algunos preparativos para habilitar el código para que interactúe con Azure Resource Manager. Para hacer esta preparación, deberá:
@@ -32,7 +32,7 @@ Antes de escribir el código de administración de la red CDN, tiene que realiza
     ![Asignar un nombre al grupo de recursos](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Creación de la aplicación de Azure AD y aplicación de los permisos
-Existen dos enfoques para la autenticación de la aplicación con Azure Active Directory: usuarios individuales o una entidad de servicio. Una entidad de servicio se parece a una cuenta de servicio en Windows.  En lugar de conceder permisos a usuarios concretos para que interactúen con los perfiles de CDN, los permisos se conceden a la entidad de servicio.  Las entidades de servicio se suelen utilizar para procesos automatizados no interactivos.  Aunque en este tutorial escribimos una aplicación de consola interactiva, nos centraremos en el enfoque de entidad de servicio.
+Hay dos enfoques para la autenticación de la aplicación con Azure Active Directory: Los usuarios individuales o una entidad de servicio. Una entidad de servicio se parece a una cuenta de servicio en Windows.  En lugar de conceder permisos a usuarios concretos para que interactúen con los perfiles de CDN, los permisos se conceden a la entidad de servicio.  Las entidades de servicio se suelen utilizar para procesos automatizados no interactivos.  Aunque en este tutorial escribimos una aplicación de consola interactiva, nos centraremos en el enfoque de entidad de servicio.
 
 Para crear una entidad de servicio, se siguen varios pasos, incluida la creación de una aplicación de Azure Active Directory.  Para crearlo, [complete este tutorial](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
-ms.openlocfilehash: 4ffda692da0ab7b63f7376c36dfab0bec914e334
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37138072"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60541150"
 ---
 * Si está usando Azure SQL Database, siga los pasos que se indican en [Conexión a una instancia de Azure SQL Database](#connect-azure-sql-db). 
 
@@ -45,13 +45,13 @@ ms.locfileid: "37138072"
    <br>
    Los asteriscos (*) indican los valores obligatorios.
 
-   | Propiedad | Valor | Detalles | 
+   | Propiedad | Value | Detalles | 
    |----------|-------|---------| 
    | Nombre de la conexión | <*my-sql-connection*> | El nombre de la conexión | 
    | Nombre del servidor SQL Server | <*my-sql-server*> | El nombre del servidor SQL server |
    | Nombre de la instancia de SQL Database | <*my-sql-database*>  | El nombre de la instancia de SQL Database | 
    | Nombre de usuario | <*my-sql-username*> | El nombre de usuario para acceder a la base de datos |
-   | Password | <*my-sql-password*> | La contraseña para acceder a la base de datos | 
+   | Contraseña | <*my-sql-password*> | La contraseña para acceder a la base de datos | 
    |||| 
 
 2. Cuando termine, seleccione **Crear**.
@@ -96,15 +96,15 @@ Para poder seleccionar la puerta de enlace, asegúrese de que ya ha [configurado
    <br>
    Los asteriscos (*) indican los valores obligatorios.
 
-   | Propiedad | Valor | Detalles | 
+   | Propiedad | Value | Detalles | 
    |----------|-------|---------| 
    | Conectar mediante puerta de enlace local | Seleccione esta opción en primer lugar para la configuración de SQL Server. | | 
    | Nombre de la conexión | <*my-sql-connection*> | El nombre de la conexión | 
    | Nombre del servidor SQL Server | <*my-sql-server*> | El nombre del servidor SQL server |
    | Nombre de la instancia de SQL Database | <*my-sql-database*>  | El nombre de la instancia de SQL Database |
    | Nombre de usuario | <*my-sql-username*> | El nombre de usuario para acceder a la base de datos |
-   | Password | <*my-sql-password*> | La contraseña para acceder a la base de datos | 
-   | Tipo de autenticación | Windows o básica | Opcional: el tipo de autenticación utilizado por SQL Server | 
+   | Contraseña | <*my-sql-password*> | La contraseña para acceder a la base de datos | 
+   | Tipo de autenticación | Windows o básica | Opcional: El tipo de autenticación utilizado por SQL server | 
    | Puertas de enlace | <*my-data-gateway*> | El nombre de la puerta de enlace de datos local | 
    |||| 
 

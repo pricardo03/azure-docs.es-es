@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 16e2a9cfbd9f08428fddade290117b27bc3401f7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: a8f0e61a953a2e2471e49d571063f6202b7ab76d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369193"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540495"
 ---
 Las máquinas virtuales de la serie H de Azure son las más nuevas en VM de informática de alto rendimiento destinadas a tratar cargas de trabajo como el procesamiento por lotes, los análisis, el modelado molecular y la dinámica de fluidos. Estas VM de 8 y 16 vCPU se basan en la tecnología de procesador Intel Haswell E5-2667 V3 con memoria DDR4 y almacenamiento temporal basado en SSD. 
 
@@ -25,11 +25,11 @@ Además de una potencia de CPU notable, la serie H ofrece varias opciones para l
 
 ACU: 290-300
 
-Premium Storage: no se admite
+Premium Storage:  No compatible
 
-Almacenamiento en caché de Premium Storage: no se admite
+Almacenamiento en caché de Premium Storage:  No compatible
 
-| Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento de discos máx.: E/S por segundo | Nº máx. NIC |
+| Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento de disco máx.: E/S | Nº máx. NIC |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 |8 |56 |1000 |32 |32 x 500 |2  |
 | Standard_H16 |16 |112 |2000 |64 |64 x 500 |4 |

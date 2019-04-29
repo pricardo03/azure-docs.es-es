@@ -9,17 +9,17 @@ ms.date: 12/20/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: 40ab53c941a7ac619ebb09d381a4ae0450f26e8b
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53795904"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534150"
 ---
 `objectIdType` (o **tipo de identificador de objeto**) hace referencia al tipo de identidad que se asigna a un rol. Además de los tipos `DeviceId` y `UserDefinedFunctionId`, los tipos de identificador de objeto se corresponden con las propiedades de los objetos de Azure Active Directory.
 
 En la tabla siguiente se incluyen los tipos de identificador de objeto admitidos en Azure Digital Twins:
 
-| Escriba | DESCRIPCIÓN |
+| Type | DESCRIPCIÓN |
 | --- | --- |
 | UserId | Asigna un rol a un usuario. |
 | deviceId | Asigna un rol a un dispositivo. |

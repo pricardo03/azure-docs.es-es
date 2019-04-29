@@ -2,18 +2,19 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: virtual-network
-author: genlin
+author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
-ms.date: 04/13/2018
-ms.author: genli
+origin.date: 04/13/2018
+ms.date: 06/11/2018
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b91ae155761f6357e286f4742d57b97cf96d909a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: 40b81904daabfdad7e45571d8ab86cf32cac8964
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805163"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743385"
 ---
 ## <a name="scenario"></a>Escenario
 Para ilustrar mejor cómo crear rutas definidas por el usuario (UDR), en este documento se usa el siguiente escenario:
@@ -28,4 +29,3 @@ En este escenario se crea una ruta definida por el usuario para la *subred de fr
   * **RouteToFrontend**. Esta ruta envía todo el tráfico a la subred de front-end y a la máquina virtual **FW1**.
 
 La combinación de estas rutas garantiza que todo el tráfico destinado de una subred a otra se enruta a la máquina virtual **FW1**, que se utiliza como aplicación virtual. También debe activar el reenvío IP para la máquina virtual **FW1**, para asegurarse de que esta recibe el tráfico destinado a otras máquinas virtuales.
-
