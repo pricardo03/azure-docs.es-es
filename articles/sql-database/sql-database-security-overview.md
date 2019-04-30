@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/11/2019
+ms.date: 04/26/2019
 ms.openlocfilehash: f466a1c3fd0b2d527fc4ab407d096f6bb9b7d8b9
 ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
@@ -29,9 +29,9 @@ En este artículo se detallan los fundamentos de la protección de la capa de da
 
 Microsoft Azure SQL Database ofrece un servicio de base de datos relacional para la nube y aplicaciones empresariales. Para ayudar a proteger los datos del cliente, los firewalls impiden el acceso de red al servidor de base de datos hasta que se concede explícitamente el acceso según la dirección IP o el origen del tráfico de red virtual de Azure.
 
-### <a name="ip-firewall-rules"></a>Reglas de firewall por IP
+### <a name="ip-firewall-rules"></a>Reglas de firewall de IP
 
-Las reglas de firewall por IP otorgan acceso a las bases de datos según la dirección IP de origen de cada solicitud. Para más información, consulte [Reglas de firewall de Azure SQL Database y SQL Data Warehouse](sql-database-firewall-configure.md).
+Las reglas de firewall de IP otorgan acceso a las bases de datos según la dirección IP de origen de cada solicitud. Para más información, consulte [Reglas de firewall de Azure SQL Database y SQL Data Warehouse](sql-database-firewall-configure.md).
 
 ### <a name="virtual-network-firewall-rules"></a>Reglas de firewall de red virtual
 
