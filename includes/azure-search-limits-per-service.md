@@ -9,11 +9,11 @@ ms.date: 04/04/2018
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: 30c6fc189ebcd497a214828f65213a55cefdf03f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61464741"
 ---
 El almacenamiento está limitado por el espacio en disco o el *número máximo* de índices, documentos u otros recursos de alto nivel, lo que ocurra primero. En la tabla siguiente se documentan los límites de almacenamiento. Para los límites máximos en índices, documentos y otros objetos, consulte [límites por recurso](../articles/search/search-limits-quotas-capacity.md#index-limits).
 

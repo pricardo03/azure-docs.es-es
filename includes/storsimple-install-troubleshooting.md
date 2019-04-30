@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 74a9764187b15bddf1dc48fa2b7988217d31abce
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889212"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860502"
 ---
 ## <a name="troubleshooting-update-failures"></a>Solución de errores en actualización
 **¿Qué ocurre si ve una notificación que indica que se ha producido un error en las comprobaciones previas a la actualización?**

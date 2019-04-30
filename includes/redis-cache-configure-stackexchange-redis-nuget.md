@@ -2,14 +2,15 @@
 author: wesmc7777
 ms.service: redis-cache
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: wesmc
+origin.date: 11/09/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: 8ebf5ddfa118e0aeadeab0c00a981871a4b5708e
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53430042"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60830295"
 ---
 Las aplicaciones .NET pueden usar el cliente de caché **StackExchange.Redis** , que se puede configurar en Visual Studio mediante un paquete NuGet que simplifica la configuración de aplicaciones de cliente de caché. 
 
@@ -20,7 +21,7 @@ Las aplicaciones .NET pueden usar el cliente de caché **StackExchange.Redis** ,
 
 Para configurar una aplicación cliente en Visual Studio usando el paquete NuGet StackExchange.Redis, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes NuGet**. 
 
-![Manage NuGet packages](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
+![Manage NuGet packages](./media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
 
 Escriba **StackExchange.Redis** o **StackExchange.Redis.StrongName** en el cuadro de texto de búsqueda, seleccione la versión que desee en los resultados y haga clic en **Instalar**.
 
@@ -29,7 +30,7 @@ Escriba **StackExchange.Redis** o **StackExchange.Redis.StrongName** en el cuadr
 >
 >
 
-![StackExchange.Redis NuGet package](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
+![StackExchange.Redis NuGet package](./media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
 
 El paquete NuGet descarga y agrega las referencias de ensamblado requeridas para que la aplicación cliente acceda a Azure Cache for Redis con el cliente StackExchange.Azure Cache for Redis.
 
@@ -43,3 +44,5 @@ También puede instalar el paquete NuGet StackExchange.Redis haciendo clic en **
 ```
 Install-Package StackExchange.Redis
 ```
+
+<!-- ms.date: 12/25/2018 -->

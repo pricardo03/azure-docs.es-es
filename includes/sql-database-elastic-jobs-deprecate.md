@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/14/2018
 ms.author: sstein
 ms.custom: include file
-ms.openlocfilehash: 0d85353e2ebd63247e810460880c362153ccf211
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: c0e4ff43c3112848cbf9a095c4e258d7fffe4780
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "35591806"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435406"
 ---
 > [!IMPORTANT]
 > Este artículo es para la versión hospedada por el cliente de *trabajos de Elastic Database*. Los trabajos de Elastic Database están en desuso y se están reemplazando con nuevos **trabajos de Elastic Database** hospedados en Azure. Para los nuevos trabajos, use [la versión más reciente de los **trabajos de Elastic Database**](../articles/sql-database/elastic-jobs-overview.md). Si actualmente usa los trabajos más antiguos hospedados por el cliente, vea [Migrar a los nuevos trabajos de Elastic Database](../articles/sql-database/elastic-jobs-migrate.md) para obtener instrucciones y scripts de migración para actualizar rápidamente a la versión más reciente.

@@ -9,11 +9,11 @@ ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: db1af4f046bd8849fddee299e949d6edbdaae86a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53609096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61448408"
 ---
 ## <a name="access-the-virtual-machine"></a>Acceso a la máquina virtual
 
@@ -23,7 +23,7 @@ En los pasos siguientes se muestra cómo configurar la máquina virtual de Azure
 
 1. Lista de contenidos del grupo de recursos que contiene los recursos del acelerador de soluciones:
 
-    ```azurecli-interactive
+    ```azurecli
     az resource list -g contoso-simulation -o table
     ```
 
@@ -31,7 +31,7 @@ En los pasos siguientes se muestra cómo configurar la máquina virtual de Azure
 
 1. Actualice el grupo de seguridad de red para permitir el acceso de SSH. En el comando siguiente se da por supuesto que el nombre del grupo de seguridad de red es **contoso-simulation-nsg**; reemplace este valor con el nombre de su grupo de seguridad de red:
 
-    ```azurecli-interactive
+    ```azurecli
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
@@ -39,13 +39,13 @@ En los pasos siguientes se muestra cómo configurar la máquina virtual de Azure
 
 1. Actualice la contraseña de la cuenta **azureuser** en la máquina virtual, con una contraseña que conozca. Elija su propia contraseña cuando ejecute el siguiente comando:
 
-    ```azurecli-interactive
+    ```azurecli
     az vm user update --name vm-vikxv --username azureuser --password YOURSECRETPASSWORD  -g contoso-simulation
     ```
 
 1. Busque la dirección IP pública de la máquina virtual. En el comando siguiente se da por supuesto que el nombre de la máquina virtual es **vm vikxv**; reemplace este valor con el nombre de la máquina virtual que anotó anteriormente:
 
-    ```azurecli-interactive
+    ```azurecli
     az vm list-ip-addresses --name vm-vikxv -g contoso-simulation -o table
     ```
 
