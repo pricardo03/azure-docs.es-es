@@ -53,7 +53,7 @@ Deberá agregar el `text/analytics/v2.0` enrutamiento para el URI del extremo, t
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
-|Sí| `Billing` | String | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
+|Sí| `Billing` | string | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.1` |
 
 ## <a name="eula-setting"></a>Opción de configuración Eula
 
@@ -81,8 +81,8 @@ La sintaxis exacta de la ubicación de montaje del host varía según el sistema
 
 |Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |-------|------|-----------|-------------|
-|No permitida| `Input` | String | Los contenedores de Text Analytics no usan esto.|
-|Opcional| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|No permitida| `Input` | string | Los contenedores de Text Analytics no usan esto.|
+|Opcional| `Output` | string | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run 
 
@@ -95,7 +95,7 @@ Deberá agregar el `text/analytics/v2.0` enrutamiento para el URI del extremo, t
 
 Reemplace {_argument_name_} por sus propios valores:
 
-| Marcador de posición | Value | Formato o ejemplo |
+| Marcador de posición | Valor | Formato o ejemplo |
 |-------------|-------|---|
 |{BILLING_KEY} | La clave de punto de conexión de la `Cognitive Services` recurso disponible en Azure `Cognitive Services` página claves. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | El valor de punto de conexión de facturación está disponible en Azure `Cognitive Services` página de información general.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|

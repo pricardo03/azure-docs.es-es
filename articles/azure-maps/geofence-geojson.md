@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6f76eea365311cd6c10dd39054187bf3a07bd595
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.openlocfilehash: d4b6c8289ae7c22521fc433c928f2b25a56c87ef
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130218"
 ---
 # <a name="geofencing-geojson-data"></a>Datos GeoJSON de geovallas
 
-Las API [GET Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) y [POST Geofence](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) de Azure Maps le permiten recuperar la proximidad de una coordenada en relación a una geovalla o conjunto de vallas proporcionados. En este artículo se describe cómo preparar los datos de la geovalla para que se usen en las API GET y POST de Azure Maps.
+Las API [GET Geofence](/rest/api/maps/spatial/getgeofence) y [POST Geofence](/rest/api/maps/spatial/postgeofence) de Azure Maps le permiten recuperar la proximidad de una coordenada en relación a una geovalla o conjunto de vallas proporcionados. En este artículo se describe cómo preparar los datos de la geovalla para que se usen en las API GET y POST de Azure Maps.
 
 Los datos de la geovalla o conjunto de estas viene dado por el objeto `Feature` y el objeto `FeatureCollection` en formato `GeoJSON`, que se define en [rfc7946](https://tools.ietf.org/html/rfc7946). Además de esto:
 

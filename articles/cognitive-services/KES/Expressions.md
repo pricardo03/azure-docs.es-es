@@ -31,9 +31,9 @@ Una expresión de consulta de atributo identifica un conjunto de objetos basados
 
 | Type | Operación | Ejemplos |
 |------|-------------|------------|
-| String | equals | Title='latent semantic analysis'  (canonical + synonyms) |
-| String | equals | Author.Name=='susan t dumais'  (canonical only)|
-| String | starts_with | Title='latent s'... |
+| string | equals | Title='latent semantic analysis'  (canonical + synonyms) |
+| string | equals | Author.Name=='susan t dumais'  (canonical only)|
+| string | starts_with | Title='latent s'... |
 | Int32/Int64/Double | equals | Year=2000 |
 | Int32/Int64/Double | starts_with | Year='20'... (any decimal value starting with "20") |
 | Int32/Int64/Double | is_between | Year&lt;2000 <br/> Year&lt;=2000 <br/> Year&gt;2000 <br/> Year&gt;=2000 <br/> Year=[2010,2012) *(includes only left boundary value: 2010, 2011)* <br/> Year=[2000,2012] *(includes both boundary values: 2010, 2011, 2012)* |

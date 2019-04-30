@@ -35,7 +35,7 @@ A continuación se muestra una lista de los tipos de datos que se admiten actual
 
 |Type|DESCRIPCIÓN|Ejemplos|
 |----|----|----|
-|String|Secuencia de 0 o más caracteres|"Hello World!"<br/>""|
+|string|Secuencia de 0 o más caracteres|"Hello World!"<br/>""|
 |Bool|Valor booleano|true<br/>false|
 |Int32|Entero con signo de 32 bits.  -2.1e9 a 2.1e9|123<br/>-321|
 |Int64|Entero con signo de 64 bits. -9.2e18 y 9.2e18|9876543210|

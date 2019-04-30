@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466075"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Generación de una aplicación de la Tienda Windows de Smooth Streaming  
 
@@ -71,7 +71,7 @@ Para obtener más información acerca del desarrollo de la aplicación de la Tie
     | Grupo de plantillas |Instalado/Plantillas/Visual C#/Tienda Windows |
     | Plantilla |Aplicación vacía (XAML) |
     | NOMBRE |SSPlayer |
-    | Ubicación |C:\SSTutorials |
+    | Location |C:\SSTutorials |
     | Nombre de la solución |SSPlayer |
     | Crear directorio para la solución |(seleccionado) |
 

@@ -48,7 +48,7 @@ En la declaración "Programar la reunión de 8 a 9", tanto los números indican 
 Schedule the meeting from 8 to 9
 ```
 
-|Tipo de entidad|Nombre de rol|Value|
+|Tipo de entidad|Nombre de rol|Valor|
 |--|--|--|
 |Entidad datetimeV2 creada previamente|hora de inicio|8|
 |Entidad datetimeV2 creada previamente|hora de finalización|9|

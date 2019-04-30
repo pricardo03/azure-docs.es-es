@@ -23,7 +23,7 @@ El método *calcHistogram* calcula los objetos que coinciden con una expresión 
 ## <a name="request"></a>Solicitud
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
-NOMBRE|Value|DESCRIPCIÓN
+NOMBRE|Valor|DESCRIPCIÓN
 ----|-----|-----------
 expr | Cadena de texto | Una expresión de consulta estructurada que especifica las entidades de índice sobre las que se calculan los histogramas.
 attributes | Cadena de texto (valor predeterminado= "") | Lista delimitada por comas de atributos para incluir en la respuesta.

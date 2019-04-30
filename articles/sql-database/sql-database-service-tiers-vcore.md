@@ -1,6 +1,6 @@
 ---
 title: 'Servicio Azure SQL Database: núcleos virtuales | Microsoft Docs'
-description: El modelo de compra basado en núcleos virtuales permite escalar los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio.
+description: El modelo de compra basado en núcleo virtual permite escalar los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -14,14 +14,14 @@ manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357937"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveles de servicio de núcleo virtual, ventaja híbrida de Azure y migración
 
-El modelo de compra basado en núcleos virtuales permite escalar los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. También le permite elegir la generación del hardware:
+El modelo de compra basado en núcleo virtual permite escalar los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. También le permite elegir la generación del hardware:
 
 - Gen 4: hasta 24 CPU lógicas basadas en procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz, núcleo virtual = 1 PP (núcleo físico), 7 GB por núcleo, SSD conectada
 - Gen 5: hasta 80 CPU lógicas basadas en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz, núcleo virtual = 1 LP (hyper-thread), 5,1 GB por núcleo, SSD eNVM rápida
@@ -29,11 +29,11 @@ El modelo de compra basado en núcleos virtuales permite escalar los recursos de
 El hardware de Gen4 ofrece bastante más memoria por núcleo virtual. Sin embargo, el hardware de Gen5 permite escalar verticalmente mucho más alto los recursos de proceso.
 
 > [!NOTE]
-> Para más información sobre los niveles de servicio basados en DTU, consulte [Niveles de servicio basados en DTU](sql-database-service-tiers-dtu.md). Para obtener información acerca de cómo distinguir los niveles de servicio basados en DTU y los niveles de servicio basados en núcleos virtuales, consulte [Modelos de compra de Azure SQL Database](sql-database-purchase-models.md).
+> Para más información sobre los niveles de servicio basados en DTU, consulte [Niveles de servicio basados en DTU](sql-database-service-tiers-dtu.md). Para más información acerca de cómo distinguir los niveles de servicio basados en DTU y los niveles de servicio basados en núcleo virtual, consulte [Modelos de compra de Azure SQL Database](sql-database-purchase-models.md).
 
 ## <a name="service-tier-characteristics"></a>Características del nivel de servicios
 
-El modelo de núcleo virtual ofrece tres niveles de servicio: De uso General, Hiperescala y Crítico para la empresa. Los niveles de servicio se diferencian por una variedad de tamaños de proceso, un diseño de alta disponibilidad, el aislamiento de errores, los tipos y el tamaño de almacenamiento y el intervalo de E/S. Debe configurar por separado el periodo necesario de retención y almacenamiento de las copias de seguridad. En Azure Portal, vaya a Servidor (no la base de datos) > Copia de seguridad administrada > Configurar directiva > Configuración de restauración a un momento dado > de 7 a 35 días.
+El modelo de núcleo virtual ofrece tres niveles de servicio: Uso general, Hiperescala y Crítico para la empresa. Los niveles de servicio se diferencian por una variedad de tamaños de proceso, un diseño de alta disponibilidad, el aislamiento de errores, los tipos y el tamaño de almacenamiento y el intervalo de E/S. Debe configurar por separado el periodo necesario de retención y almacenamiento de las copias de seguridad. En Azure Portal, vaya a Servidor (no la base de datos) > Copia de seguridad administrada > Configurar directiva > Configuración de restauración a un momento dado > de 7 a 35 días.
 
 La tabla siguiente le ayudará a comprender las diferencias entre estos tres niveles:
 
@@ -53,15 +53,15 @@ La tabla siguiente le ayudará a comprender las diferencias entre estos tres niv
 > Puede obtener una base de datos SQL de Azure gratuita en el nivel de servicio básico, junto con una cuenta gratuita de Azure para explorar Azure. Para obtener información, consulte [Cree una base de datos administrada en la nube con su cuenta gratuita de Azure](https://azure.microsoft.com/free/services/sql-database/).
 
 - Para más información, consulte [Límites de recursos de núcleo virtual para una base de datos única](sql-database-vcore-resource-limits-single-databases.md) y [Límites de recursos de núcleo virtual en una Instancia administrada](sql-database-managed-instance.md#vcore-based-purchasing-model).
-- Para obtener más información acerca de los niveles de servicio de uso general y crítico para la empresa, consulte [Niveles de servicio de uso general y críticos para la empresa](sql-database-service-tiers-general-purpose-business-critical.md).
-- Para obtener información sobre el nivel de servicio de hiperescala en el modelo de compra basado en núcleos virtuales, consulte [Capa de servicio de hiperescala](sql-database-service-tier-hyperscale.md).  
+- Para obtener más información acerca de los niveles de servicio Uso general y Crítico para la empresa, consulte [Niveles de servicio Uso general y Crítico para la empresa.](sql-database-service-tiers-general-purpose-business-critical.md).
+- Para obtener información sobre el nivel de servicio Hiperescala en el modelo de compra basado en núcleo virtual, consulte [Nivel de servicio Hiperescala](sql-database-service-tier-hyperscale.md).  
 
 > [!IMPORTANT]
 > Si tiene menos de un núcleo virtual de capacidad de proceso, use el modelo de compra basado en DTU.
 
 ## <a name="azure-hybrid-benefit"></a>Ventaja híbrida de Azure
 
-En el modelo de compra basado en núcleos virtuales, puede intercambiar sus licencias existentes por tarifas de descuento en SQL Database mediante la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Esta ventaja de Azure le permite usar las licencias de SQL Server locales para ahorrar hasta un 30 % en Azure SQL Database al utilizarlas con Software Assurance.
+En el modelo de compra basado en núcleo virtual, puede intercambiar sus licencias existentes por tarifas de descuento en SQL Database mediante la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Esta ventaja de Azure le permite usar las licencias de SQL Server locales para ahorrar hasta un 30 % en Azure SQL Database al utilizarlas con Software Assurance.
 
 ![Precios](./media/sql-database-service-tiers/pricing.png)
 
@@ -92,7 +92,7 @@ Con la Ventaja híbrida de Azure, puede elegir pagar solo por la infraestructura
 
 ### <a name="migration-of-a-database"></a>Migración de una base de datos
 
-La migración de una base de datos del modelo de compra basado en DTU al modelo de compra basado en núcleos virtuales es similar a la actualización o cambio a una versión anterior entre las bases de datos Estándar y Premium en el modelo de compra basado en DTU.
+La migración de una base de datos del modelo de compra basado en DTU al modelo de compra basado en núcleo virtual es similar a la actualización o cambio a una versión anterior entre las bases de datos Estándar y Premium en el modelo de compra basado en DTU.
 
 ### <a name="migration-of-databases-with-geo-replication-links"></a>Migración de bases de datos con vínculos de replicación geográfica
 
@@ -130,5 +130,5 @@ Puede copiar cualquier base de datos con un tamaño de proceso basado en DTU en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre las opciones de tamaños de proceso y de tamaños de almacenamiento específicas que hay disponibles para las bases de datos únicas, consulte [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) (Límites de recursos basados en núcleos virtuales de SQL Database para bases de datos únicas).
+- Para obtener más información sobre las opciones de tamaños de proceso y de tamaños de almacenamiento específicas que hay disponibles para las bases de datos únicas, consulte [Límites de recursos basados en núcleos virtuales de SQL Database para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
 - Para más información sobre las opciones de tamaño de proceso y de tamaño de almacenamiento específicas que hay disponibles para los grupos elásticos, consulte [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) (Límites de recursos basados en núcleos virtuales de Azure SQL Database para grupos elásticos).

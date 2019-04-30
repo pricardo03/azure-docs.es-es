@@ -27,7 +27,7 @@ Normalmente, una expresión se obtiene de una respuesta al método interpret.  P
 
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
-NOMBRE|Value|DESCRIPCIÓN
+NOMBRE|Valor|DESCRIPCIÓN
 ----|----|----
 expr       | Cadena de texto | Expresión de consulta estructurada que selecciona un subconjunto de entidades de índice.
 attributes | Cadena de texto | Lista delimitada por comas de atributos para incluir en la respuesta.

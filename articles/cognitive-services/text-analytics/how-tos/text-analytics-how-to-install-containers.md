@@ -110,7 +110,7 @@ Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice
 
 Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar cualquiera de los tres contenedores. El comando usa los parámetros siguientes:
 
-| Marcador de posición | Value |
+| Marcador de posición | Valor |
 |-------------|-------|
 |{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en el portal de Azure `Cognitive Services` página claves.  |
 |{BILLING_ENDPOINT_URI} | El valor del identificador URI de extremo facturación está disponible en Azure `Cognitive Services` página de información general. <br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|

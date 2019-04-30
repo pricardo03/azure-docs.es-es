@@ -128,8 +128,8 @@ En la tabla siguiente se enumeran los valores `op` admitidos para cada tipo de a
 
 | Tipo de atributo | Valor de operación | DESCRIPCIÓN | Operación index
 |----|----|----|----|
-| String | eq | Coincidencia exacta de cadena | equals |
-| String | starts_with | Coincidencia de prefijo de cadena | starts_with |
+| string | eq | Coincidencia exacta de cadena | equals |
+| string | starts_with | Coincidencia de prefijo de cadena | starts_with |
 | Int32, Int64, doble | eq |  Coincidencia de igualdad numérica | equals |
 | Int32, Int64, doble | lt, le, gt, ge | Coincidencia de desigualdad numérica (<, <=, >, >=) | is_between |
 | Int32, Int64, doble | starts_with | Coincidencia de prefijo del valor en notación decimal | starts_with |

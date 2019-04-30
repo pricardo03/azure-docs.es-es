@@ -25,7 +25,7 @@ El método *interpret* toma una cadena de consulta de lenguaje natural y devuelv
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-NOMBRE|Value| DESCRIPCIÓN
+NOMBRE|Valor| DESCRIPCIÓN
 ----|----|----
 query    | Cadena de texto | Consulta especificada por el usuario.  Si complete se establece en 1, la consulta se interpretará como un prefijo para generar sugerencias de finalización automática para la consulta.        
 complete | 0 (valor predeterminado) o 1 | 1 significa que se generan sugerencias de finalización automática en función de los datos de gramática e índice.         
