@@ -13,18 +13,18 @@ ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
 ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223825"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61487541"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de Instancia administrada de Azure SQL Database
 
 En este artículo se proporciona información general acerca de los límites de recursos de Instancia administrada de Azure SQL Database y se proporciona información acerca de cómo crear una solicitud para aumentar los límites predeterminados de suscripciones regionales.
 
 > [!NOTE]
-> Para conocer otras limitaciones de Instancia administrada, consulte [Modelo de compra basado en núcleos virtuales](sql-database-managed-instance.md#vcore-based-purchasing-model) y [Niveles de servicio de Instancia administrada](sql-database-managed-instance.md#managed-instance-service-tiers). Para conocer las diferencias en las características e instrucciones T-SQL admitidas, consulte las instrucciones [Diferencias entre las características](sql-database-features.md) y [Compatibilidad con instrucciones T-SQL](sql-database-managed-instance-transact-sql-information.md).
+> Para conocer otras limitaciones de Instancia administrada, consulte [modelo de compra basado en núcleo virtual](sql-database-managed-instance.md#vcore-based-purchasing-model) y [Niveles de servicio de Instancia administrada](sql-database-managed-instance.md#managed-instance-service-tiers). Para conocer las diferencias en las características e instrucciones T-SQL admitidas, consulte las instrucciones [Diferencias entre las características](sql-database-features.md) y [Compatibilidad con instrucciones T-SQL](sql-database-managed-instance-transact-sql-information.md).
 
 ## <a name="instance-level-resource-limits"></a>Límites de recursos a nivel de instancia
 
@@ -45,7 +45,7 @@ Instancia administrada de Azure SQL Database puede implementarse en dos generaci
 
 ### <a name="service-tier-characteristics"></a>Características del nivel de servicios
 
-Instancia administrada tiene dos niveles de servicio: De uso general y Crítico para la empresa. Estos niveles proporcionan funcionalidades diferentes, como se describe en la tabla siguiente:
+Instancia administrada tiene dos niveles de servicio: Uso general y Crítico para la empresa. Estos niveles proporcionan funcionalidades diferentes, como se describe en la tabla siguiente:
 
 | **Característica** | **Uso general** | **Crítico para la empresa** |
 | --- | --- | --- |

@@ -1,19 +1,22 @@
 ---
 title: Guardado de informes en colecciones de áreas de trabajo de Power BI | Microsoft Docs
 description: Aprenda cómo guardar informes en colecciones de áreas de trabajo de Power BI. Para que esta operación funcione correctamente, se requieren los permisos adecuados.
-services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+services: power-bi-embedded
 author: markingmyname
-ms.author: maghan
+ROBOTS: NOINDEX
+ms.assetid: ''
+ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
-ms.date: 09/20/2017
-ms.openlocfilehash: bc3c9f71900abcbba440db259d92df53a4c7a586
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+origin.date: 09/26/2018
+ms.date: 03/05/2019
+ms.author: v-junlch
+ms.openlocfilehash: b61abee3382697d50b9a18de763c8a4d01e1ccba
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103889"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Novedades de las colecciones de áreas de trabajo de Power BI
 
@@ -26,15 +29,15 @@ En las colecciones de áreas de trabajo de Power BI, es posible editar los infor
 
 Para guardar un informe, en primer lugar hay que crear un token para el informe concreto con los ámbitos correctos:
 
-* Para habilitar la operación save, se requiere el ámbito Report.ReadWrite
-* Para habilitar la operación save as, se requieren los ámbitos Report.Read y Workspace.Report.Copy
-* Para habilitar las operaciones save y save as, se requieren Report.ReadWrite y Workspace.Report.Copy
+- Para habilitar la operación save, se requiere el ámbito Report.ReadWrite
+- Para habilitar la operación save as, se requieren los ámbitos Report.Read y Workspace.Report.Copy
+- Para habilitar las operaciones save y save as, se requieren Report.ReadWrite y Workspace.Report.Copy
 
 Para habilitar los botones de save o save as, respectivamente, correctos en el menú archivo es preciso proporcionar el permiso adecuado en la configuración de la inserción al insertar el informe:
 
-* models.Permissions.ReadWrite
-* models.Permissions.Copy
-* models.Permissions.All
+- models.Permissions.ReadWrite
+- models.Permissions.Copy
+- models.Permissions.All
 
 > [!NOTE]
 > El token de acceso también necesita los ámbitos adecuados. Para más información, consulte [Scopes](app-token-flow.md#scopes) (Ámbitos).
@@ -59,7 +62,7 @@ Por ejemplo, en JavaScript:
     var config= {
         type: 'report',
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
-        embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
+        embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
         id:  '5dac7a4a-4452-46b3-99f6-a25915e0fe55',
         permissions: models.Permissions.All /*both save & save as buttons will be visible*/,
         viewMode: models.ViewMode.Edit,
@@ -74,7 +77,7 @@ Por ejemplo, en JavaScript:
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
-    </script>
+    </script>    
 ```
 
 Ahora, se inserta un informe en la aplicación en modo de edición.
@@ -112,10 +115,10 @@ Después tendrá que cargar el informe nuevo después de *save as*. La carga del
 
 ```html
 <div id="reportContainer"></div>
-<script>
+<script>  
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
-        embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
+        embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
         reportId: '5dac7a4a-4452-46b3-99f6-a25915e0fe54',
     };
     
@@ -124,7 +127,7 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
-</script>
+</script>    
 ```
 
 ## <a name="see-also"></a>Vea también
@@ -138,3 +141,5 @@ var embedConfiguration = {
 
 ¿Tiene más preguntas? [Pruebe la comunidad de Power BI](https://community.powerbi.com/)
 
+
+<!-- Update_Description: update metedata properties -->

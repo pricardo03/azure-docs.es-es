@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122931"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introducción al almacenamiento de blobs de Azure y servicios conectados de Visual Studio (proyectos de WebJobs)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -28,7 +28,7 @@ En esta guía se proporcionan muestras de código C# que muestran cómo desencad
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Cómo desencadenar una función cuando se crea o actualiza un blob
 En esta sección se muestra cómo usar el atributo **BlobTrigger** .
 
- **Nota:** el SDK de WebJobs analiza los archivos de registro para inspeccionar los blobs nuevos o modificados. Este proceso es lento por naturaleza; podría no desencadenarse una función hasta varios minutos o más después de haberse creado el blob.  Si su aplicación necesita procesar inmediatamente los blobs, el método recomendado es crear un mensaje en cola al crear el blob y usar el atributo **QueueTrigger** en lugar del atributo **BlobTrigger** en la función que procesa el blob.
+ **Nota:** El SDK de WebJobs analiza los archivos de registro en busca de blobs nuevos o modificados. Este proceso es lento por naturaleza; podría no desencadenarse una función hasta varios minutos o más después de haberse creado el blob.  Si su aplicación necesita procesar inmediatamente los blobs, el método recomendado es crear un mensaje en cola al crear el blob y usar el atributo **QueueTrigger** en lugar del atributo **BlobTrigger** en la función que procesa el blob.
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>Único marcador de posición para el nombre de blob con extensión
 El siguiente ejemplo de código copia blobs de texto que aparecen en el contenedor *input* al contenedor *output*:
@@ -144,7 +144,7 @@ Es posible configurar el número máximo de reintentos. Se usa la misma configur
 
 El mensaje de cola para los blobs dudosos es un objeto JSON que contiene las siguientes propiedades:
 
-* FunctionId (con el formato *{nombre de WebJob}*.Functions.*{nombre de función}*, por ejemplo: WebJob1.Functions.CopyBlob)
+* FunctionId (con el formato *{nombre de WebJob}*. Funciones. *{Nombre de función}*, por ejemplo: WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" o "PageBlob")
 * ContainerName
 * BlobName
@@ -193,7 +193,7 @@ El SDK de WebJobs se asegura de que ninguna función **BlobTrigger** se llame m�
 
 Las recepciones de blobs se almacenan en un contenedor llamado *azure-webjobs-hosts* en la cuenta de almacenamiento de Azure que especifica la cadena de conexión AzureWebJobsStorage. Una recepción de blobs tiene la información siguiente:
 
-* La función que se llamó para el blob ("*{nombre de WebJob}*.Functions.*{nombre de función}*", por ejemplo: "WebJob1.Functions.CopyBlob")
+* La función que se llamó para el blob ("*{nombre de WebJob}*. Funciones. *{Nombre de función}*", por ejemplo: "WebJob1.Functions.CopyBlob")
 * El nombre del contenedor
 * El tipo de blob ("BlockBlob" o "PageBlob")
 * El nombre del blob

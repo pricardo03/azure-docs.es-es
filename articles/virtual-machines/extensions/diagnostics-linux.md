@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
 ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129210"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Uso de la extensión Diagnostics de Linux para supervisar métricas y registros
 
@@ -146,7 +146,7 @@ Es posible construir el token de SAS necesario de forma muy sencilla mediante Az
 1. Cree las secciones pertinentes, conforme a lo descrito anteriormente.
 1. Haga clic en el botón "Generar SAS".
 
-![imagen](./media/diagnostics-linux/make_sas.png)
+![image](./media/diagnostics-linux/make_sas.png)
 
 Copie la SAS generada en el campo storageAccountSasToken. Elimine el signo de interrogación principal ("?").
 
@@ -271,7 +271,7 @@ sampleRateInSeconds | (Opcional) es el intervalo predeterminado entre la recopil
 
 Elemento | Valor
 ------- | -----
-ResourceId | El identificador de recurso de Azure Resource Manager de la VM o del conjunto de escalado de máquinas virtuales al que pertenezca la VM. Esta configuración también debe especificarse en caso de usar cualquier receptor de Json BLOB en la configuración.
+resourceId | El identificador de recurso de Azure Resource Manager de la VM o del conjunto de escalado de máquinas virtuales al que pertenezca la VM. Esta configuración también debe especificarse en caso de usar cualquier receptor de Json BLOB en la configuración.
 scheduledTransferPeriod | La frecuencia con la que se computarán métricas agregadas y se transferirán a Métricas de Azure, expresadas en forma de intervalo de tiempo ISO 8601. El período de transferencia mínimo es de 60 segundos, es decir, PT1M. Debe especificar al menos un elemento scheduledTransferPeriod.
 
 Se recopilan muestras de las métricas especificadas en la sección performanceCounters cada 15 segundos o a la frecuencia de muestreo definida para el contador de forma explícita. Si aparecen varias frecuencias de scheduledTransferPeriod (como en el ejemplo), cada agregación se computa de forma independiente.
@@ -686,7 +686,7 @@ El elemento `resourceId` de la configuración debe coincidir con el de la VM o e
 
 Use Azure Portal para consultar datos de rendimiento o establecer alertas:
 
-![imagen](./media/diagnostics-linux/graph_metrics.png)
+![image](./media/diagnostics-linux/graph_metrics.png)
 
 Los datos de `performanceCounters` se almacenan en una tabla de Azure Storage. Las API de Azure Storage están disponibles para múltiples lenguajes y plataformas.
 
@@ -699,7 +699,7 @@ Además, puede usar las siguientes herramientas de la interfaz de usuario para a
 
 Esta instantánea de una sesión del Explorador de Microsoft Azure Storage muestra las tablas y los contenedores de Azure Storage generados a partir de una extensión de LAD 3.0 configurada correctamente en una máquina virtual de prueba. La imagen no coincide exactamente con la [configuración de ejemplo de LAD 3.0](#an-example-lad-30-configuration).
 
-![imagen](./media/diagnostics-linux/stg_explorer.png)
+![image](./media/diagnostics-linux/stg_explorer.png)
 
 Consulte los [documentos de EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) pertinentes para obtener información sobre cómo consumir mensajes publicados en un punto de conexión de EventHubs.
 

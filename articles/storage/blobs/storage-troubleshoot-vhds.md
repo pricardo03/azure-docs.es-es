@@ -2,17 +2,18 @@
 title: Solución de problemas de discos asociados a máquinas virtuales de Azure | Microsoft Docs
 description: Proporciona vínculos a recursos de solución de problemas para discos duros virtuales (VHD) de máquinas virtuales de Azure.
 services: storage
-author: genlin
+author: WenJason
 ms.service: storage
 ms.topic: article
-ms.date: 10/31/2018
-ms.author: genli
+origin.date: 10/31/2018
+ms.date: 12/10/2018
+ms.author: v-jay
 ms.openlocfilehash: bf1aa75399f28b8dd1732bc9ec09c15e46132939
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414179"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098106"
 ---
 # <a name="troubleshoot-disks-attached-to-azure-vms"></a>Solución de problemas de discos asociados a máquinas virtuales de Azure 
 
@@ -22,12 +23,12 @@ Las máquinas virtuales (VM) de Azure usan discos duros virtuales (VHD) para el 
 
 En algunos casos, puede encontrar un error al eliminar un recurso de almacenamiento cuando una máquina virtual de una implementación de Resource Manager contiene discos duros virtuales no asociados. Para obtener ayuda para resolver este problema, consulte uno de los siguientes artículos: 
 
-  * En máquinas virtuales Linux: [Storage deletion errors in Resource Manager deployment](../../virtual-machines/linux/storage-resource-deletion-errors.md) (Errores de eliminación de almacenamiento en implementaciones de Resource Manager)  
-  * En máquinas virtuales Windows: [Storage deletion errors in Resource Manager deployment](../../virtual-machines/windows/storage-resource-deletion-errors.md) (Errores de eliminación de almacenamiento en implementaciones de Resource Manager)  
+  * En máquinas virtuales de Linux: [Storage deletion errors in Resource Manager deployment](../../virtual-machines/linux/storage-resource-deletion-errors.md)  
+  * En las máquinas virtuales de Windows: [Storage deletion errors in Resource Manager deployment](../../virtual-machines/windows/storage-resource-deletion-errors.md)  
 
 ## <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Solución de problemas de reinicios inesperados de máquinas virtuales con discos duros virtuales asociados
 
 Si se encuentra con que una máquina virtual con un gran número de discos duros virtuales asociados se reinicia inesperadamente, consulte uno de los siguientes artículos:
 
-  * En máquinas virtuales Linux: [Unexpected reboots of VMs with attached VHDs](../../virtual-machines/linux/unexpected-reboots-attached-vhds.md) (Reinicios inesperados de máquinas virtuales con discos duros virtuales asociados)
-  * En máquinas virtuales Windows: [Unexpected reboots of VMs with attached VHDs](../../virtual-machines/linux/unexpected-reboots-attached-vhds.md) (Reinicios inesperados de máquinas virtuales con discos duros virtuales asociados)
+  * En máquinas virtuales de Linux: [Reinicios inesperados de las máquinas virtuales con discos duros virtuales conectados](../../virtual-machines/linux/unexpected-reboots-attached-vhds.md)
+  * En las máquinas virtuales de Windows: [Reinicios inesperados de las máquinas virtuales con discos duros virtuales conectados](../../virtual-machines/linux/unexpected-reboots-attached-vhds.md)

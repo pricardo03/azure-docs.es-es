@@ -15,11 +15,11 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 9f81e2b7537a5ecc6778baa93a1bab23dd30ff8a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475514"
 ---
 # <a name="powershell-dsc-extension"></a>Extensión DSC de PowerShell
 
@@ -100,7 +100,7 @@ El siguiente JSON muestra el esquema para la parte de configuración de la exten
 
 | NOMBRE | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
-| apiVersion | 01 de octubre de 2018 | fecha |
+| apiVersion | 01 de octubre de 2018 | date |
 | publisher | Microsoft.Powershell.DSC | string |
 | Tipo | DSC | string |
 | typeHandlerVersion | 2.77 | int |
@@ -134,7 +134,7 @@ Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Reso
 Las plantillas resultan ideales al implementar una o varias máquinas virtuales que requieren configurarse tras la implementación.
 Una plantilla de Resource Manager de ejemplo que incluye la extensión DSC para Windows puede encontrarse en el [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
+## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

@@ -1,18 +1,26 @@
 ---
 title: Desarrollo en Azure IoT Hub para dispositivos restringidos mediante los SDK para C de IoT Hub | Microsoft Docs
 description: 'Guía del desarrollador: instrucciones sobre cómo desarrollar mediante los SDK de Azure IoT para dispositivos restringidos.'
-author: yzhong94
-ms.service: iot-hub
 services: iot-hub
-ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: yizhon
+documentationcenter: c
+author: yzhong94
+manager: timlt
+editor: ''
+ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+origin.date: 05/24/2018
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320961"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desarrollo para dispositivos restringidos con los SDK para C de Azure IoT
 
@@ -44,7 +52,6 @@ cmake -Duse_amqp=OFF -Duse_http=OFF <Path_to_cmake>
 ### <a name="remove-sdk-logging-capability"></a>Eliminación de la funcionalidad de registro del SDK
 
 El SDK para C proporciona una registro extenso para ayudar con la depuración. Puede eliminar la funcionalidad de registro de los dispositivos de producción mediante el siguiente comando de cmake:
-
 ```
 cmake -Dno_logging=OFF <Path_to_cmake>
 ```
@@ -80,7 +87,15 @@ El SDK para C admite dos modelos de programación. Cuenta con un conjunto de API
 Otro conjunto de API sin el índice _LL_ se denomina capa de comodidad, en las que se activa automáticamente un subproceso de trabajo. Por ejemplo, las API de la capa de conveniencia para el cliente de dispositivo se pueden encontrar en este [archivo de encabezado del cliente de dispositivo de IoT](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h). En los dispositivos restringidos en los que cada subproceso adicional puede utilizar un gran porcentaje de los recursos del sistema, considere la posibilidad de usar las API _LL_.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Para más información acerca de la arquitectura del SDK de Azure IoT para C:
--   [Código fuente del SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c/)
--   [Introducción al SDK de dispositivo IoT de Azure para C](iot-hub-device-sdk-c-intro.md)
+- [Código fuente del SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c/)
+- [Introducción al SDK de dispositivo IoT de Azure para C](iot-hub-device-sdk-c-intro.md)
+
+------
+[lnk-cmake]: https://cmake.org/
+[lnk-devbox-setup]:  https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md
+[lnk-choosing-protocol]: iot-hub-devguide-protocols.md
+[lnk-hub-file-upload]: iot-hub-devguide-file-upload.md
+[lnk-strip]: https://en.wikipedia.org/wiki/Strip_(Unix)
+[lnk-serializer]: https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer
+[lnk-parson]: https://github.com/kgabis/parson

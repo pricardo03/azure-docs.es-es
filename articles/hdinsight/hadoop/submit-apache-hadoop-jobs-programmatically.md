@@ -2,19 +2,18 @@
 title: Envío de trabajos de Apache Hadoop en HDInsight
 description: Aprenda cómo enviar trabajos de Apache Hadoop a Azure HDInsight.
 ms.reviewer: jasonh
-services: hdinsight
 ms.author: hrasheed
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 419f34d6240df9b4df160c6ff9665b32aef1e3ca
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 48365d8fcb5e95fc9b9fa605321baf28e07eee66
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653873"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114564"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>Envío de trabajos de Apache Hadoop en HDInsight
 
@@ -44,6 +43,6 @@ Puede enviar trabajos de Apache Hadoop en Azure HDInsight mediante el SDK de Mic
   - [Uso de Apache Sqoop con Apache Hadoop en HDInsight](apache-hadoop-use-sqoop-powershell.md).
   - [Ejecución de trabajos de MapReduce con Apache Hadoop en HDInsight con PowerShell](apache-hadoop-use-mapreduce-powershell.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 - [Documentación de Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/)

@@ -1,7 +1,6 @@
 ---
 title: Prácticas recomendadas de almacenamiento para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 description: Obtenga información acerca de las prácticas recomendadas de almacenamiento para migrar clústeres locales de Apache Hadoop a Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095292"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Prácticas recomendadas de almacenamiento para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -172,11 +171,11 @@ Por defecto, HDInsight tiene acceso total a los datos de las cuentas de Azure St
 
 5. Para limitar el acceso a un contenedor con la Firma de acceso compartido, agregue una entrada personalizada a la configuración del sitio principal para el clúster con la propiedad Agregar del sitio principal personalizado en la configuración avanzada de Ambari HDFS.
 
-6. Use los siguientes valores para los campos  **Clave** y **Valor** :
+6. Utilice los siguientes valores para los campos **Key** (Clave) y **Value** (Valor):
 
     **Clave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Valor**: clave SAS que devuelve la aplicación Python en el paso 4 anterior.
 
-7. Haga clic en el botón  **Add**  (Agregar) para guardar esta clave y este valor y, después, haga clic en el botón  **Save**  (Guardar) para guardar los cambios de configuración. Cuando se le solicite, agregue una descripción del cambio ("Agregar acceso de almacenamiento de SAS", por ejemplo) y haga clic en  **Save** (Guardar).
+7. Haga clic en el botón **Add** (Agregar) para guardar esta clave y este valor y, a continuación, haga clic en el botón **Save** (Guardar) para guardar los cambios de configuración. Cuando se le solicite, agregue una descripción del cambio ("Agregar acceso de almacenamiento de SAS", por ejemplo) y haga clic en **Save** (Guardar).
 
 8. En la interfaz de usuario web Ambari, seleccione HDFS en la lista de la izquierda y, después, seleccione  **Restart All Affected** (Reiniciar todas las entradas afectadas) en la lista desplegable Service Actions (Acciones del servicio) de la derecha. Cuando se le solicite, seleccione **Confirm Restart All** (Confirmar reiniciar todo).
 

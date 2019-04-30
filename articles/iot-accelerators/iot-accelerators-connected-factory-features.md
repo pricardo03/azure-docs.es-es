@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 25812e10b4c2b90aa4f40c38610c30a26ab11d9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183227"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450012"
 ---
 # <a name="what-is-connected-factory-iot-solution-accelerator"></a>¿Qué es el acelerador de la solución de IoT Factoría conectada?
 

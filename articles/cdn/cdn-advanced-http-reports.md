@@ -1,6 +1,6 @@
 ---
-title: Análisis de estadísticas de uso con los informes de HTTP avanzados de la red CDN de Azure | Microsoft Docs
-description: Aprenda a crear informes de HTTP avanzados en la red CDN de Microsoft Azure. Estos informes proporcionan información detallada sobre la actividad de la red CDN.
+title: Análisis de estadísticas de uso con los informes de HTTP avanzados de Azure CDN | Microsoft Docs
+description: Aprenda a crear informes de HTTP avanzados en Microsoft Azure CDN. Estos informes proporcionan información detallada sobre la actividad de la red CDN.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 2dfbc046674b2da692f30c945aee3ea25ae524eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8cb4713e38ca0da610c687325f3810f57da2b26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22999040"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61216158"
 ---
-# <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Análisis de estadísticas de uso con los informes de HTTP avanzados de la red CDN de Azure
+# <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Análisis de estadísticas de uso con los informes de HTTP avanzados de Azure CDN
 ## <a name="overview"></a>Información general
-En este documento se explican los informes de HTTP avanzados en la red CDN de Microsoft Azure. Estos informes proporcionan información detallada sobre la actividad de la red CDN.
+En este documento se explican los informes de HTTP avanzados en Microsoft Azure CDN. Estos informes proporcionan información detallada sobre la actividad de la red CDN.
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
@@ -32,7 +32,7 @@ En este documento se explican los informes de HTTP avanzados en la red CDN de Mi
    
     ![Botón de administración de hoja de perfil de red CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
-    Se abre el portal de administración de CDN.
+    Se abre el Portal de administración de CDN.
 2. Mantenga el cursor sobre la pestaña **Análisis** y después sobre el control flotante **Informes de HTTP avanzados**.  Haga clic en **Plataforma grande HTTP**.
    
     ![Portal de administración de la red CDN: menú Informes avanzados](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
@@ -48,7 +48,7 @@ Debajo del mapa, se ofrece información detallada del tráfico y del ancho de ba
 
 Se proporciona más abajo una descripción breve de cada tipo de informe de geografía basado en mapas.
 
-| Nombre del informe | Descripción |
+| Nombre del informe | DESCRIPCIÓN |
 | --- | --- |
 | World Map |Este informe permite ver la demanda en todo el mundo del contenido de la red CDN. Cada país está codificado en colores en el mapamundi para indicar el porcentaje de visitas originadas en dicha región. |
 | United States Map |Este informe permite ver la demanda del contenido de la red CDN en Estados Unidos. Cada estado está codificado en colores en este mapa para indicar el porcentaje de visitas originados en esta región. |
@@ -71,7 +71,7 @@ Los datos usados para generar el gráfico de barras pueden verse debajo de él. 
 
 A continuación se proporciona una breve descripción para ambos tipos de informes.
 
-| Nombre del informe | Descripción |
+| Nombre del informe | DESCRIPCIÓN |
 | --- | --- |
 | Top Cities |Este informe clasifica las ciudades según el número de visitas originadas en esa región. |
 | Top Countries |Este informe clasifica los países según el número de visitas originadas en esa región. |
@@ -81,7 +81,7 @@ El informe Daily Summary permite ver el número total de visitas y los datos tra
 
 Tras generar este tipo de informe, un gráfico de barras proporcionará una indicación visual de la cantidad de demanda específica de la plataforma experimentada a diario durante el período de tiempo cubierto por el informe. Lo hará mostrando una barra para cada día en el informe. Por ejemplo, si se selecciona el período de tiempo llamado "Last Week", se generará un gráfico de barras con siete barras. Cada barra indica el número total de visitas realizadas en ese día.
 
-El lado izquierdo del gráfico (eje y) indica cuántas visitas se produjeron en la fecha especificada. Directamente debajo del gráfico (eje x), se muestra una etiqueta con la fecha (formato: AAA-MM-DD) para cada día incluido en el informe.
+El lado izquierdo del gráfico (eje y) indica cuántas visitas se produjeron en la fecha especificada. Directamente debajo del gráfico (eje x), encontrará una etiqueta que indica la fecha (formato: YYYY-MM-DD) para cada día incluido en el informe.
 
 > [!TIP]
 > Si mantiene el cursor sobre una barra, el número total de visitas que se produjeron en esa fecha se mostrará como una información sobre herramientas.
@@ -95,7 +95,7 @@ El informe By Hour permite ver el número total de visitas y los datos transferi
 
 Tras generar este tipo de informe, un gráfico de barras proporcionará una indicación visual de la cantidad de demanda específica de la plataforma experimentada cada hora durante el período de tiempo cubierto por el informe. Lo hará mostrando una barra para cada hora cubierta por el informe. Por ejemplo, si se selecciona un período de tiempo de 24 horas, se generará un gráfico de barras con veinticuatro barras. Cada barra indica el número total de visitas realizadas durante esa hora.
 
-El lado izquierdo del gráfico (eje y) indica cuántas visitas se produjeron en la hora especificada. Directamente debajo del gráfico (eje x), se muestra una etiqueta con la fecha/hora (formato: AAA-MM-DD) para cada hora incluida en el informe. La hora se notifica con formato de 24 horas y se especifica mediante el uso de la zona horaria UTC/GMT.
+El lado izquierdo del gráfico (eje y) indica cuántas visitas se produjeron en la hora especificada. Directamente debajo del gráfico (eje x), encontrará una etiqueta que indica la fecha y hora (formato: YYYY-MM-DD hh: mm) para cada hora incluida en el informe. La hora se notifica con formato de 24 horas y se especifica mediante el uso de la zona horaria UTC/GMT.
 
 > [!TIP]
 > Si mantiene el cursor sobre una barra, el número total de visitas que se produjeron en esa hora se mostrará como una información sobre herramientas.
@@ -119,7 +119,7 @@ Los datos usados para generar el gráfico de barras pueden verse debajo de él. 
 ## <a name="by-file-detail"></a>By File Detail
 El informe By File Detail permite ver la cantidad de demanda y el tráfico generados en una plataforma concreta de un activo específico. En la parte superior de este informe se encuentra la opción File Details For. Esta opción proporciona una lista de los activos más solicitados en la plataforma seleccionada. Para generar un informe By File Detail, debe seleccionar el activo deseado en la opción File Details For. Después, un gráfico de barras indicará la cantidad de demanda diaria que se generó durante el período de tiempo especificado.
 
-El lado izquierdo del gráfico (eje y) indica el número total de solicitudes que ha tenido un activo en un día concreto. Directamente debajo del gráfico (eje x) se muestra una etiqueta con la fecha (formato: AAA-MM-DD) en la que se notificó la demanda de CDN para el activo.
+El lado izquierdo del gráfico (eje y) indica el número total de solicitudes que ha tenido un activo en un día concreto. Directamente debajo del gráfico (eje x), encontrará una etiqueta que indica la fecha (formato: YYYY-MM-DD) de la red CDN se notificó a petición para el recurso.
 
 Los datos usados para generar el gráfico de barras pueden verse debajo de él. Allí encontrará el número total de visitas y la cantidad de datos transferidos (en gigabytes) para cada día que cubre el informe.
 
@@ -199,9 +199,9 @@ El lado izquierdo del gráfico (eje y) indica el nombre de archivo para cada uno
 
 Directamente debajo del gráfico de barras, se mostrará la información siguiente para los 250 activos solicitados principales: la ruta de acceso relativa (incluido el nombre de archivo), el número de solicitudes que dieron como resultado un código de estado 404 No encontrado, el número de veces que se solicitó el activo y el porcentaje de solicitudes que dieron como resultado un código de estado de 404 No encontrado.
 
-## <a name="see-also"></a>Consulte también
-* [Información general de la red CDN de Azure](cdn-overview.md)
-* [Estadísticas en tiempo real en CDN de Microsoft Azure](cdn-real-time-stats.md)
+## <a name="see-also"></a>Vea también
+* [Información general de Azure CDN](cdn-overview.md)
+* [Estadísticas en tiempo real en Azure CDN](cdn-real-time-stats.md)
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
 * [Análisis del rendimiento perimetral](cdn-edge-performance.md)
 

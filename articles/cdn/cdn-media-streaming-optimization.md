@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 9802296170f07bb8599058e230798f647e900d4d
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093704"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60636271"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optimización del streaming multimedia con Azure CDN 
  
@@ -86,8 +86,8 @@ El tiempo de almacenamiento en caché negativo corto es útil para la descarga d
 
 |   | Entrega web general | Streaming multimedia general | Streaming multimedia de vídeo a petición  
 --- | --- | --- | ---
-Almacenamiento en caché: positivo <br> HTTP 200, 203, 300, <br> 301, 302 y 410 | 7 días |365 días | 365 días   
-Almacenamiento en caché: negativo <br> HTTP 204, 305, 404, <br> y 405 | None | 1 segundo | 1 segundo
+Caching: Positive <br> HTTP 200, 203, 300, <br> 301, 302 y 410 | 7 días |365 días | 365 días   
+Caching: Negative <br> HTTP 204, 305, 404, <br> y 405 | None | 1 segundo | 1 segundo
  
 ### <a name="deal-with-origin-failure"></a>Tratamiento del error de origen  
 

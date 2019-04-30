@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61449499"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integración de la solución de supervisión remota con Azure Data Lake Store
 
@@ -25,7 +25,7 @@ En este tema de procedimientos, usará un trabajo de Azure Stream Analytics para
 
 Para completar este tema de procedimientos, necesitará lo siguiente:
 
-* [Implementación del acelerador de la solución Supervisión remota](quickstart-remote-monitoring-deploy.md).
+* [Implementación del acelerador de soluciones de supervisión remota](quickstart-remote-monitoring-deploy.md).
   * La solución de supervisión remota implementará el centro de IoT y el trabajo de Azure Stream Analytics utilizados en este artículo en su suscripción de Azure.
 * [Implementación de una instancia de Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
   * La instancia de Data Lake Store debe implementarse en la misma región que la solución de supervisión remota.

@@ -9,11 +9,11 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491993"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61451606"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Implementar dependencias para el desarrollo local
 
@@ -32,7 +32,7 @@ En este artículo se explica cómo implementar solo la necesidad de servicios de
    deploy -type local
    ```
 
-2. Siga las indicaciones para asignar un nombre al grupo de recursos para la implementación.  El script implementa solo las dependencias para este grupo de recursos en su suscripción de Azure, pero no los microservicios.  El script también registra una aplicación en Azure Active Directory.  Esto es necesario para admitir la autenticación basada en OAUTH.  Implementación puede tardar varios minutos.
+2. Siga las indicaciones para asignar un nombre al grupo de recursos para la implementación.  El script implementa solo las dependencias para este grupo de recursos en su suscripción de Azure, pero no los microservicios.  El script también registra una aplicación en Azure Active Directory.  Esto es necesario para admitir la autenticación basada en OAUTH.  La implementación puede tardar varios minutos.
 
 3. Una vez completado el script, puede seleccionar para guardar el archivo env.  El archivo .env del entorno es el archivo de configuración de todos los servicios y herramientas que desea ejecutar en el equipo de desarrollo.  
 

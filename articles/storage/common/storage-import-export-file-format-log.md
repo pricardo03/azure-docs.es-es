@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478613"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Formato del archivo de registro del servicio Azure Import/Export
 Cuando el servicio Microsoft Azure Import/Export realiza una acción en una unidad como parte de un trabajo de importación o de exportación, los registros se escriben en blobs en bloques de la cuenta de almacenamiento asociada a dicho trabajo.  
@@ -105,15 +105,15 @@ En la siguiente tabla se describen los elementos del archivo de registro.
 |-----------------|----------|-----------------|  
 |`DriveLog`|Elemento XML|Representa un registro de la unidad.|  
 |`Version`|Attribute, String|La versión del formato del registro.|  
-|`DriveId`|string|Número de serie del hardware de la unidad.|  
-|`Status`|string|Estado del procesamiento de la unidad. Para más información, consulte la tabla `Drive Status Codes` siguiente.|  
+|`DriveId`|String|Número de serie del hardware de la unidad.|  
+|`Status`|String|Estado del procesamiento de la unidad. Para más información, consulte la tabla `Drive Status Codes` siguiente.|  
 |`Blob`|Elemento XML anidado|Representa un blob.|  
-|`Blob/BlobPath`|string|El identificador URI del blob.|  
-|`Blob/FilePath`|string|La ruta de acceso relativa al archivo en la unidad.|  
+|`Blob/BlobPath`|String|El identificador URI del blob.|  
+|`Blob/FilePath`|String|La ruta de acceso relativa al archivo en la unidad.|  
 |`Blob/Snapshot`|DateTime|La versión de instantánea del blob, solo para trabajos de exportación.|  
 |`Blob/Length`|Entero|La longitud total del blob, en bytes.|  
 |`Blob/LastModified`|DateTime|La fecha y hora de la última modificación del blob, solo para trabajos de exportación.|  
-|`Blob/ImportDisposition`|string|La disposición de importación del blob, solo para trabajos de importación.|  
+|`Blob/ImportDisposition`|String|La disposición de importación del blob, solo para trabajos de importación.|  
 |`Blob/ImportDisposition/@Status`|Attribute, String|El estado de la disposición de importación.|  
 |`PageRangeList`|Elemento XML anidado|Representa una lista de los intervalos de páginas de un blob en páginas.|  
 |`PageRange`|Elemento XML|Representa un intervalo de páginas.|  
@@ -130,17 +130,17 @@ En la siguiente tabla se describen los elementos del archivo de registro.
 |`Block/@Status`|Attribute, String|Estado de procesamiento del bloque.|  
 |`Metadata`|Elemento XML anidado|Representa los metadatos del blob.|  
 |`Metadata/@Status`|Attribute, String|Estado de procesamiento de los metadatos del blob.|  
-|`Metadata/GlobalPath`|string|Ruta de acceso relativa al archivo de metadatos global.|  
+|`Metadata/GlobalPath`|String|Ruta de acceso relativa al archivo de metadatos global.|  
 |`Metadata/GlobalPath/@Hash`|Attribute, String|Hash MD5 con codificación Base16 del archivo de metadatos global.|  
-|`Metadata/Path`|string|Ruta de acceso relativa al archivo de metadatos.|  
+|`Metadata/Path`|String|Ruta de acceso relativa al archivo de metadatos.|  
 |`Metadata/Path/@Hash`|Attribute, String|Hash MD5 con codificación Base16 del archivo de metadatos.|  
 |`Properties`|Elemento XML anidado|Representa las propiedades del blob.|  
 |`Properties/@Status`|Attribute, String|Estado de procesamiento de las propiedades del blob, por ejemplo, archivo no encontrado, completado.|  
-|`Properties/GlobalPath`|string|Ruta de acceso relativa al archivo de propiedades global.|  
+|`Properties/GlobalPath`|String|Ruta de acceso relativa al archivo de propiedades global.|  
 |`Properties/GlobalPath/@Hash`|Attribute, String|Hash MD5 con codificación Base16 del archivo de propiedades global.|  
-|`Properties/Path`|string|Ruta de acceso relativa al archivo de propiedades.|  
+|`Properties/Path`|String|Ruta de acceso relativa al archivo de propiedades.|  
 |`Properties/Path/@Hash`|Attribute, String|Hash MD5 con codificación Base16 del archivo de propiedades.|  
-|`Blob/Status`|string|Estado del procesamiento del blob.|  
+|`Blob/Status`|String|Estado del procesamiento del blob.|  
   
 ## <a name="drive-status-codes"></a>Códigos de estado de unidad  
 En la tabla siguiente se enumera los códigos de estado para procesar una unidad.  

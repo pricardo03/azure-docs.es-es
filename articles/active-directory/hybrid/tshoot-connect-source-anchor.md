@@ -11,11 +11,11 @@ ms.date: 04/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: fac33a01afc2efc1ab06c4783c11f7a089bb6208
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014754"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114163"
 ---
 # <a name="troubleshooting-source-anchor-issues-during-installation"></a>Solución de problemas de delimitador de origen durante la instalación
 En este artículo se explica los diferentes problemas que pueden producirse durante la instalación y ofrece formas de resolver estos problemas relacionados con el delimitador de origen.

@@ -9,12 +9,12 @@ ms.author: jonfan
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: f27e82e780917e00625ef6a14ab8317d1f5b8ae8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: f813cb5d8d5c442fc17f126c3a2ff6de7b0bdde1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124806"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61323105"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migración desde BizTalk Services a Azure Logic Apps
 
@@ -106,7 +106,7 @@ En el procesamiento de BizTalk Services, la fase de enriquecimiento agrega propi
 
 BizTalk Services le permite [ejecutar código personalizado](https://msdn.microsoft.com/library/azure/dn232389.aspx) que está cargado en sus propios ensamblados. Esta función se implementa mediante la interfaz [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector). Cada fase del puente incluye dos propiedades (On Enter Inspector y On Exit Inspector) que proporciona el tipo de .NET que se creó que implementa esta interfaz. El código personalizado le permite realizar procesamientos más complejos en los datos, así como volver a usar código existente en ensamblados que realizan una lógica de negocios común. 
 
-Logic Apps proporciona dos maneras principales para ejecutar el código personalizado: Azure Functions y API Apps. Es posible crear y llamar a Azure Functions desde aplicaciones lógicas. Consulte [Adición y ejecución de código personalizado para aplicaciones lógicas con Azure Functions](../logic-apps/logic-apps-azure-functions.md). Use API Apps, parte de Azure App Service, para crear sus propios desencadenadores y acciones. Obtenga más información sobre cómo [crear una API personalizada para usarla con Logic Apps](../logic-apps/logic-apps-create-api-app.md). 
+Logic Apps proporciona dos métodos principales para ejecutar código personalizado: Azure Functions y las aplicaciones de API. Es posible crear y llamar a Azure Functions desde aplicaciones lógicas. Consulte [Adición y ejecución de código personalizado para aplicaciones lógicas con Azure Functions](../logic-apps/logic-apps-azure-functions.md). Use API Apps, parte de Azure App Service, para crear sus propios desencadenadores y acciones. Obtenga más información sobre cómo [crear una API personalizada para usarla con Logic Apps](../logic-apps/logic-apps-create-api-app.md). 
 
 Si tiene código personalizado en ensamblados a los que llama desde BizTalk Services, puede mover este código a Azure Functions o crear API personalizadas con API Apps, en función de lo que está implementando. Por ejemplo, si tiene código que encapsula otro servicio para el que Logic Apps no tiene conector, cree una instancia de API Apps y use las acciones que esta instancia proporciona dentro de la aplicación lógica. Si tiene funciones o bibliotecas auxiliares, Azure Functions es probablemente la mejor opción.
 

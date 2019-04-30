@@ -9,14 +9,14 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450671"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Proteger OPC UA de cliente y la aplicación de servidor de OPC UA 
-Almacén de OPC es un microservicio que puede configurar, registrar y administrar el ciclo de vida de certificado de servidor OPC UA y las aplicaciones cliente en la nube. Este artículo muestra cómo proteger un cliente OPC UA y un OPC UA de aplicación de servidor con un nuevo par de claves y un certificado con el almacén de OPC.
+OPC Vault es un microservicio que puede configurar, registrar y administrar el ciclo de vida de los certificados para aplicaciones cliente y servidor de OPC UA en la nube. Este artículo muestra cómo proteger un cliente OPC UA y un OPC UA de aplicación de servidor con un nuevo par de claves y un certificado con el almacén de OPC.
 
 En la siguiente configuración, el cliente OPC está probando la conectividad con el PLC OPC. De forma predeterminada, la conectividad no es posible porque todavía no se ha aprovisionado ambos componentes con los certificados de la derecha. En este flujo de trabajo, no use los certificados autofirmados de componentes de OPC UA y firmarlos a través de OPC Vault. Vea la anterior [banco de pruebas](howto-opc-vault-deploy-existing-client-plc-communication.md). En su lugar, este banco de pruebas proporciona los componentes con un nuevo certificado, así como con una nueva clave privada que se generan en el almacén de OPC. Información general sobre la seguridad de OPC UA puede encontrarse en este [notas del producto](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf). Toda la información puede encontrarse en la especificación de OPC UA.
 

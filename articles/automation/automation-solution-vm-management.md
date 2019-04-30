@@ -10,11 +10,11 @@ ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762946"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61306870"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
 
@@ -253,7 +253,7 @@ Automation crea dos tipos de registros en el área de trabajo de Log Analytics: 
 |CorrelationId | GUID que es el identificador de correlación del trabajo de Runbook.|
 |JobId | GUID que es el identificador del trabajo de Runbook.|
 |operationName | Especifica el tipo de operación realizada en Azure. En Automation, el valor es Job.|
-|ResourceId | Especifica el tipo de recurso en Azure. Para Automation, el valor es la cuenta de Automation asociada al Runbook.|
+|resourceId | Especifica el tipo de recurso en Azure. Para Automation, el valor es la cuenta de Automation asociada al Runbook.|
 |ResourceGroup | Especifica el nombre del grupo de recursos del trabajo de Runbook.|
 |ResourceProvider | Especifica el servicio de Azure que proporciona los recursos que puede implementar y administrar. Para Automation, el valor es Azure Automation.|
 |ResourceType | Especifica el tipo de recurso en Azure. Para Automation, el valor es la cuenta de Automation asociada al Runbook.|
@@ -274,7 +274,7 @@ Automation crea dos tipos de registros en el área de trabajo de Log Analytics: 
 |JobId | GUID que es el identificador del trabajo de Runbook.|
 |operationName | Especifica el tipo de operación realizada en Azure. En Automation, el valor es Job.|
 |ResourceGroup | Especifica el nombre del grupo de recursos del trabajo de Runbook.|
-|ResourceId | Especifica el identificador de recurso en Azure. Para Automation, el valor es la cuenta de Automation asociada al Runbook.|
+|resourceId | Especifica el identificador de recurso en Azure. Para Automation, el valor es la cuenta de Automation asociada al Runbook.|
 |ResourceProvider | Especifica el servicio de Azure que proporciona los recursos que puede implementar y administrar. Para Automation, el valor es Azure Automation.|
 |ResourceType | Especifica el tipo de recurso en Azure. Para Automation, el valor es la cuenta de Automation asociada al Runbook.|
 |resultType | El resultado del trabajo de Runbook en el momento en que se generó el evento. Un valor posible es:<br>- En curso|

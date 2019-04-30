@@ -14,11 +14,11 @@ ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
 ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61299106"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detección inteligente: anomalías de error
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) le notifica automáticamente casi en tiempo real si la aplicación web sufre un aumento anómalo en la frecuencia de solicitudes erróneas. Asimismo, detecta un aumento inusual de la tasa de solicitudes HTTP o llamadas de dependencia notificadas como errores. En el caso de las solicitudes, las solicitudes con error suelen ser aquellas con códigos de respuesta de 400 o superiores. Para ayudarle a evaluar las prioridades y a diagnosticar el problema, en la notificación se proporciona un análisis de las características de los errores y la telemetría relacionada. También hay vínculos en el portal de Application Insights para obtener un diagnóstico más amplio. La característica no necesita ninguna instalación o configuración, ya que usa algoritmos de aprendizaje automático para predecir la tasa normal de errores.
@@ -131,11 +131,11 @@ La detección inteligente de anomalías de errores complementa otras caracterís
 
 *¿Entonces están mirando mis datos?*
 
-*  No. El servicio es completamente automático. Solo obtendrá las notificaciones. Los datos son [privados](../../azure-monitor/app/data-retention-privacy.md).
+* No. El servicio es completamente automático. Solo obtendrá las notificaciones. Los datos son [privados](../../azure-monitor/app/data-retention-privacy.md).
 
 *¿Es necesario suscribirse a esta alerta?*
 
-*  No. Cada aplicación que envía telemetría de solicitud tiene la regla de alerta de detección inteligente.
+* No. Cada aplicación que envía telemetría de solicitud tiene la regla de alerta de detección inteligente.
 
 *¿Puedo cancelar la suscripción u hacer que mis colegas reciban las notificaciones?*
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
 ms.openlocfilehash: 845544a2062b43f0d9f883ddecbc2589b3357221
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61262348"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -96,8 +96,8 @@ Aquí encontrará cómo se define una canalización en formato JSON:
 
 Etiqueta | DESCRIPCIÓN | Type | Obligatorio
 --- | ----------- | ---- | --------
-Nombre | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 140</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\”</li></ul> | string | Sí
-description | Especifique el texto que describe para qué se usa la canalización. | string | Sin 
+Nombre | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 140</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\”</li></ul> | String | Sí
+description | Especifique el texto que describe para qué se usa la canalización. | String | Sin 
 actividades | La sección **activities** puede contener una o más actividades definidas. Consulte la sección [JSON de actividades](#activity-json) para obtener más información sobre el elemento JSON de actividades. | Matriz | Sí
 parameters | La sección **parámetros** puede tener uno o varios de los parámetros definidos dentro de la canalización, lo que hace que la canalización sea flexible para su reutilización. | Enumerar | Sin 
 
@@ -170,10 +170,10 @@ Las directivas afectan al comportamiento en tiempo de ejecución de una activida
 
 Nombre JSON | DESCRIPCIÓN | Valores permitidos | Obligatorio
 --------- | ----------- | -------------- | --------
-timeout | Especifica el tiempo de espera para que se ejecute la actividad. | TimeSpan |  No. El tiempo de espera predeterminado es de 7 días.
-retry | Número máximo de reintentos | Entero |  No. El valor predeterminado es 0.
-retryIntervalInSeconds | El retraso entre reintentos, en segundos. | Entero |  No. El valor predeterminado es de 20 segundos.
-secureOutput | Cuando se establece en true, la salida de la actividad se considera segura y no se registrará en la supervisión. | boolean |  No. El valor predeterminado es false.
+timeout | Especifica el tiempo de espera para que se ejecute la actividad. | TimeSpan | No. El tiempo de espera predeterminado es de 7 días.
+retry | Número máximo de reintentos | Entero | No. El valor predeterminado es 0.
+retryIntervalInSeconds | El retraso entre reintentos, en segundos. | Entero | No. El valor predeterminado es de 20 segundos.
+secureOutput | Cuando se establece en true, la salida de la actividad se considera segura y no se registrará en la supervisión. | Boolean | No. El valor predeterminado es false.
 
 ### <a name="control-activity"></a>Actividad de control
 Las actividades de control tienen la siguiente estructura de nivel superior:

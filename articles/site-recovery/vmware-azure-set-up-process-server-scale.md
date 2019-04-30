@@ -1,28 +1,30 @@
 ---
-title: Configuración de un servidor de procesos en Azure para conmutar por recuperación máquinas virtuales de VMware y servidores físicos con Azure Site Recovery durante la recuperación ante desastres | Microsoft Docs
-description: En este artículo se describe cómo configurar un servidor de procesos en Azure, para conmutar por recuperación máquinas virtuales de VMware y servidores físicos desde Azure hacia el entorno local durante la recuperación ante desastres.
+title: Configurar un servidor de procesos de escalado horizontal durante la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos con Azure Site Recovery | Microsoft Docs
+description: En este artículo se describe cómo configurar el servidor de procesos de escalabilidad horizontal durante la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 6849ffb6fa46365aa775b9410067cb0874c70ef8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362160"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101904"
 ---
-# <a name="scale-for-failback-with-additional-process-servers"></a>Escala para la conmutación por recuperación con servidores de procesos adicionales
+# <a name="scale-with-additional-process-servers"></a>Escalado con servidores de procesos adicionales
 
-De forma predeterminada, al replicar servidores físicos o máquinas virtuales de VMware en Azure con [Site Recovery](site-recovery-overview.md), un servidor de procesos se instala en la máquina del servidor de configuración y se usa para coordinar la transferencia de datos entre Site Recovery y la infraestructura local. Para aumentar la capacidad y el escalado horizontal de la implementación de replicación, puede agregar servidores de procesos independientes adicionales. En este artículo se describe cómo hacerlo.
+De forma predeterminada, al replicar servidores físicos o máquinas virtuales de VMware en Azure con [Site Recovery](site-recovery-overview.md), un servidor de procesos se instala en la máquina del servidor de configuración y se usa para coordinar la transferencia de datos entre Site Recovery y la infraestructura local. Para aumentar la capacidad y el escalado horizontal de la implementación de replicación, puede agregar servidores de procesos independientes adicionales. En este artículo se describe cómo configurar un servidor de procesos de escalado horizontal.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
 ### <a name="capacity-planning"></a>Planificación de capacidad
 
 Asegúrese de que ha realizado la [planeación de la capacidad](site-recovery-plan-capacity-vmware.md) para la replicación de VMware. Esto le ayudará a identificar cómo y cuándo debe implementar servidores de proceso adicionales.
+
+Desde la versión 9.24, se agrega una guía durante la selección del servidor de procesos para replicaciones de nuevo. Servidor de procesos se marcará correcto, advertencia y crítica según determinados criterios. Para entender los distintos escenarios que pueden influir en el estado del servidor de procesos, visite [Guía de selección de servidor de procesos](vmware-azure-manage-process-server.md#process-server-selection-guidance).
 
 > [!NOTE]
 > No se admite el uso de componentes de Process Server clonados. Siga los pasos de este artículo para el escalado horizontal de Process Server.
@@ -44,8 +46,6 @@ Donde cada máquina de origen protegida está configurada con 3 discos de 100 GB
 En la tabla siguiente se resumen los requisitos previos para el servidor de procesos adicional.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-
 
 ## <a name="download-installation-file"></a>Descarga del archivo de instalación
 

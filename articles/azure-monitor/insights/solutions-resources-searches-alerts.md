@@ -1,24 +1,24 @@
 ---
-title: Búsquedas y alertas guardadas en soluciones de administración | Microsoft Docs
-description: Las soluciones de administración incluyen normalmente búsquedas guardadas en Log Analytics para analizar los datos recopilados por la solución. Pueden definir asimismo alertas para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico. En este artículo se describe cómo definir las búsquedas y alertas guardadas de Log Analytics en una plantilla de Resource Manager para que puedan incluirse en soluciones de administración.
+title: Las búsquedas guardadas en soluciones de administración | Microsoft Docs
+description: Las soluciones de administración incluyen normalmente búsquedas guardadas en Log Analytics para analizar los datos recopilados por la solución. Pueden definir asimismo alertas para notificar al usuario o realizar automáticamente una acción en respuesta a un problema crítico. En este artículo se describe cómo definir las búsquedas guardadas en una plantilla de Resource Manager para que puedan incluirse en soluciones de administración de Log Analytics.
 services: monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/18/2018
+ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97e6029ff85ce7ee8572fd76d04a5d72b27b2950
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104840"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
 
@@ -78,7 +78,7 @@ En la tabla siguiente se describe cada propiedad de una búsqueda guardada.
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| categoría | Categoría de la búsqueda guardada.  Las búsquedas guardadas en la misma solución comparten a menudo una única categoría por lo que están agrupadas juntas en la consola. |
+| category | Categoría de la búsqueda guardada.  Las búsquedas guardadas en la misma solución comparten a menudo una única categoría por lo que están agrupadas juntas en la consola. |
 | displayname | Nombre para mostrar de la búsqueda guardada en el portal. |
 | query | La consulta que se ejecutará. |
 
@@ -90,7 +90,6 @@ Las [alertas de registro de Azure](../../azure-monitor/platform/alerts-unified-l
 
 > [!NOTE]
 > A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics comienzan a extenderse a Azure. Para más información, vea [Extend Alerts into Azure](../../azure-monitor/platform/alerts-extend.md) (Extender alertas a Azure). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
 Las reglas de alerta en una solución de administración se componen de los tres siguientes recursos.
 
 - **Búsqueda guardada.** Define la búsqueda de registros que se ejecuta. Varias reglas de alerta pueden compartir una única búsqueda guardada.
@@ -120,7 +119,6 @@ Una búsqueda guardada puede tener una o más programaciones y cada programació
             "enabled": "[variables('Schedule').Enabled]"
         }
     }
-
 En la tabla siguiente se describen las propiedades para los recursos de programación.
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
@@ -130,19 +128,14 @@ En la tabla siguiente se describen las propiedades para los recursos de programa
 | queryTimeSpan | Sí | Período de tiempo en minutos en el que se evalúan los resultados. |
 
 El recurso de programación debe depender de la búsqueda guardada para que se cree antes de la programación.
-
 > [!NOTE]
 > El nombre de la programación debe ser único en un área de trabajo determinado; dos programaciones no pueden tener el mismo identificador, incluso si están asociadas con diferentes búsquedas guardadas. También, el nombre de todas las búsquedas guardadas, programaciones y acciones creadas con la API de Log Analytics debe estar en minúsculas.
 
 ### <a name="actions"></a>Acciones
 Una programación puede tener varias acciones. Una acción puede definir uno o varios procesos que se van a realizar (como enviar un correo o iniciar un Runbook), o bien puede definir un umbral que determina si los resultados de una búsqueda coinciden con algunos criterios. Algunas acciones definen ambos aspectos, de forma que los procesos se realizan cuando se alcance el umbral.
-
 Las acciones pueden definirse mediante el recurso [grupo de acciones] o un recurso de acción.
-
 > [!NOTE]
 > A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics comienzan a extenderse automáticamente a Azure. Para más información, vea [Extend Alerts into Azure](../../azure-monitor/platform/alerts-extend.md) (Extender alertas a Azure). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
-
 Hay dos tipos de recursos de acción especificados por la propiedad **Type**. Una programación requiere una acción **Alert** que define los detalles de la regla de alerta y las acciones que se realizan cuando se crea una alerta. Los recursos de acción tienen un tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
 
 Las acciones de alerta tienen la siguiente estructura. Aquí se incluyen las variables y los parámetros habituales para que pueda copiar y pegar este fragmento de código en su archivo de solución y cambiar los nombres de parámetro.
@@ -240,12 +233,12 @@ Cada programación tiene una acción **Alert**. Esto define los detalles de la a
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Recipients | Sí | Lista delimitada por comas de direcciones de correo electrónico para envío de notificación cuando se crea una alerta, como en el ejemplo siguiente.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Asunto | Sí | Línea del asunto del mensaje de correo electrónico. |
-| Datos adjuntos | Sin  | Los datos adjuntos no son compatibles actualmente. Si este elemento está incluido, debe ser **None** (Ninguno). |
+| Recipients | Sí | Lista delimitada por comas de direcciones de correo electrónico para envío de notificación cuando se crea una alerta, como en el ejemplo siguiente.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
+| Subject | Sí | Línea del asunto del mensaje de correo electrónico. |
+| Attachment | Sin  | Los datos adjuntos no son compatibles actualmente. Si este elemento está incluido, debe ser **None** (Ninguno). |
 
 ##### <a name="remediation"></a>Corrección
-Esta sección es opcional. Inclúyala si desea que se inicie un runbook en respuesta a la alerta. |
+Esta sección es opcional. Inclúyala si desea que se inicie un runbook en respuesta a la alerta. 
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
@@ -274,7 +267,6 @@ Si la alerta llama a un webhook, necesitará un recurso de acción con un tipo d
         "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
       }
     }
-
 En las tablas siguientes se describen las propiedades para los recursos de acción de Webhook.
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |

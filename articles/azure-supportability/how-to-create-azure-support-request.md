@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: 0b45bd2a1a2599908d2077198dce0062071b79af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31512517"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129066"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Creación de una solicitud de soporte técnico de Azure
 ## <a name="summary"></a>Resumen
@@ -32,9 +32,9 @@ Los clientes de Azure pueden crear y administrar las solicitudes de soporte téc
 
 En función de los comentarios de los clientes, hemos actualizado la experiencia de solicitud de soporte técnico para centrarnos en tres objetivos principales:
 
-* **Optimizada**: hemos reducido los clics y las hojas para simplificar el proceso de enviar una solicitud de soporte técnico.
-* **Integrada**: cuando se está solucionando un problema de un recurso de Azure, debe ser fácil abrir una solicitud de soporte técnico para dicho recurso sin necesidad de cambiar de contexto.
-* **Eficaz**: recopile la información clave que necesita el ingeniero de soporte técnico para resolver el problema de forma eficaz.
+* **Streamlined**: Reduzca los clics y las hojas para simplificar el proceso de enviar una solicitud de soporte técnico.
+* **Integrado**: Cuando esté solucionando un problema con un recurso de Azure, debe ser fácil abrir una solicitud de soporte técnico para ese recurso sin cambio de contexto.
+* **Eficaz**: Recopile la información de clave que necesita el ingeniero de soporte técnico para resolver el problema de forma eficaz.
 
 ## <a name="getting-started"></a>Introducción
 Puede crear una solicitud de soporte técnico desde el menú de navegación superior o directamente desde una hoja de recursos.
@@ -54,7 +54,7 @@ En la página Ayuda y soporte técnico, seleccione "Nueva solicitud de soporte t
 ## <a name="basics"></a>Aspectos básicos
 En el primer paso del proceso de solicitud de soporte técnico se recopila información básica sobre el problema y el plan de soporte técnico.
 
-Veamos un ejemplo. Supongamos que tiene dificultades técnicas relacionadas con la máquina virtual y sospecha que hay un problema de conectividad de red.
+Veamos un ejemplo: Tiene dificultades técnicas con la máquina virtual y sospecha un problema de conectividad de red.
 Si selecciona el servicio ("Máquina virtual que ejecuta Windows") y el recurso (el nombre de la máquina virtual) en el primer paso del asistente, se inicia el proceso de obtención de ayuda para resolver este problema.
 
 ![Hoja Básico](./media/how-to-create-azure-support-request/Basics.png)

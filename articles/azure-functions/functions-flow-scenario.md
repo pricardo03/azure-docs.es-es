@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106977"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Llamada a una función desde Microsoft Flow
 
@@ -132,7 +132,7 @@ Primero creará un flujo partiendo de cero (sin una plantilla) y agregará un *d
 
     ![Agregar una condición](media/functions-flow-scenario/add-condition.png)
 
-    Microsoft Flow agrega dos ramas al flujo: **En caso positivo** y **En caso negativo**. Después de definir la condición para la que quiere buscar coincidencia, puede agregar pasos a una o ambas ramas.
+    Microsoft Flow agrega dos ramas al flujo: **En caso afirmativo** y **si no hay ningún**. Después de definir la condición para la que quiere buscar coincidencia, puede agregar pasos a una o ambas ramas.
 
     ![Ramas de la condición](media/functions-flow-scenario/condition-branches.png)
 
@@ -229,7 +229,7 @@ Ahora que se ha completado el flujo, agregará una fila a la lista de SharePoint
     | **Título**           | Turbina 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2.500 |
-    | **ServiceRequired** | SÍ |
+    | **ServiceRequired** | Sí |
     | **EstimatedEffort** | 10 |
 
 3. Haga clic en **Done**(Listo).

@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c0b4117f6e7b48dce1746ad6eb3dbe29c0d16af
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130626"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuración de una instancia de App Service Environment v1
 
@@ -32,7 +32,7 @@ ms.locfileid: "53723219"
 A grandes rasgos, un entorno de Azure App Service Environment consta de varios componentes principales:
 
 * Los recursos de proceso que se ejecutan en el servicio hospedado de la instancia de App Service Environment
-* Storage
+* Almacenamiento
 * Una base de datos
 * Azure Virtual Network implementada según el modelo clásico (V1) o según el modelo de Resource Manager (V2) 
 * Una subred con el servicio hospedado del entorno de App Service que se ejecuta en él
@@ -73,7 +73,7 @@ Si las aplicaciones requieren un mayor tamaño de recursos de proceso, no le ser
 
 Si desea establecer reglas de escalado automático alrededor de métricas del grupo de recursos de proceso, tenga en cuenta el tiempo necesario para el aprovisionamiento. Para más detalles sobre el escalado automático de los entornos de App Service, consulte [Escalado automático y el entorno de App Service][ASEAutoscale].
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 Cada ASE se configura con 500 GB de almacenamiento. Este espacio se usa en todas las aplicaciones del ASE. Este espacio de almacenamiento es parte del ASE y actualmente no se puede cambiar para usar su espacio de almacenamiento. Si va a realizar ajustes en el enrutamiento o la seguridad de la red virtual, debe seguir permitiendo el acceso a Azure Storage o, de lo contrario, ASE no funcionará.
 
 ### <a name="database"></a>Base de datos

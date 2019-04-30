@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2018
 ms.author: alkohli
 ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630145"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Procedimientos recomendados de la matriz virtual de StorSimple
 ## <a name="overview"></a>Información general
@@ -75,9 +75,9 @@ En primer lugar, para cada volumen en capas o recurso compartido, la reserva loc
 * Una reserva local de 120 GB (para un volumen en capas o recurso compartido de 1 TB).
 * 330 GB para el volumen o el recurso compartido anclados localmente (agregando 10 % de la reserva local al tamaño aprovisionado de 300 GB).
 
-El espacio total requerido hasta ahora en el nivel local es: 240 GB + 120 GB + 330 GB = 690 GB.
+El espacio total requerido hasta el momento en el nivel local es: 240 GB + 120 GB + 330 GB = 690 GB.
 
-En segundo lugar, necesitamos al menos tanto espacio en el nivel local como la reserva individual más grande. Esta cantidad adicional se usa en caso de que sea preciso realizar una restauración a partir de una instantánea en la nube. En este ejemplo, la mayor reserva local es 330 GB (incluida la reserva para el sistema de archivos), por lo que se agregaría a los 690 GB: 690 GB + 330 GB = 1020 GB.
+En segundo lugar, necesitamos al menos tanto espacio en el nivel local como la reserva individual más grande. Esta cantidad adicional se usa en caso de que sea preciso realizar una restauración a partir de una instantánea en la nube. En este ejemplo, la mayor reserva local es 330 GB (incluida la reserva para el sistema de archivos), por lo que agregaría a los 690 GB: 690 GB + 330 GB = 1020 GB.
 Si hemos realizado posteriores restauraciones adicionales, siempre podemos liberar el espacio de la operación de restauración anterior.
 
 En tercer lugar, necesitamos un 15 % del total de su espacio local para almacenar las instantáneas locales, por lo que solo está disponible un 85 %. En este ejemplo, sería alrededor de 1020 GB = 0,85&ast;TB del disco de datos aprovisionado. Por lo tanto, el disco de datos aprovisionado sería (1020&ast;(1/0,85)) = 1200 GB = 1,20 TB ~ 1,25 TB (redondeo al cuartil más cercano)
@@ -99,7 +99,7 @@ En función del 12 % de reserva de espacio local para volúmenes o recursos comp
 * Una reserva local de 240 GB (para un volumen en capas o recurso compartido de 2 TB).
 * 330 GB para el volumen o el recurso compartido anclados localmente (agregando el 10 % de la reserva local al espacio aprovisionado de 300 GB)
 
-El espacio total requerido en el nivel local es: 240 GB + 330 GB = 570 GB
+Espacio total requerido en el nivel local es: 240 GB + 330 GB = 570 GB
 
 El espacio local mínimo necesario para la restauración es de 330 GB.
 
@@ -283,6 +283,6 @@ Es posible que haya que implementar varias matrices virtuales en una cuenta para
 * Si se implementan varias matrices virtuales, se recomienda que, desde la perspectiva del equilibrio de carga, distribuya la matriz entre varios hosts de hipervisor.
 * Se pueden implementar varias matrices virtuales (cuando se configuran un servidor de archivos o un servidor de iSCSI) en un espacio de nombres de un sistema de archivos distribuido. Para conocer los pasos detallados, vaya a la [Guía de la solución del espacio de nombres de un sistema de archivos distribuido con implementación de almacenamiento en la nube híbrido](https://www.microsoft.com/download/details.aspx?id=45507). En la actualidad no se recomienda usar la replicación del sistema de archivos distribuido con la matriz virtual. 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 Aprenda a [administrar una matriz virtual de StorSimple](storsimple-virtual-array-manager-service-administration.md) mediante el servicio StorSimple Manager.
 

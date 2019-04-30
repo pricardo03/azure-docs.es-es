@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493032"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341930"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guía de referencia a elementos de visualización del Diseñador de vistas en Azure Monitor
 Al usar el Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en el portal de Azure que puede ayudarle a visualizar los datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los elementos de visualización que están disponibles en las vistas personalizadas.
@@ -143,7 +143,7 @@ El encabezado muestra un solo número que resume una columna de valor de una con
 | Consultar |Consulta que se ejecuta en el anillo. La primera propiedad es un valor de texto y la segunda, un valor numérico. |
 | Navegación a través de un clic | Acción realizada al hacer clic en el encabezado.  Para más información, consulte [Configuración común](#click-through-navigation). |
 | **Anillo** |**&gt; Centro** |
-| Texto |Texto que se muestra en la parte inferior del valor dentro del anillo. |
+| Text |Texto que se muestra en la parte inferior del valor dentro del anillo. |
 | Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor.<ul><li>Suma: suma los valores de todos los registros.</li><li>Porcentaje: proporción de los registros devueltos por los valores de **Valores de resultado usados en la operación del centro** con respecto al número total de registros en la consulta.</li></ul> |
 | Valores de resultado usados en la operación central |También puede seleccionar el signo más (+) para agregar uno o varios valores. Los resultados de la consulta se limitan a los registros con los valores de propiedad especificados. Si no se agrega ningún valor, se incluirán todos los registros en la consulta. |
 | **Opciones adicionales** |**&gt; Colores** |
@@ -209,7 +209,7 @@ El encabezado muestra texto estático y un vínculo opcional. La lista muestra u
 | Nuevo grupo |Seleccione este vínculo para crear un grupo en la vista empezando por la actual. |
 | Color |Color de fondo del encabezado. |
 | **Encabezado** | |
-| Imagen |Archivo de imagen que se muestra en el encabezado. |
+| Image |Archivo de imagen que se muestra en el encabezado. |
 | Etiqueta |Texto que se muestra en el encabezado. |
 | **Encabezado** |**&gt; Vínculo** |
 | Etiqueta |Texto del vínculo. |

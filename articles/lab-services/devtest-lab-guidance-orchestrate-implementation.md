@@ -14,11 +14,11 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127351"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orquestación de la implementación de Azure DevTest Labs
 En este artículo se proporciona un enfoque recomendado para una rápida implementación de Azure DevTest Labs. La siguiente imagen resalta el proceso general como orientación prescriptiva observando la flexibilidad para admitir diversos escenarios y requisitos del sector.
@@ -61,4 +61,4 @@ Los equipos pilotos iniciales pueden requerir asistencia exhaustiva para empezar
 5. Asegúrese de que se han llevado a cabo las revisiones de cumplimiento y seguridad apropiadas.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Lea el siguiente artículo de esta serie: [Gobierno de la infraestructura de Azure DevTest Labs](devtest-lab-guidance-governance-resources.md)
+Lea el siguiente artículo de esta serie: [Gobernanza de la infraestructura de Azure DevTest Labs](devtest-lab-guidance-governance-resources.md)

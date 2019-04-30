@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 5e4bd3647b557b260e65e3fb1ce297892f5d7d78
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 08eff24dc42f594424d109b82933b01b5c1be454
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578831"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733907"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -40,12 +40,12 @@ Para poder realizar copias de seguridad de la base de datos de SQL Server, prime
 
 ### <a name="establish-network-connectivity"></a>Establecimiento de conectividad de red
 
-Todas las operaciones realizadas en la máquina virtual con SQL Server necesitan conectividad a las direcciones IP públicas de Azure. Operaciones de máquina virtual (detección de base de datos, configurar copias de seguridad, programar copias de seguridad, restaurar los puntos de recuperación y así sucesivamente) producirá un error sin conectividad a las direcciones IP públicas. Establezca la conectividad con una de estas opciones:
+Todas las operaciones realizadas en la máquina virtual con SQL Server necesitan conectividad a las direcciones IP públicas de Azure. Se producirá un error en las operaciones de máquina virtual (detección de base de datos, configurar copias de seguridad, programar copias de seguridad, restaurar puntos de recuperación y así sucesivamente) sin conectividad a las direcciones IP públicas. Establezca la conectividad con una de estas opciones:
 
 - **Allow the Azure datacenter IP ranges** (Permitir los intervalos de direcciones IP del centro de datos de Azure): permite los [intervalos IP](https://www.microsoft.com/download/details.aspx?id=41653) en la descarga. Para acceder a grupo de seguridad de red (NSG), use el **Set-AzureNetworkSecurityRule** cmdlet.
 - **Deploy an HTTP proxy server to route traffic** (Implementar un servidor proxy HTTP para enrutar el tráfico): cuando hace copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure, la extensión de copia de seguridad en la máquina virtual usa las API HTTPS para enviar comandos de administración a Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure Active Directory (Azure AD) para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. La extensión es el único componente que está configurado para tener acceso a la red internet pública.
 
-Cada opción tiene sus ventajas y desventajas.
+Cada opción tiene ventajas y desventajas
 
 **Opción** | **Ventajas** | **Desventajas**
 --- | --- | ---
@@ -60,11 +60,11 @@ Azure Backup lleva a cabo una serie de acciones al configurar la copia de seguri
 - Para detectar las bases de datos en la máquina virtual, Azure Backup crea la cuenta **NT SERVICE\AzureWLBackupPluginSvc**. Esta cuenta se usa para la copia de seguridad y restauración, y es necesario tener permisos de administrador del sistema.
 - Azure Backup aprovecha la cuenta **NT AUTHORITY\SYSTEM** para la detección o consulta de bases de datos, por lo que esta cuenta debe tener un inicio de sesión público en SQL.
 
-Si no se creó la VM con SQL Server en Azure Marketplace, podría recibir el error **UserErrorSQLNoSysadminMembership**. Si esto sucede, [siga estas instrucciones](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+Si no se creó la VM con SQL Server en Azure Marketplace, podría recibir el error **UserErrorSQLNoSysadminMembership**. Si esto ocurre [siga estas instrucciones](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Compruebe las directrices de nomenclatura de las bases de datos de Azure Backup.
 
-Evite lo siguiente en los nombres de bases de datos:
+Evitar el siguiente para los nombres de base de datos:
 
   * Espacios iniciales o finales
   * Signos '!' finales
@@ -106,7 +106,7 @@ Detecte las bases de datos que se ejecutan en la máquina virtual.
 
     ![Mensaje de implementación correcta](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. Azure Backup detecta todas las bases de datos de SQL Server en la máquina virtual. Durante la detección, tiene lugar lo siguiente en segundo plano:
+8. Azure Backup detecta todas las bases de datos de SQL Server en la máquina virtual. Durante la detección de la continuación se produce en segundo plano:
 
     - Azure Backup registra la máquina virtual en el almacén para la copia de seguridad de la carga de trabajo. Todas las bases de datos de la máquina virtual registrada solo se pueden copiar en este almacén.
     - Azure Backup instala la extensión **AzureBackupWindowsWorkload** en la máquina virtual. No se instala ningún agente en la base de datos SQL.
@@ -171,7 +171,7 @@ Una directiva de copia de seguridad define cuándo se realizan las copias de seg
 Para crear una directiva de copia de seguridad:
 
 1. En el almacén, haga clic en **Backup policies** > **Add** (Directivas de copia de seguridad > Agregar).
-2. En el menú **Agregar**, haga clic en **SQL Server in Azure VM** (SQL Server en la máquina virtual de Azure). De esta manera se define el tipo de directiva.
+2. En el menú **Agregar**, haga clic en **SQL Server in Azure VM** (SQL Server en la máquina virtual de Azure). Que define el tipo de directiva.
 
    ![Elección de un tipo de directiva para la nueva directiva de copia de seguridad](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -179,7 +179,7 @@ Para crear una directiva de copia de seguridad:
 4. En el menú **Full Backup policy** (Directiva de copia de seguridad completa), seleccione un valor para **Backup Frequency** (Frecuencia de copia de seguridad) entre **Daily** (Diaria) o **Weekly** (Semanal).
 
    - En **Diariamente**, seleccione la hora y zona horaria en la que comienza el trabajo de copia de seguridad.
-   - Es necesario ejecutar una copia de seguridad completa; no se puede desactivar la opción **Full Backup** (Copia de seguridad completa).
+   - Debe ejecutar una copia de seguridad completa como no se puede desactivar la **copia de seguridad completa** opción.
    - Haga clic en **Full Backup** (Copia de seguridad completa) para ver la directiva.
    - No puede crear copias de seguridad diferenciales para copias de seguridad completas diarias.
    - Para **Semanalmente**, seleccione el día de la semana, la hora y la zona horaria, en la que se inicia el trabajo de copia de seguridad.

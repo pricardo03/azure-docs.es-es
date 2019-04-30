@@ -1,5 +1,5 @@
 ---
-title: 'Control de acceso a datos de supervisión remota: Azure | Microsoft Docs'
+title: Los datos de supervisión remotos obtener acceso a controlar - Azure | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo puede configurar controles de acceso para el explorador de telemetría de Time Series Insights en el acelerador de soluciones de supervisión remota
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: ecc3cb32a4bbacb92c875133bf72fc0374bc24df
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 778637b7488b7c5c21b600673890da79a76b4997
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46370101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61443238"
 ---
 # <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Configurar controles de acceso para el explorador de telemetría de Time Series Insights
 
@@ -29,5 +29,5 @@ En este artículo, ha aprendido cómo se conceden los controles de acceso para e
 
 Para información más conceptual sobre el acelerador de la solución de supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).
 
-Para más información sobre cómo personalizar la solución de supervisión remota, consulte [Personalización y nueva implementación de un microservicio](iot-accelerators-microservices-example.md)
-<!-- Next tutorials in the sequence -->.
+Para más información sobre cómo personalizar la solución de supervisión remota, consulte [Personalización y nueva implementación de un microservicio](iot-accelerators-microservices-example.md).
+<!-- Next tutorials in the sequence -->

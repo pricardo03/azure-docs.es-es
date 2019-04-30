@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1a9d26736a444efb83f9040b51676202b1ea4450
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107880"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Actualización de las soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2
 
@@ -249,7 +249,7 @@ La tarea principal aquí es traducir los URI que tienen el prefijo `adl://` en U
 
 El esquema de URI de Data Lake Storage Gen1 se menciona detalladamente [aquí](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) pero, en términos generales, es *adl://mydatalakestore.azuredatalakestore.net/\<ruta_de_acceso_a_archivo\>.*
 
-Se explica el esquema URI para obtener acceso a archivos de Data Lake Storage Gen2 [aquí](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster) en detalle, pero en términos generales, es `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
+Se explica el esquema URI para obtener acceso a archivos de Data Lake Storage Gen2 [aquí](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) en detalle, pero en términos generales, es `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
 
 Deberá recorrer las aplicaciones existentes y asegurarse de haber cambiado los URI como corresponde para que apunten a los de Data Lake Storage Gen2. Además, deberá agregar las credenciales adecuadas. Por último, la manera en que se retiran las aplicaciones originales y se reemplazan por la aplicación nueva deberá estar estrechamente alineada con la estrategia de actualización general.
 

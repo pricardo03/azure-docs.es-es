@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: c26418d36271b4d2d39a43eda7e8b23585d69f4a
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127402"
 ---
 # <a name="azure-devtest-labs-faq"></a>Preguntas más frecuentes sobre Azure DevTest Labs
 En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure DevTest Labs.
@@ -350,7 +350,7 @@ Para otras cadenas de herramientas de entrega continua (CD) o integración conti
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>¿Cuándo se debe crear una red virtual para un entorno de DevTest Labs en lugar de usar una red virtual existente?
 Si las máquinas virtuales necesitan para interactuar con la infraestructura existente, considere la posibilidad de usar una red virtual existente dentro de su entorno de DevTest Labs. Si usa ExpressRoute, puede minimizar la cantidad de redes virtuales y subredes para que no fragmentar el espacio de direcciones IP que se asigna para su uso en las suscripciones. 
 
-Considere la posibilidad de usar aquí el patrón de emparejamiento de red virtual ([modelo radial](/architecture/reference-architectures/hybrid-networking/hub-spoke)) demasiado. Este enfoque permite la comunicación de red virtual o subred entre suscripciones. En caso contrario, cada entorno de DevTest Labs podría tener su propia red virtual. 
+Considere la posibilidad de usar aquí el patrón de emparejamiento de red virtual ([modelo radial](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) demasiado. Este enfoque permite la comunicación de red virtual o subred entre suscripciones. En caso contrario, cada entorno de DevTest Labs podría tener su propia red virtual. 
 
 Hay [límites](../azure-subscription-service-limits.md) en el número de redes virtuales por suscripción. La cantidad predeterminada es 50, aunque este límite puede aumentarse a 100.
 

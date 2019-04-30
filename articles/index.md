@@ -2421,7 +2421,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen1</h3>
-                                                    <p>Repositorio a hiperescala para cargas de trabajo de análisis de macrodatos</p>
+                                                    <p>Repositorio de hiperescala para cargas de trabajo de análisis de macrodatos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3605,7 +3605,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen1</h3>
-                                                    <p>Repositorio a hiperescala para cargas de trabajo de análisis de macrodatos</p>
+                                                    <p>Repositorio de hiperescala para cargas de trabajo de análisis de macrodatos</p>
                                                 </div>
                                             </div>
                                         </div>

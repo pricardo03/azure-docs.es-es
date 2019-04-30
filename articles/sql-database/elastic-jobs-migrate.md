@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 03/13/2019
 ms.openlocfilehash: f71fe4ff14e5a6f5fd6b91713970a097e4e56fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844133"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475803"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migración a los nuevos trabajos de Elastic Database
 
@@ -34,7 +34,7 @@ La versión actualizada de los trabajos de Elastic Database tiene un nuevo conju
 
 Si no tiene una suscripción de Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-Instalar el **Az.Sql** módulo 1.1.1-Preview para obtener los últimos cmdlets de trabajos elásticos. Ejecute los comandos siguientes en PowerShell con acceso administrativo.
+Instale el módulo **Az.Sql** 1.1.1-preview para obtener los cmdlets de trabajos elásticos más recientes. Ejecute los comandos siguientes en PowerShell con acceso administrativo.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowerShellGet v1.6.5 is dependent on

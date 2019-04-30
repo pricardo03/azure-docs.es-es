@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: b97753e6f1b67e3c8d247281c5e5208033a56eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dc24ebd59fd977ef35766c304aec5824e2c7bb4c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127189"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Uso de Administrador de instantáneas StorSimple para administrar el catálogo de copia de seguridad
 
@@ -93,7 +93,7 @@ Utilice el procedimiento siguiente para crear un duplicado (clon) de un volumen 
    1. En el cuadro de texto **Nombre** , escriba un nombre para el volumen clonado. Este nombre aparecerá en el nodo **Volúmenes** . 
    2. (Opcional) seleccione **Unidad**y, a continuación, seleccione una letra de unidad de la lista desplegable.
    3. (Opcional) seleccione **Carpeta (NTFS)** y escriba una ruta de acceso a la carpeta o haga clic en Examinar y seleccione una ubicación para la carpeta. 
-   4. Haga clic en **Crear**.
+   4. Haga clic en **Create**(Crear).
 5. Cuando finalice el proceso de clonación, tiene que inicializar el volumen clonado. Inicie el Administrador del servidor y, a continuación, inicie Administración de discos. Para obtener instrucciones detalladas, consulte [Montar volúmenes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Una vez inicializado, el volumen aparecerá en la lista del nodo **Volúmenes** en el panel **Ámbito**. Si el volumen no aparece, actualice la lista de volúmenes (haga clic con el botón derecho en el nodo **Volúmenes** y, luego, haga clic en **Actualizar**).
 
 ## <a name="delete-a-backup"></a>Eliminación de una copia de seguridad
@@ -126,7 +126,7 @@ Antes de comenzar, asegúrese de que tiene una copia de seguridad actual del gru
    1. En el cuadro de texto **Nombre** , escriba un nombre para el volumen clonado. Este nombre aparecerá en el nodo **Volúmenes** . 
    2. (Opcional) Seleccione **Unidad**y, a continuación, seleccione una letra de unidad de la lista desplegable. 
    3. (Opcional) seleccione **Carpeta (NTFS)** y escriba una ruta de acceso a la carpeta o haga clic en **Examinar** y seleccione una ubicación para la carpeta. 
-   4. Haga clic en **Crear**. 
+   4. Haga clic en **Create**(Crear). 
 5. Cuando finalice el proceso de clonación, tiene que inicializar el volumen clonado. Inicie el Administrador del servidor y, a continuación, inicie Administración de discos. Para obtener instrucciones detalladas, consulte [Montar volúmenes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Una vez inicializado, el volumen aparecerá en la lista del nodo **Volúmenes** en el panel **Ámbito**. 
    
     Si el volumen no aparece, actualice la lista de volúmenes (haga clic con el botón derecho en el nodo **Volúmenes** y, luego, haga clic en **Actualizar**).

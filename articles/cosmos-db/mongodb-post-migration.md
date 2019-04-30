@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: roaror
 ms.openlocfilehash: c0c761fef481a1fdaa027f1329e9a4e72d62985a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61331219"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Pasos de optimización posteriores a la migración cuando se usa la API de Azure Cosmos DB para MongoDB 
 
-Después de migrar los datos almacenados en la base de datos de MongoDB a Azure Cosmos DB API para MongoDB, puede conectarse a Azure Cosmos DB y administrar los datos. Esta guía proporciona los pasos que debe considerar después de la migración. Consulte la [MongoDB migrar a la API de Azure Cosmos DB para MongoDB tutorial](../dms/tutorial-mongodb-cosmos-db.md) para conocer los pasos de migración.
+Después de migrar los datos almacenados en la base de datos de MongoDB a la API de Azure Cosmos DB para MongoDB, puede conectarse a Azure Cosmos DB y administrar los datos. Esta guía proporciona los pasos que debe considerar después de la migración. Consulte la [MongoDB migrar a la API de Azure Cosmos DB para MongoDB tutorial](../dms/tutorial-mongodb-cosmos-db.md) para conocer los pasos de migración.
 
 En esta guía, aprenderá a:
 - [Conectar la aplicación](#connect-account)
@@ -64,9 +64,9 @@ La mayoría de los usuarios dejan su nivel de coherencia en la configuración pr
 * [Conectarse a la cuenta de Azure Cosmos DB mediante Studio 3T](mongodb-mongochef.md)
 * [Lee de cómo distribuir globalmente con API de Azure Cosmos DB para MongoDB](mongodb-readpreference.md)
 * [Hacer que caduquen datos con la API de Azure Cosmos DB para MongoDB](mongodb-time-to-live.md)
-* [Niveles de coherencia en Azure Cosmos DB](consistency-levels.md)
+* [Niveles de coherencia en Azure Cosmos DB](consistency-levels.md)
 * [Indexación en Azure Cosmos DB](index-overview.md)
-* [Unidades de solicitud en Azure Cosmos DB](request-units.md)
+* [Unidades de solicitud en Azure Cosmos DB](request-units.md)
 
 
 

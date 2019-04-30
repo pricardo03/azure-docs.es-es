@@ -10,11 +10,11 @@ ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
 ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467322"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450318"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Introducción a la arquitectura de referencia de Azure IoT
 
@@ -81,7 +81,7 @@ El enrutamiento puede enviar la telemetría a uno o más puntos de conexión de 
 
 La solución de supervisión remota usa [Azure Stream Analytics](/azure/stream-analytics/) para el procesamiento de flujos de datos. El motor de reglas de la solución usa las consultas de Stream Analytics para generar alertas y acciones. Por ejemplo, la solución puede usar una consulta para identificar el momento en que la temperatura media del compartimiento de almacenamiento de un camión sea inferior a 36 grados durante más de cinco minutos.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 
 Las soluciones de IoT pueden generar grandes cantidades de datos que, con frecuencia, son datos de series temporales. Es necesario almacenar estos datos en una ubicación donde puedan usarse con fines de visualización y generación de informes. Una solución también puede que necesite acceder a datos más tarde para su análisis o procesamiento adicional. Es habitual dividir datos en almacenes de datos activos e inactivos. El almacén de datos activos contiene datos recientes para el acceso con baja latencia. El almacén de datos inactivos suele almacenar datos históricos.
 

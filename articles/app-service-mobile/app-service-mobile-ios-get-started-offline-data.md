@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112657"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Habilitación de la sincronización sin conexión con aplicaciones móviles iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -162,9 +162,9 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 | Atributo | Type |
 | --- | --- |
 | id | Integer 64 |
-| itemId | string |
-| propiedades | Binary Data |
-| table | string |
+| itemId | String |
+| properties | Binary Data |
+| table | String |
 | tableKind | Integer 16 |
 
 
@@ -174,9 +174,9 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 | Atributo | Type |
 | --- | --- |
-| id |string |
+| id |String |
 | operationId |Integer 64 |
-| propiedades |Binary Data |
+| properties |Binary Data |
 | tableKind |Integer 16 |
 
  **MS_TableConfig**
@@ -185,11 +185,11 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 | Atributo | Type |
 | --- | --- |
-| id |string |
-| key |string |
+| id |String |
+| key |String |
 | keyType |Integer 64 |
-| table |string |
-| value |string |
+| table |String |
+| value |String |
 
 ### <a name="data-table"></a>Tabla de datos
 
@@ -198,11 +198,11 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 | Atributo | Type | Nota: |
 | --- | --- | --- |
 | id | Cadena, marcado obligatorio |Clave principal en almacén remoto |
-| complete | boolean | Campo de tarea pendiente |
-| text |string |Campo de tarea pendiente |
+| complete | Boolean | Campo de tarea pendiente |
+| text |String |Campo de tarea pendiente |
 | createdAt | Date | (opcional) Se asigna a la propiedad del sistema **createdAt** |
 | updatedAt | Date | (opcional) Se asigna a la propiedad del sistema **updatedAt** |
-| version | string | (opcional) Se usa para detectar conflictos; se asigna a version |
+| version | String | (opcional) Se usa para detectar conflictos; se asigna a version |
 
 ## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
 En esta sección, modifique la aplicación para que no se sincronice al iniciarse la aplicación ni cuando se inserten y actualicen elementos. Solo se sincroniza cuando se realiza el gesto de actualización.

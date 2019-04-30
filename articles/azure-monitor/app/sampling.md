@@ -14,11 +14,11 @@ ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
 ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046588"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653810"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -485,7 +485,7 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 *¿Pueden ser muestreadas más de una vez los datos de telemetría?*
 
-*  No. SamplingTelemetryProcessors omitir elementos de muestreo consideraciones si el elemento ya se ha muestreado. Lo mismo puede decirse de muestreo de ingesta como también, que no aplicarán muestreo a los elementos muestreados ya en el propio SDK. "
+* No. SamplingTelemetryProcessors omitir elementos de muestreo consideraciones si el elemento ya se ha muestreado. Lo mismo puede decirse de muestreo de ingesta como también, que no aplicarán muestreo a los elementos muestreados ya en el propio SDK. "
 
 *¿Por qué realizar un muestreo no consiste simplemente en "recopilar X por ciento de cada tipo de telemetría"?*
 

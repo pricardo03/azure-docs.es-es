@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
 ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61276144"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?
 
@@ -105,7 +105,7 @@ Servicios de Escritorio remoto (RDS) habilita Infraestructura de escritorio virt
 |---| --- | --- | --- | --- | --- | --- | --- |
 | **Escritorio virtual agrupado (no administrado)** |Sin |Sí |Sin  |Sí |Sin  |Sí |Sin  |
 | **Escritorio virtual agrupado (administrado y sin UPD)** |Sin |Sí |Sin  |Sí |Sin  |Sí |Sin  |
-| **Aplicaciones remotas y sesiones de escritorio (sin UPD)** |SÍ|Sí |Sí |Sí |Sí |Sí |SÍ |
+| **Aplicaciones remotas y sesiones de escritorio (sin UPD)** |Sí|Sí |Sí |Sí |Sí |Sí |Sí |
 
 [Configuración de la recuperación ante desastres para RDS mediante Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

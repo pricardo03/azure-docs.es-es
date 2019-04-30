@@ -2,24 +2,18 @@
 title: Introducción al Explorador de Storage | Microsoft Docs
 description: Administre recursos de Azure Storage con el Explorador de Storage.
 services: storage
-documentationcenter: na
 author: cawaMS
-manager: paulyuk
-editor: ''
-ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/17/2017
+ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3db1d638aa1e0d8488c310593a593465c2b9b336
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459498"
+ms.locfileid: "62128286"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 
@@ -115,7 +109,9 @@ Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales
 
 Con el Explorador de Azure Storage, puede trabajar con el almacenamiento local mediante un emulador. Este enfoque le permite simular el trabajo con Azure Storage sin necesidad de tener una cuenta de almacenamiento implementada en Azure.
 
-A partir de la versión 1.1.0, el emulador de almacenamiento local es compatible con todas las plataformas. El Explorador de Azure Storage puede conectarse a cualquier servicio emulado y escuchar sus puntos de conexión de almacenamiento local predeterminados.
+A partir de la versión 1.1.0, Explorador de Storage admite el uso de un emulador de almacenamiento local en todas las plataformas. El Explorador de Azure Storage puede conectarse a cualquier servicio emulado y escuchar sus puntos de conexión de almacenamiento local predeterminados.
+
+El [emulador de Azure storage](storage/common/storage-use-emulator.md) actualmente sólo se ejecuta en Windows. Para quienes consideran un emulador de almacenamiento para Linux, una opción es el emulador de código abierto [Azurite](https://github.com/azure/azurite), mantenido por la comunidad.
 
 > [!NOTE]
 > La compatibilidad de las características y los servicios de almacenamiento puede variar enormemente en función del emulador que se elija. Asegúrese de que el emulador es compatible con los servicios y características con los que va a trabajar.

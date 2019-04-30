@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 679c1fc8775ad4481bc99c9aea79fe16e9bcac8f
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 602514df69977891167f341db0ab20913bcacc9f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
-ms.locfileid: "23479271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60634633"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usar el servicio Administrador de dispositivos de StorSimple para supervisar el dispositivo StorSimple
 
@@ -148,5 +148,5 @@ Si observamos el gráfico de rendimiento de la interfaz Data 1, otra interfaz de
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [usar el panel de dispositivos del servicio Administrador de dispositivos de StorSimple](storsimple-device-dashboard.md).
-* Obtenga información sobre cómo [usar el servicio Administrador de dispositivos de StorSimple para administrar el dispositivo de StorSimple](storsimple-manager-service-administration.md).
+* Aprenda a [usar el servicio StorSimple Device Manager para administrar el dispositivo StorSimple](storsimple-manager-service-administration.md).
 

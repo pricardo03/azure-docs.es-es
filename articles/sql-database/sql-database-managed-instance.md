@@ -1,6 +1,6 @@
 ---
 title: Información general sobre Advanced Data Security en Azure SQL Database | Microsoft Docs
-description: En este tema se describe Advanced Data Security en Azure SQL Database y se explica cómo funciona y cómo difiere de una base de datos única y agrupada en Azure SQL Database.
+description: En este tema se describe la seguridad de datos avanzada de una base de datos de Azure SQL y se explica cómo funciona y en qué se diferencia de una base de datos única o agrupada de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098539"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Uso de Advanced Data Security en SQL Database con redes virtuales y casi un 100 % de compatibilidad
 
@@ -71,9 +71,9 @@ Las características principales de las instancias administradas se muestran en 
 | Reporting Service (SSRS) integrado | No: use Power BI o IaaS de SSRS |
 |||
 
-## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleos virtuales
+## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleo virtual
 
-El [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) de las instancias administradas le ofrece flexibilidad, control, transparencia y facilidad para trasladar sus necesidades de carga de trabajo del entorno local a la nube. Este modelo le permite cambiar los recursos de proceso, memoria y almacenamiento en función de las necesidades de la carga de trabajo. El modelo de núcleos virtuales también permite disfrutar de hasta un 30 % de ahorro con la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
+El [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) de las instancias administradas le ofrece flexibilidad, control, transparencia y facilidad para trasladar sus necesidades de carga de trabajo del entorno local a la nube. Este modelo le permite cambiar los recursos de proceso, memoria y almacenamiento en función de las necesidades de la carga de trabajo. El modelo de núcleos virtuales también permite disfrutar de hasta un 30 % de ahorro con la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 En el modelo de núcleos virtuales, puede elegir entre distintas generaciones de hardware.
 
@@ -91,7 +91,7 @@ Instancia administrada está disponible en dos niveles de servicio:
 
 Ambos niveles de servicio garantizan una disponibilidad del 99,99 % y le permiten seleccionar el tamaño de almacenamiento y la capacidad de proceso de forma independiente. Para más información sobre la arquitectura de alta disponibilidad de Azure SQL Database, vea [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).
 
-### <a name="general-purpose-service-tier"></a>Nivel de servicio de uso general
+### <a name="general-purpose-service-tier"></a>Nivel de servicio Uso general
 
 La siguiente lista describe las principales características del nivel de servicio de uso general:
 
@@ -192,7 +192,7 @@ El enfoque de migración aprovecha las copias de seguridad de SQL en Azure Blob 
 
 ### <a name="data-migration-service"></a>Data Migration Service
 
-Azure Database Migration Service es un servicio totalmente administrado diseñado para permitir migraciones completas desde varios orígenes de base de datos hasta las plataformas de datos de Azure con un tiempo de inactividad mínimo. Este servicio simplifica las tareas necesarias para mover bases de datos existentes de SQL Server y de terceros a Azure SQL Database (bases de datos únicas, bases de datos agrupadas en grupos elásticos y bases de datos de instancia en una instancia administrada) y a SQL Server en las máquinas virtuales de Azure. Consulte cómo [migrar su base de datos local a Instancia administrada mediante DMS](https://aka.ms/migratetoMIusingDMS).
+Azure Database Migration Service es un servicio totalmente administrado diseñado para permitir migraciones completas desde varios orígenes de base de datos hasta las plataformas de datos de Azure con un tiempo de inactividad mínimo. Este servicio simplifica las tareas necesarias para trasladar bases de datos existentes de SQL Server y de terceros a Azure SQL Database (bases de datos únicas, bases de datos agrupadas en grupos elásticos y bases de datos de instancia en una instancia administrada) y a SQL Server en las máquinas virtuales de Azure. Consulte cómo [migrar su base de datos local a Instancia administrada mediante DMS](https://aka.ms/migratetoMIusingDMS).
 
 ## <a name="sql-features-supported"></a>Características de SQL admitidas
 
@@ -226,7 +226,7 @@ La opción de implementación de instancia administrada permite al administrador
 
 En la tabla siguiente se muestran varias propiedades, accesibles mediante Transact SQL, que puede utilizar para detectar si la aplicación funciona con Instancia administrada y recuperar propiedades importantes.
 
-|Propiedad|Value|Comentario|
+|Propiedad|Valor|Comentario|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Este valor es igual que en SQL Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Este valor es igual que en SQL Database.|

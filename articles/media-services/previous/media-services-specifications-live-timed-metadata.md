@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
 ms.openlocfilehash: 10dbf7e8cf67ab721cf525d4a1e7594473592bd4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459120"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Señalización de metadatos con tiempo en streaming en vivo 
 
@@ -68,11 +68,11 @@ Para el modo simple de RTMP, Media Services admite un único mensaje de pila de 
 
 | Nombre del campo | Tipo de campo | ¿Necesario? | Descripciones                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| cue        | string     | Obligatorio | El mensaje de evento.  Debe ser "SpliceOut" para designar una inserción de modo sencillo.                                              |
-| id         | string     | Obligatorio | Un identificador único que describe la inserción o el segmento. Identifica la instancia del mensaje                            |
+| cue        | String     | Obligatorio | El mensaje de evento.  Debe ser "SpliceOut" para designar una inserción de modo sencillo.                                              |
+| id         | String     | Obligatorio | Un identificador único que describe la inserción o el segmento. Identifica la instancia del mensaje                            |
 | duration   | Number     | Obligatorio | Duración de la inserción. Las unidades son fracciones de segundos.                                                                |
 | elapsed    | Number     | Opcional | Cuando se repite la señal para que sea compatible con la sintonización, este campo indicará la cantidad de tiempo de la presentación que ha transcurrido desde que comenzó la inserción. Las unidades son fracciones de segundos. Cuando se usa el modo simple, este valor no debe superar la duración original de la inserción.                                                  |
-| Twitter en tiempo       | Number     | Obligatorio | Debe ser el tiempo de la inserción, en el tiempo de presentación. Las unidades son fracciones de segundos.                                     |
+| time       | Number     | Obligatorio | Debe ser el tiempo de la inserción, en el tiempo de presentación. Las unidades son fracciones de segundos.                                     |
 
 ---------------------------
 
@@ -80,12 +80,12 @@ Para el modo simple de RTMP, Media Services admite un único mensaje de pila de 
 
 | Nombre del campo | Tipo de campo | ¿Necesario? | Descripciones                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| cue        | string     | Obligatorio | El mensaje de evento.  En el caso de los mensajes [SCTE-35], este DEBE ser la sección splice_info_section() de codificación binaria (IETF RFC 4648) en base64, para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [SCTE-67].                                              |
-| Tipo       | string     | Obligatorio | Un URN o una dirección URL que identifiquen el esquema del mensaje. En el caso de los mensajes [SCTE-35], este DEBE ser "urn:scte:scte35:2013a:bin", para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [SCTE-67].  |
-| id         | string     | Obligatorio | Un identificador único que describe la inserción o el segmento. Identifica la instancia del mensaje.  Los mensajes con una semántica equivalente deben tener el mismo valor.|
+| cue        | String     | Obligatorio | El mensaje de evento.  En el caso de los mensajes [SCTE-35], este DEBE ser la sección splice_info_section() de codificación binaria (IETF RFC 4648) en base64, para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [SCTE-67].                                              |
+| Tipo       | String     | Obligatorio | Un URN o una dirección URL que identifiquen el esquema del mensaje. En el caso de los mensajes [SCTE-35], este DEBE ser "urn:scte:scte35:2013a:bin", para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [SCTE-67].  |
+| id         | String     | Obligatorio | Un identificador único que describe la inserción o el segmento. Identifica la instancia del mensaje.  Los mensajes con una semántica equivalente deben tener el mismo valor.|
 | duration   | Number     | Obligatorio | La duración del evento o segmento de ad-splice, si se conoce. Si no se conoce, el valor debería ser 0.                                                                 |
 | elapsed    | Number     | Opcional | Cuando se repite la señal de anuncio de [SCTE-35] para realizar la sintonización, este campo indicará la cantidad de tiempo de la presentación que ha transcurrido desde que comenzó la inserción. Las unidades son fracciones de segundos. En el modo [SCTE-35], este valor puede superar la duración original especificada de la inserción o segmentación.                                                  |
-| Twitter en tiempo       | Number     | Obligatorio | El tiempo de presentación del evento o inserción con ad-splice.  El tiempo de presentación y la duración se DEBEN alinear con los puntos de acceso de secuencias (SAP) del tipo 1 o 2, como se definió en [ISO-14496-12] en el anexo I. En el caso de la salida de HLS, el tiempo y la duración se DEBEN alinear con los límites de los segmentos. El tiempo de presentación y la duración de los diferentes mensajes de eventos del mismo flujo de eventos NO DEBE solaparse. Las unidades son fracciones de segundos.
+| time       | Number     | Obligatorio | El tiempo de presentación del evento o inserción con ad-splice.  El tiempo de presentación y la duración se DEBEN alinear con los puntos de acceso de secuencias (SAP) del tipo 1 o 2, como se definió en [ISO-14496-12] en el anexo I. En el caso de la salida de HLS, el tiempo y la duración se DEBEN alinear con los límites de los segmentos. El tiempo de presentación y la duración de los diferentes mensajes de eventos del mismo flujo de eventos NO DEBE solaparse. Las unidades son fracciones de segundos.
 
 ---------------------------
 
@@ -102,11 +102,11 @@ La pista dispersa se DEBE declarar en el cuadro Live Server Manifest Box con una
 | **Nombre del atributo** | **Tipo de campo** | **¿Necesario?** | **Descripción**                                                                                                                                                                                                                                                 |
 |--------------------|----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | systemBitrate      | Number         | Obligatorio      | DEBE ser "0", lo cual indica una pista con una velocidad de bits desconocida, variable.                                                                                                                                                                                                 |
-| parentTrackName    | string         | Obligatorio      | DEBE ser el nombre de la pista principal, aquella con la que se alinean en la escala de tiempo los códigos de tiempo de las pistas dispersas. La pista principal no puede ser una pista dispersa.                                                                                                                    |
-| manifestOutput     | boolean        | Obligatorio      | DEBE ser "true", para indicar que la pista dispersa se insertará en el manifiesto de cliente de Smooth.                                                                                                                                                               |
-| Subtype            | string         | Obligatorio      | DEBE ser el código de cuatro caracteres "DATA".                                                                                                                                                                                                                         |
-| Esquema             | string         | Obligatorio      | DEBE ser un URN o una dirección URL que identifiquen el esquema del mensaje. En el caso de los mensajes [SCTE-35], este DEBE ser "urn:scte:scte35:2013a:bin", para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [SCTE-67]. |
-| trackName          | string         | Obligatorio      | DEBE ser el nombre de la pista dispersa. trackName se puede utilizar para diferenciar varios flujos de eventos con el mismo esquema. Cada flujo de eventos único debe tener un nombre de pista único.                                                                           |
+| parentTrackName    | String         | Obligatorio      | DEBE ser el nombre de la pista principal, aquella con la que se alinean en la escala de tiempo los códigos de tiempo de las pistas dispersas. La pista principal no puede ser una pista dispersa.                                                                                                                    |
+| manifestOutput     | Boolean        | Obligatorio      | DEBE ser "true", para indicar que la pista dispersa se insertará en el manifiesto de cliente de Smooth.                                                                                                                                                               |
+| Subtype            | String         | Obligatorio      | DEBE ser el código de cuatro caracteres "DATA".                                                                                                                                                                                                                         |
+| Esquema             | String         | Obligatorio      | DEBE ser un URN o una dirección URL que identifiquen el esquema del mensaje. En el caso de los mensajes [SCTE-35], este DEBE ser "urn:scte:scte35:2013a:bin", para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [SCTE-67]. |
+| trackName          | String         | Obligatorio      | DEBE ser el nombre de la pista dispersa. trackName se puede utilizar para diferenciar varios flujos de eventos con el mismo esquema. Cada flujo de eventos único debe tener un nombre de pista único.                                                                           |
 | timescale          | Number         | Opcional      | DEBE ser la escala de tiempo de la pista principal.                                                                                                                                                                                                                      |
 
 -------------------------------------
@@ -154,7 +154,7 @@ El cuadro MediaDataBox ('mdat') DEBE tener el formato siguiente:
 | version                 | Entero sin signo de 32 bits (uimsbf) | Obligatorio      | Determina el formato del contenido del cuadro 'mdat'. Se ignorarán las versiones no reconocidas. Actualmente, la única versión admitida es: 1.                                                                                                                                                                                                                                                                                                                                                      |
 | id                      | Entero sin signo de 32 bits (uimsbf) | Obligatorio      | Identifica la instancia del mensaje. Los mensajes con una semántica equivalente deben tener el mismo valor, es decir, será suficiente con el procesamiento de cualquier cuadro de mensaje de evento con el mismo identificador.                                                                                                                                                                                                                                                                                                            |
 | presentation_time_delta | Entero sin signo de 32 bits (uimsbf) | Obligatorio      | La suma del valor de fragment_absolute_time, especificado en TrackFragmentExtendedHeaderBox, y el de presentation_time_delta DEBE ser el tiempo de presentación del evento. El tiempo de presentación y la duración se DEBEN alinear con los puntos de acceso de secuencias (SAP) del tipo 1 o 2, como se definió en [ISO-14496-12] en el anexo I. En el caso de la salida de HLS, el tiempo y la duración se DEBEN alinear con los límites de los segmentos. El tiempo de presentación y la duración de los diferentes mensajes de eventos del mismo flujo de eventos NO DEBE solaparse. |
-| Mensaje                 | byte array                       | Obligatorio      | El mensaje de evento. En el caso de los mensajes [SCTE-35], el mensaje es la sección binaria splice_info_section(), aunque [SCTE-67] recomienda otra cosa. En el caso de los mensajes [SCTE-35], este DEBE ser la sección splice_info_section(), para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [SCTE-67]. En el caso de los mensajes [SCTE-35], la sección binaria splice_info_section() es la carga del cuadro ‘mdat’ y NO está codificada en base 64.                                                            |
+| message                 | byte array                       | Obligatorio      | El mensaje de evento. En el caso de los mensajes [SCTE-35], el mensaje es la sección binaria splice_info_section(), aunque [SCTE-67] recomienda otra cosa. En el caso de los mensajes [SCTE-35], este DEBE ser la sección splice_info_section(), para que los mensajes se envíen a los clientes HLS, Smooth y Dash conforme a [SCTE-67]. En el caso de los mensajes [SCTE-35], la sección binaria splice_info_section() es la carga del cuadro ‘mdat’ y NO está codificada en base 64.                                                            |
 
 ------------------------------
 

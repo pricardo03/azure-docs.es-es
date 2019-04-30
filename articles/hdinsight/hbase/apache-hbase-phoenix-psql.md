@@ -1,7 +1,6 @@
 ---
 title: 'Carga masiva en Phoenix Apache con psql: Azure HDInsight'
 description: Utilice la herramienta psql para cargar datos de forma masiva en tablas de Phoenix.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 5faea45a55d69cece56137d70862d80dfe335971
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: fe6705dc3dedd521357f924dd433c7eacf88ba84
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342463"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114178"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Carga masiva de datos en Apache Phoenix mediante psql
 
