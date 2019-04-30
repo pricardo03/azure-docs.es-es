@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565859"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129406"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Uso de Apache Sqoop con Hadoop en HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -80,7 +80,7 @@ El clúster, SQL database y otros objetos se crean a través del portal de Azure
     |---|---|
     |Subscription |En la lista desplegable, seleccione la suscripción de Azure.|
     |Grupos de recursos |Seleccione el grupo de recursos en la lista desplegable o crear uno nuevo|
-    |Ubicación |Seleccione una región en la lista desplegable.|
+    |Location |Seleccione una región en la lista desplegable.|
     |Cluster Name |Escriba el nombre del clúster de Hadoop. Use solo una letra minúscula.|
     |Cluster Login User Name (Nombre de usuario de inicio de sesión del clúster) |Mantenga el valor rellenado previamente `admin`.|
     |Cluster Login Password (Contraseña de inicio de sesión del clúster) |Escriba una contraseña.|
@@ -91,7 +91,7 @@ El clúster, SQL database y otros objetos se crean a través del portal de Azure
     |_artifacts ubicación | Use el valor predeterminado a menos que desee utilizar su propio archivo de bacpac en una ubicación diferente.|
     |Token de Sas de ubicación _artifacts |déjelo en blanco.|
     |Nombre de archivo Bacpac |Use el valor predeterminado a menos que desee utilizar su propio archivo de bacpac.|
-    |Ubicación |Use el valor predeterminado.|
+    |Location |Use el valor predeterminado.|
 
     El nombre del servidor SQL de Azure será `<ClusterName>dbserver`. El nombre de la base de datos será `<ClusterName>db`. El nombre de la cuenta de almacenamiento predeterminada será `e6qhezrh2pdqu`.
 

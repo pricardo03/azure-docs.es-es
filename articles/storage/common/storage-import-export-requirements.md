@@ -9,11 +9,11 @@ ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478596"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 
@@ -24,14 +24,14 @@ En este artículo se describen los requisitos importantes del servicio Azure Imp
 Para preparar las unidades de disco duro con la herramienta WAImportExport, se admite el siguiente **sistema operativo de 64 bits que admite Cifrado de unidad BitLocker**.
 
 
-|Plataforma |Versión |
+|Plataforma |`Version` |
 |---------|---------|
 | Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Otro software necesario para el cliente Windows
 
-|Plataforma |Versión |
+|Plataforma |`Version` |
 |---------|---------|
 |.NET Framework    | 4.5.1       |
 | BitLocker        |  _          |
@@ -50,7 +50,7 @@ Para más información sobre las cuentas de almacenamiento, vea [Información ge
 Puede utilizar cada trabajo para transferir datos desde o hacia una sola cuenta de almacenamiento. Dicho de otra forma, un trabajo de importación y exportación no puede abarcar varias cuentas de almacenamiento. Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
-> El servicio Azure Import/Export no admite cuentas de almacenamiento con la característica [Puntos de conexión del servicio Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md) habilitada. 
+> El servicio Azure Import/Export no admite cuentas de almacenamiento con la característica [Puntos de conexión de servicio de red virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) habilitada. 
 
 ## <a name="supported-storage-types"></a>Tipos de almacenamiento admitidos
 

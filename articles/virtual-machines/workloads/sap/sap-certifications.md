@@ -18,11 +18,11 @@ ms.date: 11/06/2018
 ms.author: rclaus
 ms.custom: ''
 ms.openlocfilehash: de282041066e18a52d596f051def598eef3d458d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287224"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648931"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Configuraciones y certificaciones de SAP que se ejecutan en Microsoft Azure
 
@@ -48,7 +48,7 @@ Tenga en cuenta que SAP utiliza el término "agrupación en clústeres" en las [
 Microsoft Azure cuenta con certificación para los siguientes productos de SAP, con soporte técnico completo de Microsoft y SAP.
 Referencias:
 
-- [1928533: SAP Applications on Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533) (Aplicaciones de SAP en Azure: tipos de máquina virtual de Azure y productos compatibles) para todas las aplicaciones basadas en SAP NetWeaver, incluidas SAP TREX, SAP LiveCache y SAP Content Server. Y todas las bases de datos, excluida SAP HANA.
+- [1928533 - aplicaciones de SAP en Azure: Productos admitidos y tipos de máquinas virtuales de Azure](https://launchpad.support.sap.com/#/notes/1928533) para todas las aplicaciones basadas en SAP NetWeaver, incluidas SAP TREX, SAP LiveCache y SAP Content Server. Y todas las bases de datos, excluida SAP HANA.
 
 
 | Producto de SAP | SO invitado | RDBMS | Tipos de máquinas virtuales |

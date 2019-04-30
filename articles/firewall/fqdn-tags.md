@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/22/2019
+ms.date: 4/23/2019
 ms.author: victorh
-ms.openlocfilehash: 740b0ac505edfff1f703c2831ec5608e72851610
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 7a412589f4e86f2a49d07f2d01ca34bf30fd528b
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149774"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62738795"
 ---
 # <a name="fqdn-tags-overview"></a>Información general de las etiquetas FQDN
 
@@ -35,7 +35,7 @@ En la siguiente tabla se muestran las etiquetas FQDN actuales que puede usar. Mi
 |Microsoft Active Protection Service (MAPS)|Permite el acceso saliente a [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |App Service Environment (ASE)|Permite el acceso saliente hacia el tráfico de la plataforma de ASE. Esta etiqueta no incluye los puntos de conexión de SQL y Storage específicos del cliente creados por ASE. Dichos puntos de conexión deben habilitarse a través de los [puntos de conexión de servicio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o se deben agregar manualmente.<br><br>Para obtener más información acerca de cómo integrar Azure Firewall con ASE, consulte [Bloqueo de una instancia de App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Azure Backup|Permite el acceso saliente a los servicios de Azure Backup.|
-|HDInsight de Azure<br> (versión preliminar)|Permite el acceso de salida para el tráfico de la plataforma de HDInsight. Esta etiqueta no cubre el tráfico de almacenamiento o SQL específica del cliente de HDInsight. Estos se habilitan mediante [los extremos de servicio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o agregar manualmente.|
+|HDInsight de Azure<br> (versión preliminar)|Permite el acceso de salida para el tráfico de la plataforma de HDInsight. Esta etiqueta no cubre el tráfico de almacenamiento o SQL específica del cliente de HDInsight. Habilitar las siguientes using [los extremos de servicio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o agregarlas manualmente.|
 
 > [!NOTE]
 > Al seleccionar Etiqueta FQDN en una regla de aplicación, en el campo protocolo: puerto debe estar seleccionada la opción **https**.

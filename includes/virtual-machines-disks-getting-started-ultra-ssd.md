@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3b596e5bad8202d88ea06c7eee114bec1063a35f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58051726"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075690"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>Habilitar Azure SSD ultra
 
@@ -29,7 +29,7 @@ CLI: `az vm list-skus --resource-type disks --query 鈥淸?name==鈥橴ltraSSD_LRS鈥
 
 La respuesta ser谩 similar al formulario siguiente, donde X es la zona que se utilizar谩 para la implementaci贸n en Este de EE. UU. 2. X podr铆a ser 1, 2 o 3.
 
-|ResourceType  |NOMBRE  |Ubicaci贸n  |Zones  |Restricci贸n  |Capacidad  |Valor  |
+|ResourceType  |NOMBRE  |Location  |Zones  |Restricci贸n  |Capacidad  |Valor  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 

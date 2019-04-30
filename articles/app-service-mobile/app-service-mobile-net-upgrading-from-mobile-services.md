@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278629"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122445"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Actualización del Servicio móvil de .NET existente a App Service
 Aplicaciones móviles de App Service es una nueva forma de crear aplicaciones móviles con Microsoft Azure. Para más información, vea [¿Qué es Mobile Apps?].
@@ -160,12 +160,12 @@ Si una aplicación cliente se actualiza desde Mobile Services a Mobile Apps mien
 
 En iOS, debe cambiar el esquema de datos principal de las entidades de datos para que coincida con el siguiente. Tenga en cuenta que las propiedades `createdAt`, `updatedAt` y `version` ya no tienen un prefijo `ms_`:
 
-| Atributo | Escriba | Nota: |
+| Atributo | Type | Nota: |
 | --- | --- | --- |
 | id |Cadena, marcado obligatorio |primary key in remote store |
 | createdAt |Date |(opcional) se asigna a la propiedad del sistema createdAt |
 | updatedAt |Date |(opcional) se asigna a la propiedad del sistema updatedAt |
-| version |string |(opcional) se usa para detectar conflictos, se asigna a la versión |
+| version |String |(opcional) se usa para detectar conflictos, se asigna a la versión |
 
 #### <a name="querying-system-properties"></a>Consulta de propiedades del sistema
 En Azure Mobile Services, las propiedades del sistema no se envían de forma predeterminada, sino únicamente cuando se solicitan mediante la cadena de consulta `__systemProperties`. En cambio, en el sistema de Azure Mobile Apps están **siempre activadas** dado que forman parte del modelo de objetos del SDK de servidor.

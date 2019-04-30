@@ -15,11 +15,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61257649"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
 
@@ -267,7 +267,8 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
 
     ![Resultados de la consulta Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article --> Para obtener instrucciones detalladas, consulte la sección sobre [Ejecución de una consulta de Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
+Para obtener instrucciones detalladas, consulte la sección [Ejecución de una consulta de Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>solución de problemas
 Puesto que establece getDebugInfo en **Siempre**, aparece una subcarpeta de registro en la carpeta pyFiles del contenedor de blobs. El archivo de registro en la carpeta de registro proporciona información adicional. Este archivo de registro es especialmente útil cuando se produce un error. En un entorno de producción, podría ser recomendable establecerlo en **Error**.
@@ -328,12 +329,12 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
-| Nombre | Nombre de la actividad en la canalización. | SÍ |
+| Nombre | Nombre de la actividad en la canalización. | Sí |
 | description | Texto que describe para qué se usa la actividad. | Sin  |
-| Tipo | Esta propiedad debe establecerse en HDInsightSpark. | SÍ |
-| linkedServiceName | Nombre del servicio vinculado de HDInsight en el que se ejecuta el programa de Spark. | SÍ |
-| rootPath | Contenedor de blobs y carpeta que contiene el archivo de Spark. El nombre de archivo distingue entre mayúsculas y minúsculas. | SÍ |
-| entryFilePath | Ruta de acceso relativa a la carpeta raíz del código o el paquete de Spark. | SÍ |
+| Tipo | Esta propiedad debe establecerse en HDInsightSpark. | Sí |
+| linkedServiceName | Nombre del servicio vinculado de HDInsight en el que se ejecuta el programa de Spark. | Sí |
+| rootPath | Contenedor de blobs y carpeta que contiene el archivo de Spark. El nombre de archivo distingue entre mayúsculas y minúsculas. | Sí |
+| entryFilePath | Ruta de acceso relativa a la carpeta raíz del código o el paquete de Spark. | Sí |
 | className | Clase principal de Spark o Java de la aplicación. | Sin  |
 | argumentos | Lista de argumentos de línea de comandos del programa de Spark. | Sin  |
 | proxyUser | Cuenta de usuario de suplantación para ejecutar el programa de Spark. | Sin  |
@@ -346,10 +347,10 @@ La actividad de Spark no es compatible con un script en línea, al contrario que
 
 Cree la siguiente estructura de carpetas en la instancia de Blob Storage a la que hace referencia el servicio vinculado de HDInsight. Luego, cargue los archivos dependientes en las subcarpetas adecuadas de la carpeta raíz que representa **entryFilePath**. Por ejemplo, cargue los archivos de Python en la subcarpeta pyFiles y los archivos JAR en la subcarpeta jars de la carpeta raíz. En el entorno de tiempo de ejecución, el servicio Data Factory espera la siguiente estructura de carpetas en la instancia de Blob Storage: 
 
-| Ruta de acceso | DESCRIPCIÓN | Obligatorio | Escriba |
+| Ruta de acceso | DESCRIPCIÓN | Obligatorio | Type |
 | ---- | ----------- | -------- | ---- |
-| . | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento. | SÍ | Carpeta |
-| &lt;Definida por el usuario&gt; | Ruta de acceso que apunta al archivo de entrada del trabajo de Spark. | SÍ | Archivo |
+| . | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento. | Sí | Carpeta |
+| &lt;Definida por el usuario&gt; | Ruta de acceso que apunta al archivo de entrada del trabajo de Spark. | Sí | Archivo |
 | ./jars | Todos los archivos de esta carpeta se cargan y se colocan en la ruta CLASSPATH de Java del clúster. | Sin  | Carpeta |
 | ./pyFiles | Todos los archivos de esta carpeta se cargan y se colocan en la ruta PYTHONPATH del clúster. | Sin  | Carpeta |
 | ./files | Todos los archivos de esta carpeta se cargan y se colocan en el directorio de trabajo del ejecutor. | Sin  | Carpeta |

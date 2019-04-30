@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496102"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733974"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 Puede usar el [servicio Azure Backup](backup-overview.md) para realizar una copia de seguridad de máquinas locales y las cargas de trabajo y máquinas virtuales (VM). Este artículo resumen las opciones de soporte técnico y las limitaciones al realizar copias de seguridad de máquinas virtuales de Azure con Azure Backup.
@@ -168,7 +168,7 @@ Cambiar tamaño de disco de una máquina virtual protegida |  Se admite.
 Almacenamiento compartido| No se recomienda la copia de seguridad de máquinas virtuales con volúmenes compartidos de clúster (CSV) o el servidor de archivos de escalabilidad horizontal. Es probable que los escritores CSV a un error durante la copia de seguridad. En la restauración, los discos que contienen volúmenes CSV es posible que no vienen vertical.
 
 > [!NOTE]
-> Azure Backup no admite discos con bandas. No se recomienda cambiar el tamaño del disco de copia de seguridad de Azure.
+> No se recomienda cambiar el tamaño del disco de copia de seguridad de Azure.
 
 
 ## <a name="vm-network-support"></a>Compatibilidad con red de VM
@@ -187,7 +187,7 @@ Administrador de tráfico de Azure   |  Se admite.<br/><br/>Si la máquina virtu
 Azure DNS |  Se admite.
 DNS personalizado |     Se admite.
 Conectividad saliente mediante un proxy HTTP |  Se admite.<br/><br/> No se admite un proxy basado autenticado.
-Puntos de conexión del servicio Virtual Network   |  Se admite.<br/><br/> Firewall y la configuración de cuenta de almacenamiento de red virtual debe permitir el acceso desde todas las redes.
+Puntos de conexión de servicio de red virtual   |  Se admite.<br/><br/> Firewall y la configuración de cuenta de almacenamiento de red virtual debe permitir el acceso desde todas las redes.
 
 
 

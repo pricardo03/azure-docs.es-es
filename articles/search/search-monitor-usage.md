@@ -12,11 +12,11 @@ ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564789"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Supervisión del consumo de recursos y la actividad de consulta en Azure Search
 
@@ -111,15 +111,15 @@ Los blobs que contienen los registros de tráfico del servicio de búsqueda se e
 
 | NOMBRE | Type | Ejemplo | Notas |
 | --- | --- | --- | --- |
-| Twitter en tiempo |Datetime |"2018-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación |
-| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
 | operationName |string |"Query.Search" |El nombre de la operación |
 | operationVersion |string |"2017-11-11" |La versión de la API usada |
-| categoría |string |"OperationLogs" |constant |
+| category |string |"OperationLogs" |constant |
 | resultType |string |"Success" |Valores posibles: Success o Failure |
 | resultSignature |int |200 |Código de resultado HTTP |
 | durationMS |int |50 |Duración de la operación en milisegundos |
-| propiedades |objeto |consulte la tabla siguiente |Objeto que contiene datos específicos de la operación |
+| properties |objeto |consulte la tabla siguiente |Objeto que contiene datos específicos de la operación |
 
 **Esquema de propiedades**
 
@@ -136,9 +136,9 @@ Se capturan las métricas de solicitudes de consulta.
 
 | NOMBRE | Type | Ejemplo | Notas |
 | --- | --- | --- | --- |
-| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
 | metricName |string |"Latency" |el nombre de la métrica |
-| Twitter en tiempo |Datetime |"2018-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
+| Twitter en tiempo |datetime |"2018-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
 | average |int |64 |El valor de media de las muestras sin procesar en el intervalo de tiempo de la métrica |
 | minimum |int |37 |El valor mínimo de las muestras sin procesar en el intervalo de tiempo de la métrica |
 | maximum |int |78 |El valor máximo de las muestras sin procesar en el intervalo de tiempo de la métrica |

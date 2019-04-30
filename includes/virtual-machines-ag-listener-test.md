@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097716"
 ---
 En este paso, se probará el agente de escucha del grupo de disponibilidad mediante una aplicación de cliente que se ejecuta en la misma red.
 
@@ -29,3 +30,4 @@ Un ejemplo sería conectarse al agente de escucha desde una de las máquinas vir
 
 Al probar el agente de escucha, asegúrese de conmutar por error el grupo de disponibilidad para asegurarte de que los clientes puedan conectarse al agente de escucha a través de las conmutaciones por error.
 
+<!-- Update_Description: update meta properties -->

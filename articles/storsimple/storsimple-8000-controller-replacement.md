@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 849eccff114c2fd6d952e44d095d0cc89a238675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109133"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482913"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Reemplazar un módulos de controladores en el dispositivo StorSimple
 ## <a name="overview"></a>Información general
@@ -90,7 +90,7 @@ Complete los pasos siguientes si se produce un error en uno de los controladores
    
     **Figura 1** Parte posterior del dispositivo StorSimple
    
-   | Etiqueta | Descripción |
+   | Etiqueta | DESCRIPCIÓN |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -166,7 +166,7 @@ Utilice el siguiente procedimiento para quitar un módulo defectuoso del control
 1. Sujete el pestillo del módulo entre el pulgar y el índice.
 2. Apriete suavemente el pulgar y el índice juntos para liberar el pestillo del controlador.
    
-    ![Liberación del pestillo del controlador](./media/storsimple-controller-replacement/IC741047.png)
+    ![ Liberación del pestillo del controlador](./media/storsimple-controller-replacement/IC741047.png)
    
     **Figura 2** Liberación del pestillo del controlador
 3. Use el pestillo como asa para deslizar el controlador hacia afuera del chasis.
@@ -231,7 +231,7 @@ Si este LED parpadea, el controlador está activo y el otro controlador está en
 
 **Figura 8** Parte posterior del gabinete principal con los puertos de datos y LED de supervisión
 
-| Etiqueta | Description |
+| Etiqueta | DESCRIPCIÓN |
 |:--- |:--- |
 | 1-6 |DATOS 0: 5 puertos de red |
 | 7 |LED azul |

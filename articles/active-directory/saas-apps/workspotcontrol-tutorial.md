@@ -16,11 +16,11 @@ ms.date: 10/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97f375c6f48d3dc497eb59e76f19fc64cf906b56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: integración de Azure Active Directory con Workspot Control
 
@@ -62,19 +62,19 @@ Para configurar la integración de Workspot Control en Azure AD, será preciso q
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
-    ![imagen](./media/workspotcontrol-tutorial/selectazuread.png)
+    ![image](./media/workspotcontrol-tutorial/selectazuread.png)
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![imagen](./media/workspotcontrol-tutorial/a_select_app.png)
+    ![image](./media/workspotcontrol-tutorial/a_select_app.png)
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![imagen](./media/workspotcontrol-tutorial/a_new_app.png)
+    ![image](./media/workspotcontrol-tutorial/a_new_app.png)
 
 4. En el cuadro de búsqueda, escriba **Workspot Control**, seleccione **Workspot Control** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addfromgallery.png)
+     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
@@ -98,19 +98,19 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Workspot Control**, seleccione **Inicio de sesión único**.
 
-    ![imagen](./media/workspotcontrol-tutorial/B1_B2_Select_SSO.png)
+    ![image](./media/workspotcontrol-tutorial/B1_B2_Select_SSO.png)
 
 2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML** para habilitar el inicio de sesión único.
 
-    ![imagen](./media/workspotcontrol-tutorial/b1_b2_saml_sso.png)
+    ![image](./media/workspotcontrol-tutorial/b1_b2_saml_sso.png)
 
 3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    ![imagen](./media/workspotcontrol-tutorial/b1-domains_and_urlsedit.png)
+    ![image](./media/workspotcontrol-tutorial/b1-domains_and_urlsedit.png)
 
 4. En la sección **Configuración de SAML básica**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
 
-    ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url.png)
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url.png)
 
      a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<INSTANCENAME>-saml.workspot.com/saml/metadata`
 
@@ -118,7 +118,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-     ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url1.png)
+     ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url1.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<INSTANCENAME>-saml.workspot.com/`
 
@@ -127,7 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** y guárdelo en su equipo.
 
-    ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_certficate.png) 
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_certficate.png) 
 
 6. En la sección **Configurar Workspot Control**, copie la dirección URL adecuada según sus necesidades.
 
@@ -139,17 +139,17 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     c. URL de cierre de sesión
 
-    ![imagen](./media/workspotcontrol-tutorial/d1_samlsonfigure.png) 
+    ![image](./media/workspotcontrol-tutorial/d1_samlsonfigure.png) 
 
 7. En otra ventana del explorador web, inicie sesión en Workspot Control como administrador de seguridad.
 
 8. En la barra de herramientas en la parte superior de la página, haga clic en  **Setup** (Configuración) y vaya a  **SAML**.
 
-    ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
 9. En la página **Security Assertion Markup Language Configuration** (Configuración de Lenguaje de marcado de aserción de seguridad), realice los pasos siguientes:
  
-    ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
 
      a. En el cuadro de texto **Identificador de entidad**, pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.   
 
@@ -167,19 +167,19 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-    ![imagen](./media/workspotcontrol-tutorial/d_users_and_groups.png)
+    ![image](./media/workspotcontrol-tutorial/d_users_and_groups.png)
 
 2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![imagen](./media/workspotcontrol-tutorial/d_adduser.png)
+    ![image](./media/workspotcontrol-tutorial/d_adduser.png)
 
 3. En las propiedades Usuario, siga estos pasos.
 
-    ![imagen](./media/workspotcontrol-tutorial/d_userproperties.png)
+    ![image](./media/workspotcontrol-tutorial/d_userproperties.png)
 
      a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el **nombre de usuario** tipo de campo **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
@@ -196,17 +196,17 @@ Para permitir que los usuarios de Azure AD inicien sesión en Workspot Control, 
 
 2. En la barra de herramientas de la parte superior de la página, haga clic en  **Users** (Usuarios) y vaya a  **Add user** (Agregar usuario).
 
-    ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 
 3. En la página **Agregar un nuevo usuario**, realice los pasos siguientes:
 
-    ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addnewuser.png)
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addnewuser.png)
 
      a. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso **Britta**.
 
     b. En el cuadro de texto **Last Name** (Apellidos), escriba los apellidos del usuario, en este caso **Simon**.
 
-    c. En **correo electrónico** texto, escriba el correo electrónico del usuario, como **Brittasimon\@contoso.com**.
+    c. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, **Brittasimon\@contoso.com**.
 
     d. Seleccione el rol de usuario apropiado de la lista desplegable **Rol**.
 
@@ -220,19 +220,19 @@ En esta sección, concederá acceso a Britta Simon a Workspot Control para que u
 
 1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
 
-    ![imagen](./media/workspotcontrol-tutorial/d_all_applications.png)
+    ![image](./media/workspotcontrol-tutorial/d_all_applications.png)
 
 2. En la lista de aplicaciones, seleccione **Workspot Control**.
 
-    ![imagen](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_app.png)
+    ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_app.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![imagen](./media/workspotcontrol-tutorial/d_leftpaneusers.png)
+    ![image](./media/workspotcontrol-tutorial/d_leftpaneusers.png)
 
 4. Seleccione el botón **Agregar** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![imagen](./media/workspotcontrol-tutorial/d_assign_user.png)
+    ![image](./media/workspotcontrol-tutorial/d_assign_user.png)
 
 4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 

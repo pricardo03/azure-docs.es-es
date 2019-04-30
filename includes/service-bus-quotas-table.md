@@ -9,11 +9,11 @@ ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 7add8c10fd3224b9c287ea4cc672191157f56a09
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861904"
 ---
 En la tabla siguiente se muestra información de cuota específica de mensajería de Azure Service Bus. Para obtener información sobre los precios y otras cuotas de Service Bus, consulte [precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 

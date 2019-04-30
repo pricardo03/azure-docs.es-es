@@ -11,11 +11,11 @@ ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
 ms.openlocfilehash: 74449f7319f800e8008c5d457351fa49ae1af59a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621709"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476844"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Socios de integración de datos de SQL Data Warehouse
 Para crear la solución de almacenamiento de datos, elija entre una amplia variedad de herramientas líderes del sector. En este artículo se destaca las empresas asociadas de Microsoft con soluciones de integración de datos oficiales compatibles con Azure SQL Data Warehouse.

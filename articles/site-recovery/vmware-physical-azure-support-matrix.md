@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: raynew
 ms.openlocfilehash: dc455b5256f9c04e1e0af2c1ff3fea04af54d90b
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60565418"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -134,10 +134,10 @@ Agregar disco a una máquina virtual replicada | Deshabilite la replicación par
 Formación de equipos de adaptador de red de la red de host | Se admite en máquinas virtuales de VMware. <br/><br/>No se admite en la replicación de máquinas físicas.
 VLAN de la red de host | Sí.
 IPv4 de la red de host | Sí.
-IPv6 de la red de host |  No.
-Formación de equipos de adaptador de red de la red de invitado o de servidor |  No.
+IPv6 de la red de host | No.
+Formación de equipos de adaptador de red de la red de invitado o de servidor | No.
 IPv4 de la red de invitado o de servidor | Sí.
-IPv6 de la red de invitado o de servidor |  No.
+IPv6 de la red de invitado o de servidor | No.
 IP estática de la red de invitado o de servidor (Windows) | Sí.
 IP estática de la red de invitado o de servidor (Linux) | Sí. <br/><br/>Las máquinas virtuales se configuran para usar DHCP en la conmutación por recuperación.
 Varios adaptadores de red de la red de invitado o de servidor | Sí.
@@ -155,7 +155,7 @@ Varias NIC | Sí
 Dirección IP reservada | Sí
 IPv4 | Sí
 Conservar la dirección IP de origen | Sí
-Puntos de conexión del servicio Azure Virtual Network<br/> | Sí
+Punto de conexión de servicio de red virtual de Azure<br/> | Sí
 Redes aceleradas | Sin 
 
 ## <a name="storage"></a>Almacenamiento

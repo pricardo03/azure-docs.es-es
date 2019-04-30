@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 04/02/2019
+ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: d490cab4d437c30fdb211ea27397777afc27e72e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59805156"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765874"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
@@ -29,13 +29,15 @@ ms.locfileid: "59805156"
 | Cálculos de etiquetas únicas por suscripción<sup>2</sup> | 10 000 | 10 000 |
 | [Servicios en la nube](../articles/cloud-services/cloud-services-choose-me.md) por suscripción |N/A<sup>3</sup> |N/A<sup>3</sup> |
 | [Grupos de afinidad](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por suscripción |N/A<sup>3</sup> |N/A<sup>3</sup> |
-| [Las implementaciones de nivel de suscripción](../articles/azure-resource-manager/deploy-to-subscription.md) por ubicación | 800 | 800 |
+| [Las implementaciones de nivel de suscripción](../articles/azure-resource-manager/deploy-to-subscription.md) por ubicación | 800<sup>4</sup> | 800 |
 
 <sup>1</sup>límites predeterminados varían según el tipo de categoría de oferta, por ejemplo, la evaluación gratuita y de pago por uso y por serie, como Dv2, F y G.
 
 <sup>2</sup>puede aplicar un número ilimitado de etiquetas por suscripción. El máximo de etiquetas por recurso o grupo de recursos es 15. Resource Manager devuelve un [lista de valores y nombres de etiqueta únicos](/rest/api/resources/tags) en la suscripción solo cuando el número de etiquetas es 10 000 o menos. Todavía puede encontrar un recurso por etiqueta cuando el número mayor que 10 000.  
 
 <sup>3</sup>estas características ya no son necesarias con el Administrador de recursos y grupos de recursos de Azure.
+
+<sup>4</sup>si se alcanza el límite de 800 implementaciones, elimine las implementaciones del historial que ya no son necesarios. Para eliminar las implementaciones de nivel de suscripción, use [Remove-AzDeployment](/powershell/module/az.resources/Remove-AzDeployment) o [eliminar implementación az](/cli/azure/deployment?view=azure-cli-latest#az-deployment-delete).
 
 > [!NOTE]
 > Núcleos de máquina virtual tienen un límite total regional. También tienen un límite para regional serie por tamaño, como Dv2 y f el. Estos límites se aplican por separado. Por ejemplo, considere una suscripción con un límite total de núcleos de máquinas virtuales de Este de EE. UU. de 30, un límite de núcleos de serie A de 30 y un límite de núcleos de serie D de 30. Esta suscripción puede implementar 30 máquinas virtuales A1, o 30 máquinas virtuales D1 o una combinación de ambos, para que no supere un total de 30 núcleos. Un ejemplo de una combinación es de 10 máquinas virtuales A1 y 20 máquinas virtuales D1.  

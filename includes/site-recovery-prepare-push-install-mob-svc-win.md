@@ -1,15 +1,10 @@
 ---
-author: rayne-wiselman
-ms.service: site-recovery
-ms.topic: include
-ms.date: 10/26/2018
-ms.author: raynew
 ms.openlocfilehash: ffc9b09c72ef1bf5180a0d626908d09b6fdd41ca
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "58116063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122800"
 ---
 ### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Preparación de una instalación de inserción en un equipo Windows
 
@@ -18,7 +13,7 @@ ms.locfileid: "58116063"
 
    > [!NOTE]
    > Si no utiliza una cuenta de dominio, deshabilite el control de acceso de usuarios remotos en el equipo local. Para deshabilitar el control de acceso de usuarios remotos, bajo la clave del registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, agregue un nuevo valor DWORD: **LocalAccountTokenFilterPolicy**. Establezca el valor en **1**. Para hacerlo en un símbolo del sistema, ejecute el siguiente comando:  
-   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+   > `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >
 1. En el Firewall de Windows del equipo que se desea proteger, seleccione **Permitir una aplicación o una característica a través de Firewall**. Habilite **Compartir archivos e impresoras** e **Instrumental de administración de Windows (WMI)**. En el caso de los equipos que pertenecen a un dominio, el firewall se puede configurar mediante un objeto de directiva de grupo (GPO).
@@ -36,3 +31,5 @@ ms.locfileid: "58116063"
     d. Agregue la cuenta que creó.
 
     e. Especifique las credenciales que utiliza al habilitar la replicación en un equipo.
+<!--Update_Description: wording update-->
+<!--ms.date: 09/17/2018-->

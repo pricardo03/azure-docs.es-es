@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
 ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313607"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463028"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para Azure
 
@@ -103,7 +103,7 @@ Abra el sitio web de SAP LaMa y navegue hasta la infraestructura. Vaya a la pest
 * Contraseña: clave o contraseña de la entidad de servicio.
 * Dirección URL: mantenga el valor predeterminado https://management.azure.com/.
 * Intervalo de supervisión (segundos): debe ser al menos 300.
-* Identificador de suscripción: Id. de suscripción a Azure
+* Identificador de suscripción: Identificador de suscripción de Azure
 * Identificador del inquilino de Azure Active Directory: el identificador del inquilino de Active Directory.
 * Host de proxy: nombre de host del proxy si SAP LaMa necesita un proxy para conectarse a Internet.
 * Puerto de proxy: el puerto TCP del proxy.
@@ -237,7 +237,7 @@ Antes de iniciar SAP Software Provisioning Manager (SWPM), debe montar la direcc
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![ Windows][Logo_Windows]  Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -277,7 +277,7 @@ Antes de iniciar SAP Software Provisioning Manager (SWPM), debe montar la direcc
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![ Windows][Logo_Windows]  Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -345,7 +345,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 
 Use *as1-di-0* para *PAS Instance Host Name* (Nombre de host de la instancia de PAS) del cuadro de diálogo *Primary Application Server Instance* (Instancia principal del servidor de aplicaciones).
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 ### <a name="errors-and-warnings-during-discover"></a>Errores y advertencias durante la detección
 

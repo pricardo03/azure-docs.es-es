@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.openlocfilehash: eac6a27c3bcf64462a9f3d9a57da6df736f30c78
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883282"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61386229"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solución de supervisión de VMware (en desuso) en Azure Monitor
 
@@ -104,7 +104,7 @@ En la tabla siguiente se muestran ejemplos de campos de datos recopilados por la
 | SyslogMessage_s |Datos de syslog |
 | UserName_s |Usuario que creó o eliminó la máquina virtual |
 | VMName_s |Nombre de la máquina virtual |
-| Equipo |Equipo host |
+| Computer |Equipo host |
 | TimeGenerated |Hora en la que se generaron los datos |
 | DataCenter_s |Centro de datos de VMware |
 | StorageLatency_s |Latencia de almacenamiento (ms) |
@@ -170,7 +170,7 @@ Después de crear las consultas, recomendamos utilizarlas para saber cuando se p
 La solución utiliza el mecanismo de reenvío nativo de syslog del host ESXi. No necesita otro software de Microsoft en el host ESXi para capturar los registros. El impacto en su entorno debería ser mínimo. Sin embargo, debe configurar el reenvío de syslog, que es la funcionalidad ESXi.
 
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>¿Hay que reiniciar el host ESXi?
- No. Este proceso no requiere reiniciar. A veces, vSphere no actualiza correctamente syslog. En tal caso, inicie sesión en el host ESXi y vuelva a cargar syslog. De nuevo, no necesita reiniciar el host, así que este proceso no afecta al rendimiento de su entorno.
+No. Este proceso no requiere reiniciar. A veces, vSphere no actualiza correctamente syslog. En tal caso, inicie sesión en el host ESXi y vuelva a cargar syslog. De nuevo, no necesita reiniciar el host, así que este proceso no afecta al rendimiento de su entorno.
 
 ### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>¿Puedo aumentar o disminuir el volumen de datos de registro enviados a Log Analytics?
 Sí, puede. Puede usar la configuración de nivel de registro del host ESXi en vSphere. La recopilación de registros se basa en el nivel *info*. Por lo tanto, si desea auditar la eliminación o creación de máquinas virtuales, debe mantener el nivel *info* en Hostd. Para obtener más información, consulte la [base de conocimientos de VMware](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).

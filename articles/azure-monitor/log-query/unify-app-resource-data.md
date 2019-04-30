@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61424658"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificación de varios recursos de Application Insights de Azure Monitor 
 En este artículo se describe cómo consultar y ver todos los datos de registro de aplicación de Application Insights en un mismo lugar, incluso cuando están en diferentes suscripciones de Azure, como un reemplazo para Application Insights Connector en desuso. El número de recursos de Application Insights que se pueden incluir en una sola consulta se limita a 100.  
@@ -104,7 +104,7 @@ En la tabla siguiente se muestran las diferencias de esquema entre Log Analytics
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
-| AvailabilityMessage | Mensaje |
+| AvailabilityMessage | message |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | id |
 | AvailabilityTestName | Nombre |
@@ -112,7 +112,7 @@ En la tabla siguiente se muestran las diferencias de esquema entre Log Analytics
 | Browser | client_browser |
 | City | client_city |
 | ClientIP | client_IP |
-| Equipo | cloud_RoleInstance | 
+| Computer | cloud_RoleInstance | 
 | País | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
@@ -121,7 +121,7 @@ En la tabla siguiente se muestran las diferencias de esquema entre Log Analytics
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | Mensaje | 
+| ExceptionMessage | message | 
 | ExceptionType | Tipo |
 | OperationID | operation_id |
 | nombreOperación | operation_Name | 

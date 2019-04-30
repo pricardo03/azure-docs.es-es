@@ -18,11 +18,11 @@ ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60651772"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -222,7 +222,7 @@ Para más información sobre los límites del equilibrador de carga, consulte la
 
 Ya ha configurado un clúster de WSFC que se utiliza para una instancia de ASCS/SCS de SAP con un **recurso compartido de archivos**, tal y como se muestra en este diagrama.
 
-![Ilustración 1: Instancia de SAP ASCS/SCS y SOFS implementados en dos clústeres][sap-ha-guide-figure-8007]
+![Figura 1: Instancia de SAP ASCS/SCS y SOFS implementados en dos clústeres][sap-ha-guide-figure-8007]
 
 _**Ilustración 1:** Instancia de SAP ASCS/SCS y SOFS implementados en dos clústeres_
 

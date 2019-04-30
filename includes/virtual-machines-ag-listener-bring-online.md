@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097748"
 ---
 1. En el Administrador de clústeres de conmutación por error, expanda **Roles** y, a continuación, resalte el grupo de disponibilidad.  
 
@@ -22,11 +23,11 @@ ms.locfileid: "50227198"
 5. Haga clic con el botón derecho en el nombre del agente de escucha y luego haga clic en **Poner en línea**.
 
 6. Una vez que el agente de escucha está en línea, en la pestaña **Recursos**, haga clic con el botón derecho en el grupo de disponibilidad y haga clic en **Propiedades**.
-   
+
     ![Configurar el recurso del grupo de disponibilidad](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678772.gif)
 
 7. Cree una dependencia en el recurso del nombre del agente de escucha (no en el nombre de los recursos de dirección IP) y, a continuación, haga clic en **Aceptar**.
-   
+
     ![Agregar dependencias en el nombre del agente de escucha](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678773.gif)
 
 8. Abra SQL Server Management Studio y conéctese a la réplica principal.
@@ -38,3 +39,4 @@ ms.locfileid: "50227198"
 
 11. En el cuadro de texto **Puerto**, especifique el número del puerto del agente de escucha del grupo de disponibilidad mediante el parámetro $EndpointPort usado anteriormente (en este tutorial, el valor predeterminado era 1433) y, después, haga clic en **Aceptar**.
 
+<!-- Update_Description: update meta properties -->

@@ -11,18 +11,18 @@ ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474709"
 ---
 # <a name="sql-data-warehouse-workload-importance-preview"></a>Importancia de carga de trabajo de SQL Data Warehouse (versión preliminar)
 
 En este artículo se explica cómo importancia de la carga de trabajo puede influir en el orden de ejecución para las solicitudes de SQL Data Warehouse.
 
 > [!Note]
-> Clasificación de la carga de trabajo está disponible para vista previa en SQL Data Warehouse Gen2. Clasificación de la administración de cargas de trabajo y la importancia de vista previa es para las compilaciones con una fecha de lanzamiento de 9 de abril de 2019 o posterior.  Los usuarios deben evitar usar compilaciones anteriores a esta fecha para pruebas de carga de trabajo administración.  Para determinar si la compilación es capaz de administración de cargas de trabajo, ejecutar select @@version cuando se conecta a la instancia de SQL Data Warehouse.
+> La versión preliminar de la clasificación de la carga de trabajo está disponible en SQL Data Warehouse Gen2. La versión preliminar de la importancia y la clasificación de la carga de trabajo es para las compilaciones publicadas a partir del 9 de abril de 2019.  Los usuarios deben evitar usar compilaciones anteriores a esta fecha para realizar pruebas de administración de cargas de trabajo.  Para determinar si la compilación es capaz de administrar cargas de trabajo, ejecute la selección @@version cuando esté conectado a la instancia de SQL Data Warehouse.
 
 ## <a name="importance"></a>importancia
 

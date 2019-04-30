@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca4d5912d75dd7b33737f61737a209284b7a5a47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76d8bb816bdf229d13a49fa61337899a8bf29ecd
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338553"
+ms.locfileid: "62098293"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimiento de conmutación por error de recuperación ante desastres
 
@@ -35,34 +35,20 @@ Hay dos casos que se deben tener en cuenta cuando se realiza la conmutación por
 >[!NOTE]
 >Los siguientes pasos se deben ejecutar en la unidad de HANA (instancia grande), que representa la unidad de recuperación ante desastres. 
  
-Para restaurar a las instantáneas de almacenamiento replicado más recientes, siga estos pasos: 
+Para restaurar las instantáneas de almacenamiento replicado más recientes, realice los pasos, como se muestra en la sección **'Realizar recuperación ante desastres conmutación por error completa - azure_hana_dr_failover'** del documento [herramientas de instantáneas de Microsoft para SAP HANA en Azure ](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
-1. Apague la instancia ajena a producción de HANA en la unidad de recuperación ante desastres de HANA (instancias grandes) que está ejecutando. Eso se debe a que hay instalada previamente una instancia de producción de HANA inactiva.
-1. Asegúrese de que no hay ningún proceso de SAP HANA en ejecución. Utilice el siguiente comando para esta comprobación: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. La salida debería mostrarle el proceso **hdbdaemon** en estado detenido y ningún otro proceso de HANA en ejecución o iniciado.
-1. En la unidad de HANA (instancias grandes) correspondiente al sitio de recuperación ante desastres, ejecute el script *azure_hana_dr_failover.pl*. El script solicita la restauración de un SID de SAP HANA. Cuando se le solicite, escriba un SID (o el único) de SAP HANA que se haya replicado y que se mantiene en el archivo *HANABackupCustomerDetails.txt* de la unidad de HANA (instancias grandes) en el sitio de recuperación ante desastres. 
+Si desea tener varias instancias de SAP HANA conmutación por error, deberá ejecutar el comando azure_hana_dr_failover varias veces. Cuando se solicite, escriba el SID de SAP HANA que desea conmutar por error y restaurar. 
 
-      Si desea conmutar por error varias instancias de SAP HANA, debe ejecutar el script varias veces. Cuando se solicite, escriba el SID de SAP HANA que desea conmutar por error y restaurar. Al finalizar, el script muestra una lista de puntos de montaje de los volúmenes que se agregan a la unidad de HANA (instancias grandes). Esta lista incluye también los volúmenes de recuperación ante desastres restaurados.
 
-1. Monte los volúmenes de recuperación ante desastres restaurados mediante comandos del sistema operativo Linux en la unidad de HANA (instancias grandes) del sitio de recuperación ante desastres. 
-1. Inicie la instancia de producción de SAP HANA inactiva.
-1. Si eligió copiar registros de la copia de seguridad del registro de transacciones para reducir el tiempo de RPO, debe combinar dichas copias de seguridad del registro de transacciones en el directorio /hana/logbackups de recuperación ante desastres que se acaba de montar. No sobrescriba copias de seguridad existentes. Copie las copias de seguridad más recientes que no se hayan replicado con la última replicación de una instantánea de almacenamiento.
-1. También puede restaurar archivos individuales de las instantáneas que se han replicado en el volumen /hana/shared/PRD en la región de Azure de recuperación ante desastres. 
-
-También puede probar la conmutación por error de recuperación ante desastres sin que afecte a la relación de replicación real. Para llevar a cabo una conmutación por error de prueba, siga los pasos anteriores 1 y 2 y, después, vaya al paso 3.
+También puede probar la conmutación por error de recuperación ante desastres sin que afecte a la relación de replicación real. Para realizar una conmutación por error de prueba, siga los pasos descritos en **'Realizar una prueba de conmutación por error de recuperación ante desastres - azure_hana_test_dr_failover'** del documento [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
 >[!IMPORTANT]
->*No* ejecute transacciones de producción en la instancia que ha creado en el sitio de recuperación ante desastres a través del proceso de **prueba de una conmutación por error** con el script que se ha introducido en el paso 3. Ese comando crea un conjunto de volúmenes que no tienen relación con el sitio principal. Como consecuencia, *no* se puede realizar una sincronización al sitio principal. 
+>Hacer *no* ejecutar las transacciones de producción en la instancia que creó en el sitio de recuperación ante desastres a través del proceso de **probar una conmutación por error**. Azure_hana_test_dr_failover de ese comando crea un conjunto de volúmenes que no tienen relación con el sitio primario. Como consecuencia, *no* se puede realizar una sincronización al sitio principal. 
 
-Paso 3 para la prueba de conmutación por error:
+Si desea poder probar varias instancias de SAP HANA, debe ejecutar el script varias veces. Cuando se solicite, escriba en el SID de SAP HANA de la instancia cuya conmutación por error desea probar. 
 
-En la unidad de HANA (instancias grandes) correspondiente al sitio de recuperación ante desastres, ejecute el script **azure_hana_test_dr_failover.pl**. Este script *no* detiene la relación de replicación entre el sitio principal y el de recuperación ante desastres. En su lugar, está clonando los volúmenes de almacenamiento de recuperación ante desastres. Cuando el proceso de clonación se realice correctamente, los volúmenes clonados se restauran al estado de la instantánea más reciente y, a continuación, se monta en la unidad de recuperación ante desastres. El script solicita la restauración de un SID de SAP HANA. Escriba un SID de SAP HANA que se haya replicado y que se mantenga en el archivo *HANABackupCustomerDetails.txt* de la unidad de instancia grande de HANA en el sitio de recuperación ante desastres. 
-
-Si desea poder probar varias instancias de SAP HANA, debe ejecutar el script varias veces. Cuando se solicite, escriba en el SID de SAP HANA de la instancia cuya conmutación por error desea probar. Al finalizar, el script muestra una lista de los puntos de montaje de los volúmenes que se agregan a la unidad de HANA (instancias grandes). Esta lista incluye también los volúmenes de recuperación ante desastres clonados.
-
-Diríjase al paso 4.
-
-   >[!NOTE]
-   >Este procedimiento es válido si necesita conmutar por error al sitio de recuperación ante desastres para recuperar algunos datos que se eliminaron hace horas y necesita que los volúmenes de recuperación ante desastres se configuren a una instantánea anterior. 
+>[!NOTE]
+>Si necesita conmutar por error en el sitio de recuperación ante desastres para recuperar algunos datos que se eliminaron hace horas y necesita los volúmenes de recuperación ante desastres se configuren a una instantánea anterior, este procedimiento se aplica. 
 
 1. Apague la instancia ajena a producción de HANA en la unidad de recuperación ante desastres de HANA (instancias grandes) que está ejecutando. Eso se debe a que hay instalada previamente una instancia de producción de HANA inactiva.
 1. Asegúrese de que no hay ningún proceso de SAP HANA en ejecución. Utilice el siguiente comando para esta comprobación: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. El resultado debería mostrar el proceso **hdbdaemon** en estado detenido y ningún otro proceso de HANA en ejecución o iniciado.
@@ -121,34 +107,8 @@ Esta es la secuencia de pasos a seguir:
 
 ## <a name="monitor-disaster-recovery-replication"></a>Supervisión de la replicación de recuperación ante desastres
 
-Puede supervisar el estado del progreso de la replicación de almacenamiento ejecutando el script `azure_hana_replication_status.pl`. Para que funcione como cabría esperar, este script se debe ejecutar desde una unidad que ejecute en la ubicación de recuperación ante desastres. El script funciona, independientemente de si la replicación está activa o no. El script se puede ejecutar para cada unidad de instancia grande de HANA del inquilino en la ubicación de recuperación ante desastres. No se puede usar para obtener detalles sobre el volumen de arranque.
+Puede supervisar el estado del progreso de la replicación de almacenamiento ejecutando el script `azure_hana_replication_status`. Este comando se debe ejecutar desde una unidad que se ejecutan en la ubicación de recuperación ante desastres que funcione según lo previsto. El comando funciona independientemente de si la replicación está activa. El comando se puede ejecutar para cada unidad de instancia grande de HANA del inquilino en la ubicación de recuperación ante desastres. No se puede usar para obtener detalles sobre el volumen de arranque. Para obtener más información del comando y su salida **'Get - estado de la replicación de recuperación ante desastres azure_hana_replication_status'** del documento [herramientas de instantáneas de Microsoft para SAP HANA en Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
-Llame al script con este comando:
-```
-./azure_hana_replication_status.pl
-```
 
-La salida se desglosa por volumen en las secciones siguientes:  
-
-- Estado del vínculo
-- Actividad de replicación actual
-- Instantánea replicada más reciente 
-- Tamaño de la instantánea más reciente
-- Tiempo de retardo actual entre instantáneas (entre la última replicación de instantánea completada y el instante actual)
-
-El estado del vínculo se muestra como **Activo**, salvo que el vínculo entre las ubicaciones esté inactivo o que haya un evento de conmutación por error en curso. La actividad de replicación controla si algún dato se está replicando actualmente o si está inactivo, o si hay alguna otra actividad actualmente en el vínculo. La última instantánea replicada solo debe aparecer como `snapmirror…`. Luego se muestra el tamaño de la última instantánea. Por último, se muestra el tiempo de retardo. El tiempo de retardo representa el tiempo que transcurre desde la replicación programada hasta que finaliza la replicación. Un tiempo de retardo puede ser más de una hora para la replicación de datos, en especial si se trata de la replicación inicial, incluso si se inició la replicación. El tiempo de retardo sigue aumentando hasta que finalice la replicación en curso.
-
-Este es un ejemplo de la salida:
-
-```
-hana_data_hm3_mnt00002_t020_dp
--------------------------------------------------
-Link Status: Broken-Off
-Current Replication Activity: Idle
-Latest Snapshot Replicated: snapmirror.c169b434-75c0-11e6-9903-00a098a13ceb_2154095454.2017-04-21_051515
-Size of Latest Snapshot Replicated: 244KB
-Current Lag Time between snapshots: -   ***Less than 90 minutes is acceptable***
-```
-
-**Pasos siguientes**
-- Consulte [Supervisión y solución de problemas en el lado de HANA](hana-monitor-troubleshoot.md).
+## <a name="next-steps"></a>Pasos siguientes
+- Consulte [supervisión y solución de problemas del lado HANA](hana-monitor-troubleshoot.md).

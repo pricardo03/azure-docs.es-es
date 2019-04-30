@@ -10,11 +10,11 @@ ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149706"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61306568"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -223,7 +223,7 @@ Para crear una nueva implementación de actualizaciones, seleccione **Programar 
 
 | Propiedad | Descripción |
 | --- | --- |
-| Name |Nombre único para identificar la implementación de actualizaciones. |
+| NOMBRE |Nombre único para identificar la implementación de actualizaciones. |
 |Sistema operativo| Linux o Windows|
 | Para actualizar los grupos |Para máquinas de Azure, defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de máquinas virtuales de Azure para incluir en la implementación. </br></br>Para las máquinas que no son de Azure, seleccione una búsqueda para seleccionar un grupo de máquinas que no son de Azure debe incluir en la implementación existente. </br></br>Para más información, consulte los [grupos dinámicos](automation-update-management.md#using-dynamic-groups).|
 | Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md) |

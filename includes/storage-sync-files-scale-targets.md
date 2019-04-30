@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: dfba8db87dab12f856fbd97d578321477e9f92b5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 19c570be71583a2933a39780ba948edeb9f68498
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129107"
 ---
 | Recurso | Destino | Límite máximo |
 |----------|--------------|------------|
@@ -26,7 +26,7 @@ ms.locfileid: "57554089"
 | Tamaño de punto de conexión | 4 TiB | Sin  |
 | Objetos del sistema de archivos (archivos y directorios) por grupo de sincronización | 25 millones de objetos | Sin  |
 | Número máximo de objetos del sistema de archivos (archivos y directorios) en un directorio | 1 millón de objetos | Sí |
-| Tamaño máximo del descriptor de seguridad de (archivos y directorios) del objeto | 4 KiB | Sí |
+| Tamaño máximo del descriptor de seguridad de (archivos y directorios) del objeto | 64 KiB | Sí |
 | Tamaño de archivo | 100 GiB | Sin  |
 | Tamaño mínimo de un archivo que se va a organizar en niveles | 64 KiB | Sí |
 | Sesiones sincronizadas simultáneas | Agente de V4 y versiones posteriores: El límite varía en función de los recursos del sistema disponibles. <BR> Agente V3: Dos sesiones de ActiveSync por procesador o un máximo de ocho sesiones de ActiveSync por servidor. | Sí

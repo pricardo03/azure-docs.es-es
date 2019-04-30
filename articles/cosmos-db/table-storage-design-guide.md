@@ -9,11 +9,11 @@ author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
 ms.openlocfilehash: 84749332c5b7ab5fec2905c0fc36d89863adc3d2
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960227"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60579650"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Storage: Diseño de tablas escalables y eficaces
 
@@ -200,12 +200,12 @@ Los ejemplos siguientes asumen que Table service almacena las entidades employee
 
 | *Nombre de la columna* | *Tipo de datos* |
 | --- | --- |
-| **PartitionKey** (nombre de departamento) |string |
-| **RowKey** (Identificación de empleado) |string |
-| **Nombre** |string |
-| **Apellidos** |string |
+| **PartitionKey** (nombre de departamento) |String |
+| **RowKey** (Identificación de empleado) |String |
+| **Nombre** |String |
+| **Apellidos** |String |
 | **Edad** |Entero |
-| **EmailAddress** |string |
+| **EmailAddress** |String |
 
 En la sección anterior Descripción general de Table service se describen algunas de las características clave de Azure Table service que tienen influencia directa en el diseño de la consulta. Estos dan como resultado las siguientes directrices generales para diseñar consultas de Table service. La sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST de Table service. Para más información, consulte [Entidades de consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 

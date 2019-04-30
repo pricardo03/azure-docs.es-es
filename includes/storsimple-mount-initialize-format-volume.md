@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 592131bf6cca4c4c3c827de23742e8d52bcb4d1c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61488931"
 ---
 #### <a name="to-mount-initialize-and-format-a-volume"></a>Para montar, inicializar y formatear un volumen
 1. Inicie el iniciador iSCSI de Microsoft.

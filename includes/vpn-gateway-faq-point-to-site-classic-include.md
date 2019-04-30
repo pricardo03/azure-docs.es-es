@@ -2,18 +2,19 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/06/2018
-ms.author: cherylmc
+origin.date: 12/06/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 0c0ad6ea5a687d066c78533b45a7f531561661bf
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323847"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845595"
 ---
 Estas preguntas más frecuentes corresponden a las conexiones P2S que usan el modelo de implementación clásica.
 
@@ -31,7 +32,7 @@ Se admiten los siguientes sistemas operativos de cliente:
 
 ### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>¿Puedo usar cualquier cliente de software VPN de punto a sitio que admita SSTP?
 
- No. La compatibilidad se limita solo a las versiones de sistema operativo de Windows enumeradas.
+No. La compatibilidad se limita solo a las versiones de sistema operativo de Windows enumeradas.
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>¿Cuántos puntos de conexión de cliente VPN pueden existir en mi configuración punto a sitio?
 
@@ -51,7 +52,7 @@ De forma predeterminada, el equipo cliente no volverá a establecer la conexión
 
 ### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>¿Admite la configuración de punto a sitio la reconexión automática y el DDNS en los clientes VPN?
 
- No. Las VPN de punto a sitio no admiten la reconexión automática y el DDNS.
+No. Las VPN de punto a sitio no admiten la reconexión automática y el DDNS.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-for-the-same-virtual-network"></a>¿Puedo tener configuraciones de sitio a sitio y de punto a sitio en la misma red virtual?
 

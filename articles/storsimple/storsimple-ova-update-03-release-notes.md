@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
 ms.openlocfilehash: 635b5f4edf5d403c569b4957540fc105997b3e8e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117680"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629278"
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>Notas de la versión de Update 0.3 de la matriz virtual de StorSimple
 ## <a name="overview"></a>Información general
@@ -40,7 +40,7 @@ Update 0.3 es principalmente una compilación de corrección de errores. En esta
 ## <a name="issues-fixed-in-the-update-03"></a>Problemas corregidos en Update 0.3
 En la tabla siguiente se proporciona un resumen de los problemas corregidos en esta versión.
 
-|  No. | Característica | Problema |
+| No. | Característica | Problema |
 | --- | --- | --- |
 | 1 |Copias de seguridad |Se ha detectado un problema en la versión anterior en el que las copias de seguridad no podían completarse. Si ha aparecido este problema, el trabajo de copia de seguridad no se realizará y se generará una alerta crítica en el servicio StorSimple Manager para enviar una notificación al usuario. Este problema no afectó a los datos en los recursos compartidos o el acceso a los datos. La causa raíz se identificó y corrigió en esta versión. <br></br>  La corrección no se aplica con carácter retroactivo a recursos compartidos que ya están experimentando este problema. Los clientes que detecten este problema deben aplicar primero Update 0.3 y después póngase en contacto con el soporte técnico de Microsoft para realizar una copia de seguridad completa del sistema para corregir el problema. En lugar de ponerse en contacto con el soporte técnico de Microsoft, los clientes también pueden restaurar a un nuevo recurso compartido desde una copia de seguridad correcta para los recursos compartidos afectados. |
 | 2 |iSCSI |Se ha detectado un problema en la versión anterior, donde los volúmenes desaparecían cuando se copiaban datos en un volumen en la matriz virtual de StorSimple. Este problema se ha corregido en esta versión. <br></br>  Las revisiones surten efecto solo en volúmenes creados recientemente. Las revisiones no se aplican con carácter retroactivo a volúmenes que ya están experimentando este problema. Se recomienda a los clientes poner los volúmenes afectados en línea mediante el Portal de Azure clásico, realizar una copia de seguridad de estos volúmenes y luego restaurar estos volúmenes a nuevos volúmenes. |
@@ -48,7 +48,7 @@ En la tabla siguiente se proporciona un resumen de los problemas corregidos en e
 ## <a name="known-issues-in-the-update-03"></a>Problemas conocidos de Update 0.3
 En la tabla siguiente se muestra un resumen de los problemas conocidos de la matriz virtual de StorSimple y se incluyen los problemas notificados en la versiones anteriores. 
 
-|  No. | Característica | Problema | Soluciones alternativas o comentarios |
+| No. | Característica | Problema | Soluciones alternativas o comentarios |
 | --- | --- | --- | --- |
 | **1.** |Actualizaciones |Los dispositivos virtuales que se crean en la versión preliminar no se pueden actualizar a una versión que sea compatible con la versión de disponibilidad general. |Debe conmutar por error estos dispositivos virtuales a la versión de disponibilidad general mediante un flujo de trabajo de recuperación ante desastres (DR). |
 | **2.** |Disco de datos aprovisionado |Una vez se haya aprovisionado un disco de datos de un determinado tamaño y cree el correspondiente dispositivo virtual de StorSimple, no debe expandir o reducir el disco de datos. Si intenta hacer esto, se perderán todos los datos de las capas locales del dispositivo. | |

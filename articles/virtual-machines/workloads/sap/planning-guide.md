@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4798f8c3e262129135a6677ccf90dc0fb3be7f2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62732424"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -451,7 +451,11 @@ Consulte [este artículo][vpn-gateway-create-site-to-site-rm-powershell] para ob
 >
 > La razón de estas restricciones es el requisito de una red de alto rendimiento de latencia muy baja en un sistema SAP, especialmente entre las instancias de aplicación y la capa DBMS de un sistema SAP.
 >
->
+> Debe efectuarse un planeamiento especial de los sistemas y regiones cuando se usan varios sistemas SAP que están muy integrados. Asegúrese de que implementar estos sistemas más cerca posible entre sí para minimizar la latencia de red. Ejemplos de sistemas SAP muy integrados son:
+> * Leer datos de los sistemas OLTP de SAP como ERP, CRM o SRM; de SAP BW o
+> * SLT SAP que se usa para replicar datos entre varios sistemas SPA o incluso entre SAP y los sistemas que no sean de SAP; o
+> * SAP S/4 conectado a un sistema SAP ERP; etcetera.
+
 
 ### <a name="supported-os-and-database-releases"></a>Versiones de bases de datos y sistemas operativos compatibles
 * Este artículo incluye una lista del software de servidor de Microsoft compatible: <https://support.microsoft.com/kb/2721672>.
