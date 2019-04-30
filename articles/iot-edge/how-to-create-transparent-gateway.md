@@ -279,7 +279,7 @@ Los dispositivos de IoT Edge estándares no necesitan conectividad entrante a la
 
 Para que un escenario de puerta de enlace trabajar, al menos uno de los protocolos admitidos del centro de IoT Edge debe estar abierto para el tráfico entrante desde dispositivos de nivel inferior. Los protocolos compatibles son MQTT, AMQP y HTTPS.
 
-| Port | Protocolo |
+| Port | Protocol |
 | ---- | -------- |
 | 8883 | MQTT |
 | 5671 | AMQP |

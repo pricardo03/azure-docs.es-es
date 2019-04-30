@@ -107,13 +107,13 @@ Un artefacto de la plantilla de Resource Manager con el Id. de _myTemplateArtifa
 
 Algunos ejemplos de recuperación de datos desde el _myTemplateArtifact_ ejemplo son:
 
-| Expression | Type | Value |
+| Expression | Type | Valor |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").output.myArray]` | Matriz | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").output.myArray[0]]` | String | "primero" |
-|`[artifacts("myTemplateArtifact").output.myString]` | String | "Mi valor de cadena" |
+|`[artifacts("myTemplateArtifact").output.myArray[0]]` | string | "primero" |
+|`[artifacts("myTemplateArtifact").output.myString]` | string | "Mi valor de cadena" |
 |`[artifacts("myTemplateArtifact").output.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").output.myObject.myProperty]` | String | "Mi value" |
+|`[artifacts("myTemplateArtifact").output.myObject.myProperty]` | string | "Mi value" |
 |`[artifacts("myTemplateArtifact").output.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
