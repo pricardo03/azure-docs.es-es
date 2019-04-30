@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 73c9fa82cefc192b237e3880c1e745b2412a323a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990668"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61235277"
 ---
 # <a name="monitor-job-progress-using-net"></a>Supervisión del progreso de los trabajos mediante .NET 
 > [!div class="op_single_selector"]

@@ -3,18 +3,18 @@ title: 'Declarar módulos y rutas con manifiestos de implementación: Azure IoT 
 description: Obtenga información sobre cómo un manifiesto de implementación declara qué módulos se deben implementar, cómo implementarlos y cómo crear rutas de mensajes entre ellos.
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 03/28/2019
+ms.author: v-yiso
+origin.date: 03/28/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ms.openlocfilehash: f4a562cab445398986c1b8f379f6cb90ca843342
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758083"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363216"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Obtenga información sobre cómo implementar módulos y establecer rutas en IoT Edge
 
@@ -276,3 +276,9 @@ El ejemplo siguiente muestra el aspecto de un documento de manifiesto de impleme
 * Para obtener una lista completa de propiedades que pueden o deben incluirse en $edgeAgent y $edgeHub, consulte [propiedades del agente de IoT Edge y centro de IoT Edge](module-edgeagent-edgehub.md).
 
 * Ahora que sabe cómo se usan los módulos de IoT Hub, [descubra los requisitos y las herramientas para desarrollar módulos de IoT Edge](module-development.md).
+
+[lnk-deploy]: module-deployment-monitoring.md
+[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
+[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
+[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
+[lnk-module-dev]: module-development.md

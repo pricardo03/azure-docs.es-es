@@ -6,18 +6,22 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791900"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733555"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 
 Este artículo responden preguntas comunes acerca de seguridad de bases de datos de SQL Server que se ejecutan en máquinas virtuales (VM) y que usan el [Azure Backup](backup-overview.md) service.
+
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>¿Puedo usar Azure backup para VM de IaaS, así como en SQL Server en el mismo equipo?
+Sí, puede tener la copia de seguridad de máquina virtual y copia de seguridad SQL en la misma máquina virtual. En este caso, se desencadena internamente copia de seguridad completa de solo copia en la máquina virtual no truncar los registros.
+
 
 ## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>¿La solución vuelva a intentar o reparación automática de las copias de seguridad?
 
@@ -45,7 +49,8 @@ Sí. Puede limitar la velocidad a la que se ejecuta la directiva de copia de seg
   `{"DefaultBackupTasksThreshold": 5}`
 
 3. Guarde los cambios y cierre el archivo.
-4. En la instancia de SQL Server, abra el **Administrador de tareas**. Reinicie el servicio **AzureWLBackupCoordinatorSvc**.
+4. En la instancia de SQL Server, abra el **Administrador de tareas**. Reinicie el servicio **AzureWLBackupCoordinatorSvc**.<br/> <br/>
+ Aunque este método ayuda a si la aplicación está consumiendo muchos recursos, SQL Server [del regulador de recursos](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) es una forma más genérica para especificar límites en la cantidad de CPU, E/S física y memoria que las solicitudes entrantes de aplicación pueden Utilice.
 
 > [!NOTE]
 > En la experiencia del usuario todavía puede avanzar y programar tantas copias de seguridad en un momento dado, pero procesarán en una ventana deslizante, digamos, 5, según el ejemplo anterior.
@@ -54,13 +59,13 @@ Sí. Puede limitar la velocidad a la que se ejecuta la directiva de copia de seg
 Según las limitaciones de SQL, puede ejecutar copia de seguridad copia solo completa en la réplica secundaria; Sin embargo, no se permite la copia de seguridad completa.
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>¿Puedo proteger a los grupos disponibilidad locales?
- No. Azure Backup protege las bases de datos de SQL Server que se ejecuta en Azure. Si un grupo de disponibilidad (AG) se distribuye entre las máquinas locales y Azure, se puede proteger el grupo de disponibilidad solo si la réplica principal se ejecuta en Azure. Además, Azure Backup protege solo los nodos que se ejecutan en la misma región de Azure como almacén de Recovery Services.
+No. Azure Backup protege las bases de datos de SQL Server que se ejecuta en Azure. Si un grupo de disponibilidad (AG) se distribuye entre las máquinas locales y Azure, se puede proteger el grupo de disponibilidad solo si la réplica principal se ejecuta en Azure. Además, Azure Backup protege solo los nodos que se ejecutan en la misma región de Azure como almacén de Recovery Services.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>¿Puedo proteger grupos de disponibilidad entre regiones?
 El almacén de copia de seguridad de Azure Recovery Services puede detectar y proteger todos los nodos que se encuentran en la misma región que el almacén. Si el grupo de disponibilidad SQL Server Always On abarca varias regiones de Azure, configure la copia de seguridad de la región que tiene el nodo principal. Azure Backup puede detectar todas las bases de datos del grupo de disponibilidad en función de sus preferencias con respecto a la copia de seguridad y protegerlas. Cuando no se cumplen sus preferencias de copia de seguridad, las copias de seguridad y obtener la alerta de error.
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>¿Generan alertas los trabajos de copia de seguridad que se han realizado correctamente?
- No. Los trabajos de copia de seguridad correctos no generan alertas. Las alertas se envían únicamente para los trabajos de copia de seguridad con errores. Se documenta el comportamiento detallado para alertas portal [aquí](backup-azure-monitoring-built-in-monitor.md). Sin embargo, en caso de que está interesado tienen alertas incluso para trabajos realizados correctamente, puede usar [supervisión con Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+No. Los trabajos de copia de seguridad correctos no generan alertas. Las alertas se envían únicamente para los trabajos de copia de seguridad con errores. Se documenta el comportamiento detallado para alertas portal [aquí](backup-azure-monitoring-built-in-monitor.md). Sin embargo, en caso de que está interesado tienen alertas incluso para trabajos realizados correctamente, puede usar [supervisión con Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>¿Puedo ver los trabajos de copia de seguridad programados en el menú trabajos de copia de seguridad?
 El **trabajo de copia de seguridad** menú, solo se mostrarán ad-hoc trabajos de copia de seguridad. Para el trabajo programado, utilice [supervisión con Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).

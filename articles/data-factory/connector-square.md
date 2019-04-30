@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317738"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462367"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar datos de Square con Azure Data Factory (versión preliminar)
 
@@ -44,7 +44,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Square:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Square** | Sí |
+| type | La propiedad type debe establecerse en: **Square** | Sí |
 | host | Dirección URL de la instancia de Square. (es decir, mystore.mysquare.com)  | Sí |
 | clientId | Id. de cliente asociado a la aplicación Square.  | Sí |
 | clientSecret | Secreto de cliente asociado a la aplicación Square. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
@@ -81,7 +81,7 @@ Para copiar datos de Square, establezca la propiedad type del conjunto de datos 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **SquareObject** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **SquareObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -110,7 +110,7 @@ Si va a copiar datos de Square, establezca el tipo de origen de la actividad de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SquareSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **SquareSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Business"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
