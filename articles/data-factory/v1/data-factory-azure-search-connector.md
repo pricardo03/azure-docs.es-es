@@ -68,7 +68,7 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
-| Tipo | La propiedad type debe establecerse en **AzureSearchIndex**.| Sí |
+| type | La propiedad type debe establecerse en **AzureSearchIndex**.| Sí |
 | indexName | Nombre del índice de Azure Search. Data Factory no crea el índice. El índice debe existir en Azure Search. | Sí |
 
 
