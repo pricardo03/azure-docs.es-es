@@ -10,7 +10,7 @@ ms.date: 04/22/2019
 ms.author: raynew
 ms.openlocfilehash: c64148fbc0432bd25c5b02fb20b3e44134c1d9d5
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60502115"
@@ -243,7 +243,7 @@ Proxy no autenticado | Compatible | [Más]. (site-recovery-azure-to-azure-networ
 Proxy autenticado | No compatible | Si la máquina virtual usa un proxy autenticado para la conectividad saliente, no se puede replicar mediante Azure Site Recovery.    
 Conexión de sitio a sitio VPN en el entorno local<br/><br/>(con o sin ExpressRoute)| Compatible | Asegúrese de que los UDR y NSG estén configurados de manera que el tráfico de Site Recovery no se dirija al entorno local. [Más información](site-recovery-azure-to-azure-networking-guidance.md)    
 Conexión de red virtual a red virtual | Compatible | [Más información](site-recovery-azure-to-azure-networking-guidance.md)  
-Puntos de conexión del servicio de redes virtuales | Compatible | Si está restringiendo el acceso de red virtual a las cuentas de almacenamiento, asegúrese de que los servicios de Microsoft de confianza pueden acceder a la cuenta de almacenamiento.
+Puntos de conexión de servicio de red virtual | Compatible | Si está restringiendo el acceso de red virtual a las cuentas de almacenamiento, asegúrese de que los servicios de Microsoft de confianza pueden acceder a la cuenta de almacenamiento.
 Redes aceleradas | Compatible | Se deben habilitar las redes aceleradas en una máquina virtual de origen. [Más información](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 

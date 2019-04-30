@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 63906e65acb8e8aa836e6e59714bddca24ea21eb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630212"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Serie StorSimple 8000: una solución de almacenamiento en la nube híbrida
 ## <a name="overview"></a>Información general
@@ -205,7 +205,7 @@ La desduplicación disminuye la cantidad general de datos almacenados al elimina
 ## <a name="storsimple-workload-summary"></a>Resumen de la carga de trabajo de StorSimple
 A continuación, presentamos un resumen de las cargas de trabajo de StorSimple.
 
-| Escenario | Carga de trabajo | Compatible | Restricciones | Versión |
+| Escenario | Carga de trabajo | Compatible | Restricciones | `Version` |
 | --- | --- | --- | --- | --- |
 | Colaboración |Uso compartido de archivos |Sí | |Todas las versiones |
 | Colaboración |Uso compartido de archivos distribuidos |Sí | |Todas las versiones |
@@ -232,7 +232,7 @@ Las cargas de trabajo siguientes no son compatibles con dispositivos de la serie
 
 A continuación, se muestra una lista de los componentes de infraestructura compatibles con StorSimple.
 
-| Escenario | Carga de trabajo | Compatible | Restricciones | Versión |
+| Escenario | Carga de trabajo | Compatible | Restricciones | `Version` |
 | --- | --- | --- | --- | --- |
 | General |ExpressRoute |Sí | |Todas las versiones |
 | General |DataCore FC |Sí* |Compatible con DataCore SANsymphony |Todas las versiones |

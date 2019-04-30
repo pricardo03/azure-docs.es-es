@@ -2,20 +2,16 @@
 title: 'Protección del acceso a un almacén de claves: Azure Key Vault | Microsoft Docs'
 description: Administración de los permisos de acceso para Azure Key Vault, claves y secretos. Trata sobre el modelo de autenticación y autorización de Key Vault y cómo proteger un almacén de claves.
 services: key-vault
-documentationcenter: ''
 author: amitbapat
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
 ms.openlocfilehash: 20c58647b8a6283de4ca2b90c830fe54db927095
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60304955"
@@ -89,7 +85,7 @@ Puede conceder acceso a un usuario, grupo o aplicación para ejecutar operacione
 > Las directivas de acceso de Key Vault se aplican en el nivel de almacén. Cuando se concede a un usuario permiso para crear y eliminar claves, este puede realizar dichas operaciones en todas las claves de dicho almacén de claves.
 >
 
-Puede restringir el acceso al plano de datos mediante el uso de [puntos de conexión de servicio de red virtual para Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). Puede configurar [firewalls y reglas de red virtual](key-vault-network-security.md) para una capa adicional de seguridad.
+Puede restringir el acceso al plano de datos mediante el uso de [puntos de conexión de servicio de red virtual para Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). Puede configurar [firewall y reglas de red virtual](key-vault-network-security.md) para una capa adicional de seguridad.
 
 ## <a name="example"></a>Ejemplo
 

@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: 394b242ab46da7821f77e8d008836753f4e358e2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227479"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097732"
 ---
 En este paso, se crea manualmente el agente de escucha del grupo de disponibilidad en el Administrador de clústeres de conmutación por error y SQL Server Management Studio.
 
@@ -20,7 +21,7 @@ En este paso, se crea manualmente el agente de escucha del grupo de disponibilid
 3. Amplía el nombre del clúster y haz clic en **Funciones**.
 
 4. En el panel **Roles**, haga clic con el botón derecho en el nombre del grupo de disponibilidad y después seleccione **Agregar recurso** > **Punto de acceso cliente**.
-   
+
     ![Agregar un punto de acceso cliente para el grupo de disponibilidad](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
 
 5. En la casilla **Nombre**, cree un nombre para este nuevo agente de escucha, después haga clic en **Siguiente** dos veces y haga clic en **Finalizar**.  
@@ -30,17 +31,17 @@ En este paso, se crea manualmente el agente de escucha del grupo de disponibilid
     Se muestra el recurso de dirección IP de cada red del clúster existente. Si se trata de una solución solo de Azure, se muestra un único recurso de dirección IP.
 
 7. Realice cualquiera de las siguientes acciones:
-   
+
    * Para configurar una solución híbrida:
-     
-        a. Haga clic con el botón derecho en el recurso de dirección IP que corresponda a la subred local y, a continuación, seleccione **Propiedades**. Anote el nombre de dirección IP y el nombre de red.
-   
+
+         a. Haga clic con el botón derecho en el recurso de dirección IP que corresponda a la subred local y, a continuación, seleccione **Propiedades**. Anote el nombre de dirección IP y el nombre de red.
+
         b. Seleccione **Dirección IP estática**, asigne una dirección IP no utilizada y, a continuación, haga clic en **Aceptar**.
- 
+
    * Para configurar una solución solo de Azure:
 
-        a. Haga clic en el recurso de dirección IP que corresponde a la subred de Azure y, a continuación, seleccione **Propiedades**.
-       
+         a. Haga clic en el recurso de dirección IP que corresponde a la subred de Azure y, a continuación, seleccione **Propiedades**.
+
        > [!NOTE]
        > Si el agente de escucha no se puede poner en línea debido a una dirección IP en conflicto seleccionada por DHCP, puede configurar una dirección IP estática válida en esta ventana de propiedades.
        > 
@@ -48,4 +49,5 @@ En este paso, se crea manualmente el agente de escucha del grupo de disponibilid
 
        b. En la misma ventana de propiedades de la **Dirección IP**, cambia el valor de **Nombre de dirección IP**.  
         Este nombre se utilizará en la variable $IPResourceName del script de PowerShell. Si la solución abarca varias redes virtuales de Azure, repita este paso para cada recurso de dirección IP.
-
+        
+<!-- Update_Description: update meta properties -->
