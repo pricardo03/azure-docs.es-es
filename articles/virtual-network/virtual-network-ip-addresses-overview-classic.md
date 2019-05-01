@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
 ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652174"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742129"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de direcciones IP y métodos de asignación (clásico) en Azure
 Puede asignar direcciones IP a los recursos de Azure para que se comuniquen con otros recursos de Azure, la red local e Internet. Hay dos tipos de direcciones IP que puede usar en Azure: públicas y privadas.
@@ -51,7 +51,7 @@ Cuando se necesita asignar una dirección IP pública a un recurso de Azure, se 
 ### <a name="dns-hostname-resolution"></a>Resolución de nombres de host DNS
 Cuando se crea un servicio en la nube o una máquina virtual de IaaS, debe proporcionar un nombre DNS del servicio en la nube que sea único en todos los recursos de Azure. Esto crea una asignación en los servidores DNS administrados de Azure para *dnsname*.cloudapp.net a la dirección IP pública del recurso. Por ejemplo, cuando crea un servicio en la nube con un nombre DNS del servicio en la nube de **Contoso**, el nombre de dominio completo (FQDN) **contoso.cloudapp.net** se resolverá en una dirección IP pública (VIP) del servicio en la nube. Puede usar este FQDN para crear un registro CNAME de dominio personalizado que apunte a la dirección IP pública en Azure.
 
-### <a name="cloud-services"></a>Servicios en la nube
+### <a name="cloud-services"></a>Cloud Services
 Un servicio en la nube siempre tiene una dirección IP pública a la que se conoce como una dirección IP virtual (VIP). Puede crear extremos en un servicio en la nube para asociar puertos diferentes en la dirección VIP a puertos internos en las máquinas virtuales e instancias de rol en el servicio en la nube. 
 
 Un servicio en la nube puede contener varias máquinas virtuales IaaS o instancias de rol PaaS, expuestas todas a través de la misma VIP de servicio en la nube. También puede asignar [varias direcciones VIP a un servicio en la nube](../load-balancer/load-balancer-multivip.md), que permite escenarios con varias VIP como un entorno multiempresa con sitios web basados en SSL.

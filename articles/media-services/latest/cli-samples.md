@@ -13,11 +13,11 @@ ms.custom: seodec18
 ms.date: 03/11/2019
 ms.author: juliako
 ms.openlocfilehash: dee7f831562dc1f4b2478d13b204aab1d8455e1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840637"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733188"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Ejemplos de la CLI de Azure para Azure Media Services
 
@@ -47,4 +47,4 @@ En esta tabla se incluyen vínculos a ejemplos de la CLI de Azure para Azure Med
 ## <a name="see-also"></a>Vea también
 
 - [CLI de Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
-- [Inicio rápido: Archivos de vídeo Stream - CLI](stream-files-cli-quickstart.md)
+- [Inicio rápido: Hacer streaming de archivos de vídeo: CLI](stream-files-cli-quickstart.md)

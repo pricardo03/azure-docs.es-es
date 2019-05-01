@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
 ms.openlocfilehash: 73664359b206a9e149ebac6859df24a1263cd313
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731691"
 ---
 # <a name="security-groups"></a>Grupos de seguridad
 <a name="network-security-groups"></a>
@@ -32,10 +32,10 @@ Un grupo de seguridad de red puede contener cero reglas, o tantas reglas como de
 
 |Propiedad  |Explicación  |
 |---------|---------|
-|Name|Un nombre único dentro del grupo de seguridad de red.|
+|NOMBRE|Un nombre único dentro del grupo de seguridad de red.|
 |Prioridad | Un número entre 100 y 4096. Las reglas se procesan en orden de prioridad. Se procesan primero las reglas con los números más bajos ya que estos tienen más prioridad. Si el tráfico coincide con una regla, se detiene el procesamiento. Como resultado, las reglas con menor prioridad (números más altos) que tengan los mismos atributos que las reglas con una prioridad mayor no se procesarán.|
 |Origen o destino| Cualquiera, una dirección IP individual, un bloque CIDR de enrutamiento entre dominios sin clases (10.0.0.0/24, por ejemplo), una [etiqueta de servicio](#service-tags) o un [grupo de seguridad de aplicaciones](#application-security-groups). Si especifica una dirección para un recurso de Azure, especifique la dirección IP privada asignada al recurso. Las grupos de seguridad de red se procesan después de que Azure traduzca una dirección IP pública a una dirección IP privada para el tráfico de entrada y antes de que Azure traduzca una dirección IP privada a una dirección IP pública para el tráfico de salida. Más información sobre [direcciones IP](virtual-network-ip-addresses-overview-arm.md) de Azure. La especificación de un intervalo, una etiqueta de servicio o grupo de seguridad de aplicaciones le permite crear menos reglas de seguridad. La posibilidad de especificar varias direcciones IP individuales e intervalos (no puede especificar varias etiquetas de servicio ni grupos de aplicaciones) en una regla se conoce como [reglas de seguridad aumentada](#augmented-security-rules). Las reglas de seguridad aumentada solo se pueden generar en los grupos de seguridad de red creados mediante el modelo de implementación de Resource Manager. No puede especificar varias direcciones IP ni intervalos de ellas en grupos de seguridad de red creados mediante el modelo de implementación clásica. Más información acerca de los [modelos de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Protocolo     | TCP, UDP o cualquiera que incluya (entre otros) TCP, UDP e ICMP. No se puede especificar ICMP de forma independiente; si necesita usarlo, utilice la opción Cualquiera. |
+|Protocol     | TCP, UDP o cualquiera que incluya (entre otros) TCP, UDP e ICMP. No se puede especificar ICMP de forma independiente; si necesita usarlo, utilice la opción Cualquiera. |
 |Dirección| Si la regla se aplica al tráfico entrante o al saliente.|
 |Intervalo de puertos     |Puede especificar un puerto individual o un intervalo de puertos. Por ejemplo, puede especificar 80 o 10000-10005. La especificación de intervalos le permite crear menos reglas de seguridad. Las reglas de seguridad aumentada solo se pueden generar en los grupos de seguridad de red creados mediante el modelo de implementación de Resource Manager. No puede especificar varios puertos ni intervalos de ellos en la misma regla de seguridad de los grupos de seguridad de red creados mediante el modelo de implementación clásica.   |
 |.     | Permitir o denegar        |
@@ -96,19 +96,19 @@ Azure crea las siguientes reglas predeterminadas en cada grupo de seguridad de r
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioridad|Origen|Puertos de origen|Destino|Puertos de destino|Protocolo|Access|
+|Prioridad|Origen|Puertos de origen|Destino|Puertos de destino|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Todo|PERMITIR|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioridad|Origen|Puertos de origen|Destino|Puertos de destino|Protocolo|Access|
+|Prioridad|Origen|Puertos de origen|Destino|Puertos de destino|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Todo|PERMITIR|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Prioridad|Origen|Puertos de origen|Destino|Puertos de destino|Protocolo|Access|
+|Prioridad|Origen|Puertos de origen|Destino|Puertos de destino|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Todo|Denegar|
 
@@ -116,19 +116,19 @@ Azure crea las siguientes reglas predeterminadas en cada grupo de seguridad de r
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocolo | Access |
+|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Todo | PERMITIR |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocolo | Access |
+|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Todo | PERMITIR |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocolo | Access |
+|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Todo | Denegar |
 
@@ -148,7 +148,7 @@ En la imagen anterior, *NIC1* y *NIC2* son miembros del grupo de seguridad de ap
 
 Esta regla es necesaria para permitir el tráfico de Internet a los servidores web. Dado que la regla de seguridad predeterminada [DenyAllInbound](#denyallinbound) deniega el tráfico entrante desde Internet, no es necesaria ninguna regla adicional para los grupos de seguridad de aplicaciones *AsgLogic* y *AsgDb*.
 
-|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocolo | Access |
+|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | PERMITIR |
 
@@ -156,7 +156,7 @@ Esta regla es necesaria para permitir el tráfico de Internet a los servidores w
 
 Dado que la regla de seguridad predeterminada [AllowVNetInBound](#allowvnetinbound) permite todas las comunicaciones entre los recursos de la misma red virtual, se necesita esta regla para denegar el tráfico desde todos los recursos.
 
-|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocolo | Access |
+|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Todo | Denegar |
 
@@ -164,7 +164,7 @@ Dado que la regla de seguridad predeterminada [AllowVNetInBound](#allowvnetinbou
 
 Esta regla permite el tráfico desde el grupo de seguridad de aplicaciones *AsgLogic* al grupo de seguridad de aplicaciones *AsgDb*. La prioridad de esta regla es mayor que la prioridad de la regla *Deny-Database-All*. Como resultado, esta regla se procesa antes que la regla *Deny-Database-All*, por lo que se permite el tráfico del grupo de seguridad de aplicaciones *AsgLogic*, mientras que el resto del tráfico es bloqueado.
 
-|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocolo | Access |
+|Prioridad|Origen|Puertos de origen| Destino | Puertos de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | PERMITIR |
 

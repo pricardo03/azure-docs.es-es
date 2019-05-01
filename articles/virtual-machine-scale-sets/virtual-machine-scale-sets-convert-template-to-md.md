@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
 ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339882"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731744"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Conversión de una plantilla de conjunto de escalado en una plantilla de conjunto de escalado de un disco administrado
 
@@ -124,7 +124,7 @@ En la diferencia siguiente, se puede ver que lo que se quita depende de la cláu
 No hay ninguna propiedad explícita en la configuración del conjunto de escalado relativa al uso de un disco administrado o no administrado. El conjunto de escalado sabe cuál se debe usar gracias a las propiedades del perfil de almacenamiento. Por consiguiente, al modificar la plantilla es importante asegurarse de que el perfil de almacenamiento del conjunto de escalado contiene las propiedades correctas.
 
 
-## <a name="data-disks"></a>Discos de datos
+## <a name="data-disks"></a>Discos de datos.
 
 Con los cambios anteriores, el conjunto de escalado utiliza discos administrados para el disco del SO, pero ¿y para los discos de datos? Para agregar discos de datos, agregue la propiedad "dataDisks" en "storageProfile" al mismo nivel que "osDisk". El valor de la propiedad es una lista JSON de objetos, cada uno de los cuales tiene propiedades "lun" (que deben ser únicas para cada disco de datos de una máquina virtual), "createOption" ("empty" es actualmente la única opción admitida) y "diskSizeGB" (el tamaño del disco en gigabytes; debe ser mayor que 0 y menor que 1024) como en el ejemplo siguiente:
 

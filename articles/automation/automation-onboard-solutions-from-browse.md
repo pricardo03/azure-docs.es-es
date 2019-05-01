@@ -10,11 +10,11 @@ ms.topic: article
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578499"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739040"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitación de las soluciones Update Management, Change Tracking e Inventory en varias máquinas virtuales
 
@@ -59,7 +59,7 @@ Si el área de trabajo seleccionada no está vinculada a una cuenta de Automatio
 
 ![No hay área de trabajo](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Al habilitar las soluciones, solo en determinadas regiones se admiten para vincular un área de trabajo de Log Analytics y una cuenta de Automation.
+Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
 
 En la tabla siguiente se muestran las asignaciones admitidas:
 

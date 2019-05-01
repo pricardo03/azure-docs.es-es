@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: raynew
 ms.openlocfilehash: d96b898c8f72abd7e4eb3522ae046e9fc926f387
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60809328"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar copia de seguridad al crear una máquina virtual de Azure
 
@@ -20,11 +20,11 @@ Use el servicio Azure Backup para realizar copias de seguridad de máquinas virt
 
 Este artículo describe cómo habilitar la copia de seguridad al crear una máquina virtual (VM) en el portal de Azure.  
 
-## <a name="before-you-start"></a>Antes de empezar
+## <a name="before-you-start"></a>Antes de comenzar
 
 - [Comprobar](backup-support-matrix-iaas.md#supported-backup-actions) qué sistemas operativos se admiten si habilita la copia de seguridad cuando se crea una máquina virtual.
 
-## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Si aún no se ha registrado en su cuenta, inicie sesión en el [portal Azure](https://portal.azure.com).
  

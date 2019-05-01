@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.subservice: autoscale
+ms.component: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474836"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787502"
 ---
 # <a name="understand-autoscale-settings"></a>Información acerca de la configuración de escalado automático
 La configuración de escalado automático le ayuda a asegurarse de que tiene la cantidad adecuada de recursos en ejecución para administrar las fluctuaciones de carga de la aplicación. Puede configurar los valores de escalado automático para que se desencadene en función de métricas que indican carga o rendimiento, o para que se desencadene en una fecha y hora programadas. En este artículo se proporciona una visión detallada de la estructura de una configuración de escalado automático. El artículo comienza con el esquema y las propiedades de una configuración y luego le guía por los diferentes tipos de perfil que se pueden configurar. Por último, en el artículo se describe cómo la característica de escalado automático de Azure evalúa qué perfil ejecutar en un momento dado.
@@ -94,8 +94,8 @@ Para ilustrar este esquema, se utiliza la siguiente configuración de escalado a
 | Configuración | ID | Identificador de recurso de la configuración de escalado automático. La configuración de escalado automático es un recurso de Azure Resource Manager. |
 | Configuración | Nombre | Nombre de la configuración de escalado automático. |
 | Configuración | location | Ubicación de la configuración de escalado automático. Esta ubicación puede ser diferente de la ubicación de los recursos que se van a escalar. |
-| propiedades | targetResourceUri | Identificador de recurso del recurso que se va a escalar. Solo puede tener una configuración de escalado automático por recurso. |
-| propiedades | perfiles | Una configuración de escalado automático se compone de uno o varios perfiles. Cada vez que se ejecuta el motor de escalado automático, ejecuta un perfil. |
+| properties | targetResourceUri | Identificador de recurso del recurso que se va a escalar. Solo puede tener una configuración de escalado automático por recurso. |
+| properties | perfiles | Una configuración de escalado automático se compone de uno o varios perfiles. Cada vez que se ejecuta el motor de escalado automático, ejecuta un perfil. |
 | Perfil | Nombre | Nombre del perfil. Puede elegir cualquier nombre que le ayude a identificar el perfil. |
 | Perfil | Capacity.maximum | La capacidad máxima permitida. Garantiza que, al ejecutar este perfil, el escalado automático no escalará el recurso por encima de este número. |
 | Perfil | Capacity.minimum | La capacidad mínima permitida. Garantiza que, al ejecutar este perfil, el escalado automático no escalará el recurso por debajo de este número. |
@@ -310,4 +310,3 @@ Para más información sobre el escalado automático, consulte los siguientes re
 * [Procedimientos recomendados de escalado automático en Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API de REST de escalado automático](https://msdn.microsoft.com/library/dn931953.aspx)
-

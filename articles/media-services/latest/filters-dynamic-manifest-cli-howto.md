@@ -15,11 +15,11 @@ ms.date: 11/26/2018
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 2ba3de32f4ec3b9f6faf1d5a51da9c1c91e4a2e4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099313"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732440"
 ---
 # <a name="creating-filters-with-cli"></a>Creación de filtros con la CLI 
 
@@ -99,6 +99,6 @@ Vea también la sección de [ejemplos de JSON para los filtros](https://docs.mic
 
 [Streaming de vídeos](stream-files-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [CLI de Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

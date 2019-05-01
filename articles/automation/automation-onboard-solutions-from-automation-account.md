@@ -10,11 +10,11 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578448"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739256"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
@@ -32,7 +32,7 @@ Elija el área de trabajo de Log Analytics y cuenta de Automation y haga clic en
 
 ![Incorporación de la solución Inventory](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Al habilitar las soluciones, solo en determinadas regiones se admiten para vincular un área de trabajo de Log Analytics y una cuenta de Automation.
+Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
 
 En la tabla siguiente se muestran las asignaciones admitidas:
 
@@ -82,7 +82,7 @@ Cuando un equipo se agrega a las soluciones Update Management o Change Tracking 
 
 Vaya a la cuenta de Automation y seleccione **Búsquedas guardadas** en **General**. Las dos búsquedas guardadas utilizadas por estas soluciones se pueden ver en la tabla siguiente:
 
-|NOMBRE     |Categoría  |Alias  |
+|NOMBRE     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Actualizaciones        | Updates__MicrosoftDefaultComputerGroup         |

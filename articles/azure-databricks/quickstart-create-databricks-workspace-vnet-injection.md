@@ -9,11 +9,11 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 295b64b10f9f78ca6224d60fb84c6d1310aaa42e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288207"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770728"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Inicio rápido: Crear un área de trabajo de Azure Databricks en una red Virtual
 
@@ -37,7 +37,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
     |Espacio de direcciones|10.1.0.0/16|Intervalo de direcciones de la red virtual en notación CIDR.|
     |Subscription|\<Su suscripción\>|Seleccione la suscripción de Azure que quiera usar.|
     |Grupos de recursos|databricks-Guía de inicio rápido|Seleccione **crear nuevo** y escriba un nombre de grupo de recursos nuevo para su cuenta.|
-    |Ubicación|\<Seleccione la región más cercana a los usuarios\>|Seleccione una ubicación geográfica donde puede hospedar su red virtual. Use la ubicación más cercana a los usuarios.|
+    |Location|\<Seleccione la región más cercana a los usuarios\>|Seleccione una ubicación geográfica donde puede hospedar su red virtual. Use la ubicación más cercana a los usuarios.|
     |Nombre de subred|default|Seleccione un nombre para la subred predeterminada en la red virtual.|
     |Intervalo de direcciones de subred|10.1.0.0/24|El intervalo de direcciones de la subred en notación CIDR. Debe estar incluido en el espacio de direcciones de la red virtual. No se puede editar el intervalo de direcciones de una subred que está en uso.|
 
@@ -58,7 +58,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
     |Nombre del área de trabajo|databricks-Guía de inicio rápido|Seleccione un nombre para el área de trabajo de Azure Databricks.|
     |Subscription|\<Su suscripción\>|Seleccione la suscripción de Azure que quiera usar.|
     |Grupos de recursos|databricks-Guía de inicio rápido|Seleccione el mismo grupo de recursos que usó para la red virtual.|
-    |Ubicación|\<Seleccione la región más cercana a los usuarios\>|Elija la misma ubicación que la red virtual.|
+    |Location|\<Seleccione la región más cercana a los usuarios\>|Elija la misma ubicación que la red virtual.|
     |Nivel de precios|Elegir entre estándar o Premium.|Para obtener más información sobre los planes de tarifa, consulte el [página de precios de Databricks](https://azure.microsoft.com/pricing/details/databricks/).|
     |Implementar el área de trabajo de Azure Databricks en la red Virtual|Sí|Esta configuración le permite implementar un área de trabajo de Azure Databricks en la red virtual.|
     |Virtual Network|databricks-Guía de inicio rápido|Seleccione la red virtual que creó en la sección anterior.|

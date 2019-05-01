@@ -10,11 +10,11 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: f61c7a939902ee5d02b2e9ba896c7555968f9d0d
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547992"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60769522"
 ---
 # <a name="add-a-shape-to-a-map"></a>Adición de una forma a un mapa
 
@@ -178,4 +178,4 @@ En el mapa, un objeto [PolygonLayer](https://docs.microsoft.com/javascript/api/a
 Para más ejemplos de código para agregar a los mapas, consulte los siguientes artículos:
 
 > [!div class="nextstepaction"]
-> [Usar expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md)
+> [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md)

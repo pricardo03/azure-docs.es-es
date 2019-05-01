@@ -2,18 +2,19 @@
 title: Espacio de nombres jerárquico de Azure Data Lake Storage Gen2
 description: Describe el concepto del espacio de nombres jerárquico de Azure Data Lake Storage Gen2.
 services: storage
-author: jamesbak
+author: normesta
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: jamesbak
+ms.author: normesta
+ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: b423d40884dd9132312e79ba0cbff00b8771b207
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60747547"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Espacio de nombres jerárquico de Azure Data Lake Storage Gen2
 

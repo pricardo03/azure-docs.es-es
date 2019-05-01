@@ -2,24 +2,18 @@
 title: Hoja de ruta de Azure Marketplace y AppSource | Azure
 description: Una guía básica de lo que sucede en Marketplace.
 services: Azure, Marketplace, Compute
-documentationcenter: ''
 author: qianw211
 manager: MaggiePucciEvans
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: BrianLevenson
 ms.openlocfilehash: 4a1586d965a51a3c655346994274159b99ab0a9a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010641"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764275"
 ---
 # <a name="azure-marketplace-and-appsource-roadmap"></a>Hoja de ruta de Azure Marketplace y AppSource
 

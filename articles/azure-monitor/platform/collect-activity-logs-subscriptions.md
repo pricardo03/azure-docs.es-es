@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: magoedte
 ms.openlocfilehash: 76a789bd4f9167344fcc240e3f3fdbf3a00aa5a3
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742687"
 ---
 # <a name="collect-azure-activity-logs-into-a-log-analytics-workspace-across-subscriptions-in-different-azure-active-directory-tenants"></a>Recopilación de registros de actividad de Azure en un área de trabajo de Log Analytics entre suscripciones en distintos inquilinos de Azure Active Directory
 
@@ -131,7 +131,7 @@ Para obtener el nombre y la cadena de conexión del centro de eventos, siga los 
    | NOMBRE           | Nombre único para la aplicación lógica. |
    | Subscription   | Seleccione la suscripción de Azure que contendrá la aplicación lógica. |
    | Grupo de recursos | Seleccione un grupo de recursos de Azure existente o cree uno para la aplicación lógica. |
-   | Ubicación       | Seleccione la región del centro de datos para implementar la aplicación lógica. |
+   | Location       | Seleccione la región del centro de datos para implementar la aplicación lógica. |
    | Log Analytics  | Seleccione si desea registrar el estado de cada ejecución de la aplicación lógica en un área de trabajo de Log Analytics.  |
 
     
@@ -305,7 +305,7 @@ El [recopilador de datos de Azure Log Analytics](https://docs.microsoft.com/conn
    |---------------|---------------------------|--------------|
    |Cuerpo de la solicitud JSON  | **Salida** de la acción **Redactar** | Recupera los registros del cuerpo de la acción Redactar. |
    | Nombre de registro personalizado | AzureActivity | Nombre de la tabla de registro personalizado para crear en el área de trabajo de Log Analytics para almacenar los datos importados. |
-   | Time-generated-field | Twitter en tiempo | No seleccione el campo JSON para **time**, solo debe escribir la palabra time. Si selecciona el campo JSON, el diseñador coloca la acción **Enviar datos** en un bucle *For Each*, que no es lo que desea. |
+   | Time-generated-field | time | No seleccione el campo JSON para **time**, solo debe escribir la palabra time. Si selecciona el campo JSON, el diseñador coloca la acción **Enviar datos** en un bucle *For Each*, que no es lo que desea. |
 
 
 

@@ -16,11 +16,11 @@ ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216584"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832884"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
@@ -72,7 +72,7 @@ En la página **Estado de Key Vault**, haga clic en **Repositorio de Key Vault**
 |-|-|
 | NOMBRE | Un nombre único que consta de caracteres alfanuméricos y guiones. |
 | Grupos de recursos | Como recomendación, seleccione el mismo grupo de recursos que tiene el certificado de App Service. |
-| Ubicación | Seleccione la misma ubicación que tiene la aplicación de App Service. |
+| Location | Seleccione la misma ubicación que tiene la aplicación de App Service. |
 | Plan de tarifa | Para obtener información, consulte [Detalles de precios de Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Directivas de acceso| Define las aplicaciones y el acceso permitido a los recursos del almacén. Puede configurarlo más adelante si sigue los pasos descritos en [Concesión de permisos para que muchas aplicaciones tengan acceso al almacén de claves](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Acceso de redes virtuales | Restringe el acceso de almacén a determinadas redes virtuales de Azure. Puede configurarlo más adelante si sigue los pasos descritos en [Configurar firewalls y redes virtuales de Azure Key Vault](../key-vault/key-vault-network-security.md) |

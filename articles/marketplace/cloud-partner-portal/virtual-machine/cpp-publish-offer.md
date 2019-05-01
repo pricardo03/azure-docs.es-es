@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 3cf6a3d9bcb9470fd3a6bd4fef964c1966adfa1a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844262"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Publicación de una oferta de máquina virtual
 
@@ -27,7 +27,8 @@ ms.locfileid: "49639355"
 
 ![Pasos de publicación para la oferta de máquina virtual](./media/publishvm_013.png)
 
-En la tabla siguiente se describen estos pasos y se proporciona una estimación del tiempo máximo para su finalización: <!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
+En la tabla siguiente se describen estos pasos y se proporciona una estimación del tiempo máximo para su finalización:
+<!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
 |  **Paso de publicación**           | **Hora**    | **Descripción**                                                            |

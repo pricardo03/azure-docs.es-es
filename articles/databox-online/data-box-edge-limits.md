@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
 ms.openlocfilehash: a687398032adffe5e787ef1469abe0b2627a38fe
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60758031"
 ---
 # <a name="azure-data-box-edge-limits"></a>Límites de borde del cuadro de datos de Azure
 
@@ -27,7 +27,7 @@ Tenga en cuenta estos límites cuando implemente y use su solución de Microsoft
 
 En la tabla siguiente se describen los límites del dispositivo de Data Box Edge.
 
-| Descripción | Valor |
+| DESCRIPCIÓN | Valor |
 |---|---|
 |No. de archivos por dispositivo |100 millones |
 |No. de recursos compartidos por dispositivo |24 |

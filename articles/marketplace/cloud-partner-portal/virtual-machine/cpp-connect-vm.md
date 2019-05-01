@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: fd68846b9144c3efcc71dec369d64119427758a3
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639349"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744559"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Conectarse a la máquina virtual basada en Azure
 
@@ -29,7 +29,7 @@ En este artículo se explica cómo conectarse a las máquinas virtuales (VM) cre
 
 Para conectarse a la máquina virtual basada en Windows hospedada en Azure, se usa el cliente de escritorio remoto.  La mayoría de las versiones de Windows incluyen compatibilidad de forma nativa con el Protocolo de escritorio remoto (RDP).  En el caso de las demás máquinas, puede encontrar más información sobre los clientes en [Clientes de escritorio remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).  
 
-En el siguiente artículo se detalla cómo usar la compatibilidad integrada del RDP de Windows para conectarse a la máquina virtual: [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella](../../../virtual-machines/windows/connect-logon.md).  
+El siguiente artículo detalla cómo usar la compatibilidad integrada de Windows RDP para conectarse a la máquina virtual: [Cómo conectarse e iniciar sesión en una máquina virtual de Azure ejecutando Windows](../../../virtual-machines/windows/connect-logon.md).  
 
 >[!TIP]
 > Es posible que obtenga advertencias de seguridad durante el proceso, por ejemplo que el archivo .rdp procede de un publicador desconocido o que no se pueden verificar sus credenciales de usuario.  Es seguro hacer caso omiso de estas advertencias.
@@ -54,7 +54,7 @@ Para conectarse a la máquina virtual basada en Linux, necesita un cliente de pr
 7. Haga clic en **Abrir** para abrir un terminal PuTTY.  
 8. Cuando se le pida, escriba el nombre y la contraseña de la cuenta de máquina virtual Linux. 
 
-   Si tiene problemas de conexión, vea la documentación del cliente SSH, por ejemplo el [capítulo 10: mensajes de error habituales](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
+   Si tiene problemas de conexión, consulte la documentación del cliente SSH, por ejemplo [capítulo 10: Mensajes de error comunes](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors).
 
 Para obtener más información, por ejemplo cómo agregar un escritorio a una máquina virtual Linux aprovisionada, vea [Instalación y configuración del escritorio remoto para conectarse a una máquina virtual Linux en Azure](../../../virtual-machines/linux/use-remote-desktop.md).
 

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382945"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777038"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solución Alert Management en Azure Log Analytics
 
@@ -56,7 +56,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 |:--- |:--- |:--- |
 | [Agentes de Windows](agent-windows.md) | Sin  |Los agentes directos de Windows no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Windows. |
 | [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Sin  |Los agentes directos de Linux no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Linux.  Las alertas de Nagios y Zabbix se recopilan desde los servidores que requieren el agente de Linux. |
-| [Grupo de administración de System Center Operations](../../azure-monitor/platform/om-agents.md) |SÍ |Las alertas que se generan en agentes de Operations Manager se entregan al grupo de administración y luego se reenvían a Log Analytics.<br><br>No se requiere ninguna conexión directa entre los agentes de Operations Manager y Log Analytics. Los datos de alerta se reenvían desde el grupo de administración al repositorio de Log Analytics. |
+| [Grupo de administración de System Center Operations](../../azure-monitor/platform/om-agents.md) |Sí |Las alertas que se generan en agentes de Operations Manager se entregan al grupo de administración y luego se reenvían a Log Analytics.<br><br>No se requiere ninguna conexión directa entre los agentes de Operations Manager y Log Analytics. Los datos de alerta se reenvían desde el grupo de administración al repositorio de Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Frecuencia de recopilación
@@ -89,7 +89,7 @@ La solución importa alertas desde System Center Operations Manager y crea un re
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Escriba |*Alerta* |
+| Type |*Alerta* |
 | SourceSystem |*OpsManager* |
 | AlertContext |Detalles del elemento de datos que provocó la alerta generados en formato XML. |
 | AlertDescription |Descripción detallada de la alerta. |

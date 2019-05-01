@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
 ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499886"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754206"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Notas de la versión de disponibilidad de datos cuadro de borde o Azure Data cuadro puerta de enlace General de Azure
 
@@ -40,7 +40,7 @@ Esta versión corresponde a las versiones de software:
 
 En la tabla siguiente proporciona un resumen de los problemas conocidos para la puerta de enlace de datos de cuadro ejecutando la versión.
 
-|  No. | Característica | Problema | Soluciones alternativas o comentarios |
+| No. | Característica | Problema | Soluciones alternativas o comentarios |
 | --- | --- | --- | --- |
 | **1.** |Tipos de archivo | No se admiten los siguientes tipos de archivo: archivos, bloquear los archivos, sockets, canalizaciones, los vínculos simbólicos de caracteres.  |Al copiar estos archivos, se crean archivos de longitud 0 en el recurso compartido NFS. Estos archivos permanecen en estado de error y también se notifican en *error.xml*. <br> Como resultado de los vínculos simbólicos a directorios, estos nunca se marcan como sin conexión. Por este motivo, no puede ver la cruz gris que indica que los directorios están disponibles sin conexión y que todo el contenido asociado se cargó por completo en Azure. |
 | **2.** |Eliminación | Debido a un error en esta versión, si se elimina un recurso compartido NFS, es posible que el recurso compartido no se pueda eliminar. El estado del recurso compartido será *Deleting* (Eliminando).  |Esto solo se produce cuando el recurso compartido usa un nombre de archivo no admitido. |

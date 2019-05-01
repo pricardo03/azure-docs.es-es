@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 5490bdd3934b438a683ce4271fbec20b3d13735d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58114684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770861"
 ---
 Si la máquina virtual de Azure se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una actualización de aplicación con error que impide que la máquina virtual pueda arrancar correctamente. En este artículo se describe cómo utilizar Azure Portal para conectar el disco duro virtual a otra máquina virtual para solucionar errores y, posteriormente, volver a crear la máquina virtual original.
 

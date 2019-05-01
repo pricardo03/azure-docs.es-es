@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: cae657736d78958259c04dee48034f97ac9d3d1c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871235"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60745252"
 ---
 # <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 

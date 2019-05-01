@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889750"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60735793"
 ---
 # <a name="register-in-dev-center"></a>Registro en el Centro para desarrolladores  
 Para ayudar a asegurarse de que no está registrado en una cuenta de explorador personal, abra una nueva sesión de exploración de incógnito de Chrome o de InPrivate en Internet Explorer.  
@@ -187,7 +187,7 @@ La información bancaria y fiscal es obligatoria para todas las ofertas comercia
   > No podrá publicar ofertas Transact sin completar la información fiscal y bancaria de su cuenta del Centro de desarrollo.  Para más información sobre la adición de información de la cuenta, visite la sección [Adición de información bancaria y fiscal](https://docs.microsoft.com/azure/marketplace/register-dev-center).
 
 * **¿Puedo cambiar la cuenta de inicio de sesión de Microsoft del Centro de desarrollo?**
-  >  No. Una vez creado un Centro de desarrollo, no se puede cambiar la cuenta de propietario. Tiene que empezar de nuevo con una cuenta del Centro de desarrollo totalmente nueva con la cuenta de Microsoft que desee.
+  > No. Una vez creado un Centro de desarrollo, no se puede cambiar la cuenta de propietario. Tiene que empezar de nuevo con una cuenta del Centro de desarrollo totalmente nueva con la cuenta de Microsoft que desee.
 
 * **¿Dónde puedo ponerme en contacto con el soporte técnico para problemas relativos al registro en el Centro de desarrollo?**
   Para acceder a soporte técnico, visite la página Soporte técnico para desarrolladores de Windows en [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 

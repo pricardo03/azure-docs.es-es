@@ -2,24 +2,18 @@
 title: Instrucciones de Azure Marketplace y AppSource para el anunciante | Azure
 description: Instrucciones de Azure Marketplace y AppSource para los anunciantes de aplicaciones y servicios
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
 ms.openlocfilehash: a0ab88b1375f5178ca6f41689de8d2f30f8d7808
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728138"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739448"
 ---
 # <a name="guidelines"></a>Directrices  
 

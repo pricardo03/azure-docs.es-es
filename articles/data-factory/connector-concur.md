@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: f57a83fb83152055692e6f614b7958d099b6c70d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561236"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808922"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copiar datos de Concur con Azure Data Factory (versión preliminar)
 
@@ -47,10 +47,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Concur:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Concur** | Sí |
+| type | La propiedad type debe establecerse en: **Concur** | Sí |
 | clientId | Aplicación client_id proporcionada por la administración de aplicaciones de Concur.  | Sí |
-| nombre de usuario | Nombre de usuario que utiliza para acceder al servicio de Concur.  | Sí |
-| contraseña | Contraseña correspondiente al nombre de usuario que ha proporcionado en el campo de nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| username | Nombre de usuario que utiliza para acceder al servicio de Concur.  | Sí |
+| password | Contraseña correspondiente al nombre de usuario que ha proporcionado en el campo de nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
@@ -82,7 +82,7 @@ Para copiar datos de Concur, establezca la propiedad type del conjunto de datos 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **ConcurObject** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **ConcurObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 
@@ -112,7 +112,7 @@ Para copiar datos de Concur, establezca el tipo de origen de la actividad de cop
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **ConcurSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **ConcurSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Opportunities where Id = xxx "`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

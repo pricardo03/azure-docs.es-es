@@ -10,18 +10,23 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7fc0d3a2e29a2aaa06d88f25828ff676d615939d
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: e79e610638b5ff271607da2e8855003707ea5932
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821292"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de la versión del servicio Azure Machine Learning
 
 En este artículo obtendrá información acerca de las versiones del servicio Azure Machine Learning.  Para obtener una descripción completa de cada SDK, consulte los documentos de referencia de:
 + El [**SDK principal de Azure Machine Learning para Python**](https://aka.ms/aml-sdk)
 + El [**SDK de preparación de datos de Azure Machine Learning**](https://aka.ms/data-prep-sdk)
+
+
+## <a name="2019-04-22"></a>2019-04-22
+
+### <a name="azure-machine-learning-sdk-for-python-v1030"></a>Azure Machine Learning SDK for Python v1.0.30
 
 ## <a name="2019-04-17"></a>2019-04-17
 

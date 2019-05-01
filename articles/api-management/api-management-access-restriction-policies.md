@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
 ms.openlocfilehash: acc9f83923c8fdaae98cc55bc6baf62f56f2116b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663152"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60798610"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -541,7 +541,7 @@ En este ejemplo se muestra cómo usar el [validar JWT](api-management-access-res
 | require-scheme                  | El nombre del token de esquema; por ejemplo, "Bearer". Cuando se establece este atributo, la directiva se asegurará de que ese esquema especificado esté presente en el valor del encabezado de la autorización.                                                                                                                                                                                                                                                                                    | Sin                                                                                | N/D                                                                               |
 | require-signed-tokens           | Booleano. Especifica si un token debe estar firmado.                                                                                                                                                                                                                                                                                                                                                                                           | Sin                                                                                | true                                                                              |
 | separator                       | String. Especifica el separador (por ejemplo: ",") que se va a usar para extraer un conjunto de valores de una notificación con varios valores.                                                                                                                                                                                                                                                                                                                                          | Sin                                                                                | N/D                                                                               |
-| URL                             | Dirección URL de punto de conexión de configuración de OpenID desde donde se pueden obtener los metadatos de configuración de OpenID. La respuesta debe ser acorde a las especificaciones definidas en la dirección URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. En Azure Active Directory, utilice la dirección URL `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` y sustituya tenant-name por el nombre del inquilino de directorio, por ejemplo, `contoso.onmicrosoft.com`. | Sí                                                                              | N/D                                                                               |
+| url                             | Dirección URL de punto de conexión de configuración de OpenID desde donde se pueden obtener los metadatos de configuración de OpenID. La respuesta debe ser acorde a las especificaciones definidas en la dirección URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. En Azure Active Directory, utilice la dirección URL `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` y sustituya tenant-name por el nombre del inquilino de directorio, por ejemplo, `contoso.onmicrosoft.com`. | Sí                                                                              | N/D                                                                               |
 output-token-variable-name|String. Nombre de variable de contexto que recibirá el valor del token como un objeto de tipo [ `Jwt` ](api-management-policy-expressions.md) tras la correcta validación de tokens|Sin |N/D
 
 ### <a name="usage"></a>Uso

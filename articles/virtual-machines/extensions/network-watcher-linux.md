@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
 ms.openlocfilehash: 5ed5e791cd6e611218769650115c78afd1869f67
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798783"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743436"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual del agente de Network Watcher para Linux
 
@@ -36,7 +36,7 @@ En este artículo, se especifican las plataformas compatibles y las opciones de 
 
 La extensión del agente de Network Watcher puede configurarse para las siguientes distribuciones de Linux:
 
-| Distribución | Versión |
+| Distribución | `Version` |
 |---|---|
 | Ubuntu | 12 (o posterior) |
 | Debian | 7 y 8 |
