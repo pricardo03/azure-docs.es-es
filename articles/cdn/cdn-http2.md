@@ -1,5 +1,5 @@
 ---
-title: Compatibilidad con HTTP/2 en la red CDN de Azure | Microsoft Docs
+title: Compatibilidad con HTTP/2 en Azure CDN | Microsoft Docs
 description: Aprenda sobre la compatibilidad con HTTP/2 y la red CDN.
 services: cdn
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: b4751320af82a29fb13dc6012c1b197ebc2b1f9b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 2d27cd54486a08e18fe74c852af29d5cf6432023
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764849"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60737081"
 ---
-# <a name="http2-support-in-azure-cdn"></a>Compatibilidad con HTTP/2 en la red CDN de Azure
+# <a name="http2-support-in-azure-cdn"></a>Compatibilidad con HTTP/2 en Azure CDN
 
 HTTP/2 es una revisión principal de HTTP/1.1\. Proporciona un rendimiento web más rápido, tiempo de respuesta reducido y experiencia de usuario mejorada, al tiempo que se mantienen los métodos HTTP conocidos, los códigos de estado y la semántica. Aunque HTTP/2 está diseñado para trabajar con HTTP y HTTPS, muchos exploradores web de cliente solo admiten HTTP/2 sobre TLS.
 
@@ -53,7 +53,7 @@ Todos los exploradores principales han implementado la compatibilidad con HTTP/2
 |Opera| 32|
 |Safari| 9|
 
-## <a name="enabling-http2-support-in-azure-cdn"></a>Habilitación de la compatibilidad con HTTP/2 en la red CDN de Azure
+## <a name="enabling-http2-support-in-azure-cdn"></a>Habilitación de la compatibilidad con HTTP/2 en Azure CDN
 
 Actualmente, la compatibilidad con HTTP/2 está activa para todos los perfiles de Azure CDN. No es necesaria ninguna otra acción por parte de los clientes.
 
@@ -67,4 +67,4 @@ Para más información sobre HTTP/2, consulte los siguientes recursos:
 *   [Preguntas más frecuentes oficiales de HTTP/2](https://http2.github.io/faq/)
 *   [Información de HTTP/2 de Akamai](https://http2.akamai.com/)
 
-Para más información sobre las características disponibles de la red CDN de Azure, consulte la [información general sobre la red CDN de Azure](https://azure.microsoft.com/documentation/articles/cdn-overview/).
+Para más información sobre las características disponibles de Azure CDN, consulte la [información general sobre Azure CDN](https://azure.microsoft.com/documentation/articles/cdn-overview/).

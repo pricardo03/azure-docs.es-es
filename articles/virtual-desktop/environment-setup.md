@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403517"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870326"
 ---
 # <a name="windows-virtual-desktop-preview-environment"></a>Entorno de Windows Vista previa del escritorio Virtual
 
@@ -63,5 +63,5 @@ Para obtener información sobre cómo configurar el inquilino de Escritorio Virt
 
 Para obtener información sobre cómo conectarse a escritorios virtuales de Windows, consulte uno de los siguientes artículos:
 
-- [Conectar con el cliente de escritorio remoto en Windows 7 y Windows 10](connect-windows-7-and-10.md)
-- [Conectar con el cliente web de Windows Vista previa del escritorio Virtual](connect-web.md)
+- [Conexión al cliente de Escritorio remoto en Windows 7 y Windows 10](connect-windows-7-and-10.md)
+- [Conexión al cliente web de la versión preliminar de Windows Virtual Desktop](connect-web.md)

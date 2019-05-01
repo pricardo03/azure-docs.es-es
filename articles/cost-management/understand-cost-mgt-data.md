@@ -5,27 +5,29 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 5c8f70ff76da458fcc1433226a51012fb7ccd18e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 81947baccf723ab759f2dc24df40b81af4502e09
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61004002"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
 Este artículo le ayudará a comprender mejor qué datos se incluyen en Azure Cost Management. En él también se explica con qué frecuencia se procesan, se recopilan, se muestran y se cierran los datos. Cada mes, se le factura el uso que haga de Azure. Sin embargo, el tipo de suscripción de Azure determina cuándo finaliza el mes de facturación. La frecuencia con que Cost Management recibe datos de uso varía en función de diferentes factores. Por ejemplo, cuánto tarda el procesamiento de los datos y cada cuánto transmiten los servicios de Azure el uso al sistema de facturación.
 
+Administración de costos incluye todos los usos y las compras, incluidas las reservas y las ofertas de terceros para las cuentas de contrato Enterprise (EA). Las cuentas de contrato de cliente de Microsoft (MCA) y las suscripciones de pago por uso solo incluyen el uso de servicios de Azure y Marketplace. No se incluyen soporte técnico y otros costos. Los costos se calculan hasta que se genera una factura y no son un factor en créditos.
+
 ## <a name="supported-microsoft-offers"></a>Ofertas de Microsoft compatibles
 
 La siguiente información muestra las [ofertas de Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) compatibles actualmente con Azure Cost Management.  Una oferta de Azure es el tipo de la suscripción a Azure que tiene.
 
-| Categoría  | **Nombre de la oferta** | **Id. de cuota** | **Número de la oferta** |
+| Category  | **Nombre de la oferta** | **Id. de cuota** | **Número de la oferta** |
 | --- | --- | --- | --- |
 | **Azure Alemania** | [Pago por uso de Azure Germany](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
@@ -49,7 +51,7 @@ La siguiente información muestra las [ofertas de Microsoft Azure](https://azure
 
 En la tabla siguiente se muestran las ofertas no compatibles.
 
-| Categoría  | **Nombre de la oferta** | **Id. de cuota** | **Número de la oferta** |
+| Category  | **Nombre de la oferta** | **Id. de cuota** | **Número de la oferta** |
 | --- | --- | --- | --- |
 | **Proveedor de soluciones en la nube (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Proveedor de soluciones en la nube (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
@@ -86,6 +88,7 @@ Las siguientes tablas muestran los datos que se incluyen o no se incluyen en Cos
 |   | Créditos - Para obtener más información, consulte [Explicación de los términos de facturación](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> El uso del servicio de Azure se basa en la reserva y la negociación de los precios.
+
 <sup>2</sup> mercado que ofrece el uso no está disponible para pago por uso, MSDN, y Visual Studio se ofrece en este momento.
 
 **Metadata**
@@ -113,7 +116,7 @@ Suscripciones de pago por uso: si el mes de facturación termina el 15 de mayo, 
 
 ### <a name="rerated-data"></a>Nueva valoración de los datos
 
-Si usa las [API de Cost Management](https://aka.ms/costmgmt/docs), Power BI o Azure Portal para recuperar datos, es posible que los cargos del periodo de facturación actual se vuelvan a valorar y, consecuentemente, cambien, hasta que se cierre la factura.
+Si usa el [API de administración de costos](https://aka.ms/costmgmt/docs), Power BI o Azure portal para recuperar datos, esperar los cargos del período de facturación actual para volver a obtener clasificación y cambie por lo tanto, hasta que se cierre la factura.
 
 ## <a name="usage-data-update-frequency-varies"></a>La frecuencia de actualización de los datos de uso varía.
 

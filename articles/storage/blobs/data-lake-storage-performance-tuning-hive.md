@@ -2,18 +2,19 @@
 title: Guía para la optimización del rendimiento de Hive en Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Guía para la optimización del rendimiento de Hive en Azure Data Lake Storage Gen2
 services: storage
-author: swums
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: stewu
+ms.author: normesta
+ms.reviewer: stewu
 ms.openlocfilehash: 9e5570b937fe97cc9b6ccd9ac804a35ff8e07d6f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883073"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60805549"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Guía para la optimización del rendimiento de Hive en HDInsight y Azure Data Lake Storage Gen2
 

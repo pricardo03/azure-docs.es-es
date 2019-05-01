@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 9a4b99e311a65435595c9cb0455b0411b7c09324
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617689"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883120"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:

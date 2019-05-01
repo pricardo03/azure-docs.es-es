@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
 ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60773373"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -162,12 +162,12 @@ El comportamiento de la aplicación de orquestación de revisiones puede configu
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica la directiva que usará Coordinator Service para instalar las actualizaciones de Windows en todos los nodos del clúster de Service Fabric.<br>                         Los valores permitidos son: <br>                                                           <b>NodeWise</b>. Windows Update se instala en un nodo cada vez. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update se instala en un dominio de actualización cada vez. (Como máximo, todos los nodos que pertenecen a un dominio de actualización son aptos para Windows Update).<br> Consulte en la sección de [preguntas más frecuentes](#frequently-asked-questions) cómo decidir cuál es la mejor directiva para su clúster.
 |LogsDiskQuotaInMB   |long  <br> (Valor predeterminado: 1024)               |Tamaño máximo de los registros de la aplicación de orquestación de revisiones en MB que se pueden almacenar de forma persistente y local en un nodo.
 | WUQuery               | string<br>(Valor predeterminado: "IsInstalled=0")                | Consulta para obtener las actualizaciones de Windows. Para más información, vea [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
-| InstallWindowsOSOnlyUpdates | boolean <br> (valor predeterminado: false)                 | Use esta marca para controlar qué actualizaciones deben descargarse e instalarse. Se permiten los siguientes valores <br>True: instala solo actualizaciones del sistema operativo Windows.<br>False: instala todas las actualizaciones disponibles en la máquina.          |
+| InstallWindowsOSOnlyUpdates | Boolean <br> (valor predeterminado: false)                 | Use esta marca para controlar qué actualizaciones deben descargarse e instalarse. Se permiten los siguientes valores <br>True: instala solo actualizaciones del sistema operativo Windows.<br>False: instala todas las actualizaciones disponibles en la máquina.          |
 | WUOperationTimeOutInMinutes | Int <br>(Valor predeterminado: 90)                   | Especifica el tiempo de espera para cualquier operación de Windows Update (buscar, descargar o instalar). Si la operación no se realiza en el tiempo de espera especificado, se anula.       |
 | WURescheduleCount     | Int <br> (Valor predeterminado: 5)                  | El número máximo de veces que el servicio vuelve a programar la actualización de Windows en caso de error de la operación de forma persistente.          |
 | WURescheduleTimeInMinutes | Int <br>(Valor predeterminado: 30) | El intervalo en el que el servicio vuelve a programar la actualización de Windows en caso de que el error persista. |
 | WUFrequency           | Cadena separada por comas (valor predeterminado: "Weekly, Wednesday, 7:00:00")     | Frecuencia para la instalación de actualizaciones de Windows. El formato y los valores posibles son: <br>- Monthly, DD,HH:MM:SS, por ejemplo, Monthly, 5,12:22:32.<br>Los valores permitidos para el campo DD (day) son números comprendidos entre 1 y 28, y "last". <br> - Weekly, DÍA,HH:MM:SS, por ejemplo, Weekly, martes, 12:22:32.  <br> -   Daily, HH:MM:SS, por ejemplo, Daily, 12:22:32.  <br> -  None indica que no debe realizarse Windows Update.  <br><br> Tenga en cuenta que las horas están en formato UTC.|
-| AcceptWindowsUpdateEula | boolean <br>(Valor predeterminado: true) | Al establecer esta marca, la aplicación acepta el contrato de licencia del usuario final para Windows Update en nombre del propietario del equipo.              |
+| AcceptWindowsUpdateEula | Boolean <br>(Valor predeterminado: true) | Al establecer esta marca, la aplicación acepta el contrato de licencia del usuario final para Windows Update en nombre del propietario del equipo.              |
 
 > [!TIP]
 > Si quiere que Windows Update se ejecute de forma inmediata, establezca `WUFrequency` en relación con la hora de implementación de la aplicación. Por ejemplo, suponga que tiene un clúster de prueba de cinco nodos y planea implementar la aplicación aproximadamente a las 17:00 UTC. Si supone que la implementación o actualización de la aplicación tarda 30 minutos como máximo, establezca WUFrequency como "Daily, 17:30:00".

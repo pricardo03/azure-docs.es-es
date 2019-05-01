@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: mbullwin
 ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60898923"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de exportación de datos de Application Insights
 En esta tabla se enumeran las propiedades de telemetría enviadas desde los SDK de [Application Insights](../../azure-monitor/app/app-insights-overview.md) al portal.
@@ -114,7 +114,7 @@ Puntos a tener en cuenta:
 ## <a name="context"></a>Context
 Una sección de contexto acompaña a todos los tipos de telemetría. No todos estos campos se transmiten con cada punto de datos.
 
-| Ruta de acceso | Escriba | Notas |
+| Ruta de acceso | Type | Notas |
 | --- | --- | --- |
 | context.custom.dimensions [0] |objeto [ ] |Pares de cadenas de clave-valor establecidos por el parámetro de propiedades personalizadas. Longitud máxima de clave: 100, longitud máxima de valores: 1024. Más de 100 valores únicos, se pueden realizar búsquedas en la propiedad, pero no se puede usar para la segmentación. Máximo de 200 claves por ikey. |
 | context.custom.metrics [0] |objeto [ ] |Los pares de clave-valor se establecen mediante el parámetro de medidas personalizado y mediante TrackMetrics. Longitud máxima de clave: 100, los valores pueden ser numéricos. |
@@ -161,7 +161,7 @@ Una sección de contexto acompaña a todos los tipos de telemetría. No todos es
 ## <a name="events"></a>Eventos
 Eventos personalizados generados por [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
-| Ruta de acceso | Escriba | Notas |
+| Ruta de acceso | Type | Notas |
 | --- | --- | --- |
 | event [0] count |integer |100/(frecuencia de[muestreo](../../azure-monitor/app/sampling.md) ). Por ejemplo, 4 =&gt; 25 %. |
 | event [0] name |string |Nombre del evento.  Longitud máxima: 250. |
@@ -172,7 +172,7 @@ Eventos personalizados generados por [TrackEvent()](../../azure-monitor/app/api-
 ## <a name="exceptions"></a>Excepciones
 Notifica sobre [excepciones](../../azure-monitor/app/asp-net-exceptions.md) en el servidor y en el explorador.
 
-| Ruta de acceso | Escriba | Notas |
+| Ruta de acceso | Type | Notas |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
 | basicException [0] count |integer |100/(frecuencia de[muestreo](../../azure-monitor/app/sampling.md) ). Por ejemplo, 4 =&gt; 25 %. |
@@ -201,7 +201,7 @@ Notifica sobre [excepciones](../../azure-monitor/app/asp-net-exceptions.md) en e
 ## <a name="trace-messages"></a>Mensajes de seguimiento
 Enviados por [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) y por los [adaptadores de registro](../../azure-monitor/app/asp-net-trace-logs.md).
 
-| Ruta de acceso | Escriba | Notas |
+| Ruta de acceso | Type | Notas |
 | --- | --- | --- |
 | message [0] loggerName |string | |
 | message [0] parameters |string | |
@@ -211,7 +211,7 @@ Enviados por [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#t
 ## <a name="remote-dependency"></a>Dependencia remota
 Enviado por TrackDependency. Se usa para notificar el rendimiento y el uso de las [llamadas a dependencias](../../azure-monitor/app/asp-net-dependencies.md) en el servidor y de las llamadas AJAX en el explorador.
 
-| Ruta de acceso | Escriba | Notas |
+| Ruta de acceso | Type | Notas |
 | --- | --- | --- |
 | remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |string | |
@@ -232,7 +232,7 @@ Enviado por TrackDependency. Se usa para notificar el rendimiento y el uso de la
 ## <a name="requests"></a>Requests
 Enviado por [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Los módulos estándar usan esto para informar sobre el tiempo de respuesta del servidor, medido en el propio servidor.
 
-| Ruta de acceso | Escriba | Notas |
+| Ruta de acceso | Type | Notas |
 | --- | --- | --- |
 | request [0] count |integer |100/(frecuencia de[muestreo](../../azure-monitor/app/sampling.md) ). Por ejemplo:  4 =&gt; 25 %. |
 | request [0] durationMetric.value |número |Tiempo desde que llega la solicitud hasta la respuesta. 1e7 = 1 s |
@@ -250,7 +250,7 @@ Enviado por el explorador. Mide el tiempo que se tarda en procesar una página d
 
 Los valores de contexto muestran el sistema operativo del cliente y la versión del explorador.
 
-| Ruta de acceso | Escriba | Notas |
+| Ruta de acceso | Type | Notas |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |integer |Tiempo transcurrido desde el fin de la recepción del código HTML hasta que se muestra la página. |
 | clientPerformance [0] name |string | |
@@ -267,7 +267,7 @@ Los valores de contexto muestran el sistema operativo del cliente y la versión 
 ## <a name="page-views"></a>Vistas de página
 Enviado por trackPageView() o [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
 
-| Ruta de acceso | Escriba | Notas |
+| Ruta de acceso | Type | Notas |
 | --- | --- | --- |
 | view [0] count |integer |100/(frecuencia de[muestreo](../../azure-monitor/app/sampling.md) ). Por ejemplo, 4 =&gt; 25 %. |
 | view [0] durationMetric.value |integer |Valor establecido opcionalmente en trackPageView() o mediante startTrackPage() - stopTrackPage(). No es igual que los valores de clientPerformance. |
@@ -280,7 +280,7 @@ Enviado por trackPageView() o [stopTrackPage](../../azure-monitor/app/api-custom
 ## <a name="availability"></a>Disponibilidad
 Notifica sobre [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md).
 
-| Ruta de acceso | Escriba | Notas |
+| Ruta de acceso | Type | Notas |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |string |Disponibilidad |
 | availability [0] availabilityMetric.value |número |1,0 o 0,0 |
@@ -351,7 +351,7 @@ En lugar de la agregación previa de las métricas, puede usar el [muestreo](../
 ### <a name="durations"></a>Duraciones
 Excepto donde se indique lo contrario, las duraciones se representan en décimas de microsegundo, por lo que 10000000,0 equivalen a 1 segundo.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 * [Exportación continua](export-telemetry.md)
 * [Ejemplos de código](export-telemetry.md#code-samples)

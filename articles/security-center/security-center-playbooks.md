@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ec16e6daec099adbede625c5ec6fe6909059143b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60907098"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Playbook de seguridad de Azure Security Center (versión preliminar)
 Este documento le ayuda a usar los playbooks de seguridad de Azure Security Center para responder a problemas relacionados con la seguridad.
@@ -96,7 +96,7 @@ Puede cambiar un playbook existente en Security Center para agregar una acción 
 > Para más información sobre cómo crear su propio playbook mediante una aplicación lógica de Azure, lea [Creación de su primer flujo de trabajo de aplicación lógica para automatizar los procesos entre aplicaciones de nube y servicios en la nube](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app).
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 En este documento, ha aprendido a usar playbooks en Azure Security Center. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Aprenda a administrar las alertas y responder a incidentes de seguridad en Security Center.

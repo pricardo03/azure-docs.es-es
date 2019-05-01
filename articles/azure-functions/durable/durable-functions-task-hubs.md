@@ -8,14 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2017
-ms.author: azfuncdf
+origin.date: 12/07/2017
+ms.date: 02/21/2019
+ms.author: v-junlch
 ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753477"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730281"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Centrales de tareas en Durable Functions (Azure Functions)
 
@@ -29,11 +30,11 @@ Si varias aplicaciones de función comparten una cuenta de almacenamiento, se *d
 
 Una central de tareas consta de los siguientes recursos de almacenamiento:
 
-* Una o más colas de control.
-* Una cola de elementos de trabajo.
-* Una tabla de historial.
-* Una tabla de instancias.
-* Un contenedor de almacenamiento que contiene uno o varios blobs de concesión.
+- Una o más colas de control.
+- Una cola de elementos de trabajo.
+- Una tabla de historial.
+- Una tabla de instancias.
+- Un contenedor de almacenamiento que contiene uno o varios blobs de concesión.
 
 Todos estos recursos se crean automáticamente en la cuenta de Azure Storage predeterminada cuando se ejecutan funciones de orquestador o de actividad o cuando se programa su ejecución. El artículo [Rendimiento y escala](durable-functions-perf-and-scale.md) explica cómo se utilizan estos recursos.
 
@@ -140,3 +141,5 @@ Los nombres de la central de tareas deben empezar por una letra y estar formados
 
 > [!div class="nextstepaction"]
 > [Aprenda a controlar las versiones](durable-functions-versioning.md)
+
+<!-- Update_Description: wording update -->

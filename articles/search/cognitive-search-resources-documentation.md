@@ -11,11 +11,11 @@ ms.date: 05/04/2018
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60951805"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Recursos de documentación para las cargas de trabajo de búsqueda cognitiva
 
@@ -55,7 +55,7 @@ Los artículos siguientes son la documentación completa para la búsqueda cogni
   + [Create Skillset (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) (Creación del conjunto de aptitudes [api-version=2017-11-11-Preview])
   + [Create Indexer (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creación de indexador [api-version=2017-11-11-Preview])
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [API REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/)
 + [Indexadores de Azure Search](search-indexer-overview.md)

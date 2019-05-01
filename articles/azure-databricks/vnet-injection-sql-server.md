@@ -9,11 +9,11 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288957"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770830"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Tutorial: Consulta de un contenedor de Docker de Linux de SQL Server en una red virtual desde un bloc de notas de Azure Databricks
 
@@ -195,11 +195,11 @@ En este tutorial, aprenderá a:
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no necesite, elimine el grupo de recursos, el área de trabajo de Azure Databricks y todos los recursos relacionados. Eliminación del trabajo evita la facturación innecesaria. Si piensa utilizar el área de trabajo de Azure Databricks en el futuro, puede detener el clúster y reiniciar más tarde. Si no va a seguir usando esta área de trabajo de Azure Databricks, elimine todos los recursos creados en este tutorial mediante los pasos siguientes:
+Cuando ya no los necesite, elimine el grupo de recursos, el área de trabajo de Azure Databricks y todos los recursos relacionados. Si elimina el trabajo evitará que se generen facturas innecesarias. Si planea usar el área de trabajo de Azure Databricks en el futuro, puede detener el clúster y reiniciarlo más tarde. Si no va a seguir usando esta área de trabajo de Azure Databricks, elimine todos los recursos creados en este tutorial mediante los siguientes pasos:
 
-1. En el menú izquierdo de Azure portal, haga clic en **grupos de recursos** y, a continuación, haga clic en el nombre del grupo de recursos que creó.
+1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del grupo de recursos que creó.
 
-2. En la página del grupo de recursos, seleccione **eliminar**, escriba el nombre del recurso que quiere eliminar en el cuadro de texto y, a continuación, seleccione **eliminar** nuevo.
+2. En la página del grupo de recursos, seleccione **Eliminar**, escriba el nombre del recurso que quiere eliminar en el cuadro de texto y seleccione **Eliminar** de nuevo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

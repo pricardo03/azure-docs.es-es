@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
 ms.openlocfilehash: c0124d133fe2db9acb16251bc21ffb19f1b1268f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992170"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743452"
 ---
 # <a name="linux-distributions-endorsed-on-azure"></a>Distribuciones de Linux aprobadas en Azure
 Los asociados ofrecen imágenes de Linux en Azure Marketplace. Trabajamos con distintas comunidades de Linux para agregar aún más tipos a la lista de distribuciones aprobadas. Mientras tanto, para las distribuciones que no están disponibles en Marketplace, siempre puede aportar su propia imagen de Linux siguiendo las directrices dadas en [Creación y carga de un disco duro virtual que contiene el sistema operativo Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
@@ -33,7 +33,7 @@ Los controladores de los Servicios de integración de Linux (LIS) para Hyper-V y
 El Agente de Linux de Azure ya está preinstalado en las imágenes de Azure Marketplace y generalmente está disponible en el repositorio de paquetes de la distribución. El código fuente se puede encontrar en [GitHub](https://github.com/azure/walinuxagent).
 
   
-| Distribución | Versión | Controladores | Agente |
+| Distribución | `Version` | Controladores | Agente |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3+, 7.0+ |CentOS 6.3: [Descarga de LIS](https://www.microsoft.com/en-us/download/details.aspx?id=55106)<p>CentOS 6.4 o superior: En kernel |Paquete: en el [repositorio](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/), en "WALinuxAgent" <br/>Código fuente: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |En kernel |Código fuente: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |

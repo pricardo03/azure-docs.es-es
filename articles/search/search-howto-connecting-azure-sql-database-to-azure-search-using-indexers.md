@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315221"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817161"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Conexión e indexación de contenido de Azure SQL Database mediante indexadores de Azure Search
 
@@ -328,7 +328,7 @@ No directamente. No se recomienda ni se admite una conexión directa, ya que req
 
 **P: P: ¿Puedo usar un indexador de Azure SQL con bases de datos que no son de SQL Server que se ejecutan en IaaS en Azure?**
 
- No. No admitimos esta posibilidad, ya que no hemos probado el indexador con bases de datos que no son de SQL Server.  
+No. No admitimos esta posibilidad, ya que no hemos probado el indexador con bases de datos que no son de SQL Server.  
 
 **P: ¿Puedo crear varios indizadores que se ejecuten según una programación?**
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60879113"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Control de acceso en Azure Data Lake Storage Gen1
 
@@ -71,7 +71,7 @@ En el modelo de estilo de POSIX usado por Data Lake Storage Gen1, los permisos d
 
 A continuación, hay algunos escenarios comunes para ayudarle a entender qué permisos se necesitan para realizar ciertas operaciones en una cuenta de Data Lake Storage Gen1.
 
-| Operación | Objeto              |    /      | Seattle/   | Portland/   | Data.txt       |
+| Operación | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Lectura      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Anexar a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
@@ -250,7 +250,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>¿Es preciso habilitar la compatibilidad con las ACL?
 
- No. El control de acceso mediante las ACL siempre está activado en las cuentas de Data Lake Storage Gen1.
+No. El control de acceso mediante las ACL siempre está activado en las cuentas de Data Lake Storage Gen1.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>¿Qué permisos son necesarios para eliminar de forma recursiva una carpeta y su contenido?
 

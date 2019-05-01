@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 11d0648ee5090f02cb96c2d42a8d90cc3ea0ed28
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551343"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60853310"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurar una aplicación PHP de Linux para Azure App Service
 
@@ -105,7 +105,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Acceso a variables de entorno
 
-En App Service, puede [establecer la configuración de la aplicación](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) fuera del código de aplicación. Puede tener acceso a ellos mediante el estándar [getenv()](https://secure.php.net/manual/function.getenv.php) patrón. Por ejemplo, para acceder a una configuración de una aplicación denominada `DB_HOST`, use el código siguiente:
+En App Service, puede [establecer la configuración de la aplicación](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) fuera del código de la aplicación. Puede tener acceso a ellos mediante el estándar [getenv()](https://secure.php.net/manual/function.getenv.php) patrón. Por ejemplo, para acceder a una configuración de una aplicación denominada `DB_HOST`, use el código siguiente:
 
 ```php
 getenv("DB_HOST")
@@ -232,7 +232,7 @@ Para que surtan efecto los cambios, reinicie la aplicación.
 
 Cuando una aplicación PHP en funcionamiento se comporta de manera diferente en App Service o tiene errores, intente lo siguiente:
 
-- [Acceso a la secuencia de registro](#access-diagnostic-logs).
+- [Acceso a la secuencia de registros](#access-diagnostic-logs).
 - Probar la aplicación localmente en el modo de producción. App Service se ejecuta las aplicaciones de Node.js en el modo de producción, por lo que deberá asegurarse de que el proyecto funciona según lo previsto en modo de producción localmente. Por ejemplo: 
     - En función de su *composer.json*, distintos paquetes pueden instalarse para el modo de producción (`require` frente a `require-dev`).
     - Algunos marcos web pueden implementar los archivos estáticos de forma diferente en modo de producción.
@@ -252,7 +252,7 @@ Puede ignorar este mensaje. `/robots933456.txt` es una ruta de acceso de direcci
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicación PHP con MySQL](tutorial-php-mysql-app.md)
+> [Tutorial: Aplicación de PHP con MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Preguntas más frecuentes de App Service Linux](app-service-linux-faq.md)
+> [P+F sobre App Service en Linux](app-service-linux-faq.md)

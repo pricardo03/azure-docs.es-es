@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792492"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829589"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Ejecución de tareas de varios pasos de compilación, prueba y aplicación de revisiones en ACR Tasks
 

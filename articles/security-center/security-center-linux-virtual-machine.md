@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 9ff111bb70716e4ca218dce81dd1754181cdd93b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: af9b1ef64944e72a24d76cc555e51841e75401ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909443"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Azure Security Center y Azure Virtual Machines con Linux
 [Azure Security Center](https://azure.microsoft.com/services/security-center/) ayuda a evita y a detectar las amenazas, además de a responder a ellas. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
@@ -101,7 +101,7 @@ Si hace clic en esta recomendación, verá más detalles sobre las acciones espe
 ![Estado de la seguridad 2](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig5.png)
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.

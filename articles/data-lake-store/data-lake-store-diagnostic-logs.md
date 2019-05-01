@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878754"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Acceso a los registros de diagnóstico de Azure Data Lake Storage Gen1
 Sepa cómo habilitar el registro de diagnósticos en su cuenta de Azure Data Lake Storage Gen1 y cómo ver los registros recopilados relativos a su cuenta.
@@ -115,15 +115,15 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 #### <a name="request-log-schema"></a>Esquema de un registro de solicitud
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
-| ResourceId |string |Identificador del recurso en el que tuvo lugar la operación. |
-| categoría |string |Categoría del registro. Por ejemplo, **Requests**. |
+| time |string |Marca de tiempo (en UTC) del registro. |
+| resourceId |string |Identificador del recurso en el que tuvo lugar la operación. |
+| category |string |Categoría del registro. Por ejemplo, **Requests**. |
 | operationName |string |Nombre de la operación que se registra. Por ejemplo, getfilestatus. |
 | resultType |string |Estado de la operación. Por ejemplo, 200. |
 | callerIpAddress |string |Dirección IP del cliente que realiza la solicitud. |
 | correlationId |string |Identificador del registro que se puede usar para agrupar un conjunto de entradas de registro relacionadas. |
-| identidad |Objeto |Identidad que ha generado el registro. |
-| propiedades |JSON |Vea más abajo para obtener más información. |
+| identidad |Object |Identidad que ha generado el registro. |
+| properties |JSON |Vea más abajo para obtener más información. |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propiedades de un registro de solicitud
 | NOMBRE | Type | DESCRIPCIÓN |
@@ -162,15 +162,15 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 #### <a name="audit-log-schema"></a>Esquema de un registro de auditoría
 | NOMBRE | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
-| ResourceId |string |Identificador del recurso en el que tuvo lugar la operación. |
-| categoría |string |Categoría del registro. Por ejemplo, **Audit**. |
+| time |string |Marca de tiempo (en UTC) del registro. |
+| resourceId |string |Identificador del recurso en el que tuvo lugar la operación. |
+| category |string |Categoría del registro. Por ejemplo, **Audit**. |
 | operationName |string |Nombre de la operación que se registra. Por ejemplo, getfilestatus. |
 | resultType |string |Estado de la operación. Por ejemplo, 200. |
 | resultSignature |string |Detalles adicionales sobre la operación. |
 | correlationId |string |Identificador del registro que se puede usar para agrupar un conjunto de entradas de registro relacionadas. |
-| identidad |Objeto |Identidad que ha generado el registro. |
-| propiedades |JSON |Vea más abajo para obtener más información. |
+| identidad |Object |Identidad que ha generado el registro. |
+| properties |JSON |Vea más abajo para obtener más información. |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propiedades de un registro de auditoría
 | NOMBRE | Type | DESCRIPCIÓN |

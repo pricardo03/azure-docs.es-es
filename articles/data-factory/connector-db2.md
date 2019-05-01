@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
 ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019629"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60786380"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copia de datos desde DB2 mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,12 +61,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de DB2:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Db2** | SÍ |
-| Servidor |Nombre del servidor DB2. Puede especificar el número de puerto después del nombre del servidor delimitado por dos puntos, por ejemplo `server:port`. |SÍ |
-| Base de datos |Nombre de la base de datos DB2. |SÍ |
-| authenticationType |Tipo de autenticación usado para conectarse a la base de datos DB2.<br/>El valor permitido es: **Básico**. |SÍ |
-| nombre de usuario |Especifique el nombre de usuario para conectarse a la base de datos DB2. |SÍ |
-| contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
+| type | La propiedad type debe establecerse en: **Db2** | Sí |
+| Servidor |Nombre del servidor DB2. Puede especificar el número de puerto después del nombre del servidor delimitado por dos puntos, por ejemplo `server:port`. |Sí |
+| Base de datos |Nombre de la base de datos DB2. |Sí |
+| authenticationType |Tipo de autenticación usado para conectarse a la base de datos DB2.<br/>El valor permitido es: **Básico**. |Sí |
+| username |Especifique el nombre de usuario para conectarse a la base de datos DB2. |Sí |
+| password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
@@ -102,7 +102,7 @@ Para copiar datos desde DB2, establezca la propiedad type del conjunto de datos 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | SÍ |
+| type | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
 | tableName | Nombre de la tabla de la base de datos DB2. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -132,7 +132,7 @@ Para copiar datos desde DB2, establezca el tipo de origen de la actividad de cop
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | SÍ |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
@@ -181,24 +181,24 @@ Al copiar datos desde DB2, se utilizan las siguientes asignaciones de tipos de d
 | Date |DateTime |
 | DB2DynArray |string |
 | DbClob |string |
-| DECIMAL |DECIMAL |
-| DecimalFloat |DECIMAL |
-| Doble |Doble |
-| Float |Doble |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| Double |Double |
+| Float |Double |
 | Graphic |string |
 | Entero |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |string |
 | LongVarGraphic |string |
-| Numeric |DECIMAL |
+| Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
-| Hora |timespan |
-| Timestamp |Datetime |
+| Time |TimeSpan |
+| Timestamp |DateTime |
 | VarBinary |Byte[] |
 | VarChar |string |
 | VarGraphic |string |
-| xml |Byte[] |
+| Xml |Byte[] |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

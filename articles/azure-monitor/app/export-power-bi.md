@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
 ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260067"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900435"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
 [Power BI](https://www.powerbi.com/) es un conjunto de herramientas de negocios que pueden ayudar a analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluidas las consultas de Analytics en [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).

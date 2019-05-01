@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: bf87856dc28e83fb1308f20613338b9bbfd8f896
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744115"
 ---
 # <a name="create-a-user-vm-image"></a>Crear una imagen de máquina virtual de usuario
 

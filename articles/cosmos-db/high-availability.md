@@ -8,11 +8,11 @@ ms.date: 3/24/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 1e866560ceab342f08a98ba3db05980a2b0947d2
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407562"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888514"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidad con Azure Cosmos DB
 
@@ -68,7 +68,7 @@ Interrupciones regionales son algo habitual, y Azure Cosmos DB garantiza que la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-A continuación puede leer los artículos siguientes:
+Ahora puede pasar a la lectura de los artículos siguientes:
 
 * [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromisos entre rendimiento y disponibilidad en los distintos niveles de coherencia)
 * [Escalado del rendimiento aprovisionado globalmente](scaling-throughput.md)

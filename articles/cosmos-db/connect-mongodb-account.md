@@ -9,11 +9,11 @@ ms.date: 12/26/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 737e179c2c16937d00bc9b6601f12ebe392c1906
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040326"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60892542"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Conectar una aplicación de MongoDB a Azure Cosmos DB
 Aprenda a conectar su aplicación de MongoDB a una instancia de Azure Cosmos DB mediante una cadena de conexión de MongoDB. Después, puede usar una base de datos de Azure Cosmos DB como almacén de datos de la aplicación MongoDB. 

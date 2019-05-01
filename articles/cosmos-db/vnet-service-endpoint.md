@@ -1,5 +1,5 @@
 ---
-title: Protección del acceso a una cuenta de Azure Cosmos DB con el uso de un punto de conexión de servicio de Azure Virtual Network
+title: Protección del acceso a una cuenta de Azure Cosmos DB con el uso de un punto de conexión de servicio de red virtual de Azure
 description: En este documento se describe el control de acceso a redes virtuales y subredes para una cuenta de Azure Cosmos.
 author: kanshiG
 ms.service: cosmos-db
@@ -8,11 +8,11 @@ ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60765523"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acceso a Azure Cosmos DB desde redes virtuales (VNET)
 
@@ -38,7 +38,7 @@ Cuando se agregan reglas de acceso al firewall para direcciones IP o a la red vi
 
 ### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Mis solicitudes se empezaron a bloquear cuando habilité el punto de conexión de servicio para Azure Cosmos DB en la subred. ¿Qué ha ocurrido?
 
-Una vez que se habilita el punto de conexión de servicio para Azure Cosmos DB en una subred, el origen del tráfico que llega a Azure Cosmos DB cambia de una dirección IP pública a la red virtual y la subred. Si la cuenta de Azure Cosmos tiene solo un firewall basado en IP, el tráfico de la subred habilitada para el servicio ya no coincidirá con las reglas de firewall para direcciones IP y, por tanto, se rechazará. Recorra cada uno de los pasos para migrar fácilmente desde un firewall basado en IP a un control de acceso basado en redes virtuales.
+Una vez que se habilita el punto de conexión de servicio para Azure Cosmos DB en una subred, el origen del tráfico que llega a Azure Cosmos DB cambia de una dirección IP pública a la red virtual y la subred. Si la cuenta de Azure Cosmos tiene solo un firewall basado en IP, el tráfico de la subred habilitada para el servicio ya no coincidirá con las reglas de firewall de IP y, por tanto, se rechazará. Recorra cada uno de los pasos para migrar fácilmente desde un firewall basado en IP a un control de acceso basado en redes virtuales.
 
 ### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>¿Tienen las redes virtuales del mismo nivel acceso a la cuenta de Azure Cosmos? 
 Solo la red virtual y las subredes que se agregaron a la cuenta de Azure Cosmos tienen acceso. Las redes virtuales del mismo nivel no podrán acceder a la cuenta hasta que las subredes dentro de ellas se agreguen a la cuenta.

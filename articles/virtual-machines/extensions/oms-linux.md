@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/12/2019
 ms.author: roiyz
 ms.openlocfilehash: 538eb492829c8ad171d1d27b51405725f53f352a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853229"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60743605"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Azure Monitor para Linux
 
@@ -39,7 +39,7 @@ Registros de Azure Monitor proporciona funcionalidades de corrección de alertas
 
 La extensión del agente de Log Analytics puede ejecutarse en estas distribuciones de Linux.
 
-| Distribución | Versión |
+| Distribución | `Version` |
 |---|---|
 | CentOS Linux | 6 (x86/x64) y 7 (x64) |
 | Amazon Linux | 2017.09 (x64) | 
@@ -196,7 +196,7 @@ az vm extension set \
   --settings '{"workspaceId": "omsid"}'
 ```
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
+## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

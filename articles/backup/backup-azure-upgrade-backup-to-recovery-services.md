@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
 ms.openlocfilehash: b4ecebc6bef7f49a23455c7a85f25680df087a95
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530763"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848374"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Actualización de un almacén de Backup a un almacén de Recovery Services
 
@@ -113,7 +113,7 @@ Cuando haya actualizado a un almacén de Recovery Services, configure los inform
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 ### <a name="does-the-upgrade-plan-affect-my-ongoing-backups"></a>¿Afecta el plan de actualización a mis copias de seguridad en curso?
- No. Las copias de seguridad en curso continúan sin interrupción durante y después de la actualización.
+No. Las copias de seguridad en curso continúan sin interrupción durante y después de la actualización.
 
 ### <a name="if-i-dont-plan-on-upgrading-soon-what-happens-to-my-vaults"></a>¿Qué ocurre con mis almacenes si no tengo previsto actualizar pronto?
 Puesto que todas las características nuevas solo se aplican a almacenes de Recovery Services, le instamos a que actualice los almacenes. A partir del 1 de septiembre de 2017, Microsoft comenzará a actualizar automáticamente los almacenes de copia de seguridad para almacenes de Recovery Services. Después del 30 de noviembre de 2017, ya no podrá crear almacenes de Backup con PowerShell. El almacén se puede actualizar automáticamente en cualquier momento hasta esa fecha. Microsoft le recomienda que actualice el almacén tan pronto como sea posible.
@@ -125,16 +125,16 @@ Actualice las herramientas al modelo de implementación de Resource Manager. Los
 Depende del número de recursos que se vayan a actualizar. Para implementaciones pequeñas (de unas decenas de instancias protegidas), toda la actualización debería tardar menos de 20 minutos. Para implementaciones grandes, debe tardar una hora como máximo.
 
 ### <a name="can-i-roll-back-after-upgrading"></a>¿Puedo revertir la actualización?
- No. No se admite la reversión una vez actualizados correctamente los recursos.
+No. No se admite la reversión una vez actualizados correctamente los recursos.
 
 ### <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-upgrade"></a>¿Puedo validar mi suscripción o mis recursos para ver si son aptos para la actualización?
 Sí. El primer paso de la actualización comprueba si los recursos son aptos para la actualización. En caso de que se produzca un error en la validación, recibirá mensajes para todas las razones que no se pudo completar la actualización.
 
 ### <a name="can-i-upgrade-my-csp-based-backup-vault"></a>¿Puedo actualizar mi almacén de Backup basado en CSP?
- No. Actualmente, no se pueden actualizar los almacenes de Backup basados en CSP. En las próximas versiones, se agregará compatibilidad para actualizar los almacenes de Backup basados en CSP.
+No. Actualmente, no se pueden actualizar los almacenes de Backup basados en CSP. En las próximas versiones, se agregará compatibilidad para actualizar los almacenes de Backup basados en CSP.
 
 ### <a name="can-i-view-my-classic-vault-post-upgrade"></a>¿Puedo ver mi almacén clásico después de la actualización de la publicación?
- No. No se puede ver o administrar su almacén clásico después de la actualización. Solo podrá usar el nuevo Azure Portal para todas las acciones de administración en el almacén.
+No. No se puede ver o administrar su almacén clásico después de la actualización. Solo podrá usar el nuevo Azure Portal para todas las acciones de administración en el almacén.
 
 ### <a name="my-upgrade-failed-but-the-machine-that-held-the-agent-requiring-updating-doesnt-exist-anymore-what-do-i-do-in-such-a-case"></a>Hubo un error en la actualización, pero la máquina que mantenía el agente que requiere actualización ya no existe. ¿Qué hago en este caso?
 Si tiene que usar el almacén, las copias de seguridad de esta máquina para una retención a largo plazo, no podrá actualizar el almacén. En versiones futuras se agregará compatibilidad para actualizar tal almacén.

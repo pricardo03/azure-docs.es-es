@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 93c70e038589667ae97acb86663a6179dcc81637
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877336"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776767"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Cómo crear una oferta de Dynamics 365 for Operations a través de Cloud Partner Portal
 

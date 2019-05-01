@@ -2,20 +2,21 @@
 title: 'Administración y supervisión de SQL Data Warehouse: introducción | Microsoft Docs'
 description: Información general de supervisión y administración para el uso de recursos, la actividad de registros y consultas, las recomendaciones y la protección de datos (copia de seguridad y restauración).
 services: sql-data-warehouse
-author: kevinvngo
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 08/27/2018
-ms.author: kevin
+origin.date: 08/27/2018
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: e9fb06b8ba34566689f769ca9a69328eee37e3c1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460257"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60747581"
 ---
 # <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Capacidad de administración y supervisión con Azure SQL Data Warehouse
 

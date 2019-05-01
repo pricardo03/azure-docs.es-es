@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490722"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61024969"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -65,7 +65,7 @@ Haga clic en **Agregar**.
 
 En la ventana **Crear presupuesto**, escriba un nombre de presupuesto y el importe presupuestario. A continuación, elija un período mensual, trimestral o anual. A continuación, seleccione una fecha de finalización. Los presupuestos requieren al menos un umbral de costos (% del presupuesto) y una dirección de correo electrónico correspondiente. De manera opcional, puede incluir hasta cinco umbrales y cinco direcciones de correo electrónico en un único presupuesto. Cuando se alcanza un umbral de presupuesto, las notificaciones por correo electrónico se reciben normalmente en menos de ocho horas. Para más información acerca de las notificaciones, consulte [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Uso de alertas de costos).
 
-Si tiene una suscripción de pago por uso, MSDN o Visual Studio, el período de facturación de la factura no puede alinearse con el mes natural. Para esos tipos de suscripciones y grupos de recursos, puede crear un presupuesto que está alineado al período de facturación o meses naturales. Para crear un presupuesto alineado en el período de facturación, seleccione un período de restablecimiento de mes de facturación, facturación trimestre o año de facturación. Para crear un presupuesto alineado con el mes natural, seleccione un período de restablecimiento de mensual, trimestral o anualmente.
+Si tiene una suscripción de pago por uso, MSDN o Visual Studio, es posible que el período de facturación no esté alineado con el mes natural. Para esos tipos de suscripciones y grupos de recursos, puede crear un presupuesto que está alineado al período de facturación o meses naturales. Para crear un presupuesto alineado en el período de facturación, seleccione un período de restablecimiento de mes de facturación, facturación trimestre o año de facturación. Para crear un presupuesto alineado con el mes natural, seleccione un período de restablecimiento de mensual, trimestral o anualmente.
 
 Este es un ejemplo de creación de un presupuesto mensual para 4500 USD. Se genera una alerta por correo electrónico cuando se alcanza el 90 % del presupuesto.
 

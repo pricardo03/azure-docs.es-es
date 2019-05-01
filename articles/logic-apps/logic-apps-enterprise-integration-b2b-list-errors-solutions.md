@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: 11fbec81e88eec6c7daa9136eb5421387b79d71c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998827"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Errores y soluciones de B2B para Azure Logic Apps
 
@@ -34,7 +34,7 @@ Este artículo le ayuda a solucionar los errores que puedan ocurrir en escenario
 
 |   |   | 
 |---|---|
-| Descripción del error | No se encontró ningún contrato con las identidades: 'AS2Identity'::'Partner1' y 'AS2Identity'::'Partner3' | 
+| Descripción del error | Ningún contrato con las identidades: 'AS2Identity':: 'Partner1' y 'AS2Identity':: 'Partner3' | 
 | Acción del usuario | AS2-From o AS2-To configurados para el contrato no válidos. </br>Corrija los encabezados AS2-From o AS2-To del mensaje AS2, o el contrato para que coincidan con los identificadores AS2 en los encabezados del mensaje AS2 con configuraciones de contrato. |
 |   |   |     
 
@@ -145,7 +145,7 @@ Por ejemplo:
 
 |   |   | 
 |---|---|
-| Descripción del error | InvalidTemplate. No se pueden procesar las expresiones de lenguaje de plantilla en las entradas de la acción 'Flat_File_Decoding' en la línea '1' y la columna '1902': 'La propiedad obligatoria 'content' espera un valor pero obtuvo nulo. Ruta de acceso ''.'. |
+| Descripción del error | InvalidTemplate. No se puede procesar las expresiones de lenguaje de plantilla en la acción 'Flat_File_Decoding' entradas en la línea '1' y la columna '1902': ' Requiere la propiedad 'content' espera un valor pero obtuvo nulo. Ruta de acceso ''.'. |
 | Acción del usuario | Este error indica que el mensaje de entrada no tiene cuerpo. |
 |   |   | 
 

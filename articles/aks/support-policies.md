@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
 ms.openlocfilehash: f173fc7c794729eae8c60cceefa88d153800a816
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59502179"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61032481"
 ---
 # <a name="azure-kubernetes-service-aks-support-policies"></a>Las directivas de compatibilidad con Azure Kubernetes Service (AKS)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60768669"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
 
@@ -53,14 +53,15 @@ Se admiten los siguientes orígenes de datos para la actividad de búsqueda. El 
 ```
 
 ## <a name="type-properties"></a>Propiedades de tipo
-NOMBRE | DESCRIPCIÓN | Escriba | ¿Necesario?
+
+NOMBRE | DESCRIPCIÓN | Type | ¿Necesario?
 ---- | ----------- | ---- | --------
-dataset | Proporciona la referencia de conjunto de datos para la búsqueda. Obtenga los detalles de la sección **Propiedades del conjunto de datos** de cada artículo del conector correspondiente. | Par clave-valor | SÍ
-de origen | Contiene propiedades de origen específicas para el conjunto de datos, al igual que el origen de la actividad de copia. Obtenga los detalles de la sección **Copiar propiedades de la actividad** de cada artículo del conector correspondiente. | Par clave-valor | SÍ
-firstRowOnly | Indica si se deben devolver todas las filas o solo la primera. | boolean |  No. El valor predeterminado es `true`.
+dataset | Proporciona la referencia de conjunto de datos para la búsqueda. Obtenga los detalles de la sección **Propiedades del conjunto de datos** de cada artículo del conector correspondiente. | Par clave-valor | Sí
+source | Contiene propiedades de origen específicas para el conjunto de datos, al igual que el origen de la actividad de copia. Obtenga los detalles de la sección **Copiar propiedades de la actividad** de cada artículo del conector correspondiente. | Par clave-valor | Sí
+firstRowOnly | Indica si se deben devolver todas las filas o solo la primera. | Boolean | No. El valor predeterminado es `true`.
 
 > [!NOTE]
-
+> 
 > * No se admiten las columnas de origen con el tipo **ByteArray**.
 > * La **estructura** no se admite en las definiciones del conjunto de datos. En el caso de los archivos de formato de texto, utilice la fila de encabezado para proporcionar el nombre de columna.
 > * Si el origen de la búsqueda es un archivo JSON, la configuración `jsonPathDefinition` para cambiar la forma del objeto JSON no se admite. Se recuperarán los objetos completos.

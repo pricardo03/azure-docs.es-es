@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: cce1906e75646f2fb9ea30842e968d14830f3497
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: HT
+ms.openlocfilehash: 085a0ff0eee260069d693b339521a9489df78e40
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913943"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848240"
 ---
 # <a name="community-tools-to-migrate-iaas-resources-from-classic-to-azure-resource-manager"></a>Herramientas de la comunidad para la migración de recursos de IaaS de la implementación clásica a Azure Resource Manager
 En este artículo se catalogan las herramientas que la comunidad proporcionó para ayudar en la migración de los recursos de IaaS del modelo de implementación clásico al de Azure Resource Manager.
@@ -32,7 +32,7 @@ En este artículo se catalogan las herramientas que la comunidad proporcionó pa
 > 
 >   * [Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager](migration-classic-resource-manager-overview.md)
 >   * [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md) (Profundización técnica en la migración compatible con la plataforma de la implementación clásica a la de Azure Resource Manager)
->   * [Migración de recursos de IaaS de la implementación clásica a la de Resource Manager con Azure PowerShell](migration-classic-resource-manager-ps.md)
+>   * [Migración de recursos de IaaS de la implementación clásica a Resource Manager con Azure PowerShell](migration-classic-resource-manager-ps.md)
 > 
 > 
 
@@ -42,7 +42,7 @@ Se trata de una colección de herramientas auxiliares creadas como parte de las 
 [Vínculo a la documentación sobre la herramienta](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
 ## <a name="migaz"></a>migAz
-migAz es una opción adicional para migrar un conjunto completo de recursos de IaaS clásicos a recursos de IaaS de Azure Resource Manager. La migración se puede producir dentro de la misma suscripción o entre suscripciones distintas y distintos tipos de suscripción (por ejemplo, suscripciones de CSP).
+migAz es una opción adicional para migrar un conjunto completo de recursos de IaaS clásicos a recursos de IaaS de Azure Resource Manager. La migración puede ocurrir dentro de la misma suscripción o entre distintas suscripciones y tipos de suscripción (p. ej.: Suscripciones de CSP).
 
 [Vínculo a la documentación sobre la herramienta](https://github.com/Azure/migAz)
 

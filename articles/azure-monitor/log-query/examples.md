@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
 ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60759918"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Ejemplos de consultas de registro de Azure Monitor
 En este artículo se incluyen varios ejemplos de [consultas](log-query-overview.md) que usan el [lenguaje de consulta de Kusto](/azure/kusto/query/) para recuperar distintos tipos de datos de registro de Azure Monitor. Se utilizan métodos diferentes para consolidar y analizar los datos, por lo que puede usar estos ejemplos para identificar las diferentes estrategias que puede utilizar para sus propios requisitos.  

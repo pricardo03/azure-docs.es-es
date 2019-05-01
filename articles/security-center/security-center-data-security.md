@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60911551"
 ---
 # <a name="azure-security-center-data-security"></a>Seguridad de datos de Azure Security Center
 Para ayudar a los clientes a evitar, detectar y responder a las amenazas, Azure Security Center recopila y procesa datos relacionados con la seguridad, entre los que se incluyen la información de configuración, los metadatos, los registros de eventos y los archivos de volcado de memoria, entre otros. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.

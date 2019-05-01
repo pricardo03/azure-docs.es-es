@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60757334"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Administrar el acceso, power y modo de conectividad para el borde del cuadro de datos de Azure
 
@@ -92,4 +92,4 @@ Puede apagar o reiniciar el dispositivo físico mediante la interfaz de usuario 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [administrar recursos compartidos](data-box-edge-manage-shares.md).
+- Aprenda a [administrar los recursos compartidos](data-box-edge-manage-shares.md).

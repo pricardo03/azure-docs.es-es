@@ -2,19 +2,20 @@
 title: Procesar reglas configurables basadas en umbrales en Azure Stream Analytics
 description: En este artículo se describe cómo usar los datos de referencia para lograr una solución de alertas que tenga reglas configurables basadas en umbrales Azure Stream Analytics.
 services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
+author: rockboyfor
+ms.author: v-yeche
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/30/2018
+origin.date: 04/30/2018
+ms.date: 08/20/2018
 ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761733"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Procesar reglas configurables basadas en umbrales en Azure Stream Analytics
 En este artículo se describe cómo usar los datos de referencia para lograr una solución de alertas que use reglas configurables basadas en umbrales Azure Stream Analytics.
@@ -46,7 +47,6 @@ Estos datos de referencia de ejemplo muestran cómo podría representarse una re
 - Tenga en cuenta que la regla tiene un campo **operator**, que se interpreta dinámicamente en la sintaxis de consulta más adelante en `AVGGREATEROREQUAL`. 
 - La regla filtra los datos en una clave de dimensión determinada `2` con el valor `C1`. Otros campos son una cadena vacía, lo que indica que no se filtre el flujo de entrada según esos campos de evento. Podría configurar reglas de CPU adicionales para filtrar otros campos coincidentes según sea necesario.
 - No todas las columnas deben incluirse en el evento de alerta de salida. En este caso, la clave `includedDim` número `2` está activada en `TRUE` para representar que el campo número 2 de datos del evento en el flujo se incluirá en los eventos de salida aptos. Los demás campos no se incluyen en el resultado de la alerta, pero se puede ajustar la lista de campos.
-
 
 ```json
 {
@@ -292,3 +292,4 @@ En este ejemplo, los datos de salida JSON muestran que se produjo un evento de a
 "alert":"hot node AVG CPU over 90","avg":96.5,"min":95.0,"max":98.0,
 "dim0":null,"dim1":null,"dim2":"N024","dim3":null,"dim4":null}
 ```
+<!--Update_Description: updat meta properties, wording update-->

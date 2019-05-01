@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119177"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900267"
 ---
 # <a name="using-search-in-application-insights"></a>Uso de Búsqueda en Application Insights
 Búsqueda es una característica de [Application Insights](../../azure-monitor/app/app-insights-overview.md) que se usa para buscar y explorar elementos de telemetría individuales, como vistas de páginas, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.

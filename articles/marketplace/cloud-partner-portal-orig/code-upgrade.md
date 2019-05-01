@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 787d9ef509bcafeb6a21d4b0ec952ea1eb4fd52b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808013"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776818"
 ---
 # <a name="upgrading-code-to-the-latest-platform"></a>Actualizar código a la plataforma más reciente
 
@@ -35,6 +35,6 @@ Los binarios de la plataforma Dynamics 365 for Operations como Application Objec
 2. Application Foundation
 3. Test Essentials
 
-**Importante**: para mover a la plataforma de Dynamics 365 for Operations más reciente, su implementación de Dynamics 365 for Operations no debe tener personalizaciones (conflicto de superposición) de cualquiera de los paquetes AOT que pertenecen a la plataforma. Esta restricción se introdujo en la actualización de la plataforma 3, para que se puedan hacer actualizaciones continuas sin problemas a la plataforma. Si está ejecutando en una plataforma que es anterior a la actualización de la plataforma 3, consulte sección Actualizar a la plataforma de la actualización 3 desde una de compilación anterior al final de este artículo.
+**Importante**: Para mover a la más reciente de Dynamics 365 para la plataforma de operaciones, su Dynamics 365 para la implementación de las operaciones no puede tener cualquier personalización (superposición) de cualquiera de los paquetes AOT que pertenecen a la plataforma. Esta restricción se introdujo en la actualización de la plataforma 3, para que se puedan hacer actualizaciones continuas sin problemas a la plataforma. Si está ejecutando en una plataforma que es anterior a la actualización de la plataforma 3, consulte sección Actualizar a la plataforma de la actualización 3 desde una de compilación anterior al final de este artículo.
 
 Para obtener más información sobre la actualización del código, consulte [aquí](https://docs.microsoft.com/dynamics365/operations/dev-itpro/migration-upgrade/upgrade-latest-platform-update).

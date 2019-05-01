@@ -16,11 +16,11 @@ ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835522"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidad del sistema operativo en Azure App Service
 En este artículo se describe la funcionalidad del sistema operativo de línea base común que está disponible para todas las aplicaciones Windows que se ejecutan en el [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos. 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/29/2018
 ms.author: dekapur
 ms.openlocfilehash: 5c3781c2111fff7483a7fb65bd7b2e69c2011d18
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666433"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837749"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Ejecución de un servicio como una cuenta de servicio administrada de grupo
 En un clúster independiente de Windows Server, puede ejecutar un servicio como una cuenta de servicio administrada de grupo (gMSA) mediante una directiva de RunAs.  De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso Fabric.exe. La ejecución de aplicaciones en cuentas diferentes, incluso en un entorno hospedado compartido, aumenta la seguridad entre aplicaciones. Tenga en cuenta que esto usa Active Directory local dentro del dominio y no en Azure Active Directory (Azure AD). Con una gMSA, no hay ninguna contraseña ni contraseña cifrada almacenada en el manifiesto de aplicación.  También puede ejecutar un servicio como un [grupo o usuario de Active Directory](service-fabric-run-service-as-ad-user-or-group.md).

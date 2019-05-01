@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60864343"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Solución de errores de eliminación de recursos de almacenamiento clásico
 En este artículo se proporcionan instrucciones para solucionar problemas cuando se produce uno de los siguientes errores al intentar eliminar un archivo de blob de páginas *.vhd, un contenedor o una cuenta de almacenamiento clásico de Azure. 

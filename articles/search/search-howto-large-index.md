@@ -10,11 +10,11 @@ ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 2f3d08a32384cea815f096f51b24eea596d0d118
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742242"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871172"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Cómo indexar grandes conjuntos de datos en Azure Search
 
@@ -98,7 +98,7 @@ A la hora programada, todos los indexadores empezarán a ejecutarse, cargarán l
 > [!Note]
 > Cuando aumente las réplicas, considere aumentar el número de particiones si se espera que el tamaño del índice aumente de manera considerable. Las particiones almacenan segmentos del contenido indexado: cuantas más particiones tenga, más pequeño será el segmento que cada una debe almacenar.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Información general del indexador](search-indexer-overview.md)
 + [Indexing in the portal](search-import-data-portal.md) (Indexación en el portal)

@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
 ms.openlocfilehash: 7f9748a4e4f1c86362781aa80d8958237c97106a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555445"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60816964"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Arquitectura de referencia: Procesado de eventos en tiempo real con Microsoft Azure Stream Analytics
 La arquitectura de referencia para el procesado de eventos en tiempo real con Azure Stream Analytics está diseñada para proporcionar un plano genérico para implementar una plataforma en tiempo real como una solución de procesado de transmisiones (PaaS) de servicio con Microsoft Azure.

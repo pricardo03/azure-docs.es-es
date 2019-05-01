@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
 ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983479"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800049"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -79,19 +79,19 @@ Azure Disk Encryption requiere conectividad a Internet para acceder a Active Dir
 
 | NOMBRE | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | fecha |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
 | Tipo | AzureDiskEncryptionForWindows| string |
 | typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
 | (opcional) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (opcional) AADClientSecret | contraseña | string |
+| (opcional) AADClientSecret | password | string |
 | (opcional) AADClientCertificate | thumbprint | string |
 | EncryptionOperation | EnableEncryption | string | 
 | KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | string |
-| KeyEncryptionKeyURL | URL | string |
+| KeyEncryptionKeyURL | url | string |
 | KeyVaultResourceId | uri de recurso | string |
 | KekVaultResourceId | uri de recurso | string |
-| KeyVaultURL | URL | string |
+| KeyVaultURL | url | string |
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | OS, Data, All | string |
 
@@ -102,7 +102,7 @@ Para ver un ejemplo de implementación de una plantilla, consulte [Create a new 
 
 Puede encontrar instrucciones en la versión más reciente de la [documentación de la CLI de Azure](/cli/azure/vm/encryption?view=azure-cli-latest). 
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
+## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

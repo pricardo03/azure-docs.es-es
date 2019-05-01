@@ -2,24 +2,18 @@
 title: Habilitar una descripción de Microsoft AppSource y Azure Marketplace mediante Azure Active Directory | Azure
 description: Habilite un tipo de aplicación mediante Azure Active Directory en Azure Marketplace y AppSource para los anunciantes de aplicaciones y servicios.
 services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
 ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734259"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Habilitar una descripción de AppSource y Marketplace mediante Azure Active Directory
 

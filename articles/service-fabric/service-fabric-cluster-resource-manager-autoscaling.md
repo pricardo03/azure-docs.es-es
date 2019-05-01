@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
 ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281666"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844030"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introducción al escalado automático
 El escalado automático es una funcionalidad adicional de Service Fabric para escalar servicios de manera dinámica en función de la carga que notifican los servicios o del uso de recursos. El escalado automático proporciona una gran elasticidad y permite el aprovisionamiento de instancias o particiones adicionales del servicio a petición. Todo el proceso de escalado es automático y transparente. Además, una vez configuradas las directivas en un servicio, no es necesario realizar ninguna operación de escalado manual a nivel de servicio. El escalado automático se puede activar al crear el servicio o al actualizarlo en cualquier momento.

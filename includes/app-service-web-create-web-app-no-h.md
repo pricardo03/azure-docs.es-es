@@ -9,11 +9,11 @@ ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 9f7c82a2bd35f06da096fa0dd9d5d1fa4d08011e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549174"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60838935"
 ---
 En Cloud Shell, cree una [aplicación web](../articles/app-service/overview.md) en el plan de App Service `myAppServicePlan`. Puede hacerlo con el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). En el ejemplo siguiente, reemplace  *\<app-name >* con un nombre de aplicación único global (caracteres válidos son `a-z`, `0-9`, y `-`).
 

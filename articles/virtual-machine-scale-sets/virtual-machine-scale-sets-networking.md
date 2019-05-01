@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
 ms.openlocfilehash: a9141adfb1dd05efd73061379be89ddf27ab3832
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60803050"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Redes para conjuntos de escalado de máquinas virtuales de Azure
 

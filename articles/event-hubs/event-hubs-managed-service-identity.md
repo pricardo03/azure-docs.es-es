@@ -12,11 +12,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087735"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746919"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identidades administradas para recursos de Azure con Event Hubs
 
@@ -56,7 +56,7 @@ Una vez habilitada la característica, se crea una identidad de servicio en Azur
 
 A continuación, [cree un espacio de nombres de Event Hubs](event-hubs-create.md) en una de las regiones de Azure que admite la versión preliminar de las identidades administradas para los recursos de Azure: **Este de EE. UU.**, **Este de EE. UU. 2** o **Europa Occidental**. 
 
-Vaya a la página **Control de acceso (IAM)** del espacio de nombres en Azure Portal y, después, haga clic en **Agregar asignación de roles** para agregar la identidad administrada al rol **Propietario**. Para ello, busque el nombre de la aplicación web en el campo **Seleccionar** del panel **Agregar permisos** y, a continuación, haga clic en la entrada. A continuación, haga clic en **Guardar**. La identidad administrada de la aplicación web ya tiene acceso al espacio de nombres de Event Hubs y al centro de eventos que creó anteriormente. 
+Vaya a la página **Control de acceso (IAM)** del espacio de nombres en el portal y, después, haga clic en **Agregar asignación de roles** para agregar la identidad administrada al rol **Propietario**. Para ello, busque el nombre de la aplicación web en el campo **Seleccionar** del panel **Agregar permisos** y, a continuación, haga clic en la entrada. A continuación, haga clic en **Guardar**. La identidad administrada de la aplicación web ya tiene acceso al espacio de nombres de Event Hubs y al centro de eventos que creó anteriormente. 
 
 ### <a name="run-the-app"></a>Ejecución de la aplicación
 

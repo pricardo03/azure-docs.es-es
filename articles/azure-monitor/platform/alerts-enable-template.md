@@ -9,11 +9,11 @@ ms.date: 4/27/2018
 ms.author: johnkem
 ms.subservice: metrics
 ms.openlocfilehash: df26547132403bfe2f3fb3be74e5d1a3d9400967
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433040"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776446"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica clásica con una plantilla de Resource Manager
 En este artículo se describe cómo se puede utilizar una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar alertas de métrica de Azure. Esto permite configurar automáticamente las alertas en los recursos cuando se crean para asegurarse de que todos los recursos se supervisan correctamente.

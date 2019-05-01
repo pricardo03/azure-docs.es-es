@@ -11,11 +11,11 @@ author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821281"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona Azure Machine Learning Service: Arquitectura y conceptos
 
@@ -175,7 +175,7 @@ Una actividad representa una operación de larga ejecución. Las operaciones sig
 
 Las actividades pueden proporcionar notificaciones a través del SDK o la interfaz de usuario web para que pueda supervisar fácilmente el progreso de estas operaciones.
 
-## <a name="image"></a>Imagen
+## <a name="image"></a>Image
 
 Las imágenes ofrecen una forma fiable de implementar un modelo, junto con todos los componentes necesarios para usar el mismo. Una imagen contiene los siguientes elementos:
 

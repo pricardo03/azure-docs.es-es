@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515852"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742078"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Creación de una instancia de IoT Hub mediante Azure Portal
 
@@ -34,13 +34,13 @@ Puede cambiar la configuración de un centro de IoT existente después de crearl
 
 Estas son algunas de las propiedades que puede establecer para un centro de IoT:
 
-**Pricing and scale** (Precios y escala): puede usar esta propiedad para migrar a un nivel diferente o establecer el número de unidades de IoT Hub. 
+**Precios y escala**: Puede utilizar esta propiedad para migrar a un nivel diferente o establecer al número de IoT Hub unidades. 
 
-**Operations monitoring** (Supervisión de operaciones): active o desactive las distintas categorías de supervisión, como el registro de eventos relacionados con los mensajes de dispositivo a la nube o con los mensajes de la nube al dispositivo.
+**Supervisión de operaciones**: Activar las diferentes categorías de supervisión o desactivar, como el registro de eventos relacionados con mensajes de dispositivo a nube o en la nube a dispositivo.
 
-**IP Filter** (Filtro de IP): especifique un intervalo de direcciones IP que el centro de IoT acepte o rechace.
+**Filtro IP**: Especifique un intervalo de direcciones IP que se aceptará o rechazará IoT hub.
 
-**Properties** (Propiedades): proporciona la lista de propiedades que puede copiar y usar en otra parte, como el identificador de recursos, el grupo de recursos, la ubicación, etc.
+**Propiedades**: Proporciona la lista de propiedades que puede copiar y usar en otros lugares, como el identificador de recurso, grupo de recursos, ubicación y así sucesivamente.
 
 ### <a name="shared-access-policies"></a>Directivas de acceso compartido
 

@@ -13,11 +13,11 @@ ms.custom: seodec18
 ms.date: 02/15/2019
 ms.author: juliako
 ms.openlocfilehash: f4ce64599aad2b2eebbef6ca8d81acfca2a7a702
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733899"
 ---
 # <a name="create-an-azure-media-services-account"></a>Creación de una cuenta de Azure Media Services
 
@@ -48,7 +48,7 @@ az account set --subscription mySubscriptionId
 
 [Streaming de un archivo](stream-files-dotnet-quickstart.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [CLI de Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 

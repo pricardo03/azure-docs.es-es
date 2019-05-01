@@ -11,11 +11,11 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: d89a701f1d4528e1f3dff08daf31873891778f07
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60751389"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciencia de datos para principiantes, vídeo 1: Las cinco preguntas a las que responde la ciencia de datos
 Obtenga una rápida introducción a la ciencia de datos en la serie *Ciencia de datos para principiantes*, con cinco vídeos breves, que protagoniza una de los científicos de datos más importantes. Estos vídeos son básicos pero útiles si está interesado en elaborar ciencia de datos o trabajar con científicos de datos.

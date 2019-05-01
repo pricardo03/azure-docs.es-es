@@ -14,11 +14,11 @@ ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fb1cafcf9405576749ea91aeea033c6ee783a026
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330439"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739274"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Preguntas más frecuentes para SQL Server en máquinas virtuales Linux de Azure
 
@@ -73,7 +73,7 @@ En este artículo se proporcionan respuestas a algunas de las preguntas más com
 
 1. **¿Puedo cambiar una máquina virtual para usar mi propia licencia de SQL Server si se ha creado desde una de las imágenes de la galería de pago por uso?**
 
-    No. No puede cambiar de licencias de pago por segundo a usar su propia licencia. Debe crear una máquina virtual Linux nueva, instalar SQL Server y migrar los datos. Consulte la pregunta anterior para más detalles sobre cómo traer su propia licencia.
+   No. No puede cambiar de licencias de pago por segundo a usar su propia licencia. Debe crear una máquina virtual Linux nueva, instalar SQL Server y migrar los datos. Consulte la pregunta anterior para más detalles sobre cómo traer su propia licencia.
 
 ## <a name="administration"></a>Administración
 

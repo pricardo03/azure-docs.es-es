@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 4282c9e9b660476992ba6f948bc5e408e9b064a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 33e738f31be493d5890fc972ec71e7c6cd733bf4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968618"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736458"
 ---
 # <a name="http2-support-in-azure-front-door-service"></a>Compatibilidad con HTTP/2 en Azure Front Door Service
 HTTP/2 es una revisión principal de HTTP/1.1. Proporciona un rendimiento web más rápido, tiempo de respuesta reducido y experiencia de usuario mejorada, al tiempo que se mantienen los métodos HTTP conocidos, los códigos de estado y la semántica. Aunque HTTP/2 está diseñado para trabajar con HTTP y HTTPS, muchos exploradores web de cliente solo admiten HTTP/2 sobre Seguridad de la capa de transporte (TLS).
@@ -60,5 +60,5 @@ Para más información sobre HTTP/2, consulte los siguientes recursos:
 
 - [Página principal de especificación de HTTP/2](https://http2.github.io/)
 - [Preguntas más frecuentes oficiales de HTTP/2](https://http2.github.io/faq/)
-- Aprenda cómo [crear una instancia de Front Door](quickstart-create-front-door.md).
+- Aprenda a [crear una instancia de Front Door](quickstart-create-front-door.md).
 - Más información acerca de cómo [funciona Front Door](front-door-routing-architecture.md).

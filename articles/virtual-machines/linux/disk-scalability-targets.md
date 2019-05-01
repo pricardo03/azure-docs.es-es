@@ -10,11 +10,11 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
 ms.openlocfilehash: 39e0a36b50a9e222e6016140967336ccda167514
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771641"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Linux
 
@@ -33,6 +33,6 @@ Los tamaños marcados con un asterisco están actualmente en versión preliminar
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits)

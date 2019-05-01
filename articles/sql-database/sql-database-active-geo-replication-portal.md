@@ -13,17 +13,17 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60864139"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configuración de replicación geográfica activa para Azure SQL Database en Azure Portal e inicio de la conmutación por error
 
 En este artículo se muestra cómo configurar la [replicación geográfica activa para bases de datos únicas y agrupadas](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) en Azure SQL Database mediante [Azure Portal](https://portal.azure.com) y cómo iniciar la conmutación por error.
 
-Para información sobre los grupos de conmutación por error automática con bases de datos únicas y agrupadas, consulte [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools) (Procedimientos recomendados para usar grupos de conmutación por error con bases de datos únicas y agrupadas). Para información sobre los grupos de conmutación por error automática con instancias administradas (versión preliminar), consulte [Procedimientos recomendados para usar grupos de conmutación por error con instancias administradas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+Para información sobre los grupos de conmutación por error automática con bases de datos únicas y agrupadas, consulte [Procedimientos recomendados para usar grupos de conmutación por error con bases de datos únicas y agrupadas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Para información sobre los grupos de conmutación por error automática con instancias administradas (versión preliminar), consulte [Procedimientos recomendados para usar grupos de conmutación por error con instancias administradas](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -40,7 +40,7 @@ Los pasos siguientes crean otra base de datos secundaria en una asociación de r
 
 Para agregar una base de datos secundaria, debe ser el propietario o copropietario de la suscripción.
 
-La base de datos secundaria tiene el mismo nombre que la principal y, de forma predeterminada, presentan el mismo nivel de servicio y tamaño de proceso. La base de datos secundaria puede ser una base de datos única o una base de datos agrupada. Para obtener más información, consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
+La base de datos secundaria tiene el mismo nombre que la principal y, de forma predeterminada, presentan el mismo nivel de servicio y tamaño de proceso. La base de datos secundaria puede ser una base de datos única o una base de datos agrupada. Para obtener más información, consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 Después de crear e inicializar la base de datos secundaria, los datos comienzan a replicarse desde la base de datos principal a la nueva base de datos secundaria.
 
 > [!NOTE]

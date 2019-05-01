@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 61b877c322fcd58472990c328beea2e309502bce
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734582"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Definición de filtros de cuenta y de recurso  
 
@@ -36,7 +36,7 @@ Media Services ofrece [manifiestos dinámicos](filters-dynamic-manifest-overview
 
 En la tabla siguiente se muestran algunos ejemplos de direcciones URL con filtros:
 
-|Protocolo|Ejemplo|
+|Protocol|Ejemplo|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>HLS v3, use: `format=m3u8-aapl-v3`.|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|

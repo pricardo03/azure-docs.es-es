@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 12934ad53050d16b89dd5b4175ca19a24d1ec4d9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60916300"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Habilitación del Agente de máquina virtual en Azure Security Center
 El agente de máquina virtual debe instalarse en máquinas virtuales para [habilitar la recopilación de datos](security-center-enable-data-collection.md).  Azure Security Center permite ver qué máquinas virtuales requieren el Agente de máquina virtual y recomienda habilitarlo en esas máquinas virtuales.
@@ -37,7 +37,7 @@ De manera predeterminada, el agente de máquina virtual está instalado en las m
 2. Se abrirá la hoja **VM Agent Is Missing Or Not Responding**(Agente de máquina virtual ausente o no responde). Esta hoja enumera las máquinas virtuales que requieren el Agente de máquina virtual. Siga las instrucciones de la hoja para instalar el Agente de máquina virtual.
    ![Agente de máquina virtual ausente][2]
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.

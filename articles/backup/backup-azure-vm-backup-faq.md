@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: sogup
 ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848187"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes-Back de máquinas virtuales de Azure
 
@@ -27,7 +27,7 @@ Cuando se crea una máquina virtual, puede habilitar la copia de seguridad para 
  
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>¿Es el costo de copia de seguridad incluido en el costo de máquina virtual? 
 
- No. Los costos de copia de seguridad son independientes de los costos de la máquina virtual. Obtenga más información sobre [precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+No. Los costos de copia de seguridad son independientes de los costos de la máquina virtual. Obtenga más información sobre [precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
  
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>¿Qué permisos son necesarios para habilitar la copia de seguridad para una máquina virtual? 
 
@@ -51,7 +51,7 @@ Si el almacén de Recovery Services y la máquina virtual tienen distintos grupo
 Revise el [matriz de compatibilidad](backup-support-matrix-iaas.md) para detalles sobre la compatibilidad y las limitaciones.
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>¿Usa un trabajo de copia de seguridad a petición la misma programación de retención que las copias de seguridad programadas?
- No. Especifique la duración de retención para un trabajo de copia de seguridad y a petición. De forma predeterminada, se conservará durante 30 días si se desencadena desde el portal.
+No. Especifique la duración de retención para un trabajo de copia de seguridad y a petición. De forma predeterminada, se conservará durante 30 días si se desencadena desde el portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Recientemente habilité Azure Disk Encryption en algunas máquinas virtuales. ¿Seguirán funcionando mis copias de seguridad?
 Proporcionar permisos para Azure Backup para acceder a Key Vault. Especifique los permisos en PowerShell como se indica en la sección **Habilitar copia de seguridad** de la documentación sobre [PowerShell de Azure Backup](backup-azure-vms-automation.md).
@@ -74,7 +74,7 @@ Si bloquea el grupo de recursos creado por el servicio de copia de seguridad de 
 Usuario debe quitar el bloqueo y borrar la colección de puntos de restauración de ese grupo de recursos para hacer que las futuras copias de seguridad correcta, [siga estos pasos](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para quitar la colección de puntos de restauración.
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>¿Tiene la directiva de copia de seguridad en cuenta el horario de verano (DST)?
- No. La fecha y hora del equipo local tiene el valor local actualizado con el horario de verano actual aplicado. Puede que el establecimiento de la hora de las copias de seguridad programadas difiera de la hora local debido al horario de verano.
+No. La fecha y hora del equipo local tiene el valor local actualizado con el horario de verano actual aplicado. Puede que el establecimiento de la hora de las copias de seguridad programadas difiera de la hora local debido al horario de verano.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>¿Cuántos discos de datos se pueden conectar a una máquina virtual de la cual Azure Backup ha realizado una copia de seguridad?
 Azure Backup puede realizar una copia de seguridad de máquinas virtuales con hasta 16 discos. Se proporciona compatibilidad con 16 discos en la [restauración instantánea](backup-instant-restore-capability.md).

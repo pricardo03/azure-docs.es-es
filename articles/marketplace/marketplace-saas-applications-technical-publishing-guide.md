@@ -2,24 +2,17 @@
 title: Guía de publicación técnica de aplicaciones SaaS de Azure Marketplace
 description: Guía paso a paso y listas de comprobación de publicación para la publicación de aplicaciones SaaS en Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter: ''
 author: keithcharlie
-manager: nunoc
-editor: keithcharlie
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
 ms.openlocfilehash: b653b0276cedea1e3b45adf7a9dc390b24f0d03f
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60765404"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guía de publicación de ofertas de aplicaciones de SaaS
 

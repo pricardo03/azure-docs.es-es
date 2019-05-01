@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: dd808a04dff77388248bf7309f5ff804e6dd065c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60873110"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Inserción enriquecida de Azure Notification Hubs
 

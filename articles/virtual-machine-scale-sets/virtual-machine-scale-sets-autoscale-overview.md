@@ -17,11 +17,11 @@ ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883303"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883677"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Introducción a los registros de escalado automático con conjuntos de escalado de máquinas virtuales de Azure
 Un conjunto de escalado de máquinas virtuales de Azure puede aumentar o reducir automáticamente el número de instancias de máquinas virtuales que ejecutan la aplicación. Este comportamiento automatizado y elástico reduce la sobrecarga de administración para supervisar y optimizar el rendimiento de la aplicación. Puede crear reglas que definan el rendimiento aceptable para una experiencia positiva del cliente. Al cumplirse esos umbrales definidos, las reglas de escalado automático actúan para ajustar la capacidad del conjunto de escalado. También puede programar eventos para aumentar o reducir automáticamente la capacidad del conjunto de escalado en determinados momentos. En este artículo se proporciona información general de las métricas de rendimiento que están disponibles y las acciones que puede realizar el escalado automático.
@@ -84,7 +84,7 @@ Al crear reglas de escalado automático para supervisar una métrica especificad
 | Máxima          |
 | Total            |
 | Último             |
-| Recuento            |
+| Número            |
 
 A continuación, las reglas de escalado automático se desencadenan al compararse las métricas con su umbral definido con uno de los siguientes operadores:
 

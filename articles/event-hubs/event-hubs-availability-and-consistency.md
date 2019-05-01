@@ -16,11 +16,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: e5cad797b633d43bcc9ead657a60fca8aa6679bb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090727"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822376"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidad y coherencia en Event Hubs
 

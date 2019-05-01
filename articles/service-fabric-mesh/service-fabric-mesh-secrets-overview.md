@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
 ms.openlocfilehash: 4268356db5f46e92862e19d6391cfe5a94511270
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007485"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60810658"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Secretos en la aplicación Service Fabric Mesh
 Service Fabric Mesh admite secretos como recursos de Azure. Un secreto de Service Fabric Mesh puede ser cualquier información de texto confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que deben almacenarse y transmitirse de forma segura.

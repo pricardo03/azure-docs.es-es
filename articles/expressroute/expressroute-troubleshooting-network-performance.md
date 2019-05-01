@@ -9,11 +9,11 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883340"
 ---
 # <a name="troubleshooting-network-performance"></a>Solución de problemas de rendimiento de red
 ## <a name="overview"></a>Información general
@@ -179,7 +179,7 @@ Configuración de la prueba:
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Ubicación|Azure<br/>Region|Estimación<br/>Distancia (km)|Latencia|1 Sesión<br/>Ancho de banda|Máxima<br/>Ancho de banda|
+|ExpressRoute<br/>Location|Azure<br/>Region|Estimación<br/>Distancia (km)|Latencia|1 Sesión<br/>Ancho de banda|Máxima<br/>Ancho de banda|
 | Seattle | Oeste de EE. UU. 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
 | Seattle | Oeste de EE. UU.          |  1094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
 | Seattle | Centro de EE. UU.       |  2357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |

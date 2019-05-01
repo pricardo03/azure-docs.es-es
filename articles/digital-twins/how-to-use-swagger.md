@@ -10,11 +10,11 @@ ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
 ms.openlocfilehash: 1746e1d53be01e6c40b5d1948c666960970b75a0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60922995"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentación de referencia de Swagger de Azure Digital Twins
 
@@ -104,7 +104,7 @@ Para más información sobre las solicitudes de pruebas interactivas protegidas 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | Name  | Reemplazar por | Ejemplo |
+    | NOMBRE  | Reemplazar por | Ejemplo |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | La dirección URL de documentación de API de REST de administración se encuentra en el portal  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 

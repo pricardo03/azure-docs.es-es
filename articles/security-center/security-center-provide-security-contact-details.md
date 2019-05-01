@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 1/9/2018
 ms.author: rkarlin
 ms.openlocfilehash: b6babf7d5d5a0f5796efa9418044366c6a135ed9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107946"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909300"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Proporcionar detalles de contacto de seguridad en Azure Security Center
 Azure Security Center recomendará que proporcione los detalles de contacto de seguridad para su suscripción de Azure si no lo ha hecho ya. Esta información la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos de clientes. MSRC lleva a cabo una selecta supervisión de seguridad de la red e infraestructura de Azure y recibe información sobre amenazas y quejas sobre abusos de terceros.
@@ -54,7 +54,7 @@ Por ejemplo, si ya se ha enviado un mensaje de correo electrónico para avisarle
    * Más adelante, tendrá la opción de enviar notificaciones por correo electrónico a los propietarios de la suscripción. De momento, esta opción aparece atenuada.
    * Seleccione **Aceptar** para aplicar la información de contacto de seguridad a su suscripción.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.

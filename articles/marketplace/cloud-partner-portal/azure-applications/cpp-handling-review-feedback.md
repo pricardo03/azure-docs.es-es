@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
 ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882695"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60745611"
 ---
 # <a name="handling-review-feedback"></a>Administración de los comentarios de revisión
 

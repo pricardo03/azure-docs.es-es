@@ -2,18 +2,19 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/21/2018
-ms.author: cherylmc
+origin.date: 11/21/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 4cd1d143151e61c7c767ffdc4acb172b06dd0e43
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "58114379"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60767258"
 ---
 |**SKU**   | **Túneles<br>S2S/entre redes virtuales** | Conexiones **P2S<br> SSTP** | Conexiones **P2S<br> IKEv2** | **Pruebas comparativas de rendimiento<br>agregado** |
 |---       | ---        | ---       | ---            | ---       |

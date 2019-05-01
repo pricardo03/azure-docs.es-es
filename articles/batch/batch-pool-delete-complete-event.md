@@ -2,7 +2,7 @@
 title: Evento completo de eliminación de grupo de Azure Batch | Microsoft Docs
 description: Referencia del evento completo de eliminación de grupo de Batch.
 services: batch
-author: laurenhughes
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/20/2017
-ms.author: lahugh
+origin.date: 04/20/2017
+ms.date: 05/14/2018
+ms.author: v-junlch
 ms.openlocfilehash: e715ccd0f5e79f9c640a3c060b0252b798748b4d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775770"
 ---
 # <a name="pool-delete-complete-event"></a>Evento de finalización de eliminación del grupo
 
@@ -41,3 +42,5 @@ ms.locfileid: "55474555"
 
 ## <a name="remarks"></a>Comentarios
 Para más información sobre los estados y códigos de error para la operación de cambio de tamaño del grupo, consulte [Eliminar un grupo de una cuenta](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).
+
+<!-- Update_Description: update metedata properties -->

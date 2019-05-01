@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rkarlin
 ms.openlocfilehash: bec9be627937913c268d65bb6cdadcf68c7a3fb4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244305"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909220"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Administrar los datos de usuario encontrados en una investigación de Azure Security Center
 En este artículo se proporciona información sobre cómo administrar los datos de usuario que se encuentran en la característica de investigación de Azure Security Center. Datos de investigación se almacenan en [registros de Azure Monitor](../log-analytics/log-analytics-overview.md) y expone en el centro de seguridad. La administración de los datos de usuario incluye la capacidad de eliminar o exportar datos.

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 3/20/2018
 ms.author: monhaber
 ms.openlocfilehash: 407d0610f919b1145a91e8678f57f8d344c9c187
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60916240"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Comprensión de las alertas de seguridad en Azure Security Center
 Este artículo ayuda a comprender los distintos tipos de alertas de seguridad y aspectos relacionados disponibles en Azure Security Center. Para más información sobre cómo administrar las alertas y los incidentes, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).

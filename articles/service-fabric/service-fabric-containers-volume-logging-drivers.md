@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 6/10/2018
 ms.author: aljo, subramar
 ms.openlocfilehash: b8012cbdad02995c3fc98a3ea1fa02a3a08bd2dc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665906"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870883"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Controlador de volúmenes de Azure Files en Service Fabric (versión preliminar)
 El complemento de volúmenes de Azure Files es un [complemento de volúmenes de Docker](https://docs.docker.com/engine/extend/plugins_volume/) que proporciona volúmenes basados en [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) para los contenedores de Docker. Este complemento de volúmenes de Docker se empaqueta como aplicación de Service Fabric que se puede implementar en clústeres de Service Fabric. Su objetivo es proporcionar volúmenes basados en Azure Files a otras aplicaciones de contenedor de Service Fabric que se implementan en el clúster.

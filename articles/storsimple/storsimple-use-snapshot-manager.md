@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: ''
-ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 46225e5a332e035e4d1cc256e71c4b5d8686fd47
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23113533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845333"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Uso de la interfaz de usuario de StorSimple Snapshot Manager para administrar trabajos de copia de seguridad y el catálogo de copia de seguridad
 
@@ -67,7 +67,7 @@ Para ver el menú **Archivo**, haga clic en **Archivo** en la barra de menús. A
 #### <a name="menu-description"></a>Descripción del menú
 La tabla siguiente describe los elementos que aparecen en el menú **Archivo** .
 
-| Elemento de menú | Descripción |
+| Elemento de menú | DESCRIPCIÓN |
 |:--- |:--- |
 | Nuevo |Haga clic en **Nuevo** para crear una nueva consola basada en Administrador de instantáneas StorSimple. |
 | Abrir |Haga clic en **Abrir** para abrir una consola existente. |
@@ -107,7 +107,7 @@ La tabla siguiente contiene una lista alfabética de las acciones de Administrad
 > 
 > 
 
-| Acción | Navegación | Descripción |
+| . | Navegación | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | Autenticar |Haga clic en el nodo **Dispositivos** y haga clic con el botón derecho en un dispositivo en el panel **Resultados**. |Haga clic en **Autenticar** para escribir la contraseña que configuró para el dispositivo. |
 | Clon |Expanda **Catálogo de copias de seguridad**, expanda **Instantáneas de nube**, haga clic en una copia de seguridad con fecha y luego seleccione un volumen en el panel **Resultados**. |Haga clic en **Clonar** para crear una copia de una instantánea de nube y almacenarla en la ubicación que designó. |
@@ -139,7 +139,7 @@ Puede acceder al menú **Vista** en la barra de menús o en el panel **Acciones*
 #### <a name="menu-description"></a>Descripción del menú
 La tabla siguiente describe los elementos que aparecen en el menú **Vista** .
 
-| Elemento de menú | Descripción |
+| Elemento de menú | DESCRIPCIÓN |
 |:--- |:--- |
 | Agregar o quitar columnas |Haga clic en **Agregar o quitar columnas** para agregar o quitar columnas en el panel **Resultados**. |
 | Personalizar |Haga clic en **Personalizar** para mostrar u ocultar los elementos de la ventana de la consola de Administrador de instantáneas StorSimple. |
@@ -155,7 +155,7 @@ Puede acceder al menú **Favoritos** desde la barra de menús.
 #### <a name="menu-description"></a>Descripción del menú
 La tabla siguiente describe los elementos que aparecen en el menú **Favoritos** .
 
-| Elemento de menú | Descripción |
+| Elemento de menú | DESCRIPCIÓN |
 |:--- |:--- |
 | Agregar a Favoritos |Haga clic en **Agregar a favoritos** para agregar la vista actual a la lista de favoritos. |
 | Organizar Favoritos |Haga clic en **Organizar favoritos** para organizar el contenido de la carpeta Favoritos. |
@@ -173,7 +173,7 @@ La lista numerada en la parte inferior del menú muestra las ventanas que están
 #### <a name="menu-description"></a>Descripción del menú
 La tabla siguiente describe los elementos que aparecen en el menú Ventana.
 
-| Elemento de menú | Descripción |
+| Elemento de menú | DESCRIPCIÓN |
 |:--- |:--- |
 | Nueva ventana |Haga clic en **Nueva ventana** para abrir una nueva ventana de consola (además de la ventana existente). |
 | En cascada |Haga clic en **Cascada** para mostrar las ventanas de consola abiertas en cascada. |
@@ -190,7 +190,7 @@ Puede acceder al menú **Ayuda** desde la barra de menús. También puede accede
 #### <a name="menu-description"></a>Descripción del menú
 La tabla siguiente describe los elementos que aparecen en el menú Ayuda.
 
-| Elemento de menú | Descripción |
+| Elemento de menú | DESCRIPCIÓN |
 |:--- |:--- |
 | Ayuda de Administrador de instantáneas StorSimple |Haga clic en **Ayuda en Administrador de instantáneas StorSimple** para abrir la Ayuda de Administrador de instantáneas StorSimple en una ventana independiente. |
 | Temas de Ayuda |Haga clic en **Temas de Ayuda** para abrir la Ayuda en pantalla de MMC en una ventana independiente. |
@@ -204,7 +204,7 @@ La barra de herramientas, que está debajo de la barra de menús, contiene icono
 ### <a name="icon-descriptions"></a>Descripciones de los iconos
 En la tabla siguiente se describe los iconos que aparecen en la barra de herramientas. 
 
-| Icono | Descripción |
+| Icono | DESCRIPCIÓN |
 |:--- |:--- |
 | ![Flecha izquierda](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) |Haga clic en el icono de flecha izquierda para volver a la página anterior. |
 | ![Flecha derecha](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) |Haga clic en la flecha derecha para ir a la página siguiente (si la flecha está atenuada, la acción no está disponible). |
@@ -337,7 +337,7 @@ Administrador de instantáneas StorSimple habilita las características de acces
 ### <a name="keyboard-navigation-keys"></a>Teclas de navegación
 La tabla siguiente describen las teclas que puede usar para navegar por la interfaz de usuario de Administrador de instantáneas StorSimple. 
 
-| Tecla de navegación | Acción |
+| Tecla de navegación | . |
 |:--- |:--- |
 | Flecha abajo |Utilice la tecla flecha abajo para mover verticalmente al siguiente elemento de un menú o panel. |
 | Escriba |Presione la tecla ENTRAR para completar una acción y, a continuación, vaya al paso siguiente. Por ejemplo, puede presionar ENTRAR para seleccionar **Siguiente**, **Aceptar** o **Crear** y luego vaya al paso siguiente en un asistente. |
@@ -359,7 +359,7 @@ La tabla siguiente describe las combinaciones de teclas de método abreviado par
 | ALT + F |Abre el menú **Archivo** . |N |Abre una nueva instancia de la consola. |
 |  |O |Abre la página **Herramientas administrativas** . | |
 |  |S |Guarda la consola de Administrador de instantáneas StorSimple. | |
-|  |Encontrará |Abre la página **Guardar como** . | |
+|  |Una  |Abre la página **Guardar como** . | |
 |  |M |Abre la página **Agregar o quitar complemento** . | |
 |  |P |Abre la página **Opciones** . | |
 |  |H |Abre la Ayuda en pantalla. | |
@@ -368,9 +368,9 @@ La tabla siguiente describe las combinaciones de teclas de método abreviado par
 |  |F |Actualiza la consola de Administrador de instantáneas StorSimple. | |
 |  |L |Abre la página **Exportar lista** . | |
 |  |H |Abre la Ayuda en pantalla. | |
-| ALT + V |Abre el menú **Vista** . |Encontrará |Abre la página **Agregar o quitar columnas** . |
+| ALT + V |Abre el menú **Vista** . |Una  |Abre la página **Agregar o quitar columnas** . |
 |  |U |Abre la página **Personalizar vista** . | |
-| ALT + O |Abre el menú **Favoritos** . |Encontrará |Abre la página **Agregar a favoritos** . |
+| ALT + O |Abre el menú **Favoritos** . |Una  |Abre la página **Agregar a favoritos** . |
 |  |O |Abre la página **Organizar favoritos** . | |
 | ALT + W |Abre el menú **Ventana** . |N |Abre otra ventana de Administrador de instantáneas StorSimple. |
 |  |C |Muestra todas las ventanas de consola abiertas en un estilo en cascada. | |
@@ -378,7 +378,7 @@ La tabla siguiente describe las combinaciones de teclas de método abreviado par
 |  |I |Organiza los iconos en una fila horizontal en la parte inferior de la pantalla. | |
 | ALT + H |Abre el menú **Ayuda** . |H |Abre la Ayuda en pantalla. |
 |  |T |Abre la página web de Microsoft TechNet Tech Center. | |
-|  |Encontrará |Abre la página **Acerca de Microsoft Management Console** . | |
+|  |Una  |Abre la página **Acerca de Microsoft Management Console** . | |
 
 ### <a name="scope-pane-shortcut-keys"></a>Teclas de método abreviado del panel Ámbito
 Las siguientes tablas muestran las combinaciones de teclas de método abreviado para cada nodo en el panel **Ámbito** . 
@@ -424,7 +424,7 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
 #### <a name="backup-policies-node-shortcut-keys"></a>Teclas de método abreviado del nodo Directivas de copia de seguridad
 | Método abreviado de menú | Resultado |
 |:--- |:--- |
-| B |Abre la página **Crear una directiva** . |
+| b |Abre la página **Crear una directiva** . |
 | V |Abre el menú **Vista** . |
 | W |Abre una nueva consola de StorSimple Snapshot Manager centrada en el nodo **Grupos de volúmenes** . |
 | F |Actualiza la consola de Administrador de instantáneas StorSimple. |

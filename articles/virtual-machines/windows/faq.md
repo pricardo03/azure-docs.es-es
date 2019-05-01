@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
 ms.openlocfilehash: 65d4326763ef9754159e94c9426f3aee69f80ffd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61095679"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Preguntas más frecuentes sobre máquinas virtuales Windows
 En este artículo se responden algunas preguntas frecuentes que los usuarios plantean sobre las máquinas virtuales Windows creadas en Azure mediante el modelo de implementación de Resource Manager. Para la versión de Linux de este tema, consulte [Preguntas frecuentes sobre las máquinas virtuales de Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -33,7 +33,7 @@ Existen determinadas versiones de Windows 7, Windows 8.1 y Windows 10 para suscr
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>¿Cuánto almacenamiento puedo usar con una máquina virtual?
 Cada disco de datos puede ser de hasta 4 TB (4095 GB). El número de discos de datos que puede usar depende del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Azure Managed Disks son las nuevas ofertas de almacenamiento en disco recomendadas que se pueden usar con Azure Virtual Machines para almacenar los datos de forma persistente. Puede usar varios de estos discos con cada máquina virtual. Managed Disks ofrecen dos tipos de opciones de almacenamiento duraderas: discos administrados premium y estándar. Para más información, consulte los [precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
+Azure Managed Disks son las nuevas ofertas de almacenamiento en disco recomendadas que se pueden usar con Azure Virtual Machines para almacenar los datos de forma persistente. Puede usar varios de estos discos con cada máquina virtual. Managed Disks ofrece dos tipos de opciones de almacenamiento duraderas: discos administrados premium y estándar. Para más información, consulte los [precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Las cuentas de Azure Storage también pueden proporcionar almacenamiento para el disco del sistema operativo y los discos de datos. Cada disco es un archivo .vhd almacenado como un blob en páginas. Para obtener información detallada sobre los precios, consulte [Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/storage/).
 

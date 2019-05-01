@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 9bb8a168f54658ea14b174d19a1795e575646304
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749349"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Asignaciones de campos en los indexadores de Azure Search
 Al usar los indexadores de Azure Search, habrá ocasiones en que pueda encontrarse en situaciones donde sus datos de entrada no coincidan demasiado con el esquema de su índice de destino. En esos casos, puede usar **asignaciones de campos** para transformar sus datos en la forma deseada.

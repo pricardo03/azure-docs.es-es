@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 4629b52f3b2c9e351ddc2a68a40c5178a9a73950
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: d3601fd8c32c70cf828cd08fada71258ec8fa5d4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048262"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812684"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajustar las cuotas y los límites en Azure Data Lake Analytics
 
@@ -22,7 +22,7 @@ Obtenga información sobre cómo ajustar y aumentar la cuota y los límites en c
 
 ## <a name="azure-subscriptions-limits"></a>Límites de las suscripciones de Azure
 
-**Número máximo de cuentas de ADLA por suscripción y región:** 5
+**Número máximo de cuentas de ADLA por suscripción por región:**  5
 
 Al intentar crear la sexta cuenta de ADLA, se muestra el error "Ha alcanzado el número máximo de cuentas de Data Lake Analytics permitido (5) en {región} con la suscripción {nombre}". 
 
@@ -32,14 +32,14 @@ Si desea superar este límite, puede probar estas opciones:
 
 ## <a name="default-adla-account-limits"></a>Límites predeterminados de cuentas de ADLA
 
-**Número máximo de unidades de análisis por cuenta:** 32
+**Número máximo de unidades de análisis (AU) por cuenta:** 32
 
 Es el número máximo de unidades de análisis que se pueden ejecutar de forma simultánea en su cuenta. Si el total de unidades de análisis en ejecución entre todos los trabajos supera este límite, los trabajos nuevos se ponen en cola automáticamente. Por ejemplo: 
 
 * Si solo tiene un trabajo en ejecución con 32 unidades de análisis, cuando envíe un segundo trabajo, este permanecerá en la cola de trabajos hasta que el primero se complete.
 * Si ya tiene cuatro trabajos en ejecución y cada uno usa ocho unidades de análisis, al enviar un quinto trabajo que necesita ocho unidades de análisis, este permanecerá en la cola de trabajos hasta que haya ocho unidades de análisis disponibles.
 
-**Número máximo de unidades de análisis por trabajo:** 32
+**Número máximo de unidades de análisis (AU) por trabajo:** 32
 
 Este es el número máximo predeterminado de unidades de análisis que se puede asignar a cada trabajo individual en la cuenta. Los trabajos a los que se asigne más de este límite se rechazarán, a menos que el remitente se vea afectado por una directiva de proceso (límite de envío de trabajos) que le otorgue más unidades de análisis por trabajo. El límite superior de este valor es el límite de unidades de análisis de la cuenta.
 

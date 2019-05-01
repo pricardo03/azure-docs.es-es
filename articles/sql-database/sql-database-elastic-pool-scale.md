@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 3/14/2019
 ms.openlocfilehash: d8aaf51c836a8e88c4e9b92798067167cd044e72
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58015373"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848104"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Escalar recursos de grupos elásticos en Azure SQL Database
 
@@ -74,12 +74,12 @@ Se le cobrará por cada hora que una base de datos exista con el mayor nivel de 
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
-### <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleos virtuales
+### <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleo virtual
 
 - Se puede aprovisionar el almacenamiento hasta el límite de tamaño máximo:
 
-  - En el caso del almacenamiento en niveles de servicio estándar o de uso general, aumente o disminuya el tamaño en incrementos de 10 GB.
-  - Para el almacenamiento en niveles de servicio premium o críticos para la empresa, aumente o disminuya el tamaño en incrementos de 250 GB.
+  - En el caso del almacenamiento en niveles de servicio estándar o Uso general, aumente o disminuya el tamaño en incrementos de 10 GB.
+  - Para el almacenamiento en niveles de servicio Premium o Crítico para la empresa, aumente o disminuya el tamaño en incrementos de 250 GB.
 - El almacenamiento de un grupo elástico se puede aprovisionar aumentando o reduciendo su tamaño máximo.
 - El precio del almacenamiento para un grupo elástico es la cantidad de almacenamiento multiplicada por el precio de la unidad de almacenamiento del nivel de servicio. Para más información sobre el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -88,7 +88,7 @@ Se le cobrará por cada hora que una base de datos exista con el mayor nivel de 
 
 ### <a name="dtu-based-purchasing-model"></a>Modelo de compra basado en DTU
 
-- El precio de la eDTU de un grupo elástico incluye una cierta cantidad de almacenamiento sin ningún costo adicional. El almacenamiento adicional que supere la cantidad incluida se puede aprovisionar por un costo extra hasta el límite de tamaño máximo en incrementos de 250 GB hasta 1 TB, y luego en incrementos de 256 GB superando 1 TB. Para los límites de tamaño máximo y las cantidades de almacenamiento incluidas, consulte [Grupos elásticos: tamaños de almacenamiento y de proceso](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- El precio de la eDTU de un grupo elástico incluye una cierta cantidad de almacenamiento sin ningún costo adicional. El almacenamiento adicional que supere la cantidad incluida se puede aprovisionar por un costo extra hasta el límite de tamaño máximo en incrementos de 250 GB hasta 1 TB, y luego en incrementos de 256 GB superando 1 TB. Para más información sobre los límites de tamaño máximo y las cantidades de almacenamiento incluidas, consulte [Grupos elásticos: tamaños de almacenamiento y de proceso](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
 - Se puede aprovisionar el almacenamiento adicional para un grupo elástico si se aumenta su tamaño máximo mediante [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), la [CLI de Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) o la [API de REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 - El precio del almacenamiento adicional para un grupo de bases de datos elásticas es la cantidad de almacenamiento adicional multiplicada por el precio de la unidad de almacenamiento adicional del nivel de servicio. Para más información sobre el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 36e8875e91e2f04dbb60bab3211f07b2053e78f5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
-ms.translationtype: HT
+ms.openlocfilehash: 3ce881da4b683cf7034100d5044dd0f3c93edb52
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414779"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800190"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -74,19 +74,19 @@ Azure Disk Encryption para Linux requiere conectividad a Internet para acceder a
 
 | NOMBRE | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | fecha |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Azure.Security | string |
 | Tipo | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
 | AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| AADClientSecret | contraseña | string |
+| AADClientSecret | password | string |
 | AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Diccionario de JSON |
 | EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
 | KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
-| KeyEncryptionKeyURL | URL | string |
-| KeyVaultURL | URL | string |
-| Frase de contraseña | contraseña | string | 
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultURL | url | string |
+| Frase de contraseña | password | string | 
 | SequenceVersion | uniqueidentifier | string |
 | VolumeType | OS, Data, All | string |
 
@@ -98,7 +98,7 @@ Para ver un ejemplo de implementación de plantilla, consulte [Enable Encryption
 
 Puede encontrar instrucciones en la versión más reciente de la [documentación de la CLI de Azure](/cli/azure/vm/encryption?view=azure-cli-latest). 
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
+## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: amsriva
-ms.openlocfilehash: 1164fc24355657af22b6befaad74685ebbc2b5cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b65b47389611bcc0e5acb3c7ebff672f72a87581
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23127103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761597"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Migración de VPN Gateway (clásico) a Resource Manager
 Las instancias de VPN Gateway ahora se pueden migrar del modelo de implementación clásica al de Resource Manager. Puede leer más información sobre las [características y ventajas](../azure-resource-manager/resource-group-overview.md) de Azure Resource Manager. En este artículo, se explica cómo migrar desde implementaciones clásicas al nuevo modelo basado en Resource Manager. 
@@ -40,7 +40,7 @@ Los escenarios de conectividad VPN más habituales están cubiertos en la migrac
 
 Entre los escenarios no admitidos, se incluyen:  
 
-* No se admite actualmente la red virtual con la puerta de enlace de ExpressRoute y puerta de enlace de VPN.
+* No se admite actualmente la red virtual con la puerta de enlace de ExpressRoute y VPN Gateway.
 * Escenarios de tránsito donde las extensiones de máquina virtual están conectadas a servidores locales. A continuación, se detallan las limitaciones de conectividad VPN de tránsito.
 
 > [!NOTE]

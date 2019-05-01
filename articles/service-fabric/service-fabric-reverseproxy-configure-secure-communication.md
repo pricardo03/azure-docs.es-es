@@ -14,11 +14,11 @@ ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
 ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60837851"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Conexión a un servicio seguro con el proxy inverso
 
@@ -35,14 +35,14 @@ El proxy inverso se identifica él mismo con los servicios mediante su certifica
 Los servicios pueden implementar la lógica para comprobar el certificado presentado por el proxy inverso. Los servicios pueden especificar los detalles del certificado de cliente aceptado como valores de configuración en el paquete de configuración. Esto se puede leer en tiempo de ejecución y puede utilizarse para validar el certificado presentado por el proxy inverso. Consulte [Administración de los parámetros de la aplicación en varios entornos](service-fabric-manage-multiple-environment-app-configuration.md) para agregar los valores de configuración. 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Comprobación por parte del proxy inverso de la identidad del servicio mediante el certificado presentado por el servicio:
-El proxy inverso admite las siguientes directivas para realizar la validación de certificados de servidor de los certificados presentados por los servicios: None, ServiceCommonNameAndIssuer y ServiceCertificateThumbprints.
+Proxy inverso es compatible con las siguientes directivas para realizar la validación de certificados de servidor de los certificados presentados por los servicios: Ninguno, ServiceCommonNameAndIssuer y ServiceCertificateThumbprints.
 Para seleccionar la directiva del proxy inverso, especifique **ApplicationCertificateValidationPolicy** en la sección **ApplicationGateway/Http** en [fabricSettings](service-fabric-cluster-fabric-settings.md).
 
 En la siguiente sección se muestran los detalles de configuración para cada una de estas opciones.
 
 ### <a name="service-certificate-validation-options"></a>Opciones de validación de certificados de servicio 
 
-- **Ninguno**: el proxy inverso omite la comprobación del certificado de los servicios con proxy y establece la conexión segura. Este es el comportamiento predeterminado.
+- **Ninguna**: Proxy inverso omite la comprobación del certificado del servicio de proxy y establece la conexión segura. Este es el comportamiento predeterminado.
 Especifique **ApplicationCertificateValidationPolicy** con el valor **None** en la sección [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
 
    ```json
@@ -63,7 +63,7 @@ Especifique **ApplicationCertificateValidationPolicy** con el valor **None** en 
    }
    ```
 
-- **ServiceCommonNameAndIssuer**: el proxy inverso comprueba el certificado presentado por el servicio en función del nombre común del certificado y la huella digital del emisor inmediato. Especifique **ApplicationCertificateValidationPolicy** con el valor **ServiceCommonNameAndIssuer** en la sección [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
+- **ServiceCommonNameAndIssuer**: Proxy inverso comprueba el certificado presentado por el servicio basado en el nombre común del certificado y la huella digital del emisor inmediato: Especifique el **ApplicationCertificateValidationPolicy** con valor **ServiceCommonNameAndIssuer** en el [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sección.
 
    ```json
    {
@@ -110,7 +110,7 @@ Especifique **ApplicationCertificateValidationPolicy** con el valor **None** en 
    }
    ```
 
-- **ServiceCertificateThumbprints**: el proxy inverso comprobará el certificado de los servicios con proxy en función de su huella digital. Puede elegir esta ruta cuando los servicios están configurados con certificados autofirmados: especifique **ApplicationCertificateValidationPolicy** con el valor **ServiceCertificateThumbprints** en la sección [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp).
+- **ServiceCertificateThumbprints**: Proxy inverso comprobará el certificado del servicio de proxy en función de su huella digital. Puede elegir ir a esta ruta cuando los servicios estén configurados con certificados autofirmados: Especifique el **ApplicationCertificateValidationPolicy** con valor **ServiceCertificateThumbprints** en el [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) sección.
 
    ```json
    {

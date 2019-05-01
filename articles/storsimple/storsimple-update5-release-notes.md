@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 672757e82bcf645b705f46a9975e09c9dc5eef92
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: HT
+ms.openlocfilehash: 462cbd6261723aa91bbfd23292611e758a800ed2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
-ms.locfileid: "24518926"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844098"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Notas de la versión de la serie StorSimple 8000 Update 5
 
@@ -51,9 +51,9 @@ Se realizaron las siguientes mejoras clave y correcciones de errores en Update 5
 
 En las tablas siguientes se proporciona un resumen de los problemas corregidos en Update 5.
 
-| No | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| Sin  | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- |
-| 1 |Comunicación remota de Windows PowerShell |En la versión anterior, un usuario recibiría un error al intentar establecer una conexión remota al dispositivo StorSimple Cloud Appliance mediante Windows PowerShell. La causa raíz de este problema se corrigió en esta versión. |No |Sí |
+| 1 |Comunicación remota de Windows PowerShell |En la versión anterior, un usuario recibiría un error al intentar establecer una conexión remota al dispositivo StorSimple Cloud Appliance mediante Windows PowerShell. La causa raíz de este problema se corrigió en esta versión. |Sin  |Sí |
 | 2 |Plantillas de ancho de banda |En las versiones anteriores, hubo un problema con las plantillas de ancho de banda que daba como resultado un ancho de banda inferior para el que se había configurado el dispositivo. Este problema se ha corregido en esta versión. |Sí |Sí |
 | 3 |Conmutación por error |En la versión anterior, cuando un dispositivo con un gran número de volúmenes conmutaba por error a otro dispositivo que ejecutaba Update 4, el proceso produciría un error si se intentaban aplicar los registros de control de acceso. Este problema está corregido en esta versión. |Sí |Sí |
 

@@ -4,17 +4,18 @@ description: Este artículo está destinado como una lección rápida para que l
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 12/14/2018
+author: WenJason
+ms.author: v-jay
+origin.date: 12/14/2018
+ms.date: 04/01/2019
 ms.topic: conceptual
-manager: carmonm
+manager: digimobile
 ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60738339"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Aprendizaje de los conceptos básicos del flujo de trabajo de Windows PowerShell para los runbooks de Automation
 
@@ -55,7 +56,7 @@ No puede usar parámetros posicionales con actividades y cmdlets en un flujo de 
 
 Por ejemplo, considere el siguiente código que obtiene todos los servicios en ejecución.
 
-```azurepowershell-interactive
+```powershell
 Get-Service | Where-Object {$_.Status -eq "Running"}
 ```
 
@@ -72,7 +73,7 @@ Workflow Get-RunningServices
 
 Los objetos de los flujos de trabajo están deserializados.  Esto significa que sus propiedades siguen estando disponibles, pero no sus métodos.  Por ejemplo, considere el siguiente código de PowerShell que detiene un servicio mediante el método Stop del objeto Service.
 
-```azurepowershell-interactive
+```powershell
 $Service = Get-Service -Name MyService
 $Service.Stop()
 ```
@@ -171,7 +172,7 @@ Parallel
 
 Por ejemplo, considere los siguientes comandos de PowerShell que copian varios archivos a un destino de red.  Estos comandos se ejecutan secuencialmente de modo que un archivo debe terminar de copiarse antes de que comience el siguiente.
 
-```azurepowershell-interactive
+```powershell
 Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
 Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
 Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
@@ -275,13 +276,13 @@ workflow CreateTestVms
         # Do work first to create the VM (code not shown)
 
         # Now add the VM
-        New-AzureRmVm -VM $Vm -Location "WestUs" -ResourceGroupName "ResourceGroup01"
+        New-AzureRmVm -VM $Vm -Location "ChinaNorth" -ResourceGroupName "ResourceGroup01"
 
         # Checkpoint so that VM creation is not repeated if workflow suspends
         $Cred = $null
         Checkpoint-Workflow
         $Cred = Get-AzureAutomationCredential -Name "MyCredential"
-        $null = Connect-AzureRmAccount -Credential $Cred
+        $null = Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
         }
 }
 ```

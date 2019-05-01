@@ -3,21 +3,22 @@ title: Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Fa
 description: Obtenga información sobre cómo copiar datos desde SAP Business Warehouse (BW) con Open Hub a almacenes de datos receptores compatibles mediante una actividad de copia en una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/08/2019
-ms.author: jingwang
+origin.date: 03/08/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103917"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848901"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse con Open Hub en Azure Data Factory
 
@@ -98,13 +99,13 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Open Hub
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **SapOpenHub** | Sí |
+| type | La propiedad type debe establecerse en: **SapOpenHub** | Sí |
 | Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | Sí |
 | systemNumber | Número del sistema de SAP BW.<br/>Valor permitido: número decimal de dos dígitos que se representa en forma de cadena. | Sí |
 | clientId | Identificador del cliente en el sistema SAP W.<br/>Valor permitido: número decimal de tres dígitos que se representa en forma de cadena. | Sí |
 | language | Idioma que utiliza el sistema SAP. | No (el valor predeterminado es **EN**)|
 | userName | Nombre del usuario que tiene acceso al servidor SAP. | Sí |
-| contraseña | Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| password | Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
 
 **Ejemplo:**

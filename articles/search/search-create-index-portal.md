@@ -11,11 +11,11 @@ ms.date: 02/16/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 6a2bac71c37cc750eb24e3492ecdcdf0b2333cce
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338842"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817324"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>Creación de un índice de Azure Search en el portal
 
@@ -80,7 +80,7 @@ Después de crear un índice de Azure Search, puede ir al siguiente paso: [carga
 
 También puede [profundizar en los índices](search-what-is-an-index.md). Además de la colección de campos, un índice también especifica analizadores, proveedores de sugerencias, perfiles de puntuación y configuración de CORS. El portal proporciona pestañas para definir los elementos más comunes: campos, analizadores y proveedores de sugerencias. Para crear o modificar otros elementos, puede usar la API de REST o el SDK de .NET.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
  [Cómo funciona la búsqueda de texto completo](search-lucene-query-architecture.md)  
  [API de REST del servicio Search](https://docs.microsoft.com/rest/api/searchservice/)[SDK de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311535"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60824021"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Movimiento de datos de DB2 mediante la actividad de copia de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -318,9 +318,9 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
 | Date |DateTime |
-| Hora |TimeSpan |
+| Time |TimeSpan |
 | Timestamp |Datetime |
-| xml |Byte[] |
+| Xml |Byte[] |
 | Char |string |
 | VarChar |string |
 | LongVarChar |string |
@@ -344,9 +344,9 @@ Las asignaciones siguientes se usan cuando la actividad de copia convierte los d
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
 | Date |DateTime |
-| Hora |TimeSpan |
+| Time |TimeSpan |
 | Timestamp |Datetime |
-| xml |Byte[] |
+| Xml |Byte[] |
 | Char |string |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor

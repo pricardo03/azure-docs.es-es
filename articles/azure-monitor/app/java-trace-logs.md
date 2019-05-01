@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 614f9a44f7c699be38906ac00e12f523490ce112
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900492"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de Java en Application Insights
 Si está usando Logback o Log4J (v1.2 o v2.0) para el seguimiento, los registros de seguimiento se pueden enviar automáticamente a Application Insights, donde puede explorarlos y buscar en ellos.

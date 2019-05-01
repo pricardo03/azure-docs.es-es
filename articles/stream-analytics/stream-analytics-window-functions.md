@@ -2,19 +2,19 @@
 title: Introducción a las funciones de ventana de Azure Stream Analytics
 description: En este artículo se describen cuatro funciones de ventana (saltos de tamaño constante, salto, deslizante y sesión) que se usan en los trabajos de Azure Stream Analytics.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
-manager: kfile
+author: lingliw
+ms.author: v-lingwu
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 01/21/19
 ms.openlocfilehash: 04c19e7e51777db4c59bfab3d5a8a7598560556a
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844767"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introducción a las funciones de ventana de Stream Analytics
 En los escenarios de streaming en tiempo real, realizar operaciones en los datos contenidos en ventanas temporales es un patrón común. Stream Analytics ofrece compatibilidad nativa para las funciones de ventana, lo que permite a los desarrolladores crear trabajos de procesamiento de flujo complejos con un mínimo esfuerzo.
@@ -51,7 +51,6 @@ Si se siguen produciendo eventos en el tiempo de espera especificado, la ventana
 
 Cuando se proporciona una clave de partición, los eventos se agrupan por clave, y la ventana de sesión se aplica independientemente a cada grupo. Esta creación de particiones es útil para los casos donde son necesarias distintas ventanas de sesión para distintos usuarios o dispositivos.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
@@ -59,3 +58,4 @@ Cuando se proporciona una clave de partición, los eventos se agrupan por clave,
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
+<!--Update_Description: update meta properties -->

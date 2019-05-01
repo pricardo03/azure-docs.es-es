@@ -15,11 +15,11 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862869"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935772"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guía del administrador de Jira y Confluence de Atlassian para Azure Active Directory
 
@@ -180,7 +180,7 @@ El complemento funciona con las versiones locales de Jira y Confluence.
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>¿Este complemento funciona en las versiones en la nube?
 
- No. El complemento admite solo las versiones locales de Jira y Confluence.
+No. El complemento admite solo las versiones locales de Jira y Confluence.
 
 ### <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>¿Qué versiones de JIRA y Confluence admite el complemento?
 
@@ -224,7 +224,7 @@ Hemos probado este complemento solo en instalaciones de Windows Server de 64 bit
 
 ### <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>¿El complemento funciona con IdP distintos de Azure AD?
 
- No. Solo funciona con Azure AD.
+No. Solo funciona con Azure AD.
 
 ### <a name="what-version-of-saml-does-the-plug-in-work-with"></a>¿Con qué versión de SAML funciona el complemento?
 
@@ -232,12 +232,12 @@ Funciona con SAML 2.0.
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>¿El complemento se ocupa del aprovisionamiento de usuarios?
 
- No. El complemento solo proporciona SSO basado en SAML 2.0. El usuario tiene que estar aprovisionado en la aplicación antes del inicio de sesión SSO.
+No. El complemento solo proporciona SSO basado en SAML 2.0. El usuario tiene que estar aprovisionado en la aplicación antes del inicio de sesión SSO.
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>¿El complemento admite versiones en clúster de Jira y Confluence?
 
- No. El complemento funciona con las versiones locales de Jira y Confluence.
+No. El complemento funciona con las versiones locales de Jira y Confluence.
 
 ### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>¿El complemento admite versiones HTTP de Jira y Confluence?
 
- No. El complemento solo funciona con instalaciones habilitadas de HTTPS.
+No. El complemento solo funciona con instalaciones habilitadas de HTTPS.

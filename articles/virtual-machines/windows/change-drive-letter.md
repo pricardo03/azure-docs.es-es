@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: cfd46d5e9750a81d89ed6d3a79bcc9bffdc3d0dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007294"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844206"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Uso de la unidad de disco D: como unidad de datos en una máquina virtual Windows
 Si su aplicación necesita usar la unidad D para almacenar datos, siga estas instrucciones para usar una unidad distinta para el disco temporal. Nunca use el disco temporal para almacenar los datos que desee conservar.
