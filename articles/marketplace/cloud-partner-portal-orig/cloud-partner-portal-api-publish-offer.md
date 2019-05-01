@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: cb1293a771a137f4df7e36a2b412f68b384f16ef
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094376"
 ---
 <a name="publish-an-offer"></a>Publicación de una oferta
 ================
@@ -33,8 +33,8 @@ Inicia el proceso de publicación de la oferta especificada. Esta llamada es una
 
 |  **Nombre**      |    **Descripción**                               |  **Tipo de datos** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identificador del publicador, por ejemplo `contoso`      |   string       |
-|  offerId       | Identificador de la oferta                                 |   string       |
+|  publisherId   | Identificador del publicador, por ejemplo `contoso`.      |   string       |
+|  offerId       | Identificador de la oferta.                                 |   string       |
 |  api-version   | La versión más reciente de la API                        |   Date         |
 |  |  |
 
@@ -88,7 +88,7 @@ Inicia el proceso de publicación de la oferta especificada. Esta llamada es una
 
 | **Código** |  **Descripción**                                                                                                                           |
 | ------   |  ----------------------------------------------------------------------------------------------------------------------------------------- |
-| 202   | `Accepted`: la solicitud se aceptó correctamente. La respuesta contiene una ubicación que se puede usar para realizar un seguimiento de la operación que se inicia. |
+| 202   | `Accepted`: La solicitud se aceptó correctamente. La respuesta contiene una ubicación que se puede usar para realizar un seguimiento de la operación que se inicia. |
 | 400   | `Bad/Malformed request`: el cuerpo de la respuesta del error puede proporcionar más información.                                                               |
 | 422   | `Un-processable entity`: indica que la entidad que se va a publicar no se pudo validar.                                                        |
 | 404   | `Not found`: la entidad especificada por el cliente no existe.                                                                              |

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: jingwang
 ms.openlocfilehash: 9540a82933337dab112119cc791fa12d98b30aff
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61042941"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Copia de datos desde un servidor SFTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -47,7 +47,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado SFTP:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Sftp**. |Sí |
+| type | La propiedad type debe establecerse en: **Sftp**. |Sí |
 | host | Nombre o dirección IP del servidor SFTP. |Sí |
 | puerto | Puerto en el que escucha el servidor SFTP.<br/>Los valores permitidos son: enteros; el valor predeterminado es **22**. |Sin  |
 | skipHostKeyValidation | Especifique si desea omitir la validación de claves de host.<br/>Los valores válidos son **true** y **false** (valor predeterminado).  | Sin  |
@@ -62,7 +62,7 @@ Para usar la autenticación básica, establezca la propiedad "authenticationType
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | userName | Usuario que tiene acceso al servidor SFTP. |Sí |
-| contraseña | Contraseña para el usuario (nombre de usuario). Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| password | Contraseña para el usuario (nombre de usuario). Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 
 **Ejemplo:**
 
@@ -173,7 +173,7 @@ Para copiar datos desde SFTP, establezca la propiedad type del conjunto de datos
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **FileShare** |Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **FileShare** |Sí |
 | folderPath | Ruta de acceso a la carpeta. Se admite el filtro de comodín, los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real del archivo tiene un carácter comodín o este carácter de escape dentro. <br/><br/>Ejemplos: rootfolder/subfolder/ver más en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). |Sí |
 | fileName |  **Filtro de nombre o de comodín** para los archivos de la ruta "folderPath" especificada. Si no especifica ningún valor para esta propiedad, el conjunto de datos apunta a todos los archivos de la carpeta. <br/><br/>Para filtrar, los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"fileName": "*.csv"`<br/>- Ejemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape si el nombre real de la carpeta contiene un carácter comodín o este carácter de escape. |Sin  |
 | modifiedDatetimeStart | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| Sin  |
@@ -228,7 +228,7 @@ Para copiar datos desde un servidor SFTP, establezca el tipo de origen de la act
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **FileSystemSource** |Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **FileSystemSource** |Sí |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establezca en true y el receptor sea un almacén basado en archivos, la carpeta o subcarpeta vacías no se copiarán ni crearán en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | Sin  |
 
 **Ejemplo:**

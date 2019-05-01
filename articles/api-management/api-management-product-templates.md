@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443634"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61088195"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Plantillas de producto en Azure API Management
 
@@ -80,9 +80,9 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 |Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
-|Paging|Entidad [Paging](api-management-template-data-model-reference.md#Paging).|La información de paginación de la colección de productos.|  
-|Filtering|Entidad [Filtering](api-management-template-data-model-reference.md#Filtering).|La información de filtrado de la página de lista de productos.|  
-|Products|Colección de entidades de [producto](api-management-template-data-model-reference.md#Product).|Los productos visibles para el usuario actual.|  
+|Paginación|Entidad [Paging](api-management-template-data-model-reference.md#Paging).|La información de paginación de la colección de productos.|  
+|Filtros|Entidad [Filtering](api-management-template-data-model-reference.md#Filtering).|La información de filtrado de la página de lista de productos.|  
+|Productos|Colección de entidades de [producto](api-management-template-data-model-reference.md#Product).|Los productos visibles para el usuario actual.|  
   
 ### <a name="sample-template-data"></a>Ejemplo de datos de plantilla  
   
@@ -205,14 +205,14 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 |Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
-|Product|[Producto](api-management-template-data-model-reference.md#Product)|El producto especificado.|  
+|Producto|[Producto](api-management-template-data-model-reference.md#Product)|El producto especificado.|  
 |IsDeveloperSubscribed|boolean|Si el usuario actual está suscrito a este producto.|  
 |SubscriptionState|número|El estado de la suscripción. Los estados posibles son:<br /><br /> -   `0 - suspended`: la suscripción está bloqueada y el suscriptor no puede llamar a ninguna API del producto.<br />-   `1 - active`: la suscripción está activa.<br />-   `2 - expired`: la suscripción ha alcanzado su fecha de expiración y se ha desactivado.<br />-   `3 - submitted`: el desarrollador ha realizado una solicitud de suscripción, pero esta aún no se ha aprobado ni rechazado.<br />-   `4 - rejected`: un administrador ha rechazado la solicitud de suscripción.<br />-   `5 - cancelled`: el desarrollador o el administrador han cancelado la suscripción.|  
-|Limits|array|Esta propiedad está en desuso y no debe utilizarse.|  
+|límites|array|Esta propiedad está en desuso y no debe utilizarse.|  
 |DelegatedSubscriptionEnabled|boolean|Si la [delegación](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) está habilitada para esta suscripción.|  
 |DelegatedSubscriptionUrl|string|Si la delegación está habilitada, la dirección URL de la suscripción delegada.|  
 |IsAgreed|boolean|Si el producto tiene términos, si el usuario actual ha aceptado los términos.|  
-|Subscriptions|Colección de entidades de [resumen de suscripción](api-management-template-data-model-reference.md#SubscriptionSummary).|Las suscripciones al producto.|  
+|Suscripciones|Colección de entidades de [resumen de suscripción](api-management-template-data-model-reference.md#SubscriptionSummary).|Las suscripciones al producto.|  
 |Apis|Colección de entidades de [API](api-management-template-data-model-reference.md#API).|Las API de este producto.|  
 |CannotAddBecauseSubscriptionNumberLimitReached|boolean|Si el usuario actual es apto para suscribirse a este producto en relación con el límite de suscripción.|  
 |CannotAddBecauseMultipleSubscriptionsNotAllowed|boolean|Si el usuario actual es apto para suscribirse a este producto en relación con que se permitan o no varias suscripciones.|  

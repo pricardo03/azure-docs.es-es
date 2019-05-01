@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
 ms.openlocfilehash: 22c3987121e2ab3479274c89c359c679f5f1135e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783795"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61087144"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitación avanzada de solicitudes con Azure API Management
 La posibilidad de limitar las solicitudes entrantes es un rol clave de Azure API Management. Ya sea mediante el control de la velocidad de solicitudes o de las solicitudes y los datos totales transferidos, Administración de API permite a los proveedores de API proteger sus API de uso indebido y crear valor para los diferentes niveles de productos de API.

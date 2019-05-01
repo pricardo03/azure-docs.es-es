@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
 ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61081551"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos en Azure SQL Data Warehouse
 
@@ -68,7 +68,7 @@ Siga estos pasos para crear un almacenamiento de datos SQL en blanco.
 
 4. Haga clic en **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información: 
 
-    | Configuración | Valor sugerido | DESCRIPCIÓN | 
+    | Configuración | Valor sugerido | Description | 
     | ------- | --------------- | ----------- |
     | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). | 
     | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
@@ -101,7 +101,7 @@ Siga estos pasos para crear un almacenamiento de datos SQL en blanco.
 El servicio SQL Data Warehouse crea un firewall en el nivel de servidor, lo que impide que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos del servidor. Para habilitar la conectividad, puede agregar reglas de firewall que habilitan la conectividad para direcciones IP concretas.  Siga estos pasos para crear una [regla de firewall de nivel de servidor](../sql-database/sql-database-firewall-configure.md) para la dirección IP del cliente. 
 
 > [!NOTE]
-> SQL Data Warehouse se comunica a través del puerto 1433. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433.
+> SQL Data Warehouse se comunica a través del puerto 1433. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433.
 >
 
 1. Cuando haya finalizado la implementación, haga clic en **Bases de datos SQL** en el menú de la izquierda y, después, en **SampleDW** en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **sample-svr.database.windows.net**) y proporciona opciones para otras configuraciones. 
@@ -151,7 +151,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
     | Nombre de servidor | Nombre completo del servidor | Por ejemplo, **sample-svr.database.windows.net** es el nombre completo de un servidor. |
-    | Autenticación | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que se ha configurado en este tutorial. |
+    | Authentication | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que se ha configurado en este tutorial. |
     | Inicio de sesión | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
     | Contraseña | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
 

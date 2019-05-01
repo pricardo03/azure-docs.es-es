@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: d12c5097d4ba5e0ccfe0e2b2cbc8ccd758c32d98
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051296"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865034"
 ---
 # <a name="testability-scenarios"></a>Escenarios de Testability
 Los grandes sistemas distribuidos, como infraestructuras de nube, son inherentemente poco confiables. Azure Service Fabric ofrece a los desarrolladores la capacidad de escribir servicios para ejecutarse sobre infraestructuras poco confiables. Para poder escribir servicios de alta calidad, los desarrolladores deben poder inducir tal infraestructura confiable para probar la estabilidad de sus servicios.
@@ -49,11 +49,11 @@ Por ejemplo, considere un conjunto de pruebas que se va a ejecutar durante una h
 En su forma actual, el motor de generación de errores de la prueba de caos induce solo errores seguros. Esto significa que en ausencia de errores externos nunca se producirá una pérdida de quórum o de datos.
 
 ### <a name="important-configuration-options"></a>Opciones de configuración importantes
-* **TimeToRun**: tiempo total en el que se ejecutará la prueba antes de finalizarse con éxito. La prueba puede finalizarse antes en lugar de un error de validación.
-* **MaxClusterStabilizationTimeout**: cantidad máxima de tiempo de espera para que el mantenimiento del clúster sea correcto antes de cancelar la prueba. Las comprobaciones realizadas son si el mantenimiento del clúster es correcto, el mantenimiento del servicio es correcto, se consigue el tamaño del conjunto de réplicas de destino para la partición de servicio y si no hay réplicas InBuild.
-* **MaxConcurrentFaults**: número máximo de errores simultáneos inducidos en cada iteración. Cuanto mayor sea el número, más agresiva será la prueba. Por lo tanto, dará como resultado combinaciones de conmutaciones por error y de transición más complejas. La prueba garantiza que en ausencia de errores externos no habrá pérdida de quórum o de datos, con independencia de lo elevado del número de esta configuración.
-* **EnableMoveReplicaFaults**: habilita o deshabilita los errores provocando el movimiento de las réplicas principales o secundarias. Estos errores están deshabilitados de forma predeterminada.
-* **WaitTimeBetweenIterations**: cantidad de tiempo de espera entre iteraciones, es decir, después de una ronda de errores y de su validación correspondiente.
+* **TimeToRun**: Tiempo total que la prueba se ejecutará antes de finalizar con éxito. La prueba puede finalizarse antes en lugar de un error de validación.
+* **MaxClusterStabilizationTimeout**: Cantidad máxima de tiempo de espera para que el clúster sea correcto antes de cancelar la prueba. Las comprobaciones realizadas son si el mantenimiento del clúster es correcto, el mantenimiento del servicio es correcto, se consigue el tamaño del conjunto de réplicas de destino para la partición de servicio y si no hay réplicas InBuild.
+* **MaxConcurrentFaults**: Número máximo de errores simultáneos inducidos en cada iteración. Cuanto mayor sea el número, más agresiva será la prueba. Por lo tanto, dará como resultado combinaciones de conmutaciones por error y de transición más complejas. La prueba garantiza que en ausencia de errores externos no habrá pérdida de quórum o de datos, con independencia de lo elevado del número de esta configuración.
+* **EnableMoveReplicaFaults**: Habilita o deshabilita los errores que provocan el movimiento de las réplicas principales o secundarias. Estos errores están deshabilitados de forma predeterminada.
+* **WaitTimeBetweenIterations**: Cantidad de tiempo de espera entre iteraciones, es decir, después de una ronda de errores y validación correspondiente.
 
 ### <a name="how-to-run-the-chaos-test"></a>Ejecución de una prueba de caos
 Ejemplo de C#
@@ -160,10 +160,10 @@ El escenario de prueba de conmutación por error es una versión del escenario d
 La prueba de conmutación por error provoca un error seleccionado y después ejecuta la validación en el servicio para garantizar su estabilidad. La prueba de conmutación por error solo provoca un error a la ver en lugar de varios errores posibles en la prueba de caos. Si la partición de servicio no se estabiliza en el tiempo de espera configurado después del error, la prueba produce un error. La prueba provoca únicamente errores seguros. Esto significa que, en ausencia de errores externos, nunca se producirá una pérdida de quórum o de datos.
 
 ### <a name="important-configuration-options"></a>Opciones de configuración importantes
-* **PartitionSelector**: objeto selector que especifica la partición a la que debe dirigirse.
-* **TimeToRun**: tiempo total en el que se ejecutará la prueba antes de finalizarse.
-* **MaxClusterStabilizationTimeout**: cantidad máxima de tiempo de espera para que el mantenimiento del clúster sea correcto antes que la prueba produzca un error. Las comprobaciones realizadas son si el mantenimiento del servicio es correcto, el tamaño del conjunto de réplicas de destino conseguido para todas las particiones y si no hay réplicas InBuild.
-* **WaitTimeBetweenFaults**: cantidad de tiempo de espera entre cada ciclo de error y validación.
+* **PartitionSelector**: Objeto de selector que especifica la partición que debe dirigirse.
+* **TimeToRun**: Tiempo total que la prueba se ejecutará antes de finalizar.
+* **MaxServiceStabilizationTimeout**: Cantidad máxima de tiempo de espera para que el clúster sea correcto antes de cancelar la prueba. Las comprobaciones realizadas son si el mantenimiento del servicio es correcto, el tamaño del conjunto de réplicas de destino conseguido para todas las particiones y si no hay réplicas InBuild.
+* **WaitTimeBetweenFaults**: Cantidad de tiempo de espera entre cada ciclo de error y validación.
 
 ### <a name="how-to-run-the-failover-test"></a>Ejecución de la prueba de conmutación por error
 **C#**

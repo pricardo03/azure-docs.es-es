@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
 ms.openlocfilehash: 7361eff0f76271564fd5a0e9b8a18221ec4138e3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099010"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860147"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualización de registros de flujo de grupo de seguridad de red de Azure Network Watcher con herramientas de código abierto
 

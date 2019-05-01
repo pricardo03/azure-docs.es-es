@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: eae7de00294a6a09cb7f942d11ee2391710fc55f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007813"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844303"
 ---
 # <a name="add-scoring-profiles-to-an-azure-search-index"></a>Incorporación de perfiles de puntuación a un índice de Azure Search
 
@@ -284,7 +284,7 @@ La puntuación de búsqueda se calcula en función de las propiedades estadísti
 
  Para ver más ejemplos, consulte el [esquema XML: Datatypes (sitio web de W3.org)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
-## <a name="see-also"></a>Otras referencias  
+## <a name="see-also"></a>Vea también  
  [API REST de Azure Search Service](https://docs.microsoft.com/rest/api/searchservice/)   
  [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  (Crear un índice [API REST de Azure Search Service])  
  [SDK de .NET de Azure Search+](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093988"
 ---
 <a name="retrieve-offer-status"></a>Recuperación del estado de la oferta 
 =====================
@@ -33,9 +33,9 @@ Recupera el estado actual de la oferta.
 
 |  **Nombre**       |   **Descripción**                            |  **Tipo de datos** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificador del anunciante, por ejemplo, `Contoso`  |     string     |
+|  publisherId    | Identificador del publicador, por ejemplo `Contoso`.  |     string     |
 |  offerId        | GUID que identifica de manera única la oferta      |     string     |
-|  api-version    | Última versión de la API                        |     Date       |
+|  api-version    | Última versión de la API.                        |     Date       |
 |  |  |
 
 
@@ -52,7 +52,7 @@ Recupera el estado actual de la oferta.
 <a name="body-example"></a>Ejemplo de cuerpo
 ------------
 
-### <a name="response"></a>Respuesta
+### <a name="response"></a>Response
 
 ``` json
   {
@@ -131,7 +131,7 @@ Recupera el estado actual de la oferta.
 
 |  **Nombre**             |    **Descripción**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
-|  status               | Estado de la oferta. Para obtener la lista de valores posibles, vea la sección [Estado de la oferta](#offer-status) a continuación. |
+|  status               | Estado de la oferta. Para obtener la lista de valores posibles, consulte la sección [Estado de la oferta](#offer-status) a continuación. |
 |  messages             | Matriz de mensajes asociados con la oferta                                                    |
 |  steps                | Matriz de los pasos por los que pasa la oferta durante una publicación de ofertas                      |
 |  estimatedTimeFrame   | Estimación del tiempo que se tardaría en completar este paso, en formato descriptivo                       |
@@ -152,8 +152,8 @@ Recupera el estado actual de la oferta.
 | **Código** |   **Descripción**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
 |  200     |  `OK`: la solicitud se procesó correctamente y se devolvió el estado actual de la oferta. |
-|  400     | `Bad/Malformed request`: el cuerpo de la respuesta del error puede contener más información.                 |
-|  404     | `Not found`: la entidad especificada no existe.                                                |
+|  400     | `Bad/Malformed request`: El cuerpo de la respuesta del error puede contener más información.                 |
+|  404     | `Not found`: La entidad especificada no existe.                                                |
 |  |  |
 
 
@@ -180,7 +180,7 @@ Recupera el estado actual de la oferta.
 |  WaitingForPublisherReview   | El paso está esperando la aprobación del anunciante.      |
 |  WaitingForApproval          | El paso está esperando la aprobación del proceso.        |
 |  Bloqueado                     | El paso está bloqueado.                             |
-|  Rechazado                    | El paso se rechazó                            |
-|  Completado                    | El paso se completó.                            |
-|  Cancelado                    | El paso se canceló.                           |
+|  Rechazada                    | El paso se rechazó                            |
+|  Complete                    | El paso se completó.                            |
+|  Canceled                    | El paso se canceló.                           |
 |  |  |
