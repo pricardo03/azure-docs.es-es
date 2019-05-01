@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: de9261548ec79e206b0db87caabc1fa4c9ad6771
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591557"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094512"
 ---
 <a name="retrieve-offers"></a>Recuperación de ofertas
 ===============

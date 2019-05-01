@@ -13,11 +13,11 @@ ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120094"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60901032"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetría de dependencia: Modelo de datos de Application Insights
 
@@ -35,7 +35,7 @@ Identificador de una instancia de llamada de dependencia. Se usa para la correla
 
 Comando iniciado por esta llamada de dependencia. Algunos ejemplos son la instrucción SQL y la dirección URL HTTP con todos los parámetros de consulta.
 
-## <a name="type"></a>Escriba
+## <a name="type"></a>Type
 
 Nombre del tipo de dependencia. Valor de cardinalidad bajo para una agrupación lógica de dependencias y la interpretación de otros campos como commandName y resultCode. Algunos ejemplos son SQL, tabla de Azure y HTTP.
 

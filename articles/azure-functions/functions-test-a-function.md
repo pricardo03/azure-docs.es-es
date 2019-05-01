@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: e0009e1c6380e02e2e0e24bf86e6dab435b6c022
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357642"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61021139"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
 
