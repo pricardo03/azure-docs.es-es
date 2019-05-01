@@ -16,11 +16,11 @@ ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913179"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832597"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Supervisión de aplicaciones en Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) proporciona una funcionalidad de supervisión integrada para aplicaciones web, back ends móviles y aplicaciones de API en [Azure Portal](https://portal.azure.com).

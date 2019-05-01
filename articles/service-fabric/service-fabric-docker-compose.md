@@ -3,8 +3,8 @@ title: Versión preliminar de implementación de Azure Service Fabric Docker Com
 description: Azure Service Fabric acepta el formato de Docker Compose para facilitar la organización de los contenedores existentes con Service Fabric. Esta compatibilidad se encuentra actualmente en versión preliminar.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
-manager: chackdan
+author: rockboyfor
+manager: digimobile
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
-ms.author: aljo, subramar
+origin.date: 02/23/2018
+ms.date: 04/29/2019
+ms.author: v-yeche
 ms.openlocfilehash: da86ed9a3e6979bd1dc05aef6ef70c7b8533a8c1
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60948841"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Compatibilidad con la implementación de Docker Compose en Azure Service Fabric (versión preliminar)
 
@@ -165,3 +166,5 @@ Aunque este modelo ofrece flexibilidad, está prevista la compatibilidad con un 
 
 * Descripción del [modelo de aplicación de Service Fabric](service-fabric-application-model.md)
 * [Introducción a la CLI de Service Fabric](service-fabric-cli.md)
+
+<!-- Update_Description: wording update -->

@@ -2,20 +2,21 @@
 title: Verificación de la configuración de Azure Traffic Manager
 description: Este artículo le ayudará a verificar la configuración de Traffic Manager.
 services: traffic-manager
-author: kumudd
+author: rockboyfor
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
-ms.author: kumud
+origin.date: 03/16/2017
+ms.date: 02/18/2019
+ms.author: v-yeche
 ms.openlocfilehash: 1e954e3c4ebba245d91cfb84ab583b314150e5b2
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60771624"
 ---
 # <a name="verify-traffic-manager-settings"></a>Comprobación de la configuración de Traffic Manager
 
@@ -35,7 +36,7 @@ Los siguientes ejemplos lo ayudarán a probar el perfil de Traffic Manager.
 2. Escriba `ipconfig /flushdns` para vaciar la memoria caché de resolución DNS.
 3. Escriba `nslookup <your Traffic Manager domain name>`. Por ejemplo, el siguiente comando comprueba el nombre de dominio con el prefijo *myapp.contoso*.
 
-        nslookup myapp.contoso.trafficmanager.net
+        nslookup myapp.contoso.trafficmanager.cn
 
     Un resultado típico muestra la siguiente información:
 
@@ -71,3 +72,5 @@ Como alternativa, existen servicios gratuitos en la Web para indagación y búsq
 * [Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-routing-methods.md)
 * [Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
 * [Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
+
+<!-- Update_Description: update meta properties -->

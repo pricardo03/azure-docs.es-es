@@ -12,11 +12,11 @@ ms.reviewer: jmartens
 ms.date: 1/10/2019
 ms.custom: seodec18
 ms.openlocfilehash: 716de6d491be753c5c32c0a2774404140010f72c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821231"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>¿Qué son las matrices de puertas programables (FPGA) y Project Brainwave?
 
@@ -83,7 +83,7 @@ Para empezar a implementar los modelos de DNN entrenados en las FPGA en Azure Cl
 
 Consulte estos vídeos y blogs:
 
-+ [Hyperscale hardware: ML at scale on top of Azure + FPGA : Build 2018 (video)](https://www.youtube.com/watch?v=BMgQAHIx2eY) (Hardware de hiperescala: ML a escala sobre Azure + FPGA: compilación 2018 [vídeo])
++ [Hardware de hiperescala: ML at scale on top of Azure + FPGA : Build 2018 (video)](https://www.youtube.com/watch?v=BMgQAHIx2eY) (Hardware de hiperescala: ML a escala sobre Azure + FPGA: compilación 2018 [vídeo])
 
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063) (Dentro de la nube configurable basada en FPGA de Microsoft [vídeo])
 

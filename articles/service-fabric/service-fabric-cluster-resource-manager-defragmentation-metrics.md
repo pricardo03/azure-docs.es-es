@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661657"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844410"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentación de métricas y carga en Service Fabric
 La estrategia predeterminada de Cluster Resource Manager de Service Fabric para administrar métricas de carga en el clúster es distribuir la carga. Al tener la seguridad de que los nodos se utilizan por igual, se evitan zonas activas e inactivas que conducen a la contención y el desperdicio de recursos. La distribución de las cargas de trabajo en el clúster es también lo más seguro si se quiere sobrevivir a los errores dado que de esta forma se garantiza que un error no se llevará un gran porcentaje de una carga de trabajo dada. 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: alinast
 ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60924812"
 ---
 # <a name="egress-and-endpoints"></a>Salidas y puntos de conexión
 
@@ -47,7 +47,7 @@ Los eventos se envían a través de objetos de IoT (como dispositivos y sensores
 }
 ```
 
-| Atributo | Escriba | DESCRIPCIÓN |
+| Atributo | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | id | string | Identificador único para el evento |
 | subject | string | Ruta al asunto del evento definida por el anunciante. |

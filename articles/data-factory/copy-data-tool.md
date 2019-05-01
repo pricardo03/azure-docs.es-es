@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787740"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Herramienta Copy Data en Azure Data Factory
 La herramienta Copy Data de Azure Data Factory facilita y optimiza el proceso de ingerir datos en una instancia de Data Lake, que es normalmente uno de los primeros pasos en un escenario de integración de extremo a extremo.  Ahorra tiempo, en especial cuando se usa Azure Data Factory para ingerir datos de un origen de datos por primera vez. Algunas de las ventajas de usar esta herramienta son:

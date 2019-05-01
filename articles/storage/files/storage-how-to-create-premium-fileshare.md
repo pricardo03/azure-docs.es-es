@@ -9,11 +9,11 @@ ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288432"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844568"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Cómo crear un recurso compartido de archivos de Azure premium
 
@@ -79,7 +79,7 @@ Si desea limpiar los recursos creados en este artículo, simplemente puede elimi
 
 En primer lugar, instale la versión más reciente del módulo [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
 
-A continuación, actualice su módulo de powershell, inicie sesión en su suscripción de Azure, cree un grupo de recursos y, a continuación, cree una cuenta de almacenamiento.
+A continuación, actualice el módulo de PowerShell, inicie sesión en la suscripción de Azure, cree un grupo de recursos y, luego, una cuenta de almacenamiento.
 
 ### <a name="upgrade-your-powershell-module"></a>Actualización del módulo de Powershell
 
@@ -93,7 +93,7 @@ Instalar el módulo Az.Storage:
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="sign-in-to-your-azure-subscription"></a>Inicie sesión en su suscripción de Azure
+### <a name="sign-in-to-your-azure-subscription"></a>Inicio de sesión en la suscripción de Azure
 
 Use el comando `Login-AzAccount` y siga las instrucciones en pantalla para realizar la autenticación.
 
@@ -144,7 +144,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="create-a-premium-file-share-using-azure-cli"></a>Crear un recurso compartido de archivos de premium mediante la CLI de Azure
 
-Para iniciar Azure Cloud Shell, inicie sesión en el [portal Azure](https://portal.azure.com).
+Para iniciar Azure Cloud Shell, inicie sesión en [Azure Portal](https://portal.azure.com).
 
 Si quiere iniciar sesión en la instalación local de la CLI, ejecute el comando de inicio de sesión:
 

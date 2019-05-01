@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
 ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214307"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764295"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Actividad web en Azure Data Factory
 La actividad web se puede usar para llamar a un punto de conexión REST personalizado desde una canalización de Data Factory. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso.
@@ -63,15 +63,15 @@ La actividad web se puede usar para llamar a un punto de conexión REST personal
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad web | string | SÍ
-Tipo | Se debe establecer en **WebActivity**. | string | SÍ
-estático | Método de API de REST para el punto de conexión de destino. | String. <br/><br/>Tipos admitidos: "GET", "POST", "PUT" | SÍ
-URL | Punto de conexión y ruta de acceso de destino | Cadena (o expresión con un valor resultType de cadena). La actividad dará un error por tiempo de espera después de 1 minuto si no recibe una respuesta desde el punto de conexión. | SÍ
+Nombre | Nombre de la actividad web | string | Sí
+Tipo | Se debe establecer en **WebActivity**. | string | Sí
+method | Método de API de REST para el punto de conexión de destino. | String. <br/><br/>Tipos admitidos: "GET", "POST", "PUT" | Sí
+url | Punto de conexión y ruta de acceso de destino | Cadena (o expresión con un valor resultType de cadena). La actividad dará un error por tiempo de espera después de 1 minuto si no recibe una respuesta desde el punto de conexión. | Sí
 encabezados | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadena (o expresión con un valor resultType de cadena) | Sí, el encabezado Content-type es necesario. `"headers":{ "Content-Type":"application/json"}`
 Cuerpo | Representa la carga útil que se envía al punto de conexión.  | Cadena (o expresión con un valor resultType de cadena). <br/><br/>Vea el esquema de la carga de solicitud en la sección [Solicitar un esquema de carga](#request-payload-schema). | Necesario para los métodos POST o PUT.
 Autenticación | Método de autenticación usado para llamar al punto de conexión. Los tipos admitidos son "Basic" y "ClientCertificate". Para más información, vea la sección [Autenticación](#authentication). Si la autenticación no es necesaria, excluya esta propiedad. | Cadena (o expresión con un valor resultType de cadena) | Sin 
-conjuntos de datos | Lista de conjuntos de datos que se pasan al punto de conexión. | Matriz de referencias de conjunto de datos. Puede ser una matriz vacía. | SÍ
-linkedServices | Lista de servicios vinculados que se pasan al punto de conexión. | Matriz de referencias de servicios vinculados. Puede ser una matriz vacía. | SÍ
+conjuntos de datos | Lista de conjuntos de datos que se pasan al punto de conexión. | Matriz de referencias de conjunto de datos. Puede ser una matriz vacía. | Sí
+linkedServices | Lista de servicios vinculados que se pasan al punto de conexión. | Matriz de referencias de servicios vinculados. Puede ser una matriz vacía. | Sí
 
 > [!NOTE]
 > Los puntos de conexión REST que invoca la actividad web deben devolver una respuesta de tipo JSON. La actividad dará un error por tiempo de espera después de 1 minuto si no recibe una respuesta desde el punto de conexión.
@@ -86,7 +86,7 @@ En la tabla siguiente se enumeran los requisitos del contenido JSON:
 | Tipo distinto de JSON | No compatible | No compatible |
 ||||
 
-## <a name="authentication"></a>Autenticación
+## <a name="authentication"></a>Authentication
 
 ### <a name="none"></a>None
 Si la autenticación no es necesaria, no incluya la propiedad "authentication".

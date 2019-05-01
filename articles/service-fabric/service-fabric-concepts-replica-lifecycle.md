@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60882415"
 ---
 # <a name="replicas-and-instances"></a>Réplicas e instancias 
 En este artículo se ofrece información general del ciclo de vida de réplicas de servicios con estado e instancias de servicios sin estado.
@@ -63,11 +63,11 @@ Una réplica InBuild es una réplica que se crea o prepara para unirse al conjun
 
 Si el host de aplicación o el nodo para una réplica InBuild se bloquean, realizan la transición al estado fuera de servicio.
 
-   - **Réplicas InBuild principales**: las réplicas InBuild principal son las primeras réplicas de una partición. Esta réplica suele producirse al crearse la partición. Las réplicas InBuild principales también surgen al reiniciarse todas las réplicas de una partición o descartarse.
+   - **Réplicas InBuild principales**: InBuild principales son las primeras réplicas para una partición. Esta réplica suele producirse al crearse la partición. Las réplicas InBuild principales también surgen al reiniciarse todas las réplicas de una partición o descartarse.
 
-   - **Réplicas IdleSecondary InBuild**: son nuevas réplicas que se crean mediante Cluster Resource Manager, o réplicas existentes que estaban fuera de servicio y se deben volver a agregar al conjunto. Estas réplicas se inicializan o crean mediante la principal antes de poder unirse al conjunto de réplicas como secundarias activas y participar en el reconocimiento cuórum de las operaciones.
+   - **Réplicas IdleSecondary InBuild**: Estas son las nuevas réplicas creadas por el Administrador de recursos de clúster, o réplicas existentes que dejaron de funcionar y deben agregarse de nuevo en el conjunto. Estas réplicas se inicializan o crean mediante la principal antes de poder unirse al conjunto de réplicas como secundarias activas y participar en el reconocimiento cuórum de las operaciones.
 
-   - **Réplicas ActiveSecondary InBuild**: este estado se observa en algunas consultas. Es una optimización donde el conjunto de réplicas no cambia, pero debe crearse una réplica. La propia réplica sigue las transacciones de máquina de estados normales (como se describe en la sección de roles de réplica).
+   - **Réplicas ActiveSecondary InBuild**: Este estado se observa en algunas consultas. Es una optimización donde el conjunto de réplicas no cambia, pero debe crearse una réplica. La propia réplica sigue las transacciones de máquina de estados normales (como se describe en la sección de roles de réplica).
 
 ### <a name="ready-rd"></a>Listo (Ready, RD)
 Una réplica lista es una réplica que participa en la replicación y la confirmación del cuórum de las operaciones. El estado listo se puede aplicar a las réplicas principales y secundarias activas.
@@ -77,9 +77,9 @@ Si el host de aplicación o el nodo de una réplica lista se bloquean, realizan 
 ### <a name="closing-cl"></a>Cierre (Closing, CL)
 Una réplica especifica el estado de cierre en los siguientes escenarios:
 
-- **Apagado del código para la réplica**: es posible que Service Fabric tenga que apagar el código en ejecución para una réplica. Este apagado podría suceder por muchas razones. Por ejemplo, debido a la actualización de una aplicación, un tejido o una infraestructura, o porque la réplica ha notificado un error. Cuando se completa el cierre de la réplica, esta realiza la transición al estado fuera de servicio. El estado persistente asociado a esta réplica que se almacena en disco no se limpia.
+- **Apagado del código para la réplica**: Service Fabric es posible que tenga que apagar el código en ejecución para una réplica. Este apagado podría suceder por muchas razones. Por ejemplo, debido a la actualización de una aplicación, un tejido o una infraestructura, o porque la réplica ha notificado un error. Cuando se completa el cierre de la réplica, esta realiza la transición al estado fuera de servicio. El estado persistente asociado a esta réplica que se almacena en disco no se limpia.
 
-- **Eliminación de la réplica del clúster**: es posible que Service Fabric tenga que quitar el estado persistente y apagar el código en ejecución para una réplica. Este apagado podría darse por diversos motivos, como por ejemplo, el equilibrio de carga.
+- **Quitar la réplica del clúster**: Service Fabric es posible que tenga que quitar el estado persistente y apagar el código en ejecución para una réplica. Este apagado podría darse por diversos motivos, como por ejemplo, el equilibrio de carga.
 
 ### <a name="dropped-dd"></a>Descartado (Dropped, DD)
 En el estado descartado, la instancia ya no se ejecuta en el nodo. Tampoco se ha dejado ningún estado en el nodo. En este momento, Service Fabric mantiene los metadatos sobre esta instancia (que finalmente se elimina también).
@@ -116,26 +116,26 @@ El rol de réplica no es pertinente en el estado de espera.
 ## <a name="replica-role"></a>Rol de réplica 
 El rol de la réplica determina su función en el conjunto de réplicas:
 
-- **Principal (Primary, P)**: hay una principal en el conjunto de réplicas responsable de realizar las operaciones de lectura y escritura. 
-- **Secundaria activa (ActiveSecondary, S)**: son réplicas que reciben actualizaciones de estado de la principal, las aplican y devuelven confirmaciones. Hay varias secundarias activas en el conjunto de réplicas. El número de estas secundarias activas determina el número de errores que el servicio puede controlar.
-- **IdleSecondary (I)**: estas réplicas se regeneran mediante la principal. Van a recibir el estado de la principal antes de que se puedan promover a secundarias activas. 
-- **Ninguna (None, N)**: estas réplicas no tienen ninguna responsabilidad en el conjunto de réplicas.
-- **Desconocida (Unknown, U)**: este es el rol inicial de una réplica antes de que reciba una llamada API **ChangeRole** de Service Fabric.
+- **Principal (P)**: Hay una principal en el conjunto de réplicas es responsable de realizar operaciones lectura y escritura. 
+- **Secundarias activas (S)**: Estos son réplicas que reciben actualizaciones de estado desde el servidor principal, se les aplican y devuelven confirmaciones. Hay varias secundarias activas en el conjunto de réplicas. El número de estas secundarias activas determina el número de errores que el servicio puede controlar.
+- **IdleSecondary (I)**: Estas réplicas se crean mediante la réplica principal. Van a recibir el estado de la principal antes de que se puedan promover a secundarias activas. 
+- **Ninguno (N)**: Estas réplicas no tienen ninguna responsabilidad en el conjunto de réplicas.
+- **Desconocido (U)**: Este es el rol inicial de una réplica antes de que reciba **ChangeRole** llamada API de Service Fabric.
 
 En el siguiente diagrama se muestran las transiciones de rol de réplica y algunos escenarios de ejemplo en los que se pueden producir:
 
 ![Rol de réplica](./media/service-fabric-concepts-replica-lifecycle/role.png)
 
-- U -> P: creación de una nueva réplica principal.
-- U -> I: creación de una nueva réplica inactiva.
-- U -> N: eliminación de una réplica de espera.
-- I -> S: promoción de secundaria inactiva a secundaria activa de forma que sus confirmaciones contribuyan hacia el cuórum.
-- I -> P: promoción de secundaria inactiva a principal. Esto puede ocurrir bajo reconfiguraciones especiales cuando la secundaria inactiva es la candidata correcta para ser principal.
-- I -> N: eliminación de la réplica secundaria inactiva.
-- S -> P: promoción de secundaria activa a principal. Esta situación puede deberse a la conmutación por error de la principal o al movimiento de una principal iniciado por Cluster Resource Manager. Por ejemplo, podría ser en respuesta a una actualización de la aplicación o al equilibrio de carga.
-- S -> N: eliminación de la réplica secundaria activa.
-- P -> S: degradación de la réplica principal. Esta situación puede deberse a un movimiento de la principal iniciado por Cluster Resource Manager. Por ejemplo, podría ser en respuesta a una actualización de la aplicación o al equilibrio de carga.
-- P -> N: eliminación de la réplica principal.
+- U -&GT; P: Creación de una nueva réplica principal.
+- U -&GT; I: Creación de una nueva réplica inactiva.
+- U -&GT; N: Eliminación de una réplica de espera.
+- I -> S: La promoción de la inactividad secundaria a la secundaria activa para que sus confirmaciones contribuyan hacia el cuórum.
+- I -> P: Promoción de secundaria inactiva a principal. Esto puede ocurrir bajo reconfiguraciones especiales cuando la secundaria inactiva es la candidata correcta para ser principal.
+- I -> N: Eliminación de la réplica secundaria inactiva.
+- S -> P: Promoción de secundaria activa a principal. Esta situación puede deberse a la conmutación por error de la principal o al movimiento de una principal iniciado por Cluster Resource Manager. Por ejemplo, podría ser en respuesta a una actualización de la aplicación o al equilibrio de carga.
+- S -> N: Eliminación de la réplica secundaria activa.
+- P -> S: Degradación de la réplica principal. Esta situación puede deberse a un movimiento de la principal iniciado por Cluster Resource Manager. Por ejemplo, podría ser en respuesta a una actualización de la aplicación o al equilibrio de carga.
+- P -&GT; N: Eliminación de la réplica principal.
 
 > [!NOTE]
 > Los modelos de programación de nivel superior, como [Reliable Actors](service-fabric-reliable-actors-introduction.md) y [Reliable Services](service-fabric-reliable-services-introduction.md) ocultan el concepto de roles de réplica del desarrollador. En Actors, la noción de un rol es innecesaria. En Services, está enormemente simplificada en la mayoría de los escenarios.

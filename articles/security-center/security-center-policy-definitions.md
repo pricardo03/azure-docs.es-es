@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
 ms.openlocfilehash: 9d9369afd36f64c27cd2222cab0de5912aa913de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909203"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Directivas de seguridad de Azure que supervisa Security Center
 En este artículo se proporciona una lista de definiciones de directiva de Azure que se pueden supervisar en Azure Security Center. Para más información acerca de las directivas de seguridad, consulte [Uso de directivas de seguridad](tutorial-security-policy.md).

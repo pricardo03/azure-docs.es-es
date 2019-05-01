@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
 ms.openlocfilehash: 43ecdafac4f0a5cdc9e619537cdbe2a42ff7fe1b
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191925"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60999683"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Crear y administrar cuentas de integración para soluciones de B2B con Logic Apps
 
@@ -58,7 +58,7 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
    | Subscription | Sí | <*Azure-subscription-name*> | Nombre de la suscripción a Azure que se va a usar | 
    | Grupos de recursos | Sí | test-integration-account-rg | Nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que se utiliza para organizar recursos relacionados. Para este ejemplo, cree un nuevo grupo de recursos con el nombre especificado. | 
    | Nivel de precios | Sí | Gratuito | El plan de tarifa que quiere usar. En este ejemplo, seleccione **Gratuito**, pero, para obtener más información, consulte [Límites y configuración de Logic Apps](../logic-apps/logic-apps-limits-and-config.md) y [Precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Ubicación | Sí | Oeste de EE. UU. | Región en la que quiere almacenar la información de la cuenta de integración. Seleccione la misma ubicación que la aplicación lógica o cree una aplicación lógica en la misma ubicación que la cuenta de integración. | 
+   | Location | Sí | Oeste de EE. UU. | Región en la que quiere almacenar la información de la cuenta de integración. Seleccione la misma ubicación que la aplicación lógica o cree una aplicación lógica en la misma ubicación que la cuenta de integración. | 
    | Área de trabajo de Log Analytics | Sin  | Off | Mantenga el valor **Off** para el registro de diagnóstico. | 
    ||||| 
 

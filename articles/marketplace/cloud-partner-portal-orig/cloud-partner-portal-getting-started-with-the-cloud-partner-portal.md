@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 00558b9effed39e160aef93c22431863daf6aa0d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807222"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61067443"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>Introducción a Cloud Partner Portal
 
@@ -51,7 +51,7 @@ Continuando con el paseo, una vez que inicie una nueva oferta o cuando vuelva at
 ![Página de la oferta](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/offer-page.png)
 
 En la página de la oferta:
-- Puede agregar contenido o comprobar el estado de la oferta alternando entre dos modos de nivel principales: **Editor** y **Estado**.
+- Agregar contenido o comprobar el estado de su oferta alternando entre dos modos de nivel superior: **Editor** y **estado**.
 - Puede usar la **barra de acciones** para administrar explícitamente los cambios de su oferta guardando y descartando los datos especificados.
 - Puede desplazarse por los **formularios** requeridos para cada oferta a medida que cambia la configuración de la oferta.
 

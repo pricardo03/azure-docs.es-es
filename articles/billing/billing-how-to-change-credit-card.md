@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 3/13/2019
 ms.author: banders
 ms.openlocfilehash: b910cb3061b1451ea80b9843e2aa4047a784548f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918831"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Agregar, actualizar o quitar una tarjeta de crédito o débito para Azure
 
@@ -40,7 +40,7 @@ En el portal de Azure, puede agregar una nueva tarjeta de crédito, actualizar u
     ![Captura de pantalla que muestra la búsqueda](./media/billing-how-to-change-credit-card/search.png)
 
 1. Seleccione la suscripción que le gustaría agregar a la tarjeta de crédito o débito.
-1. Seleccione **métodos de pago**.
+1. Seleccione **Métodos de pago**.
 
     ![Captura de pantalla que muestra la opción Administrar métodos de pago seleccionada.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -64,7 +64,7 @@ Si se renueva la tarjeta de crédito y el número sigue siendo el mismo, actuali
 
     ![Captura de pantalla que muestra la búsqueda](./media/billing-how-to-change-credit-card/search.png)
 
-1. Seleccione **métodos de pago**.
+1. Seleccione **Métodos de pago**.
 
     ![Captura de pantalla que muestra la opción Administrar métodos de pago seleccionada.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -85,7 +85,7 @@ Si más de una de las suscripciones tiene el mismo método de pago activo, a con
     ![Captura de pantalla que muestra la búsqueda](./media/billing-how-to-change-credit-card/search.png)
 
 1. Seleccione la suscripción que le gustaría agregar a la tarjeta de crédito o débito.
-1. Seleccione **métodos de pago**.
+1. Seleccione **Métodos de pago**.
 
     ![Captura de pantalla que muestra la opción Administrar métodos de pago seleccionada.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 

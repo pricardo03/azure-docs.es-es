@@ -14,11 +14,11 @@ ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
 ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079728"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884986"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Creación de una instancia de Azure Basic Load Balancer mediante API REST
 
@@ -33,7 +33,7 @@ Utilice la siguiente solicitud PUT de HTTP para crear un nuevo Azure Load Balanc
   ```
 ### <a name="uri-parameters"></a>Parámetros del identificador URI
 
-|NOMBRE  |En  |Obligatorio |Escriba |DESCRIPCIÓN |
+|NOMBRE  |En  |Obligatorio |Type |DESCRIPCIÓN |
 |---------|---------|---------|---------|--------|
 |subscriptionId   |  path       |  True       |   string      |  Las credenciales de suscripción que identifican de forma única la suscripción de Microsoft Azure. El identificador de suscripción forma parte del URI para cada llamada al servicio.      |
 |resourceGroupName     |     path    | True        |  string       |   Nombre del grupo de recursos.     |
@@ -46,7 +46,7 @@ Utilice la siguiente solicitud PUT de HTTP para crear un nuevo Azure Load Balanc
 
 El único parámetro necesario es `location`. Si no se define la versión *SKU*, se crea una instancia de Load Balancer básico de forma predeterminada.  Use [parámetros opcionales](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) para personalizar el equilibrador de carga.
 
-| NOMBRE | Escriba | DESCRIPCIÓN |
+| NOMBRE | Type | DESCRIPCIÓN |
 | :--- | :--- | :---------- |
 | location | string | Ubicación del recurso Obtenga una lista actualizada de ubicaciones mediante la operación [Enumerar ubicaciones](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) operación. |
 

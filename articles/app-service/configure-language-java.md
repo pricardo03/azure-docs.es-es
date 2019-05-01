@@ -14,11 +14,11 @@ ms.date: 04/12/2019
 ms.author: jafreebe;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: efeab014c7d92a6c19d516a121fbc4436925be75
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60850995"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurar un Windows aplicación de Java para Azure App Service
 

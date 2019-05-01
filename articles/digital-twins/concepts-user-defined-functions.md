@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
 ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60925930"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Procesamiento de datos y funciones definidas por el usuario
 

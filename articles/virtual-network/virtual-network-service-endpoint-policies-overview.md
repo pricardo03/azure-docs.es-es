@@ -1,5 +1,5 @@
 ---
-title: Directivas de punto de conexión de servicio Azure Virtual Network | Microsoft Docs
+title: Directivas de punto de conexión de servicio de red virtual de Azure | Microsoft Docs
 description: Aprenda a filtrar el tráfico de la red virtual para los recursos de servicio de Azure con las directivas de punto de conexión de servicio.
 services: virtual-network
 documentationcenter: na
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
 ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61033907"
 ---
-# <a name="virtual-network-service-endpoint-policies-preview"></a>Directivas de punto de conexión de servicio de redes virtuales (versión preliminar)
+# <a name="virtual-network-service-endpoint-policies-preview"></a>Directivas de punto de conexión de servicio de red virtual (versión preliminar)
 
 Las directivas de punto de conexión de servicio de la red virtual le permiten filtrar el tráfico de red virtual a los servicios de Azure, lo que permite únicamente recursos de servicio específicos de Azure, sobre los puntos de conexión de servicio. Las directivas de punto de conexión ofrecen un control de acceso pormenorizado para el tráfico de red virtual a los servicios de Azure.
 
@@ -29,11 +29,11 @@ __Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, Centr
 Para las notificaciones más actualizadas para la versión preliminar, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
 > [!NOTE]  
-> Durante la versión preliminar, las directivas de punto de conexión de servicio de la red virtual no pueden tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en las versiones de disponibilidad general. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Durante la versión preliminar, las directivas de punto de conexión de servicio de red virtual no pueden tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en las versiones de disponibilidad general. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="key-benefits"></a>Ventajas principales
 
-Las directivas de puntos de conexión de servicio de redes virtuales proporcionan las ventajas siguientes:
+Las directivas de puntos de conexión de servicio de red virtual proporcionan las ventajas siguientes:
 
 - __Seguridad mejorada para el tráfico de la red virtual a los servicios de Azure__
 
@@ -190,6 +190,6 @@ Los límites siguientes se aplican en las directivas de punto de conexión de se
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [configurar las directivas de puntos de conexión de servicio de la red virtual](virtual-network-service-endpoint-policies-portal.md).
-- Aprenda más sobre los [puntos de conexión de servicio Virtual Network](virtual-network-service-endpoints-overview.md).
+- Aprenda a [configurar las directivas de puntos de conexión de servicio de red virtual](virtual-network-service-endpoint-policies-portal.md).
+- Aprenda más sobre los [puntos de conexión de servicio de red virtual](virtual-network-service-endpoints-overview.md).
 

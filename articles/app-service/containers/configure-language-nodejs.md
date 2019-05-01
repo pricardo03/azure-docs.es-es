@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551328"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60850257"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurar una aplicación de Linux Node.js para Azure App Service
 
@@ -137,7 +137,7 @@ Una vez que finalice la depuración, detenga el depurador seleccionando **descon
 
 ## <a name="access-environment-variables"></a>Acceso a variables de entorno
 
-En App Service, puede [establecer la configuración de la aplicación](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) fuera del código de aplicación. A continuación, puede acceder a ellos mediante el patrón estándar de Node.js. Por ejemplo, para acceder a una configuración de una aplicación denominada `NODE_ENV`, use el código siguiente:
+En App Service, puede [establecer la configuración de la aplicación](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) fuera del código de la aplicación. A continuación, puede acceder a ellos mediante el patrón estándar de Node.js. Por ejemplo, para acceder a una configuración de una aplicación denominada `NODE_ENV`, use el código siguiente:
 
 ```javascript
 process.env.NODE_ENV
@@ -248,7 +248,7 @@ if (req.secure) {
 
 Cuando una aplicación de Node.js en funcionamiento se comporta de manera diferente en App Service o tiene errores, intente lo siguiente:
 
-- [Acceso a la secuencia de registro](#access-diagnostic-logs).
+- [Acceso a la secuencia de registros](#access-diagnostic-logs).
 - Probar la aplicación localmente en el modo de producción. App Service se ejecuta las aplicaciones de Node.js en el modo de producción, por lo que deberá asegurarse de que el proyecto funciona según lo previsto en modo de producción localmente. Por ejemplo: 
     - En función de su *package.json*, distintos paquetes pueden instalarse para el modo de producción (`dependencies` frente a `devDependencies`).
     - Algunos marcos web pueden implementar los archivos estáticos de forma diferente en modo de producción.
@@ -258,7 +258,7 @@ Cuando una aplicación de Node.js en funcionamiento se comporta de manera difere
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicación de Node.js con MongoDB](tutorial-nodejs-mongodb-app.md)
+> [Tutorial: Aplicación Node.js con MongoDB](tutorial-nodejs-mongodb-app.md)
 
 > [!div class="nextstepaction"]
-> [Preguntas más frecuentes de App Service Linux](app-service-linux-faq.md)
+> [P+F sobre App Service en Linux](app-service-linux-faq.md)

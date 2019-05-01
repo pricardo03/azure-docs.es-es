@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
 ms.openlocfilehash: 79120371ca2a62e5ef9f2bf38476635db12e9fcc
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038361"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61082860"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configuración de la actualización de una aplicación de Service Fabric en Visual Studio
 Las herramientas de Visual Studio para Azure Service Fabric proporcionan compatibilidad con la actualización para la publicación el clústeres locales o remotos. Hay tres escenarios en los que le convendría actualizar la aplicación a una versión más reciente en lugar de reemplazarla durante las pruebas y la depuración:
@@ -31,7 +31,7 @@ Las herramientas de Visual Studio para Azure Service Fabric proporcionan compati
 ## <a name="parameters-needed-to-upgrade"></a>Parámetros necesarios para la actualización
 Puede elegir entre dos tipos de implementación: normal o actualización. Una implementación normal borra cualquier información de implementación anterior y los datos en el clúster, mientras que una implementación de actualización los conserva. Cuando actualice una aplicación de Service Fabric en Visual Studio, deberá proporcionar directivas de comprobación de estado y parámetros de actualización de la aplicación. Los parámetros de actualización de la aplicación ayudan a controlar la actualización, mientras que las directivas de comprobación de estado determinan si la actualización se realizó correctamente o no. Consulte [Actualización de la aplicación de Service Fabric: parámetros de actualización](service-fabric-application-upgrade-parameters.md) para obtener más información.
 
-Existen tres modos de actualización: *Monitored*, *UnmonitoredAuto* y *UnmonitoredManual*.
+Hay tres modos de actualización: *Supervisar*, *UnmonitoredAuto*, y *UnmonitoredManual*.
 
 * Una actualización Monitored automatiza la actualización y la comprobación de estado de la aplicación.
 * Una actualización UnmonitoredAuto automatiza la actualización, pero omite la comprobación de estado de la aplicación.

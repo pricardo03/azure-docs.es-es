@@ -13,19 +13,19 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/14/2019
 ms.openlocfilehash: 6a2b3af4240a5c400bd1eaf4fd1e93b09fc702b1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002721"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075259"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU
 
-En este artículo se proporcionan los límites de recursos detallados para grupos elásticos y grupos de bases de datos elásticas de Azure SQL Database que utilizan el modelo de compra basado en DTU.
+En este artículo se proporcionan los límites de recursos detallados para grupos elásticos y bases de datos agrupadas de Azure SQL Database que utilizan el modelo de compra basado en DTU.
 
 Para los límites de recursos del modelo de compra basado en DTU para una sola base de datos, vea [DTU-based resource limits - single databases](sql-database-vcore-resource-limits-elastic-pools.md) (Límites de recursos basados en DTU: una sola base de datos). Para los límites de recursos basados en núcleo virtual, vea [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos basados en núcleo virtual: una sola base de datos) y [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) (Límites de recursos basados en núcleo virtual: grupos elásticos).
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Grupo elástico: tamaños de almacenamiento y de proceso
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Grupo elástico: tamaños de almacenamiento y tamaños de proceso
 
 Para los grupos elásticos de SQL Database, las siguientes tablas muestran los recursos disponibles en cada nivel de servicio y tamaño de proceso. Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de almacenamiento mediante [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), la [CLI de Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) o la [API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
@@ -130,9 +130,9 @@ En la tabla siguiente se describen las propiedades de las bases de datos agrupad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para conocer los límites de recursos de núcleos virtuales para una base de datos única, consulte los [límites de recursos para bases de datos únicas con el modelo de compras basado en núcleos virtuales](sql-database-vcore-resource-limits-single-databases.md).
-- Para conocer los límites de recursos de DTU para una base de datos única, consulte los [límites de recursos para bases de datos únicas con el modelo de compras basado en DTU](sql-database-dtu-resource-limits-single-databases.md).
-- Para conocer los límites de recursos de núcleos virtuales para grupos elásticos, consulte los [límites de recursos para grupos elásticos con el modelo de compras basado en núcleos virtuales](sql-database-vcore-resource-limits-elastic-pools.md).
+- Para conocer los límites de recursos de núcleos virtuales para una base de datos única, consulte los [límites de recursos para bases de datos únicas con el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-single-databases.md).
+- Para conocer los límites de recursos de DTU para una base de datos única, consulte los [límites de recursos para bases de datos únicas con el modelo de compra basado en DTU](sql-database-dtu-resource-limits-single-databases.md).
+- Para conocer los límites de recursos de núcleos virtuales para grupos elásticos, consulte los [límites de recursos para grupos elásticos con el modelo de compra basado en núcleo virtual](sql-database-vcore-resource-limits-elastic-pools.md).
 - Para conocer los límites de recursos para instancias administradas, consulte los [límites de recursos para instancias administradas](sql-database-managed-instance-resource-limits.md).
 - Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
-- Para más información sobre los límites de recursos en un servidor de bases de datos, consulte [Límites de recursos de SQL Database para un servidor de Azure SQL Database](sql-database-resource-limits-database-server.md) para obtener información acerca de los límites en los niveles de servidor y suscripción.
+- Para más información sobre los límites de recursos en un servidor de bases de datos, consulte [Límites de recursos en un servidor de SQL Database](sql-database-resource-limits-database-server.md) para obtener información acerca de los límites en los niveles de servidor y suscripción.

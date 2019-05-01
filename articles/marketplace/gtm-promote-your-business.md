@@ -2,24 +2,17 @@
 title: 'Servicios de comercialización: haga crecer su negocio con Microsoft | Azure'
 description: 'Servicios de comercialización: en esta sección, los anunciantes pueden aprender a promocionar su negocio con Microsoft.'
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
 ms.openlocfilehash: 026b8a85bf353dfe384077b1dc8e284d7c373046
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60740138"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Haga crecer su negocio con Microsoft
 

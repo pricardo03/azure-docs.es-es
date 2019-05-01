@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
 ms.openlocfilehash: 63275db36bdb64985625c3789d558bd09e2d47bc
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401458"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60912056"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guía de solución de problemas de Azure Security Center
 Esta guía está destinada a profesionales de tecnologías de la información (TI), analistas de seguridad de la información y administradores de la nube cuyas organizaciones utilizan Azure Security Center y necesitan solucionar problemas relacionados con Security Center.
@@ -46,7 +46,7 @@ Security Center usa a Microsoft Monitoring Agent, que es el mismo agente que usa
 
 Si abre la consola de administración de servicios (services.msc), también verá el servicio Microsoft Monitoring Agent que se ejecuta como se muestra a continuación:
 
-![Servicios](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
+![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
 Para ver qué versión del agente tiene, abra **Administrador de tareas**, en la pestaña **Procesos** busque el servicio **Microsoft Monitoring Agent**, haga clic en él con el botón derecho y haga clic en **Propiedades**. En la pestaña **Detalles**, examine la versión del archivo tal y como se muestra a continuación:
 
@@ -67,11 +67,11 @@ Existen dos escenarios de instalación que pueden producir resultados diferentes
 ## Supervisión de problemas de Agent Health <a name="mon-agent"></a>
 **Estado de supervisión** define el motivo por el que Security Center no puede supervisar correctamente las máquinas virtuales y los equipos inicializados para el aprovisionamiento automático. La tabla siguiente muestra los valores, las descripciones y los pasos de resolución de **Estado de supervisión**.
 
-| Supervisar el estado | Descripción | Pasos de la solución |
+| Estado de supervisión | DESCRIPCIÓN | Pasos de la solución |
 |---|---|---|
 | Instalación del agente pendiente | La instalación de Microsoft Monitoring Agent aún está en ejecución.  La instalación puede tardar unas horas. | Espere hasta que finalice la instalación automática. |
 | Estado de energía: desactivado | La máquina virtual está detenida.  Microsoft Monitoring Agent solo puede instalarse en una máquina virtual que está en ejecución. | Reinicie la máquina virtual. |
-| Falta el agente de máquinas virtuales de Azure o este no es válido. | Microsoft Monitoring Agent no está instalado aún.  Es necesario un agente de máquina virtual de Azure válido para que Security Center instale la extensión. | Instale, reinstale o actualice el agente de máquinas virtuales de Azure en la máquina virtual. |
+| Falta el agente de máquinas virtuales de Azure o este no es válido | Microsoft Monitoring Agent no está instalado aún.  Es necesario un agente de máquina virtual de Azure válido para que Security Center instale la extensión. | Instale, reinstale o actualice el agente de máquinas virtuales de Azure en la máquina virtual. |
 | Estado de máquina virtual no preparada para la instalación  | Microsoft Monitoring Agent no está instalado todavía porque la máquina virtual no está lista para la instalación. La máquina virtual no está lista para la instalación debido a un problema con el agente de la máquina virtual o con el aprovisionamiento de máquinas virtuales. | Compruebe el estado de la máquina virtual. Vuelva a **Máquinas virtuales** en el portal y seleccione la máquina virtual para obtener información del estado. |
 |Error de instalación: error general | Microsoft Monitoring Agent se instaló pero se ha producido a un error. | [Instale manualmente la extensión](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) o desinstale la extensión para que Security Center intente instalarla de nuevo. |
 | Error de instalación: agente local ya instalado | No se pudo instalar Microsoft Monitoring Agent. Security Center ha identificado a un agente local (Log Analytics o System Center Operations Manager) ya está instalado en la máquina virtual. Para evitar la configuración del hospedaje múltiple, en la que la máquina virtual informa a dos áreas de trabajo independientes, se detiene la instalación de Microsoft Monitoring Agent. | Hay dos maneras de resolverlo: [instalar manualmente la extensión](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) y conectarla al área de trabajo deseada. O bien, establecer el área de trabajo deseada como el área de trabajo predeterminada y habilitar el aprovisionamiento automático del agente.  Consulte [Habilitación del aprovisionamiento automático](security-center-enable-data-collection.md). |

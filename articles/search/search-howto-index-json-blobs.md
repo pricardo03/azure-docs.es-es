@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527360"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871660"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Cómo indexar blobs JSON con el indexador de blobs de Azure Search
 Este artículo muestra cómo configurar un blob de Azure Search [indizador](search-indexer-overview.md) para extraer contenido estructurado de documentos JSON en Azure Blob storage y facilitar su búsqueda en Azure Search. Este flujo de trabajo crea un índice de búsqueda de Azure y lo carga con texto extraído de los blobs JSON. 
@@ -40,7 +40,7 @@ Se recomienda usar la misma suscripción de Azure para Azure Search y Azure stor
 
 ### <a name="1---prepare-source-data"></a>1: Preparación de los datos de origen
 
-1. [Inicie sesión en el portal de Azure](https://portal.azure.com/).
+1. [Inicie sesión en Azure Portal](https://portal.azure.com/).
 
 1. [Crear un contenedor de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para contener los datos. El nivel de acceso público se puede establecer en cualquiera de sus valores válidos.
 

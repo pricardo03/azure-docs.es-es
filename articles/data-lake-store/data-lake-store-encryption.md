@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878449"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Cifrado de datos en Azure Data Lake Storage Gen1
 
@@ -57,7 +57,7 @@ Esta es una breve comparación de las funcionalidades que proporcionan ambos mod
 |¿Cómo se almacenan los datos?|Siempre se cifran antes de almacenarse.|Siempre se cifran antes de almacenarse.|
 |¿Dónde se almacena la clave de cifrado maestra?|Key Vault|Key Vault|
 |¿Hay claves de cifrado almacenadas sin cifrar fuera de Key Vault? |Sin |Sin |
-|¿Se puede recuperar la clave de cifrado maestra mediante Key Vault?| No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.| No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|
+|¿Se puede recuperar la clave de cifrado maestra mediante Key Vault?|No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|No. Después de que la clave de cifrado maestra se almacena en Key Vault, solo se puede usar para el cifrado y el descifrado.|
 |¿Quién posee la instancia de Key Vault y la clave de cifrado maestra?|Servicio de Data Lake Storage Gen1|Usted es el propietario de la instancia de Key Vault, que pertenece a su propia suscripción de Azure. La clave de cifrado maestra de Key Vault se puede administrar mediante software o hardware.|
 |¿Puede revocar el acceso a la clave de cifrado maestra para el servicio Data Lake Storage Gen1?|Sin |Sí. Puede administrar listas de control de acceso en Key Vault y eliminar entradas de control de acceso a la identidad de servicio para el servicio Data Lake Storage Gen1.|
 |¿Puede eliminar permanentemente la clave de cifrado maestra?|Sin |Sí. Si elimina la clave de cifrado maestra de Key Vault, nadie podrá cifrar los datos de la cuenta de Data Lake Storage Gen1, incluido el servicio Data Lake Storage Gen1. <br><br> Si ha realizado copia de seguridad explícita de la clave de cifrado maestra antes de eliminarla de Key Vault, se puede restaurar y entonces se pueden recuperar los datos. Sin embargo, si no lo ha hecho, los datos de la cuenta de Data Lake Storage Gen1 nunca se podrán cifrar después.|

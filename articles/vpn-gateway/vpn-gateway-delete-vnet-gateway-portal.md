@@ -3,17 +3,17 @@ title: 'Eliminación de una puerta de enlace de red virtual: Azure Portal: Resou
 description: Elimine una puerta de enlace de red virtual mediante Azure Portal en el modelo de implementación de Resource Manager.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
-ms.date: 10/23/2018
-ms.author: cherylmc
-ms.topic: conceptual
+origin.date: 10/23/2018
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: 387b4e982772f22453876e1ea8b9e7c4039601c4
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845702"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminación de una puerta de enlace de red virtual mediante el portal
 
@@ -63,3 +63,5 @@ Si no desea mantener ninguno de los recursos del grupo, sino que desea empezar d
 1. En **Todos los recursos**, busque el grupo de recursos y haga clic para abrir la hoja.
 2. Hacer clic en **Eliminar**. En la hoja Eliminar, revise los recursos afectados. Asegúrese de que desea eliminar todos estos recursos. Si no es así, siga los pasos de Eliminación de una puerta de enlace VPN en la parte superior de este artículo.
 3. Para continuar, escriba el nombre del grupo de recursos que quiere eliminar y, después, haga clic en **Eliminar**.
+
+<!--Update_Description: wording update-->

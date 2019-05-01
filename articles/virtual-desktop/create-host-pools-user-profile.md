@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
 ms.openlocfilehash: 0cb4df099faad8ca482fd15cf0bb50504c1528ab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60883877"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configuración de un recurso compartido de archivos de perfil de usuario para un grupo host
 
@@ -64,7 +64,7 @@ Para configurar las máquinas virtuales con el software FSLogix, siga este proce
 
 | NOMBRE                | Type               | Datos y valor                        |
 |---------------------|--------------------|-----------------------------------|
-| habilitado             | DWORD              | 1                                 |
+| Enabled             | DWORD              | 1                                 |
 | VHDLocations        | Valor de cadena múltiple | "Ruta de acceso de red para el recurso compartido de archivos"     |
 
 >[!IMPORTANT]

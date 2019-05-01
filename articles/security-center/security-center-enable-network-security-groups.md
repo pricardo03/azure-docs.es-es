@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 14b7cc8f8162574380ca21ac515af8b7d3d5ded9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111703"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60911469"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Habilitación de los grupos de seguridad de red en Azure Security Center
 Azure Security Center recomienda habilitar un grupo de seguridad de red (NSG) si no hay ninguno habilitado. Los NSG contienen una lista de reglas de la lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a sus instancias de máquina virtual en una red virtual. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de la ACL se aplican a todas las instancias de la máquina virtual de esa subred. Además, el tráfico que se llega a una máquina virtual se puede restringir aún más, para lo que se debe asociar un NSG directamente a dicha máquina virtual. Para más información, consulte [¿Qué es un grupo de seguridad de red?](../virtual-network/security-overview.md)
@@ -45,7 +45,7 @@ Si no ha habilitado los grupos de seguridad de red, Security Center le ofrece do
 
 Si crea un nuevo NSG, siga los pasos de [Administrar un grupo de seguridad de red](../virtual-network/manage-network-security-group.md) para crear un NSG y establecer las reglas de seguridad.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 En este artículo se ha mostrado cómo implementar la recomendación de Security Center "Habilitar los grupos de seguridad de red" para las subredes o las máquinas virtuales. Para más información sobre la habilitación de NSG, consulte los siguientes recursos:
 
 * [¿Qué es un grupo de seguridad de red?](../virtual-network/security-overview.md)

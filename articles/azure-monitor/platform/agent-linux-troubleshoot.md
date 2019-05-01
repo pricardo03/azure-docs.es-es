@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.openlocfilehash: b79f8a44f0fc38dd7e5f9ae7e3ac1fe6e9f6b7b8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776040"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux 
 
@@ -43,7 +43,7 @@ Si ninguno de estos pasos funciona, también están disponibles los siguientes c
 
 ## <a name="important-configuration-files"></a>Archivos de configuración importantes
 
- Categoría | Ubicación del archivo
+ Category | Ubicación del archivo
  ----- | -----
  syslog | `/etc/syslog-ng/syslog-ng.conf`, `/etc/rsyslog.conf` o `/etc/rsyslog.d/95-omsagent.conf`
  Rendimiento, Nagios, Zabbix, salida de Log Analytics y agente general | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`

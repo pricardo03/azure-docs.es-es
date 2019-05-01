@@ -11,11 +11,11 @@ ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
 ms.openlocfilehash: 1d6c89e596fa976161ee28d62885e77b9400a1f1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60799498"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Extensión de Linux de instantánea de máquina virtual para Azure Backup
 
@@ -66,7 +66,7 @@ El siguiente JSON muestra el esquema para la extensión de instantánea de máqu
 
 | NOMBRE | Valor / ejemplo | Tipo de datos |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | fecha |
+| apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | string |
 | commandStartTimeUTCTicks | 6.36458E+17 | string |
 | locale | es-ES | string |
@@ -93,7 +93,7 @@ az backup protection enable-for-vm \
     --policy-name DefaultPolicy
 ```
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
+## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60755227"
 ---
 # <a name="azure-data-box-gateway-limits"></a>Límites de la puerta de enlace de datos cuadro de Azure
 
@@ -28,7 +28,7 @@ Tenga en cuenta estos límites cuando implemente y use su solución de Microsoft
 
 En la tabla siguiente se describen los límites del dispositivo de Data Box Gateway.
 
-| Descripción | Valor |
+| DESCRIPCIÓN | Valor |
 |---|---|
 |No. de archivos por dispositivo |100 millones <br> El límite es ~ 25 millones de archivos para cada 2 TB de espacio en disco con un límite máximo de 100 millones |
 |No. de recursos compartidos por dispositivo |24 |

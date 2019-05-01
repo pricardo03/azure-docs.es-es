@@ -10,11 +10,11 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 0dad74f75fd7b73e7dab0b2dddbdfda193d5b2ec
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61073944"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Reenviar datos de informes a los registros de Azure Monitor de configuración de estado de Azure Automation
 
@@ -128,7 +128,7 @@ Diagnósticos de Azure Automation crea dos categorías de registros en los regis
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | TimeGenerated |Fecha y hora en que se ejecutó la comprobación de cumplimiento. |
-| OperationName |DscNodeStatusData |
+| nombreOperación |DscNodeStatusData |
 | ResultType |Si el nodo es compatible. |
 | NodeName_s |El nombre del nodo administrado. |
 | NodeComplianceStatus_s |Si el nodo es compatible. |
@@ -136,8 +136,8 @@ Diagnósticos de Azure Automation crea dos categorías de registros en los regis
 | ConfigurationMode | Cómo se aplica la configuración al nodo. Los valores posibles son __"ApplyOnly"__, __"ApplyandMonitior"__ y __"ApplyandAutoCorrect"__. <ul><li>__ApplyOnly__: DSC se aplica la configuración y es lo único que hace, salvo que se inserte una nueva configuración en el nodo de destino o cuando se extrae una nueva configuración de un servidor. Después de la aplicación inicial de una nueva configuración, DSC no comprueba si se ha producido una desviación desde un estado configurado previamente. DSC intenta aplicar la configuración hasta que sea la correcta antes de __ApplyOnly__ surta efecto. </li><li> __ApplyAndMonitor__: Este es el valor predeterminado. El LCM aplica las nuevas configuraciones. Después de la aplicación inicial de una nueva configuración, si el nodo de destino se desvía del estado deseado, DSC notifica la discrepancia en los registros. DSC intenta aplicar la configuración hasta que sea la correcta antes de __ApplyAndMonitor__ surta efecto.</li><li>__ApplyAndAutoCorrect__: DSC aplica las nuevas configuraciones. Después de la aplicación inicial de una nueva configuración, si el nodo de destino se desvía del estado deseado, DSC notifica la discrepancia en los registros y vuelve a aplicar la configuración actual.</li></ul> |
 | HostName_s | El nombre del nodo administrado. |
 | IPAddress | La dirección IPv4 del nodo administrado. |
-| Category | DscNodeStatus |
-| Resource | El nombre de la cuenta de Azure Automation. |
+| Categoría | DscNodeStatus |
+| Recurso | El nombre de la cuenta de Azure Automation. |
 | Tenant_g | GUID que identifica al inquilino para el llamador. |
 | NodeId_g |GUID que identifica el nodo administrado. |
 | DscReportId_g |GUID que identifica el informe. |
@@ -159,11 +159,11 @@ Diagnósticos de Azure Automation crea dos categorías de registros en los regis
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
 | TimeGenerated |Fecha y hora en que se ejecutó la comprobación de cumplimiento. |
-| OperationName |DscResourceStatusData|
+| nombreOperación |DscResourceStatusData|
 | ResultType |Si el recurso es compatible. |
 | NodeName_s |El nombre del nodo administrado. |
-| Category | DscNodeStatus |
-| Resource | El nombre de la cuenta de Azure Automation. |
+| Categoría | DscNodeStatus |
+| Recurso | El nombre de la cuenta de Azure Automation. |
 | Tenant_g | GUID que identifica al inquilino para el llamador. |
 | NodeId_g |GUID que identifica el nodo administrado. |
 | DscReportId_g |GUID que identifica el informe. |

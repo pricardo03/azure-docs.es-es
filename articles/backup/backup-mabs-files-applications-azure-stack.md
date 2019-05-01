@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
 ms.openlocfilehash: 67d79f2aa41bab8a14d693098538d22ffeb05a4e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848757"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Copia de seguridad de archivos en Azure Stack
 Puede usar Azure Backup para proteger o realizar copias de seguridad de archivos y aplicaciones en Azure Stack. Para hacer copias de seguridad de archivos y aplicaciones, instale Microsoft Azure Backup Server como una máquina virtual que se ejecuta en Azure Stack. Puede proteger los archivos de cualquier servidor de Azure Stack en la misma red virtual. Una vez que haya instalado Azure Backup Server, agregue discos de Azure para aumentar el almacenamiento local disponible para los datos de copia de seguridad a corto plazo. Azure Backup Server usa almacenamiento de Azure para la retención a largo plazo.
@@ -133,7 +133,7 @@ Para ver entidades de Azure Backup Server en Azure Portal, se pueden seguir esto
 2. Hacer clic en la infraestructura de copia de seguridad.
 3. Ver los servidores de administración de copias de seguridad.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 Para obtener información sobre cómo usar Azure Backup Server para proteger otras cargas de trabajo, consulte uno de los siguientes artículos:
 - [Hacer una copia de seguridad de la granja de SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Hacer una copia de seguridad de SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

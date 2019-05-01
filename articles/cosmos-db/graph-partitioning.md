@@ -1,20 +1,22 @@
 ---
 title: Creación de particiones en la API de Gremlin de Azure Cosmos DB
 description: Aprenda a usar Graph con particiones en Azure Cosmos DB. En este artículo también se describen los requisitos y procedimientos recomendados para un grafo con particiones.
-author: luisbosquez
-ms.author: lbosq
+author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: conceptual
-ms.date: 12/06/2018
+origin.date: 12/06/2018
+ms.date: 03/18/2019
 ms.custom: seodec18
 ms.openlocfilehash: f1e486a302b440d819e15ef86f8d76ea5e50d201
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888423"
 ---
+<!--Verify sucessfully-->
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Uso de Graph con particiones en Azure Cosmos DB
 
 Una de las características clave de la API de Gremlin de Azure Cosmos DB es la posibilidad de tratar grafos a gran escala con escalado horizontal. El escalado horizontal se logra a través de las [funcionalidades de partición de Azure Cosmos DB](partition-data.md). Los contenedores pueden escalarse independientemente en términos de almacenamiento y rendimiento. Puede crear contenedores en Azure Cosmos DB que pueden escalarse automáticamente para almacenar los datos de un grafo. Los datos se equilibrarán automáticamente según la **clave de partición** especificada.
@@ -37,27 +39,26 @@ Estos son los detalles que es necesario comprender para crear un contenedor de g
 
     - `/id` y `/label` no se admiten como claves de partición para un contenedor en la API de Gremlin.
 
-
     - Selección de un vértice por el identificador, **use el paso `.has()` para especificar la propiedad de clave de partición**: 
-    
+
         ```
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-    
+
     - Selección de un vértice, **especifique una tupla con valor de clave de partición e identificador**: 
-    
+
         ```
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-        
+
     - Especificación de una **matriz de tuplas de identificadores y valores de clave de partición**:
-    
+
         ```
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-        
+
     - Selección de un conjunto de vértices y **especificación de una lista de valores de clave de partición**: 
-    
+
         ```
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
@@ -81,3 +82,6 @@ Ahora puede pasar a la lectura los artículos siguientes:
 * Información acerca de la [Partición y escalado en Azure Cosmos DB](partition-data.md).
 * Información acerca de la [compatibilidad de Gremlin en la API de Gremlin](gremlin-support.md).
 * Información acerca de la [introducción a la API de Gremlin](graph-introduction.md).
+
+<!--Update_Description: new articles on  -->
+<!--ms.date: 03/18/2019-->

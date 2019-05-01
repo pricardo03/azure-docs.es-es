@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399995"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870513"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Acceso delegado en vista previa de Escritorio Virtual de Windows
 
@@ -22,7 +22,7 @@ Escritorio Virtual de Windows se delegan admite los siguientes valores para cada
 
 * Entidad de seguridad
     * Usuarios
-    * Entidades de seguridad
+    * Entidades de servicio
 * Definición de roles
     * Roles integrados
 * Ámbito

@@ -17,11 +17,11 @@ ms.date: 05/11/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ecf39623c70441e4b726221b4e92e2492370a9bc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57846759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918440"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Cambio de la información de perfil de la cuenta de Azure, como el correo electrónico, la dirección y el número de teléfono de contacto
 
@@ -46,7 +46,7 @@ Sí. El Administrador de cuenta es la persona que configuró la cuenta de Azure 
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>Si actualizo el correo electrónico del perfil, ¿también se actualiza la dirección de correo electrónico de inicio de sesión?
 
- No. Si actualiza la dirección de correo electrónico del perfil, no se actualiza la dirección de correo electrónico de inicio de sesión. Para cambiar la dirección de correo electrónico de inicio de sesión, tendrá que transferir la propiedad de la cuenta.
+No. Si actualiza la dirección de correo electrónico del perfil, no se actualiza la dirección de correo electrónico de inicio de sesión. Para cambiar la dirección de correo electrónico de inicio de sesión, tendrá que transferir la propiedad de la cuenta.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>Si actualizo la dirección del perfil, ¿se actualiza también la dirección de facturación de la tarjeta de crédito?
 

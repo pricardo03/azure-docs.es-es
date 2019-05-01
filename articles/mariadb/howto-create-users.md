@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: ed373cfa0ac755d56e7bc2601c65e0e6482ff6d5
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61038878"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Crear usuarios en Azure Database for MariaDB 
 En este artículo se describe cómo puede crear usuarios en Azure Database for MariaDB.

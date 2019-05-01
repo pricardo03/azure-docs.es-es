@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61070105"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Análisis del rendimiento del nodo perimetral en Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -183,7 +183,7 @@ Cada informe de este módulo contiene un gráfico y las estadísticas de uso del
 | 502 Errors |Contiene un gráfico de barras que le permite ver las 10 principales solicitudes que dieron como resultado un código de respuesta 502 Puerta de enlace incorrecta. Un código de respuesta 502 Puerta de enlace incorrecta aparece cuando se produce un error de protocolo HTTP entre un servidor y un proxy HTTP. En el caso de nuestra red CDN, un código 502 Puerta de enlace incorrecta normalmente se produce cuando un servidor de origen del cliente devuelve una respuesta no válida a un servidor perimetral. Una respuesta no es válida si no se puede analizar o si está incompleta. |
 | 5xx Errors |Contiene un gráfico de barras que le permite ver las 10 principales solicitudes que dieron como resultado un código de respuesta de la gama 500.  Los códigos de respuesta 502 Puerta de enlace incorrecta y 504 Tiempo de espera agotado para la puerta de enlace, están excluidos de este informe. |
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Información general de Azure CDN](cdn-overview.md)
 * [Estadísticas en tiempo real en Azure CDN](cdn-real-time-stats.md)
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)

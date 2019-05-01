@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 5f488811e57ee20cb25db56b2d9e04202b17ffb2
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579536"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60869816"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementación de Azure Blockchain Workbench
 
@@ -86,7 +86,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
     | Región de la implementación | Especifique dónde se van a implementar los recursos de Blockchain Workbench. Para una mejor disponibilidad, el valor debe ser el mismo que el de **Ubicación**. |
     | Subscription | Especifique la suscripción de Azure que desea usar para la implementación. |
     | Grupos de recursos | Cree un nuevo grupo de recursos seleccionando **Crear nuevo** y especifique un nombre de grupo de recursos único. |
-    | Ubicación | Especifique la región en la que desea implementar la plataforma. |
+    | Location | Especifique la región en la que desea implementar la plataforma. |
 
 7. Seleccione **Aceptar** para finalizar la sección de configuración básica.
 

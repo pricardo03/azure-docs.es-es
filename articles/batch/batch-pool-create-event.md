@@ -13,11 +13,11 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
 ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776514"
 ---
 # <a name="pool-create-event"></a>Evento de creación del grupo
 
@@ -55,7 +55,7 @@ ms.locfileid: "55470608"
 |[cloudServiceConfiguration](#bk_csconf)|Tipo complejo|La configuración del servicio en la nube para el grupo.|
 |[virtualMachineConfiguration](#bk_vmconf)|Tipo complejo|La configuración de la máquina virtual para el grupo.|
 |[networkConfiguration](#bk_netconf)|Tipo complejo|La configuración de red para el grupo.|
-|resizeTimeout|Hora|El tiempo de espera para la asignación de nodos de proceso para el grupo especificado para la última operación de cambio de tamaño en el grupo.  (El tamaño inicial cuando se crea el grupo cuenta como un cambio de tamaño).|
+|resizeTimeout|Time|El tiempo de espera para la asignación de nodos de proceso para el grupo especificado para la última operación de cambio de tamaño en el grupo.  (El tamaño inicial cuando se crea el grupo cuenta como un cambio de tamaño).|
 |targetDedicated|Int32|El número de nodos de proceso solicitados para el grupo.|
 |enableAutoScale|Bool|Especifica si el tamaño del grupo se ajusta automáticamente con el tiempo.|
 |enableInterNodeCommunication|Bool|Especifica si el grupo está configurado para la comunicación directa entre nodos.|
@@ -91,7 +91,7 @@ ms.locfileid: "55470608"
 
 |Nombre del elemento|Type|Notas|
 |------------------|----------|-----------|
-|enableAutomaticUpdates|boolean|Indica si la máquina virtual está habilitada para las actualizaciones automáticas. Si esta propiedad no se especifica, se usa el valor predeterminado.|
+|enableAutomaticUpdates|Boolean|Indica si la máquina virtual está habilitada para las actualizaciones automáticas. Si esta propiedad no se especifica, se usa el valor predeterminado.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 

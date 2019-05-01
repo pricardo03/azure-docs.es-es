@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
 ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195190"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845773"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Creación de esquemas para el seguimiento de mensajes X12 en cuentas de integración para Azure Logic Apps
 
@@ -72,10 +72,10 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | transactionSetControlNumber | string | Número de control de conjuntos de transacciones. (Opcional) |
 | CorrelationMessageId | string | Identificador del mensaje de correlación. Una combinación de {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (Opcional) |
 | messageType | string | Conjunto de transacciones o tipo de documento. (Opcional) |
-| isMessageFailed | boolean | Si el mensaje X12 genera error. (Obligatorio) |
-| isTechnicalAcknowledgmentExpected | boolean | Si la confirmación técnica se ha configurado en el contrato X12. (Obligatorio) |
-| isFunctionalAcknowledgmentExpected | boolean | Si la confirmación funcional se ha configurado en el contrato X12. (Obligatorio) |
-| needAk2LoopForValidMessages | boolean | Si el bucle AK2 se requiere para un mensaje válido. (Obligatorio) |
+| isMessageFailed | Boolean | Si el mensaje X12 genera error. (Obligatorio) |
+| isTechnicalAcknowledgmentExpected | Boolean | Si la confirmación técnica se ha configurado en el contrato X12. (Obligatorio) |
+| isFunctionalAcknowledgmentExpected | Boolean | Si la confirmación funcional se ha configurado en el contrato X12. (Obligatorio) |
+| needAk2LoopForValidMessages | Boolean | Si el bucle AK2 se requiere para un mensaje válido. (Obligatorio) |
 | segmentsCount | Entero | Número de segmentos del conjunto de transacciones de X12. (Opcional) |
 ||||
 
@@ -131,11 +131,11 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | respondingFunctionalGroupId | string | Identificador del grupo funcional de respuesta, que se asigna a AK101 en la confirmación. (Opcional) |
 | respondingtransactionSetControlNumber | string | Número de control del conjunto de transacciones de respuesta. (Opcional) |
 | respondingTransactionSetId | string | Identificador del conjunto de transacciones de respuesta, que se asigna a AK201 en la confirmación. (Opcional) |
-| statusCode | boolean | Código de estado de la confirmación del conjunto de transacciones. (Obligatorio) |
+| statusCode | Boolean | Código de estado de la confirmación del conjunto de transacciones. (Obligatorio) |
 | segmentsCount | Enum | Código de estado de la confirmación. Los valores permitidos son **Accepted**, **Rejected**, y **AcceptedWithErrors**. (Obligatorio) |
 | processingStatus | Enum | Estado de procesamiento de la confirmación. Los valores permitidos son **Received**, **Generated** y **Sent**. (Obligatorio) |
 | CorrelationMessageId | string | Identificador del mensaje de correlación. Una combinación de {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (Opcional) |
-| isMessageFailed | boolean | Si el mensaje X12 genera error. (Obligatorio) |
+| isMessageFailed | Boolean | Si el mensaje X12 genera error. (Obligatorio) |
 | ak2Segment | string | Confirmación para un conjunto de transacciones del grupo funcional recibido. (Opcional) |
 | ak3Segment | string | Indica que hay errores en un segmento de datos. (Opcional) |
 | ak5Segment | string | Indica si el conjunto de transacciones identificado en el segmento de AK2 se acepta o se rechaza, y el motivo de la aceptación o rechazo. (Opcional) |
@@ -183,8 +183,8 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | dirección | Enum | Dirección del flujo de mensajes, recibidos o enviados. (Obligatorio) |
 | interchangeControlNumber | string | Número de control de intercambio. (Opcional) |
 | isaSegment | string | Segmento ISA del mensaje. (Opcional) |
-| isTechnicalAcknowledgmentExpected | boolean | Si la confirmación técnica se ha configurado en el contrato X12. (Obligatorio) |
-| isMessageFailed | boolean | Si el mensaje X12 genera error. (Obligatorio) |
+| isTechnicalAcknowledgmentExpected | Boolean | Si la confirmación técnica se ha configurado en el contrato X12. (Obligatorio) |
+| isMessageFailed | Boolean | Si el mensaje X12 genera error. (Obligatorio) |
 | isa09 | string | Fecha de intercambio del documento X12. (Opcional) |
 | isa10 | string | Hora de intercambio del documento X12. (Opcional) |
 | isa11 | string | Identificador de los estándares de control del intercambio de X12. (Opcional) |
@@ -235,7 +235,7 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | interchangeControlNumber | string | Número de control de intercambio de la confirmación técnica que los asociados reciben. (Opcional) |
 | isaSegment | string | Segmento ISA de la confirmación técnica que los asociados reciben. (Opcional) |
 | respondingInterchangeControlNumber |string | Número de control de intercambio de la confirmación técnica que los asociados reciben. (Opcional) |
-| isMessageFailed | boolean | Si el mensaje X12 genera error. (Obligatorio) |
+| isMessageFailed | Boolean | Si el mensaje X12 genera error. (Obligatorio) |
 | statusCode | Enum | Código de estado de la confirmación del intercambio. Los valores permitidos son **Accepted**, **Rejected**, y **AcceptedWithErrors**. (Obligatorio) |
 | processingStatus | Enum | Estado de la confirmación. Los valores permitidos son **Received**, **Generated** y **Sent**. (Obligatorio) |
 | ta102 | string | Fecha de intercambio. (Opcional) |
@@ -288,9 +288,9 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | interchangeControlNumber | string | Número de control de intercambio. (Opcional) |
 | functionalGroupControlNumber | string | Número de control funcional. (Opcional) |
 | gsSegment | string | Segmento GS del mensaje. (Opcional) |
-| isTechnicalAcknowledgmentExpected | boolean | Si la confirmación técnica se ha configurado en el contrato X12. (Obligatorio) |
-| isFunctionalAcknowledgmentExpected | boolean | Si la confirmación funcional se ha configurado en el contrato X12. (Obligatorio) |
-| isMessageFailed | boolean | Si el mensaje X12 genera error. (Obligatorio)|
+| isTechnicalAcknowledgmentExpected | Boolean | Si la confirmación técnica se ha configurado en el contrato X12. (Obligatorio) |
+| isFunctionalAcknowledgmentExpected | Boolean | Si la confirmación funcional se ha configurado en el contrato X12. (Obligatorio) |
+| isMessageFailed | Boolean | Si el mensaje X12 genera error. (Obligatorio)|
 | gs01 | string | Código del identificador funcional. (Opcional) |
 | gs02 | string | Código del remitente de la aplicación. (Opcional) |
 | gs03 | string | Código del destinatario de la aplicación. (Opcional) |
@@ -347,7 +347,7 @@ Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transa
 | gsSegment | string | Igual que el número de control de grupo funcional, pero se rellena solo en casos específicos. (Opcional) |
 | respondingfunctionalGroupControlNumber | string | Número de control del grupo funcional original. (Opcional) |
 | respondingFunctionalGroupId | string | Se asocia con AK101 en el identificador del grupo funcional de confirmación. (Opcional) |
-| isMessageFailed | boolean | Si el mensaje X12 genera error. (Obligatorio) |
+| isMessageFailed | Boolean | Si el mensaje X12 genera error. (Obligatorio) |
 | statusCode | Enum | Código de estado de la confirmación. Los valores permitidos son **Accepted**, **Rejected**, y **AcceptedWithErrors**. (Obligatorio) |
 | processingStatus | Enum | Estado de procesamiento de la confirmación. Los valores permitidos son **Received**, **Generated** y **Sent**. (Obligatorio) |
 | ak903 | string | Número de conjuntos de transacciones recibidos. (Opcional) |

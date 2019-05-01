@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/19/2019
 ms.openlocfilehash: d2c852b48c219283bba2304a993dd26e802b3252
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61036518"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimización del rendimiento mediante las tecnologías en memoria de SQL Database
 
@@ -130,7 +130,7 @@ Con grupos elásticos, el almacenamiento de OLTP en memoria se comparte entre to
 - Configure un valor `Max-eDTU` o `MaxvCore` para las bases de datos que sea inferior al recuento de eDTU o núcleos virtuales del grupo como un todo. De este modo, se limita la utilización del almacenamiento de OLTP en memoria en cualquier base de datos del grupo al tamaño correspondiente al número de eDTU.
 - Configure un valor `Min-eDTU` o `MinvCore` que sea mayor que 0. Este mínimo garantiza que cada base de datos del grupo tenga la cantidad de almacenamiento de OLTP en memoria disponible que corresponda al valor `Min-eDTU` o `vCore` configurado.
 
-### <a name="changing-service-tiers-of-databases-that-use-in-memory-oltp-technologies"></a>Cambio del plan de servicio en las bases de datos que usan tecnologías de OLTP en memoria
+### <a name="changing-service-tiers-of-databases-that-use-in-memory-oltp-technologies"></a>Cambio de los niveles de servicio de las bases de datos que usan tecnologías de OLTP en memoria
 
 Siempre puede actualizar su base de datos o instancia a un plan superior, como de uso General a Crítico para la empresa (o de Estándar a Premium). Solo aumenta la funcionalidad y los recursos disponibles.
 
@@ -160,7 +160,7 @@ Vídeo detallado sobre la tecnología:
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Almacenamiento y tamaño de datos para los índices de almacén de columnas
 
-No se requiere que los índices de almacén de columnas quepan en la memoria. Por lo tanto, el único límite del tamaño de los índices es el tamaño máximo global de la base de datos, que está documentado en los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
+No se requiere que los índices de almacén de columnas quepan en la memoria. Por lo tanto, el único límite del tamaño de los índices es el tamaño máximo global de la base de datos, que está documentado en los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 
 Al utilizar los índices de almacén de columnas en clúster, se emplea una compresión de columnas para el almacenamiento de la tabla base. Esta compresión puede reducir considerablemente el consumo de almacenamiento de sus datos de usuario, lo que significa que la base de datos podrá albergar más información. Y es posible aumentar este compresión aún más con la [compresión de archivo de columnas](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression). La cantidad de compresión que puede lograr depende de la naturaleza de los datos, pero no es raro obtener una compresión que reduzca el tamaño en 10 veces.
 
@@ -168,7 +168,7 @@ Por ejemplo, si tiene una base de datos con el tamaño máximo de 1 terabyte (TB
 
 Al utilizar índices de almacén de columnas no agrupados, la tabla base sigue almacenada en el formato de almacenamiento de filas tradicional. Por lo tanto, el ahorro de almacenamiento no es tan grande como con los índices de almacén de columnas agrupados. Pero si sustituye diversos índices no agrupados tradicionales por un único índice de almacén de columnas, aún podrá obtener un ahorro global en el espacio de almacenamiento de la tabla.
 
-### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>Cambio de los planes de servicio de las bases de datos que contienen índices de almacén de columnas
+### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>Cambio de los niveles de servicio de las bases de datos que contienen índices de almacén de columnas
 
 *Cambiar una base de datos única a un plan Básico o Estándar* no sería posible si el nivel de destino está por debajo de S3. Los índices de almacén de columnas solo se admiten en los planes de tarifa Premium, Crítico para la empresa y Estándar (S3 y superior), no en el plan Básico. Si se cambia la base de datos a un nivel inferior incompatible, el índice de almacén de columnas dejará de estar disponible. El sistema mantiene el índice de almacén de columnas, pero no aprovecha el índice. Si, más tarde, vuelve a actualizar a un plan o nivel superior compatible, el almacén de columnas estará listo inmediatamente para volver a sacar el máximo partido.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
 ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60868286"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Realizar un seguimiento de los costos asociados con un laboratorio en Azure DevTest Labs
 En este artículo se proporciona información sobre cómo controlar el costo del laboratorio. Muestra cómo ver el estimado costo trent durante el mes actual para el laboratorio. El artículo también muestra cómo ver el costo del mes hasta la fecha por recurso en el laboratorio.

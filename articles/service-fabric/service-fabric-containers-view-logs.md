@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 05/15/2018
 ms.author: aljo
 ms.openlocfilehash: 0408010a49b8ec83aa02c74887139f663788ad80
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60881485"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visualización de registros para un servicio de contenedor de Service Fabric
 Azure Service Fabric es un orquestador de contenedores que admite [contenedores Linux y Windows](service-fabric-containers-overview.md).  Este artículo describe cómo ver los registros de contenedor de un servicio de contenedor en ejecución o de un contenedor no alcanzado para así poder realizar diagnósticos y solucionar problemas.

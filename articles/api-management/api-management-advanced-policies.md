@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756617"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795885"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 
@@ -583,8 +583,8 @@ Esto es un ejemplo de cómo usar la directiva `send-one-way-request` para enviar
 | Elemento                    | DESCRIPCIÓN                                                                                                 | Obligatorio                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-one-way-request       | Elemento raíz.                                                                                               | Sí                             |
-| URL                        | Dirección URL de la solicitud.                                                                                     | No si mode=copy; de lo contrario, sí. |
-| estático                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
+| url                        | Dirección URL de la solicitud.                                                                                     | No si mode=copy; de lo contrario, sí. |
+| method                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
 | encabezado                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | Sin                               |
 | Cuerpo                       | Cuerpo de la solicitud.                                                                                           | Sin                               |
 | authentication-certificate | [Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate) | Sin                               |
@@ -667,8 +667,8 @@ En este ejemplo se muestra una forma de comprobar un token de referencia con un 
 | Elemento                    | DESCRIPCIÓN                                                                                                 | Obligatorio                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-request               | Elemento raíz.                                                                                               | Sí                             |
-| URL                        | Dirección URL de la solicitud.                                                                                     | No si mode=copy; de lo contrario, sí. |
-| estático                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
+| url                        | Dirección URL de la solicitud.                                                                                     | No si mode=copy; de lo contrario, sí. |
+| method                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
 | encabezado                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | Sin                               |
 | Cuerpo                       | Cuerpo de la solicitud.                                                                                           | Sin                               |
 | authentication-certificate | [Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate) | Sin                               |

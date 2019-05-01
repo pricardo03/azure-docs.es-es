@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: b-juche
 ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61086170"
 ---
-# <a name="configure-export-policy-for-an-nfs-volume"></a>Configurar la directiva de exportación para un volumen NFS
+# <a name="configure-export-policy-for-an-nfs-volume"></a>Configuración de la directiva de exportación para un volumen NFS
 
 Si lo desea, puede configurar la directiva de exportación para controlar el acceso a un volumen de Azure NetApp Files. Directiva de exportación es compatible sólo con volúmenes NFS. 
 
@@ -42,14 +42,14 @@ Si lo desea, puede configurar la directiva de exportación para controlar el acc
     * **Acceder**  
         Seleccione uno de los tipos de accesos siguientes:  
         * Sin acceso 
-        * Leer y escribir
-        * Sólo lectura
+        * Lectura y escritura
+        * Solo lectura
 
     * **Protocolos**   
         Especifique el protocolo que se usará para la directiva de exportación.   
         Actualmente, la directiva de exportación de archivos de NetApp Azure admite solo NFSv3.
 
-    ![Exportar directiva](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+    ![Directiva de exportación](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
 
 ## <a name="next-steps"></a>Pasos siguientes 

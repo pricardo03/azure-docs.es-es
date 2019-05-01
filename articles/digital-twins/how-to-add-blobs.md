@@ -10,11 +10,11 @@ ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: seodec18
 ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926507"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Incorporación de blobs a objetos en Azure Digital Twins
 
@@ -51,7 +51,7 @@ Los metadatos del blob JSON se ajustan al modelo siguiente:
   }
 ```
 
-| Atributo | Escriba | DESCRIPCIÓN |
+| Atributo | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **parentId** | string | Entidad primaria con la que se asocia el blob (espacios, dispositivos o usuarios) |
 | **name** |string | Nombre fácil de usar para el blob |
@@ -108,7 +108,7 @@ Los blobs devueltos individualmente cumplen con el esquema JSON siguiente:
 }
 ```
 
-| Atributo | Escriba | DESCRIPCIÓN |
+| Atributo | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | **id** | string | Identificador único para el blob |
 | **name** |string | Nombre fácil de usar para el blob |
