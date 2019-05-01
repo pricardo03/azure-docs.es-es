@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c3395345093ae9a3d35deb27a08f12d331c9f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358164"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917660"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protección con contraseña de Azure AD local: preguntas más frecuentes
 
@@ -42,7 +42,7 @@ Un cambio de contraseña es cuando un usuario elige una nueva contraseña despu�
 
 Un conjunto de contraseña (denominado a veces un restablecimiento de contraseña) es cuando un administrador reemplaza a la contraseña en una cuenta con una contraseña nueva, por ejemplo mediante la herramienta de administración de equipos y usuarios de Active Directory. Esta operación requiere un alto nivel de privilegios (normalmente, el Administrador de dominio) y la persona que realiza la operación normalmente no tiene conocimiento de la contraseña antigua. Escenarios de asistencia suelen hacen esto, por ejemplo cuando la asistencia de un usuario que ha olvidado su contraseña. También verá contraseña establece eventos cuando se crea una nueva cuenta de usuario por primera vez con una contraseña.
 
-La directiva de validación de contraseña comporta igual independientemente de si se realiza un cambio de contraseña o un conjunto. El servicio del agente de DC de protección de contraseña de Azure AD registrar eventos diferentes para informarle si un cambio de contraseña o se realizó la operación de establecimiento.  Consulte [protección con contraseña de Azure AD de supervisión y registro](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+La directiva de validación de contraseña comporta igual independientemente de si se realiza un cambio de contraseña o un conjunto. El servicio del agente de DC de protección de contraseña de Azure AD registrar eventos diferentes para informarle si un cambio de contraseña o se realizó la operación de establecimiento.  Consulte [protección con contraseña de Azure AD de supervisión y registro](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **P: ¿Es posible instalar la protección con contraseña de Azure AD junto con otros productos basados en filtros de contraseña?**
 
@@ -76,7 +76,7 @@ Este requisito lo causa un comportamiento principal de Windows.
 
 **P: ¿Existe alguna forma de configurar un agente de controlador de dominio para que use un servidor proxy específico?**
 
- No. Puesto que el servidor proxy es sin estado, no es importante qué servidor proxy específico se utilice.
+No. Puesto que el servidor proxy es sin estado, no es importante qué servidor proxy específico se utilice.
 
 **P: ¿Se puede implementar el servicio de proxy de Protección con contraseña de Azure AD en paralelo a otros servicios como Azure AD Connect?**
 
@@ -96,19 +96,19 @@ Sin embargo, si los controladores de dominio actuales ya se están ejecutando en
 
 **P: Quiero probar Protección con contraseña de Azure AD en solo unos pocos controladores de dominio de mi dominio. ¿Se pueden forzar los cambios de contraseña de usuario para usar esos controladores de dominio específicos?**
 
- No. El sistema operativo de cliente Windows controla qué controlador de dominio se utiliza cuando un usuario cambia su contraseña. El controlador de dominio se selecciona en función de diversos factores, como las asignaciones de sitio y subred de Active Directory, la configuración de red específica de entorno, etcétera. Protección con contraseña de Azure AD no controla estos factores y no puede influir en qué controlador de dominio se selecciona para cambiar la contraseña de un usuario.
+No. El sistema operativo de cliente Windows controla qué controlador de dominio se utiliza cuando un usuario cambia su contraseña. El controlador de dominio se selecciona en función de diversos factores, como las asignaciones de sitio y subred de Active Directory, la configuración de red específica de entorno, etcétera. Protección con contraseña de Azure AD no controla estos factores y no puede influir en qué controlador de dominio se selecciona para cambiar la contraseña de un usuario.
 
 Una manera de lograr este objetivo sería implementar parcialmente Protección con contraseña de Azure AD en todos los controladores de dominio de un determinado sitio de Active Directory. Este enfoque proporcionará una cobertura razonable a los clientes de Windows que están asignados a ese sitio, y por lo tanto, también a los usuarios que están iniciando sesión en los clientes y cambiando sus contraseñas.
 
 **P: Si instalo el servicio de agente de controlador de dominio de Protección con contraseña de Azure AD solamente en el controlador de dominio principal (PDC), ¿también se protegerán el resto de los controladores de dominio del dominio?**
 
- No. Cuando se cambia la contraseña de un usuario en un controlador de dominio determinado que no es PDC, nunca se envía la contraseña no cifrada al PDC (esta idea es una percepción errónea común). Una vez que se acepta una contraseña nueva en un controlador de dominio determinado, ese controlador de dominio usa esa contraseña para crear los hashes específicos del protocolo de autenticación de esa contraseña y, a continuación, conserva los hashes en el directorio. La contraseña no cifrada no se mantiene. Los hashes actualizados se replican luego en el PDC. En algunos casos, las contraseñas de usuario se pueden volver a cambiar directamente en el PDC según varios factores, como la topología de red y el diseño del sitio de Active Directory. Consulte la pregunta anterior.
+No. Cuando se cambia la contraseña de un usuario en un controlador de dominio determinado que no es PDC, nunca se envía la contraseña no cifrada al PDC (esta idea es una percepción errónea común). Una vez que se acepta una contraseña nueva en un controlador de dominio determinado, ese controlador de dominio usa esa contraseña para crear los hashes específicos del protocolo de autenticación de esa contraseña y, a continuación, conserva los hashes en el directorio. La contraseña no cifrada no se mantiene. Los hashes actualizados se replican luego en el PDC. En algunos casos, las contraseñas de usuario se pueden volver a cambiar directamente en el PDC según varios factores, como la topología de red y el diseño del sitio de Active Directory. Consulte la pregunta anterior.
 
 En resumen, se requiere implementar el servicio de agente de controlador de dominio de Protección con contraseña de Azure AD en el PDC para llegar al 100 % de cobertura de seguridad de la característica en todo el dominio. Si se implementa solamente la característica en el PDC, no se proporcionan las ventajas de seguridad de Protección con contraseña de Azure AD para los otros controladores de dominio del dominio.
 
 **P: ¿Hay algún módulo de administración de Operations Manager disponible para Protección con contraseña de Azure AD?**
 
- No.
+No.
 
 **P: ¿Por qué Azure aún rechaza las contraseñas, aunque he configurado la directiva para que esté en modo de auditoría?**
 

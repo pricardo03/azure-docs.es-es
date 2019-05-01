@@ -1,25 +1,18 @@
 ---
-title: Requisitos previos de ofertas de Aplicación de Azure | Microsoft Docs
+title: Requisitos previos de la oferta de aplicación Azure | Azure Marketplace
 description: En este artículo se describen los requisitos previos para la publicación de una oferta de aplicación de Azure en Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: df127eec662f8598246f276ef9b1608ae3021512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744931"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942876"
 ---
 # <a name="azure-application-prerequisites"></a>Requisitos previos de la aplicación de Azure
 
@@ -36,7 +29,7 @@ Entre los requisitos técnicos se incluyen los siguientes:
 * Plantillas de inicio rápido de Azure.<br> Para más información, consulte:
 
   * [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/). Implemente recursos de Azure mediante Azure Resource Manager con plantillas proporcionadas por la comunidad para aumentar su productividad. El Administrador de recursos de Azure le permite aprovisionar sus aplicaciones mediante una plantilla declarativa. En una sola plantilla, se pueden implementar varios servicios junto con sus dependencias.  Use la misma plantilla para implementar su aplicación de forma repetida durante cada fase de su ciclo de vida.
-  * [GitHub: Plantillas de inicio rápido de Azure Resource Manager](https://github.com/azure/azure-quickstart-templates). Este repositorio contiene todas las plantillas de Azure Resource Manager disponibles actualmente aportadas por la comunidad. Un índice de plantillas que admite búsquedas se mantiene en https://azure.microsoft.com/en-us/documentation/templates/.
+  * [GitHub: Plantillas de inicio rápido de Azure Resource Manager](https://github.com/azure/azure-quickstart-templates). Este repositorio contiene todas las plantillas de Azure Resource Manager disponibles actualmente aportadas por la comunidad. Un índice de plantillas que admite búsquedas se mantiene en https://azure.microsoft.com/documentation/templates/.
 * Crear definición de UI<br>
 Para más información, consulte [Creación de la interfaz de usuario de Azure Portal para una aplicación administrada](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). En este artículo se presentan los conceptos principales del archivo createUiDefinition.json. Azure Portal usa este archivo para generar la interfaz de usuario para crear una aplicación administrada.
 
@@ -50,7 +43,7 @@ Los requisitos empresariales incluyen las siguientes obligaciones contractuales,
 >[!NOTE]
 >Debe usar la misma cuenta de registro de Microsoft Developer Center para iniciar sesión en Cloud Partner Portal. Solo debe tener una cuenta Microsoft para sus ofertas de Azure Marketplace. Esta cuenta no debería ser específica de servicios ni de ofertas individuales.
 
-* La empresa (o sus subsidiarias) debe estar en uno de los países de origen de venta admitidos por Azure Marketplace. Para obtener una lista actual de estos países, vea [Directivas de Participación de Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+* Su empresa (o sus subsidiarias) deben estar en una venta-de-país/región admitido por Azure Marketplace. Para obtener una lista actual de estos países o regiones, consulte [directivas de participación de Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 * El producto debe contar con una licencia que sea compatible con los modelos de facturación admitidos por Azure Marketplace. Para obtener más información, vea las [opciones de facturación](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations) en Azure Marketplace.
 * Usted es el responsable de poner el soporte técnico a disposición de los clientes de forma comercialmente razonable. Puede ser gratuito, de pago o a través de métodos de la comunidad.
 * Asimismo, es responsable de la concesión de licencias para su software y las dependencias de software de terceros.

@@ -1,25 +1,18 @@
 ---
-title: Administración de Partner Portal - Azure Marketplace en la nube | Microsoft Docs
+title: Administración de Partner Portal en la nube | Azure Marketplace
 description: Describe los tipos de operaciones disponibles para administrar cuentas para Cloud Partner Portal para Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 539bc7861a487e6eb563f565d3475efdda99b093
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: d35e221790c2f94caf582859f78389ecca987709
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332676"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942202"
 ---
 # <a name="cloud-partner-portal-management"></a>Administración de cloud Partner Portal
 

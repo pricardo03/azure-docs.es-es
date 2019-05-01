@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/20/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 3c8a2fe9f4486fe4d33754b58f4e7ebec1b3252d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682958"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947084"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -103,7 +103,7 @@ Las implementaciones que usan la SKU v2 pueden tardar hasta 6 minutos en aprovis
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>¿Puedo usar Exchange Server como un back-end con Application Gateway?
 
- No. Application Gateway no admite protocolos de correo electrónico como SMTP, IMAP y POP3. 
+No. Application Gateway no admite protocolos de correo electrónico como SMTP, IMAP y POP3. 
 
 ## <a name="performance"></a>Rendimiento
 
@@ -119,11 +119,11 @@ Use Traffic Manager para distribuir el tráfico entre varias puertas de enlace d
 
 ### <a name="does-application-gateway-support-autoscaling"></a>¿Admite Application Gateway el escalado automático?
 
-Sí, la SKU v2 de Application Gateway admite la escalabilidad automática. Para obtener más información, consulte [el escalado automático y la puerta de enlace de aplicaciones con redundancia de zona (versión preliminar pública)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+Sí, la SKU v2 de Application Gateway admite la escalabilidad automática. Para obtener más información, consulte [el escalado automático y la puerta de enlace de aplicaciones con redundancia de zona](application-gateway-autoscaling-zone-redundant.md).
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>¿No escala manual de o reducir verticalmente el tiempo de inactividad de la causa?
 
- No. Las instancias se distribuyen entre varios dominios de actualización y dominios de error.
+No. Las instancias se distribuyen entre varios dominios de actualización y dominios de error.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>¿Es compatible Application Gateway con la funcionalidad de drenaje de conexiones?
 
@@ -145,7 +145,7 @@ Siempre que tenga conectividad IP, Application Gateway puede comunicarse con ins
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>¿Puedo implementar algo más en la subred de la puerta de enlace de aplicaciones?
 
- No. Pero se pueden implementar otras puertas de enlace de aplicaciones en la subred.
+No. Pero se pueden implementar otras puertas de enlace de aplicaciones en la subred.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>¿Se admiten grupos de seguridad de red en la subred de puerta de enlace de aplicaciones?
 
@@ -177,7 +177,7 @@ Se admite la arquitectura de Microservicios. Para realizar sondeos en puertos di
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>¿Admiten los sondeos personalizados caracteres comodín o regex en los datos de respuesta?
 
- No. 
+No. 
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>¿Cómo se procesan las reglas de enrutamiento en Application Gateway?
 
@@ -193,7 +193,7 @@ Sí. Consulte [restringir el acceso a direcciones IP de origen específica](http
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>¿Puedo usar el mismo puerto para acceso público y privado accesible desde los agentes de escucha?
 
- No.
+No.
 
 ## <a name="configuration---ssl"></a>Configuración - SSL
 
@@ -267,7 +267,7 @@ Application Gateway admite hasta 10 certificados de autenticación. El valor pre
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>¿Application Gateway de forma nativa se integra con Azure Key Vault?
 
- No.
+Sí, la SKU de puerta de enlace de aplicaciones v2 es compatible con Key Vault. Para obtener más información, consulte [terminación SSL con certificados de Key Vault](key-vault-certs.md).
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>¿Cómo se puede configurar los agentes de escucha HTTPS para sitios .com y. NET? 
 
@@ -289,7 +289,7 @@ WAF de monitor a través del registro de diagnóstico. Para obtener más informa
 
 ### <a name="does-detection-mode-block-traffic"></a>¿Bloquea el modo de detección el tráfico?
 
- No. Modo de detección solo registra el tráfico que se desencadena una regla de WAF.
+No. Modo de detección solo registra el tráfico que se desencadena una regla de WAF.
 
 ### <a name="can-i-customize-waf-rules"></a>¿Se pueden personalizan las reglas de WAF?
 

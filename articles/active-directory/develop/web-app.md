@@ -12,18 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 04/08/2019
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea3e1b951a683d7ee1def09024e531e94dd905b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296831"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918525"
 ---
 # <a name="web-apps"></a>Aplicaciones web
 
@@ -46,7 +45,7 @@ Consulte los ejemplos de código correspondientes a los escenarios de explorador
 
 ## <a name="app-registration"></a>Registro de aplicación
 
-Para registrar una aplicación web, consulte [Registro de una aplicación con el punto de conexión v1.0 de Azure AD](quickstart-v1-add-azure-ad-app.md).
+Para registrar una aplicación web, consulte [registrar una aplicación](quickstart-register-app.md).
 
 * Inquilino único: si va a compilar una aplicación únicamente para la organización, esta debe registrarse en el directorio de la empresa mediante Azure Portal.
 * Multiinquilino: si va a compilar una aplicación que puede ser utilizada por usuarios ajenos a la organización, esta debe registrarse en el directorio de la compañía, pero también en el directorio de cada organización que vaya a usar la aplicación. Para que la aplicación esté disponible en su directorio, puede incluir un proceso de inicio de sesión para que los clientes puedan dar su consentimiento a la aplicación. Cuando inicien sesión en la aplicación, se les presentará un cuadro de diálogo que muestra los permisos que la aplicación requiere y la opción de consentimiento. Según los permisos necesarios, es posible que se requiera que un administrador de la otra organización dé su consentimiento. Cuando el usuario o el administrador dan su consentimiento, la aplicación queda registrada en el directorio.
@@ -59,5 +58,3 @@ La sesión del usuario expira cuando expira la duración del token emitido por A
 
 * Más información sobre otros [tipos y escenarios de aplicaciones](app-types.md).
 * Más información sobre los [conceptos básicos de autenticación](authentication-scenarios.md) de Azure AD.
-
-<!-- Update_Description: wording update -->

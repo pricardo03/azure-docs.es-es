@@ -1,27 +1,22 @@
 ---
-title: Haga crecer su negocio con Microsoft | Azure
+title: Promover su negocio con Microsoft | Azure Marketplace
 description: Haga crecer su negocio con Azure Marketplace y AppSource para los anunciantes de aplicaciones y servicios
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735891"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937648"
 ---
-# <a name="promote-your-business-with-microsoft"></a>Haga crecer su negocio con Microsoft  
+# <a name="promote-your-business-with-microsoft"></a>Haga crecer su negocio con Microsoft 
+
 Microsoft tiene el objetivo de apoyar a sus asociados (usted) y de simplificar la venta de su aplicación u oferta en los escaparates de Marketplace. Al publicar anuncios en Marketplace, puede acceder a los programas y recursos de Marketplace. 
 
 Si aún no está suscrito a Microsoft Partner Network (MPN), debe hacerlo antes de continuar.  

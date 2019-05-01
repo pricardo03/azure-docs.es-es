@@ -1,22 +1,22 @@
 ---
-title: 'Preguntas frecuentes: recuperación ante desastres de Azure a Azure con Azure Site Recovery | Microsoft Docs'
-description: En este artículo se resumen las preguntas comunes al configurar la recuperación ante desastres de máquinas virtuales de Azure a otra región de Azure mediante Azure Site Recovery.
+title: Preguntas comunes acerca de la recuperación ante desastres de Azure en Azure con Azure Site Recovery
+description: Este artículo responden preguntas comunes acerca de la recuperación ante desastres de máquinas virtuales de Azure en otra región de Azure con Azure Site Recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/29/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 52a5022b49bac990321c3cf8661aa2a04e93b39a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: asgan
+ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790885"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925666"
 ---
-# <a name="common-questions-azure-to-azure-replication"></a>Preguntas frecuentes: Replicación de Azure a Azure
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Preguntas frecuentes: Recuperación ante desastres en Azure
 
-En este artículo se resumen las preguntas comunes al configurar la recuperación ante desastres de máquinas virtuales de Azure a otra región de Azure mediante Azure Site Recovery. Si tiene alguna pregunta después de leer el artículo, publíquela en el [Foro de Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+En este artículo proporciona respuestas a preguntas habituales acerca de la recuperación ante desastres de máquinas virtuales de Azure a otra región de Azure mediante [Site Recovery](site-recovery-overview.md). 
 
 
 ## <a name="general"></a>General
@@ -28,15 +28,15 @@ Todas las instancias protegidas con Azure Site Recovery son gratuitas los primer
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante los primeros 31 días, ¿puedo incurrir en otros cargos de Azure?
 Sí, aunque Azure Site Recovery sea gratuito los primeros 31 días de una instancia protegida, puede incurrir en cargos por Azure Storage, transacciones de almacenamiento y transferencia de datos. Una máquina virtual recuperada también puede incurrir en cargos por proceso de Azure. Obtenga detalles completos sobre los precios [aquí](https://azure.microsoft.com/pricing/details/site-recovery).
 
-### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>¿Cuáles son los procedimientos recomendados para la configuración de Site Recovery en máquinas virtuales de Azure?
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>¿Dónde puedo encontrar los procedimientos recomendados para la recuperación ante desastres de máquinas virtuales de Azure? 
 1. [Descripción de la arquitectura de Azure a Azure](azure-to-azure-architecture.md)
 2. [Revisión de las configuraciones admitidas y no admitidas](azure-to-azure-support-matrix.md)
 3. [Configuración de la recuperación ante desastres de máquinas virtuales de Azure](azure-to-azure-how-to-enable-replication.md)
 4. [Ejecución de una conmutación por error de prueba](azure-to-azure-tutorial-dr-drill.md)
 5. [Conmutación por error y conmutación por recuperación a la región principal](azure-to-azure-tutorial-failover-failback.md)
 
-### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>¿Cómo se garantiza que capacidad en la región de destino para máquinas virtuales de Azure?
-El equipo de Azure Site Recovery (ASR) funciona con el equipo de administración de capacidad de Azure para planear la capacidad de infraestructura suficiente, en un intento para asegurarse de que las máquinas virtuales protegidas por ASR para desastres recuperación correctamente se implementarán en la región de recuperación ante desastres, cada vez que se inician las operaciones de conmutación por error de ASR.
+### <a name="how-is-capacity-guaranteed-in-the-target-region"></a>¿Cómo se garantiza la capacidad en la región de destino?
+El equipo de Site Recovery funciona con el equipo de administración de capacidad de Azure para planear la capacidad suficiente de la infraestructura y ayudar a garantizar las máquinas virtuales protegidas por Site Recovery para correctamente será la región de destino implementado cuando se inicia la conmutación por error.
 
 ## <a name="replication"></a>Replicación
 
@@ -54,6 +54,16 @@ Sí, puede [replicar máquinas virtuales ancladas por zona](https://azure.micros
 
 Sí, puede excluir discos en el momento de la protección mediante PowerShell. Para obtener más información, consulte [artículo](azure-to-azure-exclude-disks.md)
 
+### <a name="can-i-add-new-disks-to-replicated-vms-and-enable-replication-for-them"></a>¿Puedo agregar nuevos discos a máquinas virtuales replicadas y habilitar la replicación para ellos?
+
+Sí, esto se admite para máquinas virtuales de Azure con discos administrados. Cuando se agrega un nuevo disco a una máquina virtual de Azure que está habilitado para la replicación, estado de replicación de la máquina virtual muestra una advertencia con una nota que especifica que uno o más discos en la máquina virtual están disponibles para la protección. Puede habilitar la replicación de los discos agregados.
+- Si habilita la protección para los discos agregados, la advertencia desaparecerá después de la replicación inicial.
+- Si decide no habilitar la replicación para el disco, puede seleccionar para descartar la advertencia.
+- Cuando se conmuta a una máquina virtual al que agregar un disco y habilitar su replicación, los puntos de la replicación mostrará los discos que están disponibles para la recuperación. Por ejemplo, si una máquina virtual tiene un único disco y agregar uno nuevo, los puntos de replicación que se crearon antes de agregar el disco mostrará que el punto de replicación se compone de "1 de 2 discos".
+
+Site Recovery no admite "frecuente quitar" de un disco de una máquina virtual replicada. Si quita un disco de máquina virtual, deberá deshabilitar y, a continuación, volver a habilitar la replicación de la máquina virtual.
+
+
 ### <a name="how-often-can-i-replicate-to-azure"></a>¿Con qué frecuencia se puede replicar en Azure?
 La replicación es continua cuando se replican máquinas virtuales de Azure en otra región de Azure. Para más información, consulte [Arquitectura de recuperación ante desastres de Azure a Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
 
@@ -69,7 +79,7 @@ No, Site Recovery no requiere conectividad a Internet. Pero sí requiere acceso 
 
 ### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>¿Puedo replicar la aplicación con grupos de recursos independientes para niveles independientes?
 Sí, puede replicar la aplicación y mantener también la configuración de recuperación ante desastres en un grupo de recursos independiente.
-Por ejemplo, si tiene una aplicación con los niveles de aplicación, base de datos y web en grupos de recursos independientes, debe hacer clic tres veces en el [asistente para replicación](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) para proteger todos los niveles. ASR replicará estos tres niveles en tres grupos de recursos diferentes.
+Por ejemplo, si tiene una aplicación con los niveles de aplicación, base de datos y web en grupos de recursos independientes, debe hacer clic tres veces en el [asistente para replicación](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) para proteger todos los niveles. Site Recovery replicará estos tres niveles en tres grupos de recursos diferentes.
 
 ## <a name="replication-policy"></a>Directiva de replicación
 
@@ -147,8 +157,8 @@ La habilitación de la coherencia entre con varias VM puede afectar al rendimien
 
 ## <a name="failover"></a>Conmutación por error
 
-### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>¿Cómo se garantiza que capacidad en la región de destino para máquinas virtuales de Azure?
-El equipo de Azure Site Recovery (ASR) funciona con el equipo de administración de capacidad de Azure para planear la capacidad de infraestructura suficiente, en un intento para asegurarse de que las máquinas virtuales protegidas por ASR para desastres recuperación correctamente se implementarán en la región de recuperación ante desastres, cada vez que se inician las operaciones de conmutación por error de ASR.
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>¿Cómo se asegura de capacidad en la región de destino para máquinas virtuales de Azure?
+El equipo de Site Recovery funciona con el equipo de administración de capacidad de Azure para planear la capacidad de infraestructura suficiente ayudar a garantizar las máquinas virtuales habilitadas para la recuperación ante desastres se implementará correctamente en la región de destino cuando se inicia la conmutación por error.
 
 ### <a name="is-failover-automatic"></a>¿La conmutación por error es automática?
 
@@ -156,15 +166,19 @@ La conmutación por error no es automática. Puede iniciar las conmutaciones por
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>¿Se puede conservar una dirección IP pública después de la conmutación por error?
 
-La dirección IP pública de la aplicación de producción *no se puede retener en la conmutación por error*. Las cargas de trabajo que nos llegan como parte del proceso de conmutación por error deben tener asignado un recurso de dirección IP pública de Azure disponible en la región de destino. Puede realizar este paso manualmente o automatizarlo a través de un plan de recuperación. Para asignar una dirección IP pública mediante un plan de recuperación, consulte [Configuración de direcciones IP públicas tras la conmutación por error](https://docs.microsoft.com/azure/site-recovery/concepts-public-ip-address-with-site-recovery#public-ip-address-assignment-using-recovery-plan).  
+No se puede conservar la dirección IP pública de la aplicación de producción después de la conmutación por error.
+- Las cargas de trabajo que nos llegan como parte del proceso de conmutación por error deben tener asignado un recurso de dirección IP pública de Azure disponible en la región de destino.
+- Puede hacerlo manualmente o automatizarlo con un plan de recuperación.
+- Obtenga información sobre cómo [configurar direcciones IP públicas tras la conmutación por error](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).  
 
 ### <a name="can-i-retain-a-private-ip-address-during-failover"></a>¿Se puede conservar una dirección IP privada durante la conmutación por error?
-Sí, puede conservar una dirección IP privada. De forma predeterminada, cuando se habilita la recuperación ante desastres para máquinas virtuales de Azure, Site Recovery crea recursos de destino en función de la configuración de los recursos de origen. En el caso de las máquinas virtuales de Azure configuradas con direcciones IP estáticas, Site Recovery trata de aprovisionar la misma dirección IP para la máquina virtual de destino, si no está en uso. Para conservar la dirección IP privada en distintas condiciones, consulte [Conservar las direcciones IP durante la conmutación por error](site-recovery-retain-ip-azure-vm-failover.md).
+Sí, puede mantener una dirección IP privada. De forma predeterminada, cuando se habilita la recuperación ante desastres para máquinas virtuales de Azure, Site Recovery crea recursos de destino en función de la configuración de los recursos de origen. -Para máquinas virtuales de Azure configuradas con direcciones IP estáticas, Site Recovery trata de aprovisionar la misma dirección IP para el destino de la máquina virtual, si no está en uso.
+Obtenga información sobre [conservar las direcciones IP durante la conmutación por error](site-recovery-retain-ip-azure-vm-failover.md).
 
-### <a name="after-failover-the-server-doesnt-have-the-same-ip-address-as-the-source-vm-why-is-it-assigned-a-new-ip-address"></a>Después de la conmutación por error, el servidor no tiene la misma dirección IP que la máquina virtual de origen. ¿Por qué se asigna una nueva dirección IP?
+### <a name="after-failover-why-is-the-server-assigned-a-new-ip-address"></a>Después de la conmutación por error, ¿por qué es el servidor asigna una nueva dirección IP?
 
 Site Recovery trata de proporcionar la dirección IP en el momento de la conmutación por error. Si otra máquina virtual se lleva esa dirección, Site Recovery establece la siguiente dirección IP disponible como destino.
-Para obtener una explicación completa de cómo controla el direccionamiento Site Recovery, vea [Set up network mapping and IP addressing for virtual networks](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms) (Configuración de asignación de redes y direccionamiento IP para máquinas virtuales).
+Obtenga más información sobre [configurar asignación de red y el direccionamiento IP para redes virtuales](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>¿Qué son los puntos de recuperación **Más reciente (RPO más bajo)**?
 La opción **Más reciente (RPO más bajo)** procesa primero todos los datos que se han enviado al servicio Site Recovery para crear un punto de recuperación para cada máquina virtual antes de conmutarla por error a dicho punto de recuperación. Esta opción ofrece el objetivo de punto de recuperación mínimo, ya que la máquina virtual creada después de la conmutación por error tiene todos los datos replicados en Site Recovery al desencadenarse la conmutación por error.
@@ -175,10 +189,10 @@ Sí. Site Recovery procesa todos los datos pendientes antes de conmutar por erro
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>¿Qué significa la opción **Procesado más recientemente** en los puntos de recuperación?
 La opción **Procesado más recientemente** realiza una conmutación por error de todas las máquinas virtuales del plan al último punto de recuperación procesado por Site Recovery. Para ver el último punto de recuperación de una máquina virtual específica, seleccione **Puntos de recuperación más recientes** en la configuración de la máquina virtual. Esta opción proporciona un objetivo de tiempo de recuperación bajo, ya que no se invierte tiempo en el procesamiento de datos sin procesar.
 
-### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Si se replica entre dos regiones de Azure, ¿qué ocurre si la región primaria experimenta una interrupción inesperada?
+### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>¿Qué ocurre si mi región principal experimenta una interrupción inesperada?
 Puede desencadenar una conmutación por error después de la interrupción. Site Recovery no necesita conectividad desde la región primaria para realizar la conmutación por error.
 
-### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>¿Cuál es un objetivo de tiempo de recuperación de la conmutación por error de una máquina virtual?
+### <a name="what-is-a-rto-of-a-vm-failover-"></a>¿Qué es un RTO de una máquina virtual de conmutación por error?
 Site Recovery tiene un [objetivo de tiempo de recuperación de 2 horas según el contrato de nivel de servicio](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Sin embargo, la mayoría de las veces, Site Recovery conmuta por error las máquinas virtuales en cuestión de minutos. Para calcular el objetivo de tiempo de recuperación, vaya a los trabajos de conmutación por error, que muestran el tiempo que tardó en aparecer la VM. Para el objetivo de tiempo de recuperación del plan de recuperación, consulte la siguiente sección.
 
 ## <a name="recovery-plans"></a>Planes de recuperación
@@ -214,25 +228,27 @@ No. No, al [conmutar por error](https://docs.microsoft.com/azure/site-recovery/a
 Depende de la situación. Por ejemplo, si la máquina virtual de la región de origen existe, solo se sincronizan los cambios entre el disco de origen y el disco de destino. Site Recovery calcula las copias de seguridad diferenciales mediante la comparación de los discos y, a continuación, transfiere los datos. Este proceso suele tardar unas horas. Para obtener más información sobre lo que ocurre durante la reprotección, consulte [Reprotección de máquinas virtuales de Azure conmutadas por error en la región principal]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>¿Cuánto se tarda en conmutar por recuperación?
-Después de la reprotección, la cantidad de tiempo para la conmutación por recuperación es normalmente similar al tiempo de la conmutación por error de la región primaria a una región secundaria.
+Después de la reprotección, la cantidad de tiempo para la conmutación por recuperación es suelen ser similar a la vez que se necesitaba para conmutación por error de la región primaria a una región secundaria.
 
 ## <a name="capacity"></a>capacidad
 
 ### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>¿Cómo se asegura de capacidad en la región de destino para máquinas virtuales de Azure?
-El equipo de Azure Site Recovery (ASR) funciona con el equipo de administración de capacidad de Azure para planear la capacidad de infraestructura suficiente, en un intento para asegurarse de que las máquinas virtuales protegidas por ASR para desastres recuperación correctamente se implementarán en la región de recuperación ante desastres, cada vez que se inician las operaciones de conmutación por error de ASR.
+El equipo de Site Recovery funciona con el equipo de administración de capacidad de Azure para planear la capacidad de infraestructura suficiente ayudar a garantizar las máquinas virtuales habilitadas para la recuperación ante desastres correctamente se implementará en la región de destino cuando se inicia la conmutación por error.
 
 ### <a name="does-site-recovery-work-with-reserved-instances"></a>¿Site Recovery funciona con las instancias reservadas?
-Sí, se puede comprar [reservando instancias](https://azure.microsoft.com/pricing/reserved-vm-instances/) en la recuperación ante desastres región y las operaciones de conmutación por error de ASR se usarán. </br> Ninguna configuración adicional es necesaria que los clientes.
+Sí, se puede comprar [reservando instancias](https://azure.microsoft.com/pricing/reserved-vm-instances/) en la región de recuperación ante desastres y Site Recovery las operaciones de conmutación por error usarán. </br> No se necesita ninguna configuración adicional.
 
 
 ## <a name="security"></a>Seguridad
+
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>¿Se envían mis datos de replicación al servicio de Site Recovery?
-No, Site Recovery no intercepta los datos replicados ni tiene información sobre lo que se ejecuta en las máquinas virtuales. Únicamente se envían los metadatos necesarios para coordinar la replicación y la conmutación por error al servicio Site Recovery.  
+No, Site Recovery no intercepta los datos replicados y no tiene ninguna información sobre lo que se ejecuta en las máquinas virtuales. Únicamente se envían los metadatos necesarios para coordinar la replicación y la conmutación por error al servicio Site Recovery.  
 Site Recovery está certificado según la norma ISO 27001:2013, 27018, además de HIPAA y DPA, y está completando sus evaluaciones de SOC2 y FedRAMP JAB.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>¿Site Recovery cifra la replicación?
-Sí, se admite tanto el cifrado en tránsito como el [cifrado en Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption).
+Sí, cifrado en tránsito y [cifrado en reposo en Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) son compatibles.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Revise](azure-to-azure-support-matrix.md) los requisitos de compatibilidad.
 * [Configure](azure-to-azure-tutorial-enable-replication.md) la replicación de Azure en Azure.
+- Si tiene alguna pregunta después de leer el artículo, publíquela en el [Foro de Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).

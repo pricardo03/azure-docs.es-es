@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 815be7400e0a0560ace7e07b317aeb25c2feacd5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f81aea22014a2c7d5b37c500a546f0b5350b6435
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817415"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925375"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Solución de problemas de implementaciones de AKS y ACI de Azure Machine Learning Service
 
@@ -307,7 +307,7 @@ Hay dos cosas que pueden ayudar a evitar 503 códigos de estado:
     > [!NOTE]
     > Si recibe los picos de solicitud más grande que pueden controlar las nuevas réplicas mínimas, puede recibir 503s de nuevo. Por ejemplo, como el tráfico a los aumentos de servicio, es posible que deba aumentar las réplicas mínimas.
 
-Para obtener más información sobre cómo `autoscale_target_utilization`, `autoscale_max_replicas`, y `autoscale_min_replicas` para, consulte el [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) referencia del módulo.
+Para obtener más información sobre cómo `autoscale_target_utilization`, `autoscale_max_replicas`, y `autoscale_min_replicas` para, consulte el [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) referencia del módulo.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

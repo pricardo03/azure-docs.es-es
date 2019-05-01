@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6285a90a9dca305f3a9cd909af6c084c747daf99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4137360fadab0206c6569b58d6a9a0519ce74450
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317129"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703950"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Inicio de sesión web con OpenID Connect en Azure Active Directory B2C
 
@@ -77,7 +77,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | client_id | Sí | IDENTIFICADOR de la aplicación que el [portal Azure](https://portal.azure.com/) asignado a la aplicación. |
 | response_type | Sí | Debe incluir un token de identificador para OpenID Connect. Si la aplicación web también necesita tokens para llamar a una API web, puede usar `code+id_token`. |
 | redirect_uri | Sin  | El `redirect_uri` parámetro de la aplicación, donde las respuestas de autenticación pueden ser enviadas y recibidas por la aplicación. Debe coincidir exactamente con uno de los `redirect_uri` parámetros que ha registrado en el portal de Azure, salvo que debe estar codificado como URL. |
-| ámbito | Sí | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener los datos del usuario en forma de tokens de identificador. El `offline_access` ámbito es opcional para las aplicaciones web. Indica que la aplicación necesitará un *token de actualización* para acceso total a los recursos. |
+| scope | Sí | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener los datos del usuario en forma de tokens de identificador. El `offline_access` ámbito es opcional para las aplicaciones web. Indica que la aplicación necesitará un *token de actualización* para acceso total a los recursos. |
 | response_mode | Sin  | El método que se usa para devolver el código de autorización resultante a la aplicación. Puede ser `query`, `form_post` o `fragment`.  Para mayor seguridad se recomienda el modo de respuesta `form_post`. |
 | state | Sin  | Un valor incluido en la solicitud que también se devuelve en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Se utiliza normalmente un valor único generado de forma aleatoria para evitar los ataques de falsificación de solicitudes entre sitios. El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se produjo la solicitud de autenticación, como la página que estaban. |
 | valor de seguridad | Sí | Un valor incluido en la solicitud (generada por la aplicación) que se incluye en el token de identificador resultante como una notificación. La aplicación, a continuación, puede comprobar este valor para mitigar los ataques de reproducción de tokens. Normalmente, el valor es una cadena única aleatoria que se puede usar para identificar el origen de la solicitud. |
@@ -167,7 +167,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | p | Sí | El flujo de usuario usado para adquirir el código de autorización. No se puede usar un flujo de usuario diferente en esta solicitud. Agregue este parámetro en la cadena de consulta, no en el cuerpo de POST. |
 | client_id | Sí | IDENTIFICADOR de la aplicación que el [portal Azure](https://portal.azure.com/) asignado a la aplicación. |
 | grant_type | Sí | El tipo de concesión, que debe ser `authorization_code` para el flujo de código de autorización. |
-| ámbito | Sin  | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener datos de este en forma de parámetros id_token. Puede usar para obtener tokens para la web de back-end de la aplicación API, que viene representado por el mismo identificador de aplicación que el cliente. El `offline_access` ámbito indica que la aplicación necesita un token de actualización para el acceso total a los recursos. |
+| scope | Sin  | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener datos de este en forma de parámetros id_token. Puede usar para obtener tokens para la web de back-end de la aplicación API, que viene representado por el mismo identificador de aplicación que el cliente. El `offline_access` ámbito indica que la aplicación necesita un token de actualización para el acceso total a los recursos. |
 | código | Sí | El código de autorización que adquirió en el principio del flujo de usuario. |
 | redirect_uri | Sí | El parámetro `redirect_uri` de la aplicación en la que recibió el código de autorización. |
 | client_secret | Sí | El secreto de aplicación que se generó en el [portal Azure](https://portal.azure.com/). El secreto de aplicación es un artefacto de seguridad importante. Debe almacenarlo de forma segura en el servidor. Cambie este secreto del cliente de forma periódica. |
@@ -189,7 +189,7 @@ Una respuesta correcta del token tiene el siguiente aspecto:
 | not_before | Hora a la que el token se considera válido, en tiempo de época. |
 | token_type | El valor del tipo de token. `Bearer` es el único tipo admitido. |
 | access_token | El token JWT firmado solicitado. |
-| ámbito | Los ámbitos para los que el token es válido. |
+| scope | Los ámbitos para los que el token es válido. |
 | expires_in | El período de validez del token de acceso (en segundos). |
 | refresh_token | Un token de actualización de OAuth 2.0. La aplicación puede utilizar este token para adquirir tokens adicionales una vez que expire el token actual. Actualizar los tokens pueden usarse para conservar el acceso a los recursos durante largos períodos de tiempo. El ámbito `offline_access` debe haberse utilizado en las solicitudes de tokens y autorización para recibir un token de actualización. |
 
@@ -234,7 +234,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | p | Sí | El flujo de usuario usado para adquirir el token de actualización original. No se puede usar un flujo de usuario diferente en esta solicitud. Agregue este parámetro en la cadena de consulta, no en el cuerpo de POST. |
 | client_id | Sí | IDENTIFICADOR de la aplicación que el [portal Azure](https://portal.azure.com/) asignado a la aplicación. |
 | grant_type | Sí | El tipo de concesión, que debe ser un token de actualización para esta parte del flujo de código de autorización. |
-| ámbito | Sin  | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener los datos del usuario en forma de tokens de identificador. Se puede usar para enviar los tokens a su propia aplicación back-end API web, que viene representada por el mismo identificador de aplicación que el cliente. El `offline_access` ámbito indica que la aplicación necesita un token de actualización para el acceso total a los recursos. |
+| scope | Sin  | Una lista de ámbitos separada por espacios. El ámbito `openid` indica un permiso para iniciar sesión con el usuario y obtener los datos del usuario en forma de tokens de identificador. Se puede usar para enviar los tokens a su propia aplicación back-end API web, que viene representada por el mismo identificador de aplicación que el cliente. El `offline_access` ámbito indica que la aplicación necesita un token de actualización para el acceso total a los recursos. |
 | redirect_uri | Sin  | El parámetro `redirect_uri` de la aplicación en la que recibió el código de autorización. |
 | refresh_token | Sí | El token de actualización original que se ha adquirido en la segunda parte del flujo. El `offline_access` ámbito debe usarse en las solicitudes de tokens y autorización para recibir un token de actualización. |
 | client_secret | Sí | El secreto de aplicación que se generó en el [portal Azure](https://portal.azure.com/). El secreto de aplicación es un artefacto de seguridad importante. Debe almacenarlo de forma segura en el servidor. Cambie este secreto del cliente de forma periódica. |
@@ -256,7 +256,7 @@ Una respuesta correcta del token tiene el siguiente aspecto:
 | not_before | Hora a la que el token se considera válido, en tiempo de época. |
 | token_type | El valor del tipo de token. `Bearer` es el único tipo admitido. |
 | access_token | El token JWT firmado que se solicitó. |
-| ámbito | El ámbito para el que el token es válido. |
+| scope | El ámbito para el que el token es válido. |
 | expires_in | El período de validez del token de acceso (en segundos). |
 | refresh_token | Un token de actualización de OAuth 2.0. La aplicación puede utilizar este token para adquirir tokens adicionales una vez que expire el token actual. Actualizar los tokens pueden usarse para conservar el acceso a los recursos durante largos períodos de tiempo. |
 

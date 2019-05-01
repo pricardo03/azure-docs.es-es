@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/29/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122683"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925278"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 Las cuentas GPv2 de Azure Storage le permiten proporcionar contenido estático (HTML, CSS, JavaScript y archivos de imagen) directamente desde un contenedor de almacenamiento llamado *$web*. Si aprovecha el hospedaje que ofrece Azure Storage, podrá usar arquitecturas sin servidor, incluyendo[Azure Functions](/azure/azure-functions/functions-overview) y otros servicios de PaaS.
@@ -52,16 +52,21 @@ El nombre de archivo predeterminado que se seleccionó se usa en la raíz y en c
 
 ## <a name="cdn-and-ssl-support"></a>Compatibilidad con SSL y la red CDN
 
-Para hacer que los archivos del sitio web estático estén disponibles a través de HTTPS, consulte [Uso de Azure CDN para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md). Como parte de este proceso, debe *apuntar su red CDN al punto de conexión web* en lugar de al punto de conexión del blob. Es posible que deba esperar unos minutos antes de que su contenido sea visible, ya que la configuración de CDN no se ejecuta de inmediato.
+Para que los archivos del sitio Web estático disponible a través de su dominio personalizado y HTTPS, consulte [mediante la red CDN de Azure para tener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md). Como parte de este proceso, debe *apuntar su red CDN al punto de conexión web* en lugar de al punto de conexión del blob. Es posible que deba esperar unos minutos antes de que su contenido sea visible, ya que la configuración de CDN no se ejecuta de inmediato.
 
 Cuando se actualiza el sitio Web estático, asegúrese de borrar el contenido almacenado en caché en los servidores perimetrales CDN mediante la purga el punto de conexión CDN. Para más información, consulte [Purgar un punto de conexión de Azure CDN](../../cdn/cdn-purge-endpoint.md).
+
+> [!NOTE]
+> HTTPS se admite de forma nativa a través del extremo de web de la cuenta. El uso de dominios personalizados a través de HTTPS requiere el uso de la red CDN de Azure en este momento. 
+>
+> Punto de conexión público cuenta web a través de HTTPS: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
 
 ## <a name="custom-domain-names"></a>Nombres de dominio personalizados
 
 Puede [configurar un nombre de dominio personalizado para su cuenta de Azure Storage](storage-custom-domain-name.md) para que su sitio web estático esté disponible a través de un dominio personalizado. Para obtener información detallada sobre cómo hospedar su dominio en Azure, consulte [Hospedaje del dominio en Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Precios
-El hospedaje de sitios web estáticos se proporciona sin costo adicional alguno. Para obtener más información acerca de los precios de Azure Blob Storage, consulte la [página de precios de Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Habilitar el hospedaje del sitio Web estático es gratuito. Los clientes se cobran por los costos de almacenamiento y las operaciones de blob infrautilizados. Para obtener más información acerca de los precios de Azure Blob Storage, consulte la [página de precios de Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="quickstart"></a>Guía de inicio rápido
 
@@ -159,7 +164,10 @@ No, el hospedaje de sitios web estáticos solo está disponible en las cuentas d
 Sí, el nuevo punto de conexión web cumple las reglas de firewall y de VNET configuradas para la cuenta de almacenamiento.
 
 **¿El punto de conexión web distingue entre mayúsculas y minúsculas?**  
-Sí, el punto de conexión web distingue entre mayúsculas y minúsculas, al igual que el punto de conexión del blob. 
+Sí, el punto de conexión web distingue entre mayúsculas y minúsculas, al igual que el punto de conexión del blob.
+
+**¿Es el punto de conexión web accesibles a través de HTTP y HTTPS?**
+Sí, el punto de conexión web es accesible a través de HTTP y HTTPS. Sin embargo, si la cuenta de almacenamiento está configurada para requerir a transferencia segura a través de HTTPS, los usuarios deben usar el extremo HTTPS. Para obtener más información, consulte [requerir transferencia segura en Azure Storage](../common/storage-require-secure-transfer.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Uso de Azure CDN para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md)

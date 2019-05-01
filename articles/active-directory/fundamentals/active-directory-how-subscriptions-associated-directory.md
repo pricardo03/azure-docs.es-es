@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248769"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918409"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -31,7 +31,7 @@ Todos los usuarios tienen una sola *principal* directorio para la autenticación
 > [!Important]
 > Al asociar una suscripción a un directorio diferente, los usuarios que tienen roles asignados mediante [control de acceso basado en roles (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderán el acceso. Los administradores de suscripciones clásico (Administrador de servicios y los coadministradores) también perderá el acceso.
 > 
-> Además, mover el clúster de Azure Kubernetes Service (AKS) a una suscripción diferente o mover la suscripción propietaria de clúster a un nuevo inquilino, hace que el clúster pierda funcionalidad debido a las asignaciones de roles perdido y derechos de entidades de seguridad de servicio. Para obtener más información acerca de AKS, consulte [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
+> Además, mover el clúster de Azure Kubernetes Service (AKS) a una suscripción diferente o mover la suscripción propietaria de clúster a un nuevo inquilino, hace que el clúster pierda funcionalidad debido a las asignaciones de roles perdido y derechos de entidades de seguridad de servicio. Para obtener más información acerca de AKS, consulte [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

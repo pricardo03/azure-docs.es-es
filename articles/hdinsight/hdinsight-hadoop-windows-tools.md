@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 05/17/2017
-ms.openlocfilehash: 4d9d1ef6b7906ecebc399948a1ca0dcd590d5910
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: 5045c48a00c51a16d37dcf4b7f72f25633f23b3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765819"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926030"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Trabajo en el ecosistema de Apache Hadoop en HDInsight desde un equipo con Windows
 
@@ -29,11 +29,11 @@ Ejemplos de tareas que puede realizar con PowerShell:
 * [Ejecución de consultas de Apache Hive mediante PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Administración de clústeres con PowerShell](hdinsight-administer-use-powershell.md).
 
-Siga los pasos para [instalar y configurar Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) para obtener la versión más reciente. Si tiene scripts que se deben modificar para usar los nuevos cmdlets para Azure Resource Manager, consulte [Migración a las herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
+Siga los pasos para [instalar y configurar Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) para obtener la versión más reciente.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Utilidades que puede ejecutar en un explorador
 Las utilidades siguientes tienen una interfaz de usuario web que se ejecuta en un explorador:
-* **[Azure Cloud Shell (versión preliminar)](https://docs.microsoft.com/azure/cloud-shell/quickstart)** es un shell de línea de comandos interactivo que se ejecuta en el explorador y desde Azure Portal.
+* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)**  es un shell interactivo, línea de comandos que se ejecuta en el explorador y desde el portal de Azure.
 * **[Interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md)** es una utilidad de administración y supervisión disponible en Azure Portal que se puede usar para administrar diferentes tipos de trabajos, como:
     * [Uso de Ambari con la API REST](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Vista de Apache Hive en Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
@@ -57,9 +57,6 @@ Ejemplos de tareas que puede realizar con el SDK de .NET en Visual Studio:
 * [Ejecución de consultas de Apache Hive mediante .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Uso de funciones definidas por el usuario de C# con el streaming de Apache Hive y Apache Pig en Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-> [!TIP]
-> Si ejecuta soluciones de .NET con clústeres de HDInsight para Windows, es un buen momento para planear una migración a clústeres basados en Linux. Para más información, consulte [Migración de soluciones .NET para HDInsight basado en Windows a HDInsight basado en Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md).
-
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Intellij IDEA y Eclipse IDE para clústeres de Spark
 Tanto [Intellij IDEA](https://www.jetbrains.com/idea/download) como [Eclipse IDE](https://www.eclipse.org/downloads/) sirven para:
 * Desarrollar y enviar una aplicación Spark en Scala en un clúster de Spark en HDInsight.
@@ -77,14 +74,17 @@ Los clústeres de Apache Spark en HDInsight incluyen notebooks y kernels de Apac
 * [Aprenda a usar kernels en clústeres de Apache Spark con cuadernos de Jupyter Notebook para probar aplicaciones Spark](spark/apache-spark-zeppelin-notebook.md)
 * [Aprenda a usar cuadernos de Apache Zeppelin en clústeres de Azure Spark para ejecutar trabajos de Spark](spark/apache-spark-jupyter-notebook-kernels.md) 
 
-
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Ejecución en Windows de tecnologías y herramientas basadas en Linux
 
 Si se da una situación en que debe usar una herramienta o tecnología que solo está disponible en Linux, tenga en cuenta las siguientes opciones:
 
-* **Bash (beta) en Windows 10** proporciona un subsistema de Linux en Windows. Bash permite ejecutar utilidades de Linux directamente sin tener que mantener una instalación de Linux dedicada. [Instalación y ejecución de la versión beta de Bash en Windows 10](https://msdn.microsoft.com/commandline/wsl/install_guide)
+* **Bash en Ubuntu en Windows 10** proporciona un subsistema de Linux en Windows. Bash permite ejecutar utilidades de Linux directamente sin tener que mantener una instalación de Linux dedicada. Consulte [subsistema de Windows para la Guía de instalación de Linux para Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para conocer los pasos de instalación.  Otros [shells de Unix](https://www.gnu.org/software/bash/) también funcionan correctamente.
 * **Docker para Windows** proporciona acceso a muchas herramientas basadas en Linux y se puede ejecutar directamente desde Windows. Por ejemplo, puede usar Docker para ejecutar al cliente Beeline para Hive directamente desde Windows. También puede usar Docker para ejecutar un notebook de Jupyter local y conectarse de forma remota con Spark en HDInsight. [Introducción a Docker para Windows](https://docs.docker.com/docker-for-windows/)
 * **[MobaXTerm](https://mobaxterm.mobatek.net/)** permite examinar gráficamente el sistema de archivos del clúster a través de una conexión SSH.
+
+## <a name="cross-platform-tools"></a>Las herramientas multiplataforma
+
+La interfaz de la línea de comandos (CLI) de Azure es la experiencia de línea de comandos multiplataforma de Microsoft para administrar los recursos de Azure.  Para obtener más información, consulte [interfaz de línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si no ha trabajado antes en clústeres basados en Linux, consulte los artículos siguientes:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: fc05c5c5917667d4bd9c869c9370ac952893ab26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68d16a7e25e6f9a294dee1f077d53aa4551cda5e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456214"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924811"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de la versión de Explorador de Microsoft Azure Storage
 
@@ -38,7 +38,7 @@ En este artículo encontrará las notas de la versión del Explorador de Azure S
 ### <a name="new"></a>Nuevo
 
 * Ahora puede cambiar el propietario y el grupo propietario al administrar el acceso a un contenedor de ADLS Gen2, archivo o carpeta.
-* En Windows, la actualización desde el Explorador de almacenamiento dentro del producto ahora es una instalación incremental. Esto debería producir una experiencia de actualización más rápida. Si prefiere una instalación limpia, a continuación, puede descargar el [instalador](https://azure.microsoft.com/en-us/features/storage-explorer/) usted mismo y, a continuación, instale manualmente. #1089
+* En Windows, la actualización desde el Explorador de almacenamiento dentro del producto ahora es una instalación incremental. Esto debería producir una experiencia de actualización más rápida. Si prefiere una instalación limpia, a continuación, puede descargar el [instalador](https://azure.microsoft.com/features/storage-explorer/) usted mismo y, a continuación, instale manualmente. #1089
 
 ### <a name="preview-features"></a>Características de la versión de vista previa
 
@@ -59,7 +59,7 @@ En este artículo encontrará las notas de la versión del Explorador de Azure S
 
 ### <a name="known-issues"></a>Problemas conocidos
 
-* Cuando se usa RBAC, el Explorador de Storage requiere algunos permisos de nivel de administración para tener acceso a los recursos de almacenamiento. Consulte la [Guía de solución](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) para obtener más información.
+* Cuando se usa RBAC, el Explorador de Storage requiere algunos permisos de nivel de administración para tener acceso a los recursos de almacenamiento. Consulte la [Guía de solución](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obtener más información.
 * Puede producir un error al intentar obtener acceso a ADLS Gen2 Blobs detrás de un proxy.
 * La desasociación de un recurso conectado a través de un identificador URI de SAS, como un contenedor de blobs, puede producir un error que impida que otros datos adjuntos se muestren correctamente. Para solucionar este problema, solo hay que actualizar el nodo de grupo. Consulte #537 para obtener más información.
 * La desasociación de un recurso conectado a través de un identificador URI de SAS, como un contenedor de blobs, puede producir un error que impida que otros datos adjuntos se muestren correctamente. Para solucionar este problema, solo hay que actualizar el nodo de grupo. Para más información, consulte #537.

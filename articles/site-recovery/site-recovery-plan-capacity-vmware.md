@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 7b10db06ab4ade1b23985b1a259d82d4818941b1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124973"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924843"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planeamiento de la capacidad y escalado para la recuperación ante desastres de VMware en Azure
 
@@ -120,7 +120,7 @@ Antes de configurar la infraestructura de Site Recovery, acceda al entorno para 
 
 ## <a name="deploy-additional-process-servers"></a>Implementar servidores de procesos adicionales
 
-Si debe escalar horizontalmente la implementación a más de 200 máquinas de origen o si la tasa de renovación diaria total supera los 2 TB, debe agregar servidores de procesos para controlar el volumen del tráfico. Hemos mejorado el producto en versión 9.24 para proporcionar [del producto orientación](vmware-azure-manage-process-server.md#process-server-selection-guidance) sobre cuándo configurar un servidor de procesos de escalado horizontal. [Configurar el servidor de procesos](vmware-azure-set-up-process-server-scale.md) para proteger las máquinas de origen nuevo o [equilibrar la carga](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
+Si debe escalar horizontalmente la implementación a más de 200 máquinas de origen o si la tasa de renovación diaria total supera los 2 TB, debe agregar servidores de procesos para controlar el volumen del tráfico. Hemos mejorado el producto en versión 9.24 para proporcionar [procesar alertas del servidor](vmware-physical-azure-monitor-process-server.md#process-server-alerts) sobre cuándo configurar un servidor de procesos de escalado horizontal. [Configurar el servidor de procesos](vmware-azure-set-up-process-server-scale.md) para proteger las máquinas de origen nuevo o [equilibrar la carga](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrar máquinas para utilizar el nuevo servidor de procesos
 

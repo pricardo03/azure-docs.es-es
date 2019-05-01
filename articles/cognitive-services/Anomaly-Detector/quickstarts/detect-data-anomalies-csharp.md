@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 772f15f54819f31d92411df747fc10d54b3e96cd
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ffa42eb2247d163dd6a146ffb26c1f8cc5cf6d82
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544119"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922531"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Inicio rápido: Detectar anomalías en datos de series temporales mediante la API de REST del Detector de anomalías yC# 
 
@@ -35,7 +35,7 @@ Use esta guía de inicio rápido para comenzar a usar los dos modos de detecció
         1. Haga clic con el botón derecho en el **Administrador de la solución**
         2. Haga clic en **Administrar paquetes de NuGet...**
         3. Busque `Newtonsoft.Json` e instale el paquete
-- Si usa Linux, MacOS, se puede ejecutar esta aplicación mediante [Mono](http://www.mono-project.com/).
+- Si usa Linux, MacOS, se puede ejecutar esta aplicación mediante [Mono](https://www.mono-project.com/).
 
 - Puntos de JSON que contiene tiempo serie datos de un archivo. Los datos de ejemplo para este inicio rápido pueden encontrarse en [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 

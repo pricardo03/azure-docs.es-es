@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 36a98ea52ea48c9828ca5857dc480742632056fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749332"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689872"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 
@@ -87,6 +87,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) | Puede administrar cuentas de Azure Cosmos DB. Azure Cosmos DB se llamaba anteriormente DocumentDB. |
 | [Colaborador de EventGrid EventSubscription](#eventgrid-eventsubscription-contributor) | Permite administrar las operaciones de suscripción de eventos de EventGrid. |
 | [Lector de EventGrid EventSubscription](#eventgrid-eventsubscription-reader) | Permite leer las suscripciones de eventos de EventGrid. |
+| [Operador de clústeres de HDInsight](#hdinsight-cluster-operator) | Le permite leer y modificar las configuraciones de clúster de HDInsight. |
 | [Colaborador de Domain Services para HDInsight](#hdinsight-domain-services-contributor) | Puede leer, crear, modificar y eliminar operaciones relacionadas con Domain Services para HDInsight Enterprise Security Package |
 | [Colaborador de la cuenta de Sistemas inteligentes](#intelligent-systems-account-contributor) | Permite administrar las cuentas de Intelligent Systems, pero no acceder a ellas. |
 | [Colaborador de almacén de claves](#key-vault-contributor) | Le permite administrar almacenes de claves, pero no acceder a ellos. |
@@ -121,6 +122,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Propietario de la cuenta de delimitadores espacial](#spatial-anchors-account-owner) | Permite administrar los anclajes especiales de su cuenta, e incluso eliminarlos. |
 | [Lector de cuenta de delimitadores espacial](#spatial-anchors-account-reader) | Permite encontrar y leer las propiedades de los anclajes espaciales de su cuenta. |
 | [Colaborador de Base de datos de SQL](#sql-db-contributor) | Permite administrar las bases de datos de SQL, pero no acceder a ellas. Además, no puede administrar sus directivas relacionadas con la seguridad ni los servidores SQL primarios. |
+| [Colaborador de la instancia administrada de SQL](#sql-managed-instance-contributor) | Permite administrar las instancias administradas de SQL y requiere la configuración de red, pero no puede conceder acceso a otros usuarios. |
 | [Administrador de seguridad SQL](#sql-security-manager) | Permite administrar las directivas relacionadas con seguridad de bases de datos y servidores SQL, pero no acceder a ellas. |
 | [Colaborador de SQL Server](#sql-server-contributor) | Permite administrar bases de datos y servidores SQL, pero no acceder a ellos, ni a sus directivas relacionadas con la seguridad. |
 | [Colaborador de la cuenta de almacenamiento](#storage-account-contributor) | Permite administrar cuentas de almacenamiento, pero no acceder a ellas. |
@@ -327,7 +329,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Obtiene una lista de claves de usuario |
+> | Microsoft.ApiManagement/service/users/keys/read | Obtener las claves asociadas con el usuario |
 > | **DataActions** |  |
 > | *Ninguna* |  |
 > | **NotDataActions** |  |
@@ -349,7 +351,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Obtiene una lista de claves de usuario |
+> | Microsoft.ApiManagement/service/users/keys/read | Obtener las claves asociadas con el usuario |
 > | **DataActions** |  |
 > | *Ninguna* |  |
 > | **NotDataActions** |  |
@@ -1385,6 +1387,28 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **NotDataActions** |  |
 > | *Ninguna* |  |
 
+## <a name="hdinsight-cluster-operator"></a>Operador de clústeres de HDInsight
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Le permite leer y modificar las configuraciones de clúster de HDInsight. |
+> | **Id** | 61ed4efc-fab3-44fd-b111-e24485cc132a |
+> | **Acciones** |  |
+> | Microsoft.HDInsight/*/read |  |
+> | Microsoft.HDInsight/clusters/getGatewaySettings/action | Obtener la configuración de puerta de enlace para el HDInsight clúster |
+> | Microsoft.HDInsight/clusters/updateGatewaySettings/action | Actualizar la configuración de puerta de enlace para el HDInsight clúster |
+> | Microsoft.HDInsight/clusters/configurations/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Resources/deployments/operations/read | Obtiene o enumera las operaciones de implementación. |
+> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
 ## <a name="hdinsight-domain-services-contributor"></a>Colaborador de Domain Services para HDInsight
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1807,6 +1831,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | **Id** | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | **Acciones** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devuelve las claves de acceso de la cuenta de almacenamiento especificada. |
+> | Microsoft.Storage/storageAccounts/ListAccountSas/action | Devuelve el token de SAS de la cuenta de almacenamiento especificada. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
 > | **NotActions** |  |
 > | *Ninguna* |  |
@@ -2228,6 +2253,34 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+## <a name="sql-managed-instance-contributor"></a>Colaborador de la instancia administrada de SQL
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite administrar las instancias administradas de SQL y requiere la configuración de red, pero no puede conceder acceso a otros usuarios. |
+> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | **Acciones** |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
+> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Network/networkSecurityGroups/* |  |
+> | Microsoft.Network/routeTables/* |  |
+> | Microsoft.Sql/locations/*/read |  |
+> | Microsoft.Sql/managedInstances/* |  |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Network/virtualNetworks/subnets/* |  |
+> | Microsoft.Network/virtualNetworks/* |  |
+> | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
+> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Insights/metrics/read | Lee métricas |
+> | Microsoft.Insights/metricDefinitions/read | Lee definiciones de métricas |
+> | **NotActions** |  |
+> | *Ninguna* |  |
 > | **DataActions** |  |
 > | *Ninguna* |  |
 > | **NotDataActions** |  |

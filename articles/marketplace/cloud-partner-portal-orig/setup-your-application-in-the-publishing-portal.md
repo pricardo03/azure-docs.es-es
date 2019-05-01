@@ -1,25 +1,19 @@
 ---
-title: Configuración de la aplicación en el portal de publicación | Microsoft Docs
+title: Configuración de la aplicación en el portal de publicación
 description: Instrucciones para configurar una aplicación en el Portal de publicación en la nube.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483237"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943542"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configuración de la aplicación en el portal de publicación
 
@@ -59,7 +53,7 @@ Por ejemplo, si un publicador **"contoso"** publicadores crea una oferta con el 
 
 Esta lista desplegable permite elegir el perfil del publicador en el que desea publicar esta oferta. Este campo queda bloqueado en cuanto se lanza una oferta.
 
-### <a name="name"></a>Name
+### <a name="name"></a>NOMBRE
 
 Se trata del nombre para mostrar de la oferta. Este es el nombre que se mostrará en [AppSource](https://appsource.microsoft.com/). Puede tener un máximo de 50 caracteres.
 
@@ -88,7 +82,7 @@ A continuación aparece una explicación de estos campos:
 
 ### <a name="crm-package-availability"></a>Disponibilidad del paquete CRM
 
-En esta sección, seleccione en qué regiones de CRM estará disponible el paquete. Para información sobre qué regiones abarcan qué países, consulte el vínculo: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
+En esta sección, seleccione en qué regiones de CRM estará disponible el paquete. Para obtener información sobre qué CRM servir las regiones que países y regiones, consulte el vínculo: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Nota: La implementación en Soberanía "Soberanía y US Gov Cloud" de Alemania REQUIERE PERMISO ESPECIAL y VALIDACIÓN DURANTE LA CERTIFICACIÓN
 

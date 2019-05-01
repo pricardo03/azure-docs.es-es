@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: cb0e079eee78f865d472b55b162fb65b5eadaf44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a1dadc29006a365f7e614db5722fa0e92e0129d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460462"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922502"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Acerca del SDK de dispositivos de voz (versión preliminar)
 
@@ -39,7 +39,7 @@ Actualmente, estos completos diseños de referencia del sistema están disponibl
 
 |||
 |-|-|
-|[![Logotipo de ROOBO](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO proporciona soluciones de sistema de inteligencia artificial (IA) completas para electrodomésticos, automóviles, robots, juguetes y otros sectores. Diseños de referencia del ROOBO reducen en gran medida el desarrollo tiempo de comercialización mediante la integración con los servicios de voz de Azure. [Visite ROOBO](http://ddk.roobo.com/).|
+|[![Logotipo de ROOBO](media/speech-devices-sdk/roobo-logo.png)](https://ddk.roobo.com/)|ROOBO proporciona soluciones de sistema de inteligencia artificial (IA) completas para electrodomésticos, automóviles, robots, juguetes y otros sectores. Diseños de referencia del ROOBO reducen en gran medida el desarrollo tiempo de comercialización mediante la integración con los servicios de voz de Azure. [Visite ROOBO](https://ddk.roobo.com/).|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

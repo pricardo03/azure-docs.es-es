@@ -2,21 +2,29 @@
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: e18d0a6a01a86f844edc213fc95003cf4f4b46c9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: cf39baf34096691144181332566cf567ebc02310
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166193"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925609"
 ---
-* Conéctese a la máquina virtual del servidor de procesos mediante la Conexión a Escritorio remoto.
-* Para iniciar cspsconfigtool.exe, haga clic en el acceso directo disponible en el escritorio. (La herramienta se iniciará automáticamente si es la primera vez que inicia sesión en el servidor de procesos).
-  - Nombre completo (FQDN) o dirección IP del servidor de configuración
-  - Puerto en el que el servidor de configuración realiza la escucha. El valor debería ser 443
-  - Frase de contraseña de la conexión para conectarse al servidor de configuración.
-  - Puerto de transferencia de datos que va a configurar para este servidor de procesos. Deje el valor predeterminado tal cual, a menos que lo haya cambiado a un número de puerto diferente en su entorno.
+1. Establecer una conexión a Escritorio remoto a la máquina que ejecuta el servidor de procesos. 
+2. Ejecute cspsconfigtool.exe para iniciar la herramienta de configuración del servidor de proceso de Azure Site Recovery.
+    - La herramienta se inicia automáticamente la primera vez que inicie sesión en el servidor de procesos.
+    - Si no se abre automáticamente, haga clic en su acceso directo del escritorio.
 
-    ![Registrar servidor de procesos](./media/site-recovery-vmware-register-process-server/register-ps.png)
-* Haga clic en el botón Guardar para guardar la configuración y registrar el servidor de procesos.
+3. En **servidor de configuración IP o FQDN**, especifique el nombre o dirección IP del servidor de configuración con la que se va a registrar el servidor de procesos.
+4. En **puerto del servidor de configuración**, asegúrese de que se especifica 443. Este es el puerto en el que el servidor de configuración escucha las solicitudes.
+5. En **frase de contraseña de conexión**, especifique la frase de contraseña que especificó al configurar el servidor de configuración. Para buscar la frase de contraseña:
+    -  En el servidor de configuración, navegue hasta la carpeta de instalación de Site Recovery **\home\svssystems\bin\**. 
+    - Ejecute este comando: **genpassphrase.exe.n**. Esto muestra la ubicación de la frase de contraseña, a continuación, se puede tener en cuenta.
+
+6. En **puerto de transferencia de datos**, deje el valor predeterminado a menos que haya especificado un puerto personalizado.
+
+7. Haga clic en **guardar** guardar la configuración y registrar el servidor de procesos.
+
+    
+    ![Registrar el servidor de procesos](./media/site-recovery-vmware-register-process-server/register-ps.png)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcf2ef10cbc8f6f54a65e596ea003a98f410a7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415011"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694829"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 
@@ -85,9 +85,6 @@ Si un usuario con federación o sincronización de hash de contraseñas cambia o
    * El vínculo del objeto de conector de Active Directory que lleva al objeto de MV debe tener la regla de sincronización `Microsoft.InfromADUserAccountEnabled.xxx` en ese vínculo.
    
    Cuando se recibe la llamada de la nube, el motor de sincronización usa el atributo **cloudAnchor** para buscar el objeto de espacio de conector de Azure Active Directory. A continuación, sigue el vínculo de vuelta al objeto de MV para volver a seguir el vínculo al objeto de Active Directory. Dado que podría haber varios objetos de Active Directory (bosque múltiple) para el mismo usuario, el motor de sincronización se basa en el vínculo `Microsoft.InfromADUserAccountEnabled.xxx` para seleccionar el objeto correcto.
-
-   > [!Note]
-   > Como resultado de esta lógica, para que la escritura diferida de contraseñas funcione en Azure AD Connect, debe poder comunicarse con el emulador del controlador de dominio principal (PDC). Si necesita habilitar esta opción manualmente, puede conectar Azure AD Connect al emulador de PDC. Haga clic con el botón derecho en las **propiedades** del conector de sincronización de Active Directory y, a continuación, seleccione **configure directory partitions** (configurar particiones del directorio). Desde allí, busque la sección **domain controller connection settings** (configuración de conexión del controlador de dominio) y active la casilla titulada **only use preferred domain controllers** (solo usar los controladores de dominio preferidos). Incluso si el controlador de dominio preferido no es un emulador de PDC, Azure AD Connect intentará conectarse al PDC para realizar la escritura diferida de contraseñas.
 
 1. Una vez que se encuentra la cuenta de usuario, se intenta restablecer la contraseña directamente en el bosque de Active Directory correspondiente.
 1. Si la operación de establecimiento de la contraseña se realiza correctamente, se notifica al usuario que se ha cambiado su contraseña.

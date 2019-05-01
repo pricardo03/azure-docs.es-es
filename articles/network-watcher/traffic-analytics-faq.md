@@ -3,8 +3,8 @@ title: Preguntas frecuentes sobre Análisis de tráfico de Azure | Microsoft Doc
 description: Conozca las respuestas a las preguntas más frecuentes sobre Análisis de tráfico.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
-ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: kumud
+ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236619"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939906"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -125,7 +125,7 @@ Sí, la cuenta de Azure Storage puede estar en una suscripción y el área de tr
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>¿Puedo almacenar registros sin formato en una cuenta diferente?
 
- No. Puede almacenar registros sin formato en cualquier cuenta de almacenamiento en la que esté habilitado un grupo de seguridad de red para los registros de flujo. No obstante, la cuenta de almacenamiento y los registros sin formato se deben encontrar en la misma región y suscripción.
+No. Puede almacenar registros sin formato en cualquier cuenta de almacenamiento en la que esté habilitado un grupo de seguridad de red para los registros de flujo. No obstante, la cuenta de almacenamiento y los registros sin formato se deben encontrar en la misma región y suscripción.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>¿Qué sucede si no puedo configurar un grupo de seguridad de red para Análisis de tráfico debido a un error del tipo "No se encuentra"?
 
@@ -241,7 +241,7 @@ Por ejemplo, según el [plan de precios](https://azure.microsoft.com/pricing/det
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>¿Con qué frecuencia el análisis de tráfico procesar los datos?
 
-Hacer referencia a la [sección de datos de agregación](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) en el esquema de análisis de tráfico y documento de agregación de datos
+Hacer referencia a la [sección de datos de agregación](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) en el esquema de análisis de tráfico y documento de agregación de datos
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>¿Cómo decide el análisis de tráfico que una dirección IP es malintencionada? 
 
@@ -253,14 +253,14 @@ Análisis de tráfico no tiene compatibilidad integrada para las alertas. Sin em
 - Puede usar el vínculo corto de Log Analytics en el análisis de tráfico. 
 - Use la [esquema se documenta aquí](traffic-analytics-schema.md) para escribir las consultas 
 - Haga clic en "Nueva regla de alerta" para crear la alerta
-- Consulte [documentación de alertas de registro](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) para crear la alerta
+- Consulte [documentación de alertas de registro](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) para crear la alerta
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>¿Cómo puedo navegar con el teclado en la vista del mapa geográfico?
 
 La página del mapa geográfico se compone de dos secciones principales:
     
-- **Banner**: el banner de la parte superior del mapa geográfico proporciona botones para seleccionar los filtros de distribución de tráfico (por ejemplo, Implementación, Tráfico de países y Malintencionado). Si selecciona un botón, se aplica el filtro correspondiente en el mapa. Por ejemplo, si selecciona el botón Activo, el mapa resalta los centros de datos activos de la implementación.
-- **Mapa**: la sección del mapa situada bajo el banner muestra la distribución del tráfico entre los centros de datos y los países de Azure.
+- **Banner**: El banner en la parte superior del mapa geográfico proporciona botones para seleccionar filtros de distribución de tráfico (por ejemplo, implementación, el tráfico de países o regiones y malintencionados). Si selecciona un botón, se aplica el filtro correspondiente en el mapa. Por ejemplo, si selecciona el botón Activo, el mapa resalta los centros de datos activos de la implementación.
+- **Mapa**: Debajo del banner, la sección de mapa muestra la distribución del tráfico entre los centros de datos de Azure y países o regiones.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegación por el banner con el teclado
     

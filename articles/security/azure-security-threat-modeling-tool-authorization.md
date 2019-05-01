@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121528"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935879"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Marco de seguridad: Autorización | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -280,7 +280,7 @@ Tenga en cuenta que RLS, al ser una característica de base de datos de serie, s
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | StorageType: tabla |
 | **Referencias**              | [Delegación del acceso a objetos en su cuenta de almacenamiento de Azure mediante SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **Pasos** | En determinados escenarios empresariales, es posible que sea necesario almacenar en Azure Table Storage datos confidenciales para distintas entidades. Por ejemplo, datos confidenciales pertenecientes a distintos países. En tales casos, es posible crear firmas SAS especificando los intervalos de clave de fila y partición, de forma que un usuario pueda acceder a datos específicos de un país determinado.| 
+| **Pasos** | En determinados escenarios empresariales, es posible que sea necesario almacenar en Azure Table Storage datos confidenciales para distintas entidades. Por ejemplo, datos confidenciales pertenecientes a diferentes países o regiones. En tales casos, se pueden construir firmas SAS especificando los intervalos de claves partición y fila, tal que un usuario puede tener acceso a datos específicos de un determinado país o región.| 
 
 ## <a id="rbac-azure-manager"></a>Habilitación de control de acceso basado en roles (RBAC) para una cuenta de almacenamiento de Azure mediante Azure Resource Manager
 

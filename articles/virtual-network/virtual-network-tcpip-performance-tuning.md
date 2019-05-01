@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032458"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924783"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP optimizar el rendimiento de las máquinas virtuales de Azure
 
@@ -304,7 +304,7 @@ Redes aceleradas está diseñada para mejorar el rendimiento de red, incluida la
 
 Máquinas virtuales de Azure tienen al menos una interfaz de red conectada a ellas. Pueden tener varios. El ancho de banda asignado a una máquina virtual es la suma de todo el tráfico saliente a través de todas las interfaces de red conectadas a la máquina. En otras palabras, se asigna el ancho de banda en una base de la máquina virtual, independientemente de cuántas interfaces de red están conectadas a la máquina.
 
-Rendimiento de salida esperado y el número de interfaces de red admitidas cada tamaño de máquina virtual se detallan en [máquinas virtuales de tamaños para Windows en Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Para ver el rendimiento máximo, seleccione un tipo, como **de propósito General**y, a continuación, busque la sección acerca de la serie de tamaño en la página resultante (por ejemplo, "serie Dv2"). Para cada serie, hay una tabla que proporciona especificaciones de red en la última columna, que se titula "Nº máx. NIC / ancho de banda de red (Mbps) esperado."
+Rendimiento de salida esperado y el número de interfaces de red admitidas cada tamaño de máquina virtual se detallan en [máquinas virtuales de tamaños para Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Para ver el rendimiento máximo, seleccione un tipo, como **de propósito General**y, a continuación, busque la sección acerca de la serie de tamaño en la página resultante (por ejemplo, "serie Dv2"). Para cada serie, hay una tabla que proporciona especificaciones de red en la última columna, que se titula "Nº máx. NIC / ancho de banda de red (Mbps) esperado."
 
 El límite de rendimiento se aplica a la máquina virtual. El rendimiento no se ve afectado por estos factores:
 
@@ -388,4 +388,4 @@ Sin embargo, estos tipos de paquetes son indicaciones que el rendimiento TCP no 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido acerca de la optimización del rendimiento de TCP/IP para máquinas virtuales de Azure, desea conocer otras consideraciones para [planeamiento de redes virtuales](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) o [más información sobre la conexión y configuración de redes virtuales ](https://docs.microsoft.com/en-us/azure/virtual-network/).
+Ahora que ha aprendido acerca de la optimización del rendimiento de TCP/IP para máquinas virtuales de Azure, desea conocer otras consideraciones para [planeamiento de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) o [más información sobre la conexión y configuración de redes virtuales ](https://docs.microsoft.com/azure/virtual-network/).

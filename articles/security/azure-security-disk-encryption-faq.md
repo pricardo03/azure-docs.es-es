@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611294"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926277"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Preguntas más frecuentes de Azure Disk Encryption para máquinas virtuales IaaS
 
@@ -162,7 +162,7 @@ Se admiten volúmenes XFS para el cifrado de disco de datos solo con el EncryptF
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>¿Puedo de copia de seguridad y restaurar una máquina virtual cifrada? 
 
-Azure Backup proporciona un mecanismo para copias de seguridad y restauración VM cifrada dentro de la misma suscripción y región.  Para obtener instrucciones, consulte [copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  No se admite actualmente la restauración de una máquina virtual cifrada en una región diferente.  
+Azure Backup proporciona un mecanismo para copias de seguridad y restauración VM cifrada dentro de la misma suscripción y región.  Para obtener instrucciones, consulte [copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).  No se admite actualmente la restauración de una máquina virtual cifrada en una región diferente.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>¿Dónde puedo formular preguntas o enviar comentarios?
 

@@ -2,23 +2,19 @@
 title: 'Concesión de permisos para que muchas aplicaciones tengan acceso a un almacén de claves de Azure: Azure Key Vault | Microsoft Docs'
 description: Obtenga información sobre cómo conceder permisos para que muchas aplicaciones tengan acceso a almacén de claves.
 services: key-vault
-documentationcenter: ''
 author: amitbapat
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 785d4e40-fb7b-485a-8cbc-d9c8c87708e6
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: e0008f6eb54dd690fda6833b96cda69fe8e1e954
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39624595b4dd4e72ab1d34082a6ba44a1b3636d0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304972"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721981"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>Concesión de acceso a varias aplicaciones a un almacén de claves
 

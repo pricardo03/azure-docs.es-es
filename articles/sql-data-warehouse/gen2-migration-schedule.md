@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: d642addac36c6f3dbf361ec71102eabc00efd191
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 0d3927fbc1826f9ab4f613a7c2a310f581b7f7c5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764259"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729301"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Actualización del almacenamiento de datos a Gen2
 
@@ -33,8 +33,8 @@ En la tabla siguiente se resume por región cuándo estará disponible el nivel 
 | **Región** | **Proceso inferior Gen2 disponible** | **Fecha de inicio de la actualización automática** |
 |:--- |:--- |:--- |
 | Este de Australia |Disponible |1 de junio de 2019 |
-| Sudeste de Australia |26 de abril de 2019 |1 de mayo de 2019 |
-| Sur de Brasil |15 de mayo de 2019 |1 de junio de 2019 |
+| Sudeste de Australia |Disponible |1 de mayo de 2019 |
+| Sur de Brasil |Disponible |1 de junio de 2019 |
 | Centro de Canadá |Disponible |1 de junio de 2019 |
 | Este de Canadá |\* |\* |
 | Centro de EE. UU. |Disponible |1 de junio de 2019 |
@@ -49,20 +49,20 @@ En la tabla siguiente se resume por región cuándo estará disponible el nivel 
 | Centro de Alemania |\* |\* |
 | Centro occidental de Alemania |1 de septiembre de 2019|2 de enero de 2020 |
 | India central |Disponible |1 de junio de 2019 |
-| Sur de India |26 de abril de 2019 |1 de junio de 2019 |
+| Sur de India |Disponible |1 de junio de 2019 |
 | Este de Japón |Disponible |1 de junio de 2019 |
 | Oeste de Japón |Disponible |1 de mayo de 2019 |
-| Corea Central |26 de abril de 2019 |1 de junio de 2019 |
-| Corea del Sur |26 de abril de 2019 |1 de mayo de 2019 |
-| Centro-Norte de EE. UU |26 de abril de 2019 |1 de mayo de 2019 |
+| Corea Central |Disponible |1 de junio de 2019 |
+| Corea del Sur |Disponible |1 de mayo de 2019 |
+| Centro-Norte de EE. UU |Disponible |1 de mayo de 2019 |
 | Europa del Norte |Disponible |1 de junio de 2019 |
 | Centro-Sur de EE. UU |Disponible |1 de junio de 2019 |
 | Sudeste de Asia |Disponible |1 de junio de 2019 |
-| Sur de Reino Unido 2 |26 de abril de 2019 |1 de junio de 2019 |
+| Sur de Reino Unido 2 |Disponible, 2019 |1 de junio de 2019 |
 | Oeste de Reino Unido |\*|\* |
 | Centro occidental de EE.UU. |2 de septiembre de 2019 |2 de enero de 2020|
 | Europa occidental |Disponible |1 de junio de 2019 |
-| Oeste de EE. UU. |15 de abril de 2019 |1 de junio de 2019 |
+| Oeste de EE. UU. |Disponible |1 de junio de 2019 |
 | Oeste de EE. UU. 2 |Disponible |1 de junio de 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Proceso de actualización automática

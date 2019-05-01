@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/29/2098
 ms.author: rajanaki
-ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792935"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925713"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Actualización automática de Mobility service en la replicación en Azure
 
@@ -31,9 +31,10 @@ Cuando use Site Recovery para administrar las actualizaciones, implementa un run
 Se repite la programación del runbook predeterminada diariamente a las 12:00 A.M. en la zona horaria del geográfica de la máquina virtual replicada. También puede cambiar la programación del runbook a través de la cuenta de automation.
 
 > [!NOTE]
+> A partir de Update Rollup 35, puede elegir una cuenta de automation existente que se utilizará para las actualizaciones. Antes de esta actualización, Site Recovery crea esta cuenta de forma predeterminada. Esta opción está disponible cuando se habilita la replicación para una máquina virtual. Si cambia la configuración, se aplicará para todas las máquinas virtuales de Azure protegidas en el mismo almacén.
+ 
 > Activar las actualizaciones automáticas no requieren un reinicio de las máquinas virtuales de Azure ni afecta a la replicación en curso.
 
-> [!NOTE]
 > Trabajo de facturación en la cuenta de automation se basa en el número de minutos de tiempo de ejecución de trabajo utilizado en un mes. De forma predeterminada, 500 minutos se incluyen como unidades gratuitas para una cuenta de automation. Ejecución del trabajo tarda unos segundos a aproximadamente un minuto cada día y se trata como unidades gratuitas.
 
 | Unidades gratuitas incluidas (cada mes) | Precio |
@@ -63,7 +64,7 @@ Al habilitar la replicación para una máquina virtual iniciando [desde la vista
 
 
 > [!Note]
-> Cualquiera de estas opciones le informa de la cuenta de automation usada para administrar las actualizaciones. Si usa esta característica en un almacén por primera vez, se crea una nueva cuenta de automation. Todas las replicaciones enable subsiguientes en el mismo almacén use la creada anteriormente.
+> Cualquiera de estas opciones le informa de la cuenta de automation usada para administrar las actualizaciones. Si usa esta característica en un almacén por primera vez, se crea una nueva cuenta de automation de manera predeterminada. Como alternativa, puede personalizar la configuración y elija una cuenta de automation existente. Todas las replicaciones enable subsiguientes en el mismo almacén use la creada anteriormente.
 
 Para una cuenta de automatización personalizada, use el siguiente script:
 

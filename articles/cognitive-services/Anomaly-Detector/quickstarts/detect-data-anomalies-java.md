@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1c8ce91a0fd8805b307e1e21bc08f9050b8a47d4
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1b52e578afb505c87c4084684e345b7aff6a4362
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547046"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922425"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Inicio rápido: Detectar anomalías en datos de series temporales mediante la API de REST del Detector de anomalías y Java
 
@@ -29,7 +29,7 @@ Use esta guía de inicio rápido para comenzar a usar los dos modos de detecció
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- El [Java&trade; desarrollo Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) o una versión posterior.
+- El [Java&trade; desarrollo Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) o una versión posterior.
 
 - Estas bibliotecas de importación del repositorio de Maven
     - [JSON en Java](https://mvnrepository.com/artifact/org.json/json) paquete

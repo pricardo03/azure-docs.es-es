@@ -1,6 +1,6 @@
 ---
 title: Implementación continua para Azure Functions | Microsoft Docs
-description: Utilice las funciones de implementación continua de Azure App Service para publicar Azure Functions.
+description: Utilice las funciones de implementación continua de Azure App Service para publicar sus funciones.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -11,17 +11,17 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: fd8fa690c508b8bf748490668c1e9aaa811ac247
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb3f3ad3bb7b42429654ea4bf9b49f7e230db1da
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731300"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943882"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implementación continua para Azure Functions
-Azure Functions facilita la implementación de Function App mediante la integración continua de App Service. Functions se integra con BitBucket, Dropbox, GitHub y Azure DevOps. Esto permite un flujo de trabajo en el que las actualizaciones del código de la función realizadas mediante uno de estos servicios integrados desencadenan la implementación en Azure. Si no está familiarizado con Azure Functions, consulte primero [Información general sobre Azure Functions](functions-overview.md).
+Las funciones de Azure permite fácilmente implementar la aplicación de función mediante la integración continua. Functions se integra con los repositorios de código principal y orígenes de implementación. Esta integración permite a un flujo de trabajo que actualiza el código de función realizada a través de uno de estos servicios desencadenan la implementación en Azure. Si está familiarizado con Azure Functions, comience con la [información general sobre Azure Functions](functions-overview.md).
 
-La implementación continua representa una buena opción para los proyectos donde se integran contribuciones diversas y frecuentes. También le permite mantener el control de código fuente en el código de las funciones. Actualmente se admiten los siguientes orígenes de implementación:
+La implementación continua es una buena opción para los proyectos donde está realizando la integración múltiples y frecuentes de contribuciones. También le permite mantener el control de código fuente en el código de función. Azure Functions admite los siguientes orígenes de implementación:
 
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
@@ -33,9 +33,9 @@ La implementación continua representa una buena opción para los proyectos dond
 
 Las implementaciones se configuran por Function App. Después de habilitada la implementación continua, el acceso al código de la función en el portal está establecido en acceso *de solo lectura*.
 
-## <a name="continuous-deployment-requirements"></a>Requisitos de implementación continua
+## <a name="requirements-for-continuous-deployment"></a>Requisitos para la implementación continua
 
-Para configurar la implementación continua debe tener configurados el origen de implementación y el código de las funciones del origen de implementación. En una implementación determinada de una aplicación de función, cada función se encuentra en un subdirectorio con nombre, donde el nombre del directorio es el nombre de la función.  
+Antes de configurar la implementación continua, debe tener configurado el origen de la implementación y el código de función en el origen de implementación. En una implementación de aplicación de función, cada función está en un subdirectorio con nombre, donde el nombre del directorio es el nombre de la función.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
@@ -44,102 +44,97 @@ Para poder realizar una implementación desde Azure DevOps, primero debe vincula
 ## <a name="set-up-continuous-deployment"></a>Configurar la implementación continua
 Use este procedimiento para configurar la implementación continua para una Function App existente. Estos pasos muestran la integración con un repositorio de GitHub, aunque se aplican pasos similares para Azure DevOps u otros servicios de implementación.
 
-1. En la Function App de [Azure Portal](https://portal.azure.com), haga clic en **Características de la plataforma** y en **Opciones de implementación**. 
+1. En la aplicación de función en el [portal Azure](https://portal.azure.com), seleccione **características de la plataforma** > **opciones de implementación**. 
    
-    ![Configurar implementación continua](./media/functions-continuous-deployment/setup-deployment.png)
+    ![Selecciones para abrir Opciones de implementación](./media/functions-continuous-deployment/setup-deployment.png)
  
-2. Luego, en la hoja **Implementación**, haga clic en **Configurar**.
+1. En el **implementaciones** hoja, seleccione **instalación**.
  
-    ![Configurar implementación continua](./media/functions-continuous-deployment/setup-deployment-1.png)
+    ![Hoja de implementaciones](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-3. En la hoja **Origen de implementación**, haga clic en **Elegir origen**, rellene la información del origen de implementación elegido y haga clic en **Aceptar**.
+1. En el **origen de implementación** hoja, seleccione **Elegir origen**. Rellene la información para el origen de implementación elegido y, a continuación, seleccione **Aceptar**.
    
-    ![Elegir origen de la implementación](./media/functions-continuous-deployment/choose-deployment-source.png)
+    ![Elegir un origen de implementación](./media/functions-continuous-deployment/choose-deployment-source.png)
 
-Después de configurar la implementación continua, se copian todos los cambios de archivos del origen de implementación en la Function App y se desencadena una implementación completa del sitio. Cuando se actualizan los archivos del origen se vuelve a implementar el sitio.
+Después de configurar la implementación continua, se copian todos los cambios de archivo en el origen de implementación en la aplicación de función y se desencadena una implementación completa del sitio. Cuando se actualizan los archivos del origen se vuelve a implementar el sitio.
 
-## <a name="deployment-options"></a>Opciones de implementación
+## <a name="deployment-scenarios"></a>Escenarios de implementación
 
-Los siguientes son algunos escenarios típicos de implementación:
-
-- [Creación de una implementación de ensayo](#staging)
-- [Movimiento de funciones existentes para la implementación continua](#existing)
+Escenarios típicos de implementación incluyen la creación de una implementación de ensayo y mover las funciones existentes para la implementación continua.
 
 <a name="staging"></a>
 ### <a name="create-a-staging-deployment"></a>Creación de una implementación de ensayo
 
-Las aplicaciones de función todavía no admiten espacios de implementación. Sin embargo, todavía puede administrar implementaciones de ensayo y producción independientes mediante la integración continua.
+Aún no admiten las ranuras de implementación de aplicaciones de función. Pero todavía puede administrar las implementaciones de ensayo y producción independientes mediante la integración continua.
 
 El proceso para configurar y trabajar con una implementación de ensayo tiene normalmente este aspecto:
 
-1. Cree dos aplicaciones de función en su suscripción, una para el código de producción y otra para el ensayo. 
+1. Crear dos aplicaciones de función en su suscripción: uno para el código de producción y otro para el almacenamiento provisional. 
 
-2. Cree un origen de la implementación, si aún no tiene uno. En este ejemplo se usa [GitHub].
+1. Cree un origen de la implementación, si aún no tiene uno. En este ejemplo se usa [GitHub].
 
-3. Para la Function App de producción, complete los pasos anteriores descritos en **Configuración de la implementación continua** y establezca la rama de implementación en la rama principal del repositorio de GitHub.
+1. Para la Function App de producción, complete los pasos anteriores descritos en [Configuración de la implementación continua](#set-up-continuous-deployment) y establezca la rama de implementación en la rama principal del repositorio de GitHub.
    
-    ![Elegir rama de la implementación](./media/functions-continuous-deployment/choose-deployment-branch.png)
+    ![Selecciones para elegir una rama de implementación](./media/functions-continuous-deployment/choose-deployment-branch.png)
 
-4. Repita este paso para la aplicación de función de ensayo, pero esta vez, seleccione la rama de ensayo en el repositorio de GitHub. Si el origen de la implementación no admite la bifurcación, utilice una carpeta diferente.
+1. Repita el paso 3 para la aplicación de función de ensayo, pero seleccione la rama de ensayo en su lugar en el repositorio de GitHub. Si el origen de la implementación no admite la bifurcación, utilice una carpeta diferente.
     
-5. Realice actualizaciones en el código en la rama o carpeta de ensayo y, a continuación, compruebe que esos cambios se reflejan en la implementación de ensayo.
+1. Realizar actualizaciones en el código en la rama o carpeta de almacenamiento provisional y, a continuación, compruebe que la implementación de ensayo refleja estos cambios.
 
-6. Después de la prueba, combine los cambios de la rama de ensayo en la rama principal. Esta combinación desencadena la implementación en la Function App de producción. Si el origen de la implementación no admite ramas, sobrescriba los archivos de la carpeta de producción con los archivos de la carpeta de ensayo.
+1. Después de la prueba, combine los cambios de la rama de ensayo en la rama principal. Esta combinación desencadena la implementación en la Function App de producción. Si el origen de la implementación no admite ramas, sobrescriba los archivos de la carpeta de producción con los archivos de la carpeta de ensayo.
 
 <a name="existing"></a>
 ### <a name="move-existing-functions-to-continuous-deployment"></a>Movimiento de funciones existentes para la implementación continua
-Si dispone de funciones existentes que ha creado y mantenido en el portal, es necesario descargar los archivos de código de la función existente mediante FTP o mediante el repositorio de Git local antes de poder configurar la implementación continua como se ha descrito anteriormente. Puede hacerlo en la configuración de App Service de la aplicación de función. Una vez descargados los archivos, puede cargarlos en el origen de la implementación continua que haya seleccionado.
+Cuando se dispone de funciones existentes que ha creado y mantenido en el portal, necesita descargar los archivos de código de función mediante FTP o el repositorio de Git local antes de puede configurar la implementación continua como se describió anteriormente. Puede hacerlo en la configuración de Azure App Service para la aplicación de función. Después de descargar los archivos, puede cargarlos en el origen de implementación continua que haya seleccionado.
 
 > [!NOTE]
-> Después de configurar la integración continua, ya no podrá modificar los archivos de origen en el portal de Funciones.
-
-- [Uso de Configuración de las credenciales de implementación](#credentials)
-- [Uso de Descarga de archivos mediante FTP](#downftp)
-- [Uso de Descarga de archivos mediante el repositorio local de Git](#downgit)
+> Después de configurar la integración continua, ya no se pueden editar los archivos de origen en el portal de Functions.
 
 <a name="credentials"></a>
-#### <a name="how-to-configure-deployment-credentials"></a>Procedimientos para: Configuración de las credenciales de implementación
-Para poder descargar archivos desde la Function App con FTP o el repositorio local de Git, debe configurar las credenciales para acceder al sitio. Las credenciales se establecen en el nivel de la aplicación de función. Use los pasos siguientes para establecer las credenciales de implementación en Azure Portal:
+#### <a name="configure-deployment-credentials"></a>Configuración de las credenciales de implementación
+Antes de poder descargar archivos desde la aplicación de función mediante FTP o un repositorio Git local, debe configurar las credenciales para acceder al sitio. Las credenciales se establecen en el nivel de aplicación de función. Use los pasos siguientes para establecer las credenciales de implementación en Azure Portal:
 
-1. En la Function App de [Azure Portal](https://portal.azure.com), haga clic en **Características de la plataforma** y en **Credenciales de implementación**.
+1. En la aplicación de función en el [portal Azure](https://portal.azure.com), seleccione **características de la plataforma** > **credenciales de implementación**.
    
-    ![Configurar credenciales de implementación locales](./media/functions-continuous-deployment/setup-deployment-credentials.png)
+1. Escriba un nombre de usuario y una contraseña y, a continuación, seleccione **guardar**. 
 
-2. Escriba un nombre de usuario y una contraseña y haga clic en **Guardar**. Ahora puede usar estas credenciales para tener acceso a la aplicación de función mediante FTP o desde el repositorio de Git integrado.
+   ![Selecciones para establecer las credenciales de implementación local](./media/functions-continuous-deployment/setup-deployment-credentials.png)
+
+Ahora puede usar estas credenciales para tener acceso a la aplicación de función mediante FTP o desde el repositorio de Git integrado.
 
 <a name="downftp"></a>
-#### <a name="how-to-download-files-using-ftp"></a>Procedimientos para: Descarga de archivos mediante FTP
+#### <a name="download-files-by-using-ftp"></a>Descargar archivos mediante FTP
 
-1. En la Function App de [Azure Portal](https://portal.azure.com), haga clic en **Características de la plataforma** y en **Propiedades** y luego copie los valores de **FTP/usuario de implementación**, **Nombre del host FTP** y **Nombre del host FTPS**.  
+1. En la aplicación de función en el [portal Azure](https://portal.azure.com), seleccione **características de la plataforma** > **propiedades**. A continuación, copie los valores de **FTP/usuario de implementación**, **nombre de Host FTP**, y **nombre del Host FTPS**.  
 
-    **FTP/usuario de implementación** debe escribirse tal como aparece en el portal, incluido el nombre de la aplicación, a fin de proporcionar el contexto adecuado para el servidor FTP.
+   **FTP/usuario de implementación** debe escribirse tal como aparece en el portal, incluido el nombre de la aplicación, a fin de proporcionar el contexto adecuado para el servidor FTP.
    
-    ![Obtener la información de implementación](./media/functions-continuous-deployment/get-deployment-credentials.png)
+   ![Selecciones para obtener la información de implementación](./media/functions-continuous-deployment/get-deployment-credentials.png)
 
-2. Desde el cliente de FTP, use la información de conexión recopilada para conectarse a la aplicación y descargar los archivos de origen de las funciones.
+1. Desde el cliente FTP, use la información de conexión recopilada para conectarse a la aplicación y descargar los archivos de origen para las funciones.
 
 <a name="downgit"></a>
-#### <a name="how-to-download-files-using-a-local-git-repository"></a>Procedimientos para: Descarga de archivos mediante el repositorio local de Git
+#### <a name="download-files-by-using-a-local-git-repository"></a>Descargar archivos mediante un repositorio Git local
 
-1. En la Function App de [Azure Portal](https://portal.azure.com), haga clic en **Características de la plataforma** y en **Opciones de implementación**. 
+1. En la aplicación de función en el [portal Azure](https://portal.azure.com), seleccione **características de la plataforma** > **opciones de implementación**. 
    
-    ![Configurar implementación continua](./media/functions-continuous-deployment/setup-deployment.png)
+    ![Selecciones para abrir Opciones de implementación](./media/functions-continuous-deployment/setup-deployment.png)
  
-2. Luego, en la hoja **Implementación**, haga clic en **Configurar**.
+1. A continuación, en el **implementaciones** hoja, seleccione **instalación**.
  
-    ![Configurar implementación continua](./media/functions-continuous-deployment/setup-deployment-1.png)
+    ![Hoja de implementaciones](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. En la hoja **Origen de implementación**, haga clic en **Repositorio de Git local** y luego en **Aceptar**.
+1. En el **origen de implementación** hoja, seleccione **repositorio de Git Local** > **Aceptar**.
 
-3. En **Características de la plataforma**, haga clic en **Propiedades** y anote el valor de la dirección URL de Git. 
+1. En **características de la plataforma**, seleccione **propiedades** y anote el valor de la dirección URL de Git. 
    
-    ![Configurar implementación continua](./media/functions-continuous-deployment/get-local-git-deployment-url.png)
+    ![Selecciones para obtener la dirección URL de Git](./media/functions-continuous-deployment/get-local-git-deployment-url.png)
 
-4. Clone el repositorio en la máquina local mediante un símbolo del sistema compatible con Git o su herramienta de Git favorita. El comando clone de Git tiene este aspecto:
+1. Clone el repositorio en el equipo local mediante un símbolo del sistema compatible con Git o su herramienta Git favorita. El comando clone de Git tiene este aspecto:
    
         git clone https://username@my-function-app.scm.azurewebsites.net:443/my-function-app.git
 
-5. Recupere los archivos de su aplicación de función y póngalos en la copia del equipo local, como en el ejemplo siguiente:
+1. Recupere los archivos de su aplicación de función y póngalos en la copia del equipo local, como en el ejemplo siguiente:
    
         git pull origin master
    
@@ -150,4 +145,4 @@ Para poder descargar archivos desde la Function App con FTP o el repositorio loc
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Procedimientos recomendados de Azure Functions](functions-best-practices.md)
+> [Procedimientos recomendados para Azure Functions](functions-best-practices.md)

@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6771cf093f62ef7823e57ced8223e4cc6c0dc57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7c4ef16457181b4147b763233c54bcca6598b05a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354671"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917677"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory? 
 
@@ -50,16 +50,13 @@ Una ubicación con nombre tiene los siguientes componentes:
 - **Intervalos de IP**: uno o varios intervalos de direcciones IPv4 en formato CIDR. No se admite la especificación de un intervalo de direcciones IPv6.
 
    > [!NOTE]
-   > Actualmente, rangess de dirección IPv6 no pueden incluirse en un measn ubicaciónEsta con nombre no se puede excluir intervalos de una directiva de acceso condicional de IPv6.
+   > Actualmente, rangess de dirección IPv6 no pueden incluirse en una ubicación con nombre. No se puede excluir este intervalos IPv6 de measn desde una directiva de acceso condicional.
 
 - **Marcar como ubicación de confianza**: marca que puede establecer a una ubicación con nombre para indicar una ubicación de confianza. Las ubicaciones de confianza son áreas de red que controla el departamento de TI. Además del acceso condicional, Azure Identity Protection y los informes de seguridad de Azure AD también usan las ubicaciones con nombre de confianza para reducir los [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Países o regiones**: esta opción le permite seleccionar uno o más países o regiones para definir una ubicación con nombre.
 - **Incluir áreas desconocidas**: algunas direcciones IP no están asignadas a ningún país determinado. Esta opción le permite elegir si estas direcciones IP deberían estar incluidas en la ubicación con nombre. Use esta configuración cuando la directiva que usa la ubicación con nombre deba aplicarse en ubicaciones desconocidas.
 
-El número de ubicaciones con nombre que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Puede configurar las ubicaciones en función de las siguientes limitaciones:
-
-- Una ubicación con nombre de hasta 1200 intervalos IP.
-- Un máximo de 90 ubicaciones con nombre con un intervalo IP asignado a cada una.
+El número de ubicaciones con nombre que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Las organizaciones pueden configurar hasta 90 ubicaciones lamed, cada una configurada con hasta 12000 intervalos IP.
 
 Directiva de acceso condicional se aplica al tráfico IPv4 e IPv6. Ubicaciones con nombre actualmente no permiten intervalos IPv6 va a configurar. Esta limitación hace que las siguientes situaciones:
 

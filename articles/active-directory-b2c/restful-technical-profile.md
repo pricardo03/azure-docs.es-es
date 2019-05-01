@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7ff14af756a55ccc6bbf40dd39d49c5168f4af1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0726c22e436658d51419b9e32d73f48db99ba805
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418309"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705302"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de RESTful en una directiva personalizada en Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ La directiva puede enviar notificaciones de entrada a la API REST. La API REST t
 - **Perfil técnico de validación**: un perfil técnico de validación llama al servicio RESTful. El perfil técnico de validación valida los datos que proporciona el usuario antes de que continúe el recorrido del usuario. Con el perfil técnico de validación, se muestra un mensaje de error en una página autoafirmada y se devuelve en las notificaciones de salida.
 - **Intercambio de notificaciones**: se realiza una llamada al servicio RESTful a través de un paso de orquestación. En este escenario, no hay ninguna interfaz de usuario para representar el mensaje de error. Si la API REST devuelve un error, se redirige al usuario a la aplicación de usuario de confianza con el mensaje de error.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 El atributo **Name** del elemento **Protocol** tiene que establecerse en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo que usa Azure AD B2C: `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 

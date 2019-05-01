@@ -1,25 +1,18 @@
 ---
-title: 'Oferta de servicios de consultoría de Azure y Dynamics 365: definir la configuración de la oferta | Microsoft Docs'
-description: Guía para definir los configuración de una oferta de servicios de consultoría de Azure o Dynamics 365 en Cloud Partner Portal.
+title: Definir la configuración de la oferta de una oferta de servicio de consultoría | Azure Marketplace
+description: Definir la configuración de la oferta en una oferta de servicio de consultoría Azure o Dynamics 365 en Cloud Partner Portal para Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749671"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942789"
 ---
 # <a name="offer-settings-tab"></a>Pestaña Configuración de la oferta
 
@@ -27,7 +20,8 @@ En la pantalla **Nueva oferta**, el primer paso es crear la identidad de la ofer
 
 ![Creación de una oferta de servicios de consultoría: pestaña Configuración de la oferta](media/consultingoffer-settings-tab.png)
 
-### <a name="offer-id"></a>Id. de oferta
+
+### <a name="offer-id"></a>Id. de oferta *
 
 Este identificador es un nombre único que se crea cuando envía por primera vez una oferta. Debe constar únicamente de caracteres alfanuméricos en minúscula, guiones o caracteres de subrayado. El **identificador de la oferta** se podrá ver en la dirección URL y afecta a los resultados del motor de búsqueda. Un ejemplo sería *NombreDeSuEmpresa_ServicioDeEjemplo*.
 
@@ -36,11 +30,13 @@ Como se puede ver en el ejemplo, el **identificador de la oferta** se anexa al i
 >[!Note]
 >Una vez que una oferta está en vigor, su identificador no se puede actualizar.
 
-### <a name="publisher-id"></a>Id. de publicador
+
+### <a name="publisher-id"></a>Publicador ID *
 
 Este identificador está relacionado con la cuenta. Después de iniciar sesión con la cuenta de su organización, el **identificador de anunciante** se muestra en el menú desplegable.
 
-### <a name="name"></a>NOMBRE
+
+### <a name="name"></a>Nombre*
 
 Esta cadena se muestra como el nombre de la oferta en AppSource o Azure Marketplace. El cuadro **Nombre** está limitado a 50 caracteres. Es posible que el revisor tenga que editar el título para anexar la duración y el tipo de oferta al nombre de la misma.
 

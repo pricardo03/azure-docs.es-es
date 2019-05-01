@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c4959d6abd1b33c81f731ad0479bd59d271c7797
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 979019da60c1129c6c6ef0bec42d9f9096735c1b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484033"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926053"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autenticar con Azure Active Directory desde una aplicación para el acceso a los blobs y colas
 
@@ -37,7 +37,7 @@ El primer paso para usar Azure AD con el fin de autorizar el acceso a los recurs
 
 Al registrar la aplicación, facilita información acerca de la aplicación a Azure AD. Azure AD proporciona un identificador de cliente (también denominado *identificador de aplicación*) que se utiliza para asociar la aplicación con Azure AD en runtime. Para más información sobre el identificador de cliente, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Siga los pasos que aparecen en la sección [Incorporación de una aplicación](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) en [Integración de aplicaciones con Azure Active Directory](../../active-directory/active-directory-integrating-applications.md) para registrar la aplicación de Azure Storage. Si registra la aplicación como una aplicación nativa, puede especificar cualquier URI válido para el **URI de redirección**. No es necesario que el valor sea un punto de conexión real.
+Siga los pasos que aparecen en la sección [Incorporación de una aplicación](../../active-directory/develop/quickstart-register-app.md) en [Integración de aplicaciones con Azure Active Directory](../../active-directory/active-directory-integrating-applications.md) para registrar la aplicación de Azure Storage. Si registra la aplicación como una aplicación nativa, puede especificar cualquier URI válido para el **URI de redirección**. No es necesario que el valor sea un punto de conexión real.
 
 ![Captura de pantalla que muestra cómo registrar la aplicación de almacenamiento con Azure AD](./media/storage-auth-aad-app/app-registration.png)
 

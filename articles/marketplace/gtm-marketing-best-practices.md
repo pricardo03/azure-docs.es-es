@@ -2,24 +2,17 @@
 title: 'Servicios de comercialización: procedimientos recomendados de Marketing | Azure'
 description: 'Servicios de comercialización: en esta sección se describen los procedimientos recomendados de marketing para los anunciantes de Azure Marketplace'
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: bdae273506a238c4d47c1cdce004cdd92b2d58a1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6d704398d706d3f6f2caea057862b7eef9d5baf9
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121031"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938532"
 ---
 # <a name="marketing-best-practices"></a>Procedimientos recomendados de marketing
 

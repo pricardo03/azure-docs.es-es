@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c42867ff7aea2210f20a2cd2adb5c067b8f36c80
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484219"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926501"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection para Azure Storage
 
@@ -23,7 +23,7 @@ Las alertas de seguridad se desencadenan cuando se producen anomalías en la act
 
 > [!NOTE]
 > * Protección contra amenazas avanzada de Azure Storage actualmente solo está disponible para el almacenamiento de blobs.
-> * Para obtener más información, incluida una evaluación gratuita de 30 días, consulte el [página de precios de Azure Security Center]( https://azure.microsoft.com/en-us/pricing/details/security-center/).
+> * Para obtener más información, incluida una evaluación gratuita de 30 días, consulte el [página de precios de Azure Security Center]( https://azure.microsoft.com/pricing/details/security-center/).
 > * ATP para la característica de almacenamiento de Azure actualmente no está disponible en Azure government y las regiones de nube soberana.
 
 Protección contra amenazas avanzada para el almacenamiento de Azure ingiere los registros de diagnóstico de lectura, escritura y solicitudes de eliminación para el almacenamiento de blobs para la detección de amenazas. Para investigar las alertas de protección contra amenazas avanzada, puede ver la actividad de almacenamiento relacionada con el registro de Storage Analytics. Para obtener más información, vea cómo [configurar registro de Storage Analytics](storage-monitor-storage-account.md#configure-logging).

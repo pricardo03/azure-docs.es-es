@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c8cb4713e38ca0da610c687325f3810f57da2b26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 67bab857e66edd8e9fae7d45c6157f018da81ccf
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216158"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867030"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Análisis de estadísticas de uso con los informes de HTTP avanzados de Azure CDN
 ## <a name="overview"></a>Información general
@@ -42,30 +42,30 @@ En este documento se explican los informes de HTTP avanzados en Microsoft Azure 
 ## <a name="geography-reports-map-based"></a>Informes de geografía (basados en mapas)
 Hay cinco informes que usan un mapa para indicar las regiones desde las que se solicita el contenido. Estos informes son World Map, United States Map, Canada Map, Europe Map y Asia Pacific Map.
 
-Cada informe basado en un mapa clasifica las entidades geográficas (es decir, países, estados y provincias), según el porcentaje de visitas originadas en esa región. Además, se proporciona un mapa que le ayudará a visualizar las ubicaciones desde las que se solicita el contenido. Para ello se usa la codificación en colores de cada región según la cantidad de demanda experimentada en dicha región. Las regiones más claras indican una demanda menor de contenido y las más oscuras indican mayores niveles de petición de contenido.
+Cada informe basado en mapa clasifica las entidades geográficas (es decir, países o regiones, se proporciona un mapa para visualizar las ubicaciones desde las que se solicita el contenido. Para ello se usa la codificación en colores de cada región según la cantidad de demanda experimentada en dicha región. Las regiones más claras indican una demanda menor de contenido y las más oscuras indican mayores niveles de petición de contenido.
 
-Debajo del mapa, se ofrece información detallada del tráfico y del ancho de banda para cada región. Esto permite ver el número total de visitas, el porcentaje de visitas, la cantidad total de datos transferidos (en gigabytes) y el porcentaje de datos transferidos en cada región. Consulte una descripción de cada una de estas métricas. Por último, cuando mantiene el puntero sobre una región (por ejemplo, país, estado o provincia), el nombre y el porcentaje de visitas que se produjeron en la región se mostrarán como una información sobre herramientas.
+Debajo del mapa, se ofrece información detallada del tráfico y del ancho de banda para cada región. Esto permite ver el número total de visitas, el porcentaje de visitas, la cantidad total de datos transferidos (en gigabytes) y el porcentaje de datos transferidos en cada región. Consulte una descripción de cada una de estas métricas. Por último, cuando se mantiene el mouse sobre una región (es decir, país o región, estado o provincia), el nombre y el porcentaje de visitas que se produjeron en la región se mostrará como una información sobre herramientas.
 
 Se proporciona más abajo una descripción breve de cada tipo de informe de geografía basado en mapas.
 
 | Nombre del informe | DESCRIPCIÓN |
 | --- | --- |
-| World Map |Este informe permite ver la demanda en todo el mundo del contenido de la red CDN. Cada país está codificado en colores en el mapamundi para indicar el porcentaje de visitas originadas en dicha región. |
+| World Map |Este informe permite ver la demanda en todo el mundo del contenido de la red CDN. Cada país o región está codificada por color en el mapamundi para indicar el porcentaje de visitas originadas en esa región. |
 | United States Map |Este informe permite ver la demanda del contenido de la red CDN en Estados Unidos. Cada estado está codificado en colores en este mapa para indicar el porcentaje de visitas originados en esta región. |
 | Canada Map |Este informe permite ver la demanda del contenido de la red CDN en Canadá. Cada provincia está codificada en colores en este mapa para indicar el porcentaje de visitas originadas en esta región. |
-| Europe Map |Este informe permite ver la demanda del contenido de la red CDN en Europa. Cada país está codificado en colores en este mapa para indicar el porcentaje de visitas originadas en esta región. |
-| Asia Pacific Map |Este informe permite ver la demanda del contenido de la red CDN en Asia. Cada país está codificado en colores en este mapa para indicar el porcentaje de visitas originadas en esta región. |
+| Europe Map |Este informe permite ver la demanda del contenido de la red CDN en Europa. Cada país o región está codificado en colores en este mapa para indicar el porcentaje de visitas originadas en esa región. |
+| Asia Pacific Map |Este informe permite ver la demanda del contenido de la red CDN en Asia. Cada país o región está codificado en colores en este mapa para indicar el porcentaje de visitas originadas en esa región. |
 
 ## <a name="geography-reports-bar-charts"></a>Informes de geografía (gráficos de barras)
-Existen dos informes adicionales que proporcionan información estadística de acuerdo con la ubicación geográfica, que son Top Cities y Top Countries. Estos informes clasifican ciudades y países, respectivamente, según el número de visitas originadas en esas regiones. Tras generar este tipo de informe, un gráfico de barras indicará las 10 ciudades o países principales que solicitaron contenido en una plataforma específica. Este gráfico de barras permite evaluar rápidamente las regiones que generan la mayor cantidad de solicitudes para su contenido.
+Existen dos informes adicionales que proporcionan información estadística de acuerdo con la ubicación geográfica, que son Top Cities y Top Countries. Estos informes clasifican ciudades y países o regiones, respectivamente, según el número de visitas originadas en dichos países o regiones. Tras generar este tipo de informe, un gráfico de barras indicará las 10 primeras ciudades o países o regiones que solicitaron contenido en una plataforma específica. Este gráfico de barras permite evaluar rápidamente las regiones que generan la mayor cantidad de solicitudes para su contenido.
 
 El lado izquierdo del gráfico (eje y) indica cuántas visitas se han producido en la región especificada. Directamente debajo del gráfico (eje x) se muestra una etiqueta para cada una de las 10 regiones principales.
 
 ### <a name="using-the-bar-charts"></a>Uso de los gráficos de barras
 * Si mantiene el cursor sobre una barra, el nombre y el número total de visitas que se produjeron en la región se mostrarán como una información sobre herramientas.
-* La información sobre herramientas en el informe Top Cities identifica a la ciudad por su nombre, el estado o provincia y por la abreviatura del país.
-* Si no se pudo determinar la ciudad o la región (es decir, el estado o provincia) desde la que se originó una solicitud, se indicará que son desconocidas. Si el país es desconocido, se mostrarán dos signos de interrogación (es decir, ??).
-* Un informe puede incluir métricas para "Europa" o "Región de Asia y el Pacífico". Estos elementos no están diseñados para proporcionar información estadística sobre todas las direcciones IP de esas regiones. En su lugar, solo se aplican a las solicitudes que se originan de las direcciones IP que se distribuyen por Europa o por la región de Asia y el Pacífico, en lugar de por una determinada ciudad o país.
+* La información sobre herramientas para el informe Top Cities identifica una ciudad por su nombre, el estado o provincia y la abreviatura del país o región.
+* Si no se pudo determinar la ciudad o la región (es decir, el estado o provincia) desde la que se originó una solicitud, se indicará que son desconocidas. Si el país o región es desconocido, dos signos de interrogación (es decir,??), se mostrará.
+* Un informe puede incluir métricas para "Europa" o "Región de Asia y el Pacífico". Estos elementos no están diseñados para proporcionar información estadística sobre todas las direcciones IP de esas regiones. En su lugar, solo se aplican a las solicitudes que se originan de direcciones IP que se distribuyen por Europa o Asia/Pacífico, en lugar de a una determinada ciudad o país o región.
 
 Los datos usados para generar el gráfico de barras pueden verse debajo de él. Allí encontrará el número total de visitas, el porcentaje de visitas, la cantidad de datos transferidos (en gigabytes) y el porcentaje de datos transferidos para las 250 regiones principales. Consulte una descripción de cada una de estas métricas.
 
@@ -74,7 +74,7 @@ A continuación se proporciona una breve descripción para ambos tipos de inform
 | Nombre del informe | DESCRIPCIÓN |
 | --- | --- |
 | Top Cities |Este informe clasifica las ciudades según el número de visitas originadas en esa región. |
-| Top Countries |Este informe clasifica los países según el número de visitas originadas en esa región. |
+| Top Countries |Este informe clasifica los países o regiones, según el número de visitas originadas en ese país o región. |
 
 ## <a name="daily-summary"></a>Daily Summary
 El informe Daily Summary permite ver el número total de visitas y los datos transferidos a diario en una plataforma particular. Esta información puede usarse para distinguir rápidamente los patrones de actividad de la red CDN. Por ejemplo, este informe puede ayudar a detectar qué días han tenido un tráfico mayor o menor que el previsto.

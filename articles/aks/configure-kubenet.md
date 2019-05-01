@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: b80177d17e0dc5a4e54396907ecee61890ec523f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d2ab19fafc265d70028d5ee192efc60a5a8eaff
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466770"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709882"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -165,26 +165,7 @@ az aks create \
     --client-secret <password>
 ```
 
-## <a name="associate-network-resources-with-the-node-subnet"></a>Asociación de recursos de red con la subred de nodos
-
-Al crear un clúster de AKS, también se crean un grupo de seguridad de red y una tabla de ruta. El plano de control de AKS administra estos recursos de red, que se actualizan a medida que se crean y exponen los servicios. Asocie el grupo de seguridad de red y la tabla de ruta con la subred de red virtual como se indica a continuación:
-
-```azurecli-interactive
-# Get the MC_ resource group for the AKS cluster resources
-MC_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-
-# Get the route table for the cluster
-ROUTE_TABLE=$(az network route-table list -g ${MC_RESOURCE_GROUP} --query "[].id | [0]" -o tsv)
-
-# Get the network security group
-NODE_NSG=$(az network nsg list -g ${MC_RESOURCE_GROUP} --query "[].id | [0]" -o tsv)
-
-# Update the subnet to associate the route table and network security group
-az network vnet subnet update \
-    --route-table $ROUTE_TABLE \
-    --network-security-group $NODE_NSG \
-    --ids $SUBNET_ID
-```
+Al crear un clúster de AKS, también se crean un grupo de seguridad de red y una tabla de ruta. Estos recursos de red administrados por el plano de control AKS. El grupo de seguridad de red se asocia automáticamente con la NIC virtuales en los nodos. La tabla de enrutamiento se asocia automáticamente con la subred de red virtual. Reglas del grupo de seguridad de red y las tablas de rutas y se actualizan automáticamente al crear y expone los servicios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

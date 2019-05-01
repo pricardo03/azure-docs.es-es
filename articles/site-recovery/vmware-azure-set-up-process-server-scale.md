@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101904"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925490"
 ---
 # <a name="scale-with-additional-process-servers"></a>Escalado con servidores de procesos adicionales
 
@@ -24,7 +24,7 @@ De forma predeterminada, al replicar servidores físicos o máquinas virtuales d
 
 Asegúrese de que ha realizado la [planeación de la capacidad](site-recovery-plan-capacity-vmware.md) para la replicación de VMware. Esto le ayudará a identificar cómo y cuándo debe implementar servidores de proceso adicionales.
 
-Desde la versión 9.24, se agrega una guía durante la selección del servidor de procesos para replicaciones de nuevo. Servidor de procesos se marcará correcto, advertencia y crítica según determinados criterios. Para entender los distintos escenarios que pueden influir en el estado del servidor de procesos, visite [Guía de selección de servidor de procesos](vmware-azure-manage-process-server.md#process-server-selection-guidance).
+Desde la versión 9.24, se agrega una guía durante la selección del servidor de procesos para replicaciones de nuevo. Servidor de procesos se marcará correcto, advertencia y crítico según determinados criterios. Para comprender los distintos escenarios que pueden influir en el estado del servidor de procesos, revise el [procesar alertas del servidor](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > No se admite el uso de componentes de Process Server clonados. Siga los pasos de este artículo para el escalado horizontal de Process Server.

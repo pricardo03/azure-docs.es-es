@@ -3,8 +3,8 @@ title: Crear, cambiar o eliminar un emparejamiento de red virtual de Azure | Mic
 description: Aprenda a crear, cambiar o eliminar un emparejamiento de red virtual.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 6bccb1e75dc999bcb0e8c6d909abe7bffffcec8c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 18d913339556c0d4b0a06bd62f4495da6a4d4223
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524057"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925920"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Crear, cambiar o eliminar un emparejamiento de red virtual
 
@@ -112,7 +112,7 @@ Si quiere que las redes virtuales se comuniquen algunas veces pero no siempre, e
 
 - <a name="cross-region"></a>Puede emparejar redes virtuales de la misma región o de regiones diferentes. Emparejamiento de redes virtuales en diferentes regiones se conoce también como *emparejamiento de VNet Global*. 
 - Al crear un emparejamiento global, las redes virtuales emparejadas pueden existir en cualquier región de la nube pública de Azure o las regiones en la nube de China o regiones en la nube de Government. No se pueden emparejar entre nubes. Por ejemplo, no se pueden emparejar una red virtual en la nube pública de Azure a una red virtual en la nube de China de Azure.
-- Los recursos en una red virtual no pueden comunicarse con la dirección IP front-end de un equilibrador de carga interno básico en una red virtual emparejada globalmente. Compatibilidad con Load Balancer básico solo existe en la misma región. Compatibilidad con Load Balancer estándar existe para, el emparejamiento de VNet y emparejamiento de VNet Global.
+- Los recursos en una red virtual no pueden comunicarse con la dirección IP front-end de un equilibrador de carga interno básico en una red virtual emparejada globalmente. Compatibilidad con Load Balancer básico solo existe en la misma región. Compatibilidad con Load Balancer estándar existe para, el emparejamiento de VNet y emparejamiento de VNet Global. Servicios que usan un equilibrador de carga básico que no funcionará a través de emparejamiento de VNet Global se documentan [aquí.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 - Puede utilizar puertas de enlace remotas o permitir el tránsito de puerta de enlace en redes virtuales emparejadas globalmente y redes virtuales emparejadas localmente.
 - Las redes virtuales pueden estar en la misma suscripción o en suscripciones distintas. Cuando empareja redes virtuales en distintas suscripciones, ambas suscripciones pueden estar asociadas al mismo inquilino de Azure Active Directory o a uno diferente. Si no dispone de un inquilino de AD, puede [crearla](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). El soporte técnico para realizar emparejamientos entre redes virtuales de las suscripciones asociadas a diferentes inquilinos de Azure Active Directory no está disponible en el portal. Puede usar la CLI, PowerShell o plantillas.
 - Las redes virtuales que empareje deben tener espacios de direcciones IP que no se solapen.

@@ -1,25 +1,18 @@
 ---
-title: 'Oferta de servicios de consultoría de Azure y Dynamics 365: especificación de los detalles del escaparate electrónico | Microsoft Docs'
-description: Guía para definir los detalles del escaparate electrónico en una oferta de servicios de consultoría de Azure o Dynamics 365 en Cloud Partner Portal.
+title: Escriba los detalles del escaparate de oferta de consultoría | Azure Marketplace
+description: Defina los detalles del escaparate en una oferta de servicio de consultoría Azure o Dynamics 365 en Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865378"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942712"
 ---
 # <a name="storefront-details-tab"></a>Pestaña Detalles del escaparate electrónico
 
@@ -32,14 +25,16 @@ En este artículo se explica cómo especificar los detalles del escaparate elect
 
 ![Creación de una oferta de servicios de consultoría: pestaña Detalles del escaparate electrónico](media/consultingoffer-storefront-details.png)
 
+
 ## <a name="offer-details"></a>Detalles de la oferta
 
 La sección **Detalles de la oferta** contiene los siguientes cuadros:
 
--   **Resumen de la oferta**
--   **Descripción de la oferta**
+-   **Resumen de la oferta\***
+-   **Descripción de la oferta\***
 
-### <a name="offer-summary"></a>Resumen de la oferta
+
+### <a name="offer-summary"></a>Resumen de la oferta\*
 
 El resumen de la oferta es una breve descripción de la oferta que aparece justo debajo del nombre de esta. Use texto sin formato para especificar el resumen de la oferta, sin saltos de línea. Los siguientes son ejemplos de resúmenes correctos de ofertas junto con sus correspondientes nombres.
 
@@ -68,7 +63,8 @@ El resumen de la oferta es una breve descripción de la oferta que aparece justo
 -   **Nombre de la oferta**: Dynamics y proyectos: evaluación de 3 días
 -   **Resumen de la oferta**: recopilación y evaluación de requisitos para una solución ERP diseñada para empresas de servicios profesionales y empresas controladas por proyectos.
 
-### <a name="offer-description"></a>Descripción de la oferta
+
+### <a name="offer-description"></a>Descripción de la oferta\*
 
 Escriba la descripción de la oferta de servicios de consultoría en el cuadro **Descripción de la oferta**. Una buena descripción de la oferta abarca los detalles exactos del grado de involucración y lo que se entrega al final al cliente. Tiene que ayudar al cliente claramente a comprender lo que obtendrán. Incluya la relación de la oferta con el producto de Microsoft para el que ofrece servicios de consultoría.
 
@@ -144,6 +140,7 @@ Especifique el nuevo identificador del centro de partners en caso de que ya disp
 Escriba una clave secreta para obtener una versión preliminar de la oferta en AppSource antes de publicarla.
 Este identificador no es una contraseña.
 
+
 ## <a name="listing-details"></a>Listado de detalles
 
 **Tipo de servicio de consultoría**
@@ -166,7 +163,7 @@ Se incluyen los siguientes cinco tipos de ofertas:
 Seleccione el país y región en la que estará disponible esta oferta de servicios de consultoría. No se puede publicar una oferta única en varios países o regiones. Se debe crear una oferta nueva para cada país o región.
 
 >[!Note]
->Los servicios de consultoría de AppSource se pueden disfrutar actualmente en Estados Unidos, Reino Unido y Canadá. Puede enviar una oferta para cualquier otro país, ya que se examinará y se preparará para empezar a funcionar en dicho país. Para abrir un nuevo país, es preciso que haya un número mínimo de ofertas, por lo que animamos al envío de ofertas de otros países.
+>Los servicios de consultoría de AppSource se pueden disfrutar actualmente en Estados Unidos, Reino Unido y Canadá. Puede enviar una oferta para un país o región que aún no está activa y se revisan y preparado para empezar a funcionar. Para abrir un nuevo país o región, por lo que se aconsejan ofertas para países o regiones que no están activos, se necesita un número mínimo de ofertas listos para publicarse.
 
 **Industrias**
 
@@ -207,6 +204,7 @@ Cargue el folleto de marketing que describe detalladamente la oferta de servicio
 **Capturas de pantalla (un límite de cinco)**
 
 Cargue un máximo de cinco imágenes que proporcionen más información sobre la oferta, la entrega o la empresa. Un fragmento de un folleto de marketing, una diapositiva adecuada de una presentación o una imagen que muestre los conocimientos de la empresa o su experiencia constituyen algunos ejemplos.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

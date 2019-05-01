@@ -1,25 +1,18 @@
 ---
-title: Solución de errores de autenticación comunes | Microsoft Docs
+title: Solución de problemas de errores de autenticación comunes | Azure Marketplace
 description: Ofrece asistencia con errores de autenticación comunes al usar las API de Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 12ed395855b9d870f8f6e3564dc5b3b899b9c6c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: ddf3c9ce26a1538d91f1e6d6bcc04fd0d18e7936
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326485"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935814"
 ---
 # <a name="troubleshooting-common-authentication-errors"></a>Solución de errores de autenticación comunes
 

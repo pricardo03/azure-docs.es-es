@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: b67028562a2c377e1dd99635bdf04cad14782341
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326587"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926183"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detección de anomalías de Machine Learning
 
 > [!NOTE]
-> Este elemento está en mantenimiento. Le recomendamos que use el [servicio de API del Detector de anomalías](https://azure.microsoft.com/en-us/services/cognitive-services/anomaly-detector/) con tecnología de los algoritmos de una galería de Machine Learning en Azure Cognitive Services para detectar anomalías de negocios, operaciones y las métricas de IoT.
+> Este elemento está en mantenimiento. Le recomendamos que use el [servicio de API del Detector de anomalías](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) con tecnología de los algoritmos de una galería de Machine Learning en Azure Cognitive Services para detectar anomalías de negocios, operaciones y las métricas de IoT.
 
 ## <a name="overview"></a>Información general
 La [API de detección de anomalías](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) es un ejemplo integrado en Azure Machine Learning que detecta anomalías en los datos de serie temporales con valores numéricos espaciados de manera uniforme en el tiempo.
@@ -136,7 +136,7 @@ La API ejecuta todos los detectores en los datos de la serie temporal y devuelve
 
 | Salidas | DESCRIPCIÓN |
 | --- | --- |
-| Hora |Marcas de tiempo de datos sin procesar, o datos agregados (o) atribuidos si se aplica la agregación (o) atribución de los datos que faltan |
+| Time |Marcas de tiempo de datos sin procesar, o datos agregados (o) atribuidos si se aplica la agregación (o) atribución de los datos que faltan |
 | Datos |Valores de datos sin procesar, o datos agregados (o) atribuidos si se aplica la agregación (o) atribución de los datos que faltan |
 | TSpike |Indicador binario para indicar si el detector TSpike ha detectado un pico |
 | ZSpike |Indicador binario para indicar si el detector ZSpike ha detectado un pico |
@@ -179,7 +179,7 @@ La API ejecuta todos los detectores en los datos de la serie temporal y devuelve
 
 | Salidas | DESCRIPCIÓN |
 | --- | --- |
-| Hora |Marcas de tiempo de datos sin procesar, o datos agregados (o) atribuidos si se aplica la agregación (o) atribución de los datos que faltan |
+| Time |Marcas de tiempo de datos sin procesar, o datos agregados (o) atribuidos si se aplica la agregación (o) atribución de los datos que faltan |
 | OriginalData |Valores de datos sin procesar, o datos agregados (o) atribuidos si se aplica la agregación (o) atribución de los datos que faltan |
 | ProcessedData |Cualquiera de las siguientes:  <ul><li>Serie temporal ajustada estacionalmente si se ha detectado una estacionalidad importante y se ha seleccionado la opción deseason.</li><li>Serie temporal ajustada estacionalmente y con anulación de tendencia (detrended) si se ha detectado una estacionalidad importante y se ha seleccionado la opción deseasontrend;</li><li>de lo contrario, es igual a OriginalData.</li> |
 | TSpike |Indicador binario para indicar si el detector TSpike ha detectado un pico |

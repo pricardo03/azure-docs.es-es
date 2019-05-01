@@ -1,25 +1,18 @@
 ---
-title: Implementación de una máquina virtual de Azure desde un disco duro virtual de usuario | Microsoft Docs
+title: Implementar una máquina virtual de Azure desde un disco duro virtual de usuario | Azure Marketplace
 description: Explica cómo implementar una imagen de disco duro virtual de usuario para crear una instancia de máquina virtual de Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: e4da523fa54a513fe77fda037aea0a5fd530250b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046742"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938237"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Implementación de una máquina virtual de Azure desde un disco duro virtual de usuario
 
@@ -38,7 +31,7 @@ Copie la plantilla de Azure Resource Manager para la [implementación de VHD](cp
 | userStorageAccountName     | Nombre de la cuenta de almacenamiento                                                    |
 | sNameForPublicIP           | Nombre DNS para la dirección IP pública. Debe estar en minúscula                                  |
 | subscriptionId             | Identificador de la suscripción de Azure                                                  |
-| Ubicación                   | Ubicación geográfica Azure estándar del grupo de recursos                       |
+| Location                   | Ubicación geográfica Azure estándar del grupo de recursos                       |
 | vmName                     | Nombre de la máquina virtual                                                    |
 | vaultName                  | Nombre del almacén de claves.                                                          |
 | vaultResourceGroup         | Grupo de recursos del almacén de claves.

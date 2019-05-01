@@ -1,25 +1,18 @@
 ---
-title: Implementar una máquina virtual a partir de discos duros virtuales para Azure Marketplace | Microsoft Docs
+title: Implementar una máquina virtual desde los discos duros virtuales para Azure Marketplace
 description: Se explica cómo registrar una máquina virtual desde un disco duro virtual implementado en Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: a393620f28d45ec494c4e899f01e7e9a92b3ceba
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046689"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938291"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implementación de una máquina virtual a partir de VHD
 
@@ -71,7 +64,7 @@ Una vez implementada la VM, está listo para [certificar la imagen de VM](./cpp-
    | Contraseña de administrador              | Contraseña de la cuenta de administrador de la nueva máquina virtual                                  |
    | OS Type (Tipo de SO)                     | Sistema operativo de la máquina virtual: `Windows` \| `Linux`                                    |
    | Id. de suscripción             | Identificador de la suscripción seleccionada                                      |
-   | Ubicación                    | Ubicación geográfica de la implementación                                        |
+   | Location                    | Ubicación geográfica de la implementación                                        |
    | Tamaño de VM                     | [Tamaño de la máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), por ejemplo `Standard_A2` |
    | Nombre de dirección IP pública      | Nombre de la dirección IP pública                                               |
    | Nombre de la máquina virtual                     | Nombre de la nueva máquina virtual                                                           |

@@ -5,15 +5,15 @@ services: virtual-machines
 author: jpconnock
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/18/2018
+ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: ca4063d31d93aab3814abed202b6b91b7726185f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f60b5421f2bc66cf09ede4178ce18e2394030264
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542937"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929453"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migración compatible con la plataforma de recursos de IaaS del modelo clásico al de Azure Resource Manager
 En este artículo se describe la forma de migrar recursos de infraestructura como servicio (IaaS) de los modelos de implementación clásicos a Resource Manager y detalla cómo conectar los recursos de los dos modelos de implementación que coexisten en su suscripción mediante el uso de puertas de enlace de sitio a sitio de red virtual. Se puede leer más información sobre [características y ventajas de Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -74,7 +74,20 @@ Si la cuenta de almacenamiento no tiene ningún disco o datos de Máquinas virtu
 
 > [!NOTE]
 > El modelo de implementación de Resource Manager carece del concepto de discos e imágenes de la implementación clásica. Cuando se migra la cuenta de almacenamiento, los discos e imágenes de la implementación clásica no están visibles en la pila de Resource Manager pero los discos duros virtuales de respaldo permanecen en la cuenta de almacenamiento.
->
+
+Las capturas de pantalla siguientes muestran cómo actualizar una cuenta de almacenamiento clásico a una cuenta de almacenamiento de Azure Resource Manager mediante Azure portal:
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. Vaya a la cuenta de almacenamiento.
+3. En el **configuración** sección, haga clic en **migrar a ARM**.
+4. Haga clic en **validar** para determinar la viabilidad de la migración.
+5. Si la validación es correcta, haga clic en **preparar** para crear una cuenta de almacenamiento migrada.
+6. Tipo **Sí** para confirmar la migración y haga clic en **confirmar** para finalizar la migración.
+
+    ![Validar la cuenta de almacenamiento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
+    
+    ![Preparar la cuenta de almacenamiento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
+    
+    ![Finalizar la migración de cuentas de almacenamiento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### <a name="migration-of-unattached-resources"></a>Migración de recursos sin asociar
 Las cuentas de almacenamiento que no tengan discos o datos de máquinas virtuales asociados se puede migrar de forma independiente.
@@ -102,7 +115,7 @@ Actualmente no se admiten las siguientes configuraciones.
 
 | Servicio | Configuración | Recomendación |
 | --- | --- | --- |
-| Resource Manager |Control de acceso basado en rol para recursos clásicos |Puesto que el identificador URI de los recursos se modifica después de la migración, se recomienda planear las actualizaciones de directiva del control de acceso basado en rol que deben producirse después de la migración. |
+| Resource Manager |Control de acceso basado en roles (RBAC) para recursos clásicos |Puesto que el identificador URI de los recursos se modifica después de la migración, se recomienda planear las actualizaciones de directiva del control de acceso basado en rol que deben producirse después de la migración. |
 | Proceso |Varias subredes asociadas con una máquina virtual |Actualice la configuración de subred para que solo haga referencia a una subred. Puede que para ello sea necesario quitar una NIC secundaria (que hace referencia a otra subred) de la máquina virtual y asociarla de nuevo una vez finalizada la migración. |
 | Proceso |Máquinas virtuales que pertenecen a una red virtual, pero no tienen una subred explícita asignada |Opcionalmente, puede eliminar la máquina virtual. |
 | Proceso |Máquinas virtuales que tienen alertas, directivas de escalado automático |Se efectúa la migración y se descartan estos valores. Es muy recomendable evaluar el entorno antes de realizar la migración. Como alternativa, puede reconfigurar los valores de las alertas una vez completada la migración. |

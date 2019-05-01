@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60864343"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926227"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Solución de errores de eliminación de recursos de almacenamiento clásico
 En este artículo se proporcionan instrucciones para solucionar problemas cuando se produce uno de los siguientes errores al intentar eliminar un archivo de blob de páginas *.vhd, un contenedor o una cuenta de almacenamiento clásico de Azure. 
@@ -37,7 +37,7 @@ Un recurso "Disco" se utiliza para montar un archivo de blob de páginas *.vhd e
 3. Una vez que se interrumpe la concesión de los discos, se pueden eliminar los propios blobs en páginas. Una cuenta de almacenamiento o un contenedor se pueden eliminar una vez que se eliminan todos los recursos "Disco" presentes en ellos.
 
 >[!NOTE] 
->Si el usuario elimina la máquina virtual pero no el disco duro virtual, se seguirán acumulando cargos por almacenamiento en el archivo *.vhd del blob en páginas. Los cargos estarán en consonancia con el tipo de cuenta de almacenamiento; consulte la [página de precios](https://azure.microsoft.com/en-us/pricing/details/storage/) para obtener más detalles. Si el usuario ya no va a utilizar los discos duros virtuales, elimínelos para evitar cargos futuros. 
+>Si el usuario elimina la máquina virtual pero no el disco duro virtual, se seguirán acumulando cargos por almacenamiento en el archivo *.vhd del blob en páginas. Los cargos estarán en consonancia con el tipo de cuenta de almacenamiento; consulte la [página de precios](https://azure.microsoft.com/pricing/details/storage/) para obtener más detalles. Si el usuario ya no va a utilizar los discos duros virtuales, elimínelos para evitar cargos futuros. 
 
 ## <a name="unable-to-delete-storage-account"></a>No se puede eliminar la cuenta de almacenamiento 
 

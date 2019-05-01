@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: ed8a829bd73a53dc94bf8b08648b3d6684f718f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d348592589f448dab9b8b4f3a1a3eb286d464417
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109770"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723454"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualización de datos en la versión preliminar del explorador
 
@@ -216,10 +216,11 @@ Puede mostrar y ocultar elementos en el panel del gráfico si selecciona el icon
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte los artículos siguientes:
-* [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md) (Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights)
-* [Data modeling](./time-series-insights-update-tsm.md) (Modelado de datos)
-* [Diagnóstico y solución de problemas](./time-series-insights-update-how-to-troubleshoot.md)
+- Obtenga información sobre [almacenamiento y la entrada](./time-series-insights-update-storage-ingress.md) en la versión preliminar de Azure tiempo Series Insights.
+
+- Lea el documento de vista previa en tiempo Series Insights [modelado de datos](./time-series-insights-update-tsm.md).
+
+- Obtenga información sobre [cómo diagnosticar y solucionar problemas](./time-series-insights-update-how-to-troubleshoot.md) su instancia de Time Series Insights.
 
 <!-- Images -->
 [1]: media/v2-update-explorer/explorer-one.png

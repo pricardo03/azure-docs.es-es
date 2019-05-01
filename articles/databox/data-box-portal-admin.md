@@ -1,23 +1,23 @@
 ---
-title: Guía de administración del portal de Azure Data Box | Microsoft Docs
+title: Administración de Azure Data Box mediante el portal de Azure | Microsoft Docs
 description: Describe cómo usar Azure Portal para administrar Azure Data Box.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 483e1e0f6a472132446b20a161d012e69d83c4ac
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: HT
+ms.openlocfilehash: bf1d810733df4eaae17d092caba42888a63cc59f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607116"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919234"
 ---
-# <a name="use-the-azure-portal-to-administer-your-data-box"></a>Use Azure Portal para administrar Data Box
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box"></a>Usar el portal de Azure para administrar Azure Data Box
 
-En este artículo se describen algunas de las tareas de administración y los flujos de trabajo complejos que se pueden realizar en Data Box. Puede administrar Data Box a través de Azure Portal y de la interfaz de usuario web local. 
+En este artículo se describe algunos de los flujos de trabajo complejos y tareas de administración que se pueden realizar en Azure Data Box. Puede administrar Data Box a través de Azure Portal y de la interfaz de usuario web local.
 
 Este artículo se centra en las tareas que se pueden realizar mediante Azure Portal. Use Azure Portal para administrar pedidos, administrar los Data Box y realizar un seguimiento del estado del pedido mientras continúa hacia la finalización.
 

@@ -7,22 +7,20 @@ keywords: hadoop alta disponibilidad
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 596b53d468a7dfc719c16dc6e6339492381d7f41
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 6cb72730ef3dbef81e2b2c9bc1c5cfd3bbd88b65
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763798"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704926"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidad y fiabilidad de clústeres de Apache Hadoop en HDInsight
 
 Los clústeres de HDInsight proporcionan dos nodos principales para aumentar la disponibilidad y la confiabilidad de los servicios y trabajos de Apache Hadoop en ejecución.
 
 Hadoop logra una alta disponibilidad y confiabilidad al replicar datos y servicios en varios nodos de un clúster. Sin embargo, las distribuciones estándar de Hadoop suelen tener un único nodo principal. Cualquier interrupción de ese nodo principal puede causar que el clúster deje de funcionar. HDInsight proporciona dos nodos principales para mejorar la disponibilidad y la confiabilidad de Hadoop.
-
-[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="availability-and-reliability-of-nodes"></a>Disponibilidad y confiabilidad de los nodos
 
@@ -104,7 +102,7 @@ Para comprobar el estado de los servicios que se ejecutan en el nodo principal, 
 
 ### <a name="ambari-web-ui"></a>Interfaz de usuario web de Ambari
 
-La UI web de Ambari se puede ver en https://CLUSTERNAME.azurehdinsight.net. Reemplace **CLUSTERNAME** por el nombre del clúster. Si se le solicita, introduzca las credenciales de usuario HTTP de su clúster. El nombre de usuario HTTP predeterminado es **admin** y la contraseña es la contraseña que especificó al crear el clúster.
+La UI web de Ambari se puede ver en `https://CLUSTERNAME.azurehdinsight.net`. Reemplace **CLUSTERNAME** por el nombre del clúster. Si se le solicita, introduzca las credenciales de usuario HTTP de su clúster. El nombre de usuario HTTP predeterminado es **admin** y la contraseña es la contraseña que especificó al crear el clúster.
 
 Cuando llegue a la página de Ambari, se enumeran los servicios instalados a la izquierda de la página.
 
@@ -247,27 +245,25 @@ En la interfaz de usuario web de Ambari, seleccione el servicio para el que dese
 
 ## <a name="how-to-configure-the-node-size"></a>Configuración del tamaño del nodo
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 El tamaño de un nodo solo se puede seleccionar durante la creación del clúster. Puede encontrar una lista de los diferentes tamaños de máquina virtual disponibles para HDInsight en la [página de precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Al crear un clúster, puede especificar el tamaño de los nodos. A continuación se ofrece información sobre cómo especificar el tamaño mediante [Azure Portal][preview-portal], [Azure PowerShell][azure-powershell] y la [CLI de Azure][azure-cli]:
+Al crear un clúster, puede especificar el tamaño de los nodos. La información siguiente proporciona instrucciones sobre cómo especificar el tamaño mediante el [portal Azure][preview-portal], [módulo Azure PowerShell Az][azure-powershell], y el [CLI de Azure][azure-cli]:
 
 * **Portal de Azure**: al crear un clúster, puede establecer el tamaño de los nodos que usa el clúster:
 
     ![Imagen del asistente para creación de clústeres con selección del tamaño del nodo](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **CLI de Azure clásica**: cuando se usa el comando `azure hdinsight cluster create`, puede establecer el tamaño de los nodos principal, de trabajo y ZooKeeper mediante los parámetros `--headNodeSize`, `--workerNodeSize` y `--zookeeperNodeSize`.
+* **CLI de Azure**: Cuando se usa el [az hdinsight crear](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) comando, puede establecer el tamaño de la principal, el trabajo y los nodos de ZooKeeper mediante la `--headnode-size`, `--workernode-size`, y `--zookeepernode-size` parámetros.
 
-* **Azure PowerShell**: cuando se usa el cmdlet `New-AzHDInsightCluster`, puede establecer el tamaño de los nodos principal, de trabajo y ZooKeeper mediante los parámetros `-HeadNodeVMSize`, `-WorkerNodeSize` y `-ZookeeperNodeSize`.
+* **Azure PowerShell**: Cuando se usa el [New AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet, puede establecer el tamaño de la principal, el trabajo y los nodos de ZooKeeper mediante la `-HeadNodeSize`, `-WorkerNodeSize`, y `-ZookeeperNodeSize` parámetros.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Use los siguientes vínculos para obtener más información sobre los aspectos que se mencionan en este documento.
 
 * [Referencia de REST de Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Install the Azure classic CLI](../cli-install-nodejs.md) (Instalación y configuración de la CLI de Azure)
-* [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
+* [Instalación y configuración de la interfaz de la línea de comandos de Azure](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Instalar y configurar el módulo de Azure PowerShell Az](/powershell/azure/overview)
 * [Administración de HDInsight mediante Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Aprovisionamiento de clústeres de HDInsight basado en Linux](hdinsight-hadoop-provision-linux-clusters.md)
 

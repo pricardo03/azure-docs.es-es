@@ -1,25 +1,18 @@
 ---
-title: Obtención del URI de firma de acceso compartido para la imagen de máquina virtual basada en Microsoft Azure | Microsoft Docs
+title: Obtener el URI de firma de acceso compartido para la imagen de máquina virtual de Microsoft basado en Azure | Azure Marketplace
 description: Se explica cómo obtener el URI de firma de acceso compartido (SAS) para la imagen de máquina virtual.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: c21fa3cf819f48dcda46f2d444ed52bc2eb9ae3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 4da82b2f6aaa3fc664d2e91b80722329533b0cd0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744041"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938660"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obtención del URI de firma de acceso compartido para la imagen de máquina virtual
 

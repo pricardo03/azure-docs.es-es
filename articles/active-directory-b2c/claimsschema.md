@@ -3,19 +3,19 @@ title: ClaimsSchema - Azure Active Directory B2C | Microsoft Docs
 description: Especifique el elemento ClaimsSchema de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487828"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721754"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -65,7 +65,7 @@ PredicateValidationReference| 0:1 | Una referencia a un elemento **PredicateVali
 
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | ----------- |
-| Protocolo | 0:n | Lista de protocolos con su nombre de tipo de notificación de partner predeterminado. |
+| Protocol | 0:n | Lista de protocolos con su nombre de tipo de notificación de partner predeterminado. |
 
 El elemento **Protocol** contiene los atributos siguientes:
 
@@ -161,7 +161,7 @@ El elemento **Enumeration** contiene los siguientes atributos:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Texto | Sí | La cadena de presentación que se muestra al usuario en la interfaz de usuario para esta opción. |
+| Text | Sí | La cadena de presentación que se muestra al usuario en la interfaz de usuario para esta opción. |
 |Valor | Sí | El valor de notificación que está asociado a la selección de esta opción. |
 | SelectByDefault | Sin  | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
 

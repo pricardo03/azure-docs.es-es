@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bb7032c2741cc8c407c8d7d0285e58647f0bfd5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291422"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918552"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso de System for Cross-Domain Identity Management (SCIM) para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones
 
@@ -128,7 +128,7 @@ Al implementar un punto de conexión SCIM para garantizar la compatibilidad con 
      - `and`
 * No requieren una coincidencia entre mayúsculas y minúsculas en los elementos estructurales de SCIM, en particular PATCH `op` valores de operación, como se define en https://tools.ietf.org/html/rfc7644#section-3.5.2. Azure AD emite los valores de 'op' como `Add`, `Replace`, y `Remove`.
 * Microsoft Azure AD realiza solicitudes para recuperar un usuario aleatorio y un grupo para asegurarse de que el punto de conexión y las credenciales son válidas. También se realiza como parte de **Probar conexión** flujo en el [portal Azure](https://portal.azure.com). 
-* El atributo que se pueden consultar los recursos en que debe establecerse como un atributo coincidente en la aplicación en el [portal Azure](https://portal.azure.com). Para obtener más información, consulte [Personalizar asignaciones de atributos de aprovisionamiento de usuarios](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+* El atributo que se pueden consultar los recursos en que debe establecerse como un atributo coincidente en la aplicación en el [portal Azure](https://portal.azure.com). Para obtener más información, consulte [Personalizar asignaciones de atributos de aprovisionamiento de usuarios](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 
 ### <a name="user-provisioning-and-de-provisioning"></a>Aprovisionamiento y cancelación del aprovisionamiento de usuarios
 La siguiente ilustración muestra los mensajes que Azure Active Directory se envía a un servicio SCIM para administrar el ciclo de vida de un usuario en el almacén de identidades de su aplicación.  

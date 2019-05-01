@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61481216"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926063"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 En este artículo se describe los tipos de salidas disponibles para un trabajo de Azure Stream Analytics. Las salidas le permiten almacenar y guardar los resultados de los trabajos de Stream Analytics. Mediante el uso de los datos de salida, puede realizar más análisis de negocios y el almacenamiento de datos de los datos.
@@ -182,12 +182,12 @@ Power BI usa la directiva de retención, primero en salir (FIFO). Se recopilan l
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Convertir a un tipo de datos de Stream Analytics a Power BI
 Azure Stream Analytics actualiza el modelo de datos dinámicamente en tiempo de ejecución si cambia el esquema de salida. Se realiza un seguimiento de los cambios de nombre de columna, los cambios de tipo de columna y la adición o eliminación de columnas.
 
-Esta tabla muestran las conversiones de tipos de datos de [tipos de datos de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) a Power BI [tipos de Entity Data Model (EDM)](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/entity-data-model), si no existen un conjunto de datos de Power BI y una tabla.
+Esta tabla muestran las conversiones de tipos de datos de [tipos de datos de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) a Power BI [tipos de Entity Data Model (EDM)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), si no existen un conjunto de datos de Power BI y una tabla.
 
 De Stream Analytics | A Power BI
 -----|-----
 bigint | Int64
-nvarchar(max) | String
+nvarchar(max) | string
 datetime | DateTime
 float | Double
 Matriz de registro | Cadena de tipo, valor constante "IRecord" o "IArray"
@@ -198,12 +198,12 @@ Stream Analytics deduce el esquema de modelo de datos basándose en el primer co
 Evitar la `SELECT *` consulta para evitar que la actualización de esquema dinámico en las filas. Además de posibles implicaciones de rendimiento, podría dar como resultado la incertidumbre del tiempo necesario para los resultados. Seleccione los campos exactos que necesitan mostrarse en el panel de Power BI. Además, los valores de datos deben ser compatibles con el tipo de datos elegido.
 
 
-Anterior o actual | Int64 | String | DateTime | Double
+Anterior o actual | Int64 | string | DateTime | Double
 -----------------|-------|--------|----------|-------
-Int64 | Int64 | String | String | Double
-Double | Double | String | String | Double
-String | string | string | string | String 
-DateTime | String | String |  DateTime | String
+Int64 | Int64 | string | string | Double
+Double | Double | string | string | Double
+string | string | string | string | string 
+DateTime | string | string |  DateTime | string
 
 
 ### <a name="renew-power-bi-authorization"></a>Renovación de la autorización de Power BI

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507970"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727580"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Inicio rápido: Creación de un equilibrador de carga básico público mediante Azure Portal
 
@@ -37,11 +37,11 @@ En primer lugar, cree un equilibrador de carga básico público desde el portal.
 1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Azure Load Balancer**.
 2. En la pestaña **Datos básicos** de la página **Crear equilibrador de carga**, escriba o seleccione la siguiente información, acepte los valores predeterminados del resto de la configuración y, luego, seleccione **Revisar y crear**:
 
-    | Configuración                 | Value                                              |
+    | Configuración                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscription               | Seleccione su suscripción.    |    
     | Grupos de recursos         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLB* en el cuadro de texto.|
-    | Name                   | *myLoadBalancer*                                   |
+    | NOMBRE                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Europa Occidental**.                                        |
     | Type          | Seleccione **Público**.                                        |
     | SKU           | Seleccione **Básica**.                          |
@@ -235,21 +235,27 @@ Instale Internet Information Services (IIS) en las máquinas virtuales para ayud
    
    El escritorio de la máquina virtual se abre en una nueva ventana. 
    
-**Para instalar IIS en la máquina virtual:**
+**Para instalar IIS**
 
-1. Si **Administrador del servidor** no está abierto en el escritorio del servidor, vaya a **Herramientas administrativas de Windows** > **Administrador del servidor**.
-   
-1. En **Administrador del servidor**, seleccione **Agregar roles y características**.
-   
-   ![Adición de rol de administrador del servidor](./media/load-balancer-get-started-internet-portal/servermanager.png)
-   
-1. En el **Asistente para agregar roles y características**:
-   1. En la página **Seleccionar tipo de instalación**, seleccione **Instalación basada en características o en roles**.
-   1. En la página **Seleccionar servidor de destino**, seleccione **MyVM1**.
-   1. En la página **Seleccionar rol de servidor**, seleccione **Servidor web (IIS)**. 
-   1. Cuando se le pida instalar las herramientas necesarias, seleccione **Agregar características**. 
-   1. Acepte los valores predeterminados y seleccione **Instalar**. 
-   1. Cuando finalice la instalación de las características, seleccione **Cerrar**. 
+1. Seleccione **Todos los servicios** en el menú de la izquierda, **Todos los recursos** y, después, en la lista de recursos **myVM1**, que se encuentra en el grupo de recursos *myResourceGroupSLB*.
+2. En la página **Información general**, seleccione **Conectar** para conectar mediante RDP con la máquina virtual.
+5. Inicie sesión en la máquina virtual con las credenciales que proporcionó durante la creación de esta máquina virtual. Esto inicia una sesión de escritorio remoto con la máquina virtual *myVM1*.
+6. En el escritorio del servidor, vaya a **Herramientas administrativas de Windows**>**Windows PowerShell**.
+7. En la ventana de PowerShell, ejecute los comandos siguientes para instalar el servidor IIS, eliminar el archivo iisstart.htm predeterminado y agregar uno nuevo que muestre el nombre de la máquina virtual:
+
+   ```azurepowershell
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+    remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. Cierre la sesión de RDP con *myVM1*.
+7. Repita los pasos 1 a 6 para instalar IIS y el archivo iisstart.htm actualizado en *myVM2*.
    
 1. Repita los pasos para la máquina virtual **MyVM2**, excepto establecer el servidor de destino en **MyVM2**.
 
@@ -257,9 +263,9 @@ Instale Internet Information Services (IIS) en las máquinas virtuales para ayud
 
 Abra el explorador y pegue la dirección IP pública del equilibrador de carga en la barra de direcciones del explorador. La página predeterminada del servidor web IIS debe aparecer en el explorador.
 
-![Servidor web IIS](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+![Servidor web de IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-Para ver cómo el equilibrador de carga distribuye el tráfico entre las tres máquinas virtuales que ejecutan la aplicación, puede realizar una actualización forzada del explorador web.
+Para ver cómo el equilibrador de carga distribuye el tráfico entre ambas máquinas virtuales que ejecutan la aplicación, puede realizar una actualización forzada del explorador web.
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Para eliminar el equilibrador de carga y todos los recursos relacionados cuando ya no los necesite, abra el grupo de recursos **MyResourceGroupLB** y seleccione **Eliminar grupo de recursos**.

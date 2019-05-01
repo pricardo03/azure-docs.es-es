@@ -3,17 +3,16 @@ title: Términos y directivas de Marketplace de Azure | Azure
 description: Términos y directivas de Microsoft Azure Marketplace se aplican a todos los anunciantes y ofertas de Microsoft Azure Marketplace.
 services: Azure, Marketplace, AppSource
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 9dc4bfa1f2435488f7d6513f9c14e82da33a4d64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5041e9f7b19508480ff27311ba61d180f4a5a01
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322760"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937630"
 ---
 # <a name="azure-marketplace-policies-and-terms"></a>Términos y directivas de Azure Marketplace
 
@@ -26,9 +25,12 @@ Ofertas en Marketplace deben cumplir con nuestras directivas y condiciones. Actu
 
 ## <a name="policies-and-terms"></a>Las directivas y condiciones
 
-* [Directivas generales de anuncio y una oferta](https://docs.microsoft.com/legal/marketplace/general-policies)
+* [Directivas de certificación de Azure Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies)
+
 * [Directivas de participación](https://docs.microsoft.com/legal/marketplace/participation-policy)
+
 * [Directivas de clasificación y revisión](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
+
 * [Términos de Azure Marketplace](https://docs.microsoft.com/legal/marketplace/terms)
 
 ## <a name="next-steps"></a>Pasos siguientes

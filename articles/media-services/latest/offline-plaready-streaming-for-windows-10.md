@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3ff97dc86ea6932ba51a4a30e53edf1082d5305
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326434"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937482"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Streaming de PlayReady sin conexión para Windows 10
 
@@ -32,9 +32,9 @@ Azure Media Services admite la descarga o reproducción sin conexión con protec
 
 En esta sección, se proporciona información sobre la reproducción del modo sin conexión, especialmente por estos motivos:
 
-* En algunos países, la disponibilidad de Internet o de ancho de banda sigue siendo limitada. Los usuarios pueden decidir descargar primero para poder ver el contenido en una resolución lo suficientemente alta que les permita disfrutar de una experiencia de visualización satisfactoria. En este caso, con mayor frecuencia, el problema no es la disponibilidad de la red, sino que su ancho de banda es limitado. Los proveedores OTT/OVP están solicitando compatibilidad con el modo sin conexión.
+* En algunos países o regiones, la disponibilidad de Internet o de ancho de banda sigue siendo limitada. Los usuarios pueden decidir descargar primero para poder ver el contenido en una resolución lo suficientemente alta que les permita disfrutar de una experiencia de visualización satisfactoria. En este caso, con mayor frecuencia, el problema no es la disponibilidad de la red, sino que su ancho de banda es limitado. Los proveedores OTT/OVP están solicitando compatibilidad con el modo sin conexión.
 * Como se informó en la conferencia de accionistas de Netflix del tercer trimestre de 2016, la descarga de contenido es una “característica muy solicitada” y, según afirma Reed Hastings (consejero delegado de Netflix), “están estudiando su implementación”.
-* Algunos proveedores de contenido pueden suspender la entrega de licencias de DRM al cruzar la frontera de un país. Si un usuario necesita viajar al extranjero y quiere ver contenido, se necesita la descarga sin conexión.
+* Algunos proveedores de contenido pueden no permitir la entrega de licencias DRM más allá del borde del país o región. Si un usuario necesita viajar al extranjero y quiere ver contenido, se necesita la descarga sin conexión.
  
 La dificultad a la que nos enfrentamos al implementar el modo sin conexión es la siguiente:
 

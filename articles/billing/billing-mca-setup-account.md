@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371804"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919146"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configuración de su cuenta de facturación para un contrato de cliente de Microsoft
 
@@ -108,7 +108,7 @@ Un inquilino de Azure Active Directory está seleccionado para la nueva cuenta d
 
 La nueva cuenta de solo es compatible con los usuarios del inquilino al que se ha seleccionado al firmar el acuerdo de cliente de Microsoft. Si los usuarios con permisos administrativos en su contrato Enterprise forman parte del inquilino, obtendrá acceso a la nueva cuenta de facturación durante la instalación. Si no son parte del inquilino, no podrá tener acceso a la nueva cuenta de facturación, a menos que se invitar a ellos.
 
-Cuando se invita a los usuarios, que se agregan al inquilino como usuarios invitados y obtención acceso a la cuenta de facturación. Para invitar a los usuarios, el acceso de invitado debe estar activado para el inquilino. Para obtener más información, consulte [controlar el acceso de invitado en Azure Active Directory](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Si el acceso de invitado está desactivado, póngase en contacto con los administradores globales del inquilino para activarla. <!-- Todo - How can they find their global administrator -->
+Cuando se invita a los usuarios, que se agregan al inquilino como usuarios invitados y obtención acceso a la cuenta de facturación. Para invitar a los usuarios, el acceso de invitado debe estar activado para el inquilino. Para obtener más información, consulte [controlar el acceso de invitado en Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Si el acceso de invitado está desactivado, póngase en contacto con los administradores globales del inquilino para activarla. <!-- Todo - How can they find their global administrator -->
 
 ## <a name="view-features-replaced-by-the-new-billing-account"></a>Ver las características que se sustituye por la nueva cuenta de facturación
 

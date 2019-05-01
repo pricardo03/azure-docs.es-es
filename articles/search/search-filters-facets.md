@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec87bdadc0e7f77cdeebb16403758026fd956c30
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290069"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939849"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Cómo crear un filtro de faceta en Azure Search 
 
@@ -35,7 +35,7 @@ Las facetas son dinámicas y se devuelven en una consulta. Las respuestas de bú
 
 ## <a name="choose-fields"></a>Elegir los campos
 
-Las facetas se pueden calcular tanto para campos de valor único como para colecciones. Los campos que funcionan mejor en la navegación por facetas tienen una cardinalidad baja: un pequeño número de valores distintos que se repiten a lo largo de los documentos del corpus de búsqueda (por ejemplo, una lista de colores, países o nombres de marca). 
+Las facetas se pueden calcular tanto para campos de valor único como para colecciones. Los campos que funcionan mejor en la navegación por facetas tienen una cardinalidad baja: un número pequeño de valores distintos que se repiten a lo largo de los documentos en el corpus de búsqueda (por ejemplo, una lista de colores, países o regiones o nombres de marca). 
 
 Las facetas se habilitan para cada campo al crear un índice y definir los atributos siguientes como TRUE: `filterable`, `facetable`. Solo los campos que se pueden filtrar se pueden clasificar.
 

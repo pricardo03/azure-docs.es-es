@@ -2,24 +2,18 @@
 title: Registro en el Centro para desarrolladores | Azure
 description: Registro en el Centro para desarrolladores
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735793"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937599"
 ---
 # <a name="register-in-dev-center"></a>Registro en el Centro para desarrolladores  
 Para ayudar a asegurarse de que no está registrado en una cuenta de explorador personal, abra una nueva sesión de exploración de incógnito de Chrome o de InPrivate en Internet Explorer.  
@@ -34,7 +28,7 @@ Para ayudar a asegurarse de que no está registrado en una cuenta de explorador 
     ![Información de la cuenta con el cuadro de país o región](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
    
     >[!WARNING]
-    >Para vender sus servicios en Azure Marketplace, verifique que la entidad registrada procede de uno de los países *desde donde está permitida la venta*. Esta restricción de ubicación se requiere por motivos de pago e impuestos. 
+    >Para vender sus servicios en Azure Marketplace, compruebe que la entidad registrada procede de uno de los aprobados *venta de* países o regiones. Esta restricción de ubicación se requiere por motivos de pago e impuestos. 
     >*   Para más información, vea la página Directivas de participación de Marketplace en [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
 
 4.  Para *Tipo de cuenta*, seleccione el botón de radio `Company`.  

@@ -11,26 +11,28 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447610"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713800"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Llamada a puntos de conexión HTTP o HTTPS con Azure Logic Apps
 
-Con Azure Logic Apps y el conector de Protocolo de transferencia de hipertexto (HTTP), puede automatizar los flujos de trabajo que se comunican con cualquier punto de conexión HTTP o HTTPS mediante la creación de aplicaciones lógicas. Por ejemplo, puede supervisar el punto de conexión de servicio para su sitio web. Cuando se produce un evento en ese punto de conexión, por ejemplo, que su sitio web deje de funcionar, el evento desencadena el flujo de trabajo de la aplicación lógica y ejecuta las acciones especificadas. 
+Con Azure Logic Apps y el conector de Protocolo de transferencia de hipertexto (HTTP), puede automatizar los flujos de trabajo que se comunican con cualquier punto de conexión HTTP o HTTPS mediante la creación de aplicaciones lógicas. Por ejemplo, puede supervisar el punto de conexión de servicio para su sitio web. Cuando se produce un evento en ese punto de conexión, por ejemplo, que su sitio web deje de funcionar, el evento desencadena el flujo de trabajo de la aplicación lógica y ejecuta las acciones especificadas.
 
 Puede usar el desencadenador HTTP como primer paso en el flujo de trabajo para comprobar o *sondear* un punto de conexión según una programación periódica. En cada comprobación, el desencadenador envía una llamada o *solicitud* al punto de conexión. La respuesta del punto de conexión determina si el flujo de trabajo de la aplicación lógica se ejecuta. El desencadenador pasa a lo largo de todo el contenido desde la respuesta hasta las acciones en la aplicación lógica. 
 
-Puede usar la acción HTTP como cualquier otro paso del flujo de trabajo para llamar al extremo cuando desee. La respuesta del punto de conexión determina cómo se ejecutan las acciones restantes de su flujo de trabajo.
+Puede usar la acción HTTP como cualquier otro paso del flujo de trabajo para llamar al extremo cuando desee. La respuesta del punto de conexión determina cómo se ejecutan las acciones restantes de su flujo de trabajo. 
+
+En función de la capacidad del extremo de destino, este conector es compatible con la seguridad de capa de transporte (TLS) las versiones 1.0, 1.1 y 1.2. Logic Apps negocia con el punto de conexión a través de la versión compatible más alta posible. Por lo tanto, por ejemplo, si el punto de conexión admite 1.2, el conector usa 1.2 en primer lugar. En caso contrario, el conector utiliza la última versión compatible.
 
 Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
 * La dirección URL del punto de conexión de destino al que desea llamar 
 

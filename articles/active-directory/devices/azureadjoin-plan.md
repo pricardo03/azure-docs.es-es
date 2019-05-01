@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b59471cd8af02513186fa4437a2249b056cc324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354525"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918834"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedimientos para: Planeación de la implementación de la unión a Azure AD
 
@@ -135,7 +135,11 @@ Unión a Azure AD:
 
 ### <a name="management-platform"></a>Plataforma de administración
 
-La característica Administración de dispositivos para dispositivos unidos a Azure AD se basa en una plataforma MDM como Intune) y en los CSP de MDM. Windows 10 tiene un agente de MDM integrado que funciona con todas las soluciones MDM compatibles.
+Administración de dispositivos para dispositivos Unidos a Azure AD se basa en una plataforma MDM como Intune y MDM CSP. Windows 10 tiene un agente de MDM integrado que funciona con todas las soluciones MDM compatibles.
+
+> [!NOTE]
+> Las directivas de grupo no se admiten en dispositivos Unidos a Azure AD cuando no estén conectados a un entorno local de Active Directory. Administración de dispositivos Unidos a Azure AD solo es posible a través de MDM
+
 
 Existen dos enfoques para la administración de dispositivos unidos a Azure AD:
 
@@ -143,7 +147,6 @@ Existen dos enfoques para la administración de dispositivos unidos a Azure AD:
 
 - **Administración conjunta**: un dispositivo lo administran un proveedor de MDM y SCCM. En este enfoque, el agente de SCCM se instala en un dispositivo administrado por MDM para administrar determinados aspectos.
 
-Dado que los dispositivos unidos a Azure AD no están conectados a una instancia de Active Directory local, no se admiten las directivas de grupo.
 
 
 Si está usando directivas de grupo, evalúe la paridad de la directiva de MDM mediante la [herramienta de análisis de migración de MDM (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 

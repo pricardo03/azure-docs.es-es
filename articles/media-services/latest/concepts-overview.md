@@ -1,6 +1,6 @@
 ---
-title: Conceptos de Azure Media Services - Azure | Microsoft Docs
-description: En este tema se ofrece una breve descripción de conceptos de Azure Media Services y se proporciona vínculos para obtener más información.
+title: 'Terminología de Media Services de Azure y conceptos: Azure | Microsoft Docs'
+description: En este tema se ofrece una breve descripción de los conceptos y terminología de Azure Media Services y proporciona vínculos para obtener más detalles.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +12,38 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103869"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867063"
 ---
 # <a name="media-services-concepts"></a>Conceptos de Media Services
 
-En este tema se ofrece una breve descripción de conceptos de Azure Media Services y proporciona vínculos a artículos con una explicación detallada de los conceptos de Media Services v3 y funcionalidad. Deben revisarse los conceptos fundamentales que se describen en estos temas antes de comenzar a desarrollar.
+En este tema se ofrece una breve descripción de los conceptos y terminología de Azure Media Services. El artículo también proporciona vínculos a artículos con una explicación detallada de los conceptos de Media Services v3 y funcionalidad. 
+
+Deben revisarse los conceptos fundamentales que se describen en estos temas antes de comenzar a desarrollar.
 
 > [!NOTE]
 > Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref) o uno de los [SDK](developers-guide.md) admitidos.
 
+## <a name="terminology"></a>Terminología
+
+En esta sección se muestra cómo se asignan a la API de Media Services v3 algunos términos comunes de la industria.
+
+### <a name="live-event"></a>Evento en directo
+
+Un **evento en directo** representa una canalización para ingerir, transcodificación (opcionalmente) y empaquetar secuencias en directo de metadatos en tiempo real, audio y vídeo.
+
+Para los clientes que migran desde las API de Media Services v2, la **evento en directo** reemplaza el **canal** entidad en la versión 2. Para obtener más información, consulte [migración desde v2 a v3](migrate-from-v2-to-v3.md).
+
+### <a name="streaming-endpoint-packaging-and-origin"></a>Extremo de streaming (empaquetado y el origen)
+
+Un **Streamingendpoint** representa un dinámico (just-in-time) empaquetado y el origen de servicio que puede entregar el contenido en directo y a petición directamente a una aplicación de Reproductor de cliente, mediante uno de los protocolos comunes de media streaming (HLS o DASH). Además, el **Streamingendpoint** proporciona el cifrado dinámico (just-in-time) para DRM de líderes del sector.
+
+En los medios de transmisión por secuencias del sector, este servicio es comúnmente contemplado como un **Packager** o **origen**.  Otros términos comunes usados en la industria para esta funcionalidad incluyen JITP (Just-en-tiempo-packager) o JITE (Just-en-tiempo de cifrado). 
+ 
 ## <a name="cloud-upload-and-storage"></a>Carga y almacenamiento en la nube
 
 Para empezar a administrar, cifrado, codificación, analizar y transmisión por secuencias contenido multimedia en Azure, deberá crear una cuenta de Media Services y cargue los archivos digitales en **activos**.
@@ -52,7 +70,7 @@ Para analizar los archivos de audio y vídeos, también deberá crear **transfor
 
 ## <a name="packaging-delivery-protection"></a>Empaquetado, entrega, protección
 
-Una vez que se codifica el contenido, puede sacar partido de **empaquetado dinámico**. **Extremo de streaming** es el servicio de empaquetado dinámico de Media Services usadas para entregar contenido multimedia a los jugadores del cliente. Para que los vídeos en el recurso de salida disponibles para los clientes para la reproducción, tiene que crear un **localizador de Streaming** y, a continuación, generar direcciones URL de streaming. 
+Una vez que se codifica el contenido, puede sacar partido de **empaquetado dinámico**. En Media Services, un **Streamingendpoint**  /origen es el servicio de empaquetado dinámico utilizado para entregar contenido multimedia a los jugadores del cliente. Para que los vídeos en el recurso de salida disponibles para los clientes para la reproducción, tiene que crear un **localizador de Streaming** y, a continuación, generar direcciones URL de streaming. 
 
 Al crear el **localizador de Streaming**, además del nombre del recurso, deberá especificar **directiva Streaming**. **Las directivas de transmisión por secuencias** le permiten definir los protocolos de streaming y cifrado opciones (si existe) para su **localizadores de Streaming**.
 

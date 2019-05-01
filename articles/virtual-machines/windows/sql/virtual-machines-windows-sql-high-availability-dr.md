@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: 463ef5f4a655617074915078fb4ced9e596f8957
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a9d4699ba625f575cdcba2a85af900a7c04843e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478408"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924456"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines
 
@@ -59,7 +59,7 @@ Puede tener una solución de recuperación ante desastres para las bases de dato
 | Technology | Arquitecturas de ejemplo |
 | --- | --- |
 | **Grupos de disponibilidad** |Réplicas de disponibilidad que se ejecutan en varios centros de datos en máquinas virtuales de Azure para la recuperación ante desastres. Esta solución entre regiones protege frente a interrupciones en todo el sitio. <br/> ![Grupos de disponibilidad](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Dentro de una región, todas las réplicas deben estar en el mismo servicio en la nube y la misma red virtual. Dado que cada región tendrá una red virtual distinta, estas soluciones precisan de conectividad entre estas redes. Para obtener más información, consulte [Configuración de una conexión de red virtual a red virtual mediante Azure Portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Para obtener instrucciones detalladas, vea [Configuración de un grupo de disponibilidad en Azure Virtual Machines en distintas regiones](virtual-machines-windows-portal-sql-availability-group-dr.md).|
-| **Creación de reflejo de la base de datos** |Los servidores principal y de reflejo se ejecutan en distintos centros de datos para la recuperación ante desastres. Debe realizar la implementación con certificados de servidor porque un dominio de Active Directory no puede abarcar varios centros de datos.<br/>![Creación de reflejo de la base de datos](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
+| **Creación de reflejo de la base de datos** |Los servidores principal y de reflejo se ejecutan en distintos centros de datos para la recuperación ante desastres. Debe implementar con certificados de servidor. <br/>![Creación de reflejo de la base de datos](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **Copia de seguridad y restauración con el servicio Azure Blob Storage** |Las bases de datos de producción de las que se realizó una copia de seguridad directamente en el almacenamiento de blobs en otro centro de datos para la recuperación ante desastres.<br/>![Copia de seguridad y restauración](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>Para más información, consulte [Copias de seguridad y restauración para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md). |
 | **Replicación y conmutación por error de SQL Server en Azure con Azure Site Recovery** |SQL Server de producción de un centro de datos de Azure replicado directamente en una instancia de Azure Storage de un centro de datos de Azure distinto para la recuperación ante desastres.<br/>![Replicación con Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_standalone_sqlserver-asr.png)<br/>Para obtener más información, consulte [Proteger SQL Server con la recuperación ante desastres de SQL Server y Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
 

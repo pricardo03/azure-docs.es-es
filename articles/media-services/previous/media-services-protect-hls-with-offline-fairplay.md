@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 31da745727d567e1b3b85b3508df368d78ad84a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc939011f87f03ef1de7e728fc52fc0c9887dd31
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557279"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935404"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay Streaming sin conexión para iOS 
 
@@ -42,8 +42,8 @@ El cifrado de contenido del tipo Administración de derechos digitales (DRM) o E
 Además de la protección del contenido de streaming en línea sobre diversos protocolos de streaming, el modo sin conexión para el contenido protegido también es una característica solicitada con frecuencia. Se requiere compatibilidad con el modo sin conexión para los escenarios siguientes:
 
 * Reproducción cuando la conexión a Internet no está disponible, como durante los viajes.
-* Algunos proveedores de contenido pueden suspender la entrega de licencias de DRM al cruzar la frontera de un país. Si los usuarios desean ver contenido mientras viajan fuera del país, es necesario descargar sin conexión.
-* En algunos países, la disponibilidad de Internet o de ancho de banda sigue siendo limitada. Los usuarios pueden decidir descargar primero para poder ver el contenido en una resolución lo suficientemente alta que les permita disfrutar de una experiencia de visualización satisfactoria. En este caso, el problema habitualmente no es la disponibilidad de la red, sino que su ancho de banda es limitado. Los proveedores de OVP y OTT solicitan la compatibilidad con el modo sin conexión.
+* Algunos proveedores de contenido podrían no permitir la entrega de licencias DRM más allá del borde del país o región. Si los usuarios desean ver contenido mientras viajan fuera del país o región, es necesario descargar sin conexión.
+* En algunos países o regiones, la disponibilidad de internet o de ancho de banda sigue siendo limitada. Los usuarios pueden decidir descargar primero para poder ver el contenido en una resolución lo suficientemente alta que les permita disfrutar de una experiencia de visualización satisfactoria. En este caso, el problema habitualmente no es la disponibilidad de la red, sino que su ancho de banda es limitado. Los proveedores de OVP y OTT solicitan la compatibilidad con el modo sin conexión.
 
 En este artículo se trata la compatibilidad con el modo sin conexión de FairPlay Streaming (FPS) que está destinado a dispositivos que ejecutan iOS 10 o posterior. Esta característica no es compatible con otras plataformas de Apple como watchOS, tvOS o Safari en macOS.
 

@@ -1,25 +1,18 @@
 ---
-title: Publicación de oferta de la aplicación de Dynamics 365 for Customer Engagement - Azure Marketplace | Microsoft Docs
+title: Publicación de Dynamics 365 para la oferta de aplicación de compromiso del cliente | Azure Marketplace
 description: Describe el proceso y los pasos para publicar una oferta de la aplicación Dynamics 365 for Customer Engagement en AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Dynamics 365 for Customer Engagement
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/28/2018
-ms.author: pbutlerm
-ms.openlocfilehash: eeb0fa84e8cd5ac6a499e02edd5879c5bbdd8ead
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 65df08d5fa2b7e4e7f6654f520f9caacc696f7c3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308796"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942310"
 ---
 # <a name="publish-a-dynamics-365-for-customer-engagement-offer"></a>Publicación de una oferta de Dynamics 365 for Customer Engagement
 
@@ -36,7 +29,7 @@ La tabla siguiente describe cada paso de publicación, con una estimación de ti
 En la tabla siguiente se describe cada uno de los pasos de publicación: También se proporciona un tiempo estimado para finalizar cada paso.
 
 
-|    Paso de publicación             |   Hora      |   DESCRIPCIÓN                                                              |
+|    Paso de publicación             |   Time      |   DESCRIPCIÓN                                                              |
 |  -------------------           | --------    | ---------------                                                            |
 | Validar requisitos previos         | 15 minutos   | Se validan la información y la configuración de la oferta.                        |
 | Certificación                  | 1 semana | El equipo de certificación de Azure analiza la oferta. Se examina la oferta en busca de virus, malware, cumplimiento de seguridad y problemas de seguridad. La oferta se comprueba para ver si cumple todos los criterios de elegibilidad. Para más información, consulte los [requisitos previos](./cpp-prerequisites.md). Si se detecta un problema, se proporcionan comentarios. |

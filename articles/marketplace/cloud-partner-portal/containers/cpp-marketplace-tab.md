@@ -1,25 +1,18 @@
 ---
-title: Configuración de Marketplace para una imagen de contenedor de Azure | Microsoft Docs
+title: Configuración de Marketplace para una imagen de contenedores de Azure | Azure Marketplace
 description: Configure Marketplace para un contenedor de Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 220084dd0a3c61205a2cf53c29cf49291000efdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: f2d735662fcd177f64d1ebc71a25b7d7629db3ce
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472980"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942652"
 ---
 # <a name="container-marketplace-tab"></a>Pestaña de Marketplace de contenedor
 
@@ -31,16 +24,18 @@ En esta sección, se escribe la información general sobre la oferta de Azure Ma
 
 ![Información de Marketplace](./media/containers-marketplace-tab.png)
 
-En la tabla siguiente se describen la finalidad y el contenido de estos campos.
+En la tabla siguiente se describen la finalidad y el contenido de estos campos. Los campos obligatorios se indican con un asterisco (*).
 
-|  **Campo**                |     **Descripción**                                                          |
+|    Campo                  |       DESCRIPCIÓN                                                            |
 |  ---------                |     ---------------                                                          |
-| **Título**                 | Título de la oferta. Se muestra de forma destacada en Marketplace.  La longitud máxima es de 50 caracteres. |
-| **Resumen**               | Breve resumen de la oferta. La longitud máxima es de 100 caracteres. |
-| **Resumen largo**          | Resumen más largo de la oferta (aunque podría ser igual que el **resumen**).  La longitud máxima es de 256 caracteres. |
-| **Descripción**           | Descripción de la oferta.  La longitud máxima es de 3000 caracteres y admite el formato HTML simple.
+| **Título\***                 | Título de la oferta. Se muestra de forma destacada en Marketplace.  La longitud máxima es de 50 caracteres. |
+| **Resumen\***               | Breve resumen de la oferta. La longitud máxima es de 100 caracteres. |
+| **Resumen largo\***          | Resumen más largo de la oferta (aunque podría ser igual que el **resumen**).  La longitud máxima es de 256 caracteres. |
+| **Descripción\***           | Descripción de la oferta.  La longitud máxima es de 3000 caracteres y admite el formato HTML simple.
 | **Identificador de marketing**  | Dirección URL única para asociar a esta oferta, que normalmente incluye la organización y el nombre de la solución. La longitud máxima es de 50 caracteres.   |
-| **Id. de suscripción de versión preliminar** | Agregue entre uno y 100 identificadores de suscripción de versión preliminar. Estas suscripciones permitidas tendrán acceso a la oferta una vez publicada, antes de su lanzamiento. |
+| **Identificadores de suscripción de versión preliminar\*** | Agregue entre uno y 100 identificadores de suscripción de versión preliminar. Estas suscripciones permitidas tendrán acceso a la oferta una vez publicada, antes de su lanzamiento. |
+|  |  |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

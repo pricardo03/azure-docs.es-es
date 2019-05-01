@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b89e9a48ce20c7c00bd3282623919b8066e34b25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803042"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717058"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -320,7 +320,7 @@ Sí. El Administrador de tráfico admite el sondeo a través de HTTPS. Configure
 Traffic Manager no puede proporcionar ninguna validación de certificado, incluidos:
 
 * No se validan certificados del servidor
-* No se admiten certificados del servidor de SNI
+* No se validan los certificados de servidor SNI
 * No se admiten certificados de cliente
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>¿Uso una dirección IP o un nombre DNS al agregar un punto de conexión?

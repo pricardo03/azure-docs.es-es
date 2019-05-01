@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfac577d7582caa5b538f05273a02e4c3baf71ff
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250089"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918456"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidad de Microsoft y el protocolo OpenID Connect
 
@@ -32,7 +32,7 @@ OpenID Connect es un protocolo de autenticación basado en OAuth 2.0 que se pued
 > [!NOTE]
 > El punto de conexión de plataforma de identidad de Microsoft no admite todas las características y escenarios de Azure Active Directory (Azure AD). Para determinar si debe utilizar el punto de conexión de plataforma de identidad de Microsoft, obtenga información sobre [limitaciones de la plataforma de identidad de Microsoft](active-directory-v2-limitations.md).
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) amplía el protocolo de *autorización* de OAuth 2.0 para usarlo como un protocolo de *autenticación*, lo que le permite realizar inicios de sesión únicos mediante OAuth. OpenID Connect presenta el concepto de un *token de identificador*, que es un token de seguridad que permite al cliente comprobar la identidad del usuario. El token de identificador también obtiene información de perfil básica sobre el usuario. Como OpenID Connect amplía OAuth 2.0, las aplicaciones pueden adquirir de forma segura *tokens de acceso*, que se pueden usar para obtener acceso a los recursos protegidos mediante un [servidor de autorización](active-directory-v2-protocols.md#the-basics). El punto de conexión de plataforma de identidad de Microsoft también permite que las aplicaciones de terceros que están registradas con Azure AD para emitir tokens de acceso para los recursos protegidos como las API Web. Para obtener más información acerca de cómo configurar una aplicación para emitir tokens de acceso, consulte [cómo registrar una aplicación con el punto de conexión de plataforma de identidad de Microsoft](quickstart-v2-register-an-app.md). Se recomienda usar OpenID Connect si compila una [aplicación web](v2-app-types.md#web-apps) hospedada en un servidor y a la que se obtiene acceso a través de un explorador.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) amplía el protocolo de *autorización* de OAuth 2.0 para usarlo como un protocolo de *autenticación*, lo que le permite realizar inicios de sesión únicos mediante OAuth. OpenID Connect presenta el concepto de un *token de identificador*, que es un token de seguridad que permite al cliente comprobar la identidad del usuario. El token de identificador también obtiene información de perfil básica sobre el usuario. Como OpenID Connect amplía OAuth 2.0, las aplicaciones pueden adquirir de forma segura *tokens de acceso*, que se pueden usar para obtener acceso a los recursos protegidos mediante un [servidor de autorización](active-directory-v2-protocols.md#the-basics). El punto de conexión de plataforma de identidad de Microsoft también permite que las aplicaciones de terceros que están registradas con Azure AD para emitir tokens de acceso para los recursos protegidos como las API Web. Para obtener más información acerca de cómo configurar una aplicación para emitir tokens de acceso, consulte [cómo registrar una aplicación con el punto de conexión de plataforma de identidad de Microsoft](quickstart-register-app.md). Se recomienda usar OpenID Connect si compila una [aplicación web](v2-app-types.md#web-apps) hospedada en un servidor y a la que se obtiene acceso a través de un explorador.
 
 ## <a name="protocol-diagram-sign-in"></a>Diagrama de protocolo: Inicio de sesión
 
@@ -52,7 +52,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 `{tenant}` puede tomar uno de estos cuatro valores:
 
-| Value | DESCRIPCIÓN |
+| Valor | DESCRIPCIÓN |
 | --- | --- |
 | `common` |Los usuarios con una cuenta Microsoft personal y una cuenta profesional o educativa de Azure AD pueden iniciar sesión la aplicación. |
 | `organizations` |Solo los usuarios con cuentas profesionales o educativas de Azure AD pueden iniciar sesión en la aplicación. |

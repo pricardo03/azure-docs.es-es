@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 00666e27c9251248aa6ecff75d88908baabf71f3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61360156"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919729"
 ---
 # <a name="pricing-and-associated-costs"></a>Precios y costos asociados
 
@@ -40,7 +40,7 @@ La ASC para IoT, modelo de precios está formado por dos partes y se factura una
   >[!Note]
   > Los mensajes de seguridad también cargará el consumo de cuota en IoT Hub.
 
-Para obtener más información, consulte [precios de Security Center](https://azure.microsoft.com/en-us/pricing/details/security-center/).
+Para obtener más información, consulte [precios de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Costos asociados
 
@@ -65,7 +65,7 @@ En la tabla siguiente proporciona un resumen de los costos asociados y las impli
 |     | Uso | Comentario |
 | --- | --- | --- |
 | **Consumo de cuota de IoT Hub** |  |
-| [Exportar dispositivos](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) trabajo (exportar gemelo) | Una vez al día | Deshabilitar _gemelas de la colección de metadatos_ |
+| [Exportar dispositivos](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) trabajo (exportar gemelo) | Una vez al día | Deshabilitar _gemelas de la colección de metadatos_ |
 | **Almacenamiento de log Analytics** |  |
 | Las alertas y la recomendación de dispositivo| Recomendación de seguridad y las alertas generadas por el servicio | No es opcional |
 | Datos sin procesar de seguridad| Datos de seguridad sin procesar de los dispositivos de IoT, recopilados por los agentes de seguridad | Deshabilitar _almacenar eventos de seguridad de dispositivo sin formato_ |

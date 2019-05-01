@@ -1,26 +1,19 @@
 ---
-title: SaaS realización API V1 - Azure Marketplace | Microsoft Docs
+title: SaaS realización API V1 | Azure Marketplace
 description: Explica cómo crear una oferta de SaaS en Azure Marketplace mediante la API V1 de entrega asociada.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 03/28/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 816bdc61f85fdf171870a5b552661b816ec65e2f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101105"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943135"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>Versión de API de SaaS realización 1 (en desuso)
 
@@ -92,10 +85,10 @@ Cuando se redirige a un usuario al sitio web del ISV, la dirección URL contiene
 
 | **Nombre de parámetro** | **Tipo de datos** | **Descripción**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | String        | Identificador de la suscripción de SaaS.          |
-| subscriptionName| String| Nombre de la suscripción de SaaS establecida por el usuario en Azure al suscribirse al servicio SaaS.|
-| OfferId            | String        | Identificador de la oferta a la que se ha suscrito el usuario. |
-| planId             | String        | Identificador del plan al que se ha suscrito el usuario.  |
+| id                 | string        | Identificador de la suscripción de SaaS.          |
+| subscriptionName| string| Nombre de la suscripción de SaaS establecida por el usuario en Azure al suscribirse al servicio SaaS.|
+| OfferId            | string        | Identificador de la oferta a la que se ha suscrito el usuario. |
+| planId             | string        | Identificador del plan al que se ha suscrito el usuario.  |
 |  |  |  |
 
 
@@ -338,9 +331,9 @@ Este punto de conexión permite el usuario realizar un seguimiento del estado de
 
 | **Nombre de parámetro** | **Tipo de datos** | **Descripción**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | String        | Identificador de la operación.                                                                      |
+| id                 | string        | Identificador de la operación.                                                                      |
 | status             | Enum          | Estado de la operación, uno de los siguientes: `In Progress`, `Succeeded` o `Failed`.          |
-| resourceLocation   | String        | Vínculo a la suscripción que se ha creado o modificado. Sirve de ayuda al cliente para obtener el estado actualizado de la operación POST. No se establece este valor para las operaciones `Unsubscribe`. |
+| resourceLocation   | string        | Vínculo a la suscripción que se ha creado o modificado. Sirve de ayuda al cliente para obtener el estado actualizado de la operación POST. No se establece este valor para las operaciones `Unsubscribe`. |
 | created            | DateTime      | Hora de creación de la operación en formato UTC.                                                           |
 | lastModified       | DateTime      | Última actualización de la operación en formato UTC.                                                      |
 |  |  |  |
@@ -408,10 +401,10 @@ La acción Get en el punto de conexión de suscripción permite a un usuario rec
 
 | **Nombre de parámetro**     | **Tipo de datos** | **Descripción**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | Identificador del recurso de la suscripción de SaaS en Azure.    |
-| offerId                | String        | Identificador de la oferta a la que se ha suscrito el usuario.         |
-| planId                 | String        | Identificador del plan al que se ha suscrito el usuario.          |
-| saasSubscriptionName   | String        | Nombre de la suscripción de SaaS.                |
+| id                     | string        | Identificador del recurso de la suscripción de SaaS en Azure.    |
+| offerId                | string        | Identificador de la oferta a la que se ha suscrito el usuario.         |
+| planId                 | string        | Identificador del plan al que se ha suscrito el usuario.          |
+| saasSubscriptionName   | string        | Nombre de la suscripción de SaaS.                |
 | saasSubscriptionStatus | Enum          | Estado de la operación.  Uno de los siguientes:  <br/> - `Subscribed`: la suscripción está activa.  <br/> - `Pending`: el usuario ha creado el recurso, pero no ha sido activado por el ISV.   <br/> - `Unsubscribed`: el usuario ha cancelado la suscripción.   <br/> - `Suspended`: el usuario ha suspendido la suscripción.   <br/> - `Deactivated`:  la suscripción de Azure está suspendida.  |
 | created                | DateTime      | Valor de la marca de tiempo de la creación de la suscripción en formato UTC. |
 | lastModified           | DateTime      | Valor de la marca de tiempo de la modificación de la suscripción en formato UTC. |
@@ -480,10 +473,10 @@ La acción Get en el punto de conexión de las suscripciones permite a un usuari
 
 | **Nombre de parámetro**     | **Tipo de datos** | **Descripción**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | Identificador del recurso de la suscripción de SaaS en Azure.    |
-| offerId                | String        | Identificador de la oferta a la que se ha suscrito el usuario.         |
-| planId                 | String        | Identificador del plan al que se ha suscrito el usuario.          |
-| saasSubscriptionName   | String        | Nombre de la suscripción de SaaS.                |
+| id                     | string        | Identificador del recurso de la suscripción de SaaS en Azure.    |
+| offerId                | string        | Identificador de la oferta a la que se ha suscrito el usuario.         |
+| planId                 | string        | Identificador del plan al que se ha suscrito el usuario.          |
+| saasSubscriptionName   | string        | Nombre de la suscripción de SaaS.                |
 | saasSubscriptionStatus | Enum          | Estado de la operación.  Uno de los siguientes:  <br/> - `Subscribed`: la suscripción está activa.  <br/> - `Pending`: el usuario ha creado el recurso, pero no ha sido activado por el ISV.   <br/> - `Unsubscribed`: el usuario ha cancelado la suscripción.   <br/> - `Suspended`: el usuario ha suspendido la suscripción.   <br/> - `Deactivated`:  la suscripción de Azure está suspendida.  |
 | created                | DateTime      | Valor de la marca de tiempo de la creación de la suscripción en formato UTC. |
 | lastModified           | DateTime      | Valor de la marca de tiempo de la modificación de la suscripción en formato UTC. |
@@ -530,14 +523,14 @@ Un webhook de SaaS se usa para notificar los cambios de forma proactiva al servi
 
 | **Nombre de parámetro**     | **Tipo de datos** | **Descripción**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | String       | Identificador único de la operación desencadenada.                |
-| activityId   | String        | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones.               |
-| subscriptionId                     | String        | Identificador del recurso de la suscripción de SaaS en Azure.    |
-| offerId                | String        | Identificador de la oferta a la que se ha suscrito el usuario. Se proporciona únicamente con la acción "Actualizar".        |
-| publisherId                | String        | Id. de publicador de la oferta de SaaS         |
-| planId                 | String        | Identificador del plan al que se ha suscrito el usuario. Se proporciona únicamente con la acción "Actualizar".          |
-| action                 | String        | La acción que desencadena esta notificación. Valores posibles: Activate, Delete, Suspend, Reinstate, Update          |
-| Marca de tiempo                 | String        | Valor de marca de tiempo en UTC cuando se desencadenó esta notificación.          |
+| id  | string       | Identificador único de la operación desencadenada.                |
+| activityId   | string        | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones.               |
+| subscriptionId                     | string        | Identificador del recurso de la suscripción de SaaS en Azure.    |
+| offerId                | string        | Identificador de la oferta a la que se ha suscrito el usuario. Se proporciona únicamente con la acción "Actualizar".        |
+| publisherId                | string        | Id. de publicador de la oferta de SaaS         |
+| planId                 | string        | Identificador del plan al que se ha suscrito el usuario. Se proporciona únicamente con la acción "Actualizar".          |
+| action                 | string        | La acción que desencadena esta notificación. Valores posibles: Activate, Delete, Suspend, Reinstate, Update          |
+| Marca de tiempo                 | string        | Valor de marca de tiempo en UTC cuando se desencadenó esta notificación.          |
 |  |  |  |
 
 

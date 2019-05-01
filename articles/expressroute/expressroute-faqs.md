@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3c8a068e2f68dcd53ad7ee6cdf3a1f39524c0fa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 17f596abda4febbd6e532adcb44d544cd4d104df
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367904"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924663"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -39,11 +39,11 @@ Para obtener más información sobre los precios, consulte [Información sobre e
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿la conexión VPN que adquiero de mi proveedor de servicios de red debe tener la misma velocidad?
 
- No. Puede adquirir una conexión VPN de cualquier velocidad de su proveedor de servicios. Sin embargo, la conexión a Azure se limitará al ancho de banda de circuito ExpressRoute que compre.
+No. Puede adquirir una conexión VPN de cualquier velocidad de su proveedor de servicios. Sin embargo, la conexión a Azure se limitará al ancho de banda de circuito ExpressRoute que compre.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿puedo aumentar la velocidad si quiero?
 
-Sí. Los circuitos ExpressRoute están configurados para aumentar hasta dos veces el límite de ancho de banda adquirido sin coste adicional. Consulte con su proveedor de servicios para ver si son compatibles con esta capacidad.
+Sí. Los circuitos ExpressRoute están configurados para aumentar hasta dos veces el límite de ancho de banda adquirido sin coste adicional. Consulte con su proveedor de servicios para ver si son compatibles con esta capacidad. Esto no es para un período de tiempo prolongado y no está garantizado. 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>¿Es posible usar la misma conexión de red privada con Red virtual y otros servicios de Azure simultáneamente?
 
@@ -119,11 +119,11 @@ No perderá conectividad si se produce un error en una de las conexiones cruzada
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>¿Cómo se puede implementar redundancia en el emparejamiento privado?
 
-Varios circuitos ExpressRoute desde distintas ubicaciones de emparejamiento pueden estar conectados a la misma red virtual para proporcionar alta disponibilidad en el caso de que un único circuito deja de estar disponible. A continuación, puede [asignar mayor peso](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) a la conexión local que se va a favorecer preferir un circuito concreto. Se recomienda encarecidamente que los clientes configuración al menos dos circuitos de ExpressRoute para evitar puntos únicos de error. 
+Varios circuitos ExpressRoute desde distintas ubicaciones de emparejamiento pueden estar conectados a la misma red virtual para proporcionar alta disponibilidad en el caso de que un único circuito deja de estar disponible. A continuación, puede [asignar mayor peso](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) a la conexión local que se va a favorecer preferir un circuito concreto. Se recomienda encarecidamente que los clientes configuración al menos dos circuitos de ExpressRoute para evitar puntos únicos de error. 
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>¿Cómo implementar redundancia en el emparejamiento de Microsoft?
 
-Se recomienda cuando los clientes usan el emparejamiento de Microsoft para obtener acceso a los servicios públicos de Azure como Azure Storage o SQL Azure, así como los clientes que usan el emparejamiento de Microsoft para Office 365 que implementen varios circuitos de emparejamiento diferente ubicaciones para evitar puntos únicos de faiure. Los clientes pueden anunciar el prefijo del mismo en ambos circuitos y usar [anteposición de AS PATH](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) o anunciar prefijos diferentes para determinar la ruta de acceso local.
+Se recomienda cuando los clientes usan el emparejamiento de Microsoft para obtener acceso a los servicios públicos de Azure como Azure Storage o SQL Azure, así como los clientes que usan el emparejamiento de Microsoft para Office 365 que implementen varios circuitos de emparejamiento diferente ubicaciones para evitar puntos únicos de faiure. Los clientes pueden anunciar el prefijo del mismo en ambos circuitos y usar [anteposición de AS PATH](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) o anunciar prefijos diferentes para determinar la ruta de acceso local.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>¿Cómo garantizo la alta disponibilidad en una red virtual conectada a ExpressRoute?
 
@@ -137,7 +137,7 @@ Si su proveedor de servicios puede establecer dos circuitos virtuales de Etherne
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>¿Puedo extender una de mis VLAN a Azure mediante ExpressRoute?
 
- No. No admitimos ampliaciones de conectividad de la capa 2 en Azure.
+No. No admitimos ampliaciones de conectividad de la capa 2 en Azure.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>¿Se puede disponer de más de un circuito ExpressRoute en mi suscripción?
 
@@ -186,7 +186,7 @@ Para obtener más información, vea [Uso compartido de un circuito ExpressRoute 
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>¿Las redes virtuales se conectan al mismo circuito aislado entre sí?
 
- No. Todas las redes virtuales vinculadas al mismo circuito ExpressRoute forman parte del mismo dominio de enrutamiento y no están aisladas entre sí desde una perspectiva de enrutamiento. Si necesita aislamiento de rutas, deberá crear un circuito ExpressRoute independiente.
+No. Todas las redes virtuales vinculadas al mismo circuito ExpressRoute forman parte del mismo dominio de enrutamiento y no están aisladas entre sí desde una perspectiva de enrutamiento. Si necesita aislamiento de rutas, deberá crear un circuito ExpressRoute independiente.
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>¿Se puede conectar una red virtual a más de un circuito ExpressRoute?
 
@@ -274,7 +274,7 @@ Puede deshabilitar ExpressRoute Premium si llama a la API de REST o al cmdlet de
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>¿Puedo elegir y seleccionar las características que quiero del conjunto de características Premium?
 
- No. No puede seleccionar las características. Habilitaremos todas las características cuando active ExpressRoute Premium.
+No. No puede seleccionar las características. Habilitaremos todas las características cuando active ExpressRoute Premium.
 
 ### <a name="how-much-does-expressroute-premium-cost"></a>¿Cuánto cuesta ExpressRoute Premium?
 

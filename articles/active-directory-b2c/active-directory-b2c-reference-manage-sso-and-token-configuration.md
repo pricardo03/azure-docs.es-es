@@ -3,20 +3,19 @@ title: Administración de SSO y personalización de tokens con directivas person
 description: Aprenda cómo administrar SSO y personalizar tokens con directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 10/09/2018
-ms.date: 04/01/2019
-ms.author: v-junlch
+ms.date: 10/09/2018
+ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2033d37a4a847380003fb95243138082df804bbf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317180"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703377"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Administración de SSO y personalización de tokens con directivas personalizadas en Azure Active Directory B2C
 
@@ -24,7 +23,11 @@ Este artículo proporciona información acerca de cómo puede administrar las co
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>Configuración de notificaciones y duración del token
 
-Para cambiar la configuración de la duración del token, debe agregar un elemento [ClaimsProviders](claimsproviders.md) en el archivo de usuario de confianza de la directiva que quiere modificar.  **ClaimsProviders** es un elemento secundario del elemento [TrustFrameworkPolicy](trustframeworkpolicy.md). En el parámetro, deberá colocar la información que afecta a la duración del token. El XML es similar al de este ejemplo:
+Para cambiar la configuración de la duración del token, debe agregar un elemento [ClaimsProviders](claimsproviders.md) en el archivo de usuario de confianza de la directiva que quiere modificar.  **ClaimsProviders** es un elemento secundario del elemento [TrustFrameworkPolicy](trustframeworkpolicy.md). 
+
+Insertar el elemento ClaimsProviders entre el elemento BasePolicy y el elemento RelyingParty del archivo de usuario de confianza.
+
+En el parámetro, deberá colocar la información que afecta a la duración del token. El XML es similar al de este ejemplo:
 
 ```XML
 <ClaimsProviders>
@@ -101,4 +104,3 @@ Los valores siguientes se configuran en el ejemplo anterior:
 - **Single sign on (SSO)**: el inicio de sesión único se configura con **SingleSignOn**. Los valores aplicables son `Tenant`, `Application`, `Policy` y `Suppressed`. 
 - **Duración de la sesión de la aplicación web (minutos)**: el valor se establece con el elemento **SessionExpiryInSeconds**. El valor predeterminado es 86 400 segundos (1440 minutos).
 - **Tiempo de espera de la sesión de la aplicación web**: el valor se establece con el elemento **SessionExpiryType**. Los valores aplicables son `Absolute` y `Rolling`.
-

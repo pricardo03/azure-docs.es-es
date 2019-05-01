@@ -1,89 +1,77 @@
 ---
-title: Administración de un servidor de procesos para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery | Microsoft Docs
-description: En este artículo se describe la administración de un servidor de procesos configurado para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery.
+title: Administrar un servidor de procesos utilizado para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery | Microsoft Docs
+description: Este artículo se describe la administración de un servidor de procesos configurado para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure con Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: 0a0b6c83f800c0a479ba7a16c91b497d1a11da9e
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.openlocfilehash: 2c27779719c73adf4d7fc1a61a0c77d03df71815
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62732492"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925596"
 ---
 # <a name="manage-process-servers"></a>Administración de servidores de proceso
 
-De forma predeterminada, el servidor de procesos utilizado al replicar máquinas virtuales de VMware o servidores físicos en Azure se instala en el equipo del servidor de configuración local. Existen un par de casos en los que es necesario configurar un servidor de procesos independiente:
+En este artículo se describe tareas comunes para administrar el servidor de procesos de Site Recovery.
+
+El servidor de procesos se usa para recibir, optimizar y enviar datos de replicación en Azure. También realiza una instalación de inserción de Mobility service en máquinas virtuales de VMware y servidores físicos que desea replicar, y realiza la detección automática de máquinas locales. Para replicar máquinas virtuales de VMware locales o servidores físicos en Azure, el servidor de procesos se instala de forma predeterminada en la máquina del servidor de configuración. 
 
 - Para implementaciones de gran tamaño, es posible que necesite servidores de procesos locales adicionales para escalar la capacidad.
-- Para conmutación por recuperación, necesitará un servidor de procesos temporal configurado en Azure. Esta máquina virtual se puede eliminar cuando finalice la conmutación por recuperación. 
+- La conmutación por recuperación desde Azure a local, debe configurar un servidor de procesos temporal en Azure. Esta máquina virtual se puede eliminar cuando finalice la conmutación por recuperación. 
 
-En este artículo se resumen las tareas de administración habituales para estos servidores de procesos adicionales.
+Más información sobre el servidor de procesos.
+
 
 ## <a name="upgrade-a-process-server"></a>Actualizar un servidor de procesos
 
-Un servidor de procesos que se ejecuta de forma local o en Azure (para fines de conmutación por recuperación) se actualiza como se indica a continuación:
+Al implementar un servidor de procesos de forma local o como una máquina virtual de Azure para la conmutación por recuperación, se instala la versión más reciente del servidor de proceso. Los equipos de Site Recovery publican periódicamente correcciones y mejoras y se recomienda mantener actualizados los servidores de procesos. Puede actualizar un servidor de procesos como sigue:
 
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
 
-> [!NOTE]
->   Normalmente, al usar la imagen de la galería de Azure para crear un servidor de procesos en Azure para fines de conmutación por recuperación, se estará utilizando la versión más reciente disponible. Los equipos de Site Recovery publican periódicamente correcciones y mejoras y se recomienda mantener actualizados los servidores de procesos.
 
-## <a name="balance-the-load-on-process-server"></a>Equilibrar la carga en el servidor de procesos
+## <a name="move-vms-to-balance-the-process-server-load"></a>Mover las máquinas virtuales para equilibrar la carga del servidor de proceso
 
-Para equilibrar la carga entre dos servidores de procesos:
+Equilibrar la carga moviendo las máquinas virtuales entre dos servidores de procesos, como sigue:
 
-1. Navegue a **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **For VMware & Physical machines** > **Configuration Servers** (Almacén de Recovery Services > Administrar > Infraestructura de Site Recovery > Para VMWare y máquinas físicas > Servidores de configuración).
-2. Haga clic en el servidor de configuración en el que están registrados los servidores de procesos.
-3. Lista de los servidores de procesos registrados en los servidores de configuración disponibles en la página.
-4. Haga clic en el servidor de procesos en el que quiere modificar la carga de trabajo.
+1. En el almacén, en **administrar** haga clic en **infraestructura de Site Recovery**. En **For VMware & Physical machines**, haga clic en **servidores de configuración**.
+2. Haga clic en el servidor de configuración con la que se registran los servidores de procesos.
+3. Haga clic en el servidor de procesos para el que desea equilibrar la carga.
 
     ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
 
-5. Puede usar las opciones **Load Balance** (Equilibrar la carga) o **Switch** (Cambiar), tal como se explica a continuación, según los requisitos.
-
-### <a name="load-balance"></a>Equilibrador de carga
-
-A través de esta opción, puede seleccionar una o más máquinas virtuales y transferirlas a otro servidor de procesos.
-
-1. Haga clic en **Load Balance** (Equilibrar la carga), y seleccione el servidor de procesos de destino en la lista desplegable. Haga clic en **Aceptar**
+4. Haga clic en **equilibrar la carga**, seleccione el servidor de procesos de destino al que desea mover las máquinas. A continuación, haga clic en **Aceptar**
 
     ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
-2. Haga clic en **Seleccionar máquinas**, y elija las máquinas virtuales que quiere mover desde el servidor de procesos actual para el servidor de procesos de destino. Los detalles del cambio promedio de datos se muestran en cada máquina virtual.
-3. Haga clic en **OK**. Supervise el progreso del trabajo en **Almacén de Recovery Services** > **Supervisión** > **Trabajos de Site Recovery**.
-4. Los cambios tardan 15 minutos en reflejarse después de que finalice correctamente esta operación o también puede [actualizar el servidor de configuración](vmware-azure-manage-configuration-server.md#refresh-configuration-server) para un efecto inmediato.
+2. Haga clic en **seleccionar máquinas**y elija las máquinas que desee mover desde la actual al servidor de procesos de destino. Los detalles del cambio promedio de datos se muestran en cada máquina virtual. A continuación, haga clic en **Aceptar**. 
+3. En el almacén, supervisar el progreso del trabajo en **supervisión** > **trabajos de Site Recovery**.
 
-### <a name="switch"></a>Switch
+Se tardará unos 15 minutos para que los cambios se reflejan en el portal. Para obtener un efecto más rápido, [actualizar el servidor de configuración](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
-A través de esta opción, toda la carga de trabajo protegida en un servidor de procesos se traslada a un servidor de procesos diferente.
+## <a name="switch-an-entire-workload-to-another-process-server"></a>Cambie una carga de trabajo completo a otro servidor de procesos
 
-1. Haga clic en **Switch** (Cambiar), seleccione el servidor de procesos de destino y haga clic en **Aceptar**.
+Mover toda la carga de trabajo controlado por un servidor de proceso a un servidor de procesos diferentes, como se indica a continuación:
+
+1. En el almacén, en **administrar** haga clic en **infraestructura de Site Recovery**. En **For VMware & Physical machines**, haga clic en **servidores de configuración**.
+2. Haga clic en el servidor de configuración con la que se registran los servidores de procesos.
+3. Haga clic en el servidor de procesos desde el que desea cambiar la carga de trabajo.
+4. Haga clic en **conmutador**, seleccione el servidor de procesos de destino al que desea mover la carga de trabajo. A continuación, haga clic en **Aceptar**
 
     ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
 
-2. Supervise el progreso del trabajo en **Almacén de Recovery Services** > **Supervisión** > **Trabajos de Site Recovery**.
-3. Los cambios tardan 15 minutos en reflejarse después de que finalice correctamente esta operación o también puede [actualizar el servidor de configuración](vmware-azure-manage-configuration-server.md#refresh-configuration-server) para un efecto inmediato.
+5. En el almacén, supervisar el progreso del trabajo en **supervisión** > **trabajos de Site Recovery**.
 
-## <a name="process-server-selection-guidance"></a>Guía de selección de servidor de procesos
+Se tardará unos 15 minutos para que los cambios se reflejan en el portal. Para obtener un efecto más rápido, [actualizar el servidor de configuración](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
-Azure Site Recovery identifica automáticamente si el servidor de procesos se está aproximando a sus límites de uso. Se proporciona orientación al servidor de procesos que pueda configurar una implementación escalada.
 
-|Estado de mantenimiento  |Explicación  | Disponibilidad de recursos  | Recomendación|
-|---------|---------|---------|---------|
-| Correcto (verde)    |   Servidor de procesos está conectado y que es correcto      |Uso de CPU y memoria es inferior al 80%; Disponibilidad de espacio disponible es superior al 30%| Este servidor de procesos puede usarse para proteger servidores adicionales. Asegúrese de que la nueva carga de trabajo está dentro de la [define los límites de servidor de proceso](vmware-azure-set-up-process-server-scale.md#sizing-requirements).
-|Advertencia (naranja)    |   Servidor de procesos está conectado pero determinados recursos están a punto de alcanzar los límites máximos  |   Uso de CPU y memoria está entre 80-95%; Disponibilidad de espacio libre es entre 25-30%       | Uso del servidor de procesos está cerca de los valores de umbral. Agregar nuevos servidores al mismo servidor de procesos dará lugar a cruzar los valores de umbral y puede afectar a los elementos protegidos existentes. Se recomienda [configurar un servidor de procesos de escalado horizontal](vmware-azure-set-up-process-server-scale.md#before-you-start) para replicaciones de nuevo.
-|Advertencia (naranja)   |   Servidor de procesos está conectado pero no se cargan datos en Azure en los últimos 30 minutos  |   Uso de recursos es dentro de los límites de umbral       | Solución de problemas de [errores de carga de datos](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) antes de agregar nuevas cargas de trabajo **o** [configurar un servidor de procesos de escalado horizontal](vmware-azure-set-up-process-server-scale.md#before-you-start) para replicaciones de nuevo.
-|Crítico (rojo)    |     Servidor de procesos puede estar desconectado.  |  Uso de recursos es dentro de los límites de umbral      | Solución de problemas de [procesar problemas de conectividad de servidor](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) o [configurar un servidor de procesos de escalado horizontal](vmware-azure-set-up-process-server-scale.md#before-you-start) para replicaciones de nuevo.
-|Crítico (rojo)    |     Utilización de recursos ha superado los límites del umbral |  Uso de CPU y memoria es superior al 95%; Disponibilidad de espacio disponible es inferior a 25%.   | Adición de nuevas cargas de trabajo al mismo servidor de procesos está deshabilitado como ya se cumplan los límites de umbral de recursos. Por lo tanto, [configurar un servidor de procesos de escalado horizontal](vmware-azure-set-up-process-server-scale.md#before-you-start) para replicaciones de nuevo.
-Crítico (rojo)    |     No se cargan datos en Azure en los últimos 45 minutos. |  Uso de recursos es dentro de los límites de umbral      | Solución de problemas de [errores de carga de datos](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) antes de agregar nuevas cargas de trabajo al mismo servidor de procesos o [configurar un servidor de procesos de escalado horizontal](vmware-azure-set-up-process-server-scale.md#before-you-start)
 
 ## <a name="reregister-a-process-server"></a>Volver a registrar un servidor de procesos
 
-Si necesita volver a registrar un servidor de procesos que se ejecute de forma local o en Azure con el servidor de configuración, haga lo siguiente:
+Vuelva a registrar un servidor de procesos que se ejecutan en local o en una máquina virtual de Azure con el servidor de configuración como sigue:
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
 
@@ -100,9 +88,9 @@ Después de guardar la configuración, haga lo siguiente:
 
 ## <a name="modify-proxy-settings-for-an-on-premises-process-server"></a>Modificar la configuración de proxy para un servidor de procesos local
 
-Si el servidor de procesos usa un proxy para conectarse a Site Recovery en Azure, utilice este procedimiento si necesita modificar la configuración de proxy existente.
+Si un servidor de procesos local usa a un proxy para conectarse a Azure, puede modificar la configuración de proxy como sigue:
 
-1. Inicie sesión en el equipo del servidor de procesos. 
+1. Inicie sesión en la máquina del servidor de procesos. 
 2. Abra la ventana de comandos de administrador de PowerShell y ejecute el comando siguiente:
    ```powershell
    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -110,7 +98,7 @@ Si el servidor de procesos usa un proxy para conectarse a Site Recovery en Azure
    net stop obengine
    net start obengine
    ```
-2. Vaya a la carpeta **%PROGRAMDATA%\ASR\Agent** y ejecute el siguiente comando:
+2. Vaya a la carpeta **%PROGRAMDATA%\ASR\Agent**, y ejecute este comando:
    ```
    cmd
    cdpcli.exe --registermt
@@ -126,9 +114,9 @@ Si el servidor de procesos usa un proxy para conectarse a Site Recovery en Azure
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
-## <a name="manage-anti-virus-software-on-process-servers"></a>Administración de software antivirus en servidores de procesos
+## <a name="exclude-folders-from-anti-virus-software"></a>Excluir carpetas del software antivirus
 
-Si hay un software antivirus activo en un servidor de destino maestro o en un servidor de procesos independiente, excluya las siguientes carpetas de las operaciones del programa antivirus:
+Si el software antivirus se está ejecutando en un servidor de procesos de escalado horizontal (o el servidor de destino maestro), excluir las siguientes carpetas de las operaciones de antivirus:
 
 
 - C:\Archivos de programa\Microsoft Azure Recovery Services Agent
@@ -137,4 +125,4 @@ Si hay un software antivirus activo en un servidor de destino maestro o en un se
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
-- El directorio de instalación del servidor del proceso; por ejemplo: C:\Archivos de programa (x86)\Microsoft Azure Site Recovery
+- Directorio de instalación del servidor de proceso. Por ejemplo:  C:\Program Files (x86)\Microsoft Azure Site Recovery

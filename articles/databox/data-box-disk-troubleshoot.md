@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 04/2/2019
 ms.author: alkohli
-ms.openlocfilehash: ed6d567be255fe9b72be564c31d734541a1ffa73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564941"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939638"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Solución de problemas de Azure Data Box Disk
 
@@ -54,12 +54,12 @@ Para navegar a la ruta de acceso del registro de copia, vaya a la cuenta de alma
 Use los registros de actividad para encontrar errores al solucionar problemas o para supervisar cómo un usuario de su organización modificó un recurso. Mediante los registros de actividad, puede determinar:
 
 - Qué operaciones se realizaron en los recursos de la suscripción.
-- La persona que inicia la operación. 
+- La persona que inicia la operación.
 - Cuándo tuvo lugar la operación.
 - Estado de la operación.
 - Los valores de otras propiedades que podrían ayudarle en la investigación de la operación.
 
-El registro de actividad contiene todas las operaciones de escritura (por ejemplo, PUT, POST, DELETE) realizadas en los recursos, pero no las operaciones de lectura (por ejemplo, GET). 
+El registro de actividad contiene todas las operaciones de escritura (por ejemplo, PUT, POST, DELETE) realizadas en los recursos, pero no las operaciones de lectura (por ejemplo, GET).
 
 Los registros de actividad se conservan 90 días. Puede consultar cualquier intervalo de fechas, siempre que no hayan transcurrido más de 90 días desde la fecha inicial. También puede filtrar por una de las consultas integradas en Insights. Por ejemplo, haga clic en el error y, luego, seleccione y haga clic en los errores específicos para entender la causa.
 
@@ -79,7 +79,7 @@ Los registros de actividad se conservan 90 días. Puede consultar cualquier inte
 
 |Mensaje de error o advertencias  |Recomendaciones |
 |---------|---------|
-|[Información] Recuperación de contraseña de BitLocker del volumen: m <br>[Error] Excepción detectada al recuperar la clave de BitLocker para el volumen m:<br> La secuencia no contiene elementos.|Este error se produce si el disco de Data Box Disk de destino está sin conexión. <br> Use la herramienta `diskmgmt.msc` en discos en línea.|
+|[Info] Recuperación de contraseña de BitLocker para el volumen: m <br>[Error] Excepción detectada al recuperar la clave de BitLocker para volúmenes m:<br> La secuencia no contiene elementos.|Este error se produce si el disco de Data Box Disk de destino está sin conexión. <br> Use la herramienta `diskmgmt.msc` en discos en línea.|
 |[Error] Se produjo una excepción: no se pudo realizar la operación WMI:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=El formato de la contraseña de recuperación que se proporciona no es válida. <br>Las contraseñas de recuperación de BitLocker son 48 dígitos. <br>Compruebe que la contraseña de recuperación tiene el formato correcto e inténtelo de nuevo.|Utilice la herramienta Data Box Disk Unlock para desbloquear por primera vez los discos y vuelva a intentar el comando. Para más información, vaya a: <li> [Desbloqueo de Data Box Disk en clientes Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Desbloqueo de Data Box Disk en clientes Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
 |[Error] Excepción producida: existe un archivo DriveManifest.xml en la unidad de destino. <br> Esto indica que la unidad de destino se puede haber preparado con otro archivo de diario. <br>Para agregar más datos a la misma unidad, use el archivo de diario anterior. Para eliminar los datos existentes y volver a usar la unidad de destino para un nuevo trabajo de importación, elimine DriveManifest.xml de la unidad. Vuelva a ejecutar este comando con un nuevo archivo de diario.| Este error se recibe al intentar utilizar el mismo conjunto de unidades para varias sesiones de importación. <br> Use un conjunto de unidades solo para una sesión de división y copia.|
 |[Error] Excepción producida: CopySessionId importdata-septiembre-test-1 hace referencia a una sesión de copia anterior y no se puede reutilizar para una nueva sesión de copia.|Este error se notifica al intentar usar el mismo nombre para un nuevo trabajo como un trabajo anterior completado correctamente.<br> Asigne un nombre exclusivo para el trabajo nuevo.|
@@ -96,7 +96,7 @@ En esta sección se detallan algunos de los principales problemas que se enfrent
 
 Puede deberse a un sistema de archivos no limpio. 
 
-Volver a montar una unidad como de lectura y escritura no funciona con Data Box Disk. Este escenario no es compatible con las unidades descifradas por dislocker. Es posible que haya vuelto a montar correctamente el dispositivo con el comando siguiente: 
+Volver a montar una unidad como de lectura y escritura no funciona con Data Box Disk. Este escenario no es compatible con las unidades descifradas por dislocker. Es posible que haya vuelto a montar correctamente el dispositivo con el comando siguiente:
 
     `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
@@ -104,15 +104,37 @@ Si bien el nuevo montaje se completó correctamente, los datos no se conservará
 
 **Resolución**
 
-Si se encuentra con el error anterior, podría probar con una de las resoluciones siguientes:
+Realice los pasos siguientes en el sistema de Linux:
 
-- Instale [`ntfsfix`](https://linux.die.net/man/8/ntfsfix) (disponible en el paquete `ntfsprogs`) y ejecútelo en la partición pertinente.
+1. Instalar el `ntfsprogs` paquete para la utilidad ntfsfix.
+2. Desmonte los puntos de montaje proporcionados para la unidad por la herramienta de desbloqueo. El número de puntos de montaje variarán para las unidades.
 
-- Si tiene acceso a un sistema Windows
+    ```
+    unmount /mnt/DataBoxDisk/mountVol1
+    ```
 
-    - Cargue la unidad en el sistema Windows.
-    - Abra un símbolo del sistema con privilegio de administración. Ejecute `chkdsk` en el volumen.
-    - Quite de manera segura el volumen y vuelva a intentarlo.
+3. Ejecute `ntfsfix` en la ruta de acceso correspondiente. El número resaltado debe ser igual que el paso 2.
+
+    ```
+    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
+    ```
+
+4. Ejecute el siguiente comando para quitar los metadatos de hibernación que pueden producir el error de montaje.
+
+    ```
+    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
+    ```
+
+5. Hacer una limpieza desmontar.
+
+    ```
+    ./DataBoxDiskUnlock_x86_64 /unmount
+    ```
+
+6. Hacer un desbloqueo limpia y montar.
+7. Probar el punto de montaje escribiendo un archivo.
+8. Desmonte y vuelva a montar para validar la persistencia de archivo.
+9. Continúe con la copia de datos.
  
 ### <a name="issue-error-with-data-not-persisting-after-copy"></a>Problema: error con datos que no se conservan después de la copia
  

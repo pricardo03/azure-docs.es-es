@@ -1,25 +1,18 @@
 ---
-title: 'Creación de recursos técnicos para una oferta de la aplicación Power BI: Azure Marketplace | Microsoft Docs'
+title: Crear recursos técnicos para una oferta de aplicación de Power BI | Azure Marketplace
 description: Lista de recursos técnicos necesarios para publicar una oferta de la aplicación Power BI en Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pbutlerm
-ms.openlocfilehash: f3d6466ced6efdb4047f9531329b70477911bf21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 7736dcb892d829fc0e3af4bc87f1e6d80a3fa6cb
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729171"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943073"
 ---
 # <a name="create-power-bi-app-offer-technical-assets"></a>Creación de los recursos técnicos de la oferta de aplicación de Power BI
 

@@ -1,28 +1,20 @@
 ---
-title: Cancel operation API | Microsoft Docs
+title: Cancelar la operación de API | Azure Marketplace
 description: Cancele las operaciones.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 18f00391beded0744c80eab73bb1efe1c6ab8dbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625047"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935564"
 ---
-<a name="cancel-operation"></a>Cancelar operación 
-=================
+# <a name="cancel-operation"></a>Cancelar operación 
 
 Esta API cancela una operación en curso en la oferta. Use [Retrieve operations API](./cloud-partner-portal-api-retrieve-operations.md) para obtener `operationId` para pasar a esta API. La cancelación suele ser una operación sincrónica pero, en algunos escenarios complejos, es posible que se necesite una operación nueva para cancelar una existente. En este caso, el cuerpo de la respuesta HTTP contiene la ubicación de la operación que se debe usar para consultar el estado.
 
@@ -35,8 +27,8 @@ Puede proporcionar una lista de direcciones de correo electrónico delimitadas p
 
 |  **Nombre**    |      **Descripción**                                  |    **Tipo de datos**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identificador del editor, por ejemplo, `contoso`         |   String          |
-| offerId      |  Identificador de la oferta.                                     |   String          |
+| publisherId  |  Identificador del editor, por ejemplo, `contoso`         |   string          |
+| offerId      |  Identificador de la oferta.                                     |   string          |
 | api-version  |  Versión actual de la API                               |    Date           |
 |  |  |  |
 

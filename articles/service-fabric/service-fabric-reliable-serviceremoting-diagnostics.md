@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: e4c698dc5aa8a07d09835adeac39db6ee35f720c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 01430c40ec9fcf1af3a463f8f86d646d15b6dd49
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123185"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925936"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Supervisión de diagnósticos y rendimiento de Reliable ServiceRemoting
 El entorno de tiempo de ejecución de Reliable ServiceRemoting emite [contadores de rendimiento](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estos ofrecen información sobre cómo está funcionando Reliable ServiceRemoting y le ayudarán con la solución de problemas y la supervisión de rendimiento.
@@ -28,7 +28,7 @@ El entorno de tiempo de ejecución de Reliable ServiceRemoting emite [contadores
 ## <a name="performance-counters"></a>contadores de rendimiento
 El entorno de tiempo de ejecución de Reliable ServiceRemoting define las siguientes categorías de contador de rendimiento:
 
-| Categoría | DESCRIPCIÓN |
+| Category | DESCRIPCIÓN |
 | --- | --- |
 | Servicio de Service Fabric |Contadores específicos para la comunicación remota de servicios de Azure Service Fabric como, por ejemplo, el promedio de tiempo empleado en procesar la solicitud |
 | Método del servicio Service Fabric |Contadores específicos de los métodos que implementan los servicios de comunicación remota de Service Fabric. Por ejemplo, la frecuencia con que se invoca un método de servicio. |
@@ -100,5 +100,5 @@ Cuando un cliente invoca un método a través de un objeto de proxy de servicio,
 | Servicio de Service Fabric |Promedio de milisegundos para la deserialización de una respuesta |Tiempo necesario (en milisegundos) para serializar el mensaje de respuesta de servicio en el servicio antes de que la respuesta se envíe al cliente |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Código de ejemplo](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric&sort=0)
+* [Código de ejemplo](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [Proveedores de EventSource en PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

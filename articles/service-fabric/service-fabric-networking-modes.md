@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 6f14b3184cabd1dfd84f04260f6b8c831037cbcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718162"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926127"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de redes de contenedor de Service Fabric
 
@@ -30,7 +30,7 @@ Si tiene un servicio de contenedor con un punto de conexión estático en el man
 Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster, la dirección IP cambia. Por esta razón, no se recomienda usar la dirección IP asignada dinámicamente para detectar servicios de contenedor. Solo se debe usar para ello el servicio de nombres de Service Fabric o el servicio DNS. 
 
 >[!WARNING]
->Azure permite un total de direcciones IP 65.356 por red virtual. La suma del número de nodos y el número de instancias de servicio de contenedor (que usan el modo abierto) no puede superar 65.356 las direcciones IP dentro de una red virtual. En escenarios de alta densidad, se recomienda el modo de red nat. Además, otras dependencias, como el equilibrador de carga tendrá otra [limitaciones](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) a tener en cuenta. Actualmente hasta 50 direcciones IP a cada nodo se han probado y demostrar que es estable. 
+>Azure permite un total de direcciones IP 65.356 por red virtual. La suma del número de nodos y el número de instancias de servicio de contenedor (que usan el modo abierto) no puede superar 65.356 las direcciones IP dentro de una red virtual. En escenarios de alta densidad, se recomienda el modo de red nat. Además, otras dependencias, como el equilibrador de carga tendrá otra [limitaciones](https://docs.microsoft.com/azure/azure-subscription-service-limits) a tener en cuenta. Actualmente hasta 50 direcciones IP a cada nodo se han probado y demostrar que es estable. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configuración del modo de red abierto

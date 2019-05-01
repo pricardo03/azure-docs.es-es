@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60186840"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919306"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -78,7 +78,7 @@ También puede probar el [Solucionador de los problemas de emparejamiento de red
 ## <a name="requirements-and-constraints"></a>Requisitos y restricciones
 
 Cuando las redes virtuales están emparejadas globalmente, se aplican las siguientes restricciones:
-- Los recursos en una red virtual no pueden comunicarse con la dirección IP front-end de un equilibrador de carga interno básico en una red virtual emparejada globalmente. Compatibilidad con Load Balancer básico solo existe en la misma región. Compatibilidad con Load Balancer estándar existe para el emparejamiento de VNet Global.
+- Los recursos en una red virtual no pueden comunicarse con la dirección IP front-end de un equilibrador de carga interno básico en una red virtual emparejada globalmente. Compatibilidad con Load Balancer básico solo existe en la misma región. Compatibilidad con Load Balancer estándar existe para, el emparejamiento de VNet y emparejamiento de VNet Global. Servicios que usan un equilibrador de carga básico que no funcionará a través de emparejamiento de VNet Global se documentan [aquí.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
 Para más información acerca de los requisitos y restricciones, consulte [Requisitos y restricciones del emparejamiento de redes virtuales](virtual-network-manage-peering.md#requirements-and-constraints). Para más información acerca de los límites para el número de emparejamientos que puede crear para una red virtual, consulte [Límites de red de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 

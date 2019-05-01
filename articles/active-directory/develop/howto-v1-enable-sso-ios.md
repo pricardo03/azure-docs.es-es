@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299624"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917214"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedimientos para: Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL
 
@@ -44,7 +44,7 @@ Esta guía se aplica a:
 
 En esta guía se supone que sabe cómo:
 
-* Aprovisionar la aplicación mediante el portal heredado para Azure AD. Para más información, consulte [Registro de una aplicación con el punto de conexión v1.0 de Azure AD](quickstart-v1-add-azure-ad-app.md).
+* Aprovisionar la aplicación mediante el portal heredado para Azure AD. Para obtener más información, consulte [registrar una aplicación](quickstart-register-app.md)
 * Integrar la aplicación con el [SDK iOS de Azure AD](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## <a name="single-sign-on-concepts"></a>Conceptos relativos al inicio de sesión único

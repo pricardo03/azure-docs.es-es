@@ -1,25 +1,18 @@
 ---
-title: Cómo rellenar el formulario de detalles del escaparate electrónico | Microsoft Docs
+title: Cómo rellenar el formulario de detalles del escaparate electrónico
 description: Aquí se explican los valores del formulario de detalles del escaparate electrónico correspondiente a una nueva aplicación de Dynamics 365 Business Central.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397964"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935024"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Cómo rellenar el formulario de detalles del escaparate electrónico
 ===========================================
@@ -57,9 +50,9 @@ Debe tener un vínculo de ayuda activo que permita a los clientes acceder a la a
 
 ### <a name="supported-countriesregions"></a>Países y regiones admitidos
 
-En este campo se determinan las regiones en las que estará disponible la versión de prueba. Solo puede elegir los países donde Microsoft Dynamics 365 Business Central ya esté disponible o se encuentre en versión preliminar. Para obtener la lista actual, consulte [Countries and Translations Supported](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations) (Países y traducciones admitidos).
+En este campo se determinan las regiones en las que estará disponible la versión de prueba. Solo puede elegir los países o regiones donde Microsoft Dynamics 365 Business Central ya está disponible o en versión preliminar. Para obtener la lista actual, vea [países o regiones y admite la traducción](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
 
-![Seleccione los países y traducciones admitidos](./media/d365-financials/image008.png)
+![Seleccione los países o regiones y traducciones admitidas](./media/d365-financials/image008.png)
 
 
 ### <a name="supported-languages"></a>Idiomas admitidos

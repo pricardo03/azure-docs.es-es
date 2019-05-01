@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228239"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922982"
 ---
 # <a name="configure-application-insights-profiler"></a>Configuración de Application Insights Profiler
 
@@ -41,7 +41,7 @@ En función de cómo esté configurado Azure App Service Environment, se puede b
 ## <a id="profileondemand"></a> Desencadenamiento manual de Profiler
 
 ### <a name="minimum-requirements"></a>Requisitos mínimos 
-Para que un usuario desencadenar manualmente una sesión del generador de perfiles requieren como mínimo "acceso de escritura" en su rol para el componente de Application Insights. En la mayoría de los casos para obtener este acceso automáticamente y no es necesario realizar ningún trabajo adicional. Si tiene problemas, el rol de ámbito de suscripción para agregar sería el rol "Colaborador de componente de Application Insights". [Obtenga más información sobre el control de acceso de rol con Azure Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
+Para que un usuario desencadenar manualmente una sesión del generador de perfiles requieren como mínimo "acceso de escritura" en su rol para el componente de Application Insights. En la mayoría de los casos para obtener este acceso automáticamente y no es necesario realizar ningún trabajo adicional. Si tiene problemas, el rol de ámbito de suscripción para agregar sería el rol "Colaborador de componente de Application Insights". [Obtenga más información sobre el control de acceso de rol con Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
 Profiler se puede desencadenar manualmente con un solo clic. Imagine que está ejecutando una prueba de rendimiento web. Necesitará seguimientos que le ayuden a saber si la aplicación web funciona correctamente en condiciones de carga. Poder control el momento en que se capturan los seguimientos es fundamental, ya que sabe cuándo se va a ejecutar la prueba de carga. Sin embargo, con el intervalo de muestreo aleatorio es posible que se lo pierda.
 

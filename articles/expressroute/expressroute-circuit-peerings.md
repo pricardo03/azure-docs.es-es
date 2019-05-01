@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.author: mialdridm
+ms.date: 04/24/2019
+ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 35cee297156cf64deeef8c9c6b514ec8176f9ca5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c4290473a7c1edce02d74a4a787c62ccf0d9c052
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367734"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924309"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuitos ExpressRoute y emparejamiento
 
@@ -22,10 +22,11 @@ Los circuitos ExpressRoute conectan la infraestructura local a Microsoft a trav�
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
-> El emparejamiento público de Azure está desuso, ya que no está disponible para nuevos circuitos ExpressRoute. Los nuevos circuitos admiten el emparejamiento privado y el emparejamiento de Microsoft.  
+> Emparejamiento público de Azure está desusado y no está disponible para nuevos circuitos ExpressRoute. Circuitos nueva compatibilidad con emparejamiento privado y emparejamiento de Microsoft.  
 >
 
 ## <a name="circuits"></a>Circuitos ExpressRoute
+
 Un circuito ExpressRoute representa una conexión lógica entre la infraestructura local y los servicios en la nube de Microsoft a través de un proveedor de conectividad. Puede solicitar varios circuitos ExpressRoute. Cada circuito puede estar en la misma región o en diferentes, y puede estar conectado a su entorno local mediante distintos proveedores de conectividad.
 
 Los circuitos ExpressRoute no se asignan a entidades físicas. Un circuito se identifica de forma única mediante un GUID estándar denominado clave de servicio (s-key). La clave de servicio es la única parte de la información que se intercambia entre Microsoft, el proveedor de conectividad y usted. Por motivos de seguridad, la s-key no es un secreto. Hay una asignación 1:1 entre un circuito ExpressRoute y la s-key.
@@ -35,14 +36,17 @@ Los circuitos ExpressRoute pueden incluir dos emparejamientos independientes: em
 Cada circuito tiene un ancho de banda fijo (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 10 Gbps) y se asigna a un proveedor de conectividad y una ubicación de emparejamiento. El ancho de banda que seleccione se comparte entre todos los emparejamientos del circuito.
 
 ### <a name="quotas"></a>Cuotas, límites y limitaciones
+
 Se aplican límites y cuotas predeterminados para cada circuito ExpressRoute. Para obtener la información más actualizada sobre las cuotas, consulte [Suscripción de Azure y límites, cuotas y restricciones de servicio](../azure-subscription-service-limits.md) .
 
 ## <a name="routingdomains"></a>Emparejamiento de ExpressRoute
+
 Un circuito ExpressRoute tiene asociados varios dominios de enrutamiento y emparejamiento: Azure público, Azure privado y Microsoft. Cada emparejamiento tiene una configuración idéntica en un par de enrutadores (configuración en activo-activo o de uso compartido de carga) para la alta disponibilidad. Los servicios de Azure se clasifican como *público de Azure* y *privado de Azure* para representar los esquemas de direcciones IP.
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="privatepeering"></a>Configuración entre pares privados de Azure
+
 Los servicios de proceso de Azure, concretamente las máquinas virtuales (IaaS) y los servicios en la nube (PaaS), que se implementan en una red virtual, pueden estar conectados mediante el dominio de emparejamiento privado. El dominio de emparejamiento privado se considera una extensión confiable de la red principal en Microsoft Azure. Puede configurar una conectividad bidireccional entre la red principal y las redes virtuales de Azure (VNet). De esta forma se puede conectar a máquinas virtuales y servicios en la nube directamente en sus direcciones IP privadas.  
 
 Puede conectar más de una red virtual al dominio de emparejamiento privado. Revise la [página de P+G](expressroute-faqs.md) para obtener información sobre los límites y las limitaciones. Para obtener información actualizada sobre los límites, visite la página [Suscripción de Azure y límites, cuotas y restricciones de servicio](../azure-subscription-service-limits.md) .  Consulte la página [Enrutamiento](expressroute-routing.md) para obtener información detallada sobre la configuración de enrutamiento.
@@ -58,7 +62,7 @@ Para obtener más información sobre los servicios admitidos, los costos y los d
 ### <a name="publicpeering"></a> Emparejamiento público de Azure (en desuso para circuitos nuevos)
 
 > [!Note]
-> Emparejamiento público de Azure tiene 1 dirección IP de NAT asociado a cada sesión BGP. Para más de 2 direcciones IP de NAT, mover a [emparejamiento de Microsoft](https://docs.microsoft.com/en-us/azure/expressroute/how-to-move-peering), donde se pueden configurar sus propias asignaciones de NAT, así como usar filtros de ruta para los anuncios de prefijo selectivo. 
+> Emparejamiento público de Azure tiene 1 dirección IP de NAT asociado a cada sesión BGP. Para más de 2 direcciones IP de NAT, mueva a emparejamiento de Microsoft. Emparejamiento de Microsoft le permite configurar sus propias asignaciones de NAT, así como usar los filtros de ruta para los anuncios de prefijo selectivo. Para obtener más información, consulte [mover a emparejamiento de Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
 >
 
 Se ofrecen servicios como Azure Storage, SQL Databases, y Websites en direcciones IP públicas. Puede conectarse de forma privada a servicios hospedados en direcciones IP públicas (incluida las VIP de servicios en la nube) a través del dominio de enrutamiento de emparejamiento público. Puede conectar el dominio de emparejamiento público a la red perimetral y conectarse a todos los servicios de Azure en sus direcciones IP públicas desde la WAN sin tener que conectarse a través de Internet.
@@ -70,6 +74,7 @@ Puede definir filtros de ruta personalizados dentro de la red para usar solo las
 Para obtener más información sobre los servicios compatibles a través del dominio de enrutamiento de emparejamiento público, consulte las [preguntas frecuentes](expressroute-faqs.md).
 
 ## <a name="peeringcompare"></a>Comparación de emparejamiento
+
 En la tabla siguiente se comparan los tres emparejamientos:
 
 |  | **Emparejamiento privado** | **Emparejamiento de Microsoft** |  **Emparejamiento público** (en desuso para circuitos nuevos) |
@@ -86,11 +91,13 @@ Puede habilitar uno o varios de los dominios de enrutamiento como parte de su ci
 Cada emparejamiento requiere sesiones de BGP independientes (un par para cada tipo de emparejamiento). Los pares de sesión de BGP proporcionan un vínculo de alta disponibilidad. Si se va a conectar mediante proveedores de conectividad de capa 2, tendrá que encargarse de configurar y administrar el enrutamiento. Para obtener más información, revise los [flujos de trabajo](expressroute-workflows.md) para configurar ExpressRoute.
 
 ## <a name="health"></a>Estado de ExpressRoute
+
 Los circuitos de ExpressRoute se pueden supervisar para comprobar la disponibilidad, la conectividad con redes virtuales y la utilización del ancho de banda mediante [ Network Performance Monitor ](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
 
 NPM supervisa el estado del emparejamiento privado de Azure y el emparejamiento de Microsoft. Para más información, consulte nuestra [publicación](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Busque un proveedor de servicios. Consulte [Ubicaciones y proveedores de servicios de ExpressRoute](expressroute-locations.md).
 * Asegúrese de que se cumplen todos los requisitos previos. Consulte [Requisitos previos de ExpressRoute](expressroute-prerequisites.md).
 * Configure su conexión ExpressRoute.

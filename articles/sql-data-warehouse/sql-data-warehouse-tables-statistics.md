@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
-ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474953"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937268"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Estadísticas de tabla en Azure SQL Data Warehouse
 
@@ -71,7 +71,7 @@ Table_name es el nombre de la tabla que contiene las estadísticas que mostrar. 
 
 ## <a name="updating-statistics"></a>Actualización de estadísticas
 
-Uno de los procedimientos recomendados es la actualización diaria de estadísticas en columnas de fecha al agregarse nuevas fechas. Cada fila nueva de tiempo se carga en el almacenamiento de datos, se agregan nuevas fechas de carga o de transacción. Estas cambian la distribución de los datos y hacen que las estadísticas se queden obsoletas. Por el contrario, es posible que las estadísticas de una columna de país en una tabla de clientes nunca tengan que actualizarse, pues la distribución de valores no suele cambiar. Suponiendo que la distribución es constante entre los clientes, agregar nuevas filas a la variación de tabla no va a cambiar la distribución de datos. Sin embargo, si su almacenamiento de datos solo contiene un país y trae datos de un nuevo país, y esto da lugar al almacenamiento de datos de varios países, debe actualizar las estadísticas en la columna de país.
+Uno de los procedimientos recomendados es la actualización diaria de estadísticas en columnas de fecha al agregarse nuevas fechas. Cada fila nueva de tiempo se carga en el almacenamiento de datos, se agregan nuevas fechas de carga o de transacción. Estas cambian la distribución de los datos y hacen que las estadísticas se queden obsoletas. Por el contrario, las estadísticas en una columna de país o región en una tabla de clientes nunca deba actualizarse, ya que no suelen cambia la distribución de valores. Suponiendo que la distribución es constante entre los clientes, agregar nuevas filas a la variación de tabla no va a cambiar la distribución de datos. Sin embargo, si el almacenamiento de datos solo contiene un país o región y aparezca los datos de un nuevo país o región, lo que en los datos de varios países o regiones que se almacena, deberá actualizar las estadísticas en la columna de país o región.
 
 Las siguientes son recomendaciones para actualizar las estadísticas:
 

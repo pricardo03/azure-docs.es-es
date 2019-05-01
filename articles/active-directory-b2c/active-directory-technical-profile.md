@@ -3,19 +3,19 @@ title: Definición de un perfil técnico de Azure Active Directory en una direct
 description: Defina un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b8dac47d1aa91eb8a8ee1ef9515809607b267437
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 433307791201e3799b3bc9e54aec765d9fbeb4af
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190708"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718712"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "55190708"
 
 Azure Active Directory (Azure AD) B2C proporciona compatibilidad para la administración de usuarios de Azure Active Directory. En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 El atributo **Name** del elemento **Protocol** tiene que establecerse en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -254,7 +254,7 @@ El perfil técnico siguiente elimina una cuenta de usuario de red social mediant
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Operación | SÍ | La operación que se va a realizar. Valores posibles: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. | 
+| Operación | Sí | La operación que se va a realizar. Valores posibles: `Read`, `Write`, `DeleteClaims` o `DeleteClaimsPrincipal`. | 
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Sin  | Genera un error si el objeto de usuario no existe en el directorio. Valores posibles: `true` o `false`. | 
 | UserMessageIfClaimsPrincipalDoesNotExist | Sin  | Si se va a generar un error (vea la descripción del atributo RaiseErrorIfClaimsPrincipalDoesNotExist), especifique el mensaje para mostrar al usuario si el objeto de usuario no existe. El valor se puede [localizar](localization.md).| 
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Sin  | Genera un error si el objeto de usuario ya existe. Valores posibles: `true` o `false`.| 

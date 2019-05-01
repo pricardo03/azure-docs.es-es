@@ -1,25 +1,18 @@
 ---
-title: 'Publicación de una oferta de aplicación de Power BI: Azure Marketplace | Microsoft Docs'
+title: Publicar la oferta de aplicación de Power BI | Azure Marketplace
 description: Publicar una oferta de aplicación de Power BI en el marketplace de Microsoft AppSource.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 0e82041dab1932ed7c129b598740b2441aa59315
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: aae23feaf1cc5887de061414af985ef16070546b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60725725"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943196"
 ---
 # <a name="publish-a-power-bi-app-offer"></a>Publicar una oferta de aplicación de Power BI
 
@@ -34,7 +27,7 @@ Estos son los pasos principales del proceso de publicación:
 
 Esta tabla describe cada paso y proporciona su tiempo de finalización estimado:
 
-|   Paso de publicación            |   Hora     |   DESCRIPCIÓN                                                                  |
+|   Paso de publicación            |   Time     |   DESCRIPCIÓN                                                                  |
 | --------------------         |------------| ----------------                                                               |
 | Validar requisitos previos       | 15 minutos     | Se validan la información y la configuración de la oferta.                            |
 | Certificación                | 1-7 días   | El equipo de certificación de Power BI analiza su oferta. El equipo ejecuta la aplicación de Power BI a través de una prueba de comprobación manual mediante la instalación de la aplicación a través de la dirección URL de instalación proporcionado. Validaciones principales se realizan como parte del proceso de certificación de aplicaciones (descrito más adelante en este documento).         |

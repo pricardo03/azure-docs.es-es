@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 738dd451ca44801c799d793e6501c547655bd0e0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 7db40de921c0eb8826a2fee832c1a51c57796f6d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524156"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919835"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servicio Azure API Management con una red virtual interna
 Con Azure Virtual Network, Azure API Management puede administrar las API que no están accesibles desde Internet. Para establecer la conexión, hay una serie de tecnologías de VPN disponibles. API Management puede implementarse de dos modos en una red virtual:
@@ -48,7 +48,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 + Cuando se implementa un servicio API Management en una red virtual, un [lista de puertos](./api-management-using-with-vnet.md#required-ports) se usan y deben estar abiertos. 
 
 ## <a name="enable-vpn"> </a>Creación de una instancia de API Management en una red virtual interna
-El servicio API Management en una red virtual interna se hospeda detrás de un [equilibrador de carga interno (clásico)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Esta es la única opción disponible y no se puede cambiar.
+El servicio API Management en una red virtual interna se hospeda detrás de un [equilibrador de carga interno (clásico)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Esta es la única opción disponible y no se puede cambiar.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Habilitación de una conexión de red virtual mediante Azure Portal
 

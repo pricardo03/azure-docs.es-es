@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60789899"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699075"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales de Azure a Azure
 
@@ -221,7 +221,17 @@ Asegúrese de que se hayan inicializado los discos de datos y, a continuación, 
 
 Si el problema persiste, póngase en contacto con el soporte técnico.
 
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>Uno o más discos que están disponibles para la protección (código de error 153039)
+- **Causa posible** </br>
+  - Si uno o varios de los discos agregados recientemente a la máquina virtual después de la protección. 
+  - Si se han inicializado uno o varios discos más adelante después de la protección de la máquina virtual.
 
+### <a name="fix-the-problem"></a>Corrección del problema
+Puede elegir proteger los discos o ignorar la advertencia para que el estado de replicación de la máquina virtual correcto de nuevo.</br>
+1. Para proteger los discos. Vaya a elementos replicados > máquina virtual > discos > haga clic en el disco no protegido > habilitar la replicación.
+ ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
+2. Para descartar la advertencia. Vaya a elementos replicados > máquina virtual > haga clic en la alerta de descartar bajo la sección de información general.
+![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>No se puede ver la máquina virtual de Azure para seleccionarla en "Habilitar la replicación"
 
  **Causa 1:  el grupo de recursos y la máquina virtual de origen están en ubicaciones distintas** <br>

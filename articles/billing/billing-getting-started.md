@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: d215e2ba5d650b532b9d7554ccca9ad5537cf4de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 146c74fe751e75fb85563378be6f812802928fe2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60919447"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918934"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Prevención de cargos inesperados con la administración de costos y facturación de Azure
 
@@ -203,7 +203,7 @@ Los umbrales del SLA varían según el servicio. Por ejemplo, nivel de Web de SQ
 
 Para algunos servicios, existen requisitos previos para el SLA aplicar. Por ejemplo, las máquinas virtuales debe tener dos o más instancias implementadas en el mismo conjunto de disponibilidad.
 
-Para obtener más información, consulte el [acuerdos de nivel de servicio](https://azure.microsoft.com/en-us/support/legal/sla/) documentación y el [resumen del SLA de servicios de Azure](https://azure.microsoft.com/en-us/support/legal/sla/summary/) documentación.
+Para obtener más información, consulte el [acuerdos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) documentación y el [resumen del SLA de servicios de Azure](https://azure.microsoft.com/support/legal/sla/summary/) documentación.
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

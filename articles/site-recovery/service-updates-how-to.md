@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 04/25/2019
 ms.author: rajanaki
-ms.openlocfilehash: e27dee213baf8365c3ad4efc69602f66e2081abe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ea3076367fad78bd4a6991a9f62ba14b1f220387
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61036088"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692742"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Actualizaciones del servicio Azure Site Recovery
 Las organizaciones tienen que saber cómo mantener los datos seguros y las aplicaciones y cargas de trabajo en funcionamiento cuando se producen interrupciones tanto planeadas como no planeadas. Azure Site Recovery ayuda a garantizar la continuidad empresarial y la recuperación ante desastrse, ya que mantiene las aplicaciones en funcionamiento tanto en las máquinas virtuales como en los servidores físicos disponibles si un sitio deja de funcionar. Site Recovery replica las cargas de trabajo que se ejecutan en máquinas virtuales y servidores físicos para que estén disponibles en una ubicación secundaria si el sitio principal no está disponible. Recupera las cargas de trabajo en el sitio principal cuando vuelva a estar en funcionamiento.
@@ -118,12 +118,15 @@ Se recomienda reiniciar después de cada actualización del agente de Mobility S
 
 |Paquete acumulativo de actualizaciones  |Proveedor  |Instalación unificada| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|Paquete acumulativo de actualizaciones 36 *     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
 |[Paquete acumulativo de actualizaciones 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Paquete acumulativo de actualizaciones 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery): revisión     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Paquete acumulativo de actualizaciones 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Paquete acumulativo de actualizaciones 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[Paquete acumulativo de actualizaciones 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Paquete acumulativo de actualizaciones 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
+
+* Notas de la versión está en curso. Consulte los documentos de actualización correspondientes para actualizar los componentes de Site Recovery.
 
 ## <a name="previous-update-rollups"></a>Paquetes acumulativos de actualizaciones anteriores
 

@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454894"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918790"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Plan para mejorar la seguridad de los datos mediante una solución de identidad sólida
 El primer paso para proteger los datos es identificar quién puede acceder a esos datos. Además, debe tener una solución de identidad que se puede integrar con el sistema para proporcionar funcionalidades de autenticación y autorización. Con frecuencia la autenticación y la autorización se confunden y no se comprende bien su función. En realidad, son diferentes, tal como se muestra en la ilustración siguiente:
 
-![](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![ciclo de vida de dispositivo móvil](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Fases del ciclo de vida de administración de dispositivos móviles**
 
@@ -44,7 +44,7 @@ En la era de la movilidad, el objetivo de la mayoría de las empresas es permiti
 Sin embargo, hay algunos aspectos de seguridad que se deben explorar y validar, con independencia de la industria.
 
 ## <a name="data-protection-paths"></a>Rutas de protección de datos
-![](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+![Rutas de protección de datos](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
 **Rutas de protección de datos**
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4715ec92c4ee45733cc0eb2839c533f9ee8968fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490050"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694126"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guía de solución de problemas de Azure Disk Encryption
 
@@ -52,7 +52,7 @@ uname -a
 
 ## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Actualizar el agente de máquina Virtual de Azure y las versiones de extensión
 
-Operaciones de Azure Disk Encryption pueden producir un error en las imágenes de máquina virtual con las versiones no compatibles del agente de máquina Virtual de Azure. Para obtener más información, consulte [soporte de versión mínima para los agentes de máquina virtual en Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+Operaciones de Azure Disk Encryption pueden producir un error en las imágenes de máquina virtual con las versiones no compatibles del agente de máquina Virtual de Azure. Las imágenes de Linux con versiones anteriores a 2.2.38 del agente deben actualizarse antes de habilitar el cifrado. Para obtener más información, consulte [cómo actualizar el agente de Linux de Azure en una máquina virtual](../virtual-machines/extensions/update-linux-agent.md) y [soporte de versión mínima para los agentes de máquina virtual en Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 La versión correcta de la extensión del agente invitado Microsoft.Azure.Security.AzureDiskEncryption o Microsoft.Azure.Security.AzureDiskEncryptionForLinux también es necesaria. Las versiones de extensión se mantienen y actualizan automáticamente por la plataforma cuando se cumplen los requisitos previos del agente de máquina Virtual de Azure y se usa una versión compatible del agente de máquina virtual.
 

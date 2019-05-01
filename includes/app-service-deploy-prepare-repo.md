@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: df987d1e13cb5330842fbab41dae96b24b581ddb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b9706241bd65ee75869d8b1fe58c6922d9e246a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765622"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951569"
 ---
 ## <a name="prepare-your-repository"></a>Preparación del repositorio
 
@@ -29,7 +29,7 @@ Para obtener las compilaciones automáticas desde el servidor de compilación de
 | Python (solo Windows) | _\*.py_, _requirements.txt_ o _runtime.txt_ |
 | HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_ o _iisstart.htm_ |
 | Trabajos web | _\<nombre_de_trabajo>/run.\<extensión>_ en _App\_Data/jobs/continuous_ (para WebJobs continuos) o _App\_Data/jobs/triggered_ (para WebJobs desencadenados). Para obtener más información, consulte [documentación de WebJobs de Kudu](https://github.com/projectkudu/kudu/wiki/WebJobs). |
-| Functions | Consulte [Implementación continua para Azure Functions](../articles/azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements). |
+| Functions | Consulte [Implementación continua para Azure Functions](../articles/azure-functions/functions-continuous-deployment.md#requirements-for-continuous-deployment). |
 
 Para personalizar la implementación puede incluir un archivo _.deployment_ en la raíz del repositorio. Para obtener más información, consulte [personalizar implementaciones](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) y [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 

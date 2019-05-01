@@ -2,17 +2,17 @@
 title: Información general de configuración de Azure Application Gateway
 description: En este artículo se describe cómo configurar los componentes de Azure Application Gateway
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 4/30/2019
 ms.author: absha
-ms.openlocfilehash: 4b8e04babfffaf49d3719d8a7e90af16598814f4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998913"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946806"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -71,7 +71,7 @@ En este escenario, use los NSG en la subred de puerta de enlace de aplicaciones.
 
 La SKU v1, rutas definidas por el usuario (Udr) se admiten en la subred de Application Gateway, siempre y cuando no alteran comunicación solicitud-respuesta-to-end. Por ejemplo, puede establecer una UDR en la subred de puerta de enlace de aplicación para que apunte a un dispositivo de firewall para la inspección de paquetes. Pero debe asegurarse de que el paquete puede llegar a su destino después de la inspección. Si no lo hace podría producir un sondeo de estado incorrecto o el comportamiento de enrutamiento de tráfico. Esto incluye rutas aprendidas o las rutas de 0.0.0.0/0 predeterminadas que se propagan las puertas de enlace de ExpressRoute o VPN en la red virtual.
 
-Para la SKU de v2, no se admiten las Udr en la subred de puerta de enlace de aplicaciones. Para obtener más información, consulte [el escalado automático y la redundancia de zona para Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+Para la SKU de v2, no se admiten las Udr en la subred de puerta de enlace de aplicaciones. Para obtener más información, consulte [SKU de puerta de enlace de aplicaciones de Azure v2](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
 > Usar las Udr en la subred de puerta de enlace de aplicación hace que el estado de mantenimiento en el [vista mantenimiento del back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) aparezca como "Desconocido". También hace que la generación de registros de Application Gateway y las métricas de un error. Se recomienda no usar Udr en la subred de puerta de enlace de aplicación para que pueda ver el mantenimiento del back-end, registros y métricas.
@@ -84,7 +84,7 @@ Una dirección IP pública no es necesaria para un punto de conexión interno no
 
 Se admite solo 1 dirección IP pública o 1 dirección IP privada. Elija la dirección IP front-end cuando se crea la puerta de enlace de la aplicación.
 
-- Para una dirección IP pública, puede crear una nueva dirección IP pública o usar una dirección IP pública existente en la misma ubicación que la puerta de enlace de la aplicación. Si crea una nueva dirección de IP pública, el tipo de dirección IP que seleccionó (dinámico o estático) no se puede cambiar más adelante. Para obtener más información, consulte [estático frente a la dirección IP pública dinámica](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- Para una dirección IP pública, puede crear una nueva dirección IP pública o usar una dirección IP pública existente en la misma ubicación que la puerta de enlace de la aplicación. Si crea una nueva dirección de IP pública, el tipo de dirección IP que seleccionó (dinámico o estático) no se puede cambiar más adelante. Para obtener más información, consulte [estático frente a la dirección IP pública dinámica](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
 
 - Para una dirección IP privada, puede especificar una dirección IP privada de la subred donde se crea la puerta de enlace de la aplicación. Si no especifica ninguna, se selecciona automáticamente una dirección IP arbitraria de la subred. Para obtener más información, consulte [crear una puerta de enlace de aplicaciones con un equilibrador de carga interno](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
@@ -118,7 +118,7 @@ Elija la dirección IP de front-end que va a asociar a este agente de escucha. E
 
 Elija el puerto front-end. Seleccione un puerto existente o cree uno nuevo. Elija un valor comprendido entre el [permiten el intervalo de puertos](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Puede usar no solo los puertos conocidos, como 80 y 443, pero cualquier puerto permitido personalizado que es adecuado. Un puerto puede usarse para los agentes de escucha público o privado accesible desde los agentes de escucha.
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 Elija HTTP o HTTPS:
 
@@ -259,7 +259,7 @@ Esta característica es útil cuando desea mantener una sesión de usuario en el
 
 Purga de conexión le ayuda a quitar correctamente los miembros del grupo de back-end durante las actualizaciones de servicio planeada. Puede aplicar esta configuración a todos los miembros de un grupo de back-end durante la creación de reglas. Se asegura de que todas las instancias de anular el registro de un grupo de back-end no reciben todas las nuevas solicitudes. Mientras tanto, las solicitudes existentes puedan completarse dentro de un límite de tiempo configurado. Purga de conexión se aplica a instancias de back-end que se quitan explícitamente el grupo de back-end mediante una llamada API. También se aplica a las instancias de back-end que se notifican como *en mal estado* por el estado de los sondeos.
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 Application Gateway admite HTTP y HTTPS para enrutar las solicitudes a los servidores back-end. Si elige HTTP, se cifra el tráfico a los servidores back-end. Si no es aceptable la comunicación sin cifrar, seleccione HTTPS.
 

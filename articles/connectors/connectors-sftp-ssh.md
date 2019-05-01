@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f82c654b443d58c9ce38c2fb0f48c1654daeb34
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537707"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922258"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
@@ -32,7 +32,7 @@ Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azu
 
 ## <a name="limits"></a>límites
 
-* Acciones SFTP-SSH pueden leer o escribir archivos *1 GB o más pequeños* mediante la administración de datos como *piezas de 50 MB*, no 1 GB piezas.
+* Acciones SFTP-SSH pueden leer o escribir archivos *1 GB o menor* mediante la administración de datos como *15 MB piezas*, no 1 GB piezas.
 
 * Para los archivos *mayor que 1 GB*, pueden usar acciones [fragmentación del mensaje](../logic-apps/logic-apps-handle-large-messages.md). Actualmente, los desencadenadores de SFTP-SSH no admiten fragmentación.
 
@@ -44,7 +44,7 @@ Para conocer las diferencias más, revise [comparar SFTP-SSH frente a SFTP](#com
 
 Estas son otras diferencias importantes entre el conector SFTP-SSH y el conector SFTP donde el conector SFTP-SSH tiene estas funcionalidades:
 
-* Usa la biblioteca <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a>, que es una biblioteca de Secure Shell (SSH) de código abierto que admite .NET.
+* Usa el [biblioteca SSH.NET](https://github.com/sshnet/SSH.NET), que es una biblioteca de Secure Shell (SSH) de código abierto que admite .NET.
 
   > [!NOTE]
   >
@@ -54,7 +54,7 @@ Estas son otras diferencias importantes entre el conector SFTP-SSH y el conector
   > * **Algoritmos de cifrado**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC y AES-256-CBC
   > * **Huella digital**: MD5
 
-* Pueden leer o escribir archivos acciones *hasta 1 GB* en comparación con el conector de SFTP, pero trata los datos en fragmentos de 50 MB, 1 GB no piezas. Para los archivos de más de 1 GB, las acciones también pueden usar la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md). Actualmente, los desencadenadores de SFTP-SSH no admiten fragmentación.
+* Pueden leer o escribir archivos acciones *hasta 1 GB* en comparación con el conector de SFTP, pero trata los datos en fragmentos de 15 MB, 1 GB no piezas. Para los archivos de más de 1 GB, las acciones también pueden usar la [fragmentación de mensajes](../logic-apps/logic-apps-handle-large-messages.md). Actualmente, los desencadenadores de SFTP-SSH no admiten fragmentación.
 
 * Proporciona la acción **Crear carpeta**, que crea una carpeta en la ruta de acceso especificada en el servidor SFTP.
 
@@ -136,7 +136,7 @@ El método de funcionamiento de los desencadenadores SFTP-SSH es sondear el sist
 
 Cuando un desencadenador encuentra un nuevo archivo, el desencadenador comprueba que el nuevo archivo se ha escrito por completo y no parcialmente. Por ejemplo, un archivo podría tener los cambios en curso cuando el desencadenador comprueba el servidor de archivos. Para evitar devolver un archivo parcialmente escrito, el desencadenador anota la marca de tiempo del archivo que tiene cambios recientes, pero no devuelve inmediatamente dicho archivo. El desencadenador devuelve el archivo solo al volver a sondear el servidor. En ocasiones, este comportamiento puede provocar un retraso de hasta dos veces el intervalo de sondeo del desencadenador. 
 
-Cuando se solicita el contenido del archivo, los desencadenadores no obtienen los archivos de más de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
+Cuando se solicita el contenido del archivo, los desencadenadores no obtención archivos de más de 15 MB. Para obtener los archivos de más de 15 MB, siga este patrón: 
 
 * Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)**.
 
@@ -152,7 +152,7 @@ Este desencadenador inicia un flujo de trabajo de aplicación lógica cuando se 
 
 **Ejemplo Enterprise**: Puede usar este desencadenador para supervisar nuevos archivos en una carpeta de SFTP que representan los pedidos de los clientes. Seguidamente, puede usar una acción SFTP, como **Get file content** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
 
-Cuando se solicita el contenido del archivo, los desencadenadores no obtienen los archivos de más de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
+Cuando se solicita el contenido del archivo, los desencadenadores no obtención archivos de más de 15 MB. Para obtener los archivos de más de 15 MB, siga este patrón: 
 
 * Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)**.
 
@@ -164,7 +164,7 @@ Cuando se solicita el contenido del archivo, los desencadenadores no obtienen lo
 
 Esta acción obtiene el contenido de un archivo en un servidor SFTP. Por ejemplo, puede agregar el desencadenador del ejemplo anterior y una condición que debe cumplir el contenido del archivo. Si la condición es verdadera, se puede ejecutar la acción que obtiene el contenido. 
 
-Cuando se solicita el contenido del archivo, los desencadenadores no obtienen los archivos de más de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
+Cuando se solicita el contenido del archivo, los desencadenadores no obtención archivos de más de 15 MB. Para obtener los archivos de más de 15 MB, siga este patrón: 
 
 * Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)**.
 

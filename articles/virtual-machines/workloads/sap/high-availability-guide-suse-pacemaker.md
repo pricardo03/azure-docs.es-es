@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 62356ee35631373b5a5d38ed356bbb2fb489807b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0758105c7e2a18e976bc0c210eaf4e55e418a22d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710663"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925723"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -578,7 +578,7 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuración de pacemaker para Azure eventos programados
 
-Azure ofrece [eventos programados](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events). Eventos programados se proporcionan a través del servicio de metadatos y deje tiempo para la aplicación para prepararse para los eventos, como apagado de máquina virtual, la reimplementación de máquina virtual, etcetera. Agente de recursos **[eventos de azure](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervisa si hay eventos programados de Azure. Si se detectan los eventos, el agente intentará detener todos los recursos en la máquina virtual afectada y moverlos a otro nodo del clúster. Debe configurarse lograr que más recursos de Pacemaker. 
+Azure ofrece [eventos programados](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Eventos programados se proporcionan a través del servicio de metadatos y deje tiempo para la aplicación para prepararse para los eventos, como apagado de máquina virtual, la reimplementación de máquina virtual, etcetera. Agente de recursos **[eventos de azure](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervisa si hay eventos programados de Azure. Si se detectan los eventos, el agente intentará detener todos los recursos en la máquina virtual afectada y moverlos a otro nodo del clúster. Debe configurarse lograr que más recursos de Pacemaker. 
 
 1. **[A]**  Instalar el **eventos de azure** agente. 
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921998"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720470"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparación de opciones de almacenamiento para los clústeres de Azure HDInsight
 
@@ -31,8 +31,12 @@ En la tabla siguiente se resume los servicios de almacenamiento de Azure que son
 |Azure Data Lake Storage Gen2| Uso general v2 | Jerárquica (sistema de archivos) | Blob | Estándar | Frecuente, acceso esporádico, archivar | 3.6+ | Todo |
 |Azure Storage| Uso general v2 | Object | Blob | Estándar | Frecuente, acceso esporádico, archivar | 3.6+ | Todo |
 |Azure Storage| Uso general v1 | Object | Blob | Estándar | N/D | Todo | Todo |
-|Azure Storage| Blob Storage | Object | Blob | Estándar | Frecuente, acceso esporádico, archivar | Todo | Todo |
+|Azure Storage| Almacenamiento de blobs ** | Object | Blob en bloques | Estándar | Frecuente, acceso esporádico, archivar | Todo | Todo |
 |Azure Data Lake Storage Gen1| N/D | Jerárquica (sistema de archivos) | N/D | N/D | N/D | Solo 3.6 | Todos excepto HBase |
+
+** Para los clústeres de HDInsight, solo las cuentas de almacenamiento secundaria pueden ser de tipo BlobStorage.
+
+Para obtener más información sobre los tipos de cuenta de almacenamiento de Azure, consulte [Introducción a la cuenta de almacenamiento de Azure](../storage/common/storage-account-overview.md)
 
 Para obtener más información sobre los niveles de acceso de almacenamiento de Azure, consulte [almacenamiento de blobs de Azure: Premium (versión preliminar), los niveles de almacenamiento de acceso frecuente, esporádico y archivo](../storage/blobs/storage-blob-storage-tiers.md)
 
@@ -40,14 +44,14 @@ Puede crear un clúster mediante combinaciones diferentes de servicios de almace
 
 | Versión de HDInsight | Almacenamiento principal | Almacenamiento secundario | Compatible |
 |---|---|---|---|
-| 3.6 & 4.0 | Blob estándar | Blob estándar | Sí |
-| 3.6 & 4.0 | Blob estándar | Data Lake Storage Gen2 | Sin  |
-| 3.6 & 4.0 | Blob estándar | Data Lake Storage Gen1 | Sí |
+| 3.6 & 4.0 | Uso general V1, V2 de propósito General | Uso general V1, V2 de propósito General, BlobStorage (Blobs en bloques) | Sí |
+| 3.6 & 4.0 | Uso general V1, V2 de propósito General | Data Lake Storage Gen2 | Sin  |
+| 3.6 & 4.0 | Uso general V1, V2 de propósito General | Data Lake Storage Gen1 | Sí |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | Sí |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | Blob estándar | Sí |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | Uso general V1, V2 de propósito General, BlobStorage (Blobs en bloques) | Sí |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Sin  |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Sí |
-| 3.6 | Data Lake Storage Gen1 | Blob estándar | Sí |
+| 3.6 | Data Lake Storage Gen1 | Uso general V1, V2 de propósito General, BlobStorage (Blobs en bloques) | Sí |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Sin  |
 | 4.0 | Data Lake Storage Gen1 | Cualquiera | Sin  |
 

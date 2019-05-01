@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: b81dccf3c71fbaff7b0cbb9ba00f13b458156e73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f9f15c558e507742a641239ed25ba136dca0671a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074599"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919988"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Incorporación de máquinas para su administración mediante Azure Automation State Configuration
 
@@ -62,8 +62,8 @@ En **Registro**, escriba los [valores del Administrador de configuración local 
 
 ### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 
-Se pueden implementar máquinas virtuales de Azure e incorporarlas a Azure Automation State Configuration mediante las plantillas de Azure Resource Manager. Consulte [servidor administrado por servicio Desired State Configuration](https://azure.microsoft.com/en-us/resources/templates/101-automation-configuration/) para una plantilla de ejemplo que incorpora una máquina virtual existente a la configuración de estado de automatización de Azure.
-Si administra un conjunto de escalado de máquinas virtuales, consulte la plantilla de ejemplo [definir configuración de escalado de máquina virtual administrada por Azure Automation](https://azure.microsoft.com/en-us/resources/templates/201-vmss-automation-dsc/).
+Se pueden implementar máquinas virtuales de Azure e incorporarlas a Azure Automation State Configuration mediante las plantillas de Azure Resource Manager. Consulte [servidor administrado por servicio Desired State Configuration](https://azure.microsoft.com/resources/templates/101-automation-configuration/) para una plantilla de ejemplo que incorpora una máquina virtual existente a la configuración de estado de automatización de Azure.
+Si administra un conjunto de escalado de máquinas virtuales, consulte la plantilla de ejemplo [definir configuración de escalado de máquina virtual administrada por Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -72,7 +72,7 @@ El cmdlet [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automat
 ### <a name="registering-virtual-machines-across-azure-subscriptions"></a>Registrar las máquinas virtuales en suscripciones de Azure
 
 La mejor manera de registrar las máquinas virtuales desde otras suscripciones de Azure es usar la extensión DSC en una plantilla de implementación de Azure Resource Manager.
-Se proporcionan ejemplos en [extensión Desired State Configuration con plantillas de Azure Resource Manager](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-template).
+Se proporcionan ejemplos en [extensión Desired State Configuration con plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template).
 Para buscar la clave de registro y la dirección URL de registro que se usará como parámetros en la plantilla, vea el siguiente [ **registro seguro** ](#secure-registration) sección.
 
 ## <a name="azure-virtual-machines-classic"></a>Azure Virtual Machines (clásico)

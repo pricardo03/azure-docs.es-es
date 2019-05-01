@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: c68c278b2a7afa8287845c452e3bec5380cf05c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03f330f429be583d3a400eb1ee00875f7c305e74
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498615"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64923014"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Supervisión de instancias de Azure SQL Database con Azure SQL Analytics (versión preliminar)
 
@@ -287,7 +287,7 @@ AzureDiagnostics
 
 ### <a name="pricing"></a>Precios
 
-Aunque la solución puede usarse de forma gratuita, se aplicarán cargos por el uso de telemetría de diagnósticos que supere las unidades gratuitas de ingesta de datos asignadas cada mes; para obtener más información, vea [Precios de Log Analytics](https://azure.microsoft.com/en-us/pricing/details/monitor). Las unidades gratuitas de ingesta de datos especificadas habilitan la supervisión gratuita de varias bases de datos al mes. Tenga en cuenta que las bases de datos más activas con cargas de trabajo más pesadas ingieren más datos que las bases de datos inactivas. Puede supervisar fácilmente su ingesta de datos en la solución; para hacerlo, seleccione el área de trabajo de OMS en el menú de navegación de Azure SQL Analytics y, después, seleccione Uso y costos estimados.
+Aunque la solución puede usarse de forma gratuita, se aplicarán cargos por el uso de telemetría de diagnósticos que supere las unidades gratuitas de ingesta de datos asignadas cada mes; para obtener más información, vea [Precios de Log Analytics](https://azure.microsoft.com/pricing/details/monitor). Las unidades gratuitas de ingesta de datos especificadas habilitan la supervisión gratuita de varias bases de datos al mes. Tenga en cuenta que las bases de datos más activas con cargas de trabajo más pesadas ingieren más datos que las bases de datos inactivas. Puede supervisar fácilmente su ingesta de datos en la solución; para hacerlo, seleccione el área de trabajo de OMS en el menú de navegación de Azure SQL Analytics y, después, seleccione Uso y costos estimados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
