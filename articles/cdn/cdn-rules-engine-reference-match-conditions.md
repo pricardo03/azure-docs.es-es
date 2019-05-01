@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323831"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869510"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de Azure CDN 
 En este artículo se muestran descripciones detalladas de las condiciones de coincidencia disponibles para el [motor de reglas](cdn-rules-engine.md) de Azure Content Delivery Network (CDN).
@@ -28,14 +28,14 @@ La segunda parte de una regla es la condición de coincidencia. Una condición d
 
 Por ejemplo, puede usar una condición de coincidencia para:
 - Filtrar las solicitudes de contenido de una ubicación concreta.
-- Filtrar las solicitudes generadas a partir de una dirección IP o país específicos.
+- Filtrar las solicitudes procedentes de una determinada dirección IP o país o región.
 - Filtrar las solicitudes por la información de encabezado.
 
 ## <a name="always-match-condition"></a>Condición de coincidencia Siempre
 
 La condición de coincidencia Siempre aplica un conjunto predeterminado de características a todas las solicitudes.
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Siempre](#always) | Se aplica un conjunto predeterminado de características a todas las solicitudes.
 
@@ -43,7 +43,7 @@ Name | Propósito
 
 La condición de coincidencia Dispositivo identifica solicitudes realizadas desde un dispositivo móvil en función de sus propiedades.  
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Dispositivo](#device) | Identifica solicitudes realizadas desde un dispositivo móvil en función de sus propiedades.
 
@@ -51,16 +51,16 @@ Name | Propósito
 
 Las condiciones de coincidencia Ubicación identifican solicitudes en función de la ubicación del solicitante.
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Número de sistema autónomo (AS)](#as-number) | Identifica solicitudes que se originan en una red determinada.
-[País](#country) | Identifica solicitudes que se originan en países determinados.
+[País](#country) | Identifica solicitudes que se originan en los países o regiones especificados.
 
 ## <a name="origin-match-conditions"></a>Condiciones de coincidencia Origen
 
 Las condiciones de coincidencia Origen identifican solicitudes que señalan al servidor de origen de un cliente o de almacenamiento de Content Delivery Network.
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Origen de red CDN](#cdn-origin) | Identifica las solicitudes de contenido almacenado en el almacenamiento de Content Delivery Network.
 [Origen de cliente](#customer-origin) | Identifica solicitudes de contenido almacenado en el servidor de origen de un cliente específico.
@@ -69,7 +69,7 @@ Name | Propósito
 
 Las condiciones de coincidencia Solicitud identifican solicitudes en función de sus propiedades.
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Dirección IP de cliente](#client-ip-address) | Identifica solicitudes que se originan en una dirección IP determinada.
 [Parámetro de cookie](#cookie-parameter) | Busca el valor especificado en las cookies asociadas a cada solicitud.
@@ -86,7 +86,7 @@ Name | Propósito
 
 Las condiciones de coincidencia URL identifican solicitudes en función de sus direcciones URL.
 
-Name | Propósito
+NOMBRE | Propósito
 -----|--------
 [Directorio de la ruta de acceso URL](#url-path-directory) | Identifica solicitudes por su ruta de acceso relativa.
 [Extensión de la ruta de acceso URL](#url-path-extension) | Identifica solicitudes por su extensión de nombre de archivo.
@@ -235,7 +235,7 @@ Información importante:
 
 ---
 ### <a name="country"></a>País
-Puede especificar un país mediante el código de país. 
+Puede especificar un país o región a través de su código de país. 
 
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia País:
 - **Matches** (Coincide): requiere que la solicitud contenga los valores de código de país especificados. 
@@ -260,9 +260,9 @@ Esta condición de coincidencia permite realizar un gran número de personalizac
 - Coincidencia de caracteres comodín de la ruta de URL: establezca la [condición de coincidencia de caracteres comodín de la ruta de URL](#url-path-wildcard) en el directorio que se va a proteger. 
     Anexe un asterisco al final de la ruta de acceso relativa para asegurarse de que el acceso a todos sus elementos secundarios se limitará mediante esta regla.
 
-- Coincidencia de país: establezca la condición de coincidencia de país en el conjunto deseado de países.
-   - Permitir: establezca la condición de coincidencia de país en **Does Not Match** (No coincide) para permitir únicamente el acceso de los países especificados al contenido almacenado en la ubicación definida por la condición de coincidencia de caracteres comodín de ruta de URL.
-   - Bloquear: establezca la condición de coincidencia de país en **Matches** (Coincide) para bloquear el acceso de los países especificados al contenido almacenado en la ubicación definida por la condición de coincidencia de caracteres comodín de ruta de URL.
+- Coincidencia de país: Establece la condición de coincidencia de país en el conjunto deseado de países o regiones.
+   - Permitir: Establezca la condición de coincidencia de país en **no coincide con** para permitir únicamente el acceso de países o regiones especificados al contenido almacenado en la ubicación definida por la condición de coincidencia de caracteres comodín de ruta de acceso de dirección URL.
+   - Bloquear: Establezca la condición de coincidencia de país en **coincidencias** para bloquear los países o regiones especificados tengan acceso a contenido almacenado en la ubicación definida por la condición de coincidencia de caracteres comodín de ruta de acceso de dirección URL.
 
 - Característica de denegación de acceso (403): habilite la [característica de denegación de acceso (403)](cdn-rules-engine-reference-features.md#deny-access-403) para replicar la parte permitidos o bloqueados de la característica de filtrado por país.
 
@@ -752,7 +752,7 @@ Información importante:
 
 En las configuraciones de ejemplo de la tabla siguiente se da por supuesto que esta condición de coincidencia se cumple cuando una solicitud coincide con una de los patrones de URL especificados:
 
-Value                   | Relativo a    | Resultado 
+Valor                   | Relativo a    | Resultado 
 ------------------------|----------------|-------
 \*/test.html \*/test.php  | Raíz u origen | Este patrón coincide con solicitudes de recursos llamados "test.html" o "test.php" en cualquier carpeta.
 /80ABCD/origin/text/*   | Raíz           | Este patrón coincide cuando el recurso solicitado cumple los criterios siguientes: <br />- Debe residir en un origen de cliente que se llama "origin". <br />- La ruta de acceso relativa debe comenzar con una carpeta llamada "text". Es decir, el recurso solicitado puede residir en la carpeta "text" o una de sus subcarpetas recursivas.
@@ -868,7 +868,7 @@ Información importante:
 #### <a name="sample-scenarios"></a>Escenarios de ejemplo
 En el ejemplo siguiente se muestra cómo funciona esta opción en situaciones específicas:
 
-Name  | Value |  Resultado
+NOMBRE  | Valor |  Resultado
 ------|-------|--------
 Usuario  | Joe   | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada es "?user=joe".
 Usuario  | *     | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada contiene el parámetro User.
@@ -895,7 +895,7 @@ Información importante:
     
 - Ciertos caracteres requieren codificación URL. Utilice el símbolo de porcentaje para codificar en formato URL los caracteres siguientes:
 
-   Character | Codificación URL | Value
+   Character | Codificación URL | Valor
    ----------|--------------|------
    Espacio     | %20          | \%20
    &         | %25          | \%25
@@ -906,7 +906,7 @@ Información importante:
 
    Por ejemplo: 
 
-   Value | Se interpreta como 
+   Valor | Se interpreta como 
    ------|---------------
    \\+    | +
    \\\\+   | \\+
@@ -960,7 +960,7 @@ Información importante:
 #### <a name="sample-scenarios"></a>Escenarios de ejemplo
 En el ejemplo siguiente se muestra cómo funciona esta opción en situaciones específicas:
 
- Name                 | DESCRIPCIÓN
+ NOMBRE                 | DESCRIPCIÓN
  ---------------------|------------
 user=joe              | Este patrón coincide cuando la cadena de consulta para una dirección URL solicitada es "?user=joe".
 \*user=\* \*optout=\* | Este patrón coincide cuando la consulta URL de la red CDN contiene el parámetro user o el parámetro optout.

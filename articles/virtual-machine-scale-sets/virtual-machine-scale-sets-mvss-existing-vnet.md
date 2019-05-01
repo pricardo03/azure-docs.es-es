@@ -13,25 +13,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/27/2017
-ms.date: 11/30/2018
-ms.author: v-junlch
-ms.openlocfilehash: 1dcb97a94bd5790edc2e40acf890bb47baec7a4b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.author: manayar
+ms.openlocfilehash: 8b75b9898eb767866c0843594a82570cfb65d122
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108034"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868953"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Incorporación de una referencia a una red virtual existente en una plantilla de conjunto de escalado de Azure
 
-En este artículo se muestra cómo modificar la [plantilla de conjunto de escalado mínimo viable](./virtual-machine-scale-sets-mvss-start.md) para realizar la implementación en una red virtual existente en lugar de crear una nueva.
+En este artículo se muestra cómo modificar el [plantilla de conjunto de escalado básico](virtual-machine-scale-sets-mvss-start.md) para implementar en una red virtual existente en lugar de crear uno nuevo.
 
 ## <a name="change-the-template-definition"></a>Cambio de la definición de la plantilla
 
-La plantilla de conjunto de escalado mínimo viable se puede ver [aquí](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), y la plantilla para implementar el conjunto de escalado en una red virtual se puede ver [aquí](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Vamos a examinar la diferencia usada para crear esta plantilla (`git diff minimum-viable-scale-set existing-vnet`) paso a paso:
+En un [artículo anterior](virtual-machine-scale-sets-mvss-start.md) hemos creado una plantilla de conjunto de escalado básico. Ahora utilice esa plantilla anterior y modificarlo para crear una plantilla que implementa un conjunto de escalado en una red virtual existente. 
 
-Primero, agregue un parámetro `subnetId`. Esta cadena se pasa a la configuración del conjunto de escalado, lo que permite que el conjunto de escalado identifique la subred creada anteriormente en la que implementar las máquinas virtuales. Esta cadena debe tener el formato: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Por ejemplo, para implementar el conjunto de escalado en una red virtual existente con el nombre `myvnet`, la subred `mysubnet`, el grupo de recursos `myrg` y la suscripción `00000000-0000-0000-0000-000000000000`, el valor de subnetId sería: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+Primero, agregue un parámetro `subnetId`. Esta cadena se pasa a la configuración del conjunto de escalado, lo que permite que el conjunto de escalado identifique la subred creada anteriormente en la que implementar las máquinas virtuales. Esta cadena debe tener el formato: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
+
+Por ejemplo, para implementar el conjunto de escalado en una red virtual existente con el nombre `myvnet`, la subred `mysubnet`, el grupo de recursos `myrg` y la suscripción `00000000-0000-0000-0000-000000000000`, el valor de subnetId sería: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
 ```diff
      },
@@ -53,7 +54,7 @@ A continuación, elimine el recurso de red virtual de la matriz `resources`, pue
 -      "type": "Microsoft.Network/virtualNetworks",
 -      "name": "myVnet",
 -      "location": "[resourceGroup().location]",
--      "apiVersion": "2016-12-01",
+-      "apiVersion": "2018-11-01",
 -      "properties": {
 -        "addressSpace": {
 -          "addressPrefixes": [
@@ -79,7 +80,7 @@ La red virtual ya existe antes de que se implemente la plantilla, así que no es
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
        "location": "[resourceGroup().location]",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
 -      "dependsOn": [
 -        "Microsoft.Network/virtualNetworks/myVnet"
 -      ],
@@ -88,7 +89,7 @@ La red virtual ya existe antes de que se implemente la plantilla, así que no es
          "capacity": 2
 ```
 
-Por último, pase el parámetro `subnetId` definido por el usuario (en lugar de usar `resourceId` para obtener el identificador de una red virtual en la misma implementación, que es lo que hace la plantilla de conjunto de escalado mínimo viable).
+Por último, pase el `subnetId` parámetro definido por el usuario (en lugar de usar `resourceId` para obtener el identificador de una red virtual en la misma implementación, que es lo que el escalado de viabilidad básico plantilla hace conjunto).
 
 ```diff
                        "name": "myIpConfig",
@@ -107,5 +108,3 @@ Por último, pase el parámetro `subnetId` definido por el usuario (en lugar de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-
-<!-- Update_Description: update metedata properties -->

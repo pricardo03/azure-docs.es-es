@@ -12,16 +12,16 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: sethm
 ms.custom: ''
-ms.openlocfilehash: 3c50502a8b873503ee937914fac5f2d92cb23a2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b0b5a74a6ca0085f945075a8896c05a724ff062c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733493"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717948"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Valor preestablecido de codificación compatible con el contenido de experimental
 
-Con el fin de preparar el contenido para la entrega por [streaming de velocidad de bits adaptativa](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), vídeo debe codificarse en varias velocidades de bits de (alto a bajo). Para garantizar una degradación correcta de calidad, como se reduce la velocidad de bits por lo que es la resolución del vídeo. Esto da como resultado una escalera de codificación llamada: una tabla de resoluciones y velocidades de bits, como puede ver en algunos de nuestros valores preestablecidos codificación fijos, como [H264MultipleBitrate1080p](../previous/media-services-mes-preset-h264-multiple-bitrate-1080p.md).
+Con el fin de preparar el contenido para la entrega por [streaming de velocidad de bits adaptativa](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), vídeo debe codificarse en varias velocidades de bits de (alto a bajo). Para garantizar una degradación correcta de calidad, como se reduce la velocidad de bits por lo que es la resolución del vídeo. Esto da como resultado una escalera de codificación llamada: una tabla de resoluciones y velocidades de bits; ver los servicios multimedia [valores preestablecidos de codificación integrados](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 ## <a name="overview"></a>Información general
 

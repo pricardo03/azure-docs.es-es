@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: raynew
-ms.openlocfilehash: 5ee1328dddb6ae1e1c878384097b0e10aa32feeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 61bcc0565d57f9c64c453f79f319fc56d5a6de18
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776295"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925060"
 ---
 # <a name="whats-new-in-site-recovery"></a>Novedades de Site Recovery
 
@@ -126,7 +126,7 @@ La recuperación ante desastres de máquinas virtuales de Azure incurre en costo
 **Actualizar** | **Detalles**
 --- | ---
 **Proveedores y agentes** | Una actualización de agentes de recuperación de sitio y proveedores (como se detalla en el paquete acumulativo de actualizaciones)
-**Recuperación ante desastres para Linux** | **Máquinas virtuales de Azure**: Agregado soporte para Red Hat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> **Máquinas virtuales de VMware**: RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Basado en Linux, las máquinas virtuales que use el estilo de particiones GUID (GPT) de la tabla de partición en modo de compatibilidad BIOS heredado ahora son compatibles. Consulte [preguntas más frecuentes acerca de los discos de máquina virtual de IaaS de Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/faq-for-disks) para obtener más información. 
+**Recuperación ante desastres para Linux** | **Máquinas virtuales de Azure**: Agregado soporte para Red Hat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> **Máquinas virtuales de VMware**: RedHat Enterprise Linux 6.10; CentOS 6.10.<br/><br/> Basado en Linux, las máquinas virtuales que use el estilo de particiones GUID (GPT) de la tabla de partición en modo de compatibilidad BIOS heredado ahora son compatibles. Consulte [preguntas más frecuentes acerca de los discos de máquina virtual de IaaS de Azure](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) para obtener más información. 
 **Soporte técnico en la nube** | Admite la recuperación ante desastres para máquinas virtuales de Azure en la nube de Alemania.
 **Recuperación ante desastres entre suscripciones** | Soporte técnico para la replicación de máquinas virtuales de Azure en una región a otra región de una suscripción diferente, en el mismo inquilino de Azure Active Directory. [Más información](https://aka.ms/cross-sub-blog).
 **Windows Server 2008** | Compatibilidad para migrar máquinas de ejecución de Windows Server 2008 R2/2008 de 64 bits y 32 bits.<br/><br/> Solo en la migración (conmutación por error y replicación). No se admite la conmutación por recuperación.

@@ -3,19 +3,19 @@ title: 'Configurar inicio de sesión con una cuenta de LinkedIn mediante directi
 description: Configurar el inicio de sesión con una cuenta de LinkedIn en Azure Active Directory B2C mediante directivas personalizadas.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/23/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5bf1126a7015e668f3770835535b81c93d01cbda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 204e6ef27e4e8db89bdeb22a25ad847ec5c6bcfc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387084"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706791"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta de LinkedIn mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ Para usar LinkedIn como proveedor de identidades en Azure AD B2C, tiene que crea
 Debe almacenar el secreto de cliente que haya registrado previamente en el inquilino de Azure AD B2C.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
+2. Asegúrese de que usa el directorio que contiene al inquilino de Azure AD B2C. Seleccione el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. En la página de introducción, seleccione **Identity Experience Framework**.
 5. Seleccione **Claves de directiva** y luego **Agregar**.
@@ -95,8 +95,8 @@ Puede definir una cuenta de LinkedIn como proveedor de notificaciones; para ello
           </CryptographicKeys>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
           </OutputClaims>
@@ -225,67 +225,6 @@ Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del us
 5. Guarde los cambios, cargue el archivo y, a continuación, seleccione la nueva directiva en la lista.
 6. Asegúrese de que la aplicación de Azure AD B2C que creó está seleccionada en el campo **Seleccionar aplicación** y pruébela; para ello, haga clic en **Ejecutar ahora**.
 
-
-## <a name="register-the-claims-provider"></a>Registro del proveedor de notificaciones
-
-En este punto, el proveedor de identidades ya se ha configurado, pero no está disponible en ninguna de las pantallas de registro o de inicio de sesión. Para que esté disponible, creará un duplicado de un recorrido del usuario de plantilla existente y, después, lo modificará para que también tenga el proveedor de identidades de LinkedIn.
-
-1. Abra el archivo *TrustFrameworkBase.xml* del paquete de inicio.
-2. Busque y copie todo el contenido del elemento **UserJourney** que incluye `Id="SignUpOrSignIn"`.
-3. Abra el archivo *TrustFrameworkExtensions.xml* y busque el elemento **UserJourneys**. Si el elemento no existe, agréguelo.
-4. Pegue todo el contenido del elemento **UserJourney** que ha copiado como elemento secundario del elemento **UserJourneys**.
-5. Cambie el identificador del recorrido del usuario. Por ejemplo, `SignUpSignInLinkedIn`.
-
-### <a name="display-the-button"></a>Visualización del botón
-
-El elemento **ClaimsProviderSelection** es análogo a un botón de proveedor de identidades en una pantalla de registro o de inicio de sesión. Si agrega un elemento **ClaimsProviderSelection** para una cuenta de LinkedIn, se muestra un nuevo botón cuando un usuario llega a la página.
-
-1. Busque el elemento **OrchestrationStep** que incluye `Order="1"` en el recorrido del usuario que ha creado.
-2. En **ClaimsProviderSelects**, agregue el siguiente elemento. Establezca un valor adecuado en **TargetClaimsExchangeId**, por ejemplo, `LinkedInExchange`:
-
-    ```XML
-    <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
-    ```
-
-### <a name="link-the-button-to-an-action"></a>Vincular el botón a una acción
-
-Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este caso, la acción es para que Azure AD B2C se comunique con la cuenta de LinkedIn para recibir un token.
-
-1. Busque el elemento **OrchestrationStep** que incluye `Order="2"` en el recorrido del usuario.
-2. Al agregar el siguiente elemento **ClaimsExchange**, asegúrese de usar el mismo valor para el identificador que usó para **TargetClaimsExchangeId**:
-
-    ```XML
-    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
-    ```
-    
-    Cambie el valor de **TechnicalProfileReferenceId** para el identificador del perfil técnico que creó anteriormente. Por ejemplo, `LinkedIn-OAUTH`.
-
-3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo a fin de verificarlo.
-
-## <a name="create-an-azure-ad-b2c-application"></a>Creación de una aplicación de Azure AD B2C
-
-La comunicación con Azure AD B2C se produce mediante una aplicación que se crea en el inquilino. En esta sección se enumeran los pasos opcionales que puede llevar a cabo para crear una aplicación de prueba, si aún no lo ha hecho.
-
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Asegúrese de que usa el directorio que contiene al inquilino de Azure AD B2C. Seleccione el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. Seleccione **Aplicaciones** y **Agregar**.
-5. Escriba un nombre para la aplicación; por ejemplo, *testapp1*.
-6. En **Aplicación web/API web**, seleccione `Yes` y escriba `https://jwt.ms` como **URL de respuesta**.
-7. Haga clic en **Create**(Crear).
-
-## <a name="update-and-test-the-relying-party-file"></a>Actualización y prueba del archivo del usuario de confianza
-
-Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del usuario que ha creado.
-
-1. Realice una copia del archivo *SignUpOrSignIn.xml* en el directorio de trabajo y cámbiele el nombre. Por ejemplo, cambie su nombre a *SignUpSignInLinkedIn.xml*.
-2. Abra el nuevo archivo y actualice el valor del atributo **PolicyId** del elemento **TrustFrameworkPolicy** con un valor único. Por ejemplo, `SignUpSignInLinkedIn`.
-3. Actualice el valor de **PublicPolicyUri** con el URI para la directiva. Por ejemplo, `http://contoso.com/B2C_1A_signup_signin_linkedin`
-4. Cambie el valor del atributo **ReferenceId** del elemento **DefaultUserJourney** para que coincida con el identificador del nuevo recorrido del usuario que ha creado (SignUpSignLinkedIn).
-5. Guarde los cambios, cargue el archivo y, a continuación, seleccione la nueva directiva en la lista.
-6. Asegúrese de que la aplicación de Azure AD B2C que creó está seleccionada en el campo **Seleccionar aplicación** y pruébela; para ello, haga clic en **Ejecutar ahora**.
-
-
 ## <a name="migration-from-v10-to-v20"></a>Migración desde v1.0, v2.0
 
 LinkedIn recientemente [actualizan sus API desde v1.0 v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Para migrar la configuración existente a la nueva configuración, use la información en las secciones siguientes para actualizar los elementos en el perfil técnico.
@@ -387,12 +326,54 @@ El **BuildingBlocks** se debe agregar el elemento en la parte superior del archi
 
 Como parte de la migración de LinkedIn desde v1.0, v2.0, se requiere una llamada adicional a otra API para obtener la dirección de correo electrónico. Si tiene que obtener la dirección de correo electrónico durante el registro, realice lo siguiente:
 
-1. Tiene Azure AD B2C federar con LinkedIn para permitir al usuario iniciar sesión. Cuando esto sucede, se envía el token de acceso de LinkedIn a Azure AD B2C.
+1. Complete los pasos anteriores para permitir que Azure AD B2C federar con LinkedIn para permitir al usuario iniciar sesión. Como parte de la federación, Azure AD B2C recibe el token de acceso de LinkedIn.
 2. Guarde el token de acceso de LinkedIn en una notificación. [Consulte las instrucciones aquí](idp-pass-through-custom.md).
-3. Llamar a una función de Azure y pase el token de acceso de la función recopilados en el paso anterior. [Consulte las instrucciones aquí](active-directory-b2c-rest-api-step-custom.md)
-    1. La función de Azure debe tomar el token de acceso y realizar una llamada a la API de LinkedIn (`https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))`).
-    2. La función de Azure toma la respuesta y analiza la dirección de correo electrónico.
-    3. Se devuelve la dirección de correo electrónico a la directiva.
-4. La dirección de correo electrónico se almacena en la notificación de correo electrónico y continúa el recorrido del usuario.
+3. Agregue el siguiente proveedor de notificaciones que realiza la solicitud a la de LinkedIn `/emailAddress` API. Para autorizar a esta solicitud, necesita el token de acceso de LinkedIn.
 
-Obtener la dirección de correo electrónico de LinkedIn durante el registro es opcional. Si elige no obtener el correo electrónico, el usuario es necesario para manualmente, escriba la dirección de correo electrónico y validarlo.
+    ```XML
+    <ClaimsProvider> 
+      <DisplayName>REST APIs</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="API-LinkedInEmail">
+          <DisplayName>Get LinkedIn email</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+              <Item Key="ServiceUrl">https://api.linkedin.com/v2/emailAddress?q=members&amp;projection=(elements*(handle~))</Item>
+              <Item Key="AuthenticationType">Bearer</Item>
+              <Item Key="UseClaimAsBearerToken">identityProviderAccessToken</Item>
+              <Item Key="SendClaimsIn">Url</Item>
+              <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
+          </Metadata>
+          <InputClaims>
+              <InputClaim ClaimTypeReferenceId="identityProviderAccessToken" />
+          </InputClaims>
+          <OutputClaims>
+              <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="elements[0].handle~.emailAddress" />
+          </OutputClaims>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+4. Agregue el siguiente paso de orquestación en el recorrido del usuario, para que el proveedor de notificaciones de API se desencadena cuando un usuario inicia sesión con LinkedIn. No olvide actualizar el `Order` número adecuadamente. Agregar este paso inmediatamente después del paso de orquestación que desencadena el perfil técnico de LinkedIn.
+
+    ```XML
+    <!-- Extra step for LinkedIn to get the email -->
+    <OrchestrationStep Order="4" Type="ClaimsExchange">
+      <Preconditions>
+        <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+          <Value>identityProvider</Value>
+          <Value>linkedin.com</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <ClaimsExchanges>
+        <ClaimsExchange Id="GetEmail" TechnicalProfileReferenceId="API-LinkedInEmail" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    ```
+
+Obtener la dirección de correo electrónico de LinkedIn durante el registro es opcional. Si decide no obtener el correo electrónico de LinkedIn, pero requieren durante el inicio de sesión de, el usuario es necesario para manualmente, escriba la dirección de correo electrónico y validarlo.
+
+Para obtener un ejemplo completo de una directiva que usa el proveedor de identidades de LinkedIn, consulte el [paquete de inicio de directiva personalizada](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/linkedin-identity-provider).

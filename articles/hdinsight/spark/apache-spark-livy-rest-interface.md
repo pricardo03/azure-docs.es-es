@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 99175f79e030a55991947313e4a7e32a738d6adb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097411"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570487"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Uso de la API de REST de Apache Spark para enviar trabajos remotos a un clúster Spark de HDInsight
 
@@ -164,16 +164,6 @@ Los clústeres de HDInsight 3.5 y versiones posteriores, de forma predeterminada
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Envío de trabajos de Livy para un clúster en una red virtual de Azure
 
 Si se conecta a un clúster de HDInsight Spark desde una instancia de Azure Virtual Network, puede conectarse directamente a Livy en el clúster. En tal caso, la dirección URL del punto de conexión de Livy es `http://<IP address of the headnode>:8998/batches`. Aquí, **8998** es el puerto en el que se ejecuta Livy en el nodo principal del clúster. Para más información sobre el acceso a los servicios en puertos no públicos, vea [Puertos utilizados por los servicios Apache Hadoop en HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
-
-## <a name="troubleshooting"></a>solución de problemas
-
-Estos son algunos de los problemas que pueden surgir a la hora de utilizar Livy para el envío de trabajo remoto a clústeres de Spark.
-
-### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>No se admite el uso de un archivo jar externo desde el almacenamiento adicional
-
-**Problema:** si el trabajo de Livy Spark hace referencia a un archivo .jar externo de la cuenta de almacenamiento adicional asociada al clúster, se produce un error en el trabajo.
-
-**Resolución:** asegúrese de que el archivo jar que desea usar se encuentra disponible en el almacenamiento predeterminado asociado al clúster de HDInsight.
 
 
 

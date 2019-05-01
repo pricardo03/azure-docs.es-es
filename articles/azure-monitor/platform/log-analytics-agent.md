@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 328433664d22925b4e991f2f18c858c5505cade1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782014"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916375"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Recopilación de datos de registro con el agente de Azure Log Analytics
 
@@ -38,7 +38,7 @@ Si va a supervisar un equipo con System Center Operations Manager 2012 R2 o post
 
 El agente de Windows puede informar acerca de hasta cuatro áreas de trabajo de Log Analytics, mientras que el agente de Linux solo puede informar acerca de una sola área de trabajo.  
 
-El agente para Linux y Windows no es solo para conectarse a Azure Monitor, también es compatible con Azure Automation para hospedar el rol de Hybrid Runbook worker y otros servicios como [Change Tracking](../../automation/automation-change-tracking.md) y [deadministracióndeactualizaciones](../../automation/automation-update-management.md). Para obtener más información acerca de la función Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
+El agente para Linux y Windows no es solo para conectarse a Azure Monitor, también es compatible con Azure Automation para hospedar el rol de Hybrid Runbook worker y otros servicios como [Change Tracking](../../automation/change-tracking.md) y [deadministracióndeactualizaciones](../../automation/automation-update-management.md). Para obtener más información acerca de la función Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operativos Windows compatibles
 Las siguientes versiones del sistema operativo Windows son compatibles oficialmente con el agente de Windows:

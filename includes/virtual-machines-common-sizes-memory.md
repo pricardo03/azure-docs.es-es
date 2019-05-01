@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 39c64b9fe4e03bb0b7216a8d1ba607bec10b4708
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344281"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744565"
 ---
 Los tamaños de VM optimizadas para memoria ofrecen una relación alta de memoria a CPU que es excelente para servidores de bases de datos relacionales, memorias caché de medianas a grandes y análisis en memoria. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento y del ancho de banda de red para cada tamaño de esta agrupación. 
 
@@ -33,7 +33,7 @@ ACU: 160-190 <sup>1</sup>
 
 Premium Storage:  Compatible
 
-Almacenamiento en caché de Premium Storage:  Compatible
+Caching de Premium Storage:  Compatible
 
 Las instancias de la serie ESv3 se basan en el procesador Intel XEON® E5-2673 v4 (Broadwell) de 2,3 GHz y pueden llegar a 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0 y el uso de Premium Storage. Las instancias de la serie Ev3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 
@@ -63,7 +63,7 @@ ACU: 160 - 190 <sup>1</sup>
 
 Premium Storage:  No compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Caching de Premium Storage:  No compatible
 
 Las instancias de la serie Ev3 se basan en el procesador Intel XEON ® E5-2673 v4 (Broadwell) de 2,3 GHz y pueden llegar a 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0. Las instancias de la serie Ev3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 
@@ -94,7 +94,7 @@ ACU: 160-180 <sup>1</sup>
 
 Premium Storage:  Compatible
 
-Almacenamiento en caché de Premium Storage:  Compatible
+Caching de Premium Storage:  Compatible
 
 Acelerador de escritura:  [Compatible](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
@@ -132,7 +132,7 @@ ACU: 180 - 240 <sup>1</sup>
 
 Premium Storage:  Compatible
 
-Almacenamiento en caché de Premium Storage:  Compatible
+Caching de Premium Storage:  Compatible
 
 | Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -156,7 +156,7 @@ ACU: 180 - 240
 
 Premium Storage:  No compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Caching de Premium Storage:  No compatible
 
 | Tamaño         | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Discos de datos máx. / rendimiento: E/S | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -175,7 +175,7 @@ ACU: 210 - 250 <sup>1</sup>
 
 Premium Storage:  Compatible
 
-Almacenamiento en caché de Premium Storage:  Compatible
+Caching de Premium Storage:  Compatible
 
 | Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -198,7 +198,7 @@ ACU: 210 - 250
 
 Premium Storage:  No compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Caching de Premium Storage:  No compatible
 
 | Tamaño              | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Discos de datos máx. / rendimiento: E/S | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

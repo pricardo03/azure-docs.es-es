@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8fa43998d0b10eddacdc9e0dd512295559814255
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 7868b52fee991d4b9323fa0b7969aeca4dc83cdb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101972"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711958"
 ---
 # <a name="common-security-attributes-for-azure-storage"></a>Atributos comunes de seguridad para el almacenamiento de Azure
 
@@ -27,7 +27,7 @@ La seguridad está integrada en todos los aspectos de los servicios de Azure. Es
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí |  |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | Admite los mecanismos de HTTPS/TLS estándar.  Los usuarios también pueden cifrar datos antes de transmitirse al servicio. |
+| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>En el cifrado de red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | Admite los mecanismos de HTTPS/TLS estándar.  Los usuarios también pueden cifrar datos antes de transmitirse al servicio. |
 | Control de claves de cifrado (CMK, BYOK, etcetera.)| Sí | Consulte [Storage Service Encryption mediante claves administradas por el cliente en Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
 | Cifrado de nivel de columna (Azure Data Services)| N/D |  |
 | Llamadas a API cifradas| Sí |  |
@@ -37,7 +37,7 @@ La seguridad está integrada en todos los aspectos de los servicios de Azure. Es
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Compatibilidad de punto de conexión de servicio| Sí |  |
-| compatibilidad con inserción de redes virtuales| N/D |  |
+| Compatibilidad con inserción de redes virtuales| N/D |  |
 | Aislamiento de red y la compatibilidad con Firewall| Sí | |
 | Fuerza la tunelización de soporte técnico| N/D |  |
 

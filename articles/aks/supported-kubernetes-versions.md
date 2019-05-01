@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/26/2019
 ms.author: saudas
-ms.openlocfilehash: aafc6c5a240a1dd3e3c75dd33da26bde918b2288
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d4287307ee3ed7f65b91f2865242113aa5b22bfd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031618"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684169"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versiones de Kubernetes compatibles en Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ AKS es compatible con cuatro versiones secundarias de Kubernetes:
 
 Por ejemplo, si AKS presenta *1.12.x* hoy, también se proporciona compatibilidad para *1.11.a* + *1.11.b*, *1.10.c* + *1.10d* y *1.9.e* + *1.9f* (donde las versiones de revisión indicadas con letras son las compilaciones estables más recientes).
 
-Cuando se introduce una nueva versión secundaria, se retirarán la versión secundaria y la versión de revisión compatibles más antiguas. 15 días antes de la publicación de la nueva versión secundaria y la próxima retirada de la versión, se realiza un anuncio a través de los [canales de actualización de Azure][azure-update-channel]. En el ejemplo anterior en el que se publicó *1.12.x*, las versiones retiradas son *1.8.g* + *1.8.h*.
+Cuando se introduce una nueva versión secundaria, se retirarán la versión secundaria y la versión de revisión compatibles más antiguas. un anuncio de 30 días antes del lanzamiento de la nueva versión secundaria y la retirada de la próxima versión, se realiza a través de la [canales de actualización de Azure][azure-update-channel]. En el ejemplo anterior en el que se publicó *1.12.x*, las versiones retiradas son *1.8.g* + *1.8.h*.
 
 Al implementar un clúster de AKS en Azure Portal o con la CLI de Azure, el clúster siempre se establece en la versión secundaria n-1 y la revisión más reciente. Por ejemplo, si AKS es compatible con *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d* y *1.9.e* + *1.9F*, es la versión predeterminada para nuevos clústeres *1.11.b*.
 

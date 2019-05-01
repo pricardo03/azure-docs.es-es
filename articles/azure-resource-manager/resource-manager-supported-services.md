@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3c6eca548eb61d6b7b239b4292b9c77ca2dec6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389716"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702699"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos y proveedores de recursos de Azure
 
@@ -31,6 +31,8 @@ Al implementar los recursos, con frecuencia necesitará recuperar información s
 * Ver las versiones de API válidas de un tipo de recurso
 
 Puede realizar estos pasos a través del portal de Azure, Azure PowerShell o CLI de Azure.
+
+Para obtener una lista que se asigna a los proveedores de recursos para servicios de Azure, consulte [proveedores de recursos para servicios de Azure](azure-services-resource-providers.md).
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -291,5 +293,5 @@ West US
 
 * Para obtener más información sobre la creación de plantillas del Administrador de recursos, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md). 
 * Para ver los esquemas de plantilla de proveedor de recursos, consulte [Referencia de plantilla](/azure/templates/).
-* Para obtener más información sobre la implementación de recursos, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
+* Para obtener una lista que se asigna a los proveedores de recursos para servicios de Azure, consulte [proveedores de recursos para servicios de Azure](azure-services-resource-providers.md).
 * Para ver las operaciones de un proveedor de recursos, consulte [API de REST de Azure](/rest/api/).

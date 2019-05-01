@@ -3,19 +3,19 @@ title: Preguntas más frecuentes sobre Azure Active Directory B2C | Microsoft Do
 description: Preguntas más frecuentes (P+F) sobre Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7a30aecc3cc2259072ea33ae018c371a1f05741a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0c837ce66656c0e8a6a15d359c76459b03c2d0dd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318027"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722765"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes 
 Esta página responde a las preguntas más frecuentes sobre Azure Active Directory (Azure AD) B2C. Siga comprobando si hay actualizaciones.
@@ -44,7 +44,7 @@ Azure AD B2C también ha agregado compatibilidad para [directivas personalizadas
 Empiece a trabajar con directivas personalizadas consultando nuestro [paquete de inicio de directivas personalizadas](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>¿Puedo configurar ámbitos para recopilar más información acerca de los consumidores de distintos proveedores de identidades sociales?
- No. Los ámbitos predeterminados usados para el conjunto de proveedores de identidades sociales admitidos son:
+No. Los ámbitos predeterminados usados para el conjunto de proveedores de identidades sociales admitidos son:
 
 * Facebook: correo electrónico
 * Google+: correo electrónico

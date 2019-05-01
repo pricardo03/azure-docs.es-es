@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bc189cf269084fdb26f141a36755c96554cad7b
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368883"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64865999"
 ---
 # <a name="cross-network-connectivity"></a>Conectividad entre redes
 
@@ -119,7 +119,7 @@ En la tabla siguiente se muestra la tabla de enrutamiento del emparejamiento pri
 
 Consulte [P+F de virtual network][VNet-FAQ], para preguntas aún más en la red virtual y el emparejamiento de redes virtuales. Consulte [P+F de ExpressRoute] [ ER-FAQ] para conectividad de red de alguna pregunta sobre ExpressRoute y virtuales.
 
-Global Reach se está dando a conocer país a país. Para ver si Global Reach está disponible en los países que desea, consulte [ExpressRoute Global Reach][Global Reach].
+Alcance global se implanta según el país o región, país o región. Para ver si está disponible en los países o regiones que desee alcance Global, consulte [alcance Global de ExpressRoute][Global Reach].
 
 <!--Image References-->
 [1]: ./media/cross-network-connectivity/premergerscenario.png "Escenario de aplicación"

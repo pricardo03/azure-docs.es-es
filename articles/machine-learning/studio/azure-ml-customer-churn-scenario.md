@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 320dd28ba22d7919e3f3afdcd8baa47780f363dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856135"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699437"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Análisis de la pérdida de clientes mediante Azure Machine Learning Studio
 ## <a name="overview"></a>Información general
@@ -217,7 +217,7 @@ En este documento se describe un enfoque sensato para abordar el problema común
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](https://www.the-modeling-agency.com/crisp-dm.pdf) (Metodología CRISP-DM 1.0: Guía paso a paso de minería de datos)   
 
-[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn) (Marketing de macrodatos: atraer más eficazmente a los clientes e impulsar el valor)
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn) (Marketing de macrodatos: atraer más eficazmente a los clientes e impulsar el valor)
 
 [5] [Telco churn model template](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) (Plantilla de modelo de abandono de clientes de telecomunicaciones) en [Azure AI Gallery](https://gallery.azure.ai/) 
  

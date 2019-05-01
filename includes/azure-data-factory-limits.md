@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 42c1856f30484532e1ace2e84187bcaaacdf4c72
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6d06ac6efd08c14f77fd963ddf2c67de54260959
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553833"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733762"
 ---
 Azure Data Factory es un servicio multiempresa que tiene los siguientes límites predeterminados en su lugar para asegurarse de que las suscripciones de cliente están protegidas frente a cargas de trabajo de los demás. Para aumentar los límites hasta el máximo de su suscripción, póngase en contacto con soporte técnico.
 
@@ -26,7 +26,7 @@ Azure Data Factory es un servicio multiempresa que tiene los siguientes límites
 | Total de núcleos de CPU para Azure-SSIS Integration Runtime en una suscripción | 256 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Ejecuciones de canalizaciones simultáneas por la factoría de datos que se comparte entre todas las canalizaciones en la fábrica | 10 000  | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Actividades máximas por la canalización, que incluye las actividades internas de contenedores | 40 | 40 |
-| Número máximo de los tiempos de ejecución de integración vinculado que se pueden crear en un único entorno integration runtime autohospedado | 20 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Número máximo de los tiempos de ejecución de integración vinculado que se pueden crear en un único entorno integration runtime autohospedado | 100 | [Póngase en contacto con el servicio de soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Parámetros máximos por canalización | 50 | 50 |
 | Elementos ForEach | 100 000 | 100 000 |
 | Paralelismo de ForEach | 20 | 50 |

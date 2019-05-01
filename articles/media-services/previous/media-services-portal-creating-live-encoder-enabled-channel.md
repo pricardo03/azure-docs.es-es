@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 88a66cae00bcd1256f6c3ad76a04d1333d1db9db
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: daab3c3b2a5b756686a4867350478faaa1142279
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917097"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726858"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Realización de streaming en vivo con Media Services para crear transmisiones de velocidad de bits múltiple con Azure portal  
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 
 1. Conecte una cámara de vídeo a un equipo. <br/>Para obtener ideas para la configuración, consulte [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT) (Equipo de vídeo para eventos sencillo y portátil).
 
-    Si no tiene acceso a una cámara, herramientas como [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) se puede usar generar una fuente directa de un archivo de vídeo.
+    Si no tiene acceso a una cámara, herramientas como [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) se puede usar generar una fuente directa de un archivo de vídeo.
 1. Inicie y configure un codificador local en directo que pueda generar una secuencia de velocidad de bits única en uno de los siguientes protocolos: RTMP o Smooth Streaming. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Vea también este blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Producción de streaming en vivo con OBS).
 
     Este paso también puede realizarse después de crear el canal.

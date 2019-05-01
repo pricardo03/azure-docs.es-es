@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: cd06326b22b227490798b2b89c0439940cb4575f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f1f02f8b5488609a0c69a6d335c96d3cc9266c71
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551641"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744585"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -29,7 +29,7 @@ ACU: 195 - 210
 
 Premium Storage:  Compatible
 
-Almacenamiento en caché de Premium Storage:  Compatible
+Caching de Premium Storage:  Compatible
 
 | Tamaño             | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |------------------|--------|-------------|----------------|----------------|--------------------------|--------------------------|-------------------------|

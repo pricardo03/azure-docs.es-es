@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 337f2a31d60d54b47c692b06b5d63c28c0964061
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679883"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876215"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso de Azure CDN con CORS
 ## <a name="what-is-cors"></a>¿Qué es CORS?
@@ -30,9 +30,9 @@ Hay dos tipos de solicitudes de CORS, *solicitudes sencillas* y *solicitudes com
 
 ### <a name="for-simple-requests"></a>Para solicitudes sencillas:
 
-1. El explorador envía la solicitud de CORS con un encabezado de solicitud HTTP de **origen** adicional. El valor de este encabezado es el origen del que proviene la página primaria, que se define como la combinación de *protocolo,* *dominio,* y *puerto.*  Cuando una página de https://www.contoso.com intenta acceder a datos de un usuario en el origen fabrikam.com, se envía el siguiente encabezado de solicitud a fabrikam.com:
+1. El explorador envía la solicitud de CORS con un encabezado de solicitud HTTP de **origen** adicional. El valor de este encabezado es el origen del que proviene la página primaria, que se define como la combinación de *protocolo,* *dominio,* y *puerto.*  Cuando una página de https\:/ / www.contoso.com intenta tener acceso a datos de un usuario en el origen fabrikam.com, se enviaría el siguiente encabezado de solicitud a fabrikam.com:
 
-   `Origin: https:\//www.contoso.com`
+   `Origin: https://www.contoso.com`
 
 2. El servidor puede responder con lo siguiente:
 

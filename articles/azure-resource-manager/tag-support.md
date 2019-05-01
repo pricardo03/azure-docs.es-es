@@ -4,14 +4,14 @@ description: Muestra los tipos de recursos de Azure que admiten etiquetas. Propo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 04/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32156f39d36d8485c76dada5fd00f9ea0918598c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388070"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575454"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](resource-group-using-tags.md).
@@ -862,7 +862,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | dnszones/SOA | Sin  | 
 | dnszones/SRV | Sin  | 
 | dnszones/TXT | Sin  | 
-| expressRouteCircuits | Sí | 
+| expressRouteCircuits | Sí (valor de etiqueta no aparece actualmente en el informe de costo) | 
 | expressRouteServiceProviders | Sin  | 
 | frontdoors | Sí | 
 | frontdoorWebApplicationFirewallPolicies | Sí | 
@@ -876,7 +876,7 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | networkInterfaces | Sí | 
 | networkProfiles | Sí | 
 | networkSecurityGroups | Sí | 
-| networkWatchers | Sí | 
+| networkWatchers | Sí (valor de etiqueta no aparece actualmente en el informe de costo) | 
 | networkWatchers/connectionMonitors | Sí | 
 | networkWatchers/lenses | Sí | 
 | networkWatchers/pingMeshes | Sí | 
@@ -892,9 +892,10 @@ Para obtener los mismos datos como un archivo de valores separados por comas, de
 | virtualHubs | Sí | 
 | virtualNetworkGateways | Sí | 
 | virtualNetworks | Sí | 
+| virtualNetworks/subnets | Sin  | 
 | virtualNetworkTaps | Sí | 
 | virtualWans | Sí | 
-| vpnGateways | Sí | 
+| vpnGateways | Sí (valor de etiqueta no aparece actualmente en el informe de costo) | 
 | vpnSites | Sí | 
 | webApplicationFirewallPolicies | Sí | 
 

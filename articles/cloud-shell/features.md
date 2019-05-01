@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f873f20f97b822e1f4dee716cb69535b0522dc2c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614359"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866503"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Características y herramientas de Azure Cloud Shell
 
@@ -51,13 +51,25 @@ Cualquier cambio que se realice en los recursos de Azure, ya sea directamente en
 
 ![](media/features-powershell/azure-drive.png)
 
+### <a name="manage-exchange-online"></a>Manage Exchange Online
+
+PowerShell en Cloud Shell contiene una compilación privada del módulo de Exchange Online.  Ejecute `Connect-EXOPSSession` para obtener los cmdlets de Exchange.
+
+![](media/features-powershell/exchangeonline.png)
+
+ Ejecute `Get-Command -Module tmp_*`
+> [!NOTE]
+> El nombre del módulo debe comenzar por `tmp_`, si ha instalado módulos con el mismo prefijo, también se expone sus cmdlets. 
+
+![](media/features-powershell/exchangeonlinecmdlets.png)
+
 ### <a name="deep-integration-with-open-source-tooling"></a>Profunda integración con herramientas de código abierto
 
 Cloud Shell incluye autenticación configurada previamente para herramientas de código abierto, como Terraform, Ansible y Chef InSpec. Pruébelo desde los tutoriales de ejemplo.
 
 ## <a name="tools"></a>Herramientas
 
-|Categoría   |NOMBRE   |
+|Category   |NOMBRE   |
 |---|---|
 |Herramientas de Linux            |Bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Herramientas de Azure            |[CLI de Azure](https://github.com/Azure/azure-cli) y [CLI de Azure clásica](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [CLI de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|

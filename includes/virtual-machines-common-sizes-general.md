@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b4e255f35761924f46714f1844d8fbe1b2e70956
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: eaa6ff1384116064d88061b6eaf7f448e2222cd3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542121"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744576"
 ---
 Los tamaños de VM de uso general proporcionan una relación equilibrada entre CPU y memoria. Ideal para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento para cada tamaño de esta agrupación. 
 
@@ -33,7 +33,7 @@ Los tamaños de VM de uso general proporcionan una relación equilibrada entre C
 
 Premium Storage:  Compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Caching de Premium Storage:  No compatible
 
 Las máquinas virtuales ampliables de la serie B son idóneas para cargas de trabajo que no necesitan un rendimiento completo de la CPU de forma continua, como los servidores web, pequeñas bases de datos y entornos de desarrollo y de prueba. Estas cargas de trabajo suelen necesitar unos requisitos de rendimiento ampliables. La serie B ofrece a estos clientes la posibilidad de comprar un tamaño de máquina virtual con un rendimiento base sensible al precio y que permita a la instancia de la máquina virtual acumular crédito cuando su rendimiento sea inferior al rendimiento base. Cuando la máquina virtual ha acumulado crédito se puede ampliar por encima de la base de referencia de esta con un uso de hasta un 100% de la CPU si la aplicación necesita el mayor rendimiento posible.
 
@@ -58,7 +58,7 @@ ACU: 160-190
 
 Premium Storage:  Compatible
 
-Almacenamiento en caché de Premium Storage:  Compatible
+Caching de Premium Storage:  Compatible
 
 Los tamaños de la serie Dsv3 se basan en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz o el procesador Intel Xeon® E5-2673 v4 (Broadwell) de 2,3 GHz más reciente que pueden llegar a 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0 y el uso de Premium Storage. Los tamaños de la serie Dsv3 ofrecen una combinación de vCPU, memoria y almacenamiento local adecuados para la mayoría de las cargas de trabajo de producción.
 
@@ -80,7 +80,7 @@ ACU: 160-190
 
 Premium Storage:  No compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Caching de Premium Storage:  No compatible
 
 Los tamaños de la serie Dv3 se basan en el procesador Intel Xeon® E5-2673 v3 (Haswell) de 2,4 GHz o el procesador Intel Xeon® E5-2673 v4 (Broadwell) de 2,3 GHz que pueden llegar a 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0. Los tamaños de la serie Dv3 ofrecen una combinación de vCPU, memoria y almacenamiento local adecuados para la mayoría de las cargas de trabajo de producción.
 
@@ -104,7 +104,7 @@ ACU: 210-250
 
 Premium Storage:  Compatible
 
-Almacenamiento en caché de Premium Storage:  Compatible
+Caching de Premium Storage:  Compatible
 
 | Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -120,7 +120,7 @@ ACU: 210-250
 
 Premium Storage:  No compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Caching de Premium Storage:  No compatible
 
 | Tamaño           | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Discos de datos máx. | Procesamiento: E/S | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
@@ -136,7 +136,7 @@ ACU: 100
 
 Premium Storage:  No compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Caching de Premium Storage:  No compatible
 
 
 | Tamaño            | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Discos de datos máx. / rendimiento: E/S | Nº máx. de NIC/ancho de banda de red esperado (Mbps) | 
@@ -153,7 +153,7 @@ Almacenamiento en caché de Premium Storage:  No compatible
 
 Premium Storage: Compatible
 
-Almacenamiento en caché de Premium Storage: Compatible
+Caching de Premium Storage: Compatible
 
 
 

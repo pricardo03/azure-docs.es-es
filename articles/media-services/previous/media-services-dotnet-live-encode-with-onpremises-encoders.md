@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 6bec12893591fb36298e9c2f1664646a4d598073
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8baff356e1a4916bcc21b28f422a6e98342c0d34
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61222259"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869439"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Realización de streaming en vivo con codificadores locales mediante .NET
 > [!div class="op_single_selector"]
@@ -28,13 +28,17 @@ ms.locfileid: "61222259"
 > 
 > 
 
+> [!NOTE]
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
+
 Este tutorial le guiará por los pasos para usar el SDK de .NET de Azure Media Services para crear un **Canal** que esté configurado para una entrega de paso a través. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 Estos son los requisitos previos para completar el tutorial.
 
 * Una cuenta de Azure.
-* Una cuenta de Media Services.    Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
+* Una cuenta de Media Services. Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
+* Asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado **Running** (En ejecución). 
 * Configurar el entorno de desarrollo. Para obtener más información, consulte [Configuración del entorno](media-services-set-up-computer.md).
 * Una cámara web. Por ejemplo, el [codificador Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm).
 
@@ -48,6 +52,7 @@ Se recomienda que revise los artículos siguientes:
 Configure el entorno de desarrollo y rellene el archivo app.config con la información de la conexión, como se describe en [Desarrollo de Media Services con .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="example"></a>Ejemplo
+
 En el ejemplo de código siguiente se muestra cómo lograr las tareas siguientes:
 
 * Conexión con Media Services
@@ -60,9 +65,6 @@ En el ejemplo de código siguiente se muestra cómo lograr las tareas siguientes
 * Crear e iniciar un StreamingEndpoint.
 * Actualizar el extremo de streaming.
 * Apagar los recursos.
-
->[!IMPORTANT]
->Asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado **Running** (En ejecución). 
     
 >[!NOTE]
 >Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artículo.

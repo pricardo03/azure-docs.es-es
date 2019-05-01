@@ -1,5 +1,5 @@
 ---
-title: Características de seguridad de Azure usadas con máquinas virtuales de Azure | Microsoft Docs
+title: Características de seguridad utilizadas con Azure virtual machines - seguridad de Azure | Microsoft Docs
 description: Este artículo ofrece una visión general de las principales características de seguridad de Azure que se pueden usar con Azure Virtual Machines.
 services: security
 documentationcenter: na
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: c0a4a8ae270c8d8f6f3c2e86db9deed4e14f668e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3467050214cba6ce5723c2747d2c13e40e86609b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444255"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872026"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
+En este artículo proporciona información general de las principales características de seguridad de Azure que pueden usarse con máquinas virtuales.
 
 Puede usar las máquinas virtuales de Azure para implementar una amplia gama de soluciones informáticas con facilidad. El servicio es compatible con Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP y Azure BizTalk Services. Gracias a ello, puede implementar cualquier carga de trabajo y cualquier lenguaje en casi cualquier sistema operativo.
 
@@ -33,9 +34,7 @@ Con Azure, puede crear soluciones compatibles con seguridad mejorada que:
 * Protegen con cifrado su información confidencial.
 * Protegen el tráfico de red.
 * Identifican y detectan amenazas.
-* Satisfacen los requisitos de cumplimiento.
-
-El objetivo de este artículo es proporcionar una visión general de las principales características de seguridad de Azure que se pueden usar con máquinas virtuales. Además, se incluyen vínculos a artículos que ofrecen detalles de cada una de estas características para que pueda tener más información al respecto.  
+* Satisfacen los requisitos de cumplimiento.  
 
 ## <a name="antimalware"></a>Antimalware
 
@@ -77,14 +76,14 @@ Para una protección aún más eficaz, considere el uso de la [Protección contr
 * [Administración y API](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Protección contra amenazas de Microsoft](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
-Más información: 
+Más información:
 
 * [Introducción a protección contra amenazas avanzada de Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/get-started)  
 * [Información general sobre las capacidades de ATP de Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview)  
 
 ## <a name="hardware-security-module"></a>Módulo de seguridad de hardware
 
-Las protecciones del cifrado y autenticación se pueden mejorar si se mejora la clave de seguridad. Puede simplificar la administración y la seguridad de claves y secretos críticos guardándolos en Azure Key Vault. 
+Las protecciones del cifrado y autenticación se pueden mejorar si se mejora la clave de seguridad. Puede simplificar la administración y la seguridad de claves y secretos críticos guardándolos en Azure Key Vault.
 
 Key Vault permite guardar claves en módulos de seguridad de hardware (HSM) que tienen la certificación FIPS 140-2 nivel 2. Sus claves de cifrado de SQL Server para copias de seguridad o [cifrado de datos transparente](https://msdn.microsoft.com/library/bb934049.aspx) se pueden almacenar en Key Vault con otras claves y secretos de sus aplicaciones. Los permisos y el acceso a estos elementos protegidos se administran con [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
@@ -133,7 +132,7 @@ Más información:
 
 ## <a name="virtual-networking"></a>Redes virtuales
 
-Las máquinas virtuales necesita conectividad de red. Para satisfacer este requisito, es necesario que las máquinas virtuales de Azure estén conectadas a una instancia de Azure Virtual Network. 
+Las máquinas virtuales necesita conectividad de red. Para satisfacer este requisito, es necesario que las máquinas virtuales de Azure estén conectadas a una instancia de Azure Virtual Network.
 
 Azure Virtual Network es una construcción lógica creada encima del tejido de red físico de Azure. Cada instancia lógica de Azure Virtual Network está aislada de todas las demás redes virtuales de Azure. Este aislamiento contribuye a garantizar que otros clientes de Microsoft Azure no puedan acceder al tráfico de red de sus implementaciones.
 
@@ -169,14 +168,13 @@ Más información:
 
 ## <a name="confidential-computing"></a>Computación confidencial
 
-Si bien la computación confidencial técnicamente no forma parte de la seguridad de la máquina virtual, el tema de la seguridad de la máquina virtual pertenece al tema de nivel superior de la seguridad "computacional". La computación confidencial pertenece a la categoría de seguridad "computacional". 
+Si bien la computación confidencial técnicamente no forma parte de la seguridad de la máquina virtual, el tema de la seguridad de la máquina virtual pertenece al tema de nivel superior de la seguridad "computacional". La computación confidencial pertenece a la categoría de seguridad "computacional".
 
 La computación confidencial asegura que cuando los datos están "descubiertos", lo cual se requiere para un procesamiento eficiente, se mantienen protegidos dentro de un entorno de ejecución de confianza https://en.wikipedia.org/wiki/Trusted_execution_environment (también conocido como un enclave), de lo cual se muestra un ejemplo en la ilustración siguiente.  
 
-Los entornos de ejecución de confianza garantizan que no hay ninguna manera de ver datos u operaciones desde el exterior, ni siquiera con un depurador. Incluso aseguran que solo se permite el acceso a los datos al código autorizado. Si el código está alterado o modificado, se deniegan las operaciones y se deshabilita el entorno. El entorno de ejecución de confianza aplica estas protecciones a todo el proceso de ejecución del código que contiene. 
+Los entornos de ejecución de confianza garantizan que no hay ninguna manera de ver datos u operaciones desde el exterior, ni siquiera con un depurador. Incluso aseguran que solo se permite el acceso a los datos al código autorizado. Si el código está alterado o modificado, se deniegan las operaciones y se deshabilita el entorno. El entorno de ejecución de confianza aplica estas protecciones a todo el proceso de ejecución del código que contiene.
 
 Más información:
 
 * [Introducing Azure confidential computing](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/) (Introducción a la computación confidencial de Azure)  
 * [Azure confidential computing](https://azure.microsoft.com/blog/azure-confidential-computing/) (Computación confidencial de Azure)  
-

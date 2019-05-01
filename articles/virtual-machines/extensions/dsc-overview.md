@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: b3cfc33f435c6ddaabe8358c344b1944f7c271f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2130dcc27f81eb1e33fa56a7a4f963d81ac0de5b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799556"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926107"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introducción al controlador de extensiones de configuración de estado deseado de Azure
 
@@ -82,7 +82,7 @@ Esta información puede verse en la [portal Azure](../../automation/automation-d
 ```
 
 Para el nombre de la configuración de nodo, asegúrese de que está utilizando el nombre de la *configuración de nodo* y no la configuración.
-Se define una configuración en una secuencia de comandos que se usa [para compilar la configuración de nodo (archivo MOF)](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+Se define una configuración en una secuencia de comandos que se usa [para compilar la configuración de nodo (archivo MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 El nombre será siempre la configuración seguida por un punto `.` y `localhost` o un nombre de equipo específico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Extensión DSC en plantillas de Resource Manager

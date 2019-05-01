@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0dcfa4e7cd792f61d1620a57330f87c5c86e6c9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e7b3b316a8a6dcde95bdf872dbda4cd1372f072
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322539"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721813"
 ---
 # <a name="scaling-media-processing"></a>Escalado de procesamiento de elementos multimedia
 
@@ -33,9 +33,9 @@ Con esta tabla será más fácil tomar la decisión de elegir entre distintas ve
 
 |Tipo de RU|Escenario|Resultados de ejemplo para el [vídeo de 7 min y 1080 p](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Codificación con velocidad de bits sencilla. <br/>Archivos con resolución SD o menor, no sujetos a limitación temporal y de bajo costo.|La codificación en el archivo MP4 de resolución SD de velocidad de bits única con "H264 Single Bitrate SD 16x9" tarda 10 minutos.|
-| **S2**|Codificación con velocidad de bits sencilla y múltiple.<br/>Uso normal para codificación SD y HD.|La codificación con el valor predeterminado H264 Single Bitrate 720p tardará aproximadamente 8 minutos.<br/><br/>La codificación con el valor predeterminado "H264 Multiple Bitrate 720p" tardará aproximadamente 16,8 minutos.|
-| **S3**|Codificación con velocidad de bits sencilla y múltiple.<br/>Vídeos con resolución Full HD y 4K. Codificación con respuesta más rápida, sujeta a limitación temporal.|La codificación con el valor predeterminado H264 Single Bitrate 1080p tardará aproximadamente 4 minutos.<br/><br/>La codificación con el valor predeterminado "H264 Multiple Bitrate 1080p" tarda aproximadamente 8 minutos.|
+| **S1**|Codificación con velocidad de bits sencilla. <br/>Archivos con resolución SD o menor, no sujetos a limitación temporal y de bajo costo.|Codificación de archivo de MP4 de velocidad de bits única SD resolución mediante "H264 Single Bitrate SD 16 x 9" tarda aproximadamente 7 minutos.|
+| **S2**|Codificación con velocidad de bits sencilla y múltiple.<br/>Uso normal para codificación SD y HD.|Codificación con "H264 Single Bitrate 720p" el valor predeterminado tardará aproximadamente 6 minutos.<br/><br/>Codificación con "H264 Multiple Bitrate 720p" valor predeterminado tardará aproximadamente 12 minutos.|
+| **S3**|Codificación con velocidad de bits sencilla y múltiple.<br/>Vídeos con resolución Full HD y 4K. Codificación con respuesta más rápida, sujeta a limitación temporal.|Codificación con "H264 Single Bitrate 1080p" había preestablecido tarda unos 3 minutos.<br/><br/>Codificación con "H264 Multiple Bitrate 1080p" valor predeterminado tardará aproximadamente unos 8 minutos.|
 
 ## <a name="considerations"></a>Consideraciones
 
@@ -62,7 +62,7 @@ Ejecute el comando `mru`.
 El comando [mru de la cuenta de ams az](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) siguiente establece las unidades reservadas de multimedia en cuenta "amsaccount" mediante los parámetros **count** y **type**.
 
 ```azurecli
-az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
+az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 ```
 
 ## <a name="billing"></a>Facturación

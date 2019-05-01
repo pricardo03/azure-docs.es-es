@@ -1,25 +1,18 @@
 ---
-title: Requisitos previos de máquina virtual para Microsoft Azure | Microsoft Docs
+title: Requisitos previos de la máquina virtual de Microsoft Azure | Azure Marketplace
 description: Lista de requisitos previos necesarios para publicar una oferta de máquina virtual en Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 5c26fd3d6c2593217aef8588e2a58377a86412ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 65ff96ba3aea889ff5b2e2431578f9344f6d840b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844047"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938079"
 ---
 # <a name="virtual-machine-prerequisites"></a>Requisitos previos de las máquinas virtuales
 
@@ -49,7 +42,7 @@ Los requisitos empresariales incluyen obligaciones contractuales, de procedimien
     > Debe usar la misma cuenta de registro de Microsoft Developer Center para iniciar sesión en [Cloud Partner Portal](https://cloudpartner.azure.com).
     > Solo debe tener una cuenta Microsoft para sus ofertas de Azure Marketplace. Esta no debe ser específica para servicios u ofertas individuales.
     
-- La empresa (o sus subsidiarias) debe encontrarse en uno de los países de origen de venta admitidos por Azure Marketplace.  Para obtener una lista actual de estos países, vea [Directivas de Participación de Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+- Su empresa (o sus subsidiarias) deben encontrarse en una venta-de-país/región admitido por Azure Marketplace.  Para obtener una lista actual de estos países o regiones, consulte [directivas de participación de Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 - El producto debe contar con una licencia que sea compatible con los modelos de facturación admitidos por Azure Marketplace.  Para obtener más información, vea [Opciones de facturación de Azure Marketplace](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace). 
 - Usted es el responsable de poner el soporte técnico a disposición de los clientes de forma comercialmente razonable. Puede ser gratuito, de pago o a través de métodos de la comunidad.
 - Asimismo, es responsable de la concesión de licencias para su software y las dependencias de software de terceros.

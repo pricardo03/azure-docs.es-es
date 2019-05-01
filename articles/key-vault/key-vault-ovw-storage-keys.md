@@ -1,20 +1,19 @@
 ---
-ms.assetid: ''
 title: 'Cuenta de almacenamiento administrado por Azure Key Vault: CLI'
 description: Las claves de cuenta de almacenamiento proporcionan una integración sin problemas entre Azure Key Vault y el acceso basado en claves a la cuenta de Azure Storage.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: prashanthyv
-ms.author: prashanthyv
+author: mbaldwin
+ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 0812d1523c6db077bf93a16a9a14771f5534d712
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eefdb4d644c97bb55342e21c9a2fcf0a122a6ec5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304921"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724782"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Cuenta de almacenamiento administrado por Azure Key Vault: CLI
 

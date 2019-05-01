@@ -2,24 +2,18 @@
 title: Habilitar el uso compartido de clientes potenciales en Azure Marketplace | Azure
 description: Aprenda a habilitar el uso compartido de clientes potenciales en Azure Marketplace y AppSource para anunciantes de aplicaciones y servicios.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 346ebd9636623a2fc8b08d42c2170a21a5e9a316
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9aecef81547131e6f843fdd55db259d2c4299c9c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121085"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938688"
 ---
 # <a name="enable-lead-sharing"></a>Habilitar el uso compartido de clientes potenciales
 Asegurarse de que la administración de clientes potenciales está habilitada para la publicación de anuncios en [Azure Marketplace](https://azuremarketplace.microsoft.com) o [Microsoft AppSource](https://appsource.microsoft.com) puede contribuir a que reciba información de contacto de las siguientes audiencias:

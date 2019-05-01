@@ -5,15 +5,15 @@ services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 4/29/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392473"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938561"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administrar el ciclo de vida de almacenamiento de blobs de Azure
 
@@ -42,7 +42,7 @@ La característica de administración del ciclo de vida está disponible en toda
 
 ## <a name="add-or-remove-a-policy"></a>Incorporación o eliminación de una directiva 
 
-Puede agregar, editar o quitar una directiva mediante el portal de Azure, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), la CLI de Azure, [las API de REST](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), o una herramienta de cliente. En este artículo se muestra cómo administrar la directiva mediante el portal y los métodos de PowerShell.  
+Puede agregar, editar o quitar una directiva mediante el portal de Azure, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), la CLI de Azure, [las API de REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies), o una herramienta de cliente. En este artículo se muestra cómo administrar la directiva mediante el portal y los métodos de PowerShell.  
 
 > [!NOTE]
 > Si habilita reglas de firewall para la cuenta de almacenamiento, puede que se bloqueen las solicitudes de administración del ciclo de vida. Puede desbloquear estas solicitudes si proporciona excepciones. La omisión necesaria son: `Logging,  Metrics,  AzureServices`. Para más información, consulte la sección Excepciones en [Configuración de firewalls y redes virtuales](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
@@ -80,7 +80,47 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 
 ```
+## <a name="arm-template-with-lifecycle-management-policy"></a>Plantilla ARM con directiva de administración del ciclo de vida
 
+Puede definir e implementar la administración del ciclo de vida como parte de la implementación de la solución de Azure mediante plantillas ARM. El seguimiento es una plantilla de ejemplo para implementar una cuenta de almacenamiento de RA-GRS GPv2 con una directiva de administración del ciclo de vida. 
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "storageAccountName": "[uniqueString(resourceGroup().id)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-04-01",
+      "sku": {
+        "name": "Standard_RAGRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "networkAcls": {}
+      }
+    },
+    {
+      "name": "[concat(variables('storageAccountName'), '/default')]",
+      "type": "Microsoft.Storage/storageAccounts/managementPolicies",
+      "apiVersion": "2019-04-01",
+      "dependsOn": [
+        "[variables('storageAccountName')]"
+      ],
+      "properties": {
+        "policy": {...}
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="policy"></a>Directiva
 
@@ -305,8 +345,8 @@ En el caso de los datos que se modifican y a los que se accede con regularidad a
   ]
 }
 ```
-## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>Preguntas frecuentes: He creado una directiva, ¿por qué las acciones no se ejecutan inmediatamente? 
-
+## <a name="faq"></a>Preguntas más frecuentes 
+**He creado una nueva directiva, ¿por qué las acciones no se ejecutan inmediatamente?**  
 La plataforma ejecuta la directiva del ciclo de vida una vez al día. Una vez que configure una directiva, puede tardar hasta 24 horas para algunas acciones (por ejemplo, los niveles y eliminación) para ejecutar por primera vez.  
 
 ## <a name="next-steps"></a>Pasos siguientes

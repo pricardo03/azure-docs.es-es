@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ad5a4981869f992ab6823a13afc2cad0e5252d08
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: eb731dc18b1524bcf161352265af9e277f85876e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105440"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730624"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Configuración de PHP en Azure App Service
 
@@ -35,15 +35,11 @@ También están disponibles las versiones PHP 7.0 y PHP 7.2, pero no habilitadas
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Vaya a la aplicación en [Azure Portal](https://portal.azure.com) y haga clic en el botón **Configuración**.
+1. Vaya a la aplicación en el [portal Azure](https://portal.azure.com) y desplácese hasta la **configuración** página.
 
-    ![Configuración de la aplicación][settings-button]
-2. En la hoja **Configuración**, seleccione **Configuración de la aplicación** y elija la nueva versión de PHP.
+2. Desde **configuración**, seleccione **configuración General** y elija la nueva versión PHP.
 
-    ![Configuración de la aplicación][application-settings]
-3. Haga clic en el botón **Guardar** que encontrará en la parte superior de la hoja **Configuración de aplicación**.
-
-    ![Guardar la configuración][save-button]
+3. Haga clic en el **guardar** situado en la parte superior de la **configuración General** hoja.
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
@@ -130,18 +126,12 @@ Como se ha mencionado en la sección anterior, la mejor forma de ver la versión
 ### <a name="configure-via-app-setting"></a>Configurar a través de la configuración de la aplicación
 
 1. Agregue un directorio `bin` al directorio raíz.
-1. Coloque los archivos con extensión `.dll` en el directorio `bin` (por ejemplo, `php_xdebug.dll`). Asegúrese de que las extensiones sean compatibles con la versión predeterminada de PHP y que sean compatibles con VC9 y no seguras para subprocesos (nts).
-2. Implemente la aplicación.
-3. Vaya a la aplicación en Azure Portal y haga clic en el botón **Configuración**.
-
-    ![Configuración de la aplicación][settings-button]
-4. En la hoja **Configuración**, seleccione **Configuración de la aplicación** y desplácese a la sección **Configuración de aplicaciones**.
-5. En la sección **Configuración de aplicaciones**, cree una clave **PHP_EXTENSIONS**. El valor de esta clave es una ruta de acceso relativa a la raíz del sitio web: **bin\your-ext-file**.
-
-    ![Habilitar extensiones en app settings][php-extensions]
-6. Haga clic en el botón **Guardar** que encontrará en la parte superior de la hoja **Configuración de aplicación**.
-
-    ![Guardar la configuración][save-button]
+2. Coloque los archivos con extensión `.dll` en el directorio `bin` (por ejemplo, `php_xdebug.dll`). Asegúrese de que las extensiones sean compatibles con la versión predeterminada de PHP y que sean compatibles con VC9 y no seguras para subprocesos (nts).
+3. Implemente la aplicación.
+4. Vaya a la aplicación en Azure portal y haga clic en el **configuración** situada debajo de **configuración** sección.
+5. Desde el **configuración** hoja, seleccione **configuración de la aplicación**.
+6. En el **configuración de la aplicación** sección, haga clic en **+ nueva configuración de la aplicación** y cree un **PHP_EXTENSIONS** clave. El valor de esta clave es una ruta de acceso relativa a la raíz del sitio web: **bin\your-ext-file**.
+7. Haga clic en el **actualización** situado en la parte inferior, a continuación, haga clic en **guardar** anteriormente el **configuración de la aplicación** ficha.
 
 También se pueden usar las extensiones Zend mediante una clave **PHP_ZENDEXTENSIONS**. Para habilitar varias extensiones, incluya una lista separada por comas de los archivos `.dll` como valor de configuración de aplicaciones.
 
@@ -154,15 +144,11 @@ En lugar del tiempo de ejecución de PHP, App Service puede usar un tiempo de ej
 3. También puede agregar extensiones al tiempo de ejecución de PHP y habilitarlas en el archivo `php.ini` .
 4. Agregue un directorio `bin` al directorio raíz y coloque en él el directorio que contiene el tiempo de ejecución de PHP (por ejemplo, `bin\php`).
 5. Implemente la aplicación.
-6. Vaya a la aplicación en Azure Portal y haga clic en el botón **Configuración**.
-
-    ![Configuración de la aplicación][settings-button]
-7. En la hoja **Configuración**, seleccione **Configuración de aplicaciones** y desplácese a la sección **Asignaciones de controlador**. Agregue `*.php` al campo Extensión y agregue la ruta de acceso al ejecutable `php-cgi.exe`. Si coloca el tiempo de ejecución de PHP en el directorio `bin` de la raíz de la aplicación, la ruta de acceso será `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
-
-    ![Especificación del controlador en Asignaciones de controlador][handler-mappings]
-8. Haga clic en el botón **Guardar** que encontrará en la parte superior de la hoja **Configuración de aplicación**.
-
-    ![Guardar la configuración][save-button]
+6. Vaya a la aplicación en Azure portal y haga clic en el **configuración** hoja.
+8. Desde el **configuración** hoja, seleccione **asignaciones de ruta**. 
+9. Haga clic en **+ nuevo controlador** y agregue `*.php` al campo extensión y agregue la ruta de acceso a la `php-cgi.exe` ejecutable en **procesador de Script**. Si coloca el tiempo de ejecución de PHP en el directorio `bin` de la raíz de la aplicación, la ruta de acceso será `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
+10. En la parte inferior, haga clic en **actualización** para terminar de agregar la asignación de controlador.
+11. Haga clic en **Guardar** para guardar los cambios.
 
 <a name="composer" />
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1e80b2083a2fce90259ac0634d9e7f796f459fcd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 93be913182db56941c346ef0cad47f70c0d614c9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880972"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706837"
 ---
 # <a name="about-azure-vm-backup"></a>Acerca de la copia de seguridad de máquina virtual de Azure
 
@@ -31,10 +31,14 @@ Aquí es cómo Azure Backup que se complete una copia de seguridad para máquina
     - De forma predeterminada, la copia de seguridad toma copias de seguridad completas de VSS.
     - Si la copia de seguridad no puede tomar una instantánea coherente con la aplicación, a continuación, toma una instantánea coherente con archivo de almacenamiento subyacente (ya que se produzca ninguna escritura de la aplicación mientras se detiene la máquina virtual).
 1. Las máquinas virtuales de Linux, copia de seguridad toma una copia de seguridad coherentes con el archivo. En las instantáneas coherentes con la aplicación, debe personalizar manualmente los scripts anteriores y posteriores.
-1. Después de copia de seguridad toma la instantánea, transfiere los datos en el almacén. 
+1. Después de copia de seguridad toma la instantánea, transfiere los datos en el almacén.
     - La copia de seguridad está optimizada con una copia de cada disco de máquina virtual en paralelo.
     - Para cada disco que la copia de seguridad, copia de seguridad de Azure lee los bloques en el disco e identifica y transfiere únicamente los bloques de datos que ha cambiado (delta) desde la copia de seguridad anterior.
     - Es posible que los datos de las instantáneas no se copien inmediatamente en el almacén. Podrían tardar horas en momentos de máxima actividad. Tiempo total de copia de seguridad para una máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias.
+ 1. Los cambios realizados en una máquina virtual de Windows después de habilitar la copia de seguridad de Azure en él son:
+    -   Microsoft Visual C++ Redistributable(x64) 2013 - 12.0.40660 está instalado en la máquina virtual
+    -   Tipo de inicio del servicio de instantáneas de volumen (VSS) cambiado a automático de manual
+    -   Se agrega el servicio IaaSVmProvider Windows
 
 1. Una vez completada la transferencia de datos, se elimina la instantánea y se crea un punto de recuperación.
 
@@ -57,7 +61,7 @@ BEKs también se copian. Por lo tanto, si se pierden los BEKs, los usuarios auto
 
 ## <a name="snapshot-creation"></a>Creación de instantáneas
 
-Copia de seguridad de Azure toma instantáneas según la programación de copia de seguridad. 
+Copia de seguridad de Azure toma instantáneas según la programación de copia de seguridad.
 
 - **Máquinas virtuales de Windows:** Las máquinas virtuales de Windows, el servicio de copia de seguridad se coordina con VSS para tomar una instantánea coherente con la aplicación de los discos de máquina virtual.
 
@@ -82,7 +86,7 @@ La siguiente tabla explica los diferentes tipos de coherencia de la instantánea
 **Sistema de archivos coherente** | Las copias de seguridad coherentes del sistema de archivos proporcionan coherencia tomando una instantánea de todos los archivos al mismo tiempo.<br/><br/> | Cuando se va a recuperar una máquina virtual con una instantánea coherente del sistema de archivos, la máquina virtual se inicia. No se pierden ni se dañan los datos. Las aplicaciones deben implementar su propio mecanismo de corrección para asegurarse de que los datos restaurados son coherentes. | Windows: Se produjeron errores en algunas instancias de VSS Writer <br/><br/> Linux: El valor predeterminado (si los scripts anteriores y posteriores no están configurados o no se pudo)
 **Coherente frente a bloqueos** | Las instantáneas coherentes con bloqueos suelen producen si una máquina virtual de Azure se apaga en el momento de la copia de seguridad. Solamente se capturan y se hace una copia de seguridad de los datos que ya existen en el disco en el momento de la copia de seguridad.<br/><br/> Un punto de recuperación coherente con el bloqueo no garantiza la coherencia de datos para el sistema operativo o la aplicación. | Aunque no hay ninguna garantía, normalmente arranca la máquina virtual y, a continuación, se inicia una comprobación de disco para corregir errores por daños. Los datos en memoria o las operaciones de escritura que no se han transferido a disco antes de que el bloqueo se pierden. Las aplicaciones implementan su propia comprobación de los datos. Por ejemplo, una aplicación de base de datos puede usar su registro de transacciones para la comprobación. Si el registro de transacciones tiene entradas que no estén en la base de datos, el software de base de datos pone las transacciones hasta que los datos son coherentes. | La VM está en estado de cierre
 
-## <a name="backup-and-restore-considerations"></a>Consideraciones de copia de seguridad y restauración 
+## <a name="backup-and-restore-considerations"></a>Consideraciones de copia de seguridad y restauración
 
 **Consideración** | **Detalles**
 --- | ---
@@ -99,8 +103,8 @@ La siguiente tabla explica los diferentes tipos de coherencia de la instantánea
 Estos escenarios comunes pueden afectar a la hora de copia de seguridad total:
 
 - **Agregar un nuevo disco a una máquina virtual de Azure protegida:** Si una máquina virtual está en proceso de copia de seguridad incremental y se agrega un nuevo disco, aumentará el tiempo de copia de seguridad. El tiempo total de copia de seguridad puede durar más de 24 horas debido a la replicación inicial del nuevo disco, junto con la replicación diferencial de los discos existentes.
-- **Discos fragmentados:** Las operaciones de copia de seguridad son más rápidas cuando los cambios del disco son contiguos. Si los cambios se expanden horizontalmente y se fragmentan a lo largo de un disco, la copia de seguridad será más lenta. 
-- **Actividad de disco:** Si protegió los discos que se esté realizando la copia de seguridad incremental tiene una actividad diaria de más de 200 GB, copia de seguridad puede tardar mucho tiempo (más de ocho horas) para completar. 
+- **Discos fragmentados:** Las operaciones de copia de seguridad son más rápidas cuando los cambios del disco son contiguos. Si los cambios se expanden horizontalmente y se fragmentan a lo largo de un disco, la copia de seguridad será más lenta.
+- **Actividad de disco:** Si protegió los discos que se esté realizando la copia de seguridad incremental tiene una actividad diaria de más de 200 GB, copia de seguridad puede tardar mucho tiempo (más de ocho horas) para completar.
 - **Versiones de copia de seguridad:** La versión más reciente de copia de seguridad (conocida como la versión de la restauración instantánea) usa un proceso más optimizado que la comparación de la suma de comprobación para identificar los cambios. Pero si usa la restauración instantánea y ha eliminado una instantánea de copia de seguridad, la copia de seguridad cambia en la comparación de la suma de comprobación. En este caso, la operación de copia de seguridad se superior a 24 horas (o un error).
 
 ## <a name="best-practices"></a>Procedimientos recomendados

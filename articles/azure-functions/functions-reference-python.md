@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 28f2b395c7f9be1b194b500ef20456be8ff405b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021275"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571178"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guía de Azure Functions para desarrolladores de Python
 
@@ -28,7 +28,7 @@ Este artículo es una introducción al desarrollo de Azure Functions mediante Py
 
 ## <a name="programming-model"></a>Modelo de programación
 
-Una función de Azure Function debe ser un método sin estado de un script de Python que procese entradas y produzca salidas. De forma predeterminada, el entorno de ejecución espera que este se implemente como un método global denominado `main()` en el archivo `__init__.py`.
+Una función de Azure Function debe ser un método sin estado de un script de Python que procese entradas y produzca salidas. De forma predeterminada, el tiempo de ejecución espera que el método se implementa como un método global denominado `main()` en el `__init__.py` archivo.
 
 Puede cambiar la configuración predeterminada si especifica las propiedades `scriptFile` y `entryPoint` en el archivo `function.json`. Por ejemplo, el archivo _function.json_ siguiente indica al entorno de ejecución que use el método _customentry()_ del archivo _main.py_, como punto de entrada para la función de Azure.
 
@@ -40,7 +40,7 @@ Puede cambiar la configuración predeterminada si especifica las propiedades `sc
 }
 ```
 
-Los datos de los desencadenadores y enlaces se enlazan a la función a través de los atributos del método con la propiedad `name` definida en el archivo de configuración `function.json`. Por ejemplo, en el archivo _function.json_ siguiente se describe una función simple desencadenada por una solicitud HTTP denominada `req`:
+Los datos de los desencadenadores y enlaces se enlazan a la función a través de los atributos del método con la propiedad `name` definida en el archivo de configuración `function.json`. Por ejemplo, el _function.json_ a continuación se describe una función simple desencadenada por una solicitud HTTP denominada `req`:
 
 ```json
 {
@@ -109,15 +109,16 @@ El código compartido debe mantenerse en una carpeta independiente. Para hacer r
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Las extensiones de enlace que usa el entorno de ejecución de Functions se definen en el archivo `extensions.csproj`, mientras que los archivos de biblioteca reales se hallan en la carpeta `bin`. Al desarrollar de forma local, debe [registrar las extensiones de enlace](./functions-bindings-register.md#local-development-azure-functions-core-tools) con Azure Functions Core Tools. 
+Las extensiones de enlace que usa el entorno de ejecución de Functions se definen en el archivo `extensions.csproj`, mientras que los archivos de biblioteca reales se hallan en la carpeta `bin`. Al desarrollar de forma local, debe [registrar las extensiones de enlace](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles) con Azure Functions Core Tools. 
 
 Al implementar un proyecto de Functions en la aplicación de función en Azure, todo el contenido de la carpeta FunctionApp debe incluirse en el paquete, pero no en la carpeta.
 
-## <a name="inputs"></a>Entradas
+## <a name="triggers-and-inputs"></a>Los desencadenadores y las entradas
 
-Las entradas se dividen en dos categorías dentro de Azure Functions: una entrada del desencadenador y otra adicional. Aunque son diferentes en `function.json`, se usan igual en el código de Python. Tomemos el siguiente fragmento de código a modo de ejemplo:
+Las entradas se dividen en dos categorías dentro de Azure Functions: una entrada del desencadenador y otra adicional. Aunque son diferentes en `function.json`, se usan igual en el código de Python.  Las cadenas de conexión para orígenes de entrada y de desencadenador deben asignar a los valores de la `local.settings.json` archivo localmente y la configuración de la aplicación cuando se ejecuta en Azure. Tomemos el siguiente fragmento de código a modo de ejemplo:
 
 ```json
+// function.json
 {
   "scriptFile": "__init__.py",
   "bindings": [
@@ -139,7 +140,19 @@ Las entradas se dividen en dos categorías dentro de Azure Functions: una entrad
 }
 ```
 
+```json
+// local.settings.json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+  }
+}
+```
+
 ```python
+# __init__.py
 import azure.functions as func
 import logging
 
@@ -149,7 +162,8 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Cuando se invoca la función, la solicitud HTTP se pasa a la función como `req`. Se recuperará una entrada de Azure Blob Storage según el _id_ de la dirección URL de la ruta y estará disponible como `obj` en el cuerpo de la función.
+Cuando se invoca la función, la solicitud HTTP se pasa a la función como `req`. Una entrada se recuperan desde el almacenamiento de blobs de Azure según la _ID_ en la dirección URL de ruta y ponen a disposición como `obj` en el cuerpo de la función.  Aquí, la cuenta de almacenamiento especificado se encuentra la cadena de conexión en `AzureWebJobsStorage` que es la misma cuenta de almacenamiento utilizada por la aplicación de función.
+
 
 ## <a name="outputs"></a>Salidas
 

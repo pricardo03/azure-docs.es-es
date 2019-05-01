@@ -3,19 +3,19 @@ title: Definición de un perfil técnico de transformación de notificaciones en
 description: Defina un perfil técnico de transformación de notificaciones en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a204e8cdc20a6897c40d4d5f68217a2922371737
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a2904bec34978a33d25534c9e9b32552191ad88
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386710"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705321"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de transformación de notificaciones en una directiva personalizada en Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "60386710"
 
 Un perfil técnico de transformación de notificaciones permite llamar a transformaciones de notificaciones de salida para manipular los valores de notificaciones, validarlas o establecer valores predeterminados para un conjunto de notificaciones de salida.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 El atributo **Name** del elemento **Protocol** tiene que establecerse en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo que usa Azure AD B2C: `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 

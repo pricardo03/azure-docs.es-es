@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: eeab01146c938ec118deae08a30af85af4186a2e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507831"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714064"
 ---
 # <a name="time-series-model"></a>Modelo de Time Series
 
@@ -203,9 +203,9 @@ Para obtener más información sobre la configuración del modelo de serie tempo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md) (Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights).
+- Consulte [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md) (Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights).
 
-Consulte el nuevo [Time Series Model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) (Modelo de serie temporal).
+- Consulte el nuevo [Time Series Model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) (Modelo de serie temporal).
 
 <!-- Images -->
 [1]: media/v2-update-tsm/tsm.png

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 20ebcb502e03f2d817fe18624d8c790e920c667f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea2381287729579e10d457912c4147f59716bcc4
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61372049"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875713"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Prueba de la base de conocimiento de forma interactiva en QnA Maker
 
@@ -24,8 +24,8 @@ La prueba de la base de conocimiento de QnA Maker es una parte importante de un 
 
 ## <a name="test-answer-matching"></a>Probar la coincidencia de respuestas
 
-1.  Acceda a la base de conocimiento; para ello, seleccione su nombre en la página  **Mis bases de conocimiento**.
-2.  Para acceder al panel deslizante Prueba, seleccione  **Prueba**  en el panel superior de la aplicación.
+1.  Acceda a la base de conocimiento; para ello, seleccione su nombre en la página **Mis bases de conocimiento**.
+2.  Para acceder al panel deslizante Prueba, seleccione **Prueba** en el panel superior de la aplicación.
 
     ![Acceso al panel Prueba](../media/qnamaker-how-to-test-kb/access-test.png)
 
@@ -35,21 +35,21 @@ La prueba de la base de conocimiento de QnA Maker es una parte importante de un 
 
 ## <a name="clear-test-panel"></a>Borrar el panel de prueba
 
-Para borrar las consultas de prueba especificadas y sus resultados de la consola de pruebas, seleccione  **Empezar de nuevo**  en la esquina superior izquierda del panel Prueba.
+Para borrar las consultas de prueba especificadas y sus resultados de la consola de pruebas, seleccione **Empezar de nuevo** en la esquina superior izquierda del panel Probar.
 
 ## <a name="close-test-panel"></a>Cerrar el panel Prueba
 
-Para cerrar el panel Prueba, vuelva a seleccionar el botón  **Prueba** . Mientras el panel Prueba está abierto, no puede editar el contenido de la base de conocimiento.
+Para cerrar el panel Prueba, vuelva a seleccionar el botón **Prueba**. Mientras el panel Prueba está abierto, no puede editar el contenido de la base de conocimiento.
 
 ## <a name="inspect-score"></a>Inspeccionar puntuación
 
 Puede inspeccionar los detalles del resultado de las pruebas en el panel Inspeccionar.
 
-1.  Con el panel deslizante Prueba abierto, seleccione  **Inspeccionar**  para obtener más detalles sobre dicha respuesta.
+1.  Con el panel deslizante Prueba abierto, seleccione **Inspeccionar** para obtener más detalles sobre dicha respuesta.
 
     ![Inspeccionar respuestas](../media/qnamaker-how-to-test-kb/inspect.png)
 
-2.  Aparece el panel Inspección. El panel incluye la intención de mayor puntuación, así como cualquier entidad identificada. El panel muestra el resultado de la expresión seleccionada.
+2.  Aparece el panel Inspección. El panel incluye la intención con la mayor puntuación, así como cualquier entidad identificada. El panel muestra el resultado de la expresión seleccionada.
 
 ## <a name="correct-the-top-scoring-answer"></a>Corrección de la respuesta con mayor puntuación
 

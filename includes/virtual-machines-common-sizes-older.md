@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: d89a9c4c4498e249dbfbd453ef9772d18ffd213f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7196a2ea794c1d17a2c55c05accb447d83929972
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541631"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744589"
 ---
 En esta sección se proporciona información sobre las generaciones más antiguas de tamaños de máquina virtual. Estos tamaños todavía se admiten pero no recibirá la capacidad adicional. Hay tamaños alternativos o versiones más recientes que están disponibles con carácter general. Consulte [máquinas virtuales de tamaños para Windows en Azure](../articles/virtual-machines/windows/sizes.md) o [tamaños de máquinas virtuales Linux en Azure](../articles/virtual-machines/linux/sizes.md) para elegir la máquina virtual de tamaños que mejor se ajusten a sus necesidades.  
 
@@ -27,7 +27,7 @@ Para obtener más información sobre el cambio de tamaño una VM de Linux, consu
 
 Premium Storage:  No compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Caching de Premium Storage:  No compatible
 
 Los tamaños de niveles básicos se utilizan sobre todo para cargas de trabajo de desarrollo y otras aplicaciones que no requieren equilibrio de carga, escalado automático o máquinas virtuales de uso intensivo de memoria.
 
@@ -49,7 +49,7 @@ ACU: 50-100
 
 Premium Storage:  No compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Caching de Premium Storage:  No compatible
 
 | Tamaño | vCPU | Memoria: GiB | Almacenamiento temporal (HDD): GiB | Discos de datos máx. | Rendimiento de discos de datos máx.: E/S | Nº máx. de NIC/ancho de banda de red esperado (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -74,7 +74,7 @@ ACU: 225
 
 Premium Storage:  No compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Caching de Premium Storage:  No compatible
 
 Los tamaños A8-A11 los de la serie H también se conocen como *instancias de proceso intensivo*. El hardware que ejecuta estos tamaños está diseñado y optimizado para aplicaciones de proceso intensivo que consumen muchos recursos de red, incluidas las aplicaciones de clúster de proceso de alto rendimiento (HPC), el modelado y las simulaciones. La serie A8-A11 utiliza Intel Xeon E5-2670 a 2,6 GHz y la serie H, Intel Xeon E5-2667 v3 a 3,2 GHz.  
 
@@ -97,7 +97,7 @@ ACU: 160-250 <sup>1</sup>
 
 Premium Storage:  No compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Caching de Premium Storage:  No compatible
 
 | Tamaño         | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Discos de datos máx. / rendimiento: E/S | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -118,7 +118,7 @@ ACU: 160-250 <sup>1</sup>
 
 Premium Storage:  No compatible
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Caching de Premium Storage:  No compatible
 
 | Tamaño         | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Discos de datos máx. / rendimiento: E/S | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -139,7 +139,7 @@ ACU: 160-250 <sup>1</sup>
 
 Premium Storage:  Compatible
 
-Almacenamiento en caché de Premium Storage:  Compatible
+Caching de Premium Storage:  Compatible
 
 | Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -160,7 +160,7 @@ ACU: 160-250 <sup>1,2</sup>
 
 Premium Storage:  Compatible
 
-Almacenamiento en caché de Premium Storage:  Compatible
+Caching de Premium Storage:  Compatible
 
 | Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

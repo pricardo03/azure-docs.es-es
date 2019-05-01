@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 9c9a5f219af0d474e1608f98595abe027b894117
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ef302ecaa6defc6ac0dc1dd58d4f8acc0f2fd263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001733"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711439"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Ejemplos de consulta para patrones de uso comunes de Stream Analytics
 
@@ -35,7 +35,7 @@ Por ejemplo, el peso del vehículo se incorpora al flujo de entrada como cadena 
 
 **Entrada**:
 
-| Asegúrese | Hora | Peso |
+| Asegúrese | Time | Peso |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
@@ -67,7 +67,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Entrada**:
 
-| Asegúrese | LicensePlate | Hora |
+| Asegúrese | LicensePlate | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -75,7 +75,7 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Salida**:
 
-| Asegúrese | LicensePlate | Hora |
+| Asegúrese | LicensePlate | Time |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
@@ -99,7 +99,7 @@ Por ejemplo, proporcione una descripción de cadena para el número de vehículo
 
 **Entrada**:
 
-| Asegúrese | Hora |
+| Asegúrese | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -107,7 +107,7 @@ Por ejemplo, proporcione una descripción de cadena para el número de vehículo
 
 **Salida**:
 
-| CarsPassed | Hora |
+| CarsPassed | Time |
 | --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
@@ -136,7 +136,7 @@ Por ejemplo, analice los datos para una alerta de umbral y archive todos los eve
 
 **Entrada**:
 
-| Asegúrese | Hora |
+| Asegúrese | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -146,7 +146,7 @@ Por ejemplo, analice los datos para una alerta de umbral y archive todos los eve
 
 **Salida1**:
 
-| Asegúrese | Hora |
+| Asegúrese | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -156,7 +156,7 @@ Por ejemplo, analice los datos para una alerta de umbral y archive todos los eve
 
 **Salida2**:
 
-| Asegúrese | Hora | Número |
+| Asegúrese | Time | Número |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -211,7 +211,7 @@ Por ejemplo, ¿cuántas marcas de vehículos únicas pasan a través de la cabin
 
 **Entrada**:
 
-| Asegúrese | Hora |
+| Asegúrese | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -221,7 +221,7 @@ Por ejemplo, ¿cuántas marcas de vehículos únicas pasan a través de la cabin
 
 **Salida:**
 
-| CountMake | Hora |
+| CountMake | Time |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -247,14 +247,14 @@ Por ejemplo, ¿el vehículo anterior de la autopista de peaje es de la misma mar
 
 **Entrada**:
 
-| Asegúrese | Hora |
+| Asegúrese | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Salida**:
 
-| Asegúrese | Hora |
+| Asegúrese | Time |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -277,7 +277,7 @@ Por ejemplo, ¿el vehículo anterior de la autopista de peaje es de la misma mar
 
 **Entrada**:
 
-| LicensePlate | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -289,7 +289,7 @@ Por ejemplo, ¿el vehículo anterior de la autopista de peaje es de la misma mar
 
 **Salida**:
 
-| LicensePlate | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
@@ -309,7 +309,7 @@ Por ejemplo, ¿el vehículo anterior de la autopista de peaje es de la misma mar
 
 Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una marca concreta en un intervalo de cada diez minutos.
 
-| LicensePlate | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -335,7 +335,7 @@ Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una ma
 
 **Entrada**:
 
-| LicensePlate | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -347,7 +347,7 @@ Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una ma
 
 **Salida**:
 
-| LicensePlate | Asegúrese | Hora |
+| LicensePlate | Asegúrese | Time |
 | --- | --- | --- |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
@@ -383,7 +383,7 @@ Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la a
 
 **Entrada**:
 
-| Asegúrese | LicensePlate | Hora |
+| Asegúrese | LicensePlate | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -392,7 +392,7 @@ Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la a
 
 **Salida**:
 
-| Asegúrese | Hora | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Asegúrese | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
@@ -418,7 +418,7 @@ Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la a
 
 **Entrada**:  
 
-| Usuario | Característica | Evento | Hora |
+| Usuario | Característica | Evento | Time |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Iniciar |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
@@ -447,7 +447,7 @@ Por ejemplo, supongamos que por error todos los vehículos tienen un peso incorr
 
 **Entrada**:
 
-| Asegúrese | Hora | Peso |
+| Asegúrese | Time | Peso |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -537,7 +537,7 @@ Por ejemplo, en un escenario de IoT de hornos domésticos, se debe generar una a
 
 **Entrada**:
 
-| Twitter en tiempo | deviceId | sensorName | value |
+| time | deviceId | sensorName | value |
 | --- | --- | --- | --- |
 | "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
 | "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
@@ -605,12 +605,12 @@ WHERE
 **Explicación**: La primera consulta `max_power_during_last_3_mins`, usa la [ventana deslizante](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para encontrar el valor máximo del sensor de potencia para cada dispositivo, durante los últimos tres minutos. La segunda consulta se combina con la primera para encontrar el valor de potencia en la ventana más reciente relacionada con el evento actual. Y entonces, siempre que se cumplan las condiciones, se genera una alerta para el dispositivo.
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Ejemplo de consulta: Procesar los eventos de manera independiente del sesgo de reloj del dispositivo (subflujos)
-**Descripción**: Los eventos pueden llegar tarde o desordenados debido a sesgos de reloj entre los productores de eventos, a sesgos de reloj entre particiones o a la latencia de red. En el ejemplo siguiente, el reloj del dispositivo para TollID 2 va diez segundos atrasado respecto a TollID 1 y el reloj del dispositivo para TollID 3 va diez segundos atrasado respecto a TollID 1. 
+**Descripción**: Los eventos pueden llegar tarde o desordenados debido a sesgos de reloj entre los productores de eventos, a sesgos de reloj entre particiones o a la latencia de red. En el ejemplo siguiente, el reloj del dispositivo para TollID 2 es de cinco segundos detrás TollID 1 y el reloj del dispositivo para TollID 3 es de diez segundos detrás de 1 TollID. 
 
 
 **Entrada**:
 
-| LicensePlate | Asegúrese | Hora | TollId |
+| LicensePlate | Asegúrese | Time | TollId |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
 | YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
@@ -650,7 +650,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Entrada**:  
 
-| deviceId | Hora | Atributo | Valor |
+| deviceId | Time | Atributo | Valor |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122598"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702513"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Cómo consultar registros de Azure Monitor para VM (versión preliminar)
 Monitor para las máquinas virtuales de Azure recopila información de estado de mantenimiento y métricas de conexión, equipo y procesar los datos de inventario y rendimiento y la reenvía al área de trabajo de Log Analytics en Azure Monitor.  Estos datos están disponibles para [consulta](../../azure-monitor/log-query/log-query-overview.md) en Azure Monitor. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
@@ -58,7 +58,7 @@ Para administrar el costo y la complejidad, los registros de conexión no repres
 |SourceIp |Dirección IP de origen |
 |DestinationIp |Dirección IP de destino. |
 |DestinationPort |Número de puerto de destino |
-|Protocolo |Protocolo utilizado para la conexión.  Los valores son *tcp*. |
+|Protocol |Protocolo utilizado para la conexión.  Los valores son *tcp*. |
 
 Para tener en cuenta el impacto de la agrupación, se proporciona información sobre el número de conexiones físicas agrupadas en las siguientes propiedades del registro:
 
@@ -139,7 +139,7 @@ Todos los registros de VMBoundPort se identifican mediante los siguientes campos
 |Proceso | Identidad de proceso (o grupos de procesos) que está asociado con el puerto.|
 |IP | Dirección IP de puerto (puede ser la dirección IP de carácter comodín, *0.0.0.0*) |
 |Port |El número de puerto |
-|Protocolo | El protocolo.  Ejemplo, *tcp* o *udp* (sólo *tcp* actualmente se admite).|
+|Protocol | El protocolo.  Ejemplo, *tcp* o *udp* (sólo *tcp* actualmente se admite).|
  
 La identidad de un puerto se deriva de los cinco campos anteriores y se almacena en la propiedad PortId. Esta propiedad se puede usar para buscar rápidamente los registros para un puerto específico a través del tiempo. 
 
@@ -202,7 +202,7 @@ Los registros con un tipo *ServiceMapProcess_CL* tienen datos de inventario para
 | ProductVersion_s | Versión del producto |
 | FileVersion_s | Versión del archivo |
 | CommandLine_s | Línea de comandos |
-| ExecutablePath _s | Ruta de acceso al archivo ejecutable |
+| ExecutablePath_s | Ruta de acceso al archivo ejecutable |
 | WorkingDirectory_s | Directorio de trabajo |
 | UserName | Cuenta en la que se está ejecutando el proceso |
 | UserDomain | Dominio en el que se está ejecutando el proceso |

@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483379"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710875"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas de Azure Storage Explorer
 
@@ -96,7 +96,7 @@ Si no se encuentra ningún certificado autofirmado siguiendo los pasos anteriore
 
 Los diálogos de inicio de sesión en blanco se suele deberse a ADFS que pide el Explorador de Storage para realizar una redirección, que no es compatible con Electron. Para solucionar este problema, puede intentar usar el flujo de código de dispositivo para el inicio de sesión. Para ello, siga los pasos que se indican a continuación:
 
-1. "Ir a la vista previa" -> "Usar inicio de sesión de código de dispositivo".
+1. Menú: Versión preliminar -> "Usar inicio de sesión de código de dispositivo".
 2. Abra el cuadro de diálogo de conexión (ya sea mediante el icono de interruptor de la barra vertical izquierda o con "Agregar cuenta" en el panel de la cuenta).
 3. Elija qué entorno que desea iniciar sesión en.
 4. Haga clic en el botón "Iniciar sesión".

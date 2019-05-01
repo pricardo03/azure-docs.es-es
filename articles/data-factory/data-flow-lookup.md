@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61348182"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868120"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformación Búsqueda de Azure Data Factory Mapping Data Flow
 
@@ -25,6 +25,10 @@ Use Búsqueda para agregar datos de referencia desde otro origen al flujo de dat
 Seleccione los campos de clave por los que desea buscar coincidencias entre los campos de la secuencia entrante y los campos del origen de referencia. Tiene que haber creado un origen nuevo en el lienzo de diseño de Data Flow para usarlo como lado derecho de la búsqueda.
 
 Cuando se encuentran coincidencias, las filas y columnas resultantes del origen de referencia se agregarán al flujo de datos. Puede elegir qué campos de interés desea incluir en el receptor al final de su flujo de datos.
+
+## <a name="match--no-match"></a>Coincide con o sin coincidencia
+
+Después de la transformación búsqueda, puede usar las transformaciones posteriores para inspeccionar los resultados de cada fila de la coincidencia con la función de la expresión `isMatch()` tomar más decisiones en su lógica en función de si la búsqueda dieron lugar a una coincidencia de fila o no.
 
 ## <a name="optimizations"></a>Optimizaciones
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 23c87ae92a0f22b4a1a31c054df730af2efc07d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ce57e1f8b2732ea909625c89f3e8148cb70635c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322104"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728829"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Supervisar las métricas de Media Services y los registros de diagnóstico
 
@@ -34,10 +34,10 @@ Las métricas se recopilan a intervalos regulares independientemente de si cambi
 
 Actualmente, los siguientes servicios de medios [extremos de Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) métricas se emiten por Azure:
 
-|Name|DESCRIPCIÓN|
+|NOMBRE|DESCRIPCIÓN|
 |---|---|
-|Requests|Proporciona información sobre el número total de solicitudes tramitadas por el extremo de streaming.|
-|Salida|Número total de bytes de salida. Por ejemplo, los bytes transmitidos por secuencias por extremo de streaming.|
+|Requests|Proporciona información sobre el número total de solicitudes tramitadas por el punto de conexión de Streaming.|
+|Salida|Número total de bytes de salida. Por ejemplo, los bytes transmitidos por secuencias el punto de conexión de Streaming.|
 |Latencia de extremo a extremo correcta| Proporciona información acerca de la latencia de extremo a extremo de solicitudes correctas.|
 
 Por ejemplo, para obtener las métricas de "Salida" con la CLI, ejecutaría lo siguiente `az monitor metrics` comando de CLI:
@@ -54,7 +54,7 @@ Para obtener información sobre cómo crear alertas de métricas, consulte [crea
 
 Actualmente, puede obtener los registros de diagnóstico siguientes:
 
-|Name|DESCRIPCIÓN|
+|NOMBRE|DESCRIPCIÓN|
 |---|---|
 |Solicitud de servicio de entrega de claves|Registros que muestran la información de solicitud de servicio de entrega de claves. Para obtener más información, consulte [esquemas](media-services-diagnostic-logs-schema.md).|
 

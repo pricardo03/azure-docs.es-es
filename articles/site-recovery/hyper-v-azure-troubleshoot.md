@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 8bb790571e1499bd45fb8bee27f4f1896046cbc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749110"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719828"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solución de problemas de la replicación y la conmutación por error de Hyper-V en Azure
 
@@ -129,7 +129,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 
 2. Para generar instantáneas VSS para la máquina virtual, compruebe que los servicios de integración de Hyper-V están instalados en la máquina virtual y que está habilitado el servicio de integración de copia de seguridad (VSS).
     - Asegúrese de que los servicios/demonios de VSS de Integration Services se ejecutan en el invitado y se encuentran en un estado **Aceptar**.
-    - Esto se puede comprobar desde una sesión de PowerShell con privilegios elevados en el host de Hyper-V con el comando **et-VMIntegrationService - VMName<VMName>-nombre VSS**. También puede obtener esta información, iniciando sesión en la máquina virtual invitada. [Más información](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - Esto se puede comprobar desde una sesión de PowerShell con privilegios elevados en el host de Hyper-V con el comando **et-VMIntegrationService - VMName\<VMName >-nombre VSS** también puede obtener esta información, inicie sesión en la máquina virtual invitada. [Más información](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Asegúrese de que los servicios de integración de VSS/copia de seguridad en la máquina virtual se están ejecutando y se encuentran en buen estado. Si no es así, reinicie estos servicios y el servicio de solicitante de instantáneas de volumen de Hyper-V en el servidor host de Hyper-V.
 
 ### <a name="common-errors"></a>Errores comunes

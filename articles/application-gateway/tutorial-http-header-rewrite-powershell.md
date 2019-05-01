@@ -2,26 +2,23 @@
 title: Reescribir encabezados HTTP en Azure Application Gateway
 description: En este artículo, se proporciona información sobre cómo crear una instancia de Azure Application Gateway y reescribir encabezados HTTP con Azure PowerShell
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 4/30/2019
 ms.author: absha
-ms.openlocfilehash: 4747d824dcf531ed883d476a0daad182ea081c39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba74bb8970949a15425a66f7cd4475749fd183df
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715103"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947089"
 ---
-# <a name="tutorial-create-an-application-gateway-and-rewrite-http-headers"></a>Tutorial: Crear una instancia de Application Gateway y reescribir los encabezados HTTP
+# <a name="create-an-application-gateway-and-rewrite-http-headers"></a>Crear una instancia de Application Gateway y reescribir los encabezados HTTP
 
 Puede usar Azure PowerShell para configurar las [reglas de reescritura de encabezados HTTP de solicitud y respuesta](rewrite-http-headers.md) al crear una [SKU de Application Gateway de escalado automático y con redundancia de zona](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) existente.
 
-> [!IMPORTANT] 
-> La SKU de escalabilidad automática y de puerta de enlace de aplicaciones con redundancia de zona actualmente está en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-
-En este tutorial, aprenderá a:
+En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 >
@@ -37,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este tutorial es necesario ejecutar Azure PowerShell en local. Necesita tener instalado el módulo de Azure versión 1.0.0 o posterior. Ejecute `Import-Module Az` y, después, `Get-Module Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Después de verificar la versión de PowerShell, ejecute `Login-AzAccount` para crear una conexión con Azure.
+En este artículo requiere la ejecución de PowerShell de Azure localmente. Necesita tener instalado el módulo de Azure versión 1.0.0 o posterior. Ejecute `Import-Module Az` y, después, `Get-Module Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Después de verificar la versión de PowerShell, ejecute `Login-AzAccount` para crear una conexión con Azure.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -178,5 +175,4 @@ En primer lugar, explore los recursos que se crearon con Application Gateway. De
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Crear una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de direcciones URL](./tutorial-url-route-powershell.md)
+- [Crear una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de direcciones URL](./tutorial-url-route-powershell.md)

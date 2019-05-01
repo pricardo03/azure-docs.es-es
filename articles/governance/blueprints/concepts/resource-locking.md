@@ -3,17 +3,17 @@ title: Bloqueo de recursos
 description: Obtenga más información sobre las opciones de bloqueo para proteger los recursos cuando asigne un plano técnico.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 232d823f364f9f98d1da1bade50ba369b898a57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60683023"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719766"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
@@ -53,6 +53,13 @@ Cuando se quita la asignación, se quitan los bloqueos creados por los planos t�
 Una acción denegación [denegar asignaciones](../../../role-based-access-control/deny-assignments.md) de RBAC se aplica a los recursos de artefactos durante la asignación de un plano técnico si la asignación ha seleccionado la opción **Solo lectura** o **No eliminar**. La identidad administrada de la asignación del plano técnico agrega la acción de denegación, y solo la misma identidad administrada puede eliminar los recursos del artefacto. Esta medida de seguridad refuerza el mecanismo de bloqueo y evita que se quite el bloqueo del plano técnico fuera de Blueprint.
 
 ![Instancia de blueprint denegar la asignación en el grupo de recursos](../media/resource-locking/blueprint-deny-assignment.png)
+
+El [denegar propiedades de la asignación](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo son los siguientes:
+
+|Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|-|-|-|-|-|-|
+|Solo lectura |**\*** |**\*/read** |SystemDefined (todos) |asignación del plano y definido por el usuario en **excludedPrincipals** |Grupo de recursos - _true_; Recurso: _false_ |
+|No eliminar |**\*/delete** | |SystemDefined (todos) |asignación del plano y definido por el usuario en **excludedPrincipals** |Grupo de recursos - _true_; Recurso: _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager almacena en caché los detalles de asignación de roles durante un máximo de 30 minutos. Como resultado, la acción de denegación denegar asignaciones puede que no funcione completamente en los recursos de plano técnico. Durante este período de tiempo es posible eliminar un recurso diseñado para estar protegido por bloqueos de plano técnico.

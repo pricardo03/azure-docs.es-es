@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7885473d029556e10663675a9886c7ea3b9c709c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 0b1c43cb82d6dc2b7f0708dee8471f077befe349
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555428"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722160"
 ---
 # <a name="data-querying"></a>Consultas de datos
 
@@ -75,11 +75,11 @@ Las siguientes API de consulta de serie temporal están disponibles:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información:
+- Obtenga más información sobre [almacenamiento y la entrada](./time-series-insights-update-storage-ingress.md) en la versión preliminar de Azure tiempo Series Insights.
 
-- [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md) (Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights)
-- [Data modeling](./time-series-insights-update-tsm.md) (Modelado de datos)
-- [Best practices when choosing a Time Series ID](./time-series-insights-update-how-to-id.md) (Procedimientos recomendados al elegir un id. de serie temporal)
+- Leer la versión preliminar de tiempo Series Insights [modelado de datos](./time-series-insights-update-tsm.md) artículo.
+
+- Detectar [procedimientos recomendados al elegir un identificador de la serie de tiempo](./time-series-insights-update-how-to-id.md).
 
 <!-- Images -->
 [1]: media/v2-update-tsq/tsq.png

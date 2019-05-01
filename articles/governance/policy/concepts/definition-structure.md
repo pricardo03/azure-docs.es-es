@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311648"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716773"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -66,7 +66,7 @@ Por ejemplo, el siguiente JSON muestra una directiva que limita las ubicaciones 
 }
 ```
 
-Todos los ejemplos de Azure Policy están en [Ejemplos de directivas](../samples/index.md).
+Todos los ejemplos de Azure Policy están en [ejemplos de Azure Policy](../samples/index.md).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -99,6 +99,7 @@ Un parámetro tiene las siguientes propiedades que se usan en la definición de 
   - `description`: La explicación de para qué se usa el parámetro. Puede utilizarse para proporcionar ejemplos de valores aceptables.
   - `displayName`: El nombre descriptivo que se muestra en el portal para el parámetro.
   - `strongType`: (Opcional) Se usa al asignar la definición de directiva mediante el portal. Proporciona una lista que tiene en cuenta el contexto. Para más información, consulte [strongType](#strongtype).
+  - `assignPermissions`: (Opcional) Establecer como _true_ para que Azure portal cree asignaciones de roles durante la asignación de directiva. Esta propiedad es útil en caso de que desea asignar permisos fuera del ámbito de asignación. Hay una asignación de roles por cada definición de rol en la directiva (o por la definición de roles en todas las directivas en la iniciativa). El valor del parámetro debe ser un recurso válido o un ámbito.
 - `defaultValue`: (Opcional) Establece el valor del parámetro en una asignación, si no se especifica ningún valor. Requerido cuando se actualiza una definición de directiva existente que está asignada.
 - `allowedValues`: (Opcional) Proporciona una matriz de valores que acepta el parámetro durante la asignación.
 
@@ -148,6 +149,7 @@ Dentro de la propiedad `metadata`, puede usar **strongType** para proporcionar u
 - `omsWorkspace`
 - `Microsoft.EventHub/Namespaces/EventHubs`
 - `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.EventHub/Namespaces/AuthorizationRules`
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -287,7 +289,7 @@ En el ejemplo siguiente, `concat` se usa para crear una búsqueda de campos de e
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>Valor
 
 Las condiciones también se pueden formar mediante el uso de **value**. **value** comprueba las condiciones en [parámetros](#parameters), [funciones de plantilla admitidas](#policy-functions) o literales.
 **value** se empareja con cualquier [condición](#conditions) admitida.
@@ -375,7 +377,7 @@ Con la regla de directiva revisada `if()` comprueba la longitud del **nombre** a
 
 ### <a name="effect"></a>Efecto
 
-La directiva admite tres tipos de efectos:
+Directiva de Azure admite los siguientes tipos de efecto:
 
 - **Deny**: genera un evento en el registro de actividad y genera un error en la solicitud.
 - **Audit**: genera un evento de advertencia en el registro de actividad pero no genera un error en la solicitud.
@@ -410,7 +412,7 @@ El efecto de **DeployIfNotExists** requiere la propiedad **roleDefinitionId** en
 }
 ```
 
-Para obtener información detallada sobre cada efecto, el orden de evaluación, las propiedades y algunos ejemplos, consulte [Descripción de los efectos de la directiva](effects.md).
+Para obtener información detallada sobre cada efecto, el orden de evaluación, propiedades y ejemplos, vea [Understanding Azure directiva efectos](effects.md).
 
 ### <a name="policy-functions"></a>Funciones de directiva
 
@@ -593,9 +595,9 @@ En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md)
-- Consulte [Descripción de los efectos de directivas](effects.md)
-- Entender cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md)
-- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md)
-- Más información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md)
-- En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.
+- Revise los ejemplos en [ejemplos de Azure Policy](../samples/index.md).
+- Vea la [Descripción de los efectos de directivas](effects.md).
+- Comprender cómo [crear mediante programación las directivas](../how-to/programmatically-create.md).
+- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md).
+- Obtenga información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md).
+- Compruebe que un grupo de administración con [organizar los recursos con grupos de administración de Azure](../../management-groups/overview.md).

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 04/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 42f6fefa930a36fbfcca7b3f792cc749723f7b99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c20e7796d152c9198786c491f9a61752d88ea6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464498"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726611"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la autenticación y autorización en Azure Kubernetes Service (AKS)
 
@@ -108,7 +108,8 @@ En el ejemplo siguiente, un desarrollador crea un pod que usa una identidad admi
 1. Un desarrollador implementa un pod con una identidad administrada que solicita un token de acceso a través del servidor de NMI.
 1. El token se devuelve al pod y se utiliza para obtener acceso a una instancia de Azure SQL Server.
 
-Las identidades administradas pod es un proyecto de código abierto de AKS y no es compatible con el soporte técnico de Azure. Se proporciona para recopilar comentarios y los errores de nuestra comunidad. El proyecto no se recomienda para su uso en producción.
+> [!NOTE]
+> Las identidades administradas pod es un proyecto de código abierto y no es compatible con el soporte técnico de Azure.
 
 Para usar las identidades de pod, consulte [Identidades de Azure Active Directory para aplicaciones de Kubernetes][aad-pod-identity].
 

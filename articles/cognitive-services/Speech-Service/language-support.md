@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d14200faa06bc30df45a2100635ed7dc697a339
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696790"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868610"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Compatibilidad de idioma y región para los servicios de voz
 
@@ -29,7 +29,7 @@ Speech Recognition API de Microsoft admite los siguientes idiomas. Para cada idi
   Código | Idioma | [Adaptación acústica](how-to-customize-acoustic-models.md) | [Adaptación de idioma](how-to-customize-language-model.md) | [Adaptación de pronunciación](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | Árabe (Egipto), estándar moderno | Sin  | Sí | Sin 
- ca-ES | Catalán (España) | Sin  | No | Sin 
+ ca-ES | Catalán | Sin  | No | Sin 
  da-DK | Danés (Dinamarca) | Sin  | No | Sin 
  de-DE | Alemán (Alemania) | Sí | Sí | Sin 
  en-AU | Inglés (Australia) | Sin  | Sí | Sí
@@ -98,7 +98,7 @@ Configuración regional | Idioma | Sexo | Asignación de nombre de servicio
 ar-EG\* | Árabe (Egipto) | Mujer | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)"
 ar-SA | Árabe (Arabia Saudí) | Hombre | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)"
 bg-BG | Búlgaro | Hombre | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)"
-ca-ES | Catalán (España) | Mujer | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)"
+ca-ES | Catalán | Mujer | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)"
 cs-CZ | Checo | Hombre | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)"
 da-DK | Danés | Mujer | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)"
 de-AT | Alemán (Austria) | Hombre | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)"

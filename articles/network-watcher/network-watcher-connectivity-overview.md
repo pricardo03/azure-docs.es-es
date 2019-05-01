@@ -3,8 +3,8 @@ title: Introducción a la solución de problemas de conexiones en Azure Network 
 description: En esta página se proporciona información general de la funcionalidad de solución de problemas de conexiones en Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: jdial
-ms.openlocfilehash: 4b1164c3dedc5d8a2fa02d70f66ff00afe604836
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: kumud
+ms.openlocfilehash: 9510905f67ee943b4b1dfa5a14c2753efac39da7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532464"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705819"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introducción a la solución de problemas de conexiones en Azure Network Watcher
 

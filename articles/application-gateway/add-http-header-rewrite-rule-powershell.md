@@ -1,60 +1,57 @@
 ---
 title: Reescribir encabezados HTTP en Azure Application Gateway
-description: En este artículo proporciona información sobre cómo volver a escribir los encabezados HTTP en Azure Application Gateway con Azure PowerShell
+description: En este artículo se proporciona información sobre cómo volver a escribir los encabezados HTTP en Azure Application Gateway mediante Azure PowerShell
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: 405bc9aed4605e9728e112595f33c879bf55ec7f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 47fe6a5247622e3ad3b3720955068580e0329913
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005628"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947204"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Vuelva a escribir los encabezados de solicitud y respuesta HTTP con Azure Application Gateway mediante PowerShell de Azure
 
-En este artículo se muestra cómo usar Azure PowerShell para configurar un [SKU de puerta de enlace de aplicaciones v2](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) volver a escribir los encabezados HTTP en las solicitudes y respuestas.
-
-> [!IMPORTANT]
-> La SKU de escalabilidad automática y de puerta de enlace de aplicaciones con redundancia de zona actualmente está en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+En este artículo se describe cómo usar Azure PowerShell para configurar un [SKU de puerta de enlace de aplicaciones v2](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) instancia volver a escribir los encabezados HTTP en las solicitudes y respuestas.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="before-you-begin"></a>Antes de empezar
 
-- En este tutorial es necesario ejecutar Azure PowerShell en local. Necesita tener instalado el módulo de Azure versión 1.0.0 o posterior. Ejecute `Import-Module Az` y, después, `Get-Module Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Después de verificar la versión de PowerShell, ejecute `Login-AzAccount` para crear una conexión con Azure.
-- Debe tener un v2 Application Gateway SKU, puesto que el encabezado de la capacidad de reescritura no se admite para la SKU v1. Si no tiene la SKU de v2, cree un [SKU de puerta de enlace de aplicaciones v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) antes de comenzar.
+- Deberá ejecutar PowerShell de Azure localmente para completar los pasos descritos en este artículo. También debe tener Az versión 1.0.0 del módulo o una versión posterior instalada. Ejecute `Import-Module Az` y, a continuación, `Get-Module Az` para determinar la versión que ha instalado. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Después de verificar la versión de PowerShell, ejecute `Login-AzAccount` para crear una conexión con Azure.
+- Debe tener una instancia SKU de puerta de enlace de aplicaciones v2. No se admite la reescritura de encabezados en la SKU v1. Si no tiene la SKU de v2, cree un [SKU de puerta de enlace de aplicaciones v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) instancia antes de comenzar.
 
-## <a name="what-is-required-to-rewrite-a-header"></a>¿Qué es necesario volver a escribir un encabezado
+## <a name="create-required-objects"></a>Crear los objetos necesarios
 
-Para configurar la reescritura del encabezado HTTP, deberá:
+Para configurar la reescritura del encabezado HTTP, es preciso completar estos pasos.
 
-1. Cree los objetos necesarios para reescribir los encabezados HTTP:
+1. Crear los objetos que son necesarios para la reescritura del encabezado HTTP:
 
-   - **RequestHeaderConfiguration**: este objeto se usa para especificar los campos del encabezado de solicitud que va a reescribir y el nuevo valor con el que se reescribirán los encabezados originales.
+   - **RequestHeaderConfiguration**: Se usa para especificar los campos de encabezado de solicitud que va a escribir y el nuevo valor para los encabezados.
 
-   - **ResponseHeaderConfiguration**: este objeto se usa para especificar los campos del encabezado de respuesta que quiera reescribir y el nuevo valor con el que se reescribirán los encabezados originales.
+   - **ResponseHeaderConfiguration**: Se usa para especificar los campos de encabezado de respuesta que se va a escribir y el nuevo valor para los encabezados.
 
-   - **ActionSet**: este objeto contiene las configuraciones de los encabezados de solicitud y respuesta especificados anteriormente.
+   - **ActionSet**: Contiene las configuraciones de los encabezados de solicitud y respuesta especificados anteriormente.
 
-   - **Condición**: Es una configuración opcional. Si se agrega una condición de reescritura, se evaluará el contenido de las respuestas y solicitudes HTTP (S). Si la solicitud HTTP (S) o la respuesta coincide con la condición de reescritura, se basará la decisión de ejecutar la acción de reescritura asociada con la condición de reescritura. 
+   - **Condición**: Una configuración opcional. Condiciones de reescritura evalúan el contenido de las solicitudes HTTP (S) y las respuestas. Si la solicitud HTTP (S) o la respuesta coincide con la condición de reescritura, se producirá la acción de reescritura.
 
-     Si más de una de las condiciones asociadas con una acción y, a continuación, la acción se ejecutará sólo cuando se cumplen todas las condiciones, es decir, se realizará una operación AND lógica.
+     Si más de una condición se asocia con una acción, se produce la acción solo cuando se cumplen todas las condiciones. En otras palabras, la operación es una operación AND lógica.
 
-   - **RewriteRule**: contiene varios acción reescritura - combinaciones de condición de reescritura.
+   - **RewriteRule**: Contiene varias acciones de reescritura o vuelva a escribir las combinaciones de condición.
 
-   - **RuleSequence**: Se trata de una configuración opcional. Le ayuda a determinar el orden en el que se ejecutan las reglas de reescritura diferente. Esto resulta útil cuando hay varias reglas de reescritura en un conjunto de reescritura. La regla de reescritura con el menor valor de secuencia de la regla se ejecuta en primer lugar. Si proporciona la misma secuencia de regla para dos reglas de reescritura, a continuación, el orden de ejecución será no determinista.
+   - **RuleSequence**: Ejecutar una configuración opcional que ayuda a determinar el orden en que las reglas de reescritura. Esta configuración es útil cuando haya varias reglas de reescritura en un conjunto de reescritura. Una regla de reescritura que tiene un valor de secuencia más bajo de regla se ejecuta primera. Si asigna el mismo valor de secuencia de la regla a dos reglas de reescritura, el orden de ejecución es no determinista.
 
-     Si no se especifica explícitamente el RuleSequence, se establecerá un valor predeterminado de 100.
+     Si no se especifica explícitamente el RuleSequence, se establece un valor predeterminado de 100.
 
-   - **RewriteRuleSet**: este objeto contiene varias reglas de reescritura que se van a asociadas a una regla de enrutamiento de solicitud.
+   - **RewriteRuleSet**: Contiene varias reglas de reescritura que se van a asociadas a una regla de enrutamiento de solicitud.
 
-2. Se le pedirá para adjuntar el rewriteRuleSet con una regla de enrutamiento. Esto es porque la configuración de reescritura se ha asociado al agente de escucha de origen a través de la regla de enrutamiento. Al usar una regla de enrutamiento básica, la configuración de reescritura de encabezados se asocia a un agente de escucha de origen y es una reescritura de encabezados global. Al usar una regla de enrutamiento basada en rutas, la configuración de reescritura de encabezado se define en la asignación de la ruta de URL. Por lo tanto, solo se aplica al área específica de la ruta de acceso de un sitio.
+2. Adjunte el RewriteRuleSet a una regla de enrutamiento. La configuración de reescritura se adjunta al agente de escucha de origen a través de la regla de enrutamiento. Cuando se usa una regla de enrutamiento básica, la configuración de reescritura de encabezado está asociada con un agente de escucha de origen y es una reescritura encabezado global. Cuando se usa una regla de enrutamiento basada en ruta de acceso, la configuración de reescritura de encabezado se define en el mapa de ruta de acceso de dirección URL. En ese caso, se aplica solo al área de ruta de acceso específica de un sitio.
 
-Puede crear varios conjuntos de reescritura de encabezado de http y cada conjunto de reescritura se puede aplicar a varios agentes de escucha. Sin embargo, puede aplicar sólo una reescritura establecido en un agente de escucha concreto.
+Puede crear varios conjuntos de reescritura de encabezado HTTP y aplicar cada reescritura establecido en varios agentes de escucha. Pero puede aplicar sólo una reescritura establecido en un agente de escucha concreto.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -63,9 +60,9 @@ Connect-AzAccount
 Select-AzSubscription -Subscription "<sub name>"
 ```
 
-## <a name="specify-your-http-header-rewrite-rule-configuration"></a>**Especificación de la configuración de la regla para volver a escribir el encabezado**
+## <a name="specify-the-http-header-rewrite-rule-configuration"></a>Especificar el encabezado HTTP vuelva a escribir la configuración de la regla
 
-En este ejemplo, se modificará la dirección URL de redirección al volver a escribir el encabezado de ubicación en la respuesta http siempre que el encabezado de ubicación contenga una referencia a "azurewebsites.net". Para ello, agregaremos una condición para evaluar si el encabezado de ubicación en la respuesta contiene azurewebsites.net con el patrón `(https?):\/\/.*azurewebsites\.net(.*)$`. Usaremos `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como el valor del encabezado. Esta acción reemplazará *azurewebsites.net* con *contoso.com* en el encabezado location.
+En este ejemplo, se modificará una dirección URL de redirección al volver a escribir el encabezado de ubicación en la respuesta HTTP siempre que el encabezado de ubicación contenga una referencia a azurewebsites.net. Para ello, vamos a agregar una condición para evaluar si el encabezado de ubicación en la respuesta contiene azurewebsites.net. Vamos a usar el patrón `(https?):\/\/.*azurewebsites\.net(.*)$`. Y vamos a usar `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como el valor del encabezado. Este valor se reemplazará *azurewebsites.net* con *contoso.com* en el encabezado location.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"
@@ -75,19 +72,19 @@ $rewriteRule = New-AzApplicationGatewayRewriteRule -Name LocationHeader -ActionS
 $rewriteRuleSet = New-AzApplicationGatewayRewriteRuleSet -Name LocationHeaderRewrite -RewriteRule $rewriteRule
 ```
 
-## <a name="retrieve-configuration-of-your-existing-application-gateway"></a>Recuperación de configuración de la puerta de enlace de aplicaciones existente
+## <a name="retrieve-the-configuration-of-your-application-gateway"></a>Recuperar la configuración de la puerta de enlace de aplicaciones
 
 ```azurepowershell
 $appgw = Get-AzApplicationGateway -Name "AutoscalingAppGw" -ResourceGroupName "<rg name>"
 ```
 
-## <a name="retrieve-configuration-of-your-existing-request-routing-rule"></a>Recuperación de configuración de la regla de enrutamiento de solicitud existente
+## <a name="retrieve-the-configuration-of-your-request-routing-rule"></a>Recuperar la configuración de la regla de enrutamiento de solicitud
 
 ```azurepowershell
 $reqRoutingRule = Get-AzApplicationGatewayRequestRoutingRule -Name rule1 -ApplicationGateway $appgw
 ```
 
-## <a name="update-the-application-gateway-with-the-configuration-for-rewriting-http-headers"></a>Actualización de la puerta de enlace de aplicaciones con la configuración para volver a escribir los encabezados HTTP
+## <a name="update-the-application-gateway-with-the-configuration-for-rewriting-http-headers"></a>Actualizar la puerta de enlace de aplicaciones con la configuración de reescritura de encabezados HTTP
 
 ```azurepowershell
 Add-AzApplicationGatewayRewriteRuleSet -ApplicationGateway $appgw -Name LocationHeaderRewrite -RewriteRule $rewriteRuleSet.RewriteRules
@@ -107,4 +104,4 @@ set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información acerca de la configuración necesaria para realizar algunas comunes casos de uso, vea [encabezado común escribir escenarios](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+Para obtener más información acerca de cómo configurar algunos casos de uso comunes, vea [encabezado común escribir escenarios](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).

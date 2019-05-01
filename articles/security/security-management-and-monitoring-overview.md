@@ -1,10 +1,10 @@
 ---
-title: Información general sobre la administración y la supervisión de la seguridad en Azure | Microsoft Docs
+title: Administración y supervisión de las características de seguridad - Microsoft Azure | Microsoft Docs
 description: En este artículo se proporciona información general sobre los servicios y características de seguridad que proporciona Azure para ayudarle a administrar y supervisar servicios en la nube y máquinas virtuales de Azure.
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: StevenPo
+manager: barbkess
 editor: TomSh
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
 ms.service: security
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: f79f94c277b02a9f377b90bf74763ac617f65c16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9f741f578ea44e27814ddfcde2fadc44a0e90536
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597919"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872069"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Información general sobre la administración y la supervisión de la seguridad en Azure
+En este artículo se proporciona información general sobre los servicios y características de seguridad que proporciona Azure para ayudarle a administrar y supervisar servicios en la nube y máquinas virtuales de Azure.
 
-Azure proporciona mecanismos de seguridad que le ayudarán en la administración y la supervisión de servicios en la nube y máquinas virtuales (VM) de Azure. En este artículo se proporciona información general sobre estas características y servicios básicos de seguridad. Además, se incluyen vínculos a artículos que ofrecen detalles de cada uno de estos servicios o características para que pueda tener más información al respecto.
+## <a name="shared-responsibility"></a>Responsabilidad compartida
 
 La seguridad de los servicios en la nube de Microsoft se basa en la colaboración y la responsabilidad compartida entre usted y Microsoft. Microsoft es responsable de la plataforma Azure y de la seguridad física de sus centros de datos (mediante el uso de protecciones de seguridad, como puertas de entrada con notificación de bloqueo, barreras y restricciones). Además, Azure proporciona fuertes niveles de seguridad en la nube en la capa de software que satisfacen las necesidades de seguridad, privacidad y cumplimiento de sus clientes.
 
@@ -64,7 +65,7 @@ Más información:
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Azure Multi-Factor Authentication es un método de autenticación que requiere el uso de más de un método de comprobación. Proporciona una segunda capa de seguridad crítica a los inicios de sesión y transacciones de los usuarios. 
+Azure Multi-Factor Authentication es un método de autenticación que requiere el uso de más de un método de comprobación. Proporciona una segunda capa de seguridad crítica a los inicios de sesión y transacciones de los usuarios.
 
 Multi-Factor Authentication le ayudará a proteger el acceso a los datos y las aplicaciones, además de satisfacer la demanda de los usuarios de un proceso de inicio de sesión simple. Asimismo, proporciona autenticación sólida mediante una gran variedad de opciones de comprobación, como llamadas telefónicas, mensajes de texto, notificaciones de aplicaciones móviles, códigos de verificación y tokens OATH de terceros.
 
@@ -80,7 +81,7 @@ Puede usar Azure ExpressRoute para ampliar sus redes locales en Microsoft Cloud 
 
 * Una red cualquiera (IP VPN).
 * Una red de ethernet de punto a punto.
-* Una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de colocalización. 
+* Una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de colocalización.
 
 Conexiones de ExpressRoute que no fluyen a través de la red pública de Internet. Ofrecen más confiabilidad, velocidades más altas, menores latencias y mayor seguridad que las conexiones habituales a través de Internet.
 
@@ -99,7 +100,7 @@ Más información:
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-En ocasiones, los usuarios necesitan llevar a cabo operaciones con privilegios en recursos de Azure u otras aplicaciones para SaaS. A menudo esto significa que las organizaciones tienen que concederles acceso con privilegios permanente en Azure Active Directory (Azure AD). 
+En ocasiones, los usuarios necesitan llevar a cabo operaciones con privilegios en recursos de Azure u otras aplicaciones para SaaS. A menudo esto significa que las organizaciones tienen que concederles acceso con privilegios permanente en Azure Active Directory (Azure AD).
 
 Este hecho representa un riesgo creciente para la seguridad de los recursos hospedados en la nube, ya que las organizaciones no pueden supervisar lo suficiente todo lo que hacen esos usuarios con su acceso privilegiado. Además, si se pone en peligro una cuenta de usuario que tiene acceso con privilegios, esta situación podría afectar a la seguridad de la organización en la nube global. Privileged Identity Management de Azure AD ayuda a resolver este riesgo al reducir el tiempo de exposición de los privilegios y aumentar la visibilidad sobre el uso.  
 
@@ -150,4 +151,3 @@ Intelligent Security Graph proporciona una protección contra amenazas en tiempo
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
-

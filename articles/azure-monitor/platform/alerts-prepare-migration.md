@@ -1,30 +1,30 @@
 ---
 title: Preparar para la migración de las alertas clásicas de Azure Monitor mediante la actualización de sus aplicaciones lógicas y runbooks
-description: Obtenga información sobre cómo modificar el webhook, aplicación lógica y los runbooks para preparar la migración voluntaria.
+description: Obtenga información sobre cómo modificar los webhooks, las aplicaciones lógicas y runbooks para preparar la migración voluntaria.
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 3c47404826d5055d4a82d4842523f790fb11f000
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 347c89991cbb4d28b46eafff0a783148793ad2f7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346892"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727493"
 ---
-# <a name="prepare-your-logic-apps-and-run-books-for-classic-alert-rules-migration"></a>Preparar las aplicaciones lógicas y ejecutar los libros en pantalla para la migración de las reglas de alerta clásica
+# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar sus aplicaciones lógicas y los runbooks para la migración de las reglas de alerta clásicas
 
-Como [anunciaron](monitoring-classic-retirement.md), las alertas clásicas en Azure Monitor se retirará en julio de 2019. La herramienta de migración para desencadenar voluntariamente la migración está disponible en Azure portal y está implementando en los clientes que usan reglas de alerta clásicas.
+Como [anunciaron](monitoring-classic-retirement.md), las alertas clásicas en Azure Monitor se retirará en julio de 2019. Una herramienta de migración está disponible en el portal de Azure a los clientes que utilizan las reglas de alerta clásicas y que desean desencadenar la migración.
 
-Si opta por migrar voluntariamente las reglas de alertas clásicas para nuevas reglas de alerta, hay algunas diferencias entre los dos sistemas que debe tener en cuenta. Este artículo le guiará a través de las diferencias entre los dos sistemas y cómo puede prepararse para el cambio.
+Si opta por migrar voluntariamente las reglas de alertas clásicas para nuevas reglas de alerta, tenga en cuenta que existen algunas diferencias entre los dos sistemas. En este artículo se explica esas diferencias y cómo puede prepararse para el cambio.
 
 ## <a name="api-changes"></a>Cambios de API
 
-Las API utilizadas para crear y administrar reglas de alerta clásicas (`microsoft.insights/alertrules`) son diferentes de las API utilizadas para crear y administrar nuevas alertas de métrica (`microsoft.insights/metricalerts`). Si mediante programación crea y administra reglas de alertas clásicas hoy en día, actualice los scripts de implementación para trabajar con las nuevas API.
+Las API que crean y administran las reglas de alerta clásicas (`microsoft.insights/alertrules`) son diferentes de las API que crean y administran nuevas alertas de métrica (`microsoft.insights/metricalerts`). Si se crea mediante programación y administrar reglas de alertas clásicas de hoy en día, actualice los scripts de implementación para trabajar con las nuevas API.
 
-En la tabla siguiente proporciona una referencia a interfaces de programación para las alertas clásicas y nuevas.
+En la tabla siguiente es una referencia a las interfaces de programación para las alertas clásicas y nuevas:
 
 |         |Alertas clásicas  |Nuevas alertas de métrica |
 |---------|---------|---------|
@@ -35,53 +35,56 @@ En la tabla siguiente proporciona una referencia a interfaces de programación p
 
 ## <a name="notification-payload-changes"></a>Cambios de carga de notificación
 
-El formato de carga de notificación es ligeramente diferente entre [reglas de alerta clásicas](alerts-webhooks.md) y [nuevas alertas de métrica](alerts-metric-near-real-time.md#payload-schema). Si tiene cualquier webhook, la aplicación lógica o las acciones de runbook se desencadene mediante reglas de alerta clásicas, deberá actualizar esos puntos de conexión de notificación para que acepte el formato de carga de nuevas alertas de métrica.
+El formato de carga de notificación es ligeramente diferente entre [reglas de alerta clásicas](alerts-webhooks.md) y [nuevas alertas de métrica](alerts-metric-near-real-time.md#payload-schema). Si tiene cualquier webhook, aplicación lógica o acciones de runbook que se desencadenan mediante reglas de alerta clásicas, debe actualizar esos puntos de conexión de notificación para que acepte el formato de carga de nuevas alertas de métrica.
 
-Puede usar la tabla siguiente para asignar los campos de carga de webhook de la regla de alerta clásica y la nueva carga de webhook de alertas de métrica.
+Utilice la tabla siguiente para asignar los campos de carga de webhook desde el formato clásico al nuevo formato:
 
 |  |Alertas clásicas  |Nuevas alertas de métrica |
 |---------|---------|---------|
-|Fue la alerta activa o resuelto     | status       | data.status |
-|Información contextual sobre la alerta     | contexto        | data.context        |
-|Marca de tiempo en el que se activó o resolver la alerta      | context.timestamp       | data.context.timestamp        |
-| Id. de regla de alerta | context.id | data.context.id |
-| Nombre de regla de alerta | context.name | data.context.name |
-| Descripción de la regla de alerta | context.description | data.context.description |
-| Condición de regla de alerta | context.condition | data.context.condition|
-| Nombre de métrica | context.condition.metricName| data.context.condition.allOf[0].metricName|
-| Agregación de tiempo (cómo se agrega la métrica en la ventana de evaluación)|data.context.condition.timeAggregation|data.context.condition.timeAggregation|
-| Período de evaluación | context.condition.windowSize | data.context.condition.windowSize|
-| Operador (cómo se compara el valor de métrica agregado con el umbral) | context.condition.operator | data.context.condition.operator|
-| Umbral | context.condition.threshold| data.context.condition.allOf[0].threshold|
-| Valor de métrica | context.condition.metricValue | data.context.condition.allOf[0].metricValue|
-| Id. de suscripción | context.subscriptionId | data.context.subscriptionId|
-| Grupo de recursos del recurso afectado | context.resourceGroup | data.context.resourceGroup|
-| Nombre del recurso afectado | context.resourceName | data.context.resourceName |
-| Tipo del recurso afectado | context.resourceType | data.context.resourceType |
-|  Id. de recurso del recurso afectado | context.resourceId | data.context.resourceId |
-| Un vínculo directo a la página de resumen de recursos del portal | context.portalLink | data.context.portalLink|
-| Campos de carga personalizada que se pasarán al webhook o aplicación lógica | properties |data.properties |
+|¿Fue la alerta activa o resueltos?    | **estado**       | **data.status** |
+|Información contextual sobre la alerta     | **contextoo**        | **data.context**        |
+|Marca de tiempo en el que se activó o resolver la alerta     | **context.timestamp**       | **data.context.timestamp**        |
+| Id. de regla de alerta | **context.id** | **data.context.id** |
+| Nombre de la regla de alertas | **context.name** | **data.context.name** |
+| Descripción de la regla de alerta | **context.description** | **data.context.description** |
+| Condición de regla de alerta | **context.condition** | **data.context.condition** |
+| Nombre de métrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| Agregación de tiempo (cómo se agrega la métrica en la ventana de evaluación)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
+| Período de evaluación | **context.condition.windowSize** | **data.context.condition.windowSize** |
+| Operador (cómo se compara el valor de métrica agregado con el umbral) | **context.condition.operator** | **data.context.condition.operator** |
+| Umbral | **context.condition.threshold** | **data.context.condition.allOf[0].threshold** |
+| Valor de métrica | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
+| Id. de suscripción | **context.subscriptionId** | **data.context.subscriptionId** |
+| Grupo de recursos del recurso afectado | **context.resourceGroup** | **data.context.resourceGroup** |
+| Nombre del recurso afectado | **context.resourceName** | **data.context.resourceName** |
+| Tipo del recurso afectado | **context.resourceType** | **data.context.resourceType** |
+| Id. de recurso del recurso afectado | **context.resourceId** | **data.context.resourceId** |
+| Vínculo directo a la página de resumen de recursos del portal | **context.portalLink** | **data.context.portalLink** |
+| Campos de carga personalizada que se pasarán a la aplicación lógica o webhook | **properties** | **data.properties** |
 
-Como puede ver, las cargas de ambos son similares. Sección siguiente tiene los detalles sobre las aplicaciones lógicas de ejemplo y un runbook de ejemplo para analizar la carga de notificación para las alertas nuevas.
+Las cargas son similares, como puede ver. Ofrece la siguiente sección:
 
-## <a name="using-a-logic-app-that-receives-a-metric-alert-notification"></a>Mediante una aplicación lógica que recibe una notificación de alerta de métrica
+- Detalles acerca de cómo modificar las aplicaciones lógicas para trabajar con el nuevo formato.
+- Un ejemplo de runbook que analiza la carga de notificación para las alertas nuevas.
 
-Si usas aplicaciones lógicas con las alertas clásicas, deberá modificar la aplicación lógica para analizar la carga de las alertas de métricas nuevo.
+## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modificar una aplicación lógica para recibir una notificación de alerta de métrica
+
+Si usa logic apps con las alertas clásicas, debe modificar el código de aplicación de lógica para analizar la carga de las alertas de métricas nuevo. Siga estos pasos:
 
 1. Cree una nueva aplicación lógica.
 
-2. Use la plantilla "Azure Monitor – métricas alerta Handler". Esta plantilla tiene un **solicitud HTTP** desencadenador con el esquema apropiado definido
+1. Use la plantilla "Azure Monitor – métricas alerta Handler". Esta plantilla tiene un **solicitud HTTP** desencadenador con el esquema apropiado definido.
 
     ![plantilla de aplicación lógica](media/alerts-migration/logic-app-template.png "plantilla de alerta de métrica")
 
-3. Agregar una acción para hospedar su lógica de procesamiento.
+1. Agregar una acción para hospedar su lógica de procesamiento.
 
-## <a name="using-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Uso de un runbook de automation que recibe una notificación de alerta de métrica
+## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Usar un runbook de automation que recibe una notificación de alerta de métrica
 
-El ejemplo siguiente proporciona código de PowerShell que puede usarse en el runbook que pueda analizar las cargas para reglas de alerta de métrica clásicas y nuevas reglas de alerta de métrica.
+El ejemplo siguiente proporciona código de PowerShell para usar en su runbook. Este código puede analizar las cargas para reglas de alerta de métrica clásicas y nuevas reglas de alerta de métrica.
 
-```PS
-## Sample PowerShell code to be used in a runbook to handle parsing of both classic and new metric alerts
+```PowerShell
+## Example PowerShell code to use in a runbook to handle parsing of both classic and new metric alerts.
 
 [OutputType("PSAzureOperationResponse")]
 
@@ -98,38 +101,38 @@ if ($WebhookData)
     # Get the data object from WebhookData.
     $WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
 
-    # Identify if the alert triggering the runbook is a classic metric alert or a new metric alert (depends on the payload schema).
+    # Determine whether the alert triggering the runbook is a classic metric alert or a new metric alert (depends on the payload schema).
     $schemaId = $WebhookBody.schemaId
     Write-Verbose "schemaId: $schemaId" -Verbose
     if ($schemaId -eq "AzureMonitorMetricAlert") {
 
-        # This is the new Metric Alert schema
+        # This is the new metric alert schema.
         $AlertContext = [object] ($WebhookBody.data).context
         $status = ($WebhookBody.data).status
 
-        # Parse fields related to alert rule condition
+        # Parse fields related to alert rule condition.
         $metricName = $AlertContext.condition.allOf[0].metricName
         $metricValue = $AlertContext.condition.allOf[0].metricValue
         $threshold = $AlertContext.condition.allOf[0].threshold
         $timeAggregation = $AlertContext.condition.allOf[0].timeAggregation
     }
     elseif ($schemaId -eq $null) {
-        # This is the classic Metric Alert schema
+        # This is the classic metric alert schema.
         $AlertContext = [object] $WebhookBody.context
         $status = $WebhookBody.status
 
-        # Parse fields related to alert rule condition
+        # Parse fields related to alert rule condition.
         $metricName = $AlertContext.condition.metricName
         $metricValue = $AlertContext.condition.metricValue
         $threshold = $AlertContext.condition.threshold
         $timeAggregation = $AlertContext.condition.timeAggregation
     }
     else {
-        # The schema is not either a classic metric alert or a new metric alert
+        # The schema is neither a classic metric alert nor a new metric alert.
         Write-Error "The alert data schema - $schemaId - is not supported."
     }
 
-    #parse fields related to resource affected
+    # Parse fields related to resource affected.
     $ResourceName = $AlertContext.resourceName
     $ResourceType = $AlertContext.resourceType
     $ResourceGroupName = $AlertContext.resourceGroupName
@@ -145,17 +148,17 @@ else {
 
 ```
 
-Vea un ejemplo completo de un runbook que se detiene una máquina virtual cuando se desencadena una alerta en [documentación de Azure Automation](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
+Para obtener un ejemplo completo de un runbook que se detiene una máquina virtual cuando se desencadena una alerta, consulte el [documentación de Azure Automation](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
 
 ## <a name="partner-integration-via-webhooks"></a>Integración de asociados a través de webhooks
 
-La mayoría de [nuestros asociados que se integran con las alertas clásicas](https://docs.microsoft.com/azure/azure-monitor/platform/partners) ya son compatibles con nuevas alertas de métricas a través de sus integraciones. Integraciones conocidas que ya trabajan con nuevas alertas de métrica se enumeran a continuación.
+La mayoría de [nuestros asociados que se integran con las alertas clásicas](https://docs.microsoft.com/azure/azure-monitor/platform/partners) ya son compatibles con nuevas alertas de métricas a través de sus integraciones. Integraciones conocidas que ya trabajan con nuevas alertas de métricas son:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
 - [Signl4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
-Si usas una integración de asociados que no aparece aquí, confirme con el proveedor de integración que funciona la integración con nuevas alertas de métrica.
+Si usa una integración de asociados que no aparece aquí, confirme con el proveedor de integración que funciona la integración con nuevas alertas de métrica.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -2,24 +2,17 @@
 title: Servicios de consultoría de Azure Marketplace y AppSource
 description: En este artículo se describen los criterios de idoneidad y los requisitos de publicación para nuevas ofertas de servicios de consultoría en Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
-manager: nuno costa
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121138"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938309"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servicios de consultoría de Azure Marketplace y AppSource
 Los servicios de consultoría de Azure Marketplace y AppSource brindan a los asociados de Microsoft el objetivo de conectar a los clientes con servicios que les permitan mejorar y extender el uso que hacen de Azure y de sus objetivos empresariales. 
@@ -48,7 +41,7 @@ Las ofertas de servicios basadas en Microsoft Dynamics 365, Office 365 y Power B
 > [!TIP]
 > Para publicar en el escaparate de Azure Marketplace, esto se selecciona al elegir "Azure" en el menú desplegable "Primary Product" (Producto principal) en Cloud Partner Portal. Para publicar en AppSource, esto se selecciona al elegir "Dynamics 365", "Power BI" o "Power Apps" en el menú desplegable "Primary Product" (Producto principal) en Cloud Partner Portal.
 
-## <a name="eligible-partners-and-supported-countries"></a>Asociados aptos y países admitidos
+## <a name="eligible-partners-and-supported-countriesregions"></a>Los socios elegibles y países o regiones admitidas
 
 Los asociados deben tener una **competencia Silver o Gold** en el área pertinente de su servicio. 
 
@@ -74,9 +67,9 @@ Los asociados deben tener una **competencia Silver o Gold** en el área pertinen
 <b> Para más información, consulte las [competencias a través de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).</b>
  
 
-**Los asociados de SI pueden enviar ofertas de servicios de consultoría para los siguientes 18 países**:
+**Los asociados de SI pueden enviar ofertas de servicios de consultoría para los siguientes 18 países**
 
-|Países válidos |   |   |   |
+|Países o regiones aptas |   |   |   |
 |---------|----------|----------|----------|
 |Australia |Francia  |     México          |España       |
 |Bélgica   |Alemania |     Países Bajos     |Suecia       |
@@ -84,7 +77,7 @@ Los asociados deben tener una **competencia Silver o Gold** en el área pertinen
 |Dinamarca   |Italia   |     Noruega          |Estados Unidos |
 |Finlandia   |Japón   |     Polonia          
 
-El lanzamiento de los servicios de consultoría se realizará en la región geográfica específica. El primer lanzamiento se realizará en: Estados Unidos, Canadá, Reino Unido y Australia. Los catálogos para otros países empezarán a funcionar una vez que los asociados hayan enviado un número significativo, y una atractiva selección, de ofertas de servicios, y Microsoft las haya aprobado.
+El lanzamiento de los servicios de consultoría se realizará en la región geográfica específica. El primer lanzamiento se realizará en: Estados Unidos, Canadá, Reino Unido y Australia. Los catálogos para otros países empezarán a funcionar después de un número significativo y atractiva selección, de ofertas de servicio se han enviado por los asociados y aprobados por Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Procedimientos para registrar los servicios de consultoría en Azure Marketplace y AppSource
 Empiece por [registrar](https://azuremarketplace.microsoft.com/sell/signup) la información de su empresa en Marketplace. Los anunciantes pueden hacer referencia a [Conviértase en anunciante en los escaparates de Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) para obtener una lista de comprobación completa de los requisitos del registro. 
@@ -124,7 +117,7 @@ Anunciar la oferta de servicio de consultoría en Azure Marketplace y AppSource 
 3. **Envío**: proporcione la información necesaria recogida en las instrucciones. Todo el contenido y material complementario deben enviarse en inglés. 
 4. **Revisión**: nuestro equipo de marketing y editorial revisa su envío y lo optimiza a fin de mejorar la legibilidad, la gramática y la eficacia. 
 5. **Almacenamiento provisional**: su envío se almacena de forma provisional para su revisión. 
-6. **Publicación**: una vez que usted y Microsoft estén satisfechos con el contenido del almacenamiento provisional, su anuncio estará listo para publicarse en Marketplace. La fecha de publicación de su anuncio depende del país especificado en la oferta. Si el catálogo del país seleccionado ya está publicado en Azure Marketplace o AppSource, su anuncio aparecerá al cabo de unas horas. De lo contrario, el anuncio aparecerá tan pronto como se publique el catálogo.
+6. **Publicación**: una vez que usted y Microsoft estén satisfechos con el contenido del almacenamiento provisional, su anuncio estará listo para publicarse en Marketplace. La fecha de publicación de su anuncio depende el país o región que se especifica en la oferta. Si el catálogo para su país o región seleccionado ya está publicado en Azure Marketplace o AppSource, su anuncio aparecerá en unas pocas horas. De lo contrario, el anuncio aparecerá tan pronto como se publique el catálogo.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Lista de ofertas y criterios de revisión de contenido
 Las ofertas deben incluirse en uno de los siguientes cinco tipos de servicios (puede indicar más de una): 

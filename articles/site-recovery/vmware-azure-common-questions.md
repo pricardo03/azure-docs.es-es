@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/23/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125566"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925518"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
@@ -93,8 +93,8 @@ Instalar en cada máquina virtual que desea replicar, mediante una serie de mét
 
 Site Recovery replica servidores físicos y máquinas virtuales de VMware locales a managed disks en Azure.
 - El servidor de procesos de Site Recovery escribe los registros de replicación en una cuenta de almacenamiento de caché en la región de destino.
-- Estos registros se utilizan para crear puntos de recuperación en los discos administrados.
-- Cuando se produce conmutación por error, el punto de recuperación que seleccione se utiliza para crear el disco administrado de destino.
+- Estos registros se utilizan para crear puntos de recuperación en Azure discos que tienen el prefijo de asrseeddisk administrados.
+- Cuando se produce conmutación por error, el punto de recuperación que seleccione se utiliza para crear un nuevo disco administrado de destino. Este disco administrado está conectado a la máquina virtual en Azure.
 - Las máquinas virtuales que anteriormente se han replicado en una cuenta de almacenamiento (antes de marzo de 2019) no se ven afectadas.
 
 
@@ -111,7 +111,7 @@ Replicación de máquinas virtuales nuevas a una cuenta de almacenamiento solo e
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>¿Puedo cambiar el tipo de disco administrado después de proteger el equipo?
 
-Sí, le resultará muy fácil [cambiar el tipo de disco administrado](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Antes de cambiar el tipo, asegúrese de que revocar la URL de SAS para el disco, vaya al recurso de disco administrado en el portal de Azure. En la hoja de información general, cancelar cualquier exportación en curso. Una vez que se revoca la dirección URL de SAS, cambie el tipo del disco en los próximos minutos. Sin embargo, si cambia el tipo de disco administrado, espere de puntos de recuperación nuevo para generarse mediante Azure Site Recovery. Use los nuevos puntos de recuperación para cualquier prueba de conmutación por error o conmutación por error en el futuro.
+Sí, le resultará muy fácil [cambiar el tipo de disco administrado](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) para replicaciones en curso. Antes de cambiar el tipo, asegúrese de que ninguna dirección URL de SAS se genera en el disco administrado. Vaya al recurso de disco administrado en el portal de Azure y compruebe si tiene un banner de la dirección URL de SAS en la hoja de información general. Si está presente, haga clic para cancelar la exportación en curso. Una vez hecho, cambie el tipo del disco en los próximos minutos. Sin embargo, si cambia el tipo de disco administrado, espere de puntos de recuperación nuevo para generarse mediante Azure Site Recovery. Use los nuevos puntos de recuperación para cualquier prueba de conmutación por error o conmutación por error en el futuro.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>¿Puedo cambiar la replicación de discos administrados a discos no administrados?
 
@@ -133,6 +133,10 @@ No se admite la replicación extendida o encadenada. Solicite esta característi
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>¿Se puede realizar una replicación inicial sin conexión?
 No es una opción admitida. Solicite esta característica en el [foro de comentarios](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+
+
+### <a name="what-is-asrseeddisk"></a>¿Qué es asrseeddisk?
+Para cada disco de origen, los datos se replican en un disco administrado en Azure. Este disco tiene el prefijo asrseeddisk. Almacena la copia del disco de origen y todas las instantáneas de punto de recuperación.
 
 ### <a name="can-i-exclude-disks-from-replication"></a>¿Se puede excluir discos de la replicación?
 Sí, puede excluir discos.
@@ -249,7 +253,7 @@ En el almacén de Recovery Services, haga clic en **servidores de configuración
 
 ### <a name="unable-to-select-process-server-during-enable-replication"></a>No se puede seleccionar el servidor de procesos durante la habilitación de la replicación
 
-Desde la versión 9.24, se han realizado mejoras para proporcionar [del producto orientación](vmware-azure-manage-process-server.md#process-server-selection-guidance) sobre cuándo configurar un servidor de procesos de escalado horizontal. Esto es para evitar la limitación del servidor de proceso y evitar el uso del servidor de procesos en mal estado.
+Desde la versión 9.24, se han realizado mejoras para proporcionar [procesar alertas del servidor](vmware-physical-azure-monitor-process-server.md#process-server-alerts) sobre cuándo configurar un servidor de procesos de escalado horizontal. Esto es para evitar la limitación del servidor de proceso y evitar el uso del servidor de procesos en mal estado.
 
 ### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>¿Qué debo hacer para obtener el estado de mantenimiento exacta del servidor de procesos?
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 04/29/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9b63fb963408b8f22453c7ea78e36a49402273a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906161"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875602"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalización de la directiva de SQL Information Protection en Azure Security Center (versión preliminar)
  
@@ -41,12 +41,11 @@ Information Protection incluye un conjunto integrado de etiquetas y tipos de inf
 ## <a name="customize-the-information-protection-policy"></a>Personalización de la directiva de protección de la información
 Para personalizar la directiva de protección de información de su inquilino de Azure, deberá tener [privilegios administrativos en el grupo de administración raíz del inquilino](security-center-management-groups.md). 
  
-1. En el menú principal de Security Center, seleccione **Directiva de seguridad**.
-2. Elija **Vista jerárquica (versión preliminar)** y, después, en **Grupo raíz de inquilino**, haga clic en **Editar configuración**.
- 
+1. En la seguridad centrar en el menú principal, **higiene de seguridad de recursos** vaya a **datos y almacenamiento** y haga clic en el **SQL Information Protection** botón.
+
    ![Configuración de la directiva de protección de información](./media/security-center-info-protection-policy/security-policy.png) 
  
-3. En **Componentes de la directiva**, haga clic en **Protección de la información**. En la página **Configuración de protección de la información**, puede ver el conjunto actual de etiquetas. Estos son los atributos principales de clasificación que se usan para categorizar el nivel de confidencialidad de los datos. Desde aquí, puede configurar las **etiquetas de protección de la información** y los **tipos de información** para el inquilino. 
+2. En el **SQL Information Protection** página, puede ver el conjunto actual de etiquetas. Estos son los atributos principales de clasificación que se usan para categorizar el nivel de confidencialidad de los datos. Desde aquí, puede configurar las **etiquetas de protección de la información** y los **tipos de información** para el inquilino. 
  
 ### <a name="customizing-labels"></a>Personalización de las etiquetas
  

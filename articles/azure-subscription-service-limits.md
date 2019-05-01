@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: b09de67cddcec26a1083bb64d13b9bbc47c3d5e5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: ae6547b7940ee4007c747847e6cec7b0c67a9d3c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998488"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717444"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 Este documento enumeran algunos de los límites más comunes de Microsoft Azure, que a veces se denominan cuotas. Actualmente, este documento no cubre todos los servicios de Azure. Con el tiempo, se expande y actualizada para cubrir más servicios de la lista.
@@ -77,6 +77,7 @@ En la siguiente lista de límites, una nueva tabla refleja las diferencias en lo
 * [IoT Hub](#iot-hub-limits)
 * [Servicio IoT Hub Device Provisioning](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
+* [Equilibrador de carga](#load-balancer)
 * [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
@@ -84,6 +85,7 @@ En la siguiente lista de límites, una nueva tabla refleja las diferencias en lo
 * [Redes](#networking-limits)
 * [Network Watcher](#network-watcher-limits)
 * [Centros de notificaciones](#notification-hubs-limits)
+* [Dirección IP pública](#publicip-address)
 * [Grupos de recursos](#resource-group-limits)
 * [Control de acceso basado en rol](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
@@ -137,10 +139,10 @@ En la tabla siguiente se detallan las características y los límites de los [ni
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Límites de red
-[!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
-
-#### <a name="networking-limits"></a>Límites de red
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
+
+#### <a name="expressroute-limits"></a>Límites de ExpressRoute
+[!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
 #### <a name="application-gateway-limits"></a>Límites de Application Gateway
 

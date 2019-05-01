@@ -1,6 +1,6 @@
 ---
-title: Base de datos SQL de Azure administra la zona de horaria de la instancia | Microsoft Docs"
-description: Obtenga información sobre aspectos específicos de la zona horaria de la instancia administrada de Azure SQL Database
+title: Las zonas horarias de instancia administrada de base de datos de SQL Azure | Microsoft Docs"
+description: Obtenga información sobre los detalles de la zona horaria de la instancia administrada de Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -10,46 +10,46 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/10/2019
-ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/25/2019
+ms.openlocfilehash: 6d7d065f45bca38cedd2c276bdd9b98dfd9675df
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487415"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866945"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Zona horaria en instancia administrada de Azure SQL Database (versión preliminar)
+# <a name="time-zones-in-azure-sql-database-managed-instance-preview"></a>Zonas horarias en Azure SQL Database Managed Instance (versión preliminar)
 
-Si bien mediante la hora Universal coordinada (UTC) es una práctica recomendada para la capa de datos de soluciones en la nube, la instancia administrada de Azure SQL Database ofrece la posibilidad de zona horaria para satisfacer las necesidades de las aplicaciones existentes que almacenan valores de fecha y hora y fecha de llamada y funciones de tiempo con un contexto implícito de una zona horaria concreta.
+Hora Universal coordinada (UTC) es la zona horaria recomendada para la capa de datos de soluciones en la nube. Instancia administrada de Azure SQL Database también ofrece una opción de zonas horarias para satisfacer las necesidades de las aplicaciones existentes que almacenan valores de fecha y hora y llamar a funciones de fecha y hora con un contexto implícito de una zona horaria concreta.
 
-Las funciones de Transact-SQL como [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) o código CLR observar la zona horaria establecidos en la instancia de nivel. Trabajos del Agente SQL también siguen la programación según la zona horaria de la instancia.
+Las funciones de Transact-SQL como [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) o código CLR observar la zona horaria establecidos en la instancia de nivel. Los trabajos del Agente SQL Server siguen también las programaciones según la zona horaria de la instancia.
 
   >[!NOTE]
   > Instancia administrada es la opción de implementación única de Azure SQL Database que admite la configuración de zona horaria. Otras opciones de implementación siguen siempre UTC.
-Use [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) en únicos agrupados SQL bases de datos y si tiene que interpretar la información de fecha y hora en la zona horaria no es UTC.
+Use [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) en únicos agrupados SQL bases de datos y si tiene que interpretar la información de fecha y hora en una zona de horaria no es UTC.
 
 ## <a name="supported-time-zones"></a>Zonas horarias admitidas
 
-Se hereda un conjunto de zonas horarias compatibles del sistema operativo subyacente de la instancia administrada y se está actualizando con regularidad para obtener nuevas definiciones de zona horaria y reflejar los cambios en las existentes.
+Un conjunto de zonas horarias compatibles se hereda el sistema operativo subyacente de la instancia administrada. Se actualiza regularmente para obtener nuevas definiciones de zona horaria y reflejar los cambios en las existentes. 
 
 Una lista con los nombres de las zonas horarias compatibles se expone a través de la [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) vista del sistema.
 
-## <a name="setting-time-zone"></a>Configuración de zona horaria
+## <a name="set-a-time-zone"></a>Establecer una zona horaria
 
-Durante la creación de instancia solo se puede establecer una zona horaria de la instancia administrada. La zona horaria predeterminada es la hora Universal coordinada (UTC).
+Durante la creación de instancia solo se puede establecer una zona horaria de una instancia administrada. La zona horaria predeterminada es UTC.
 
   >[!NOTE]
   > No se puede cambiar la zona horaria de una instancia administrada existente.
 
-### <a name="setting-the-time-zone-through-azure-portal"></a>Establecer la zona horaria a través del portal de Azure
+### <a name="set-the-time-zone-through-the-azure-portal"></a>Establezca la zona horaria a través del portal de Azure
 
-Al especificar parámetros para la nueva instancia, seleccione una zona horaria en la lista de zonas horarias compatibles:
+Al especificar parámetros para una nueva instancia, seleccione una zona horaria en la lista de zonas horarias compatibles. 
   
-![Establecer zona horaria durante la creación de instancias](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
+![Establecer una zona horaria durante la creación de instancias](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
 ### <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 
-Especificar propiedad timezoneId en su [plantilla de Resource Manager](https://aka.ms/sql-mi-create-arm-posh) para establecer la zona horaria durante la creación de instancias.
+Especifique la propiedad timezoneId en su [plantilla de Resource Manager](https://aka.ms/sql-mi-create-arm-posh) para establecer la zona horaria durante la creación de instancias.
 
 ```json
 "properties": {
@@ -66,36 +66,35 @@ Especificar propiedad timezoneId en su [plantilla de Resource Manager](https://a
 
 ```
 
-Lista de valores admitidos para la propiedad timezoneId puede encontrarse al final de este artículo.
+Una lista de valores admitidos para la propiedad timezoneId está al final de este artículo.
 
-Si no se especifica, se establecerá la zona horaria a UTC.
+Si no se especifica, la zona horaria se establece en UTC.
 
-## <a name="checking-the-time-zone-of-instance"></a>Comprobación de la zona horaria de instancia
+## <a name="check-the-time-zone-of-an-instance"></a>Comprobación de la zona horaria de una instancia
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) función devuelve un nombre para mostrar de la zona horaria de la instancia.
+El [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) función devuelve un nombre para mostrar de la zona horaria de la instancia.
 
 ## <a name="cross-feature-considerations"></a>Consideraciones de entre características
 
 ### <a name="restore-and-import"></a>Importación y la restauración
 
-Puede restaurar el archivo de copia de seguridad o importar datos a instancia administrada de una instancia o un servidor con la configuración de zona horaria diferente. Sin embargo, asegúrese de hacerlo con precaución y para analizar el comportamiento de la aplicación y los resultados de las consultas e informes, al igual que al transferir datos entre dos instancias de SQL Server con la configuración de zona horaria diferente.
+Puede restaurar un archivo de copia de seguridad o importar datos en una instancia administrada de una instancia o un servidor con la configuración de zona horaria diferente. Asegúrese de hacerlo con precaución. Analizar el comportamiento de la aplicación y los resultados de las consultas e informes, al igual que al transferir datos entre dos instancias de SQL Server con la configuración de zona horaria diferente.
 
 ### <a name="point-in-time-restore"></a>Restauración a un momento dado
 
-Al realizar una restauración en el momento, el tiempo para restaurar a se interpreta como hora UTC para evitar cualquier ambigüedad debido al horario de verano y sus posibles cambios.
+Al realizar una restauración en un momento, el tiempo para restaurar a se interpreta como hora UTC. Esta configuración evita cualquier ambigüedad debido al horario de verano y sus posibles cambios.
 
 ### <a name="auto-failover-groups"></a>Grupos de conmutación por error automática
 
-Con la misma zona horaria a través de la instancia principal y secundaria en la conmutación por error no se aplica el grupo, pero se recomienda encarecidamente.
-  >[!IMPORTANT]
-  > Aunque hay escenarios válidos para tener la zona horaria diferente instancia secundaria con replicación geográfica se usa para el escalado de lectura solo, tenga en cuenta que en el caso de conmutación por error de manual o automática a la instancia secundaria mantendrá su zona horaria original.
+No se aplica con la misma zona horaria a través de una instancia principal y secundaria de un grupo de conmutación por error, pero se recomienda encarecidamente.
+
+  >[!WARNING]
+  > Se recomienda encarecidamente que utilice la misma zona horaria para la instancia principal y secundaria en un grupo de conmutación por error. Debido a algunos casos poco frecuentes, manteniendo la misma zona horaria en todas las instancias principales y secundarias no se aplica. Es importante comprender que en el caso de conmutación por error automática o manual, la instancia secundaria conservarán su zona horaria original.
 
 ## <a name="limitations"></a>Limitaciones
 
 - No se puede cambiar la zona horaria de la instancia administrada existente.
-- Los procesos externos que se inician desde los trabajos del Agente SQL no tienen en cuenta la zona horaria de la instancia.
-- Nativa de la instancia administrada [New AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance) cmdlet de PowerShell no compatibilidad con la hora de pasar de la zona parámetro todavía. Contenedor de PowerShell de uso con [plantilla de Resource Manager](https://aka.ms/sql-mi-create-arm-posh) en su lugar.
-- Comando de CLI [crear instancia administrada de sql az](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-create) aún no admite el parámetro de zona horaria.
+- Los procesos externos que se inician desde los trabajos del Agente SQL Server no observa la zona horaria de la instancia.
 
 ## <a name="list-of-supported-time-zones"></a>Lista de zonas horarias compatibles
 
@@ -240,7 +239,7 @@ Con la misma zona horaria a través de la instancia principal y secundaria en la
 | Hora estándar de Samoa | (UTC+13:00) Samoa |
 | Hora estándar de Islas de la Línea | (UTC+14:00) Isla de Kiritimati |
 
-## <a name="see-also"></a>Vea también
+## <a name="see-also"></a>Vea también 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [EN la zona HORARIA (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)

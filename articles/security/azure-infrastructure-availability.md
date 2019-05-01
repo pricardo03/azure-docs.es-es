@@ -1,6 +1,6 @@
 ---
-title: Disponibilidad de la infraestructura de Azure
-description: En este artículo se describen los niveles de redundancia para proporcionar la máxima disponibilidad de los datos de los clientes.
+title: Disponibilidad de la infraestructura de Azure - seguridad de Azure
+description: En este artículo se proporciona información sobre lo que hace Microsoft para proteger la infraestructura de Azure y proporcionar la máxima disponibilidad de los datos de clientes.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: a9a55f61f032512be032897d5f21ece405844634
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d13c79152afe00cb326f69b523e9fd7f0c3550b0
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587202"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872602"
 ---
 # <a name="azure-infrastructure-availability"></a>Disponibilidad de la infraestructura de Azure
-Azure proporciona una disponibilidad sólida basada en la amplia redundancia lograda con la tecnología de virtualización. Azure proporciona numerosos niveles de redundancia para proporcionar la máxima disponibilidad de los datos de los clientes.
+En este artículo se proporciona información sobre lo que hace Microsoft para proteger la infraestructura de Azure y proporcionar la máxima disponibilidad de los datos de clientes. Azure proporciona una disponibilidad sólida basada en la amplia redundancia lograda con la tecnología de virtualización.
 
 ## <a name="temporary-outages-and-natural-disaster"></a>Interrupciones temporales y desastres naturales
 El equipo de infraestructura y operaciones de Microsoft Cloud diseña, compila, opera y mejora la infraestructura en la nube. Este equipo garantiza que la infraestructura de Azure ofrece alta disponibilidad y confiabilidad, elevada eficiencia y escalabilidad inteligente. El equipo proporciona una nube más segura, privada y de confianza.

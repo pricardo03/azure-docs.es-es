@@ -1,5 +1,5 @@
 ---
-title: Ejemplos de JavaScript para usar en Azure Active Directory B2C | Microsoft Docs
+title: 'Ejemplos de JavaScript: Azure Active Directory B2C | Microsoft Docs'
 description: Obtenga información acerca de cómo usar JavaScript en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -7,25 +7,28 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3645945400bcc58cdf11721458bfab529d89f0b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 972c8ec1b67161a3998a1b165072f584db2f7fbb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397097"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570527"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Ejemplos de JavaScript para usar en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Puede agregar su propio código del lado cliente de JavaScript a las aplicaciones de Azure Active Directory (Azure AD) B2C. En este artículo se describe cómo se puede cambiar su [flujo de usuario](user-flow-javascript-overview.md) o [directiva personalizada](active-directory-b2c-overview-custom.md) para habilitar la ejecución del script.
+Puede agregar su propio código del lado cliente de JavaScript a las aplicaciones de Azure Active Directory (Azure AD) B2C. Para habilitar JavaScript para sus aplicaciones, debe agregar un elemento a su [directiva personalizada](active-directory-b2c-overview-custom.md), seleccione un [contrato página](page-contract.md)y usar [b2clogin.com](b2clogin.md) en las solicitudes. En este artículo se describe cómo puede cambiar la directiva personalizada para habilitar la ejecución del script.
+
+> [!NOTE]
+> Si desea habilitar JavaScript para flujos de usuario, consulte [JavaScript y página del contrato de las versiones en Azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Seleccione un [contrato página](page-contract.md) para los elementos de la interfaz de usuario de su aplicación. Si piensa usar JavaScript, deberá definir una versión del contrato de la página para todas las definiciones de contenido del flujo de usuario o de la directiva personalizada.
+Seleccione un contrato de página para los elementos de interfaz de usuario de la aplicación. Si piensa usar JavaScript, deberá definir una versión del contrato de la página para todas las definiciones de contenido en la directiva personalizada.
 
 ## <a name="add-the-scriptexecution-element"></a>Adición del elemento ScriptExecution
 
@@ -140,7 +143,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-En el código, reemplace `termsOfUseUrl` con el vínculo al contrato de los términos de uso. Para su directorio, cree un nuevo atributo de usuario denominado **termsOfUse** y, después, incluya **termsOfUse** como un atributo de usuario para el flujo de usuario.
+En el código, reemplace `termsOfUseUrl` con el vínculo al contrato de los términos de uso. Para su directorio, cree un nuevo atributo de usuario denominado **termsOfUse** y, a continuación, incluir **termsOfUse** como un atributo de usuario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

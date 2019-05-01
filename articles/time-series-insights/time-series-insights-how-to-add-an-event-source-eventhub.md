@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: d4a80358535429f53b582abe8560757028159070
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2b307f662c0c9b94edc6bb8eb3ca299f5ad4620
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197840"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702634"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Incorporación de un origen del evento de centro de eventos al entorno de Time Series Insights
 
@@ -108,5 +108,7 @@ Para agregar un nuevo grupo de consumidores al centro de eventos:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Defina las directivas de acceso a datos](time-series-insights-data-access.md) para proteger los datos.
+
 * [Envíe eventos](time-series-insights-send-events.md) al origen de eventos.
+
 * Acceso al entorno en el [explorador de Time Series Insights](https://insights.timeseries.azure.com).

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535327"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869530"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 
@@ -69,9 +69,6 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 | password | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | "No" para el origen, "Sí" para el receptor si el servicio vinculado al origen no tiene ningún entorno de ejecución de integración. |
 
->[!IMPORTANT]
->Al copiar datos a Dynamics, no podrá utilizarse el entorno de ejecución de integración predeterminado de Azure para ejecutar la copia. En otras palabras, si el servicio vinculado al origen no tiene ningún entorno de ejecución de integración, [cree explícitamente un entorno de ejecución de integración de Azure](create-azure-integration-runtime.md#create-azure-ir) con una ubicación cercana a la de la instancia de Dynamics. Buscar dónde se encuentra la instancia de Dynamics haciendo referencia a la [lista de regiones para Dynamics 365](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions). Asócielo al servicio vinculado de Dynamics como en el ejemplo siguiente.
-
 >[!NOTE]
 >El conector de Dynamics permite utilizar la propiedad opcional "organizationName" para identificar la instancia de Dynamics CRM/365 Online. Mientras siga funcionando, es preferible especificar la nueva propiedad "serviceUri" en su lugar para un mejor rendimiento de detección de la instancia.
 
@@ -117,9 +114,6 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 | password | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | No para el origen, sí para el receptor |
 
->[!IMPORTANT]
->Para copiar datos en Dynamics, [cree explícitamente un entorno de ejecución de integración de Azure](create-azure-integration-runtime.md#create-azure-ir) con una ubicación cercana a la de la instancia de Dynamics. Asócielo al servicio vinculado como en el ejemplo siguiente.
-
 **Ejemplo: Dynamics local con IFD mediante la autenticación de IFD**
 
 ```json
@@ -160,8 +154,8 @@ Para copiar datos desde y hacia Dynamics, establezca la propiedad type del conju
 | entityName | El nombre lógico de la entidad que se va a recuperar. | No para el origen (si se especifica "query" en el origen de la actividad); sí para el receptor |
 
 > [!IMPORTANT]
->- Cuando se copian datos desde Dynamics, la sección "structure" es opcional, aunque se recomienda en el conjunto de datos de Dynamics para garantizar un resultado de copia determinista. Esta define el nombre de columna y el tipo de datos de los datos de Dynamics que desea copiar. Para más información, consulte [Estructura del conjunto de datos](concepts-datasets-linked-services.md#dataset-structure) y [Asignación de tipos de datos de Dynamics](#data-type-mapping-for-dynamics).
->- Cuando se importa el esquema en la interfaz de usuario de creación, ADF lo deduce mediante un muestreo de las primeras filas de los resultados de la consulta de Dynamics a fin de inicializar la construcción de la estructura, en cuyo caso se omiten las columnas sin valores. Puede revisar y agregar más columnas al esquema o la estructura del conjunto de datos de Dynamics si es necesario, lo que se respeta durante el runtime de copia.
+>- Cuando se copian datos desde Dynamics, la sección "structure" es opcional pero muy recommanded del conjunto de datos de Dynamics para garantizar un resultado determinista copia. Esta define el nombre de columna y el tipo de datos de los datos de Dynamics que desea copiar. Para más información, consulte [Estructura del conjunto de datos](concepts-datasets-linked-services.md#dataset-structure-or-schema) y [Asignación de tipos de datos de Dynamics](#data-type-mapping-for-dynamics).
+>- Cuando se importa el esquema en la interfaz de usuario de creación, ADF lo deduce mediante un muestreo de las primeras filas de los resultados de la consulta de Dynamics a fin de inicializar la construcción de la estructura, en cuyo caso se omiten las columnas sin valores. El mismo comportamiento se aplica para copiar las ejecuciones si no hay ninguna definición de estructura explícita. Puede revisar y agregar más columnas al esquema o la estructura del conjunto de datos de Dynamics si es necesario, lo que se respeta durante el runtime de copia.
 >- Al copiar datos a Dynamics, la sección "structure" es opcional en el conjunto de datos de Dynamics. El esquema de datos de origen determinará qué columnas se copian. Si el origen es un archivo CSV sin encabezado, en el conjunto de datos de entrada, especifique "structure" con el tipo de datos y el nombre de columna. Estos se asignan a los campos del archivo CSV, uno por uno en orden.
 
 **Ejemplo:**
@@ -330,7 +324,7 @@ Configure el tipo de datos de Data Factory correspondiente en la estructura del 
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | | 
+| AttributeType.Customer | Guid | ✓ | |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |

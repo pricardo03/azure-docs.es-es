@@ -3,33 +3,36 @@ title: Copia de datos con Azure Blob Storage como origen o destino mediante Data
 description: Aprenda a copiar datos desde cualquier almacén de datos de origen compatible a Azure Blob Storage o desde Blob Storage a cualquier almacén de datos de receptor compatible mediante Data Factory.
 author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 115a02c7f8abee18c226c127fb84b4bb34250cd0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 040b5aec7ddd0b87b333b365431d8bd101afd372
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456319"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876167"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](v1/data-factory-azure-blob-connector.md)
 > * [Versión actual](connector-azure-blob-storage.md)
 
-En este artículo se resume el uso de la actividad de copia en Azure Data Factory para copiar datos a Azure Blob Storage y desde este servicio. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de esta actividad.
-
-Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
+En este artículo se describe cómo copiar datos hacia y desde Azure Blob storage. Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Puede copiar datos desde cualquier almacén de datos de origen admitido a Blob Storage. También puede copiar datos de Blob Storage en cualquier almacén de datos receptor admitido. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
+Este conector de blobs de Azure es compatible con las siguientes actividades:
+
+- [Actividad de copia](copy-activity-overview.md) con [admite la matriz de origen/receptor](copy-activity-overview.md)
+- [Asignación de flujo de datos](concepts-data-flow-overview.md)
+- [Actividad de búsqueda](control-flow-lookup-activity.md)
+- [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 
 En concreto, este conector de Blob Storage admite las siguientes operaciones:
 
@@ -301,9 +304,56 @@ Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storag
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de Blob Storage.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-Para copiar datos con Blob Storage como origen o destino, establezca la propiedad type del conjunto de datos en **AzureBlob**. Se admiten las siguientes propiedades.
+- Para **Parquet y formato de texto delimitado**, consulte [conjunto de datos con formato Parquet y texto delimitado](#parquet-and-delimited-text-format-dataset) sección.
+- Para otros formatos como **formato ORC/Avro/JSON/binario**, consulte [otro conjunto de datos de formato](#other-format-dataset) sección.
+
+### <a name="parquet-and-delimited-text-format-dataset"></a>Conjunto de datos con formato parquet y texto delimitado
+
+Para copiar datos hacia y desde Blob storage en Parquet o formato de texto delimitado, consulte [formato Parquet](format-parquet.md) y [formato de texto delimitado](format-delimited-text.md) artículo sobre configuraciones admitidas y el conjunto de datos de formato. Se admiten las siguientes propiedades para blobs de Azure en `location` configuración en el conjunto de datos basado en el formato:
+
+| Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
+| ---------- | ------------------------------------------------------------ | -------- |
+| Tipo       | La propiedad type de la ubicación en el conjunto de datos debe establecerse en **AzureBlobStorageLocation**. | Sí      |
+| container  | El contenedor de blobs.                                          | Sí      |
+| folderPath | La ruta de acceso a la carpeta en el contenedor determinado. Si desea usar el carácter comodín a la carpeta de filtro, omita esta configuración y especificar en la configuración del origen de actividad. | Sin        |
+| fileName   | El nombre de archivo en el contenedor determinado + folderPath. Si desea usar el carácter comodín para filtrar los archivos, omita esta configuración y especificar en la configuración del origen de actividad. | Sin        |
+
+> [!NOTE]
+>
+> **AzureBlob** todavía se admite el tipo de conjunto de datos con formato Parquet/texto que se mencionan en la siguiente sección como-es para la actividad de copia/búsqueda/GetMetadata para compatibilidad con versiones anteriores, pero no funciona con la asignación de flujo de datos. Se sugieren para usar este nuevo modelo a partir de ahora, y ha cambiado la interfaz de usuario de creación de ADF para generar estos nuevos tipos.
+
+**Ejemplo:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<Azure Blob Storage linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobStorageLocation",
+                "container": "containername",
+                "folderPath": "folder/subfolder"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>Otro conjunto de datos de formato
+
+Para copiar datos hacia y desde Blob storage en formato ORC/Avro/JSON/binario, establezca la propiedad type del conjunto de datos en **AzureBlob**. Se admiten las siguientes propiedades.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -354,12 +404,76 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="blob-storage-as-a-source-type"></a>Blob Storage como un tipo de origen
 
-Para copiar datos desde Blob Storage, establezca el tipo de origen de la actividad de copia en **BlobSource**. En la sección **source** de la actividad de copia se admiten las siguientes propiedades.
+- Para copiar desde **Parquet y formato de texto delimitado**, consulte [Parquet y origen del formato de texto delimitado](#parquet-and-delimited-text-format-source) sección.
+- Para copiar desde otros formatos como **formato ORC/Avro/JSON/binario**, consulte [otro origen de formato](#other-format-source) sección.
+
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet y origen del formato de texto delimitado
+
+Para copiar datos desde Blob storage en Parquet o formato de texto delimitado, consulte [formato Parquet](format-parquet.md) y [formato de texto delimitado](format-delimited-text.md) artículo sobre configuraciones admitidas y el origen de la actividad de copia basada en el formato. Se admiten las siguientes propiedades para blobs de Azure en `storeSettings` configuración en el origen de copia basada en el formato:
+
+| Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                      |
+| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
+| Tipo                     | La propiedad type en `storeSettings` debe establecerse en **AzureBlobStorageReadSetting**. | Sí                                           |
+| recursive                | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin                                             |
+| wildcardFolderPath       | La ruta de acceso de carpeta con caracteres comodín en el contenedor determinado configurado en el conjunto de datos a las carpetas de origen del filtro. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sin                                             |
+| wildcardFileName         | El nombre de archivo con caracteres comodín en el contenedor determinado + folderPath/wildcardFolderPath para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí si `fileName` no se especifica en el conjunto de datos |
+| modifiedDatetimeStart    | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora. | Sin                                             |
+| modifiedDatetimeEnd      | Igual que el anterior.                                               | Sin                                             |
+| maxConcurrentConnections | El número de conexiones para conectarse al almacén de almacenamiento al mismo tiempo. Especifique solo cuando desee limitar las conexiones simultáneas al almacén de datos. | Sin                                             |
+
+> [!NOTE]
+> Para Parquet/texto delimitado con **BlobSource** todavía se admite como origen de la actividad de copia tipo mencionado en la siguiente sección: es para la compatibilidad con versiones anteriores. Se sugieren para usar este nuevo modelo a partir de ahora, y ha cambiado la interfaz de usuario de creación de ADF para generar estos nuevos tipos.
+
+**Ejemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromBlob",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "AzureBlobStorageReadSetting",
+                    "recursive": true,
+                    "wildcardFolderPath": "myfolder*A",
+                    "wildcardFileName": "*.csv"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>Otro origen de formato
+
+Para copiar datos desde Blob storage en formato ORC/Avro/JSON/binario, establezca el tipo de origen de la actividad de copia en **BlobSource**. En la sección **source** de la actividad de copia se admiten las siguientes propiedades.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del origen de la actividad de copia tiene que establecerse en **BlobSource**. |Sí |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin  |
+| maxConcurrentConnections | El número de conexiones para conectarse al almacén de almacenamiento al mismo tiempo. Especifique solo cuando desee limitar las conexiones simultáneas al almacén de datos. | Sin  |
 
 **Ejemplo:**
 
@@ -395,12 +509,66 @@ Para copiar datos desde Blob Storage, establezca el tipo de origen de la activid
 
 ### <a name="blob-storage-as-a-sink-type"></a>Blob Storage como un tipo de receptor
 
+- Para copiar en **Parquet y formato de texto delimitado**, consulte [Parquet y receptores de formato de texto delimitado](#parquet-and-delimited-text-format-sink) sección.
+- Para copiar en otros formatos, como **formato ORC/Avro/JSON/binario**, consulte [otros receptores de formato](#other-format-sink) sección.
+
+#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet y receptores de formato de texto delimitado
+
+Para copiar datos en Blob storage en Parquet o formato de texto delimitado, consulte [formato Parquet](format-parquet.md) y [formato de texto delimitado](format-delimited-text.md) artículo sobre configuraciones admitidas y el receptor de la actividad de copia basada en el formato. Se admiten las siguientes propiedades para blobs de Azure en `storeSettings` configuración del receptor de copia basada en el formato:
+
+| Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| Tipo                     | La propiedad type en `storeSettings` debe establecerse en **AzureBlobStorageWriteSetting**. | Sí      |
+| copyBehavior             | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del blob o del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | Sin        |
+| maxConcurrentConnections | El número de conexiones para conectarse al almacén de almacenamiento al mismo tiempo. Especifique solo cuando desee limitar las conexiones simultáneas al almacén de datos. | Sin        |
+
+> [!NOTE]
+> Para Parquet/texto delimitado con **BlobSink** todavía se admite como receptor de la actividad de copia tipo mencionado en la siguiente sección: es para la compatibilidad con versiones anteriores. Se sugieren para usar este nuevo modelo a partir de ahora, y ha cambiado la interfaz de usuario de creación de ADF para generar estos nuevos tipos.
+
+**Ejemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromBlob",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Parquet output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "ParquetSink",
+                "storeSettings":{
+                    "type": "AzureBlobStorageWriteSetting",
+                    "copyBehavior": "PreserveHierarchy"
+                }
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-sink"></a>Otros receptores de formato
+
 Para copiar datos en Blob Storage, establezca el tipo de receptor de la actividad de copia en **BlobSink**. En la sección **sink** se admiten las propiedades a continuación.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **BlobSink**. |Sí |
 | copyBehavior | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del blob o del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | Sin  |
+| maxConcurrentConnections | El número de conexiones para conectarse al almacén de almacenamiento al mismo tiempo. Especifique solo cuando desee limitar las conexiones simultáneas al almacén de datos. | Sin  |
 
 **Ejemplo:**
 
@@ -458,5 +626,10 @@ En esta sección se describe el comportamiento resultante de la operación de co
 | false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La carpeta de destino Folder1 se crea con la estructura siguiente: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nombre de archivo generado automáticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nombre de archivo generado automáticamente para File2<br/><br/>No se selecciona la subcarpeta Subfolder1, con File3, File4 y File5. |
 | false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La carpeta de destino Folder1 se crea con la estructura siguiente:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;El contenido de File1 + File2 se combina en un archivo con un nombre de archivo generado automáticamente. nombre de archivo generado automáticamente para File1<br/><br/>No se selecciona la subcarpeta Subfolder1, con File3, File4 y File5. |
 
+## <a name="mapping-data-flow-properties"></a>Propiedades de flujo de datos de asignación
+
+Obtenga información detallada de [transformación del origen](data-flow-source.md) y [receptor transformación](data-flow-sink.md) en asignación de flujo de datos.
+
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md##supported-data-stores-and-formats).

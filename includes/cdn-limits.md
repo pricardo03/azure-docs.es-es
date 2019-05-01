@@ -1,23 +1,22 @@
 ---
-author: rothja
+author: mdgattuso
 ms.service: billing
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: jroth
-ms.openlocfilehash: b3a610fd1c4da99d1e98a5caea9e1a4151fc1fea
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 04/29/2019
+ms.author: magattus
+ms.openlocfilehash: 0c989aa32c4f4defc9d22a2e510d85d7583ed1c8
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553865"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951566"
 ---
-| Recurso | Límite predeterminado | Límite máximo | 
-| --- | --- | --- |
-| Perfiles de Content Delivery Network de Azure |25 |25 |
-| Puntos de conexión de contenidos Delivery Network por perfil |10 |25 |
-| Dominios personalizados por punto de conexión |10 |25 |
+| Recurso | Límite predeterminado |
+| --- | --- |
+| Perfiles de Content Delivery Network de Azure |25 |
+| Puntos de conexión de contenidos Delivery Network por perfil |25 |
+| Dominios personalizados por punto de conexión |25 |
 
 Una suscripción de Content Delivery Network puede contener uno o varios perfiles de Content Delivery Network. Un perfil de Content Delivery Network puede contener uno o varios puntos de conexión de Content Delivery Network. Es posible que desee usar varios perfiles para organizar los puntos de conexión de Content Delivery Network por dominio de internet, aplicación web o cualquier otro criterio. 
 
-Para solicitar una actualización de los límites predeterminados de la suscripción, abra un vale de soporte técnico.
 

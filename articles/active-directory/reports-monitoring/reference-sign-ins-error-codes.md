@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/18/2018
+ms.date: 04/25/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdf28418e7e1335dcb1f664964fa6ef03174aa1f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437180"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709199"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de error de los informes de actividad de inicio de sesión. 
 
@@ -177,6 +177,7 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |90051| Token de delegación no válido. Se especifica el identificador de nube nacionales no válido ({cloudId}).|
 |90072| La cuenta tiene que agregarse primero como un usuario externo en el inquilino. Cierre sesión y vuelva a iniciarla con otra cuenta de Azure AD.|
 |90094| La concesión requiere permisos de administrador. Pida al administrador de inquilino que dé su consentimiento para esta aplicación.|
+|500121| Error de autenticación durante la solicitud de autenticación segura.|
 |500133| La aserción no está dentro de su intervalo de tiempo válido. Asegúrese de que el token de acceso no ha expirado antes de usarlo para la aserción de usuario o solicite un nuevo token.|
 |530021|Aplicación no cumple los requisitos de aplicación aprobada de acceso condicional.|
 

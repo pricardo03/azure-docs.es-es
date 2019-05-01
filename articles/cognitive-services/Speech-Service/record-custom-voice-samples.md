@@ -8,16 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
+ms.date: 12/06/2018
+ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60481987"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866543"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Grabación de muestras de voz para crear una voz personalizada
 
@@ -110,7 +109,7 @@ Afortunadamente, es posible evitar estos problemas por completo. Hay muchas fuen
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Aproximadamente 1100 oraciones seleccionadas de obras protegidas por derechos de autor para su uso especialmente en proyectos de síntesis de voz. Un excelente punto de partida.|
 |Obras que ya no<br>están protegidas por derechos de autor|Normalmente las obras publicadas antes de 1923. En inglés, el [proyecto Gutenberg](https://www.gutenberg.org/) ofrece miles de obras de este tipo. Quizás quiera centrarse en obras más modernas, dado que el lenguaje estará más próximo al inglés moderno.|
-|Obras del gobierno|Las obras creadas por el gobierno de los Estados Unidos no están protegidas por derechos de autor en los Estados Unidos, aunque es posible que el gobierno reclame derechos de autor en otros países.|
+|Obras del gobierno &nbsp;|Works creados por el gobierno de Estados Unidos están protegidos por copyright no en los Estados Unidos, aunque el gobierno puede solicitar derechos de autor en otros países o regiones.|
 |Dominio público|Obras en las que se ha renunciado explícitamente a los derechos de autor o que se han destinado al dominio público. Puede que en algunas jurisdicciones no sea posible renunciar totalmente a los derechos de autor.|
 |Obras con licencia permisiva|Obras distribuidas con una licencia como Creative Commons o la licencia de documentación libre de GNU (GFDL). La Wikipedia usa la GFDL. Algunas licencias, sin embargo, pueden imponer restricciones sobre la representación del contenido con licencia que pueden afectar a la creación de un modelo de voz personalizada, así que lea la licencia detenidamente.|
 

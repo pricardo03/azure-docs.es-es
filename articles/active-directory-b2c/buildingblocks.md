@@ -3,20 +3,19 @@ title: BuildingBlocks - Azure Active Directory B2C | Microsoft Docs
 description: Especifique el elemento BuildingBlocks de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-origin.date: 09/10/2018
-ms.date: 04/03/2019
-ms.author: v-junlch
+ms.date: 09/10/2018
+ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: afa064232c10d3e84e9c301d44b82faae4904253
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1a7a5463d24ba15b7bd2b514b8c7bce3799f3191
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60383973"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688894"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -30,9 +29,9 @@ El elemento **BuildingBlocks** se agrega dentro del elemento [TrustFrameworkPoli
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
-  TenantId="mytenant.partner.onmschina.cn"
+  TenantId="mytenant.onmicrosoft.com"
   PolicyId="B2C_1A_TrustFrameworkBase"
-  PublicPolicyUri="http://mytenant.partner.onmschina.cn/B2C_1A_TrustFrameworkBase">
+  PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 
   <BuildingBlocks>
     <ClaimsSchema>
@@ -72,6 +71,5 @@ El elemento **BuildingBlocks** contiene los siguientes elementos que deben espec
 - [ContentDefinitions](contentdefinitions.md): contiene las URL para las plantillas HTML5 que va a usar en su recorrido del usuario. En una directiva personalizada, una definición de contenido define el identificador URI de la página HTML5 que se usa en un paso concreto del recorrido del usuario. Por ejemplo, páginas de error, de registro o inicio de sesión, o de restablecimiento de contraseña. Para modificar la apariencia, invalide el elemento LoadUri del archivo HTML5. También puede crear nuevas definiciones de contenido según sus necesidades. Este elemento puede contener una referencia a recursos localizados mediante un identificador de localización.
 
 - [Localización](localization.md): le ofrece compatibilidad con varios idiomas. La compatibilidad de localización en directivas permite configurar la lista de idiomas admitidos en una directiva y elegir un idioma predeterminado. Las cadenas y colecciones específicas del idioma también se admiten.
-
 
 

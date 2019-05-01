@@ -1,6 +1,6 @@
 ---
-title: Crear una cuenta de premium de Azure file storage
-description: En este artículo, aprenderá a crear una cuenta de premium de Azure file storage y un recurso compartido de archivos de premium.
+title: Crear una cuenta de almacenamiento de Azure filestorage
+description: En este artículo, aprenderá a crear un filestorage (versión preliminar) y un recurso compartido de archivos de premium.
 services: storage
 author: roygara
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0eca706c9082b1fa60e13a0878fbb3061425c9bf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844568"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574413"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Cómo crear un recurso compartido de archivos de Azure premium
 
-El tipo de cuenta de almacenamiento FileStorage (versión preliminar) representa un nuevo nivel de Azure Files, lo que permite crear recursos compartidos de archivos con las características de rendimiento premium. Estos recursos compartidos de archivos están diseñados para aplicaciones a escala empresarial, que proporciona recursos compartidos de alto rendimiento, IOPS alta y baja latencia coherente y de alto rendimiento.
+El tipo de cuenta de almacenamiento filestorage (versión preliminar) representa un nuevo nivel de Azure Files, lo que permite crear recursos compartidos de archivos con las características de rendimiento premium. Estos recursos compartidos de archivos están diseñados para aplicaciones a escala empresarial, que proporciona recursos compartidos de alto rendimiento, IOPS alta y baja latencia coherente y de alto rendimiento.
 
 Este artículo muestra cómo crear este nuevo tipo de cuenta con [portal Azure](https://portal.azure.com/), Azure PowerShell y CLI de Azure.
 
@@ -31,7 +31,7 @@ Para acceder a Azure Storage, necesitará una suscripción de Azure. Si todavía
 
 Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Crear una cuenta de almacenamiento FileStorage (versión preliminar)
+### <a name="create-a-filestorage-preview-storage-account"></a>Crear una cuenta de almacenamiento filestorage (versión preliminar)
 
 Ahora está listo para crear la cuenta de almacenamiento.
 
@@ -115,7 +115,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ### <a name="create-a-filestorage-preview-storage-account"></a>Crear una cuenta de almacenamiento filestorage (versión preliminar)
 
-Para crear una cuenta de almacenamiento FileStorage (versión preliminar) de PowerShell, use el [New AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) comando:
+Para crear una cuenta de almacenamiento filestorage (versión preliminar) de PowerShell, use el [New AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) comando:
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -123,7 +123,7 @@ $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fil
 
 ### <a name="create-a-premium-file-share"></a>Creación de un recurso compartido de archivos premium
 
-Ahora que tiene una cuenta FileStorage, puede crear un recurso compartido de archivos de premium. Use la [New AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) para crear uno.
+Ahora que tiene una cuenta filestorage, puede crear un recurso compartido de archivos de premium. Use la [New AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) para crear uno.
 
 > [!NOTE]
 > Tamaños de recurso compartido aprovisionado está especificado por la cuota del recurso compartido, se facturan los recursos compartidos de archivos del tamaño aprovisionado, consulte el [página de precios](https://azure.microsoft.com/pricing/details/storage/files/) para obtener más detalles.
@@ -168,9 +168,9 @@ az group create `
     --location westus2
 ```
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Crear una cuenta de almacenamiento FileStorage (versión preliminar)
+### <a name="create-a-filestorage-preview-storage-account"></a>Crear una cuenta de almacenamiento filestorage (versión preliminar)
 
-Para crear una cuenta de almacenamiento FileStorage (versión preliminar) desde la CLI de Azure, use el [crear cuenta de almacenamiento de az](/cli/azure/storage/account) comando.
+Para crear una cuenta de almacenamiento filestorage (versión preliminar) desde la CLI de Azure, use el [crear cuenta de almacenamiento de az](/cli/azure/storage/account) comando.
 
 ```azurecli-interactive
 az storage account create `
@@ -194,7 +194,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ### <a name="create-a-premium-file-share"></a>Creación de un recurso compartido de archivos premium
 
-Ahora que tiene una cuenta FileStorage, puede crear un recurso compartido de archivos de premium. Use la [crear recurso compartido de almacenamiento de az](/cli/azure/storage/share) comando para crear uno.
+Ahora que tiene una cuenta filestorage, puede crear un recurso compartido de archivos de premium. Use la [crear recurso compartido de almacenamiento de az](/cli/azure/storage/share) comando para crear uno.
 
 > [!NOTE]
 > Tamaños de recurso compartido aprovisionado está especificado por la cuota del recurso compartido, se facturan los recursos compartidos de archivos del tamaño aprovisionado, consulte el [página de precios](https://azure.microsoft.com/pricing/details/storage/files/) para obtener más detalles.

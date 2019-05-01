@@ -2,39 +2,41 @@
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: include
-ms.date: 03/11/2019
+ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: 0d090f43b69b42a07f1c8949d1662e8e720f3cf4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00b0c1b1a40ad16db177916c57dba6e9d5a187a7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57908542"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925639"
 ---
-Los pasos necesarios para anular el registro de un servidor de procesos serán diferentes en función del estado de la conexión con el servidor de configuración.
+Siga los pasos para sus circunstancias específicas.
 
-### <a name="unregister-a-process-server-that-is-in-a-connected-state"></a>Anulación del registro de un servidor de procesos que se encuentra en estado conectado
+### <a name="unregister-a-connected-process-server"></a>Anular el registro de un servidor de procesos conectados
 
-1. Conéctese de forma remota al servidor de procesos como administrador.
-2. Iniciar el **Panel de Control** y abra **programas > desinstalar un programa**.
-3. Desinstalar un programa denominado **servidor de destino maestra del servicio de Microsoft Azure Site Recovery Mobility**.
-4. Desinstalar un programa denominado **el servidor de configuración o procesos de Microsoft Azure Site Recovery**.
-5. Cuando se desinstalan los programas en los pasos 3 y 4, puede desinstalar **dependencias del servidor de configuración o procesos de Microsoft Azure Site Recovery**.
+1. Establecer una conexión remota al servidor de procesos como administrador.
+2. En el **Panel de Control**, abra **programas > desinstalar un programa**.
+3. Desinstale el programa **servidor de destino maestra del servicio de Microsoft Azure Site Recovery Mobility**.
+4. Desinstale el programa **el servidor de configuración o procesos de Microsoft Azure Site Recovery**.
+5. Después de desinstalan los programas en los pasos 3 y 4, desinstale **dependencias del servidor de configuración o procesos de Microsoft Azure Site Recovery**.
 
-### <a name="unregister-a-process-server-that-is-in-a-disconnected-state"></a>Anulación del registro de un servidor de procesos que se encuentra en estado desconectado
+### <a name="unregister-a-disconnected-process-server"></a>Anular el registro de un servidor de procesos desconectado
 
-> [!WARNING]
-> Use los siguientes pasos si no hay ninguna manera de reactivar la máquina virtual donde se instaló el servidor de procesos.
+Sólo siga estos pasos si no hay ninguna manera de reactivar la máquina donde está instalado el servidor de procesos.
 
-1. Inicie sesión como administrador en el servidor de configuración.
-2. Abra un símbolo del sistema administrativo y vaya al directorio `%ProgramData%\ASR\home\svsystems\bin`.
-3. A continuación, ejecute el comando.
+1. Inicie sesión en el servidor de configuración como administrador.
+2. Abra un símbolo del sistema administrativo y vaya a `%ProgramData%\ASR\home\svsystems\bin`.
+3. Ejecute este comando para obtener una lista de uno o más servidores de procesos.
 
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. El comando anterior mostrará la lista de servidores de procesos (puede ser más de uno, en caso de entradas duplicadas) con el número de serie (S.No), la dirección IP (IP), el nombre de la máquina virtual en la cual se implementa el servidor de proceso, el latido de la máquina virtual (latido) como se indica a continuación.
+    - S. No: el número de serie del servidor de proceso.
+    - Nombre o IP: La dirección IP y el nombre del equipo que ejecuta el servidor de procesos.
+    - Latido: Último latido del equipo del servidor de proceso.
     ![Unregister-cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
-5. Ahora, escriba el número de serie del servidor de proceso del que desea anular el registro.
-6. Esto purgará los detalles del servidor de procesos del sistema y mostrará el mensaje: **Anuló correctamente el registro de nombre de servidor > (dirección de IP de servidor)**
+
+4. Especifique el número de serie del servidor de proceso que desea anular el registro.
+5. Anular el registro de un servidor de procesos quitar todos los detalles del sistema y muestra el mensaje: **Anuló correctamente el registro de nombre de servidor > (dirección de IP de servidor)**
 

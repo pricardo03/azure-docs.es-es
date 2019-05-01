@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 0b1a06d181fc4d2a44d389d47d1f9480c2fdcb40
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 5c01c2721a29bf142ee0ba53c9bc29ec66a7278f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401100"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727913"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Generación de perfiles de aplicaciones de Azure Service Fabric en vivo con Application Insights
 
@@ -32,7 +32,7 @@ Application Insights Profiler se incluye con Azure Diagnostics. Puede instalar l
 
 Para configurar su entorno, realice las siguientes acciones:
 
-1. Para asegurarse de que usa [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o una versión más reciente, es suficiente con confirmar que el sistema operativo implementado sea `Windows Server 2012 R2` u otro posterior.
+1. Profiler es compatible con .NET Framework y.Net Core. Si usa .NET Framework, asegúrese de que usa [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o una versión posterior. Es suficiente con confirmar que el sistema operativo implementado es `Windows Server 2012 R2` o posterior. Profiler es compatible con .NET Core 2.1 y las aplicaciones más recientes.
 
 1. Busque la extensión de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) en el archivo de plantilla de implementación.
 
@@ -59,7 +59,6 @@ Para configurar su entorno, realice las siguientes acciones:
 
 1. Vuelva a implementar la aplicación.
 
-> [SUGERENCIA] Para Virtual Machines, una alternativa a los pasos basados en JSON anteriores es ir en Azure Portal a **Virtual Machines** > **Configuración de diagnóstico** > **Receptores** > **Establecer el envío de datos de diagnóstico a Application Insights en Habilitado** y, a continuación, seleccionar una cuenta de Application Insights o una iKey específica.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

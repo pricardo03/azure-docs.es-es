@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3843b5022aaf218bf91e25ecf6d9c36bb2db2dee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034746"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575429"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuales
 
@@ -77,7 +77,7 @@ Puede filtrar el tráfico de red hacia y desde los recursos en una red virtual m
 - Si debe aplicar reglas de seguridad a varias máquinas virtuales de una subred, puede asociar la interfaz de red en la máquina virtual a uno o varios grupos de seguridad de aplicaciones. Una regla de seguridad puede especificar un grupo de seguridad de aplicaciones en el origen, en el destino o en ambos. A continuación, solo se aplica dicha regla a las interfaces de red que forman parte del grupo de seguridad de aplicaciones. Obtenga más información sobre los [grupos de seguridad de red](security-overview.md) y los [grupos de seguridad de aplicaciones](security-overview.md#application-security-groups).
 - Azure crea de forma predeterminada varias reglas de seguridad en cada grupo de seguridad de red. Una regla predeterminada permite que todo el tráfico fluya entre todos los recursos de una red virtual. Para invalidar este comportamiento, use los grupos de seguridad de red, el enrutamiento personalizado para enrutar el tráfico a una NVA o ambas opciones. Le recomendamos que se familiarice con todas las [reglas de seguridad predeterminadas](security-overview.md#default-security-rules) de Azure, y con la forma de aplicar las reglas del grupo de seguridad de red a un recurso.
 
-Puede ver los diseños de ejemplo para implementar una red perimetral entre Azure e Internet mediante una [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) o los [grupos de seguridad de red](virtual-networks-dmz-nsg.md).
+Puede ver los diseños de ejemplo para implementar una red perimetral (también conocida como DMZ) entre Azure e internet utilizando un [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) o [grupos de seguridad de red](virtual-networks-dmz-nsg.md).
 
 ### <a name="traffic-routing"></a>Enrutamiento del tráfico
 

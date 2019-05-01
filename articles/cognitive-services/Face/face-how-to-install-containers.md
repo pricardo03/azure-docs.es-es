@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5028a05fe74f1d19ed5e43ac797df87bbe3382e8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a3087718a3eece1e19f05757ace64ba00aa0dc58
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680730"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682685"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar y ejecutar contenedores de cara
 
@@ -34,10 +34,9 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores 
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
 |Azure `Cognitive Services` recursos |Para poder usar el contenedor, debe tener:<br><br>Un _Cognitive Services_ el URI del extremo de facturación de claves de recursos de Azure y la facturación asociada. Ambos valores están disponibles en las páginas de información general y las claves para el recurso y es necesario para iniciar el contenedor. Deberá agregar el `face/v1.0` enrutamiento para el URI del extremo, tal como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}**: clave de recurso<br><br>**{BILLING_ENDPOINT_URI}**: el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
-
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitud de acceso al registro de contenedor privado
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>El equipo host
 
@@ -162,5 +161,4 @@ En este artículo aprendió los conceptos y el flujo de trabajo para la descarga
 * Revise [Configure containers](face-resource-container-config.md) (Configuración de contenedores) para ver las opciones de configuración.
 * Revise [Introducción a Face](Overview.md) para obtener más información acerca de la detección e identificación de caras.  
 * Consulte [Face API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener más información acerca de los métodos que admite el contenedor.
-* Consulte [Preguntas más frecuentes (P+F)](FAQ.md) para resolver problemas relacionados con la funcionalidad de Face.
-* Usar más [Contenedores de Cognitive Services](../cognitive-services-container-support.md)
+* Uso de [Contenedores de Cognitive Services](../cognitive-services-container-support.md)

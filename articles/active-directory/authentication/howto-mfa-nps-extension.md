@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a945316df27460fef48a8bb4d43e46d412d2ae81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 080a37a88e46117a9963f07c14d64f00c6bae6d5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359235"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570478"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
 
@@ -184,6 +184,8 @@ A menos que desee utilizar sus propios certificados (en lugar de los certificado
 
 Repita estos pasos en todos los servidores NPS adicionales que desee configurar para equilibrio de carga.
 
+Si ha expirado el certificado de equipo anterior, y se ha generado un nuevo certificado, debe eliminar todos los certificados caducados. Tener los certificados caducados pueden causar problemas con la extensión de NPS iniciando.
+
 > [!NOTE]
 > Si utiliza certificados propios en lugar de generar certificados con el script de PowerShell, asegúrese de que se ajustan a la convención de nomenclatura de NPS. El nombre del firmante debe ser **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
 
@@ -207,7 +209,7 @@ Una vez que habilite MFA para un cliente RADIUS mediante la extensión de NPS, s
 
 Si tiene usuarios que no están inscritos en MFA, puede determinar lo que sucederá cuando intenten realizar la autenticación. Use la configuración de registro *REQUIRE_USER_MATCH* en la ruta de acceso del registro *HKLM\Software\Microsoft\AzureMFA* para controlar el comportamiento de la característica. Esta opción tiene una única opción de configuración:
 
-| Clave | Value | Valor predeterminado |
+| Clave | Valor | Valor predeterminado |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | No establecido (equivalente a TRUE) |
 

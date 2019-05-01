@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578612"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943918"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Aprovisionamiento de Deep Learning Virtual Machine en Azure 
 
@@ -35,7 +35,8 @@ A continuación le indicamos los pasos para crear una instancia de Deep Learning
 ).
 2. Seleccione el botón **Crear**, en la parte inferior, para acceder a un asistente.![create-dlvm](./media/dlvm-provision-wizard.PNG)
 3. El asistente usado para crear la DLVM necesita **datos de entrada** para cada uno de los **cuatro pasos** que se enumeran en la parte derecha de esta ilustración. Estas son las entradas necesarias para configurar cada uno de estos pasos:
-   
+
+   <a name="basics"></a>   
    1. **Aspectos básicos**
       
       1. **Nombre**: nombre del servidor de ciencia de datos que está creando.
@@ -46,13 +47,14 @@ A continuación le indicamos los pasos para crear una instancia de Deep Learning
       5. **Grupo de recursos**: puede crear uno nuevo o usar un grupo de recursos **vacío** existente de Azure en su suscripción.
       6. **Ubicación**: seleccione el centro de datos más adecuado. Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red. 
       
-> [!NOTE]
-> DLVM admite todas las instancias de máquina virtual GPU de las series NC y ND. Al aprovisionar DLVM, debe elegir una de las ubicaciones de Azure que tenga GPU. Consulte la página [Productos disponibles por región](https://azure.microsoft.com/regions/services/) de Azure para ver las ubicaciones disponibles y busque **Serie NC**, **Serie NCv2**, **Serie NCv3** o **Serie ND** en **Proceso**. 
+      > [!NOTE]
+      > DLVM admite todas las instancias de máquina virtual GPU de las series NC y ND. Al aprovisionar DLVM, debe elegir una de las ubicaciones de Azure que tenga GPU. Consulte la página [Productos disponibles por región](https://azure.microsoft.com/regions/services/) de Azure para ver las ubicaciones disponibles y busque **Serie NC**, **Serie NCv2**, **Serie NCv3** o **Serie ND** en **Proceso**. 
 
-1. **Configuración**: seleccione uno de los tamaños de máquina virtual GPU de las series NC (NC, NCv2, NCv3) o ND que satisfaga sus requisitos funcionales y las restricciones de costo. Cree una cuenta de almacenamiento para su máquina virtual.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   1. **Configuración**: seleccione uno de los tamaños de máquina virtual GPU de las series NC (NC, NCv2, NCv3) o ND que satisfaga sus requisitos funcionales y las restricciones de costo. Cree una cuenta de almacenamiento para su máquina virtual.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-1. **Resumen**: Compruebe que toda la información que ha especificado es correcta.
-1. **Comprar**: haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño** . 
+   1. **Resumen**: Compruebe que toda la información que ha especificado es correcta.
+
+   1. **Comprar**: haga clic en **Comprar** para iniciar el aprovisionamiento. Se proporciona un vínculo a los términos de la transacción. La máquina virtual no tiene ningún cargo adicional más allá del proceso para el tamaño del servidor que eligió en el paso **Tamaño** . 
 
 > [!NOTE]
 > El aprovisionamiento tardará entre 10 y 20 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
@@ -66,7 +68,7 @@ Una vez creada la máquina virtual, puede usar el escritorio remoto con las cred
 
 ### <a name="linux-edition"></a>Edición de Linux
 
-Después de crear la máquina virtual, puede iniciar sesión en ella mediante SSH. Utilice las credenciales de la cuenta que haya creado en la sección **Aspectos básicos** del paso 3 para la interfaz de shell de texto. En un cliente Windows, puede descargar una herramienta de cliente SSH como [Putty](https://www.putty.org). Si prefiere un escritorio gráfico (X Windows System), puede usar el reenvío de X11 en Putty o instalar el cliente X2Go.
+Después de crear la máquina virtual, puede iniciar sesión en ella mediante SSH. Use las credenciales de cuenta que creó en el [ **Fundamentos** ](#basics) sección del paso 3 para la interfaz de shell de texto. Para obtener más información sobre las conexiones de SSH para máquinas virtuales de Azure, consulte [instalar y configurar Escritorio remoto para conectarse a una VM Linux en Azure](/azure/virtual-machines/linux/use-remote-desktop). En un cliente de Windows, puede descargar una herramienta de cliente SSH como [Putty](http://www.putty.org). Si prefiere un escritorio gráfico (X Windows System), puede usar el reenvío de X11 en Putty o instalar el cliente X2Go. 
 
 > [!NOTE]
 > El cliente X2Go ha tenido un mejor rendimiento que el reenvío de X11 durante las pruebas. Por lo tanto, se recomienda usar el cliente X2Go para la interfaz gráfica de escritorio.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012508"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733779"
 ---
 #### <a name="process-automation"></a>Automatización de procesos
 
@@ -31,6 +31,7 @@ ms.locfileid: "60012508"
 | Número máximo de sockets de red permitido por el espacio aislado<sup>1</sup> |1000 |Se aplica a sólo espacios aislados de Azure.|
 | Tiempo de ejecución máximo permitido por runbook<sup>1</sup> |3 horas |Se aplica a sólo espacios aislados de Azure.|
 | Número máximo de cuentas de automatización de una suscripción |Sin límite ||
+| Número máximo de grupos de Hybrid Worker por cuenta de Automation|4.000||
 |Número máximo de trabajos simultáneos que se pueden ejecutar en un único Hybrid Runbook Worker|50 ||
 | Tamaño máximo del parámetro de trabajo   | 512 kilobits||
 | Parámetros de runbook máximo   | 50|Si se alcanza el límite de 50 parámetros, puede pasar una cadena JSON o XML a un parámetro y analizarla con el runbook.|

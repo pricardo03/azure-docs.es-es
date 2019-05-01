@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: db92526bd02ba55be5df7ce6999e3099e72b8fa5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c23c13969fd4e2814fdc1894a98a3f876da7315b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116786"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574291"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integración de Azure Active Directory con Azure Kubernetes Service
 
 Es posible configurar Azure Kubernetes Service (AKS) para que utilice Azure Active Directory (AD) para la autenticación de usuarios. En esta configuración, puede iniciar sesión un clúster de AKS mediante el token de autenticación de Azure Active Directory. Además, los administradores de clústeres pueden configurar Kubernetes control de acceso basado en roles (RBAC) en función de una identidad o el directorio de pertenencia a grupos.
 
-En este artículo se muestra cómo implementar los requisitos previos para AKS y Azure AD y, a continuación, cómo implementar un clúster de Azure habilitado para AD y crear un rol RBAC básico en el clúster de AKS.
+En este artículo se muestra cómo implementar los requisitos previos para AKS y Azure AD y, a continuación, cómo implementar un clúster de Azure habilitado para AD y crear un rol RBAC básico en el clúster de AKS mediante Azure portal. También puede [completar estos pasos con la CLI de Azure][azure-ad-cli].
 
 Se aplican las siguientes limitaciones:
 
@@ -46,7 +46,7 @@ La primera aplicación de Azure AD se utiliza para obtener la pertenencia a un g
 
 2. Seleccione **Manifiesto** y establezca el valor de `groupMembershipClaims` en `"All"`.
 
-   Guarde las actualizaciones una vez completadas.
+   **Guardar** las actualizaciones una vez completado.
 
    ![Actualizar la pertenencia al grupo a All (Todos)](media/aad-integration/edit-manifest.png)
 
@@ -64,11 +64,11 @@ La primera aplicación de Azure AD se utiliza para obtener la pertenencia a un g
 
    ![Establecimiento de los permisos de Graph de la aplicación](media/aad-integration/read-directory.png)
 
-6. En **Permisos delegados**, active la marca de verificación junto a **Iniciar sesión y leer el perfil de usuario** y **Leer datos del directorio**. Guarde las actualizaciones cuando haya terminado.
+6. En **Permisos delegados**, active la marca de verificación junto a **Iniciar sesión y leer el perfil de usuario** y **Leer datos del directorio**. Elija **seleccione** para guardar las actualizaciones.
 
    ![Establecimiento de los permisos de Graph de la aplicación](media/aad-integration/delegated-permissions.png)
 
-   Seleccione **Listo**.
+   A continuación, seleccione **realiza**.
 
 7. Elija *Microsoft Graph* en la lista de las API y, a continuación, seleccione **Conceder permisos**. Se producirá un error en este paso si la cuenta actual no es un administrador del inquilino.
 
@@ -96,11 +96,13 @@ La segunda aplicación de Azure AD se usa cuando inicia sesión con la CLI de Ku
 
    ![Configuración de los permisos de la aplicación](media/aad-integration/select-api.png)
 
-3. Active la marca de verificación junto a la aplicación y haga clic en **Seleccionar**.
+    Seleccione la aplicación de servidor y luego elija **seleccione**.
+
+3. En el *agregar acceso de API* ventana, elija **seleccionar permisos**. Inicie una marca de verificación bajo la *permisos delegados* para tener acceso a la aplicación, a continuación, elija **seleccione**.
 
    ![Selección del punto de conexión de la aplicación de servidor de AAD de AKS](media/aad-integration/select-server-app.png)
 
-   Seleccione **Listo**
+   En el *agregar acceso de API* ventana, seleccione **realiza**.
 
 4. Seleccione la API de servidor en la lista y, a continuación, elija **Conceder permisos**:
 
@@ -259,3 +261,4 @@ Para ver recomendaciones de control de identidades y recursos, consulte [procedi
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[azure-ad-cli]: azure-ad-integration-cli.md

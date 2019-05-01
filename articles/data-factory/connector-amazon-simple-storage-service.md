@@ -1,5 +1,5 @@
 ---
-title: Copia de datos desde Amazon Simple Storage Service mediante Azure Data Factory | Microsoft Docs
+title: Copiar datos desde Amazon Simple Storage Service (S3) mediante Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos desde Amazon Simple Storage Service (S3) a almacenes de datos de receptor compatibles mediante Azure Data Factory.
 services: data-factory
 author: linda33wj
@@ -8,25 +8,30 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: ac1299c78b0631255b826fb376ac8a5fe147b05a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ca764c7e78f6ffe221386d1d320582e394d0a78a
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61259915"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875873"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copia de datos desde Amazon Simple Storage Service mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+>
 > * [Versión 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Versión actual](connector-amazon-simple-storage-service.md)
 
-En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos de Amazon S3. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
+En este artículo se describe cómo copiar datos desde Amazon Simple Storage Service (Amazon S3). Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Puede copiar datos desde Amazon S3 en cualquier almacén de datos receptor admitido. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
+Este conector de Amazon S3 es compatible con las siguientes actividades:
+
+- [Actividad de copia](copy-activity-overview.md) con [admite la matriz de origen/receptor](copy-activity-overview.md)
+- [Actividad de búsqueda](control-flow-lookup-activity.md)
+- [Actividad GetMetadata](control-flow-get-metadata-activity.md)
 
 Concretamente, este conector de Amazon S3 admite la copia de archivos tal cual, o el análisis de los mismos con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md). Lo usa [AWS firma versión 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) para autenticar las solicitudes a S3.
 
@@ -91,9 +96,55 @@ Este es un ejemplo:
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre conjuntos de datos. En esta sección se proporciona una lista de las propiedades que el conjunto de datos de Amazon S3 admite.
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
 
-Para copiar datos desde Amazon S3, establezca la propiedad type del conjunto de datos en **AmazonS3Object**. Se admiten las siguientes propiedades:
+- Para **Parquet y formato de texto delimitado**, consulte [conjunto de datos con formato Parquet y texto delimitado](#parquet-and-delimited-text-format-dataset) sección.
+- Para otros formatos como **formato ORC/Avro/JSON/binario**, consulte [otro conjunto de datos de formato](#other-format-dataset) sección.
+
+### <a name="parquet-and-delimited-text-format-dataset"></a>Conjunto de datos con formato parquet y texto delimitado
+
+Para copiar datos desde Amazon S3 en **Parquet o formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) y [formato de texto delimitado](format-delimited-text.md) artículo en el conjunto de datos de formato y compatibles Configuración. Las siguientes propiedades son compatibles con Amazon S3 en `location` configuración en el conjunto de datos basado en el formato:
+
+| Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
+| ---------- | ------------------------------------------------------------ | -------- |
+| Tipo       | La propiedad type en `location` en el conjunto de datos debe establecerse en **AmazonS3Location**. | Sí      |
+| bucketName | Nombre del depósito de S3.                                          | Sí      |
+| folderPath | La ruta de acceso a la carpeta en el depósito especificado. Si desea usar el carácter comodín a la carpeta de filtro, omita esta configuración y especificar en la configuración del origen de actividad. | Sin        |
+| fileName   | El nombre de archivo en el depósito determinado + folderPath. Si desea usar el carácter comodín para filtrar los archivos, omita esta configuración y especificar en la configuración del origen de actividad. | Sin        |
+
+> [!NOTE]
+> **AmazonS3Object** todavía se admite el tipo de conjunto de datos con formato Parquet/texto que se mencionan en la siguiente sección como-es para la actividad de copia/búsqueda/GetMetadata para compatibilidad con versiones anteriores, pero no funciona con la asignación de flujo de datos. Se sugieren para usar este nuevo modelo a partir de ahora, y ha cambiado la interfaz de usuario de creación de ADF para generar estos nuevos tipos.
+
+**Ejemplo:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<Amazon S3 linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "AmazonS3Location",
+                "bucketName": "bucketname",
+                "folderPath": "folder/subfolder"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>Otro conjunto de datos de formato
+
+Para copiar datos desde Amazon S3 en **formato ORC/Avro/JSON/binario**, se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -175,12 +226,77 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="amazon-s3-as-source"></a>Amazon S3 como origen
 
-Para copiar datos desde Amazon S3, establezca el tipo de origen de la actividad de copia en **FileSystemSource** (que incluye Amazon S3). Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
+- Para copiar desde **Parquet y formato de texto delimitado**, consulte [Parquet y origen del formato de texto delimitado](#parquet-and-delimited-text-format-source) sección.
+- Para copiar desde otros formatos como **formato ORC/Avro/JSON/binario**, consulte [otro origen de formato](#other-format-source) sección.
+
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet y origen del formato de texto delimitado
+
+Para copiar datos desde Amazon S3 en **Parquet o formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) y [formato de texto delimitado](format-delimited-text.md) artículo sobre el origen de la actividad de copia basada en el formato y configuraciones admitidas. Las siguientes propiedades son compatibles con Amazon S3 en `storeSettings` configuración en el origen de copia basada en el formato:
+
+| Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                                    |
+| ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
+| Tipo                     | La propiedad type en `storeSettings` debe establecerse en **AmazonS3ReadSetting**. | Sí                                                         |
+| recursive                | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin                                                           |
+| prefix                   | Prefijo para la clave del objeto S3 en el depósito especificado configurado en el conjunto de datos para filtrar objetos de origen. Se seleccionan objetos cuyas claves comienzan por este prefijo. <br>Solo se aplica cuando `wildcardFolderPath` y `wildcardFileName` no se especifican propiedades. | Sin                                                           |
+| wildcardFolderPath       | La ruta de acceso de carpeta con caracteres comodín en el depósito especificado configurado en el conjunto de datos a las carpetas de origen del filtro. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sin                                                           |
+| wildcardFileName         | El nombre de archivo con caracteres comodín en el depósito determinado + folderPath/wildcardFolderPath para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí si `fileName` en el conjunto de datos y `prefix` no se han especificado |
+| modifiedDatetimeStart    | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora. | Sin                                                           |
+| modifiedDatetimeEnd      | Igual que el anterior.                                               | Sin                                                           |
+| maxConcurrentConnections | El número de conexiones para conectarse al almacén de almacenamiento al mismo tiempo. Especifique solo cuando desee limitar las conexiones simultáneas al almacén de datos. | Sin                                                           |
+
+> [!NOTE]
+> Para Parquet/texto delimitado con **FileSystemSource** todavía se admite como origen de la actividad de copia tipo mencionado en la siguiente sección: es para la compatibilidad con versiones anteriores. Se sugieren para usar este nuevo modelo a partir de ahora, y ha cambiado la interfaz de usuario de creación de ADF para generar estos nuevos tipos.
+
+**Ejemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromAmazonS3",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "AmazonS3ReadSetting",
+                    "recursive": true,
+                    "wildcardFolderPath": "myfolder*A",
+                    "wildcardFileName": "*.csv"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>Otro origen de formato
+
+Para copiar datos desde Amazon S3 en **formato ORC/Avro/JSON/binario**, se admiten las siguientes propiedades en la actividad de copia **origen** sección:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **FileSystemSource** |Sí |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establezca en true y el receptor sea un almacén basado en archivos, la carpeta o subcarpeta vacías no se copiarán ni crearán en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False** | Sin  |
+| maxConcurrentConnections | El número de conexiones para conectarse al almacén de datos al mismo tiempo. Especifique solo cuando desee limitar las conexiones simultáneas al almacén de datos. | Sin  |
 
 **Ejemplo:**
 

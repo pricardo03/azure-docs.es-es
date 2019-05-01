@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3e303ce2b6f28500406bacf5b66d26f9c78ba46d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 42ab8be45d4086589f0793531003700e7552a440
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618054"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744568"
 ---
 **Transferencias de datos de salida**: [transferencias de datos de salida](https://azure.microsoft.com/pricing/details/bandwidth/) (datos que salen de los centros de datos de Azure) incurren en la facturación por el uso de ancho de banda.
 
-**Transacciones**: se le factura por el número de transacciones que realiza en un disco administrado estándar.
+**Transacciones**: se le factura por el número de transacciones que realiza en un disco administrado estándar. Para SSD estándar, se usa el tamaño de unidad de E/S de 256 KiB para teniendo en cuenta el número de transacciones. Los tamaños de E/S más grandes se cuentan como varias operaciones de E/S con un tamaño de 256 KiB. Para unidades de disco duro estándar, cada operación de E/S se considera como una única transacción, independientemente del tamaño de E/S.
 
 Para obtener información detallada sobre los precios de Managed Disks, incluidos los costos de transacción, vea [precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
 

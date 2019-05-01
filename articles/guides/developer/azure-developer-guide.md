@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: dc44cfbd24bd04caeede03dcbcfc60da06f61135
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921768"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570554"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -199,7 +199,7 @@ Azure es una plataforma en la nube global que está disponible con carácter gen
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>Elección de la región indicada para la aplicación y los datos
 
-Una de las ventajas de usar Azure es que puede implementar aplicaciones en distintos centros de datos de todo el mundo. La región que elija puede afectar al rendimiento de la aplicación. Por ejemplo, es mejor elegir la región que esté más cerca de la mayoría de sus clientes para reducir la latencia de las solicitudes de red. Quizás también quiera seleccionar una región para cumplir los requisitos legales para distribuir la aplicación en determinados países. Siempre es recomendable almacenar los datos de la aplicación en el mismo centro de datos o en un centro de datos lo más cercano posible al centro de datos donde se hospeda la aplicación.
+Una de las ventajas de usar Azure es que puede implementar aplicaciones en distintos centros de datos de todo el mundo. La región que elija puede afectar al rendimiento de la aplicación. Por ejemplo, es mejor elegir la región que esté más cerca de la mayoría de sus clientes para reducir la latencia de las solicitudes de red. También puede seleccionar una región para cumplir los requisitos legales para distribuir la aplicación en determinados países o regiones. Siempre es recomendable almacenar los datos de la aplicación en el mismo centro de datos o en un centro de datos lo más cercano posible al centro de datos donde se hospeda la aplicación.
 
 ### <a name="multi-region-apps"></a>Aplicaciones para varias regiones
 

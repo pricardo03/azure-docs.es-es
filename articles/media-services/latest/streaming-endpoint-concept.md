@@ -1,6 +1,6 @@
 ---
-title: Puntos de conexión de streaming en Azure Media Services | Microsoft Docs
-description: En este artículo se explica qué son los puntos de conexión de streaming y cómo los usa Azure Media Services.
+title: Extremos de streaming (origen) en servicios multimedia de Azure | Microsoft Docs
+description: En Azure Media Services, un extremo de Streaming (Origin) representa un empaquetado dinámico y el servicio de streaming que puede entregar contenido directamente a una aplicación de Reproductor de cliente o a una Content Delivery Network (CDN) para su posterior distribución.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,18 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125430"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867613"
 ---
-# <a name="streaming-endpoints"></a>Extremos de streaming
+# <a name="streaming-endpoints-origin"></a>Extremos de streaming (origen)
 
-En Microsoft Azure Media Services (AMS), la entidad [Puntos de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción cliente o a una red Content Delivery Network (CDN) para la distribución posterior. La secuencia de salida de un servicio de **punto de conexión de streaming** puede ser un streaming en vivo o un recurso de vídeo a petición en la cuenta de Media Services. Cuando se crea una cuenta de Media Services, se genera automáticamente un punto de conexión de streaming **predeterminado** en estado detenido. No se puede eliminar el punto de conexión de streaming **predeterminado**. Es posible crear puntos de conexión de streaming adicionales en la cuenta. 
+En Microsoft Azure Media Services, un [Streamingendpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa un dinámico (just-in-time) empaquetado y el origen de servicio que puede entregar el contenido en directo y a petición directamente a una aplicación de Reproductor de cliente, mediante uno de los media protocolos de streaming comunes (HLS o DASH). Además, el **Streamingendpoint** proporciona el cifrado dinámico (just-in-time) para DRM de líderes del sector.
+
+Cuando se crea una cuenta de Media Services, se genera automáticamente un punto de conexión de streaming **predeterminado** en estado detenido. No se puede eliminar el punto de conexión de streaming **predeterminado**. Se pueden crear puntos de conexión de Streaming adicionales en la cuenta (consulte [cuotas y limitaciones](limits-quotas-constraints.md)). 
 
 > [!NOTE]
 > Para iniciar la transmisión de vídeos, es preciso que inicie el **punto de conexión de streaming** desde el que desee transmitir en secuencias el vídeo. 
@@ -35,33 +37,37 @@ Para los puntos de conexión adicionales: `{EndpointName}-{AccountName}-{Datacen
 
 ## <a name="types"></a>Tipos  
 
-Existen dos tipos de **puntos de conexión de streaming**: **Estándar** y **Premium**. El tipo se define por el número de unidades de escalado (`scaleUnits`) que se asignan para el punto de conexión de streaming. 
+Existen dos tipos de **puntos de conexión de streaming**: **Estándar** (versión preliminar) y **Premium**. El tipo se define por el número de unidades de escalado (`scaleUnits`) que se asignan para el punto de conexión de streaming. 
 
 En la tabla se describen los tipos:  
 
 |Type|Unidades de escalado|DESCRIPCIÓN|
 |--------|--------|--------|  
-|**Punto de conexión de streaming estándar** (recomendado)|0|El valor predeterminado es el punto de conexión de Streaming un **estándar** escriba, pero puede cambiarse al tipo Premium.<br/> El tipo estándar es la opción recomendada para prácticamente todos los escenarios de streaming y tamaños de audiencia. El tipo **estándar** escala el ancho de banda de salida automáticamente. El rendimiento de este tipo de extremo de Streaming es hasta 600 Mbps. Fragmentos de vídeo almacenados en caché en la red CDN, no utilice el ancho de banda de punto de conexión de Streaming.<br/>Para los clientes con requisitos muy exigentes, Media Services ofrece puntos de conexión de streaming **prémium**, que pueden utilizarse para escalar horizontalmente la capacidad para las audiencias de Internet más grandes. Si espera un público amplio y usuarios simultáneos, póngase en contacto con nosotros en amsstreaming\@microsoft.com para obtener instrucciones sobre si necesita mover a la **Premium** tipo. |
-|**Punto de conexión de streaming premium**|>0|Los puntos de conexión de streaming **Premium** son adecuados para cargas de trabajo avanzadas y proporcionan una capacidad de ancho de banda dedicada y escalable. Para pasar a un tipo **premium** se ajusta la propiedad `scaleUnits`. La propiedad `scaleUnits` proporciona capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps. Cuando se usa el tipo **premium**, cada unidad habilitada proporciona capacidad de ancho de banda adicional a la aplicación. |
- 
-## <a name="comparing-streaming-types"></a>Comparación de tipos de streaming
+|**Estándar**|0|El valor predeterminado es el punto de conexión de Streaming un **estándar** escriba, se puede cambiar el tipo Premium ajustando `scaleUnits`.|
+|**Premium**|>0|**Premium** extremos de Streaming son adecuados para cargas de trabajo avanzadas, proporcionan una capacidad de ancho de banda dedicada y escalable. Mover a un **Premium** tipo ajustando `scaleUnits` (unidades de streaming). La propiedad `scaleUnits` proporciona capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps. Cuando se usa el tipo **premium**, cada unidad habilitada proporciona capacidad de ancho de banda adicional a la aplicación. |
 
-### <a name="features"></a>Características
+> [!NOTE]
+> Los clientes que desean para entregar contenido a grandes audiencias de internet, se recomienda habilitar CDN en el punto de conexión de Streaming.
+
+Para obtener información de SLA, consulte [precios y SLA](https://azure.microsoft.com/pricing/details/media-services/).
+
+## <a name="comparing-streaming-types"></a>Comparación de tipos de streaming
 
 Característica|Estándar|Premium
 ---|---|---
-Gratis los primeros 15 días| Sí |Sin 
-Throughput |Hasta 600 Mbps cuando no se utiliza Azure CDN. Se puede ampliar con la red CDN.|200 Mbps por unidad de streaming. Se puede ampliar con la red CDN.
+Gratis los primeros 15 días <sup>1</sup>| Sí |Sin 
+Throughput |Hasta 600 Mbps y puede proporcionar un rendimiento eficaz mucho mayor cuando se usa una red CDN.|200 Mbps por unidad de streaming. Puede proporcionar un rendimiento eficaz mucho mayor cuando se usa una red CDN.
 CDN|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.
 La facturación se prorratea| Diario|Diario
 Cifrado dinámico|Sí|Sí
 Empaquetado dinámico|Sí|Sí
 Escala|Se amplía automáticamente hasta el rendimiento objetivo.|Unidades de streaming adicionales
-IP filtrado/G20/host personalizado <sup>1</sup>|Sí|Sí
+IP filtrado/G20/host personalizado <sup>2</sup>|Sí|Sí
 Descarga progresiva|Sí|Sí
-Uso recomendado |Se recomienda para la gran mayoría de escenarios de streaming.|Uso profesional.<br/>Si considera que puede tener necesidades más allá del nivel Estándar. Si espera un tamaño de audiencia simultánea superior a 50 000 espectadores, póngase en contacto con nosotros (amsstreaming@microsoft.com).
+Uso recomendado |Se recomienda para la gran mayoría de escenarios de streaming.|Uso profesional.
 
-<sup>1</sup> solo se usa directamente en el extremo de transmisión por secuencias cuando la red CDN no está habilitada en el punto de conexión.
+<sup>1</sup> la evaluación gratuita solo aplica a las cuentas de servicios multimedia recién creado y el valor predeterminado el punto de conexión de Streaming.<br/>
+<sup>2</sup> solo se usa directamente en el extremo de transmisión por secuencias cuando la red CDN no está habilitada en el punto de conexión.<br/>
 
 ## <a name="properties"></a>Properties (Propiedades) 
 

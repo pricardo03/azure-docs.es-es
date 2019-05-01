@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: chackdan
-ms.openlocfilehash: 7f9397ee21f74fe6a776881940e5721264216b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a5f8735df2b230de2b0ddcdcccff09430bada9e3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386132"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684688"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nodos y conjuntos de escalado de máquinas virtuales de Azure Service Fabric
-Los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets) son un recurso de Azure Compute. Puede usarlos para implementar y administrar una colección de máquinas virtuales como conjunto. Cada tipo de nodo que defina en un clúster de Azure Service Fabric configura un escalado independiente.  El tiempo de ejecución de Service Fabric instalado en cada máquina virtual en el conjunto de escalado. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente; puede cambiar la SKU del sistema operativo que se ejecuta en cada nodo de clúster, tener diferentes conjuntos de puertos abiertos y usar distintas métricas de capacidad.
+Los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets) son un recurso de Azure Compute. Puede usarlos para implementar y administrar una colección de máquinas virtuales como conjunto. Cada tipo de nodo que defina en un clúster de Azure Service Fabric configura un escalado independiente.  El tiempo de ejecución de Service Fabric instalado en cada máquina virtual en el conjunto de escalado, la extensión de máquina Virtual de Microsoft.Azure.ServiceFabric. Cada tipo de nodo se puede escalar o reducir verticalmente de forma independiente; puede cambiar la SKU del sistema operativo que se ejecuta en cada nodo de clúster, tener diferentes conjuntos de puertos abiertos y usar distintas métricas de capacidad.
 
 En la siguiente ilustración, se muestra un clúster que tiene dos tipos de nodos llamados front-end y back-end. A su vez, cada tipo de nodo tiene cinco nodos.
 
@@ -38,6 +38,56 @@ Si ha implementado el clúster en Azure Portal o ha usado la plantilla de Azure 
 
 ![Recursos][Resources]
 
+## <a name="service-fabric-virtual-machine-extension"></a>Extensión de máquina Virtual de Service Fabric
+Extensión de máquina Virtual de Service Fabric se utiliza para arrancar a Service Fabric en Azure Virtual Machines y configurar la seguridad de nodo.
+
+Este es un fragmento de código de extensión de máquina Virtual de Service Fabric:
+
+```json
+"extensions": [
+  {
+    "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+    "properties": {
+      "type": "ServiceFabricLinuxNode",
+      "autoUpgradeMinorVersion": true,
+      "protectedSettings": {
+        "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+       },
+       "publisher": "Microsoft.Azure.ServiceFabric",
+       "settings": {
+         "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+         "nodeTypeRef": "[variables('vmNodeType0Name')]",
+         "durabilityLevel": "Silver",
+         "enableParallelJobs": true,
+         "nicPrefixOverride": "[variables('subnet0Prefix')]",
+         "certificate": {
+           "commonNames": [
+             "[parameters('certificateCommonName')]"
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+         }
+       },
+       "typeHandlerVersion": "1.1"
+     }
+   },
+```
+
+Estas son las descripciones de propiedad:
+
+| **Nombre** | **Valores permitidos** | ** --- ** | **Orientación o breve descripción** |
+| --- | --- | --- | --- |
+| Nombre | string | --- | nombre único para la extensión |
+| Tipo | "ServiceFabricLinuxNode" o "ServiceFabricWindowsNode | --- | Identifica es de arranque del sistema operativo Service Fabric para |
+| autoUpgradeMinorVersion | true o false | --- | Habilitar la actualización automática de las versiones secundarias de SF en tiempo de ejecución |
+| publisher | Microsoft.Azure.ServiceFabric | --- | nombre del publicador de la extensión de Service Fabric |
+| clusterEndpont | string | --- | URI:Port al punto de conexión de administración |
+| nodeTypeRef | string | --- | nombre del tipo de nodo |
+| durabilityLevel | Bronce, plata, oro, platinum | --- | tiempo permitido para pausar la infraestructura inmutable de Azure |
+| enableParallelJobs | true o false | --- | Habilitar proceso ParallelJobs como quitar la máquina virtual y reinicie la máquina virtual del mismo conjunto de escalado en paralelo |
+| nicPrefixOverride | string | --- | Prefijo de subred, como "10.0.0.0/24" |
+| commonNames | string[] | --- | Nombres comunes de los certificados de clúster instalados |
+| x509StoreName | string | --- | Nombre de Store donde se encuentra el certificado de clúster instalados |
+| typeHandlerVersion | 1.1 | --- | Versión de extensión. se recomienda actualizar a la versión 1.1 1.0 versión clásica de extensión |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte [Descripción general de la característica "Deploy anywhere" y comparación con los clústeres administrados de Azure](service-fabric-deploy-anywhere.md).

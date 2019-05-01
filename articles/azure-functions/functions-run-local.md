@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 380cd84cc5ec56fe54c12201b9c1db810ac457bf
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61022105"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875920"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -41,6 +41,9 @@ A menos que se indique lo contrario, los ejemplos de este artículo son para la 
 ### <a name="v2"></a>Versión 2.x
 
 La versión 2.x de las herramientas usa el entorno en tiempo de ejecución 2.x de Azure Functions, que se basa en .NET Core. Esta versión se admite en todas las plataformas que admiten .NET Core 2.x, incluidas [Windows](#windows-npm), [macOS](#brew) y [Linux](#linux). En primer lugar debe instalar el SDK de .NET Core 2.x.
+
+> [!IMPORTANT]
+> Cuando se habilita paquetes de extensión en el archivo del proyecto host.json, no es necesario instalar .NET Core SDK 2.x. Para obtener más información, consulte [desarrollo Local con Azure Functions Core Tools y agrupaciones de extensión ](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Paquetes de extensión requiere la versión 2.6.1071 de las herramientas básicas, o una versión posterior.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -310,6 +313,7 @@ El comando `host` solo es necesario en la versión 1.x.
 | **`--script-root --prefix`** | Se usa para especificar la ruta de acceso a la raíz de la aplicación de función que se va a ejecutar o implementar. Esto se usa para los proyectos compilados que generan archivos de proyecto en una subcarpeta. Por ejemplo, cuando se compila un proyecto de biblioteca de clases de C#, los archivos host.json, local.settings.json y function.json se generan en una subcarpeta *raíz* con una ruta de acceso similar a `MyProject/bin/Debug/netstandard2.0`. En este caso, establezca el prefijo como `--script-root MyProject/bin/Debug/netstandard2.0`. Esta es la raíz de la aplicación de función cuando se ejecuta en Azure. |
 | **`--timeout -t`** | Tiempo de espera en segundos para que se inicie el host de Functions. Valor predeterminado: 20 segundos.|
 | **`--useHttps`** | Enlace con `https://localhost:{port}` en lugar de con `http://localhost:{port}`. De forma predeterminada, esta opción crea un certificado de confianza en el equipo.|
+| **`--enableAuth`** | Habilitar la canalización de control de autenticación completa.|
 
 En el caso de un proyecto de la biblioteca de clases de C# (.csproj), debe incluir la opción `--build` para generar el archivo .dll de biblioteca.
 

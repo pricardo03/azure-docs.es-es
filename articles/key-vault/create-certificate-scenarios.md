@@ -2,23 +2,19 @@
 title: Supervisión y administración de la creación de certificados
 description: Escenarios que muestran una variedad de opciones para la creación, la supervisión y la interacción con el proceso de creación de certificados con Key Vault.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 854d0e8f6927c9ce4855435a02b4819055111ceb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d86960e726ae18fba8d171ab9f85d7c991b4e40
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306026"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729223"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Supervisión y administración de la creación de certificados
 Se aplica a: Azure
@@ -417,7 +413,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|Nombre del elemento|Obligatorio|Type|Version|DESCRIPCIÓN|
+|Nombre del elemento|Obligatorio|Type|`Version`|DESCRIPCIÓN|
 |------------------|--------------|----------|-------------|-----------------|
 |x5c|Sí|array|\<versión de introducción>|Cadena de certificados X.509 como matriz de cadenas de base 64.|
 

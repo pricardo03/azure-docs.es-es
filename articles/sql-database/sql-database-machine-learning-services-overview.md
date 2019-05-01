@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 172bf201e2327f5ae8db0ac3c82f2f07e3f0ffc9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: b33561ad80207a5d649ac1fd497c9d6c7add78c6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997485"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723990"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL Database Machine Learning Services con R (versión preliminar)
 
@@ -69,6 +69,6 @@ Servicios de Machine Learning con R no se recomienda para cargas de trabajo de p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte las [principales diferencias de Machine Learning Services en SQL Server](sql-database-machine-learning-services-differences.md).
-- Para obtener información sobre cómo usar Machine Learning Services (con R) en Azure SQL Database, consulte la [guía de inicio rápido](sql-database-connect-query-r.md).
-- Obtenga más información con los [tutoriales del lenguaje R de SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sql-server-r-tutorials).
+- Consulte la [las principales diferencias de SQL Server Machine Learning Services](sql-database-machine-learning-services-differences.md).
+- Para obtener información sobre cómo usar R para consultar Azure SQL Database Machine Learning Services (versión preliminar), consulte el [Guía de inicio rápido](sql-database-connect-query-r.md).
+- Para empezar a trabajar con algunos scripts de R, consulte [crear y ejecutados scripts de R en Machine Learning Services (versión preliminar) de Azure SQL Database](sql-database-quickstart-r-create-script.md).

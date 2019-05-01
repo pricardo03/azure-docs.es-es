@@ -1,25 +1,18 @@
 ---
-title: Creación de una imagen de VM de usuario para Azure Marketplace | Microsoft Docs
+title: Crear una imagen de máquina virtual de usuario para Azure Marketplace
 description: Se enumeran los pasos y las referencias necesarios para crear una imagen de VM de usuario.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: bf87856dc28e83fb1308f20613338b9bbfd8f896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 0005ab517d38903b87889b67449569495e396265
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744115"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938324"
 ---
 # <a name="create-a-user-vm-image"></a>Crear una imagen de máquina virtual de usuario
 

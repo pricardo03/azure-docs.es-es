@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: thweiss
-ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61046325"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872681"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
@@ -68,6 +68,8 @@ Cualquier directiva de indexación tiene que incluir la ruta de acceso raíz `/*
 
 - Incluir la ruta de acceso raíz para excluir selectivamente las rutas de acceso que no es necesario indexar. Este es el enfoque recomendado, ya que permite Azure Cosmos DB de forma proactiva cualquier propiedad nueva que se puede agregar a su modelo de índice.
 - Excluir la ruta de acceso raíz para incluir las rutas de acceso que se deben indexar de manera selectiva.
+
+- Para las rutas de acceso con caracteres normales que incluyen: caracteres alfanuméricos y _ (carácter de subrayado), no tienes que escape de la cadena de ruta de acceso en torno a las comillas dobles (por ejemplo, "/ path /?"). Para rutas de acceso con otros caracteres especiales, necesitará la cadena de ruta de acceso en torno a las comillas dobles de escape (por ejemplo, "/\"abc de la ruta de acceso\"/?"). Si se esperan caracteres especiales en la ruta de acceso, puede omitir cada ruta de acceso por motivos de seguridad. Funcionalmente no hay ninguna diferencia si aplica el escape de cada ruta de acceso frente a sólo aquellos que tienen caracteres especiales.
 
 Consulte [en esta sección](how-to-manage-indexing-policy.md#indexing-policy-examples) para ejemplos de directivas de indexación.
 

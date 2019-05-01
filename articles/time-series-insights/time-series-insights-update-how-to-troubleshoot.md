@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 381ecd4681bf1d7abfc8939e256bf84db9bc2172
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3ab3c680f7279ff78e0319f28f67c1cc8c203b47
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60460623"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708020"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnóstico y solución de problemas
 
@@ -109,7 +109,8 @@ Este problema puede producirse si el entorno no tiene una jerarquía de modelo d
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Lea el artículo sobre [trabajo con modelos de Time Series](./time-series-insights-update-how-to-tsm.md).
-- Lea el artículo sobre [formas compatibles de JSON](./how-to-shape-query-json.md).
+
+- Obtenga información sobre [admite formas de JSON](./how-to-shape-query-json.md).
 
 <!-- Images -->
 [1]: media/v2-update-diagnose-and-troubleshoot/environment.png

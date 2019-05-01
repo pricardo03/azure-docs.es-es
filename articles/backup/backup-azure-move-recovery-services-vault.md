@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 8d5d6ed6c14927c57279cf500518f3b3a86d591d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72bfbc34f57e7725ae9556e893825900474317cb
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699838"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876845"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover un almacén de Recovery Services a través de suscripciones de Azure y los grupos de recursos
 
@@ -21,7 +21,7 @@ En este artículo se explica cómo mover un almacén de Recovery Services config
 
 ## <a name="supported-region"></a>Regiones admitidas
 
-Traslado de recursos para almacén de Recovery Services se admite en este de Australia, sudeste de Australia, Canadá Central, Canadá oriental, sudeste asiático, Asia oriental, EE. UU., Ee.uu. Central Norte, este de Estados Unidos, East US2 South central US, centro occidental de Ee.uu., West Central UU.2, oeste de Estados Unidos, India central, India del Sur, Japón oriental, Japón occidental, Corea Central, Corea del Sur, Europa del Norte, Europa occidental, centro y Norte de Sudáfrica, oeste de Sudáfrica, sur de Reino Unido, oeste de Reino Unido, centro de eau y Norte de eau.
+Traslado de recursos para almacén de Recovery Services se admite en este de Australia, sudeste de Australia, Canadá Central, Canadá oriental, sudeste asiático, Asia oriental, EE. UU., Ee.uu. Central Norte, este de Estados Unidos, East US2 South central US, centro occidental de Ee.uu., West Central UU.2, oeste de Estados Unidos, Centro de la India, India del Sur, Japón oriental, Japón occidental, Corea Central, Corea del Sur, Europa del Norte, Europa occidental, Norte de Sudáfrica, oeste de Sudáfrica, sur de Reino Unido y oeste de Reino Unido.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Requisitos previos para el almacén de Recovery Services móvil
 

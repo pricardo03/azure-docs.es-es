@@ -14,24 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 73c9fa82cefc192b237e3880c1e745b2412a323a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e787617ab6e04a5ff2e7f5d4921a5bf7a4a1eb5d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61235277"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867098"
 ---
 # <a name="monitor-job-progress-using-net"></a>Supervisión del progreso de los trabajos mediante .NET 
-> [!div class="op_single_selector"]
-> * [Portal](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
-> * [REST](media-services-rest-check-job-progress.md)
-> 
-> 
+
+> [!NOTE]
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
 
 Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede consultar el progreso si define un controlador de eventos StateChanged (como se describe en este tema) o usa el almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Media Services (como se explica en [este](media-services-dotnet-check-job-progress-with-queues.md) tema).
 
 ## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Definición de controlador de eventos de StateChanged para supervisar el progreso del trabajo
+
 El siguiente ejemplo de código define el controlador de eventos StateChanged. Este controlador de eventos hace un seguimiento del progreso del trabajo y proporciona un estado actualizado, según el estado. El código define también el método LogJobStop. Este método auxiliar registra los detalles del error.
 
 ```csharp

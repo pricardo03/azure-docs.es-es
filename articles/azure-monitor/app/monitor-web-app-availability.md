@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60701796"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916380"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
@@ -67,7 +67,7 @@ Abra la hoja Disponibilidad y agregue una prueba.
 
     **Respuesta HTTP**: el código de estado devuelto que se considera correcto. 200 es el código que indica que se ha devuelto una página web normal.
 
-    **Coincidencia de contenido**: una cadena, como "Bienvenido". Probamos que se produce una coincidencia exacta entre mayúsculas y minúsculas en todas las respuestas. Debe ser una cadena sin formato, sin caracteres comodín. No se olvide de que si el contenido cambia, es posible que tenga que actualizarla.
+    **Coincidencia de contenido**: una cadena, como "Bienvenido". Probamos que se produce una coincidencia exacta entre mayúsculas y minúsculas en todas las respuestas. Debe ser una cadena sin formato, sin caracteres comodín. No se olvide de que si el contenido cambia, es posible que tenga que actualizarla. **Actualmente se admiten solo los caracteres latinos con coincidencia de contenido.** 
 
 * **Umbral de la ubicación de la alerta**: se recomienda un mínimo de 3/5 ubicaciones. La relación óptima entre el umbral de ubicación de la alerta y el número de ubicaciones de prueba es **umbral de ubicación de la alerta** = **número de ubicaciones de prueba** - 2, con un mínimo de cinco ubicaciones de prueba.
 
@@ -92,7 +92,7 @@ Utilice Visual Studio Enterprise para grabar una sesión web.
 
     ![En Visual Studio Enterprise, cree un proyecto a partir de la plantilla de prueba de carga y rendimiento web.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *¿No ve la plantilla de prueba de carga y rendimiento web?* - Cierre Visual Studio Enterprise. Abra **Visual Studio Installer** para modificar la instalación de Visual Studio Enterprise. En **Componentes individuales**, seleccione **Herramientas de prueba de carga y rendimiento web**.
+ * *¿No ve la plantilla de prueba de carga y rendimiento web?* - Cierre Visual Studio Enterprise. Abra **Visual Studio Installer** para modificar la instalación de Visual Studio Enterprise. En **Componentes individuales**, seleccione **Herramientas de prueba de carga y rendimiento web**.
 
 2. Abra el archivo .webtest y empiece a grabar.
 
@@ -273,6 +273,9 @@ Si la prueba debe iniciar sesión con OAuth, el enfoque general es el siguiente:
   (Visual Studio intenta parametrizar la prueba pero no parametriza correctamente los tokens).
 
 ## <a name="performance-tests"></a>Pruebas de rendimiento
+> [!NOTE]  
+> El servicio de prueba de carga basado en la nube está en desuso. Puede encontrar más información sobre el desuso, la disponibilidad del servicio y servicios alternativos [aquí](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+
 Puede ejecutar una prueba de carga en el sitio web. Al igual que la prueba de disponibilidad, puede enviar solicitudes sencillas o solicitudes de varios pasos desde nuestros puntos de todo el mundo. A diferencia de una prueba de disponibilidad, se envían muchas solicitudes, que simulan a varios usuarios simultáneos.
 
 En **Configurar**, vaya a **Pruebas de rendimiento** y haga clic en Nuevo para crear una prueba.

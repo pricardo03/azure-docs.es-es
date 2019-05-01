@@ -15,11 +15,11 @@ ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103727"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684561"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Protección de contenido con cifrado dinámico
 
@@ -128,7 +128,7 @@ El protocolo de MPEG-DASH admite los siguientes formatos de contenedor y esquema
 
 El protocolo de transmisión por secuencias suave admite los siguientes formatos de contenedor y esquemas de cifrado.
 
-|Protocolo|Formato de contenedor|Esquema de cifrado|
+|Protocol|Formato de contenedor|Esquema de cifrado|
 |---|---|---|
 |fMP4|AES||
 |fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(encryption=cenc)`|

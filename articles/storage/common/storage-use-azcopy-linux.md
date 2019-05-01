@@ -8,18 +8,22 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0f87645537576f49ee04b823341acf8853798f88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ad6d7a60700727b73b87a78e364fde3fa1caa8c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730062"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572569"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferencia de datos con AzCopy en Linux
 
 AzCopy es una utilidad de la línea de comandos diseñada para copiar datos a los servicios de Microsoft Azure Blob Storage y File Storage (y desde ellos) con sencillos comandos diseñados para ofrecer un rendimiento óptimo. Puede copiar datos entre un sistema de archivos y una cuenta de almacenamiento o entre cuentas de almacenamiento.  
 
-Hay dos versiones de AzCopy que puede descargar. AzCopy tiene como destino las plataformas Linux que ofrecen opciones de la línea de comandos estilo POSIX. [AzCopy en Windows](../storage-use-azcopy.md) ofrece opciones de la línea de comandos estilo Windows. En este artículo se describe AzCopy en Linux. 
+> [!IMPORTANT]
+> En este artículo se describe una versión anterior de AzCopy.
+>Para instalar la versión más reciente de AzCopy, consulte [AzCopy v10](storage-use-azcopy-v10.md).
+
+Si decide instalar la versión anterior de AzCopy (AzCopy v8.1), hay varias versiones de AzCopy v8.1 que puede descargar. AzCopy tiene como destino las plataformas Linux que ofrecen opciones de la línea de comandos estilo POSIX. [AzCopy en Windows](../storage-use-azcopy.md) ofrece opciones de la línea de comandos estilo Windows. En este artículo se describe AzCopy en Linux. 
 
 > [!NOTE]  
 > A partir de la versión de AzCopy 7.2, las dependencias de .NET Core se empaquetan con el paquete de AzCopy. Si usa la versión 7.2 u otra posterior, ya no necesitará instalar .NET Core como requisito previo.

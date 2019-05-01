@@ -2,25 +2,25 @@
 title: 'Inicio rápido: configurar el cifrado de SSL de extremo a otro con Azure Application Gateway mediante Azure portal | Microsoft Docs'
 description: Obtenga información sobre cómo usar el portal de Azure para crear una instancia de Azure Application Gateway con el cifrado SSL de extremo a otro.
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: e47a3e1231701f3339057e25ee4388aff0c9fbd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bd165f81b45e3ae0c121fb8876ed88e68d493195
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831966"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946796"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Configurar SSL de extremo a extremo con Application Gateway con el portal
 
 Este artículo muestra cómo usar el portal de Azure para configurar el cifrado SSL de extremo a extremo con application gateway SKU v1.  
 
 > [!NOTE]
-> SKU de v2 Application Gateway requiere certificados raíz de confianza para habilitar configuración de extremo a otro. Soporte técnico del portal para agregar certificados raíz de confianza aún no está disponible. Por lo tanto, en el caso de SKU V2 vea [configurar SSL de extremo a otro mediante PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+> SKU de v2 Application Gateway requiere certificados raíz de confianza para habilitar configuración de extremo a otro. Soporte técnico del portal para agregar certificados raíz de confianza aún no está disponible. Por lo tanto, en el caso de v2 SKU vea [configurar SSL de extremo a otro mediante PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -32,7 +32,7 @@ Para obtener más información, consulte [SSL SSL de extremo a extremo y termina
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Crear una nueva instancia de application gateway con SSL de extremo a extremo
 
-Para crear una nueva instancia de application gateway con el cifrado SSL de extremo a otro, deberá habilitar primero la terminación SSL durante la creación de una nueva instancia de application gateway. Esto le permitirá el cifrado SSL para la comunicación entre la puerta de enlace de cliente y la aplicación. A continuación, necesitará certificados de la lista blanca para servidores back-end en la configuración de HTTP para habilitar el cifrado SSL para la comunicación entre los servidores de puerta de enlace y el back-end de aplicación, por tanto, para realizar el cifrado SSL de extremo a otro.
+Para crear una nueva instancia de application gateway con el cifrado SSL de extremo a otro, deberá habilitar primero la terminación SSL durante la creación de una nueva instancia de application gateway. Esto le permitirá el cifrado SSL para la comunicación entre la puerta de enlace de cliente y la aplicación. A continuación, necesitará certificados de la lista blanca para servidores back-end en la configuración de HTTP para habilitar el cifrado SSL para la comunicación entre los servidores de puerta de enlace y el back-end de aplicación, para realizar el cifrado SSL de extremo a otro.
 
 ### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>Habilitar la terminación SSL durante la creación de una nueva instancia de application gateway
 
@@ -61,9 +61,9 @@ Consulte este artículo para comprender cómo [habilitar la terminación SSL dur
 
 ## <a name="enable-end-to-end-ssl-for-existing-application-gateway"></a>Habilitar SSL de extremo a otro para la puerta de enlace de aplicaciones existente
 
-Para configurar una puerta de enlace de aplicaciones existentes con el cifrado SSL de extremo a otro, deberá terminación de SSL habilite primero en el agente de escucha. Esto le permitirá el cifrado SSL para la comunicación entre la puerta de enlace de cliente y la aplicación. A continuación, necesitará certificados de la lista blanca para servidores back-end en la configuración de HTTP para habilitar el cifrado SSL para la comunicación entre los servidores de puerta de enlace y el back-end de aplicación, por tanto, para realizar el cifrado SSL de extremo a otro.
+Para configurar una puerta de enlace de aplicaciones existentes con el cifrado SSL de extremo a otro, deberá terminación de SSL habilite primero en el agente de escucha. Esto le permitirá el cifrado SSL para la comunicación entre la puerta de enlace de cliente y la aplicación. A continuación, necesitará certificados de la lista blanca para servidores back-end en la configuración de HTTP para habilitar el cifrado SSL para la comunicación entre los servidores de puerta de enlace y el back-end de aplicación, para realizar el cifrado SSL de extremo a otro.
 
-Deberá usar un agente de escucha con el protocolo HTTPS y certificados para habilitar la terminación SSL. No se puede cambiar el protocolo de un agente de escucha existente. Por lo tanto, puede elegir usar un agente de escucha existente con el certificado y el protocolo HTTPS, o crear un nuevo agente de escucha. Si elige la primera de ellas, puede omitir el mencionados a continuación los pasos para **terminación habilitar SSL en application gateway existente** y pasar directamente a **certificados de la lista blanca para servidores back-end** sección. Si elige esto último, siga estos pasos. 
+Deberá usar un agente de escucha con el protocolo HTTPS y certificados para habilitar la terminación SSL. No se puede cambiar el protocolo de un agente de escucha existente. Por lo tanto, puede elegir usar un agente de escucha existente con el certificado y el protocolo HTTPS, o crear un nuevo agente de escucha. Si elige la primera de ellas, puede omitir el mencionados a continuación los pasos para **terminación habilitar SSL en application gateway existente** y pasar directamente a **certificados de la lista blanca para servidores back-end** sección. Si elige esto último, siga estos pasos.
 
 ### <a name="enable-ssl-termination-in-existing-application-gateway"></a>Habilitar la terminación SSL en application gateway existente
 

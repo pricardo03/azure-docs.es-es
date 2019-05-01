@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 044c0355b6ec9f064cae74ffd5259d457cb49147
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2cce7203d23d5de77200fdf75ab31042d9608352
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515404"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866373"
 ---
 # <a name="supported-languages"></a>Idiomas admitidos
 
@@ -29,7 +29,7 @@ Microsoft Speech Recognition API admite los siguientes idiomas en los modos `int
 |Código | Idioma | Código | Idioma |
 |-----|-----|-----|-----|
 | ar-EG | Árabe (Egipto), estándar moderno | hi-IN | Hindi (India) |
-| ca-ES | Catalán (España) | it-IT | Italiano (Italia)  |
+| ca-ES | Catalán | it-IT | Italiano (Italia)  |
 | da-DK | Danés (Dinamarca) | ja-JP | Japonés (Japón) |
 | de-DE | Alemán (Alemania) |ko-KR | Coreano (Corea) |
 | en-AU | Inglés (Australia) |nb-NO | Noruego, Bokmål (Noruego)  |

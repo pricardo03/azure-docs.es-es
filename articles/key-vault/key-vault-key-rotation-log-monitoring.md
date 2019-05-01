@@ -2,23 +2,19 @@
 title: Configuración de Azure Key Vault con la auditoría y la rotación de claves de un extremo a otro | Microsoft Docs
 description: Use esta guía de procedimientos que le ayudarán a configurar la rotación de claves y supervise los registros del almacén de claves.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: ''
-ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: fb3300a45f905eb57fcc4880269e4a9bed9dac0c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 785e60ddf54a3772ae7687b9d18477ef04707609
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789896"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713685"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configuración de Azure Key Vault con la auditoría y la rotación de claves
 

@@ -1,9 +1,8 @@
 ---
-title: Procedimientos recomendados de seguridad de la red de Azure | Microsoft Docs
+title: Procedimientos recomendados de seguridad de red - Microsoft Azure
 description: Este artículo proporciona un conjunto de procedimientos recomendados de seguridad de la red con funcionalidades de Azure integradas.
 services: security
-documentationcenter: na
-author: TomShinder
+author: TerryLanfear
 manager: barbkess
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
@@ -12,18 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 04/28/2019
 ms.author: TomSh
-ms.openlocfilehash: b644a175814fb28563a2524e27f52d0285415d66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5bec7db1c4409165242416df16e437b121381b49
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610961"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872556"
 ---
 # <a name="azure-network-security-best-practices"></a>Procedimientos recomendados de seguridad de la red de Azure
-Puede conectar las [máquinas virtuales y los dispositivos de Azure](https://azure.microsoft.com/services/virtual-machines/) a otros dispositivos en red, colocándolos en [redes virtuales de Azure](https://azure.microsoft.com/documentation/services/virtual-network/). Esto es, puede conectar tarjetas de interfaz de red virtual a una red virtual para posibilitar las comunicaciones basadas en TCP/IP entre dispositivos habilitados para la red. Las máquinas virtuales conectadas a una red virtual de Azure pueden conectarse a dispositivos en la misma red virtual, en distintas redes virtuales, en Internet o, incluso, en sus propias redes locales.
-
 En este artículo se trata un conjunto de procedimientos recomendados de seguridad de la red de Azure. Estos procedimientos recomendados se derivan de nuestra experiencia con las redes en Azure, y las experiencias de clientes como usted.
 
 Para cada procedimiento recomendado, en este artículo se explica:
@@ -35,8 +32,6 @@ Para cada procedimiento recomendado, en este artículo se explica:
 * Cómo aprender a habilitar el procedimiento recomendado
 
 Este artículo de Procedimientos recomendados de seguridad de la red de Azure se basa en las funcionalidades y los conjuntos de características de la plataforma Azure existentes cuando se redactó. Las opiniones y las tecnologías cambian con el tiempo, por lo que se actualizará de forma periódica para reflejar esos cambios.
-
-En las secciones siguientes se describen los procedimientos recomendados de seguridad en la Red.
 
 ## <a name="logically-segment-subnets"></a>Segmentación lógica de subredes
 Las redes virtuales de Azure son similares a una LAN de red local. La idea detrás de una red virtual de Azure es crear una sola red basada en espacios privados de direcciones IP en la que pueden colocar todas las máquinas virtuales de Azure. Los espacios de direcciones IP privados están en los intervalos de clase A (10.0.0.0/8), B (172.16.0.0/12) y C (192.168.0.0/16).

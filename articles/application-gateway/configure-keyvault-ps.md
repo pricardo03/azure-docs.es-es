@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/22/2019
 ms.author: victorh
-ms.openlocfilehash: 7c31801156ee321fe93d73de41fc68179835261a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 06930171552843a5620d9a2bfb379a60e91a3915
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831119"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946740"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-using-azure-powershell"></a>Configure la terminación SSL con certificados de Key Vault con Azure PowerShell
 
@@ -21,9 +21,6 @@ ms.locfileid: "60831119"
 Para obtener más información, consulte [terminación SSL con certificados de Key Vault](key-vault-certs.md).
 
 En este artículo se muestra un script de PowerShell de Azure a la integración de Key Vault con Application Gateway para los certificados de terminación SSL.
-
-> [!IMPORTANT]
-> La integración de almacén de claves de puerta de enlace de aplicaciones está actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337747"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914946"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -121,9 +121,9 @@ El trabajo de copia de seguridad reciente no se pudo completar porque hay un tra
 3. En el menú del panel del almacén, haga clic en **Trabajos de copia de seguridad** para mostrar todos los trabajos de copia de seguridad.
 
     * Si un trabajo de copia de seguridad está en curso, espere a que se complete o cancele el trabajo de copia de seguridad.
-        * Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+        * Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
     * Si ha reconfigurado la copia de seguridad en otro almacén, asegúrese de no haya ningún trabajo de copia de seguridad en ejecución en el almacén antiguo. Si existe, cancele el trabajo de copia de seguridad.
-        * Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+        * Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
 4. Reintente la operación de copia de seguridad.
 
 Si la operación de copia de seguridad programada tarda más, lo que genera un conflicto con la siguiente configuración de copia de seguridad, consulte [Procedimientos recomendados](backup-azure-vms-introduction.md#best-practices), [Rendimiento de Backup](backup-azure-vms-introduction.md#backup-performance) y [Consideraciones de la restauración](backup-azure-vms-introduction.md#backup-and-restore-considerations).

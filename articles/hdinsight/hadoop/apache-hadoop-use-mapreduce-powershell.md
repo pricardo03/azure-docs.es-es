@@ -1,34 +1,23 @@
 ---
 title: Uso de MapReduce y PowerShell con Apache Hadoop en Azure HDInsight
 description: Obtenga información sobre cómo usar PowerShell para ejecutar trabajos de MapReduce de forma remota con Apache Hadoop en HDInsight.
-services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 21b56d32-1785-4d44-8ae8-94467c12cfba
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 05/09/2018
-ms.date: 04/15/2019
-ms.author: v-yiso
+ms.date: 05/09/2018
+ms.author: hrasheed
 ms.openlocfilehash: 29e23d5919a953566c803f2b7825a75a2993723c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129032"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721795"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Ejecución de trabajos de MapReduce con Apache Hadoop en HDInsight con PowerShell
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
-
-
 
 Este documento proporciona un ejemplo de uso de Azure PowerShell para ejecutar un trabajo de MapReduce en un Hadoop de un clúster de HDInsight.
 
@@ -38,7 +27,7 @@ Este documento proporciona un ejemplo de uso de Azure PowerShell para ejecutar u
 
 * **Un clúster de HDInsight (Hadoop en HDInsight)**.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Una estación de trabajo con Azure PowerShell**.
@@ -63,73 +52,7 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
 
 1. Mediante un editor, guarde el código siguiente como **mapreducejob.ps1**.
 
-    ```powershell
-    # Login to your Azure subscription
-    # Is there an active Azure subscription?
-    $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-    if(-not($sub))
-    {
-        Add-AzureRmAccount -EnvironmentName AzureChinaCloud
-    }
-
-    # Get cluster info
-    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-    $creds=Get-Credential -Message "Enter the login for the cluster"
-
-    #Get the cluster info so we can get the resource group, storage, etc.
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroup = $clusterInfo.ResourceGroup
-    $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-    $container=$clusterInfo.DefaultStorageContainer
-    #NOTE: This assumes that the storage account is in the same resource
-    #      group as the cluster. If it is not, change the
-    #      --ResourceGroupName parameter to the group that contains storage.
-    $storageAccountKey=(Get-AzureRmStorageAccountKey `
-        -Name $storageAccountName `
-    -ResourceGroupName $resourceGroup)[0].Value
-
-    #Create a storage context
-    $context = New-AzureStorageContext `
-        -StorageAccountName $storageAccountName `
-        -StorageAccountKey $storageAccountKey
-
-    #Define the MapReduce job
-    #NOTE: If using an HDInsight 2.0 cluster, use hadoop-examples.jar instead.
-    # -JarFile = the JAR containing the MapReduce application
-    # -ClassName = the class of the application
-    # -Arguments = The input file, and the output directory
-    $wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-        -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
-        -ClassName "wordcount" `
-        -Arguments `
-            "/example/data/gutenberg/davinci.txt", `
-            "/example/data/WordCountOutput"
-
-    #Submit the job to the cluster
-    Write-Host "Start the MapReduce job..." -ForegroundColor Green
-    $wordCountJob = Start-AzureRmHDInsightJob `
-        -ClusterName $clusterName `
-        -JobDefinition $wordCountJobDefinition `
-        -HttpCredential $creds
-
-    #Wait for the job to complete
-    Write-Host "Wait for the job to complete..." -ForegroundColor Green
-    Wait-AzureRmHDInsightJob `
-        -ClusterName $clusterName `
-        -JobId $wordCountJob.JobId `
-        -HttpCredential $creds
-    # Download the output
-    Get-AzureStorageBlobContent `
-        -Blob 'example/data/WordCountOutput/part-r-00000' `
-        -Container $container `
-        -Destination output.txt `
-        -Context $context
-    # Print the output of the job.
-    Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $wordCountJob.JobId `
-        -HttpCredential $creds
-    ```
+    [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
 2. Abra un nuevo símbolo del sistema de **Azure PowerShell** . Cambie los directorios a la ubicación del archivo **mapreducejob.ps1** y, a continuación, utilice el siguiente comando para ejecutar el script:
 
@@ -151,7 +74,7 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
 
     Esto indica que el trabajo se ha completado correctamente.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Si **ExitCode** es un valor distinto de 0, consulte [Solución de problemas](#troubleshooting).
 
     En este ejemplo también se almacenarán los archivos descargados en el archivo **output.txt**, en el directorio desde el que se ejecuta el script.
@@ -160,7 +83,7 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
 
 Para ver las palabras y los recuentos generados por el trabajo, abra el archivo **output.txt** en un editor de texto.
 
-> [!NOTE]
+> [!NOTE]  
 > Los archivos de salida de un trabajo de MapReduce no se pueden mover. Por lo tanto, si vuelve a ejecutar esta muestra, debe cambiar el nombre del archivo de salida.
 
 ## <a id="troubleshooting"></a>Solución de problemas

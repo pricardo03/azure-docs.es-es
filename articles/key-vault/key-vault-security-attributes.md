@@ -2,19 +2,18 @@
 title: Atributos comunes de seguridad para Azure Key Vault
 description: Lista de comprobación de los atributos de seguridad que se utilizan habitualmente para evaluar Azure Key Vault
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3ccfc38136ba3e8ec7c6130658032b7565988e5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 652e6ecb9ef9506fd306942eae45b13b52ae1c24
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461419"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691826"
 ---
 # <a name="common-security-attributes-for-azure-key-vault"></a>Atributos comunes de seguridad para Azure Key Vault
 
@@ -27,7 +26,7 @@ La seguridad está integrada en todos los aspectos de los servicios de Azure. Es
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí | Se cifran todos los objetos. |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | Toda la comunicación se realiza a través de llamadas a API cifradas |
+| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>En el cifrado de red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | Toda la comunicación se realiza a través de llamadas a API cifradas |
 | Control de claves de cifrado (CMK, BYOK, etcetera.)| Sí | El cliente controla todas las claves en su almacén de claves. Cuando se especifican las claves de módulo (HSM) copiada de seguridad de hardware, un HSM de FIPS nivel 2 protege la clave, el certificado o el secreto. |
 | Cifrado de nivel de columna (Azure Data Services)| N/D |  |
 | Llamadas a API cifradas| Sí | Se usa HTTPS. |
@@ -36,9 +35,9 @@ La seguridad está integrada en todos los aspectos de los servicios de Azure. Es
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad de punto de conexión de servicio| Sí | Se usan puntos de conexión de servicio de Virtual Network (VNET). |
-| compatibilidad con inserción de redes virtuales| Sin  |  |
-| Aislamiento de red y la compatibilidad con Firewall| Sí | Se usan reglas de firewall de red virtual. |
+| Compatibilidad de punto de conexión de servicio| Sí | Uso de puntos de conexión de servicio de red Virtual (VNet). |
+| Compatibilidad con inserción de redes virtuales| Sin  |  |
+| Aislamiento de red y la compatibilidad con Firewall| Sí | Usar reglas de firewall de red virtual. |
 | Fuerza la tunelización de soporte técnico| Sin  |  |
 
 ## <a name="detection"></a>Detección

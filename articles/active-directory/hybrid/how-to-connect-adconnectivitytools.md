@@ -1,28 +1,28 @@
 ---
 title: 'Azure AD Connect: Qué es el módulo de PowerShell ADConnectivityTool | Microsoft Docs'
-description: En este documento se presenta el nuevo módulo de PowerShell ADConnectivity
+description: Este documento presenta el nuevo módulo ADConnectivity PowerShell y cómo se puede usar para ayudar a solucionar problemas.
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 4/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b2471b28132b26c41844b620f6dcf49e3802a6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245655"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571121"
 ---
-# <a name="what-is-the-adconnectivitytool-powershell-module"></a>¿Qué es el módulo de PowerShell ADConnectivityTool?
+# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Solucionar problemas de conectividad de Azure AD con el módulo ADConnectivityTool PowerShell
 
 La herramienta ADConnectivity es un módulo de PowerShell que se usa en uno de las siguientes situaciones:
 
-- Durante la instalación, cuando un problema de conectividad de red impide la correcta validación de las credenciales de Active Directory que el usuario proporcionó en el asistente.
+- Durante la instalación cuando un problema de conectividad de red impide que la validación correcta de Active Directory credenciales de usuario proporcionado en el asistente.
 - Después de la instalación que realizó un usuario que llama a las funciones de una sesión de PowerShell.
 
 La herramienta se encuentra en: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 

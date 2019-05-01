@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 12/12/2018
+ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979758"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728575"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Preguntas frecuentes sobre Service Fabric Mesh
 
@@ -28,7 +28,7 @@ Formule preguntas, obtenga respuestas de los ingenieros de Microsoft e informe d
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>¿Cuál es el costo de participar en la versión preliminar?
 
-No hay ningún cargo por implementar aplicaciones o contenedores actualmente en la versión preliminar de Mesh. Sin embargo, le recomendamos que elimine los recursos que implemente y que no los deje ejecutándose, a menos que los esté probando activamente.
+No hay ningún cargo por implementar aplicaciones o contenedores actualmente en la versión preliminar de Mesh. Sin embargo, le recomendamos que elimine los recursos que implemente y dejarlos no ejecutándose a menos que se está probando activamente.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>¿Hay un límite de cuota del número de núcleos y RAM?
 
@@ -77,7 +77,9 @@ Por ejemplo:
 
 Para eliminar el grupo de recursos, use el comando `az group delete <nameOfResourceGroup>`.
 
-## <a name="supported-container-os-images"></a>Imágenes del sistema operativo de contenedor compatibles
+## <a name="deployments"></a>Implementaciones
+
+### <a name="what-container-images-are-supported"></a>¿Qué imágenes de contenedor son compatibles?
 
 Si va a desarrollar en una máquina con Windows Fall Creators Update (versión 1709), solo puede usar las imágenes de Docker de la versión 1709 de Windows.
 
@@ -90,6 +92,10 @@ Las siguientes imágenes del sistema operativo de contenedor pueden usarse para 
     - Windows Server versión 1803
 - Linux
     - Ninguna limitación conocida
+
+### <a name="what-types-of-applications-can-i-deploy"></a>¿Qué tipos de aplicaciones puedo implementar? 
+
+Puede implementar cualquier cosa que se ejecuta en contenedores que se ajusta a las restricciones se coloca en un recurso de aplicación (vea más arriba para obtener más información acerca de las cuotas). Si detectamos utilizas malla para ejecutar cargas de trabajo no válidos o aproveche el sistema (es decir, de minería de datos), a continuación, nos reservamos el derecho para finalizar las implementaciones y la lista de bloqueo de su suscripción desde la que se ejecuta en el servicio. Póngase en contacto con nosotros si tiene alguna pregunta sobre la ejecución de una carga de trabajo específica. 
 
 ## <a name="developer-experience-issues"></a>Problemas de experiencia para el desarrollador
 

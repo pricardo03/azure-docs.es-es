@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: a3badf7772c6be6509608fbdb305dc3bc225acc0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b4a1ba7536f0e899ef845bbac54b551125d35fb7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880003"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868552"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Puntos de conexión de Bing News Search API
 
@@ -31,7 +31,7 @@ Para obtener nuevos resultados de búsqueda con Bing News Search API, envíe una
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
 
-Devuelve nuevos elementos según una consulta de búsqueda. Si la consulta de búsqueda está vacía, la API devolverá los principales elementos de noticias de categorías diferentes. Para enviar una consulta por URL, codifique el término de búsqueda y anéxelo al parámetro `q=""`. Para información sobre disponibilidad, consulte los [países y mercados admitidos](language-support.md#supported-markets-for-news-search-endpoint).
+Devuelve nuevos elementos según una consulta de búsqueda. Si la consulta de búsqueda está vacía, la API devolverá los principales elementos de noticias de categorías diferentes. Para enviar una consulta por URL, codifique el término de búsqueda y anéxelo al parámetro `q=""`. Para lograr una disponibilidad, consulte [países o regiones y mercados admitidos](language-support.md#supported-markets-for-news-search-endpoint).
 
 ### <a name="top-news-items-by-category"></a>Principales elementos de noticias por categoría
 
@@ -39,7 +39,7 @@ Devuelve nuevos elementos según una consulta de búsqueda. Si la consulta de b�
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-Devuelve los principales elementos de noticias por categoría. En concreto, puede solicitar los artículos principales sobre negocios, deportes o entretenimiento mediante `category=business`, `category=sports` o `category=entertainment`.  El parámetro `category` solo se puede usar con la dirección URL `/news`. Existen algunos requisitos formales para especificar las categorías; consulte `category` en la documentación de [parámetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Para enviar una consulta por URL, codifique el término de búsqueda y anéxelo al parámetro `q=""`. Para información sobre disponibilidad, consulte los [países y mercados admitidos](language-support.md#supported-markets-for-news-endpoint).
+Devuelve los principales elementos de noticias por categoría. En concreto, puede solicitar los artículos principales sobre negocios, deportes o entretenimiento mediante `category=business`, `category=sports` o `category=entertainment`.  El parámetro `category` solo se puede usar con la dirección URL `/news`. Existen algunos requisitos formales para especificar las categorías; consulte `category` en la documentación de [parámetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Para enviar una consulta por URL, codifique el término de búsqueda y anéxelo al parámetro `q=""`. Para lograr una disponibilidad, consulte [países o regiones y mercados admitidos](language-support.md#supported-markets-for-news-endpoint).
 
 ### <a name="trending-news-topics"></a>Temas de noticias de tendencia 
 
@@ -47,7 +47,7 @@ Devuelve los principales elementos de noticias por categoría. En concreto, pued
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics
 ```
 
-Devuelve los temas de noticias que actualmente son tendencia en las redes sociales. Cuando se incluye la opción `/trendingtopics`, la búsqueda de Bing omite otros parámetros, como `freshness` y `?q=""`. Para información sobre disponibilidad, consulte los [países y mercados admitidos](language-support.md#supported-markets-for-news-trending-endpoint).
+Devuelve los temas de noticias que actualmente son tendencia en las redes sociales. Cuando se incluye la opción `/trendingtopics`, la búsqueda de Bing omite otros parámetros, como `freshness` y `?q=""`. Para lograr una disponibilidad, consulte [países o regiones y mercados admitidos](language-support.md#supported-markets-for-news-trending-endpoint).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

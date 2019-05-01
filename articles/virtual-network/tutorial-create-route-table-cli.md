@@ -3,8 +3,8 @@ title: Enrutamiento del tráfico de red en la CLI de Azure | Microsoft Docs
 description: En este artículo, aprenderá a enrutar el tráfico de red con una tabla de rutas mediante la CLI de Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: e3106a792f486a62986734e562c96b41dd8a75dc
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: ff5897766bb56b76a34940ecd786773fd844a336
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524130"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683111"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Enrutamiento del tráfico de red con una tabla de rutas mediante la CLI de Azure
 

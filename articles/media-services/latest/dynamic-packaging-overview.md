@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 90af9d40f797e493696d52e4cd744b99e3b57911
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: a907e35e8e39b9dadd9106e7fd99063db28647a5
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104129"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869672"
 ---
 # <a name="dynamic-packaging"></a>Empaquetado dinámico
 
-Microsoft Azure Media Services puede usarse para proporcionar varios formatos de archivo de origen multimedia, formatos de streaming multimedia y formatos de protección de contenido a diversas tecnologías cliente (por ejemplo, iOS y XBOX). Estos clientes entienden distintos protocolos. Por ejemplo, iOS requiere un formato HTTP Live Streaming (HLS) y Xbox requiere Smooth Streaming. Si tiene un conjunto de velocidad de bits adaptable (velocidad de bits múltiple) MP4 archivos (ISO Base Media 14496-12) o un conjunto de archivos Smooth Streaming de velocidad de bits adaptable que desea prestar servicios a clientes que entienden HLS, MPEG DASH o Smooth Streaming, puede sacar partido de dinámicos Empaquetado. Se admiten SD y HD/UHD - 4K, el empaquetado es independiente de la resolución del vídeo.
+Microsoft Azure Media Services puede usarse para proporcionar varios formatos de archivo de origen multimedia, formatos de streaming multimedia y formatos de protección de contenido a diversas tecnologías cliente (por ejemplo, iOS y XBOX). Estos clientes entienden distintos protocolos. Por ejemplo, iOS requiere un formato HTTP Live Streaming (HLS) y Xbox requiere Smooth Streaming. Si tiene un conjunto de velocidad de bits adaptable (velocidad de bits múltiple) MP4 archivos (ISO Base Media 14496-12) o un conjunto de archivos Smooth Streaming de velocidad de bits adaptable que desea prestar servicios a clientes que entienden HLS, MPEG DASH o Smooth Streaming, puede sacar partido de  **Empaquetado dinámico**. Se admiten SD y HD/UHD - 4K, el empaquetado es independiente de la resolución del vídeo.
 
-[Los extremos de streaming](streaming-endpoint-concept.md) es el servicio de empaquetado dinámico de Media Services usadas para entregar contenido multimedia a los jugadores del cliente. Empaquetado dinámico es una característica que viene incluida en todos los **extremos de Streaming** (Standard o Premium). 
+En Media Services, un [Streamingendpoint](streaming-endpoint-concept.md) representa un dinámico (just-in-time) empaquetado y el origen de servicio que puede entregar el contenido en directo y a petición directamente a una aplicación de Reproductor de cliente, mediante uno de los comunes de streaming protocolos de multimedia (HLS o DASH). Empaquetado dinámico es una característica que viene incluida en todos los **extremos de Streaming** (Standard o Premium). 
 
 Para aprovechar las ventajas de **empaquetado dinámico**, debe tener un **activos** con un conjunto de archivos MP4 de velocidad de bits adaptable y streaming de los archivos de configuración necesarios para el empaquetado dinámico de Media Services. Una manera de obtener los archivos consiste en codificar su archivo intermedio (origen) con Media Services. Para que los vídeos en el recurso codificado esté disponible para los clientes para la reproducción, tiene que crear un **localizador de Streaming** y generar direcciones URL de streaming. A continuación, según el formato especificado en el manifiesto del cliente de streaming (HLS, DASH o Smooth), reciba la secuencia en el protocolo elegido.
 
@@ -77,7 +77,7 @@ El siguiente diagrama muestra la transmisión por secuencias en directo con el f
 
 ## <a name="delivery-protocols"></a>Protocolos de entrega
 
-|Protocolo|Ejemplo|
+|Protocol|Ejemplo|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|

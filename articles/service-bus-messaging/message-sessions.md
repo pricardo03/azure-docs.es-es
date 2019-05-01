@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c206d42e220534225cfef0415a65c1f9494f761
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403777"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569794"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sesiones de mensajes: primero en entrar, primero en salir (FIFO) 
 
@@ -79,8 +79,7 @@ El estado de sesión mantenido en una cola o en que una suscripción se tiene en
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Un ejemplo completo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) de enviar y recibir mensajes basados en sesión de colas de Service Bus mediante la biblioteca .NET Standard.
-- [Un ejemplo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) que usa el cliente de .NET Framework para controlar los mensajes basados en la sesión. 
+- Consulte la [Microsoft.Azure.ServiceBus ejemplos](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) o [Microsoft.ServiceBus.Messaging ejemplos](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) para obtener un ejemplo que usa el cliente de .NET Framework para controlar los mensajes basados en sesión. 
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

@@ -8,16 +8,13 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ee987448f9f6d95e6f97317bec2f696e734cba20
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d067f1af3d5479aef28ddf2290cebe3fe45726b0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58633013"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733802"
 ---
-#### <a name="expressroute-limits"></a>Límites de ExpressRoute
-Los límites siguientes se aplican a los recursos de Azure ExpressRoute por suscripción.
-
 | Recurso | Límite predeterminado y máximo |
 | --- | --- |
 | Circuitos ExpressRoute por suscripción |10 |
@@ -27,7 +24,8 @@ Los límites siguientes se aplican a los recursos de Azure ExpressRoute por susc
 | Número máximo de rutas para emparejamiento privado de Azure desde el espacio de direcciones de red virtual para una conexión de ExpressRoute |200 | 
 | Número máximo de rutas para emparejamiento de Microsoft Azure con estándar ExpressRoute |200 |
 | Número máximo de rutas para emparejamiento de Microsoft Azure con complemento ExpressRoute Premium |200 |
-| Número máximo de circuitos ExpressRoute vinculado a la misma red virtual en distintas ubicaciones de emparejamiento |4 |
+| Número máximo de vinculado a la misma red virtual en la misma ubicación de emparejamiento de circuitos de ExpressRoute |4 |
+| Número máximo de circuitos ExpressRoute vinculado a la misma red virtual en distintas ubicaciones de emparejamiento |> 4, depende de tamaño de GatewaySubnet|
 | Número de vínculos de red virtual permitidos por circuito ExpressRoute |Consulte la tabla siguiente. |
 
 #### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Número de redes virtuales por circuito de ExpressRoute

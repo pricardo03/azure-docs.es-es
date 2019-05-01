@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f19d193bef718bd4ad3d98f2112a7e705051b729
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852720"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920078"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guía para desarrolladores de Java para App Service en Linux
 
@@ -112,7 +112,7 @@ Los desarrolladores que ejecutan una sola aplicación con una ranura de implemen
 
 Cuando optimice la configuración del montón de la aplicación, revise los detalles de su plan de App Service y tenga en cuenta distintas necesidades de aplicaciones y ranuras de implementación para encontrar la asignación óptima de memoria.
 
-Si va a implementar una aplicación de JAR, debe denominarse `app.jar` para que la imagen integrada puede identificar correctamente la aplicación. (El complemento Maven realiza automáticamente este cambio de nombre). Si no desea cambiar el nombre de archivo JAR para `app.jar`, puede cargar un script de shell con el comando para ejecutar el archivo JAR. A continuación, pegue la ruta de acceso completa a esta secuencia de comandos en el [archivo de inicio](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) cuadro de texto en la sección de configuración del portal.
+Si va a implementar una aplicación de JAR, debe denominarse `app.jar` para que la imagen integrada puede identificar correctamente la aplicación. (El complemento Maven realiza automáticamente este cambio de nombre). Si no desea cambiar el nombre de archivo JAR para `app.jar`, puede cargar un script de shell con el comando para ejecutar el archivo JAR. A continuación, pegue la ruta de acceso completa a esta secuencia de comandos en el [archivo de inicio](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) cuadro de texto en la sección de configuración del portal.
 
 ### <a name="turn-on-web-sockets"></a>Activación de sockets web
 

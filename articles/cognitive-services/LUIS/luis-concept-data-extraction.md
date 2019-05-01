@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60812819"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867711"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraer datos de texto utterance (dictado) con las intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
@@ -441,7 +441,7 @@ Si usa la entidad simple, asegúrese de que proporcionar ejemplos que usan el no
 
 ### <a name="names-of-places"></a>Nombres de lugares
 
-Los nombres de ubicaciones se establecen y conocen, por ejemplo, ciudades, condados, estados, provincias y países. Usar la entidad creada previamente **[geographyV2](luis-reference-prebuilt-geographyv2.md)** para extraer información de ubicación.
+Nombres de ubicación se establecen y se conoce como países o regiones, condados, Estados, provincias y ciudades. Usar la entidad creada previamente **[geographyV2](luis-reference-prebuilt-geographyv2.md)** para extraer información de ubicación.
 
 ### <a name="new-and-emerging-names"></a>Nombres nuevos y emergentes
 

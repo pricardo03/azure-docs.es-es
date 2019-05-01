@@ -8,18 +8,18 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764282"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706329"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Uso de una imagen personalizada para crear un grupo de máquinas virtuales 
 
 Al crear un grupo en Azure Batch con Configuración de máquina virtual, se especifica una imagen de máquina virtual (VM) que proporciona el sistema operativo para cada nodo de proceso en el grupo. Puede crear un grupo de máquinas virtuales con una imagen de Azure Marketplace compatible o con una personalizada (una imagen de máquina virtual que haya creado y configurado). La imagen personalizada debe ser un recurso de *imagen administrada* en la misma región y suscripción de Azure que la cuenta de Batch.
 
-## <a name="why-use-a-custom-image"></a>¿Por qué usar una imagen personalizada?
+## <a name="benefits-of-custom-images"></a>Ventajas de las imágenes personalizadas
 
 Al proporcionar una imagen personalizada, tiene el control sobre la configuración y el tipo del sistema operativo y los discos de datos que se usarán. La imagen personalizada puede incluir los datos de referencia y las aplicaciones que están disponibles en los nodo de grupo de Batch en cuanto se aprovisionan.
 
@@ -32,12 +32,11 @@ El uso de una imagen personalizada configurada para su escenario puede proporcio
 - **Ahorrar tiempo de reinicio en las máquinas virtuales.** La instalación de aplicaciones normalmente requiere reiniciar la máquina virtual, lo que lleva mucho tiempo. Puede ahorrar tiempo de reinicio si instala previamente las aplicaciones. 
 - **Copiar grandes cantidades de datos una vez.** Convierta en estáticos parte de los datos de la imagen personalizada administrada copiándolos en los discos de datos de una imagen administrada. Solo debe hacerse una vez y los datos estarán disponibles para cada nodo del grupo.
 - **Elegir los tipos de disco.** Tiene la opción de usar almacenamiento premium para el disco del sistema operativo y el disco de datos.
-- **Aumentar los grupos a tamaños grandes.** Al usar una imagen personalizada administrada para crear un grupo, este puede aumentar sin que tenga que realizar copias de los discos duros virtuales de los blobs de imágenes. 
-
+- **Aumentar los grupos a tamaños grandes.** Al usar una imagen personalizada administrada para crear un grupo, este puede aumentar sin que tenga que realizar copias de los discos duros virtuales de los blobs de imágenes.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- **Un recurso de imagen administrada**. Para crear un grupo de máquinas virtuales con una imagen personalizada, tiene que tener o crear un recurso de imagen administrada en la misma suscripción y región de Azure que la cuenta de Batch. La imagen debe crearse desde instantáneas del disco del sistema operativo de la máquina virtual y, opcionalmente, de sus discos de datos conectados. Para más información y los pasos para preparar una imagen administrada, consulte la siguiente sección. 
+- **Un recurso de imagen administrada**. Para crear un grupo de máquinas virtuales con una imagen personalizada, tiene que tener o crear un recurso de imagen administrada en la misma suscripción y región de Azure que la cuenta de Batch. La imagen debe crearse desde instantáneas del disco del sistema operativo de la máquina virtual y, opcionalmente, de sus discos de datos conectados. Para más información y los pasos para preparar una imagen administrada, consulte la siguiente sección.
   - Use una imagen personalizada única para cada grupo que cree.
   - Para crear un grupo con la imagen mediante las API de Batch, especifique el **identificador de recurso** de la imagen, que tiene el formato `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. Para usar el portal, utilice el **nombre** de la imagen.  
   - El recurso de la imagen administrada debe existir durante la vigencia del grupo para permitir su escalado vertical y que se pueda eliminar después de eliminar el grupo.
@@ -46,7 +45,7 @@ El uso de una imagen personalizada configurada para su escenario puede proporcio
 
 ## <a name="prepare-a-custom-image"></a>Preparación de una imagen personalizada
 
-En Azure se puede preparar una imagen administrada a partir de instantáneas del sistema operativo de la máquina virtual de Azure y discos de datos, una máquina virtual de Azure general con discos administrados o un disco duro virtual local general que cargue. Para escalar grupos de Batch de forma confiable con una imagen personalizada se recomienda crear una imagen administrada *solo* con el primer método: instantáneas de los discos de la máquina virtual. Consulte los siguientes pasos para preparar la máquina virtual, tomar una instantánea y crear una imagen a partir de ella. 
+En Azure se puede preparar una imagen administrada a partir de instantáneas del sistema operativo de la máquina virtual de Azure y discos de datos, una máquina virtual de Azure general con discos administrados o un disco duro virtual local general que cargue. Para escalar grupos de Batch de forma confiable con una imagen personalizada se recomienda crear una imagen administrada *solo* con el primer método: instantáneas de los discos de la máquina virtual. Consulte los siguientes pasos para preparar la máquina virtual, tomar una instantánea y crear una imagen a partir de ella.
 
 ### <a name="prepare-a-vm"></a>Preparación de la máquina virtual
 
@@ -60,6 +59,7 @@ Si va a crear una nueva máquina virtual para la imagen, use una imagen primera 
 
 * Asegúrese de que la máquina virtual se crea con un disco administrado. Se trata de la configuración de almacenamiento predeterminada cuando se crea una máquina virtual.
 * No instale extensiones de Azure, como la extensión de script personalizado, en la máquina virtual. Si la imagen contiene una extensión preinstalada, Azure podría experimentar problemas al implementar el grupo de Batch.
+* Cuando el uso de discos de datos conectados, deberá montar y dar formato a los discos desde una máquina virtual para usarlos.
 * Asegúrese de que la imagen del sistema operativo base que proporcione usa la unidad temporal predeterminada. El agente de nodo de Batch actualmente espera la unidad temporal predeterminada.
 * Una vez que la máquina virtual está en ejecución, conéctese a ella a través de RDP (para Windows) o SSH (para Linux). Instale el software necesario o copie los datos deseados.  
 

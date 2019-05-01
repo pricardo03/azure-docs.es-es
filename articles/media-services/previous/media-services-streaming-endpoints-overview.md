@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a45e2af6f2cb9c105c084585a03a6de615fa1397
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60544966"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573047"
 ---
 # <a name="streaming-endpoints-overview"></a>Información general de los puntos de conexión de streaming  
 
-## <a name="overview"></a>Información general
+> [!NOTE]
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también [Guía de migración desde v2 a v3](../latest/migrate-from-v2-to-v3.md)
 
 En Microsoft Azure Media Services (AMS), un **punto de conexión de streaming** representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción de cliente o a una red Content Delivery Network (CDN) para la distribución posterior. Media Services también proporciona integración sin problemas de Azure CDN. La secuencia de salida de un servicio de punto de conexión de streaming puede ser una secuencia en vivo, un vídeo bajo demanda o una descarga progresiva de su recurso en su cuenta de Media Services. Cada cuenta de Azure Media Services incluye un punto de conexión de streaming predeterminado. Es posible crear puntos de conexión de streaming adicionales en la cuenta. Existen dos versiones de puntos de conexión de streaming: 1.0 y 2.0. A partir del 10 de enero de 2017, las cuentas recién creadas de AMS incluirán de manera **predeterminada** la versión 2.0 del punto de conexión de streaming. Los puntos de conexión de streaming adicionales que agregue a esta cuenta también se generarán en la versión 2.0. Este cambio no afectará a las cuentas existentes; los puntos de conexión de streaming actuales mantendrán la versión 1.0, aunque es posible actualizarlos a la versión 2.0. Este cambio implicará modificaciones en cuanto al comportamiento, la facturación y las características (para obtener más información, consulte la sección **Tipos y versiones de streaming** a continuación).
 
@@ -46,14 +47,17 @@ Para los puntos de conexión adicionales: `{EndpointName}-{AccountName}.streamin
 
 ### <a name="standardpremium-types-version-20"></a>Tipos estándar o premium (versión 2.0)
 
-A partir de la versión de enero de 2017 de Media Services, existen dos tipos de streaming: **Estándar** y **Premium**. Estos tipos forman parte de la versión "2.0" de los puntos de conexión de streaming.
+A partir de la versión de enero de 2017 de Media Services, existen dos tipos de streaming: **Estándar** (versión preliminar) y **Premium**. Estos tipos forman parte de la versión "2.0" de los puntos de conexión de streaming.
 
-Type|DESCRIPCIÓN
----|---
-**Estándar** |Se trata de la opción predeterminada, que probablemente funcione para la mayoría de los escenarios.<br/>Con esta opción conseguirá un Acuerdo de Nivel de Servicio fijo o limitado, los 15 días siguientes al inicio del punto de conexión de streaming serán gratuitos.<br/>Si crea más de un punto de conexión de streaming, solo el primero de ellos será gratuito durante los primeros 15 días; los demás se cobrarán tan pronto los inicie. <br/>Tenga en cuenta que la prueba gratuita solo se aplica a las cuentas de Media Services recién creadas y los puntos de conexión de streaming predeterminados. Los puntos de conexión de streaming ya existentes y los puntos de conexión de streaming creados adicionalmente no incluyen el período de evaluación gratuita, incluso si se actualizan a la versión 2.0 o se crean como versión 2.0.
-**Premium** |Esta opción es la preferible para escenarios profesionales en los que se requiere mayor escala o control.<br/>Con un Acuerdo de Nivel de Servicio variable que se basa en la capacidad adquirida de la unidad de streaming premium, los puntos de conexión de streaming dedicados residen en un entorno aislado y no compiten por los recursos.
 
-Para obtener más información, consulte a continuación la sección **Comparar tipos de streaming**.
+|Type|DESCRIPCIÓN|
+|--------|--------|  
+|**Estándar**|El valor predeterminado es el punto de conexión de Streaming un **estándar** escriba, se puede cambiar el tipo Premium mediante el ajuste de unidades de streaming.|
+|**Premium** |Esta opción es la preferible para escenarios profesionales en los que se requiere mayor escala o control. Mover a un **Premium** tipo mediante el ajuste de unidades de streaming.<br/>Extremos de Streaming dedicados residen en un entorno aislado y no compiten por los recursos.|
+
+Los clientes que desean para entregar contenido a grandes audiencias de internet, se recomienda habilitar CDN en el punto de conexión de Streaming.
+
+Para obtener más información, consulte a continuación la sección [Comparar tipos de streaming](#comparing-streaming-types).
 
 ### <a name="classic-type-version-10"></a>Tipo clásico (versión 1.0)
 
@@ -71,29 +75,32 @@ Si el punto de conexión de streaming de la **versión "1.0"** tiene al menos 1 
 
 ### <a name="versions"></a>Versiones
 
-|Type|Versión de punto de conexión de streaming|Unidades de escalado|CDN|Facturación|Contrato de nivel de servicio| 
-|--------------|----------|-----------------|-----------------|-----------------|-----------------|    
-|Clásico|1.0|0|N/D|Gratuito|N/D|
-|Punto de conexión de streaming estándar|2.0|0|Sí|De pago|Sí|
-|Unidades de streaming premium|1.0|>0|Sí|De pago|Sí|
-|Unidades de streaming premium|2.0|>0|Sí|De pago|Sí|
+|Type|Versión de punto de conexión de streaming|Unidades de escalado|CDN|Facturación|
+|--------------|----------|-----------------|-----------------|-----------------|
+|Clásico|1.0|0|N/D|Gratuito|
+|Punto de conexión de Streaming estándar (versión preliminar)|2.0|0|Sí|De pago|
+|Unidades de streaming premium|1.0|>0|Sí|De pago|
+|Unidades de streaming premium|2.0|>0|Sí|De pago|
 
 ### <a name="features"></a>Características
 
 Característica|Estándar|Premium
 ---|---|---
-Gratis los primeros 15 días| Sí |Sin 
-Throughput |Hasta 600 Mbps cuando no se utiliza Azure CDN. Se puede ampliar con la red CDN.|200 Mbps por unidad de streaming. Se puede ampliar con la red CDN.
-Contrato de nivel de servicio | 99,9|99,9 (200 Mbps por unidad de streaming).
+Gratis los primeros 15 días <sup>1</sup>| Sí |Sin 
+Throughput |Hasta 600 Mbps y puede proporcionar un rendimiento eficaz mucho mayor cuando se usa una red CDN.|200 Mbps por unidad de streaming. Puede proporcionar un rendimiento eficaz mucho mayor cuando se usa una red CDN.
 CDN|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.
 La facturación se prorratea| Diario|Diario
 Cifrado dinámico|Sí|Sí
 Empaquetado dinámico|Sí|Sí
-Escala|Se amplía automáticamente hasta el rendimiento objetivo.|Unidades de streaming adicionales
-Filtrado de IP/G20/host personalizado|Sí|Sí
+Escala|Se amplía automáticamente hasta el rendimiento objetivo.|Unidades de streaming adicionales.
+IP filtrado/G20/host personalizado <sup>2</sup>|Sí|Sí
 Descarga progresiva|Sí|Sí
-Uso recomendado |Se recomienda para la gran mayoría de escenarios de streaming.|Uso profesional.<br/>Si considera que puede tener necesidades más allá del nivel Estándar. Si espera un tamaño de audiencia simultánea superior a 50 000 espectadores, póngase en contacto con nosotros (amsstreaming@microsoft.com).
+Uso recomendado |Se recomienda para la gran mayoría de escenarios de streaming.|Uso profesional. 
 
+<sup>1</sup> la evaluación gratuita solo aplica a las cuentas de servicios multimedia recién creado y el valor predeterminado el punto de conexión de Streaming.<br/>
+<sup>2</sup> solo se usa directamente en el extremo de transmisión por secuencias cuando la red CDN no está habilitada en el punto de conexión.<br/>
+
+Para obtener información de SLA, consulte [precios y SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="migration-between-types"></a>Migración entre tipos
 

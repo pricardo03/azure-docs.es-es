@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799344"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691412"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Agregación de esquema y los datos de análisis de tráfico
 
@@ -35,7 +35,7 @@ Análisis de tráfico es una solución basada en la nube, que proporciona visibi
 1. Todos los registros de flujo en un NSG entre "FlowIntervalStartTime_t" y "FlowIntervalEndTime_t" se capturan en un minuto en la cuenta de almacenamiento como blobs antes de ser procesados por el análisis de tráfico. 
 2. Intervalo de procesamiento de análisis de tráfico predeterminado es 60 minutos. Esto significa que cada 60 minutos, que el análisis de tráfico elige blobs de almacenamiento para la agregación.
 3. Protocolo (TCP o UDP) de capa de flujos que tengan la misma dirección IP de origen, IP de destino, puerto de destino, nombre NSG, regla de NSG, dirección del flujo y transporte (tenga en cuenta: Se excluye el puerto de origen para la agregación) se clubbed en un único flujo mediante el análisis de tráfico
-4. Este registro solo es representativo (más detalles en la sección siguiente) e ingeridos en Log Analytics mediante el análisis de tráfico.
+4. Este registro solo es representativos (más detalles en la sección siguiente) y registro ingerido en análisis de tráfico Analytics.This proceso pueden tardar hasta una hora máxima.
 5. Campo FlowStartTime_t indica la primera aparición de este tipo un flujo agregado (mismo cuatro-tupla) en el intervalo entre "FlowIntervalStartTime_t" y "FlowIntervalEndTime_t" del procesamiento de registro de flujo. 
 6. Para cualquier recurso en TA, los flujos que se indica en la interfaz de usuario son flujos totales que se procesó el NSG, pero en Log Anlaytics usuario verá solo el registro único, reduciendo. Para ver todos los flujos, use el campo blob_id, que se puede hacer referencia desde el almacenamiento. El flujo total número total de registros que coincidan los flujos individuales que ve en el blob.
 
@@ -60,7 +60,7 @@ A continuación aparecen los campos en el esquema y lo significan
 | SrcIP_s | Dirección IP de origen | Estará en blanco en el caso de AzurePublic y ExternalPublic flujos |
 | DestIP_s | Dirección IP de destino | Estará en blanco en el caso de AzurePublic y ExternalPublic flujos |
 | VMIP_s | Dirección IP de la máquina virtual | Utilizado para los flujos AzurePublic y ExternalPublic |
-| PublicIP_S | Direcciones IP públicas | Utilizado para los flujos AzurePublic y ExternalPublic |
+| PublicIP_s | Direcciones IP públicas | Utilizado para los flujos AzurePublic y ExternalPublic |
 | DestPort_d | Puerto de destino | Puerto en el que el tráfico es entrante | 
 | L4Protocol_s  | * T <br> * U  | Protocolo de transporte. T = TCP <br> U = UDP | 
 | L7Protocol_s  | Nombre del protocolo | Deriva de puerto de destino |
@@ -121,6 +121,7 @@ A continuación aparecen los campos en el esquema y lo significan
 1. MaliciousFlow - una de las direcciones IP pertenecen a la red virtual de azure mientras la otra dirección IP es una dirección IP pública que no está en Azure y se notifica como malintencionado en las fuentes ASC que consume el análisis de tráfico para el intervalo de procesamiento entre" FlowIntervalStartTime_t"y"FlowIntervalEndTime_t". 
 1. UnknownPrivate - una de las direcciones IP pertenecen a la red Virtual de Azure mientras la otra dirección IP pertenece al intervalo IP privadas, como se define en RFC 1918 y no se puede asignar mediante el análisis de tráfico a un cliente a la propiedad de sitio o Azure Virtual Network.
 1. Desconocido: no se puede asignar cualquiera de la dirección IP direcciones en los flujos con la topología de cliente en Azure así como de forma local (sitio).
+1. Algunos nombres de campo se anexan con _s o sufijo _d. Estos no significan origen y destino.
 
 ### <a name="next-steps"></a>Pasos siguientes
 Para obtener respuestas a las preguntas más frecuentes, consulte [preguntas más frecuentes sobre análisis de tráfico](traffic-analytics-faq.md) para ver detalles acerca de la funcionalidad, consulte [documentación de análisis de tráfico](traffic-analytics.md)

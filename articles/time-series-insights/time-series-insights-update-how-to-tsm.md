@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1686b52c9dacf5c78335f76bd19b41c4c7d15cee
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: df94290c5e62b898b6490c78ef0ae1ee79437240
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555411"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716951"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelado de datos en la versión preliminar de Azure Time Series Insights
 
@@ -132,7 +132,9 @@ Seleccione la instancia y seleccione **Delete** (Eliminar). Si no hay eventos as
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información acerca de los modelos de serie temporal, lea [Data modeling](./time-series-insights-update-tsm.md) (Modelado de datos).
+
 - Para obtener más información acerca de la versión preliminar, lea [Visualize data in the Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) (Visualizar datos en el explorador de la versión preliminar de Azure Time Series Insights).
+
 - Para obtener información sobre las formas JSON admitidas, consulte [Supported JSON shapes](./time-series-insights-send-events.md#json) (Formas JSON admitidas).
 
 <!-- Images -->

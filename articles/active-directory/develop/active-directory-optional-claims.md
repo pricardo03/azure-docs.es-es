@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300151"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713342"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedimientos para: Proporcionar notificaciones opcionales para la aplicación de Azure AD
 
@@ -52,12 +52,12 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 
 **Tabla 2: Conjunto de notificaciones opcionales de la versión 1.0 y 2.0**
 
-| Name                       |  DESCRIPCIÓN   | Tipo de token | Tipo de usuario | Notas  |
+| NOMBRE                       |  DESCRIPCIÓN   | Tipo de token | Tipo de usuario | Notas  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Momento de la última autenticación del usuario. Consulte las especificaciones de Open ID Connect| JWT        |           |  |
 | `tenant_region_scope`      | Región del inquilino de los recursos | JWT        |           | |
 | `home_oid`                 | Para los usuarios invitados, identificador de objeto del usuario en el inquilino del usuario principal.| JWT        |           | |
-| `sid`                      | Identificador de sesión que usa para el cierre de sesión por la sesión de usuario. | JWT        |           |         |
+| `sid`                      | Identificador de sesión que usa para el cierre de sesión por la sesión de usuario. | JWT        |  Personal y cuentas de Azure AD.   |         |
 | `platf`                    | Plataforma de dispositivo    | JWT        |           | Restringido a los dispositivos administrados que pueden verificar el tipo de dispositivo|
 | `verified_primary_email`   | Procede del valor PrimaryAuthoritativeEmail del usuario      | JWT        |           |         |
 | `verified_secondary_email` | Procede del valor SecondaryAuthoritativeEmail del usuario   | JWT        |           |        |
@@ -80,7 +80,7 @@ Estas notificaciones son siempre se incluye en los tokens de Azure AD v1.0, pero
 
 **Tabla 3: Notificaciones opcionales exclusivas de la versión 2.0**
 
-| Notificación de JWT     | Name                            | DESCRIPCIÓN                                | Notas |
+| Notificación de JWT     | NOMBRE                            | DESCRIPCIÓN                                | Notas |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Dirección IP                      | Dirección IP del cliente desde el que se inició sesión.   |       |
 | `onprem_sid`  | Identificador de seguridad local |                                             |       |
@@ -91,7 +91,6 @@ Estas notificaciones son siempre se incluye en los tokens de Azure AD v1.0, pero
 | `family_name` | Apellido                       | Proporciona el último nombre, apellido o apellidos del usuario tal como se define en el objeto de usuario. <br>"family_name": "Miller" | Se admite en MSA y AAD   |
 | `given_name`  | Nombre                      | Proporciona la primera o "nombre" propio"del usuario, como está establecido en el objeto de usuario.<br>"given_name": "Frank"                   | Se admite en MSA y AAD  |
 | `upn`         | Nombre principal de usuario | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse con datos de clave. | Consulte a continuación las [propiedades adicionales](#additional-properties-of-optional-claims) de la configuración de la notificación. |
-| `sid`         | Identificador de sesión                      | Identificador de sesión GUID, se usa para realizar el seguimiento de sesión de autenticación con MSA. | Solo MSA.  No se incluirá para cuentas de Azure AD. | 
 
 
 ### <a name="additional-properties-of-optional-claims"></a>Propiedades adicionales de las notificaciones opcionales
@@ -164,7 +163,7 @@ Indica las notificaciones opcionales solicitadas por una aplicación. Una aplica
 
 **Tabla 5: Propiedades del tipo OptionalClaims**
 
-| Name        | Type                       | DESCRIPCIÓN                                           |
+| NOMBRE        | Type                       | DESCRIPCIÓN                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Colección (OptionalClaim) | Notificaciones opcionales que se devuelven en el token de identificación de JWT. |
 | `accessToken` | Colección (OptionalClaim) | Notificaciones opcionales que se devuelven en el token de acceso de JWT. |
@@ -177,7 +176,7 @@ Si lo admite una notificación concreta, también puede modificar el comportamie
 
 **Tabla 6: Propiedades del tipo OptionalClaim**
 
-| Name                 | Type                    | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                   |
+| NOMBRE                 | Type                    | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nombre de la notificación opcional.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | Origen (objeto de directorio) de la notificación. Hay unas notificaciones predefinidas y otras definidas por el usuario desde las propiedades de extensión. Si el valor de origen es null, es una notificación opcional predefinida. Si el valor de origen es user, el valor de la propiedad name es la propiedad de extensión del objeto de usuario. |

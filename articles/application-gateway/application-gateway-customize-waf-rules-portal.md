@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: b18c9666e58925746a3b61740db6fb5118c2010b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f7ffb8d6adfd4afc75618834a3fe82cf9a3d0c9f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733723"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720380"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personalización de reglas de firewall de aplicaciones web mediante Azure Portal
 
@@ -33,11 +33,14 @@ El firewall de aplicaciones web (WAF) de Azure Application Gateway proporciona p
 
 ## <a name="search-for-rules-to-disable"></a>Búsqueda de reglas para deshabilitar
 
-La hoja **Web application firewall settings** (Configuración del firewall de aplicaciones web) ofrece la posibilidad de filtrar las reglas a través de una búsqueda de texto. El resultado muestra solo las reglas y los grupos de reglas que contienen el texto que se ha buscado.
+El **configuración de firewall de aplicación Web** página proporciona la capacidad de filtrar las reglas a través de una búsqueda de texto. El resultado muestra solo las reglas y los grupos de reglas que contienen el texto que se ha buscado.
 
 ![Buscar reglas][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>Deshabilitación de reglas y grupos de reglas
+
+> [!IMPORTANT]
+> Tenga cuidado al deshabilitar los grupos de reglas o reglas. Esto puede exponer a mayores riesgos de seguridad.
 
 Cuando se están deshabilitando las reglas, puede deshabilitar un grupo de reglas completo o reglas específicas de uno o varios grupos de reglas. 
 
@@ -51,7 +54,9 @@ Cuando se están deshabilitando las reglas, puede deshabilitar un grupo de regla
 
 ## <a name="mandatory-rules"></a>Normas obligatorias
 
-En la lista siguiente contiene las condiciones que provocan el WAF bloquear la solicitud en el modo de prevención (en modo de detección, se registran como excepciones). Estos no se pueden configurar o deshabilitados:
+En la lista siguiente contiene las condiciones que provocan el WAF bloquear la solicitud en el modo de prevención. En modo de detección, se registran como excepciones.
+
+Estos no se pueden configurar o deshabilitados:
 
 * Error al analizar el cuerpo de solicitud tiene como resultado la solicitud está bloqueada, a menos que la inspección de cuerpo está desactivado (XML, JSON, datos de formulario)
 * Longitud de datos de solicitud de cuerpo (con ningún archivo) es mayor que el límite configurado

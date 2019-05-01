@@ -15,11 +15,11 @@ ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
 ms.openlocfilehash: e72c4b0cf8f77a057ff07f8bce7acae4e834e28d
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
+ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59503184"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951379"
 ---
 ## <a name="setting-up-your-ios-application"></a>Configuración de la aplicación de iOS
 
@@ -91,7 +91,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 
 Debe crearse un archivo Main.storyboard automáticamente como parte de la plantilla de proyecto. Siga las instrucciones siguientes para crear la interfaz de usuario de la aplicación:
 
-1.  Presione Control y haga clic en `Main.storyboard` para mostrar el menú contextual y, después, haga clic en: `Open As` > `Source Code`
+1.  Presione Control y haga clic en `Main.storyboard` para mostrar el menú contextual y, a continuación, haga clic en: `Open As` > `Source Code`
 2.  Reemplace el nodo `<scenes>` por el código siguiente:
 
 ```xml

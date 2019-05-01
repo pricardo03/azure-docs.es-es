@@ -1,22 +1,28 @@
 ---
-title: Idiomas admitidos en Azure Maps | Microsoft Docs
+title: Compatibilidad de localización en Azure Maps | Microsoft Docs
 description: Conozca los idiomas admitidos en los servicios de Azure Maps
-author: juliekohler
-ms.author: julieko
-ms.date: 04/08/2019
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769199"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686781"
 ---
-# <a name="azure-maps-supported-languages"></a>Idiomas admitidos en Azure Maps
-Los servicios de Azure Maps se han localizado en diversos idiomas.  En la tabla siguiente se proporcionan los códigos de idioma admitidos para cada servicio.  
+# <a name="localization-support-in-azure-maps"></a>Compatibilidad de localización en Azure Maps
+
+Azure Maps es compatible con diversos lenguajes y las vistas basadas en el país o región. Este artículo proporciona los idiomas admitidos y las vistas para ayudarle a dirigir su implementación de Azure Maps.
+
+
+## <a name="azure-maps-supported-languages"></a>Idiomas admitidos en Azure Maps
+
+Los servicios de Azure Maps se han localizado en diversos idiomas. En la tabla siguiente se proporcionan los códigos de idioma admitidos para cada servicio.  
   
 
 | ID         | NOMBRE                   |  Mapas | Search | Enrutamiento | Incidentes de tráfico | Control de mapa JS | Zona horaria |
@@ -75,3 +81,30 @@ Los servicios de Azure Maps se han localizado en diversos idiomas.  En la tabla
 | tr-TR      | Turco                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | uk-UA      | Ucraniano               |       |    ✓   |         |                   |                |     ✓     |
 | vi-VN      | Vietnamita             |       |    ✓   |         |                   |                |     ✓     |
+
+
+## <a name="azure-maps-supported-views"></a>Vistas admitidos en Azure Maps
+
+Azure asigna la vista parámetro (también denominado "parámetro de región del usuario") es un código de país de 2 letras ISO 3166 que se muestran las asignaciones correctas para ese país o región especifica qué conjunto de caso conflictivas bordes y las etiquetas se muestran en el mapa.  De forma predeterminada el parámetro View se establece en **"Unified"**.  Países o regiones que no están en la lista de vista predeterminado será la vista "Unified". Es su responsabilidad para determinar la ubicación de los usuarios y, a continuación, establezca el parámetro View correctamente para esa ubicación. Se debe usar el parámetro View en Azure Maps conforme a las leyes aplicables, incluidas aquellas está disponible en cuanto a asignación del país donde mapas, imágenes y otro contenido de datos y de terceros que está autorización para tener acceso a través de Azure Maps.
+
+En la tabla siguiente proporciona vistas admitidas.
+
+| Ver         | DESCRIPCIÓN                            |  Mapas | Search | Control de mapa JS |
+|--------------|----------------------------------------|:-----:|:------:|:--------------:|
+| AE           | Emiratos Árabes Unidos (vista árabe)    |   ✓   |        |     ✓          |
+| AR           | Argentina (vista de Argentina)           |   ✓   |    ✓   |     ✓          |
+| BH           | Baréin (vista árabe)                 |   ✓   |        |     ✓          |
+| IN           | India (vista de la India)                    |   ✓   |   ✓     |     ✓          |
+| IQ           | Irak (vista árabe)                    |   ✓   |        |     ✓          |
+| JO           | Jordania (vista árabe)                  |   ✓   |        |     ✓          |
+| KW           | Kuwait (vista árabe)                  |   ✓   |        |     ✓          |
+| LB           | Líbano (vista árabe)                 |   ✓   |        |     ✓          |
+| MA           | Marruecos (vista Maroko)                |   ✓   |   ✓     |     ✓          |
+| OM           | Omán (vista árabe)                    |   ✓   |        |     ✓          |
+| PK           | Pakistán (pakistaní vista)              |   ✓   |    ✓    |     ✓          |
+| PS           | Autoridad Palestina (vista árabe)    |   ✓   |        |     ✓          |
+| QA           | Qatar (vista árabe)                   |   ✓   |        |     ✓          |
+| SA           | Arabia Saudí (vista árabe)            |   ✓   |        |     ✓          |
+| SY           | Siria (vista árabe)                   |   ✓   |        |     ✓          |
+| YE           | Yemen (vista árabe)                   |   ✓   |        |     ✓          |
+| Unificada      | Vista unificada (otros)                  |   ✓   |   ✓     |     ✓          |

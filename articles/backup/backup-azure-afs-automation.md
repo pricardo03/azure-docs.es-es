@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 83fe8d17699c19d442fd734d71d828eb9fd9d6ed
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 46719d3f72c57a44fb48489891e2348bb418da1e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258367"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918944"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Copia de seguridad y restaurar archivos de Azure con PowerShell
 
@@ -241,7 +241,7 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 Use [AzRecoveryServicesBackupItem de copia de seguridad](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) para ejecutar una copia de seguridad y a petición para un recurso compartido de archivos protegidos de Azure.
 
 1. Recuperar la cuenta de almacenamiento y el archivo compartan desde el contenedor en el almacén que contiene los datos de copia de seguridad con [Get AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
-2. Para iniciar un trabajo de copia de seguridad, obtener información acerca de la máquina virtual con [Get AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+2. Para iniciar un trabajo de copia de seguridad, obtenga información sobre la máquina virtual con [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
 3. Ejecutar una copia de seguridad y a petición con[AzRecoveryServicesBackupItem de copia de seguridad](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
 Ejecute la copia de seguridad y a petición como sigue:
@@ -317,7 +317,7 @@ Después de selecciona el punto de recuperación pertinentes, restaure el archiv
 
 ### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Restaurar un recurso compartido de archivos de Azure en una ubicación alternativa
 
-Use la [restauración AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar hasta el punto de recuperación seleccionado. Especifique estos parámetros para identificar la ubicación alternativa: 
+Use la [restauración AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar hasta el punto de recuperación seleccionado. Especifique estos parámetros para identificar la ubicación alternativa: 
 
 - **TargetStorageAccountName**: La cuenta de almacenamiento en la que se restaura el contenido de la copia de seguridad. La cuenta de almacenamiento de destino debe estar en la misma ubicación que el almacén.
 - **TargetFileShareName**: Los recursos compartidos de archivos de la cuenta de almacenamiento de destino en la que se restaura el contenido de la copia de seguridad.
@@ -340,7 +340,7 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 
 ### <a name="restore-an-azure-file-to-an-alternate-location"></a>Restaurar un archivo de Azure en una ubicación alternativa
 
-Use la [restauración AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar hasta el punto de recuperación seleccionado. Especifique estos parámetros para identificar la ubicación alternativa y para identificar de forma única el archivo que desea restaurar.
+Use la [restauración AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar hasta el punto de recuperación seleccionado. Especifique estos parámetros para identificar la ubicación alternativa y para identificar de forma única el archivo que desea restaurar.
 
 * **TargetStorageAccountName**: La cuenta de almacenamiento en la que se restaura el contenido de la copia de seguridad. La cuenta de almacenamiento de destino debe estar en la misma ubicación que el almacén.
 * **TargetFileShareName**: Los recursos compartidos de archivos de la cuenta de almacenamiento de destino en la que se restaura el contenido de la copia de seguridad.

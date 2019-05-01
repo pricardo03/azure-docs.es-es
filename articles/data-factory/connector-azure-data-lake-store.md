@@ -10,27 +10,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 433824c4e375cf1ce7d7a6fe16730044628ccab1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2f315911d79c46810faf720c017cc1f72d5592d7
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001633"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876815"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](v1/data-factory-azure-datalake-connector.md)
 > * [Versión actual](connector-azure-data-lake-store.md)
 
-En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con Azure Data Lake Storage Gen1 (anteriormente conocido como Azure Data Lake Store) como origen o destino. Se basa en la [introducción a la actividad de copia](copy-activity-overview.md).
+Este artículo describe cómo copiar datos hacia y desde Azure Data Lake Storage Gen1 (Gen1 ADLS). Para información sobre Azure Data Factory, lea el [artículo de introducción](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Puede copiar datos desde cualquier almacén de datos de origen compatible a Azure Data Lake Store o desde Azure Data Lake Store a cualquier almacén de datos del receptor compatible. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).
+Este conector de Azure Data Lake Storage Gen1 es compatible con las siguientes actividades:
 
-En concreto, este conector de Azure Data Lake Store admite las siguientes funcionalidades:
+- [Actividad de copia](copy-activity-overview.md) con [admite la matriz de origen/receptor](copy-activity-overview.md)
+- [Asignación de flujo de datos](concepts-data-flow-overview.md)
+- [Actividad de búsqueda](control-flow-lookup-activity.md)
+- [Actividad GetMetadata](control-flow-get-metadata-activity.md)
+
+En concreto, este conector admite las siguientes funcionalidades:
 
 - La copia de archivos mediante uno de los siguientes métodos de autenticación: **entidad de servicio** o **identidades administradas para recursos de Azure**.
 - La copia de archivos tal cual, o bien el análisis o generación de archivos con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
@@ -70,7 +75,7 @@ Para usar la autenticación de entidad de servicio, registre una entidad de apli
 >[!IMPORTANT]
 > Asegúrese de que concede el permiso adecuado a la entidad de servicio en Data Lake Store:
 >- **Como origen**: En **Explorador de datos** > **Acceso**, conceda al menos permiso de **lectura y ejecución** permiso para enumerar y copiar los archivos de las carpetas y subcarpetas. O bien, puede conceder permiso de **lectura** para copiar un único archivo. Puede elegir agregarlo a **Esta carpeta y todos los elementos secundarios** si desea que sea recursivo y agregarlo como **un permiso de acceso y una entrada de permiso predeterminada**. No hay ningún requisito en el control de acceso de nivel de cuenta (IAM).
->- **Como receptor**: En **Explorador de datos** > **Acceso**, conceda al menos permiso de **escritura y ejecución** para crear elementos secundarios en la carpeta. Puede elegir agregarlo a **Esta carpeta y todos los elementos secundarios** si desea que sea recursivo y agregarlo como **un permiso de acceso y una entrada de permiso predeterminada**. Si usa Azure Integration Runtime para realizar la copia (tanto el origen como el receptor están en la nube), en IAM, conceda al menos el rol de **lector** para que Data Factory pueda detectar la región de Data Lake Store. Si desea no usar este rol de IAM, [cree explícitamente una instancia de Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) con la ubicación de Data Lake Store. Asócielo en el servicio vinculado de Data Lake Storage como se muestra en el ejemplo siguiente.
+>- **Como receptor**: En **Explorador de datos** > **Acceso**, conceda al menos permiso de **escritura y ejecución** para crear elementos secundarios en la carpeta. Puede elegir agregarlo a **Esta carpeta y todos los elementos secundarios** si desea que sea recursivo y agregarlo como **un permiso de acceso y una entrada de permiso predeterminada**. Si usa Azure Integration Runtime para realizar la copia (tanto el origen como el receptor están en la nube), en IAM, conceda al menos el rol de **lector** para que Data Factory pueda detectar la región de Data Lake Store. Si desea no usar este rol de IAM, [cree explícitamente una instancia de Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) con la ubicación de Data Lake Store. Por ejemplo, si el Store del lago de datos está en Europa occidental, crear un entorno de ejecución de integración de Azure con la ubicación establecida en "Europa occidental". Asociar ellos en el servicio vinculado de Data Lake Store como en el ejemplo siguiente.
 
 >[!NOTE]
 >En la lista de carpetas que comienza en la raíz, debe establecer el permiso de la entidad de servicio que se concede **a nivel raíz con el permiso de "ejecución"**. Esto es válido cuando se usa la:
@@ -156,7 +161,54 @@ En Azure Data Factory no es necesario especificar ninguna propiedad, más allá 
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Para copiar datos con Azure Data Lake Store como origen o destino, establezca la propiedad `type` del conjunto de datos en **AzureDataLakeStoreFile**. Se admiten las siguientes propiedades:
+Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). 
+
+- Para **Parquet y formato de texto delimitado**, consulte [conjunto de datos con formato Parquet y texto delimitado](#parquet-and-delimited-text-format-dataset) sección.
+- Para otros formatos como **formato ORC/Avro/JSON/binario**, consulte [otro conjunto de datos de formato](#other-format-dataset) sección.
+
+### <a name="parquet-and-delimited-text-format-dataset"></a>Conjunto de datos con formato parquet y texto delimitado
+
+Para copiar datos hacia y desde Gen1 de ADLS en **Parquet o formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) y [formato de texto delimitado](format-delimited-text.md) artículo en el conjunto de datos de formato y configuraciones admitidas. Las siguientes propiedades son compatibles con ADLS Gen1 en `location` configuración en el conjunto de datos basado en el formato:
+
+| Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
+| ---------- | ------------------------------------------------------------ | -------- |
+| Tipo       | La propiedad type en `location` en el conjunto de datos debe establecerse en **AzureDataLakeStoreLocation**. | Sí      |
+| folderPath | La ruta de acceso a la carpeta. Si desea usar el carácter comodín a la carpeta de filtro, omita esta configuración y especificar en la configuración del origen de actividad. | Sin        |
+| fileName   | El nombre de archivo en folderPath determinado. Si desea usar el carácter comodín para filtrar los archivos, omita esta configuración y especificar en la configuración del origen de actividad. | Sin        |
+
+> [!NOTE]
+>
+> **AzureDataLakeStoreFile** todavía se admite el tipo de conjunto de datos con formato Parquet/texto que se mencionan en la siguiente sección como-es para la actividad de copia/búsqueda/GetMetadata para compatibilidad con versiones anteriores, pero no funciona con la asignación de flujo de datos. Se sugieren para usar este nuevo modelo a partir de ahora, y ha cambiado la interfaz de usuario de creación de ADF para generar estos nuevos tipos.
+
+**Ejemplo:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<ADLS Gen1 linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "AzureDataLakeStoreLocation",
+                "folderPath": "root/folder/subfolder"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>Otro conjunto de datos de formato
+
+Para copiar datos hacia y desde Gen1 de ADLS en **formato ORC/Avro/JSON/binario**, se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -208,23 +260,87 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store como origen
 
-Para copiar datos desde Data Lake Store, establezca el tipo de origen de la actividad de copia en **AzureDataLakeStoreSource**. La sección **source** de la actividad de copia admite las siguientes propiedades:
+- Para copiar desde **Parquet y formato de texto delimitado**, consulte [Parquet y origen del formato de texto delimitado](#parquet-and-delimited-text-format-source) sección.
+- Para copiar desde otros formatos como **formato ORC/Avro/JSON/binario**, consulte [otro origen de formato](#other-format-source) sección.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
-|:--- |:--- |:--- |
-| Tipo | La propiedad `type` del origen de la actividad de copia debe establecerse en: **AzureDataLakeStoreSource**. |Sí |
-| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando `recursive` se establece en true y el receptor es un almacén basado en archivos, no se copia ni crea ninguna carpeta o subcarpeta vacías en el receptor. Los valores permitidos son: **true** (valor predeterminado) y **false**. | Sin  |
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet y origen del formato de texto delimitado
+
+Para copiar datos de ADLS Gen1 en **Parquet o formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) y [formato de texto delimitado](format-delimited-text.md) artículo sobre el origen de la actividad de copia basada en el formato y configuraciones admitidas. Las siguientes propiedades son compatibles con ADLS Gen1 en `storeSettings` configuración en el origen de copia basada en el formato:
+
+| Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                      |
+| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
+| Tipo                     | La propiedad type en `storeSettings` debe establecerse en **AzureDataLakeStoreReadSetting**. | Sí                                           |
+| recursive                | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin                                             |
+| wildcardFolderPath       | La ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sin                                             |
+| wildcardFileName         | El nombre de archivo con caracteres comodín en el folderPath/wildcardFolderPath determinado para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí si `fileName` no se especifica en el conjunto de datos |
+| modifiedDatetimeStart    | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora. | Sin                                             |
+| modifiedDatetimeEnd      | Igual que el anterior.                                               | Sin                                             |
+| maxConcurrentConnections | El número de conexiones para conectarse al almacén de almacenamiento al mismo tiempo. Especifique solo cuando desee limitar las conexiones simultáneas al almacén de datos. | Sin                                             |
+
+> [!NOTE]
+> Para Parquet/texto delimitado con **AzureDataLakeStoreSource** todavía se admite como origen de la actividad de copia tipo mencionado en la siguiente sección: es para la compatibilidad con versiones anteriores. Se sugieren para usar este nuevo modelo a partir de ahora, y ha cambiado la interfaz de usuario de creación de ADF para generar estos nuevos tipos.
 
 **Ejemplo:**
 
 ```json
 "activities":[
     {
-        "name": "CopyFromADLS",
+        "name": "CopyFromADLSGen1",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<ADLS input dataset name>",
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "AzureDataLakeStoreReadSetting",
+                    "recursive": true,
+                    "wildcardFolderPath": "myfolder*A",
+                    "wildcardFileName": "*.csv"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>Otro origen de formato
+
+Para copiar datos de ADLS Gen1 en **formato ORC/Avro/JSON/binario**, se admiten las siguientes propiedades en la actividad de copia **origen** sección:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| Tipo | La propiedad `type` del origen de la actividad de copia debe establecerse en: **AzureDataLakeStoreSource**. |Sí |
+| recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando `recursive` se establece en true y el receptor es un almacén basado en archivos, no se copia ni crea ninguna carpeta o subcarpeta vacías en el receptor. Los valores permitidos son: **true** (valor predeterminado) y **false**. | Sin  |
+| maxConcurrentConnections | El número de conexiones para conectarse al almacén de datos al mismo tiempo. Especifique solo cuando desee limitar las conexiones simultáneas al almacén de datos. | Sin  |
+
+**Ejemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromADLSGen1",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<ADLS Gen1 input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -249,19 +365,28 @@ Para copiar datos desde Data Lake Store, establezca el tipo de origen de la acti
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store como receptor
 
-Para copiar datos a Data Lake Store, establezca el tipo de receptor de la actividad de copia en **AzureDataLakeStoreSink**. Se admiten las siguientes propiedades en la sección **sink**:
+- Para copiar en **Parquet y formato de texto delimitado**, consulte [Parquet y receptores de formato de texto delimitado](#parquet-and-delimited-text-format-sink) sección.
+- Para copiar en otros formatos, como **formato ORC/Avro/JSON/binario**, consulte [otros receptores de formato](#other-format-sink) sección.
 
-| Propiedad | DESCRIPCIÓN | Obligatorio |
-|:--- |:--- |:--- |
-| Tipo | La propiedad `type` del receptor de la actividad de copia debe establecerse en: **AzureDataLakeStoreSink** |Sí |
-| copyBehavior | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica que la ruta de acceso relativa del archivo de destino a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del blob o del archivo, el nombre de archivo combinado es el nombre especificado. En caso contrario, el nombre de archivo se genera automáticamente. | Sin  |
+#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet y receptores de formato de texto delimitado
+
+Para copiar datos en ADLS Gen1 en **Parquet o formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) y [formato de texto delimitado](format-delimited-text.md) artículo en el receptor de la actividad de copia basada en el formato y configuraciones admitidas. Las siguientes propiedades son compatibles con ADLS Gen1 en `storeSettings` configuración del receptor de copia basada en el formato:
+
+| Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| Tipo                     | La propiedad type en `storeSettings` debe establecerse en **AzureDataLakeStoreWriteSetting**. | Sí      |
+| copyBehavior             | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | Sin        |
+| maxConcurrentConnections | El número de conexiones para conectarse al almacén de datos al mismo tiempo. Especifique solo cuando desee limitar las conexiones simultáneas al almacén de datos. | Sin        |
+
+> [!NOTE]
+> Para Parquet/texto delimitado con **AzureDataLakeStoreSink** todavía se admite como receptor de la actividad de copia tipo mencionado en la siguiente sección: es para la compatibilidad con versiones anteriores. Se sugieren para usar este nuevo modelo a partir de ahora, y ha cambiado la interfaz de usuario de creación de ADF para generar estos nuevos tipos.
 
 **Ejemplo:**
 
 ```json
 "activities":[
     {
-        "name": "CopyToADLS",
+        "name": "CopyToADLSGen1",
         "type": "Copy",
         "inputs": [
             {
@@ -271,7 +396,52 @@ Para copiar datos a Data Lake Store, establezca el tipo de receptor de la activi
         ],
         "outputs": [
             {
-                "referenceName": "<ADLS output dataset name>",
+                "referenceName": "<Parquet output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "ParquetSink",
+                "storeSettings":{
+                    "type": "AzureDataLakeStoreWriteSetting",
+                    "copyBehavior": "PreserveHierarchy"
+                }
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-sink"></a>Otros receptores de formato
+
+Para copiar datos en ADLS Gen1 en **formato ORC/Avro/JSON/binario**, se admiten las siguientes propiedades en el **receptor** sección:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| Tipo | La propiedad `type` del receptor de la actividad de copia debe establecerse en: **AzureDataLakeStoreSink** |Sí |
+| copyBehavior | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica que la ruta de acceso relativa del archivo de destino a la carpeta de destino.<br/><b>- FlattenHierarchy</b>: todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del archivo, el nombre de archivo combinado es el nombre especificado. En caso contrario, el nombre de archivo se genera automáticamente. | Sin  |
+| maxConcurrentConnections | El número de conexiones para conectarse al almacén de datos al mismo tiempo. Especifique solo cuando desee limitar las conexiones simultáneas al almacén de datos. | Sin  |
+
+**Ejemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToADLSGen1",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<ADLS Gen1 output dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -312,5 +482,10 @@ En esta sección se describe el comportamiento resultante de la operación de co
 | false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La carpeta de destino Folder1 se crea con la estructura siguiente:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de archivo generado automáticamente para File2<br/><br/>No se selecciona la subcarpeta Subfolder1, que contiene los archivos File3, File4 y File5. |
 | false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;File5 | La carpeta de destino Folder1 se crea con la estructura siguiente:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;El contenido de File1 + File2 se combina en un archivo con un nombre de archivo generado automáticamente. Nombre de archivo generado automáticamente para File1<br/><br/>No se selecciona la subcarpeta Subfolder1, que contiene los archivos File3, File4 y File5. |
 
+## <a name="mapping-data-flow-properties"></a>Propiedades de flujo de datos de asignación
+
+Obtenga información detallada de [transformación del origen](data-flow-source.md) y [receptor transformación](data-flow-sink.md) en asignación de flujo de datos.
+
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores, consulte los [almacenes de datos compatibles](copy-activity-overview.md##supported-data-stores-and-formats).

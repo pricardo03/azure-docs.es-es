@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d04bb965ddf9616aaa01f4c8822ac42aea6dab2d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387797"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869558"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -54,7 +54,7 @@ La actividad de copia pasa por las siguientes fases para copiar datos de un orig
 
 La actividad de copia se puede usar para **copiar archivos tal cual** entre dos almacenes de datos basados en archivos, en cuyo caso los datos se copian de manera eficaz sin serialización ni deserialización.
 
-La actividad de copia también admite leer y escribir en archivos de formatos especificados: **Texto, JSON, Avro, ORC y Parquet**y decompresing y compresión de archivos con los códecs siguientes: **GZip, Deflate, BZip2 y ZipDeflate**. Consulte [Formatos de archivo y de compresión admitidos](supported-file-formats-and-compression-codecs.md) para más información.
+La actividad de copia también admite leer y escribir en archivos de formatos especificados: **Texto, JSON, Avro, ORC y Parquet**y comprimir y descomprimir archivos con los códecs siguientes: **GZip, Deflate, BZip2 y ZipDeflate**. Consulte [Formatos de archivo y de compresión admitidos](supported-file-formats-and-compression-codecs.md) para más información.
 
 Por ejemplo, puede realizar las siguientes actividades de copia:
 
@@ -74,7 +74,7 @@ Para usar la actividad de copia en Azure Data Factory, necesita:
 
 1. **Crear servicios vinculados para el almacén de datos de origen y el almacén de datos de receptor**. Consulte la sección "Propiedades del servicio vinculado" del artículo sobre conectores para información de cómo configurar y las propiedades compatibles. Puede encontrar la lista de conectores compatibles en la sección [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats).
 2. **Crear conjuntos de datos para origen y receptor**. Consulte la sección "Propiedades del conjunto de datos" del artículo sobre el conector de origen y receptor para información de cómo configurar y las propiedades compatibles.
-3. **Crear una canalización con la actividad de copia**. Se proporciona un ejemplo en la sección siguiente.  
+3. **Crear una canalización con la actividad de copia**. Se proporciona un ejemplo en la sección siguiente.
 
 ### <a name="syntax"></a>Sintaxis
 
@@ -134,12 +134,12 @@ La plantilla siguiente de una actividad de copia contiene una lista exhaustiva d
 | inputs | Especifique el conjunto de datos que creó y que señala los datos de origen. La actividad de copia admite solo una entrada. | Sí |
 | outputs | Especifique el conjunto de datos que creó y que señala los datos de receptor. La actividad de copia admite solo una salida. | Sí |
 | typeProperties | Grupo de propiedades para configurar la actividad de copia. | Sí |
-| de origen | Especifique el tipo de origen de copia y las propiedades correspondientes sobre cómo recuperar los datos.<br/><br/>Obtenga detalles en la sección "Propiedades de la actividad de copia" del artículo sobre conectores que aparece en [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats). | Sí |
+| source | Especifique el tipo de origen de copia y las propiedades correspondientes sobre cómo recuperar los datos.<br/><br/>Obtenga detalles en la sección "Propiedades de la actividad de copia" del artículo sobre conectores que aparece en [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats). | Sí |
 | sink | Especifique el tipo de receptor de copia y las propiedades correspondientes sobre cómo escribir los datos.<br/><br/>Obtenga detalles en la sección "Propiedades de la actividad de copia" del artículo sobre conectores que aparece en [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats). | Sí |
 | translator | Especifique asignaciones de columna explícitas de origen a receptor. Se aplica cuando el comportamiento predeterminado de copia no puede satisfacer sus necesidades.<br/><br/>Obtenga información en [Asignación de tipos de datos y esquemas](copy-activity-schema-and-type-mapping.md). | Sin  |
 | dataIntegrationUnits | Especifique la potencia de [Azure Integration Runtime](concepts-integration-runtime.md) para impulsar la copia de datos. Anteriormente conocidas como Unidades de movimiento de datos de nube (DMU). <br/><br/>Obtenga más información acerca de las [Unidades de integración de datos](copy-activity-performance.md#data-integration-units). | Sin  |
 | parallelCopies | Especifique el paralelismo que desea que la actividad de copia use al leer datos desde el origen y copiar datos en el receptor.<br/><br/>Obtenga información en [Copia en paralelo](copy-activity-performance.md#parallel-copy). | Sin  |
-| enableStaging<br/>stagingSettings | Elija almacenar provisionalmente los datos en una instancia de Blob Storage en lugar de copiar directamente los datos del origen al receptor.<br/><br/>Obtenga detalles sobre la configuración y los escenarios útiles en [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). | Sin  |
+| enableStaging<br/>stagingSettings | Elija esta opción almacenar provisionalmente los datos en un almacenamiento de blobs en lugar de copiar directamente los datos de origen a receptor.<br/><br/>Obtenga detalles sobre la configuración y los escenarios útiles en [Copia almacenada provisionalmente](copy-activity-performance.md#staged-copy). | Sin  |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Elija cómo controlar las filas incompatibles al copiar datos de origen a receptor.<br/><br/>Obtenga información en [Tolerancia a errores](copy-activity-fault-tolerance.md). | Sin  |
 
 ## <a name="monitoring"></a>Supervisión
@@ -148,7 +148,7 @@ Puede supervisar la ejecución de la actividad de copia en la interfaz de usuari
 
 ### <a name="monitor-visually"></a>Supervisión visual
 
-Para supervisar de manera visual la ejecución de la actividad de copia, vaya a la factoría de datos -> **Author & Monitor (Creación y supervisión)** -> **pestaña Monitor (Supervisión)**. Verá una lista de ejecuciones de canalización con un vínculo "View Activity Runs" (Ver ejecuciones de actividad) en la columna **Acciones**. 
+Para supervisar de manera visual la ejecución de la actividad de copia, vaya a la factoría de datos -> **Author & Monitor (Creación y supervisión)** -> **pestaña Monitor (Supervisión)**. Verá una lista de ejecuciones de canalización con un vínculo "View Activity Runs" (Ver ejecuciones de actividad) en la columna **Acciones**.
 
 ![La supervisión de la canalización se ejecuta](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
@@ -156,7 +156,7 @@ Haga clic para ver la lista de actividades de esta ejecución de canalización. 
 
 ![Supervisión de las ejecuciones de actividad](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Haga clic en el vínculo "**Detalles**" en **Acciones** para ver los detalles de la ejecución y las características de rendimiento de la actividad de copia. Muestra información, incluidos el volumen, las filas y los archivos de los datos copiados desde el origen al receptor, el rendimiento, los pasos que recorre con su duración correspondiente y las configuraciones usadas para el escenario de copia. 
+Haga clic en el vínculo "**Detalles**" en **Acciones** para ver los detalles de la ejecución y las características de rendimiento de la actividad de copia. Muestra información, incluidos el volumen, las filas y los archivos de los datos copiados desde el origen al receptor, el rendimiento, los pasos que recorre con su duración correspondiente y las configuraciones usadas para el escenario de copia.
 
 >[!TIP]
 >En algunos casos, también verá el mensaje "**Sugerencias para la optimización del rendimiento**" en la parte superior de la página de supervisión de copias, que le informa sobre el cuello de botella identificado y le guía por las opciones que puede cambiar con el fin de mejorar el rendimiento de la copia. Puede ver el ejemplo con detalles [aquí](#performance-and-tuning).
@@ -241,12 +241,12 @@ En algunos casos, cuando se ejecuta una actividad de copia en ADF, directamente 
 
 **Ejemplo: copia en Azure SQL DB con sugerencias de optimización del rendimiento**
 
-En este ejemplo, durante la ejecución de la copia, ADF percibe que la instancia receptora de Azure SQL DB alcanza una utilización de la DTU tan alta que ralentiza las operaciones de escritura, por lo que la sugerencia consiste en aumentar el nivel de Azure SQL DB con más DTU. 
+En este ejemplo, durante la ejecución de la copia, ADF percibe que la instancia receptora de Azure SQL DB alcanza una utilización de la DTU tan alta que ralentiza las operaciones de escritura, por lo que la sugerencia consiste en aumentar el nivel de Azure SQL DB con más DTU.
 
 ![Supervisión de copia con sugerencias de optimización del rendimiento](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-## <a name="incremental-copy"></a>Copia incremental 
-Data Factory es compatible con escenarios de copia incremental de datos diferenciales de un almacén de datos de origen en uno de destino. Consulte el [tutorial sobre la copia incremental de datos](tutorial-incremental-copy-overview.md). 
+## <a name="incremental-copy"></a>Copia incremental
+Data Factory es compatible con escenarios de copia incremental de datos diferenciales de un almacén de datos de origen en uno de destino. Consulte el [tutorial sobre la copia incremental de datos](tutorial-incremental-copy-overview.md).
 
 ## <a name="read-and-write-partitioned-data"></a>Lectura y escritura de datos con particiones
 En la versión 1, Azure Data Factory admitía la lectura y la escritura de datos con particiones por medio de las variables del sistema SliceStart, SliceEnd, WindowStart y WindowEnd. En la versión actual, este comportamiento se logra mediante un parámetro de canalización y la hora de inicio o la hora programada del desencadenador como valor del parámetro. Para más información, consulte [How to read and write large data files](how-to-read-write-partitioned-data.md) (Cómo leer o escribir datos con particiones).
