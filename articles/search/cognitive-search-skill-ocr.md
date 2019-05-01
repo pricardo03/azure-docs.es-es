@@ -13,11 +13,11 @@ ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: fb7fe0689ce54031880565c0c6409afeab2ff523
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126981"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
@@ -54,7 +54,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 
 | Nombre de entrada      | DESCRIPCIÓN                                          |
 |---------------|------------------------------------------------------|
-| imagen         | Tipo complejo. Actualmente, solo funciona con el campo "/document/normalized_images", que crea el indexador de Azure Blob cuando ```imageAction``` está establecido en un valor diferente a ```none```. Para obtener más información, consulte este [ejemplo](#sample-output).|
+| image         | Tipo complejo. Actualmente, solo funciona con el campo "/document/normalized_images", que crea el indexador de Azure Blob cuando ```imageAction``` está establecido en un valor diferente a ```none```. Para obtener más información, consulte este [ejemplo](#sample-output).|
 
 
 ## <a name="skill-outputs"></a>Salidas de aptitudes

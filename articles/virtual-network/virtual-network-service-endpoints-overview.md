@@ -1,5 +1,5 @@
 ---
-title: Puntos de conexión del servicio Azure Virtual Network
+title: Punto de conexión de servicio de red virtual de Azure
 titlesuffix: Azure Virtual Network
 description: Aprenda a habilitar el acceso directo a los recursos de Azure desde una red virtual con puntos de conexión de servicio.
 services: virtual-network
@@ -14,13 +14,13 @@ ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
 ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618165"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61032582"
 ---
-# <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio de redes virtuales
+# <a name="virtual-network-service-endpoints"></a>Puntos de conexión de servicio de red virtual
 
 Los puntos de conexión del servicio Virtual Network (red virtual) extienden el espacio de direcciones privadas de la red virtual y la identidad de la red virtual a los servicios de Azure a través de una conexión directa. Los puntos de conexión permiten proteger los recursos de servicio de Azure críticos únicamente para las redes virtuales. El tráfico desde la red virtual al servicio de Azure siempre permanece en la red troncal de Microsoft Azure.
 
@@ -65,7 +65,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Protección de servicios de Azure para las redes virtuales
 
-- Un punto de conexión de servicio de la red virtual proporciona la identidad de la red virtual al servicio de Azure. Una vez que los puntos de conexión de servicio se habilitan en la red virtual, puede proteger los recursos de servicio de Azure en la red virtual mediante la incorporación de una regla de red virtual a los recursos.
+- Un punto de conexión de servicio de red virtual proporciona la identidad de la red virtual al servicio de Azure. Una vez que los puntos de conexión de servicio se habilitan en la red virtual, puede proteger los recursos de servicio de Azure en la red virtual mediante la incorporación de una regla de red virtual a los recursos.
 - Actualmente, el tráfico del servicio de Azure desde una red virtual usa direcciones IP públicas como direcciones IP de origen. Con los puntos de conexión de servicio, el tráfico del servicio cambia para usar direcciones privadas de red virtual como la direcciones IP de origen al acceder al servicio de Azure desde una red virtual. Este modificador permite acceder a los servicios sin necesidad de direcciones IP públicas y reservadas utilizadas en los firewalls IP.
 
 >[!NOTE]
@@ -134,21 +134,21 @@ No hay límite en el número total de puntos de conexión de servicio en una red
 
 Algunos servicios de Azure, como cuentas de almacenamiento de Azure, pueden exigir límites en el número de subredes que se usan para proteger el recurso. Consulte la documentación de varios servicios en [Pasos siguientes](#next-steps) para más información.
 
-## <a name="virtual-network-service-endpoint-policies"></a>Directivas de puntos de conexión de servicio de redes virtuales 
+## <a name="virtual-network-service-endpoint-policies"></a>Directivas de puntos de conexión de servicio de red virtual 
 
-Las directivas de punto de conexión de servicio de la red virtual le permiten filtrar el tráfico de red virtual a los servicios de Azure, lo que permite únicamente recursos de servicio específicos de Azure, sobre los puntos de conexión de servicio. Las directivas de punto de conexión de servicio ofrecen un control de acceso pormenorizado para el tráfico de red virtual a los servicios de Azure. Más información: [Directivas de puntos de conexión de servicio de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+Las directivas de punto de conexión de servicio de la red virtual le permiten filtrar el tráfico de red virtual a los servicios de Azure, lo que permite únicamente recursos de servicio específicos de Azure, sobre los puntos de conexión de servicio. Las directivas de punto de conexión de servicio ofrecen un control de acceso pormenorizado para el tráfico de red virtual a los servicios de Azure. Más información: [Directivas de puntos de conexión de servicio de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
-Para consultar las preguntas más frecuentes, vea [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints).
+Consulte las [Preguntas más frecuentes acerca de los puntos de conexión de servicio de red virtual de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [configurar los puntos de conexión de servicio de la red virtual](tutorial-restrict-network-access-to-resources.md)
+- Obtenga información sobre cómo [configurar los puntos de conexión de servicio de red virtual](tutorial-restrict-network-access-to-resources.md)
 - Obtenga información sobre cómo [proteger una cuenta de Azure Storage para una red virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Obtenga información sobre cómo [proteger una instancia de Azure SQL Database para una red virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Obtenga información sobre cómo [proteger una instancia de Azure SQL Data Warehouse para una red virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json).
 - Obtenga información sobre la [integración del servicio de Azure en redes virtuales](virtual-network-for-azure-services.md)
-- Obtenga información sobre las [directivas de punto de conexión de servicio de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- Obtenga información sobre las [directivas de punto de conexión de servicio de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 -  Guía de inicio rápido: [plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) para establecer el punto de conexión de servicio en una subred de la red virtual y una cuenta segura de Azure Storage para esa subred.
 

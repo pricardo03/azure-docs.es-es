@@ -12,11 +12,11 @@ ms.date: 02/27/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 2a245a6e3d76a7df41b5ef28f9bac8a2c2122402
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61127089"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Aptitud cognitiva de reconocimiento de entidades
 
@@ -68,7 +68,7 @@ Solo _en_, _es_ admiten la extracción de los tipos `"Quantity"`, `"Datetime"`, 
 | dateTimes  | Una matriz de cadenas donde cada cadena representa un valor de fecha y hora (como aparece en el texto). |
 | urls | Una matriz de cadenas donde cada cadena representa una dirección URL. |
 | emails | Una matriz de cadenas donde cada cadena representa un correo electrónico. |
-| namedEntities | Una matriz de tipos complejos, que contiene los siguientes campos: <ul><li>categoría</li> <li>valor (el nombre de una entidad real)</li><li>desplazamiento (la ubicación donde se encontró en el texto)</li><li>confidence (no se usa por ahora. Se establecerá en un valor de -1)</li></ul> |
+| namedEntities | Una matriz de tipos complejos, que contiene los siguientes campos: <ul><li>category</li> <li>valor (el nombre de una entidad real)</li><li>desplazamiento (la ubicación donde se encontró en el texto)</li><li>confidence (no se usa por ahora. Se establecerá en un valor de -1)</li></ul> |
 | entities | Una matriz de tipos complejos que contiene información valiosa acerca de las entidades extraídas del texto, con los siguientes campos: <ul><li> name (el nombre real de la entidad. Esto representa una forma "normalizada")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (un vínculo a la página de Wikipedia de la entidad)</li><li>bingId</li><li>type (la categoría de la entidad reconocida)</li><li>subType (solo disponible para determinadas categorías; proporciona una vista más pormenorizada del tipo de entidad)</li><li> matches (una colección compleja que contiene)<ul><li>text (el texto sin formato de la entidad)</li><li>offset (la ubicación donde se encontró)</li><li>length (la longitud del texto de la entidad sin formato)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definición de ejemplo

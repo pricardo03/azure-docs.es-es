@@ -12,11 +12,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c417950e07ae3c6922aa260a3ef40d862870aa1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61042890"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Muestreo de datos en tablas de HDInsight Hive de Azure
 En este artículo, se describe cómo reducir el tamaño de los datos almacenados en tablas de Azure HDInsight Hive mediante consultas de Hive para reducirlos a un tamaño más manejable para el análisis. En él se tratan tres métodos de muestreo que se utilizan normalmente:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
-ms.openlocfilehash: 2c0b211bced99d272a73a7b018a22f99d8d58aa9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 260dfdd4b8fe7c277358fa5773029ea9a532740a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111723"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61078365"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Uso de Administrador de instantáneas StorSimple para ver y administrar volúmenes
 ## <a name="overview"></a>Información general
@@ -91,9 +91,9 @@ Utilice el procedimiento siguiente para ver información acerca de volúmenes lo
    
     ![Configurar las columnas](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
-   | Columna Resultados | Descripción |
+   | Columna Resultados | DESCRIPCIÓN |
    |:--- |:--- |
-   |  Nombre |La columna **Nombre** contiene la letra de unidad asignada a cada volumen detectado. |
+   |  NOMBRE |La columna **Nombre** contiene la letra de unidad asignada a cada volumen detectado. |
    |  Dispositivo |La columna **Dispositivo** contiene la dirección IP del dispositivo conectado al equipo host. |
    |  Nombre del volumen del dispositivo |La columna **Nombre del volumen del dispositivo** contiene el nombre del volumen del dispositivo al que pertenece el volumen seleccionado. Este es el nombre del volumen definido en Azure Portal para ese volumen específico. |
    |  Rutas de acceso |La columna **Rutas de acceso** muestra la ruta de acceso al volumen. Es la letra de unidad o el punto de montaje en el que el volumen es accesible en el equipo host. |
@@ -155,8 +155,8 @@ Antes de empezar:
 ## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>Configuración y copia de seguridad de un volumen reflejado dinámico
 Complete los pasos siguientes para configurar la copia de seguridad de un volumen reflejado dinámico:
 
-* Paso 1: Uso de Administración de discos para crear un volumen reflejado dinámico. 
-* Paso 2: Uso de Snapshot Manager de StorSimple para configurar la copia de seguridad.
+* Paso 1: Use Administración de discos para crear un volumen reflejado dinámico. 
+* Paso 2: Use el Administrador de instantáneas StorSimple para configurar la copia de seguridad.
 
 ### <a name="prerequisites"></a>Requisitos previos
 Antes de empezar:
@@ -165,7 +165,7 @@ Antes de empezar:
 * Instalación y configuración de Administrador de instantáneas StorSimple Para obtener más información, vaya a [Implementación de StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 * Configure dos volúmenes en el dispositivo StorSimple. (En los ejemplos, los volúmenes disponibles son **Disco 1** y **Disco 2**). 
 
-### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Paso 1: Uso del Administración de discos para crear un volumen reflejado dinámico
+### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Paso 1: Use Administración de discos para crear un volumen reflejado dinámico
 Administración de discos es una utilidad del sistema para administrar discos duros y los volúmenes o particiones que contienen. Para obtener más información sobre Administración de discos, vaya a [Administración de discos](https://technet.microsoft.com/library/cc770943.aspx) en el sitio web de Microsoft TechNet.
 
 #### <a name="to-create-a-dynamic-mirrored-volume"></a>Para crear un volumen reflejado dinámico
@@ -190,7 +190,7 @@ Administración de discos es una utilidad del sistema para administrar discos du
     
     ![Discos dinámicos reflejados de Administración de discos](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png) 
 
-### <a name="step-2-use-storsimple-snapshot-manager-to-configure-backup"></a>Paso 2: Uso de Administrador de instantáneas StorSimple para configurar la copia de seguridad
+### <a name="step-2-use-storsimple-snapshot-manager-to-configure-backup"></a>Paso 2: Use el Administrador de instantáneas StorSimple para configurar la copia de seguridad
 Utilice el siguiente procedimiento para configurar un volumen reflejado dinámico e iniciar inmediatamente una copia de seguridad o crear una directiva de copias de seguridad programadas.
 
 #### <a name="to-configure-backup-of-a-dynamic-mirrored-volume"></a>Para configurar la copia de seguridad de un volumen reflejado dinámico

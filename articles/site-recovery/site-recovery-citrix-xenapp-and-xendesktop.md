@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310528"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61038259"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Configuración de la recuperación ante desastres para una implementación de XenApp y XenDesktop de Citrix de niveles múltiples
 
@@ -56,9 +56,9 @@ Para este artículo, se han usado implementaciones de Citrix en máquinas virtua
 
 **Escenario** | **En un sitio secundario** | **En Azure**
 --- | --- | ---
-**Hyper-V** | Fuera del ámbito | SÍ
-**VMware** | Fuera del ámbito | SÍ
-**Servidor físico** | Fuera del ámbito | SÍ
+**Hyper-V** | Fuera del ámbito | Sí
+**VMware** | Fuera del ámbito | Sí
+**Servidor físico** | Fuera del ámbito | Sí
 
 ### <a name="versions"></a>Versiones
 Los clientes pueden implementar componentes de XenApp como máquinas virtuales que se ejecutan en Hyper-V o VMware o como servidores físicos. Azure Site Recovery puede proteger las implementaciones físicas y virtuales en Azure.
