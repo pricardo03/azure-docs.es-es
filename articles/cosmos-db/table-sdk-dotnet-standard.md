@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
 ms.openlocfilehash: 4b193dd41c137907e56e2bf38b18ebcf2f2b481a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326876"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692246"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Table API de .NET Standard de Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ ms.locfileid: "60326876"
 ## <a name="release-and-retirement-dates"></a>Fechas de lanzamiento y de retirada
 Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
-| Version | Fecha de lanzamiento | Fecha de retirada |
+| `Version` | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
 | [1.0.1](#1.0.1) |19 de abril de 2019 |--- |
 | [1.0.0](#1.0.0) |13 de marzo de 2019 |--- |

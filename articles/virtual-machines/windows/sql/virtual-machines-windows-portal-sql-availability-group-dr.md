@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 8f5b470cb3f75f434033a245f4aaa185aeb665c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9e31ac7685d597c741033bc165c6a51280e3d72
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325989"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571729"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configuración de un grupo de disponibilidad AlwaysOn en máquinas virtuales de Azure en distintas regiones
 
@@ -145,7 +145,7 @@ La réplica en el centro de datos remoto forma parte del grupo de disponibilidad
 
 Es preferible actualizar las cadenas de conexión de cliente para establecer `MultiSubnetFailover=Yes`. Consulte [Conectarse a MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-Si no puede modificar las cadenas de conexión, puede configurar el almacenamiento en caché de la resolución de nombres. Consulte [Connection Timeouts in Multi-subnet Availability Group](https://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/) (Tiempos de espera de conexión en un grupo de disponibilidad con varias subredes).
+Si no puede modificar las cadenas de conexión, puede configurar el almacenamiento en caché de la resolución de nombres. Consulte [error de tiempo de espera y no se puede conectar a un agente de escucha de grupo de disponibilidad de SQL Server 2012 AlwaysOn en un entorno de múltiples subredes](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
 ## <a name="fail-over-to-remote-region"></a>Conmutación por error a una región remota
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034156"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575585"
 ---
 # <a name="virtual-appliance-scenario"></a>Escenario de aplicación virtual
 Un escenario común entre los clientes de Azure de mayor tamaño es la necesidad de ofrecer una aplicación en 2 niveles expuesta a Internet a la vez que permiten el acceso al nivel posterior desde un centro de datos local. Este documento le guiará en un escenario con Rutas definidas por el usuario (UDR), una instancia de VPN Gateway y aplicaciones virtuales de red para implementar un entorno de 2 niveles que cumple los siguientes requisitos:
@@ -30,14 +30,14 @@ Un escenario común entre los clientes de Azure de mayor tamaño es la necesidad
 * Todo el tráfico que vaya al servidor de aplicaciones debe pasar por una aplicación virtual de firewall. Esta aplicación virtual se usará para tener acceso al servidor back-end y el acceso entrante provendrá de la red local a través de VPN Gateway.
 * Los administradores deberán poder administrar las aplicaciones virtuales de firewall desde los equipos locales con una tercera aplicación virtual de firewall que se usará exclusivamente para la administración.
 
-Este es un escenario de red perimetral estándar con una red perimetral y una red protegida. Dicho escenario se puede construir en Azure con NSG, aplicaciones virtuales de firewall o una combinación de ambos elementos. La tabla a continuación muestra algunas de las ventajas y desventajas entre los NSG y las aplicaciones virtuales de firewall.
+Se trata de un escenario de red (también conocen como DMZ) perimetral estándar con una red Perimetral y una red protegida. Estos escenarios se pueden construir en Azure con NSG, aplicaciones virtuales de firewall o una combinación de ambos. La tabla a continuación muestra algunas de las ventajas y desventajas entre los NSG y las aplicaciones virtuales de firewall.
 
 |  | Ventajas | Desventajas |
 | --- | --- | --- |
-| Grupo de seguridad de red |No tienen costo. <br/>Están integrados en Azure RBAC. <br/>Las reglas se pueden crear en plantillas ARM. |La complejidad podría variar en entornos de mayor tamaño. |
+| Grupo de seguridad de red |No tienen costo. <br/>Están integrados en Azure RBAC. <br/>Las reglas se pueden crear en plantillas de Azure Resource Manager. |La complejidad podría variar en entornos de mayor tamaño. |
 | Firewall |Control total sobre el plano de datos. <br/>Administración central a través de la consola de firewall. |El costo de la aplicación de firewall. <br/>No está integrado con Azure RBAC. |
 
-La solución siguiente usa aplicaciones virtuales de firewall para implementar un escenario de red protegida o red perimetral.
+La solución siguiente usa aplicaciones virtuales de firewall para implementar una red perimetral (DMZ) / protegido el escenario de red.
 
 ## <a name="considerations"></a>Consideraciones
 Puede implementar el entorno que se explicó anteriormente en Azure con distintas características que actualmente están disponibles, como se indica a continuación.
@@ -167,5 +167,5 @@ Para implementar este escenario, siga estos pasos de alto nivel.
 2. Si desea implementar una red virtual que simule la red local, aprovisione los recursos que son parte de **ONPREMRG**.
 3. Aprovisione los recursos que son parte de **AZURERG**.
 4. Aprovisione el túnel de **onpremvnet** a **azurevnet**.
-5. Una vez que se aprovisionen todos los recursos, inicie sesión en **onpremvm2** y haga ping a 10.0.3.101 para probar la conectividad entre **onpremsn2** y **azsn3**.
+5. Una vez que todos los recursos se aprovisionan, inicie sesión en **onpremvm2** y haga ping a 10.0.3.101 para probar la conectividad entre **onpremsn2** y **azsn3**.
 

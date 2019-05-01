@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 2f27105aed940f0411abaa534cb09adf0be34bfe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a16421182f533f5aa2ad4bcc2e58e910cc7e8ca6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830334"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702407"
 ---
 # <a name="how-an-application-gateway-works"></a>Cómo funciona una puerta de enlace de aplicaciones
 
@@ -26,7 +26,7 @@ En este artículo se explica cómo una puerta de enlace de aplicaciones acepta l
 
 2. El DNS de Azure, se devuelve la dirección IP para el cliente, que es la dirección IP de front-end de la puerta de enlace de la aplicación.
 
-3. La puerta de enlace de la aplicación acepta el tráfico entrante en una o varias escuchas. Un agente de escucha es una entidad lógica que comprueba las solicitudes de conexión. Se configura con una dirección IP front-, protocolo y número de puerto para las conexiones de clientes a la puerta de enlace de la aplicación.
+3. La puerta de enlace de la aplicación acepta el tráfico entrante en una o varias escuchas. Un agente de escucha es una entidad lógica que comprueba las solicitudes de conexión. Se configura con una dirección IP de front-end, el protocolo y el número de puerto para las conexiones de clientes a la puerta de enlace de la aplicación.
 
 4. Si firewall de aplicaciones web (WAF) está en uso, la puerta de enlace de la aplicación comprueba los encabezados de solicitud y el cuerpo, si está presente, según las reglas de WAF. Esta acción se determina si la solicitud es una solicitud válida o una amenaza de seguridad. Si la solicitud es válida, se enruta al back-end. Si la solicitud no es válida, se bloquea como una amenaza de seguridad.
 

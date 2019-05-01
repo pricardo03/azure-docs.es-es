@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Obtenga información sobre crear, modificar o eliminar un grupo de seguridad de red.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
-ms.author: jdial
-ms.openlocfilehash: 5eb5a24d6126e9609d1c653948c2db6b0a4feb55
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.author: kumud
+ms.openlocfilehash: 9fc73c40d4d3241afefd67b1c4f084765b0be934
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821941"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710198"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Crear, modificar o eliminar un grupo de seguridad de red
 
@@ -31,7 +31,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 - Si todavía no tiene una cuenta de Azure, regístrese para obtener una [cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 - Si usa el portal, abra https://portal.azure.com e inicie sesión con la cuenta de Azure.
-- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Este tutorial requiere la versión 1.0.0 del módulo de Azure PowerShell o una versión posterior. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
+- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial, se necesita la versión 1.0.0 del módulo de Azure PowerShell u otra posterior. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 - Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial es necesaria la versión 2.0.28 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
 
 La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener asignado el rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones apropiadas en [Permisos](#permissions).
@@ -124,7 +124,7 @@ Existe un límite para la cantidad de reglas por grupo de seguridad de red que s
     |Intervalos de puertos de origen     | Especifique un único puerto (por ejemplo, 80), un intervalo de puertos (como 1024-65535) o una lista de puertos únicos y/o intervalos de puertos separados por comas (como 80, 1024-65535). Escriba un asterisco para permitir el tráfico en cualquier puerto. | Los puertos e intervalos especifican qué tráfico de puertos permitirá o denegará la regla. Se aplican límites al número de puertos que puede especificar. Para más información, consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).  |
     |Destino     | Seleccione **Cualquiera**, **Grupo de seguridad de aplicaciones**, **Direcciones IP** o **Red virtual** para las reglas de seguridad de entrada. Si va a crear una regla de seguridad de salida, las opciones son las mismas que las indicadas para **Origen**.        | Si selecciona **Grupo de seguridad de aplicaciones**, debe seleccionar después uno o varios grupos de seguridad de aplicaciones existentes en la misma región que la interfaz de red. Obtenga información sobre cómo [crear un grupo de seguridad de aplicaciones](#create-an-application-security-group). Si selecciona **Grupo de seguridad de aplicaciones**, seleccione después un grupo de seguridad de aplicaciones que exista en la misma región que la interfaz de red. Si selecciona **Direcciones IP**, especifique después **Intervalos de direcciones IP de destino y CIDR**. De manera similar a **Origen** e **Intervalos de direcciones IP de origen y CIDR**, puede especificar uno o varios intervalos o direcciones y se aplican límites a la cantidad que puede especificar. Si se selecciona **Red virtual**, que es una etiqueta de servicio, significa que se permite el tráfico a todas las direcciones IP dentro del espacio de direcciones de la red virtual. Si la dirección IP que especifica está asignada a una máquina virtual de Azure, asegúrese de que especifica la dirección IP privada, no la dirección IP pública asignada a la máquina virtual. Las reglas de seguridad se procesan después de que Azure traduce la dirección IP pública a una dirección IP privada para las reglas de seguridad de entrada, y antes de que Azure traduzca una dirección IP privada a una dirección IP pública para las reglas de salida. Para más información sobre las direcciones IP públicas y privadas de Azure, consulte [Tipos de direcciones IP](virtual-network-ip-addresses-overview-arm.md).        |
     |Intervalos de puertos de destino     | Especifique un valor único o una lista de varios valores separados por comas. | De manera similar a **Intervalos de puertos de origen**, puede especificar uno o varios intervalos o puertos y se aplican límites a la cantidad que puede especificar. |
-    |Protocolo     | Seleccione **Cualquiera**, **TCP** o **UDP**.        |         |
+    |Protocol     | Seleccione **Cualquiera**, **TCP** o **UDP**.        |         |
     |.     | Seleccione **Permitir** o **Denegar**.        |         |
     |Prioridad     | Escriba un valor de 100-4096 que sea único para todas las reglas de seguridad del grupo de seguridad de red. |Las reglas se procesan en el orden de prioridad. Cuanto menor sea el número, mayor será la prioridad. Se recomienda dejar un espacio entre los números de prioridad al crear reglas, como 100, 200, 300. Dejar espacios facilita la adición de reglas en el futuro que pueda necesitar por encima o debajo de las reglas existentes.         |
     |NOMBRE     | Nombre único para la regla en el grupo de seguridad de red.        |  Puede tener hasta 80 caracteres. Debe empezar con una letra o un número y acabar con una letra, un número o un guion bajo, y solo debe contener letras, números, guiones bajos, puntos o guiones.       |
@@ -197,7 +197,7 @@ Un grupo de seguridad de aplicaciones contiene una interfaz de red, varias o nin
     | NOMBRE           | El nombre debe ser único dentro de un grupo de recursos.        |
     | Subscription   | Seleccione su suscripción.                               |
     | Grupos de recursos | Seleccione un grupo de recursos existente, o bien cree uno. |
-    | Ubicación       | Seleccionar una ubicación                                       |
+    | Location       | Seleccionar una ubicación                                       |
 
 **Comandos**
 

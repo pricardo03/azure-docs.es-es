@@ -9,12 +9,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b25400f21e24b18a0a21b9d849bdd505f6d47aac
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: f12d11cecbf682ae82f9c432804b1d611ee3e39f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765760"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719408"
 ---
 # <a name="common-security-attributes-for-azure-service-fabric"></a>Atributos comunes de seguridad para Azure Service Fabric
 
@@ -27,7 +27,7 @@ La seguridad está integrada en todos los aspectos de los servicios de Azure. Es
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí | El cliente posee el clúster y el conjunto de escalado en que se crea el clúster. Cifrado de disco de Azure se puede habilitar en el conjunto de escalado de máquinas virtuales. |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí |  |
+| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>En el cifrado de red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí |  |
 | Control de claves de cifrado (CMK, BYOK, etcetera.)| Sí | El cliente posee el clúster y el conjunto de escalado en que se crea el clúster. Cifrado de disco de Azure se puede habilitar en el conjunto de escalado de máquinas virtuales. |
 | Cifrado de nivel de columna (Azure Data Services)| N/D |  |
 | Llamadas a API cifradas| Sí | Las llamadas de API de Service Fabric se hacen a través de Azure Resource Manager. Se requiere un token web de JSON (JWT) válido. |
@@ -37,7 +37,7 @@ La seguridad está integrada en todos los aspectos de los servicios de Azure. Es
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Compatibilidad de punto de conexión de servicio| Sí |  |
-| compatibilidad con inserción de redes virtuales| Sí |  |
+| Compatibilidad con inserción de redes virtuales| Sí |  |
 | Aislamiento de red y la compatibilidad con Firewall| Sí | Usando grupos de seguridad de red (NSG). |
 | Fuerza la tunelización de soporte técnico| Sí | Las redes de Azure proporcionan la tunelización forzada. |
 

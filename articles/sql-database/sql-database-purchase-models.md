@@ -11,30 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360191"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574097"
 ---
-# <a name="azure-sql-database-purchasing-models"></a>Modelos de compra de Azure SQL Database
+# <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>Elija entre la memoria con núcleo virtual y el modelo de compra de DTU
 
 Azure SQL Database le permite comprar fácilmente motores de base de datos PaaS completamente administrados que se ajusten a sus necesidades de rendimiento y costos. Según el modelo de implementación de Azure SQL Database, puede seleccionar el modelo de compra que se adapte a sus necesidades:
-
-- [Modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) (recomendado) que le permite elegir la cantidad exacta de la capacidad de almacenamiento y proceso que necesita para la carga de trabajo.
-- [Modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) donde puede elegir paquetes de proceso y almacenamiento agrupados y equilibrados para cargas de trabajo habituales.
 
 Hay disponibles distintos modelos de compra en los modelos de implementación de Azure SQL Database:
 
 - Las opciones de implementación de [base de datos única](sql-database-single-databases-manage.md) y [grupo elástico](sql-database-elastic-pool.md) de [Azure SQL Database](sql-database-technical-overview.md) ofrecen ambas el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 - La opción de implementación de [instancia administrada](sql-database-managed-instance.md) de Azure SQL Database solo ofrece el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 
-> [!IMPORTANT]
-> El [nivel de servicio de hiperescala (versión preliminar)](sql-database-service-tier-hyperscale.md) está en versión preliminar pública solo para las bases de datos únicas que usan el modelo de compra basado en núcleos virtuales.
 
-En la tabla y el gráfico siguientes se comparan y contrastan estos dos modelos de compra.
+La siguiente tabla y gráfico de comparan y contrastar lo núcleos virtuales y lo modelos de compra de DTU.
 
 |**Modelo de compra**|**Descripción**|**Más adecuado para**|
 |---|---|---|
@@ -46,7 +41,10 @@ En la tabla y el gráfico siguientes se comparan y contrastan estos dos modelos 
 
 ## <a name="compute-costs"></a>Costos de proceso
 
-El costo de proceso refleja la capacidad de proceso total que se ha aprovisionado para la aplicación. En el nivel de servicio Crítico para la empresa, se asignan automáticamente como mínimo tres réplicas. Para reflejar esta asignación adicional de recursos de proceso, el precio del núcleo virtual es aproximadamente 2,7 veces más elevado en el nivel Crítico para la empresa que en el nivel Uso general. Por la misma razón, el mayor precio del almacenamiento por GB en el nivel Crítico para la empresa refleja la E/S alta y la baja latencia del almacenamiento SSD. Al mismo tiempo, el costo de almacenamiento de copia de seguridad no es diferente entre estos dos niveles de servicio porque en ambos casos se usa una clase de almacenamiento estándar.
+### <a name="provisioned-compute-costs"></a>Costos de proceso aprovisionada
+
+En el nivel de proceso aprovisionada, el costo de proceso refleja la capacidad de proceso total que se ha aprovisionado para la aplicación.  En el nivel de servicio Crítico para la empresa, se asignan automáticamente como mínimo tres réplicas. Para reflejar esta asignación adicional de recursos de proceso, el precio del núcleo virtual es aproximadamente 2,7 veces más elevado en el nivel Crítico para la empresa que en el nivel Uso general. Por la misma razón, el mayor precio del almacenamiento por GB en el nivel Crítico para la empresa refleja la E/S alta y la baja latencia del almacenamiento SSD. Al mismo tiempo, el costo de almacenamiento de copia de seguridad no es diferente entre estos dos niveles de servicio porque en ambos casos se usa una clase de almacenamiento estándar.
+
 
 ## <a name="storage-costs"></a>Costos de almacenamiento
 
@@ -110,7 +108,7 @@ Si quiere migrar una carga de trabajo de máquina virtual existente local o de S
 
 Los grupos son apropiados para un amplio número de bases de datos con patrones de utilización específicos. Para una base de datos determinada, este patrón está caracterizado por una utilización media baja con picos de utilización relativamente poco frecuentes. SQL Database evalúa automáticamente el historial de uso de recursos de bases de datos en un servidor de SQL Database existente y recomienda la configuración de grupo apropiada en Azure Portal. Para más información, consulte [¿Cuándo se debe utilizar un grupo elástico?](sql-database-elastic-pool.md)
 
-## <a name="purchase-model-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre los modelos de compra
+## <a name="purchase-models-frequently-asked-questions-faq"></a>Los modelos de compra: preguntas más frecuentes (P+F)
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>¿Tengo que desconectar la aplicación para realizar la conversión de una base de datos basada en DTU a un nivel de servicio basado en núcleos virtuales?
 

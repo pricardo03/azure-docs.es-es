@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 404335ce0cd05085c79cbeea29ad95f79008289c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522510"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681950"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creación de tablas de Hive y carga de datos desde Azure Blob Storage
 
@@ -47,7 +47,7 @@ Las consultas de subárbol se pueden enviar mediante:
 2. [Enviar consultas de Hive con el Editor de Hive](#hive-editor)
 3. [Enviar consultas de Hive con los comandos de Azure PowerShell](#ps)
 
-Las consultas de Hive son similares a SQL. Los usuarios familiarizados con SQL pueden encontrar la [hoja de referencia rápida Hive para usuarios de SQL](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) de gran utilidad.
+Las consultas de Hive son similares a SQL. Los usuarios familiarizados con SQL pueden encontrar la [hoja de referencia rápida Hive para usuarios de SQL](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) de gran utilidad.
 
 Al enviar una consulta de subárbol, también puede controlar el destino del resultado de las consultas de subárbol, ya sea en la pantalla o en un archivo local del nodo principal o en un blob de Azure.
 

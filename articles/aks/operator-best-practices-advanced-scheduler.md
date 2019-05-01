@@ -2,18 +2,17 @@
 title: 'Procedimientos recomendados de operador: características avanzadas del programador en Azure Kubernetes Service (AKS)'
 description: Conozca las prácticas recomendadas de operador de clúster para usar características avanzadas de programador como taints y tolerations, los selectores de nodo y la afinidad o falta de afinidad entre pods en Azure Kubernetes Service (AKS).
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 11/26/2018
+ms.author: iainfou
+ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464975"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690462"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 
@@ -37,7 +36,7 @@ El programador de Kubernetes puede utilizar taints y tolerations para limitar la
 * Un valor **taint** se aplica a un nodo que indica que solo se pueden programar pods específicos en él.
 * Luego se aplica un valor **toleration** a un pod que le permite *tolerar* el valor taint de un nodo.
 
-Al implementar un pod en un clúster de AKS, Kubernetes programa solo pods en nodos donde un valor toleration se alinea con el valor taint. Por ejemplo, suponga que tiene un grupo de nodos en el clúster de AKS para nodos con compatibilidad con GPU. Define el nombre (por ejemplo, *gpu*) y, a continuación, un valor para la programación. Si establece este valor en *NoSchedule*, el programador de Kubernetes no puede programar pods en el nodo si el pod no define el valor toleration correspondiente.
+Al implementar un pod en un clúster de AKS, Kubernetes programa solo pods en nodos donde un valor toleration se alinea con el valor taint. Por ejemplo, suponga que tiene un grupo de nodos en el clúster de AKS para los nodos con GPU admite. Define el nombre (por ejemplo, *gpu*) y, a continuación, un valor para la programación. Si establece este valor en *NoSchedule*, el programador de Kubernetes no puede programar pods en el nodo si el pod no define el valor toleration correspondiente.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -53,7 +52,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
   resources:
     requests:
       cpu: 0.5
@@ -73,6 +72,23 @@ Cuando se implemente este pod, como el uso de `kubectl apply -f gpu-toleration.y
 Al aplicar valores taint, el trabajo con los desarrolladores y propietarios de su aplicación les permite definir las tolerancias necesarias en sus implementaciones.
 
 Para obtener más información acerca de taints y tolerations, consulte [applying taints and tolerations][k8s-taints-tolerations] (aplicación de taints y tolerations).
+
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamiento de taints y tolerations en AKS
+
+Al actualizar un grupo de nodos de AKS, taints y tolerations siguen un patrón de conjunto de medida que se apliquen a los nuevos nodos:
+
+- **Clústeres predeterminados sin soporte de escalado de máquina virtual**
+  - Supongamos que tiene un clúster de dos nodos: *node1* y *Nodo2*. Al actualizar, un nodo adicional (*Nodo3*) se crea.
+  - El taints de *node1* se aplican a *Nodo3*, a continuación, *node1* , a continuación, se elimina.
+  - Se crea otro nuevo nodo (denominado *node1*, desde la anterior *node1* se ha eliminado) y el *Nodo2* taints se aplican a la nueva *node1*. A continuación, *Nodo2* se elimina.
+  - En esencia *node1* se convierte en *Nodo3*, y *Nodo2* se convierte en *node1*.
+
+- **Conjuntos de escalado de clústeres que usan la máquina virtual** (actualmente en versión preliminar de AKS)
+  - Nuevamente, supongamos que tiene un clúster de dos nodos: *node1* y *Nodo2*. Actualizar el grupo de nodos.
+  - Se crean dos nodos adicionales, *Nodo3* y *Nodo4*, y se pasan los taints respectivamente.
+  - La versión original *node1* y *Nodo2* se eliminan.
+
+Al escalar un grupo de nodos de AKS, taints y tolerations no transportan diseño la tecla TAB.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Control de la programación del pod mediante selectores de nodo y afinidad
 
@@ -96,7 +112,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -126,7 +142,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5

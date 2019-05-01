@@ -3,19 +3,19 @@ title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
 description: Especifique el elemento RelyingParty de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5d42568a738d946d7df65601044b9797a35f6b1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca78e7a9ce44b492dafcc00c1663d54718ca7fac
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360408"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705086"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -178,7 +178,7 @@ El elemento **TechnicalProfile** contiene los elementos siguientes:
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | Cadena que contiene el nombre del perfil técnico que se muestra a los usuarios. |
 | DESCRIPCIÓN | 0:1 | Cadena que contiene la descripción del perfil técnico que se muestra a los usuarios. |
-| Protocolo | 1:1 | Protocolo usado para la federación. |
+| Protocol | 1:1 | Protocolo usado para la federación. |
 | Metadatos | 0:1 | La colección de *Item* de los pares clave-valor usados por el protocolo para comunicarse con el punto de conexión en el transcurso de una transacción para configurar la interacción entre el usuario de confianza y otros participantes de la comunidad. |
 | OutputClaims | 0:1 | Una lista de tipos de notificación que se consideran el resultado del perfil técnico. Cada uno de estos elementos contiene la referencia a un **ClaimType** ya definido en la sección **ClaimsSchema** o en una directiva de la que este archivo de directiva es heredero. |
 | SubjectNamingInfo | 0:1 | El nombre del sujeto usado en los tokens. |

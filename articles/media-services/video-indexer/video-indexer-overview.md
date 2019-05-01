@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a8812e8a24082bd8c3a2e9bd489e12a12c80c76d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559880"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574130"
 ---
 # <a name="what-is-video-indexer"></a>¿Qué es Video Indexer?
 
@@ -37,8 +37,8 @@ Azure Video Indexer es una aplicación en la nube creada en Azure Media Analytic
 
 ## <a name="audio-insights"></a>Información de audio
 
-- **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Los idiomas admitidos son alemán, chino (simplificado), español, francés, inglés, italiano, japonés, portugués (brasileño) y ruso. Volverá al inglés cuando no se pueda detectar ningún idioma.
-- **Transcripción de audio**: convierte la voz en texto en 12 idiomas y permite extensiones. Los idiomas admitidos son alemán, árabe, chino (simplificado), coreano, español, francés, hindi, inglés, italiano, japonés, portugués (brasileño) y ruso.
+- **Detección de idioma automática**: identifica automáticamente el idioma hablado dominante. Idiomas admitidos son inglés, español, francés, alemán, italiano, chino (simplificado), japonés, ruso y portugués brasileño portugués le reserva a inglés cuando no se puede detectar el idioma.
+- **Transcripción de audio**: convierte la voz en texto en 12 idiomas y permite extensiones. Idiomas admitidos son inglés, español, francés, alemán, italiano, chino (simplificado), japonés, árabe, ruso, portugués (Brasil), Hindi y coreano.
 - **Subtítulos (CC)**: crea subtítulos en tres formatos: VTT, TTML y SRT.
 - **Procesamiento de dos canales**: detecta, separa la transcripción y se combina en una única escala de tiempo de forma automática.
 - **Reducción de ruido**: borra el audio telefónico o las grabaciones ruidosas (basado en los filtros de Skype).
@@ -47,7 +47,7 @@ Azure Video Indexer es una aplicación en la nube creada en Azure Media Analytic
 - **Estadísticas de altavoz**: proporciona las estadísticas de las relaciones de voz de los altavoces.
 - **Moderación de contenido textual**: detecta texto explícito en la transcripción de audio.
 - **Efectos de audio**: identifica los efectos de audio, como palmadas, voces y silencios.
-- **Detección de emociones**: identifica emociones en función de las indicaciones para voz y audio. La emoción podría ser: felicidad, tristeza, ira o miedo.
+- **Detección de emociones**: Identifica emoticonos en función de voz (lo que se dice) y la tonalidad de voz (cómo es que se va a dicho).  La emoción podría ser: felicidad, tristeza, ira o miedo.
 - **Traducción**: crea traducciones de la transcripción de audio en 54 idiomas diferentes.
 
 ## <a name="audio-and-video-insights-multi-channels"></a>Información de audio y vídeo (varios canales)

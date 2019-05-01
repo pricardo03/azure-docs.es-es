@@ -1,10 +1,10 @@
 ---
 title: Información sobre las plantillas de conjunto de escalado de máquinas virtuales | Microsoft Docs
-description: Obtenga información sobre cómo crear una plantilla de conjunto de escalado de viabilidad mínimo para conjuntos de escalado de máquinas virtuales
+description: Aprenda a crear una plantilla de conjunto de escalado básico para conjuntos de escalado de máquinas virtuales
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,27 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: d4a3dd6ae390fd48a8085cca33063a6bb74bd96c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60805584"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868924"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Más información sobre las plantillas de conjuntos de escalado de máquinas virtuales
-Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituyen una excelente manera de implementar grupos de recursos relacionados. En esta serie de tutoriales se explica cómo crear una plantilla de conjunto de escalado de viabilidad mínimo y cómo modificarla para adaptarla a distintos escenarios. Todos los ejemplos proceden de este [repositorio de GitHub](https://github.com/gatneil/mvss). 
+Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituyen una excelente manera de implementar grupos de recursos relacionados. Esta serie de tutoriales muestra cómo crear una plantilla de conjunto de escalado básico y cómo modificarla para adaptarla a distintos escenarios. Todos los ejemplos proceden de este [repositorio de GitHub](https://github.com/gatneil/mvss).
 
 Esta plantilla está diseñada para ser sencilla. Para ejemplos más completos de plantillas de conjuntos de escalado, consulte el [repositorio de GitHub de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates) y busque las carpetas que contienen la cadena `vmss`.
 
 Si ya está familiarizado con la creación de plantillas, puede avanzar a la sección "Pasos siguientes" para ver cómo modificar esta plantilla.
-
-## <a name="review-the-template"></a>Revisión de la plantilla
-
-Use GitHub para revisar la plantilla de conjunto de escalado mínimo viable, [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json).
-
-En este tutorial se examina la diferencia (`git diff master minimum-viable-scale-set`) para crear parte por parte la plantilla de conjunto de escalado mínimo viable.
 
 ## <a name="define-schema-and-contentversion"></a>Definición de $schema y contentVersion
 En primer lugar, defina `$schema` y `contentVersion` en la plantilla. El elemento `$schema` define la versión del lenguaje de plantilla y se usa para resaltar la sintaxis de Visual Studio y características de validación similares. Azure no usa el elemento `contentVersion`. En su lugar, le ayuda a hacer seguimiento de la versión de la plantilla.
@@ -43,6 +37,7 @@ En primer lugar, defina `$schema` y `contentVersion` en la plantilla. El element
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
+
 ## <a name="define-parameters"></a>Definición de parámetros
 Después, defina dos parámetros, `adminUsername` y `adminPassword`. Los parámetros son valores que especifica durante la implementación. El parámetro `adminUsername` es simplemente un tipo `string`, pero como `adminPassword` es un secreto, proporciónele el tipo `securestring`. Más adelante,estos parámetros se pasan a la configuración de conjunto de escalado.
 
@@ -70,13 +65,13 @@ A continuación está la sección de recursos de la plantilla. Aquí puede defin
    "resources": [
 ```
 
-Todos los recursos requieren las propiedades `type`, `name`, `apiVersion` y `location`. El primer recurso de este ejemplo tiene el tipo [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), el nombre `myVnet` y apiVersion `2016-03-30`. (Para encontrar la versión más reciente de la API para un tipo de recurso, consulte la [referencia de la plantilla de Azure Resource Manager](/azure/templates/)).
+Todos los recursos requieren las propiedades `type`, `name`, `apiVersion` y `location`. El primer recurso de este ejemplo tiene el tipo [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), el nombre `myVnet` y apiVersion `2018-11-01`. (Para encontrar la versión más reciente de la API para un tipo de recurso, consulte la [referencia de la plantilla de Azure Resource Manager](/azure/templates/)).
 
 ```json
      {
        "type": "Microsoft.Network/virtualNetworks",
        "name": "myVnet",
-       "apiVersion": "2016-12-01",
+       "apiVersion": "2018-11-01",
 ```
 
 ## <a name="specify-location"></a>Especificación de ubicación
@@ -117,7 +112,7 @@ En este caso, solo hay un elemento en la lista: la máquina virtual del ejemplo 
      {
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
          "Microsoft.Network/virtualNetworks/myVnet"
@@ -136,7 +131,7 @@ El conjunto de escalado necesita saber qué tamaño de máquina virtual debe cre
 ```
 
 ### <a name="choose-type-of-updates"></a>Elección del tipo de actualizaciones
-El conjunto de escalado también debe saber cómo controlar las actualizaciones en el conjunto de escalado. En estos momentos hay dos opciones, `Manual` y `Automatic`. Para obtener más información sobre las diferencias entre ambas, consulte la documentación sobre [cómo actualizar un conjunto de escalado](./virtual-machine-scale-sets-upgrade-scale-set.md).
+El conjunto de escalado también debe saber cómo controlar las actualizaciones en el conjunto de escalado. Actualmente, hay tres opciones `Manual`, `Rolling` y `Automatic`. Para obtener más información sobre las diferencias entre ambas, consulte la documentación sobre [cómo actualizar un conjunto de escalado](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {

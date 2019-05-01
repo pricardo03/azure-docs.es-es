@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: cae806953721f3cedead023f013c7d1d585efeb6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341649"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573388"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glosario de términos de Azure SQL Database
 
@@ -39,6 +39,7 @@ Objetos de base de datos|Azure SQL Database|Cualquier base de datos de Azure SQL
 ||Base de datos de uso general|Base de datos que se crea en el nivel de servicio Uso general del modelo de compra basado en núcleo virtual, o que se traslada al mismo.|
 ||Base de datos de hiperescala|Base de datos que se crea en el nivel de servicio Hiperescala del modelo de compra basado en núcleo virtual, o que se traslada al mismo.|
 ||Base de datos crítica para la empresa|Base de datos que se crea en el nivel de servicio Crítico para la empresa del modelo de compra basado en núcleo virtual, o que se traslada al mismo.|
+||Base de datos aprovisionado|Una base de datos configurada en el nivel de proceso aprovisionada|
 |[Modelos y recursos de compra](sql-database-purchase-models.md)|Modelo de compra basado en DTU|[Modelo de compra basado en DTU](sql-database-service-tiers-dtu.md)|
 ||Modelo de compra basado en núcleo virtual|[Modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md)|
 ||Núcleo virtual|Núcleo que el hipervisor proporciona al sistema operativo invitado.|

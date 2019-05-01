@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351599"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571363"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Revisiones de acceso de uso de Azure AD para administrar los usuarios que se excluyen de las directivas de acceso condicional
 
@@ -38,7 +38,7 @@ En otro ejemplo, podría usar [ubicaciones con nombre](../conditional-access/loc
 
 ![Ubicaciones con nombre](./media/conditional-access-exclusion/named-locations.png)
 
-Sin embargo, en algunos casos, puede que los usuarios tengan un motivo legítimo para iniciar sesión desde estos países bloqueados. Por ejemplo, es posible que los usuarios estén de viaje por motivos personales o laborales. En este caso, la directiva de acceso condicional para bloquear estos países podría tener un grupo de seguridad en la nube dedicado para los usuarios excluidos de la directiva. Los usuarios que necesiten acceder mientras viajan, pueden agregarse a sí mismos al grupo mediante la [administración de grupos de autoservicio de Azure AD](../users-groups-roles/groups-self-service-management.md).
+Sin embargo, en algunos casos, los usuarios es posible que tenga un motivo legítimo para iniciar sesión desde estos países o regiones bloqueados. Por ejemplo, es posible que los usuarios estén de viaje por motivos personales o laborales. En este ejemplo, la directiva de acceso condicional para bloquear estos países o regiones podría tener un grupo de seguridad en la nube dedicados para los usuarios que se excluyen de la directiva. Los usuarios que necesiten acceder mientras viajan, pueden agregarse a sí mismos al grupo mediante la [administración de grupos de autoservicio de Azure AD](../users-groups-roles/groups-self-service-management.md).
 
 Otro caso podría ser el de una directiva de acceso condicional que [bloquea la autenticación heredada para la mayoría de los usuarios](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft recomienda encarecidamente que bloquee el uso de protocolos heredados en el inquilino para mejorar su seguridad. No obstante, si algunos usuarios tienen que usar forzosamente métodos de autenticación heredada para acceder a los recursos a través de Office 2010 o de clientes basados en IMAP/SMTP/POP, puede excluir a estos usuarios de la directiva que bloquea estos métodos de autenticación.
 
@@ -97,9 +97,9 @@ Ahora puede crear una directiva de acceso condicional que use este grupo de excl
 
 Vamos a ver dos ejemplos en los que puede usar las revisiones de acceso para administrar exclusiones en las directivas de acceso condicional.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>Ejemplo 1: Revisión de acceso de los usuarios que acceden desde países bloqueados
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Ejemplo 1: Revisión de acceso para usuarios que tienen acceso desde países o regiones bloqueadas
 
-Supongamos que tiene una directiva de acceso condicional que bloquea el acceso desde determinados países. Incluye un grupo que está excluido de la directiva. Esta es una revisión de acceso recomendada en la que se revisan los miembros del grupo.
+Supongamos que tiene una directiva de acceso condicional que bloquea el acceso desde determinados países o regiones. Incluye un grupo que está excluido de la directiva. Esta es una revisión de acceso recomendada en la que se revisan los miembros del grupo.
 
 > [!NOTE]
 > Se requiere un administrador Global o un rol de usuario administrador para crear las revisiones de acceso.
@@ -110,9 +110,9 @@ Supongamos que tiene una directiva de acceso condicional que bloquea el acceso d
 
 3. Todos los miembros de este grupo estarán en el ámbito de la revisión.
 
-4. Cada usuario tendrá que dar fe de que aún necesitan tener acceso desde estos países bloqueados, por lo que necesitarán seguir siendo miembros del grupo.
+4. Cada usuario tendrá automáticamente afirme que aun así deberá tener acceso desde estos países o regiones bloqueados, por lo tanto, es preciso ser miembro del grupo.
 
-5. Si el usuario no responde a la solicitud de revisión, se le quitará automáticamente del grupo y, por tanto, ya no podrá acceder al inquilino mientras esté de viaje por esos países.
+5. Si el usuario no responde a la solicitud de revisión, se quitará automáticamente del grupo y por lo tanto, ya no puede acceder al inquilino mientras viaja a estos países o regiones.
 
 6. Habilite las notificaciones de correo electrónico para que los usuarios reciban notificaciones sobre el inicio y finalización de la revisión de acceso.
 

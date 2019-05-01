@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 568ff99364923c43b7199bed1dacd32cf0d18ab9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596056"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571153"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solución Agent Health en Azure Monitor
 La solución Agent Health en Azure le ayudará a comprender, para todos los agentes que informan directamente al área de trabajo de Log Analytics en Azure Monitor o un grupo de administración de System Center Operations Manager conectado a Azure Monitor, que son no responde y enviar datos operativos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    
@@ -63,7 +63,7 @@ Haga clic en el icono **Agent Health** para abrir el panel **Agent Health**.  El
 | Distribution by Agent Version (Distribución por versión del agente) | Una división de las diferentes versiones de agente instaladas en su entorno y el número de cada una de ellas.|
 | Distribution by Agent Category (Distribución por categoría del agente) | Una división de las diferentes categorías de agentes que envían eventos de latido: agentes directos, agentes de OpsMgr o el servidor de administración de OpsMgr.|
 | Distribution by Management Group (Distribución por grupo de administración) | Una partición de los diferentes grupos de administración de Operations Manager en su entorno.|
-| Geo-location of Agents (Geolocalización de los agentes) | Una división de los diferentes países donde haya agentes y el número total de agentes instalados en cada país.|
+| Geo-location of Agents (Geolocalización de los agentes) | Una partición de los diferentes países o regiones donde haya agentes y un recuento total del número de agentes que se han instalado en cada país o región.|
 | Count of Gateways Installed (Número de puertas de enlace instaladas) | Número de servidores que tienen instalada la puerta de enlace de Log Analytics y una lista de estos servidores.|
 
 ![Ejemplo de panel de la solución Agent Health](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 85757ace20501bea1db22ecfdd2fdb63284038d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.openlocfilehash: 0f764ebbad53185f46c7166011e05493ed261d6a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108753"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696657"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Almacenamiento de copias de seguridad de Azure SQL Database durante diez años como máximo
 
@@ -29,17 +29,17 @@ Muchas aplicaciones tienen finalidades normativas, de conformidad u otras de car
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Funcionamiento de la retención a largo plazo de SQL Database
 
-La retención a largo plazo (LTR) aprovecha las copias de seguridad de base de datos completas que se [crean automáticamente](sql-database-automated-backups.md) para hacer posible la restauración a un momento dado (PITR). Estas copias de seguridad se copian en blobs de almacenamiento distintos si se configura la directiva de LTR.
-Puede configurar una directiva de LTR para cada base de datos SQL y especificar con qué frecuencia debe copiar las copias de seguridad en los blobs de almacenamiento a largo plazo. Para habilitar la flexibilidad, puede definir la directiva mediante una combinación de cuatro parámetros: retención de copia de seguridad semanal (W), retención de copia de seguridad mensual (M), retención de copia de seguridad anual (Y) y la semana del año (WeekOfYear). Si especifica W, se copiará una copia de seguridad cada semana en el almacenamiento a largo plazo. Si especifica M, se copiará una copia de seguridad durante la primera semana de cada mes en el almacenamiento a largo plazo. Si especifica Y, se copiará una copia de seguridad durante la semana especificada en WeekOfYear en el almacenamiento a largo plazo. Cada copia de seguridad se mantendrá en el almacenamiento a largo plazo durante el período especificado por estos parámetros. 
+La retención a largo plazo (LTR) aprovecha las copias de seguridad de base de datos completas que se [crean automáticamente](sql-database-automated-backups.md) para hacer posible la restauración a un momento dado (PITR). Si se configura una directiva LTR, estas copias de seguridad se copian en diferentes blobs para almacenamiento a largo plazo. La operación de copia es un trabajo en segundo plano que no tiene afecta al rendimiento en la carga de trabajo de la base de datos. Las copias de seguridad LTR se conservan durante un período de tiempo establecido por la directiva de LTR. La directiva de LTR para cada base de datos SQL también puede especificar con qué frecuencia se crean las copias de seguridad LTR. Para habilitar la flexibilidad, puede definir la directiva mediante una combinación de cuatro parámetros: retención de copia de seguridad semanal (W), retención de copia de seguridad mensual (M), retención de copia de seguridad anual (Y) y la semana del año (WeekOfYear). Si especifica W, se copiará una copia de seguridad cada semana en el almacenamiento a largo plazo. Si especifica M, se copiará una copia de seguridad durante la primera semana de cada mes en el almacenamiento a largo plazo. Si especifica Y, se copiará una copia de seguridad durante la semana especificada en WeekOfYear en el almacenamiento a largo plazo. Cada copia de seguridad se mantendrá en el almacenamiento a largo plazo durante el período especificado por estos parámetros. Cualquier cambio de la directiva de LTR se aplica a las futuras copias de seguridad. Por ejemplo, si el WeekOfYear especificado está en el pasado cuando se configura la directiva, la primera copia de seguridad LTR se crearán próximo año. 
 
-Ejemplos:
+Ejemplos de la directiva de LTR:
 
 -  W=0, M=0, Y=5, WeekOfYear=3
 
-   La tercera copia de seguridad completa de cada año se conservará durante 5 años.
+   La tercera copia de seguridad completa de cada año se conservará durante cinco años.
+   
 - W=0, M=3, Y=0
 
-   La primera copia de seguridad completa de cada mes se conservará durante 3 meses.
+   La primera copia de seguridad completa de cada mes se conservará durante tres meses.
 
 - W=12, M=0, Y=0
 
@@ -47,7 +47,7 @@ Ejemplos:
 
 - W=6, M=12, Y=10, WeekOfYear=16
 
-   Cada copia de seguridad completa semanal se conservará durante 6 semanas. Excepto la primera copia de seguridad completa de cada mes, que se conservará durante 12 meses. Excepto la copia de seguridad completa realizada en la 16ª semana del año, que se conservará durante 10 años. 
+   Cada copia de seguridad completa semanal se conservará durante seis semanas. Excepto la primera copia de seguridad completa de cada mes, que se conservará durante 12 meses. Excepto la copia de seguridad completa realizada en la 16ª semana del año, que se conservará durante 10 años. 
 
 En la tabla siguiente se muestra la cadencia y caducidad de las copias de seguridad a largo plazo para la siguiente directiva:
 
@@ -57,23 +57,26 @@ W=12 semanas (84 días), M=12 meses (365 días), Y=10 años (3650 días), WeekOf
 
 
 
-Si tuviera que modificar la directiva anterior y establece W=0 (sin copias de seguridad semanales), la cadencia de las copias de seguridad cambiaría tal y como se muestra en la tabla anterior en función de las fechas destacadas. La cantidad de almacenamiento necesaria para mantener estas copias de seguridad se reduciría según corresponda. 
+Si modifica la directiva anterior y establece W = 0 (no hay copias de seguridad semanales), el ritmo de realización de copias de seguridad cambiará a medida que se muestra en la tabla anterior en las fechas de resaltado. La cantidad de almacenamiento necesaria para mantener estas copias de seguridad se reduciría según corresponda. 
 
 > [!NOTE]
-> 1. Las copias de LTR se crean mediante el servicio de almacenamiento de Azure, por lo que el proceso de copia no tiene ningún impacto en el rendimiento en la base de datos existente.
-> 2. La directiva se aplica a las copias de seguridad futuras. Por ejemplo, Si el valor de WeekOfYear especificado pertenece al pasado al configurar la directiva, la primera copia de seguridad de LTR se creará el próximo año. 
-> 3. Para restaurar una base de datos desde el almacenamiento de LTR, puede seleccionar una copia de seguridad específica en función de su marca de tiempo.   La base de datos se puede restaurar en cualquier servidor existente en la misma suscripción que la base de datos original. 
+> Azure SQL Database controla la temporización de las copias de seguridad LTR individuales. Manualmente, no se puede crear una copia de seguridad LTR o controlar la temporización de la creación de copia de seguridad.
+> 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Retención de copia de seguridad a largo plazo y replicación geográfica
 
-Si usa grupos de conmutación por error o de replicación geográfica activa como su solución de continuidad del negocio, debe prepararse para posibles conmutaciones por error y configurar la misma directiva LTR en la base de datos geográfica secundaria. Esto no aumentará el costo de almacenamiento LTR ya que las copias de seguridad no se generan desde las bases de datos secundarias. Solo cuando la base de datos secundaria se convierte en principal se crearán las copias de seguridad. De este modo, garantizará la generación de las copias de seguridad LTR ininterrumpida cuando se desencadene la conmutación por error y la base de datos principal se mueva a la región secundaria. 
+Si utiliza la replicación geográfica activa o grupos de conmutación por error como su solución de continuidad del negocio, debe prepararse para las conmutaciones por error eventual y configurar la misma directiva de izquierda a derecha en la base de datos secundaria con replicación geográfica. Como copias de seguridad no se generan desde las réplicas secundarias no aumentará el costo de almacenamiento LTR. Solo cuando la base de datos secundaria se convierte en principal se crearán las copias de seguridad. Cuando se desencadena la conmutación por error y la réplica principal se mueve a la región secundaria se asegura de no interrumpe la generación de las copias de seguridad LTR. 
 
 > [!NOTE]
-> Cuando la base de datos principal original se recupere de la interrupción que provoque su conmutación por error, se convertirá en una nueva base de datos secundaria. Por lo tanto, no se reanudará la creación de copia de seguridad y la directiva LTR existente no surtirá efecto hasta que vuelva a ser la base de datos principal de nuevo. 
+> Cuando la base de datos principal original se recupera de una interrupción que causó la conmutación por error, se convertirá en una nueva base de datos secundaria. Por lo tanto, no se reanudará la creación de copia de seguridad y la directiva LTR existente no surtirá efecto hasta que vuelva a ser la base de datos principal de nuevo. 
 
 ## <a name="configure-long-term-backup-retention"></a>Configuración de la retención de copia de seguridad a largo plazo
 
-Para obtener información sobre cómo configurar la retención a largo plazo mediante Azure Portal o mediante PowerShell, consulte [Configure long-term backup retention](sql-database-long-term-backup-retention-configure.md) (Configuración de la retención de copia de seguridad a largo plazo).
+Para obtener información sobre cómo configurar la retención a largo plazo mediante Azure portal o PowerShell, consulte [retención de copia de seguridad a largo plazo de administración de Azure SQL Database](sql-database-long-term-backup-retention-configure.md).
+
+## <a name="restore-database-from-ltr-backup"></a>Restaurar la base de datos de copia de seguridad LTR
+
+Para restaurar una base de datos desde el almacenamiento de LTR, puede seleccionar una copia de seguridad específica en función de su marca de tiempo. La base de datos se puede restaurar en cualquier servidor existente en la misma suscripción que la base de datos original. Para obtener información sobre cómo restaurar la base de datos desde una copia de seguridad LTR, mediante Azure portal o PowerShell, consulte [retención de copia de seguridad a largo plazo de administración de Azure SQL Database](sql-database-long-term-backup-retention-configure.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

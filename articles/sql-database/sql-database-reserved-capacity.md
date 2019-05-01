@@ -9,19 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: sstein
+ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: ec9bd3ee106571484c513c2d005a374a90c1d17e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/26/2019
+ms.openlocfilehash: 74a52df4eab8a3e471e541889cde74846af00fb8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359725"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574190"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database
 
 Ahorre dinero con Azure SQL Database al pagar por adelantado los recursos de proceso en lugar de elegir el pago por uso. Con la capacidad reservada, se compromete de antemano en Azure SQL Database durante un período de uno a tres años para obtener un descuento considerable en los costos de proceso. Para comprar capacidad reservada de SQL Database, debe especificar la región de Azure, el tipo de implementación, el nivel de servicio y el período.
+
 
 No es necesario asignar la reserva a instancias específicas de SQL Database (bases de datos únicas, grupos elásticos o instancias administradas). Al igualarse las instancias de SQL Database en ejecución o las recién implementadas se obtendrá la ventaja automáticamente. Al comprar una reserva, se adelanta el pago de los costos de proceso durante un período de uno a tres años. En cuando se compra una reserva, los costos de proceso de SQL Database que coincidan con los atributos de reserva dejan de pagarse según las tarifas de pago por uso. La reserva no cubre los cargos por software, redes o almacenamiento asociados a la instancia de SQL Database. Al final del plazo de reserva, la ventaja en la facturación expira y las instancias de SQL Database se facturan según los precios de pago por uso. Las reservas no se renuevan automáticamente. Para información sobre precios, consulte el artículo sobre la [oferta de capacidad reservada de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 

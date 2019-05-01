@@ -1,42 +1,46 @@
 ---
-title: JavaScript y versiones de contrato de página para flujos de usuarios de Azure Active Directory B2C | Microsoft Docs
-description: Aprenda a habilitar JavaScript y a usar versiones de contratos de página para personalizar un flujo de usuarios en Azure Active Directory B2C.
+title: 'JavaScript y la página del contrato de versiones: Azure Active Directory B2C | Microsoft Docs'
+description: Aprenda a habilitar JavaScript y usar versiones de contratos de página en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 91b4b621fc3dcedb52f88372fbfac222a744dbd1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360255"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570628"
 ---
-# <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>Acerca del uso de JavaScript y las versiones de contratos de páginas en un flujo de usuarios
+# <a name="javascript-and-page-contract-versions-in-azure-active-directory-b2c"></a>Versiones de contratos de JavaScript y página en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C proporciona un conjunto de contenido empaquetado que contiene HTML, CSS y JavaScript para los elementos de la interfaz de usuario de los flujos de usuarios. Si desea habilitar el código en el lado cliente de [JavaScript](javascript-samples.md) en sus flujos de usuarios, es conveniente asegurarse de que los elementos en los que se basa el código JavaScript son inmutables. En caso contrario, cualquier cambio podría provocar un comportamiento inesperado en las páginas del flujo de usuarios. Para evitar estos problemas, puede requerir el uso de un contrato de página para un flujo de usuarios y especificar una versión del contrato de página. Si lo hace así, se asegurará de que todas las definiciones de contenido en las que ha basado el código JavaScript son inmutables. Incluso si no piensa habilitar JavaScript para un flujo de usuarios, puede especificar una versión del contrato de página para las páginas del flujo de usuarios.
+B2C de Azure AD proporciona un conjunto de contenido empaquetado que contiene HTML, CSS y JavaScript para los elementos de interfaz de usuario en los flujos de usuario y las directivas personalizadas. Para habilitar JavaScript para sus aplicaciones, debe agregar un elemento a su [directiva personalizada](active-directory-b2c-overview-custom.md) o habilitarlo en el portal para flujos de usuario, seleccione un contrato de página y use [b2clogin.com](b2clogin.md) en las solicitudes.
 
-> [!NOTE]
-> En este artículo analiza JavaScript para flujos de usuarios, pero también puede usar JavaScript y seleccionar versiones de contratos de página cuando se usan [directivas personalizadas](page-contract.md).
+Si piensa habilitar [JavaScript](javascript-samples.md) código del lado cliente, es conveniente para asegurarse de que los elementos que se basa en el código JavaScript son inmutables. De lo contrario, cualquier cambio podrían provocar un comportamiento inesperado en las páginas de usuario. Para evitar estos problemas, puede exigir el uso de un contrato de página y especificar una versión de contrato de la página. Esto garantiza que todas las definiciones de contenido que ha basado en el código JavaScript son inmutables. Incluso si no piensa habilitar JavaScript, puede especificar una versión de contrato de página para las páginas.
 
-## <a name="enable-javascript"></a>Habilitar JavaScript
+## <a name="user-flows"></a>Flujos de usuario
 
 En las propiedades del flujo de usuarios, puede habilitar JavaScript, el cual requiere también el uso de un contrato de página. A continuación, puede establecer la versión del contrato de página como se indica en la sección siguiente.
 
-![Habilitar configuración de JavaScript](media/user-flow-javascript-overview/javascript-settings.PNG)
-
-## <a name="specify-a-page-contract-version"></a>Especificación de una versión de contrato de página
+![Habilitar configuración de JavaScript](media/user-flow-javascript-overview/javascript-settings.png)
 
 Tanto si habilita JavaScript como si no lo hace en las propiedades de un flujo de usuarios, puede especificar una versión del contrato de página para las páginas del flujo de usuarios. Abra el flujo de usuarios y seleccione **Diseños de página**. En **Nombre del diseño**, seleccione una página del flujo de usuarios y elija **Versión del contrato de la página**.
 
-![Habilitar configuración de JavaScript](media/user-flow-javascript-overview/page-contract-version.PNG)
+![Habilitar configuración de JavaScript](media/user-flow-javascript-overview/page-contract-version.png)
+
+## <a name="custom-policies"></a>Directivas personalizadas
+
+Para habilitar JavaScript en las directivas personalizadas, se agrega el **ScriptExecution** elemento a la **RelyingParty** element en el archivo de directiva personalizada. Para obtener más información, consulte [muestras de JavaScript para su uso en Azure Active Directory B2C](javascript-samples.md).
+
+Si Habilitar JavaScript en las directivas personalizadas, puede especificar una versión de contrato de página para las páginas. Para obtener más información acerca de cómo especificar un contrato de página, vea [seleccionar un contrato de página en Azure Active Directory B2C mediante directivas personalizadas](page-contract.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Consulte [Ejemplos de JavaScript para usar en Azure Active Directory B2C](javascript-samples.md).

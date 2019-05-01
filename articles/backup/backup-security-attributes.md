@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cf012a452d1e43134d955e03ccf34e153b1282ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7bc4fd42f64bba09fd20fedf5e06dc30c3b2cc49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60253822"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64680815"
 ---
 # <a name="common-security-attributes-for-azure-backup"></a>Atributos comunes de seguridad para copia de seguridad de Azure
 
@@ -27,7 +27,7 @@ La seguridad está integrada en todos los aspectos de los servicios de Azure. Es
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí | Uso de cifrado del servicio de almacenamiento para las cuentas de almacenamiento. |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sin  | Se usa HTTPS. |
+| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>En el cifrado de red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sin  | Se usa HTTPS. |
 | Control de claves de cifrado (CMK, BYOK, etcetera.)| Sin  |  |
 | Cifrado de nivel de columna (Azure Data Services)| Sin  |  |
 | Llamadas API cifradas| Sí |  |
@@ -37,7 +37,7 @@ La seguridad está integrada en todos los aspectos de los servicios de Azure. Es
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Compatibilidad de punto de conexión de servicio| Sin  |  |
-| compatibilidad con inserción de redes virtuales| Sin  |  |
+| Compatibilidad con inserción de redes virtuales| Sin  |  |
 | Aislamiento de red y la compatibilidad con Firewall| Sí | La tunelización forzada es compatible con copia de seguridad de VM. La tunelización forzada no se admite para las cargas de trabajo que se ejecutan en VM. |
 | Fuerza la tunelización de soporte técnico| Sin  |  |
 

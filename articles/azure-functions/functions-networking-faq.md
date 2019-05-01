@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 3cf6a0d080e2d8cafcab8e69a614b59a470c7aba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b673e625e1a50c32e3d8580ec442792ed8611703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637053"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572602"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Preguntas más frecuentes acerca de las redes en Azure Functions
 
@@ -28,11 +28,14 @@ Implementación de una función en un entorno de App Service es actualmente la �
 Puede restringir el acceso a internet en un par de formas:
 
 * [Las restricciones de IP](../app-service/app-service-ip-restrictions.md): Restringir el tráfico entrante a la aplicación de función por intervalo de IP.
+    * En las restricciones de IP, también es posible configurar [los extremos de servicio](../virtual-network/virtual-network-service-endpoints-overview.md), que restringe la función para que sólo acepte tráfico entrante procedente de una red virtual concreta.
 * Eliminación de todos los desencadenadores HTTP. Para algunas aplicaciones, es suficiente para simplemente evitar desencadenadores HTTP y usar cualquier otro origen de evento para desencadenar la función.
 
 Tenga en cuenta que el editor de Azure portal requiere acceso directo a la función de ejecución. Cambios de código a través del portal de Azure requerirá que el dispositivo que está usando para examinar el portal para tener su en la lista blanca IP. Pero puede usar cualquier cosa en la pestaña de características de plataforma con las restricciones de red en su lugar.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>¿Cómo se restringe mi aplicación de función a una red virtual?
+
+Es posible restringir **entrante** tráfico para una aplicación de función a una red virtual mediante [los extremos de servicio](./functions-networking-options.md#private-site-access). Esta configuración permite la aplicación de función realizar llamadas salientes a internet.
 
 La única forma de restringir totalmente una función de modo que todo el tráfico fluye a través de una red virtual es usar un entorno de App Service internamente con equilibrio de carga. Esta opción implementa el sitio en una infraestructura dedicada en una red virtual y envía todos los desencadenadores y tráfico a través de la red virtual. 
 
@@ -48,8 +51,11 @@ Mediante la integración de red virtual (actualmente en versión preliminar), pu
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>¿Cómo puedo desencadenar una función de un recurso en una red virtual?
 
-Puede desencadenar una función de un recurso en una red virtual solo mediante la implementación de la aplicación de función en un entorno de App Service. Para obtener más información sobre el uso de un entorno de App Service, consulte [creación y uso de un equilibrador de carga interno con App Service Environment](../app-service/environment/create-ilb-ase.md).
+Puede permitir que los desencadenadores HTTP que se llame desde una red virtual con [los extremos de servicio](./functions-networking-options.md#private-site-access). 
 
+También puede desencadenar una función de un recurso en una red virtual mediante la implementación de la aplicación de función en un entorno de App Service. Para obtener más información sobre el uso de un entorno de App Service, consulte [creación y uso de un equilibrador de carga interno con App Service Environment](../app-service/environment/create-ilb-ase.md).
+
+Los desencadenadores HTTP de soporte técnico de plan Premium y App Service desde una red virtual, pero solo un entorno de App Service admiten todos los demás tipos de desencadenador de función a través de una red virtual.
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>¿Cómo puedo implementar mi aplicación de función en una red virtual?
 

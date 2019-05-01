@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 04/25/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5fd2d27533d725102a4c334f1e8a1abed6cd78cc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: f0251e3926c569b45ebebcd18b98df5af4564443
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121901"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706670"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Ejecución de los ejemplos de MapReduce incluidos en HDInsight
 
@@ -24,12 +24,9 @@ Aprenda a ejecutar los ejemplos de MapReduce incluidos con Apache Hadoop en HDIn
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Un clúster de HDInsight**: Vea [Introducción al uso de Apache Hadoop con Apache Hive en HDInsight para Linux](apache-hadoop-linux-tutorial-get-started.md)
+* Un clúster de Apache Hadoop en HDInsight. Consulte [empezar a trabajar con HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-    > [!IMPORTANT]  
-    > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-* **Un cliente SSH**: Para más información, consulte [Uso SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="the-mapreduce-examples"></a>Ejemplos de MapReduce
 
@@ -64,7 +61,11 @@ Aprenda a ejecutar los ejemplos de MapReduce incluidos con Apache Hadoop en HDIn
 
 ## <a name="run-the-wordcount-example"></a>Ejecución del ejemplo de wordcount
 
-1. Conéctese a HDInsight mediante SSH. Para más información, consulte [Uso SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Conéctese a HDInsight mediante SSH. Reemplace `CLUSTER` con el nombre del clúster y, a continuación, escriba el siguiente comando:
+
+    ```cmd
+    ssh sshuser@CLUSTER-ssh.azurehdinsight.net
+    ```
 
 2. En el símbolo `username@#######:~$` , use el siguiente comando para mostrar los ejemplos:
 
@@ -86,7 +87,7 @@ Aprenda a ejecutar los ejemplos de MapReduce incluidos con Apache Hadoop en HDIn
 
     Este mensaje indica que puede proporcionar varias rutas de entrada para los documentos de origen. La ruta de acceso final es donde se almacena la salida (la cantidad de palabras en los documentos de origen).
 
-4. Use lo siguiente para contar todas las palabras en los cuadernos de Leonardo Da Vinci, que se proporcionan como datos de ejemplo con su clúster:
+4. Para contar todas las palabras en los cuadernos de Leonardo da Vinci, que se proporcionan como datos de ejemplo con el clúster, use lo siguiente:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
@@ -162,11 +163,11 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 El valor devuelto debería asemejarse a **3,14159155000000000000**. Como referencia, las primeras 10 posiciones decimales de pi son 3,1415926535.
 
-## <a name="10-gb-greysort-example"></a>Ejemplo de Greysort de 10 GB
+## <a name="10-gb-graysort-example"></a>Ejemplo de muestra de GraySort de 10 GB
 
 GraySort es una ordenación de pruebas comparativas. La métrica es la velocidad de ordenación (TB/minuto) que se logra después de ordenar enormes volúmenes de datos, normalmente 100 TB, como mínimo.
 
-Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. Usa las aplicaciones de MapReduce desarrolladas por Owen O'Malley y Arun Murthy. Estas aplicaciones ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](https://sortbenchmark.org/) .
+Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. Usa las aplicaciones de MapReduce desarrolladas por Owen O'Malley y Arun Murthy. Estas aplicaciones ganaron la prueba comparativa anual ordenación de terabytes uso general ("Daytona") en 2009, con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre esta y otras pruebas comparativas ordenación, vea el [pruebas comparativas de ordenación](https://sortbenchmark.org/) sitio.
 
 Este ejemplo utiliza tres conjuntos de programas de MapReduce:
 
@@ -211,7 +212,3 @@ En este artículo, ha obtenido información acerca de cómo ejecutar los ejemplo
 * [Uso de Apache Pig con Apache Hadoop en HDInsight](hdinsight-use-pig.md)
 * [Uso de Apache Hive con Apache Hadoop en HDInsight](hdinsight-use-hive.md)
 * [Uso de MapReduce con Apache Hadoop en HDInsight](hdinsight-use-mapreduce.md)
-
-[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-introduction]:apache-hadoop-introduction.md
-

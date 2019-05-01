@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 75a7424f6c3bb6ef13de9e44b46489ab1ef0fbcc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5fbe4fd5f85026cd62f1bd10e36561b312464054
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792987"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690566"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V mediante PowerShell y Azure Resource Manager
 
@@ -107,7 +107,7 @@ Establezca el contexto de almacén de la manera siguiente:
 ## <a name="step-5-install-the-provider-and-agent"></a>Paso 5: Instalación del proveedor y el agente
 
 1. Descargue el instalador de la última versión del proveedor de [Microsoft](https://aka.ms/downloaddra).
-2. Ejecute el instalador en el host de Hyper-V.
+2. En el host de Hyper-V, ejecute al instalador.
 3. Al final de la instalación, vaya al paso que describe el registro.
 4. Cuando se le solicite, proporcione la clave descargada y complete el registro del host de Hyper-V.
 5. Compruebe que el host de Hyper-V se registró en el sitio tal como se indica a continuación:

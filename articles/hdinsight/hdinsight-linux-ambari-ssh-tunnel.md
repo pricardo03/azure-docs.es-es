@@ -1,21 +1,19 @@
 ---
 title: Uso de la tunelización de SSH para acceder a Azure HDInsight
 description: Obtenga información acerca de cómo usar un túnel SSH para ir con seguridad a los recursos web alojados en los nodos de HDInsight basados en Linux.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 04/30/2018
-ms.date: 02/04/2019
+ms.date: 12/15/2018
 ms.author: hrasheed
 ms.openlocfilehash: 0361539cefbacb8fc0473a1f863cf2ae4638b444
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766765"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682538"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Uso de la tunelización SSH para tener acceso a la interfaz de usuario web de Apache Ambari, JobHistory, NameNode, Apache Oozie y otras interfaces de usuario web
 
@@ -35,7 +33,7 @@ Las siguientes interfaces de usuario web requieren un túnel SSH:
 
 Si usa las acciones de script para personalizar el clúster, todos los servicios o utilidades que instale y expongan un servicio web requerirán un túnel SSH. Por ejemplo, si instala Hue mediante una acción de script, debe usar un túnel SSH para tener acceso a la interfaz de usuario web de Hue.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Si tiene acceso directo a HDInsight a través de una red virtual, no es necesario usar túneles SSH. Para ver un ejemplo de acceso directo a HDInsight a través de una red virtual, consulte el documento [Conexión de HDInsight a la red local](connect-on-premises-network.md).
 
 ## <a name="what-is-an-ssh-tunnel"></a>¿Qué es un túnel SSH?
@@ -48,7 +46,7 @@ La [tunelización Secure Shell (SSH) ](https://en.wikipedia.org/wiki/Tunneling_p
 
 * Un explorador web que se puede configurar para usar un proxy SOCKS5.
 
-    > [!WARNING]
+    > [!WARNING]  
     > La compatibilidad con el proxy SOCKS integrada en la configuración de Internet de Windows no es compatible con SOCKS5 y no funciona con los pasos descritos en este documento. Los siguientes exploradores se basan en la configuración de proxy de Windows y actualmente no funcionan con los pasos descritos en este documento:
     >
     > * Microsoft Edge
@@ -111,14 +109,14 @@ Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la má
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Uso del túnel desde el explorador
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Los pasos de esta sección usan el explorador Mozilla FireFox, ya que proporciona la misma configuración de proxy para todas las plataformas. Otros exploradores modernos, como Google Chrome, pueden requerir una extensión como FoxyProxy para funcionar con el túnel.
 
 1. Configure el explorador para usar **localhost** y el puerto que utilizó al crear el túnel como un proxy **SOCKS v5**. La configuración de Firefox se verá de la siguiente manera. Si usa un puerto que no es 9876, cambie el puerto al que usa:
    
     ![imagen de la configuración de Firefox](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > La selección de **DNS remoto** resuelve las solicitudes del sistema de nombres de dominio (DNS) mediante el uso del clúster de HDInsight. Esta configuración resuelve el DNS con el nodo principal del clúster.
 
 2. Compruebe que el túnel funciona; para ello, visite un sitio como [https://www.whatismyip.com/](https://www.whatismyip.com/). La dirección IP devuelta debe ser una que use el centro de datos de Microsoft Azure.
@@ -140,7 +138,7 @@ Una vez que se ha establecido el clúster, siga estos pasos para comprobar que p
 
     ![Imagen con el menú Vínculos rápidos expandido](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Al seleccionar __Vínculos rápidos__, es posible que obtenga un indicador de espera. Esta condición puede ocurrir si tiene una conexión lenta a Internet. Espere un minuto o dos hasta que se reciban los datos del servidor e intente de nuevo la lista.
    >
    > Algunas entradas en el menú **Vínculos rápidos** pueden quedar cortadas en el lado derecho de la pantalla. Si es así, expanda el menú con el mouse y use la tecla de dirección derecha para desplazarse por la pantalla hacia la derecha para ver el resto del menú.

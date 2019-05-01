@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d7d1bc95a646527ccdf9d2808aefe6b8f46d7e9a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e12b89d0469587d7d7326bbee30f6467ada06bd5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111772"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574070"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>El nivel de servicio Premium RS de Azure SQL Database (versión preliminar) se está retirando: opciones de migración
 
@@ -100,5 +100,5 @@ Puede copiar cualquier base de datos con un tamaño de proceso de Premium RS en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre las opciones de tamaños de proceso y de tamaños de almacenamiento específicas que hay disponibles para las bases de datos únicas, consulte [Límites de recursos basados en núcleos virtuales de SQL Database para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier).
-- Para más información sobre las opciones de tamaño de proceso y de tamaño de almacenamiento específicas que hay disponibles para los grupos elásticos, consulte [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) (Límites de recursos basados en núcleos virtuales de Azure SQL Database para grupos elásticos).
+- Para obtener más información sobre las opciones de tamaños de proceso y de tamaños de almacenamiento específicas que hay disponibles para las bases de datos únicas, consulte [Límites de recursos basados en núcleos virtuales de SQL Database para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md).
+- Para más información sobre las opciones de tamaño de proceso y de tamaño de almacenamiento específicas que hay disponibles para los grupos elásticos, consulte [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) (Límites de recursos basados en núcleos virtuales de Azure SQL Database para grupos elásticos).

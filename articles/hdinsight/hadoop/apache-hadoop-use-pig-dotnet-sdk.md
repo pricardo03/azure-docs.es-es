@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: hrasheed
 ms.openlocfilehash: ebf1f2806a6606294c61860a24fb2f02033a4bf4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110963"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688394"
 ---
 # <a name="run-apache-pig-jobs-using-the-net-sdk-for-apache-hadoop-in-hdinsight"></a>Ejecución de trabajos de Apache Pig con el SDK de .NET para Apache Hadoop en HDInsight
 
@@ -44,7 +44,7 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 
    | Propiedad | Valor |
    | ------ | ------ |
-   | Categoría | Plantillas/Visual C#/Windows |
+   | Category | Plantillas/Visual C#/Windows |
    | Plantilla | Aplicación de consola |
    | NOMBRE | SubmitPigJob |
 

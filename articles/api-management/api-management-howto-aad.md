@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 95e501eca0f7765cc5201f7b315703c3ca43df8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60529453"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723648"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
@@ -79,12 +79,12 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
 
 Después de guardar los cambios, los usuarios de la instancia de Azure AD especificada pueden iniciar sesión en el portal para desarrolladores siguiendo los pasos de [Inicio de sesión en el portal para desarrolladores con una cuenta de Azure AD](#log_in_to_dev_portal).
 
-
 ## <a name="add-an-external-azure-ad-group"></a>Incorporación de un grupo externo de Azure AD
 
 Después de permitir el acceso para los usuarios en una instancia de Azure AD, puede agregar grupos de Azure AD en API Management. Luego, puede administrar de manera más fácil la asociación de los desarrolladores del grupo con los productos deseados.
 
-Para configurar un grupo externo de Azure AD, primero debe configurar la instancia de Azure AD en la pestaña **Identities** (Identidades) mediante el procedimiento de la sección anterior. 
+ > [!IMPORTANT]
+ > Para agregar una referencia externa grupo de Azure AD, primero debe configurar la instancia de Azure AD en el **identidades** pestaña siguiendo el procedimiento descrito en la sección anterior. Además, la aplicación se debe conceder acceso a la API de Azure AD Graph con `Directory.Read.All` permiso. 
 
 Los grupos externos de Azure AD se agregan desde la pestaña **Grupos** de la instancia de API Management.
 

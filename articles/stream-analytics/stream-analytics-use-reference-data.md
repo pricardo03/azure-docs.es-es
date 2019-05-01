@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 4ddbec6b163a939c1663630e39e89140ac6f7efe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2400f80c67527027aee3a98baaa869c5c66d46ee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761495"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573638"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso de datos de referencia para las búsquedas en Stream Analytics
 Los datos de referencia (también denominados tabla de consulta) son un conjunto finito de datos estáticos o de cambio lento de naturaleza, que se usan para realizar una búsqueda o para relacionarlos con el flujo de datos. Por ejemplo, en un escenario de IoT, podría almacenar los metadatos sobre sensores (que no cambian a menudo) en los datos de referencia y combinarlos con los flujos de datos de IoT en tiempo real. Azure Stream Analytics carga los datos de referencia en la memoria para lograr un procesamiento del flujo de baja latencia. Para usar los datos de referencia en el trabajo de Azure Stream Analytics, por lo general usará una [combinación de datos de referencia](https://msdn.microsoft.com/library/azure/dn949258.aspx) en la consulta. 
@@ -49,7 +49,7 @@ Si no se espera que cambien los datos de referencia, especifique una ruta de acc
 
 Si los datos de referencia son un conjunto de datos que cambia con poca frecuencia, se pueden actualizar los datos de referencia especificando un patrón de ruta de acceso en la configuración de entrada con los tokens de sustitución de {date} y {time}. Stream Analytics selecciona las definiciones actualizadas de los datos de referencia según este patrón de ruta de acceso. Por ejemplo, un patrón de `sample/{date}/{time}/products.csv` con un formato de fecha de **"AAAA-MM-DD"** y un formato de hora de **"HH:mm"** indica a Stream Analytics que seleccione el blob actualizado `sample/2015-04-16/17-30/products.csv` a las 17:30 del 16 de abril de 2015 (zona horaria UTC).
 
-Azure Stream Analytics examina automáticamente los blobs de datos de referencia actualizados en un intervalo de un minuto.
+Azure Stream Analytics examina automáticamente los blobs de datos de referencia actualizados en un intervalo de un minuto. Si se carga un blob con 10:30:00 de la marca de tiempo con un retraso pequeño (por ejemplo, 10:30:30), observará una pequeña demora en el trabajo de Stream Analytics que hacen referencia a este blob. Para evitar tales escenarios, se recomienda para cargar el blob anteriormente a la fecha efectiva del objetivo (10: 30:00 en este ejemplo) para permitir que el trabajo de Stream Analytics tiempo suficiente para detectar y cargarlo en la memoria y realizar operaciones. 
 
 > [!NOTE]
 > En estos momentos, los trabajos de Stream Analytics buscan la actualización de blobs solo cuando la hora de la máquina coincide con la hora codificada en el nombre del blob. Por ejemplo, el trabajo buscará `sample/2015-04-16/17-30/products.csv` en cuanto sea posible, pero no antes de las 17:30 del 16 de abril de 2015 (zona horaria UTC). No buscará *nunca* un blob con una hora codificada anterior a la última detectada.

@@ -3,19 +3,19 @@ title: TechnicalProfiles | Microsoft Docs
 description: Especifique el elemento TechnicalProfiles de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86f2a8fa11becdf24c0a10c0325893946a033c3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: da769093794a559e4b856f7ae4f211c3900632c6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360136"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711052"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -85,7 +85,7 @@ El elemento **TechnicalProfile** contiene los elementos siguientes:
 | Dominio | 0:1 | Nombre de dominio del perfil técnico. Por ejemplo, si el perfil técnico especifica el proveedor de identidades de Facebook, el nombre de dominio será Facebook.com. |
 | DisplayName | 0:1 | Nombre del perfil técnico que puede mostrarse a los usuarios. |
 | DESCRIPCIÓN | 0:1 | Descripción del perfil técnico que puede mostrarse a los usuarios. |
-| Protocolo | 0:1 | Protocolo usado para la comunicación con la otra parte. |
+| Protocol | 0:1 | Protocolo usado para la comunicación con la otra parte. |
 | Metadatos | 0:1 | Colección de pares de clave y valor usada por el protocolo para comunicarse con el punto de conexión durante una transacción. |
 | InputTokenFormat | 0:1 | Formato del token de entrada. Valores posibles: `JSON`, `JWT`, `SAML11` o `SAML2`. El valor `JWT` representa un token de JSON Web Token según la especificación IETF. El valor `SAML11` representa un token de seguridad SAML 1.1 según la especificación OASIS.  El valor `SAML2` representa un token de seguridad SAML 2.0 según la especificación OASIS. |
 | OutputTokenFormat | 0:1 | Formato del token de salida. Valores posibles: `JSON`, `JWT`, `SAML11` o `SAML2`. |
@@ -102,7 +102,7 @@ El elemento **TechnicalProfile** contiene los elementos siguientes:
 | UseTechnicalProfileForSessionManagement | 0:1 | Perfil técnico distinto que se usará para la administración de sesiones. |
 |EnabledForUserJourneys| 0:1 |Controla si el perfil técnico se ejecuta en un recorrido del usuario.  |
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 El elemento **Protocol** contiene los atributos siguientes:
 

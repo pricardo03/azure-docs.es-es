@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
-ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d7e38e8eca58c06fc6896887522b320a797fc42e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623993"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575301"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportar e importar registros de Azure Notification Hubs en masa
 Hay escenarios en los que se requiere para crear o modificar gran cantidad de registros en un centro de notificaciones. Algunos de estos escenarios son actualizaciones de etiqueta a la continuación de los cálculos por lotes, o migrar una implementación de inserción existente para usar Notification Hubs.
@@ -34,7 +34,7 @@ En esta sección se supone que tiene las siguientes entidades:
 
 - Un centro de notificaciones aprovisionado.
 - Un contenedor de blobs de Azure Storage.
-- Las referencias a la [paquete NuGet de Azure Storage](https://www.nuget.org/packages/windowsazure.storage/) y [paquete NuGet de Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.9).
+- Las referencias a la [paquete NuGet de Azure Storage](https://www.nuget.org/packages/windowsazure.storage/) y [paquete NuGet de Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>Crear archivo de entrada y almacenarlo en un blob
 Un archivo de entrada contiene una lista de registros que se serializan en XML, uno por fila. Mediante el SDK de Azure, en el ejemplo de código siguiente se muestra cómo serializar los registros y cargarlos en el contenedor de blobs.

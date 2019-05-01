@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 16dd381301bdc650022ba5580f96a1733aeb32b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90d58d1b22e893e922aa0f3770198fc95f539419
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199959"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572892"
 ---
 # <a name="application-security-detection-pack-preview"></a>Application Security Detection Pack (versión preliminar)
 
@@ -29,7 +29,7 @@ Esta característica no requiere ninguna configuración especial, excepto [confi
 Se detectan tres tipos de problemas de seguridad:
 1. Acceso a direcciones URL no seguro: se está accediendo a una dirección URL en la aplicación a través de HTTP y HTTPS. Normalmente, una dirección URL que acepta solicitudes HTTPS no debe aceptar solicitudes HTTP. Esto puede indicar un problema de seguridad o errores en la aplicación.
 2. Formulario no seguro: un formulario (u otra solicitud "POST") en la aplicación usa HTTP en lugar de HTTPS. El uso de HTTP puede poner en peligro los datos del usuario que envía el formulario.
-3. Actividad del usuario sospechosa: el mismo usuario está accediendo a la aplicación desde varios países aproximadamente al mismo tiempo. Por ejemplo, el mismo usuario accedió a la aplicación desde España y desde Estados Unidos durante la misma hora. Esta detección indica un intento de acceso a la aplicación potencialmente malintencionado.
+3. Actividad del usuario sospechosa: la aplicación tiene acceso desde varios países/regiones al mismo usuario aproximadamente al mismo tiempo. Por ejemplo, el mismo usuario accedió a la aplicación desde España y desde Estados Unidos durante la misma hora. Esta detección indica un intento de acceso a la aplicación potencialmente malintencionado.
 
 ## <a name="does-my-app-definitely-have-a-security-issue"></a>¿Significa esto que la aplicación tiene un problema de seguridad?
 No, una notificación no significa que la aplicación tenga un problema de seguridad. En muchos casos, una detección de cualquiera de los escenarios anteriores puede indicar un problema de seguridad. Sin embargo, la detección puede tener una justificación comercial natural y se puede omitir.
@@ -46,5 +46,5 @@ No, una notificación no significa que la aplicación tenga un problema de segur
 
 ## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>¿Cómo se soluciona la detección "Actividad del usuario sospechosa"?
 1. **Evaluación de errores.** La notificación proporciona el número de los diferentes usuarios que exhibieron este comportamiento sospechoso. Esto puede ayudarlo a asignar una prioridad al problema.
-2. **Ámbito.** ¿Desde qué países se originó la solicitud sospechosa? ¿Qué usuario era más sospechoso? Esta información puede obtenerse de la notificación.
-3. **Diagnóstico.** La detección proporciona la lista de usuarios sospechosos y la lista de países para cada usuario, para ayudarle a efectuar un diagnóstico exhaustivo del problema.
+2. **Ámbito.** ¿Desde qué países o regiones se originó la solicitud sospechosa? ¿Qué usuario era más sospechoso? Esta información puede obtenerse de la notificación.
+3. **Diagnóstico.** La detección proporciona la lista de usuarios sospechosos y la lista de países o regiones para cada usuario, que le ayudarán a efectuar un diagnóstico exhaustivo del problema.

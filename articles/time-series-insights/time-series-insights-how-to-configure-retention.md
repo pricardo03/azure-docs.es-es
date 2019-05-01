@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7c45b0581a03e280c7dbd6d998059f1e4bff5345
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: d88bf309d2afeb4e6fdd09ff1317bec3fec2fe75
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556057"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695848"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configuración de la retención en Time Series Insights
 En este artículo se describe cómo configurar el **Tiempo de retención de datos** y el **Comportamiento correspondiente a un exceso del límite de almacenamiento** en Azure Time Series Insights.
@@ -46,4 +46,5 @@ Para obtener información detallada para comprender mejor estas opciones de conf
 7. Seleccione **Guardar** para configurar los cambios.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información, consulte [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md) (Información sobre la retención en Time Series Insights).
+
+- Para obtener más información, consulte [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md) (Información sobre la retención en Time Series Insights).

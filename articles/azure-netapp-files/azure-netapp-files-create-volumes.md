@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/12/2019
+ms.date: 4/23/2019
 ms.author: b-juche
-ms.openlocfilehash: fc748ee993855c77f25f9b115ea472df4281acec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 53b2742cf92f3a3df346ba3557c718b8d7a11a4e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764366"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719442"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Creación de un volumen de Azure NetApp Files
 
@@ -44,7 +44,7 @@ Debe haber una subred delegada en Azure NetApp Files.
     * **Nombre del volumen**      
         Especifique el nombre para el volumen que va a crear.   
 
-        El nombre debe ser único dentro de un grupo de recursos. Debe tener tres caracteres de longitud, como mínimo.  Puede usar cualquier carácter alfanumérico.
+        Un nombre de volumen debe ser único dentro de cada grupo de capacidades. Debe tener tres caracteres de longitud, como mínimo. Puede usar cualquier carácter alfanumérico.
 
     * **Grupo de capacidades**  
         Especifique el grupo de capacidad en la que desea que el volumen que se va a crear.
@@ -72,7 +72,9 @@ Debe haber una subred delegada en Azure NetApp Files.
 4. Haga clic en **protocolo**, a continuación, seleccione **NFS** como el tipo de protocolo para el volumen.   
     * Especifique el **ruta de acceso del archivo** que se usará para crear la ruta de acceso de exportación para el nuevo volumen. La ruta de acceso de exportación se usa para montar el volumen y tener acceso a él.
 
-        El nombre de la ruta de acceso de archivo solo puede contener letras, números y guiones ("-"). El nombre debe tener entre 16 y 40 caracteres.  
+        El nombre de la ruta de acceso de archivo solo puede contener letras, números y guiones ("-"). El nombre debe tener entre 16 y 40 caracteres. 
+
+        La ruta de acceso del archivo debe ser único dentro de cada suscripción y cada región. 
 
     * Si lo desea, [configurar Directiva de exportación para el volumen NFS](azure-netapp-files-configure-export-policy.md)
 
@@ -89,6 +91,33 @@ Debe haber una subred delegada en Azure NetApp Files.
 Azure Files de NetApp admite volúmenes SMBv3. Deberá crear las conexiones de Active Directory antes de agregar un volumen de SMB. 
 
 ### <a name="create-an-active-directory-connection"></a>Crear una conexión de Active Directory
+
+1. Asegúrese de que cumplen el requiements siguientes: 
+
+    * La cuenta de administrador que use debe ser capaz de crear cuentas de equipo en la ruta de acceso de unidad organizativa (OU) que se especifican.
+    * Los puertos adecuados deben estar abiertos en el servidor de Windows Active Directory (AD) correspondiente.  
+        Los puertos necesarios son los siguientes: 
+
+        |     Servicio           |     Port     |     Protocol     |
+        |-----------------------|--------------|------------------|
+        |    Servicios Web de AD    |    9389      |    TCP           |
+        |    DNS                |    53        |    TCP           |
+        |    DNS                |    53        |    UDP           |
+        |    ICMPv4             |    N/D       |    Respuesta de eco    |
+        |    Kerberos           |    464       |    TCP           |
+        |    Kerberos           |    464       |    UDP           |
+        |    Kerberos           |    88        |    TCP           |
+        |    Kerberos           |    88        |    UDP           |
+        |    LDAP               |    389       |    TCP           |
+        |    LDAP               |    389       |    UDP           |
+        |    LDAP               |    3268      |    TCP           |
+        |    Nombre de NetBIOS       |    138       |    UDP           |
+        |    SAM/LSA            |    445       |    TCP           |
+        |    SAM/LSA            |    445       |    UDP           |
+        |    LDAP seguro        |    636       |    TCP           |
+        |    LDAP seguro        |    3269      |    TCP           |
+        |    W32Time            |    123       |    UDP           |
+
 
 1. En la cuenta de NetApp, haga clic en **conexiones de Active Directory**, a continuación, haga clic en **unir**.  
 
@@ -134,12 +163,7 @@ Azure Files de NetApp admite volúmenes SMBv3. Deberá crear las conexiones de A
     * **Nombre del volumen**      
         Especifique el nombre para el volumen que va a crear.   
 
-        El nombre debe ser único dentro de un grupo de recursos. Debe tener tres caracteres de longitud, como mínimo.  Puede usar cualquier carácter alfanumérico.
-
-    * **Ruta de acceso del archivo**  
-        Especifique la ruta de acceso de archivo que se usará para crear la ruta de acceso de exportación para el nuevo volumen. La ruta de acceso de exportación se usa para montar el volumen y tener acceso a él.   
-     
-        El nombre de la ruta de acceso de archivo solo puede contener letras, números y guiones ("-"). El nombre debe tener entre 16 y 40 caracteres.  
+        Un nombre de volumen debe ser único dentro de cada grupo de capacidades. Debe tener tres caracteres de longitud, como mínimo. Puede usar cualquier carácter alfanumérico.
 
     * **Grupo de capacidades**  
         Especifique el grupo de capacidad en la que desea que el volumen que se va a crear.

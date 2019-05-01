@@ -11,27 +11,29 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d40330f257694e81704bf6fffa1fd2df8ed86c06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a908185f2d8475afb642250d1499cffa539aca4d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61376115"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573500"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adición de una charla a la base de conocimiento
 
 La incorporación de charlas al bot lo hace más atractivo y conversacional. La característica de charla de QnA Maker permite agregar fácilmente un conjunto previamente rellenado de las principales charlas a la base de conocimiento (KB). Esto puede ser un punto de partida para la personalidad del bot y permite ahorrar el tiempo y el costo que supone escribirlas desde cero.  
 
-Este conjunto de datos tiene aproximadamente 100 escenarios de charla en la voz de tres roles: el profesional, el amigo y el cómico. Elija el rol que más se parezca a la voz del bot. Dada una consulta de usuario, QnA Maker intenta hacerla coincidir con la QnA de charla conocida más parecida. 
+Este conjunto de datos tiene aproximadamente 100 escenarios de chit chat en la voz de varios roles, como Professional, sencillo y Witty. Elija el rol que más se parezca a la voz del bot. Dada una consulta de usuario, QnA Maker intenta hacerla coincidir con la QnA de charla conocida más parecida.  
 
-Algunos ejemplos de las personalidades diferentes:
+Algunos ejemplos de las personalidades diferentes están por debajo. Puede ver todos los conjuntos de datos de personalidad junto con los detalles de las personalidades [aquí](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets).
+
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|Consulta de usuario|El profesional|El amigo|El cómico|
+|Consulta de usuario|Profesional|Descriptivo|Astuto|
 |--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|
+|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
 |`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`You can't handle my dulcet tones.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Aw, that's sweet.`|`Sure. Take me to city hall. See what happens.`|
+|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
+|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
+
 
 
 > [!NOTE]

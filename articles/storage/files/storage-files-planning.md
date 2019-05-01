@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61095625"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574474"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -77,26 +77,16 @@ Si usa Azure File Sync para acceder al recurso compartido de archivos de Azure, 
 Azure Files ofrece dos niveles de rendimiento: estándar y premium.
 
 * Los **recursos compartidos de archivos estándar** tienen el respaldo de discos duros (HDD) que giran y ofrecen un rendimiento confiable para cargas de trabajo de E/S que no dan tanta importancia a la variabilidad del rendimiento, como recursos compartidos de archivos de uso general y entornos de desarrollo y pruebas. Los recursos compartidos de archivos estándar solo están disponibles en un modelo de facturación de pago por uso.
-* Los **recursos compartidos de archivos Premium (versión preliminar)** están respaldados por discos en estado sólido (SSD) que proporcionan alto rendimiento y baja latencia de forma consistente en menos de 10 milisegundos en la mayoría de las operaciones de E/S para las cargas de trabajo intensivas con mayor uso de E/S, lo que hace que sean adecuados para una amplia variedad de cargas de trabajo como bases de datos, hospedaje de sitios web, entornos de desarrollo, etc. Los recursos compartidos de archivos Premium solo están disponibles en un modelo de facturación aprovisionada. Recursos compartidos de archivos Premium usan un modelo de implementación independiente de los recursos compartidos de archivos estándar. Si desea obtener información sobre cómo crear un recurso compartido de archivos de premium, consulte nuestro artículo sobre el tema: [Cómo crear una cuenta de premium de Azure file storage](storage-how-to-create-premium-fileshare.md).
+* Los **recursos compartidos de archivos Premium (versión preliminar)** están respaldados por discos en estado sólido (SSD) que proporcionan alto rendimiento y baja latencia de forma consistente en menos de 10 milisegundos en la mayoría de las operaciones de E/S para las cargas de trabajo intensivas con mayor uso de E/S, lo que hace que sean adecuados para una amplia variedad de cargas de trabajo como bases de datos, hospedaje de sitios web, entornos de desarrollo, etc. Los recursos compartidos de archivos Premium solo están disponibles en un modelo de facturación aprovisionada. Recursos compartidos de archivos Premium usan un modelo de implementación independiente de los recursos compartidos de archivos estándar.
+
+Azure Backup está disponible para recursos compartidos de archivos de premium y Azure Kubernetes Service es compatible con premium recursos compartidos de archivos en la versión 1.13 y versiones posteriores.
+
+Si desea obtener información sobre cómo crear un recurso compartido de archivos de premium, consulte nuestro artículo sobre el tema: [Cómo crear una cuenta de premium de Azure file storage](storage-how-to-create-premium-fileshare.md).
+
+Actualmente, no se puede convertir directamente entre un recurso compartido de archivos estándar y un recurso compartido de archivos de premium. Si desea cambiar a cualquier nivel, debe crear un nuevo recurso compartido de archivos en ese nivel y copiar manualmente los datos desde el recurso compartido original en el nuevo recurso compartido que creó. Puede hacerlo mediante cualquiera de las herramientas de copia de archivos de Azure compatibles, como AzCopy.
 
 > [!IMPORTANT]
-> Archivo de Premium están aún en versión preliminar, solo está disponible con LRS y solo están disponibles en un subconjunto de las regiones con el soporte técnico de Azure Backup está disponible en los recursos compartidos seleccionar regiones:
-
-|Regiones disponibles  |Soporte técnico de Azure Backup  |
-|---------|---------|
-|Este de EE. UU. 2      | Sí|
-|Este de EE. UU       | Sí|
-|Oeste de EE. UU.       | Sin  |
-|Oeste de EE. UU. 2      | Sin  |
-|Centro de EE. UU.    | Sin  |
-|Europa del Norte  | Sin  |
-|Europa occidental   | Sí|
-|Asia Sureste       | Sí|
-|Asia oriental     | Sin  |
-|Este de Japón    | Sin  |
-|Oeste de Japón    | Sin  |
-|Corea Central | Sin  |
-|Este de Australia| Sin  |
+> Recursos compartidos de archivos Premium están aún en versión preliminar, solo están disponibles con LRS y están disponibles en la mayoría de las regiones que ofrecen las cuentas de almacenamiento. Para averiguar si los recursos compartidos de archivos premium están disponibles actualmente en su región, consulte el [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=storage) página de Azure.
 
 ### <a name="provisioned-shares"></a>Recursos compartidos aprovisionados
 
@@ -115,7 +105,9 @@ Los recursos compartidos deben aprovisionarse en incrementos de 1 GB. Tamaño m�
 >
 > tasa de entrada = 40 MiB/s + 0,04 * aprovisionado GiB
 
-Tamaño del recurso compartido se puede aumentar en cualquier momento, pero se puede reducir únicamente después de 24 horas desde el último incremento. Después de esperar 24 horas sin un aumento de tamaño, puede reducir el tamaño del recurso compartido tantas veces hasta que aumente de nuevo. Los cambios de escala IOPS/rendimiento será efectivos en cuestión de minutos después del cambio de tamaño.
+Tamaño del recurso compartido se puede aumentar en cualquier momento, pero se puede reducir únicamente después de 24 horas desde el último incremento. Después de esperar 24 horas sin un aumento de tamaño, puede reducir el tamaño del recurso compartido tantas veces como sea necesario, hasta que aumente de nuevo. Los cambios de escala IOPS/rendimiento será efectivos en cuestión de minutos después del cambio de tamaño.
+
+Es posible reducir el tamaño de los recursos compartidos aprovisionados por debajo de su GiB usado. Si lo hace, no se pierden los datos, pero, aún se facturará por el tamaño usado y el rendimiento (e/s por segundo de la línea de base, el rendimiento y e/s por segundo de ráfaga) del recurso compartido aprovisionado, no el tamaño usado de recepción.
 
 En la tabla siguiente se muestra algunos ejemplos de estas fórmulas para los tamaños de recurso compartido aprovisionado:
 
@@ -141,7 +133,7 @@ Recursos compartidos de archivos Premium pueden ampliar sus IOPS hasta un factor
 Créditos se acumulan en un depósito de ráfaga, siempre que el tráfico para el recurso compartido de archivos está por debajo de la línea de base de e/s por segundo. Por ejemplo, un recurso compartido de GiB 100 tiene previsto 100 IOPS. Si tráfico real en el recurso compartido estaba 40 IOPS para un intervalo específico de 1 segundo, el número de 60 IOPS sin usar se abona a un depósito de ráfaga. Estos créditos, a continuación, se usará más adelante cuando las operaciones, se superará la línea de base de e/s por segundo.
 
 > [!TIP]
-> Tamaño del depósito ráfaga = Baseline_IOPS * 2 * 3600.
+> Tamaño del depósito ráfaga = línea de base de e/s por segundo * 3600 * 2.
 
 Cada vez que un recurso compartido supera la línea de base de e/s por segundo y tiene créditos en un depósito de ráfaga, emite ráfagas. Pueden seguir los recursos compartidos de ráfaga siempre quedan créditos, aunque los recursos compartidos de menores que 50 TiB sólo permanecerán en el límite de ráfagas de hasta una hora. Recursos compartidos de mayores que 50 TiB técnicamente puede superar este límite de una hora, de dos horas, pero esto se basa en el número de créditos de ráfaga acumulados. Cada E/S más allá de la línea de base de e/s por segundo consume un crédito y una vez que se consumen todos los créditos devolvería el recurso compartido a la línea de base de e/s por segundo.
 

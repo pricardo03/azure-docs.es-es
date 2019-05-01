@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577599"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690144"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 
@@ -28,7 +28,7 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 **Translator API V2**
 
 > [!NOTE]
-> V2 quedó en desuso el 30 de abril de 2018 y se suspenderá el 30 de abril de 2019.
+> Ha quedado en desuso v2 en el 30 de abril de 2018. Migre sus aplicaciones a V3 con el fin de aprovechar las ventajas de la nueva funcionalidad disponible exclusivamente en V3.
 
 * Solo estadísticas: no hay ningún sistema neuronal disponible para este idioma.
 * Traducción neuronal disponible: hay un sistema neuronal disponible. Utilice el parámetro `category=generalnn` para acceder al sistema neuronal.
@@ -230,14 +230,17 @@ Los siguientes idiomas están disponibles para la personalización a o desde ing
 | Indonesio|   `id`    |
 | Italiano      | `it`          |
 | Japonés      | `ja`          |
+|Kiswahili| `sw`    |
 | Coreano      | `ko`          |
 | Letón      | `lv`          |
 | Lituano      | `lt`          |
+|Malgache|  `mg`    |
 | Noruego      | `nb`          |
 | Polaco      | `pl`          |
 | Portugués      | `pt`          |
 | Rumano      | `ro`          |
 | Ruso      | `ru`          |
+|Samoano|    `sm`    |
 | Serbio (latino)      | `sr-Latn`          |
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |

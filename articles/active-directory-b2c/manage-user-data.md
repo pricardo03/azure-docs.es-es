@@ -3,19 +3,19 @@ title: Administración de los datos de usuarios en Azure Active Directory B2C | 
 description: Obtenga información sobre cómo eliminar o exportar datos de usuario en Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 62846fe744e7295f58902481400ce91770c916da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18e0f102ba1447a734045d5225bb09f019016139
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406485"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683904"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Administración de los datos de usuarios en Azure Active Directory B2C
 

@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 894c42e4102a3565ff43798d33afb4046fda76bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b924746c00a438ec4ac81dacc02905565adf30e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286683"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682125"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registra actividades de Azure AD en Azure Monitor
 
@@ -72,14 +72,24 @@ Si ya tiene una licencia de Azure AD, necesita una suscripción a Azure para con
 
 Cada evento del registro de auditoría utiliza aproximadamente 2 KB de almacenamiento de datos. Para un inquilino con 100 000 usuarios, que incurriría en alrededor de 1,5 millones de eventos por día, necesitaría alrededor de 3 GB de almacenamiento de datos al día. Dado que las escrituras se producen en lotes de aproximadamente cinco minutos, puede anticipar cerca de 9 000 operaciones de escritura al mes. 
 
-La siguiente tabla contiene una estimación del costo, dependiendo del tamaño del inquilino, de una cuenta de almacenamiento de uso general v2 en la región Oeste de EE. UU. durante al menos un año de retención. Para crear una estimación más precisa del volumen de datos que prevé para la aplicación, use la [calculadora de precios de almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). La tabla solo incluye el costo de procesamiento y almacenamiento y no el costo de la suscripción. 
+
+La siguiente tabla contiene una estimación del costo, dependiendo del tamaño del inquilino, de una cuenta de almacenamiento de uso general v2 en la región Oeste de EE. UU. durante al menos un año de retención. Para crear una estimación más precisa del volumen de datos que prevé para la aplicación, use la [calculadora de precios de almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 
-| Categoría del registro       | Número de usuarios | Eventos por día | Eventos por mes (30 días) | Costo por mes en dólares estadounidenses (est). |
-| ---                | ---             | ---            | ---                        | ---                          | 
-| Auditoría e inicios de sesión | 100 000         | 16,500,000     | 495,000,000                | $1093                        |
-| Auditoría              | 100 000         | 1,500,000      | 45 000 000                 | $246.66                      |
-| Inicios de sesión           | 100 000         | 15 000 000     | 450,000,000                | $847.28                      |
+| Categoría del registro | Número de usuarios | Eventos por día | Volumen de datos al mes (aprox.) | Costo al mes (aprox.) | Costo al año (aprox.) |
+|--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
+| Auditoría | 100 000 | 1,5&nbsp;millones | 90 GB | 1,93 USD | 23,12 USD |
+| Auditoría | 1000 | 15 000 | 900 MB | 0,02 USD | 0,24 USD |
+| Inicios de sesión | 1000 | 34 800 | 4 GB | 0,13 USD | 1,56 USD |
+| Inicios de sesión | 100 000 | 15&nbsp;millones | 1,7 TB | 35,41 USD | 424,92 USD |
+ 
+
+
+
+
+
+
+
 
 
 ### <a name="event-hub-messages-for-activity-logs"></a>Mensajes del centro de eventos para los registros de actividad

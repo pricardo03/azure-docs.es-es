@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006138"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686291"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad de una instancia administrada de Azure SQL Database
 
@@ -80,7 +80,7 @@ Microsoft administra la instancia administrada mediante el uso de un extremo de 
 Al iniciar las conexiones dentro de la instancia administrada (como ocurre con las copias de seguridad y los registros de auditoría), el tráfico aparece iniciar desde la dirección IP pública de la administración del punto de conexión. Puede limitar el acceso a servicios públicos desde una instancia administrada mediante el establecimiento de reglas de firewall para permitir solo la dirección IP de la instancia administrada. Para obtener más información, consulte [Compruebe firewall integrado de la instancia administrada](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> El tráfico que se dirige a los servicios de Azure que están dentro de la región de la instancia administrada está optimizado y para ese motivo no con NAT a la dirección IP pública de punto de conexión de administración de instancia administrada. Por ese motivo si necesita usar reglas de firewall basado en IP, con más frecuencia para el almacenamiento, servicios deben estar en una región distinta de la instancia administrada.
+> Se optimiza el tráfico que se dirige a los servicios de Azure que están dentro de la región de la instancia administrada y por ese motivo no con NAT para administra dirección IP pública de punto de conexión de administración de instancia. Por ese motivo si necesita usar reglas de firewall basado en IP, con más frecuencia para el almacenamiento, servicios deben estar en una región distinta de la instancia administrada.
 
 ## <a name="network-requirements"></a>Requisitos de red
 
@@ -97,7 +97,7 @@ Implementar una instancia administrada en una subred dentro de la red virtual de
 
 ### <a name="mandatory-inbound-security-rules"></a>Reglas de seguridad de entrada obligatorias
 
-| Name       |Port                        |Protocolo|Origen           |Destino|.|
+| NOMBRE       |Port                        |Protocol|Origen           |Destino|.|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |Cualquiera              |MI SUBNET  |PERMITIR |
 |mi_subnet   |Cualquiera                         |Cualquiera     |MI SUBNET        |MI SUBNET  |PERMITIR |
@@ -105,7 +105,7 @@ Implementar una instancia administrada en una subred dentro de la red virtual de
 
 ### <a name="mandatory-outbound-security-rules"></a>Reglas de seguridad de salida obligatorias
 
-| Name       |Port          |Protocolo|Origen           |Destino|.|
+| NOMBRE       |Port          |Protocol|Origen           |Destino|.|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |PERMITIR |
 |mi_subnet   |Cualquiera           |Cualquiera     |MI SUBNET        |MI SUBNET  |PERMITIR |
@@ -122,7 +122,7 @@ Implementar una instancia administrada en una subred dentro de la red virtual de
 
 ### <a name="user-defined-routes"></a>rutas definidas por el usuario
 
-|Name|Prefijo de dirección|Próximo salto|
+|NOMBRE|Prefijo de dirección|Próximo salto|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|Virtual network|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

@@ -3,20 +3,19 @@ title: Definición de un perfil técnico autoafirmado en una directiva personali
 description: Defina un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-origin.date: 09/10/2018
-ms.date: 04/04/2019
-ms.author: v-junlch
+ms.date: 09/10/2018
+ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: dcc94daeb19174b85fface05222f8842e9544adf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41305cc5825344a61ff15ddb5deb629cd0f1c679
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419499"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691024"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C
 
@@ -24,7 +23,7 @@ ms.locfileid: "60419499"
 
 Todas las interacciones realizadas en Azure Active Directory (Azure AD) B2C en las que se espera que el usuario proporcione una entrada son perfiles técnicos autoafirmados. Por ejemplo, una página de registro, de inicio de sesión o de restablecimiento de la contraseña.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 El atributo **Name** del elemento **Protocol** tiene que establecerse en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo que usa Azure AD B2C para la autoafirmación: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -142,7 +141,6 @@ También puede llamar a un perfil técnico de la API de REST con la lógica de n
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
 El elemento **CryptographicKeys** no se usa.
-
 
 
 

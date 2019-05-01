@@ -4,16 +4,16 @@ description: Usar el conector de IoT Central en Microsoft Flow para desencadenar
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/26/2019
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 2c4ee6a2feb737bcafc64b1c8503c03757a53364
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887735"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693591"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Creación de flujos de trabajo con el conector de IoT Central en Microsoft Flow
 
@@ -101,9 +101,12 @@ En esta sección se muestra cómo actualizar las propiedades y la configuración
 
 1. Agregue una nueva acción. Busque la acción **Azure IoT Central - Update a device** (Azure IoT Central: actualizar un dispositivo).
 
-1. Elija su aplicación en la lista desplegable. Ahora, necesitará el identificador del dispositivo existente que quiere actualizar. El identificador del dispositivo de IoT Central se puede obtener en **Device Explorer**.
+1. Elija su aplicación en la lista desplegable. Ahora, necesitará el identificador del dispositivo existente que quiere actualizar. 
 
-    ![Id. de dispositivo del Device Explorer de IoT Central](./media/howto-add-microsoft-flow/iotcdeviceid.png)
+    > [!NOTE] 
+    > **Debe usar el identificador se encuentra en la dirección URL** en la página de detalles del dispositivo del dispositivo que desea actualizar. El identificador de dispositivo se encuentra en la lista del explorador de dispositivos de los dispositivos no es la adecuada para usar en Microsoft Flow.
+
+    ![Id. de IoT Central desde la dirección URL](./media/howto-add-microsoft-flow/iotcdeviceidurl.png)
 
 1. Puede actualizar el nombre del dispositivo. Para actualizar cualquiera de las propiedades y la configuración del dispositivo, debe seleccionar la plantilla de dispositivo que quiera actualizar en la lista desplegable **Plantilla de dispositivo**. El icono de la acción se expande para mostrar todas las propiedades y la configuración que puede actualizar.
 
@@ -117,19 +120,32 @@ En esta sección se muestra cómo actualizar las propiedades y la configuración
 
 ## <a name="get-device-information-in-a-workflow"></a>Obtener información del dispositivo en un flujo de trabajo
 
-Puede obtener información del dispositivo mediante su identificador de dispositivo utilizando el **Azure IoT Central - obtener un dispositivo** acción. Puede obtener información como el nombre del dispositivo, nombre de la plantilla de dispositivo, los valores de propiedad y valores de configuración para pasar a las acciones posteriores en el flujo de trabajo. Este es un flujo de trabajo de ejemplo que se pasa el valor de propiedad de nombre de cliente desde un dispositivo a Microsoft Teams.
+Puede obtener información del dispositivo mediante su identificador utilizando el **Azure IoT Central - obtener un dispositivo** acción. 
+> [!NOTE] 
+> **Debe usar el identificador se encuentra en la dirección URL** en la página de detalles del dispositivo del dispositivo que desea actualizar. El identificador de dispositivo se encuentra en la lista del explorador de dispositivos de los dispositivos no es la adecuada para usar en Microsoft Flow.
+
+Puede obtener información como el nombre del dispositivo, nombre de la plantilla de dispositivo, los valores de propiedad y valores de configuración para pasar a las acciones posteriores en el flujo de trabajo. Este es un flujo de trabajo de ejemplo que se pasa el valor de propiedad de nombre de cliente desde un dispositivo a Microsoft Teams.
 
    ![El flujo de trabajo de flujo de get dispositivos](./media/howto-add-microsoft-flow/flowgetdevice.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>Ejecutar un comando en un dispositivo en un flujo de trabajo
-Puede ejecutar un comando en un dispositivo especificado por su Id. de dispositivo mediante el **Azure IoT Central - ejecutar un comando** acción. Puede elegir el comando para ejecutar y pasar los parámetros del comando a través de esta acción. Este es un flujo de trabajo de ejemplo que se ejecuta un comando de reinicio del dispositivo desde un botón en la aplicación móvil Microsoft Flow.
+Puede ejecutar un comando en un dispositivo especificado por su identificador con el **Azure IoT Central - ejecutar un comando** acción. 
+
+> [!NOTE] 
+> **Debe usar el identificador se encuentra en la dirección URL** en la página de detalles del dispositivo del dispositivo que desea actualizar. El identificador de dispositivo se encuentra en la lista del explorador de dispositivos de los dispositivos no es la adecuada para usar en Microsoft Flow.
+    
+Puede elegir el comando para ejecutar y pasar los parámetros del comando a través de esta acción. Este es un flujo de trabajo de ejemplo que se ejecuta un comando de reinicio del dispositivo desde un botón en la aplicación móvil Microsoft Flow.
 
    ![El flujo de trabajo de flujo de get dispositivos](./media/howto-add-microsoft-flow/flowrunacommand.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Eliminación de un dispositivo en un flujo de trabajo
 
-Puede eliminar un dispositivo por su identificador de dispositivo con la acción **Azure IoT Central - Delete a device** (Azure IoT Central: eliminar un dispositivo). Este es un flujo de trabajo de ejemplo que elimina un dispositivo con solo pulsar un botón en la aplicación móvil de Microsoft Flow.
+Puede eliminar un dispositivo mediante su identificador utilizando el **Azure IoT Central: eliminar un dispositivo** acción. 
+> [!NOTE] 
+> **Debe usar el identificador se encuentra en la dirección URL** en la página de detalles del dispositivo del dispositivo que desea actualizar. El identificador de dispositivo se encuentra en la lista del explorador de dispositivos de los dispositivos no es la adecuada para usar en Microsoft Flow.
+
+Este es un flujo de trabajo de ejemplo que elimina un dispositivo con solo pulsar un botón en la aplicación móvil de Microsoft Flow.
 
    ![Flujo de trabajo de eliminación de dispositivos de Flow](./media/howto-add-microsoft-flow/flowdeletedevice.png)
 

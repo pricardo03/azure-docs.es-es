@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 497ffb5acf6262dfb42f490efe68e1ea26c777cb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60904143"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572374"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Búsqueda de una dirección mediante el servicio de búsqueda de Azure Maps
 
@@ -68,7 +68,7 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado `maxF
 
     La cadena de consulta ambigua de "pizza" devolvió 10 [resultados de punto de interés](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) con categorías correspondientes a "pizza" y "restaurante". Cada resultado devuelve una dirección, valores de latitud y longitud, ventanilla y puntos de entrada para la ubicación.
   
-    Los resultados son variados para esta consulta, no se asocian a ninguna ubicación de referencia determinada. Puede usar el parámetro **countrySet** para especificar solo los países para los que su aplicación necesita cobertura, ya que el comportamiento predeterminado es buscar en todo el mundo, siendo posible la devolución de resultados innecesarios.
+    Los resultados son variados para esta consulta, no se asocian a ninguna ubicación de referencia determinada. Puede usar el **countrySet** parámetro para especificar solo los países o regiones para que la aplicación necesita cobertura, como el comportamiento predeterminado consiste en Buscar en todo el mundo, devolución de resultados innecesarios.
 
 5. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 

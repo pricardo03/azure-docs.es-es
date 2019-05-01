@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6775f6e37a5b282afcfcdce7f93751e852923366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60349574"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571377"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Cuando tiene un inquilino
 En la mayoría de los temas sobre cómo usar Azure AD Connect se da por supuesto que empieza con un nuevo inquilino de Azure AD sin objetos ni usuarios. Sin embargo, si ha empezado con un inquilino de Azure AD, rellenado con usuarios y otros objetos, y ahora desea utilizar Connect, eche un vistazo a este tema.
@@ -58,6 +58,15 @@ En una instalación nueva de Connect, apenas las hay. La diferencia reside en lo
 
 ### <a name="other-objects-than-users"></a>Otros objetos distintos a los usuarios
 Para grupos y contactos habilitados para correo electrónico, puede hacer una coincidencia parcial en función de las direcciones de proxy. La coincidencia exacta no es aplicable porque solo puede actualizar el sourceAnchor o inmutableID (mediante PowerShell) en los usuarios. Para grupos que no están habilitados para correo, no se admiten actualmente la coincidencia parcial ni la coincidencia exacta.
+
+### <a name="admin-role-considerations"></a>Consideraciones sobre el rol Administrador
+Para evitar que los usuarios de confianza en el entorno local coincide con un usuario en la nube que tenga cualquier rol de administrador, Azure AD Connect no coincidirá con objetos de usuario local con objetos que tienen un rol de administrador. Se trata de forma predeterminada. Para solucionar este comportamiento, puede hacer lo siguiente:
+
+1.  Quite los roles de directorio del objeto de usuario solo de nube
+2.  Desencadenar una sincronización
+3.  Opcionalmente, agregue los roles de directorio al objeto de usuario en la nube una vez que la coincidencia se ha producido.
+
+
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Creación de una instancia de Active Directory local a partir de los datos de Azure AD
 Algunos clientes comienzan con una solución solo en la nube con Azure AD y no tienen una implementación de AD local. Más adelante, desean consumir recursos locales y crear una implementación de AD local basada en los datos de Azure AD. Azure AD Connect no puede ayudarlo en este escenario, ya que no crea los usuarios locales y no tiene ninguna funcionalidad para hacer que la contraseña local sea la misma que la de Azure AD.

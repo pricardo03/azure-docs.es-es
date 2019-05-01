@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e36eb3816d6f465552c4db740508d5e7f5fa1331
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6807ae8d9c8b8458b9ac4552a90119a8f709d330
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60313330"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693359"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -79,7 +79,7 @@ El elemento **ContentDefinition** contiene los elementos siguientes:
 
 El elemento **DataUri** se usa para especificar el identificador de página. Azure AD B2C usa el identificador de página para cargar e iniciar elementos de la interfaz de usuario y código JavaScript del lado cliente. El formato del valor es `urn:com:microsoft:aad:b2c:elements:page-name:version`.  En la tabla siguiente, se muestra una lista de los identificadores de página que puede usar.
 
-| Value |   DESCRIPCIÓN |
+| Valor |   DESCRIPCIÓN |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Muestra una página de error cuando se produce una excepción o un error. |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Muestra una lista de los proveedores de identidades que los usuarios pueden elegir durante el inicio de sesión. | 

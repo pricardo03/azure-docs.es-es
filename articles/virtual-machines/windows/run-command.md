@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d199a9db879263bbca49298df190c5a127444c42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23973445992ceaeb0cd3bc0589665f2fac5b64e5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251237"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575348"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Windows con el comando Ejecutar
 
@@ -83,9 +83,9 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## <a name="limiting-access-to-run-command"></a>Limitación del acceso al comando Ejecutar
 
-Para enumerar los comandos Ejecutar o mostrar los detalles de un comando, se requieren el permiso `Microsoft.Compute/locations/runCommands/read`, que tienen el rol [Lector](../../role-based-access-control/built-in-roles.md#reader) integrado y otros superiores.
+Enumera los comandos de ejecución o que muestra los detalles de un comando requieren el `Microsoft.Compute/locations/runCommands/read` permiso en el nivel de suscripción que integrado [lector](../../role-based-access-control/built-in-roles.md#reader) rol y versiones posteriores.
 
-Ejecutar un comando requiere el `Microsoft.Compute/virtualMachines/runCommand/action` permiso, que el [colaborador de máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol y versiones posteriores tienen.
+Ejecutar un comando requiere el `Microsoft.Compute/virtualMachines/runCommand/action` permiso en el nivel de suscripción que la [colaborador de máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol y versiones posteriores tienen.
 
 Puede usar uno de los roles [integrados](../../role-based-access-control/built-in-roles.md) o crear uno [personalizado](../../role-based-access-control/custom-roles.md) para usar el comando Ejecutar.
 
