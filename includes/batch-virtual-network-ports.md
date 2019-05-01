@@ -64,14 +64,14 @@ No es necesario especificar los grupos de seguridad de red a nivel de subred, po
 
 **Reglas de seguridad de entrada**
 
-| Direcciones IP de origen | Etiqueta de servicio de origen | Puertos de origen | Destino | Puertos de destino | Protocolo | . |
+| Direcciones IP de origen | Etiqueta de servicio de origen | Puertos de origen | Destino | Puertos de destino | Protocol | . |
 | --- | --- | --- | --- | --- | --- | --- |
 | N/D | `BatchNodeManagement` [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | * | Cualquiera | 29876-29877 | TCP | PERMITIR |
 | Usuario direcciones IP de origen para tener acceso remoto a los nodos de proceso o la subred de nodo de proceso para tareas de instancias múltiples de Linux, si es necesario. | N/D | * | Cualquiera | 3389 (Windows), 22 (Linux) | TCP | PERMITIR |
 
 **Reglas de seguridad de salida**
 
-| Origen | Puertos de origen | Destino | Etiqueta de servicio de destino | Protocolo | . |
+| Origen | Puertos de origen | Destino | Etiqueta de servicio de destino | Protocol | . |
 | --- | --- | --- | --- | --- | --- |
 | Cualquiera | 443 | [Etiqueta de servicio](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (en la misma región que la cuenta de Batch y una red virtual)  | Cualquiera | PERMITIR |
 
@@ -97,13 +97,13 @@ Configurar el tráfico entrante en el puerto 3389 para Windows si necesita permi
 
 **Reglas de seguridad de entrada**
 
-| Direcciones IP de origen | Puertos de origen | Destino | Puertos de destino | Protocolo | . |
+| Direcciones IP de origen | Puertos de origen | Destino | Puertos de destino | Protocol | . |
 | --- | --- | --- | --- | --- | --- |
 Cualquiera <br /><br />Aunque esto requiere "permitir todo" realmente, el servicio Batch aplica una regla de lista de control de acceso a nivel de cada nodo que filtra todas las direcciones IP de servicio que no sean de Batch. | * | Cualquiera | 10100, 20100, 30100 | TCP | PERMITIR |
 | Opcional, para permitir el acceso RDP en nodos de proceso. | * | Cualquiera | 3389 | TCP | PERMITIR |
 
 **Reglas de seguridad de salida**
 
-| Origen | Puertos de origen | Destino | Puertos de destino | Protocolo | . |
+| Origen | Puertos de origen | Destino | Puertos de destino | Protocol | . |
 | --- | --- | --- | --- | --- | --- |
 | Cualquiera | * | Cualquiera | 443  | Cualquiera | PERMITIR |
