@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549668"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919090"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 ## <a name="overview"></a>Información general ##
@@ -78,7 +78,7 @@ Después de crear un grupo de acciones, está visible en el **grupos de acciones
 
 Puede tener un número limitado de acciones de correo electrónico en un grupo de acciones. Consulte el artículo de [información sobre las limitaciones](./../../azure-monitor/platform/alerts-rate-limiting.md).
 
-**ITSM** -puede tener un número limitado número limitado de acciones de ITSM en un grupo de acciones. La acción de ITSM requiere una conexión de ITSM. Aprenda cómo crear una [conexión de ITSM](../../azure-monitor/platform/itsmc-overview.md).
+**ITSM** -puede tener un número limitado de acciones de ITSM en un grupo de acciones. La acción de ITSM requiere una conexión de ITSM. Aprenda cómo crear una [conexión de ITSM](../../azure-monitor/platform/itsmc-overview.md).
 
 **Aplicación lógica** -puede tener un número limitado de acciones de aplicación lógica en un grupo de acciones.
 
@@ -105,15 +105,12 @@ Rangos de direcciones IP de origen
  - 51.5.148.86
  - 51.5.149.19
 
-Para recibir actualizaciones sobre los cambios a estas direcciones IP, que le recomendamos que configuración una [servicio alerta de estado, que se supervisa para notificaciones informativas sobre el servicio de grupos de acciones.
-
+Para recibir actualizaciones sobre los cambios a estas direcciones IP, se recomienda que configurar una alerta de estado del servicio, que se supervisa para notificaciones informativas sobre el servicio de grupos de acciones.
 
 ## <a name="next-steps"></a>Pasos siguientes ##
-
 * Más información sobre el [comportamiento de las alertas por SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * [Comprender el esquema de webhook de alertas del registro de actividad](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Obtenga más información sobre [Conector de ITSM](../../azure-monitor/platform/itsmc-overview.md)
 * Más información sobre la [limitación de velocidad](../../azure-monitor/platform/alerts-rate-limiting.md) en las alertas.
 * Consulte la [introducción a las alertas del registro de actividad](../../azure-monitor/platform/alerts-overview.md) y aprenda cómo puede recibir alertas.  
 * Aprenda a [configurar alertas siempre que se publique una notificación de mantenimiento de un servicio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-

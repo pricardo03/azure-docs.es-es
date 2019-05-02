@@ -9,11 +9,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 95a530ea57237453a3b0d7d8dd42963f4b9c3dde
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760384"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713046"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notas de la versión de Azure HDInsight.
 
@@ -38,7 +38,7 @@ Las nuevas actualizaciones y capacidades se dividen en las siguientes categoría
 
 *  ***Compatibilidad con Azure Data Lake Storage Gen2***: HDInsight admitirá el lanzamiento de la versión preliminar de Azure Data Lake Storage Gen2. En las regiones disponibles, los clientes podrán elegir una cuenta de ADLS Gen2 como almacén principal o secundario para sus clústeres de HDInsight.
 
-*  ***Actualizaciones de HDInsight Enterprise Security Package (versión preliminar)***: (versión preliminar) los [puntos de conexión del servicio Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) admiten Azure Blob Storage, ADLS Gen1, Cosmos DB y Azure DB.
+*  ***Actualizaciones de HDInsight Enterprise Security Package (versión preliminar)***: (versión preliminar) los [puntos de conexión de servicio de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) admiten Azure Blob Storage, ADLS Gen1, Cosmos DB y Azure DB.
 
 ## <a name="component-versions"></a>Versiones de componentes
 

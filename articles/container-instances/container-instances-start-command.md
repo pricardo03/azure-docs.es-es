@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 78136a081e52ef3f12d672d01449ce616534462e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: da94a4c79694f511d41e5c8dda8c786fc7049726
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537656"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569642"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Establecer la línea de comandos en una instancia de contenedor para anular la operación de línea de comandos predeterminada
 
@@ -24,7 +24,15 @@ Como la configuración como [variables de entorno](container-instances-environme
 
 * De forma predeterminada, la línea de comandos especifica un *único proceso que se inicie sin un shell* en el contenedor. Por ejemplo, la línea de comandos puede ejecutar un script de Python o el archivo ejecutable. 
 
-* Para ejecutar varios comandos, iniciar la línea de comandos mediante el establecimiento de un entorno de shell en el sistema operativo del contenedor (ejemplos: `bin/sh`, `/bin/bash`, `cmd`). Siga las convenciones del shell para combinar varios comandos que se ejecutarán en secuencia.
+* Para ejecutar varios comandos, iniciar la línea de comandos mediante el establecimiento de un entorno de shell que se admite en el sistema operativo del contenedor. Ejemplos:
+
+  |Sistema operativo  |Shell predeterminado  |
+  |---------|---------|
+  |Ubuntu     |   `/bin/bash`      |
+  |Alpine     |   `/bin/sh`      |
+  | Windows     |    `cmd`     |
+
+  Siga las convenciones del shell para combinar varios comandos que se ejecutarán en secuencia.
 
 * Dependiendo de la configuración del contenedor, debe establecer una ruta de acceso completa a la línea de comandos ejecutable o argumentos.
 

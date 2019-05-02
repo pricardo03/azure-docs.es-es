@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 79faab0dcf2dd4c5592fe0543fa63f2538facf36
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: e21ed77a80892da22c380787dc64ea07db756fdf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664019"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917650"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre el Centro de seguridad de Azure
 Estas preguntas más frecuentes responden a preguntas sobre Azure Security Center, un servicio que le ayuda a evitar y detectar amenazas y a responder a las mismas con mayor visibilidad y control sobre la seguridad de los recursos de Microsoft Azure.
@@ -77,7 +77,7 @@ Las máquinas virtuales Linux o Windows de IaaS son aptas si:
 
 - La extensión Microsoft Monitoring Agent no está instalada actualmente en la máquina virtual.
 - El estado de la máquina virtual es en ejecución.
-- La Windows o Linux [agente de máquina Virtual de Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-windows) está instalado.
+- La Windows o Linux [agente de máquina Virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) está instalado.
 - La máquina virtual no se utiliza como dispositivo, es decir, firewall de aplicaciones web o de próxima generación.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>¿Puedo eliminar las áreas de trabajo predeterminadas creadas por Security Center?

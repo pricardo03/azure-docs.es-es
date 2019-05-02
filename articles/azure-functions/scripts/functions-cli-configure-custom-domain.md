@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 5299675656ea23b85f78b3dbfdc02814ab332a8b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8874039d148cc89d3f47979370e64dd78777f268
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979056"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325755"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Asignación de un dominio personalizado a una aplicación de función
 
@@ -40,7 +40,7 @@ Si decide instalar y usar la CLI localmente, debe usar la versión 2.0 de la CLI
 
 ## <a name="script-explanation"></a>Explicación del script
 
-Cada script utiliza los comandos siguientes: cada comando de la tabla crea un vínculo a documentación específica del comando.
+Este script usa los siguientes comandos: Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
 | Get-Help | Notas |
 |---|---|

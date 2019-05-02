@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 0bdad2d59528775d23d882831cfdbdc09471e12e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31795b0dfb5a9815113ab232a266d9f7f8955068
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109804"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688378"
 ---
 # <a name="get-started"></a>Guía de inicio rápido: Creación de un equilibrador de carga básico con Azure PowerShell
 
@@ -335,7 +335,7 @@ A continuación, puede escribir la dirección IP pública en un explorador web. 
 
 ![Prueba del equilibrador de carga](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
 
-Para ver cómo el equilibrador de carga distribuye el tráfico entre las dos máquinas virtuales que ejecutan la aplicación, puede forzar la actualización del explorador web.
+Para ver cómo el equilibrador de carga distribuye el tráfico entre ambas máquinas virtuales que ejecutan la aplicación, puede realizar una actualización forzada del explorador web.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

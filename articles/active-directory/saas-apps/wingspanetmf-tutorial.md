@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a41bdda303c9e636929fba00a2fe4279002e42b3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6c3a7a8644e0e391f8817a7ae3a4cb9b8af5dab7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280764"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920361"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Tutorial: Integración de Azure Active Directory con Wingspan eTMF
 
@@ -112,7 +112,7 @@ Para configurar el inicio de sesión único de Azure AD con Wingspan eTMF, siga 
     c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<customer name>.<instance name>.mywingspan.com/`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Wingspan eTMF](http://www.wingspan.com/contact-us/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Wingspan eTMF](https://www.wingspan.com/contact-us/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -130,7 +130,7 @@ Para configurar el inicio de sesión único de Azure AD con Wingspan eTMF, siga 
 
 ### <a name="configure-wingspan-etmf-single-sign-on"></a>Configuración del inicio de sesión único en Wingspan eTMF
 
-Para configurar el inicio de sesión único en **Wingspan eTMF**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Wingspan eTMF](http://www.wingspan.com/contact-us/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Wingspan eTMF**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Wingspan eTMF](https://www.wingspan.com/contact-us/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -184,7 +184,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-wingspan-etmf-test-user"></a>Creación de un usuario de prueba en Wingspan eTMF
 
-En esta sección, creará un usuario llamado Britta Simon en Wingspan eTMF. Trabaje con el [equipo de soporte técnico de Wingspan eTMF](http://www.wingspan.com/contact-us/) para agregar los usuarios a la plataforma de Wingspan eTMF. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Wingspan eTMF. Trabaje con el [equipo de soporte técnico de Wingspan eTMF](https://www.wingspan.com/contact-us/) para agregar los usuarios a la plataforma de Wingspan eTMF. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

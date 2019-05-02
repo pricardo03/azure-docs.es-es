@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2674e5ca12269d44e111f140fce77bd8bc0c9ae7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361954"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570643"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
 
@@ -76,7 +76,7 @@ Cuando la extensión NPS para Azure está integrada con NPS, el flujo de una aut
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En esta sección se detallan los requisitos previos que hay que cumplir antes de integrar MFA con la puerta de enlace de Escritorio remoto. Antes de comenzar, debe cumplir los siguientes requisitos previos:
+Esta sección detallan los requisitos previos que deben completarse antes de integrar MFA con la VPN. Antes de comenzar, debe cumplir los siguientes requisitos previos:
 
 * Infraestructura de VPN
 * Rol Servicios de acceso y directivas de redes
@@ -338,7 +338,7 @@ Como parte de la configuración de la extensión NPS, debe proporcionar las cred
 
 ### <a name="install-the-nps-extension"></a>Instalación de la extensión de NPS
 
-La extensión NPS debe instalarse en un servidor que tenga el rol Servicios de acceso y directivas de redes instalado y que funcione como servidor RADIUS en el diseño. *No* instale la extensión NPS en el servidor de Escritorio remoto.
+La extensión NPS debe instalarse en un servidor que tenga el rol Servicios de acceso y directivas de redes instalado y que funcione como servidor RADIUS en el diseño. Hacer *no* instalar la extensión NPS en el servidor VPN.
 
 1. Descargue la extensión NPS desde el [Centro de descarga de Microsoft](https://aka.ms/npsmfa).
 

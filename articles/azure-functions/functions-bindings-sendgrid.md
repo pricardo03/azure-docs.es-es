@@ -288,7 +288,7 @@ En esta sección se describen las opciones de configuración globales disponible
 
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
-|De|N/D|Dirección de correo electrónico del remitente en todas las funciones.| 
+|from|N/D|Dirección de correo electrónico del remitente en todas las funciones.| 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

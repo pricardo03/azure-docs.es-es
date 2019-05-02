@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894400"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64923000"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de compatibilidad para la copia de seguridad con el agente de Microsoft Azure Recovery Services (MARS)
 
@@ -24,14 +24,14 @@ Puede usar el [servicio Azure Backup](backup-overview.md) para realizar una copi
 Azure Backup utiliza al agente de MARS para copias de seguridad de máquinas locales y máquinas virtuales de Azure en un almacén de Recovery Services copia de seguridad de Azure. El agente de MARS hacer lo siguiente:
 - Ejecutar en equipos de Windows local para que puede realizar copias de seguridad directamente en un almacén de Recovery Services copia de seguridad en Azure.
 - Ejecutar en máquinas virtuales de Windows para que puede realizar copias de seguridad directamente en un almacén.
-- Ejecutar en Microsoft Azure Backup Server (MABS) o un servidor de System Center Data Protection Manager (DPM). En este escenario, las máquinas y cargas de trabajo de copia de seguridad a MABS o en el servidor DPM. El agente de MARS, a continuación, realiza copias de seguridad en este servidor en un almacén de Azure. 
+- Ejecutar en Microsoft Azure Backup Server (MABS) o un servidor de System Center Data Protection Manager (DPM). En este escenario, las máquinas y cargas de trabajo de copia de seguridad a MABS o en el servidor DPM. El agente de MARS, a continuación, realiza copias de seguridad en este servidor en un almacén de Azure.
 
 Dependen de las opciones de copia de seguridad donde está instalado el agente. Para obtener más información, consulte [arquitectura de Azure Backup mediante el agente de MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Para obtener información sobre la arquitectura de copia de seguridad de MABS y DPM, consulte [copia de seguridad en DPM o MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Consulte también [requisitos](backup-support-matrix-mabs-dpm.md) para la arquitectura de copia de seguridad.
 
 **Instalación** | **Detalles**
 --- | ---
 Descargue al último agente de MARS | Puede descargar la última versión del agente desde el almacén o [directamente](https://aka.ms/azurebackup_agent).
-Instalar directamente en un equipo | Puede instalar el agente de MARS directamente en un servidor de Windows local o en una máquina virtual de Windows que se está ejecutando cualquiera de los [sistemas operativos compatibles con](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Instalar directamente en un equipo | Puede instalar el agente de MARS directamente en un servidor de Windows local o en una máquina virtual de Windows que se está ejecutando cualquiera de los [sistemas operativos compatibles con](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
 Instalar en un servidor de copia de seguridad | Al configurar DPM o MABS para realizar una copia de seguridad en Azure, descargue e instale al agente de MARS en el servidor. Puede instalar el agente en [sistemas operativos compatibles](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) en la matriz de compatibilidad de servidor de copia de seguridad.
 
 > [!NOTE]
@@ -45,8 +45,8 @@ Cuando se usa el agente de MARS para realizar una copia de seguridad de los dato
 
 **Memoria caché** | **Detalles**
 --- | ---
-Tamaño |  Espacio libre en la carpeta de caché debe ser al menos del 5 al 10 por ciento del tamaño global de los datos de copia de seguridad. 
-Ubicación | La carpeta de caché debe almacenarse localmente en el equipo que la copia de seguridad y deben estar en línea. No debería ser la carpeta de caché en un recurso compartido de red, en un medio extraíble o en un volumen sin conexión. 
+Tamaño |  Espacio libre en la carpeta de caché debe ser al menos del 5 al 10 por ciento del tamaño global de los datos de copia de seguridad.
+Location | La carpeta de caché debe almacenarse localmente en el equipo que la copia de seguridad y deben estar en línea. No debería ser la carpeta de caché en un recurso compartido de red, en un medio extraíble o en un volumen sin conexión.
 Carpeta | La carpeta de caché debe cifrarse en un volumen desduplicado o en una carpeta que se comprime, que es dispersa o que tiene una repetición de análisis de punto.
 Cambios de ubicación | Puede cambiar la ubicación de caché, detenga el motor de copia de seguridad (`net stop bengine`) y copiar la carpeta de caché en una nueva unidad. (Asegúrese de que la nueva unidad tiene espacio suficiente). A continuación, actualice dos entradas del registro bajo **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** y **CloudBackupProvider/Config/ScratchLocation**) a la nueva ubicación y reinicie el motor.
 
@@ -103,9 +103,9 @@ Windows 7   | 1700 GB
 
 ## <a name="supported-file-types-for-backup"></a>Tipos de archivo compatibles para copia de seguridad
 
-**Tipo** | **Soporte técnico** 
---- | --- 
-Cifrados   |  Se admite. 
+**Tipo** | **Soporte técnico**
+--- | ---
+Cifrados   |  Se admite.
 Comprimidos |  Se admite.
 Dispersos |  Se admite.
 Comprimidos y dispersos |  Se admite.
@@ -114,7 +114,7 @@ Punto de repetición de análisis   | No compatible. Omitido.
 Cifrados y dispersos |  No compatible. Omitido.
 Flujo comprimido   | No compatible. Omitido.
 Flujo disperso   | No compatible. Omitido.
-OneDrive (archivos sincronizados están dispersas secuencias)  | No compatible. 
+OneDrive (archivos sincronizados están dispersas secuencias)  | No compatible.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Las unidades compatibles o volúmenes de copia de seguridad
 

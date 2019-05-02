@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Extracción, transformación y carga de datos (ETL) mediante Hive en HDInsight (Azure) '
 description: Aprenda a extraer datos de un conjunto de datos CSV sin procesar, a transformarlos mediante Hive en HDInsight y a cargar los datos transformados en una base de datos SQL de Azure mediante Apache Sqoop.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: b8a45f3014b3fd5d0f5592b3f9bd408fc37b387b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb86dc8c5c3b215a2c90380b4009efd00d2a243c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999959"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723147"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight
 
@@ -320,7 +319,7 @@ Para conocer otras formas de trabajar con datos en HDInsight, consulte los sigui
 * [Uso de Apache Hive con HDInsight][hdinsight-use-hive]
 * [Uso de Apache Pig con HDInsight][hdinsight-use-pig]
 * [Desarrollo de programas MapReduce de Java para Apache Hadoop en HDInsight][hdinsight-develop-mapreduce]
-* [Desarrollo de programas de MapReduce de streaming de Python para HDInsight][hdinsight-develop-streaming]
+
 * [Uso de Apache Oozie con HDInsight][hdinsight-use-oozie]
 * [Uso de Apache Sqoop con HDInsight][hdinsight-use-sqoop]
 
@@ -342,7 +341,7 @@ Para conocer otras formas de trabajar con datos en HDInsight, consulte los sigui
 [hdinsight-get-started]: hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-[hdinsight-develop-streaming]:hadoop/apache-hadoop-streaming-python.md
+
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL

@@ -9,11 +9,11 @@ ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787312"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor
 En este artículo se muestra cómo configurar desencadenadores para que pueda llamar a direcciones URL web específicas o enviar mensajes de correo electrónico en función de las acciones de escalado automático en Azure.  
@@ -68,7 +68,7 @@ Al utilizar la API de REST o la plantilla de Resource Manager, incluya el elemen
 | customEmails |Sí |el valor puede ser null [] o una cadena de matriz de mensajes de correo electrónico |
 | Webhooks |Sí |el valor puede ser null o un identificador URI válido |
 | serviceUri |Sí |un identificador URI de https válido |
-| propiedades |Sí |el valor debe ser {} vacío o puede contener pares clave-valor |
+| properties |Sí |el valor debe ser {} vacío o puede contener pares clave-valor |
 
 ## <a name="authentication-in-webhooks"></a>Autenticación en Webhook
 El webhook puede realizar la autenticación con un método basado en token, en el que el URI del webhook se guarda con un identificador de token como un parámetro de consulta. Por ejemplo, https: \/ /mysamplealert/webcallback? tokenid = sometokenid & someparameter = somevalue
@@ -116,7 +116,7 @@ Cuando se genera la notificación de escalado automático, los metadatos siguien
 | resourceGroupName |Sí |Nombre del grupo de recursos del recurso de destino que se está escalando. |
 | resourceName |Sí |Nombre del recurso de destino que se está escalando. |
 | resourceType |Sí |Los tres valores admitidos: "microsoft.classiccompute/domainnames/slots/roles" - Roles del servicio en la nube, "microsoft.compute/virtualmachinescalesets" - Conjuntos de escalado de máquina virtual "Microsoft.Web/serverfarms" - Web App |
-| ResourceId |Sí |Id. de Resource Manager del recurso de destino que se está escalando |
+| resourceId |Sí |Id. de Resource Manager del recurso de destino que se está escalando |
 | portalLink |Sí |Vínculo del portal de Azure a la página de resumen del recurso de destino. |
 | oldCapacity |Sí |Recuento de instancias (antiguo) actual cuando el escalado automático ha realizado una acción de escalado. |
 | newCapacity |Sí |Nuevo recuento de instancias al que el escalado automático escaló el recurso. |

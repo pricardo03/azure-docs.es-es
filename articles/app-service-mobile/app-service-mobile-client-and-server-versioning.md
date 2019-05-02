@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 56c5e0582afe55dcd63aa056817898d3d4942419
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594073"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859080"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Control de versiones de cliente y servidor en Mobile Apps y Mobile Services
 La versión más reciente de Azure Mobile Services es la característica **Mobile Apps** de Azure App Service.
@@ -70,7 +70,7 @@ Los SDK de cliente de la tabla siguiente son compatibles con **Mobile Services**
 Nota: los SDK de cliente de Mobile Services *no* envían un valor de encabezado de `ZUMO-API-VERSION`. Si el servicio recibe este valor de encabezado o de cadena de consulta, se devolverá un error, a menos que lo haya anulado explícitamente como se ha descrito anteriormente.
 
 ### <a name="MobileServicesClients"></a> SDK de cliente de *Mobile Services*
-| Plataforma de cliente | Versión | Valor de encabezado de versión |
+| Plataforma de cliente | `Version` | Valor de encabezado de versión |
 | --- | --- | --- |
 | Cliente administrado (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |N/D |
 | iOS |[2.2.2](https://aka.ms/gc6fex) |N/D |
@@ -78,7 +78,7 @@ Nota: los SDK de cliente de Mobile Services *no* envían un valor de encabezado 
 | HTML |[1.2.7](https://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |N/D |
 
 ### <a name="mobile-services-server-sdks"></a>SDK de servidor de *Mobile Services*
-| Plataforma de servidor | Versión | Encabezado de versión aceptado |
+| Plataforma de servidor | `Version` | Encabezado de versión aceptado |
 | --- | --- | --- |
 | .NET |[WindowsAzure.MobileServices.Backend.* Versión 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Ningún encabezado de versión** |
 | Node.js |(próximamente) |**Ningún encabezado de versión** |
@@ -96,7 +96,7 @@ Nota: los SDK de cliente de Mobile Services *no* envían un valor de encabezado 
 ### <a name="MobileAppsClients"></a> SDK de cliente de *Aplicaciones* móviles
 La comprobación de versión se introdujo a partir de las siguientes versiones del SDK de cliente de **Azure Mobile Apps**:
 
-| Plataforma de cliente | Versión | Valor de encabezado de versión |
+| Plataforma de cliente | `Version` | Valor de encabezado de versión |
 | --- | --- | --- |
 | Cliente administrado (Windows, Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
 | iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |

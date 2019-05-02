@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 6e88d8f1c16e7c73f5c62325e41701e6f0ea97fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565555"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728092"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 El entorno de ejecución de integración (IR) es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción al entorno de ejecución de integración](concepts-integration-runtime.md).
@@ -40,7 +40,7 @@ En este documento se describe cómo crear y configurar un IR autohospedado.
 
     ```powershell
 
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
 
     ```
 
@@ -63,7 +63,7 @@ A continuación se muestra un flujo de datos de alto nivel y el resumen de los p
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Consideraciones a la hora de usar un IR autohospedado
 
 - Es posible utilizar un solo entorno de Integration Runtime autohospedado para varios orígenes de datos locales. Un entorno de ejecución de integración autohospedado individual puede compartirse con otra factoría de datos del mismo inquilino de Azure Active Directory. Para más información, consulte [Uso compartido de un entorno de ejecución de integración autohospedado](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- En cada equipo no puede haber más de una instancia del entorno de ejecución de integración autohospedado instalada. Si tiene dos factorías de datos que necesitan tener acceso a orígenes de datos locales, deberá instalar el entorno integration runtime autohospedado en dos equipos de un entorno local por cada desde ambos las factorías de datos o usar el [autohospedadodelacaracterísticadeusocompartido](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)para compartir un entorno integration runtime autohospedado con otra factoría de datos.  
+- En cada equipo no puede haber más de una instancia del entorno de ejecución de integración autohospedado instalada. Si tiene dos factorías de datos que necesitan tener acceso a orígenes de datos locales, o bien use el [autohospedado característica de uso compartido](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories) comparten el entorno integration runtime autohospedado o instalar el entorno integration runtime autohospedado en dos en los equipos locales, uno para cada factoría de datos.  
 - No es preciso que el entorno de ejecución de integración autohospedado se encuentre en la misma máquina que el origen de datos. Sin embargo, cuanto más cerca estén ambos, menos tiempo necesitará el primero para conectarse al segundo. Le recomendamos que instale el entorno Integration Runtime autohospedado en una máquina diferente de la que hospeda el origen de datos local. Si el entorno de ejecución de integración autohospedado y el origen de datos están en equipos diferentes, el primero no compite por recursos con el segundo.
 - Puede tener varios entornos de ejecución de integración autohospedados en diferentes equipos que se conecten al mismo origen de datos local. Por ejemplo, puede tener dos entornos de ejecución de integración autohospedados que sirvan a dos factorías de datos, pero el mismo origen de datos local puede estar registrado en ambas factorías de datos.
 - Si ya tiene una puerta de enlace instalada en el equipo que sirve a un escenario de Power BI, instale un entorno de ejecución de integración autohospedado independiente para Azure Data Factory en otro equipo.

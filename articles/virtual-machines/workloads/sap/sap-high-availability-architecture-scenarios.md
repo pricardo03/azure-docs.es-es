@@ -18,11 +18,11 @@ ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 37f5040585681a53743fb3426b7f7ffac36de51c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008694"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60936272"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Escenarios y arquitectura de alta disponibilidad para SAP NetWeaver
 
@@ -350,7 +350,7 @@ En la siguiente sección se tratara el tema de cómo lograr alta disponibilidad 
 
 Por lo general, no se necesita una solución de alta disponibilidad específica para las instancias de diálogo y servidores de aplicaciones de SAP. La alta disponibilidad se obtiene mediante redundancia y se configuran varias instancias de diálogo en distintas instancias de Azure Virtual Machines. Debe tener, como mínimo, dos instancias de aplicaciones de SAP instaladas en dos instancias de Azure Virtual Machines.
 
-![Ilustración 1: Alta disponibilidad en los servidores de aplicaciones de SAP][sap-ha-guide-figure-2000]
+![Figura 1: Alta disponibilidad en los servidores de aplicaciones de SAP][sap-ha-guide-figure-2000]
 
 _**Ilustración 1:** Alta disponibilidad en los servidores de aplicaciones de SAP_
 

@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d146027ea3a21ab8df3750014c02893bc2f50dd6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097736"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711557"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Instalación personalizada del entorno de ejecución para la integración de SSIS en Azure
 
@@ -82,7 +82,7 @@ Para personalizar el entorno de ejecución de integración de Azure-SSIS, necesi
 
       ![Creación de un contenedor de blobs](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. Seleccione el nuevo contenedor y cargue el script de instalación personalizado y sus archivos asociados. Asegúrese de cargar `main.cmd` en el nivel superior del contenedor, no en cualquier carpeta. Asegúrese también de que el contenedor incluye solo los archivos necesarios de la configuración personalizada, para que descargarlos posteriormente en Azure-SSIS Integration Runtime no lleve demasiado tiempo.
+   1. Seleccione el nuevo contenedor y cargue el script de instalación personalizado y sus archivos asociados. Asegúrese de cargar `main.cmd` en el nivel superior del contenedor, no en cualquier carpeta. Asegúrese también de que el contenedor incluye solo los archivos necesarios de la configuración personalizada, para que descargarlos posteriormente en Azure-SSIS Integration Runtime no lleve demasiado tiempo. El período máximo para la instalación personalizada está establecido actualmente en 45 minutos antes de que se agota el tiempo y esto incluye el tiempo para descargar todos los archivos del contenedor e instalarlos en Azure-SSIS IR. Si es necesario un período más largo, genere una incidencia de soporte técnico.
 
       ![Carga de archivos en el contenedor de blobs](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 

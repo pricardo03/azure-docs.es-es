@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b144f126e097a8db9fbbf29e47162fd6a1c2fbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461262"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916834"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es el texto a voz?
 
-Voz a texto de los servicios de voz de Azure, también conocido como voz a texto, habilita la transcripción en tiempo real de secuencias de audio en texto que pueden consumir las aplicaciones, herramientas o dispositivos, mostrar y actuar en como entrada de comando. Este servicio funciona con la misma tecnología de reconocimiento que Microsoft utiliza para productos de Cortana y Office y funciona sin problemas con la traducción y el texto a voz.  Para obtener una lista completa de idiomas de voz a texto disponibles, consulte [idiomas admitidos](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Voz a texto de los servicios de voz de Azure, también conocido como voz a texto, habilita la transcripción en tiempo real de secuencias de audio en texto que pueden consumir las aplicaciones, herramientas o dispositivos, mostrar y actuar en como entrada de comando. Este servicio funciona con la misma tecnología de reconocimiento que Microsoft utiliza para productos de Cortana y Office y funciona sin problemas con la traducción y el texto a voz.  Para obtener una lista completa de idiomas de voz a texto disponibles, consulte [idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
 De forma predeterminada, el servicio de voz a texto utiliza el modelo de lenguaje Universal. Este modelo se entrena con datos de la propiedad de Microsoft y está implementado en la nube. Resulta óptimo para la conversación y escenarios de dictado. Si usa voz a texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados para dirigir el sonido ambiental o vocabulario específico del sector. 
 

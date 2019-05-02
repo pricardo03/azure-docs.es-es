@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ee721558e0e643a4b5fdcfa4cf0fe9c2195fa479
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737293"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64736967"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: diseño de alto rendimiento
 
@@ -299,7 +299,7 @@ Por ejemplo, puede aplicar estas directrices a un SQL Server que funciona en Pre
 1. Configure la caché "None" en los discos de Premium Storage que hospedan los archivos de registro.  
     a.  Los archivos de registro tienen sobre todo muchas operaciones de escritura. Por lo tanto, no se benefician de la caché ReadOnly.
 
-### <a name="optimize-performance-on-linux-vms"></a>Optimización del rendimiento en máquinas virtuales Linux
+## <a name="optimize-performance-on-linux-vms"></a>Optimización del rendimiento en máquinas virtuales Linux
 
 Para todos los discos ultra o SSD Premium con la memoria caché establecida en **ReadOnly** o **None**, debe deshabilitar las "barreras" cuando monte el sistema de archivos. En este escenario no se necesitan barreras, ya que las operaciones de escritura en los discos de Premium Storage son duraderas para esta configuración de la caché. Cuando la solicitud de escritura se completa correctamente, los datos están escritos en el almacenamiento permanente. Para deshabilitar las "barreras", utilice uno de los siguientes métodos. Elija uno para el sistema de archivos:
   
@@ -313,7 +313,7 @@ Las distribuciones de Linux siguientes han sido validadas para discos SSD. Para 
 
 Algunas de las versiones requieren Linux Integration Services (LIS) v4.0 para Azure. Para descargar e instalar una distribución, siga el vínculo que aparece en la tabla siguiente. Agregamos imágenes a la lista cuando se completa la validación. Nuestras validaciones muestran que el rendimiento varía en cada imagen. El rendimiento depende en las características de carga de trabajo y la configuración de la imagen. Se ajustan diferentes imágenes a los distintos tipos de cargas de trabajo.
 
-| Distribución | Versión | Kernel compatible | Detalles |
+| Distribución | `Version` | Kernel compatible | Detalles |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
@@ -328,7 +328,7 @@ Algunas de las versiones requieren Linux Integration Services (LIS) v4.0 para Az
 | Oracle | 7.0-7.1 | &nbsp; | UEK4 o RHCK con[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 | Oracle | 6.4-6.7 | &nbsp; | UEK4 o RHCK con[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
-## <a name="lis-drivers-for-openlogic-centos"></a>Controladores de LIS para CentOS Openlogic
+### <a name="lis-drivers-for-openlogic-centos"></a>Controladores de LIS para CentOS Openlogic
 
 Si tiene máquinas virtuales de OpenLogic CentOS, ejecute el comando siguiente para instalar a los controladores más recientes:
 

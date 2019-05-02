@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb426eb15d20a4bbd628897ed1c3b29c37f32afd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412359"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723307"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos para: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
 
@@ -152,7 +152,7 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
 8. Actualice la tabla **Atributos** para definir una asignación personalizada de la notificación de rol.
 
-9. En la sección **Atributos y reclamaciones del usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo del token SAML, como muestra la imagen y siga estos pasos.
+9. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
 
     | Nombre del atributo | Valor de atributo |
     | -------------- | ----------------|
@@ -161,11 +161,11 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
     >[!NOTE]
     >Si el valor de notificación de rol es null, a continuación, Azure AD no envía este valor en el token y ésta es la predeterminada según el diseño.
 
-     a. Haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
+     a. Haga clic en **editar** icono para abrir **atributos de usuario y notificaciones** cuadro de diálogo.
 
       ![Botón "Agregar atributo"](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Seleccione **Agregar atributo** para abrir el panel **Administrar las notificaciones del usuario**.
+    b. En el **Administrar notificaciones de usuario** cuadro de diálogo, agregar el atributo token SAML, haga clic en **agregar nueva notificación**.
 
       ![Botón "Agregar atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4fc4175c03baa4ddb81507dd4001fcdbe7c7058b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: eebf9ef63a8622c4cc431322b786fdf30f6352fe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61458780"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925816"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnóstico de notificaciones eliminadas en Notification Hubs de Azure
 
@@ -123,7 +123,7 @@ Estas son las rutas de acceso para diagnosticar la causa raíz de las notificaci
 
 #### <a name="push-notification-service-developer-portal"></a>Portal de desarrollador de servicios de notificaciones de inserción ####
 
-Compruebe las credenciales en el portal para desarrolladores de los servicios de notificaciones push respectivos (APN, FCM, servicio de notificaciones de Windows, etc.). Para más información, consulte [Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
+Compruebe las credenciales en el portal para desarrolladores de los servicios de notificaciones push respectivos (APN, FCM, servicio de notificaciones de Windows, etc.). Para más información, consulte [Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
 #### <a name="azure-portal"></a>Azure Portal ####
 
@@ -180,7 +180,7 @@ También puede enviar notificaciones de prueba desde Visual Studio.
 
 Para más información acerca del uso de Notification Hubs con el Explorador de servidores de Visual Studio, consulte estos artículos:
 
-* [Cómo ver los registros de dispositivos para notification hubs](https://docs.microsoft.com/en-us/previous-versions/windows/apps/dn792122(v=win.10))
+* [Cómo ver los registros de dispositivos para notification hubs](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
 * [En profundidad: Visual Studio 2013 Update 2 RC y Azure SDK 2.3] (Análisis a fondo: Visual Studio 2013 Update 2 RC y Azure SDK 2.3)
 * [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4] (Anuncio del lanzamiento de Visual Studio 2013 Update 3 y Azure SDK 2.4)
 
@@ -261,7 +261,7 @@ En el portal, puede obtener una rápida introducción de toda la actividad que t
 
 #### <a name="programmatic-access"></a>Acceso mediante programación ####
 
-Para obtener más información sobre el acceso mediante programación, vea [acceso mediante programación](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/dn458823(v=azure.100)).
+Para obtener más información sobre el acceso mediante programación, vea [acceso mediante programación](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 
 > [!NOTE]
 > Varias características relacionadas con la telemetría, como la exportación e importación de registros y el acceso a la telemetría a través de API, solo están disponibles en el nivel de servicio Estándar. Si intenta usar estas características de gratis o básico de nivel de servicio, obtendrá un mensaje de excepción, si usa el SDK. Si usa las características directamente desde las API de REST, obtendrá un error HTTP 403 (prohibido).

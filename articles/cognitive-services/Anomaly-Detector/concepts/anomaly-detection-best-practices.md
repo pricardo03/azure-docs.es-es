@@ -1,5 +1,5 @@
 ---
-title: Procedimientos recomendados al usar la API del Detector de anomalías
+title: Procedimientos recomendados cuando se usa Anomaly Detector API
 description: Obtenga información sobre los procedimientos recomendados al detectar anomalías con la API del Detector de anomalías.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 467ac4e475a1c23e25b62c76cfbc959e7ed49465
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484049"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692196"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Procedimientos recomendados para usar la API del Detector de anomalías
 
@@ -25,6 +25,29 @@ La API del Detector de anomalías es un servicio de detección de anomalías sin
 * El número de puntos de datos de la solicitud de API. 
 
 Use este artículo para obtener información sobre procedimientos recomendados para usar la API de obtener los mejores resultados para los datos. 
+
+## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>Cuándo usar batch (completa) o versión más reciente (última) elija la detección de anomalías
+
+Punto de conexión de detección de la API Detector de anomalías batch le permite detectar anomalías en todo el veces los datos de la serie. En este modo de detección, se crea un único modelo estadístico y se aplica a cada punto en el conjunto de datos. Si la serie temporal tiene el debajo de características, se recomienda usar la detección de batch para obtener una vista previa de los datos en una llamada API estándar.
+
+* Serie temporal estacional, las anomalías ocasionales.
+* Una serie temporal de tendencia plana, con picos ocasionales/DIP. 
+
+No se recomienda usar la detección de anomalías de lote de datos en tiempo real de supervisión o uso en los datos de series temporales que no tienen por encima de las características. 
+
+* Detección de lote crea y aplica a un único modelo, se realiza la detección para cada punto en el contexto de la serie completa. Si las tendencias de datos de series de tiempo arriba y abajo sin estacionalidad, algunos puntos de cambian (DIP y picos de actividad en los datos) puede faltar por el modelo. De forma similar, algunos puntos de cambio que son menos importantes que aquellos más adelante en el conjunto de datos no se contarán como suficientemente importante como para incorporarlo en el modelo.
+
+* Detección de lote es más lenta que detectar el estado de anomalías del punto más reciente al realizar la supervisión de los datos en tiempo real, debido al número de puntos que se está analizando.
+
+Para la supervisión de datos en tiempo real, se recomienda detectar el estado de anomalías de su punto más reciente de datos. Aplicando continuamente la detección de punto más reciente, supervisión de los datos de transmisión por secuencias se puede hacer más eficaz y precisa.
+
+El ejemplo siguiente describe el impacto de que estos modos de detección pueden tener en el rendimiento. La primera imagen muestra el resultado de detección de forma continua el punto más reciente de estado de anomalías a lo largo de los puntos de datos vistos con anterioridad 28. Los puntos rojos son anomalías.
+
+![Una imagen que muestra la detección de anomalías con el punto más reciente](../media/last.png)
+
+A continuación es el mismo conjunto de datos mediante la detección de anomalías de batch. El modelo creado para la operación ha ignorado varias anomalías, marcadas con rectángulos.
+
+![Una imagen que muestra la detección de anomalías con el método de proceso por lotes](../media/entire.png)
 
 ## <a name="data-preparation"></a>Preparación de los datos
 

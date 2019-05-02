@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
 ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790749"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedaje de aplicaciones web de Azure con equilibrio de carga en el vértice de zona
 
@@ -30,7 +30,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Debe tener un nombre de dominio disponible que pueda hospedar en Azure DNS para realizar las pruebas. Debe tener control total de este dominio. El control total incluye la capacidad de establecer los registros de nombre de servidor (NS) para el dominio.
 
-Para que obtener instrucciones para hospedar el dominio en DNS de Azure, consulte [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
+Para obtener instrucciones sobre cómo hospedar el dominio en Azure DNS, vea [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
 
 El dominio en el ejemplo que se usa en este tutorial es contoso.com, pero debe usar su propio nombre de dominio.
 
@@ -43,7 +43,7 @@ Cree un grupo de recursos que contenga todos los recursos usados en este artícu
 Cree dos planes web de App Service en el grupo de recursos, con la siguiente tabla para consultar la información de configuración. Para más información sobre cómo crear un plan de App Service, consulte [Administración de un plan de App Service en Azure](../app-service/app-service-plan-manage.md).
 
 
-|NOMBRE  |Sistema operativo  |Ubicación  |Nivel de precios  |
+|NOMBRE  |Sistema operativo  |Location  |Nivel de precios  |
 |---------|---------|---------|---------|
 |ASP-01     | Windows|Este de EE. UU|D1-Shared para desarrollo/pruebas|
 |ASP-02     | Windows|Centro de EE. UU.|D1-Shared para desarrollo/pruebas|
@@ -87,7 +87,7 @@ Ahora puede crear los puntos de conexión de las dos aplicaciones web.
 3. Haga clic en **Agregar**.
 4. Use la tabla siguiente para configurar los puntos de conexión:
 
-   |Type  |NOMBRE  |Destino  |Ubicación  |Configuración de encabezado personalizado|
+   |Type  |NOMBRE  |Destino  |Location  |Configuración de encabezado personalizado|
    |---------|---------|---------|---------|---------|
    |Punto de conexión externo     |End-01|Dirección IP que anotó para App-01|Este de EE. UU|host:\<la dirección URL que anotó para App-01\><br>Ejemplo: **host:app-01.azurewebsites.net**|
    |Punto de conexión externo     |End-02|Dirección IP que anotó para App-02|Centro de EE. UU.|host:\<la dirección URL que anotó para App-02\><br>Ejemplo: **host:app-02.azurewebsites.net**

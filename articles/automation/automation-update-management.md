@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61306568"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919702"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -54,7 +54,9 @@ La solución informa del grado de actualización del equipo en función del orig
 
 Puede implementar e instalar las actualizaciones de software en equipos que requieren las actualizaciones mediante la creación de una implementación programada. Las actualizaciones clasificadas como *Opcional* no se incluyen en el ámbito de implementación en equipos Windows. Solo se incluyen las actualizaciones necesarias.
 
-La implementación programada define qué equipos de destino reciben las actualizaciones aplicables, ya sea mediante la especificación explícita de los equipos o por medio de la selección de un [grupo de equipos](../azure-monitor/platform/computer-groups.md) que se basa en las búsquedas en registros de un conjunto determinado de equipos. También se especifica una programación para aprobar y establecer un período de tiempo durante el que se pueden instalar actualizaciones. Este período de tiempo se llama a la ventana de mantenimiento. Diez minutos de la ventana de mantenimiento está reservado para reinicios si es necesario reiniciar el equipo y ha seleccionado la opción de reiniciar el equipo adecuado. Si la aplicación de revisiones tarda más de lo esperado y hay menos de diez minutos en la ventana de mantenimiento, no se producirá un reinicio.
+La implementación programada define qué equipos de destino reciben las actualizaciones aplicables, ya sea explícitamente especificando equipos o seleccionando un [grupo de equipos](../azure-monitor/platform/computer-groups.md) que se basa en las búsquedas de registros de un conjunto específico de equipos, o un [Consulta azure](#azure-machines) que selecciona de forma dinámica las máquinas virtuales de Azure según los criterios especificados. Estos grupos son diferentes de [configuración de ámbito](../azure-monitor/insights/solution-targeting.md), que solo se usa para determinar qué máquinas obtención los módulos de administración que habilitan la solución. 
+
+También se especifica una programación para aprobar y establecer un período de tiempo durante el que se pueden instalar actualizaciones. Este período de tiempo se llama a la ventana de mantenimiento. Diez minutos de la ventana de mantenimiento está reservado para reinicios si es necesario reiniciar el equipo y ha seleccionado la opción de reiniciar el equipo adecuado. Si la aplicación de revisiones tarda más de lo esperado y hay menos de diez minutos en la ventana de mantenimiento, no se producirá un reinicio.
 
 Los Runbooks instalan las actualizaciones en Azure Automation. No puede ver estos runbooks, y los runbooks no requieren ninguna configuración. Cuando se crea una implementación de actualizaciones, esta crea una programación que inicia un runbook de actualización maestro a la hora especificada para los equipos incluidos. El runbook maestro inicia un runbook secundario en cada agente para instalar las actualizaciones necesarias.
 
@@ -76,6 +78,9 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles:
 |Red Hat Enterprise (x86/x64) 6 y 7 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
 |Ubuntu 14.04 LTS, 16.04 LTS y 18.04 (x86/x64)      |Los agentes de Linux deben tener acceso a un repositorio de actualización.         |
+
+> [!NOTE]
+> Conjuntos de escalado de máquina virtual de Azure se pueden administrar con administración de actualizaciones. Administración de actualizaciones funciona en las instancias de sí mismos y no la imagen base. Deberá programar las actualizaciones de forma incremental, como para no actualizar todas las instancias de máquina virtual a la vez.
 
 ### <a name="unsupported-client-types"></a>Tipos de cliente no admitidos
 

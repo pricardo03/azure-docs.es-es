@@ -2,19 +2,18 @@
 title: ¿Qué es la pila de tecnología de Apache Hadoop y Apache Spark? - Azure HDInsight
 description: Introducción a HDInsight y a la pila de tecnología y los componentes de Apache Hadoop y Apache Spark, incluidos Kafka, Hive, Storm y HBase para el análisis de macrodatos.
 keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introducción, pila de tecnología de hadoop, intro de hadoop, introducción a hadoop, qué es un clúster de hadoop, qué es clúster hadoop, para qué se utiliza hadoop
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 01/28/2019
-ms.openlocfilehash: ca5d0602948a0abe689578fad1508d8f3b3d5198
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f4c291d5684054d606dcb438df71721bd209e5fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443548"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708394"
 ---
 # <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>¿Qué son Azure HDInsight y la pila de tecnología de Apache Hadoop?
 

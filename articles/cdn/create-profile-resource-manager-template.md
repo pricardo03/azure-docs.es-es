@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5c393916bc977f4e0bc51913bdb2dfbbd6677c97
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: c26c9021637b1b6ec2b3808db1307de9955bb660
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727639"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922387"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN mediante una plantilla de Resource Manager
 
@@ -51,7 +51,7 @@ az group create --name cdn --location eastus
 
 En este paso, creará un archivo de plantilla que implementa los recursos.
 
-Aunque este ejemplo le guía a través de un escenario de aceleración de sitio web general, hay muchas otras configuraciones que se pueden definir. Estas opciones están disponibles en la referencia de plantilla de Azure Resource Manager. Consulte las referencias del [perfil de CDN](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles) y el [punto de conexión del perfil de CDN](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
+Aunque este ejemplo le guía a través de un escenario de aceleración de sitio web general, hay muchas otras configuraciones que se pueden definir. Estas opciones están disponibles en la referencia de plantilla de Azure Resource Manager. Consulte las referencias del [perfil de CDN](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) y el [punto de conexión del perfil de CDN](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
 
 Tenga en cuenta que Microsoft CDN no admite la modificación de la lista de tipo de contenido.
 
@@ -224,8 +224,8 @@ az group delete --name cdn
 
 ## <a name="references"></a>Referencias
 
-* Perfil de CDN: [Azure Resource Manager Template Reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles) (Referencia de plantilla de Azure Resource Manager)
-* Punto de conexión de CDN: [Azure Resource Manager Template Reference Documentation](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints) (Documentación de referencia de plantilla de Azure Resource Manager)
+* Perfil de CDN: [Azure Resource Manager Template Reference](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) (Referencia de plantilla de Azure Resource Manager)
+* Punto de conexión de CDN: [Azure Resource Manager Template Reference Documentation](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints) (Documentación de referencia de plantilla de Azure Resource Manager)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

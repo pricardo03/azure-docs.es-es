@@ -2,7 +2,6 @@
 title: 'Inicio rápido: Introducción a Apache Hadoop y Apache Hive en Azure HDInsight con Azure Portal - Azure HDInsight'
 description: Aprenda a crear clústeres de HDInsight con Azure Portal y a consultar datos con Hive.
 keywords: introducción a hadoop, hadoop linux, inicio rápido de hadoop, introducción a hive, inicio rápido en hive
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 81eb750f271062bcb4891edf8008d76a18ac85c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c466840c3de9337d7bb8d22f00da0ba52227770
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881204"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697811"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Inicio rápido: Introducción a Apache Hadoop y Apache Hive en Azure HDInsight con Azure Portal
 

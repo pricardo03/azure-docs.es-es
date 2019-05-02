@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546549"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573573"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment #
 
@@ -56,7 +56,7 @@ Sin embargo, cuando utilice un ASE con un ILB, no podrá realizar algunas operac
 
 Pasos para crear un ASE con un ILB:
 
-1. En Azure Portal, seleccione  **Crear un recurso** > **Web** > **App Service Environment**.
+1. En Azure Portal, seleccione **Crear un recurso** > **Web** > **App Service Environment**.
 
 2. Seleccione su suscripción.
 
@@ -66,7 +66,7 @@ Pasos para crear un ASE con un ILB:
 
 5. Si selecciona una red virtual existente, debe crear una subred para almacenar el ASE. Asegúrese de establecer un tamaño de subred suficientemente grande para alojar el crecimiento futuro de su ASE. Recomendamos un tamaño de `/24`, que tiene 256 direcciones y puede controlar los ASE de tamaño máximo y cualquier escala necesaria. 
 
-6. Seleccione  **Virtual Network/Ubicación** > **Configuración de Virtual Network**. Establezca el valor de **Tipo de dirección VIP** en **Interna**.
+6. Seleccione **Virtual Network/Ubicación** > **Configuración de Virtual Network**. Establezca el valor de **Tipo de dirección VIP** en **Interna**.
 
 7. Escriba un valor en nombre de dominio. Este dominio es el que utiliza para las aplicaciones creadas en este ASE. Hay algunas restricciones. No puede ser:
 
@@ -96,14 +96,14 @@ En la hoja **Virtual Network**, hay una opción denominada **Configuración de V
 
 Tras seleccionar **Interna**, se quita la capacidad de agregar más direcciones IP a su ASE. En su lugar, debe proporcionar el dominio del ASE. En un ASE con una dirección VIP externa, se usa el nombre del ASE en el dominio para las aplicaciones creadas en dicho ASE.
 
-Si establece el valor de **Tipo de dirección VIP** en **Interna**, el nombre del ASE no se usa en el dominio del ASE. El dominio se especifica explícitamente. Si el dominio es *contoso.corp.net*  y crea una aplicación en dicho ASE denominada  *timereporting*, la dirección URL de dicha aplicación es timereporting.contoso.corp.net.
+Si establece el valor de **Tipo de dirección VIP** en **Interna**, el nombre del ASE no se usa en el dominio del ASE. El dominio se especifica explícitamente. Si el dominio fuera *contoso.corp.net* y creara una aplicación en dicho ASE denominada *timereporting*, la dirección URL de dicha aplicación sería timereporting.contoso.corp.net.
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>Creación de una aplicación en un ASE con un ILB ##
 
 Crea una aplicación en un ASE con un ILB del mismo modo que crea una aplicación en un ASE normalmente.
 
-1. En Azure Portal, seleccione  **Crear un recurso** > **Web y móvil** > **Aplicación web**.
+1. En Azure Portal, seleccione **Crear un recurso** > **Web y móvil** > **Aplicación web**.
 
 1. Escriba el nombre de la aplicación.
 
@@ -117,7 +117,7 @@ Crea una aplicación en un ASE con un ILB del mismo modo que crea una aplicació
 
 1. Seleccione o cree un plan de App Service. Si desea crear un nuevo plan de App Service, seleccione su ASE como ubicación. Seleccione el grupo de trabajo donde desea que se cree el plan de App Service. Cuando cree el plan de App Service, seleccione el ASE como ubicación y grupo de trabajo. Al especificar el nombre de la aplicación, el dominio que se encuentra bajo el nombre de la aplicación se reemplaza por el dominio del ASE.
 
-1. Seleccione **Crear**. Si quiere que la aplicación aparezca en el panel, active la casilla  **Anclar a panel** .
+1. Seleccione **Crear**. Si quiere que la aplicación aparezca en el panel, active la casilla **Anclar a panel**.
 
     ![Creación del plan de App Service][2]
 
@@ -127,7 +127,7 @@ Crea una aplicación en un ASE con un ILB del mismo modo que crea una aplicació
 
 Un ASE con un ILB es ligeramente diferente a un ASE sin ILB. Como ya se ha indicado, debe administrar su propio DNS. También debe proporcionar su propio certificado para las conexiones HTTPS.
 
-Después de crear su ASE, el nombre de dominio muestra el dominio especificado. Aparece un nuevo elemento en el menú  **Configuración** , denominado  **ILB Certificate**. El ASE se crea con un certificado que no especifica el dominio del ASE con un ILB. Si usa el ASE con ese certificado, el explorador le indicará que no es válido. Este certificado facilita la tarea de probar HTTPS, pero debe cargar su propio certificado, que está asociado al dominio del ASE con un ILB. Este paso es necesario independientemente de si el certificado es autofirmado o se adquiere de una entidad de certificación.
+Después de crear su ASE, el nombre de dominio muestra el dominio especificado. Aparece un nuevo elemento en el menú **Configuración** denominado **Certificado de ILB**. El ASE se crea con un certificado que no especifica el dominio del ASE con un ILB. Si usa el ASE con ese certificado, el explorador le indicará que no es válido. Este certificado facilita la tarea de probar HTTPS, pero debe cargar su propio certificado, que está asociado al dominio del ASE con un ILB. Este paso es necesario independientemente de si el certificado es autofirmado o se adquiere de una entidad de certificación.
 
 ![Nombre de dominio del ASE con un ILB][3]
 
@@ -154,7 +154,7 @@ El certificado que generan estos comandos de PowerShell produce avisos en los ex
 
 Para cargar sus propios certificados y probar el acceso:
 
-1. Una vez creado el ASE, vaya a la interfaz de usuario de ASE. Seleccione **ASE** > **Configuración** > **Certificado de ILB**.
+1. Una vez creado el ASE, vaya a la interfaz de usuario de ASE. Seleccione **ASE** > **Configuración** > **Certificado de ILB**.
 
 1. Para establecer el certificado de ILB, seleccione el archivo de certificado .pfx y escriba la contraseña. Este paso tarda algún tiempo en procesarse. Aparece un mensaje que indica que una operación de carga está en curso.
 

@@ -8,19 +8,16 @@ ms.topic: tutorial
 ms.date: 2/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 616a710237c31ef2b4a19c3e1e61838164a78530
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 8ee43a54df019b862d1f8698363d8b0a022bdcb4
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308574"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947142"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Tutorial: Creación de una puerta de enlace de aplicaciones que mejora el acceso a aplicaciones web
 
 Si es un administrador de TI interesado en mejorar el acceso a las aplicaciones web, puede optimizar el escalado de Application Gateway en función de la demanda de los clientes y abarcar varias zonas de disponibilidad. Para ello, este tutorial le ayudará a configurar las características de Azure Application Gateway: escalabilidad automática, redundancia de zona y direcciones IP virtuales (IP estática). Use los cmdlets de Azure PowerShell y el modelo de implementación de Azure Resource Manager para solucionar el problema.
-
-> [!IMPORTANT] 
-> La SKU de escalabilidad automática y de puerta de enlace de aplicaciones con redundancia de zona actualmente está en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 En este tutorial, aprenderá a:
 

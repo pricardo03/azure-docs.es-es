@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: a8e51534fec3dacb577ef9b79bb42c48557dc15b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 746551cf05634427f839bf33af641bc4615179fa
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884948"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916888"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Obtención de respuestas a una pregunta desde una base de conocimiento con Java
 
@@ -24,7 +24,7 @@ Esta guía de inicio rápido le conduce por la obtención mediante programación
 ## <a name="prerequisites"></a>Requisitos previos
 
 * [JDK SE](https://aka.ms/azure-jdks) (Kit de desarrollo de Java, Standard Edition)
-* Este ejemplo utiliza el [cliente HTTP](http://hc.apache.org/httpcomponents-client-ga/) Apache desde HTTP Components. Es preciso agregar las siguientes bibliotecas de cliente HTTP Apache al proyecto: 
+* Este ejemplo utiliza el [cliente HTTP](https://hc.apache.org/httpcomponents-client-ga/) Apache desde HTTP Components. Es preciso agregar las siguientes bibliotecas de cliente HTTP Apache al proyecto: 
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar

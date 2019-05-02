@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: a2fdeeab2e8027dc3b548f7004912906d4574ccc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 4c77477e31e7513cb806dda968a68fc1ac5030ed
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007444"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694971"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de Node.js para llamar a Text Analytics de Cognitive Services  
 <a name="HOLTop"></a>
@@ -156,7 +156,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="analyze-sentiment"></a>Análisis de opinión
 
-Sentiment Analysis API detecta la opinión de un conjunto de registros de texto mediante el [método Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2-1/operations/56f30ceeeda5650db055a3c9). El análisis de opinión se puede usar para averiguar qué piensan los clientes de su marca o de un tema concreto mediante el análisis de texto sin formato, con el fin de obtener pistas acerca de si sus opiniones son positivas o negativas. En el ejemplo siguiente se proporcionan las puntuaciones de dos documentos, uno en inglés y otro en español.
+Sentiment Analysis API detecta la opinión de un conjunto de registros de texto mediante el [método Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). El análisis de opinión se puede usar para averiguar qué piensan los clientes de su marca o de un tema concreto mediante el análisis de texto sin formato, con el fin de obtener pistas acerca de si sus opiniones son positivas o negativas. En el ejemplo siguiente se proporcionan las puntuaciones de dos documentos, uno en inglés y otro en español.
 
 1. Cree un proyecto de Node.js en su IDE favorito (o en una carpeta de su escritorio).
 2. Agregue el código que se proporciona a continuación a un nuevo archivo `.js`.
@@ -252,7 +252,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="extract-key-phrases"></a>Extracción de frases clave
 
-Key Phrase Extraction API extrae frases clave de un documento de texto con el [método de frases clave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2-1/operations/56f30ceeeda5650db055a3c6). La extracción de frases clave se usa para identificar rápidamente los puntos principales de un documento o texto. En el ejemplo siguiente se extraen frases clave de documentos tanto en inglés y como en español.
+Key Phrase Extraction API extrae frases clave de un documento de texto con el [método de frases clave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). La extracción de frases clave se usa para identificar rápidamente los puntos principales de un documento o texto. En el ejemplo siguiente se extraen frases clave de documentos tanto en inglés y como en español.
 
 1. Cree un proyecto de Node.js en su IDE favorito (o en una carpeta de su escritorio).
 2. Agregue el código que se proporciona a continuación a un nuevo archivo `.js`.

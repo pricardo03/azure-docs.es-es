@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: 833f815f0c84584f084e4d4637c0318f7c2daec0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7afa815f81e2a61db8ac83623baafb97cb986b2c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683841"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925350"
 ---
 # <a name="find-the-request-unit-ru-charge-in-azure-cosmos-db"></a>Búsqueda del cargo de unidad de solicitud (RU) en Azure Cosmos DB
 
@@ -186,7 +186,7 @@ double requestCharge = (double)stats["RequestCharge"];
 
 ### <a name="use-the-mongodb-java-driver"></a>Uso del controlador de .NET de Java
 
-Cuando se usa el [controlador oficial de Java de MongoDB](http://mongodb.github.io/mongo-java-driver/) (consulte [este inicio rápido](create-mongodb-java.md) respecto a su uso), se pueden ejecutar los comandos mediante una llamada al método `runCommand` de un objeto `MongoDatabase`.
+Cuando se usa el [controlador oficial de Java de MongoDB](https://mongodb.github.io/mongo-java-driver/) (consulte [este inicio rápido](create-mongodb-java.md) respecto a su uso), se pueden ejecutar los comandos mediante una llamada al método `runCommand` de un objeto `MongoDatabase`.
 
 ```java
 Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));

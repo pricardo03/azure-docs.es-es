@@ -3,19 +3,19 @@ title: 'Tutorial: Concesión de acceso a una API web de ASP.NET Core desde una a
 description: Tutorial sobre cómo usar Active Directory B2C para proteger una API web de ASP.NET e invocarla desde una aplicación de una sola página.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 13cbf1e81e0d203c181efb0881ec2a437cbaef24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 13fedae2798311a59a5cee2805ce9e09b1bd5a0f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752184"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724676"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de ASP.NET Core desde una aplicación de página única mediante Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ En este tutorial se muestra cómo llamar a un recurso de API web ASP.NET Core pr
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Incorporación de una aplicación de API web
+> * Incorporar una aplicación de API web
 > * Configurar los ámbitos para una API web
 > * Conceder permisos a la API web
 > * Configurar el ejemplo para que use la aplicación
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 
 Complete los pasos y requisitos previos en [Tutorial: Habilitación de la autenticación de una aplicación de página única con cuentas mediante Azure Active Directory B2C](active-directory-b2c-tutorials-spa.md).
 
-## <a name="add-a-web-api-application"></a>Incorporación de una aplicación de API web
+## <a name="add-a-web-api-application"></a>Incorporar una aplicación de API web
 
 Los recursos de API web tienen que registrarse en el inquilino antes de que puedan aceptar y responder a solicitudes de recursos protegidos por aplicaciones cliente que presenten un token de acceso.
 
@@ -69,7 +69,7 @@ Para llamar a una API web protegida desde una aplicación, deberá conceder perm
 1. Seleccione **Aplicaciones** y, a continuación, seleccione *webapp1*.
 2. Seleccione **Acceso de API** y, a continuación, seleccione **Agregar**.
 3. En el menú desplegable **Seleccionar API**, seleccione *webapi1*.
-4. En el menú desplegable **Seleccionar ámbitos**, seleccione los ámbitos **Hello.Read** y **Hello.Write** que se han definido previamente.
+4. En el menú desplegable **Seleccionar ámbitos**, seleccione los ámbitos **Hello.Read** y **Hello.Write** que definió previamente.
 5. Haga clic en **OK**.
 
 Su **aplicación de una sola página de ejemplo** está registrada para llamar a la API **Hello Core API** protegida. Un usuario se autentica con Azure AD B2C para utilizar la aplicación de página única. La aplicación de página única obtiene una concesión de autorización de Azure AD B2C para acceder a la API web protegida.
@@ -174,7 +174,7 @@ Después de registrarse o iniciar sesión con una cuenta de usuario, el ejemplo 
 En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
-> * Incorporación de una aplicación de API web
+> * Incorporar una aplicación de API web
 > * Configurar los ámbitos para una API web
 > * Conceder permisos a la API web
 > * Configurar el ejemplo para que use la aplicación

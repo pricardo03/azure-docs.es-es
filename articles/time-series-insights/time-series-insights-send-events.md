@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 424476b91537c60a6d7f0f9a854453353bf98633
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 55b19a6cf71730858fcf42880f71a2c9c07a3b31
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557026"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683980"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos a un entorno de Time Series Insights mediante un centro de eventos
 
@@ -210,8 +210,7 @@ Un objeto JSON con una matriz JSON anidada que contiene dos objetos JSON. Esta e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Ver el entorno en el explorador de Time Series Insights](https://insights.timeseries.azure.com)
+- [Vea el entorno](https://insights.timeseries.azure.com) en el Explorador de Time Series Insights.
 
 <!-- Images -->
 [1]: media/send-events/updated.png

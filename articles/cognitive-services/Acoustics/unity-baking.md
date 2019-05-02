@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2f0fcdcdf781c86179b67eeef0223d46da0fc65b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790236"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916995"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutorial de simulación mediante "bake" de Project Acoustics con Unity
 Este tutorial describe la simulación acústica mediante "bake" de Project Acoustics con Unity.
 
 Requisitos de software:
-* [Unity 2018.2+](http://unity3d.com) para Windows
+* [Unity 2018.2+](https://unity3d.com) para Windows
 * [Complemento de Project Acoustics integrado en el proyecto de Unity](unity-integration.md) o [contenido de ejemplo de Project Acoustics con Unity](unity-quickstart.md)
 * Opcional: Una [cuenta de Azure Batch](create-azure-account.md) para acelerar la simulación mediante "bake" utilizando la informática en la nube
 

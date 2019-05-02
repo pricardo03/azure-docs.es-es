@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616841"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918965"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
 
@@ -38,7 +38,6 @@ Figura 1: Parejas regionales de Azure
 | Europa |Norte de Europa |Europa occidental |
 | Francia |Centro de Francia|Sur de Francia|
 | Alemania |Centro de Alemania |Noreste de Alemania |
-| Alemania |Norte de Alemania | Centro occidental de Alemania
 | India |India Central |Sur de la India |
 | India |Oeste de la India |Sur de la India |
 | Japón |Este de Japón |Oeste de Japón |
@@ -47,13 +46,8 @@ Figura 1: Parejas regionales de Azure
 | Norteamérica |Este de EE. UU. 2 |Centro de EE. UU. |
 | Norteamérica |Centro-Norte de EE. UU |Centro-Sur de EE. UU |
 | Norteamérica |Oeste de EE. UU. 2 |Centro occidental de EE.UU. 
-| Norteamérica |Oeste de Estados Unidos 3 |Este de EE. UU
-| Noruega |Este de Noruega |Oeste de Noruega
 | Sudáfrica | Sudáfrica septentrional | Sudáfrica occidental
-| Suecia |Suecia Central |Suecia sur
-| Suiza | Norte de Suiza | Oeste de Suiza
 | Reino Unido |Oeste de Reino Unido |Sur de Reino Unido 2 |
-| Reino Unido |Norte del Reino Unido |Sur del Reino Unido 2
 | Emiratos Árabes Unidos | Norte de EAU | UAE Center
 | Departamento de Defensa de Estados Unidos |Departamento de Defensa de EE. UU. Este |Departamento de Defensa de EE. UU. Centro |
 | Gobierno de Estados Unidos |Gobierno de EE. UU.: Arizona |Gobierno de EE. UU.: Texas |

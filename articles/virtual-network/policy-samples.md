@@ -3,8 +3,8 @@ title: Ejemplos de plantillas de directivas | Microsoft Docs
 description: Ejemplos de plantillas de directivas de Azure para Virtual Network.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 ms.date: 05/02/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: b0b3b65ee2360a5cec32235f2ee5bf8d4839cc8b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 8228da778e6cf6a874868ef0206092913908352d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342090"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694288"
 ---
 # <a name="azure-policy-sample-templates-for-virtual-network"></a>Plantillas de ejemplo de directivas de Azure para Virtual Network.
 

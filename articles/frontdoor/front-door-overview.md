@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/29/2018
 ms.author: sharadag
-ms.openlocfilehash: 346fa5721df6c9ce0cf355adea21f59c93a394a9
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2d4c93b7ef707f5b09bc2f5f93d56c50c1bb3458
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736333"
 ---
 # <a name="what-is-azure-front-door-service"></a>¿Qué es Azure Front Door Service?
 Azure Front Door Service permite definir, administrar y supervisar el enrutamiento global para el tráfico web mediante la optimización para obtener el mejor rendimiento y la conmutación por error global instantánea para alta disponibilidad. Con Front Door, las aplicaciones empresariales y de consumidor globales (de varias regiones) se pueden transformar en aplicaciones modernas personalizadas, sólidas y de alto rendimiento, API y contenido que lleguen a un público global mediante Azure.
@@ -75,5 +75,5 @@ Para obtener información sobre los precios, vea [Precios de Front Door](https:/
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [crear una instancia de Front Door](quickstart-create-front-door.md).
-- Obtenga información sobre [cómo funciona Front Door](front-door-routing-architecture.md).
+- Aprenda a [crear una instancia de Front Door](quickstart-create-front-door.md).
+- Más información acerca de cómo [funciona Front Door](front-door-routing-architecture.md).

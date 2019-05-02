@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 0ea34fe4862941bde882b3ea8ed5dbaa111ac742
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731495"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688344"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas del registro de actividad de Azure
 Como parte de la definición de un grupo de acciones, se pueden configurar puntos de conexión de webhook para recibir notificaciones de alertas del registro de actividad. Los webhooks permiten enrutar estas notificaciones a otros sistemas para su procesamiento posterior o acciones personalizadas. Este artículo muestra el aspecto de la carga útil para HTTP POST a un webhook.
@@ -21,6 +21,10 @@ Como parte de la definición de un grupo de acciones, se pueden configurar punto
 Para más información sobre las alertas del registro de actividad, consulte cómo [crear alertas del registro de actividad de Azure](activity-log-alerts.md).
 
 Para obtener información sobre los grupos de acciones, consulte cómo [crear grupos de acciones](../../azure-monitor/platform/action-groups.md).
+
+> [!NOTE]
+> También puede usar el [esquema común de alerta](https://aka.ms/commonAlertSchemaDocs), que proporciona la ventaja de tener una sola extensible y carga de alertas unificada a través de la alerta de todos los servicios en Azure Monitor, de sus integraciones de webhook. [Obtenga información sobre las definiciones de alerta de esquema comunes.](https://aka.ms/commonAlertSchemaDefinitions)
+
 
 ## <a name="authenticate-the-webhook"></a>Autenticación del webhook
 El webhook puede usar opcionalmente autorización basada en token para la autenticación. El identificador URI del webhook se guarda con un identificador de token, por ejemplo, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
@@ -176,12 +180,12 @@ Para obtener información del esquema específico en todas las otras alertas del
 | description |Descripción de la alerta establecida al crear la alerta. |
 | subscriptionId |Identificador de suscripción de Azure |
 |  timestamp |Cuándo generó el evento el servicio de Azure que procesó la solicitud |
-| ResourceId |Identificador de recurso del recurso afectado. |
+| resourceId |Identificador de recurso del recurso afectado. |
 | resourceGroupName |Nombre del grupo de recursos del recurso afectado. |
-| propiedades |Conjunto de pares `<Key, Value>` (es decir, `Dictionary<String, String>`) que incluye detalles sobre el evento. |
+| properties |Conjunto de pares `<Key, Value>` (es decir, `Dictionary<String, String>`) que incluye detalles sobre el evento. |
 | event |Elemento que contiene metadatos sobre el evento. |
 | authorization |Las propiedades del Control de acceso basado en rol del evento. Estas propiedades normalmente incluyen la acción, el rol y el ámbito. |
-| categoría |Categoría del evento. Los valores admitidos incluyen: Administrative, Alert, Security, ServiceHealth y Recommendation. |
+| category |Categoría del evento. Los valores admitidos incluyen: Administrative, Alert, Security, ServiceHealth y Recommendation. |
 | caller |Dirección de correo electrónico del usuario que realizó la operación, la notificación de UPN o la notificación de SPN basada en la disponibilidad. Puede ser null para ciertas llamadas del sistema. |
 | correlationId |Normalmente, un GUID en formato de cadena. Los eventos con correlationId pertenecen a la misma acción de mayor tamaño y suelen compartir un campo correlationId. |
 | eventDescription |Descripción de texto estático del evento |
@@ -191,7 +195,7 @@ Para obtener información del esquema específico en todas las otras alertas del
 | level |Uno de los valores siguientes: crítico, error, advertencia e informativo. |
 | operationId |Por lo general, un GUID compartido entre los eventos correspondientes a una sola operación |
 | operationName |Nombre de la operación. |
-| propiedades |Propiedades del evento. |
+| properties |Propiedades del evento. |
 | status |String. Estado de la operación. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
 | subStatus |Normalmente, incluye el código de estado HTTP de la llamada de REST correspondiente. También podría incluir otras cadenas que describen un subestado. Los valores de subestado comunes son Aceptar (código de estado HTTP: 200), Creado (código de estado HTTP: 201), Aceptado (código de estado HTTP: 202), Sin contenido (código de estado HTTP: 204), Solicitud incorrecta (código de estado HTTP: 400), No encontrado (código de estado HTTP): 404), Conflicto (código de estado HTTP: 409), Error interno del servidor (código de estado HTTP: 500), Servicio no disponible (código de estado HTTP: 503), Tiempo de espera agotado para la puerta de enlace (código de estado HTTP: 504). |
 

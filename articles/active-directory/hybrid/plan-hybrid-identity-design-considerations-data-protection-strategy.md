@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2017
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05c1575781f280b3be1843abee0469af52baeb2d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381666"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918425"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definición de una estrategia de protección de datos para soluciones de identidad híbrida
 En esta tarea, se definirá la estrategia de protección de datos para que una solución de identidad híbrida cumpla los requisitos empresariales que se definen en:
@@ -89,7 +89,7 @@ Una parte fundamental de la administración de contenido es saber quién tiene a
 ## <a name="define-access-control-options"></a>Definición de opciones de control de acceso
 Al usar las funcionalidades de autenticación, autorización y control de acceso disponibles en Azure AD, puede permitir que su empresa use un repositorio central de identidades, al mismo tiempo que permite que los usuarios y asociados usen el inicio de sesión único (SSO), tal como se muestra en la figura siguiente:
 
-![](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![administración centralizada](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 Administración centralizada e integración total con otros directorios
 
@@ -115,7 +115,7 @@ Gracias a la compatibilidad con Azure AD, las aplicaciones empresariales pueden 
 
 Una vez que el usuario se autentica mediante Azure AD, es importante evaluar el nivel de acceso que tendrá este usuario. Tenga en cuenta que el nivel de acceso que tendrá el usuario en un recurso puede variar. Aunque Azure AD puede agregar un nivel de seguridad adicional mediante el control del acceso a algunos recursos, es preciso recordar que el recurso también puede tener su propia lista independiente de control de acceso como, por ejemplo, el control de acceso a los archivos que estén ubicados en un servidor de archivos. En la siguiente ilustración se resumen los niveles de control de acceso que puede haber en un escenario híbrido:
 
-![](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
+![control de acceso](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
 
 Cada una de las interacciones del diagrama que se muestra en la Ilustración X representa un escenario de control de acceso que se pueden cubrir con Azure AD. A continuación encontrará una descripción de cada escenario:
 

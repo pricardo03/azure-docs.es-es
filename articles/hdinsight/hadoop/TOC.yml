@@ -136,8 +136,6 @@
         - name: Uso de nodos perimetrales vacíos
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
-        - name: Desarrollo de programas de streaming de Python
-          href: apache-hadoop-streaming-python.md
         - name: Procesamiento y análisis de documentos JSON
           href: using-json-in-hive.md
         - name: 'Uso de funciones definidas por el usuario de C#'

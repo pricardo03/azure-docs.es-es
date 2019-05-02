@@ -14,11 +14,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823953"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Movimiento de datos de MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,14 +68,14 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |La propiedad type debe establecerse en: **OnPremisesMySql** |SÍ |
-| Servidor |Nombre del servidor MySQL. |SÍ |
-| Base de datos |Nombre de la base de datos MySQL. |SÍ |
+| type |La propiedad type debe establecerse en: **OnPremisesMySql** |Sí |
+| Servidor |Nombre del servidor MySQL. |Sí |
+| Base de datos |Nombre de la base de datos MySQL. |Sí |
 | schema |Nombre del esquema de la base de datos. |Sin  |
-| authenticationType |Tipo de autenticación usado para conectarse a la Base de datos MySQL. Los valores posibles son: `Basic`. |SÍ |
-| nombre de usuario |Especifique el nombre de usuario para conectarse a la base de datos de MySQL. |SÍ |
-| contraseña |Especifique la contraseña de la cuenta de usuario especificada. |SÍ |
-| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la Base de datos MySQL local. |SÍ |
+| authenticationType |Tipo de autenticación usado para conectarse a la Base de datos MySQL. Los valores posibles son: `Basic`. |Sí |
+| username |Especifique el nombre de usuario para conectarse a la base de datos de MySQL. |Sí |
+| password |Especifique la contraseña de la cuenta de usuario especificada. |Sí |
+| gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la Base de datos MySQL local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 Para una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
@@ -301,17 +301,17 @@ Al mover datos a MySQL, se usarán las asignaciones siguientes de tipos MySQL a 
 
 | Tipo de Base de datos MySQL | Tipo .NET Framework |
 | --- | --- |
-| bigint unsigned |DECIMAL |
+| bigint unsigned |Decimal |
 | bigint |Int64 |
-| bit |DECIMAL |
+| bit |Decimal |
 | blob |Byte[] |
-| booleano |boolean |
+| booleano |Boolean |
 | char |string |
-| fecha |DateTime |
+| date |DateTime |
 | Datetime |DateTime |
-| decimal |DECIMAL |
-| double precision |Doble |
-| Doble |Doble |
+| decimal |Decimal |
+| double precision |Double |
+| Doble |Double |
 | enum |string |
 | float |Single |
 | int unsigned |Int64 |
@@ -326,20 +326,20 @@ Al mover datos a MySQL, se usarán las asignaciones siguientes de tipos MySQL a 
 | mediumint unsigned |Int64 |
 | mediumint |Int32 |
 | mediumtext |string |
-| numeric |DECIMAL |
-| real |Doble |
+| numeric |Decimal |
+| real |Double |
 | set |string |
 | smallint unsigned |Int32 |
 | smallint |Int16 |
 | text |string |
-| Twitter en tiempo |timespan |
+| time |TimeSpan |
 |  timestamp |DateTime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |
 | tinytext |string |
 | varchar |string |
-| year |int |
+| year |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
 Para obtener más información sobre la asignación de columnas del conjunto de datos de origen a las del conjunto de datos receptor, consulte [Asignación de columnas de conjunto de datos de Azure Data Factory](data-factory-map-columns.md).

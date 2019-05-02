@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bc4118e54b2049f7e5d6cf4ed3b92bfc5e41ae7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 011991a3951adde9a0d062b40584caa74d172023
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904957"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918738"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Tutorial: Integración de Azure Active Directory con Domo
 
@@ -174,7 +174,7 @@ Para configurar el inicio de sesión único de Azure AD con Domo, realice los pa
 
 ### <a name="configure-domo-single-sign-on"></a>Configuración del inicio de sesión único en Domo
 
-Para configurar el inicio de sesión único en **Domo**, vaya al artículo de Knowledge Base de Domo que se encuentra [aquí](http://knowledge.domo.com?cid=azuread) y siga las instrucciones.
+Para configurar el inicio de sesión único en **Domo**, vaya al artículo de Knowledge Base de Domo que se encuentra [aquí](https://knowledge.domo.com?cid=azuread) y siga las instrucciones.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -194,7 +194,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

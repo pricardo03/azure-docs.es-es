@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 88d5cfbbcb29cacc2e8c1c6a226367c5f23e8231
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792408"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926300"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementación del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001
 
@@ -99,7 +99,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 1. Una vez que se hayan especificado todos los parámetros, seleccione **Asignar** en la parte inferior de la página. Se crea la asignación del plano técnico y comienza la implementación del artefacto. La implementación tarda aproximadamente una hora. Para comprobar el estado de implementación, abra la asignación del plano técnico.
 
 > [!WARNING]
-> El servicio Azure Blueprints y los ejemplos de plano técnico incorporados son **gratuitos**. El precio de los recursos de Azure se [calcula por producto](https://azure.microsoft.com/en-us/pricing/). Use la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para estimar el costo de la ejecución de los recursos implementados en este ejemplo de plano técnico.
+> El servicio Azure Blueprints y los ejemplos de plano técnico incorporados son **gratuitos**. El precio de los recursos de Azure se [calcula por producto](https://azure.microsoft.com/pricing/). Use la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para estimar el costo de la ejecución de los recursos implementados en este ejemplo de plano técnico.
 
 ## <a name="artifact-parameters-table"></a>Tabla de parámetros de los artefactos
 
@@ -107,10 +107,10 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 
 |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|DESCRIPCIÓN|
 |-|-|-|-|
-|[Versión preliminar]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_.|
-|[Versión preliminar]: Implementar el agente de Log Analytics en máquinas virtuales Linux|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_.|
-|[Versión preliminar]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_.|
-|[Versión preliminar]: Implementar el agente de Log Analytics en máquinas virtuales Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_.|
+|\[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Linux|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_.|
+|\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Linux|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Linux que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_.|
+|\[Versión preliminar\]: Implementar el agente de Log Analytics para VM Scale Sets (VMSS) para Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_.|
+|\[Versión preliminar\]: Implementar el agente de Log Analytics en máquinas virtuales Windows|Asignación de directiva|Opcional: Lista de imágenes de VM que han admitido el sistema operativo Windows que se agregarán al ámbito.|(Opcional) El valor predeterminado es _["none"]_.|
 |Tipos de recursos permitidos|Asignación de directiva|Tipos de recursos permitidos|Lista de tipos de recursos que se pueden implementar. Esta lista se compone de todos los tipos de recursos implementados en los servicios compartidos.|
 |SKU de cuenta de almacenamiento permitida|Asignación de directiva|SKU de almacenamiento permitidas|Lista de SKU de cuenta de almacenamiento de registros de diagnóstico permitidas. El valor predeterminado es _["Standard_LRS"]_.|
 |SKU de máquina virtual permitida|Asignación de directiva|Lista de SKU de máquinas virtuales que se pueden implementar. El valor predeterminado es _["Standard_DS1_v2", "Standard_DS2_v2"]_.|

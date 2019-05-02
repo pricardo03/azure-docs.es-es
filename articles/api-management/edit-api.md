@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: b39259fcfc93cb0a2a1a2dc600e5235da8cc6930
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6f1a0cf6025cb3a398ab93320c6fcb69b1e62429
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60558116"
 ---
 # <a name="edit-an-api"></a>Edición de una API
 
@@ -27,7 +27,7 @@ Los pasos descritos en este tutorial muestran cómo usar API Management (APIM) p
 + Para hacerlo, puede agregar, eliminar, cambiar el nombre de las operaciones en la instancia de APIM. 
 + Puede editar el swagger de la API.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 + [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 + [Importación y publicación de la primera API](import-and-publish.md)

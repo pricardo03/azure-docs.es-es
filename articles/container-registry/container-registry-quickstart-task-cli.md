@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61a17842158326c927f049af893a00818f3acc55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be120ea8ae588da486c9a5acd4eb7bfdb4e45dee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793393"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701566"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Inicio rápido: Compilación y ejecución de una imagen de contenedor en Azure Container Registry Tasks
 
@@ -52,7 +52,7 @@ Este ejemplo crea un registro *Básico*, una opción rentable para los desarroll
 Ahora usa Azure Container Registry para compilar una imagen. En primer lugar, cree un directorio de trabajo y, después, cree un archivo Dockerfile denominado *Dockerfile* con el contenido siguiente. Esto es un ejemplo sencillo para crear una imagen de contenedor de Linux, pero puede crear su propio Dockerfile estándar y compilar imágenes para otras plataformas.
 
 ```bash
-echo "FROM hello-world" > Dockerfile
+echo FROM hello-world > Dockerfile
 ```
 
 Ejecute el comando [az acr build][az-acr-build] para compilar la imagen. Cuando la haya compilado correctamente, la imagen se inserta en el registro. En el ejemplo siguiente se inserta la imagen `sample/hello-world:v1`. El signo `.` al final del comando establece la ubicación del Dockerfile, en este caso el directorio actual.

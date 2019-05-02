@@ -2,22 +2,19 @@
 title: 'Tutorial: Uso de una máquina virtual Linux y una aplicación Python para almacenar secretos en Azure Key Vault | Microsoft Docs'
 description: En este tutorial, aprenderá a configurar una aplicación Python para leer un secreto de Azure Key Vault.
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: mbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: b7077653ec959f99491cecd71573c091772448f4
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: a5923c3d5ea7888a3737d7976caded8eef9c1661
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749637"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702101"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Tutorial: Uso de una máquina virtual Linux y una aplicación Python para almacenar secretos en Azure Key Vault
 
@@ -80,7 +77,7 @@ A continuación, creará un almacén de claves en el grupo de recursos creado en
 
 * Nombre del almacén de claves: el nombre debe ser una cadena de entre 3 y 24 caracteres y solo debe contener estos caracteres: 0-9, a-z, A-Z y guiones (-).
 * Nombre del grupo de recursos.
-* Ubicación: **Oeste de EE. UU.**.
+* Ubicación: **Oeste de EE. UU.**
 
 ```azurecli-interactive
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"

@@ -1,25 +1,19 @@
 ---
-title: Preparación del paquete de AppSource | Microsoft Docs
+title: Preparación del paquete de AppSource | Azure Marketplace
 description: Explicación sobre cómo preparar y crear paquetes de AppSource.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625472"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935638"
 ---
 # <a name="appsource-package-preparation"></a>Preparación de paquetes de AppSource
 
@@ -117,7 +111,7 @@ Este es el código de ejemplo de input.xml. Consulte las definiciones en la tabl
 |SolutionAnchorName |Nombre del archivo zip de la solución en el implementador de paquetes que se usa como nombre para mostrar y la descripción de los recursos de la solución.|
 | StartDate| Se trata de la fecha en la que el paquete de la solución estará disponible. El formato es MM/DD/AAAA|
 |EndDate|Se trata de la fecha en la que el paquete de la solución dejará de estar disponible. El formato es MM/DD/AAAA |
-|SupportedCountries |Se trata de una lista delimitada por comas de los países que deberían ver este paquete. Póngase en contacto con los servicios en línea para obtener una lista actualizada de todos los códigos de países. En el momento, se escribe este artículo fue la lista: AE, AL., A. M., AO, AR, AT, AU, AZ, BA, BB, BD, SER, BG, BH, BM, BN, BO, BR POR CA, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK,, DZ, CE Y EE, POR EJEMPLO, ES, FI, FR, GB, GE, GH, GR, GT, HK , HN, RECURSOS HUMANOS, HU, ID., INTERNET EXPLORER, IL, IN, IQ, ES, LO, JM, JO, JP, KE, KG, KN, KR, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MASSACHUSETTS, MC, MD, ME, MK, MN, MES, MT, MU, MX, MY, NG, NI, NL, N, NZ, OM, PA, PE, PH , PK, PL, PR, PS, PT, PY, PREGUNTAS Y RESPUESTAS, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA EE. UU., UY, UZ, QUITAR, VI, VN, ZA, ZW |
+|SupportedCountries |Se trata de una lista delimitada por comas de los países o regiones que deben ver este paquete. Póngase en contacto con los servicios en línea para obtener una lista actualizada de todos los códigos de países. En el momento, se escribe este artículo fue la lista: AE, AL., A. M., AO, AR, AT, AU, AZ, BA, BB, BD, SER, BG, BH, BM, BN, BO, BR POR CA, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK,, DZ, CE Y EE, POR EJEMPLO, ES, FI, FR, GB, GE, GH, GR, GT, HK , HN, RECURSOS HUMANOS, HU, ID., INTERNET EXPLORER, IL, IN, IQ, ES, LO, JM, JO, JP, KE, KG, KN, KR, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MASSACHUSETTS, MC, MD, ME, MK, MN, MES, MT, MU, MX, MY, NG, NI, NL, N, NZ, OM, PA, PE, PH , PK, PL, PR, PS, PT, PY, PREGUNTAS Y RESPUESTAS, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA EE. UU., UY, UZ, QUITAR, VI, VN, ZA, ZW |
 |LearnMoreLink | Dirección URL a la página para obtener más información sobre este paquete. |
 |Locales|Una instancia de este nodo para cada idioma de la experiencia del usuario que desea admitir en la experiencia de usuario preferida de la solución. Este nodo contiene elementos secundarios que describen la configuración regional, el logotipo y las condiciones para cada idioma|
 |Configuraciones regionales: PackageLocale.Code|Identificador de configuración regional del idioma para este nodo. Ejemplo: Inglés de Estados Unidos es 1033|

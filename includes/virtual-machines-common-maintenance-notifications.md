@@ -31,7 +31,7 @@ Puede usar Azure Portal y buscar máquinas virtuales con mantenimiento programad
 
    **Mantenimiento**: muestra el estado de mantenimiento para la máquina virtual. Estos son los valores posibles:
       
-      | Value | DESCRIPCIÓN |
+      | Valor | DESCRIPCIÓN |
       |-------|-------------|
       | Empezar ahora | La máquina virtual está en la ventana de mantenimiento de autoservicio, lo que le permite iniciar el mantenimiento usted mismo. Vea a continuación cómo iniciar el mantenimiento en la máquina virtual. | 
       | Programado | La máquina virtual está programada para el mantenimiento sin opción de que inicie el mantenimiento. Puede obtener información de la ventana de mantenimiento mediante la selección de la ventana Mantenimiento: Programado en esta vista o haciendo clic en la máquina virtual. | 
