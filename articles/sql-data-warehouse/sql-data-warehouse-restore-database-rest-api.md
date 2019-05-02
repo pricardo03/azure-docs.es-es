@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: daf013472e5fa533912920e4c14a552905b5d333
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241525"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60935694"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-with-rest-apis"></a>Restauración de una instancia de Azure SQL Data Warehouse con la API REST
 Restauración de una instancia de Azure SQL Data Warehouse mediante la API REST.
@@ -39,7 +39,7 @@ Para restaurar un almacén de datos:
 Para restaurar un almacén de datos eliminado:
 
 1. Enumere todos los almacenes de datos eliminados que se pueden restaurar con la operación [List restorable dropped databases](https://msdn.microsoft.com/library/azure/dn509562.aspx) (Enumeración de bases de datos eliminadas que se pueden restaurar).
-2. Para obtener los detalles del almacén de datos eliminado que desea restaurar, utilice la operación [Get restorable dropped database][Get restorable dropped database](Obtención de la base de datos eliminada que se puede restaurar).
+2. Para obtener los detalles del almacén de datos eliminado que desea restaurar, utilice la operación [Get restorable dropped database][Get restorable dropped database]\(Obtención de la base de datos eliminada que se puede restaurar).
 3. Inicie la restauración con la operación [Crear solicitud de restauración de base de datos](https://msdn.microsoft.com/library/azure/dn509571.aspx) .
 4. Realice un seguimiento del estado de la restauración con la operación [Estado de operación de base de datos](https://msdn.microsoft.com/library/azure/dn720371.aspx) .
 
