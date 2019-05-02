@@ -560,7 +560,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 | **type** | N/D| Requerida: se debe establecer en `httpTrigger`. |
-| **dirección** | N/D| Requerida: se debe establecer en `in`. |
+| **direction** | N/D| Requerida: se debe establecer en `in`. |
 | **name** | N/D| Requerida: nombre de variable que se usa en el código de la función para la solicitud o el cuerpo de la solicitud. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina qué claves, si las hubiera, deben estar presentes en la solicitud para poder invocar a la función. El nivel de autorización puede ser uno de los siguientes: <ul><li><code>anonymous</code>: no se requiere ninguna clave de API.</li><li><code>function</code>: se requiere una clave de API específica de la función. Este es el valor predeterminado si no se proporciona ninguno.</li><li><code>admin</code>: se requiere la clave maestra.</li></ul> Para más información, consulte la sección sobre las [claves de autorización](#authorization-keys). |
 | **methods** |**Métodos** | Una matriz de los métodos HTTP a los que responde la función. Si no se especifica, la función responde a todos los métodos HTTP. Consulte cómo [personalizar el punto de conexión HTTP](#customize-the-http-endpoint). |
@@ -803,7 +803,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
 | **type** |Se debe establecer en `http`. |
-| **dirección** | Se debe establecer en `out`. |
+| **direction** | Se debe establecer en `out`. |
 |**name** | Nombre de la variable usado en el código de la función para la respuesta, o `$return` para usar el valor devuelto. |
 
 ## <a name="output---usage"></a>Uso de salidas
