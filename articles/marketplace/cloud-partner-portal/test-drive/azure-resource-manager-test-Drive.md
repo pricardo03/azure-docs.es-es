@@ -1,25 +1,19 @@
 ---
-title: Versión de prueba de Azure Resource Manager | Microsoft Docs
+title: Versión de prueba de administrador de recursos de Azure | Azure Marketplace
 description: Compilación de una versión de prueba de Marketplace con Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Patrick .Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.author: pabutler
+ms.openlocfilehash: 7665050dfc9a561f42fec00c40d0a40dfa5cc183
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541169"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941571"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
@@ -95,7 +89,7 @@ También es importante tener en cuenta que **todos los parámetros son opcionale
 | **password**    | cadena segura    | Nueva contraseña aleatoria. | Lp!ACS\^2kh     |
 | **Id. de sesión**   | string          | Identificador único (GUID) de sesión de la versión de prueba    | b8c8693e-5673-449c-badd-257a405a6dee |
 
-#### <a name="username"></a>nombre de usuario
+#### <a name="username"></a>username
 
 La versión de prueba inicializa este parámetro con un identificador **Uri base** del paquete de implementación, por lo que puede usar este parámetro para construir el Uri de los archivos incluidos en el paquete.
 
@@ -122,7 +116,7 @@ En la plantilla, puede usar este parámetro para construir un Uri de cualquier a
 }
 ```
 
-#### <a name="username"></a>nombre de usuario
+#### <a name="username"></a>username
 
 La versión de prueba inicializa este parámetro con un nuevo nombre de usuario aleatorio:
 
@@ -146,7 +140,7 @@ Valor de ejemplo:
 
 Puede usar nombres de usuario aleatorios o constantes en la solución.
 
-#### <a name="password"></a>contraseña
+#### <a name="password"></a>password
 
 La versión de prueba inicializa este parámetro con una nueva contraseña aleatoria:
 

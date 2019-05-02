@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 926f470b8a4dbdb6d6cbfe09ee61349a819600e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5cac42505cd015cb018664b765e88f40667b1759
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464597"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920456"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ El artículo de procedimientos recomendados se centra en las consideraciones que
 
 Un clúster de AKS se implementa en una sola región. Para protegerse frente a errores en una región, implemente la aplicación en varios clústeres de AKS en diferentes regiones. Cuando planee en qué regiones implementar el clúster de AKS, debe aplicar las siguientes consideraciones:
 
-* [Disponibilidad en regiones de AKS](https://docs.microsoft.com/azure/aks/container-service-quotas#region-availability)
+* [Disponibilidad en regiones de AKS](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability)
   * Elija regiones cerca de los usuarios. AKS se expande continuamente a nuevas regiones.
 * [Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * Para su área geográfica, elija dos regiones que estén emparejadas entre sí. Estas regiones coordinan las actualizaciones de la plataforma y dan prioridad a los esfuerzos de recuperación cuando resulta necesario.
@@ -62,7 +62,7 @@ Para obtener información sobre cómo configurar estos puntos de conexión y el 
 
 ### <a name="layer-7-application-routing-with-azure-front-door"></a>Enrutamiento de aplicación de capa 7 con Azure Front Door
 
-Azure Traffic Manager usa DNS (nivel 3) para dar forma al tráfico. [Puerta de Azure (actualmente en versión preliminar)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) proporciona una opción de enrutamiento de HTTP/HTTPS (capa 7). Las características adicionales de Front Door incluyen terminación SSL, dominio personalizado, firewall de aplicaciones web, Reescritura de dirección URL y afinidad de sesión.
+Azure Traffic Manager usa DNS (nivel 3) para dar forma al tráfico. [Azure puerta delantera](https://docs.microsoft.com/azure/frontdoor/front-door-overview) proporciona una opción de enrutamiento de HTTP/HTTPS (capa 7). Las características adicionales de Front Door incluyen terminación SSL, dominio personalizado, firewall de aplicaciones web, Reescritura de dirección URL y afinidad de sesión.
 
 Revise los requisitos del tráfico de su aplicación para saber qué solución es la más conveniente.
 

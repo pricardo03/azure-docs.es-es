@@ -11,20 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357937"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572690"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveles de servicio de núcleo virtual, ventaja híbrida de Azure y migración
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Elija entre los niveles de servicio con núcleo virtual y migrar desde los niveles de servicio DTU
 
 El modelo de compra basado en núcleo virtual permite escalar los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. También le permite elegir la generación del hardware:
 
 - Gen 4: hasta 24 CPU lógicas basadas en procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz, núcleo virtual = 1 PP (núcleo físico), 7 GB por núcleo, SSD conectada
 - Gen 5: hasta 80 CPU lógicas basadas en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz, núcleo virtual = 1 LP (hyper-thread), 5,1 GB por núcleo, SSD eNVM rápida
+
 
 El hardware de Gen4 ofrece bastante más memoria por núcleo virtual. Sin embargo, el hardware de Gen5 permite escalar verticalmente mucho más alto los recursos de proceso.
 
@@ -40,9 +41,9 @@ La tabla siguiente le ayudará a comprender las diferencias entre estos tres niv
 ||**Uso general**|**Crítico para la empresa**|**Hiperescala (versión preliminar)**|
 |---|---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables orientadas al presupuesto.|Aplicaciones empresariales con elevados requisitos de E/S. Ofrece la máxima resistencia a errores mediante varias réplicas aisladas.|La mayoría de las cargas de trabajo de una empresa que tengan requisitos de almacenamiento y un escalado de lectura que sean altamente escalables.|
-|Proceso|Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|
-|Memoria|Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo |Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo|
-|Almacenamiento|Usa el almacenamiento remoto:<br/>Base de datos única: 5 GB – 4 TB<br/>Instancia administrada: 32 GB - 8 TB |Usa almacenamiento local de SSD:<br/>Base de datos única: 5 GB – 4 TB<br/>Instancia administrada: 32 GB - 4 TB |Flexible; crecimiento automático de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento y mucho más. Almacenamiento SSD local para la caché del grupo de búferes local y el almacenamiento de datos local. Almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
+|CPU|**Aprovisiona el proceso**:<br/>Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales<br/>**Proceso sin servidor**<br/>Gen5: 0.5 - 4 memoria con núcleo virtual|**Aprovisiona el proceso**:<br/>Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|**Aprovisiona el proceso**:<br/>Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|
+|Memoria|**Aprovisiona el proceso**:<br/>Gen4: 7 GB por núcleo<br/>Gen5: 5,1 GB por núcleo<br/>**Proceso sin servidor**<br/>Gen5: 3 GB por núcleo|**Aprovisiona el proceso**:<br/>Gen4: 7 GB por núcleo<br/>Gen5: 5,1 GB por núcleo |**Aprovisiona el proceso**:<br/>Gen4: 7 GB por núcleo<br/>Gen5: 5,1 GB por núcleo|
+|Almacenamiento|Usa el almacenamiento remoto:<br/>**Base de datos única aprovisionado proceso**:<br/>5 GB – 4 TB<br/>**Informática de base de datos única**:<br/>5 GB A 1 TB<br/>**Instancia administrada**: 32 GB - 8 TB |Usa almacenamiento local de SSD:<br/>**Base de datos única aprovisionado proceso**:<br/>5 GB – 4 TB<br/>**Instancia administrada**:<br/>32 GB - 4 TB |Flexible; crecimiento automático de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento y mucho más. Almacenamiento SSD local para la caché del grupo de búferes local y el almacenamiento de datos local. Almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
 |Rendimiento de E/S (aproximado)|Base de datos única: 500 IOPS por núcleo virtual con 7000 IOPS como máximo</br>Instancia administrada: Depende del [tamaño del archivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo con 200 000 IOPS como máximo|TBD|
 |Disponibilidad|1 réplica, sin escalado de lectura|3 réplicas, 1 [réplica de escalado de lectura](sql-database-read-scale-out.md),<br/>Con alta disponibilidad y redundancia de zona|?|
 |Copias de seguridad|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|Copias de seguridad basadas en instantáneas que se encuentran en el almacenamiento remoto de Azure, y restauraciones que usan esas instantáneas para una recuperación rápida. Las copias de seguridad son instantáneas y no afectan el rendimiento de E/S del proceso. Las restauraciones son muy rápidas y no tienen el tamaño de una operación de datos (tardan minutos en lugar de horas o días).|
@@ -56,16 +57,18 @@ La tabla siguiente le ayudará a comprender las diferencias entre estos tres niv
 - Para obtener más información acerca de los niveles de servicio Uso general y Crítico para la empresa, consulte [Niveles de servicio Uso general y Crítico para la empresa.](sql-database-service-tiers-general-purpose-business-critical.md).
 - Para obtener información sobre el nivel de servicio Hiperescala en el modelo de compra basado en núcleo virtual, consulte [Nivel de servicio Hiperescala](sql-database-service-tier-hyperscale.md).  
 
-> [!IMPORTANT]
-> Si tiene menos de un núcleo virtual de capacidad de proceso, use el modelo de compra basado en DTU.
+
 
 ## <a name="azure-hybrid-benefit"></a>Ventaja híbrida de Azure
 
-En el modelo de compra basado en núcleo virtual, puede intercambiar sus licencias existentes por tarifas de descuento en SQL Database mediante la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Esta ventaja de Azure le permite usar las licencias de SQL Server locales para ahorrar hasta un 30 % en Azure SQL Database al utilizarlas con Software Assurance.
+En el nivel de equipo aprovisionado del modelo de compra basado en núcleos virtuales, puede intercambiar sus licencias existentes para obtener descuentos en SQL Database mediante la [ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Esta ventaja de Azure le permite usar las licencias de SQL Server locales para ahorrar hasta un 30 % en Azure SQL Database al utilizarlas con Software Assurance.
 
 ![Precios](./media/sql-database-service-tiers/pricing.png)
 
-Con la Ventaja híbrida de Azure, puede elegir pagar solo por la infraestructura subyacente de Azure mediante la licencia existente de SQL Server para el motor de base de datos SQL (**BasePrice**) o pagar tanto por la infraestructura subyacente como por la licencia de SQL Server (**LicenseIncluded**). Puede elegir o cambiar el modelo de licencia mediante Azure Portal o con una de las siguientes API.
+Con la Ventaja híbrida de Azure, puede elegir pagar solo por la infraestructura subyacente de Azure mediante la licencia existente de SQL Server para el motor de base de datos SQL (**BasePrice**) o pagar tanto por la infraestructura subyacente como por la licencia de SQL Server (**LicenseIncluded**).
+
+
+Puede elegir o cambiar el modelo de licencia mediante Azure Portal o con una de las siguientes API.
 
 - Para establecer o actualizar el tipo de licencia mediante PowerShell:
 
@@ -130,5 +133,5 @@ Puede copiar cualquier base de datos con un tamaño de proceso basado en DTU en 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información sobre las opciones de tamaños de proceso y de tamaños de almacenamiento específicas que hay disponibles para las bases de datos únicas, consulte [Límites de recursos basados en núcleos virtuales de SQL Database para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- Para obtener más información sobre las opciones de tamaños de proceso y de tamaños de almacenamiento específicas que hay disponibles para las bases de datos únicas, consulte [Límites de recursos basados en núcleos virtuales de SQL Database para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md).
 - Para más información sobre las opciones de tamaño de proceso y de tamaño de almacenamiento específicas que hay disponibles para los grupos elásticos, consulte [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) (Límites de recursos basados en núcleos virtuales de Azure SQL Database para grupos elásticos).

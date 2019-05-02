@@ -39,8 +39,8 @@ Puede usar una actividad de filtro en una canalización para aplicar una expresi
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad `Filter`. | String | Sí
-Tipo | Se debe establecer en **filter**. | String | Sí
+name | Nombre de la actividad `Filter`. | String | Sí
+type | Se debe establecer en **filter**. | String | Sí
 condition | Condición que se usará para filtrar la entrada. | Expression | Sí
 items | Matriz de entrada en la que se debe aplicar el filtro. | Expression | Sí
 

@@ -1,25 +1,18 @@
 ---
-title: Versión de prueba de aplicación lógica | Microsoft Docs
+title: Versión de prueba de la aplicación de lógica | Azure Marketplace
 description: Explica cómo compilar su versión de prueba que se conecta con una instancia de Dynamics AX/CRM o con cualquier otro recurso distinto de Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.author: pabutler
+ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338605"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64940006"
 ---
 <a name="logic-app-test-drive"></a>Versión de prueba de aplicación lógica
 ====================

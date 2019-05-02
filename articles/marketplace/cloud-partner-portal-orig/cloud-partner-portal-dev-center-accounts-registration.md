@@ -1,25 +1,18 @@
 ---
-title: Crear una cuenta de desarrollador de Microsoft | Microsoft Docs
+title: Crear una cuenta de Microsoft Developer | Azure Marketplace
 description: Requisitos y pasos para crear una cuenta de desarrollador de Microsoft.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326842"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935858"
 ---
 <a name="create-a-microsoft-developer-account"></a>Crear una cuenta de desarrollador de Microsoft
 ====================================
@@ -106,7 +99,7 @@ El Centro para desarrolladores de Microsoft se usa para registrar la informació
    ![Seleccionar país o región](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >Países de "origen de venta": para vender sus servicios en Azure Marketplace, la entidad registrada debe proceder de uno de los países de "origen de venta" aprobados que se muestran en la lista desplegable. Esta restricción se debe a motivos de pago e impuestos. Para más información, consulte las directivas de participación de Marketplace.
+    >"Venta-de" países o regiones: Para vender sus servicios en Azure Marketplace, la entidad registrada debe proceder de uno de los aprobados "venta-de" países o regiones que se muestra en la lista desplegable. Esta restricción se debe a motivos de pago e impuestos. Para más información, consulte las directivas de participación de Marketplace.
 
 5. Seleccione **Empresa** como "Tipo de cuenta" y, a continuación, **Siguiente**.
 

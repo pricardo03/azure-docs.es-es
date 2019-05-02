@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 11e49d362508e9720cf65fc20e020930b5f5c3ad
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775040"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575321"
 ---
 # <a name="glossary"></a>Glosario
 
@@ -63,7 +63,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="bearing"></a> **Rumbo**: dirección horizontal de un punto en relación con otro punto. Se expresa como un ángulo con respecto al norte, de 0 a 360 grados en la dirección de las agujas del reloj. 
 
-<a name="boundary"></a> **Límite**: línea o polígono que separa entidades políticas adyacentes, como países o regiones, distritos y propiedades. Un límite es una línea que puede o no seguir características físicas, como paredes, montañas o ríos.
+<a name="boundary"></a> **Límite**: Una línea o polígono separación de entidades políticas adyacentes, como países o regiones, distritos y propiedades. Un límite es una línea que puede o no seguir características físicas, como paredes, montañas o ríos.
 
 <a name="bounds"></a> **Límites**: vea [Rectángulo de selección](#bounding-box).
 
@@ -91,13 +91,13 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="coordinate-system"></a> **Sistema de coordenadas**: marco de referencia que se utiliza para definir las posiciones de puntos en el espacio en dos o tres dimensiones.
 
-<a name="country-code"></a> **Código de país**: identificador único para un país o región según el estándar ISO. ISO2 es un código de dos caracteres de un país o región (por ejemplo, US), que en ISO3 se representa con un código de tres caracteres (por ejemplo, USA).
+<a name="country-code"></a> **Código de país**: Un identificador único para un país o región según el estándar ISO. ISO2 es un código de dos caracteres de un país o región (por ejemplo, US), que en ISO3 se representa con un código de tres caracteres (por ejemplo, USA).
 
-<a name="country-subdivision"></a> **Subdivisión de país o región**: subdivisión de primer nivel de un país o región, normalmente conocida como estado o provincia.
+<a name="country-subdivision"></a> **Subdivisión de país o región**: Una subdivisión de primer nivel de un país o región, que normalmente se conoce como un estado o provincia.
 
-<a name="country-secondary-subdivision"></a> **Subdivisión secundaria de país o región**: subdivisión de segundo nivel de país o región, normalmente conocida como condado o municipio.
+<a name="country-secondary-subdivision"></a> **Subdivisión secundaria de país o región**: Segundo nivel subdivisión de un país o región, que normalmente se conoce como un condado.
 
-<a name="country-tertiary-subdivision"></a> **Subdivisión terciaria de país o región**: subdivisión de tercer nivel de país o región. Suele ser un área con un nombre, como un distrito electoral.
+<a name="country-tertiary-subdivision"></a> **Subdivisión terciaria de país o región**: Tercer nivel subdivisión de un país o región, normalmente un área con nombre como un ward.
 
 <a name="cross-street"></a> **Intersección**: punto de intersección de dos o más calles.
 
@@ -283,7 +283,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="post-code"></a> **C. P.**: vea [Código postal](#postal-code).
 
-<a name="postal-code"></a> **Código postal**: serie de letras o números, o ambos, en un formato específico, que usa el servicio postal de un país o región para dividir las áreas geográficas en zonas con el fin de simplificar la entrega de correo.
+<a name="postal-code"></a> **Código postal**: Una serie de letras, números o ambos, en un formato específico, usado el servicio postal de un país o región para dividir las áreas geográficas en zonas con el fin de simplificar la entrega de correo electrónico.
 
 <a name="prime-meridian"></a> **Primer meridiano**: línea de longitud que representa la longitud de 0 grados. Por lo general, los valores de longitud disminuyen al desplazarse hacia el oeste hasta los 180 grados y se reducen al desplazarse hacia el este hasta los -180 grados. 
 
@@ -351,11 +351,11 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="terrain"></a> **Terreno**: superficie de tierra con una característica concreta, como terreno arenoso o montañoso.
 
-<a name="thematic-maps"></a> **Mapas temáticos**: un mapa temático es un mapa simple creado para reflejar un tema en un área geográfica. Un escenario común para este tipo de mapa es la coloración de regiones administrativas, como países, en función de las métricas de datos.
+<a name="thematic-maps"></a> **Mapas temáticos**: un mapa temático es un mapa simple creado para reflejar un tema en un área geográfica. Es un escenario común para este tipo de asignación para las regiones administrativas, como países o regiones en función de alguna métrica de datos de color.
 
 <a name="tile-layer"></a> **Capa de cortes**: una capa mostrada ensamblando cortes de mapa (secciones rectangulares) en una capa continua. Los cortes son cortes de vector o de imagen de trama. Las capas de cortes de trama se suelen representar antes de tiempo y se almacenan como imágenes en un servidor. Esto puede ocupar una gran cantidad de espacio de almacenamiento. Las capas de cortes vectoriales se representan en el acto dentro de la aplicación cliente, de modo que los requisitos de almacenamiento del lado servidor son menores.
 
-<a name="time-zone"></a> **Zona horaria**: una región del mundo que observa una hora estándar uniforme con fines legales, comerciales y sociales. Las zonas horarias tienden a seguir los límites de países o regiones, y sus subdivisiones.
+<a name="time-zone"></a> **Zona horaria**: una región del mundo que observa una hora estándar uniforme con fines legales, comerciales y sociales. Zonas horarias tienden a seguir los límites de países o regiones y sus subdivisiones.
 
 <a name="transaction"></a> **Transacción**: Azure Maps usa un modelo de licencias transaccional donde;
 
@@ -398,5 +398,5 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 <a name="zip-code"></a> **Código zip**: vea [Código postal](#postal-code).
 
-<a name="Zoom level"></a> **Nivel de zoom**: especifica el nivel de detalle y qué parte del mapa es visible. Cuando se aleja hasta un nivel 0, a menudo se verá el mapa completo del mundo, pero los detalles que se mostrarán serán limitados, como nombres de país y fronteras, así como nombres de océanos. Si se acerca al nivel 17, el mapa mostrará un área con algunas manzanas de una ciudad con información detallada sobre las calles. Para más información, consulte la documentación sobre [niveles de zoom y cuadrícula de cortes](zoom-levels-and-tile-grid.md).
+<a name="Zoom level"></a> **Nivel de zoom**: especifica el nivel de detalle y qué parte del mapa es visible. Cuando se aleja hasta un nivel 0, el mapa del mundo completa será a menudo en la vista pero mostrará detalles limitados, como los nombres de país o región y bordes así como los nombres de océano. Si se acerca al nivel 17, el mapa mostrará un área con algunas manzanas de una ciudad con información detallada sobre las calles. Para más información, consulte la documentación sobre [niveles de zoom y cuadrícula de cortes](zoom-levels-and-tile-grid.md).
 
