@@ -27,7 +27,7 @@ Estos términos se usan en [Incorporación de una partición con herramientas de
 
 ![Términos de Escalado elástico][1]
 
-**Base de datos**: Una base de datos SQL de Azure. 
+**Base de datos**: Una base de datos de Azure SQL. 
 
 **Enrutamiento dependiente de los datos**: la funcionalidad que permite que una aplicación se conecte a una partición dada una clave de partición específica. Consulte [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md). Comparar con **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**.
 
@@ -51,7 +51,7 @@ Aquí se muestra una representación de bases de datos de inquilino único y mul
 
 **Tablas de referencia**: tablas no particionadas, pero que se replican entre particiones. Por ejemplo, los códigos postales se pueden almacenar en una tabla de referencia. 
 
-**Partición**: una base de datos SQL de Azure que almacena datos desde un conjunto de datos particionados. 
+**Partición**: una base de datos de Azure SQL que almacena datos desde un conjunto de datos particionados. 
 
 **Elasticidad de partición**: la posibilidad de realizar **escalado horizontal** y **escalado vertical**.
 

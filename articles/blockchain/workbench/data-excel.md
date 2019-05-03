@@ -33,7 +33,7 @@ Para conectarse a la base de datos de Blockchain Workbench:
 2. En la pestaña **Satos**, seleccione **Obtener datos**.
 3. Elija **Desde Azure** y seleccione **Desde Azure SQL Database**.
 
-   ![Conexión a una instancia de Azure SQL Database](./media/data-excel/connect-sql-db.png)
+   ![Conexión a una base de datos de Azure SQL](./media/data-excel/connect-sql-db.png)
 
 4. En el cuadro de diálogo **Base de datos de SQL Server**:
 

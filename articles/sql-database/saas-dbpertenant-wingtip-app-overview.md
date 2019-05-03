@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplo de aplicación multiinquilino de Azure SQL Database: SaaS de Wingtip | Microsoft Docs'
-description: Obtenga información mediante el uso de una aplicación multiinquilino que usa Azure SQL Database, el ejemplo de SaaS de Wingtip
+title: 'Aplicación SaaS multiinquilino de ejemplo en Azure SQL Database: Wingtip | Microsoft Docs'
+description: Obtenga más información con la aplicación SaaS multiinquilino de ejemplo Wingtip, que usa Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario

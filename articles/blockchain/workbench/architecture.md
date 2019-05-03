@@ -99,7 +99,7 @@ Los eventos reflejan información pertinente para las personas y los sistemas. P
 
 Por ejemplo, el consumidor de SQL supervisa los eventos, los consume y alimenta la base de datos SQL con los valores incluidos. La copia permite la creación de una réplica de los datos de la cadena en un almacén fuera de la cadena.
 
-## <a name="azure-sql-database"></a>Azure SQL Database
+## <a name="azure-sql-database"></a>Azure SQL Database
 
 La base de datos de Azure SQL Database asociada a Blockchain Workbench almacena definiciones de contratos, metadatos de configuración y una réplica accesible mediante SQL de los datos almacenados en la cadena de bloques. Estos datos se pueden consultar, visualizar o analizar fácilmente accediendo directamente a la base de datos. Los desarrolladores y otros usuarios pueden usar la base de datos para informes, análisis u otras integraciones centradas en datos. Por ejemplo, los usuarios pueden visualizar los datos de las transacciones con Power BI.
 

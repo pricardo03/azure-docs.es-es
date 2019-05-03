@@ -1,6 +1,6 @@
 ---
 title: Copia incremental de una tabla utilizando Azure Data Factory | Microsoft Docs
-description: En este tutorial, creará una canalización de Azure Data Factory que copia datos de forma incremental de una base de datos SQL de Azure a Azure Blob Storage.
+description: En este tutorial, creará una canalización de Azure Data Factory que copia datos de forma incremental de una base de datos de Azure SQL a Azure Blob Storage.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -19,8 +19,8 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57992311"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage
-En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos SQL de Azure en Azure Blob Storage. 
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carga de datos incremental de una base de datos de Azure SQL en Azure Blob Storage
+En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos de Azure SQL en Azure Blob Storage. 
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -61,7 +61,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna, consulte [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
+* **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
 * **Azure Storage**. Blob Storage se usa como almacén de datos receptor. Si no tiene una cuenta de almacenamiento, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación. Cree un contenedor denominado adftutorial. 
 * **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-Az-ps).
 

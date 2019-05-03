@@ -1,6 +1,6 @@
 ---
-title: Supervisión del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino | Microsoft Docs
-description: Supervisión y administración del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino
+title: Supervisión del rendimiento de una base de datos de Azure SQL multiinquilino y con particiones en una aplicación SaaS multiinquilino | Microsoft Docs
+description: Supervisión y administración del rendimiento de una base de datos de Azure SQL multiinquilino y con particiones en una aplicación SaaS multiinquilino
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -19,7 +19,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61485584"
 ---
-# <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de una base de datos Azure SQL Database multiinquilino y con particiones en una aplicación SaaS multiinquilino
+# <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Supervisión y administración del rendimiento de una base de datos de Azure SQL multiinquilino y con particiones en una aplicación SaaS multiinquilino
 
 En este tutorial se describen varios escenarios clave de administración de rendimiento que se usan en aplicaciones de SaaS. Mediante un generador de carga para simular actividad en todas las bases de datos multiinquilino con particiones, se demuestran las características integradas de supervisión y alertas de SQL Database.
 

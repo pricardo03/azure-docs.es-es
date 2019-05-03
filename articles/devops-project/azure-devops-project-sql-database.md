@@ -21,7 +21,7 @@ ms.locfileid: "57845229"
 Azure DevOps Projects ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o elegir una aplicación de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure. 
 
 DevOps Projects también:
-* Crea automáticamente recursos de Azure, como una base de datos SQL de Azure.
+* Crea automáticamente recursos de Azure, como una base de datos de Azure SQL.
 * Crea y configura una canalización de versión en Azure Pipelines que incluye una canalización de compilación para integración continua.
 * Configura una canalización de versión para implementación continua. 
 * Crea un recurso de Azure Application Insights para la supervisión.
@@ -34,16 +34,16 @@ En este tutorial, aprenderá lo siguiente:
 > * Examen de la canalización de CI
 > * Examen de la canalización de CD
 > * Confirmación de los cambios en Azure Repos e implementación automática de los mismos en Azure
-> * A conectar con la base de datos SQL de Azure 
+> * A conectar a la base de datos de Azure SQL 
 > * Limpieza de recursos
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>Creación de un proyecto en DevOps Projects para una aplicación ASP.NET y una base de datos SQL de Azure
+## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>Creación de un proyecto en DevOps Projects para una aplicación ASP.NET y una base de datos de Azure SQL
 
-DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure, como una base de datos SQL de Azure, en la suscripción de Azure que prefiera.
+DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure, como una base de datos de Azure SQL, en la suscripción de Azure que prefiera.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
@@ -162,9 +162,9 @@ A partir de ese momento ya puede empezar a colaborar con un equipo en una aplica
 
 1. Una vez que complete la versión, actualice la aplicación para comprobar los cambios.
 
-## <a name="connect-to-the-azure-sql-database"></a>Conexión a la base de datos SQL de Azure
+## <a name="connect-to-the-azure-sql-database"></a>A conectar a la base de datos de Azure SQL
 
-Necesita los permisos adecuados para conectarse a la base de datos SQL de Azure.
+Necesita los permisos adecuados para conectarse a la base de datos de Azure SQL.
 
 1. En el panel de DevOps Projects, seleccione **SQL Database** para ir a la página de administración de la base de datos SQL.
    
@@ -180,7 +180,7 @@ Necesita los permisos adecuados para conectarse a la base de datos SQL de Azure.
 1. Seleccione **Restablecer contraseña**, escriba una contraseña para el inicio de sesión de administrador de SQL Server y seleccione **Guardar**.  
     No olvide guardar esta contraseña para usarla más adelante en este tutorial.
 
-    Ahora tiene la opción de usar las herramientas de cliente, como SQL Server Management Studio o Visual Studio para conectarse a SQL Server y a la base de datos SQL de Azure. Use la propiedad de **nombre del servidor** para conectarse.
+    Ahora tiene la opción de usar las herramientas de cliente, como SQL Server Management Studio o Visual Studio para conectarse a SQL Server y a la base de datos de Azure SQL. Use la propiedad de **nombre del servidor** para conectarse.
 
     Si no cambió el nombre de usuario de la base de datos cuando configuró inicialmente el proyecto en DevOps Projects, el nombre de usuario es la parte local de la dirección de correo electrónico. Por ejemplo, si la dirección de correo electrónico es *johndoe\@microsoft.com*, el nombre de usuario es *johndoe*.
 
@@ -189,7 +189,7 @@ Necesita los permisos adecuados para conectarse a la base de datos SQL de Azure.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si va a realizar pruebas, limpie los recursos para que no se acumulen costos de facturación. Cuando dejen de ser necesarios, puede eliminar la base de datos SQL de Azure y los recursos relacionados que ha creado en este tutorial. Para ello, utilice la funcionalidad de **eliminación** del panel de DevOps Projects.
+Si va a realizar pruebas, limpie los recursos para que no se acumulen costos de facturación. Cuando dejen de ser necesarios, puede eliminar la base de datos de Azure SQL y los recursos relacionados que ha creado en este tutorial. Para ello, utilice la funcionalidad de **eliminación** del panel de DevOps Projects.
 
 > [!IMPORTANT]
 > El siguiente procedimiento elimina permanentemente los recursos. La funcionalidad de *eliminación* destruye los datos que crea el proyecto en DevOps Projects tanto en Azure como en Azure DevOps y no se podrán recuperar. Utilice este procedimiento cuando haya leído detenidamente las indicaciones.
@@ -208,7 +208,7 @@ Si lo desea, puede modificar estas canalizaciones de compilación y de versión 
 > * Examen de la canalización de CI
 > * Examen de la canalización de CD
 > * Confirmación de los cambios en Azure Repos e implementación automática de los mismos en Azure
-> * A conectar con la base de datos SQL de Azure 
+> * A conectar a la base de datos de Azure SQL 
 > * Limpieza de recursos
 
 Para más información acerca de la canalización de CI/CD, consulte:

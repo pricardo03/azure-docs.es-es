@@ -66,7 +66,7 @@ Los siguientes errores son transitorios y se deben volver a probar en la lógica
 
 ## <a name="database-copy-errors"></a>Errores de copia de base de datos
 
-Pueden encontrarse los siguientes errores al copiar una base de datos en Azure SQL Database. Para más información, vea [Copiar una instancia de Azure SQL Database](sql-database-copy.md).
+Pueden encontrarse los siguientes errores al copiar una base de datos en Azure SQL Database. Para más información, vea [Copiar una base de datos de Azure SQL](sql-database-copy.md).
 
 | Código de error | Gravedad | DESCRIPCIÓN |
 | ---:| ---:|:--- |

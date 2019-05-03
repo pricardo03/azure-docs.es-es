@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell: Eliminación de un protector de TDE en Azure SQL Database | Microsoft Docs'
-description: Guía de procedimientos para responder a un protector TDE potencialmente comprometido para una base de datos Azure SQL Database o Data Warehouse mediante TDE con compatibilidad con Bring Your Own Key (BYOK).
+description: Guía de procedimientos para responder a un protector TDE potencialmente comprometido para una base de datos o un almacenamiento de datos de Azure SQL mediante TDE con compatibilidad con Bring Your Own Key (BYOK).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -29,11 +29,11 @@ ms.locfileid: "60330659"
 
 - Debe tener una suscripción de Azure y ser un administrador en esa suscripción.
 - Debe tener Azure PowerShell instalado y ejecutándose. 
-- Esta guía de procedimientos asume que ya utiliza una clave de Azure Key Vault como protector TDE para una base de datos Azure SQL Database o Data Warehouse. Para más información, consulte [Cifrado de datos transparente con compatibilidad con BYOK](transparent-data-encryption-byok-azure-sql.md).
+- En esta guía de procedimientos se asume que ya utiliza una clave de Azure Key Vault como protector TDE para una base de datos o una base de datos de almacenamiento de datos de Azure SQL. Para más información, consulte [Cifrado de datos transparente con compatibilidad con BYOK](transparent-data-encryption-byok-azure-sql.md).
 
 ## <a name="overview"></a>Información general
 
-En esta guía de procedimientos se describe cómo responder a un protector TDE potencialmente comprometido para una instancia de Azure SQL Database o Data Warehouse mediante TDE con claves administradas por el usuario en Azure Key Vault y compatibilidad con Bring Your Own Key (BYOK). Para más información sobre la compatibilidad con BYOK para TDE, consulte la [página de introducción](transparent-data-encryption-byok-azure-sql.md). 
+En esta guía de procedimientos se describe cómo responder a un protector TDE potencialmente comprometido para una base de datos de Azure SQL o Data Warehouse mediante TDE con claves administradas por el usuario en Azure Key Vault y compatibilidad con Bring Your Own Key (BYOK). Para más información sobre la compatibilidad con BYOK para TDE, consulte la [página de introducción](transparent-data-encryption-byok-azure-sql.md). 
 
 Los siguientes procedimientos deben realizarse únicamente en casos extremos o en entornos de prueba. Revise la guía de procedimientos cuidadosamente, ya que si se eliminan protectores TDE que se usan activamente en Azure Key Vault puede dar como resultado la **pérdida de datos**. 
 
@@ -49,8 +49,8 @@ El comando de PowerShell Get-AzureRmSqlServerKeyVaultKey proporciona la huella d
 
 Esta guía de procedimientos explica dos enfoques dependiendo del resultado deseado después de la respuesta al incidente:
 
-- Para que las bases de datos de Azure SQL Database y Data Warehouse estén **accesibles**
-- Para que las bases de datos de Azure SQL Database y Data Warehouse estén **inaccesibles**
+- Para que las bases de datos de Azure SQL y Data Warehouse estén **accesibles**
+- Para que las bases de datos de Azure SQL y Data Warehouse estén **inaccesibles**
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Para que los recursos cifrados estén accesibles
 

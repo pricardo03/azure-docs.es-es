@@ -145,7 +145,7 @@ Para habilitar el streaming de datos de telemetría de diagnósticos para las ba
 > [!NOTE]
 > No se puede habilitar los registros de auditoría de seguridad y SQLSecurityAuditEvents desde la configuración de diagnóstico de la base de datos (aunque se muestra en la pantalla). Para habilitar el streaming de registros de auditoría, consulte [configurar la auditoría de la base de datos](sql-database-auditing.md#subheading-2), y [los registros en los registros de Azure Monitor y Azure Event Hubs de auditoría](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 > [!TIP]
-> Repita estos pasos para cada instancia de Azure SQL Database que quiera supervisar.
+> Repita estos pasos para cada base de datos de Azure SQL que quiera supervisar.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instances"></a>Configuración del streaming de datos de telemetría de diagnóstico para instancias administradas
 
@@ -421,11 +421,11 @@ Consulte las siguientes tablas en busca de detalles sobre todas las métricas po
 |---|---|
 |Grupo elástico|Porcentaje de eDTU; eDTU usada; límite de eDTU; porcentaje de CPU; porcentaje de lectura de datos físicos; porcentaje de escritura en registro; porcentaje de sesiones; porcentaje de trabajos; almacenamiento; porcentaje de almacenamiento; límite de almacenamiento y porcentaje de almacenamiento de XTP |
 
-### <a name="all-metrics-for-azure-sql-databases"></a>Todas las métricas para las instancias de Azure SQL Database
+### <a name="all-metrics-for-azure-sql-databases"></a>Todas las métricas para bases de datos de Azure SQL
 
 |**Recurso**|**Métricas**|
 |---|---|
-|Azure SQL Database|Porcentaje de DTU; DTU usada; límite de DTU; porcentaje de CPU; porcentaje de lectura de datos físicos; porcentaje de escritura en registro; conexiones correctas, erróneas o bloqueadas por el firewall; porcentaje de sesiones; porcentaje de trabajos; almacenamiento; porcentaje de almacenamiento; porcentaje de almacenamiento de XTP e interbloqueos |
+|Azure SQL Database|Porcentaje de DTU; DTU usada; límite de DTU; porcentaje de CPU; porcentaje de lectura de datos físicos; porcentaje de escritura en registro; conexiones correctas, erróneas o bloqueadas por el firewall; porcentaje de sesiones; porcentaje de trabajos; almacenamiento; porcentaje de almacenamiento; porcentaje de almacenamiento de XTP e interbloqueos |
 
 ## <a name="all-logs"></a>Todos los registros
 

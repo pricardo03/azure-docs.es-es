@@ -1,5 +1,5 @@
 ---
-title: Ejemplo de PowerShell para restaurar una instancia de Azure SQL Database a partir de una copia de seguridad | Microsoft Docs
+title: Ejemplo de PowerShell para restaurar una base de datos de Azure SQL a partir de una copia de seguridad | Microsoft Docs
 description: Script de ejemplo de Azure PowerShell para restaurar una base de datos única de Azure SQL a un momento anterior a partir de copias de seguridad automáticas
 services: sql-database
 ms.service: sql-database

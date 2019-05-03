@@ -21,7 +21,7 @@ ms.locfileid: "60703224"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con inteligencia artificial para supervisar y solucionar problemas de rendimiento de base de datos
 
-Azure SQL Database Intelligent Insights le permite saber lo que ocurre con el rendimiento de la base de datos de Instancia administrada y SQL Database.
+En Azure SQL Database, Intelligent Insights le permite saber lo que ocurre con el rendimiento de las bases de datos de Azure SQL y de instancia administrada.
 
 Intelligent Insights usa inteligencia integrada para supervisar continuamente el uso de la base de datos mediante inteligencia artificial y detectar eventos potencialmente perjudiciales que provoquen un rendimiento bajo. Una vez detectados, se realiza un análisis detallado que genera un registro de diagnóstico con una evaluación inteligente del problema. Esta evaluación está formada por un análisis de la causa raíz del problema de rendimiento de la base de datos y, si es posible, recomendaciones para mejorar el rendimiento.
 
@@ -65,7 +65,7 @@ Para obtener información general práctica acerca del uso de Intelligent Insigh
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
-Intelligent Insights destaca a la hora de detectar y solucionar problemas de rendimiento de SQL Database. Para usar Intelligent Insights para solucionar problemas de rendimiento de la base de datos de Instancia administrada y SQL Database, vea [Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+Intelligent Insights destaca a la hora de detectar y solucionar problemas de rendimiento de SQL Database. Para usar Intelligent Insights para solucionar problemas de rendimiento de bases de datos de instancia administrada y SQL Database, vea [Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
 ## <a name="configure-intelligent-insights"></a>Configuración de Intelligent Insights
 

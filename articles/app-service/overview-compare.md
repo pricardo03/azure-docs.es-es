@@ -123,7 +123,7 @@ Para diseñadores y desarrolladores web, Azure App Service se integra fácilment
 * Integrarse con herramientas como Visual Studio, Git, WebMatrix, WebDeploy, TFS y FTP.
 
 ### <a id="multitier"></a>Estoy migrando mi aplicación de niveles múltiples con un front-end web a la nube.
-Si está ejecutando una aplicación de niveles múltiples, como por ejemplo un servidor web que se conecta con una base de datos, Azure App Service es una opción excelente que ofrece una integración estrecha con SQL Database. Y puede utilizar la característica WebJobs para ejecutar procesos de back-end.
+Si está ejecutando una aplicación de niveles múltiples, como por ejemplo un servidor web que se conecta con una base de datos, Azure App Service es una opción excelente que ofrece una integración estrecha con Azure SQL Database. Y puede utilizar la característica WebJobs para ejecutar procesos de back-end.
 
 Elija Service Fabric para uno o varios de los niveles si necesita más control sobre el entorno del servidor, como la posibilidad de tener acceso remoto al servidor o de configurar las tareas de inicio del servidor.
 

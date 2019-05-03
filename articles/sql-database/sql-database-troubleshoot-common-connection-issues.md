@@ -48,7 +48,7 @@ Si se produce un error de conexión específico, pruebe [esta herramienta](https
 
 ## <a name="troubleshoot-transient-errors"></a>Solución de problemas de errores transitorios
 
-Cuando una aplicación se conecte a una base de datos SQL de Azure, recibirá el mensaje de error siguiente:
+Cuando una aplicación se conecte a una base de datos de Azure SQL, recibirá el mensaje de error siguiente:
 
 ```
 Error code 40613: "Database <x> on server <y> is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of <z>"

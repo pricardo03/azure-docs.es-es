@@ -27,10 +27,10 @@ En este tutorial se asume que como mínimo tiene algo de experiencia previa con 
 
 Para información general acerca de SQL Data Sync, consulte [Sincronización de datos entre bases de datos locales y de la nube con Azure SQL Data Sync](sql-database-sync-data.md).
 
-Para ejemplos de PowerShell sobre cómo configurar SQL Data Sync, consulte el artículo sobre la [Sincronización entre bases de datos de SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md) o [entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
+Para ejemplos de PowerShell sobre cómo configurar SQL Data Sync, consulte el artículo sobre la [Sincronización entre bases de datos de SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md) o [entre una base de datos de Azure SQL y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 > [!IMPORTANT]
-> SQL Data Sync **no** admite en este momento Instancia administrada de Azure SQL Database.
+> Azure SQL Data Sync **no** admite en este momento Instancia administrada de Azure SQL Database.
 
 ## <a name="create-sync-group"></a>Creación de un grupo de sincronización
 
@@ -69,13 +69,13 @@ En la sección **Base de datos central**, escriba las credenciales existentes de
 
 ![Configuración del paso 2](media/sql-database-get-started-sql-data-sync/steptwo.png)
 
-### <a name="to-add-an-azure-sql-database"></a>Incorporación de una instancia de Azure SQL Database
+### <a name="to-add-an-azure-sql-database"></a>Para agregar una base de datos de Azure SQL:
 
-En la sección **Base de datos de miembros**, tiene la opción de agregar una instancia de Azure SQL Database al grupo de sincronización si selecciona **Agregar una instancia de Azure SQL Database**. Se abre la página **Configurar una instancia de Azure SQL Database**.
+En la sección **Base de datos de miembros**, tiene la opción de agregar una base de datos de Azure SQL al grupo de sincronización si selecciona **Agregar una base de datos de Azure SQL**. Se abre la página **Configurar Azure SQL Database**.
 
   ![Paso 2: Configuración de la base de datos](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
 
-  En la página **Configurar instancia de Azure SQL Database**, cambie las siguientes opciones de configuración:
+  En la página **Configurar Azure SQL Database**, cambie las siguientes opciones de configuración:
 
   | Configuración                       | DESCRIPCIÓN |
   | ----------------------------- | ------------------------------------------------- |

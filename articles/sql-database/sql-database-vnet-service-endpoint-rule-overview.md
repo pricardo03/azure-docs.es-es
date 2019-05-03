@@ -1,6 +1,6 @@
 ---
 title: Puntos de conexión de red virtual y reglas para las bases de datos únicas y agrupadas en Azure SQL | Microsoft Docs
-description: Marque una subred como punto de conexión de servicio de red virtual. A continuación, defina el punto de conexión como una regla de red virtual a la ACL de su instancia de Azure SQL Database. Su instancia de SQL Database aceptará la comunicación de todas las máquinas virtuales y otros nodos de la subred.
+description: Marque una subred como punto de conexión de servicio de red virtual. A continuación, defina el punto de conexión como una regla de red virtual a la ACL de su base de datos de Azure SQL. Su instancia de SQL Database aceptará la comunicación de todas las máquinas virtuales y otros nodos de la subred.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -268,7 +268,7 @@ Se puede encontrar información de una lista de varios mensajes de error de SQL 
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Se puede crear una regla de red virtual en el portal
 
-En esta sección se muestra cómo puede usar [Azure Portal][http-azure-portal-link-ref-477t] para crear una *regla de red virtual* en su instancia de Azure SQL Database. La regla indica a su instancia de SQL Database que acepte la comunicación procedente de una subred concreta que se ha etiquetado como *punto de conexión de servicio de red virtual*.
+En esta sección se muestra cómo puede usar [Azure Portal][http-azure-portal-link-ref-477t] para crear una *regla de red virtual* en su base de datos de Azure SQL. La regla indica a su instancia de SQL Database que acepte la comunicación procedente de una subred concreta que se ha etiquetado como *punto de conexión de servicio de red virtual*.
 
 > [!NOTE]
 > Asegúrese de que los puntos de conexión de servicio están activados para la subred si piensa quiere agregar un punto de conexión de servicio a las reglas de firewall de red virtual de su servidor de Azure SQL Database.

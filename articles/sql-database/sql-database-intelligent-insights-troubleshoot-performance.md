@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights | Documentos de Microsoft
+title: Solucionar problemas de rendimiento de Azure SQL Database con Intelligent Insights | Microsoft Docs
 description: Intelligent Insights le ayuda a solucionar problemas de rendimiento de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -201,7 +201,7 @@ Escribir una consulta que tenga un buen rendimiento a veces puede ser una tarea 
 
 El registro de diagnóstico genera información de hasta las dos nuevas consultas que realizan un mayor consumo de la CPU, incluidos sus códigos hash de consulta. Dado que la consulta detectada afecta al rendimiento de la carga de trabajo, puede optimizar la consulta. Una buena práctica consiste en recuperar únicamente los datos que necesite usar. También se recomienda el uso de consultas con una cláusula WHERE. Además, se recomienda simplificar las consultas complejas y dividirlas en consultas más pequeñas. Otra buena práctica consiste en dividir las consultas por lote de gran tamaño en consultas por lote más pequeñas. La introducción de índices para las nuevas consultas suele ayudar a mitigar este problema de rendimiento.
 
-Considere el uso de [Información de rendimiento de consultas de Azure SQL Database](sql-database-query-performance.md).
+Considere la posibilidad de usar [Información de rendimiento de consultas de Azure SQL Database](sql-database-query-performance.md).
 
 ## <a name="increased-wait-statistic"></a>Estadística de espera aumentada
 

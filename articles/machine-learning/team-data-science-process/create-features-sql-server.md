@@ -32,7 +32,7 @@ Esta tarea constituye un paso del [proceso de ciencia de datos en equipos (TDSP)
 En este artículo se supone que ha:
 
 * Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-quickstart-create-account.md)
-* Almacenado los datos en SQL Server. Si no es así, consulte [Mover datos a SQL Database de Azure para Azure Machine Learning](move-sql-azure.md) para obtener instrucciones sobre cómo mover los datos.
+* Almacenado los datos en SQL Server. Si no es así, consulte [Traslado de datos a Azure SQL Database para Azure Machine Learning](move-sql-azure.md) para obtener instrucciones sobre cómo trasladar los datos.
 
 ## <a name="sql-featuregen"></a>Generación de características con SQL
 En esta sección, se describen formas de generar características mediante SQL:  

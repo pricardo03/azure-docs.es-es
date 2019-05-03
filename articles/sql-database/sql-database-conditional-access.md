@@ -56,4 +56,4 @@ Si tiene preguntas sobre Azure SQL Database y Data Warehouse con respecto a la a
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-Para ver un tutorial, consulte [Protección de Azure SQL Database](sql-database-security-tutorial.md).
+Para ver un tutorial, consulte [Protección de bases de datos de Azure SQL](sql-database-security-tutorial.md).

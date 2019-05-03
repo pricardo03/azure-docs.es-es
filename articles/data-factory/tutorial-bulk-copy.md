@@ -57,7 +57,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 **Preparación de la instancia de Azure SQL Database de origen**:
 
-Siga el artículo [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para crear una instancia de Azure SQL Database con los datos de ejemplo de Adventure Works LT. En este tutorial se copian todas las tablas de esta base de datos de ejemplo a una instancia de SQL Data Warehouse.
+Siga el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para crear una base de datos de Azure SQL con los datos de ejemplo de Adventure Works LT. En este tutorial se copian todas las tablas de esta base de datos de ejemplo a una instancia de SQL Data Warehouse.
 
 **Preparación de la instancia de Azure SQL Data Warehouse receptora**:
 
@@ -67,7 +67,7 @@ Siga el artículo [Creación de una instancia de Azure SQL Database](../sql-data
 
 ## <a name="azure-services-to-access-sql-server"></a>Servicios de Azure para acceder a SQL Server
 
-Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database como para SQL Data Warehouse. Asegúrese de que la opción **Permitir el acceso a servicios de Azure** esté **activada** para Azure SQL Server. Esta configuración permite al servicio Data Factory leer los datos de Azure SQL Database y escribir datos en su instancia de Azure SQL Data Warehouse. Para comprobar y activar esta configuración, realice los siguientes pasos:
+Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database como para SQL Data Warehouse. Asegúrese de que la opción **Permitir el acceso a servicios de Azure** esté **activada** para Azure SQL Server. Esta configuración permite al servicio Data Factory leer los datos de su base de datos de Azure SQL y escribir datos en su instancia de Azure SQL Data Warehouse. Para comprobar y activar esta configuración, realice los siguientes pasos:
 
 1. Haga clic en **Todos los servicios** a la izquierda y en **Servidores SQL**.
 2. Seleccione el servidor y haga clic en **Firewall** en **CONFIGURACIÓN**.
@@ -109,18 +109,18 @@ Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database 
         ```
 
     * Para crear instancias de Data Factory, debe ser administrador o colaborador de la suscripción de Azure.
-    * Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+    * Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
 
 En este tutorial, creará tres servicios vinculados para el origen, el receptor, y el blob de almacenamiento provisional respectivamente, lo que incluye conexiones con sus almacenes de datos:
 
-### <a name="create-the-source-azure-sql-database-linked-service"></a>Creación del servicio vinculado de la instancia de Azure SQL Database de origen
+### <a name="create-the-source-azure-sql-database-linked-service"></a>Creación del servicio vinculado de Azure SQL Database de origen
 
 1. Cree un archivo JSON con el nombre **AzureSqlDatabaseLinkedService.json** en la carpeta **C:\ADFv2TutorialBulkCopy** con el siguiente contenido: Si todavía no existe, cree la carpeta ADFv2TutorialBulkCopy.
 
     > [!IMPORTANT]
-    > Reemplace &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; y &lt;password&gt; por los nombres de su instancia de Azure SQL Database antes de guardar el archivo.
+    > Reemplace &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; y &lt;password&gt; por los nombres de su base de datos de Azure SQL antes de guardar el archivo.
 
     ```json
     {
@@ -159,7 +159,7 @@ En este tutorial, creará tres servicios vinculados para el origen, el receptor,
 1. Cree un archivo JSON con el nombre **AzureSqlDWLinkedService.json** en la carpeta **C:\ADFv2TutorialBulkCopy** con el siguiente contenido:
 
     > [!IMPORTANT]
-    > Reemplace &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; y &lt;password&gt; por los nombres de su instancia de Azure SQL Database antes de guardar el archivo.
+    > Reemplace &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; y &lt;password&gt; por los nombres de su base de datos de Azure SQL antes de guardar el archivo.
 
     ```json
     {

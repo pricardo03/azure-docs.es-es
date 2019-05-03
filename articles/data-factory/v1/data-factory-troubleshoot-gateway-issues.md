@@ -225,7 +225,7 @@ Esto puede ocurrir por diferentes motivos y la mitigación varía según la caus
 #### <a name="resolution"></a>Resolución
 Permita las conexiones TCP de salida a través del puerto TCP/1433 en el lado cliente de Puerta de enlace de administración de datos antes de conectar a una SQL Database.
 
-Si la base de datos de destino es una Azure SQL Database, compruebe también la configuración del firewall de SQL Server para Azure.
+Si la base de datos de destino es una base de datos de Azure SQL, compruebe también la configuración del firewall de SQL Server para Azure.
 
 Vea la sección siguiente para realizar una prueba de conexión en el almacén de datos local.
 

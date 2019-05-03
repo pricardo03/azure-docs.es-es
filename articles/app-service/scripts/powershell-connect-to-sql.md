@@ -25,7 +25,7 @@ ms.locfileid: "56106212"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database"></a>Conexión de una aplicación de App Service a una base de datos SQL
 
-En este escenario aprenderá a crear una instancia de Azure SQL Database y una aplicación de App Service. Luego, vinculará la base de datos SQL a la aplicación mediante la configuración de la aplicación.
+En este escenario aprenderá a crear una base de datos de Azure SQL y una aplicación de App Service. Luego, vinculará la base de datos SQL a la aplicación mediante la configuración de la aplicación.
 
 Si es necesario, instale Azure PowerShell con la instrucción que se encuentra en la [Guía de Azure PowerShell](/powershell/azure/overview) y, luego, ejecute `Connect-AzAccount` para crear una conexión con Azure.
 

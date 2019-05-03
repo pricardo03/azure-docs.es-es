@@ -300,7 +300,7 @@ SQL Database utiliza algunas técnicas inteligentes que permiten controlar ciert
 
 ### <a name="how-do-i-export-and-import-data-as-bacpac-files-from-sql-database"></a>Cómo se exportan e importan datos como archivos BACPAC desde SQL Database
 
-- **Exportar**: puede exportar su instancia de Azure SQL Database como un archivo BACPAC desde Azure Portal.
+- **Exportar**: puede exportar su base de datos de Azure SQL como un archivo BACPAC desde Azure Portal.
 
    ![exportación de base de datos](./media/sql-database-export/database-export1.png)
 

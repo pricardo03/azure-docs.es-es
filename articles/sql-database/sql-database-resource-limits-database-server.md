@@ -106,4 +106,4 @@ Al encontrar un límite de tasa de registro que se que dificultan la escalabilid
 
 - Para más información sobre los límites generales de Azure, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 - Para más información sobre las DTU y eDTU, consulte [DTU y eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
-- Para más información sobre los límites de tamaño de tempdb, consulte [Base de datos tempdb en SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+- Para más información sobre los límites de tamaño de tempdb, consulte [Base de datos tempdb en Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

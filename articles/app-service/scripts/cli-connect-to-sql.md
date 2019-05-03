@@ -25,7 +25,7 @@ ms.locfileid: "53634259"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>Conexión de una aplicación de App Service a una base de datos SQL mediante la CLI
 
-Este script de ejemplo crea una instancia de Azure SQL Database y una aplicación de App Service. Luego, vincula la base de datos SQL a la aplicación mediante la configuración de la aplicación.
+Este script de ejemplo crea una base de datos de Azure SQL y una aplicación de App Service. Luego, vincula la base de datos SQL a la aplicación mediante la configuración de la aplicación.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -202,7 +202,7 @@ Si el programa usa clases ADO.NET como **System.Data.SqlClient.SqlConnection** p
 
 #### <a name="starting-with-adonet-462"></a>A partir de ADO.NET 4.6.2
 
-- El intento de apertura de conexión que se va a reintentar de inmediato para las bases de datos SQL de Azure, lo que mejora el rendimiento de aplicaciones habilitadas para la nube.
+- El intento de apertura de conexión que se va a reintentar de inmediato para las bases de datos de Azure SQL, lo que mejora el rendimiento de aplicaciones habilitadas para la nube.
 
 #### <a name="starting-with-adonet-461"></a>A partir de ADO.NET 4.6.1
 

@@ -21,7 +21,7 @@ ms.locfileid: "61475871"
 ---
 # <a name="building-scalable-cloud-databases"></a>Creación de bases de datos escalables en la nube
 
-El escalado horizontal de bases de datos puede realizarse con facilidad mediante herramientas y características escalables de Azure SQL Database. En concreto, puede usar la **Biblioteca de cliente de Elastic Database** para crear y administrar bases de datos de escalado horizontal. Esta característica permite desarrollar fácilmente aplicaciones particionadas mediante cientos (o incluso miles) de bases de datos SQL de Azure. [trabajos elásticos](sql-database-elastic-jobs-powershell.md) para ayudar a facilitar la administración de estas bases de datos.
+El escalado horizontal de bases de datos puede realizarse con facilidad mediante herramientas y características escalables de Azure SQL Database. En concreto, puede usar la **Biblioteca de cliente de Elastic Database** para crear y administrar bases de datos de escalado horizontal. Esta característica permite desarrollar fácilmente aplicaciones particionadas mediante cientos (o incluso miles) de bases de datos de Azure SQL. [trabajos elásticos](sql-database-elastic-jobs-powershell.md) para ayudar a facilitar la administración de estas bases de datos.
 
 Para descargar:
 

@@ -1,6 +1,6 @@
 ---
 title: Guía para el ajuste del rendimiento de Azure SQL Database | Microsoft Docs
-description: Obtenga información acerca del uso de las recomendaciones para ajustar manualmente el rendimiento de consultas de Azure SQL Database.
+description: Obtenga información acerca del uso de las recomendaciones para ajustar manualmente el rendimiento de las consultas de su base de datos de Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance

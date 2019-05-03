@@ -64,7 +64,7 @@ Algunos almacenes de datos admiten el cifrado de datos en reposo. Se recomienda 
 #### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 El Cifrado de datos transparente (TDE) de Azure SQL Data Warehouse ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos en reposo. Este comportamiento es transparente para el cliente. Para más información, consulte [Proteger una base de datos en SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
+#### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database admite también el Cifrado de datos transparente (TDE), que ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos sin que haya que efectuar cambios en la aplicación. Este comportamiento es transparente para el cliente. Para más información, consulte [Transparent Data Encryption with Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) (Cifrado de datos transparente con Azure SQL Database). 
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
@@ -155,7 +155,7 @@ En la tabla siguiente se proporcionan el **puerto de salida** y los requisitos d
 | `*.servicebus.windows.net` | 443, 80 | Lo necesita la puerta de enlace para conectarse a los servicios de movimiento de datos de Data Factory. |
 | `*.core.windows.net` | 443 | Lo usa la puerta de enlace para conectarse a la cuenta de Azure Storage cuando se usa la característica [Copia almacenada provisionalmente](data-factory-copy-activity-performance.md#staged-copy). | 
 | `*.frontend.clouddatahub.net` | 443 | Lo necesita la puerta de enlace para conectarse al servicio Azure Data Factory. | 
-| `*.database.windows.net` | 1433   | (OPCIONAL) Necesario cuando el destino es Azure SQL Database o Azure SQL Data Warehouse. Usa la característica de copia almacenada provisionalmente para copiar datos en Azure SQL Database o Azure SQL Data Warehouse sin abrir el puerto 1433. | 
+| `*.database.windows.net` | 1433   | (OPCIONAL) Necesario cuando el destino es Azure SQL Database o Azure SQL Data Warehouse. Usa la característica de copia de almacenamiento temporal para copiar datos en Azure SQL Database o Azure SQL Data Warehouse sin abrir el puerto 1433. | 
 | `*.azuredatalakestore.net` | 443 | (OPCIONAL) Necesario cuando el destino es Azure Data Lake Store. | 
 
 > [!NOTE] 

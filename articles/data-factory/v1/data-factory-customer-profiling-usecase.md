@@ -28,7 +28,7 @@ Contoso es una empresa de juegos que crea juegos para varias plataformas: consol
 
 El objetivo de Contoso es identificar oportunidades de aumento de ventas potenciales y ventas cruzadas basadas en el historial de juegos de sus usuarios y agregar características atractivas para impulsar el crecimiento del negocio y ofrecer una mejor experiencia a los clientes. Para este caso de uso, usamos una empresa de juegos como ejemplo de empresa. La empresa desea optimizar sus juegos según el comportamiento de los jugadores. Estos principios se aplican a cualquier empresa que desee atraer a sus clientes hacia sus productos y servicios y mejorar la experiencia de estos.
 
-En esta solución, Contoso quiere evaluar la eficacia de una campaña de marketing que ha lanzado recientemente. Empezaremos con los registros de juegos sin procesar, los procesaremos y enriqueceremos con los datos de ubicación geográfica, los combinaremos con datos de referencia de anuncios y, por último, los copiaremos en Azure SQL Database para analizar el impacto de la campaña.
+En esta solución, Contoso quiere evaluar la eficacia de una campaña de marketing que ha lanzado recientemente. Empezaremos con los registros de juegos sin procesar, los procesaremos y enriqueceremos con los datos de ubicación geográfica, los combinaremos con datos de referencia de anuncios y, por último, los copiaremos en una base de datos de Azure SQL para analizar el impacto de la campaña.
 
 ## <a name="deploy-solution"></a>Implementación de la solución
 Todo lo que necesita para acceder a este caso de uso sencillo y probarlo es una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/), una [cuenta de Azure Blob Storage](../../storage/common/storage-quickstart-create-account.md) y [Azure SQL Database](../../sql-database/sql-database-get-started.md). Implementará la canalización de generación de perfiles de cliente desde el icono de **Canales de muestras** de la página principal de la factoría de datos.
@@ -63,7 +63,7 @@ Esta ilustración describe cómo las canalizaciones de datos aparecen en Azure P
 2. **EnrichGameLogsPipeline** combina eventos de juegos con particiones con datos de referencia de código geográfico y enriquece los datos mediante la asignación de direcciones IP a las ubicaciones geográficas correspondientes.
 3. La canalización **AnalyzeMarketingCampaignPipeline** utiliza los datos enriquecidos y los procesa con los datos de publicidad para crear el resultado final que contiene la eficacia de la campaña de marketing.
 
-En este ejemplo, Data Factory se utiliza para coordinar las actividades que copian los datos de entrada, transforman y procesan los datos y envían los datos finales a Azure SQL Database.  También puede visualizar la red de canalizaciones de datos, administrarla y supervisar su estado desde la interfaz de usuario.
+En este ejemplo, Data Factory se utiliza para coordinar las actividades que copian los datos de entrada, transforman y procesan los datos y envían los datos finales a una base de datos de Azure SQL .  También puede visualizar la red de canalizaciones de datos, administrarla y supervisar su estado desde la interfaz de usuario.
 
 ## <a name="benefits"></a>Ventajas
 Al optimizar el análisis de su perfil de usuario y armonizarlo con los objetivos empresariales, la empresa de juegos puede recopilar rápidamente los patrones de uso y analizar la eficacia de sus campañas de marketing.

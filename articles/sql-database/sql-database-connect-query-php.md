@@ -1,6 +1,6 @@
 ---
-title: Uso de PHP para consultar una base de datos Azure SQL | Microsoft Docs
-description: Cómo usar PHP para crear un programa que se conecte a una base de datos Azure SQL y realice consultas ella mediante instrucciones T-SQL.
+title: Uso de PHP para consultar una base de datos de Azure SQL | Microsoft Docs
+description: Cómo usar PHP para crear un programa que se conecte a una base de datos de Azure SQL y realice consultas ella mediante instrucciones T-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -18,7 +18,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58448948"
 ---
-# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de PHP para consultar una base de datos SQL de Azure
+# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de PHP para consultar una base de datos de Azure SQL
 
 En este artículo se muestra cómo usar [PHP](https://php.net/manual/en/intro-whatis.php) para conectarse a una base de datos de Azure SQL. Luego puede usar instrucciones de T-SQL para consultar los datos.
 
@@ -26,7 +26,7 @@ En este artículo se muestra cómo usar [PHP](https://php.net/manual/en/intro-wh
 
 Para completar este ejemplo, asegúrese de que cumple los siguientes requisitos previos:
 
-- Una base de datos SQL de Azure. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+- Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
 
   || Base de datos única | Instancia administrada |
   |:--- |:--- |:---|

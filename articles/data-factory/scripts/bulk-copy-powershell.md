@@ -20,7 +20,7 @@ ms.locfileid: "60480645"
 ---
 # <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Script de PowerShell: copia masiva de varias tablas mediante Azure Data Factory
 
-Este script de PowerShell de ejemplo copia los datos de varias tablas en una Azure SQL Database en un Azure SQL Data Warehouse.
+Este script de PowerShell de ejemplo copia los datos de varias tablas de una base de datos de Azure SQL en una base de datos de almacenamiento de datos de Azure SQL.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

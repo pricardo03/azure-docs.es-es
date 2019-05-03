@@ -164,7 +164,7 @@ A continuación se muestra una lista de problemas de errores de configuración c
 ## <a name="troubleshooting"> </a>Solución de problemas
 * **Programa de instalación inicial**: cuando la implementación inicial del servicio API Management en una subred no se realiza correctamente, se recomienda implementar una máquina virtual en la misma subred. Siga con el escritorio remoto en la máquina virtual y compruebe que hay conectividad al menos con cada recurso que abarca su suscripción de Azure
     * Azure Storage Blob
-    * Azure SQL Database
+    * Azure SQL Database
     * Tabla de Azure Storage
 
   > [!IMPORTANT]

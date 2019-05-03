@@ -1,6 +1,6 @@
 ---
-title: Ejemplo de la CLI para supervisar y escalar una instancia de Azure SQL Database | Microsoft Docs
-description: Script de ejemplo de la CLI de Azure para supervisar y escalar una instancia de Azure SQL Database
+title: Ejemplo de la CLI para supervisar y escalar una base de datos de Azure SQL única | Microsoft Docs
+description: Script de ejemplo de la CLI de Azure para supervisar y escalar una base de datos de Azure SQL única
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -21,7 +21,7 @@ ms.locfileid: "59361591"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Uso de la CLI para supervisar y escalar una instancia de SQL Database
 
-Este ejemplo de script de la CLI de Azure escala una sola instancia de Azure SQL Database a un tamaño de proceso distinto después de consultar la información del tamaño de la base de datos.
+Este ejemplo de script de la CLI de Azure escala una base de datos de Azure SQL única a un tamaño de proceso distinto después de consultar la información del tamaño de la base de datos.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -55,7 +55,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary)| Crea una base de datos secundaria para una base de datos existente e inicia la replicación de datos. |
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)| Obtiene una o más bases de datos. |
 | [Set-AzSqlDatabaseSecondary](/powershell/module/az.sql/set-azsqldatabasesecondary)| Convierte una base de datos secundaria en principal para iniciar la conmutación por error.|
-| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) | Obtiene los vínculos de replicación geográfica entre una instancia de Azure SQL Database y un grupo de recursos o SQL Server. |
+| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) | Obtiene los vínculos de replicación geográfica entre una base de datos de Azure SQL y un grupo de recursos o SQL Server. |
 | [Remove-AzSqlDatabaseSecondary](/powershell/module/az.sql/remove-azsqldatabasesecondary) | Finaliza una replicación de datos entre SQL Database y la base de datos secundaria especificada. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||

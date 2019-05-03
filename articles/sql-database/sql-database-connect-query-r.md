@@ -30,7 +30,7 @@ ms.locfileid: "60001197"
 
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 
-- Una base de datos SQL de Azure. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+- Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
 
   || Base de datos única | Instancia administrada |
   |:--- |:--- |:---|

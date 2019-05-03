@@ -159,7 +159,7 @@ En el nivel de Firewall de Windows, normalmente se habilitan estos puertos de sa
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>Copia de datos de un almacén de datos de origen a uno de tipo receptor
 Asegúrese de que las reglas del firewall estén habilitadas correctamente en el firewall corporativo, en el Firewall de Windows de la máquina de la puerta de enlace y en el propio almacén de datos. De este modo, la puerta de enlace podrá conectarse al origen y al receptor correctamente. Habilite las reglas de cada almacén de datos que participe en la operación de copia.
 
-Por ejemplo, para copiar información desde **un almacén de datos local a un receptor de Azure SQL Database o uno de Azure SQL Data Warehouse**, debe realizar los siguientes pasos:
+Por ejemplo, para copiar información desde **un almacén de datos local a un receptor de Azure SQL Database o un receptor de Azure SQL Data Warehouse**, debe realizar los siguientes pasos:
 
 * Permita la comunicación **TCP** saliente en el puerto **1433** para el Firewall de Windows y el corporativo.
 * Establezca la configuración de firewall del servidor SQL de Azure para agregar la dirección IP de la máquina de la puerta de enlace a la lista de IP permitidas.

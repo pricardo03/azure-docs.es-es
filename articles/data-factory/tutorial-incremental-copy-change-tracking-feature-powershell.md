@@ -1,6 +1,6 @@
 ---
 title: Copia incremental de datos con control de cambios y Azure Data Factory | Microsoft Docs
-description: 'En este tutorial, creará una canalización de Azure Data Factory que copia los datos diferenciales de forma incremental de varias tablas de una base de datos local de SQL Server a una base de datos SQL de Azure. '
+description: 'En este tutorial, creará una canalización de Azure Data Factory que copia los datos diferenciales de forma incremental de varias tablas de una base de datos local de SQL Server a una base de datos de Azure SQL. '
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -20,7 +20,7 @@ ms.lasthandoff: 03/06/2019
 ms.locfileid: "57436561"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios 
-En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de **control de cambios** desde la base de datos SQL de Azure hasta un almacenamiento de blobs de Azure.  
+En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de **control de cambios** desde la base de datos de Azure SQL hasta un almacenamiento de blobs de Azure.  
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -45,9 +45,9 @@ Estos son los pasos del flujo de trabajo completo típico para cargar incrementa
 > Tanto Azure SQL Database como SQL Server admiten la tecnología de control de cambios. Este tutorial utiliza Azure SQL Database como almacén de datos de origen. También puede usar un servidor local de SQL Server. 
 
 1. **Carga inicial de datos históricos** (ejecutar una vez):
-    1. Habilite la tecnología de control de cambios en la base de datos SQL de Azure de origen.
-    2. Obtenga el valor inicial de SYS_CHANGE_VERSION en la base de datos SQL de Azure como línea de base para capturar los datos que han cambiado.
-    3. Cargue todos los datos de la base de datos SQL de Azure al almacenamiento de blobs de Azure. 
+    1. Habilite la tecnología de control de cambios en la base de datos de Azure SQL de origen.
+    2. Obtenga el valor inicial de SYS_CHANGE_VERSION en la base de datos de Azure SQL como línea de base para capturar los datos que han cambiado.
+    3. Cargue todos los datos de la base de datos de Azure SQL al almacenamiento de blobs de Azure. 
 2. **Carga incremental de los datos diferenciales según una programación** (ejecutar periódicamente después de la carga inicial de datos):
     1. Obtenga los valores SYS_CHANGE_VERSION antiguos y nuevos.
     3. Cargue los datos diferenciales combinando las claves principales de las filas modificadas (entre dos valores SYS_CHANGE_VERSION) desde **sys.change_tracking_tables** con los datos de la **tabla de origen** y, a continuación, muévalos al destino.
@@ -72,13 +72,13 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Azure PowerShell. Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-Az-ps).
-* **Azure SQL Database**. La base de datos se usa como almacén de datos de **origen**. Si no tiene ninguna instancia de Azure SQL Database, consulte el artículo [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
+* **Azure SQL Database**. La base de datos se usa como almacén de datos de **origen**. Si no tiene ninguna base de datos de Azure SQL, consulte el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md).
 * **Cuenta de Azure Storage**. Blob Storage se usa como almacén de datos **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación. Cree un contenedor denominado **adftutorial**. 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Creación de una tabla de origen de datos en Azure SQL Database
+### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Creación de una tabla de origen de datos en una base de datos de Azure SQL
 1. Inicie **SQL Server Management Studio** y conéctese a su servidor de Azure SQL. 
 2. En el **Explorador de servidores**, haga clic con el botón derecho en la **base de datos** y elija la **Nueva consulta**.
-3. Ejecute el siguiente comando SQL en Azure SQL Database para crear una tabla denominada `data_source_table` como almacén de origen de datos.  
+3. Ejecute el siguiente comando SQL en su base de datos de Azure SQL para crear una tabla denominada `data_source_table` como almacén de origen de datos.  
     
     ```sql
     create table data_source_table
@@ -102,7 +102,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 4. Habilite el mecanismo de **control de cambios** en la base de datos y la tabla de origen (data_source_table) ejecutando la siguiente consulta SQL: 
 
     > [!NOTE]
-    > - Reemplace el &lt;nombre de la base de datos&gt; por el nombre de la base de datos SQL de Azure que tiene la tabla data_source_table. 
+    > - Reemplace el &lt;nombre de la base de datos&gt; por el nombre de la base de datos de Azure SQL que tiene la tabla data_source_table. 
     > - Los datos modificados se mantienen durante dos días en el ejemplo actual. Si carga los datos cambiados para cada tres días o más, no se incluyen algunos que han cambiado.  Tiene que cambiar el valor de CHANGE_RETENTION por un número mayor. También puede asegurarse de que el período para cargar los datos cambiados es dentro de dos días. Para más información, vea [Habilitar el control de cambios para una base de datos](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database)
  
     ```sql
@@ -132,7 +132,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
     
     > [!NOTE]
     > Si los datos no cambian después de haber habilitado el control de cambios para SQL Database, el valor de la versión de control de cambios es 0.
-6. Ejecute el siguiente comando para crear un procedimiento almacenado en su base de datos SQL de Azure. La canalización invoca este procedimiento almacenado para actualizar la versión de control de cambios en la tabla que creó en el paso anterior. 
+6. Ejecute el siguiente comando para crear un procedimiento almacenado en su base de datos de Azure SQL. La canalización invoca este procedimiento almacenado para actualizar la versión de control de cambios en la tabla que creó en el paso anterior. 
 
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
@@ -191,7 +191,7 @@ Tenga en cuenta los siguientes puntos:
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario**, o de **administrador** de la suscripción de Azure.
-* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
@@ -232,7 +232,7 @@ En este paso, vincula su cuenta de Azure Storage a la factoría de datos.
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
 
-### <a name="create-azure-sql-database-linked-service"></a>Creación de un servicio vinculado a Azure SQL Database
+### <a name="create-azure-sql-database-linked-service"></a>Creación de un servicio vinculado de Azure SQL Database
 En este paso, vinculará su cuenta de Azure SQL Database con la factoría de datos.
 
 1. Cree un archivo JSON llamado **AzureSQLDatabaseLinkedService.json** en la carpeta **C:\ADFTutorials\IncCopyChangeTrackingTutorial** con el siguiente contenido: Antes de guardar el archivo, reemplace **&lt;server&gt; &lt;database name **, &lt;user id&gt; y &lt;password&gt;** por su servidor Azure SQL Server, el nombre de su base de datos, su identificador de usuario y su contraseña. 
@@ -468,7 +468,7 @@ Verá un archivo denominado `incremental-<GUID>.txt` en la carpeta `incchgtracki
 
 ![Archivo de salida de una copia completa](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
-El archivo debe tener los datos de la base de datos SQL de Azure:
+El archivo debe tener los datos de la base de datos de Azure SQL:
 
 ```
 1,aaaa,21
@@ -480,7 +480,7 @@ El archivo debe tener los datos de la base de datos SQL de Azure:
 
 ## <a name="add-more-data-to-the-source-table"></a>Adición de más datos a la tabla de origen
 
-Ejecute la siguiente consulta en la base de datos SQL de Azure para agregar una fila y actualizarla. 
+Ejecute la siguiente consulta en la base de datos de Azure SQL para agregar una fila y actualizarla. 
 
 ```sql
 INSERT INTO data_source_table
@@ -646,7 +646,7 @@ Verá el segundo archivo `incchgtracking` en la carpeta `adftutorial` del conten
 
 ![Archivo de salida de la copia incremental](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
-El archivo debe tener los datos diferenciales de la base de datos SQL de Azure. El registro con `U` es la fila actualizada en la base de datos y `I` es la fila que se agrega. 
+El archivo debe tener los datos diferenciales de la base de datos de Azure SQL. El registro con `U` es la fila actualizada en la base de datos y `I` es la fila que se agrega. 
 
 ```
 1,update,10,2,U

@@ -23,7 +23,7 @@ ms.locfileid: "61475684"
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-**Trabajos de elastic Database** es un servicio en la nube de Azure hospedado por el cliente que permite la ejecución de tareas administrativas ad hoc y programadas, denomenadas **trabajos**. Con los trabajos, puede administrar de forma fácil y confiable grandes grupos de bases de datos de Azure SQL Database mediante la ejecución de scripts de Transact-SQL para realizar operaciones administrativas.
+**Trabajos de elastic Database** es un servicio en la nube de Azure hospedado por el cliente que permite la ejecución de tareas administrativas ad hoc y programadas, denomenadas **trabajos**. Con los trabajos, puede administrar de forma fácil y confiable grandes grupos de bases de datos de Azure SQL mediante la ejecución de scripts de Transact-SQL para realizar operaciones administrativas.
 
 Para administrar bases de datos con particiones y escaladas horizontalmente en la nube, la característica **Trabajos de Elastic Database** (versión preliminar) permite ejecutar un script de Transact-SQL (T-SQL) de forma confiable en un grupo de bases de datos, lo que incluye:
 
@@ -50,11 +50,11 @@ Realice fácilmente cambios de esquema, administración de credenciales, actuali
 
 ### <a name="reports"></a>Informes
 
-Agregue datos de una colección de instancias de Azure SQL Database en una tabla de destino única.
+Agregue datos de una colección de bases de datos de Azure SQL en una tabla de destino única.
 
 ### <a name="reduce-overhead"></a>Reducción de la sobrecarga
 
-Normalmente, debe conectarse a cada base de datos de forma independiente para ejecutar instrucciones Transact-SQL o realizar otras tareas administrativas. Un trabajo controla la tarea de inicio de sesión en cada base de datos en el grupo de destino. También se definen, mantienen y conservan los scripts de Transact-SQL que se van a ejecutar en un grupo de instancias de Azure SQL Database.
+Normalmente, debe conectarse a cada base de datos de forma independiente para ejecutar instrucciones Transact-SQL o realizar otras tareas administrativas. Un trabajo controla la tarea de inicio de sesión en cada base de datos en el grupo de destino. También se definen, mantienen y conservan los scripts de Transact-SQL que se van a ejecutar en un grupo de bases de datos de Azure SQL.
 
 ### <a name="accounting"></a>Control
 
@@ -62,7 +62,7 @@ Los trabajos ejecutan el script y registran el estado de ejecución de cada base
 
 ### <a name="flexibility"></a>Flexibilidad
 
-Defina grupos personalizados de Azure SQL Database, así como programaciones para ejecutar un trabajo.
+Defina grupos personalizados de bases de datos de Azure SQL, así como programaciones para ejecutar un trabajo.
 
 > [!NOTE]
 > En el Portal de Azure, solo hay disponible un conjunto reducido de funciones limitadas a grupos elásticos de SQL Azure. Use las API de PowerShell para tener acceso al conjunto completo de funcionalidad actual.
@@ -120,7 +120,7 @@ Los siguientes componentes funcionan conjuntamente para crear un servicio de nub
 
   Los trabajos de Elastic Database (versión preliminar) se ofrecen como un servicio de Azure Cloud hospedado por el cliente para ejecutar las tareas solicitadas. Desde el portal, el servicio se implemente y hospeda en su suscripción de Microsoft Azure. El servicio implementado predeterminado se ejecuta con un mínimo de dos roles de trabajador para ofrecer un elevado nivel de disponibilidad. El tamaño predeterminado de cada función de trabajador (ElasticDatabaseJobWorker) se ejecuta en una instancia de A0. Para obtener información sobre los precios, vea [Precios de servicios de nube](https://azure.microsoft.com/pricing/details/cloud-services/).
 
-- Azure SQL Database
+- Azure SQL Database
 
   El servicio usa una base de datos de Azure SQL conocida como **base de datos de control** para almacenar todos los metadatos de trabajo. El nivel de servicio predeterminado es S0. Para obtener información sobre precios, vea [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -134,7 +134,7 @@ Los siguientes componentes funcionan conjuntamente para crear un servicio de nub
 
 ## <a name="how-elastic-database-jobs-work"></a>Funcionamiento de trabajos de Elastic Database
 
-1. Se designa una instancia de Azure SQL Database como **base de datos de control** que almacena todos los datos de estado y los metadatos.
+1. Se designa una base de datos de Azure SQL como **base de datos de control** que almacena todos los datos de estado y los metadatos.
 2. Se obtiene acceso a la base de control mediante el **servicio de trabajos** para iniciar los trabajos que deben ejecutarse y hacerles el seguimiento.
 3. Dos roles diferentes se comunican con la base de datos de control:
    - Controlador: determina los trabajos que requieren tareas para realizar el trabajo solicitado y reintenta los trabajos con errores creando nuevas tareas de trabajo.

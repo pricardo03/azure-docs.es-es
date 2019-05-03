@@ -1,6 +1,6 @@
 ---
-title: Restauración de una base de datos Azure SQL Database a partir de una copia de seguridad | Microsoft Docs
-description: Obtenga información acerca de la restauración a un momento dado, que le permite revertir Azure SQL Database a un momento dado anterior (hasta 35 días).
+title: Restauración de una base de datos de Azure SQL a partir de una copia de seguridad | Microsoft Docs
+description: Obtenga información acerca de la restauración a un momento dado, que le permite revertir una base de datos de Azure SQL a un momento dado anterior (hasta 35 días).
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -19,7 +19,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58620485"
 ---
-# <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas
+# <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperación de una base de datos de Azure SQL mediante copias de seguridad automatizadas
 
 De forma predeterminada, las copias de seguridad de SQL Database se almacenan en almacenamiento de blobs de replicación geográfica (RA-GRS). Las siguientes opciones están disponibles para la recuperación de bases de datos mediante [copias de seguridad de base de datos automatizadas](sql-database-automated-backups.md):
 

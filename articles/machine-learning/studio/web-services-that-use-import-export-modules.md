@@ -41,7 +41,7 @@ Para leer los datos de la tabla de SQL de Azure:
 2. En el cuadro de búsqueda de componentes, escriba import.
 3. En la lista de resultados, agregue un módulo *Importar datos* al lienzo del experimento.
 4. Conecte la salida del módulo *Import Data* (Importar datos) a la entrada del módulo *Clean Missing Data* (Limpiar datos que faltan).
-5. En el panel de propiedades, seleccione **Azure SQL Database** in the **Origen de datos** .
+5. En el panel de propiedades, seleccione **Azure SQL Database** en el menú desplegable **Origen de datos**.
 6. En los campos **Nombre del servidor de base de datos**, **Nombre de base de datos**, **Nombre de usuario** y **Contraseña**, escriba la información apropiada para la base de datos.
 7. En el campo Consulta de base de datos, escriba la siguiente consulta.
 

@@ -22,13 +22,13 @@ ms.locfileid: "58105801"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Inicio rápido: Uso del Editor de consultas SQL de Azure Portal para conectarse a datos y consultarlos
 
-El Editor de consultas SQL es una herramienta del explorador de Azure Portal que proporciona una manera fácil de ejecutar consultas SQL en Azure SQL Database o Azure SQL Data Warehouse. En este inicio rápido, usará el editor de consultas para conectarse a una base de datos SQL y ejecutar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos.
+El Editor de consultas SQL es una herramienta del explorador de Azure Portal que proporciona una manera fácil de ejecutar consultas SQL en su base de datos de Azure SQL o almacenamiento de Azure SQL Data Warehouse. En este inicio rápido, usará el editor de consultas para conectarse a una base de datos SQL y ejecutar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesita:
 
-- Una base de datos SQL de Azure. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+- Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
 
   || Base de datos única |
   |:--- |:--- |
@@ -175,4 +175,4 @@ Hay algunos aspectos que debe conocer al trabajar con el Editor de consultas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener información sobre las instrucciones Transact-SQL admitidas en las bases de datos SQL de Azure, vea [Resolución de diferencias de Transact-SQL durante la migración a SQL Database](sql-database-transact-sql-information.md).
+Para obtener información sobre las instrucciones Transact-SQL admitidas en las bases de datos de Azure SQL, vea [Resolución de diferencias de Transact-SQL durante la migración a SQL Database](sql-database-transact-sql-information.md).

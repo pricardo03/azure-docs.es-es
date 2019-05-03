@@ -152,7 +152,7 @@ Estas DMV son especialmente útiles:
 
 Las siguientes limitaciones se aplican actualmente a transacciones de base de datos elástica en Base de datos SQL:
 
-* Se admiten únicamente transacciones entre bases de datos en Base de datos SQL. Otros proveedores de recursos y bases de datos de [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) externos a Base de datos SQL no podrán participar en transacciones de base de datos elástica. Esto significa que dichas transacciones no pueden extenderse entre bases de datos locales de SQL Server y SQL de Azure. Para las transacciones distribuidas en el entorno local, siga usando MSDTC. 
+* Se admiten únicamente transacciones entre bases de datos en Base de datos SQL. Otros proveedores de recursos y bases de datos de [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) externos a Base de datos SQL no podrán participar en transacciones de base de datos elástica. Esto significa que dichas transacciones no pueden extenderse entre bases de datos locales de SQL Server y Azure SQL Database. Para las transacciones distribuidas en el entorno local, siga usando MSDTC. 
 * Solo se admiten transacciones coordinadas por el cliente desde una aplicación .NET. Está prevista la compatibilidad en el lado servidor con T-SQL, por ejemplo, INICIAR TRANSACCIÓN DISTRIBUIDA, pero aún no se encuentra disponible. 
 * No se admiten las transacciones por los servicios de WCF. Por ejemplo, tiene un método de servicio de WCF que se ejecuta una transacción. Si se encierra la llamada dentro de un ámbito de transacción, se producirá un error como [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 

@@ -143,7 +143,7 @@ Los servicios que admiten la implementación de instancias dedicadas en una red 
 |Azure Database for PostgreSQL  | Versión preliminar privada  |
 |Azure Database for MySQL       | Versión preliminar privada  |
 |Azure SQL Data Warehouse       | Versión preliminar pública   |
-|Azure SQL Database             | Disponibilidad general (GA) |
+|Azure SQL Database             | Disponibilidad general (GA) |
 |Azure Storage                  | GA               |
 
 ### <a name="support-for-virtual-network-injection"></a>Compatibilidad con la inserción de red virtual
@@ -258,7 +258,7 @@ Puede configurar fácilmente el acceso de Microsoft Azure, Office 365 y Dynamics
 | Web y móviles | Aplicaciones de API | | Entorno de App Service | |
 | Contenedores | Azure Container Service | | | Sí |
 | Contenedores | Azure Kubernetes Service (AKS) \* | | | Sí |
-| Base de datos | Azure SQL Database | | Instancia administrada de Azure SQL Database \* | Azure SQL |
+| Base de datos | Azure SQL Database | | Instancia administrada de Azure SQL Database \* | Azure SQL |
 | Base de datos | Azure Database for MySQL | | | Sí |
 | Base de datos | Azure Database for PostgreSQL | | | Sí |
 | Base de datos | Azure SQL Data Warehouse | | | Sí |

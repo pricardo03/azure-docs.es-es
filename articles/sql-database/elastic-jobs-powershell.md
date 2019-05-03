@@ -139,7 +139,7 @@ Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Mic
 
 Un agente de trabajos elásticos es un recurso de Azure para crear, ejecutar y administrar trabajos. El agente ejecuta los trabajos según una programación o como un trabajo único.
 
-El cmdlet **New-AzSqlElasticJobAgent** requiere que exista ya una base de datos SQL de Azure, por lo que los parámetros *ResourceGroupName*, *ServerName*, y *DatabaseName* deben todos apuntar a recursos ya existentes.
+El cmdlet **New-AzSqlElasticJobAgent** requiere que exista ya una base de datos de Azure SQL, por lo que los parámetros *ResourceGroupName*, *ServerName*, y *DatabaseName* deben todos apuntar a recursos ya existentes.
 
 ```powershell
 Write-Output "Creating job agent..."

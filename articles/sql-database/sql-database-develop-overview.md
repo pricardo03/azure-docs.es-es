@@ -24,7 +24,7 @@ ms.locfileid: "60723415"
 Este artículo le lleva por las consideraciones básicas que debe tener en cuenta un desarrollador al escribir código para conectarse a Azure SQL Database. Este artículo se aplica a todos los modelos de implementación de Azure SQL Database (base de datos única, grupos elásticos, instancias administradas).
 
 > [!TIP]
-> Si necesita configurar su instancia de Azure SQL Database, consulte las guías de introducción para las [bases de datos únicas](sql-database-single-database-quickstart-guide.md) e [instancias administradas](sql-database-managed-instance-quickstart-guide.md).
+> Si necesita configurar su base de datos de Azure SQL, consulte las guías de introducción para las [bases de datos únicas](sql-database-single-database-quickstart-guide.md) e [instancias administradas](sql-database-managed-instance-quickstart-guide.md).
 >
 
 ## <a name="language-and-platform"></a>Plataforma y lenguaje
@@ -51,7 +51,7 @@ Evite las transacciones de larga ejecución, ya que cualquier error de conexión
 
 Azure SQL Database es un servicio en la nube del que puede esperar errores transitorios que se producen en la infraestructura subyacente o en la comunicación entre las entidades de la nube. Aunque Azure SQL Database es resistente a los errores transitorios de infraestructura, estos pueden afectar a la conectividad. Cuando se produce un error transitorio al establecer una conexión con SQL Database, el código debe [reintentar la llamada](sql-database-connectivity-issues.md). Recomendamos que en la lógica de reintento se haga uso de la lógica de interrupción, de este modo no se sobrecargará la SQL Database con los reintentos de varios clientes a la vez. La lógica de reintento depende de los [códigos de error para las aplicaciones cliente de SQL Database](sql-database-develop-error-messages.md).
 
-Para más información sobre cómo prepararse para los eventos de mantenimiento planeado en Azure SQL Database, consulte [Planeación de los eventos de mantenimiento en Azure SQL Database](sql-database-planned-maintenance.md).
+Para más información sobre cómo prepararse para los eventos de mantenimiento planeado en su base de datos de Azure SQL, consulte [Planeación de los eventos de mantenimiento en Azure SQL Database](sql-database-planned-maintenance.md).
 
 ## <a name="network-considerations"></a>Consideraciones sobre la red
 

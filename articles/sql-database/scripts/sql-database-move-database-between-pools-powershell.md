@@ -1,5 +1,5 @@
 ---
-title: Ejemplo de PowerShell para trasladar una base de datos SQL de Azure a un grupo elástico | Microsoft Docs
+title: Ejemplo de PowerShell para trasladar una base de datos de Azure SQL a un grupo elástico | Microsoft Docs
 description: Ejemplo de Azure PowerShell para trasladar una base de datos SQL entre grupos elásticos mediante PowerShell
 services: sql-database
 ms.service: sql-database

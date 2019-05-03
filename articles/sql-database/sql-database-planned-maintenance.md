@@ -1,6 +1,6 @@
 ---
 title: 'Planeación de los eventos de mantenimiento de Azure: Azure SQL Database | Microsoft Docs'
-description: Aprenda a prepararse para los eventos de mantenimiento planeado en Azure SQL Database.
+description: Aprenda a prepararse para los eventos de mantenimiento planeado en su base de datos de Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -21,7 +21,7 @@ ms.locfileid: "60584614"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Planeación de los eventos de mantenimiento en Azure SQL Database
 
-Aprenda a prepararse para los eventos de mantenimiento planeado en su base de datos Azure SQL.
+Aprenda a prepararse para los eventos de mantenimiento planeado en su base de datos de Azure SQL.
 
 ## <a name="what-is-a-planned-maintenance-event"></a>Qué es un evento de mantenimiento planeado
 

@@ -27,7 +27,7 @@ SQL Database es un servicio administrado de base de datos relacional de uso gene
 > [!NOTE]
 > Para obtener un glosario de términos en Azure SQL Database, consulte el [glosario de términos para SQL Database](sql-database-glossary-terms.md).
 
-Azure SQL Database proporciona las siguientes opciones de implementación para una base de datos SQL de Azure:
+Azure SQL Database proporciona las siguientes opciones de implementación para una base de datos de Azure SQL:
 
 - Como una [base de datos única](sql-database-single-database.md) con su propio conjunto de recursos administrados mediante un servidor de SQL Database. Una base de datos única es similar a una [base de datos contenida](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) en SQL Server.
 - Un [grupo elástico](sql-database-elastic-pool.md), que es una colección de bases de datos con un conjunto compartido de recursos administrados a través de un servidor de SQL Database. Las bases de datos únicas se pueden mover dentro y fuera de un grupo elástico.
@@ -113,11 +113,11 @@ De hecho, contrato de nivel de servicio de disponibilidad del 99,99% líder en l
 
 - **[Copias de seguridad automáticas](sql-database-automated-backups.md)**:
 
-  SQL Database realiza automáticamente copias de seguridad de registros de transacciones completas y diferenciales de las bases de datos SQL de Azure para permitirle hacer una restauración a cualquier momento dado. En el caso de las bases de datos únicas y las bases de datos agrupadas, puede configurar SQL Database para almacenar copias de seguridad de bases de datos completas en el almacenamiento de Azure para la retención de copias de seguridad a largo plazo. Para las instancias administradas, también puede realizar copias de seguridad solo de copia para la retención de copias de seguridad a largo plazo.
+  SQL Database realiza automáticamente copias de seguridad de registros de transacciones completas y diferenciales de las bases de datos de Azure SQL para permitirle hacer una restauración a cualquier momento dado. En el caso de las bases de datos únicas y las bases de datos agrupadas, puede configurar SQL Database para almacenar copias de seguridad de bases de datos completas en el almacenamiento de Azure para la retención de copias de seguridad a largo plazo. Para las instancias administradas, también puede realizar copias de seguridad solo de copia para la retención de copias de seguridad a largo plazo.
 
 - **[Restauraciones a un momento dado](sql-database-recovery-using-backups.md)**:
 
-  Todas las opciones de implementación de SQL Database admite la recuperación a un momento dado dentro del período de retención de copias de seguridad automáticas de cualquier base de datos SQL de Azure.
+  Todas las opciones de implementación de SQL Database admite la recuperación a un momento dado dentro del período de retención de copias de seguridad automáticas de cualquier base de datos de Azure SQL.
 - **[Replicación geográfica activa](sql-database-active-geo-replication.md)**:
 
   La base de datos única y las bases de datos agrupadas permiten configurar hasta cuatro bases de datos secundarias legibles en los mismos centros de datos de Azure o en centros de datos distribuidos globalmente.  Por ejemplo, si tiene una aplicación SaaS con una base de datos de catálogos tiene un alto volumen de transacciones simultáneas de solo lectura, utilice la replicación geográfica activa para habilitar la escala de lectura global y quitar cuellos de botella en el servidor principal debidos a las cargas de trabajo de lectura. En el caso de las instancias administradas, use grupos de conmutación por error automática.
@@ -215,7 +215,7 @@ La versión actual de SQL Database es V12. Se ha retirado la versión V11.
 
 ### <a name="can-i-control-when-patching-downtime-occurs"></a>¿Puedo controlar cuando se produce el tiempo de inactividad de la aplicación de revisiones?
 
-No. El impacto de la aplicación de revisiones no suele ser perceptible si [usa una lógica de reintento](sql-database-develop-overview.md#resiliency) en la aplicación. Para más información sobre cómo prepararse para los eventos de mantenimiento planeado en Azure SQL Database, consulte [Planeación de los eventos de mantenimiento en Azure SQL Database](sql-database-planned-maintenance.md).
+No. El impacto de la aplicación de revisiones no suele ser perceptible si [usa una lógica de reintento](sql-database-develop-overview.md#resiliency) en la aplicación. Para más información sobre cómo prepararse para los eventos de mantenimiento planeado en su base de datos de Azure SQL, consulte [Planeación de los eventos de mantenimiento en Azure SQL Database](sql-database-planned-maintenance.md).
 
 ### <a name="azure-hybrid-benefit-questions"></a>Preguntas de la Ventaja híbrida de Azure
 

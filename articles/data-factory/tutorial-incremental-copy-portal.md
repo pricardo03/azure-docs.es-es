@@ -1,6 +1,6 @@
 ---
 title: Copia incremental de una tabla utilizando Azure Data Factory | Microsoft Docs
-description: En este tutorial, creará una canalización de Azure Data Factory que copia datos de forma incremental de una base de datos SQL de Azure a Azure Blob Storage.
+description: En este tutorial, creará una canalización de Azure Data Factory que copia datos de forma incremental de una base de datos de Azure SQL a Azure Blob Storage.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -19,8 +19,8 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58447235"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage
-En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos SQL de Azure en Azure Blob Storage. 
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carga de datos incremental de una base de datos de Azure SQL en Azure Blob Storage
+En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos de Azure SQL en Azure Blob Storage. 
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -63,7 +63,7 @@ Estos son los pasos importantes para crear esta solución:
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna, consulte [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
+* **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
 * **Azure Storage**. Blob Storage se usa como almacén de datos receptor. Si no tiene una cuenta de almacenamiento, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación. Cree un contenedor denominado adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Creación de una tabla de origen de datos en la base de datos SQL
@@ -169,7 +169,7 @@ END
          
         Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Seleccione **V2** para la **versión**.
-5. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+5. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 6. Seleccione **Anclar al panel**.     
 7. Haga clic en **Create**(Crear).      
 8. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
@@ -195,13 +195,13 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 5. Cambie a la pestaña **Settings** (Configuración) y haga clic en **+ New** (+ Nuevo) para **Source Dataset** (Conjunto de datos de origen). En este paso, creará conjuntos de datos que representarán los datos de **watermarktable**. Esta tabla contiene la marca de agua que se utilizó anteriormente en la operación de copia anterior. 
 
    ![Menú New dataset (Nuevo conjunto de datos): marca de agua anterior](./media/tutorial-incremental-copy-portal/new-dataset-old-watermark.png)
-6. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure SQL Database** y haga clic en **Finish** (Finalizar). Verá que se abre una nueva pestaña para el conjunto de datos. 
+6. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure SQL Database** y haga clic en **Finish** (Finalizar). Verá que se abre una nueva pestaña para el conjunto de datos. 
 
-   ![Seleccionar Azure SQL Database](./media/tutorial-incremental-copy-portal/select-azure-sql-database-old-watermark.png)
+   ![Seleccionar Azure SQL Database](./media/tutorial-incremental-copy-portal/select-azure-sql-database-old-watermark.png)
 7. En la ventana de propiedades del conjunto de datos, escriba **WatermarkDataset** en **Name** (Nombre).
 
    ![Conjunto de datos Watermark: nombre](./media/tutorial-incremental-copy-portal/watermark-dataset-name.png)
-8. Cambie a la pestaña **Connection** (Conexión) y haga clic en **+ New** (+ Nuevo) para realizar una conexión (crear un servicio vinculado) a la instancia de Azure SQL Database. 
+8. Cambie a la pestaña **Connection** (Conexión) y haga clic en **+ New** (+ Nuevo) para realizar una conexión (crear un servicio vinculado) a su base de datos de Azure SQL. 
 
    ![Botón New linked service (Nuevo servicio vinculado)](./media/tutorial-incremental-copy-portal/watermark-dataset-new-connection-button.png)
 9. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
@@ -227,7 +227,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 13. En la ventana de propiedades de la segunda actividad de **búsqueda**, cambie a la pestaña **Settings** (Configuración) y haga clic en **New** (Nuevo). Creará un conjunto de datos que apuntará a la tabla de origen con el nuevo valor de marca de agua (valor máximo de LastModifyTime). 
 
     ![Segunda actividad de búsqueda: nuevo conjunto de datos](./media/tutorial-incremental-copy-portal/second-lookup-activity-settings-new-button.png)
-14. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure SQL Database** y haga clic en **Finish** (Finalizar). Verá que se abre una nueva pestaña para este conjunto de datos. También verá el conjunto de datos en la vista de árbol. 
+14. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure SQL Database** y haga clic en **Finish** (Finalizar). Verá que se abre una nueva pestaña para este conjunto de datos. También verá el conjunto de datos en la vista de árbol. 
 15. En la pestaña **General** (General) de la ventana de propiedades, escriba **SourceDataset** en **Name** (Nombre). 
 
     ![Conjunto de datos de origen: nombre](./media/tutorial-incremental-copy-portal/source-dataset-name.png)

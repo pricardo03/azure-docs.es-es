@@ -15,7 +15,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: bcda6ac723101d6a907a10c5163ae1baf0ad2214
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57884178"
@@ -28,7 +28,7 @@ Always Encrypted es una nueva tecnología de cifrado de datos de Azure SQL Datab
 
 Después de configurar la base de datos para usar Always Encrypted, creará una aplicación cliente en C# con Visual Studio para trabajar con los datos cifrados.
 
-Siga los pasos de este artículo y aprenda a configurar Always Encrypted para una base de datos SQL de Azure. En este artículo aprenderá a realizar las siguientes tareas:
+Siga los pasos de este artículo y aprenda a configurar Always Encrypted para una base de datos de Azure SQL. En este artículo aprenderá a realizar las siguientes tareas:
 
 * Usar el asistente de Always Encrypted en SSMS para crear [claves de Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
   * Crear una [clave maestra de columna (CMK)](https://msdn.microsoft.com/library/mt146393.aspx).
@@ -86,7 +86,7 @@ Para crear rápidamente un almacén de claves, ejecute el script siguiente. Para
 ## <a name="create-a-blank-sql-database"></a>Crear una instancia en blanco en SQL Database
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Vaya a **Crear un recurso** > **Bases de datos** > **SQL Database**.
-3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Para obtener instrucciones detalladas para crear una base de datos en Azure Portal, consulte [Su primera instancia de Azure SQL Database](sql-database-single-database-get-started.md).
+3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Para obtener instrucciones detalladas para crear una base de datos en Azure Portal, consulte [Su primera base de datos de Azure SQL](sql-database-single-database-get-started.md).
    
     ![Crear una base de datos en blanco](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 

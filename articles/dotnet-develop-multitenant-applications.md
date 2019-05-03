@@ -42,7 +42,7 @@ Una aplicación multiempresa correctamente implementada ofrece los siguientes be
 
 En resumen, si bien hay muchas consideraciones que debe tener en cuenta para ofrecer un servicio de alta escalabilidad, también hay una serie de objetivos y requisitos comunes a muchas aplicaciones multiempresa. Algunos pueden no resultar pertinentes en escenarios específicos y la importancia de los objetivos y requisitos individuales variará en cada escenario. Como proveedor de la aplicación multiempresa, también tendrá objetivos y requisitos como satisfacer los requisitos y los objetivos de los inquilinos, rentabilidad, facturación, varios niveles de servicio, aprovisionamiento, mantenimiento, supervisión y automatización.
 
-Para obtener más información acerca de consideraciones de diseño adicionales de una aplicación multiinquilino, consulte [Hospedaje de una aplicación multiinquilino en Azure][Hosting a Multi-Tenant Application on Azure]. Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con Azure SQL Database](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
+Para obtener más información acerca de consideraciones de diseño adicionales de una aplicación multiinquilino, consulte [Hospedaje de una aplicación multiinquilino en Azure][Hosting a Multi-Tenant Application on Azure]. Para más información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino y Azure SQL Database](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
 
 Azure ofrece muchas características que le permiten solucionar los principales problemas detectados al diseñar un sistema multiempresa.
 
@@ -56,7 +56,7 @@ Azure ofrece muchas características que le permiten solucionar los principales 
 
 **Storage**
 
-Administración de datos como los servicios Azure SQL Database o Azure Storage, como Table service, que ofrece servicios para el almacenamiento de grandes volúmenes de datos no estructurados, y Blob service, que ofrece servicios para almacenar grandes volúmenes de texto no estructurado o datos binarios, como vídeo, audio e imágenes.
+Administración de datos como los servicios de Azure SQL Database o Azure Storage, por ejemplo, Table service, que ofrece servicios para el almacenamiento de grandes volúmenes de datos no estructurados, y Blob service, que ofrece servicios para almacenar grandes volúmenes de texto no estructurado o datos binarios, como vídeo, audio e imágenes.
 
 * Proteger los datos multiempresa en la SQL Database apropiada para inicios de sesión de SQL Server por inquilino.
 * Con el uso de las Tablas de Azure para recursos de la aplicación mediante la definición de una política de acceso a nivel de contenedor, tiene la posibilidad de ajustar permisos sin tener que emitir la nueva URL para los recursos protegidos con firmas de acceso compartido.

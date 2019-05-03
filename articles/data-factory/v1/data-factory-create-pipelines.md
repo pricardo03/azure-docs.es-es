@@ -158,7 +158,7 @@ Las directivas afectan al comportamiento en tiempo de ejecución de una activida
 | longRetryInterval |TimeSpan |00:00:00 |El retraso entre reintentos largos |
 
 ## <a name="sample-copy-pipeline"></a>Canalización de copia de ejemplo
-En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in the **actividades** . En este ejemplo, [Copiar actividad](data-factory-data-movement-activities.md) copia datos desde un almacén de Azure Blob Storage en una base de datos SQL de Azure.
+En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in the **actividades** . En este ejemplo, [Copiar actividad](data-factory-data-movement-activities.md) copia datos desde un almacén de Azure Blob Storage en una base de datos de Azure SQL.
 
 ```json
 {

@@ -98,7 +98,7 @@ En este escenario:
 Como parte del proceso de diseño de la solución, Contoso hizo una comparación de características entre Azure SQL Database y SQL Server. Las siguientes consideraciones les ayudaron a decidirse por una máquina virtual IaaS de Azure que ejecuta SQL Server:
 
  - El uso de una máquina virtual de Azure que ejecuta SQL Server parece ser una solución óptima si Contoso necesita personalizar el sistema operativo o el servidor de bases de datos, o si quisiera ubicar conjuntamente y ejecutar aplicaciones de terceros en la misma máquina virtual.
- - Con Data Migration Assistant, Contoso puede evaluar fácilmente la situación y migrar a una instancia de Azure SQL Database.
+ - Con Data Migration Assistant, Contoso puede evaluar fácilmente la situación y migrar a una base de datos de Azure SQL.
  
 
 ### <a name="solution-review"></a>Revisión de la solución

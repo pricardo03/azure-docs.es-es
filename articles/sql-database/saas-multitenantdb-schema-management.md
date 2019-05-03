@@ -73,7 +73,7 @@ Los scripts y el código fuente de la aplicación SaaS de base de datos multiinq
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>Creación de una base de datos de agente de trabajo y un agente de trabajo nuevo
 
-Para este tutorial, es necesario usar PowerShell para crear la base de datos de agente de trabajo y el agente de trabajo. Al igual que la base de datos MSDB usada por el Agente SQL, un agente de trabajo usa una instancia de Azure SQL Database para almacenar definiciones de trabajos, estados de trabajo y el historial. Una vez que se crea el agente de trabajo, se pueden crear y supervisar trabajos inmediatamente.
+Para este tutorial, es necesario usar PowerShell para crear la base de datos de agente de trabajo y el agente de trabajo. Al igual que la base de datos MSDB usada por el Agente SQL, un agente de trabajo usa una base de datos de Azure SQL para almacenar definiciones de trabajos, estados de trabajo y el historial. Una vez que se crea el agente de trabajo, se pueden crear y supervisar trabajos inmediatamente.
 
 1. En **PowerShell ISE**, abra *...\\Learning Modules\\Schema Management\\Demo-SchemaManagement.ps1*.
 2. Presione **F5** para ejecutar el script.

@@ -22,7 +22,7 @@ ms.locfileid: "61429525"
 
 En este artículo se describen las opciones para mover datos desde archivos planos (formatos CSV o TSV) o desde un servidor SQL Server local hasta un servidor SQL Server en una máquina virtual de Azure. Estas tareas para mover datos a la nube forman parte del proceso de ciencia de datos en equipos.
 
-Para ver un tema que describa las opciones para mover datos a una base de datos SQL de Azure para Machine Learning, vea [Mover datos a una base de datos SQL de Azure para Azure Machine Learning](move-sql-azure.md).
+Para ver un tema que describa las opciones para mover datos a una base de datos de Azure SQL para Machine Learning, vea [Mover datos a una base de datos de Azure SQL para Azure Machine Learning](move-sql-azure.md).
 
 En la tabla siguiente se resumen las opciones para mover datos a un servidor SQL Server en una máquina virtual de Azure.
 

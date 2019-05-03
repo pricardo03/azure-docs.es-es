@@ -254,7 +254,7 @@ Por ejemplo, si una canalización tiene la actividad A -> actividad B, los disti
 ```
 
 ## <a name="sample-copy-pipeline"></a>Canalización de copia de ejemplo
-En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in the **actividades** . En este ejemplo, [Copiar actividad](copy-activity-overview.md) copia datos desde un almacén de Azure Blob Storage en una base de datos SQL de Azure.
+En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in the **actividades** . En este ejemplo, [Copiar actividad](copy-activity-overview.md) copia datos desde un almacén de Azure Blob Storage en una base de datos de Azure SQL.
 
 ```json
 {

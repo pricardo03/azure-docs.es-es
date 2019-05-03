@@ -13,7 +13,7 @@ ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
 ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57576895"
@@ -110,7 +110,7 @@ En el siguiente JSON se define un servicio vinculado de HDInsight a petición ba
 | sparkVersion                 | Versión de spark si el tipo de clúster es "Spark" | Sin        |
 | additionalLinkedServiceNames | Especifica cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight, de forma que el servicio Factoría de datos pueda registrarlas en su nombre. Estas cuentas de almacenamiento deben estar en la misma región que el clúster de HDInsight, que se crea en la misma región que la cuenta de almacenamiento especificada por linkedServiceName. | Sin        |
 | osType                       | Tipo de sistema operativo. Los valores permitidos son: Linux y Windows (solo para HDInsight 3.3). El valor predeterminado es Linux. | Sin        |
-| hcatalogLinkedServiceName    | Nombre del servicio vinculado de SQL de Azure que apunta a la base de datos de HCatalog. El clúster de HDInsight a petición se creará usando la base de datos SQL de Azure como metaalmacén. | Sin        |
+| hcatalogLinkedServiceName    | Nombre del servicio vinculado de SQL de Azure que apunta a la base de datos de HCatalog. El clúster de HDInsight a petición se crea mediante la base de datos de Azure SQL como el almacén de metadatos. | Sin        |
 | connectVia                   | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado de HDInsight. Para el servicio vinculado de HDInsight a petición, solo admite Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. | Sin        |
 | clusterUserName                   | Nombre de usuario de acceso al clúster. | Sin        |
 | clusterPassword                   | Contraseña de tipo cadena segura de acceso al clúster. | Sin        |
@@ -496,7 +496,7 @@ Puede crear un **servicio vinculado de Azure Databricks** para registrar el áre
 | newClusterSparkConf  | Conjunto de pares de clave-valor de configuración de Spark opcionales especificado por el usuario. Los usuarios también pueden pasar una cadena de opciones adicionales de JVM al controlador y los ejecutores con spark.driver.extraJavaOptions y spark.executor.extraJavaOptions respectivamente. | Sin   |
 
 
-## <a name="azure-sql-database-linked-service"></a>Servicio vinculado a Azure SQL Database
+## <a name="azure-sql-database-linked-service"></a>Servicio vinculado de Azure SQL Database
 Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](transform-data-using-stored-procedure.md) para invocar un procedimiento almacenado desde una canalización de Factoría de datos. Vea el artículo [Conector SQL de Azure](connector-azure-sql-database.md#linked-service-properties) para más información sobre este servicio vinculado.
 
 ## <a name="azure-sql-data-warehouse-linked-service"></a>Servicio vinculado de Azure SQL Data Warehouse

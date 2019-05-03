@@ -56,9 +56,9 @@ Al diseñar una aplicación, existen cuatro opciones básicas para el hospedaje 
 - SQL Server en máquinas virtuales de Azure (nube pública de Microsoft)
 - Azure SQL Database (nube pública de Microsoft)
 
-En las secciones siguientes, obtendrá información sobre SQL Server en la nube pública de Microsoft: Azure SQL Database y SQL Server en VM de Azure. Además, explorará factores de motivación comunes del negocio para determinar la opción que mejor funciona para su aplicación.
+En las secciones siguientes, obtendrá información sobre SQL Server en la nube pública de Microsoft: Azure SQL Database y SQL Server on Azure VMs. Además, explorará factores de motivación comunes del negocio para determinar la opción que mejor funciona para su aplicación.
 
-## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>Azure SQL Database y SQL Server en Azure Virtual Machines en detalle
+## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>Azure SQL Database y SQL Server on Azure VMs en detalle
 
 Por lo general, estas dos opciones SQL se optimizan con diferentes fines:
 
@@ -86,7 +86,7 @@ En la siguiente tabla se resumen las principales características de SQL Databas
 |  | Admite la [replicación transaccional de SQL Server](https://msdn.microsoft.com/library/mt589530.aspx) como suscriptor para replicar los datos. | La replicación es compatible con la Instancia administrada como característica en vista previa (GB). | Es totalmente compatible con la [replicación transaccional de SQL Server](https://msdn.microsoft.com/library/mt589530.aspx), los [grupos de disponibilidad AlwaysOn](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services y trasvase de registros para replicar los datos. Además, las copias de seguridad de SQL Server tradicionales son totalmente compatibles. |
 |  | | |
 
-## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Motivaciones empresariales al elegir Azure SQL Database o SQL Server en Azure Virtual Machines
+## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Motivaciones empresariales para elegir Azure SQL Database o SQL Server on Azure VMs
 
 Hay varios factores que pueden influir a la hora de elegir PaaS o IaaS para hospedar las bases de datos SQL:
 

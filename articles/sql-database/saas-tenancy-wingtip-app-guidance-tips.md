@@ -1,6 +1,6 @@
 ---
 title: 'Guía para el ejemplo de aplicación multiinquilino de SQL Database: SaaS de Wingtip | Microsoft Docs'
-description: Proporciona pasos e instrucciones para instalar y ejecutar la aplicación multiinquilino de ejemplo que utiliza Azure SQL Database, en el ejemplo de SaaS de vale de Wingtip.
+description: Proporciona pasos e instrucciones para instalar y ejecutar la aplicación SaaS multiinquilino de ejemplo, Wingtip Tickets, que utiliza Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -21,7 +21,7 @@ ms.locfileid: "60326299"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Instrucciones generales para trabajar con aplicaciones SaaS de ejemplo de vales de Wingtip
 
-Este artículo contiene las instrucciones generales para ejecutar aplicaciones SaaS de ejemplo de vales de Wingtip que usan Azure SQL Database. 
+Este artículo contiene las instrucciones generales para ejecutar la aplicación SaaS de ejemplo Wingtip Tickets, que usa Azure SQL Database. 
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Descargar y desbloquear los scripts SaaS de vales de Wingtip
 

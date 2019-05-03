@@ -15,7 +15,7 @@ ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: d61874a57801a6c02af885cab6a97ed38da1deb1
 ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58487930"
@@ -28,8 +28,8 @@ En este artículo se describe cómo invocar un paquete de SSIS desde una canaliz
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-### <a name="azure-sql-database"></a>Azure SQL Database 
-El tutorial de este artículo usa una instancia de Azure SQL Database que hospeda el catálogo de SSIS. También puede usar una instancia administrada de Azure SQL Database.
+### <a name="azure-sql-database"></a>Azure SQL Database 
+El tutorial de este artículo usa una base de datos de Azure SQL que hospeda el catálogo de SSIS. También puede usar una instancia administrada de Azure SQL Database.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Creación de un entorno de ejecución de integración de SSIS para Azure
 Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial: Implementación de paquetes de SSIS](../tutorial-create-azure-ssis-runtime-portal.md). Debe usar Data Factory versión 1 para crear un entorno de ejecución de integración SSIS de Azure. 
@@ -72,8 +72,8 @@ El primer paso es crear una factoría de datos con Azure Portal.
 
     ![Editor de la Factoría de datos](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-editor.png)
 
-### <a name="create-an-azure-sql-database-linked-service"></a>Creación de un servicio vinculado a Azure SQL Database
-Cree un servicio vinculado para vincular su instancia de Azure SQL Database que hospeda el catálogo de SSIS con la factoría de datos. Data Factory usa la información de este servicio vinculado para conectarse a la base de datos SSISDB y ejecuta un procedimiento almacenado para ejecutar un paquete de SSIS. 
+### <a name="create-an-azure-sql-database-linked-service"></a>Creación de un servicio vinculado de Azure SQL Database
+Cree un servicio vinculado para vincular su base de datos de Azure SQL que hospeda el catálogo de SSIS con la factoría de datos. Data Factory usa la información de este servicio vinculado para conectarse a la base de datos SSISDB y ejecuta un procedimiento almacenado para ejecutar un paquete de SSIS. 
 
 1. En Data Factory Editor, haga clic en **Nuevo almacén de datos** en el menú y haga clic en **Azure SQL Database**. 
 
@@ -86,7 +86,7 @@ Cree un servicio vinculado para vincular su instancia de Azure SQL Database que 
     4. Reemplace `<password>` por la contraseña del usuario. 
     5. Implemente el servicio vinculado haciendo clic en el botón **Implementar** de la barra de herramientas. 
 
-        ![Servicio vinculado a Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-definition.png)
+        ![Servicio vinculado de Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-definition.png)
 
 ### <a name="create-a-dummy-dataset-for-output"></a>Crear un conjunto de datos ficticio de salida
 Este conjunto de datos de salida es un conjunto de datos ficticio que controla la programación de la canalización. Observe que el valor frequency está establecido en Hour y que interval está establecido en 1. Por lo tanto, la canalización se ejecuta una vez por hora entre las horas de inicio y fin de la canalización. 
@@ -209,13 +209,13 @@ Tenga en cuenta los siguientes puntos:
     ```
 * Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario**, o de **administrador** de la suscripción de Azure.
 
-### <a name="create-an-azure-sql-database-linked-service"></a>Creación de un servicio vinculado a Azure SQL Database
-Cree un servicio vinculado para vincular su instancia de Azure SQL Database que hospeda el catálogo de SSIS con la factoría de datos. Data Factory usa la información de este servicio vinculado para conectarse a la base de datos SSISDB y ejecuta un procedimiento almacenado para ejecutar un paquete de SSIS. 
+### <a name="create-an-azure-sql-database-linked-service"></a>Creación de un servicio vinculado de Azure SQL Database
+Cree un servicio vinculado para vincular su base de datos de Azure SQL que hospeda el catálogo de SSIS con la factoría de datos. Data Factory usa la información de este servicio vinculado para conectarse a la base de datos SSISDB y ejecuta un procedimiento almacenado para ejecutar un paquete de SSIS. 
 
 1. Cree un archivo JSON denominado **AzureSQLDatabaseLinkedService.json** en la carpeta **C:\ADF\RunSSISPackage** con el siguiente contenido: 
 
     > [!IMPORTANT]
-    > Reemplace &lt;servername&gt;, &lt;username&gt;, @&lt;servername&gt; y &lt;password&gt; por los nombres de su instancia de Azure SQL Database antes de guardar el archivo.
+    > Reemplace &lt;servername&gt;, &lt;username&gt;, @&lt;servername&gt; y &lt;password&gt; por los nombres de su base de datos de Azure SQL antes de guardar el archivo.
 
     ```json
     {

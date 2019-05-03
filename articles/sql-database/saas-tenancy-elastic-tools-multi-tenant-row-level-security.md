@@ -40,7 +40,7 @@ El objetivo es usar las API de [enrutamiento dependiente de los datos](sql-datab
 ### <a name="prerequisites"></a>Requisitos previos
 
 - Uso de Visual Studio (2012 o posterior)
-- Creación de tres instancias de Azure SQL Database
+- Creación de tres bases de datos de Azure SQL
 - Descargue el proyecto de ejemplo: [Herramientas de bases de datos elásticas para Azure SQL: Particiones multiinquilino](https://go.microsoft.com/?linkid=9888163)
   - Rellene la información para las bases de datos al comienzo de **Program.cs**
 

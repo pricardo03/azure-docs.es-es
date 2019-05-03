@@ -59,7 +59,7 @@ En la lista siguiente se incluyen recomendaciones para mejorar el rendimiento du
 - Deshabilite las estadísticas automáticas durante la migración.
 - Cree particiones de tablas e índices.
 - Quite las vistas indexadas y vuelva a crearlas cuando se haya completado el proceso.
-- Transfiera los datos históricos que se consultan con poca frecuencia a otra base de datos y migre estos datos históricos a una instancia de Azure SQL Database distinta. A continuación, podrá consultar estos datos históricos mediante [consultas elásticas](sql-database-elastic-query-overview.md).
+- Transfiera los datos históricos que se consultan con poca frecuencia a otra base de datos y migre estos datos históricos a una base de datos de Azure SQL distinta. A continuación, podrá consultar estos datos históricos mediante [consultas elásticas](sql-database-elastic-query-overview.md).
 
 ### <a name="optimize-performance-after-the-migration-completes"></a>Optimización del rendimiento una vez completada la migración
 
@@ -69,9 +69,9 @@ En la lista siguiente se incluyen recomendaciones para mejorar el rendimiento du
 
 Si no se puede permitir quitar la base de datos de SQL Server de producción mientras se lleva a cabo la migración, puede usar la replicación transaccional de SQL Server como solución de migración. Para usar este método, la base de datos de origen debe cumplir los [requisitos para la replicación transaccional](https://msdn.microsoft.com/library/mt589530.aspx) y ser compatible con Azure SQL Database. Para más información acerca de la replicación de SQL con AlwaysOn, consulte [Configurar la replicación para grupos de disponibilidad AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
-Para utilizar esta solución, configurará su instancia de Azure SQL Database como suscriptor de la instancia de SQL Server que quiere migrar. El distribuidor de la replicación transaccional sincroniza los datos de la base de datos de modo que estén sincronizados (el publicador) mientras se siguen produciendo nuevas transacciones.
+Para utilizar esta solución, configurará su base de datos de Azure SQL como suscriptor de la instancia de SQL Server que quiere migrar. El distribuidor de la replicación transaccional sincroniza los datos de la base de datos de modo que estén sincronizados (el publicador) mientras se siguen produciendo nuevas transacciones.
 
-Con la replicación transaccional, todos los cambios en los datos o el esquema se muestran en Azure SQL Database. Cuando finalice la sincronización y esté listo para realizar la migración, cambie la cadena de conexión de las aplicaciones para que apunten a la instancia de Azure SQL Database. Cuando la replicación transaccional recupera todos los cambios pendientes en la base de datos de origen y todas las aplicaciones apuntan a Azure DB, puede desinstalar la replicación transaccional. Azure SQL Database es ahora su sistema de producción.
+Con la replicación transaccional, todos los cambios en los datos o el esquema se muestran en su base de datos de Azure SQL. Cuando finalice la sincronización y esté listo para realizar la migración, cambie la cadena de conexión de las aplicaciones para que apunten a su base de datos de Azure SQL. Cuando la replicación transaccional recupera todos los cambios pendientes en la base de datos de origen y todas las aplicaciones apuntan a Azure DB, puede desinstalar la replicación transaccional. Su base de datos de Azure SQL es ahora su sistema de producción.
 
  ![Diagrama de SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 

@@ -27,7 +27,7 @@ En este tutorial, realizará los siguientes pasos:
 
 > [!div class="checklist"]
 > * Creación de una factoría de datos.
-> * Creación de servicios vinculados con Azure SQL Database y Azure Storage
+> * Creación de servicios vinculados de Azure SQL Database y Azure Storage
 > * Creación de conjuntos de datos de Azure SQL Database y el blob de Azure
 > * Creación de una canalización que contiene una actividad de copia
 > * Inicio de la ejecución de una canalización.
@@ -40,14 +40,14 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 * **Cuenta de Azure Storage**. Blob Storage se puede usar como almacén de datos de **origen**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación.
-* **Azure SQL Database**. La base de datos se puede usar como almacén de datos **receptor**. Si no tiene ninguna instancia de Azure SQL Database, consulte el artículo [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
+* **Azure SQL Database**. La base de datos se puede usar como almacén de datos **receptor**. Si no tiene ninguna base de datos de Azure SQL, consulte el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md).
 * **Visual Studio** 2015 o 2017. En el tutorial de este artículo se usa Visual Studio 2017.
 * **Descargue e instale [SDK de .NET de Azure](https://azure.microsoft.com/downloads/)**.
 * **Cree una aplicación en Azure Active Directory**. Para ello, siga [estas instrucciones](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota de los valores siguientes; los usará en pasos posteriores: **id. de aplicación**, **clave de autenticación** e **id. de inquilino**. Siga las instrucciones del mismo artículo para asignar la aplicación al rol "**Colaborador**".
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creación de un blob y una tabla SQL
 
-Ahora, prepare su blob de Azure y su instancia de Azure SQL Database para el tutorial. Para ello, siga los pasos siguientes:
+Ahora, prepare su blob de Azure y su base de datos de Azure SQL para el tutorial. Para ello, siga los pasos siguientes:
 
 #### <a name="create-a-source-blob"></a>Creación de un blob de origen
 
@@ -62,7 +62,7 @@ Ahora, prepare su blob de Azure y su instancia de Azure SQL Database para el tut
 
 #### <a name="create-a-sink-sql-table"></a>Creación de una tabla SQL receptora
 
-1. Use el siguiente script de SQL para crear la tabla **dbo.emp** en su instancia de Azure SQL Database.
+1. Use el siguiente script de SQL para crear la tabla **dbo.emp** en su base de datos de Azure SQL.
 
     ```sql
     CREATE TABLE dbo.emp
@@ -120,7 +120,7 @@ Con Visual Studio 2015 o 2017, cree una aplicación de consola .NET de C#.
     ```
 
     
-2. Agregue el siguiente código al método **Main** que establece las variables. Reemplace los marcadores de posición con sus propios valores. Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+2. Agregue el siguiente código al método **Main** que establece las variables. Reemplace los marcadores de posición con sus propios valores. Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
     ```csharp
     // Set variables
@@ -205,9 +205,9 @@ client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLink
 Console.WriteLine(SafeJsonConvert.SerializeObject(storageLinkedService, client.SerializationSettings));
 ```
 
-### <a name="create-an-azure-sql-database-linked-service"></a>Creación de un servicio vinculado a Azure SQL Database
+### <a name="create-an-azure-sql-database-linked-service"></a>Creación de un servicio vinculado de Azure SQL Database
 
-Agregue el código siguiente al método **Main** que crea un **servicio vinculado a Azure SQL Database**. Obtenga más información en la sección [Azure SQL Database linked service properties](connector-azure-sql-database.md#linked-service-properties) (Propiedades del servicio vinculado a Azure SQL Database) sobre los detalles y las propiedades que se admiten.
+Agregue el código siguiente al método **Main** que crea un **servicio vinculado de Azure SQL Database**. Obtenga más información en la sección [Azure SQL Database linked service properties](connector-azure-sql-database.md#linked-service-properties) (Propiedades del servicio vinculado de Azure SQL Database) sobre los detalles y las propiedades que se admiten.
 
 ```csharp
 // Create an Azure SQL Database linked service
@@ -269,11 +269,11 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobDatasetName, 
 Console.WriteLine(SafeJsonConvert.SerializeObject(blobDataset, client.SerializationSettings));
 ```
 
-### <a name="create-a-dataset-for-sink-azure-sql-database"></a>Creación de un conjunto de datos para la instancia Azure SQL Database receptora
+### <a name="create-a-dataset-for-sink-azure-sql-database"></a>Creación de un conjunto de datos para la base de datos de Azure SQL receptora
 
 Agregue el código siguiente al método **Main** que crea un **conjunto de datos de Azure SQL Database**. Obtenga más información en la sección [Azure SQL Database dataset properties](connector-azure-sql-database.md#dataset-properties) (Propiedades del conjunto de datos de Azure SQL Database) sobre los detalles y las propiedades que se admiten.
 
-Se define un conjunto de datos que representa los datos del receptor de Azure SQL Database. Este conjunto de datos hace referencia al servicio vinculado a Azure SQL Database que creó en el paso anterior. También especifica la tabla SQL que contiene los datos copiados. 
+Se define un conjunto de datos que representa los datos del receptor de Azure SQL Database. Este conjunto de datos hace referencia al servicio vinculado de Azure SQL Database que creó en el paso anterior. También especifica la tabla SQL que contiene los datos copiados. 
 
 ```csharp
 // Create an Azure SQL Database dataset
@@ -383,7 +383,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 Compile e inicie la aplicación y, a continuación, compruebe la ejecución de la canalización.
 
-La consola imprime el progreso de creación de una factoría de datos, un servicio vinculado, conjuntos de datos, una canalización y una ejecución de canalización. A continuación, comprueba el estado de la ejecución de canalización. Espere hasta que vea los detalles de ejecución de actividad con el tamaño de los datos leídos/escritos. A continuación, use herramientas como SSMS (SQL Server Management Studio) o Visual Studio para conectarse a su instancia de Azure SQL Database de destino y compruebe si los datos se copian en la tabla especificada.
+La consola imprime el progreso de creación de una factoría de datos, un servicio vinculado, conjuntos de datos, una canalización y una ejecución de canalización. A continuación, comprueba el estado de la ejecución de canalización. Espere hasta que vea los detalles de ejecución de actividad con el tamaño de los datos leídos/escritos. A continuación, use herramientas como SSMS (SQL Server Management Studio) o Visual Studio para conectarse a su base de datos de Azure SQL de destino y compruebe si los datos se copian en la tabla especificada.
 
 ### <a name="sample-output"></a>Salida de ejemplo
 
@@ -520,7 +520,7 @@ La canalización de este ejemplo copia los datos de una ubicación a otra en una
 
 > [!div class="checklist"]
 > * Creación de una factoría de datos.
-> * Creación de servicios vinculados con Azure SQL Database y Azure Storage
+> * Creación de servicios vinculados de Azure SQL Database y Azure Storage
 > * Creación de conjuntos de datos de Azure SQL Database y el blob de Azure
 > * Creación de una canalización que contiene una actividad de copia
 > * Inicio de la ejecución de una canalización.

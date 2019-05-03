@@ -56,7 +56,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 **Preparación de la instancia de Azure SQL Database de origen**:
 
-Siga el artículo [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para crear una instancia de Azure SQL Database con los datos de ejemplo de Adventure Works LT. En este tutorial se copian todas las tablas de esta base de datos de ejemplo a una instancia de SQL Data Warehouse.
+Siga el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para crear una base de datos de Azure SQL con los datos de ejemplo de Adventure Works LT. En este tutorial se copian todas las tablas de esta base de datos de ejemplo a una instancia de SQL Data Warehouse.
 
 **Preparación de la instancia de Azure SQL Data Warehouse receptora**:
 
@@ -66,7 +66,7 @@ Siga el artículo [Creación de una instancia de Azure SQL Database](../sql-data
 
 ## <a name="azure-services-to-access-sql-server"></a>Servicios de Azure para acceder a SQL Server
 
-Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database como para SQL Data Warehouse. Asegúrese de que la opción **Permitir el acceso a servicios de Azure** esté **activada** para Azure SQL Server. Esta configuración permite al servicio Data Factory leer los datos de Azure SQL Database y escribir datos en su instancia de Azure SQL Data Warehouse. Para comprobar y activar esta configuración, realice los siguientes pasos:
+Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database como para SQL Data Warehouse. Asegúrese de que la opción **Permitir el acceso a servicios de Azure** esté **activada** para Azure SQL Server. Esta configuración permite al servicio Data Factory leer los datos de su base de datos de Azure SQL y escribir datos en su instancia de Azure SQL Data Warehouse. Para comprobar y activar esta configuración, realice los siguientes pasos:
 
 1. Haga clic en el concentrador **Más servicios** a la izquierda y haga clic en **Servidores SQL**.
 1. Seleccione el servidor y haga clic en **Firewall** en **CONFIGURACIÓN**.
@@ -93,7 +93,7 @@ Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database 
          
      Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
 1. Seleccione **V2** para la **versión**.
-1. Seleccione la **ubicación** de Data Factory. Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+1. Seleccione la **ubicación** de Data Factory. Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 1. Seleccione **Anclar al panel**.     
 1. Haga clic en **Create**(Crear).
 1. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
@@ -112,20 +112,20 @@ Los servicios vinculados se crean para vincular los almacenes de datos y los pro
 
 En este tutorial se vinculan sus almacenes de datos de Azure SQL Database, Azure SQL Data Warehouse y Azure Blob Storage a la factoría de datos. El almacén de datos de origen es el de Azure SQL Database. El almacén de datos de Azure SQL Data Warehouse es el receptor/destino. Azure Blob Storage sirve para almacenar provisionalmente los datos antes de cargarlos en SQL Data Warehouse mediante PolyBase. 
 
-### <a name="create-the-source-azure-sql-database-linked-service"></a>Creación del servicio vinculado de la instancia de Azure SQL Database de origen
-En este paso, creará un servicio vinculado para vincular su instancia de Azure SQL Database con la factoría de datos. 
+### <a name="create-the-source-azure-sql-database-linked-service"></a>Creación del servicio vinculado de Azure SQL Database de origen
+En este paso, creará un servicio vinculado para vincular su base de datos de Azure SQL con la factoría de datos. 
 
 1. Haga clic en **Connections** (Conexiones) en la parte inferior de la ventana y haga clic en **+ New** (+ Nuevo) en la barra de herramientas. 
 
     ![Botón New linked service (Nuevo servicio vinculado)](./media/tutorial-bulk-copy-portal/new-linked-service-button.png)
 1. En la ventana **New Linked Service** (Nuevo servicio vinculado), seleccione **Azure SQL Database** y haga clic en **Continue** (Continuar). 
 
-    ![Seleccionar Azure SQL Database](./media/tutorial-bulk-copy-portal/select-azure-sql-database.png)
+    ![Seleccionar Azure SQL Database](./media/tutorial-bulk-copy-portal/select-azure-sql-database.png)
 1. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes: 
 
     1. Escriba **AzureSqlDatabaseLinkedService** en **Name** (Nombre). 
     1. Seleccione el servidor de Azure SQL Server en **Server name** (Nombre del servidor).
-    1. Seleccione la instancia de Azure SQL Database en **Database name** (Nombre de la base de datos). 
+    1. Seleccione su base de datos de Azure SQL en **Database name** (Nombre de la base de datos). 
     1. Escriba el **nombre del usuario** para conectarse a Azure SQL Database. 
     1. Escriba la **contraseña** del usuario. 
     1. Para probar la conexión a Azure SQL Database con la información indicada, haga clic en **Test connection** (Prueba de conexión).
@@ -141,7 +141,7 @@ En este paso, creará un servicio vinculado para vincular su instancia de Azure 
 
     1. Escriba **AzureSqlDWLinkedService** en **Name** (Nombre). 
     1. Seleccione el servidor de Azure SQL Server en **Server name** (Nombre del servidor).
-    1. Seleccione la instancia de Azure SQL Database en **Database name** (Nombre de la base de datos). 
+    1. Seleccione su base de datos de Azure SQL en **Database name** (Nombre de la base de datos). 
     1. Escriba el **nombre del usuario** para conectarse a Azure SQL Database. 
     1. Escriba la **contraseña** del usuario. 
     1. Para probar la conexión a Azure SQL Database con la información indicada, haga clic en **Test connection** (Prueba de conexión).
@@ -173,9 +173,9 @@ En este tutorial, las tablas de origen y destino SQL no están codificadas en la
 1. Haga clic en el **signo + (más)** en el panel izquierdo y en **Dataset** (Conjunto de datos). 
 
     ![Menú Conjunto de datos nuevo](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
-1. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure SQL Database** y haga clic en **Finish** (Finalizar). Debería ver una nueva pestaña titulada **AzureSqlTable1**. 
+1. En la ventana **New Dataset** (Nuevo conjunto de datos), seleccione **Azure SQL Database** y haga clic en **Finish** (Finalizar). Debería ver una nueva pestaña titulada **AzureSqlTable1**. 
     
-    ![Seleccionar Azure SQL Database](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
+    ![Seleccionar Azure SQL Database](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
 1. En la ventana de propiedades de la parte inferior, escriba **AzureSqlDatabaseDataset** en **Name** (Nombre).
 
 1. Cambie a la pestaña **Connection** (Conexión) y realice los pasos siguientes: 

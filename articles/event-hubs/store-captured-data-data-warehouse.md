@@ -62,7 +62,7 @@ Las secciones siguientes proporcionan comandos de CLI de Azure y Azure PowerShel
 - Centro de eventos
 - Servidor SQL Azure
 - Usuario de SQL (y contraseña)
-- Azure SQL Database
+- Azure SQL Database
 - Azure Storage 
 - Aplicación Azure Functions
 

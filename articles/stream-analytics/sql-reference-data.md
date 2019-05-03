@@ -17,7 +17,7 @@ ms.locfileid: "61363764"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Uso de datos de referencia de una instancia de SQL Database para un trabajo de Azure Stream Analytics (versión preliminar).
 
-Azure Stream Analytics admite Azure SQL Database como origen para la entrada de datos de referencia. Puede usar SQL Database como datos de referencia para un trabajo de Stream Analytics en Azure Portal y en Visual Studio con herramientas de Stream Analytics. En este artículo se muestra cómo realizar ambos métodos.
+Azure Stream Analytics admite Azure SQL Database como origen de la entrada de datos de referencia. Puede usar SQL Database como datos de referencia para un trabajo de Stream Analytics en Azure Portal y en Visual Studio con herramientas de Stream Analytics. En este artículo se muestra cómo realizar ambos métodos.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -29,7 +29,7 @@ Use los pasos siguientes para agregar Azure SQL Database como un origen de entra
 
 2. Cree una cuenta de almacenamiento para que la use Stream Analytics.
 
-3. Cree una instancia de Azure SQL Database con un conjunto de datos para que el trabajo de Stream Analytics la pueda usar como datos de referencia.
+3. Cree una base de datos de Azure SQL con un conjunto de datos para que el trabajo de Stream Analytics la pueda usar como datos de referencia.
 
 ### <a name="define-sql-database-reference-data-input"></a>Definición de la entrada de datos de referencia de SQL Database
 
@@ -72,7 +72,7 @@ Use los pasos siguientes para agregar Azure SQL Database como un origen de entra
 
 ### <a name="create-a-sql-database-table"></a>Creación de una tabla de SQL Database
 
-Use SQL Server Management Studio para crear una tabla para almacenar los datos de referencia. Vea [Diseño de la primera instancia de Azure SQL Database mediante SSMS](../sql-database/sql-database-design-first-database.md) para obtener información detallada.
+Use SQL Server Management Studio para crear una tabla para almacenar los datos de referencia. Vea [Diseño de la primera base de datos de Azure SQL mediante SSMS](../sql-database/sql-database-design-first-database.md) para obtener información detallada.
 
 La tabla de ejemplo utilizada en el ejemplo siguiente se creó a partir de la siguiente instrucción:
 
@@ -192,7 +192,7 @@ La combinación de ambas métricas se puede utilizar para deducir si el trabajo 
 
 **¿Necesito un tipo especial de instancia de Azure SQL Database?**
 
-Azure Stream Analytics funcionará con cualquier tipo de instancia de Azure SQL Database. Sin embargo, es importante comprender que el conjunto de frecuencia de actualización de la entrada de datos de referencia podría afectar a la carga de la consulta. Para usar la opción de la consulta delta, se recomienda usar las tablas temporales de Azure SQL Database.
+Azure Stream Analytics funcionará con cualquier tipo de base de datos de Azure SQL. Sin embargo, es importante comprender que el conjunto de frecuencia de actualización de la entrada de datos de referencia podría afectar a la carga de la consulta. Para usar la opción de la consulta delta, se recomienda usar las tablas temporales de Azure SQL Database.
 
 **¿Puedo crear un ejemplo de entrada a partir de la entrada de datos de referencia de SQL Database?**
 

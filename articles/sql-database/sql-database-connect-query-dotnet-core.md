@@ -1,6 +1,6 @@
 ---
 title: Uso de .NET Core para consultar Azure SQL Database | Microsoft Docs
-description: En este tema se muestra cómo usar .NET Core para crear un programa que se conecta a Azure SQL Database y realiza consultas mediante instrucciones Transact-SQL.
+description: En este tema se muestra cómo usar .NET Core para crear un programa que se conecta a una base de datos de Azure SQL y realiza consultas mediante instrucciones Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -19,15 +19,15 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58447386"
 ---
-# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Guía de inicio rápido: Uso de .NET Core (C#) para consultar una instancia de Azure SQL Database
+# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Guía de inicio rápido: Uso de .NET Core (C#) para consultar una base de datos de Azure SQL
 
-En este tutorial de inicio rápido, usará código de C# y [.NET Core](https://www.microsoft.com/net/) para conectarse a una instancia de Azure SQL Database. Luego, ejecutará una instrucción Transact-SQL para consultar los datos.
+En este tutorial de inicio rápido, usará código de C# y [.NET Core](https://www.microsoft.com/net/) para conectarse a una base de datos de Azure SQL. Luego, ejecutará una instrucción Transact-SQL para consultar los datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este tutorial, necesitará:
 
-- Una base de datos SQL de Azure. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+- Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
 
   || Base de datos única | Instancia administrada |
   |:--- |:--- |:---|
@@ -195,6 +195,6 @@ namespace sqltest
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción a .NET Core en Windows, Linux y macOS mediante la línea de comandos](/dotnet/core/tutorials/using-with-xplat-cli).
-- Obtenga información sobre cómo [conectarse y consultar una base de datos SQL de Azure mediante .NET Framework y Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
+- Obtenga información sobre cómo [conectarse y consultar una base de datos de Azure SQL mediante .NET Framework y Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
 - Aprenda a [diseñar la primera base de datos de Azure SQL con SSMS](sql-database-design-first-database.md) o [diseñar una base de datos de Azure SQL y conectarse con C# y ADO.NET](sql-database-design-first-database-csharp.md).
 - Para más información acerca de. NET, consulte la [Documentación de .NET](https://docs.microsoft.com/dotnet/).

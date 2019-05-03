@@ -21,7 +21,7 @@ ms.locfileid: "60556273"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Informes de bases de datos escaladas horizontalmente en la nube (versión preliminar)
 
-Puede crear informes de varias bases de datos SQL de Azure desde un único punto de conexión mediante una [consulta elástica](sql-database-elastic-query-overview.md). Las bases de datos deben tener particiones horizontales (también conocidas como "particiones").
+Puede crear informes de varias bases de datos de Azure SQL desde un único punto de conexión mediante una [consulta elástica](sql-database-elastic-query-overview.md). Las bases de datos deben tener particiones horizontales (también conocidas como "particiones").
 
 Si tiene una base de datos, consulte [Conversión de bases de datos existentes para usar herramientas para bases de datos elásticas](sql-database-elastic-convert-to-use-elastic-tools.md).
 
@@ -48,7 +48,7 @@ Aquí se creará un administrador de mapas de particiones junto con varias parti
 
 ## <a name="create-an-elastic-query-database"></a>Creación una base de datos de consulta elástica
 1. Abra [Azure Portal](https://portal.azure.com) e inicie sesión.
-2. Cree una nueva Base de datos SQL de Azure en el mismo servidor que la configuración de la partición. Utilice el nombre "ElasticDBQuery" para la base de datos.
+2. Cree una nueva base de datos de Azure SQL en el mismo servidor que la configuración de la partición. Utilice el nombre "ElasticDBQuery" para la base de datos.
 
     ![Portal de Azure y nivel de precios][3]
 

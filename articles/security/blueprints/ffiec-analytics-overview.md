@@ -31,9 +31,9 @@ Este plano técnico Azure Security and Compliance Blueprint proporciona una plat
 
 Azure ofrece una variedad de servicios de informes y análisis para el cliente. Esta solución incorpora los servicios de Azure Machine Learning en conjunto con Azure SQL Database para examinar rápidamente los datos y entregar resultados más rápidos mediante un modelado más inteligente. Azure Machine Learning aumenta la velocidad de las consultas mediante el descubrimiento de nuevas relaciones entre conjuntos de datos. Una vez que los datos se han entrenado mediante varias funciones estadísticas, se pueden sincronizar hasta siete grupos de consulta adicionales (ocho en total incluido el servidor del cliente) con los mismos modelos tabulares para distribuir las cargas de trabajo de la consulta y reducir el tiempo de respuesta.
 
-Para mejorar el análisis y los informes, las bases de datos de Azure SQL Database pueden configurarse con índices de almacén de columnas. Tanto Azure Machine Learning como las bases de datos de Azure SQL Database se pueden escalar o reducir verticalmente o apagarse por completo en respuesta al uso del cliente. Todo el tráfico SQL se cifra con SSL mediante la inclusión de certificados autofirmados. Como procedimiento recomendado, Azure recomienda el uso de una entidad de certificación de confianza para mejorar la seguridad.
+Para mejorar el análisis y los informes, las bases de datos de Azure SQL pueden configurarse con índices de almacén de columnas. Tanto Azure Machine Learning como las bases de datos de Azure SQL se pueden escalar o reducir verticalmente o apagarse por completo en respuesta al uso del cliente. Todo el tráfico SQL se cifra con SSL mediante la inclusión de certificados autofirmados. Como procedimiento recomendado, Azure recomienda el uso de una entidad de certificación de confianza para mejorar la seguridad.
 
-Cuando se cargan los datos a la instancia de Azure SQL Database y se entrenan con Azure Machine Learning, los digiere el usuario operativo y el administrador de datos/SQL con Power BI. Power BI muestra los datos de forma intuitiva y reúne la información a través de múltiples conjuntos de datos para obtener un mayor conocimiento. Su alto grado de adaptabilidad y fácil integración con Azure SQL Database asegura que los clientes puedan configurarlo para tratar una amplia gama de escenarios según sus necesidades de negocio.
+Cuando se cargan los datos a la base de datos de Azure SQL y se entrenan con Azure Machine Learning, los digiere el usuario operativo y el administrador de datos o SQL con Power BI. Power BI muestra los datos de forma intuitiva y reúne la información a través de múltiples conjuntos de datos para obtener un mayor conocimiento. Su alto grado de adaptabilidad y fácil integración con Azure SQL Database asegura que los clientes puedan configurarlo para tratar una amplia gama de escenarios según sus necesidades de negocio.
 
 La solución utiliza cuentas de Azure Storage que los clientes pueden configurar para que usen Storage Service Encryption para preservar la confidencialidad de los datos en reposo. Azure almacena tres copias de los datos en un centro de datos seleccionado de un cliente para proporcionar resistencia. El almacenamiento con redundancia geográfica garantiza que los datos se replicarán en un centro de datos secundario a cientos de kilómetros de distancia y que, de nuevo, se guardarán tres copias en ese centro de datos, lo que impide que un evento adverso que suceda en el centro de datos principal del cliente pueda resultar en una pérdida de datos.
 
@@ -55,7 +55,7 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 - Azure Machine Learning
 - Monitor de Azure (registros)
 - Azure Security Center
-- Azure SQL Database
+- Azure SQL Database
 - Azure Storage
 - Azure Virtual Network
     - (1) /16 redes

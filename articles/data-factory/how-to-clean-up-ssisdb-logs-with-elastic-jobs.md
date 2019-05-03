@@ -161,7 +161,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 Los siguientes scripts de Transact-SQL de ejemplo crean un nuevo trabajo elástico para desencadenar el procedimiento almacenado para la limpieza del registro de SSISDB. Para más información, consulte [Uso de Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database](../sql-database/elastic-jobs-tsql.md).
 
-1. Cree o identifique una instancia de Azure SQL Database vacía, S0 o superior, para que sea la base de datos del trabajo SSISDBCleanup. A continuación, cree un agente de trabajos elásticos en [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
+1. Cree o identifique una base de datos de Azure SQL vacía, S0 o superior, para que sea la base de datos del trabajo SSISDBCleanup. A continuación, cree un agente de trabajos elásticos en [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 
 2. En la base de datos del trabajo, cree una credencial para el trabajo de limpieza del registro de SSISDB. Esta credencial se usa para conectarse a la base de datos SSISDB para limpiar los registros.
 

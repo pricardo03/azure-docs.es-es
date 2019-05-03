@@ -15,13 +15,13 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60541150"
 ---
-* Si está usando Azure SQL Database, siga los pasos que se indican en [Conexión a una instancia de Azure SQL Database](#connect-azure-sql-db). 
+* Si está usando Azure SQL Database, siga los pasos que se indican en [Conexión a Azure SQL Database](#connect-azure-sql-db). 
 
 * Si usa SQL Server, siga los pasos que se indican en [Conexión con SQL Server](#connect-sql-server).
 
 <a name="connect-azure-sql-db"></a>
 
-### <a name="connect-to-azure-sql-database"></a>Conexión a una instancia de Azure SQL Database
+### <a name="connect-to-azure-sql-database"></a>Conexión a Azure SQL Database
 
 1. Cuando el desencadenador o la acción de SQL le pidan la información de conexión, siga estos pasos:
 

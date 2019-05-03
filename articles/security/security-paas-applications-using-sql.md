@@ -32,7 +32,7 @@ Azure SQL Database y SQL Data Warehouse proporcionan un servicio de base de dato
 - Cifrado de datos transparente (TDE)
 
 ## <a name="use-a-centralized-identity-repository"></a>Usar un repositorio centralizado de identidades
-Las bases de datos Azure SQL pueden configurarse para usar uno de los dos tipos de autenticación:
+Las bases de datos de Azure SQL pueden configurarse para usar uno de los dos tipos de autenticación:
 
 - **Autenticación de SQL** usa un nombre de usuario y una contraseña. Al crear el servidor lógico de la base de datos, especificó un inicio de sesión de "administrador de servidor" con un nombre de usuario y una contraseña. Con estas credenciales, puede autenticarse en cualquier base de datos en ese servidor como propietario de la base de datos.
 

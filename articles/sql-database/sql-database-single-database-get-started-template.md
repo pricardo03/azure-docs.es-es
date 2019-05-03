@@ -154,7 +154,7 @@ El siguiente archivo JSON es la plantilla que se usa en este artículo. La plant
 
 2. Seleccione o escriba los siguientes valores.  
 
-    ![Plantilla de Resource Manager: crear base de datos SQL de Azure](./media/sql-database-single-database-get-started-template/create-azure-sql-database-resource-manager-template.png)
+    ![Plantilla de Resource Manager: crear base de datos de Azure SQL](./media/sql-database-single-database-get-started-template/create-azure-sql-database-resource-manager-template.png)
 
     A menos que se indique otra cosa, utilice los valores predeterminados.
 

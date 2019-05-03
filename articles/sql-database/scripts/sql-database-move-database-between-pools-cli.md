@@ -1,5 +1,5 @@
 ---
-title: Ejemplo de la CLI para mover una instancia de Azure SQL Database a un grupo elástico de SQL | Microsoft Docs
+title: Ejemplo de la CLI para mover una base de datos de Azure SQL a un grupo elástico de SQL | Microsoft Docs
 description: Script de ejemplo de la CLI de Azure para mover una instancia de SQL Database a un grupo elástico de SQL
 services: sql-database
 ms.service: sql-database
@@ -19,7 +19,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357594"
 ---
-# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Uso de la CLI para mover una instancia de Azure SQL Database a un grupo elástico de SQL
+# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Uso de la CLI para mover una base de datos de Azure SQL a un grupo elástico de SQL
 
 Este script de ejemplo de la CLI de Azure crea dos grupos elásticos y traslada una base de datos de Azure SQL de un grupo elástico de SQL a otro y, a continuación, traslada la base de datos del grupo elástico a un tamaño de proceso de una única base de datos.
 

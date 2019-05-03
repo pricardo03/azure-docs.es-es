@@ -369,7 +369,7 @@ En este tutorial aprendió lo siguiente:
 > [!div class="checklist"]
 > 
 > * Usar el catálogo de inquilino para mantener actualizada la información de configuración periódicamente, lo que permite crear un entorno de recuperación de imagen reflejada en otra región
-> * Recuperar bases de datos SQL de Azure en la región de recuperación mediante la restauración geográfica
+> * Recuperar bases de datos de Azure SQL en la región de recuperación mediante la restauración geográfica
 > * Actualizar el catálogo de inquilino para reflejar las ubicaciones de las bases de datos de inquilinos restauradas 
 > * Usar un alias de DNS para habilitar una aplicación para conectarse al catálogo de inquilino sin reconfiguración
 > * Usar la replicación geográfica para repatriar las bases de datos recuperadas a su región original después de que se resuelve una interrupción

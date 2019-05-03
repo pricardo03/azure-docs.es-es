@@ -26,7 +26,7 @@ El Almacén de consultas en Azure es una característica de base de datos comple
 El Almacén de consultas está [disponible globalmente](https://azure.microsoft.com/updates/general-availability-azure-sql-database-query-store/) en Azure SQL Database desde noviembre de 2015. Es la base de las características de análisis y ajuste del rendimiento, como el [Asesor de SQL Database y el Panel de rendimiento](https://azure.microsoft.com/updates/sqldatabaseadvisorga/). En el momento de publicar este artículo, el Almacén de consultas se ejecuta en más de 200 000 bases de datos de usuario de Azure y recopila información relativa a las consultas durante varios meses, sin interrupción.
 
 > [!IMPORTANT]
-> Microsoft está en proceso de activar el Almacén de consultas para todas las bases de datos SQL de Azure (nuevas y existentes). 
+> Microsoft está en proceso de activar el Almacén de consultas para todas las bases de datos de Azure SQL (nuevas y existentes). 
 
 ## <a name="optimal-query-store-configuration"></a>Configuración óptima del Almacén de consultas
 
@@ -43,7 +43,7 @@ En esta sección se describen los valores predeterminados de una configuración 
 |  | | | |
 
 > [!IMPORTANT]
-> Estos valores predeterminados se aplican automáticamente en la fase final de la activación del Almacén de consultas en todas las bases de datos SQL de Azure (consulte la nota importante anterior). Después de esta optimización, Azure SQL Database no cambiará los valores de configuración establecidos por los clientes, a no ser que influyan negativamente en la carga de trabajo principal o en las operaciones confiables del Almacén de consultas.
+> Estos valores predeterminados se aplican automáticamente en la fase final de la activación del Almacén de consultas en todas las bases de datos de Azure SQL (consulte la nota importante anterior). Después de esta optimización, Azure SQL Database no cambiará los valores de configuración establecidos por los clientes, a no ser que influyan negativamente en la carga de trabajo principal o en las operaciones confiables del Almacén de consultas.
 
 Si quiere permanecer con su configuración personalizada, utilice [ALTER DATABASE con las opciones del Almacén de consultas](https://msdn.microsoft.com/library/bb522682.aspx) para revertir la configuración al estado anterior. Consulte [Best Practices with the Query Store](https://msdn.microsoft.com/library/mt604821.aspx) (Procedimientos recomendados con el Almacén de consultas) para aprender a elegir los parámetros de configuración óptima.
 

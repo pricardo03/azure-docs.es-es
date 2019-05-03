@@ -1,6 +1,6 @@
 ---
 title: PowerShell para los puntos de conexión de red virtual y reglas para las bases de datos únicas y agrupadas en Azure SQL | Microsoft Docs
-description: Proporciona scripts de PowerShell para crear y administrar puntos de conexión del servicio virtual para su Azure SQL Database y SQL Data Warehouse.
+description: Proporciona scripts de PowerShell para crear y administrar puntos de conexión del servicio virtual para su base de datos de Azure SQL y su almacenamiento de SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development

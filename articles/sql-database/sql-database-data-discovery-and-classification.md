@@ -77,7 +77,7 @@ Una vez definida la directiva de todos los inquilinos, puede continuar con la cl
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 
-2. Navegue a **Advanced Data Security** en el encabezado de Seguridad en el panel de Azure SQL Database. Haga clic para habilitar Advanced Data Security y haga clic en la tarjeta **Clasificación y detección de datos (versión preliminar)**.
+2. Navegue a **Advanced Data Security** en el encabezado de Seguridad en el panel de su base de datos de Azure SQL. Haga clic para habilitar Advanced Data Security y haga clic en la tarjeta **Clasificación y detección de datos (versión preliminar)**.
 
    ![Examen de una base de datos](./media/sql-data-discovery-and-classification/data_classification.png)
 

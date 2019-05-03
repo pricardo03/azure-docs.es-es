@@ -1,6 +1,6 @@
 ---
 title: Información de rendimiento de consultas para Azure SQL Database | Microsoft Docs
-description: La supervisión del rendimiento de consultas identifica las consultas que más CPU consumen en una base de datos SQL de Azure.
+description: La supervisión del rendimiento de consultas identifica las consultas que más CPU consumen en una base de datos de Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -35,7 +35,7 @@ La administración y el ajuste del rendimiento de bases de datos relacionales re
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Información de rendimiento de consultas requiere que el [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx) esté activo en la base de datos. Se habilita automáticamente para todas las bases de datos SQL de Azure de forma predeterminada. Si el Almacén de consultas no está en ejecución, Azure Portal le pedirá que lo habilite.
+Información de rendimiento de consultas requiere que el [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx) esté activo en la base de datos. Se habilita automáticamente para todas las bases de datos de Azure SQL de forma predeterminada. Si el Almacén de consultas no está en ejecución, Azure Portal le pedirá que lo habilite.
 
 > [!NOTE]
 > Si aparece un mensaje en el portal que dice que el Almacén de consultas no está configurado correctamente en esta base de datos, consulte [Optimización de la configuración del almacén de consultas](#optimize-the-query-store-configuration-for-query-performance-insight).

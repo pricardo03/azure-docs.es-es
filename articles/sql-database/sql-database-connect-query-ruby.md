@@ -1,6 +1,6 @@
 ---
 title: Uso de Ruby para consultar Azure SQL Database | Microsoft Docs
-description: En este tema se muestra cómo usar Ruby para crear un programa que se conecta a Azure SQL Database y realiza consultas mediante instrucciones Transact-SQL.
+description: En este tema se muestra cómo usar Ruby para crear un programa que se conecta a una base de datos de Azure SQL y realiza consultas mediante instrucciones Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -19,15 +19,15 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58449024"
 ---
-# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de Ruby para consultar una base de datos SQL de Azure
+# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de Ruby para consultar una base de datos de Azure SQL
 
-Esta guía de inicio rápido muestra cómo se usa [Ruby](https://www.ruby-lang.org) para conectarse a una instancia de Azure SQL Database y consultar datos con instrucciones Transact-SQL.
+Esta guía de inicio rápido muestra cómo se usa [Ruby](https://www.ruby-lang.org) para conectarse a una base de datos de Azure SQL y consultar datos con instrucciones Transact-SQL.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial de inicio rápido, debe cumplir los siguientes requisitos previos:
 
-- Una base de datos SQL de Azure. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+- Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
 
   || Base de datos única | Instancia administrada |
   |:--- |:--- |:---|
@@ -65,7 +65,7 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
 1. En el editor de texto o de código, cree un archivo denominado *sqltest.rb*.
    
-1. Agregue el siguiente código. Sustituya los valores de la instancia de Azure SQL Database por `<server>`, `<database>`, `<username>` y `<password>`.
+1. Agregue el siguiente código. Sustituya los valores de su base de datos de Azure SQL por `<server>`, `<database>`, `<username>` y `<password>`.
    
    >[!IMPORTANT]
    >El código de este ejemplo usa los datos de AdventureWorksLT de ejemplo, que puede elegir como origen al crear la base de datos. Si la base de datos tiene datos distintos, use las tablas de su propia base de datos en la consulta SELECT. 

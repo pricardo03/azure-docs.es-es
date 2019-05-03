@@ -33,13 +33,13 @@ Microsoft Azure ofrece una variedad de servicios de informes y análisis al clie
 
 Para mejorar el análisis y la generación de informes, las bases de datos SQL Database pueden configurarse con índices de almacén de columnas. Tanto los servicios de Azure Analytics Service como las bases de datos de SQL Database se pueden escalar, reducir o apagarse completamente en respuesta al uso del cliente. Todo el tráfico SQL está cifrado con SSL mediante la inclusión de certificados autofirmados. Como procedimiento recomendado, Azure recomienda el uso de una entidad de certificación de confianza para mejorar la seguridad.
 
-Cuando se suben los datos a la instancia de Azure SQL Database y se entrenan por los servicios de Azure Analysis Service, los digiere el usuario operativo y el administrador de datos o SQL con Power BI. Power BI muestra los datos de forma intuitiva y reúne la información a través de múltiples conjuntos de datos para obtener un mayor conocimiento. Su alto grado de adaptabilidad y fácil integración con Azure SQL Database asegura que los clientes puedan configurarlo para manejar una amplia gama de escenarios según sus necesidades de negocio.
+Cuando se suben los datos a la base de datos de Azure SQL y se entrenan mediante los servicios de Azure Analysis Service, los digiere el usuario operativo y el administrador de datos o SQL con Power BI. Power BI muestra los datos de forma intuitiva y reúne la información a través de múltiples conjuntos de datos para obtener un mayor conocimiento. Su alto grado de adaptabilidad y fácil integración con Azure SQL Database asegura que los clientes puedan configurarlo para tratar una amplia gama de escenarios según sus necesidades de negocio.
 
 La solución completa se basa en un servicio de Azure Storage que los clientes de la cuenta configuran desde Azure Portal. Azure Storage cifra todos los datos con Storage Service Encryption para mantener la confidencialidad de los datos en reposo.  El almacenamiento con redundancia geográfica garantiza que un evento adverso en el centro de datos principal del cliente no tendrá como resultado una pérdida de datos, ya que una segunda copia se almacenará en una ubicación separada a cientos de kilómetros de distancia.
 
 Para mejorar la seguridad, esta arquitectura administra los recursos con Azure Active Directory y Azure Key Vault. El mantenimiento del sistema se supervisa mediante Azure Monitor. Los clientes configuran ambos servicios de monitorización para capturar registros y mostrar el estado del sistema en un único panel de fácil navegación.
 
-Azure SQL Database se administra comúnmente mediante SQL Server Management Studio (SSMS), que se ejecuta desde una máquina local configurada para acceder a Azure SQL Database a través de una conexión segura VPN o ExpressRoute. **Azure recomienda configurar una conexión VPN o de Azure ExpressRoute para la administración y la importación de datos en el grupo de recursos de la arquitectura de referencia.**
+Azure SQL Database se administra comúnmente mediante SQL Server Management Studio (SSMS), que se ejecuta desde una máquina local configurada para acceder a Azure SQL Database mediante una conexión segura VPN o ExpressRoute. **Azure recomienda configurar una conexión VPN o de Azure ExpressRoute para la administración y la importación de datos en el grupo de recursos de la arquitectura de referencia.**
 
 ![Diagrama de arquitectura de referencia de análisis para FedRAMP](images/fedramp-analytics-reference-architecture.png?raw=true "Analytics for FedRAMP reference architecture diagram")
 
@@ -50,7 +50,7 @@ El plano técnico de análisis describe un escenario con tres tipos de usuario g
 El ingeniero de sistemas es el propietario de la suscripción del cliente de Azure y configura la implementación de la solución mediante Azure Portal.
 
 #### <a name="sqldata-administrator"></a>Administrador de datos/SQL
-El administrador de datos/SQL establece la función de importación de datos masivos y la función de actualización de datos operativos para cargar a la base de datos SQL de Azure. El administrador de datos/SQL no es responsable de las actualizaciones de datos operativos en la base de datos, pero podrá ver los datos mediante Power BI.
+El administrador de datos/SQL establece la función de importación de datos masivos y la función de actualización de datos operativos para cargar a la base de datos de Azure SQL. El administrador de datos/SQL no es responsable de las actualizaciones de datos operativos en la base de datos, pero podrá ver los datos mediante Power BI.
 
 #### <a name="operational-user"></a>Usuario operativo
 El usuario operativo actualiza los datos con regularidad y posee la generación de datos diarias. El usuario operativo también interpreta los resultados mediante Power BI.
@@ -59,7 +59,7 @@ El usuario operativo actualiza los datos con regularidad y posee la generación 
 
 Esta solución usa los siguientes servicios de Azure. Los detalles de la arquitectura de implementación se encuentran en la sección [Arquitectura de implementación](#deployment-architecture).
 - Azure Functions
-- Azure SQL Database
+- Azure SQL Database
 - Azure Analysis Service
 - Azure Active Directory
 - Azure Key Vault

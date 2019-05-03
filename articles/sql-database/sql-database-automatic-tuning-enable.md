@@ -1,6 +1,6 @@
 ---
 title: Habilitación del ajuste automático para Azure SQL Database | Microsoft Docs
-description: Puede habilitar fácilmente el ajuste automático en Azure SQL Database.
+description: Puede habilitar fácilmente el ajuste automático en su base de datos de Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance

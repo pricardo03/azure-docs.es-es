@@ -31,7 +31,7 @@ Consulte [Incorporación de una partición a una aplicación mediante la bibliot
 
 ## <a name="how-much-do-elastic-database-tools-cost"></a>¿Cuánto cuestan las herramientas de base de datos elástica?
 
-El uso de la biblioteca cliente de Base de datos elástica no incurre en costos. Los costos se acumulan solo para las bases de datos SQL de Azure que usa para particiones y el Administrador de asignación de particiones, así como los roles web/de trabajo aprovisionados para la herramienta de combinación o división.
+El uso de la biblioteca cliente de Base de datos elástica no incurre en costos. Los costos se acumulan solo para las bases de datos de Azure SQL que usa para particiones y el Administrador de asignación de particiones, así como los roles web/de trabajo aprovisionados para la herramienta de combinación o división.
 
 ## <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>¿Por qué mis credenciales no funcionan cuando agrego una partición de un servidor diferente?
 

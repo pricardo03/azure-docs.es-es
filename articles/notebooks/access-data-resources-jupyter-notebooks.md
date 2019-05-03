@@ -49,7 +49,7 @@ if response.status_code == 200:
     print(dataframe_rest2)
 ```
 
-## <a name="azure-sql-databases"></a>Bases de datos SQL de Azure
+## <a name="azure-sql-databases"></a>Bases de datos de Azure SQL
 
 Puede acceder a las bases de datos de SQL Server con la ayuda de las bibliotecas pyodbc o pymssql.
 

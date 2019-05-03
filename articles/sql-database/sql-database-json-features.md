@@ -20,7 +20,7 @@ ms.lasthandoff: 04/23/2019
 ms.locfileid: "60702966"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introducción a las características de JSON en Azure SQL Database
-Azure SQL Database permite analizar y consultar datos representados en formato de notación de objetos JavaScript [(JSON)](https://www.json.org/) , y exportar los datos relacionales como texto JSON. Los escenarios JSON siguientes están disponibles en Azure SQL Database:
+Azure SQL Database permite analizar y consultar datos representados en formato de notación de objetos JavaScript [(JSON)](https://www.json.org/), y exportar los datos relacionales como texto JSON. Los escenarios JSON siguientes están disponibles en Azure SQL Database:
 - [Aplicación del formato JSON a datos relacionales](#formatting-relational-data-in-json-format) mediante la cláusula `FOR JSON`.
 - [Trabajo con datos JSON](#working-with-json-data)
 - [Consulta de datos JSON](#querying-json-data) mediante funciones escalares JSON.
@@ -130,7 +130,7 @@ Cualquier lenguaje del lado cliente o biblioteca que funcione con datos de caden
 ## <a name="querying-json-data"></a>Consulta de datos JSON
 Si tiene datos con formato JSON almacenados en tablas SQL de Azure, las funciones JSON permiten usarlos en cualquier consulta SQL.
 
-Las funciones JSON que están disponibles en Base de datos SQL de Azure permiten tratar los datos con formato JSON como cualquier otro tipo de datos SQL. Puede extraer fácilmente valores del texto JSON y usar datos JSON en cualquier consulta:
+Las funciones JSON que están disponibles en la base de datos de Azure SQL permiten tratar los datos con formato JSON como cualquier otro tipo de datos SQL. Puede extraer fácilmente valores del texto JSON y usar datos JSON en cualquier consulta:
 
 ```
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')

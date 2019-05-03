@@ -29,9 +29,9 @@ Esta solución proporciona una plataforma analítica sobre la cual los clientes 
 
 Azure ofrece varios servicios de informes y análisis al cliente; sin embargo, esta solución incorpora los servicios de Azure Analysis Services junto con Azure SQL Database para examinar rápidamente los datos y entregar resultados más rápidos a través de un modelado más inteligente de los datos del cliente. Los servicios de Azure Analysis Service es una forma de aprendizaje automático destinada a aumentar la velocidad de las consultas mediante el descubrimiento de nuevas relaciones entre conjuntos de datos. Una vez que los datos se han entrenado mediante varias funciones estadísticas, se pueden sincronizar hasta siete grupos de consulta adicionales (ocho en total incluido el servidor del cliente) con los mismos modelos tabulares para distribuir la carga de trabajo de la consulta y reducir el tiempo de respuesta.
 
-Para mejorar el análisis y los informes, las bases de datos de Azure SQL Database pueden configurarse con índices de almacén de columnas. Tanto los servicios de Azure Analytics Services como las bases de datos de Azure SQL Database se pueden escalar o reducir verticalmente o apagarse completamente en respuesta al uso del cliente. Todo el tráfico SQL se cifra con SSL mediante la inclusión de certificados autofirmados. Como procedimiento recomendado, Azure recomienda el uso de una entidad de certificación de confianza para mejorar la seguridad.
+Para mejorar el análisis y los informes, las bases de datos de Azure SQL pueden configurarse con índices de almacén de columnas. Tanto los servicios de Azure Analytics Services como las bases de datos de Azure SQL se pueden escalar o reducir verticalmente o apagarse completamente en respuesta al uso del cliente. Todo el tráfico SQL se cifra con SSL mediante la inclusión de certificados autofirmados. Como procedimiento recomendado, Azure recomienda el uso de una entidad de certificación de confianza para mejorar la seguridad.
 
-Cuando se suben los datos a la instancia de Azure SQL Database y se entrenan mediante los servicios de Azure Analysis Service, los digiere el usuario operativo y el administrador de datos o SQL con Power BI. Power BI muestra los datos de forma intuitiva y reúne la información a través de múltiples conjuntos de datos para obtener un mayor conocimiento. Su alto grado de adaptabilidad y fácil integración con Azure SQL Database asegura que los clientes puedan configurarlo para tratar una amplia gama de escenarios según sus necesidades de negocio.
+Cuando se suben los datos a la base de datos de Azure SQL y se entrenan mediante los servicios de Azure Analysis Service, los digiere el usuario operativo y el administrador de datos o SQL con Power BI. Power BI muestra los datos de forma intuitiva y reúne la información a través de múltiples conjuntos de datos para obtener un mayor conocimiento. Su alto grado de adaptabilidad y fácil integración con Azure SQL Database asegura que los clientes puedan configurarlo para tratar una amplia gama de escenarios según sus necesidades de negocio.
 
 La solución utiliza cuentas de Azure Storage que los clientes pueden configurar para que usen Storage Service Encryption para preservar la confidencialidad de los datos en reposo. Azure almacena tres copias de datos en un centro de datos elegido por el cliente con fines de resistencia. El almacenamiento con redundancia geográfica garantiza que los datos se replicarán en un centro de datos secundario a cientos de kilómetros de distancia y que, de nuevo, se guardarán tres copias en ese centro de datos, lo que impide que un evento adverso que suceda en el centro de datos principal del cliente pueda provocar una pérdida de datos.
 
@@ -53,7 +53,7 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 - Azure Key Vault
 - Azure Monitor
 - Azure Security Center
-- Azure SQL Database
+- Azure SQL Database
 - Azure Storage
 - Azure Virtual Network
     - (1) /16 redes

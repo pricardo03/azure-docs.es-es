@@ -1,6 +1,6 @@
 ---
 title: 'Actualizaciones graduales de aplicaciones: Azure SQL Database | Microsoft Docs'
-description: Aprenda a usar la replicación geográfica en SQL Database para admitir las actualizaciones en línea de la aplicación en la nube.
+description: Aprenda a usar la replicación geográfica en Azure SQL Database para admitir las actualizaciones en línea de la aplicación en la nube.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability

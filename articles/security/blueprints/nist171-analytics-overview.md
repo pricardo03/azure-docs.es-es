@@ -53,7 +53,7 @@ Esta solución usa los siguientes servicios de Azure. Para obtener más informac
 - Azure Machine Learning
 - Monitor de Azure (registros)
 - Azure Security Center
-- Azure SQL Database
+- Azure SQL Database
 - Azure Storage
 - Azure Virtual Network
     - (1) /16 redes

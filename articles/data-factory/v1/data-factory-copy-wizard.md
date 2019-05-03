@@ -36,7 +36,7 @@ Este asistente permite mover fácilmente los datos de una gran variedad de oríg
 ![Selección de origen de datos](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
-> Para ver instrucciones detalladas para crear una canalización de ejemplo para copiar datos desde un Azure blob a una tabla de Azure SQL Database, consulte el artículo [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md). 
+> Para ver instrucciones detalladas para crear una canalización de ejemplo para copiar datos desde un Azure blob a una tabla de una base de datos de Azure SQL, consulte el artículo [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md). 
 > 
 > 
 

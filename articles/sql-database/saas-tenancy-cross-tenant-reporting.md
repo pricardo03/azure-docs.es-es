@@ -1,5 +1,5 @@
 ---
-title: Ejecución de consultas de notificaciones entre varias bases de datos Azure SQL Database | Microsoft Docs
+title: Ejecución de consultas de notificaciones entre varias bases de datos de Azure SQL | Microsoft Docs
 description: Notificación entre inquilinos mediante consultas distribuidas.
 services: sql-database
 ms.service: sql-database

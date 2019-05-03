@@ -1,6 +1,6 @@
 ---
 title: Actividad de procedimiento almacenado de SQL Server
-description: Sepa cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en Azure SQL Database o en Azure SQL Data Warehouse desde una canalización de Data Factory.
+description: Sepa cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en una base de datos de Azure SQL o un almacenamiento de Azure SQL Data Warehouse desde una canalización de Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
@@ -41,7 +41,7 @@ Las actividades de transformación en una [canalización](data-factory-create-pi
 
 Puede usar la actividad de procedimiento almacenado para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos de la empresa o en una máquina virtual (VM) de Azure:
 
-- Azure SQL Database
+- Azure SQL Database
 - Azure SQL Data Warehouse
 - Base de datos de SQL Server. Si se usa SQL Server, se debe instalar la puerta de enlace de administración de datos en el mismo equipo que hospeda la base de datos o en un equipo independiente que tenga acceso a la base de datos. La puerta de enlace de administración de datos es un componente que conecta orígenes de datos locales o en la máquina virtual de Azure con servicios en la nube de forma segura y administrada. Consulte el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para obtener detalles.
 
@@ -54,7 +54,7 @@ El siguiente procedimiento usa la actividad del procedimiento almacenado en una 
 
 ## <a name="walkthrough"></a>Tutorial
 ### <a name="sample-table-and-stored-procedure"></a>Procedimiento almacenado y tabla de ejemplo
-1. Cree la siguiente **tabla** en Azure SQL Database con SQL Server Management Studio o cualquier otra herramienta que le resulte cómoda. La columna datetimestamp indica la fecha y la hora en que se generó el identificador correspondiente.
+1. Cree la siguiente **tabla** en su base de datos de Azure SQL con SQL Server Management Studio o cualquier otra herramienta que le resulte cómoda. La columna datetimestamp indica la fecha y la hora en que se generó el identificador correspondiente.
 
     ```SQL
     CREATE TABLE dbo.sampletable
@@ -107,7 +107,7 @@ El siguiente procedimiento usa la actividad del procedimiento almacenado en una 
    ![Página principal de Data Factory](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### <a name="create-an-azure-sql-linked-service"></a>Crear un servicio vinculado SQL de Azure.
-Después de crear la factoría de datos, cree un servicio vinculado de Azure SQL que conecte Azure SQL Database (que contiene la tabla sampletable y el procedimiento almacenado usp_sample) con la factoría de datos.
+Después de crear la factoría de datos, cree un servicio vinculado de Azure SQL que conecte su base de datos de Azure SQL (que contiene la tabla sampletable y el procedimiento almacenado usp_sample) con la factoría de datos.
 
 1. En la hoja **Crear e implementar**, haga clic en la hoja **Data Factory** para que **SProcDF** inicie Data Factory Editor.
 2. Haga clic en **Nuevo almacén de datos** en la barra de comandos y elija **Azure SQL Database**. Debería ver el script JSON para crear un servicio vinculado SQL de Azure en el editor.
@@ -126,7 +126,7 @@ Después de crear la factoría de datos, cree un servicio vinculado de Azure SQL
     ![vista de árbol con servicios vinculados](media/data-factory-stored-proc-activity/tree-view.png)
 
 ### <a name="create-an-output-dataset"></a>Crear un conjunto de datos de salida
-Debe especificar un conjunto de datos de salida para una actividad de procedimiento almacenado aunque el procedimiento almacenado no genere ningún dato. Esto se debe a que se trata del conjunto de datos de salida que determina la programación de la actividad (frecuencia con que se ejecuta la actividad: cada hora, diariamente, etc.). El conjunto de datos de salida debe utilizar un **servicio vinculado** que haga referencia a Azure SQL Database, un SQL Data Warehouse o una base de datos de SQL Server donde desee que el procedimiento almacenado se ejecute. El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio** (un conjunto de datos que apunta a una tabla que no contiene realmente la salida del procedimiento almacenado). Este conjunto de datos ficticio solo se usa para especificar la programación de la ejecución de la actividad de procedimiento almacenado.
+Debe especificar un conjunto de datos de salida para una actividad de procedimiento almacenado aunque el procedimiento almacenado no genere ningún dato. Esto se debe a que se trata del conjunto de datos de salida que determina la programación de la actividad (frecuencia con que se ejecuta la actividad: cada hora, diariamente, etc.). El conjunto de datos de salida debe utilizar un **servicio vinculado** que haga referencia a una base de datos de Azure SQL, una base de datos de almacenamiento de Azure SQL o una base de datos de SQL Server donde desee que el procedimiento almacenado se ejecute. El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio** (un conjunto de datos que apunta a una tabla que no contiene realmente la salida del procedimiento almacenado). Este conjunto de datos ficticio solo se usa para especificar la programación de la ejecución de la actividad de procedimiento almacenado.
 
 1. Haga clic en **... Más** en la barra de herramientas, haga clic en **Nuevo conjunto de datos** y en **Azure SQL**. Haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **Azure SQL**.
 
@@ -310,8 +310,8 @@ En la tabla siguiente se describen estas propiedades JSON:
 | description |Texto que describe para qué se usa la actividad. |Sin  |
 | Tipo | Se debe establecer en: **SqlServerStoredProcedure** | Sí |
 | inputs | Opcional. Si especifica un conjunto de datos de entrada, debe estar disponible (en estado "Listo") para que se ejecute la actividad de procedimiento almacenado. El conjunto de datos de entrada no se puede usar en el procedimiento almacenado como parámetro. Solo se utiliza para comprobar la dependencia antes de iniciar la actividad de procedimiento almacenado. |Sin  |
-| outputs | Debe especificar un conjunto de datos para una actividad de procedimiento almacenado. El conjunto de datos de salida especifica la **programación** para la actividad de procedimiento almacenada (por hora, semanal, mensual, etc.). <br/><br/>El conjunto de datos de salida debe utilizar un **servicio vinculado** que haga referencia a Azure SQL Database, un SQL Data Warehouse o una base de datos de SQL Server donde desee que el procedimiento almacenado se ejecute. <br/><br/>El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. <br/><br/>En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio**, que solo se utilice para especificar la programación para ejecutar la actividad de procedimiento almacenado. |Sí |
-| storedProcedureName |Especifique el nombre del procedimiento almacenado de Azure SQL Database, Azure SQL Data Warehouse o la base de datos de SQL Server que se representa mediante el servicio vinculado que usa la tabla de salida. |Sí |
+| outputs | Debe especificar un conjunto de datos para una actividad de procedimiento almacenado. El conjunto de datos de salida especifica la **programación** para la actividad de procedimiento almacenada (por hora, semanal, mensual, etc.). <br/><br/>El conjunto de datos de salida debe utilizar un **servicio vinculado** que haga referencia a una base de datos de Azure SQL, una base de datos de almacenamiento de Azure SQL o una base de datos de SQL Server donde desee que el procedimiento almacenado se ejecute. <br/><br/>El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. <br/><br/>En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio**, que solo se utilice para especificar la programación para ejecutar la actividad de procedimiento almacenado. |Sí |
+| storedProcedureName |Especifique el nombre del procedimiento almacenado de la base de datos de Azure SQL, el almacenamiento de datos de Azure SQL o la base de datos de SQL Server que se representa mediante el servicio vinculado que usa la tabla de salida. |Sí |
 | storedProcedureParameters |Especifique valores para los parámetros del procedimiento almacenado. Si necesita pasar null para un parámetro, use la sintaxis: "param1": null (todo en minúsculas). Vea el ejemplo siguiente para aprender el uso de esta propiedad. |Sin  |
 
 ## <a name="passing-a-static-value"></a>Pasar un valor estático

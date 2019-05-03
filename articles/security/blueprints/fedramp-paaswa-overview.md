@@ -34,7 +34,7 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 
 - Azure Active Directory
 - Azure Key Vault
-- Azure SQL Database
+- Azure SQL Database
 - Application Gateway
     - (1) Firewall de aplicaciones web
         - Modo de firewall: prevención

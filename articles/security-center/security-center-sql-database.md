@@ -1,6 +1,6 @@
 ---
 title: Servicios Azure Security Center y Azure SQL Database | Microsoft Docs
-description: En este artículo se explica cómo Security Center puede ayudarle a proteger bases de datos en Azure SQL Database.
+description: En este artículo se explica cómo Security Center puede ayudarlo a proteger bases de datos en Azure SQL Database.
 services: sql-database
 documentationcenter: na
 author: rkarlin
@@ -24,7 +24,7 @@ ms.locfileid: "60704618"
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Servicios Azure Security Center y Azure SQL Database
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) ayuda a evita y a detectar las amenazas, además de a responder a ellas. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
-En este artículo se explica cómo Security Center puede ayudarle a proteger bases de datos en Azure SQL Database.
+En este artículo se explica cómo Security Center puede ayudarlo a proteger bases de datos en Azure SQL Database.
 
 ## <a name="why-use-security-center"></a>Razones para usar Security Center
 Security Center ayuda a proteger los datos de SQL Database ofreciendo visibilidad de la seguridad en todos los servidores y bases de datos. Con Security Center puede realizar estas tareas:
@@ -55,7 +55,7 @@ Las directivas de seguridad definen el conjunto de controles recomendados para l
 Puede establecer una directiva para mostrar recomendaciones de cifrado de datos transparente (TDE) y de auditoría de SQL.
 
 * Al activar la **detección de amenazas y auditoría de SQL**, Security Center recomienda que la auditoría del acceso a Azure Database esté habilitada para fines de cumplimiento, detección avanzada e investigación.
-* Al activar el **cifrado de datos transparente de SQL**, Security Center recomienda que el cifrado en reposo se habilite para Azure SQL Database, las copias de seguridad asociadas y los archivos de registro de transacciones.
+* Al activar el **cifrado de datos transparente de SQL**, Security Center recomienda que el cifrado en reposo se habilite para su base de datos de Azure SQL, las copias de seguridad asociadas y los archivos de registro de transacciones.
 
 Para establecer una directiva de seguridad, haga clic en el icono de **Directiva** de la hoja Security Center. En la hoja **Directiva de seguridad**, seleccione la suscripción en la que quiera habilitar la directiva de seguridad. Seleccione **Directiva de prevención** y **active** las recomendaciones de seguridad que quiera usar en esta suscripción.
 ![Directiva de seguridad][3]

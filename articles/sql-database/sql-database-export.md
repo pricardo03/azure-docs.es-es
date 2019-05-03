@@ -1,5 +1,5 @@
 ---
-title: Exportación de una base de datos única o agrupada de Azure SQL Database a un archivo BACPAC | Microsoft Docs
+title: Exportación de una base de datos de Azure SQL única o agrupada a un archivo BACPAC | Microsoft Docs
 description: Exportación de una base de datos de Azure SQL Database a un archivo BACPAC mediante Azure Portal
 services: sql-database
 ms.service: sql-database
@@ -23,9 +23,9 @@ ms.locfileid: "61483900"
 
 Cuando necesite exportar una base de datos para archivar o migrar a otra plataforma, puede exportar el esquema de base de datos y los datos a un archivo [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4). Un archivo BACPAC es un archivo ZIP con una extensión de BACPAC que contiene los metadatos y los datos de una base de datos de SQL Server. Un archivo BACPAC se puede almacenar en Azure Blob Storage o en una ubicación local y, luego, volver a importarlo en Azure SQL Database o en una instalación local de SQL Server.
 
-## <a name="considerations-when-exporting-an-azure-sql-database"></a>Consideraciones al exportar una base de datos Azure SQL Database
+## <a name="considerations-when-exporting-an-azure-sql-database"></a>Consideraciones al exportar una base de datos de Azure SQL
 
-- Para que una exportación sea transaccionalmente coherente, debe asegurarse de que no haya ninguna actividad de escritura durante la exportación, o bien de exportar desde una [copia transaccionalmente coherente](sql-database-copy.md) de Azure SQL Database.
+- Para que una exportación sea transaccionalmente coherente, debe asegurarse de que no haya ninguna actividad de escritura durante la exportación, o bien de exportar desde una [copia transaccionalmente coherente](sql-database-copy.md) de su base de datos de Azure SQL.
 - Si va a exportar a Blob Storage, el tamaño máximo de un archivo BACPAC es 200 GB. Para archivar un archivo BACPAC de mayor tamaño, exporte al almacenamiento local.
 - No se admite la exportación de un archivo BACPAC en Azure Premium Storage con los métodos que se describen en este artículo.
 - Almacenamiento detrás de un firewall no se admite actualmente.
@@ -108,5 +108,5 @@ $exportStatus
 - Para aprender a importar un BACPAC a una base de datos de SQL Server, consulte [Importación de un BACPAC en una base de datos de SQL Server](https://msdn.microsoft.com/library/hh710052.aspx).
 - Para aprender a exportar un BACPAC desde una base de datos de SQL Server, consulte [Exportar una aplicación de capa de datos](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
 - Para más información acerca de cómo usar el servicio de migración de datos para migrar una base de datos, consulte [Migración de SQL Server a Azure SQL Database sin conexión mediante DMS](../dms/tutorial-sql-server-to-azure-sql.md).
-- Si va a exportar desde SQL Server como paso previo a la migración a Azure SQL Database, consulte [Migración de una base de datos SQL Server a Azure SQL Database](sql-database-single-database-migrate.md).
+- Si va a exportar desde SQL Server como paso previo a la migración a Azure SQL Database, consulte [Migración de una base de datos de SQL Server a Azure SQL Database](sql-database-single-database-migrate.md).
 - Para obtener información sobre cómo administrar y compartir de forma segura claves de almacenamiento y firmas de acceso compartido, vea la [Guía de seguridad de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

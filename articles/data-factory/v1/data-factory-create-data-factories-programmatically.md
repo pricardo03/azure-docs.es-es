@@ -502,6 +502,6 @@ while (response != null);
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea el ejemplo siguiente para crear una canalización mediante el SDK de .NET que copia datos de Azure Blob Storage a Azure SQL Database: 
+Vea el ejemplo siguiente para crear una canalización mediante el SDK para .NET que copia datos de un almacenamiento de blobs de Azure a una base de datos de Azure SQL: 
 
 - [Crear una canalización para copiar datos de Blob Storage a SQL Database](data-factory-copy-activity-tutorial-using-dotnet-api.md)

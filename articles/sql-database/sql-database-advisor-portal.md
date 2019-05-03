@@ -1,6 +1,6 @@
 ---
 title: 'Aplicación de recomendaciones de rendimiento: Azure SQL Database | Microsoft Docs'
-description: Use Azure Portal para buscar recomendaciones de rendimiento que pueden optimizar el rendimiento de su instancia de Azure SQL Database.
+description: Use Azure Portal para buscar recomendaciones de rendimiento que pueden optimizar el rendimiento de su base de datos de Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -21,7 +21,7 @@ ms.locfileid: "61420378"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Búsqueda y aplicación de recomendaciones de rendimiento
 
-Puede usar Azure Portal para buscar recomendaciones de rendimiento que pueden optimizar el rendimiento de su instancia de Azure SQL Database o corregir un problema identificado en la carga de trabajo. La página **Recomendaciones de rendimiento** de Azure Portal permite buscar las principales recomendaciones en función de su impacto potencial. 
+Puede usar Azure Portal para buscar recomendaciones de rendimiento que pueden optimizar el rendimiento de su base de datos de Azure SQL o corregir un problema identificado en la carga de trabajo. La página **Recomendaciones de rendimiento** de Azure Portal permite buscar las principales recomendaciones en función de su impacto potencial. 
 
 ## <a name="viewing-recommendations"></a>Visualización de recomendaciones
 

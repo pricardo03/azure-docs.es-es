@@ -1,6 +1,6 @@
 ---
 title: Uso de Node.js para consultar Azure SQL Database | Microsoft Docs
-description: Cómo usar Node.js para crear un programa que se conecte a Azure SQL Database y realice consultas en él mediante instrucciones T-SQL.
+description: Cómo usar Node.js para crear un programa que se conecte a una base de datos de Azure SQL y realice consultas mediante instrucciones T-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -18,15 +18,15 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58444699"
 ---
-# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de Node.js para consultar una base de datos SQL de Azure
+# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de Node.js para consultar una base de datos de Azure SQL
 
-En este artículo se muestra cómo usar [Node.js](https://nodejs.org) para conectarse a una instancia de Azure SQL Database. Luego puede usar instrucciones de T-SQL para consultar los datos.
+En este artículo se muestra cómo usar [Node.js](https://nodejs.org) para conectarse a una base de datos de Azure SQL. Luego puede usar instrucciones de T-SQL para consultar los datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este ejemplo, asegúrese de que cumple los siguientes requisitos previos:
 
-- Una base de datos SQL de Azure. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+- Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
 
   || Base de datos única | Instancia administrada |
   |:--- |:--- |:---|
@@ -159,4 +159,4 @@ Abra un símbolo del sistema y cree una carpeta denominada *sqltest*. Navegue ha
 
 - [Introducción a .NET Core en Windows, Linux y macOS mediante la línea de comandos](/dotnet/core/tutorials/using-with-xplat-cli)
 
-- Diseño de la primera instancia de Azure SQL Database mediante [.NET](sql-database-design-first-database-csharp.md) o [SSMS](sql-database-design-first-database.md)
+- Diseño de la primera base de datos de Azure SQL mediante [.NET](sql-database-design-first-database-csharp.md) o [SSMS](sql-database-design-first-database.md)

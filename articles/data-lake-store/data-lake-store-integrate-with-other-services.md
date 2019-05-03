@@ -45,7 +45,7 @@ Para obtener instrucciones sobre cómo usar Azure Data Factory con Data Lake Sto
 Azure Data Lake Storage Gen1 proporciona una herramienta de línea de comandos, AdlCopy, que le permite copiar datos desde Azure Blob Storage en una cuenta de Data Lake Storage Gen1. Para más información, consulte [Copia de datos de Azure Storage Blob en Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="copy-data-between-azure-sql-database-and-data-lake-storage-gen1"></a>Copia de datos entre Azure SQL Database y Data Lake Storage Gen1
-Puede usar Apache Sqoop para importar y exportar datos entre SQL Database y Data Lake Storage Gen1. Para más información, consulte [Copia de datos entre Data Lake Storage Gen1 y Base de datos SQL de Azure mediante Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
+Puede usar Apache Sqoop para importar y exportar datos entre Azure SQL Database y Data Lake Storage Gen1. Para más información, consulte [Copia de datos entre Data Lake Storage Gen1 y Azure SQL Database mediante Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
 
 ## <a name="use-data-lake-storage-gen1-with-stream-analytics"></a>Uso de Data Lake Storage Gen1 con Stream Analytics
 Puede utilizar Data Lake Storage Gen1 como una de las salidas para almacenar los datos que se transmiten mediante Azure Stream Analytics. Para más información, consulte [Transmisión de datos de Azure Storage Blob a Data Lake Storage Gen1 mediante Stream Analytics](data-lake-store-stream-analytics.md).

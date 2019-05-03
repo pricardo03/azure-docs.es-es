@@ -1,6 +1,6 @@
 ---
-title: Ejemplo de PowerShell para supervisar y escalar una instancia de Azure SQL Database | Microsoft Docs
-description: Script de ejemplo de Azure PowerShell para supervisar y escalar una instancia de Azure SQL Database
+title: Ejemplo de PowerShell para supervisar y escalar una base de datos de Azure SQL | Microsoft Docs
+description: Script de ejemplo de Azure PowerShell para supervisar y escalar una base de datos de Azure SQL única
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance

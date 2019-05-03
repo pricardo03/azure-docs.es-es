@@ -251,7 +251,7 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio de Microsoft 
 
 - Confirme que su entorno de red corporativo permite la comunicación entrante de los intervalos de direcciones IP de Compute (incluidos los intervalos SQL) utilizada por los centros de datos de Microsoft Azure. Puede ser necesario a la lista de permitidos estas direcciones IP, consulte [intervalos de IP de centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)  
 - Para consultar un inicio rápido sobre cómo crear una regla de firewall por IP de nivel de servidor, consulte [Creación de una base de datos de Azure SQL](sql-database-single-database-get-started.md).
-- Si desea obtener ayuda para conectarse a Azure SQL Database desde aplicaciones de código abierto o de terceros, consulte [Ejemplos de código de inicio rápido de cliente para SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+- Si desea obtener ayuda para conectarse a una base de datos de Azure SQL desde aplicaciones de código abierto o de terceros, consulte [Ejemplos de código de inicio rápido de cliente para SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Para información sobre los puertos adicionales que puede necesitar abrir, vea la sección **SQL Database: fuera frente a dentro**: de la sección [Puertos más allá de 1433 para ADO.NET 4.5 y SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 - Para obtener información general sobre la seguridad de Azure SQL Database, vea [Protección de bases de datos SQL](sql-database-security-overview.md).
 

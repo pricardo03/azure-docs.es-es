@@ -49,7 +49,7 @@ Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 * **Suscripción de Azure**.  Si no tiene una suscripción, puede crear una cuenta de prueba gratuita en tan solo un par de minutos. Consulte el artículo [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) para obtener información.
 * **Cuenta de Azure Storage**. Almacenamiento de blobs se usará como un almacén de datos de **origen** en este tutorial. Si no tiene una cuenta de Almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación.
-* **Azure SQL Database**. Usará una base de datos SQL de Azure como un almacén de datos de **destino** en este tutorial. Si no dispone de una instancia de Azure SQL Database que pueda usar en el tutorial, vea [Cómo crear y configurar Azure SQL Database](../../sql-database/sql-database-get-started.md) para crear una.
+* **Azure SQL Database**. Usará una base de datos de Azure SQL como un almacén de datos de **destino** en este tutorial. Si no dispone de una base de datos de Azure SQL que pueda usar en el tutorial, vea [Cómo crear y configurar Azure SQL Database](../../sql-database/sql-database-get-started.md) para crear una.
 * **SQL Server 2012/2014 o Visual Studio 2013**. Usará SQL Server Management Studio o Visual Studio para crear una base de datos de ejemplo y ver los datos de resultados de la base de datos.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Obtención del nombre y la clave de la cuenta de Almacenamiento de blobs
@@ -68,7 +68,7 @@ Para realizar este tutorial necesitará el nombre de cuenta y la clave de cuenta
 7. Haga clic en **X**para cerrar todas las hojas.
 
 ## <a name="collect-sql-server-database-user-names"></a>Recopilación de nombres de usuario, bases de datos y servidores SQL Server
-Necesitará los nombres de servidor SQL de Azure, la base de datos y el usuario para realizar este tutorial. Anote los nombres del **servidor**, la **base de datos** y el **usuario** de su instancia de Azure SQL Database.
+Necesitará los nombres de servidor SQL de Azure, la base de datos y el usuario para realizar este tutorial. Anote los nombres del **servidor**, la **base de datos** y el **usuario** de su base de datos de Azure SQL.
 
 1. En **Azure Portal**, haga clic en **Todos los servicios** a la izquierda y seleccione **Bases de datos SQL**.
 2. En la **hoja de bases de datos SQL**, seleccione la **base de datos** que desea usar en este tutorial. Anote el **nombre de la base de datos**.  
@@ -85,7 +85,7 @@ Asegúrese de que la configuración **Permitir el acceso a los servicios de Azur
 4. Haga clic en **X**para cerrar todas las hojas.
 
 ## <a name="prepare-blob-storage-and-sql-database"></a>Preparación de Blob Storage y SQL Database
-Ahora, prepare su almacenamiento de blobs de Azure y base de datos SQL de Azure para el tutorial realizando los pasos siguientes:  
+Ahora, prepare su almacenamiento de blobs de Azure y base de datos de Azure SQL para el tutorial realizando los pasos siguientes:  
 
 1. Inicie el Bloc de notas. Copie el texto siguiente y guárdelo como **emp.txt** en la carpeta **C:\ADFGetStarted** de su disco duro.
 
@@ -95,7 +95,7 @@ Ahora, prepare su almacenamiento de blobs de Azure y base de datos SQL de Azure 
     ```
 2. Use herramientas como el [Explorador de Azure Storage](https://storageexplorer.com/) para crear el contenedor **adftutorial** y cargar el archivo **emp.txt** en el contenedor.
 
-3. Use el siguiente script de SQL para crear la tabla **emp** en su Azure SQL Database.  
+3. Use el siguiente script de SQL para crear la tabla **emp** en su base de datos de Azure SQL.  
 
     ```SQL
     CREATE TABLE dbo.emp

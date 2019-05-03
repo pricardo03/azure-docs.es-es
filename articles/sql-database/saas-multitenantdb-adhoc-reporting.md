@@ -1,5 +1,5 @@
 ---
-title: Ejecución de consultas de notificaciones ad hoc entre varias bases de datos Azure SQL Database | Microsoft Docs
+title: Ejecución de consultas de notificaciones ad hoc entre varias bases de datos de Azure SQL | Microsoft Docs
 description: Ejecute consultas de notificaciones ad hoc entre varias bases de datos SQL en un ejemplo de aplicación multiinquilino.
 services: sql-database
 ms.service: sql-database
@@ -19,7 +19,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61485830"
 ---
-# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Ejecución de consultas de análisis ad hoc entre varias bases de datos Azure SQL Database
+# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Ejecución de consultas de análisis ad hoc entre varias bases de datos de Azure SQL
 
 En este tutorial, se ejecutan consultas distribuidas en todo el conjunto de bases de datos de inquilino para habilitar las notificaciones ad hoc interactivas. Estas consultas pueden extraer información incluida en los datos operativos diarios de la aplicación SaaS Wingtip Tickets. Para que se realicen estas extracciones, puede implementar una base de datos de análisis adicional en el servidor de catálogo y usar una consulta elástica para habilitar las consultas distribuidas.
 

@@ -134,7 +134,7 @@ sections:
         style: cards
         className: cardsFTitle
         items:
-          - title: Aprovisionamiento de Azure SQL Database para almacenar datos de aplicación
+          - title: Aprovisionamiento de una base de datos de Azure SQL para almacenar datos de aplicación
             href: /learn/modules/provision-azure-sql-db/
             image:
               src: /learn/achievements/provision-azure-sql-db.svg

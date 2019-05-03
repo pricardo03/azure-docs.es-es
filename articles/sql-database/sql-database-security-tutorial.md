@@ -36,7 +36,7 @@ Azure SQL Database protege los datos de una base de datos única o agrupada al p
 - Habilitar características de seguridad
 
 > [!NOTE]
-> Una base de datos Azure SQL en una instancia administrada se protege mediante reglas de seguridad de red y puntos de conexión privados, como se describe en [Instancia administrada de Azure SQL Database](sql-database-managed-instance-index.yml) y [Arquitectura de conectividad](sql-database-managed-instance-connectivity-architecture.md).
+> Una base de datos de Azure SQL en una instancia administrada se protege mediante reglas de seguridad de red y puntos de conexión privados, como se describe en [Instancia administrada de Azure SQL Database](sql-database-managed-instance-index.yml) y [Arquitectura de conectividad](sql-database-managed-instance-connectivity-architecture.md).
 
 Para más información, consulte los artículos [Información general sobre las funcionalidades de seguridad de Azure SQL Database](/azure/sql-database/sql-database-security-index) y [Funcionalidades](sql-database-security-overview.md).
 
@@ -112,7 +112,7 @@ Para configurar una regla de firewall de nivel de base de datos:
 
 ## <a name="create-an-azure-ad-admin"></a>Creación de un administrador de Azure AD
 
-Asegúrese de que está usando el dominio administrado de Azure Active Directory (AD) adecuado. Seleccione el dominio de AD en la esquina superior derecha de Azure Portal. Este proceso confirma que la misma suscripción se usa tanto para Azure AD como para el servidor SQL Server que hospeda el almacenamiento de datos o la base de datos SQL de Azure.
+Asegúrese de que está usando el dominio administrado de Azure Active Directory (AD) adecuado. Seleccione el dominio de AD en la esquina superior derecha de Azure Portal. Este proceso confirma que la misma suscripción se usa tanto para Azure AD como para el servidor SQL Server que hospeda el almacenamiento de datos o la base de datos de Azure SQL.
 
    ![elegir ad](./media/sql-database-security-tutorial/8choose-ad.png)
 

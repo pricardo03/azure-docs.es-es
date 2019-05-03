@@ -62,7 +62,7 @@ Obtenga información sobre cómo buscar y aplicar recomendaciones de rendimiento
 
 ## <a name="automatic-tuning"></a>Ajuste automático
 
-Las bases de datos de Azure SQL Database pueden optimizar automáticamente el rendimiento de base de datos mediante la aplicación de [recomendaciones de rendimiento](sql-database-advisor.md). Para obtener más información, lea el [artículo Ajuste automático](sql-database-automatic-tuning.md). Para habilitarlo, lea [cómo habilitar el ajuste automático](sql-database-automatic-tuning-enable.md).
+Las bases de datos de Azure SQL pueden optimizar automáticamente el rendimiento de base de datos mediante la aplicación de [recomendaciones de rendimiento](sql-database-advisor.md). Para obtener más información, lea el [artículo Ajuste automático](sql-database-automatic-tuning.md). Para habilitarlo, lea [cómo habilitar el ajuste automático](sql-database-automatic-tuning-enable.md).
 
 ## <a name="query-performance-insight"></a>Información de rendimiento de consultas
 

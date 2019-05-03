@@ -22,7 +22,7 @@ ms.locfileid: "61429355"
 
 En este artículo se muestra cómo mover datos desde una base de datos local de SQL Server hasta una base de datos de SQL Azure a través de Azure Blob Storage mediante Azure Data Factory (ADF).
 
-Para ver una tabla que resuma varias opciones para mover datos a Azure SQL Database, vea [Mover datos a Azure SQL Database para Azure Machine Learning](move-sql-azure.md).
+Para ver una tabla que resuma varias opciones para mover datos a una base de datos de Azure SQL, vea [Traslado de datos a una base de datos de Azure SQL para Azure Machine Learning](move-sql-azure.md).
 
 ## <a name="intro"></a>Introducción: ¿qué es la ADF y cuándo se debe usar para migrar datos?
 La Azure Data Factory es un servicio de integración de datos totalmente administrado basado en la nube que organiza y automatiza el movimiento y la transformación de datos. El concepto clave en el modelo de ADF es la canalización. Una canalización es una agrupación lógica de actividades, cada una de las cuales define las acciones que se deben realizar en los datos incluidos en los conjuntos de datos. Los servicios vinculados se usan para definir la información necesaria para que la Factoría de datos se conecte a los recursos de datos.
@@ -37,10 +37,10 @@ Considere el uso de ADF en estos casos:
 La ADF permite la programación y supervisión de trabajos mediante scripts JSON sencillos que administran el movimiento de datos de forma periódica. La ADF también tiene otras capacidades como la compatibilidad con operaciones complejas. Para obtener más información sobre la ADF, vea la documentación de [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>Escenario
-Configuramos una canalización ADF que se compone de dos actividades de migración de datos. En conjunto, mueven datos a diario entre una instancia de SQL Database local y otra instancia de Azure SQL Database en la nube. Las dos actividades son:
+Configuramos una canalización ADF que se compone de dos actividades de migración de datos. En conjunto, mueven datos a diario entre una base de datos SQL local y una base de datos de Azure SQL en la nube. Las dos actividades son:
 
 * copiar datos de una base de datos SQL Server local a una cuenta de Azure Blob Storage.
-* copiar datos de la cuenta de Azure Blob Storage a una Azure SQL Database.
+* copiar datos de la cuenta de Azure Blob Storage a una base de datos de Azure SQL.
 
 > [!NOTE]
 > Los pasos que se muestra a continuación se han adaptado del tutorial más detallado que ofrece el equipo ADF: [Copia de datos de una base de datos de SQL Server local a Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) hace referencia a que las secciones correspondientes de ese tema se proporcionan cuando corresponde.
@@ -78,7 +78,7 @@ Un servicio vinculado define la información necesaria para que Azure Data Facto
 
 1. SQL Server local
 2. Azure Blob Storage
-3. Azure SQL Database
+3. Azure SQL Database
 
 El procedimiento paso a paso para crear servicios vinculados se proporciona en [Crear servicios vinculados](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 

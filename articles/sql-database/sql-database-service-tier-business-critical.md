@@ -1,6 +1,6 @@
 ---
-title: 'Nivel Crítico para la empresa: servicio Azure SQL Database | Microsoft Docs'
-description: Obtenga información sobre el nivel Crítico para la empresa de Azure SQL Database.
+title: 'Nivel de servicio Crítico para la empresa: Azure SQL Database | Microsoft Docs'
+description: Obtenga información sobre el nivel de servicio Crítico para la empresa de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -19,7 +19,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60709335"
 ---
-# <a name="business-critical-tier---azure-sql-database"></a>Nivel Crítico para la empresa: Azure SQL Database
+# <a name="business-critical-tier---azure-sql-database"></a>Nivel de servicio Crítico para la empresa: Azure SQL Database
 
 > [!NOTE]
 > El nivel Crítico para la empresa se denomina Premium en el modelo de compra basado en la unidad de transacción de base de datos. Para ver una comparación entre el modelo de compra basado en núcleo virtual y el modelo de compra basado en DTU, consulte [Modelos de compra y recursos de Azure SQL Database](sql-database-purchase-models.md).

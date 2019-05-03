@@ -27,7 +27,7 @@ La [biblioteca de cliente de Elastic Database](sql-database-elastic-database-cli
 * **Credenciales de acceso**: se usan para obtener acceso a un administrador de mapas de particiones ya existente, para así obtener información acerca de las particiones.
 * **Credenciales de conexión**: se usan para conectarse a las particiones.
 
-Consulte, asimismo, [Administrar bases de datos e inicios de sesión en Azure SQL Database](sql-database-manage-logins.md).
+Consulte, asimismo, [Administración de bases de datos e inicios de sesión en Azure SQL Database](sql-database-manage-logins.md).
 
 ## <a name="about-management-credentials"></a>Acerca de las credenciales de administración
 

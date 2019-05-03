@@ -10,7 +10,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 ms.openlocfilehash: 74c33d73f15c4edf63a02ea5c9a0cdcad88bb68c
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049752"
@@ -35,7 +35,7 @@ Este documento es el primero de una serie de artículos que muestran cómo la co
 [Artículo 9: refactorizar una aplicación de Azure Web Apps y Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Muestra cómo Contoso migra la aplicación SmartHotel360 a una aplicación web de Azure y migra la base de datos de la aplicación a la instancia de Azure SQL Server | Disponible
 [Artículo 10: Refactorizar una aplicación Linux a Azure Web Apps y Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Muestra cómo Contoso migra la aplicación Linux osTicket a Azure Web Apps en varios sitios integrados con GitHub para ofrecer una entrega continua. Se migra la base de datos de la aplicación a una instancia de Azure MySQL. | Disponible
 [Artículo 11: refactorización de TFS en Azure DevOps Services](contoso-migration-tfs-vsts.md) | Muestra cómo Contoso migra la implementación de Team Foundation Server (TFS) local a Azure DevOps Services en Azure. | Disponible
-[Artículo 12: Rediseñar la arquitectura de una aplicación en contenedores de Azure y SQL Database](contoso-migration-rearchitect-container-sql.md) | Muestra cómo Contoso migra la aplicación de SmartHotel a Azure y rediseña su arquitectura. Rediseñan la arquitectura del nivel web de la aplicación como contenedor de Windows, y la base de datos de la aplicación en una instancia de Azure SQL Database. | Disponible
+[Artículo 12: Rediseñar la arquitectura de una aplicación en contenedores de Azure y SQL Database](contoso-migration-rearchitect-container-sql.md) | Muestra cómo Contoso migra la aplicación de SmartHotel a Azure y rediseña su arquitectura. Rediseñan la arquitectura del nivel web de la aplicación como contenedor de Windows, y la base de datos de la aplicación en una base de datos de Azure SQL. | Disponible
 Artículo 13: Volver a compilar una aplicación en Azure | Muestra cómo Contoso vuelve a compilar su aplicación de SmartHotel con una gama de funcionalidades y servicios de Azure, como App Services, Azure Kubernetes, Azure Functions, Cognitive Services y Cosmos DB. | Este artículo
 [Artículo 14: Escalado de una migración en Azure](contoso-migration-scale.md) | Después de probar combinaciones de migración, Contoso se prepara para escalar una migración completa a Azure. | Disponible
 
@@ -643,7 +643,7 @@ Con los recursos migrados de Azure, Contoso debe ahora poner completamente en ma
 
 ### <a name="backups-and-disaster-recovery"></a>Copia de seguridad y recuperación ante desastres
 
-- Contoso necesita revisar los requisitos de copia de seguridad para la instancia de Azure SQL Database. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
+- Contoso necesita revisar los requisitos de copia de seguridad para Azure SQL Database. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
 - Contoso debería plantearse la implementación grupos de conmutación por error de SQL para proporcionar conmutación por error regional a la base de datos. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
 - Contoso puede aprovechar la replicación geográfica para el SKU premium de ACR. [Más información](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
 - Cosmos DB realiza la copia de seguridad automáticamente. Contoso puede [obtener más información](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) sobre este proceso.

@@ -15,7 +15,7 @@ ms.date: 04/17/2018
 ms.author: sawinark
 ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59786717"
@@ -25,8 +25,8 @@ En este artículo se describe cómo ejecutar un paquete de SSIS desde una canali
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-### <a name="azure-sql-database"></a>Azure SQL Database 
-El tutorial de este artículo usa una instancia de Azure SQL Database que hospeda el catálogo de SSIS. También puede usar una instancia administrada de Azure SQL Database.
+### <a name="azure-sql-database"></a>Azure SQL Database 
+El tutorial de este artículo usa una base de datos de Azure SQL que hospeda el catálogo de SSIS. También puede usar una instancia administrada de Azure SQL Database.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Creación de un entorno de ejecución de integración de SSIS para Azure
 Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial: Implementación de paquetes de SSIS](tutorial-create-azure-ssis-runtime-portal.md).
@@ -77,21 +77,21 @@ En este paso, usa la interfaz de Data Factory para crear una canalización. Agre
 2. En el cuadro de herramientas **Activities** (Actividades), expanda **General**, arrastre la actividad **Store Procedure** (Procedimiento almacenado) y colóquela en la superficie del diseñador de canalizaciones. 
 
     ![Operación de arrastrar y colocar la actividad de procedimiento almacenado](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
-3. En la ventana de propiedades de la actividad de procedimiento almacenado, cambie a la pestaña **SQL Account** (Cuenta de SQL) y haga clic en **+ New** (+ Nuevo). Crea una conexión a la instancia de Azure SQL Database que hospeda el catálogo de SSIS (base de datos SSIDB). 
+3. En la ventana de propiedades de la actividad de procedimiento almacenado, cambie a la pestaña **SQL Account** (Cuenta de SQL) y haga clic en **+ New** (+ Nuevo). Crea una conexión a la base de datos de Azure SQL que hospeda el catálogo de SSIS (base de datos SSIDB). 
    
     ![Botón New linked service (Nuevo servicio vinculado)](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
 4. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes: 
 
     1. Seleccione **Azure SQL Database** para **Type** (Tipo).
-    2. Seleccione la instancia de Azure Integration Runtime **predeterminada** para conectarse a Azure SQL Database que hospeda la base de datos `SSISDB`.
-    3. Seleccione la instancia de Azure SQL Database que hospeda la base de datos SSISDB para el campo **Server name** (Nombre del servidor).
+    2. Seleccione el entorno de ejecución de Azure **Default** para conectarse a la instancia de Azure SQL Database que hospeda la base de datos `SSISDB`.
+    3. Seleccione la base de datos de Azure SQL que hospeda la base de datos SSISDB para el campo **Server name** (Nombre del servidor).
     4. Seleccione **SSISDB** para el campo **Database name** (Nombre de la base de datos).
     5. En **User name** (Nombre de usuario), escriba el nombre del usuario que tiene acceso a la base de datos.
     6. En **Password** (Contraseña), escriba la contraseña del usuario. 
     7. Para probar la conexión con la base de datos, haga clic en el botón **Test connection** (Prueba de conexión).
     8. Guarde el servicio vinculado con un clic en el botón **Save** (Guardar). 
 
-        ![Servicio vinculado a Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
+        ![Servicio vinculado de Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. En la ventana de propiedades, cambie a la pestaña **Stored Procedure** (Procedimiento almacenado) de la pestaña **SQL Account** (Cuenta de SQL) y lleve a cabo estos pasos: 
 
     1. Seleccione **Editar**. 
@@ -107,7 +107,7 @@ En este paso, usa la interfaz de Data Factory para crear una canalización. Agre
         DECLARE @return_value INT, @exe_id BIGINT, @err_msg NVARCHAR(150)    EXEC @return_value=[SSISDB].[catalog].[create_execution] @folder_name=N'<FOLDER name in SSIS Catalog>', @project_name=N'<PROJECT name in SSIS Catalog>', @package_name=N'<PACKAGE name>.dtsx', @use32bitruntime=0, @runinscaleout=1, @useanyworker=1, @execution_id=@exe_id OUTPUT    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1    EXEC [SSISDB].[catalog].[start_execution] @execution_id=@exe_id, @retry_count=0    IF(SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id=@exe_id)<>7 BEGIN SET @err_msg=N'Your package execution did not succeed for execution ID: ' + CAST(@exe_id AS NVARCHAR(20)) RAISERROR(@err_msg,15,1) END
         ```
 
-        ![Servicio vinculado a Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
+        ![Servicio vinculado de Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
 6. Para validar la configuración de la canalización, haga clic en **Validate** (Validar) en la barra de herramientas. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en **>>**.
 
     ![Comprobar la canalización](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
@@ -190,15 +190,15 @@ Tenga en cuenta los siguientes puntos:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario**, o de **administrador** de la suscripción de Azure.
-* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+* Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
-### <a name="create-an-azure-sql-database-linked-service"></a>Creación de un servicio vinculado a Azure SQL Database
-Cree un servicio vinculado para vincular su instancia de Azure SQL Database que hospeda el catálogo de SSIS con la factoría de datos. Data Factory usa la información de este servicio vinculado para conectarse a la base de datos SSISDB y ejecuta un procedimiento almacenado para ejecutar un paquete de SSIS. 
+### <a name="create-an-azure-sql-database-linked-service"></a>Creación de un servicio vinculado de Azure SQL Database
+Cree un servicio vinculado para vincular su base de datos de Azure SQL que hospeda el catálogo de SSIS con la factoría de datos. Data Factory usa la información de este servicio vinculado para conectarse a la base de datos SSISDB y ejecuta un procedimiento almacenado para ejecutar un paquete de SSIS. 
 
 1. Cree un archivo JSON denominado **AzureSQLDatabaseLinkedService.json** en la carpeta **C:\ADF\RunSSISPackage** con el siguiente contenido: 
 
     > [!IMPORTANT]
-    > Reemplace &lt;servername&gt;, &lt;username&gt; y &lt;password&gt; por los nombres de su instancia de Azure SQL Database antes de guardar el archivo.
+    > Reemplace &lt;servername&gt;, &lt;username&gt; y &lt;password&gt; por los nombres de su base de datos de Azure SQL antes de guardar el archivo.
 
     ```json
     {

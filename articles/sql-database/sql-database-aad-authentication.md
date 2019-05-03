@@ -56,7 +56,7 @@ En los pasos de configuración se incluyen los siguientes procedimientos para co
 
 ## <a name="trust-architecture"></a>Arquitectura de confianza
 
-En el siguiente diagrama de alto nivel se resume la arquitectura de la solución del uso de la autenticación de Azure AD con Azure SQL Database. Los mismos conceptos se aplican a SQL Data Warehouse. Para admitir la contraseña de usuario nativa de Azure AD, se considera solo la parte de la nube y SQL Database de Azure o Azure AD. Para admitir la autenticación federada (o el usuario o contraseña para las credenciales de Windows), se requiere la comunicación con el bloque ADFS. Las flechas indican las rutas de comunicación.
+En el siguiente diagrama de alto nivel se resume la arquitectura de la solución del uso de la autenticación de Azure AD con Azure SQL Database. Los mismos conceptos se aplican a SQL Data Warehouse. Para admitir la contraseña de usuario nativa de Azure AD, se considera solo la parte de la nube y Azure SQL Database o Azure AD. Para admitir la autenticación federada (o el usuario o contraseña para las credenciales de Windows), se requiere la comunicación con el bloque ADFS. Las flechas indican las rutas de comunicación.
 
 ![diagrama de autenticación de aad][1]
 

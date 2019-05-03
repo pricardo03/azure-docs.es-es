@@ -57,7 +57,7 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 ```
 
 ## <a name="azuressislocation"></a>AzureSSISLocation
-**AzureSSISLocation** es la ubicación del nodo de trabajo de Integration Runtime. El nodo de trabajo mantiene una conexión constante a la base de datos de catálogo de SSIS (SSISDB) en una base de datos SQL de Azure. Establezca **AzureSSISLocation** en la misma ubicación que el servidor de SQL Database que hospeda SSISDB, ya que esto permite que Integration Runtime funcione de la manera más eficaz posible.
+**AzureSSISLocation** es la ubicación del nodo de trabajo de Integration Runtime. El nodo de trabajo mantiene una conexión constante a la base de datos de catálogo de SSIS (SSISDB) en una base de datos de Azure SQL. Establezca **AzureSSISLocation** en la misma ubicación que el servidor de SQL Database que hospeda SSISDB, ya que esto permite que Integration Runtime funcione de la manera más eficaz posible.
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 Data Factory, que incluye IR de SSIS de Azure, admite las siguientes opciones:
@@ -114,7 +114,7 @@ Estas son las instrucciones para configurar el valor correcto de la propiedad **
 
 **SSISDBPricingTier** es el plan de tarifa de la base de datos de catálogo de SSIS (SSISDB) en una base de datos SQL de Azure. Esta configuración afecta al número máximo de trabajos en la instancia de IR, a la velocidad para poner en cola una ejecución de paquetes y a la velocidad para cargar el registro de ejecución.
 
--   Si no le preocupa la velocidad a la que se pone en cola una ejecución de paquetes o se carga el registro de ejecución, puede elegir el plan de tarifa de base de datos más bajo. Azure SQL Database con el plan Básico admite 8 trabajos en una instancia de Integration Runtime.
+-   Si no le preocupa la velocidad a la que se pone en cola una ejecución de paquetes o se carga el registro de ejecución, puede elegir el plan de tarifa de base de datos más bajo. Azure SQL Database con el plan Básico admite 8 trabajos en una instancia del entorno de ejecución de integración.
 
 -   Si el recuento de trabajos o el recuento de núcleos es superior a 8 o 50, respectivamente, elija una base de datos con una mayor potencia que la básica. En caso contrario, la base de datos se convierte en el cuello de botella de la instancia de Integration Runtime y el rendimiento global se ve afectado de forma negativa.
 

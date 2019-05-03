@@ -174,7 +174,7 @@ La autenticación de la instancia administrada le indica la forma en que los usu
 
 ### <a name="authorization"></a>Autorización
 
-La autorización indica las acciones que pueden llevar a cabo los usuarios en Azure SQL Database, algo que controlan los permisos de nivel de objeto y las pertenencias a roles de bases de datos de la cuenta de usuario. Una instancia administrada tiene las mismas funcionalidades de autorización que SQL Server 2017.
+La autorización indica las acciones que pueden llevar a cabo los usuarios en una base de datos de Azure SQL, algo que controlan los permisos de nivel de objeto y las pertenencias a roles de bases de datos de la cuenta de usuario. Una instancia administrada tiene las mismas funcionalidades de autorización que SQL Server 2017.
 
 ## <a name="database-migration"></a>Migración de bases de datos
 
@@ -213,7 +213,7 @@ La opción de implementación de instancia administrada tiene la ventaja de esta
 - Instancia administrada no permite especificar las rutas de acceso físicas completas, por lo que todos los escenarios correspondientes tienen que ser compatibles de manera diferente: RESTORE DB no es compatible con WITH MOVE, CREATE DB no permite rutas de acceso físicas, BULK INSERT funciona solo con Azure Blobs, etc.
 - Instancia administrada admite la [autenticación de Azure AD](sql-database-aad-authentication.md) como alternativa en la nube a la autenticación de Windows.
 - Instancia administrada administra automáticamente el grupo de archivos XTP y los archivos de bases de datos que contienen objetos OLTP en memoria.
-- Instancia administrada es compatible con SQL Server Integration Services (SSIS) y puede hospedar el catálogo de SSIS (SSISDB) que almacena paquetes SSIS, pero que se ejecuta en una instancia de Integration Runtime para la integración de SSIS en Azure Data Factory; consulte [Creación de una instancia de Azure-SSIS Integration Runtime en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar las características de SSIS en SQL Database, vea [Comparación entre base de datos únicas o grupos elásticos de SQL Database e Instancia administrada de SQL Database](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
+- Instancia administrada es compatible con SQL Server Integration Services (SSIS) y puede hospedar el catálogo de SSIS (SSISDB) que almacena paquetes SSIS, pero que se ejecuta en una instancia de Integration Runtime para la integración de SSIS en Azure Data Factory; consulte [Creación de una instancia de Azure-SSIS Integration Runtime en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar las características de SSIS en SQL Database, vea [Comparación entre base de datos únicas o grupos elásticos de Azure SQL Database e Instancia administrada](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Características de administración de Instancia administrada
 

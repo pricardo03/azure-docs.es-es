@@ -40,7 +40,7 @@ Las siguientes son las condiciones de error que tienen como resultado una excepc
 > Los ejemplos siguientes son para Azure SQL y Azure Blob, pero resultan aplicables a cualquier almacén de datos que admita conjuntos de datos rectangulares. Ajuste el conjunto de datos y las definiciones de servicios vinculados en los ejemplos para que apunten a datos del origen de datos pertinente.
 
 ## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Ejemplo 1: asignación de columnas de SQL Server a un blob de Azure
-En este ejemplo la tabla de entrada tiene una estructura y apunta a una tabla SQL en una base de datos de SQL de Azure.
+En este ejemplo la tabla de entrada tiene una estructura y apunta a una tabla SQL en una base de datos de Azure SQL.
 
 ```json
 {

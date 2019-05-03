@@ -326,7 +326,7 @@ Una etiqueta de servicio representa un grupo de prefijos de direcciones IP. El u
 - Microsoft administra los prefijos de direcciones asociados a una etiqueta de servicio y actualiza la etiqueta automáticamente a medida que las direcciones cambian.
 - No puede crear su propia etiqueta de servicio ni especificar qué direcciones IP se incluyen dentro de una etiqueta.
 
-Las etiquetas de servicio eliminan el trabajo manual de asignar una regla a grupos de servicios de Azure. Por ejemplo, si quiere permitir que una subred de red virtual que incluye servidores web tenga acceso a una instancia de Azure SQL Database, puede crear una regla de salida al puerto 1433 y usar la etiqueta de servicio **Sql**.
+Las etiquetas de servicio eliminan el trabajo manual de asignar una regla a grupos de servicios de Azure. Por ejemplo, si quiere permitir que una subred de red virtual que incluye servidores web tenga acceso a una base de datos de Azure SQL, puede crear una regla de salida al puerto 1433 y usar la etiqueta de servicio **Sql**.
 - Esta etiqueta **Sql** denota los prefijos de direcciones de los servicios Azure SQL Database y Azure SQL Data Warehouse.
 - Si especifica **Sql** como valor, se permite o se deniega el tráfico a Sql.
 - Si solo quiere permitir el acceso a **Sql** en una región determinada, puede especificarla. Por ejemplo, si quiere permitir el acceso a Azure SQL Database solo en la región Este de EE. UU., puede especificar **Sql.EastUS** como etiqueta de servicio.

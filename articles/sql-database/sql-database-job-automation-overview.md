@@ -1,6 +1,6 @@
 ---
 title: Automatización de trabajos de Azure SQL | Microsoft Docs
-description: Uso de automatización de trabajos para ejecutar scripts de Transact-SQL (T-SQL) en un conjunto de una o varias instancias de Azure SQL Database
+description: Uso de automatización de trabajos para ejecutar scripts de Transact-SQL (T-SQL) en un conjunto de una o varias bases de datos de Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -21,8 +21,8 @@ ms.locfileid: "57901974"
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatización de tareas de administración mediante trabajos de base de datos
 
 Azure SQL Database le permite crear y programar trabajos que se pueden ejecutar periódicamente en una o varias bases de datos para realizar consultas T-SQL y llevar a cabo tareas de mantenimiento. Cada trabajo registra el estado de ejecución y también reintenta automáticamente las operaciones si se produce algún error.
-Puede definir la base de datos o los grupos de instancias de Azure SQL Database de destino donde se ejecutará el trabajo y también las programaciones para ejecutar un trabajo.
-Un trabajo gestiona la tarea de iniciar sesión en la base de datos de destino. También definirá, mantendrá y conservará los scripts de Transact-SQL que se van a ejecutar en un grupo de instancias de Azure SQL Database.
+Puede definir la base de datos o los grupos de bases de datos de Azure SQL de destino donde se ejecutará el trabajo y también las programaciones para ejecutar un trabajo.
+Un trabajo gestiona la tarea de iniciar sesión en la base de datos de destino. También definirá, mantendrá y conservará los scripts de Transact-SQL que se van a ejecutar en un grupo de bases de datos de Azure SQL.
 
 ## <a name="when-to-use-automated-jobs"></a>Cuándo usar trabajos automatizados
 
@@ -34,7 +34,7 @@ Son varios los escenarios en los que podría usar la automatización de trabajos
   - Regeneración de índices para mejorar el rendimiento de consultas. Configuración de trabajos para su ejecución en una colección de bases de datos periódicamente como, por ejemplo, fuera de horas pico.
   - Recopile los resultados de consulta de un conjunto de bases de datos en una tabla central de forma continua. Las consultas de rendimiento pueden ejecutarse continuamente y configurarse para que desencadenen la ejecución de otras tareas.
 - Recopilación de datos para informes
-  - Agregue datos de una colección de instancias de Azure SQL Database en una tabla de destino única.
+  - Agregue datos de una colección de bases de datos de Azure SQL en una tabla de destino única.
   - Ejecute consultas de procesamiento de datos de ejecución más larga en un conjunto grande de bases de datos; por ejemplo, la recopilación de telemetría de cliente. Los resultados se recopilan en una sola tabla de destino para su posterior análisis.
 - Movimientos de datos
   - Cree trabajos que repliquen los cambios realizados en las bases de datos a otras bases de datos o que recopilen las actualizaciones realizadas en las bases de datos remotas y apliquen los cambios en la base de datos.
@@ -51,7 +51,7 @@ Cabe destacar un par de diferencias entre el Agente SQL (disponible de modo loca
 
 |  |Trabajos elásticos  |Agente SQL |
 |---------|---------|---------|
-|Ámbito     |  Cualquier número de almacenamientos de datos o bases de datos SQL de Azure en la misma nube de Azure que el agente de trabajos. Los destinos pueden estar en diferentes servidores de SQL Database, suscripciones o regiones. <br><br>Los grupos de destino pueden estar compuestos de bases de datos individuales o almacenamientos de datos o de todas las bases de datos de un servidor, grupo o mapa de particiones (enumeradas dinámicamente en el momento de la ejecución de trabajo). | Cualquier base de datos individual en la misma instancia de SQL Server que el Agente SQL. |
+|Ámbito     |  Cualquier número de almacenamientos de datos o bases de datos de Azure SQL en la misma nube de Azure que el agente de trabajos. Los destinos pueden estar en diferentes servidores de SQL Database, suscripciones o regiones. <br><br>Los grupos de destino pueden estar compuestos de bases de datos individuales o almacenamientos de datos o de todas las bases de datos de un servidor, grupo o mapa de particiones (enumeradas dinámicamente en el momento de la ejecución de trabajo). | Cualquier base de datos individual en la misma instancia de SQL Server que el Agente SQL. |
 |Herramientas y API admitidas     |  Azure Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 ## <a name="sql-agent-jobs"></a>Trabajos del Agente SQL
@@ -184,7 +184,7 @@ La siguiente imagen muestra a un agente de trabajos que ejecuta los trabajos en 
 |Componente  | Descripción (los detalles adicionales se encuentran debajo de la tabla) |
 |---------|---------|
 |[**Agente de trabajos elásticos**](#elastic-job-agent) |  El recurso de Azure creado para ejecutar y administrar los trabajos.   |
-|[**Base de datos de trabajos**](#job-database)    |    Una instancia de SQL Azure Database que el agente de trabajos utiliza para almacenar datos relacionados con los trabajos, definiciones de trabajos, etc.      |
+|[**Base de datos de trabajos**](#job-database)    |    Una base de datos de Azure SQL que el agente de trabajos utiliza para almacenar los datos relacionados con los trabajos, definiciones de trabajos, etc.      |
 |[**Grupo de destino**](#target-group)      |  El conjunto de servidores, grupos, bases de datos y mapas de particiones en los que se va a ejecutar un trabajo.       |
 |[**Trabajo**](#job)  |  Un trabajo es una unidad de trabajo que se compone de uno o varios [pasos de trabajo](#job-step). Los pasos de trabajo especifican el script de T-SQL que se va a ejecutar, así como otros detalles necesarios para ejecutar el script.  |
 
@@ -201,7 +201,7 @@ El agente de trabajos elásticos es gratis. La base de datos de trabajos se fact
 
 La *base de datos de trabajos* se utiliza para definir los trabajos y realizar el seguimiento del estado e historial de las ejecuciones de los trabajos. La *base de datos de trabajos* también se utiliza para almacenar metadatos del agente, registros, resultados, definiciones de trabajos y también contiene muchos procedimientos almacenados útiles y otros objetos de base de datos para crear, ejecutar y administrar trabajos mediante T-SQL.
 
-En la versión preliminar actual, es necesaria una instancia de Azure SQL Database (S0 o superior) para crear un agente de trabajos elásticos.
+En la versión preliminar actual, es necesaria una base de datos de Azure SQL (S0 o superior) para crear un agente de trabajos elásticos.
 
 El *base de datos de trabajos* no necesita ser nueva literalmente, pero debe estar vacía y pertenecer al nivel de servicio S0 o superior. El nivel de servicio recomendado de la *base de datos de trabajos* es S1 o superior, pero realmente depende de las necesidades de rendimiento de sus trabajos: número de pasos de trabajo, número de veces y con qué frecuencia se ejecutan los trabajos. Por ejemplo, una base de datos S0 puede ser suficiente para un agente de trabajos que solo ejecuta algunos trabajos por hora, pero para la ejecución de un trabajo cada minuto podría no ser lo suficientemente eficiente y podría ser mejor un mayor nivel de servicio.
 

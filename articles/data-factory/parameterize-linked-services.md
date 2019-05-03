@@ -34,7 +34,7 @@ Si desea una demostración y una introducción de siete minutos de esta caracter
 ## <a name="supported-data-stores"></a>Almacenes de datos compatibles
 
 En este momento, la parametrización de los servicios vinculados se admite en la interfaz de usuario de Data Factory en Azure Portal para los siguientes almacenes de datos. Para todos los demás almacenes de datos, puede parametrizar el servicio vinculado si selecciona el icono **Código** en la pestaña **Conexiones** y usa el editor de JSON.
-- Azure SQL Database
+- Azure SQL Database
 - Azure SQL Data Warehouse
 - SQL Server
 - Oracle

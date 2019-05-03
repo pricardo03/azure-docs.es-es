@@ -1,6 +1,6 @@
 ---
 title: Implementar una solución distribuida geográficamente de Azure SQL Database| Microsoft Docs
-description: Aprenda a configurar Azure SQL Database y su aplicación para realizar conmutación por error a una base de datos replicada y probar una conmutación por error.
+description: Aprenda a configurar su base de datos y su aplicación de Azure SQL Database para realizar conmutación por error a una base de datos replicada y probar una conmutación por error.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -21,11 +21,11 @@ ms.locfileid: "60338996"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar una base de datos distribuida geográficamente
 
-Configure una instancia de Azure SQL Database y una aplicación para realizar conmutación por error a una región remota y probar un plan de conmutación por error. Aprenderá a:
+Configure una base de datos de Azure SQL y una aplicación para realizar conmutación por error a una región remota y probar un plan de conmutación por error. Aprenderá a:
 
 > [!div class="checklist"]
 > - Cree un [grupo de conmutación por error](sql-database-auto-failover-group.md).
-> - Ejecutar una aplicación de Java para consultar una instancia de Azure SQL Database
+> - Ejecutar una aplicación de Java para consultar una base de datos de Azure SQL
 > - Conmutación por error de prueba
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
@@ -39,7 +39,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar el tutorial, asegúrese de que instaló los elementos siguientes:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- Una base de datos SQL de Azure. Para crear uno, use:
+- Una base de datos de Azure SQL. Para crear uno, use:
   - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
@@ -332,11 +332,11 @@ Para probar una conmutación por error:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, configuró una instancia de Azure SQL Database y una aplicación para realizar la conmutación por error a una región remota y, después, probó el plan de conmutación por error. Ha aprendido a:
+En este tutorial, configuró una base de datos de Azure SQL y una aplicación para realizar la conmutación por error a una región remota y, después, probó el plan de conmutación por error. Ha aprendido a:
 
 > [!div class="checklist"]
 > - Crear un grupo de conmutación por error de replicación geográfica
-> - Ejecutar una aplicación de Java para consultar una instancia de Azure SQL Database
+> - Ejecutar una aplicación de Java para consultar una base de datos de Azure SQL
 > - Conmutación por error de prueba
 
 Avance al siguiente tutorial sobre cómo migrar mediante DMS.

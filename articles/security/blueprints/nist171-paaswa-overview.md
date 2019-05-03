@@ -28,7 +28,7 @@ Esta arquitectura de referencia, la guía de implementación asociada y el model
 
 Este documento de Azure Security and Compliance Blueprint proporciona una arquitectura de referencia para una aplicación web PaaS con un back-end de Azure SQL Database. La aplicación web está hospedada en un entorno de App Service aislado, que es un entorno privado y dedicado en un centro de datos de Azure. La carga del entorno equilibra el tráfico para la aplicación web entre las máquinas virtuales administradas por Azure. Esta arquitectura también incluye grupos de seguridad de red, una puerta de enlace de aplicaciones de Azure, Azure DNS y Azure Load Balancer.
 
-Para mejorar el análisis y los informes, las bases de datos de Azure SQL Database pueden configurarse con índices de almacén de columnas. Las bases de datos de Azure SQL se pueden escalar o reducir verticalmente, o incluso apagarse completamente en respuesta al uso del cliente. Todo el tráfico SQL se cifra con SSL mediante la inclusión de certificados autofirmados. Como procedimiento recomendado, Azure recomienda el uso de una entidad de certificación de confianza para mejorar la seguridad.
+Para mejorar el análisis y los informes, las bases de datos de Azure SQL pueden configurarse con índices de almacén de columnas. Las bases de datos de Azure SQL se pueden escalar o reducir verticalmente, o incluso apagarse completamente en respuesta al uso del cliente. Todo el tráfico SQL se cifra con SSL mediante la inclusión de certificados autofirmados. Como procedimiento recomendado, Azure recomienda el uso de una entidad de certificación de confianza para mejorar la seguridad.
 
 La solución utiliza cuentas de Azure Storage que los clientes pueden configurar para que usen Storage Service Encryption para preservar la confidencialidad de los datos en reposo. Azure almacena tres copias de los datos en un centro de datos seleccionado de un cliente para proporcionar resistencia. El almacenamiento con redundancia geográfica garantiza que los datos se repliquen en un centro de datos secundario situado a cientos de kilómetros de distancia y que se vuelvan a almacenar como tres copias dentro de ese centro de datos. Esta disposición evita que un evento adverso en el centro de datos principal del cliente acabe con una pérdida de datos.
 
@@ -63,7 +63,7 @@ Esta solución usa los siguientes servicios de Azure. Para obtener más informac
 - Monitor de Azure (registros)
 - Azure Resource Manager
 - Azure Security Center
-- Azure SQL Database
+- Azure SQL Database
 - Azure Storage
 - Azure Automation
 - Azure Web Apps

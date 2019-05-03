@@ -51,7 +51,7 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 - Azure Monitor
 - Azure Resource Manager
 - Azure Security Center
-- Azure SQL Database
+- Azure SQL Database
 - Azure Storage
 - Azure Virtual Network
     - Grupos de seguridad de red

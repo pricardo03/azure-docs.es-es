@@ -109,7 +109,7 @@ En Microsoft SQL Server, las vistas de catálogo similares tienen nombres sin la
 - **sys.dm_xe_sessions**, en vez del nombre<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>DMV comunes
-Para eventos extendidos hay DMV adicionales que son comunes a SQL Database Azure y Microsoft SQL Server:
+Para eventos extendidos hay DMV adicionales que son comunes a Azure SQL Database y Microsoft SQL Server:
 
 - **sys.dm_xe_map_values**
 - **sys.dm_xe_object_columns**

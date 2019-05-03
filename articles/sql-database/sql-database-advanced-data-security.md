@@ -1,6 +1,6 @@
 ---
 title: 'Advanced Data Security de SQL: Azure SQL Database | Microsoft Docs'
-description: Obtenga información acerca de la funcionalidad para detectar y clasificar datos confidenciales, administrar los puntos vulnerables de una bases de datos y detectar actividades anómalas que puedan indicar una amenaza para una base de datos SQL de Azure.
+description: Obtenga información acerca de la funcionalidad para detectar y clasificar datos confidenciales, administrar los puntos vulnerables de una bases de datos y detectar actividades anómalas que puedan indicar una amenaza para una base de datos de Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security

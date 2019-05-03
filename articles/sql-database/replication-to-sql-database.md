@@ -27,7 +27,7 @@ La replicación de SQL Server puede configurarse para bases de datos únicas y a
   
 - SQL Server puede ser una instancia de SQL Server en ejecución en el entorno local o una instancia de SQL Server en ejecución en una máquina virtual de Azure en la nube. Para obtener más información, consulte [Introducción a SQL Server en máquinas virtuales de Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/).  
 - Azure SQL Database debe ser un suscriptor de inserción de un publicador de SQL Server.  
-- La base de datos de distribución y los agentes de replicación no pueden colocarse en Azure SQL Database.  
+- La base de datos de distribución y los agentes de replicación no pueden colocarse en una base de datos de Azure SQL.  
 - Se admiten replicaciones transaccionales unidireccionales y de instantáneas. La replicación transaccional punto a punto y la replicación de mezcla no se admiten.
 - La replicación está disponible para su versión preliminar en Instancia administrada de Azure SQL Database. Instancia administrada puede hospedar las bases de datos del publicador, distribuidor y suscriptor. Para más información, consulte [Replication with SQL Database Managed Instance](replication-with-sql-database-managed-instance.md) (Replicación con Instancia administrada de Azure SQL Database).
 
@@ -45,7 +45,7 @@ La replicación de SQL Server puede configurarse para bases de datos únicas y a
 ## <a name="remarks"></a>Comentarios
 
 - La replicación puede configurarse mediante el uso de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o mediante la ejecución de instrucciones Transact-SQL en el publicador. No se puede configurar la replicación mediante Azure Portal.  
-- La replicación solo puede usar inicios de sesión de autenticación de SQL Server para conectarse a Azure SQL Database.
+- La replicación solo puede usar inicios de sesión de autenticación de SQL Server para conectarse a una base de datos de Azure SQL.
 - Las tablas replicadas deben tener una clave principal.  
 - Debe tener una suscripción de Azure existente.  
 - El suscriptor de Azure SQL Database puede estar en cualquier región.  

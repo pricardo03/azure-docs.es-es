@@ -223,7 +223,7 @@ El método **TestConnection** prueba si el trabajo de Stream Analytics puede con
 ## <a name="create-a-stream-analytics-output-target"></a>Creación de un destino de salida de Stream Analytics
 La creación de un destino de salida es muy similar a crear un origen de entrada de Stream Analytics. Al igual que los orígenes de entrada, los destinos de salida están vinculados a un trabajo específico. Para usar el mismo destino de salida para distintos trabajos, debe llamar nuevamente al método y especificar un nombre de trabajo distinto.
 
-El siguiente código crea un destino de salida (Base de datos SQL de Azure). Puede personalizar el tipo de datos y/o el tipo de serialización del destino de salida.
+El siguiente código crea un destino de salida (base de datos de Azure SQL). Puede personalizar el tipo de datos y/o el tipo de serialización del destino de salida.
 
    ```csharp
    // Create a Stream Analytics output target

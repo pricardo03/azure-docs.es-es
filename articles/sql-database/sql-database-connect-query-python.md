@@ -1,6 +1,6 @@
 ---
 title: Uso de Python para consultar Azure SQL Database | Microsoft Docs
-description: En este tema se explica cómo usar Python para crear un programa que se conecta a Azure SQL Database y realiza consultas mediante instrucciones Transact-SQL.
+description: En este tema se explica cómo usar Python para crear un programa que se conecta a una base de datos de Azure SQL y realiza consultas mediante instrucciones Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -19,15 +19,15 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58444978"
 ---
-# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Guía de inicio rápido: Uso de Python para consultar una base de datos SQL de Azure
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Guía de inicio rápido: Uso de Python para consultar una base de datos de Azure SQL
 
- Esta guía de inicio rápido muestra cómo utilizar [Python](https://python.org) para conectarse a una base de datos SQL de Azure y utilizar instrucciones Transact-SQL para consultar los datos. Para obtener más detalles del SDK, consulte la documentación de [referencia](https://docs.microsoft.com/python/api/overview/azure/sql), el [repositorio de GitHub pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) y un [ejemplo de pyodbc](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
+ Esta guía de inicio rápido muestra cómo utilizar [Python](https://python.org) para conectarse a una base de datos de Azure SQL y utilizar instrucciones Transact-SQL para consultar los datos. Para obtener más detalles del SDK, consulte la documentación de [referencia](https://docs.microsoft.com/python/api/overview/azure/sql), el [repositorio de GitHub pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) y un [ejemplo de pyodbc](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 
-- Una base de datos SQL de Azure. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+- Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
 
   || Base de datos única | Instancia administrada |
   |:--- |:--- |:---|

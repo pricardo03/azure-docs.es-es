@@ -62,7 +62,7 @@ La actividad GetMetadata toma un conjunto de datos como entrada necesaria y gene
 
 | Conector/Metadatos | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
-| Azure SQL Database | √ | √ | √ |
+| Azure SQL Database | √ | √ | √ |
 | Instancia administrada de Azure SQL Database | √ | √ | √ |
 | Azure SQL Data Warehouse | √ | √ | √ |
 | SQL Server | √ | √ | √ |

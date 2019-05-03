@@ -50,7 +50,7 @@ En GitHub, puede encontrar las siguientes plantillas de Azure Resource Manager p
 
 | Plantilla | DESCRIPCIÓN |
 | --- | --- |
-| [Copia de datos de Azure Blob Storage de Azure en Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde el almacenamiento de blobs de Azure especificado a la base de datos SQL de Azure. |
+| [Copia de datos de Azure Blob Storage de Azure en Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde el almacenamiento de blobs de Azure especificado a la base de datos de Azure SQL. |
 | [Copia de datos de Salesforce en Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización que copia datos desde la cuenta de Salesforce especificada al almacenamiento de blobs de Azure. |
 | [Transformación de los datos mediante la ejecución de un script de Hive en un clúster de Azure HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |Al implementar esta plantilla, se crea una factoría de datos de Azure con una canalización de datos que transforma los dato ejecutando el script de Hive en un clúster de Azure HDInsight (Hadoop). |
 
@@ -106,7 +106,7 @@ Debe tener lo siguiente instalado en el equipo:
    4. Seleccione el **grupo de recursos** para la factoría de datos.
    5. Seleccione **oeste de EE. UU.**, **este de EE. UU.** o **Europa del Norte** para la **región**.
    6. Haga clic en **Next**.
-6. En la página **Configure data stores** (Configurar almacenes de datos), especifique una **base de datos SQL de Azure** y una **cuenta de almacenamiento de Azure** ya existentes o cree otras nuevas y haga clic en Siguiente.
+6. En la página **Configure data stores** (Configurar almacenes de datos), especifique una **base de datos de Azure SQL** y una **cuenta de almacenamiento de Azure** ya existentes o cree otras nuevas y haga clic en Siguiente.
 7. En la página **Configurar proceso**, seleccione los valores predeterminados y haga clic en **Siguiente**.
 8. En la página **Resumen** revise toda la configuración y haga clic en **Siguiente**.
 9. En la página **Estado de la implementación**, espere hasta que finalice la implementación y haga clic en **Finalizar**.

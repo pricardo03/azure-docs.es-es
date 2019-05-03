@@ -57,7 +57,7 @@ Esta solución usa los siguientes servicios de Azure. Se puede encontrar más in
 - Azure Monitor
 - Azure Resource Manager
 - Azure Security Center
-- Azure SQL Database
+- Azure SQL Database
 - Azure Storage
 - Registros de Azure Monitor
 - Azure Virtual Network

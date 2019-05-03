@@ -79,13 +79,13 @@ La sección de directivas `on-error` se puede utilizar en cualquier ámbito. Los
   
 | NOMBRE     | Type   | DESCRIPCIÓN                                                                                               | Obligatorio |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Origen   | string | Nombre del elemento donde se produjo el error. Puede ser el nombre de una directiva o el nombre de un paso de canalización integrado.     | Sí      |
-| Motivo   | string | Código de error reconocible por la máquina, que se puede utilizar en el control de errores.                                       | Sin        |
+| `Source`   | string | Nombre del elemento donde se produjo el error. Puede ser el nombre de una directiva o el nombre de un paso de canalización integrado.     | Sí      |
+| Reason   | string | Código de error reconocible por la máquina, que se puede utilizar en el control de errores.                                       | Sin        |
 | Message  | string | Descripción del error legible para el usuario.                                                                         | Sí      |
-| Ámbito    | string | Nombre del ámbito donde se produjo el error; podría ser "global", "producto", "api" u "operación" | Sin        |
-| Sección  | string | Nombre de la sección donde se produjo el error. Valores posibles: "inbound", "backend", "outbound" u "on-error".       | Sin        |
-| Ruta de acceso     | string | Especifica directivas anidadas, por ejemplo, "choose[3]/when[2]".                                                        | Sin        |
-| PolicyId | string | Valor del atributo `id`, si lo especifica el cliente, en la directiva donde se produjo el error.             | Sin        |
+| Scope    | string | Nombre del ámbito donde se produjo el error; podría ser "global", "producto", "api" u "operación" | Sin        |
+| Section  | string | Nombre de la sección donde se produjo el error. Valores posibles: "inbound", "backend", "outbound" u "on-error".       | Sin        |
+| Path     | string | Especifica directivas anidadas, por ejemplo, "choose[3]/when[2]".                                                        | Sin        |
+| `PolicyId` | string | Valor del atributo `id`, si lo especifica el cliente, en la directiva donde se produjo el error.             | Sin        |
 
 > [!TIP]
 > Se puede acceder al código de estado con context.Response.StatusCode.  

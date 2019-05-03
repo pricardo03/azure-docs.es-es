@@ -27,7 +27,7 @@ En esta guía de inicio rápido se muestra cómo usar [.NET Framework](https://w
 
 Para completar este inicio rápido necesita instalar:
 
-- Una base de datos SQL de Azure. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+- Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
 
   || Base de datos única | Instancia administrada |
   |:--- |:--- |:---|
@@ -139,9 +139,9 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información acerca de cómo [conectarse y consultar una base de datos SQL de Azure mediante .NET Core](sql-database-connect-query-dotnet-core.md) en Windows, Linux y macOS.  
+- Obtenga información acerca de cómo [conectarse y consultar una base de datos de Azure SQL mediante .NET Core](sql-database-connect-query-dotnet-core.md) en Windows, Linux y macOS.  
 - Para más información, consulte [Introducción a .NET Core en Windows, Linux y macOS mediante la línea de comandos](/dotnet/core/tutorials/using-with-xplat-cli).
-- Obtenga información acerca de cómo [diseñar la primera base de datos SQL de Azure con SSMS](sql-database-design-first-database.md) o [diseñar la primera base de datos SQL de Azure mediante .NET](sql-database-design-first-database-csharp.md).
+- Obtenga información acerca de cómo [diseñar la primera base de datos de Azure SQL con SSMS](sql-database-design-first-database.md) o [diseñar la primera base de datos de Azure SQL mediante .NET](sql-database-design-first-database-csharp.md).
 - Para más información acerca de. NET, consulte la [Documentación de .NET](https://docs.microsoft.com/dotnet/).
 - Ejemplo de lógica de reintento: [Conexión resistente a SQL con ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 

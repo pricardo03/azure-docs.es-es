@@ -1,5 +1,5 @@
 ---
-title: Restauración de una base de datos SQL de Azure en una aplicación SaaS multiinquilino | Microsoft Docs
+title: Restauración de una base de datos de Azure SQL en una aplicación SaaS multiinquilino | Microsoft Docs
 description: Obtenga información sobre cómo restaurar una base de datos SQL Database de inquilino único después de la eliminación accidental de datos
 services: sql-database
 ms.service: sql-database

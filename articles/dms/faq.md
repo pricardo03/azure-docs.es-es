@@ -81,7 +81,7 @@ También puede determinar el puerto en que SQL Server escucha mediante una consu
 ### <a name="q-are-there-any-recommendations-for-optimizing-the-performance-of-the-azure-database-migration-service"></a>P: ¿Existen recomendaciones sobre cómo optimizar el rendimiento de Azure Database Migration Service?
 Hay algunas opciones que puede realizar para acelerar la migración de las bases de datos mediante el servicio:
 - Use el plan de tarifa de uso general de varias CPU cuando cree la instancia de servicio para permitir que el servicio aproveche las diversas CPU virtuales para la paralelización y realizar una transferencia de datos más rápida.
-- De manera temporal, escale verticalmente la instancia de destino de Azure SQL Database a la SKU de nivel Premium durante la operación de migración de datos para minimizar la limitación de Azure SQL Database que puede afectar las actividades de transferencia de datos al usar las SKU de nivel inferior.
+- De manera temporal, escale verticalmente la instancia de destino de su base de datos de Azure SQL a la SKU de nivel Premium durante la operación de migración de datos para minimizar la limitación de Azure SQL Database que puede afectar las actividades de transferencia de datos al usar las SKU de nivel inferior.
 
 ### <a name="q-how-do-i-set-up-an-azure-virtual-network"></a>P: ¿Cómo se configura una instancia de Azure Virtual Network?
 Si bien existen varios tutoriales de Microsoft que pueden guiarlo en el proceso de configurar una red virtual de Azure, la documentación oficial aparece en el artículo [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).

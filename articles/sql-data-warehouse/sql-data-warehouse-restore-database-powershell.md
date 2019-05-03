@@ -159,7 +159,7 @@ $GeoRestoredDatabase.status
 La base de datos recuperada estará habilitada para TDE si la base de datos de origen está habilitada para TDE.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre las características de continuidad empresarial de las ediciones de SQL Database de Azure, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con SQL Database][Azure SQL Database business continuity overview].
+Para obtener más información sobre las características de continuidad empresarial de las ediciones de Azure SQL Database, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con Azure SQL Database][Azure SQL Database business continuity overview].
 
 <!--Image references-->
 

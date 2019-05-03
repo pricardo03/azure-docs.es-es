@@ -65,7 +65,7 @@ Escriba `Ctrl+F5` para ejecutar la aplicación sin depurarla. La aplicación se 
 
 Pruebe los vínculos **Editar**, **Detalles** y **Eliminar**.
 
-La aplicación usa un contexto de base de datos para conectarse con la base de datos. En este ejemplo, el contexto de base de datos emplea una cadena de conexión llamada `MyDbConnection`. La cadena de conexión se establece en el archivo *Web.config* y se hace referencia a ella en el archivo *Models/MyDatabaseContext.cs*. El nombre de la cadena de conexión se usa más adelante en el tutorial para conectar la aplicación de Azure a una instancia de Azure SQL Database. 
+La aplicación usa un contexto de base de datos para conectarse con la base de datos. En este ejemplo, el contexto de base de datos emplea una cadena de conexión llamada `MyDbConnection`. La cadena de conexión se establece en el archivo *Web.config* y se hace referencia a ella en el archivo *Models/MyDatabaseContext.cs*. El nombre de la cadena de conexión se usa más adelante en el tutorial para conectar la aplicación de Azure a una base de datos de Azure SQL. 
 
 ## <a name="publish-to-azure-with-sql-database"></a>Publicación en Azure con SQL Database
 
@@ -420,7 +420,7 @@ En este tutorial aprendió lo siguiente:
 > * Transmitir registros desde Azure a un terminal
 > * Administrar la aplicación en Azure Portal
 
-Avance hasta el siguiente tutorial para aprender a mejorar fácilmente la seguridad de la conexión con Azure SQL Database.
+Continúe con el siguiente tutorial para aprender a mejorar fácilmente la seguridad de la conexión con Azure SQL Database.
 
 > [!div class="nextstepaction"]
 > [Acceso seguro a SQL Database mediante identidades administradas para recursos de Azure](app-service-web-tutorial-connect-msi.md)

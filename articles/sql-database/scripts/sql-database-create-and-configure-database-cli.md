@@ -1,5 +1,5 @@
 ---
-title: Ejemplo de la CLI para crear una instancia de Azure SQL Database | Microsoft Docs
+title: Ejemplo de la CLI para crear una base de datos de Azure SQL | Microsoft Docs
 description: Use este ejemplo de script de la CLI de Azure para crear una base de datos SQL.
 services: sql-database
 ms.service: sql-database
@@ -19,9 +19,9 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361422"
 ---
-# <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Uso de la CLI para crear una instancia única de Azure SQL Database y configurar una regla de firewall
+# <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Uso de la CLI para crear una base de datos de Azure SQL única y configurar una regla de firewall
 
-Este script de ejemplo de la CLI de Azure crea una instancia de Azure SQL Database y configura una regla de firewall en el nivel de servidor. Después de ejecutar el script correctamente, SQL Database es accesible desde todos los servicios de Azure y la dirección IP configurada.
+Este script de ejemplo de la CLI de Azure crea una base de datos de Azure SQL y configura una regla de firewall en el nivel de servidor. Después de ejecutar el script correctamente, SQL Database es accesible desde todos los servicios de Azure y la dirección IP configurada.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

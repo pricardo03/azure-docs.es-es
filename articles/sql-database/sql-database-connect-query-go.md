@@ -1,6 +1,6 @@
 ---
 title: Uso de Go para consultar Azure SQL Database | Microsoft Docs
-description: Use Go para crear un programa que se conecta a una instancia de Azure SQL Database y use instrucciones Transact-SQL para consultar y modificar datos.
+description: Use Go para crear un programa que se conecta a una base de datos de Azure SQL y use instrucciones Transact-SQL para consultar y modificar datos.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -19,15 +19,15 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58447864"
 ---
-# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de Golang para consultar una instancia de Azure SQL Database
+# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de Golang para consultar una base de datos de Azure SQL
 
-En este tutorial de inicio rápido, usará el lenguaje de programación [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) para conectarse a una instancia de Azure SQL Database. Luego, ejecutará instrucciones Transact-SQL para consultar y modificar datos. [Golang](https://golang.org/) es un lenguaje de programación de código abierto que facilita la compilación de software eficaz, confiable y simple.  
+En este tutorial de inicio rápido, usará el lenguaje de programación [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) para conectarse a una base de datos de Azure SQL. Luego, ejecutará instrucciones Transact-SQL para consultar y modificar datos. [Golang](https://golang.org/) es un lenguaje de programación de código abierto que facilita la compilación de software eficaz, confiable y simple.  
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesita:
 
-- Una base de datos SQL de Azure. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
+- Una base de datos de Azure SQL. Puede utilizar uno de estos inicios rápidos para crear y configurar una base de datos en Azure SQL Database:
 
   || Base de datos única | Instancia administrada |
   |:--- |:--- |:---|

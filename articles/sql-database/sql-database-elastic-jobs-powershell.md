@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 52a12486add25cd32400af755aa6cd8cac07c6f4
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57905073"
@@ -80,7 +80,7 @@ En la tabla siguiente se enumeran todos los tipos de objetos de **Trabajos de El
   </tr>
   <tr>
     <td>Destino de la base de datos</td>
-    <td>Nombre del servidor y la base de datos que apuntan a una instancia de Azure SQL Database.
+    <td>Nombre del servidor y la base de datos que apuntan a una base de datos de Azure SQL.
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>

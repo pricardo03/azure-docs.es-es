@@ -28,7 +28,7 @@ Always Encrypted es una nueva tecnología de cifrado de datos de Azure SQL Datab
 
 Después de configurar la base de datos para usar Always Encrypted, creará una aplicación cliente en C# con Visual Studio para trabajar con los datos cifrados.
 
-Siga los pasos de este artículo y aprenda a configurar Always Encrypted para una base de datos SQL de Azure. En este artículo, aprenderá a realizar las siguientes tareas:
+Siga los pasos de este artículo y aprenda a configurar Always Encrypted para una base de datos de Azure SQL. En este artículo, aprenderá a realizar las siguientes tareas:
 
 * Usar el asistente de Always Encrypted en SSMS para crear [claves de Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
   * Crear una [clave maestra de columna (CMK)](https://msdn.microsoft.com/library/mt146393.aspx).

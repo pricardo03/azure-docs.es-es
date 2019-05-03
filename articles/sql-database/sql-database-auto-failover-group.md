@@ -254,7 +254,7 @@ Si el plan de continuidad empresarial requiere el uso de un proceso de conmutaci
 2. [Cree un equilibrador de carga público](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) y asígnele la dirección IP pública.
 3. [Cree una red virtual y las máquinas virtuales](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) para los componentes de front-end.
 4. [Cree un grupo de seguridad de red](../virtual-network/security-overview.md) y configure las conexiones entrantes.
-5. Asegúrese de que las conexiones salientes están abiertas para la base de datos SQL de Azure usando 'Sql' [etiqueta de servicio](../virtual-network/security-overview.md#service-tags).
+5. Asegúrese de que las conexiones salientes están abiertas para la base de datos de Azure SQL usando 'Sql' [etiqueta de servicio](../virtual-network/security-overview.md#service-tags).
 6. Cree una [regla de firewall de base de datos SQL](sql-database-firewall-configure.md) para permitir el tráfico entrante desde la dirección IP pública que se crea en el paso 1.
 
 Para más información acerca de cómo configurar el acceso de salida y qué dirección IP usar en las reglas de firewall, consulte [Conexiones salientes del equilibrador de carga](../load-balancer/load-balancer-outbound-connections.md).

@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59799276"
@@ -29,11 +29,11 @@ En el siguiente diagrama se proporciona una descripción general de la arquitect
 
 ![Descripción general de la arquitectura](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
-En los pasos siguientes se describe cómo se establece una conexión a una instancia de Azure SQL Database:
+En los pasos siguientes se describe cómo se establece una conexión a una base de datos de Azure SQL:
 
 - Los clientes se conectan a una puerta de enlace, que tiene una dirección IP pública y escucha en el puerto 1433.
 - La puerta de enlace, dependiendo de la directiva de conexión efectiva, redirecciona o envía por proxy el tráfico al clúster de base de datos correcto.
-- En la base de datos, el tráfico del clúster se reenvía a la instancia de Azure SQL Database adecuada.
+- Dentro, el tráfico del clúster se reenvía a la base de datos de Azure SQL adecuada.
 
 ## <a name="connection-policy"></a>Directiva de conexión
 
@@ -57,7 +57,7 @@ Si va a conectarse desde fuera de Azure, las conexiones tienen la directiva de c
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Direcciones IP de la puerta de enlace de Azure SQL Database
 
-Para conectarse a una base de datos SQL de Azure desde recursos locales, debe permitir el tráfico de red saliente a la puerta de enlace de Azure SQL Database en su región de Azure. Las conexiones solo se establecen a través de la puerta de enlace al conectarse en modo `Proxy`, que es el valor predeterminado para las conexiones desde recursos locales.
+Para conectarse a una base de datos de Azure SQL desde recursos locales, debe permitir el tráfico de red saliente a la puerta de enlace de Azure SQL Database en su región de Azure. Las conexiones solo se establecen a través de la puerta de enlace al conectarse en modo `Proxy`, que es el valor predeterminado para las conexiones desde recursos locales.
 
 En la tabla siguiente se enumeran las direcciones IP principales y secundarias de la puerta de enlace de Azure SQL Database para todas las regiones de datos. En algunas regiones, hay dos direcciones IP. En estas regiones, la dirección IP principal es la dirección IP actual de la puerta de enlace y la dirección IP secundaria es una dirección IP de conmutación por error. La dirección de conmutación por error es la dirección a la que se puede mover el servidor para mantener la alta disponibilidad del servicio. En estas regiones, se recomienda que permita el tráfico saliente a ambas direcciones IP. La dirección IP secundaria es propiedad de Microsoft y no escucha en ningún servicio hasta que Azure SQL Database la activa para aceptar conexiones.
 

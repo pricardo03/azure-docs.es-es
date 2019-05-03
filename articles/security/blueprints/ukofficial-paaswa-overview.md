@@ -43,7 +43,7 @@ Para implementar este plano técnico, se requiere una suscripción de Azure. Si 
 
 ## <a name="architecture-and-components"></a>Arquitectura y componentes
 
-Este plano técnico ofrece una solución de hospedaje de aplicaciones web en un entorno en la nube de Azure que admite cargas de trabajo de la clasificación OFFICIAL (Reino Unido). La arquitectura proporciona un entorno seguro que aprovecha las funcionalidades de plataforma como servicio de Azure. En el entorno se implementan dos aplicaciones web de App Service (una para los usuarios públicos y otra para los usuarios del área de operaciones), con una capa de la aplicación de API que proporcionará los servicios empresariales del front-end web. Se implementa una instancia de Azure SQL Database como un almacén de datos relacional administrado para la aplicación. La conectividad con estos componentes desde fuera de la plataforma y entre todos estos componentes se cifra mediante TLS 1.2 para asegurar la privacidad de los datos en transporte, con acceso autenticado por Azure Active Directory.
+Este plano técnico ofrece una solución de hospedaje de aplicaciones web en un entorno en la nube de Azure que admite cargas de trabajo de la clasificación OFFICIAL (Reino Unido). La arquitectura proporciona un entorno seguro que aprovecha las funcionalidades de plataforma como servicio de Azure. En el entorno se implementan dos aplicaciones web de App Service (una para los usuarios públicos y otra para los usuarios del área de operaciones), con una capa de la aplicación de API que proporcionará los servicios empresariales del front-end web. Se implementa una base de datos de Azure SQL como un almacén de datos relacional administrado para la aplicación. La conectividad con estos componentes desde fuera de la plataforma y entre todos estos componentes se cifra mediante TLS 1.2 para asegurar la privacidad de los datos en transporte, con acceso autenticado por Azure Active Directory.
 
 ![Diagrama de la arquitectura de referencia del hospedaje de aplicaciones web de PaaS para cargas de trabajo de clasificación OFFICIAL (Reino Unido)](images/ukofficial-paaswa-architecture.png?raw=true "Diagrama de la arquitectura de referencia del hospedaje de aplicaciones web de PaaS para cargas de trabajo de clasificación OFFICIAL (Reino Unido)")
 
@@ -61,7 +61,7 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 - Application Insights
 - Azure Resource Manager
 - Azure Security Center
-- Azure SQL Database
+- Azure SQL Database
 - Azure Storage
 
 ## <a name="deployment-architecture"></a>Arquitectura de implementación
@@ -117,7 +117,7 @@ Esta plantilla implementa las siguientes características de App Service:
 - [Alertas](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) de métricas 
 - [Azure API Apps](https://azure.microsoft.com/services/app-service/api/) 
 
-#### <a name="azure-sql-database"></a>Azure SQL Database
+#### <a name="azure-sql-database"></a>Azure SQL Database
 
 SQL Database es un servicio administrado de base de datos relacional de uso general de Microsoft Azure que admite estructuras como datos relacionales, JSON, espacial y XML. SQL Database ofrece bases de datos SQL individuales administradas, bases de datos SQL administradas en un [grupo elástico](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) e [instancias administradas](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) de SQL (en la versión preliminar pública). Proporciona [un rendimiento escalable dinámicamente](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) y opciones como [índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para realizar un análisis analítico extremo y generar informes, y [OLTP en memoria](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) para el procesamiento extremo de transacciones. Microsoft controla perfectamente toda la aplicación de revisiones y de actualizaciones del código base de SQL y desaparece toda la administración de la infraestructura subyacente.
 

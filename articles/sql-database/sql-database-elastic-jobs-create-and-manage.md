@@ -1,5 +1,5 @@
 ---
-title: Administración de grupos de bases de datos Azure SQL Database | Microsoft Docs
+title: Administración de grupos de bases de datos de Azure SQL | Microsoft Docs
 description: Tutorial sobre la creación y administración de un trabajo elástico.
 services: sql-database
 ms.service: sql-database
@@ -19,7 +19,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61476066"
 ---
-# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Creación y administración de instancias de Azure SQL Database escaladas horizontalmente con trabajos elásticos (versión preliminar)
+# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Creación y administración de bases de datos de Azure SQL escaladas horizontalmente con trabajos elásticos (versión preliminar)
 
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]

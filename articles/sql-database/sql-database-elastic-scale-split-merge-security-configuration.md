@@ -478,7 +478,7 @@ En [Azure Portal](https://portal.azure.com/)
 7. Una vez realizado, copie la huella digital del certificado desde la entrada nueva en la lista.
 
 ## <a name="other-security-considerations"></a>Otras consideraciones de seguridad
-La configuración SSL descrita en este documento cifra la comunicación entre el servicio y sus clientes cuando se usa el extremo HTTPS. Esto es importante, porque las credenciales para el acceso a la base de datos y potencialmente a otra información confidencial están contenidas en la comunicación. Sin embargo, tenga en cuenta que el servicio persiste en el estado interno, incluidas credenciales, en sus tablas internas en la base de datos SQL de Microsoft Azure que ha proporcionado para el almacenamiento de metadatos en la suscripción de Microsoft Azure. Esa base de datos se definió como parte de los siguientes ajustes en el archivo de configuración de servicio (archivo .CSCFG): 
+La configuración SSL descrita en este documento cifra la comunicación entre el servicio y sus clientes cuando se usa el extremo HTTPS. Esto es importante, porque las credenciales para el acceso a la base de datos y potencialmente a otra información confidencial están contenidas en la comunicación. Sin embargo, tenga en cuenta que el servicio persiste en el estado interno, incluidas credenciales, en sus tablas internas en la base de datos de Azure SQL que ha proporcionado para el almacenamiento de metadatos en la suscripción de Microsoft Azure. Esa base de datos se definió como parte de los siguientes ajustes en el archivo de configuración de servicio (archivo .CSCFG): 
 
 ```xml
 <Setting name="ElasticScaleMetadata" value="Server=…" />

@@ -235,7 +235,7 @@ En la sección **policy** de la definición del conjunto de datos se definen los
 | Nombre de la directiva | DESCRIPCIÓN | Aplicado a | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Valida que los datos de un **blob de Azure** cumplen los requisitos de tamaño mínimo (en megabytes). |blob de Azure |Sin  |N/D |
-| minimumRows | Valida que los datos de una **base de datos SQL de Azure** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Azure SQL Database</li><li>tabla de Azure</li></ul> |Sin  |N/D |
+| minimumRows | Valida que los datos de una **base de datos de Azure SQL** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Azure SQL Database</li><li>tabla de Azure</li></ul> |Sin  |N/D |
 
 #### <a name="examples"></a>Ejemplos
 **minimumSizeMB:**

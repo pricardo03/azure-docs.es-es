@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo de PowerShell: sincronización entre SQL Database y SQL Server local | Microsoft Docs'
-description: Script de ejemplo de Azure PowerShell para realizar la sincronización entre una base de datos Azure SQL Database y una base de datos SQL Server local
+description: Script de ejemplo de Azure PowerShell para realizar la sincronización entre una base de datos de Azure SQL y una base de datos de SQL Server local
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -21,7 +21,7 @@ ms.locfileid: "58487658"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Uso de PowerShell para realizar la sincronización entre SQL Database y una base de datos de SQL Server local
 
-En este ejemplo de PowerShell se configura la sincronización de datos entre una base de datos Azure SQL Database y una base de datos SQL Server local. 
+En este ejemplo de PowerShell se configura la sincronización de datos entre una base de datos de Azure SQL y una base de datos de SQL Server local. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -32,7 +32,7 @@ Si decide instalar y usar PowerShell de manera local, en este tutorial se requie
 Para obtener información general acerca de SQL Data Sync, consulte [Sincronización de datos entre varias bases de datos locales y de la nube con Azure SQL Data Sync](../sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> SQL Data Sync **no** admite en este momento Instancia administrada de Azure SQL Database.
+> Azure SQL Data Sync **no** admite en este momento Instancia administrada de Azure SQL Database.
 
 ## <a name="sample-script"></a>Script de ejemplo
 

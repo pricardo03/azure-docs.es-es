@@ -21,7 +21,7 @@ ms.locfileid: "60338814"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Cómo usar Azure SQL Database
 
-En esta sección puede encontrar varias guías, scripts y explicaciones que pueden ayudarle a administrar y configurar Azure SQL Database. También puede encontrar guías de paso a paso específicas para una [base de datos única](sql-database-howto-single-database.md) y una [instancia administrada](sql-database-howto-managed-instance.md).
+En esta sección puede encontrar varias guías, scripts y explicaciones que pueden ayudarle a administrar y configurar su base de datos de Azure SQL. También puede encontrar guías de paso a paso específicas para una [base de datos única](sql-database-howto-single-database.md) y una [instancia administrada](sql-database-howto-managed-instance.md).
 
 ## <a name="load-data"></a>Carga de datos
 

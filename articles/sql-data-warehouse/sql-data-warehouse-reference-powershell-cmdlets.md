@@ -12,7 +12,7 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: e62f12123ae9af4f5e09d19622ba1558c2f43184
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59790679"
@@ -85,7 +85,7 @@ Para obtener más ejemplos de PowerShell, consulte:
 * [Creación de SQL Data Warehouse con PowerShell][Create a SQL Data Warehouse using PowerShell]
 * [Restauración de base de datos][Database restore]
 
-Para conocer otras tareas que se pueden automatizar con PowerShell, consulte los [cmdlets de Azure SQL Database][Azure SQL Database Cmdlets]. Tenga en cuenta que no todos los cmdlets de Azure SQL Database se admiten para Azure SQL Data Warehouse.  Para ver una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Operaciones para Azure SQL Database][Operations for Azure SQL Database].
+Para conocer otras tareas que se pueden automatizar con PowerShell, consulte [Cmdlets de Azure SQL Database][Azure SQL Database Cmdlets]. Tenga en cuenta que no todos los cmdlets de Azure SQL Database se admiten para Azure SQL Data Warehouse.  Para ver una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Operaciones para Azure SQL Database][Operations for Azure SQL Database].
 
 <!--Image references-->
 

@@ -137,7 +137,7 @@ En esta sección, modificará el proyecto de cliente para simular un escenario s
             }
 3. Compile y ejecute la aplicación cliente.  Agregue nuevos elementos. Tenga en cuenta que la excepción se registra en la consola para cada intento de sincronización con el back-end. Estos nuevos elementos solo existirán en el almacén local hasta que se puedan insertar en el back-end móvil. La aplicación cliente se comporta como si estuviera conectada al back-end y admite todas las operaciones de creación, lectura, actualización y eliminación (CRUD).
 4. Cierre la aplicación y reiníciela para comprobar que los nuevos elementos que creó se mantienen en el almacén local.
-5. (Opcional) Use Visual Studio para ver la tabla de Azure SQL Database y observar que los datos de la base de datos de back-end no han cambiado.
+5. (Opcional) Use Visual Studio para ver la tabla de su base de datos de Azure SQL y observe que los datos de la base de datos de back-end no han cambiado.
 
     En Visual Studio, abra el **Explorador de servidores**. Vaya a la base de datos en **Azure**->**SQL Databases**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**. Ahora puede buscar la tabla de base de datos SQL y su contenido.
 

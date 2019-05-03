@@ -1,6 +1,6 @@
 ---
 title: Guías de inicio rápido de conexión y consulta de Azure SQL Database | Microsoft Docs
-description: Guías de inicio rápido de Azure SQL Database que muestran cómo conectarse a una instancia de Azure SQL Database y consultarla.
+description: Guías de inicio rápido de Azure SQL Database que muestran cómo conectarse a una base de datos de Azure SQL y consultarla.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -21,24 +21,24 @@ ms.locfileid: "56447980"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Guías de inicio rápido: Conexión y consulta de Azure SQL Database
 
-En el documento siguiente se incluyen vínculos a ejemplos de Azure que muestran cómo conectarse a una instancia de Azure SQL Database y realizar consultas en ella. También se proporciona algunas recomendaciones de seguridad de nivel de transporte.
+En el documento siguiente se incluyen vínculos a ejemplos de Azure que muestran cómo conectarse a una base de datos de Azure SQL y realizar consultas en ella. También se proporciona algunas recomendaciones de seguridad de nivel de transporte.
 
 ## <a name="quickstarts"></a>Guías de inicio rápido
 
 | |  |
 |---|---|
-|[SQL Server Management Studio](sql-database-connect-query-ssms.md)|Este inicio rápido muestra cómo usar SSMS para conectarse a una base de datos de SQL Azure Database, para después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos.|
-|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Este inicio rápido muestra cómo usar Azure Data Studio para conectarse a una instancia de Azure SQL Database y luego usar instrucciones de Transact-SQL (T-SQL) para crear el elemento TutorialDB empleado en los tutoriales de Azure Data Studio.|
+|[SQL Server Management Studio](sql-database-connect-query-ssms.md)|Este inicio rápido muestra cómo usar SSMS para conectarse a una base de datos de Azure SQL, para después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos.|
+|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Este inicio rápido muestra cómo usar Azure Data Studio para conectarse a una base de datos de Azure SQL y luego usar instrucciones de Transact-SQL (T-SQL) para crear el elemento TutorialDB empleado en los tutoriales de Azure Data Studio.|
 |[Azure Portal](sql-database-connect-query-portal.md)|Esta guía de inicio rápido muestra cómo usar el Editor de consultas para conectarse a una base de datos SQL y, después, usar instrucciones Transact-SQL para realizar consultas, insertar datos, actualizarlos y eliminarlos de la base de datos.|
-|[Visual Studio Code](sql-database-connect-query-vscode.md)|Esta guía de inicio rápido muestra cómo usar Visual Studio Code para conectarse a una base de datos de SQL Azure Database y después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos.|
-|[.NET con Visual Studio](sql-database-connect-query-dotnet-visual-studio.md)|Esta guía de inicio rápido muestra cómo se usa .NET Framework para crear un programa de C# con Visual Studio que se conecte a una instancia de Azure SQL Database y que use instrucciones Transact-SQL para consultar los datos.|
-|[.NET Core](sql-database-connect-query-dotnet-core.md)|Esta guía de inicio rápido muestra cómo se usa .NET Core en Windows, Linux o macOS para crear un programa de C# que se conecte a una instancia de Azure SQL Database y que use instrucciones Transact-SQL para consultar los datos.|
-|[Go](sql-database-connect-query-go.md)|En esta guía de inicio rápido se muestra cómo usar Go para conectarse a una instancia de Azure SQL Database. También se muestran las instrucciones Transact-SQL para consultar y modificar los datos.|
-|[Java](sql-database-connect-query-java.md)|Esta guía de inicio rápido muestra cómo utilizar Java para conectarse a una instancia de Azure SQL Database y luego utilizar instrucciones Transact-SQL para consultar los datos.|
-|[Node.js](sql-database-connect-query-nodejs.md)|En esta guía de inicio rápido se muestra cómo se usa Node.js para crear un programa que se conecte a una instancia de Azure SQL Database y que use instrucciones Transact-SQL para consultar los datos.|
-|[PHP](sql-database-connect-query-php.md)|En esta guía de inicio rápido se muestra cómo se usa PHP para crear un programa que se conecte a una instancia de Azure SQL Database y que use instrucciones Transact-SQL para consultar los datos.|
-|[Python](sql-database-connect-query-python.md)|Esta guía de inicio rápido muestra cómo se usa Python para conectarse a una instancia de Azure SQL Database y usar instrucciones Transact-SQL para consultar los datos. |
-|[Ruby](sql-database-connect-query-ruby.md)|En esta guía de inicio rápido se muestra cómo se usa Ruby para crear un programa que se conecte a una instancia de Azure SQL Database y que use instrucciones Transact-SQL para consultar los datos.|
+|[Visual Studio Code](sql-database-connect-query-vscode.md)|Esta guía de inicio rápido muestra cómo usar Visual Studio Code para conectarse a una base de datos de Azure SQL y después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos.|
+|[.NET con Visual Studio](sql-database-connect-query-dotnet-visual-studio.md)|Esta guía de inicio rápido muestra cómo se usa .NET Framework para crear un programa de C# con Visual Studio que se conecte a una base de datos de Azure SQL y que use instrucciones Transact-SQL para consultar los datos.|
+|[.NET Core](sql-database-connect-query-dotnet-core.md)|Esta guía de inicio rápido muestra cómo se usa .NET Core en Windows, Linux o macOS para crear un programa de C# que se conecte a una base de datos de Azure SQL y que use instrucciones Transact-SQL para consultar los datos.|
+|[Go](sql-database-connect-query-go.md)|En esta guía de inicio rápido se muestra cómo usar Go para conectarse a una base de datos de Azure SQL. También se muestran las instrucciones Transact-SQL para consultar y modificar los datos.|
+|[Java](sql-database-connect-query-java.md)|Esta guía de inicio rápido muestra cómo utilizar Java para conectarse a una base de datos de Azure SQL y luego utilizar instrucciones Transact-SQL para consultar los datos.|
+|[Node.js](sql-database-connect-query-nodejs.md)|En esta guía de inicio rápido se muestra cómo se usa Node.js para crear un programa que se conecte a una base de datos de Azure SQL y que use instrucciones Transact-SQL para consultar los datos.|
+|[PHP](sql-database-connect-query-php.md)|En esta guía de inicio rápido se muestra cómo se usa PHP para crear un programa que se conecte a una base de datos de Azure SQL y que use instrucciones Transact-SQL para consultar los datos.|
+|[Python](sql-database-connect-query-python.md)|Esta guía de inicio rápido muestra cómo se usa Python para conectarse a una base de datos de Azure SQL y usar instrucciones Transact-SQL para consultar los datos. |
+|[Ruby](sql-database-connect-query-ruby.md)|En esta guía de inicio rápido se muestra cómo se usa Ruby para crear un programa que se conecte a una base de datos de Azure SQL y que use instrucciones Transact-SQL para consultar los datos.|
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>Consideraciones de TLS para la conectividad de SQL Database

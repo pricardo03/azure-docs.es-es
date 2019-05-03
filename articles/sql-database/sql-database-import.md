@@ -40,7 +40,7 @@ Puede importar una base de datos de SQL Server a una base de datos de Azure SQL 
    ![Base de datos import1](./media/sql-database-import/import1.png)
 
 2. Seleccione la cuenta de almacenamiento y el contenedor para el archivo BACPAC y el archivo BACPAC desde el que se va a importar.
-3. Especifique el tamaño de la nueva base de datos (por lo general, el mismo que el origen) y proporcione las credenciales del servidor SQL Server de destino. Para obtener una lista de valores posibles para una nueva base de datos SQL de Azure, consulte [Creación de una base de datos](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
+3. Especifique el tamaño de la nueva base de datos (por lo general, el mismo que el origen) y proporcione las credenciales del servidor SQL Server de destino. Para obtener una lista de valores posibles para una nueva base de datos de Azure SQL, consulte [Creación de una base de datos](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
 
    ![Base de datos import2](./media/sql-database-import/import2.png)
 

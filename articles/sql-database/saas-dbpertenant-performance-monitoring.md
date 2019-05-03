@@ -1,5 +1,5 @@
 ---
-title: 'Aplicación SaaS: supervisión del rendimiento de muchas bases de datos SQL de Azure | Microsoft Docs'
+title: 'Aplicación SaaS: supervisión del rendimiento de muchas bases de datos de Azure SQL | Microsoft Docs'
 description: Supervisión y administración del rendimiento de bases de datos y grupos SQL de Azure en la aplicación SaaS multiinquilino
 services: sql-database
 ms.service: sql-database

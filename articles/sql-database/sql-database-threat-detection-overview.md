@@ -1,5 +1,5 @@
 ---
-title: 'Protección avanzada contra amenazas: Azure SQL Database | Microsoft Docs'
+title: 'Advanced Threat Protection: Azure SQL Database | Microsoft Docs'
 description: Protección contra amenazas avanzada detecta actividades anómalas de la base de datos que indican posibles amenazas de seguridad en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -19,7 +19,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60614559"
 ---
-# <a name="advanced-threat-protection-for-azure-sql-database"></a>Protección avanzada contra amenazas en Azure SQL Database
+# <a name="advanced-threat-protection-for-azure-sql-database"></a>Advanced Threat Protection en Azure SQL Database
 
 Protección contra amenazas para avanzada [Azure SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos.
 

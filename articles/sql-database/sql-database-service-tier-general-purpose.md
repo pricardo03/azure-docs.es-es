@@ -1,6 +1,6 @@
 ---
 title: 'Nivel de servicio Uso general: Azure SQL Database | Microsoft Docs'
-description: Obtenga información sobre el nivel de uso general de Azure SQL Database.
+description: Obtenga información sobre el nivel de servicio Uso general de Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -45,7 +45,7 @@ Siempre que se actualice un sistema operativo o un motor de base de dato, si se 
 
 ## <a name="when-to-choose-this-service-tier"></a>¿Cuándo elegir este nivel de servicio?
 
-El nivel de servicio de uso general es un nivel de servicio predeterminado e Azure SQL Database diseñado para la mayoría de las cargas de trabajo genéricas. Si necesita un motor de base de datos totalmente administrado con un Acuerdo de Nivel de Servicio de un 99,99 % de latencia de almacenamiento de entre 5 y 10 ms que coincida con IaaS de Azure SQL en la mayoría de los casos, el nivel de uso general es la opción más conveniente en su caso.
+El nivel de servicio Uso general es un nivel de servicio predeterminado e Azure SQL Database diseñado para la mayoría de las cargas de trabajo genéricas. Si necesita un motor de base de datos totalmente administrado con un Acuerdo de Nivel de Servicio de un 99,99 % de latencia de almacenamiento de entre 5 y 10 ms que coincida con IaaS de Azure SQL en la mayoría de los casos, el nivel de uso general es la opción más conveniente en su caso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
