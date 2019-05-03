@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1232cdd156dd473850fde6e7c4f3ce0554155764
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456179"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020394"
 ---
 # <a name="ship-an-application"></a>Distribuir una aplicación
 
@@ -49,19 +49,26 @@ Los archivos necesarios del SDK de Voz se pueden implementar en el mismo directo
 
 ## <a name="linux"></a>Linux
 
-El SDK de Voz admite actualmente las distribuciones Ubuntu 16.04 y 18.04.
+Speech SDK es compatible actualmente con las distribuciones de Ubuntu 16.04, 18.04 Ubuntu y Debian 9.
 Para una aplicación nativa, se debe distribuir la biblioteca de Speech SDK, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Asegúrese de seleccionar la versión (x86, x64) que coincida con la aplicación. Según la versión de Linux, es posible que también tenga que incluir las dependencias siguientes:
 
 * Las bibliotecas compartidas de la biblioteca GNU C (incluida la biblioteca de programación de subprocesos de POSIX, `libpthreads`)
-* La biblioteca OpenSSL (`libssl.so.1.0.0`)
+* La biblioteca OpenSSL (`libssl.so.1.0.0` o `libssl.so.1.0.2`)
 * La biblioteca compartida para las aplicaciones ALSA (`libasound.so.2`)
 
 En Ubuntu, las bibliotecas de GNU C ya deberían estar instaladas de forma predeterminada. Las tres últimas se pueden instalar con estos comandos:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+En Debian 9 instale estos paquetes:
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

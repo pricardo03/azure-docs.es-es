@@ -1,7 +1,7 @@
 ---
 title: Indexar blobs que contiene varios buscar documentos del índice desde el indizador de Blob de Azure para la búsqueda de texto completo - Azure Search
 description: Rastree los blobs de Azure para el contenido de texto mediante el indexador de blobs de Azure Search. Cada blob puede contener uno o varios documentos del índice de Azure Search.
-ms.date: 02/12/2019
+ms.date: 05/02/2019
 author: arv100kri
 manager: briansmi
 ms.author: arjagann
@@ -10,21 +10,18 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
-ms.openlocfilehash: e95eff015340659b642dff800a03f615e22c1577
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 628ced069c9d32c6e874c2e36a1e3b752c476003
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871206"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024660"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>Indexación de blobs de varios documentos de búsqueda
 De forma predeterminada, un indexador de blobs tratará el contenido de un blob como un documento de búsqueda única. Ciertos **parsingMode** valores admiten escenarios donde puede dar lugar a un blob individual en varios documentos de búsqueda. Los diferentes tipos de **parsingMode** que permiten a un indizador para extraer más de documento de una búsqueda de un blob es:
 + `delimitedText`
 + `jsonArray`
 + `jsonLines`
-
-> [!IMPORTANT]
-> `jsonLines` modo de análisis está en versión preliminar pública y no debe usarse en entornos de producción. Para obtener más información, consulte [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 ## <a name="one-to-many-document-key"></a>Clave de documento de uno a varios
 Cada documento que se muestra en un índice de Azure Search se identifica mediante una clave de documento. 
@@ -106,7 +103,7 @@ Si desea configurar la asignación de un campo explícito, asegúrese de que el 
 + [Indexadores de Azure Search](search-indexer-overview.md)
 + [Indexación de Azure Blob Storage con Azure Search](search-howto-index-json-blobs.md)
 + [Indexación de blobs CSV con el indexador de blobs de Azure Search](search-howto-index-csv-blobs.md)
-+ [Indexación de blobs JSON con el indexador de blobs de Azure Search](search-howto-index-csv-blobs.md)
++ [Indexación de blobs JSON con el indexador de blobs de Azure Search](search-howto-index-json-blobs.md)
 
 ## <a name="NextSteps"></a>Pasos siguientes
 * Para obtener más información sobre Azure Search, consulte la [página del servicio Search](https://azure.microsoft.com/services/search/).
