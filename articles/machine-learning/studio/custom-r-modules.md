@@ -1,7 +1,7 @@
 ---
 title: Definición de módulos R personalizados
 titleSuffix: Azure Machine Learning Studio
-description: En este tema, se explica cómo se crea e implementa un módulo R personalizado en Azure Machine Learning Studio. Se explica qué son los módulos R personalizados y qué archivos se usan para definirlos.
+description: Este tema describe cómo crear e implementar un estudio de R personalizado. Se explica qué son los módulos R personalizados y qué archivos se usan para definirlos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751216"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025066"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definición de módulos R personalizados en Azure Machine Learning Studio
 
-En este tema, se explica cómo se crea e implementa un módulo R personalizado en Azure Machine Learning Studio. Se explica qué son los módulos R personalizados y qué archivos se usan para definirlos. Muestra cómo construir estos archivos y cómo registrar el módulo para implementarlo en un área de trabajo de Machine Learning. Los elementos y atributos que se utilizan en la definición del módulo personalizado se describen a continuación con más detalle. También se describe cómo utilizar la funcionalidad y los archivos auxiliares, y varias salidas. 
+Este tema describe cómo crear e implementar un estudio de R personalizado. Se explica qué son los módulos R personalizados y qué archivos se usan para definirlos. Muestra cómo construir estos archivos y cómo registrar el módulo para implementarlo en un área de trabajo de Machine Learning. Los elementos y atributos que se utilizan en la definición del módulo personalizado se describen a continuación con más detalle. También se describe cómo utilizar la funcionalidad y los archivos auxiliares, y varias salidas. 
 
 
 
@@ -159,7 +159,7 @@ El valor **NULL** de los puertos de **DataTable** opcionales que no se pasan com
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-En el caso de los módulos de R personalizados, el identificador de un puerto Zip no tiene que coincidir con los parámetros de la función de R. Esto se debe a que el archivo zip se extrae automáticamente en el directorio de trabajo de R.
+Para los módulos R personalizados, no tiene el identificador para un puerto Zip para que coincida con los parámetros de la función de R. Esto se debe a que el archivo zip se extrae automáticamente en el directorio de trabajo de R.
 
 **Reglas de entrada:**
 
@@ -225,7 +225,7 @@ Y devuelva la lista de objetos de una lista en el orden correcto en "CustomAddRo
 ### <a name="arguments"></a>Argumentos
 Se pueden pasar datos adicionales a la función de R a través de los parámetros del módulo que se definen en el elemento **Arguments** . Estos parámetros aparecen en el panel de propiedades de la derecha de la interfaz de usuario de Machine Learning cuando está seleccionado el módulo. Los argumentos pueden ser cualquiera de los tipos admitidos, o bien puede crear una enumeración personalizada cuando sea necesario. Al igual que los elementos **Ports**, los elementos **Arguments** pueden tener un elemento **Description** opcional que especifica el texto que aparece al mantener el ratón sobre el nombre del parámetro.
 Las propiedades opcionales de un módulo, como defaultValue, minValue y maxValue, se pueden agregar a cualquier argumento como atributos de un elemento **Properties** . Las propiedades válidas para el elemento **Properties** dependen del tipo de argumento y se describen con los siguientes tipos de argumento admitidos en la siguiente sección. Argumentos con el **isOptional** propiedad establecida en **"true"** no requieren que el usuario que especifique un valor. Si no se proporciona un valor al argumento, el argumento no se pasa a la función de punto de entrada. Los argumentos de la función de punto de entrada que son opcionales deben tratarse de forma explícita mediante la función, por ejemplo, asignar un valor predeterminado de NULL en la definición de función de punto de entrada. Un argumento opcional solo aplicará las demás restricciones de argumento, es decir, min o max, si el usuario proporciona un valor.
-Al igual que con las entradas y salidas, es fundamental que cada uno de los parámetros tenga valores de identificadores únicos asociados a ellos. En nuestro ejemplo de inicio rápido, el parámetro/id asociado era *swap*.
+Al igual que con las entradas y salidas, es fundamental que cada uno de los parámetros tiene valores de Id. únicos asociados con ellos. En el ejemplo de inicio rápido el parámetro/id asociado era *intercambio*.
 
 ### <a name="arg-element"></a>Elemento Arg
 Los parámetros del módulo se definen mediante el elemento secundario **Arg** de la sección **Arguments** del archivo de definición XML. Al igual que con los elementos secundarios de la sección **Ports**, el orden de los parámetros de la sección **Arguments** define el diseño que se encuentra en la experiencia de usuario. Los parámetros aparecen de arriba abajo en la interfaz de usuario en el mismo orden en que se definen en el archivo XML. Aquí se enumeran los tipos admitidos por Machine Learning para los parámetros. 
@@ -270,7 +270,7 @@ Los parámetros del módulo se definen mediante el elemento secundario **Arg** d
 
 * *Propiedades opcionales*: **default** e **isOptional**
 
-**ColumnPicker**: parámetro de selección de columnas. Este tipo se representa en la experiencia de usuario como selector de columnas. El elemento **Property** se usa aquí para especificar el identificador del puerto desde el que se seleccionarán columnas, donde el tipo de puerto de destino debe ser *DataTable*. El resultado de la selección de columnas se pasará a la función de R como una lista de cadenas que contiene los nombres de columna seleccionados. 
+**ColumnPicker**: parámetro de selección de columnas. Este tipo se representa en la experiencia de usuario como selector de columnas. El **propiedad** elemento se usa aquí para especificar el identificador del puerto desde el que se seleccionan las columnas, donde el tipo de puerto de destino debe ser *DataTable*. El resultado de la selección de columnas se pasará a la función de R como una lista de cadenas que contiene los nombres de columna seleccionados. 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -278,7 +278,7 @@ Los parámetros del módulo se definen mediante el elemento secundario **Arg** d
         </Arg>
 
 
-* *Propiedades requeridas*: **portId**; coincide con el identificador de un elemento Input con tipo *DataTable*.
+* *Propiedades obligatorias*: **portId** -coincide con el identificador de un elemento Input con tipo *DataTable*.
 * *Propiedades opcionales*:
   
   * **allowedTypes** : permite filtrar los tipos de columnas entre los que puede elegir. Los valores válidos son: 
@@ -286,7 +286,7 @@ Los parámetros del módulo se definen mediante el elemento secundario **Arg** d
     * Numeric
     * Boolean
     * Categorías
-    * string
+    * String
     * Etiqueta
     * Característica
     * Score
@@ -327,7 +327,7 @@ Los parámetros del módulo se definen mediante el elemento secundario **Arg** d
     </Arg>    
 
 * *Propiedades opcionales*:
-  * **default**: el valor de la propiedad predeterminada debe corresponder a un valor de identificador de uno de los elementos **Item**.
+  * **valor predeterminado** -el valor de la propiedad predeterminada debe corresponder con un valor de identificador de uno de los **elemento** elementos.
 
 ### <a name="auxiliary-files"></a>Archivos auxiliares
 Cualquier archivo que se coloque en el archivo ZIP de módulo personalizado estará disponible para su uso durante el tiempo de ejecución. Se conservarán todas las estructuras de directorios presentes. Esto significa que el abastecimiento de archivos funcionará igual localmente y en la ejecución de Azure Machine Learning Studio. 

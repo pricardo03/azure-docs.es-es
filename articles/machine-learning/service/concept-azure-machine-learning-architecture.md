@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821281"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025235"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona Azure Machine Learning Service: Arquitectura y conceptos
 
@@ -68,7 +68,7 @@ Al crear una nueva área de trabajo, se crean automáticamente varios recursos d
 
 El diagrama siguiente es una taxonomía del área de trabajo:
 
-[![Taxonomía del área de trabajo](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Taxonomía del área de trabajo](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Experimento
 
@@ -106,6 +106,16 @@ Una configuración de ejecución puede conservarse en un archivo del directorio 
 
 Para ver configuraciones de ejecución de ejemplo, consulte [Selección y uso de un destino de proceso para entrenar el modelo](how-to-set-up-training-targets.md).
 
+## <a name="dataset"></a>Dataset
+
+Azure Machine Learning conjuntos de datos (versión preliminar) facilitan el acceso y trabajar con los datos. Los conjuntos de datos administran datos en varios escenarios, como el entrenamiento del modelo y creación de la canalización. Con el SDK de Azure Machine Learning, puede tener acceso al almacenamiento subyacente, explorar y preparar datos, administrar el ciclo de vida de las definiciones de conjunto de datos diferentes y comparar entre conjuntos de datos utilizados en entrenamiento y en producción.
+
+Los conjuntos de datos proporciona métodos para trabajar con datos en formatos populares, como el uso de `from_delimited_files()` o `to_pandas_dataframe()`.
+
+Para obtener más información, consulte [crear y registrar los conjuntos de datos de Azure Machine Learning](how-to-create-register-datasets.md).
+
+Para obtener un ejemplo del uso de conjuntos de datos, vea el [cuadernos de ejemplo](https://aka.ms/dataset-tutorial).
+
 ## <a name="datastore"></a>Almacén de datos
 
 Un almacén de datos es una abstracción de almacenamiento en una cuenta de Azure Storage. El almacén de datos puede usar un contenedor de blobs de Azure o un recurso compartido de archivos de Azure como almacenamiento back-end. Cada área de trabajo tiene un almacén de datos predeterminado en el que puede registrar almacenes de datos adicionales.
@@ -127,7 +137,7 @@ Un destino de proceso es el recurso de proceso que se usa para ejecutar el scrip
 | Azure Container Instances | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
-| Project Brainwave</br>(matriz de puertas programables por campo) | &nbsp; | ✓ |
+| Matriz de puertas programables por campo (FPGA) | &nbsp; | ✓ |
 
 Los destinos de proceso están asociados a un área de trabajo. Los usuarios del área de trabajo comparten los destinos de proceso que no sean el equipo local.
 
@@ -189,8 +199,6 @@ Azure Machine Learning puede crear dos tipos de imágenes:
 * **Imagen de Docker**: se usa al realizar implementaciones en destinos de proceso que no sean FPGA. Por ejemplo, Azure Container Instances y Azure Kubernetes Service.
 
 El servicio de Azure Machine Learning proporciona una imagen base, que se usa de forma predeterminada. También puede proporcionar sus propias imágenes personalizadas.
-
-Para más información, consulte la sección de configuración y registro de imágenes de [Implementación de modelos](how-to-deploy-and-where.md#configureimage).
 
 Para obtener un ejemplo de creación de una imagen, consulte [Implementación de un modelo de clasificación de imágenes en Azure Container Instances](tutorial-deploy-models-with-aml.md).
 

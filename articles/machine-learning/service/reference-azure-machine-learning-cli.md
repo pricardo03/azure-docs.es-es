@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 04/30/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2992ec9f43aac9e0d80c5e42873d26ac3a9c3fd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9cc6ad4f7b33de4d132efe63ff11c34f10b614af
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916976"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023382"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Uso de la extensión de la CLI para Azure Machine Learning Service
 
@@ -80,7 +80,6 @@ Los siguientes comandos muestran cómo utilizar la CLI para administrar los recu
     ```
 
 + Adjuntar una configuración de área de trabajo a una carpeta para habilitar el reconocimiento contextual de CLI.
-
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
@@ -90,26 +89,14 @@ Los siguientes comandos muestran cómo utilizar la CLI para administrar los recu
     ```azurecli-interactive
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
-
+    
 + Conectar un clúster de AKS como un destino de proceso.
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
     ```
 
-+ Crear un nuevo destino AMLcompute
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
-    ```
-    
 ## <a id="experiments"></a>Ejecutar experimentos
-
-+ Adjuntar una configuración de área de trabajo a una carpeta para habilitar el reconocimiento contextual de CLI.
-
-    ```azurecli-interactive
-    az ml folder attach -w myworkspace -g myresourcegroup
-    ```
 
 * Inicie la ejecución del experimento. Cuando se usa este comando, especifique el nombre del archivo /runconfig (el texto delante \*.runconfig si se trata de su sistema de archivos) con respecto al parámetro - c.
 
@@ -123,7 +110,7 @@ Los siguientes comandos muestran cómo utilizar la CLI para administrar los recu
     az ml experiment list
     ```
 
-## <a name="model-registration-profiling-deployment"></a>Registro del modelo, generación de perfiles, implementación
+## <a name="model-registration-profiling--deployment"></a>Registro de modelos, la generación de perfiles y la implementación
 
 Los siguientes comandos muestran cómo registrar un modelo entrenado e implementarlo como servicio de producción:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: ab0aefd5650aada9c301115813a80747ddd1f2ac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1a82b9256405e2cac12f4c5611ee3bdad459162b
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926319"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992934"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events para máquinas virtuales Windows
 
@@ -45,7 +45,7 @@ Muchas aplicaciones pueden beneficiarse del tiempo de preparación para el mante
 Con Eventos programados, la aplicación puede detectar cuándo se producirá el mantenimiento y desencadenar tareas para limitar su impacto. Habilitar eventos programados ofrece a la máquina virtual una cantidad mínima de tiempo antes de que se lleve a cabo la actividad de mantenimiento. Consulte la sección de programación de eventos a continuación para obtener más información.
 
 Eventos programados proporciona eventos en los casos de uso siguientes:
-- Mantenimiento iniciado por la plataforma (por ejemplo, actualización del SO del host)
+- [Mantenimiento iniciado por la plataforma](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates) (por ejemplo, VM reboot, migración en vivo o actualizaciones para el host de conservación de memoria)
 - Hardware degradado
 - Mantenimiento iniciado por el usuario (por ejemplo, el usuario reinicia o vuelve a implementar una máquina virtual)
 - [Expulsión de la máquina virtual de baja prioridad](https://azure.microsoft.com/blog/low-priority-scale-sets) en escala establece
@@ -119,7 +119,7 @@ DocumentIncarnation es una etiqueta de entidad y proporciona una manera fácil d
 |Propiedad  |  DESCRIPCIÓN |
 | - | - |
 | EventId | Es un identificador único global del evento. <br><br> Ejemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Es el impacto causado por el evento. <br><br> Valores: <br><ul><li> `Freeze`: la máquina virtual está programada para pausarse durante unos segundos. La CPU entra en estado de suspensión, pero esto no afecta a la memoria, a los archivos abiertos ni a las conexiones de red. <li>`Reboot`: la máquina virtual está programada para reiniciarse (se borrará la memoria no persistente). <li>`Redeploy`: la máquina virtual está programada para moverse a otro nodo (los discos efímeros se pierden). <li>`Preempt`: Se está eliminando la máquina Virtual de baja prioridad (discos efímeros se pierden).|
+| EventType | Es el impacto causado por el evento. <br><br> Valores: <br><ul><li> `Freeze`: La máquina Virtual está programada para pausarse durante unos segundos. Es posible que se suspenda la conectividad de red y CPU, pero no hay ningún impacto en la memoria o los archivos abiertos. <li>`Reboot`: la máquina virtual está programada para reiniciarse (se borrará la memoria no persistente). <li>`Redeploy`: la máquina virtual está programada para moverse a otro nodo (los discos efímeros se pierden). <li>`Preempt`: Se está eliminando la máquina Virtual de baja prioridad (discos efímeros se pierden).|
 | ResourceType | Es el tipo de recurso al que afecta este evento. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| Es la lista de recursos a la que afecta este evento. Se garantiza que contenga máquinas de un [dominio de actualización](manage-availability.md) como máximo, pero puede no contener todas las máquinas en el dominio. <br><br> Ejemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Estado de evento | Es el estado de este evento. <br><br> Valores: <ul><li>`Scheduled`: este evento está programado para iniciarse después de la hora especificada en la propiedad `NotBefore`.<li>`Started`: este evento se ha iniciado.</ul> Nunca se proporcionan `Completed` ni ningún estado similar; el evento ya no se devolverá cuando finalice.
@@ -136,7 +136,8 @@ Cada evento se programa una cantidad mínima de tiempo en el futuro en función 
 | Preferencia | 30 segundos |
 
 ### <a name="event-scope"></a>Ámbito actual     
-Los eventos programados se entregan a:        
+Los eventos programados se entregan a:
+ - Máquinas virtuales independientes
  - Todas las máquinas virtuales de un servicio en la nube.      
  - Todas las máquinas virtuales de un conjunto de disponibilidad.      
  - Todas las máquinas virtuales de un grupo de selección de ubicación de conjunto de escalado.         

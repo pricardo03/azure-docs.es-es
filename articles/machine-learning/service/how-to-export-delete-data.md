@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 09/24/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f40606d5fae3b3784ac7f1fdcf4977b7fd9eb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819433"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023974"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportación o eliminación de los datos del área de trabajo de Machine Learning Service 
 
@@ -231,3 +231,29 @@ Se pueden obtener plantillas mediante:
 Se pueden obtener orígenes de datos mediante:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
+
+## <a name="delete-visual-interface-assets"></a>Eliminar los recursos de la interfaz visual
+
+En la interfaz visual, donde se ha creado el experimento, eliminar recursos individuales:
+
+1. En el lado izquierdo, seleccione el tipo de recurso que desee eliminar.
+
+    ![Eliminación de recursos](media/how-to-export-delete-data.md/delete-experiment.png)
+
+1. En la lista, seleccione los recursos individuales para eliminar.
+
+1. En la parte inferior, seleccione **eliminar**.
+
+## <a name="export-visual-interface-data"></a>Exportar datos de la interfaz visual
+
+En la interfaz visual, donde se ha creado el experimento, exporte los datos que ha agregado:
+
+1. En el lado izquierdo, seleccione **datos**.
+
+1. En la parte superior, seleccione **Mis conjuntos de datos** o **ejemplos** para localizar los datos que desea exportar.
+
+    ![Descargar datos](media/how-to-export-delete-data.md/download-data.png)
+
+1. En la lista, seleccione los conjuntos de datos individuales para exportar.
+
+1. En la parte inferior, seleccione **descargar**.

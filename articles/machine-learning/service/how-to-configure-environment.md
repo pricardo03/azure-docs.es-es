@@ -1,7 +1,7 @@
 ---
 title: Configurar un entorno de desarrollo de Python
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo configurar un entorno de desarrollo al trabajar con Azure Machine Learning Service. En este artículo aprenderá a usar entornos de Conda, crear archivos de configuración y configurar instancias de Jupyter Notebook, Azure Notebooks, Azure Databricks, IDE, editores de código y Data Science Virtual Machine.
+description: Obtenga información sobre cómo configurar un entorno de desarrollo al trabajar con Azure Machine Learning Service. En este artículo, aprenderá a usar entornos de Conda, crear archivos de configuración y configurar su propio servidor de Bloc de notas en la nube, Jupyter Notebooks, Azure Databricks, Azure Notebooks, IDE, los editores de código y la máquina Virtual de ciencia de datos.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 720f984feb5675281510962d4ebee63f638d696d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8c0291997c1ce301083f7d5c19b5067a85cfd0f
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819985"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024979"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 
@@ -26,7 +26,7 @@ Los únicos requisitos para el entorno de desarrollo son Python 3, Anaconda (par
 
 Este artículo se centra en los siguientes entornos y herramientas:
 
-* Azure Notebooks: un servicio de Jupyter Notebook hospedado en Azure Cloud. Esta es la forma más fácil para empezar a trabajar, ya que el SDK de Azure Machine Learning ya está instalado.
+* Su propio [servidor notebook basado en la nube](#notebookvm): Usar un recurso de proceso en su estación de trabajo para ejecutar cuadernos de Jupyter. Esta es la forma más fácil para empezar a trabajar, ya que el SDK de Azure Machine Learning ya está instalado.
 
 * [Data Science Virtual Machine (DSVM)](#dsvm): es un entorno de desarrollo o experimentación preconfigurado en Azure Cloud que está diseñado para el trabajo con ciencia de datos y se puede implementar en instancias de máquina virtual solo con CPU o en instancias basadas en GPU. Python 3, Conda, Jupyter Notebooks y el SDK de Azure Machine Learning ya están instalados. La máquina virtual incluye editores, herramientas y marcos de aprendizaje automático o de aprendizaje profundo que son muy populares para desarrollar soluciones de Machine Learning. Es probable que se trate del entorno más completo de desarrollo para Machine Learning en la plataforma de Azure.
 
@@ -44,7 +44,7 @@ Si ya tiene un entorno de Python 3, o tan solo quiere los pasos básicos para in
 
 - Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [crear un área de trabajo del servicio de Azure Machine Learning](setup-create-workspace.md).
 
-Un área de trabajo es todo lo que necesita para empezar a trabajar con su [Azure Notebooks](#aznotebooks), un [DSVM](#dsvm), o [Azure Databricks](#aml-databricks).
+Un área de trabajo es todo lo que necesita para empezar a trabajar con su propio [servidor notebook basado en la nube](#notebookvm), un [DSVM](#dsvm), [Azure Databricks](#aml-databricks), o [Azure Notebooks](#aznotebooks).
 
 Para instalar el entorno de SDK para su [ordenador](#local), [servidor Jupyter Notebook](#jupyter) o [Visual Studio Code](#vscode) también debe:
 
@@ -57,16 +57,15 @@ Para instalar el entorno de SDK para su [ordenador](#local), [servidor Jupyter N
 
 - En Windows, se necesita el símbolo del sistema o la solicitud de Anaconda (que se instala con Anaconda y Miniconda).
 
-## <a id="aznotebooks"></a>Azure Notebooks
+## <a id="notebookvm"></a>Su propio servidor de Bloc de notas en la nube
 
-[Azure Notebooks](https://notebooks.azure.com) (versión preliminar) es un entorno de desarrollo interactivo en la nube de Azure. Es una manera fácil de empezar a trabajar con el desarrollo de Azure Machine Learning.
+Crear un servidor de Bloc de notas en el área de trabajo de Azure Machine Learning para la manera más fácil empezar a trabajar con el desarrollo de Azure Machine Learning.
 
 * El SDK de Azure Machine Learning ya está instalado.
-* Después de crear un área de trabajo de Azure Machine Learning Service en Azure Portal, puede hacer clic en un botón para configurar automáticamente el entorno de Azure Notebook para trabajar con el área de trabajo.
+* El entorno de máquina virtual del Bloc de notas se configura automáticamente para que funcione con el área de trabajo.
+* El recurso se crea en el área de trabajo y puede administrarse existe
 
-Use la [portal Azure](https://portal.azure.com) para empezar a trabajar con Azure Notebooks.  Abra el área de trabajo y desde el **Introducción** sección, seleccione **Introducción a Azure Notebooks**.
-
-De forma predeterminada, Azure Notebooks usa un nivel de servicio gratuito que está limitado a 4 GB de memoria y 1 GB de datos. Sin embargo, puede quitar estos límites si adjunta una instancia de Data Science Virtual Machine al proyecto de Azure Notebooks. Para más información, consulte [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) (Administración y configuración de proyectos de Azure Notebooks: nivel de proceso).    
+Para empezar a desarrollar con el servidor de Bloc de notas en la nube, consulte [inicio rápido: Usar un servidor de Bloc de notas en la nube para empezar a trabajar con Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
@@ -320,7 +319,7 @@ Una vez que se está ejecutando el clúster, [crear una biblioteca](https://docs
       
    También tenga en cuenta:
    + En la configuración Automl al usar Azure Databricks, agregue los siguientes parámetros:
-        1. ```max_concurrent_iterations``` se basa en el número de nodos de trabajo en el clúster. 
+       1. ```max_concurrent_iterations``` se basa en el número de nodos de trabajo en el clúster. 
         2. ```spark_context=sc``` se basa en el contexto de spark de forma predeterminada. 
    + O bien, si tiene una versión anterior del SDK, anule la selección de bibliotecas instaladas del clúster y mover a la Papelera. Instale la nueva versión del SDK y reinicie el clúster. Si hay un problema una vez hecho esto, desasocie y asocie nuevamente el clúster.
 
@@ -337,6 +336,17 @@ Pruébelo:
   Aunque hay muchos cuadernos de ejemplo disponibles, **sólo [estos cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) funcionan con Azure Databricks.**
   
 + Obtenga información sobre cómo [crear una canalización con Databricks como el proceso de entrenamiento](how-to-create-your-first-pipeline.md).
+
+## <a id="aznotebooks"></a>Azure Notebooks
+
+[Azure Notebooks](https://notebooks.azure.com) (versión preliminar) es un entorno de desarrollo interactivo en la nube de Azure. Es una manera fácil de empezar a trabajar con el desarrollo de Azure Machine Learning.
+
+* El SDK de Azure Machine Learning ya está instalado.
+* Después de crear un área de trabajo de Azure Machine Learning Service en Azure Portal, puede hacer clic en un botón para configurar automáticamente el entorno de Azure Notebook para trabajar con el área de trabajo.
+
+Use la [portal Azure](https://portal.azure.com) para empezar a trabajar con Azure Notebooks.  Abra el área de trabajo y desde el **Introducción** sección, seleccione **Introducción a Azure Notebooks**.
+
+De forma predeterminada, Azure Notebooks usa un nivel de servicio gratuito que está limitado a 4 GB de memoria y 1 GB de datos. Sin embargo, puede quitar estos límites si adjunta una instancia de Data Science Virtual Machine al proyecto de Azure Notebooks. Para más información, consulte [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) (Administración y configuración de proyectos de Azure Notebooks: nivel de proceso).
 
 ## <a id="workspace"></a>Crear un archivo de configuración del área de trabajo
 
@@ -358,7 +368,7 @@ Hay tres formas de crear el archivo de configuración:
 
 * **Siga los pasos de [crear un área de trabajo del servicio de Azure Machine Learning](setup-create-workspace.md#sdk)**: Un archivo *config.json* se crea en la biblioteca de Azure Notebooks. Este archivo contiene información de configuración para el área de trabajo. Puede descargar o copiar el archivo *config.json* en otros entornos de desarrollo.
 
-* **Cree el archivo manualmente**: Con este método deberá usar un editor de texto. Para ello, visite el área de trabajo de [Azure Portal](https://portal.azure.com) para encontrar los valores en el archivo de configuración. Copie los valores del nombre del área de trabajo, del grupo de recursos y del id. de suscripción para usarlos en el archivo de configuración.
+* **Descargue el archivo**: En el [portal de Azure](https://ms.portal.azure.com), seleccione **descargar config.json** desde el **Introducción** sección del área de trabajo.
 
      ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
@@ -387,3 +397,4 @@ Hay tres formas de crear el archivo de configuración:
 - [Entrenar un modelo](tutorial-train-models-with-aml.md) en Azure Machine Learning con el conjunto de datos de MNIST
 - Consultar las referencias del [SDK de Azure Machine Learning para Python](https://aka.ms/aml-sdk)
 - Obtener información sobre el [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
+- 

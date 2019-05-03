@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: e4849487c2dd9330dbf9e6b6cf0ed4d1b6b96020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f773cd298c8faaac90b30d88a74e8ddcb51c3afa
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637525"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021951"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>Aptitudes de Cognitive Search en desuso
 
@@ -31,7 +31,7 @@ En este documento se describen las aptitudes cognitivas que se consideran en des
 
 ### <a name="last-available-api-version"></a>Última versión de API disponible
 
-2017-11-11-preview
+2019-05-06-preview
 
 ### <a name="end-of-support"></a>Finalización del soporte técnico
 
@@ -43,7 +43,8 @@ Use [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity
 
 Para migrar a la [aptitud de reconocimiento de entidades con nombre](cognitive-search-skill-entity-recognition.md), tendrá que realizar uno o varios de los siguientes cambios en la definición de la aptitud. Puede actualizar la definición de aptitud mediante la [API de actualización de conjuntos de aptitudes](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Nota_: Actualmente, no se admite la puntuación de confianza como concepto. Se admitirá en un futuro próximo. El parámetro `minimumPrecision` existe en `EntityRecognitionSkill` para usarse en un futuro y para la compatibilidad con versiones anteriores.
+> [!NOTE]
+> Actualmente, no se admite la puntuación de confianza como concepto. El parámetro `minimumPrecision` existe en `EntityRecognitionSkill` para usarse en un futuro y para la compatibilidad con versiones anteriores.
 
 1. *(Obligatorio)* Cambie `@odata.type` de `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` a `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

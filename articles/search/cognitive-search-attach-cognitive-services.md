@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 09695f764ff71b274e125e90835f5314eb25c980
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344553"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024582"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Search 
 
@@ -28,8 +28,7 @@ Aunque la canalización conste de aptitudes no relacionadas con Cognitive Servic
 > [!NOTE]
 > A medida que expande el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de inteligencia artificial, tendrá que asociar un recurso facturable de Cognitive Services. Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> Ejecución de [integrados habilidades cognitivas](cognitive-search-predefined-skills.md) ejecución se cobra a la [Cognitive Services paga a medida que vaya precio](https://azure.microsoft.com/pricing/details/cognitive-services), en la misma velocidad como si hubiera realiza la tarea directamente. Extracción de la imagen es un cargo de Azure Search, se reflejan en el [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
-
+> Ejecución de habilidades integrados se cobra a los existentes [Cognitive Services paga a medida que vaya precio](https://azure.microsoft.com/pricing/details/cognitive-services/). Precios de extracción de imagen se describen en el [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="use-free-resources"></a>Uso de recursos gratis
 
@@ -100,7 +99,7 @@ Cuando defina un conjunto de aptitudes mediante programación, agregue una secci
 En el siguiente ejemplo se muestra este patrón. Observe la sección cognitiveServices que está en la parte inferior de la definición.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -110,7 +109,7 @@ Content-Type: application/json
     "skills": 
     [
       {
-        "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
         "categories": [ "Organization" ],
         "defaultLanguageCode": "en",
         "inputs": [
@@ -142,7 +141,7 @@ Para calcular los costos asociados con el indexado de Cognitive Search, empiece 
 + Una imagen por página (6000 imágenes)
 + 3000 caracteres por página
 
-Supongamos que hay una canalización que consta del descifrado de cada documento PDF con extracción de imágenes y texto, reconocimiento óptico de caracteres (OCR) de las imágenes y reconocimiento de entidad con nombre de las organizaciones. 
+Suponga una canalización que consta de averiguación de documentos de cada PDF con la extracción de texto e imágenes, reconocimiento óptico de caracteres (OCR) de imágenes y reconocimiento de entidades de las organizaciones. 
 
 En este ejercicio, usamos el mayor precio por transacción. Los costos reales podrían ser menores debido a los precios escalonados. Consulte los [precios de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services).
 

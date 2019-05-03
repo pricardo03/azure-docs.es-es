@@ -1,6 +1,6 @@
 ---
-title: 'Versión preliminar de la API de REST para Azure Search 2017-11-11-Preview: Azure Search'
-description: La API REST del servicio Azure Search, versión 2017-11-11-Preview incluye características experimentales como búsquedas de sinónimos y moreLikeThis.
+title: Obtener una vista previa de API de REST para Azure Search 2019-05-06-Preview - Azure Search
+description: Azure Search Service REST 2019 de versión de API-05-06-Preview incluye características experimentales como almacén de conocimiento y las claves de cifrado administradas por el cliente.
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -9,54 +9,49 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: search
-ms.date: 06/28/2018
+ms.date: 05/02/2019
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 524c1a6d083db02349c7dae9a0131228613dc170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91c58507d8758a65772110afba71354deecd3b12
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61127100"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024282"
 ---
-# <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>API REST del servicio Azure Search: versión 2017-11-11-Preview
-En este artículo se describe la versión `api-version=2017-11-11-Preview` de la API de REST del servicio Azure Search y se proporcionan características experimentales que normalmente no están disponibles.
+# <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Versión de api de REST de servicio Azure Search 2019-05-06-Preview
+En este artículo se describe la versión `api-version=2019-05-06-Preview` de la API de REST del servicio Azure Search y se proporcionan características experimentales que normalmente no están disponibles.
 
 > [!NOTE]
 > Las características en versión preliminar están disponibles para prueba y experimentación con el fin de recabar comentarios y están sujetas a cambios. Le recomendamos encarecidamente que no use una versión preliminar de API en aplicaciones de producción.
 
 
-## <a name="new-in-2017-11-11-preview"></a>Novedades de 2017-11-11-Preview
+## <a name="new-in-2019-05-06-preview"></a>Novedades de 2019-05-06-Preview
 
-[**Autocompletar**](search-autocomplete-tutorial.md) une la [API de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions) existente para agregar experiencias de escritura anticipada complementaria a la barra de búsqueda. Autocompletar devuelve términos de consulta de candidatos que un usuario puede elegir como cadena de consulta para búsquedas posteriores. Sugerencias devuelve documentos reales en respuesta a entradas parciales: los resultados de búsqueda son inmediatos y cambian de manera dinámica a medida que crece la longitud y la especificidad de la entrada del término de búsqueda.
+[**Almacén de conocimiento** ](knowledge-store-concept-intro.md) es un nuevo destino de una canalización de enriquecimiento en función de inteligencia artificial. Además de un índice, ahora puede almacenar las estructuras de datos rellenada creadas durante la indexación en Azure storage. Controlar las estructuras físicas de los datos a través de los elementos de un conjunto de habilidades, incluido cómo forma de datos, si los datos se almacenan en almacenamiento de tablas o almacenamiento de blobs, y si hay varias vistas.
 
-[**Cognitive Search**](cognitive-search-concept-intro.md) es una nueva funcionalidad de enriquecimiento de Azure Search que busca información latente en orígenes no textuales y texto sin diferenciar, y la transforma en contenido que permite realizar búsquedas de texto completo en Azure Search. Los recursos siguientes se han introducido o modificado en la versión preliminar de la API de REST. El resto de las API de REST son las mismas sin importar si se llama a la versión generalmente disponible o a la versión preliminar.
-
-+ [Skillset operations(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/skillset-operations) [Operaciones con conjunto de aptitudes (api-version=2017-11-11-Preview)]
-
-+ [Create Indexer (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creación de indexador [api-version=2017-11-11-Preview])
-
-+ [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
-
-El resto de las API de REST son iguales, independientemente de la configuración que haya establecido para la versión de API. Por ejemplo, `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11-Preview` y `GET https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11` (sin `Preview`) son funcionalmente equivalentes.
+[**Las claves de cifrado administradas por el cliente** ](search-security-manage-encryption-keys.md) de cifrado en reposo de lado del servicio también es una nueva característica de vista previa. Además de la integradas cifrado en reposo administrada por Microsoft, puede aplicar una capa adicional de donde está el titular exclusivo de las claves de cifrado.
 
 ## <a name="other-preview-features"></a>Otras características de la versión preliminar
 
-Las características anunciadas en versiones preliminares anteriores aún están en versión preliminar pública. Si está llamando a una API con una versión anterior de la API en versión preliminar, puede continuar usando esa versión o cambiar a `2017-11-11-Preview` sin que se produzcan cambios en el comportamiento esperado.
-
-+ Los [archivos CSV en la indexación de Azure Blob](search-howto-index-csv-blobs.md), incorporados en `api-version=2015-02-28-Preview`, siguen siendo una característica en versión preliminar. Esta característica forma parte de la indexación de Azure Blob y se invoca mediante una configuración de valores. Cada línea de un archivo a CSV se indexa como documento independiente.
-
-+ Las [matrices de JSON en la indexación de Azure Blob](search-howto-index-json-blobs.md), incorporadas en `api-version=2015-02-28-Preview`, siguen siendo una característica en versión preliminar. Esta característica forma parte de la indexación de Azure Blob y se invoca mediante una configuración de valores, donde cada elemento de la matriz se indexa como un documento independiente.
+Las características anunciadas en versiones preliminares anteriores aún están en versión preliminar pública. Si está llamando a una API con una versión anterior de la API en versión preliminar, puede continuar usando esa versión o cambiar a `2019-05-06-Preview` sin que se produzcan cambios en el comportamiento esperado.
 
 + El [parámetro de consulta moreLikeThis](search-more-like-this.md) busca documentos que sean pertinentes para un documento específico. Esta característica ha aparecido en versiones anteriores. 
 
 
 ## <a name="how-to-call-a-preview-api"></a>Cómo llamar a una API en versión preliminar
 
-Las vistas previas anteriores siguen funcionando, pero quedarán obsoletas con el paso del tiempo. Si el código llama a `api-version=2016-09-01-Preview` o `api-version=2015-02-28-Preview`, dichas llamadas siguen siendo válidas. Sin embargo, solo la versión preliminar más reciente se actualiza con mejoras. 
+Las vistas previas anteriores siguen funcionando, pero quedarán obsoletas con el paso del tiempo. Si el código llama a `api-version=2016-09-01-Preview` o `api-version=2017-11-11-Preview`, dichas llamadas siguen siendo válidas. Sin embargo, solo la versión preliminar más reciente se actualiza con mejoras. 
 
 En la sintaxis de ejemplo siguiente se ilustra una llamada a la versión de API de versión preliminar.
 
-    GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2017-11-11-Preview
+    GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2019-05-06-Preview
 
 El servicio Azure Search está disponible en varias versiones. Para obtener más información, consulte [Versiones de API](search-api-versions.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Revise la documentación de referencia de API de REST del servicio Azure Search. Si tiene problemas, pedirnos ayuda en [StackOverflow](https://stackoverflow.com/) o [póngase en contacto con soporte técnico](https://azure.microsoft.com/support/community/?product=search).
+
+> [!div class="nextstepaction"]
+> [Referencia de API de REST del servicio de búsqueda](https://docs.microsoft.com/rest/api/searchservice/)

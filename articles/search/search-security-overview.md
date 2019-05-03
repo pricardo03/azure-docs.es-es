@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/06/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f366726f539a817f515a78fbc35bfeaa3b65514e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283437"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024494"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Seguridad y privacidad de datos en Azure Search
 
@@ -43,11 +43,8 @@ El cifrado se extiende a lo largo de la canalización de indización: desde las 
 | Nivel de seguridad | DESCRIPCIÓN |
 |----------------|-------------|
 | Cifrado en tránsito <br>(HTTPS/SSL/TLS) | Azure Search escucha en el puerto HTTPS 443. Las conexiones a los servicios de Azure están cifradas en toda la plataforma. <br/><br/>Todas las interacciones de Azure Search de cliente a servicio son compatibles con los protocolos SSL o TLS 1.2.  Asegúrese de usar TLSv1.2 para las conexiones SSL con el servicio.|
-| Cifrado en reposo | El cifrado se internaliza totalmente en el proceso de indexación, sin impacto cuantificable a la hora de indexar el tiempo que tarda en completarse ni el tamaño de indexación. Se produce automáticamente en todas las indexaciones, incluidas las actualizaciones incrementales a un índice que no esté totalmente cifrado (creado antes de enero de 2018).<br><br>Internamente, el cifrado se basa en el [cifrado del servicio de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), que usa [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits.|
-
-El cifrado es interno para Azure Search, con certificados y claves de cifrado que Microsoft administra internamente, y se aplica universalmente. No se puede activar ni desactivar el cifrado, administrar ni sustituir sus claves, ni ver la configuración de cifrado en el portal o mediante programación. 
-
-El cifrado en reposo se anunció el 24 de enero de 2018 y se aplica a todos los niveles de servicio, incluidos los servicios (gratis) compartidos, y en todas las regiones. Para el cifrado completo, los índices creados antes de esa fecha deben quitarse y volver a generarse para que se produzca el cifrado. En caso contrario, solo se cifrarán los datos nuevos a partir del 24 de enero.
+| Cifrado en reposo <br>Claves administradas por Microsoft | El cifrado se internaliza totalmente en el proceso de indexación, sin impacto cuantificable a la hora de indexar el tiempo que tarda en completarse ni el tamaño de indexación. Se produce automáticamente en todas las indexaciones, incluidas las actualizaciones incrementales a un índice que no esté totalmente cifrado (creado antes de enero de 2018).<br><br>Internamente, el cifrado se basa en el [cifrado del servicio de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), que usa [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits.<br><br> El cifrado es interno para Azure Search, con certificados y claves de cifrado que Microsoft administra internamente, y se aplica universalmente. No se puede activar ni desactivar el cifrado, administrar ni sustituir sus claves, ni ver la configuración de cifrado en el portal o mediante programación.<br><br>El cifrado en reposo se anunció el 24 de enero de 2018 y se aplica a todos los niveles de servicio, incluidos los servicios (gratis) compartidos, y en todas las regiones. Para el cifrado completo, los índices creados antes de esa fecha deben quitarse y volver a generarse para que se produzca el cifrado. En caso contrario, solo se cifrarán los datos nuevos a partir del 24 de enero.|
+| Cifrado en reposo <br>Claves administradas por el cliente | El cifrado con claves administradas por el cliente es un **preview** de servicios de función que no está disponible de forma gratuita. Para servicios de pago, solo está disponible para los servicios de búsqueda creados en o después de enero de 2019, utilizando la versión más reciente api-versión preliminar (api-version = 2019-05-06-versión preliminar).<br><br>Índices de búsqueda de Azure y las asignaciones de sinónimos ahora se cifran en reposo con claves administradas de las claves de cliente en Azure Key Vault. Para obtener más información, consulte [administrar claves de cifrado en Azure Search](search-security-manage-encryption-keys.md).<br>Esta característica no reemplaza el cifrado de forma predeterminada en reposo, pero en su lugar se aplica además de él.<br>Si habilita esta característica aumentará el tamaño del índice y degradar el rendimiento de las consultas. Según las observaciones hasta la fecha, puede esperar a ver un aumento del 30-60% en los tiempos de consultas, aunque el rendimiento real variará según la definición del índice y los tipos de consultas. Debido a este impacto en el rendimiento, recomendamos que sólo habilitar esta característica en los índices que efectivamente necesitan.
 
 ## <a name="azure-wide-user-access-controls"></a>Controles de acceso de usuario en todo Azure
 

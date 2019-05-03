@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: eb3697eefb5835305b2ec80ca1e77ccade19e44f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83cea56cecf9792c829e062965fe39b63201af3e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480670"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020661"
 ---
 # <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio Voz
 
@@ -28,9 +28,9 @@ Asegúrese de usar el punto de conexión que coincida con la región de su suscr
 
 En las regiones de [SDK de Voz](speech-sdk.md), las regiones se especifican como una cadena (por ejemplo, como un parámetro `SpeechConfig.FromSubscription` en el SDK de Voz para C#).
 
-### <a name="speech-recognition-and-translation"></a>Reconocimiento de voz y traducción
+### <a name="speech-to-text-text-to-speech-and-translation"></a>Voz a texto, texto a voz y traducción
 
-El SDK de Voz está disponible en estas regiones para el **reconocimiento de voz** y la **traducción**:
+Speech SDK está disponible en estas regiones para **el reconocimiento de voz**, **texto a voz**, y **traducción**:
 
   Region | Parámetro del SDK de Voz | Portal de personalización de Voz
  ------|-------|--------

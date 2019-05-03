@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 0d3927fbc1826f9ab4f613a7c2a310f581b7f7c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a5d93a77652f540fde44b33963b13df04b45ecee
+ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729301"
+ms.lasthandoff: 05/01/2019
+ms.locfileid: "64987940"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Actualización del almacenamiento de datos a Gen2
 
@@ -67,7 +67,7 @@ En la tabla siguiente se resume por región cuándo estará disponible el nivel 
 
 ## <a name="automatic-upgrade-process"></a>Proceso de actualización automática
 
-Se basa en el gráfico de disponibilidad anterior, se deberá se programar actualizaciones automatizadas para las instancias de Gen1. Con el fin de evitar interrupciones inesperadas de la disponibilidad del almacenamiento de datos, se programarán las actualizaciones automatizadas durante la programación de mantenimiento. Para obtener más información sobre las programaciones, consulte [Vista de una programación de mantenimiento](viewing-maintenance-schedule.md).
+Se basa en el gráfico de disponibilidad anterior, se deberá se programar actualizaciones automatizadas para las instancias de Gen1. Con el fin de evitar interrupciones inesperadas de la disponibilidad del almacenamiento de datos, se programarán las actualizaciones automatizadas durante la programación de mantenimiento. La capacidad para crear una nueva instancia de Gen1 se deshabilitará en regiones que se está llevando a cabo la actualización automática a Gen2. Para obtener más información sobre las programaciones, consulte [Vista de una programación de mantenimiento](viewing-maintenance-schedule.md).
 
 El proceso de actualización implicará una lista breve de conectividad (aproximadamente 5 min) se reinicie el almacenamiento de datos.  Una vez que se ha reiniciado el almacenamiento de datos, estará totalmente disponible para usarse. Sin embargo, puede experimentar una degradación del rendimiento mientras continúa el proceso de actualización actualizar los archivos de datos en segundo plano. El tiempo total de esta degradación del rendimiento variará en función del tamaño de los archivos de datos.
 

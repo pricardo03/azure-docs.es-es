@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193159"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024635"
 ---
 # <a name="service-limits-in-azure-search"></a>Límites de servicio en Azure Search
 Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si se [aprovisiona Azure Search](search-create-service-portal.md) en **gratis**, **básica**,  **Estándar**, o **optimizadas para almacenamiento** planes de tarifa.
@@ -47,10 +47,13 @@ Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades
 
 ## <a name="index-limits"></a>Límites de índice
 
-| Recurso | Gratuito | Básico&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resource | Gratuito | Básico&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Índices máximos |3 |5 o 15 |50 |200 |200 |1000 GB por partición o 3000 por servicio |10 |10 |
-| Campos máximos por índice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Campos simple máximos por índice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Campos de colección compleja máximo por índice |40 |40 |40 |40 |40 |40 |40 |40 |
+| Elementos máximos en todas las colecciones complejas por documento |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Profundidad máxima de campos complejos |10 |10 |10 |10 |10 |10 |10 |10 |
 | [Proveedores de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggesters) máximos por índice |1 |1 |1 |1 |1 |1 |1 |1 |
 | [Perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) máximos por índice |100 |100 |100 |100 |100 |100 |100 |100 |
 | Funciones máximas por perfil |8 |8 |8 |8 |8 |8 |8 |8 |
@@ -102,7 +105,7 @@ Para mantener el tamaño del documento reducido, no olvide excluir los datos no 
 Tiempos de ejecución máximos existen para proporcionar equilibrio y la estabilidad al servicio como un todo, pero más grandes conjuntos de datos que tenga indización más tiempo que permite que el máximo. Si un trabajo de indexación no se puede completar en el tiempo máximo permitido, intente ejecutarlo en una programación. El programador realiza un seguimiento del estado de la indexación. Si un trabajo programado de indexación se interrumpe por cualquier motivo, el indizador puede reanudarlo donde se quedó en la siguiente ejecución programada.
 
 
-| Recurso | Gratis&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Resource | Gratis&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Indexadores máximos |3 |5 o 15|50 |200 |200 |N/D |10 |10 |
 | Orígenes de datos máximos |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |

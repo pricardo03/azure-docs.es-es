@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4599498918b7a01a1207f20135c26924c6758eb8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e569fa30727f2df7411eee5fa6d48f9b9454460
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871372"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025334"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Cómo administrar la simultaneidad en Azure Search
 
@@ -170,7 +170,7 @@ En el siguiente código se muestran las comprobaciones accessCondition para las 
 
 Los modelos de diseño para la implementación de la simultaneidad optimista deben incluir un bucle que vuelva a intentar efectuar la comprobación de la condición de acceso, una prueba para la condición de acceso y, opcionalmente, que recupere un recurso actualizado antes de intentar aplicar de nuevo los cambios.
 
-En este fragmento de código se muestra la agregación de un synonymMap a un índice que ya existe. Este código está tomado del [sinónimos (versión preliminar) C# ejemplo para Azure Search](search-synonyms-tutorial-sdk.md).
+En este fragmento de código se muestra la agregación de un synonymMap a un índice que ya existe. Este código está tomado del [sinónimo C# ejemplo para Azure Search](search-synonyms-tutorial-sdk.md).
 
 El fragmento de código obtiene el índice "hotels", comprueba la versión del objeto en una operación de actualización, genera una excepción si se produce un error en la condición y, después, vuelve a intentar efectuar la operación (hasta tres veces) a partir de la recuperación del índice desde el servidor para obtener la versión más reciente.
 

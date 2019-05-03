@@ -1,7 +1,7 @@
 ---
 title: Agregar consultas de escritura anticipada en un índice - Azure Search
 description: Habilitar acciones de consulta anticipadas en Azure Search mediante la creación de proveedores de sugerencias y formular las solicitudes que invocan Autocompletar o autosuggested los términos de consulta.
-ms.date: 03/22/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844444"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021892"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Agregar proveedores de sugerencias para un índice de escritura anticipada en Azure Search
 
@@ -39,9 +39,6 @@ Para implementar estos comportamientos en Azure Search, hay un componente de con
 + El componente del índice es un proveedor de sugerencias. Puede usar el portal, API de REST o SDK de .NET para crear un proveedor de sugerencias. 
 
 + El componente de consulta es una acción especificada en la solicitud de consulta (acción de una sugerencia o Autocompletar). 
-
-> [!Important]
-> Autocompletar está actualmente en versión preliminar, disponible en versión preliminar de las API de REST y SDK. NET. No está pensado para aplicaciones de producción. 
 
 Compatibilidad de búsqueda como-al escribir está habilitada por campo. Puede implementar ambos comportamientos de escritura anticipada en la misma solución de búsqueda si desea una experiencia similar a la indicada en la captura de pantalla. Destino de ambas solicitudes el *documentos* colección de índice específica y respuestas se devuelven después de que un usuario ha proporcionado al menos una cadena de entrada de tres caracteres.
 
@@ -106,7 +103,7 @@ Las propiedades que definen a un proveedor de sugerencias se incluyen las siguie
 
 |Propiedad      |DESCRIPCIÓN      |
 |--------------|-----------------|
-|`name`        |El nombre del proveedor de sugerencias. Utilice el nombre del proveedor de sugerencias cuando se llama a la [API de REST de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions) o [Autocompletar REST API (versión preliminar)](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
+|`name`        |El nombre del proveedor de sugerencias. Utilice el nombre del proveedor de sugerencias cuando se llama a la [API de REST de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions) o [API de REST de Autocompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
 |`searchMode`  |La estrategia que se usa para buscar las frases candidatas. El único modo que se admite actualmente es `analyzingInfixMatching`, que establece una correspondencia flexible de frases al principio o en medio de las oraciones.|
 |`sourceFields`|Una lista de uno o más campos que son el origen del contenido para obtener sugerencias. Solo los campos de tipo `Edm.String` y `Collection(Edm.String)` pueden ser orígenes para obtener sugerencias. Solo se pueden usar los campos que no tienen un analizador de lenguaje personalizado establecido.<p/>Especifique solo los campos que se prestan a una respuesta adecuada y esperada, ya sea una cadena completa en una barra de búsqueda o una lista desplegable.<p/>Un nombre de hotel es una buena candidata porque tiene la precisión. Los campos detallados, como descripciones y comentarios son demasiado densos. De forma similar, los campos repetitivos, como las categorías y etiquetas, son menos eficaces. En los ejemplos, se incluye "categoría" de todos modos para demostrar que puede incluir varios campos. |
 
@@ -120,7 +117,7 @@ Si agrega un proveedor de sugerencias para un índice existente, donde se incluy
 
 Como se indicó anteriormente, puede usar un proveedor de sugerencias para consultas sugeridas, Autocompletar o ambos. 
 
-Se hace referencia a un proveedor de sugerencias en la solicitud junto con la operación. Por ejemplo, en una llamada GET REST, especifique `suggest` o `autocomplete` en la colección de documentos. Para REST, una vez creado un proveedor de sugerencias, use el [API de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions) o [Autocompletar API (versión preliminar)](https://docs.microsoft.com/rest/api/searchservice/autocomplete) en la lógica de consulta.
+Se hace referencia a un proveedor de sugerencias en la solicitud junto con la operación. Por ejemplo, en una llamada GET REST, especifique `suggest` o `autocomplete` en la colección de documentos. Para REST, una vez creado un proveedor de sugerencias, use el [API de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions) o [API de Autocompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) en la lógica de consulta.
 
 Para. NET, use [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) o [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
 

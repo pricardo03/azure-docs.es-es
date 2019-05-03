@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2bd271557ae0deefeb12a2dc7343c46fbd35363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817553"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023787"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformación de datos con Azure Machine Learning Data Prep SDK
 
 En este artículo, obtendrá información sobre diferentes métodos para transformar los datos mediante el SDK de Azure Machine Learning Data Prep. El SDK ofrece funciones que simplifican la forma de agregar columnas, filtrar las columnas o filas no deseadas e imputar valores ausentes. Para ver la documentación de referencia para el SDK, consulte el [Introducción](https://aka.ms/data-prep-sdk).
+
+> [!Important]
+> Si está creando una nueva solución, pruebe el [conjuntos de datos de Azure Machine Learning](how-to-explore-prepare-data.md) (versión preliminar) para transformar los datos, los datos de instantánea y almacenar definiciones de conjunto de datos con control de versiones. Los conjuntos de datos es la próxima versión de SDK, que ofrece funcionalidad ampliada para administrar conjuntos de datos en soluciones de inteligencia artificial de la preparación de datos.
 
 Este tema de procedimientos muestra ejemplos de las siguientes tareas:
 
@@ -35,7 +38,7 @@ Este tema de procedimientos muestra ejemplos de las siguientes tareas:
 
 Azure Machine Learning Data Prep SDK incluye expresiones `substring` que puede usar para calcular un valor de las columnas existentes y, después, colocar ese valor en una columna nueva. En este ejemplo cargará los datos e intentará agregar columnas a los datos de entrada.
 
-```python
+```Python
 import azureml.dataprep as dprep
 
 # loading data
@@ -52,7 +55,7 @@ dflow.head(3)
 
 Use la expresión `substring(start, length)` para extraer el prefijo de la columna Case Number y poner la cadena en una nueva columna `Case Category`. Al pasar la variable `substring_expression` al parámetro `expression` se crea una nueva columna calculada que ejecuta la expresión en cada registro.
 
-```python
+```Python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -67,10 +70,9 @@ case_category.head(3)
 |2|10140270|HY329253|HY|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|BATTERY|DOMESTIC BATTERY SIMPLE|STREET|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
 
-
 Use la expresión `substring(start)` para extraer solo el número de la columna Case Number y crear una nueva columna. Conviértala a un tipo de datos numérico mediante la función `to_number()` y pase el nombre de la columna de cadena como parámetro.
 
-```python
+```Python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',

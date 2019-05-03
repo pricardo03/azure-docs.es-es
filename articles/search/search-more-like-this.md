@@ -7,30 +7,35 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 10/27/2016
+ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d55a6d883e0dcd5ad4b1c1584b76bae06e6c742a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d18069335bb20f78a5bcda85eb6fcb2a5abe75f7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283375"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024670"
 ---
 # <a name="morelikethis-in-azure-search-preview"></a>moreLikeThis en Azure Search (versión preliminar)
 
-`moreLikeThis=[key]` es un parámetro de consulta de [API Search](https://docs.microsoft.com/rest/api/searchservice/search-documents). Al especificar el parámetro  `moreLikeThis` en una consulta de búsqueda, puede buscar documentos que sean similares al especificado por la clave de documento. Cuando se realiza una solicitud de búsqueda con `moreLikeThis`, se genera una consulta con los términos de búsqueda extraídos del documento especificado que describen mejor ese documento. La consulta generada se usa luego para realizar la solicitud de búsqueda. De forma predeterminada, se tiene en cuenta el contenido de todos los campos `searchable` a menos que se use el parámetro `searchFields` para restringir los campos. El parámetro `moreLikeThis` no se puede usar con el parámetro de búsqueda, `search=[string]`.
+`moreLikeThis=[key]` es un parámetro de consulta en el [API de búsqueda de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents) que busca documentos similares al documento especificado por la clave del documento. Cuando se realiza una solicitud de búsqueda con `moreLikeThis`, se genera una consulta con los términos de búsqueda extraídos del documento especificado que describen mejor ese documento. La consulta generada se usa luego para realizar la solicitud de búsqueda. De forma predeterminada, se considera el contenido de todos los campos de búsqueda, menos cualquier campos restringidos que ha especificado mediante el `searchFields` parámetro. El parámetro `moreLikeThis` no se puede usar con el parámetro de búsqueda, `search=[string]`.
+
+De forma predeterminada, se considera el contenido de todos los campos de búsqueda nivel superior. Si desea especificar los campos concretos en su lugar, puede usar el `searchFields` parámetro. 
+
+> [!NOTE]
+> `moreLikeThis` vista previa no funciona en campos secundarios que se puede buscar en un [tipo complejo](search-howto-complex-data-types.md).
 
 ## <a name="examples"></a>Ejemplos 
 
 A continuación se muestra un ejemplo de una consulta moreLikeThis. La consulta busca los documentos cuyos campos de descripción son lo más parecido al campo del documento de origen según se especifica con el parámetro `moreLikeThis`.
 
 ```
-Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2016-09-01-Preview
+Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2019-05-06-Preview
 ```
 
 ```
-POST /indexes/hotels/docs/search?api-version=2016-09-01-Preview
+POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
     {
       "moreLikeThis": "1002",
       "searchFields": "description"
@@ -39,4 +44,11 @@ POST /indexes/hotels/docs/search?api-version=2016-09-01-Preview
 
 ## <a name="feature-availability"></a>Disponibilidad de características
 
-La característica moreLikeThis se encuentra actualmente en versión preliminar y solo se admite en las versiones de API de versión preliminar `2015-02-28-Preview` y `2016-09-01-Preview`. Puesto que la versión de la API se especifica en la solicitud, es posible combinar API de versión preliminar y disponibles en general en la misma aplicación. Sin embargo, la versión preliminar de las API no se someten a las condiciones del Acuerdo de Nivel de Servicio y sus características pueden cambiar, por lo que no se recomienda su uso en aplicaciones de producción.
+El `moreLikeThis` parámetro está disponible en vista previa de las API de REST únicamente (`api-version=2019-05-06-Preview`).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Puede utilizar cualquier herramienta de prueba de web para experimentar con esta característica.  Se recomienda usar Postman para este ejercicio.
+
+> [!div class="nextstepaction"]
+> [Explorar la API de REST de Azure Search con Postman](search-fiddler.md)

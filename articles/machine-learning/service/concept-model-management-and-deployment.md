@@ -1,7 +1,7 @@
 ---
-title: Administración, registro, implementación y supervisión de modelos de ML
+title: 'MLOps: Administrar, implementar y supervisar los modelos de aprendizaje automático'
 titleSuffix: Azure Machine Learning service
-description: Aprenda a usar Azure Machine Learning Services para implementar, administrar y supervisar sus propios modelos para mejorarlos de forma continua. Puede implementar los modelos que haya entrenado con Azure Machine Learning Services, en la máquina local o que procedan de otros orígenes.
+description: 'Aprenda a usar el servicio Azure Machine Learning para MLOps: implementar, administrar y supervisar sus propios modelos para mejorarlos continuamente. Puede implementar los modelos que haya entrenado con Azure Machine Learning Services, en la máquina local o que procedan de otros orígenes.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,101 +9,85 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: chris-lauren
 ms.author: clauren
-ms.date: 1/23/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18a80af8422e30ce3e87395449fca7b5f6a73762
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821144"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025051"
 ---
-# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Administración, implementación y supervisión de modelos Azure Machine Learning Services
+# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Administración, implementación y supervisión de modelos Azure Machine Learning Services
 
 En este artículo aprenderá a usar Azure Machine Learning Services para implementar, administrar y supervisar sus propios modelos para mejorarlos continuamente. Puede implementar los modelos que haya entrenado con Azure Machine Learning, en la máquina local o que procedan de otros orígenes. 
 
 En el siguiente diagrama se ilustra el flujo de trabajo de implementación completo: [![Flujo de trabajo de implementación para Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
-El flujo de trabajo de implementación incluye los siguientes pasos:
+El MLOps / flujo de trabajo de implementación incluye los pasos siguientes:
 1. **Registrar el modelo** en un registro hospedado en el área de trabajo de Azure Machine Learning Services
-1. **Registrar una imagen** que empareje un modelo con un script de puntuación y las dependencias en un contenedor portátil 
-1. **Implementar** la imagen como servicio web en la nube o en dispositivos perimetrales
+1. **Use** el modelo en un servicio web en la nube, en un dispositivo de IoT, o para realizar análisis con Power BI.
 1. **Supervisar y recopilar datos**
 1. **Actualizar** una implementación para usar una imagen nueva.
 
-Cada paso puede realizarse de forma independiente o como parte de un comando de implementación único. Además, puede integrar la implementación en un **flujo de trabajo de CI/CD** tal como se muestra en este gráfico.
+Cada paso puede realizarse de forma independiente o como parte de un único comando. Además, puede crear un **flujo de trabajo de CI/CD** tal como se muestra en este gráfico.
 
 [!['Ciclo de implementación (CI/CD) continua e integración continua de azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+
+> [!VIDEO https://www.youtube.com/embed/0MaHb070H_8]
 
 ## <a name="step-1-register-model"></a>Paso 1: Registro del modelo
 
 El registro del modelo permite almacenar y versionar los modelos en la nube de Azure, en su área de trabajo. El registro de modelo facilita organizar y mantener un seguimiento de los modelos entrenados.
  
-Los modelos registrados se identifican por el nombre y la versión. Cada vez que registra un modelo con el mismo nombre que uno existente, el registro incrementa la versión. También puede proporciona etiquetas de metadatos adicionales durante el registro para usarlas al buscar modelos. Azure Machine Learning Service admite cualquier modelo que pueda cargarse mediante Python 3. 
+Los modelos registrados se identifican por el nombre y la versión. Cada vez que registra un modelo con el mismo nombre que uno existente, el registro incrementa la versión. También puede proporciona etiquetas de metadatos adicionales durante el registro para usarlas al buscar modelos. El servicio de Azure Machine Learning es compatible con cualquier modelo que se puede cargar mediante Python 3.5.2 o superior.
 
-No se pueden eliminar los modelos que una imagen esté utilizando.
+No se puede eliminar los modelos que se usan en una implementación activa.
 
 Para más información, consulte la sección de registro de modelos de [Implementación de modelos](how-to-deploy-and-where.md#registermodel).
 
 Para un ejemplo de registro de un modelo almacenado en formato pickle, consulte [Tutorial: Entrenamiento de un modelo de clasificación de imágenes](tutorial-deploy-models-with-aml.md).
 
-Para información sobre el uso de modelos ONNX, consulte el documento [ONNX y Azure Machine Learning](how-to-build-deploy-onnx.md).
+## <a name="step-2-use-the-model"></a>Paso 2: Usar el modelo
 
-## <a name="step-2-register-image"></a>Paso 2: Registro de la imagen
+Modelos de Machine learning pueden usarse como un servicio web, en dispositivos IoT Edge, o para realizar análisis de servicios como Power BI.
 
-Las imágenes permiten implementar el modelo de confianza, así como los componentes necesarios para usarlo. Una imagen contiene los siguientes elementos:
+### <a name="web-service"></a>Servicio web
 
-* El modelo
-* El motor de puntuación
-* El archivo o la aplicación de puntuación
-* Las dependencias necesarias para puntuar el modelo
-
-La imagen también puede incluir componentes del SDK para el registro y la supervisión. Los datos de los registros del SDK pueden usarse para ajustar o volver a entrenar el modelo, su entrada y salida incluidas.
-
-Azure Machine Learning admite las plataformas más populares, pero en general vale cualquiera donde se pueda instalar pip.
-
-Al crearse el área de trabajo, también se crearon otros recursos de Azure que esta usa.
-Todos los objetos utilizados para crear la imagen predeterminada se almacenan en la cuenta de almacenamiento de Azure en el área de trabajo. Puede proporcionar etiquetas de metadatos adicionales al crear la imagen. El registro de imágenes también almacena las etiquetas de metadatos, que se pueden consultar para encontrar la imagen.
-
-También puede utilizar imágenes personalizadas, que se pueden cargar en Azure Container Registry y utilizadas por el servicio de Azure Machine Learning.
-
-Para más información, consulte la sección de configuración y registro de imágenes de [Implementación de modelos](how-to-deploy-and-where.md#configureimage).
-
-## <a name="step-3-deploy-image"></a>Paso 3: Implementación de la imagen
-
-Puede implementar imágenes registradas en la nube o en dispositivos perimetrales. En el proceso de implementación se crean todos los recursos necesarios para supervisar al modelo, equilibrar sus cargas y escalarlo automáticamente. El acceso a los servicios implementados se puede proteger con autenticación basada en certificados si se proporcionan los recursos de seguridad durante la implementación. También puede actualizar una implementación existente para usar una imagen más reciente.
-
-Las implementaciones de servicio web también permiten búsquedas. Por ejemplo, puede buscar todas las implementaciones de una imagen o un modelo específicos.
-
-[![Destinos de inferencia](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
-
-Puede implementar las imágenes en los siguientes destinos de implementación en la nube:
+Puede usar los modelos en **servicios web** con los siguientes destinos de proceso:
 
 * Azure Container Instances
 * Azure Kubernetes Service
-* Máquinas con FPGA de Azure
-* Dispositivos de Azure IoT Edge
 
-Al implementarse el servicio, la solicitud de inferencia equilibra la carga automáticamente y el clúster se escala para dar respuesta a cualquier aumento de demanda. Los [datos de telemetría sobre el servicio](how-to-enable-app-insights.md) se pueden capturar en el servicio Azure Application Insights asociado al área de trabajo.
+Para implementar el modelo como un servicio web, debe proporcionar lo siguiente:
 
-Para más información, consulte la sección de implementación de [Implementación de modelos](how-to-deploy-and-where.md#deploy).
+* El modelo o un conjunto de modelos.
+* Dependencias necesarias para utilizar el modelo. Por ejemplo, una secuencia de comandos que acepta solicitudes e invoca el modelo, las dependencias de conda, etcetera.
+* Configuración de implementación que se describe cómo y dónde para implementar el modelo.
 
-## <a name="step-4-monitor-models-and-collect-data"></a>Paso 4: Supervisión de los modelos y recopilación de datos
+Para obtener más información, consulte [implementar modelos](how-to-deploy-and-where.md).
 
-Hay un SDK para la captura de datos y el registro del modelo disponible para supervisar la entrada, la salida y otros datos pertinentes del modelo. Los datos se almacenan como un blob en la cuenta de almacenamiento de Azure para el área de trabajo.
+### <a name="iot-edge-devices"></a>Dispositivos IoT Edge
 
-Para usar el SDK con el modelo, se importa el SDK en la aplicación o el script de puntuación. A continuación se puede usar el SDK para registrar datos como parámetros, resultados o detalles de la entrada.
+Puede usar modelos con dispositivos IoT a través de **módulos de Azure IoT Edge**. Módulos de IoT Edge se implementan en dispositivos de hardware, lo que permite la inferencia en el dispositivo.
 
-Si decide habilitar la recopilación de datos del modelo cada vez que implementa la imagen, los detalles necesarios para capturar los datos, como las credenciales del almacén personal de blobs, se aprovisionan automáticamente.
+Para obtener más información, consulte [implementar modelos](how-to-deploy-and-where.md).
 
-> [!Important]
-> Microsoft no ve los datos recopilados del modelo. Los datos se envían directamente a la cuenta de almacenamiento de Azure para el área de trabajo.
+### <a name="analytics"></a>Análisis
+
+Microsoft Power BI admite el uso de modelos de aprendizaje automático para el análisis de datos. Para obtener más información, consulte [integración de Azure Machine Learning en Power BI (versión preliminar)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+
+## <a name="step-3-monitor-models-and-collect-data"></a>Paso 3: Supervisión de los modelos y recopilación de datos
+
+Supervisión permite comprender qué datos se envían a su modelo y las predicciones que devuelve.
+
+Esta información le ayudará a comprender cómo se usa el modelo. Los datos recopilados de entrada también pueden ser útiles en versiones futuras de entrenamiento del modelo.
 
 Para más información, consulte [cómo habilitar la recopilación de datos de un modelo](how-to-enable-data-collection.md).
 
-## <a name="step-5-update-the-deployment"></a>Paso 5: Actualización de la implementación
+## <a name="step-4-update-the-deployment"></a>Paso 4: Actualización de la implementación
 
-Las actualizaciones del modelo no se registran automáticamente. De forma similar, registrar una nueva imagen no actualiza automáticamente las implementaciones que se crearon a partir de una versión anterior de la imagen. En su lugar, debe registrar manualmente el modelo, registrar la imagen y, luego, actualizar el modelo. Para más información, consulte la sección de actualización de [Implementación de modelos](how-to-deploy-and-where.md#update).
+Las implementaciones se deben actualizar explícitamente. Para más información, consulte la sección de actualización de [Implementación de modelos](how-to-deploy-and-where.md#update).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

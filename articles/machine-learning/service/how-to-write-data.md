@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 92f04d80ea956f3036d7778a5d6de62e53b969ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817369"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023715"
 ---
-# <a name="write-and-configure-data-using-azure-machine-learning"></a>Escribir y configurar los datos mediante Azure Machine Learning
+# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Escribir y configurar los datos con el SDK de Azure Machine Learning Data Prep
 
 En este artículo, obtendrá información sobre distintos métodos para escribir datos mediante el [Python preparar el SDK de Azure Machine Learning Data](https://aka.ms/data-prep-sdk) y cómo configurar esos datos para la experimentación con el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Datos de salida se pueden escribir en cualquier momento en un flujo de datos. Operaciones de escritura se agregan como pasos para el flujo de datos resultante y estos pasos se ejecutan cada vez que el flujo de datos se ejecuta. Los datos se escriben en múltiples archivos de partición para permitir escrituras paralelas.
+
+> [!Important]
+> Si está creando una nueva solución, pruebe el [conjuntos de datos de Azure Machine Learning](how-to-explore-prepare-data.md) (versión preliminar) para transformar los datos, los datos de instantánea y almacenar definiciones de conjunto de datos con control de versiones. Los conjuntos de datos es la próxima versión de SDK, que ofrece funcionalidad ampliada para administrar conjuntos de datos en soluciones de inteligencia artificial de la preparación de datos.
 
 Como no hay limitaciones en cuanto a la cantidad de pasos de escritura que hay en una canalización, puede agregar fácilmente pasos de escritura adicionales para obtener resultados intermedios para solucionar problemas o para otras canalizaciones.
 

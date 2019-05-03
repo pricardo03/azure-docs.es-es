@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c77f26187914b2c6e52426bb2a07303b22ccb2b0
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290455"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023994"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Microsoft Azure Search: preguntas más frecuentes (P+F)
 
@@ -64,7 +64,7 @@ No hay ninguna restricción en el uso de réplicas principales o secundarias com
 
 No, esta operación no se admite. La búsqueda siempre se centra en un solo índice.
 
-### <a name="can-i-restrict-search-corpus-access-by-user-identity"></a>¿Se puede restringir el acceso al corpus de búsqueda según la identidad del usuario?
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>¿Puedo restringir el acceso de índice de búsqueda por identidad de usuario?
 
 Puede implementar [filtros de seguridad](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) con el filtro `search.in()`. El filtro se integra bien con [servicios de administración de identidades como Azure Active Directory (AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) para recortar los resultados de la búsqueda en función de la pertenencia a un grupo de usuarios definido.
 

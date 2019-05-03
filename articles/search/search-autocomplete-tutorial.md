@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126757"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025155"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Ejemplo: Agregar sugerencias o Autocompletar a la aplicación de Azure Search
 
@@ -23,7 +23,7 @@ En este artículo, aprenderá a usar [sugerencias](https://docs.microsoft.com/re
 
 + *Sugerencias* sugerido resultados generados mientras escribe, donde cada sugerencia es un resultado único desde el índice que coincide con lo que ha escrito hasta ahora. 
 
-+ *Autocompletar*, [una característica de vista previa](search-api-preview.md), "finalice" de la palabra o frase que un usuario está escribiendo actualmente. En lugar de devolver los resultados, se completa una consulta, que, a continuación, puede ejecutar para devolver resultados. Al igual que con sugerencias, una palabra completa o frase en una consulta se basa en una coincidencia en el índice. El servicio no ofrece las consultas que devuelven cero da como resultado en el índice.
++ *Autocompletar* "finalice" de la palabra o frase que un usuario está escribiendo actualmente. En lugar de devolver los resultados, se completa una consulta, que, a continuación, puede ejecutar para devolver resultados. Al igual que con sugerencias, una palabra completa o frase en una consulta se basa en una coincidencia en el índice. El servicio no ofrece las consultas que devuelven cero da como resultado en el índice.
 
 Puede descargar y ejecutar el código de ejemplo **DotNetHowToAutocomplete** para evaluar estas características. El código de ejemplo tiene como destino un índice creado previamente rellenado con [NYCJobs demostración datos](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Contiene el índice NYCJobs un [construcción del proveedor de sugerencias](index-add-suggesters.md), que es un requisito para el uso de sugerencias o Autocompletar. Puede usar el índice preparado hospedado en un servicio de espacio aislado o [llenar su propio índice](#configure-app) mediante un cargador de datos en la solución de ejemplo NYCJobs. 
 

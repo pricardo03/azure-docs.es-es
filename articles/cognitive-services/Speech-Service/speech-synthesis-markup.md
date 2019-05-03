@@ -11,25 +11,51 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 57fc7e699d88dbe777750e3acdb7f96794b66fc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9871e0106ee6caf11c5a1e24459fbd2044f5f3d7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460293"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021434"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Lenguaje de marcado de síntesis de voz (SSML)
 
-El lenguaje de marcado de síntesis de voz (SSML) es un lenguaje de marcado basado en XML que proporciona una manera de controlar la pronunciación y la *prosodia* de la conversión de texto a voz. El término "prosodia" hace referencia al ritmo y al tono de voz (su música, si lo prefiere). Puede especificar palabras fonéticamente, proporcionar sugerencias para interpretar números, insertar pausas, controlar el tono, el volumen y la velocidad, etc. Para más información, consulte [Speech Synthesis Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) [Lenguaje de marcado de síntesis de voz (SSML) versión 1.0].
+El lenguaje de marcado de síntesis de voz (SSML) es un lenguaje de marcado basado en XML que proporciona una manera de controlar la pronunciación y la *prosodia* de la conversión de texto a voz. El término "prosodia" hace referencia al ritmo y al tono de voz (su música, si lo prefiere). Puede especificar palabras fonéticamente, proporcionar sugerencias para interpretar números, insertar pausas, controlar el tono, el volumen y la velocidad, etc. Para más información, consulte [Speech Synthesis Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) [Lenguaje de marcado de síntesis de voz (SSML) versión 1.0]. 
 
 Para obtener una lista completa de los idiomas compatibles, las configuraciones regionales y las voces (neuronales y estándar), consulte [compatibilidad con idiomas](language-support.md#text-to-speech).
 
 En las secciones siguientes encontrará ejemplos de tareas de síntesis de voz comunes.
 
+## <a name="adjust-speaking-style-for-neural-voices"></a>Ajustar el estilo de habla de voces neuronales
+
+Puede usar para ajustar el estilo de habla al usar una de las voces neuronales SSML.
+
+De forma predeterminada, el servicio de texto a voz sintetiza texto en un estilo neutro. Las voces neuronales amplían SSML con un `<mstts:express-as>` estilos de elemento que convierte texto a voz sintetizada hablar diferentes. Actualmente, las etiquetas de estilo solo son compatibles con estas voces:
+
+* `en-US-JessaNeural` 
+* `zh-CN-XiaoxiaoNeural`.
+
+Los cambios de estilo de habla puede aplicarse en el nivel de oración. Los estilos varían según la voz. Si no se admite un tipo de estilo, el servicio devolverá la voz sintetizada como estilo predeterminado neutro.
+
+| Voz | Estilo | DESCRIPCIÓN | 
+|-----------|-----------------|----------|
+| `en-US-JessaNeural` | type=`cheerful` | Expresa una emoción que es positivo y feliz |
+| | type=`empathy` | Expresa una sensación de cuidado y descripción |
+| `zh-CN-XiaoxiaoNeural` | type=`newscast` | Expresa un tono formal, similar a las difusiones de noticias |
+| | type=`sentiment ` | Transmite un mensaje están tocando o una historia |
+
+```xml
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+<voice name='en-US-JessaNeural'>
+<mstts:express-as type="cheerful"> 
+    That'd be just amazing! 
+</mstts:express-as></voice></speak>
+```
+
 ## <a name="add-a-break"></a>Adición de una pausa
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
+<voice  name='en-US-Jessa24kRUS'>
     Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
 </voice> </speak>
 ```
@@ -40,7 +66,7 @@ Velocidad de habla puede aplicarse a las voces estándares en la palabra o frase
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
+<voice  name='en-US-Guy24kRUS'>
 <prosody rate="+30.00%">
     Welcome to Microsoft Cognitive Services Text-to-Speech API.
 </prosody></voice> </speak>
@@ -49,7 +75,7 @@ Velocidad de habla puede aplicarse a las voces estándares en la palabra o frase
 ## <a name="pronunciation"></a>Pronunciación
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
+<voice  name='en-US-Jessa24kRUS'>
     <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
 </voice> </speak>
 ```
@@ -60,7 +86,7 @@ Cambios de volumen pueden aplicarse a las voces estándares en la palabra o fras
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
+<voice  name='en-US-Jessa24kRUS'>
 <prosody volume="+20.00%">
     Welcome to Microsoft Cognitive Services Text-to-Speech API.
 </prosody></voice> </speak>
@@ -72,7 +98,7 @@ Cambios de tono pueden aplicarse a las voces estándares en la palabra o frase n
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-    <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
+    <voice  name='en-US-Guy24kRUS'>
     Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
 </voice> </speak>
 ```
@@ -84,7 +110,7 @@ Cambios de tono pueden aplicarse a las voces estándares en la palabra o frase n
 
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
+<voice  name='en-US-Jessa24kRUS'>
 <prosody contour="(80%,+20%) (90%,+30%)" >
     Good morning.
 </prosody></voice> </speak>
@@ -93,10 +119,10 @@ Cambios de tono pueden aplicarse a las voces estándares en la palabra o frase n
 ## <a name="use-multiple-voices"></a>Uso de varias voces
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
+<voice  name='en-US-Jessa24kRUS'>
     Good morning!
 </voice>
-<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
+<voice  name='en-US-Guy24kRUS'>
     Good morning to you too Jessa!
 </voice> </speak>
 ```

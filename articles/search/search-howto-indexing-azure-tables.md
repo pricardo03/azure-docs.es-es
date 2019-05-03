@@ -1,7 +1,7 @@
 ---
 title: 'Indexación de contenido desde Azure Table Storage para la búsqueda de texto completo: Azure Search'
 description: Aprenda a indexar datos almacenados en Azure Table Storage con un indizador de Azure Search.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: e1b411ab54a5b666849893ba9d246eff85e7e54e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f0e7feb52b34a4bd29bef01925bf9ea8f84d7db
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871241"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024799"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexación de Azure Table Storage con Azure Search
 En este artículo se muestra cómo usar Azure Search para indexar datos almacenados en Azure Table Storage.
@@ -49,7 +49,7 @@ Para realizar la indexación de tablas, el origen de datos debe tener las siguie
 
 Para crear un origen de datos:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -81,7 +81,7 @@ El índice especifica los campos de un documento, los atributos y otras construc
 
 Para crear un índice:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +100,7 @@ Un indexador conecta un origen de datos con un índice de búsqueda de destino y
 
 Después de crear el origen de datos y el índice, ya puede crear el indexador:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -133,7 +133,7 @@ Cuando configure un indizador de tablas para que se ejecute según una programac
 
 Para indicar que determinados documentos se deben quitar del índice, puede usar una estrategia de eliminación temporal. En lugar de eliminar una fila, agregue una propiedad para indicar que se elimina y configure una directiva de detección de eliminaciones temporales en el origen de datos. Por ejemplo, la siguiente directiva considera que una fila se ha eliminado si tiene una propiedad `IsDeleted` con el valor `"true"`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
