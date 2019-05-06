@@ -27,16 +27,16 @@ Cada instancia del servicio de API Management tiene una colección de propiedade
 
 | Atributo | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| Nombre para mostrar |string |Cadena alfanumérica que se usa para hacer referencia a la propiedad en las directivas. |
-| Valor |string |El valor de la propiedad. No puede estar vacío ni contener solo espacios en blanco. |
-|Secret|boolean|Determina si el valor es secreto y si se debe cifrar.|
-| Etiquetas |matriz de cadena |Etiquetas opcionales que, cuando se proporcionan, pueden usarse para filtrar la lista de propiedades. |
+| `Display name` |string |Cadena alfanumérica que se usa para hacer referencia a la propiedad en las directivas. |
+| `Value` |string |El valor de la propiedad. No puede estar vacío ni contener solo espacios en blanco. |
+|`Secret`|boolean|Determina si el valor es secreto y si se debe cifrar.|
+| `Tags` |matriz de cadena |Etiquetas opcionales que, cuando se proporcionan, pueden usarse para filtrar la lista de propiedades. |
 
 ![Valores con nombre](./media/api-management-howto-properties/named-values.png)
 
 Los valores de propiedad pueden contener cadenas literales y [expresiones de directiva](/azure/api-management/api-management-policy-expressions). Por ejemplo, el valor de `ExpressionProperty` es una expresión de directiva que devuelve una cadena que contiene la fecha y la hora actuales. La propiedad `ContosoHeaderValue` está marcada como secreta, por lo que no se muestra su valor.
 
-| NOMBRE | Valor | Secret | Etiquetas |
+| NOMBRE | `Value` | `Secret` | `Tags` |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
