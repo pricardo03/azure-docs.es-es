@@ -137,7 +137,7 @@ Todos los registros de VMBoundPort se identifican mediante los siguientes campos
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
 |Proceso | Identidad de proceso (o grupos de procesos) que está asociado con el puerto.|
-|IP | Dirección IP de puerto (puede ser la dirección IP de carácter comodín, *0.0.0.0*) |
+|Ip | Dirección IP de puerto (puede ser la dirección IP de carácter comodín, *0.0.0.0*) |
 |Port |El número de puerto |
 |Protocol | El protocolo.  Ejemplo, *tcp* o *udp* (sólo *tcp* actualmente se admite).|
  
