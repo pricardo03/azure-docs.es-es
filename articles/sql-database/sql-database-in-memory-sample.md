@@ -46,7 +46,7 @@ Si desea ver una demostración más simple, pero más atractiva visualmente, del
 
 #### <a name="installation-steps"></a>Pasos de instalación
 
-1. En [Azure Portal](https://portal.azure.com/), cree una base de datos de nivel Premium o Crítico para la empresa en un servidor. Establezca el **Origen** en la base de datos de ejemplo de AdventureWorksLT. Para obtener instrucciones detalladas, consulte [Creación de la primera Base de datos SQL de Azure](sql-database-single-database-get-started.md).
+1. En [Azure Portal](https://portal.azure.com/), cree una base de datos de nivel Premium o Crítico para la empresa en un servidor. Establezca el **Origen** en la base de datos de ejemplo de AdventureWorksLT. Para obtener instrucciones detalladas, consulte [Creación de la primera base de datos de Azure SQL](sql-database-single-database-get-started.md).
 
 2. Conéctese a la base de datos con SQL Server Management Studio [(SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 

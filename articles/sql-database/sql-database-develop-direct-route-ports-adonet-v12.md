@@ -37,7 +37,7 @@ El puerto 1433 es el único puerto que debe estar abierto en su equipo de escrit
 
 ### <a name="inside-client-runs-on-azure"></a>*Dentro:* el cliente se ejecuta en Azure.
 
-Cuando el cliente se ejecuta dentro del límite de la nube de Azure, usa lo que podemos llamar una *ruta directa* para interactuar con el servidor de SQL Database. Cuando se ha establecido una conexión, las interacciones posteriores entre el cliente y la base de datos no implican ninguna instancia de Azure SQL Database Gateway.
+Cuando el cliente se ejecuta dentro del límite de la nube de Azure, usa lo que podemos llamar una *ruta directa* para interactuar con el servidor de SQL Database. Cuando se ha establecido una conexión, las interacciones posteriores entre el cliente y la base de datos no implican a ninguna puerta de enlace de Azure SQL Database.
 
 La secuencia es la siguiente:
 

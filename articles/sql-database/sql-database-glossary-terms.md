@@ -29,7 +29,7 @@ ms.locfileid: "64573388"
 ||Instancia administrada|[Instancia administrada](sql-database-managed-instance.md)|
 |Objetos de servidor|Servidor de SQL Database o servidor de base de datos|[Servidor de bases de datos](sql-database-servers.md)|
 ||Servidor de instancia administrada de SQL Database, servidor de instancia administrada o servidor de instancia|[Instancia administrada](sql-database-managed-instance.md)|
-Objetos de base de datos|Azure SQL Database|Cualquier base de datos de Azure SQL Database|
+Objetos de base de datos|Azure SQL Database|Cualquier base de datos de Azure SQL Database|
 ||Base de datos única|Base de datos que se crea mediante la opción de implementación de base de datos única.|
 ||Base de datos agrupada|Base de datos que se crea dentro de un grupo elástico o que se mueve a uno.|
 ||Base de datos de instancia|Base de datos que se crea dentro de una instancia administrada.|

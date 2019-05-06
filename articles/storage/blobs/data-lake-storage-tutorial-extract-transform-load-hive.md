@@ -18,14 +18,14 @@ ms.locfileid: "64939192"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight
 
-En este tutorial, realizará una operación de ETL: extracción, transformación y carga de datos. Se toma un archivo de datos CSV sin formato, se importa a un clúster de Azure HDInsight, se transforma con Apache Hive y se carga en una base de datos SQL de Azure con Apache Sqoop.
+En este tutorial, realizará una operación de ETL: extracción, transformación y carga de datos. Se toma un archivo de datos CSV sin formato, se importa a un clúster de Azure HDInsight, se transforma con Apache Hive y se carga en una base de datos de Azure SQL con Apache Sqoop.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Extraer y cargar los datos en un clúster de HDInsight.
 > * Transformar los datos mediante Apache Hive.
-> * Cargar los datos en una instancia de Azure SQL Database mediante Sqoop.
+> * Cargar los datos en una base de datos de Azure SQL mediante Sqoop.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -39,7 +39,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     Consulte [Quickstart: Introducción a Apache Hadoop y Apache Hive en Azure HDInsight con Azure Portal](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
-* **Azure SQL Database**: Use una instancia de Azure SQL Database como almacén de datos de destino. Si aún no tiene ninguna, consulte [Creación de una instancia de Azure SQL Database en Azure Portal](../../sql-database/sql-database-get-started.md).
+* **Azure SQL Database**: Use una base de datos de Azure SQL como almacén de datos de destino. Si aún no tiene ninguna, consulte [Creación de una base de datos de Azure SQL en Azure Portal](../../sql-database/sql-database-get-started.md).
 
 * **CLI de Azure**: Si no ha instalado la CLI de Azure , consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -304,7 +304,7 @@ Necesita el nombre del servidor de la base de datos SQL para esta operación. Co
 
 ## <a name="export-and-load-the-data"></a>Exportación y carga de los datos
 
-En las secciones anteriores, ha copiado los datos transformados en la ubicación `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. En esta sección, va a usar Sqoop para exportar los datos de `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` a la tabla que ha creado en la instancia de Azure SQL Database.
+En las secciones anteriores, ha copiado los datos transformados en la ubicación `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. En esta sección, va a usar Sqoop para exportar los datos de `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` a la tabla que ha creado en la base de datos de Azure SQL.
 
 1. Utilice el comando siguiente para comprobar si Sqoop puede ver la instancia de SQL Database:
 

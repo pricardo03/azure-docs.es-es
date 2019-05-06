@@ -101,7 +101,7 @@ El resultado de la búsqueda se devuelve en la sección `output` del resultado d
     ```
 
 ### <a name="copy-activity-example"></a>Ejemplo de actividad de copia
-En este ejemplo, con la actividad de copia se copian datos de una tabla SQL en Azure SQL Database a Azure Blob Storage. El nombre de la tabla SQL se almacena en un archivo JSON en Blob Storage. La actividad de búsqueda busca el nombre de la tabla en entorno de tiempo de ejecución. JSON se modifica de forma dinámica con este enfoque. No es necesario volver a implementar canalizaciones ni conjuntos de datos. 
+En este ejemplo, la actividad copia los datos de una tabla SQL de su base de datos de Azure SQL a Azure Blob Storage. El nombre de la tabla SQL se almacena en un archivo JSON en Blob Storage. La actividad de búsqueda busca el nombre de la tabla en entorno de tiempo de ejecución. JSON se modifica de forma dinámica con este enfoque. No es necesario volver a implementar canalizaciones ni conjuntos de datos. 
 
 En este ejemplo se muestra solo la búsqueda de la primera fila. Para la búsqueda de todas las filas y encadenar los resultados con la actividad ForEach, consulte los ejemplos en [Copia de varias tablas en bloque mediante Azure Data Factory](tutorial-bulk-copy.md).
 
@@ -249,7 +249,7 @@ Esta cuenta de almacenamiento contiene el archivo JSON con los nombres de las ta
 }
 ```
 
-### <a name="azure-sql-database-linked-service"></a>Servicio vinculado a Azure SQL Database
+### <a name="azure-sql-database-linked-service"></a>Servicio vinculado de Azure SQL Database
 Esta instancia de Azure SQL Database contiene los datos que se copiarán en Blob Storage. 
 
 ```json

@@ -19,7 +19,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/30/2019
 ms.locfileid: "64939511"
 ---
-# <a name="multi-model-capabilities-of-azure-sql-database"></a>Capacidades de varios modelos de Azure SQL Database
+# <a name="multi-model-capabilities-of-azure-sql-database"></a>Funcionalidades multimodelo de Azure SQL Database
 
 Las bases de datos de varios modelos permiten almacenar datos representados en varios formatos como datos relacionales, grafos, documentos JSON o XML, pares clave-valor, etc., así como trabajar con dichos datos.
 
@@ -67,7 +67,7 @@ No hay nada que una base de datos de grafos puede conseguir, que no se puede log
 
 ## <a name="json-features"></a>Característica de JSON
 
-Azure SQL Database permite analizar y consultar datos representados en formato de notación de objetos JavaScript [(JSON)](https://www.json.org/) , y exportar los datos relacionales como texto JSON.
+Azure SQL Database permite analizar y consultar datos representados en formato de notación de objetos JavaScript [(JSON)](https://www.json.org/), y exportar los datos relacionales como texto JSON.
 
 JSON es un formato de datos conocido que se usa para intercambiar datos en aplicaciones web y móviles modernas. JSON también se utiliza para almacenar datos semiestructurados en archivos de registro o en bases de datos NoSQL como [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Muchos servicios web REST devuelven resultados con formato de texto JSON o aceptan datos con ese formato. La mayoría de los servicios de Azure, como [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/) y [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), tienen puntos de conexión REST que devuelven o consumen JSON.
 

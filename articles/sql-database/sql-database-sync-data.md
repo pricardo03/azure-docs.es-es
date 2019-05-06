@@ -24,13 +24,13 @@ ms.locfileid: "64939584"
 SQL Data Sync es un servicio basado en Azure SQL Database que permite sincronizar los datos seleccionados de manera bidireccional entre varias bases de datos SQL e instancias de SQL Server.
 
 > [!IMPORTANT]
-> SQL Data Sync **no** admite en este momento Instancia administrada de Azure SQL Database.
+> Azure SQL Data Sync **no** admite en este momento Instancia administrada de Azure SQL Database.
 
 ## <a name="when-to-use-data-sync"></a>Cuándo usar Data Sync
 
-Data Sync es útil en los casos en que es necesario mantener los datos actualizados entre varias bases de datos de Azure SQL Database o de SQL Server. Estos son los casos de uso principales de Data Sync:
+Data Sync es útil en los casos en que es necesario mantener los datos actualizados entre varias bases de datos de Azure SQL o de SQL Server. Estos son los casos de uso principales de Data Sync:
 
-- **Sincronización de datos híbridos:** con la sincronización de datos, puede mantener los datos sincronizados entre bases de datos locales e instancias de Azure SQL Database para habilitar aplicaciones híbridas. Esta funcionalidad puede interesar a los clientes que se plantean realizar la migración a la nube y les gustaría colocar algunas de sus aplicaciones en Azure.
+- **Sincronización de datos híbridos:** con la sincronización de datos, puede mantener los datos sincronizados entre bases de datos locales y bases de datos de Azure SQL para habilitar aplicaciones híbridas. Esta funcionalidad puede interesar a los clientes que se plantean realizar la migración a la nube y les gustaría colocar algunas de sus aplicaciones en Azure.
 - **Aplicaciones distribuidas:** en muchos casos, es conveniente separar diferentes cargas de trabajo entre diferentes bases de datos. Por ejemplo, si tiene una base de datos de producción de grande, pero también debe ejecutar una carga de trabajo de informes o análisis en estos datos, resulta útil tener una segunda base de datos para esta carga de trabajo adicional. Este enfoque minimiza el impacto de rendimiento en la carga de trabajo de producción. Puede usar Data Sync para mantener estas dos bases de datos sincronizadas.
 - **Aplicaciones globalmente distribuidas:** Muchas empresas abarcan varias regiones e incluso varios países o regiones. Para minimizar la latencia de red, es preferible disponer de los datos en una región más cercana. Con Data Sync, puede mantener sincronizadas con facilidad las bases de datos de regiones de todo el mundo.
 
@@ -50,9 +50,9 @@ Data Sync se basa en el concepto de un grupo de sincronización. Un grupo de sin
 
 Data Sync usa una topología de concentrador y radio para sincronizar los datos. Defina una de las bases de datos del grupo de sincronización como base de datos central. El resto de las bases de datos son bases de datos miembro. La sincronización solo se produce entre la base de datos central y los clientes individuales.
 
-- La **base de datos central** debe ser una instancia de Azure SQL Database.
+- La **base de datos central** debe ser una base de datos de Azure SQL.
 - Las **bases de datos miembro** pueden ser instancias de SQL Database, bases de datos de SQL Server locales o instancias de SQL Server en Azure Virtual Machines.
-- La **base de datos de sincronización** contiene los metadatos y el registro para Data Sync. La base de datos de sincronización tiene que ser una base de datos Azure SQL Database ubicada en la misma región que la base de datos central. La base de datos la crea el propio cliente y es de su propiedad.
+- La **base de datos de sincronización** contiene los metadatos y el registro para Data Sync. La base de datos de sincronización tiene que ser una base de datos de Azure SQL ubicada en la misma región que la base de datos central. La base de datos la crea el propio cliente y es de su propiedad.
 
 > [!NOTE]
 > Si usa una base de datos local como base de datos miembro, tendrá que [instalar y configurar un agente de sincronización local](sql-database-get-started-sql-data-sync.md#add-on-prem).
@@ -78,7 +78,7 @@ Un grupo de sincronización tiene las siguientes propiedades:
 
 | | Sincronización de datos | Replicación transaccional |
 |---|---|---|
-| Ventajas | - Compatibilidad activo-activo<br/>- Bidireccional entre local y Azure SQL Database | - Menor latencia<br/>- Coherencia transaccional<br/>- Reutilización de la topología existente después de la migración |
+| Ventajas | - Compatibilidad activo-activo<br/>- Bidireccional entre el entorno local y Azure SQL Database | - Menor latencia<br/>- Coherencia transaccional<br/>- Reutilización de la topología existente después de la migración |
 | Desventajas | - 5 minutos o más de latencia<br/>- Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde una base de datos única ni agrupada de Azure SQL Database<br/>- Alto costo de mantenimiento |
 | | | |
 
@@ -197,7 +197,7 @@ Sí. Cree el esquema manualmente en la base de datos nueva mediante la generaci�
 
 No se recomienda usar SQL Data Sync para crear una copia de seguridad de los datos. No se puede realizar una copia de seguridad y restaurarla a un momento específico, ya que las sincronizaciones de SQL Data Sync no tienen asignada una versión. Además, SQL Data Sync no realiza una copia de seguridad de otros objetos SQL, como procedimientos almacenados, ni hace el equivalente a una operación de restauración rápidamente.
 
-Consulte [Copiar una base de datos Azure SQL Database](sql-database-copy.md) para ver una técnica de copia de seguridad recomendada.
+Consulte [Copia de una base de datos de Azure SQL](sql-database-copy.md) para ver la técnica de copia de seguridad recomendada.
 
 ### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>¿Puede Data Sync sincronizar tablas y columnas cifradas?
 

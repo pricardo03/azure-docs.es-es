@@ -59,7 +59,7 @@ Para obtener información de los precios y características de planes de App Ser
 <a name="ScalingSQLServer"></a>
 
 ## <a name="scale-related-resources"></a>Recursos relacionados con el escalado
-Si su aplicación depende de otros servicios, como Microsoft Azure SQL Database o Azure Storage, también puede escalar verticalmente estos recursos por separado. Estos recursos no se administran a través del plan de App Service.
+Si su aplicación depende de otros servicios, como Azure SQL Database o Azure Storage, también puede escalar verticalmente estos recursos por separado. Estos recursos no se administran a través del plan de App Service.
 
 1. En **Essentials**, haga clic en el vínculo **Grupo de recursos**.
    

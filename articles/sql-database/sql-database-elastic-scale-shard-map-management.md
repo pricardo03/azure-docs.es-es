@@ -1,5 +1,5 @@
 ---
-title: Escalado horizontal de una base de datos Azure SQL Database | Microsoft Docs
+title: Escalado horizontal de una base de datos de Azure SQL | Microsoft Docs
 description: Cómo usar ShardMapManager, la biblioteca de cliente de bases de datos elásticas
 services: sql-database
 ms.service: sql-database

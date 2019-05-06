@@ -70,41 +70,10 @@
           href: analysis-services-deploy.md
         - name: Actualización con la API REST
           href: analysis-services-async-refresh.md
-        - name: 'Modelado de datos en Visual Studio: Tutorial de Adventure Works (1400)'
-          href: tutorials/aas-adventure-works-tutorial.md
-          items:
-            - name: 1 - Creación de un proyecto de modelos tabulares
-              href: tutorials/aas-lesson-1-create-a-new-tabular-model-project.md
-            - name: 2 - Obtención de datos
-              href: tutorials/aas-lesson-2-get-data.md
-            - name: 3 - Marcar como tabla de fechas
-              href: tutorials/aas-lesson-3-mark-as-date-table.md
-            - name: 4 - Creación de relaciones
-              href: tutorials/aas-lesson-4-create-relationships.md
-            - name: 5 - Creación de columnas calculadas
-              href: tutorials/aas-lesson-5-create-calculated-columns.md
-            - name: 6 - Creación de medidas
-              href: tutorials/aas-lesson-6-create-measures.md
-            - name: 7 - Creación de indicadores clave de rendimiento
-              href: tutorials/aas-lesson-7-create-key-performance-indicators.md
-            - name: 8 - Creación de perspectivas
-              href: tutorials/aas-lesson-8-create-perspectives.md
-            - name: 9 - Creación de jerarquías
-              href: tutorials/aas-lesson-9-create-hierarchies.md
-            - name: 10 - Creación de particiones
-              href: tutorials/aas-lesson-10-create-partitions.md
-            - name: 11 - Creación de roles
-              href: tutorials/aas-lesson-11-create-roles.md
-            - name: 12 - Análisis en Excel
-              href: tutorials/aas-lesson-12-analyze-in-excel.md
-            - name: 13 - Implementación
-              href: tutorials/aas-lesson-13-deploy.md
-            - name: 'Lección complementaria: Filas de detalles'
-              href: tutorials/aas-supplemental-lesson-detail-rows.md
-            - name: 'Lección complementaria: Seguridad dinámica'
-              href: tutorials/aas-supplemental-lesson-dynamic-security.md
-            - name: 'Lección complementaria: Jerarquías desiguales'
-              href: tutorials/aas-supplemental-lesson-ragged-hierarchies.md
+        - name: Actualización con Logic Apps
+          href: analysis-services-refresh-logic-app.md
+        - name: Actualización con Azure Automation
+          href: analysis-services-refresh-azure-automation.md
     - name: Seguridad
       items:
         - name: Administración de usuarios de base de datos

@@ -99,7 +99,7 @@ La API de REST se protege con la [autenticación básica](https://en.wikipedia.o
     ```
 
 ## <a name="limitations"></a>Limitaciones
-* Exportación masiva: con HDInsight basado en Linux, el conector Sqoop que se utiliza para exportar datos a Microsoft SQL Server o SQL Database Azure no es compatible actualmente con las inserciones masivas.
+* Exportación masiva: con HDInsight basado en Linux, el conector Sqoop que se utiliza para exportar datos a Microsoft SQL Server o Azure SQL Database no es compatible actualmente con las inserciones masivas.
 * Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realizará varias inserciones en lugar de procesar por lotes las operaciones de inserción.
 
 ## <a name="summary"></a>Resumen

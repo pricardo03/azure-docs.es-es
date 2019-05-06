@@ -20,7 +20,7 @@ ms.lasthandoff: 04/23/2019
 ms.locfileid: "60904815"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Tutorial: exportación a SQL desde Application Insights mediante Stream Analytics
-En este artículo se muestra cómo trasladar los datos de telemetría desde [Azure Application Insights][start] a una instancia de Azure SQL Database mediante la [Exportación continua][export] y [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
+En este artículo se muestra cómo trasladar los datos de telemetría desde [Azure Application Insights][start] a una base de datos de Azure SQL mediante la [Exportación continua][export] y [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 La Exportación continua traslada los datos de telemetría a Azure Storage en formato JSON. Analizaremos los objetos JSON mediante Azure Stream Analytics y crearemos filas en una tabla de base de datos.
 
@@ -81,7 +81,7 @@ La exportación continua siempre envía los datos a una cuenta de Azure Storage,
 
 Los eventos se escriben en archivos de blob en formato JSON. Cada archivo puede contener uno o varios eventos. Así, es probable que queramos leer los datos de eventos y filtrar por los campos que deseemos. Se pueden realizar multitud de acciones con los datos, pero nuestro plan de hoy consiste en usar Stream Analytics para trasladar los datos a una base de datos SQL. De este modo, será más sencillo ejecutar muchas consultas interesantes.
 
-## <a name="create-an-azure-sql-database"></a>Creación de una instancia de Azure SQL Database
+## <a name="create-an-azure-sql-database"></a>Creación de una base de datos de Azure SQL
 De nuevo, empiece desde su suscripción en [Azure Portal][portal], cree la base de datos (y un servidor, a menos que ya tenga uno) donde escribirá los datos.
 
 ![Nuevo, Datos, SQL.](./media/code-sample-export-sql-stream-analytics/090-sql.png)

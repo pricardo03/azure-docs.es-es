@@ -1,5 +1,5 @@
 ---
-title: Consulta de bases de datos Azure SQL Database con particiones | Microsoft Docs
+title: Consulta de bases de datos de Azure SQL con particiones | Microsoft Docs
 description: Ejecute consultas a través de particiones con la biblioteca de cliente de bases de datos elásticas.
 services: sql-database
 ms.service: sql-database

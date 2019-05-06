@@ -18,6 +18,10 @@
       items:
         - name: .NET
           href: storage-quickstart-queues-dotnet.md
+- name: Tutoriales
+  items:
+    - name: Uso de las colas de Azure Storage
+      href: storage-tutorial-queues.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Ejemplos
   items:
     - name: .NET

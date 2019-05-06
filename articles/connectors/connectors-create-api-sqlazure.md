@@ -30,9 +30,9 @@ Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free
 
 * La aplicación lógica en la que necesita acceso a la base de datos SQL. Para iniciar la aplicación lógica con un desencadenador de SQL, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-* Una [base de datos SQL de Azure](../sql-database/sql-database-get-started-portal.md) o una [base de datos SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) 
+* Una [base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) o una [base de datos de SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) 
 
-  Las tablas deben tener datos para que la aplicación lógica pueda devolver los resultados cuando se llame a las operaciones. Si crea una instancia de Azure SQL Database, puede usar las bases de datos de ejemplo incluidas. 
+  Las tablas deben tener datos para que la aplicación lógica pueda devolver los resultados cuando se llame a las operaciones. Si crea una base de datos de Azure SQL, puede usar las bases de datos de ejemplo incluidas. 
 
 * El nombre del servidor SQL, el nombre de la base de datos, el nombre de usuario y la contraseña. Necesita estas credenciales para poder autorizar que la lógica acceda al servidor SQL. 
 

@@ -36,7 +36,7 @@ En estos momentos, con Colecciones de áreas de trabajo de Power BI se puede usa
 ## <a name="supported-data-sources"></a>Orígenes de datos admitidos
 
 **DirectQuery**
-* Base de datos SQL de Azure
+* Azure SQL Database
 * Azure SQL Data Warehouse
 
 **Importaciónación**

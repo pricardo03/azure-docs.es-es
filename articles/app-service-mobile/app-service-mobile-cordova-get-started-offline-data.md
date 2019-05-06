@@ -171,7 +171,7 @@ En esta sección, modificará el proyecto de cliente para simular un escenario s
 
 4. Cierre la aplicación y reiníciela para comprobar que los nuevos elementos que creó se mantienen en el almacén local.
 
-5. (Opcional) Use Visual Studio para ver la tabla de Azure SQL Database y observar que los datos de la base de datos de back-end no han cambiado.
+5. (Opcional) Use Visual Studio para ver la tabla de su base de datos de Azure SQL y observe que los datos de la base de datos de back-end no han cambiado.
 
     En Visual Studio, abra el **Explorador de servidores**. Vaya a la base de datos en **Azure**->**SQL Databases**. Haga clic con el botón derecho en la base de datos y seleccione **Abrir en el Explorador de objetos de SQL Server**. Ahora puede buscar la tabla de base de datos SQL y su contenido.
 

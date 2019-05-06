@@ -1,6 +1,6 @@
 ---
 title: 'Apache Sqoop con Apache Hadoop: Azure HDInsight'
-description: Aprenda a usar Apache Sqoop para realizar importaciones y exportaciones entre Apache Hadoop en HDInsight y Azure SQL Database.
+description: Aprenda a usar Apache Sqoop para realizar importaciones y exportaciones entre Apache Hadoop en HDInsight y una base de datos de Azure SQL.
 keywords: hadoop sqoop,sqoop
 author: hrasheed-msft
 ms.author: hrasheed
@@ -98,5 +98,5 @@ Desde SQL Server en Azure storage.
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 * [Uso de Apache Oozie con HDInsight](../hdinsight-use-oozie-linux-mac.md): use la acción Sqoop en un flujo de trabajo de Oozie.
-* [Análisis de la información de retraso de vuelos con HDInsight](../hdinsight-analyze-flight-delay-data-linux.md): use Apache Hive para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos SQL de Azure.
+* [Análisis de la información de retraso de vuelos con HDInsight](../hdinsight-analyze-flight-delay-data-linux.md): use Apache Hive para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos de Azure SQL.
 * [Carga de datos en HDInsight](../hdinsight-upload-data.md): busque otros métodos para cargar datos en HDInsight o Azure Blob Storage.

@@ -68,6 +68,8 @@
       href: resource-group-delete.md
     - name: Implementación de Resource Manager y clásica
       href: resource-manager-deployment-model.md
+    - name: Atributos comunes de seguridad de Azure
+      href: azure-resource-manager-security-attributes.md
 - name: Procedimientos
   items:
     - name: Crear plantillas
@@ -225,6 +227,8 @@
           href: move-support-resources.md
         - name: Compatibilidad de etiqueta
           href: tag-support.md
+    - name: Proveedores de recursos por servicio
+      href: azure-services-resource-providers.md
     - name: 'REST: Resource Manager'
       href: /rest/api/resources/
     - name: 'REST: Administrador de implementaciones'

@@ -21,7 +21,7 @@ ms.locfileid: "61077844"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introducción al enmascaramiento dinámico de datos de SQL Database con Azure Portal
 
-En este artículo se muestra cómo implementar el [enmascaramiento dinámico de datos](sql-database-dynamic-data-masking-get-started.md) con Azure Portal. También puede implementar el enmascaramiento dinámico de datos mediante [cmdlets de Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql/) o la [API de REST](https://docs.microsoft.com/rest/api/sql/).
+En este artículo se muestra cómo implementar el [enmascaramiento dinámico de datos](sql-database-dynamic-data-masking-get-started.md) con Azure Portal. También puede implementar el enmascaramiento dinámico de datos mediante [Cmdlets de Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql/) o la [API REST](https://docs.microsoft.com/rest/api/sql/).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Configuración del enmascaramiento dinámico de datos para la base de datos con Azure Portal
 
@@ -59,4 +59,4 @@ En este artículo se muestra cómo implementar el [enmascaramiento dinámico de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener información general sobre el enmascaramiento dinámico de datos, consulte [este artículo](sql-database-dynamic-data-masking-get-started.md).
-* También puede implementar el enmascaramiento dinámico de datos mediante [cmdlets de Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql/) o la [API de REST](https://docs.microsoft.com/rest/api/sql/).
+* También puede implementar el enmascaramiento dinámico de datos mediante [Cmdlets de Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql/) o la [API REST](https://docs.microsoft.com/rest/api/sql/).

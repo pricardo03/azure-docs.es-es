@@ -95,7 +95,9 @@
           href: vmware-azure-common-questions.md
         - name: Matriz de compatibilidad de VMware o dispositivo físico a Azure
           href: vmware-physical-azure-support-matrix.md
-        - name: Requisitos de compatibilidad para la implementación de un servidor de configuración
+        - name: Acerca de los componentes de Site Recovery (configuración/proceso/servidor de destino maestro)
+          href: vmware-physical-azure-config-process-server-overview.md
+        - name: Requisitos de compatibilidad de los servidores de configuración y procesos
           href: vmware-azure-configuration-server-requirements.md
         - name: Arquitectura de VMware a Azure
           href: vmware-azure-architecture.md
@@ -197,6 +199,8 @@
               items:
                 - name: Introducción y requisitos previos
                   href: site-recovery-deployment-planner.md
+                - name: Historial de versiones de Deployment Planner
+                  href: site-recovery-deployment-planner-history.md
                 - name: Ejecución de la herramienta Deployment Planner
                   href: site-recovery-vmware-deployment-planner-run.md
                 - name: Análisis del informe generado
@@ -319,6 +323,8 @@
               items:
                 - name: Introducción y requisitos previos
                   href: hyper-v-deployment-planner-overview.md
+                - name: Historial de versiones de Deployment Planner
+                  href: site-recovery-deployment-planner-history.md
                 - name: Ejecución de la herramienta Deployment Planner
                   href: hyper-v-deployment-planner-run.md
                 - name: Análisis del informe generado
@@ -425,10 +431,14 @@
           href: site-recovery-extension-troubleshoot.md
     - name: Servidores físicos o de VMware
       items:
+        - name: Supervisión de los servidores de procesos
+          href: vmware-physical-azure-monitor-process-server.md
         - name: Solución de problems de la replicación de VMware en Azure
           href: vmware-azure-troubleshoot-replication.md
         - name: Solución de problemas del servidor de configuración
           href: vmware-azure-troubleshoot-configuration-server.md
+        - name: Solución de problemas de servidores de procesos
+          href: vmware-physical-azure-troubleshoot-process-server.md
         - name: Solución de problemas de instalación de inserción de Mobility service para servidores físicos o máquinas virtuales de VMware
           href: vmware-azure-troubleshoot-push-install.md
         - name: Solución de problemas de conmutación por error en Azure

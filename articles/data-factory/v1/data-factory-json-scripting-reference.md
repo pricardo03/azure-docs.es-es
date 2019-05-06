@@ -15,7 +15,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 25cf9c3b7968be16dcc22f4140725efc22d785f2
 ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59528414"
@@ -116,7 +116,7 @@ La sección typeProperties es diferente para cada actividad. Las actividades de 
 La **actividad de copia** tiene dos subsecciones en la sección typeProperties: **origen** y **receptor**. Vea la sección [Almacenes de datos](#data-stores) en este artículo para consultar ejemplos JSON que muestran cómo utilizar datos de un almacén como un origen o receptor.
 
 ### <a name="sample-copy-pipeline"></a>Canalización de copia de ejemplo
-En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in the **actividades** . En este ejemplo, [Copiar actividad](data-factory-data-movement-activities.md) copia datos desde un Azure Blob Storage en una Azure SQL Database.
+En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in the **actividades** . En este ejemplo, [Copiar actividad](data-factory-data-movement-activities.md) copia datos desde un almacenamiento de blobs de Azure en una base de datos de Azure SQL.
 
 ```json
 {
@@ -339,7 +339,7 @@ En la sección **policy** de la definición del conjunto de datos se definen los
 | Nombre de la directiva | DESCRIPCIÓN | Aplicado a | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valida que los datos de un **blob de Azure** cumplen los requisitos de tamaño mínimo (en megabytes). |blob de Azure |Sin  |N/D |
-| minimumRows |Valida que los datos de una **base de datos SQL de Azure** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Azure SQL Database</li><li>tabla de Azure</li></ul> |Sin  |N/D |
+| minimumRows |Valida que los datos de una **base de datos de Azure SQL** o una **tabla de Azure** contienen el número mínimo de filas. |<ul><li>Azure SQL Database</li><li>tabla de Azure</li></ul> |Sin  |N/D |
 
 **Ejemplo:**
 
@@ -931,14 +931,14 @@ Si va a copiar datos a Azure Cosmos DB, establezca el **tipo de receptor** de la
 
 Para más información, consulte el artículo [Conector de Azure Cosmos DB](data-factory-azure-documentdb-connector.md#copy-activity-properties).
 
-## <a name="azure-sql-database"></a>Azure SQL Database
+## <a name="azure-sql-database"></a>Azure SQL Database
 
 ### <a name="linked-service"></a>Servicio vinculado
 Para definir un servicio vinculado de Azure SQL Database, establezca el **tipo** de servicio vinculado en **AzureSqlDatabase** y especifique las siguientes propiedades en la sección **typeProperties**:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| connectionString |Especifique la información necesaria para conectarse a la instancia de Azure SQL Database para la propiedad connectionString. |Sí |
+| connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure SQL para la propiedad connectionString. |Sí |
 
 #### <a name="example"></a>Ejemplo
 ```json
@@ -960,7 +960,7 @@ Para definir un conjunto de datos de Azure SQL Database, establezca el **tipo** 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| tableName |Nombre de la tabla o vista en la instancia de Azure SQL Database a la que hace referencia el servicio vinculado. |Sí |
+| tableName |Nombre de la tabla o vista en la base de datos de Azure SQL a la que hace referencia el servicio vinculado. |Sí |
 
 #### <a name="example"></a>Ejemplo
 
@@ -991,7 +991,7 @@ Para definir un conjunto de datos de Azure SQL Database, establezca el **tipo** 
 Para más información, consulte el artículo [Conector de Azure SQL](data-factory-azure-sql-connector.md#dataset-properties).
 
 ### <a name="sql-source-in-copy-activity"></a>Origen de SQL en la actividad de copia
-Si va a copiar datos desde Azure SQL Database, establezca el **tipo de origen** de la actividad de copia en **SqlSource** y especifique las siguientes propiedades en la sección **origen**:
+Si va a copiar datos desde una base de datos de Azure SQL, establezca el **tipo de origen** de la actividad de copia en **SqlSource** y especifique las siguientes propiedades en la sección **origen**:
 
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
@@ -4845,7 +4845,7 @@ En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en
 | linkedServiceName |El servicio vinculado de Azure Storage que usará el clúster a petición para almacenar y procesar datos. <p>Actualmente, no se puede crear un clúster de HDInsight a petición que utilice una instancia de Azure Data Lake Store como almacenamiento. Si desea almacenar los datos de resultados del procesamiento de HDInsight en una instancia de Azure Data Lake Store, utilice una actividad de copia para copiar los datos desde Azure Blob Storage a Azure Data Lake Store.</p>  | Sí |
 | additionalLinkedServiceNames |Especifica cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight, de forma que el servicio Factoría de datos pueda registrarlas en su nombre. |Sin  |
 | osType |Tipo de sistema operativo. Los valores permitidos son: Windows (valor predeterminado) y Linux |Sin  |
-| hcatalogLinkedServiceName |Nombre del servicio vinculado de SQL de Azure que apunta a la base de datos de HCatalog. El clúster de HDInsight a petición se creará usando la base de datos SQL de Azure como metaalmacén. |Sin  |
+| hcatalogLinkedServiceName |Nombre del servicio vinculado de SQL de Azure que apunta a la base de datos de HCatalog. El clúster de HDInsight a petición se crea mediante la base de datos de Azure SQL como el almacén de metadatos. |Sin  |
 
 ### <a name="json-example"></a>Ejemplo JSON
 En el siguiente JSON se define un servicio vinculado de HDInsight a petición basado en Linux. El servicio Data Factory crea automáticamente un clúster de HDInsight **basado en Linux** al procesar un segmento de datos.
@@ -4998,7 +4998,7 @@ En el ejemplo siguiente se proporciona la definición de JSON de un servicio vin
 }
 ```
 
-## <a name="azure-sql-database"></a>Azure SQL Database
+## <a name="azure-sql-database"></a>Azure SQL Database
 Cree un servicio vinculado de Azure SQL y úselo con la [actividad de procedimiento almacenado](#stored-procedure-activity) para invocar un procedimiento almacenado desde una canalización de Factoría de datos.
 
 ### <a name="linked-service"></a>Servicio vinculado
@@ -5006,7 +5006,7 @@ Para definir un servicio vinculado de Azure SQL Database, establezca el **tipo**
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| connectionString |Especifique la información necesaria para conectarse a la instancia de Azure SQL Database para la propiedad connectionString. |Sí |
+| connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure SQL para la propiedad connectionString. |Sí |
 
 #### <a name="json-example"></a>Ejemplo JSON
 
@@ -5593,7 +5593,7 @@ Para más información, consulte [Actividad de U-SQL de Data Lake Analytics](dat
 Puede especificar las siguientes propiedades en una definición JSON de procedimiento almacenado. La propiedad type de la actividad debe ser: **SqlServerStoredProcedure**. Debe crear uno de los siguientes servicios vinculados y especificar el nombre de este como un valor para la propiedad **linkedServiceName**:
 
 - SQL Server
-- Azure SQL Database
+- Azure SQL Database
 - Azure SQL Data Warehouse
 
 Se admiten las siguientes propiedades en la sección **typeProperties** cuando se establece el tipo de actividad en SqlServerStoredProcedure:
@@ -5605,7 +5605,7 @@ Se admiten las siguientes propiedades en la sección **typeProperties** cuando s
 
 Si especifica un conjunto de datos de entrada, debe estar disponible (en estado "Listo") para que se ejecute la actividad de procedimiento almacenado. El conjunto de datos de entrada no se puede usar en el procedimiento almacenado como parámetro. Solo se utiliza para comprobar la dependencia antes de iniciar la actividad de procedimiento almacenado. Debe especificar un conjunto de datos para una actividad de procedimiento almacenado.
 
-El conjunto de datos de salida especifica la **programación** para la actividad de procedimiento almacenada (por hora, semanal, mensual, etc.). El conjunto de datos de salida debe utilizar un **servicio vinculado** que haga referencia a Azure SQL Database, un SQL Data Warehouse o una base de datos de SQL Server donde desee que el procedimiento almacenado se ejecute. El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio**, que solo se utilice para especificar la programación para ejecutar la actividad de procedimiento almacenado.
+El conjunto de datos de salida especifica la **programación** para la actividad de procedimiento almacenada (por hora, semanal, mensual, etc.). El conjunto de datos de salida debe utilizar un **servicio vinculado** que haga referencia a una base de datos de Azure SQL, una base de datos de almacenamiento de Azure SQL o una base de datos de SQL Server donde desee que el procedimiento almacenado se ejecute. El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md##multiple-activities-in-a-pipeline)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio**, que solo se utilice para especificar la programación para ejecutar la actividad de procedimiento almacenado.
 
 ### <a name="json-example"></a>Ejemplo JSON
 

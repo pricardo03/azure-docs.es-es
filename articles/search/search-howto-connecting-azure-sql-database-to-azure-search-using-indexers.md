@@ -19,11 +19,11 @@ ms.locfileid: "65025355"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Conexión e indexación de contenido de Azure SQL Database mediante indexadores de Azure Search
 
-Antes de poder consultar un [índice de Azure Search](search-what-is-an-index.md) debe rellenarlo con datos. Si los datos residen en una instancia de Azure SQL Database, el nuevo **indexador de Azure Search para Azure SQL Database** (o **indexador de Azure SQL**, para abreviar) puede automatizar el proceso de indexación, lo que significa menos código que escribir y menos infraestructura de la que preocuparse.
+Antes de poder consultar un [índice de Azure Search](search-what-is-an-index.md) debe rellenarlo con datos. Si los datos residen en una base de datos de Azure SQL, el nuevo **indexador de Azure Search para Azure SQL Database** (o **indexador de Azure SQL**, para abreviar) puede automatizar el proceso de indexación, lo que significa menos código que escribir y menos infraestructura de la que preocuparse.
 
-En este artículo se aborda la forma de usar los [indexadores](search-indexer-overview.md), pero también se describen las características que solo están disponibles con instancias de Azure SQL Database (por ejemplo, el seguimiento de cambios integrado). 
+En este artículo se aborda la forma de usar los [indexadores](search-indexer-overview.md), pero también se describen las características que solo están disponibles con bases de datos de Azure SQL (por ejemplo, el seguimiento de cambios integrado). 
 
-Además de las instancias de Azure SQL Database, Azure Search proporciona indexadores para [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) y [Azure Table Storage](search-howto-indexing-azure-tables.md). Para solicitar soporte técnico para otros orígenes de datos, envíe sus comentarios a través del [foro de comentarios de Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
+Además de las bases de datos de Azure SQL, Azure Search proporciona indexadores para [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md) y [Azure Table Storage](search-howto-indexing-azure-tables.md). Para solicitar soporte técnico para otros orígenes de datos, envíe sus comentarios a través del [foro de comentarios de Azure Search](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexadores y orígenes de datos
 

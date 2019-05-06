@@ -104,7 +104,7 @@ Hiperescala de SQL Database proporciona una rápida escalabilidad según la dema
 
 ### <a name="does-hyperscale-require-my-application-programming-model-to-change"></a>¿Requiere Hiperescala que cambie mi modelo de programación de la aplicación?
 
-No, el modelo de programación de la aplicación permanece tal cual. Puede usar la cadena de conexión y los demás modos normales como de costumbre para interactuar con Azure SQL Database.
+No, el modelo de programación de la aplicación permanece tal cual. Puede usar la cadena de conexión y los demás modos normales como de costumbre para interactuar con su base de datos de Azure SQL.
 
 ### <a name="what-transaction-isolation-levels-are-going-to-be-default-on-sql-database-hyperscale-database"></a>¿Qué niveles de aislamiento de transacción van a ser los predeterminados en las bases de datos de hiperescala de SQL Database?
 

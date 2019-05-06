@@ -199,7 +199,7 @@ Nota: Ya no se instalará el SDK de Python de preparación de datos `numpy` y `p
 ### <a name="azure-machine-learning-data-prep-sdk-v1012"></a>SDK de preparación de datos de Azure Machine Learning v1.0.12
 
 + **Nuevas características:**
-  + La preparación de los datos admite la lectura desde una instancia de Azure SQL Database con Almacén de datos.
+  + La preparación de los datos admite la lectura desde una base de datos de Azure SQL con Almacén de datos.
  
 + **Cambios**
   + Se mejoró considerablemente el rendimiento de la memoria de determinadas operaciones en datos de gran tamaño.

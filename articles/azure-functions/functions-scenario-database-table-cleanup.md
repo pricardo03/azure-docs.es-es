@@ -20,7 +20,7 @@ ms.locfileid: "62120677"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
 
-En este artículo se indica cómo usar Azure Functions para crear un trabajo programado que se conecte a una instancia de Azure SQL Database. El código de función limpia las filas de una tabla de la base de datos. La nueva función de C# se crea a partir de una plantilla de desencadenador de temporizador predefinida de Visual Studio 2017. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. 
+En este artículo se indica cómo usar Azure Functions para crear un trabajo programado que se conecte a una base de datos de Azure SQL. El código de función limpia las filas de una tabla de la base de datos. La nueva función de C# se crea a partir de una plantilla de desencadenador de temporizador predefinida de Visual Studio 2017. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. 
 
 Si es la primera vez que trabaja con funciones de C#, debe leer la [referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md).
 
@@ -28,13 +28,13 @@ Si es la primera vez que trabaja con funciones de C#, debe leer la [referencia p
 
 + Complete los pasos del artículo [Creación de la primera función mediante Visual Studio](functions-create-your-first-function-visual-studio.md) para crear una aplicación de función local que tenga como destino la versión 2.x del entorno de ejecución. También debe haber publicado el proyecto en una aplicación de función en Azure.
 
-+ En este artículo se realiza una demostración de un comando de Transact-SQL que ejecuta una operación de limpieza masiva en la tabla **SalesOrderHeader** de la base de datos AdventureWorksLT de ejemplo. Para crear la base de datos de ejemplo AdventureWorksLT, efectúe los pasos indicados en el artículo [Creación de una instancia de Azure SQL Database en Azure Portal](../sql-database/sql-database-get-started-portal.md).
++ En este artículo se realiza una demostración de un comando de Transact-SQL que ejecuta una operación de limpieza masiva en la tabla **SalesOrderHeader** de la base de datos AdventureWorksLT de ejemplo. Para crear la base de datos de ejemplo AdventureWorksLT, efectúe los pasos indicados en el artículo [Creación de una base de datos de Azure SQL en Azure Portal](../sql-database/sql-database-get-started-portal.md).
 
 + Debe agregar una [regla de firewall de nivel de servidor](../sql-database/sql-database-get-started-portal-firewall.md) para la dirección IP pública del equipo que usa para seguir este inicio rápido. Esta regla debe ser capaz de acceder a la instancia de la base de datos SQL desde el equipo local.  
 
 ## <a name="get-connection-information"></a>Obtención de información sobre la conexión
 
-Deberá obtener la cadena de conexión de la base de datos que creó una vez concluidos los pasos de [Creación de una instancia de Azure SQL Database en Azure Portal](../sql-database/sql-database-get-started-portal.md).
+Deberá obtener la cadena de conexión de la base de datos que creó una vez concluidos los pasos de [Creación de una base de datos de Azure SQL en Azure Portal](../sql-database/sql-database-get-started-portal.md).
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 

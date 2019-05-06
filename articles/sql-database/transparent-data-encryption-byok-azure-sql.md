@@ -116,7 +116,7 @@ En el primer caso, si necesita alta disponibilidad de una base de datos y un ser
 
 Para mantener la alta disponibilidad de los protectores de TDE para las bases de datos cifradas, es necesario configurar almacenes de Azure Key Vault redundantes basados en los grupos de conmutación por error de SQL Database existentes o deseados o las instancias de replicación geográfica activas.  Cada servidor de replicación geográfica requiere un almacén de claves independiente, que debe estar ubicado con el servidor en la misma región de Azure. En caso de que una base de datos principal deje de estar accesible debido a una interrupción en una región y se desencadene una conmutación por error, la base de datos secundaria es capaz de tomar el control usando el almacén de claves secundario.
 
-Para las instancias de Azure SQL Database con replicación geográfica, se requiere la siguiente configuración de Azure Key Vault:
+Para las bases de datos de Azure SQL con replicación geográfica, se requiere la siguiente configuración de Azure Key Vault:
 
 - Una base de datos principal con un almacén de claves en la región y una base de datos secundaria con un almacén de claves en la región.
 - Se necesita al menos una réplica secundaria, y se admite hasta un máximo de cuatro.
@@ -189,6 +189,6 @@ Get-AzSqlServerKeyVaultKey `
   -ResourceGroup <SQLDatabaseResourceGroupName>
 ```
 
-Para obtener más información acerca de la recuperación de copia de seguridad de SQL Database, consulte la información sobre la [recuperación de una base de datos Azure SQL Database](sql-database-recovery-using-backups.md). Para obtener más información acerca de la recuperación de copia de seguridad de SQL Data Warehouse, consulte la información sobre la [recuperación de una instancia de Azure SQL Data Warehouse](../sql-data-warehouse/backup-and-restore.md).
+Para obtener más información acerca de la recuperación de copia de seguridad de SQL Database, consulte la información sobre la [recuperación de una base de datos de Azure SQL](sql-database-recovery-using-backups.md). Para obtener más información acerca de la recuperación de copia de seguridad de SQL Data Warehouse, consulte la información sobre la [recuperación de una instancia de Azure SQL Data Warehouse](../sql-data-warehouse/backup-and-restore.md).
 
 Una consideración adicional para copias de seguridad de archivos de registro: las copias de seguridad de archivos de registro permanecen cifradas con el sistema de cifrado de TDE, incluso si el protector de TDE se ha rotado y la base de datos usa ahora un nuevo protector de TDE.  Durante la restauración, se necesitarán ambas claves para restaurar la base de datos.  Si el archivo de registro está usando un protector de TDE almacenado en Azure Key Vault, se necesitará esta clave durante la restauración, incluso si la base de datos se ha cambiado para usar TDE administrado por el servicio durante el proceso.

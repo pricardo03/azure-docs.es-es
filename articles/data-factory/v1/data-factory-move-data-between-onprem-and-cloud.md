@@ -278,7 +278,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
    * **type** está establecido en **AzureBlob**.
    * **linkedServiceName** está establecido en **AzureStorageLinkedService** (este servicio vinculado se creó en el paso 2).
    * **folderPath** está establecido en **adftutorial/outfromonpremdf**, donde outfromonpremdf es la carpeta del contenedor adftutorial. Cree el contenedor **adftutorial** si este todavía no existe.
-   * **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** está establecido en **1**).  El servicio Data Factory generará un segmento de datos de salida cada hora en la tabla **emp** de Azure SQL Database.
+   * **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** está establecido en **1**).  El servicio Data Factory generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos de Azure SQL.
 
    Si no especifica un **fileName** para un **tabla de salida**, los archivos generados en el **folderPath** se denominan con el formato siguiente: `Data.<Guid>.txt` (por ejemplo:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 

@@ -29,7 +29,7 @@ Para información sobre los grupos de conmutación por error automática con bas
 
 Para configurar la replicación geográfica activa mediante Azure Portal, necesita el siguiente recurso:
 
-* Una instancia de Azure SQL Database: la base de datos principal que quiere replicar en una región geográfica diferente.
+* Una base de datos de Azure SQL: la base de datos principal que quiere replicar en una región geográfica diferente.
 
 > [!Note]
 > Al usar Azure Portal, solo se puede crear una base de datos secundaria en la misma suscripción que la principal. Si la base de datos secundaria debe estar en una suscripción diferente, use [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) (Creación de la API REST de base de datos) o [ALTER DATABASE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).

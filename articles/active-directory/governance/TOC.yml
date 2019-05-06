@@ -1,26 +1,57 @@
-- name: Documentación sobre la gobernanza de identidades en Azure AD
+- name: Documentación sobre Azure AD Identity Governance
   href: index.yml
 - name: Información general
-  expanded: false
+  expanded: true
   items:
-    - name: ¿Qué es la gobernanza de identidades?
+    - name: ¿Qué es Identity Governance?
       href: identity-governance-overview.md
+    - name: ¿Qué es la administración de derechos?  (versión preliminar)
+      href: entitlement-management-overview.md
     - name: ¿Qué son las revisiones de acceso?
       href: access-reviews-overview.md
-- name: Conceptos
-  expanded: false
+- name: Tutoriales
+  expanded: true
   items:
-    - name: Administración del acceso de los invitados con las revisiones
-      href: manage-guest-access-with-access-reviews.md
-    - name: Administración del acceso de usuarios con revisiones
-      href: manage-user-access-with-access-reviews.md
-    - name: Administración de programas y de sus controles
-      href: manage-programs-controls.md
-    - name: Administración de usuarios excluidos del acceso condicional
-      href: conditional-access-exclusion.md
+    - name: Creación del primer paquete de acceso
+      href: entitlement-management-access-package-first.md
+- name: Conceptos
+  expanded: true
+  items:
+    - name: Administración de derechos
+      items:
+        - name: Proceso y correos electrónicos de solicitud
+          href: entitlement-management-process.md
+    - name: Revisiones de acceso
+      items:
+        - name: Administración del acceso de los invitados con las revisiones
+          href: manage-guest-access-with-access-reviews.md
+        - name: Administración del acceso de usuarios con revisiones
+          href: manage-user-access-with-access-reviews.md
+        - name: Administración de programas y de sus controles
+          href: manage-programs-controls.md
+        - name: Administración de usuarios excluidos del acceso condicional
+          href: conditional-access-exclusion.md
 - name: Guías de procedimientos
   expanded: true
   items:
+    - name: Administración de derechos
+      items:
+        - name: Escenarios comunes
+          href: entitlement-management-scenarios.md
+        - name: Creación de un nuevo paquete de acceso
+          href: entitlement-management-access-package-create.md
+        - name: Edición de un paquete de acceso
+          href: entitlement-management-access-package-edit.md
+        - name: Creación de un catálogo
+          href: entitlement-management-catalog-create.md
+        - name: Solicitar acceso
+          href: entitlement-management-request-access.md
+        - name: Aprobar solicitudes
+          href: entitlement-management-request-approve.md
+        - name: Ver informes y registros
+          href: entitlement-management-reports.md
+        - name: Solución de problemas
+          href: entitlement-management-troubleshoot.md
     - name: Revisiones de acceso
       items:
         - name: Grupos y aplicaciones

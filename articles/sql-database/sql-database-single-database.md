@@ -1,5 +1,5 @@
 ---
-title: Bases de datos únicas de Azure SQL Database | Microsoft Docs
+title: Bases de datos de Azure SQL únicas| Microsoft Docs
 description: Obtenga información acerca de la base de datos única en Azure SQL Database
 services: sql-database
 ms.service: sql-database

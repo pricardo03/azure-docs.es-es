@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database: uso general y crítico para la empresa | Microsoft Docs'
+title: 'Azure SQL Database: Uso general y Crítico para la empresa | Microsoft Docs'
 description: En el artículo se describen los niveles de servicio Uso general y Crítico para la empresa en el modelo de compra basado en núcleo virtual.
 services: sql-database
 ms.service: sql-database
@@ -52,7 +52,7 @@ Tenga en cuenta lo siguiente.
 Para supervisar el tamaño total actual de MDF y LDF, use [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Para supervisar el tamaño actual de los archivos MDF y LDF individuales, use [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
 > [!IMPORTANT]
-> En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
+> En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
 ## <a name="backups-and-storage"></a>Copias de seguridad y almacenamiento
 

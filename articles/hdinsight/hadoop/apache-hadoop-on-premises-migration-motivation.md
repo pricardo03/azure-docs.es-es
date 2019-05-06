@@ -61,7 +61,7 @@ Azure HDInsight es una distribución en la nube de los componentes de Hadoop de�
     - Azure Blob Storage
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
-    - Azure SQL Database
+    - Azure SQL Database
     - Azure Analysis Services
 
 - **Componentes y procesos de recuperación automática**: HDInsight comprueba constantemente los componentes de la infraestructura y de código abierto con su propia infraestructura de supervisión. También se recupera automáticamente de errores críticos como la falta de disponibilidad de nodos y componentes de código abierto. Las alertas se activan en Ambari si se produjo un error en cualquier componente de OSS.

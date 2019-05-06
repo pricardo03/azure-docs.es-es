@@ -1,6 +1,6 @@
 ---
 title: Introducción a la seguridad de Azure SQL Database | Microsoft Docs
-description: Aprenda sobre la seguridad de SQL Database y SQL Server, incluidas las diferencias entre la nube y SQL Server local.
+description: Aprenda sobre la seguridad de Azure SQL Database y SQL Server, incluidas las diferencias entre la nube y un servidor de SQL Server local.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -68,7 +68,7 @@ La autenticación es el proceso por el cual se demuestra que el usuario es quien
 
 ## <a name="authorization"></a>Autorización
 
-Autorización hace referencia a los permisos asignados a un usuario dentro de Azure SQL Database, y determina qué puede hacer el usuario. Los permisos se controlan mediante la adición de cuentas de usuario [roles de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles) y asignar permisos de nivel de base de datos a dichas funciones o concediendo al usuario determinado [permisos de nivel de objeto](/sql/relational-databases/security/permissions-database-engine). Para más información, consulte [Inicios de sesión y usuarios](sql-database-manage-logins.md).
+Autorización hace referencia a los permisos asignados a un usuario dentro de una base de datos de Azure SQL, y determina qué puede hacer el usuario. Los permisos se controlan mediante la adición de cuentas de usuario [roles de base de datos](/sql/relational-databases/security/authentication-access/database-level-roles) y asignar permisos de nivel de base de datos a dichas funciones o concediendo al usuario determinado [permisos de nivel de objeto](/sql/relational-databases/security/permissions-database-engine). Para más información, consulte [Inicios de sesión y usuarios](sql-database-manage-logins.md).
 
 Como práctica recomendada, crear funciones personalizadas cuando sea necesario. Agregar usuarios a la función con los privilegios mínimos necesarios para realizar su función de trabajo. No asigne permisos directamente a los usuarios. La cuenta de administrador del servidor es un miembro del rol db_owner integrados, que tiene amplios permisos y solo se debe conceder a algunos usuarios con derechos administrativos. Para las aplicaciones de Azure SQL Database, use el [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar el contexto de ejecución del módulo llamado o usar [Roles de aplicación](/sql/relational-databases/security/authentication-access/application-roles) con permisos limitados. Esta práctica garantiza que la aplicación que se conecta a la base de datos tiene los privilegios mínimos necesarios para la aplicación. También se sigue estos procedimientos recomendados fomenta la separación de obligaciones.
 

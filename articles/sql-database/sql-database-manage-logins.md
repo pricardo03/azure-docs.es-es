@@ -27,7 +27,7 @@ Después de la configuración de las reglas de firewall, puede conectarse a Azur
 > [!NOTE]  
 > Este tema se aplica al servidor de Azure SQL, y a las bases de datos de SQL Database y SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. 
 > [!TIP]
-> Para ver un tutorial, consulte [Protección de Azure SQL Database](sql-database-security-tutorial.md). Este tutorial no se aplica a la **Instancia administradas de Azure SQL Database**.
+> Para ver un tutorial, consulte [Protección de bases de datos de Azure SQL](sql-database-security-tutorial.md). Este tutorial no se aplica a la **Instancia administradas de Azure SQL Database**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Cuentas administrativas sin restricciones
 
@@ -221,6 +221,6 @@ Al administrar los inicios de sesión y los usuarios en SQL Database, tenga en c
 
 - Para más información acerca de las reglas de firewall, consulte [Firewall de Azure SQL Database](sql-database-firewall-configure.md).
 - Para una información general de las características de seguridad de SQL Database, consulte [SQL security overview](sql-database-security-overview.md) (Información general acerca de la seguridad de SQL).
-- Para ver un tutorial, consulte [Protección de Azure SQL Database](sql-database-security-tutorial.md).
+- Para ver un tutorial, consulte [Protección de bases de datos de Azure SQL](sql-database-security-tutorial.md).
 - Para obtener información acerca de las vistas y los procedimientos almacenados, consulte [Creación de vistas y procedimientos almacenados](https://msdn.microsoft.com/library/ms365311.aspx)
 - Para obtener información acerca de cómo otorgar acceso a un objeto de base de datos, consulte [Conceder acceso a un objeto de base de datos](https://msdn.microsoft.com/library/ms365327.aspx)

@@ -1,6 +1,6 @@
 ---
 title: Transformación de datos mediante la actividad de procedimiento almacenado en Azure Data Factory | Microsoft Docs
-description: Explica cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en Azure SQL Database o Azure Data Warehouse desde una canalización de Data Factory.
+description: Explica cómo usar la actividad de procedimiento almacenado de SQL Server para invocar un procedimiento almacenado en una base de datos o una base de datos de almacenamiento de datos de Azure SQL desde una canalización de Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -29,7 +29,7 @@ Las actividades de transformación en una [canalización](concepts-pipelines-act
 
 Puede usar la actividad de procedimiento almacenado para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos de la empresa o en una máquina virtual (VM) de Azure: 
 
-- Azure SQL Database
+- Azure SQL Database
 - Azure SQL Data Warehouse
 - Base de datos de SQL Server.  Si se usa SQL Server, se debe instalar el entorno de ejecución de integración autohospedado en el mismo equipo que hospeda la base de datos o en un equipo independiente que tenga acceso a la base de datos. El entorno de ejecución de integración autohospedado es un componente que conecta orígenes de datos locales o en la máquina virtual de Azure con servicios en la nube de forma segura y administrada. Consulte el artículo sobre el [entorno de ejecución de integración autohospedado](create-self-hosted-integration-runtime.md) para más información.
 

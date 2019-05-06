@@ -24,7 +24,7 @@ ms.locfileid: "60201676"
 Sincronice los datos con bases de datos locales de SQL Server mediante la instalación y configuración del agente de sincronización de datos para Azure SQL Data Sync. Para obtener más información acerca de SQL Data Sync, consulte [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync](sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> SQL Data Sync **no** admite en este momento Instancia administrada de Azure SQL Database.
+> Azure SQL Data Sync **no** admite en este momento Instancia administrada de Azure SQL Database.
 
 ## <a name="download-and-install"></a>Descargar e instalar
 

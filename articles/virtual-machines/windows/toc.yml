@@ -25,7 +25,7 @@
       href: tutorial-custom-images.md
     - name: 5 - Máquinas virtuales de alta disponibilidad
       href: tutorial-availability-sets.md
-    - name: 6 - Creación de un conjunto de escalado de máquinas virtuales
+    - name: 6 - Creación de un conjunto de escalado
       href: tutorial-create-vmss.md
     - name: 7 - Equilibrio de carga de máquinas virtuales
       href: tutorial-load-balancer.md
@@ -251,6 +251,8 @@
               href: shared-images.md
             - name: Creación de imágenes compartidas mediante la CLI
               href: ../linux/shared-images.md
+            - name: Portal
+              href: shared-images-portal.md
             - name: Solución de problemas de imágenes compartidas
               href: troubleshooting-shared-images.md
         - name: Búsqueda y uso de imágenes

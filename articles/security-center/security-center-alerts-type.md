@@ -168,7 +168,7 @@ La detección de amenazas de Security Center recopila automáticamente informaci
 
 ## <a name="sql-database-and-sql-data-warehouse-analysis"></a>Análisis de SQL Database y SQL Data Warehouse
 
-El análisis de los recursos de Security Center se centra en los servicios de la plataforma como servicio (PaaS), como la integración con [Detección de amenazas de SQL Database](../sql-database/sql-database-threat-detection.md) y Azure SQL Data Warehouse. Detección de amenazas de SQL detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a bases de datos y desencadenadores o de aprovechar sus vulnerabilidades:
+El análisis de los recursos de Security Center se centra en los servicios de la plataforma como servicio (PaaS), como la integración con [Detección de amenazas de Azure SQL Database](../sql-database/sql-database-threat-detection.md) y Azure SQL Data Warehouse. Detección de amenazas de SQL detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a bases de datos y desencadenadores o de aprovechar sus vulnerabilidades:
 
 * **Vulnerabilidad ante ataques por inyección de código SQL**: esta alerta se desencadena cuando una aplicación genera una instrucción SQL errónea en la base de datos. Esto puede indicar una posible vulnerabilidad ante ataques por inyección de código SQL. Hay dos posibles razones para la generación de una instrucción errónea:
     * Existe un defecto en el código de la aplicación que crea la instrucción SQL errónea
