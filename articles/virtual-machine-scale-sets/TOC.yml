@@ -152,6 +152,8 @@
         - name: Cuotas de vCPU
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: Preguntas más frecuentes sobre los conjuntos de escalado
+      href: virtual-machine-scale-sets-faq.md
 - name: Procedimientos
   items:
     - name: Planeamiento y diseño
@@ -183,6 +185,9 @@
               href: virtual-machine-scale-sets-autoscale-portal.md
             - name: Escalado automático avanzado
               href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+              maintainContext: true
+            - name: Solución de problemas de escalado automático
+              href: virtual-machine-scale-sets-troubleshoot.md
         - name: Aplicaciones en conjuntos de escalado
           href: virtual-machine-scale-sets-deploy-app.md
         - name: Extensiones en conjuntos de escalado
@@ -199,6 +204,9 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: Uso de la CLI de Azure
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
+            - name: Cifrado de discos con la secuenciación de extensiones
+              href: ../security/azure-security-disk-encryption-extension-sequencing.md
+              maintainContext: true
         - name: Uso de grandes conjuntos de escalado
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Conversión de una plantilla de conjunto de escalado para que use un disco administrado
@@ -247,14 +255,6 @@
         - name: Escalado automático de un conjunto de escalado
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-    - name: Solución de problemas
-      items:
-        - name: Escalado automático
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: Preguntas más frecuentes
-      items:
-        - name: Preguntas más frecuentes sobre los conjuntos de escalado
-          href: virtual-machine-scale-sets-faq.md
 - name: Referencia
   items:
     - name: Azure PowerShell

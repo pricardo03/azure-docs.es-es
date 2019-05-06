@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Inclusión de una aplicación existente en un contenedor con Visual Studio
-> * Crear una base de datos SQL de Azure
+> * Crear una base de datos de Azure SQL
 > * Creación de un registro de contenedor de Azure
 > * Implementación de una aplicación de Service Fabric en Azure
 
@@ -265,7 +265,7 @@ En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Inclusión de una aplicación existente en un contenedor con Visual Studio
-> * Crear una base de datos SQL de Azure
+> * Crear una base de datos de Azure SQL
 > * Creación de un registro de contenedor de Azure
 > * Implementación de una aplicación de Service Fabric en Azure
 

@@ -40,7 +40,7 @@ En este artículo se muestra cómo usar la herramienta para copiar datos de Data
 
 * Suscripción de Azure: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 * Azure SQL Data Warehouse: El almacenamiento de datos contiene los datos que se copian de la base de datos SQL. Si no tiene ninguna instancia de Azure SQL Data Warehouse, consulte las instrucciones de [Creación de una instancia de SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
-* Azure SQL Database: En este tutorial copia datos de una base de datos SQL de Azure con los datos de ejemplo Adventure Works LT. Puede crear una base de datos SQL si sigue las instrucciones que aparecen en [Creación de una base de datos SQL de Azure](../sql-database/sql-database-get-started-portal.md). 
+* Azure SQL Database: En este tutorial copia datos de una base de datos SQL de Azure con los datos de ejemplo Adventure Works LT. Puede crear una base de datos SQL si sigue las instrucciones que aparecen en [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md). 
 * Cuenta de almacenamiento de Azure: Azure Storage se usa como el _ensayo_ blob en la operación de copia masiva. Si no dispone de una cuenta de almacenamiento de Azure, consulte las instrucciones de [Creación de una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos

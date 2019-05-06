@@ -105,7 +105,7 @@ Existen distintos [tipos de replicación](https://docs.microsoft.com/sql/relatio
 
 | | Sincronización de datos | Replicación transaccional |
 |---|---|---|
-| Ventajas | - Compatibilidad activo-activo<br/>- Bidireccional entre local y Azure SQL Database | - Menor latencia<br/>- Coherencia transaccional<br/>- Reutilización de la topología existente después de la migración |
+| Ventajas | - Compatibilidad activo-activo<br/>- Bidireccional entre el entorno local y Azure SQL Database | - Menor latencia<br/>- Coherencia transaccional<br/>- Reutilización de la topología existente después de la migración |
 | Desventajas | - 5 minutos o más de latencia<br/>- Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde una base de datos única ni agrupada de Azure SQL Database<br/>- Alto costo de mantenimiento |
 | | | |
 

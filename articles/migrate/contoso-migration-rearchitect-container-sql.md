@@ -16,7 +16,7 @@ ms.locfileid: "60690260"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migración de Contoso: Rediseño de la arquitectura de una aplicación local en un contenedor de Azure y Azure SQL Database
 
-En este artículo se muestra cómo Contoso migra y rediseña la arquitectura de su aplicación SmartHotel360 en Azure. Contoso migra la máquina virtual de front-end de la aplicación a un contenedor Windows de Azure, y la base de datos de la aplicación a una instancia de Azure SQL Database.
+En este artículo se muestra cómo Contoso migra y rediseña la arquitectura de su aplicación SmartHotel360 en Azure. Contoso migra la máquina virtual de front-end de la aplicación a un contenedor Windows de Azure, y la base de datos de la aplicación a una base de datos de Azure SQL.
 
 Este documento es el primero de una serie de artículos que muestran cómo la compañía ficticia Contoso migra recursos locales a la nube de Microsoft Azure. En la serie se incluye información de fondo y escenarios en los que se muestra la configuración de una infraestructura de migración, la valoración de los recursos locales para la migración y la ejecución de distintos tipos de migraciones. La complejidad de los escenarios va en aumento. Se agregarán servicios adicionales con el tiempo.
 
@@ -146,9 +146,9 @@ Así es cómo Contoso ejecuta la migración:
 
 
 
-## <a name="step-1-provision-an-azure-sql-database"></a>Paso 1: Aprovisionar una instancia de Azure SQL Database
+## <a name="step-1-provision-an-azure-sql-database"></a>Paso 1: Aprovisionar una base de datos de Azure SQL
 
-Los administradores de Contoso aprovisionan una base de datos SQL de Azure.
+Los administradores de Contoso aprovisionan una base de datos de Azure SQL.
 
 1. Seleccionan **SQL Database** para crear una base de datos SQL en Azure. 
 
@@ -419,7 +419,7 @@ Los administradores de Contoso convertirán la aplicación en un contenedor con 
 
     ![Contenedor](./media/contoso-migration-rearchitect-container-sql/container7.png)
 
-9. Abren el archivo **ApplicationParameters/Cloud.xml** y actualizan la cadena de conexión para conectar la aplicación a la base de datos SQL de Azure. La cadena de conexión puede encontrarse en la base de datos en Azure Portal.
+9. Abren el archivo **ApplicationParameters/Cloud.xml** y actualizan la cadena de conexión para conectar la aplicación a la base de datos de Azure SQL. La cadena de conexión puede encontrarse en la base de datos en Azure Portal.
 
     ![Cadena de conexión](./media/contoso-migration-rearchitect-container-sql/container8.png)
 
@@ -611,7 +611,7 @@ Con los recursos migrados de Azure, Contoso debe proteger la infraestructura nue
 
 ### <a name="backups"></a>Copias de seguridad
 
-- Contoso necesita revisar los requisitos de copia de seguridad para la instancia de Azure SQL Database. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
+- Contoso necesita revisar los requisitos de copia de seguridad para Azure SQL Database. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
 - Los administradores de Contoso deben considerar la implementación de grupos de conmutación por error para proporcionar conmutación por error regional para la base de datos. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
 - Puede aprovechar la replicación geográfica para el SKU premium de ACR. [Más información](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
 - Contoso debe considerar la implementación de Web App en las regiones principales Este de EE. UU. 2 y Centro de EE. UU. cuando Web App for Containers esté disponible. Los administradores de Contoso podrían configurar Traffic Manager para garantizar la conmutación por error en caso de que se produzcan interrupciones regionales.
@@ -625,7 +625,7 @@ Con los recursos migrados de Azure, Contoso debe proteger la infraestructura nue
 
 ## <a name="conclusion"></a>Conclusión
 
-En este artículo, Contoso refactorizó la aplicación SmartHotel360 en Azure mediante la migración de la VM de front-end de la aplicación a Service Fabric. La base de datos de la aplicación se migró a una instancia de Azure SQL Database.
+En este artículo, Contoso refactorizó la aplicación SmartHotel360 en Azure mediante la migración de la VM de front-end de la aplicación a Service Fabric. La base de datos de la aplicación se migró a una base de datos de Azure SQL.
 
 
 

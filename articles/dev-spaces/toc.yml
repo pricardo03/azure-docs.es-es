@@ -4,6 +4,8 @@
       href: index.yml
     - name: Guías de inicio rápido
       items:
+        - name: Desarrollo en equipo
+          href: quickstart-team-development.md
         - name: Java (VS Code y CLI)
           href: quickstart-java.md
         - name: .NET Core (VS Code y CLI)

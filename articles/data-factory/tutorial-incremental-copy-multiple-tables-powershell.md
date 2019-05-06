@@ -1,6 +1,6 @@
 ---
 title: Copia incremental de varias tablas mediante Azure Data Factory | Microsoft Docs
-description: En este tutorial, creará una canalización de Azure Data Factory que copia los datos diferenciales de forma incremental de varias tablas de una base de datos local de SQL Server a una base de datos SQL de Azure.
+description: En este tutorial, creará una canalización de Azure Data Factory que copia los datos diferenciales de forma incremental de varias tablas de una base de datos local de SQL Server a una base de datos de Azure SQL.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -19,8 +19,8 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269408"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database
-En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una instancia local de SQL Server a una base de datos SQL de Azure.    
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carga incremental de datos de varias tablas de SQL Server a una base de datos de Azure SQL
+En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una instancia local de SQL Server a una base de datos de Azure SQL.    
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -65,7 +65,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 * **SQL Server**. En este tutorial, usará una base de datos local SQL Server como almacén de datos de origen. 
-* **Azure SQL Database**. Usará una base de datos SQL como almacén de datos receptor. Si no tiene ninguna, consulte [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación. 
+* **Azure SQL Database**. Usará una base de datos SQL como almacén de datos receptor. Si no tiene ninguna, consulte [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Creación de tablas de origen en la base de datos de SQL Server
 
@@ -107,7 +107,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
     
     ```
 
-### <a name="create-destination-tables-in-your-azure-sql-database"></a>Creación de tablas de destino en Azure SQL Database
+### <a name="create-destination-tables-in-your-azure-sql-database"></a>Creación de tablas de destino en su base de datos de Azure SQL
 1. Abra SQL Server Management Studio y conéctese a la base de datos SQL Server.
 
 1. En el **Explorador de servidores**, haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
@@ -130,7 +130,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Creación de otra tabla en la base de datos SQL de Azure para almacenar el valor del límite máximo
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Creación de otra tabla en la base de datos de Azure SQL para almacenar el valor del límite máximo
 1. Ejecute el siguiente comando SQL en la base de datos SQL para crear una tabla denominada `watermarktable` y almacenar el valor de marca de agua: 
     
     ```sql
@@ -152,7 +152,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Creación de un procedimiento almacenado en la base de datos SQL de Azure 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Creación de un procedimiento almacenado en la base de datos de Azure SQL 
 
 Ejecute el siguiente comando para crear un procedimiento almacenado en la base de datos SQL. Este procedimiento almacenado actualiza el valor de la marca de agua después de cada ejecución de canalización. 
 
@@ -170,7 +170,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Creación de tipos de datos y procedimientos almacenados adicionales en la base de datos SQL de Azure
+### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Creación de tipos de datos y procedimientos almacenados adicionales en la base de datos de Azure SQL
 Ejecute la consulta siguiente para crear dos procedimientos almacenados y dos tipos de datos en la base de datos SQL. Estos procedimientos se usan para combinar los datos de las tablas de origen en las tablas de destino. 
 
 Para que sea más fácil comenzar el proceso, usamos directamente estos procedimientos almacenados, para lo cual pasamos los datos diferenciales a través de una variable de tabla y, luego, los combinamos en el almacén de destino. Tenga presente que no se espera que se almacene un "gran" número de filas diferenciales (más de 100) en la variable de tabla.  

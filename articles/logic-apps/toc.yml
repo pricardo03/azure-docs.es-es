@@ -61,6 +61,8 @@
           href: logic-apps-scenario-function-sb-trigger.md
         - name: 'Llamada, desencadenamiento o anidación de aplicaciones lógicas'
           href: logic-apps-http-endpoint.md
+        - name: Obtención de datos masivos con paginación
+          href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: Mensajes de proceso de Batch
           href: logic-apps-batch-process-send-receive-messages.md
         - name: Creación de definiciones de JSON
@@ -103,11 +105,8 @@
           href: logic-apps-enterprise-integration-b2b.md
         - name: Intercambio de mensajes AS2
           href: logic-apps-enterprise-integration-as2.md
-          items:
-            - name: Codificación de AS2
-              href: logic-apps-enterprise-integration-as2-encode.md
-            - name: Descodificación de AS2
-              href: logic-apps-enterprise-integration-as2-decode.md
+        - name: Configuración de mensajes AS2
+          href: logic-apps-enterprise-integration-as2-message-settings.md
         - name: Intercambio de mensajes EDIFACT
           href: logic-apps-enterprise-integration-edifact.md
           items:

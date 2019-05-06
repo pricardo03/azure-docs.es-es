@@ -50,7 +50,7 @@ HDInsight también admite tiendas de metadatos personalizadas, que se recomienda
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selección de una tienda de metadatos personalizada durante la creación del clúster
 
-Puede apuntar el clúster a una instancia de Azure SQL Database generada anteriormente durante la creación del clúster, o puede configurar la instancia de SQL Database una vez creado el clúster. Esta opción se especifica en Almacenamiento > Tienda de metadatos al crear un nuevo clúster de Hadoop, Spark o Hive interactivo desde Azure Portal.
+Puede apuntar el clúster a una base de datos de Azure SQL aprovisionada durante la creación del clúster, o puede configurar la base de datos SQL una vez creado el clúster. Esta opción se especifica en Almacenamiento > Tienda de metadatos al crear un nuevo clúster de Hadoop, Spark o Hive interactivo desde Azure Portal.
 
 ![Repositorio de metadatos de Hive en HDInsight: Azure Portal](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
 
@@ -73,7 +73,7 @@ Estos son algunos procedimientos recomendados para Hive Metastore en HDInsight:
 
 ##  <a name="apache-oozie-metastore"></a>Metastore de Apache Oozie
 
-Apache Oozie es un sistema de coordinación de flujos de trabajo que administra trabajos de Hadoop.  Oozie es compatible con los trabajos de Hadoop para Apache MapReduce, Pig, Hive y otros.  Oozie utiliza una tienda de metadatos para almacenar los detalles acerca de los flujos de trabajo actuales y completados. Para aumentar el rendimiento al usar Oozie, puede utilizar una instancia de Azure SQL Database como tienda de metadatos personalizada. La tienda de metadatos también puede proporcionar acceso a datos de trabajo de Oozie después de eliminar el clúster.
+Apache Oozie es un sistema de coordinación de flujos de trabajo que administra trabajos de Hadoop.  Oozie es compatible con los trabajos de Hadoop para Apache MapReduce, Pig, Hive y otros.  Oozie utiliza una tienda de metadatos para almacenar los detalles acerca de los flujos de trabajo actuales y completados. Para aumentar el rendimiento al usar Oozie, puede utilizar una base de datos de Azure SQL como almacén de metadatos personalizado. La tienda de metadatos también puede proporcionar acceso a datos de trabajo de Oozie después de eliminar el clúster.
 
 Para obtener instrucciones sobre cómo crear un Metastore de Oozie con Azure SQL Database, consulte este artículo sobre el [uso de Apache Oozie para flujos de trabajo](hdinsight-use-oozie-linux-mac.md).
 

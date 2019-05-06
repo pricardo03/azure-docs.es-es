@@ -426,7 +426,7 @@ Puede conectar una base de datos SQL al back-end de Mobile Apps o bien crear una
 1. En el panel **Agregar la conexión de datos**, haga clic en **SQL Database - Configurar los valores obligatorios** > **Crear una base de datos nueva**. Escriba el nombre de la base de datos nueva en el cuadro **Nombre**.
 1. Seleccione **Servidor**. En el panel **Nuevo servidor**, escriba un nombre de servidor único en el cuadro **Nombre del servidor** y especifique un inicio de sesión del administrador del servidor y una contraseña apropiados. Asegúrese de que la opción **Permitir que los servicios de Azure accedan al servidor** esté seleccionada. Seleccione **Aceptar**.
 
-   ![Crear una base de datos SQL de Azure][6]
+   ![Crear una base de datos de Azure SQL][6]
 1. En el panel **Nueva base de datos**, seleccione **Aceptar**.
 1. En el panel **Agregar la conexión de datos**, seleccione **Cadena de conexión** y especifique el inicio de sesión y la contraseña que indicó al crear la base de datos. Si usa una base de datos existente, indique las credenciales de inicio de sesión de esa base de datos. Seleccione **Aceptar**.
 1. De nuevo en el panel **Agregar la conexión de datos**, haga clic en **Aceptar** para crear la base de datos.

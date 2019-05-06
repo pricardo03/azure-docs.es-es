@@ -1,6 +1,6 @@
 ---
 title: Ejecución de trabajos de Apache Sqoop con .NET y HDInsight en Azure
-description: Aprenda a usar el SDK de .NET para HDInsight para ejecutar tareas de importación y exportación de Apache Sqoop entre un clúster de Apache Hadoop y una base de datos SQL Azure.
+description: Aprenda a usar el SDK de .NET para HDInsight para ejecutar tareas de importación y exportación de Apache Sqoop entre un clúster de Apache Hadoop y una base de datos de Azure SQL.
 keywords: trabajo de Sqoop
 ms.reviewer: jasonh
 author: hrasheed-msft
@@ -19,7 +19,7 @@ ms.locfileid: "64710118"
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Ejecución de trabajos de Apache Sqoop con el SDK de .NET para Apache Hadoop en HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Aprenda a usar el SDK de .NET para Azure HDInsight para ejecutar trabajos de Apache Sqoop con el fin de llevar a cabo tareas de importación y exportación entre un clúster de HDInsight y una base de datos SQL Azure o SQL Server.
+Aprenda a usar el SDK de .NET para Azure HDInsight para ejecutar trabajos de Apache Sqoop con el fin de llevar a cabo tareas de importación y exportación entre un clúster de HDInsight y una base de datos de Azure SQL o SQL Server.
 
 > [!NOTE]
 > Aunque puede usar los procedimientos descritos en este artículo con cualquier clúster de HDInsight basado en Windows o Linux, solo funcionan desde un cliente de Windows. Para elegir otros métodos, use el selector de fichas de la parte superior de este artículo.
@@ -30,7 +30,7 @@ Antes de empezar este tutorial, debe contar con el elemento siguiente:
 * Un clúster de Apache Hadoop en HDInsight. Para más información, consulte [Creación del clúster y la base de datos SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>Uso de Sqoop en clústeres de HDInsight con el SDK de .NET
-El SDK .NET para HDInsight proporciona bibliotecas de cliente .NET que facilitan el uso de los clústeres de HDInsight en .NET. En esta sección se crea una aplicación de consola de C# para exportar hivesampletable a la tabla de SQL Database creada anteriormente en este tutorial.
+El SDK .NET para HDInsight proporciona bibliotecas de cliente .NET que facilitan el uso de los clústeres de HDInsight en .NET. En esta sección se crea una aplicación de consola de C# para exportar hivesampletable a la tabla de Azure SQL Database creada anteriormente en este tutorial.
 
 ## <a name="submit-a-sqoop-job"></a>Enviar un trabajo de Sqoop
 

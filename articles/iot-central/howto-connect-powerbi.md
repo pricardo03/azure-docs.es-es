@@ -63,7 +63,7 @@ La aplicación Azure Function se desencadena cada vez que se escribe un nuevo ar
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory se conecta a la base de datos SQL como un servicio vinculado. Ejecuta las actividades del procedimiento almacenado que procesa los datos y los almacena en las tablas de análisis.
 
-### <a name="azure-sql-database"></a>Azure SQL Database
+### <a name="azure-sql-database"></a>Azure SQL Database
 Estas tablas se crean automáticamente para rellenar los informes predeterminados. Explore estos esquemas en Power BI. Puede crear sus propias visualizaciones en estos datos.
 
 | Nombre de tabla |

@@ -1,60 +1,57 @@
-items:
 - name: Documentación sobre Azure NetApp Files
   href: index.yml
 - name: Información general
   items:
-  - name: Introducción a Azure NetApp Files
-    href: azure-netapp-files-introduction.md
-  - name: Descripción de la jerarquía de almacenamiento
-    href: azure-netapp-files-understand-storage-hierarchy.md
+    - name: ¿Qué es Azure NetApp Files?
+      href: azure-netapp-files-introduction.md
+    - name: Descripción de la jerarquía de almacenamiento
+      href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Guías de inicio rápido
-  items:
-  - name: Configuración de Azure NetApp Files y creación de un volumen
-    href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
   expanded: true
+  items:
+    - name: Configuración de Azure NetApp Files y creación de un volumen de NFS
+      href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Conceptos
   items:
-  - name: Niveles de servicio para Azure NetApp Files
-    href: azure-netapp-files-service-levels.md
-  - name: Límites de recursos para Azure NetApp Files
-    href: azure-netapp-files-resource-limits.md
-  - name: Métricas de Azure NetApp Files
-    href: azure-netapp-files-metrics.md
+    - name: Niveles de servicio para Azure NetApp Files
+      href: azure-netapp-files-service-levels.md
+    - name: Límites de recursos para Azure NetApp Files
+      href: azure-netapp-files-resource-limits.md
+    - name: Métricas de Azure NetApp Files
+      href: azure-netapp-files-metrics.md
+    - name: Banco de pruebas de rendimiento para Azure NetApp Files
+      href: azure-netapp-files-performance-benchmarks.md
 - name: Guías de procedimientos
   items:
-  - name: Registro en Azure NetApp Files
-    href: azure-netapp-files-register.md
-  - name: Creación de una cuenta de NetApp
-    href: azure-netapp-files-create-netapp-account.md
-  - name: Configuración de un grupo de capacidad
-    href: azure-netapp-files-set-up-capacity-pool.md
-  - name: Delegación de una subred en Azure NetApp Files
-    href: azure-netapp-files-delegate-subnet.md
-  - name: Creación de un volumen de Azure NetApp Files
-    href: azure-netapp-files-create-volumes.md
-  - name: Configuración de la directiva de exportación para un volumen NFS
-    href: azure-netapp-files-configure-export-policy.md
-  - name: Administración de volúmenes
-    href: azure-netapp-files-manage-volumes.md
-  - name: Montaje o desmontaje de un volumen para máquinas virtuales Linux
-    href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
-  - name: Administración de instantáneas
-    href: azure-netapp-files-manage-snapshots.md
-  - name: Cambiar el tamaño de un grupo de capacidad o de un volumen
-    href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-  - name: Desarrollo
-    items:
-    - name: REST
-      href: azure-netapp-files-develop-with-rest-api.md
+    - name: Registro en Azure NetApp Files
+      href: azure-netapp-files-register.md
+    - name: Creación de una cuenta de NetApp
+      href: azure-netapp-files-create-netapp-account.md
+    - name: Configuración de un grupo de capacidad
+      href: azure-netapp-files-set-up-capacity-pool.md
+    - name: Delegación de una subred en Azure NetApp Files
+      href: azure-netapp-files-delegate-subnet.md
+    - name: Creación de un volumen de Azure NetApp Files
+      href: azure-netapp-files-create-volumes.md
+    - name: Configuración de la directiva de exportación para un volumen NFS
+      href: azure-netapp-files-configure-export-policy.md
+    - name: Administración de volúmenes
+      href: azure-netapp-files-manage-volumes.md
+    - name: Montaje o desmontaje de un volumen para máquinas virtuales Linux
+      href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+    - name: Administración de instantáneas
+      href: azure-netapp-files-manage-snapshots.md
+    - name: Cambiar el tamaño de un grupo de capacidad o de un volumen
+      href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+    - name: Desarrollo
+      items:
+        - name: REST
+          href: azure-netapp-files-develop-with-rest-api.md
+        - name: Solución de errores del proveedor de recursos de Azure NetApp Files
+          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Referencia
   items:
-  - name: REST
-    href: https://docs.microsoft.com/rest/api/netapp/
-  - name: Plantilla de Resource Manager
-    href: /azure/templates/microsoft.netapp/allversions
-ms.openlocfilehash: 1380aa56161e7c1f0f3d72aae36c834a087e1040
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545934"
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/netapp/'
+    - name: Plantilla de Resource Manager
+      href: /azure/templates/microsoft.netapp/allversions

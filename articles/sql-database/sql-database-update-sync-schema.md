@@ -21,7 +21,7 @@ ms.locfileid: "60331355"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync
 
-SQL Data Sync permite que los usuarios sincronicen datos entre bases de datos de Azure SQL Database y SQL Server local en una dirección o en ambas. Una de las limitaciones actuales de SQL Data Sync es la falta de compatibilidad con la replicación de cambios de esquema. Cada vez que cambia el esquema de tabla, debe aplicar los cambios de manera manual en todos los puntos de conexión, incluida la central y todos los miembros, y luego actualizar el esquema de sincronización.
+SQL Data Sync permite que los usuarios sincronicen datos entre bases de datos de Azure SQL y SQL Server local en una dirección o en ambas. Una de las limitaciones actuales de SQL Data Sync es la falta de compatibilidad con la replicación de cambios de esquema. Cada vez que cambia el esquema de tabla, debe aplicar los cambios de manera manual en todos los puntos de conexión, incluida la central y todos los miembros, y luego actualizar el esquema de sincronización.
 
 En este artículo se presenta una solución para replicar de manera automática los cambios de esquema en todos los puntos de conexión de SQL Data Sync.
 1. Esta solución usa un desencadenador DDL para realizar el seguimiento de cambios de esquema.
@@ -208,7 +208,7 @@ Si quiere limpiar los registros de la tabla de seguimiento de cambios de esquema
 
 -   Solo puede hacer cambios de esquema en la base de datos donde se creó el desencadenador DDL.
 
--   Si hace un cambio en una base de datos SQL Server local, asegúrese de que el cambio de esquema es compatible con Azure SQL Database.
+-   Si hace un cambio en una base de datos de SQL Server local, asegúrese de que el cambio de esquema es compatible con Azure SQL Database.
 
 -   Si se hacen cambios de esquema en bases de datos distintas de la base de datos donde se creó el desencadenador DDL, no se replican esos cambios. Para evitar este problema, puede crear desencadenadores DDL para bloquear los cambios en otros puntos de conexión.
 

@@ -1,5 +1,5 @@
 ---
-title: Ejemplo de PowerShell para copiar una instancia de Azure SQL Database en un servidor nuevo | Microsoft Docs
+title: Ejemplo de PowerShell para copiar una base de datos de Azure SQL en un servidor nuevo | Microsoft Docs
 description: Script de ejemplo de Azure PowerShell para copiar una instancia de SQL Database en un servidor nuevo
 services: sql-database
 ms.service: sql-database

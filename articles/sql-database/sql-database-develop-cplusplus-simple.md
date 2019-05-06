@@ -39,7 +39,7 @@ Actualmente, Azure tiene dos opciones para hospedar cargas de trabajo de SQL Ser
 ## <a id="ODBC"></a>Tecnologías de acceso a datos: ODBC y OLE DB
 La conexión a Azure SQL DB no es diferente y actualmente hay dos maneras de conectarse a las bases de datos: ODBC (conectividad abierta de bases de datos) y OLE DB (base de datos de vinculación e incrustación de objetos). En los últimos años, Microsoft se ha alineado con [ODBC para el acceso a datos relacionales nativos](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC es relativamente sencillo y también mucho más rápido que OLE DB. El único inconveniente aquí es que ODBC utiliza una API de estilo C anterior.
 
-## <a id="Create"></a>Paso 1:  Creación de una instancia de Azure SQL Database
+## <a id="Create"></a>Paso 1:  Creación de un base de datos de Azure SQL
 Vea la [página de introducción](sql-database-single-database-get-started.md) para aprender a crear una base de datos de ejemplo.  Como alternativa, puede seguir este [breve vídeo de dos minutos](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) para crear una base de datos de Azure SQL mediante Azure Portal.
 
 ## <a id="ConnectionString"></a>Paso 2:  Obtención de la cadena de conexión

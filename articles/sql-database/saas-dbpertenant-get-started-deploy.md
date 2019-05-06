@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial de la aplicación de SaaS de base de datos por inquilino: Azure SQL Database | Microsoft Docs'
-description: Implemente y explore la aplicación SaaS Wingtip Tickets multiinquilino, en la que se muestra el patrón de base de datos por inquilino y otros patrones SaaS con Azure SQL Database.
+description: Implemente y explore la aplicación SaaS multiinquilino Wingtip Tickets, que muestra el patrón de base de datos por inquilino y otros patrones SaaS con Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario

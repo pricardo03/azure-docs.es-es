@@ -60,16 +60,22 @@
     - name: Información general de ingesta de datos
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
-    - name: Análisis de series temporales
-      href: time-series-analysis.md
 - name: Guías de procedimientos
   items:
     - name: Introducción
       items:
-        - name: Escritura de consultas
-          href: write-queries.md
         - name: Ingesta de datos de ejemplo
           href: ingest-sample-data.md
+    - name: Datos de consulta
+      items:
+        - name: Escritura de consultas
+          href: write-queries.md
+        - name: Análisis de series temporales
+          href: time-series-analysis.md
+        - name: Detección de anomalías y previsión
+          href: anomaly-detection.md
+        - name: Machine Learning
+          href: machine-learning-clustering.md
     - name: administración
       items:
         - name: Administración de permisos de la base de datos
@@ -90,6 +96,8 @@
           href: using-metrics.md
     - name: Uso de otras herramientas
       items:
+        - name: Conector de Apache Spark
+          href: spark-connector.md
         - name: Conexión desde Databricks con Python
           href: connect-from-databricks.md
         - name: Análisis de datos en Jupyter Notebooks y Kqlmagic

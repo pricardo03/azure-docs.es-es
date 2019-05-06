@@ -113,6 +113,8 @@
           href: howto-personalize-dashboard.md
         - name: Administración de las preferencias
           href: howto-manage-preferences.md
+        - name: Alternancia de chat en directo
+          href: howto-show-hide-chat.md
 - name: Temas relacionados
   items:
     - name: Soluciones

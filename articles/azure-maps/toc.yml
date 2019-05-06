@@ -42,7 +42,7 @@
           href: render-coverage.md
         - name: Cobertura de enrutamiento
           href: routing-coverage.md
-    - name: Idiomas admitidos
+    - name: Compatibilidad de localización
       href: supported-languages.md
     - name: Estilos de mapa admitidos
       href: supported-map-styles.md
@@ -74,11 +74,11 @@
       items:
         - name: Control de mapa
           items:
-            - name: Uso del control de mapa
+            - name: Introducción al control de mapas web
               href: how-to-use-map-control.md
             - name: Creación de un mapa
               href: map-create.md
-            - name: Elección de un estilo de mapa
+            - name: Cambio del estilo del mapa
               href: choose-map-style.md
             - name: Incorporación de controles al mapa
               href: map-add-controls.md
@@ -120,8 +120,14 @@
               href: map-route.md
     - name: Desarrollo con Android SDK
       items:
-        - name: Uso del control de mapa de Android
+        - name: Introducción al control de mapa de Android
           href: how-to-use-android-map-control-library.md
+        - name: Adición de una capa de símbolo
+          href: how-to-add-symbol-to-android-map.md
+        - name: Agregar formas
+          href: how-to-add-shapes-to-android-map.md
+        - name: Cambio del estilo del mapa
+          href: set-android-map-styles.md
 - name: Referencia
   items:
     - name: Extensiones de API y de parámetros

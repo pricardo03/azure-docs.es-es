@@ -57,7 +57,7 @@ Para ejecutar SQL Server Management Studio, puede buscar "SQL Server Management 
 
 El servidor de bases de datos con la instancia de base de datos predeterminada se ejecuta automáticamente de forma predeterminada. Puede usar herramientas como SQL Server Management Studio en la máquina virtual para tener acceso a la base de datos de SQL Server de forma local. La cuenta local de administradores tienen acceso de administrador en la base de datos. 
 
-También DSVM incluye controladores ODBC y JDBC para comunicarse con SQL Server, instancias de Azure SQL Database y Azure SQL Data Warehouse desde aplicaciones escritas en varios idiomas, como Python, R. 
+También DSVM incluye controladores ODBC y JDBC para comunicarse con SQL Server, bases de datos de Azure SQL y Azure SQL Data Warehouse desde aplicaciones escritas en varios idiomas, como Python, R. 
 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>¿Cómo se configura/instala en DSVM? 
 

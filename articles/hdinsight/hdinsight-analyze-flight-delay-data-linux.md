@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Extracción, transformación y carga de datos (ETL) mediante Hive en HDInsight (Azure) '
-description: Aprenda a extraer datos de un conjunto de datos CSV sin procesar, a transformarlos mediante Hive en HDInsight y a cargar los datos transformados en una base de datos SQL de Azure mediante Apache Sqoop.
+description: Aprenda a extraer datos de un conjunto de datos CSV sin procesar, a transformarlos mediante Hive en HDInsight y a cargar los datos transformados en una base de datos de Azure SQL mediante Apache Sqoop.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -17,7 +17,7 @@ ms.locfileid: "64723147"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight
 
-En este tutorial, se toma un archivo de datos CSV sin procesar, se importa en un almacenamiento de clúster de HDInsight y, después, se transforman los datos mediante [Apache Hive](https://hive.apache.org/) en Azure HDInsight. Una vez que los datos se han transformado, se cargan en una base de datos SQL de Azure mediante [Apache Sqoop](https://sqoop.apache.org/). En este artículo, se usan datos de vuelos disponibles públicamente.
+En este tutorial, se toma un archivo de datos CSV sin procesar, se importa en un almacenamiento de clúster de HDInsight y, después, se transforman los datos mediante [Apache Hive](https://hive.apache.org/) en Azure HDInsight. Una vez que los datos se han transformado, se cargan en una base de datos de Azure SQL mediante [Apache Sqoop](https://sqoop.apache.org/). En este artículo, se usan datos de vuelos disponibles públicamente.
 
 > [!IMPORTANT]  
 > Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de Azure HDInsight o en versiones posteriores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -28,8 +28,8 @@ En este tutorial se describen las tareas siguientes:
 > * Descarga de datos de vuelos de ejemplo
 > * Carga de datos en un clúster de HDInsight
 > * Transformación de los datos mediante Hive
-> * Creación de una tabla en la base de datos SQL de Azure
-> * Uso de Sqoop para exportar los datos a la base de datos SQL de Azure
+> * Creación de una tabla en la base de datos de Azure SQL
+> * Uso de Sqoop para exportar los datos a la base de datos de Azure SQL
 
 
 La siguiente ilustración muestra el flujo de la aplicación de ETL típico.
@@ -42,7 +42,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 * **Un clúster de Hadoop basado en Linux en HDInsight** . Para conocer los pasos necesarios para crear un clúster de HDInsight basado en Linux, consulte [Introducción al uso de Apache Hadoop en HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **Azure SQL Database**. Use una instancia de Azure SQL Database como almacén de datos de destino. Si aún no tiene ninguna, consulte [Creación de una instancia de Azure SQL Database en Azure Portal](../sql-database/sql-database-get-started.md).
+* **Azure SQL Database**. Use una base de datos de Azure SQL como almacén de datos de destino. Si aún no tiene ninguna, consulte [Creación de una base de datos de Azure SQL en Azure Portal](../sql-database/sql-database-get-started.md).
 
 * **Azure CLI**. Si no tiene instalada la CLI de Azure, consulte en [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) el procedimiento que debe seguir.
 
@@ -206,7 +206,7 @@ Como parte del trabajo de Hive importe los datos del archivo .csv en una tabla d
 
 ## <a name="create-a-sql-database-table"></a>Creación de una tabla de SQL Database
 
-En esta sección, se da por supuesto que ya ha creado una base de datos SQL de Azure. Si no dispone todavía de una base de datos SQL, consulte [Creación de una instancia de Azure SQL Database en Azure Portal](../sql-database/sql-database-get-started.md) para crear una.
+En esta sección, se da por supuesto que ya ha creado una base de datos de Azure SQL. Si no dispone todavía de una base de datos SQL, consulte [Creación de una base de datos de Azure SQL en Azure Portal](../sql-database/sql-database-get-started.md) para crear una.
 
 Si ya tiene una base de datos SQL, debe obtener el nombre del servidor. Para buscar el nombre del servidor en [Azure Portal](https://portal.azure.com), seleccione **SQL Database** y filtre por el nombre de la base de datos que desee usar. El nombre del servidor aparece en la columna **Nombre de servidor**.
 
@@ -271,7 +271,7 @@ Si ya tiene una base de datos SQL, debe obtener el nombre del servidor. Para bus
 
 ## <a name="export-data-to-sql-database-using-apache-sqoop"></a>Exportación de datos a una base de datos SQL mediante Apache Sqoop
 
-En las secciones anteriores, copió los datos transformados en `/tutorials/flightdelays/output`. En esta, utilizará Sqoop para exportar los datos de "/ tutoriales/flightdelays/salida" a la tabla que creó en la base de datos SQL de Azure. 
+En las secciones anteriores, copió los datos transformados en `/tutorials/flightdelays/output`. En esta, utilizará Sqoop para exportar los datos de "/ tutoriales/flightdelays/salida" a la tabla que creó en la base de datos de Azure SQL. 
 
 1. Utilice el comando siguiente para comprobar si Sqoop puede ver la instancia de SQL Database:
 

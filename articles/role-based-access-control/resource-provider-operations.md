@@ -5063,7 +5063,7 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.Sql/servers/databases/metrics/read | Devuelve las métricas de las bases de datos. |
 > | . | Microsoft.Sql/servers/databases/move/action | Cambiar el nombre de una base de datos existente. |
 > | . | Microsoft.Sql/servers/databases/operationResults/read | Obtiene el estado de una operación de base de datos. |
-> | . | Microsoft.Sql/servers/databases/operations/cancel/action | Cancela la instancia de Azure SQL Database que tiene pendiente una operación asincrónica que aún no ha finalizado. |
+> | . | Microsoft.Sql/servers/databases/operations/cancel/action | Cancela la operación asincrónica pendiente de Azure SQL Database que aún no ha finalizado. |
 > | . | Microsoft.Sql/servers/databases/operations/read | Devuelve la lista de las operaciones realizadas en la base de datos. |
 > | . | Microsoft.Sql/servers/databases/pause/action | Pausa la base de datos de Azure SQL Data Warehouse. |
 > | . | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |

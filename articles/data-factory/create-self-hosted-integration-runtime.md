@@ -236,7 +236,7 @@ En el nivel del *firewall de Windows* (nivel de máquina), normalmente estos pue
 > [!NOTE]
 > En función del origen y los receptores, es posible que tenga que agregar a la lista blanca más dominios y puertos salientes al firewall corporativo o firewall de Windows.
 >
-> Para algunas bases de datos en la nube (por ejemplo: Azure SQL Database, y Azure Data Lake), es posible que necesite agregar a la lista blanca las direcciones IP de los equipos del entorno de ejecución de integración autohospedado en la configuración de su firewall.
+> Para algunas bases de datos en la nube (por ejemplo: Azure SQL Database y Azure Data Lake), es posible que necesite agregar a la lista blanca las direcciones IP de los equipos del entorno de ejecución de integración autohospedado en la configuración de su firewall.
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>Copia de datos desde un origen a un receptor
 Asegúrese de que las reglas del firewall se han habilitado correctamente en el firewall corporativo, en el firewall de Windows de la equipo del entorno de ejecución de integración autohospedado y en el propio almacén de datos. De este modo, el entorno de ejecución de integración autohospedado podrá conectarse al origen y al receptor correctamente. Habilite las reglas de cada almacén de datos que participe en la operación de copia.
@@ -247,7 +247,7 @@ Por ejemplo, para copiar información desde un almacén de datos local a un rece
 2. Configure los valores del firewall de Azure SQL Database para agregar la dirección IP del equipo del entorno de ejecución de integración autohospedado a la lista de direcciones IP permitidas.
 
 > [!NOTE]
-> Si el firewall no permite el puerto de salida 1433, el entorno de ejecución de integración autohospedado no podrá acceder directamente a Azure SQL Database. En este caso, puede usar un [copia almacenada provisionalmente](copy-activity-performance.md) en Azure SQL Database y Azure SQL Data Warehouse. En este escenario, requeriría solo HTTPS (puerto 443) para el movimiento de datos.
+> Si el firewall no permite el puerto de salida 1433, el entorno de ejecución de integración autohospedado no podrá acceder directamente a Azure SQL Database. En este caso, puede usar una [copia de almacenamiento temporal](copy-activity-performance.md) en Azure SQL Database y Azure SQL Data Warehouse. En este escenario, requeriría solo HTTPS (puerto 443) para el movimiento de datos.
 
 
 ## <a name="proxy-server-considerations"></a>Consideraciones acerca del servidor proxy

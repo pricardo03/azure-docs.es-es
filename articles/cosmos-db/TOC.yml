@@ -143,17 +143,6 @@
             - name: Directivas de indexación
               displayName: 'consistent, none'
               href: index-policy.md
-        - name: Fuente de cambios
-          items:
-            - name: Información general
-              href: change-feed.md
-            - name: Lectura de la fuente de cambios
-              href: read-change-feed.md
-            - name: Procesador de fuente de cambios
-              href: change-feed-processor.md
-            - name: Desencadenar Azure Functions
-              displayName: change feed
-              href: change-feed-functions.md
         - name: Período de vida
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md
@@ -498,6 +487,9 @@
           href: data-explorer.md
         - name: Administración de directivas de indexación
           href: how-to-manage-indexing-policy.md
+        - name: Ejemplos de subconsultas de SQL
+          displayName: 'subquery, exists'
+          href: how-to-sql-subquery.md
     - name: Fuente de cambios
       items:
         - name: "Varios desencadenadores de Azure\_Cosmos\_DB"

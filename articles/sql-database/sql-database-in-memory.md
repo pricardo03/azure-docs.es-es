@@ -56,7 +56,7 @@ A continuación se muestran dos ejemplos de cómo OLTP en memoria ayudó signifi
   - Para obtener más información, consulte la entrada de blog: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (OLTP en memoria en la entrada de Blog de base de datos de SQL de Azure)
 
 > [!NOTE]  
-> Las tecnologías en memoria están disponibles en las bases de datos de los planes Premium y Crítico para la empresa de Azure SQL y en los grupos elásticos Premium.
+> Las tecnologías en memoria están disponibles en las bases de datos de los niveles Premium y Crítico para la empresa de Azure SQL Database y en los grupos elásticos Premium.
 
 En el siguiente vídeo se explican posibles mejoras de rendimiento obtenidas con las tecnologías en memoria de Azure SQL Database. Tenga presente que la mejora de rendimiento que obtenga depende siempre de muchos factores, como la naturaleza de la carga de trabajo y los datos, los patrones de acceso de la base de datos, etc.
 

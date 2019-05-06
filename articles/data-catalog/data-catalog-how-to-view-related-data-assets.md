@@ -21,7 +21,7 @@ Azure Data Catalog permite ver los recursos de datos relacionados con un recurso
 Al registrar los recursos de datos de los siguientes orígenes de datos, Azure Data Catalog registra automáticamente los metadatos sobre las relaciones de combinación entre los recursos de datos seleccionados. 
 
 - SQL Server
-- Azure SQL Database
+- Azure SQL Database
 - MySQL
 - Oracle
 

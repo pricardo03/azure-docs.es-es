@@ -25,9 +25,9 @@ La característica de consulta elástica (en versión preliminar) le permite eje
 
 ## <a name="why-use-elastic-queries"></a>Razones para usar consultas elásticas
 
-### <a name="azure-sql-database"></a>Azure SQL Database
+### <a name="azure-sql-database"></a>Azure SQL Database
 
-Realice consultas entre bases de datos SQL de Azure completamente en T-SQL. Esto permite realizar consultas de solo lectura en bases de datos remotas y proporciona una opción para que los clientes actuales locales de SQL Server migren las aplicaciones que usan nombres de tres y cuatro partes, o un servidor vinculado a la base de datos SQL.
+Realice consultas entre bases de datos de Azure SQL completamente en T-SQL. Esto permite realizar consultas de solo lectura en bases de datos remotas y proporciona una opción para que los clientes actuales locales de SQL Server migren las aplicaciones que usan nombres de tres y cuatro partes, o un servidor vinculado a la base de datos SQL.
 
 ### <a name="available-on-standard-tier"></a>Disponible en el nivel Estándar
 

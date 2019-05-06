@@ -2,8 +2,8 @@
 documentType: LandingData
 title: 'Documentación de Azure Data Box: Transferencia en línea'
 metadata:
-  title: 'Documentación de Azure Data Box: Transferencia en línea'
-  description: 'Uso de dispositivos de Data Box para realizar transferencias de datos de alto rendimiento a través de la red a Azure de una forma rápida, barata y confiable.'
+  title: 'Data Box Gateway, Data Box Edge: Documentación sobre la transferencia de datos a través de la red a Azure'
+  description: 'Uso de dispositivos de Data Box Edge y Data Box Gateway para realizar transferencias de datos de alto rendimiento a través de la red a Azure de una forma rápida, barata y confiable.'
   services: databox
   author: alkohli
   manager: twooley
@@ -13,7 +13,7 @@ metadata:
   ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: 'La familia Azure Data Box le permite transferir cientos de terabytes de datos a Azure de una forma rápida, económica y confiable. Use los dispositivos de Data Box para las transferencias de datos de alto rendimiento a través de la red.<p>Elija Data Box Gateway para enviar datos para archivado en la nube, recuperación ante desastres o para procesar datos a escala de nube.  Use Data Box Edge para filtrar, analizar y transformar los datos cuando se mueven a Azure.</p><p>Obtenga información sobre cómo aprovechar Data Box Gateway y Data Box Edge para la transferencia basada en red con nuestros tutoriales.</p>'
+  description: 'La familia Azure Data Box le permite transferir cientos de terabytes de datos a Azure de una forma rápida, económica y confiable. Use los dispositivos de Data Box Edge y Data Box Gateway para las transferencias de datos de alto rendimiento a través de la red.<p>Elija Data Box Gateway para enviar datos para archivado en la nube, recuperación ante desastres o para procesar datos a escala de nube.  Use Data Box Edge para filtrar, analizar y transformar los datos cuando se mueven a Azure.</p><p>Obtenga información sobre cómo aprovechar Data Box Gateway y Data Box Edge para la transferencia basada en red con nuestros tutoriales.</p>'
 sections:
   - title: Tutoriales
     items:

@@ -113,7 +113,7 @@
       items:
         - name: Uso con Data Lake Storage
           href: apache-spark-use-with-data-lake-store.md
-        - name: Conexión a una instancia de Azure SQL Database
+        - name: Conexión a una base de datos de Azure SQL
           href: apache-spark-connect-to-sql-database.md
         - name: Implementación de una arquitectura lambda mediante Apache Spark y Cosmos DB
           href: ../../cosmos-db/lambda-architecture.md

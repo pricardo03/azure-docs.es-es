@@ -19,9 +19,9 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61075819"
 ---
-# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restauración de una instancia de Azure SQL Database o una conmutación por error en una secundaria
+# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restauración de una base de datos de Azure SQL o conmutación por error a una base de datos secundaria
 
-Azure SQL Database ofrece las siguientes capacidades para recuperarse de un corte en el suministro eléctrico:
+Azure SQL Database ofrece las siguientes funcionalidades para recuperarse de un corte en el suministro eléctrico:
 
 - [Replicación geográfica activa](sql-database-active-geo-replication.md)
 - [Grupos de conmutación por error automática](sql-database-auto-failover-group.md)

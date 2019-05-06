@@ -126,7 +126,7 @@ Una instancia de Metastore de HDInsight creada para una versión del clúster de
 Para aumentar el rendimiento al usar Oozie, utilice un Metastore personalizado. Una tienda de metadatos también puede proporcionar acceso a datos de trabajo de Oozie después de eliminar el clúster. 
 
 > [!IMPORTANT]  
-> No puede volver a usar un Oozie Metastore personalizado. Para usar un Oozie Metastore personalizado, debe proporcionar una base de datos Azure SQL Database vacía al crear el clúster HDInsight.
+> No puede volver a usar un Oozie Metastore personalizado. Para usar un Oozie Metastore personalizado, debe proporcionar una base de datos de Azure SQL vacía al crear el clúster HDInsight.
 
 
 ## <a name="custom-cluster-setup"></a>Configuración personalizada de clústeres

@@ -89,7 +89,7 @@ HDInsight usa Azure SQL Database para las tiendas de metadatos de Hive y Oozie. 
 
 1. Tienda de metadatos externa personalizada.
 
-    - Se especifica una instancia de Azure SQL Database externa como tienda de metadatos.
+    - Se especifica una base de datos de Azure SQL externa como almacén de metadatos.
     - Los clústeres se pueden crear y eliminar sin pérdida de metadatos, incluidos los detalles de trabajo de Oozie del esquema de Hive.
     - Una sola base de datos de la tienda de metadatos se puede compartir con otros tipos de clúster.
     - La tienda de metadatos se puede escalar verticalmente según sea necesario.

@@ -49,4 +49,4 @@ Para restaurar un almacén de datos eliminado:
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre las características de continuidad empresarial de las ediciones de Azure SQL Database, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la SQL Database](../sql-database/sql-database-business-continuity.md).
+Para obtener más información sobre las características de continuidad empresarial de las ediciones de Azure SQL Database, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con Azure SQL Database](../sql-database/sql-database-business-continuity.md).

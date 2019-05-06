@@ -1,6 +1,6 @@
 ---
-title: Ejemplo de PowerShell para configurar la replicación geográfica activa para una base de datos SQL agrupada de Azure | Microsoft Docs
-description: Script de ejemplo de Azure PowerShell para configurar la replicación geográfica activa para una base de datos agrupada en Azure SQL y conmutarla por error.
+title: Ejemplo de PowerShell para configurar la replicación geográfica activa para una base de datos agrupada de Azure SQL Database | Microsoft Docs
+description: Script de ejemplo de Azure PowerShell para configurar la replicación geográfica activa para una base de datos agrupada en Azure SQL Database y conmutarla por error.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -56,7 +56,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [New-AzSqlDatabaseSecondary](/powershell/module/az.sql/new-azsqldatabasesecondary)| Crea una base de datos secundaria para una base de datos existente e inicia la replicación de datos. |
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)| Obtiene una o más bases de datos. |
 | [Set-AzSqlDatabaseSecondary](/powershell/module/az.sql/set-azsqldatabasesecondary)| Cambia la base de datos secundaria para que sea la principal a fin de iniciar la conmutación por error.|
-| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) | Obtiene los vínculos de replicación geográfica entre una instancia de Azure SQL Database y un grupo de recursos o SQL Server. |
+| [Get-AzSqlDatabaseReplicationLink](/powershell/module/az.sql/get-azsqldatabasereplicationlink) | Obtiene los vínculos de replicación geográfica entre una base de datos de Azure SQL y un grupo de recursos o SQL Server. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||
 

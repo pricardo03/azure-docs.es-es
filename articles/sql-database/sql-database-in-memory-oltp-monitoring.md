@@ -29,7 +29,7 @@ Una vez que se supera ese límite, las operaciones de inserción y actualizació
 
 Determine los extremos de almacenamiento de los diferentes niveles de servicio. Consulte [Límites de los recursos basados en DTU para bases de datos únicas](sql-database-dtu-resource-limits-single-databases.md), [Límites de los recursos basados en DTU para grupos elásticos](sql-database-dtu-resource-limits-elastic-pools.md), [Límites de los recursos basados en núcleos virtuales para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md) y [Límites de los recursos basados en núcleos virtuales para grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
-La estimación de los requisitos de memoria para una tabla optimizada para memoria funciona de la misma manera para SQL Server tal y como se hace en la base de datos SQL de Azure. Dedique algunos minutos a revisar ese artículo en [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
+La estimación de los requisitos de memoria para una tabla optimizada para memoria funciona de la misma manera para SQL Server tal y como se hace en la base de datos de Azure SQL. Dedique algunos minutos a revisar ese artículo en [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
 La tabla y las filas de variables de tabla, así como los índices, se tienen en cuenta para el tamaño máximo de los datos de usuario. Además, ALTER TABLE necesita suficiente espacio para crear una nueva versión de toda la tabla y sus índices.
 

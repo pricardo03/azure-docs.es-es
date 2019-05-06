@@ -124,9 +124,9 @@ Analysis Services, Reporting Services, el motor de base de datos de SQL Server y
 
 ![escenario de bi iass con 2 máquinas virtuales](./media/virtual-machines-windows-classic-ps-sql-bi/IC650109.gif)
 
-### <a name="mixed-azure--data-on-azure-sql-database"></a>Mezcla de Azure: datos en base de datos SQL de Azure
+### <a name="mixed-azure--data-on-azure-sql-database"></a>Mezcla de Azure: datos en base de datos de Azure SQL
 * Analysis Services, Reporting Services y el motor de base de datos de SQL Server en una única máquina virtual. Esta implementación incluye las bases de datos del servidor de informes.
-* El origen de datos es una base de datos SQL de Azure.
+* El origen de datos es una base de datos de Azure SQL.
 
 ![escenarios de máquina virtual de bi iaas y AzureSQL como origen de datos](./media/virtual-machines-windows-classic-ps-sql-bi/IC650110.gif)
 

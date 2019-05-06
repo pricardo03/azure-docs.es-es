@@ -13,7 +13,7 @@ ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 2edd4e28a0dd67be3c06159bce2e968d681b7f70
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905263"
@@ -49,7 +49,7 @@ Seleccione **Cargar archivo** para seleccionar la plantilla de Resource Manager 
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
-**Cadenas de conexión**. Puede encontrar la información necesaria para crear cadenas de conexión en los artículos sobre los conectores individuales. Por ejemplo, para Azure SQL Database, consulte [Copia de datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory](connector-azure-sql-database.md). Para comprobar la cadena de conexión correcta, por ejemplo, para un servicio vinculado, también puede abrir la vista de código para el recurso en la interfaz de usuario de Data Factory. En la vista de código, sin embargo, la parte de contraseña o clave de cuenta de la cadena de conexión se ha quitado. Para abrir la vista de código, seleccione el icono resaltado en la captura de pantalla siguiente.
+**Cadenas de conexión**. Puede encontrar la información necesaria para crear cadenas de conexión en los artículos sobre los conectores individuales. Por ejemplo, para Azure SQL Database, consulte [Copia de datos con una base de datos de Azure SQL como origen o destino mediante Azure Data Factory](connector-azure-sql-database.md). Para comprobar la cadena de conexión correcta, por ejemplo, para un servicio vinculado, también puede abrir la vista de código para el recurso en la interfaz de usuario de Data Factory. En la vista de código, sin embargo, la parte de contraseña o clave de cuenta de la cadena de conexión se ha quitado. Para abrir la vista de código, seleccione el icono resaltado en la captura de pantalla siguiente.
 
 ![Apertura de la vista de código para ver la cadena de conexión](media/continuous-integration-deployment/continuous-integration-codeview.png)
 

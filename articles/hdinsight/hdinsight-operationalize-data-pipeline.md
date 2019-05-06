@@ -47,7 +47,7 @@ El siguiente diagrama muestra el diseño de alto nivel de esta canalización de 
 
 ### <a name="provision-azure-resources"></a>Aprovisionamiento de los recursos de Azure
 
-Esta canalización requiere una instancia de Azure SQL Database y un clúster de Hadoop de HDInsight en la misma ubicación. Azure SQL Database almacena tanto los datos de resumen generados por la canalización como el almacén de metadatos de Oozie.
+Esta canalización requiere una base de datos de Azure SQL y un clúster de Hadoop de HDInsight en la misma ubicación. Azure SQL Database almacena tanto los datos de resumen generados por la canalización como el almacén de metadatos de Oozie.
 
 #### <a name="provision-azure-sql-database"></a>Aprovisionamiento de Azure SQL Database
 
@@ -423,7 +423,7 @@ La tabla siguiente resume cada una de las propiedades e indica dónde puede enco
 | hiveScriptCreateDailyTable | La ruta de acceso en Azure Storage del archivo de consulta de Hive `hive-create-daily-summary-table.hql`. |
 | hiveDailyTableName | El nombre generado de forma dinámica que se utilizará para la tabla de almacenamiento provisional. |
 | hiveDataFolder | La ruta de acceso en Azure Storage a los datos contenidos en la tabla de almacenamiento provisional. |
-| sqlDatabaseConnectionString | La cadena de conexión con sintaxis JDBC a la instancia de Azure SQL Database. |
+| sqlDatabaseConnectionString | La cadena de conexión con sintaxis JDBC a su base de datos de Azure SQL. |
 | sqlDatabaseTableName | El nombre de la tabla en Azure SQL Database en la que se insertan las filas de resumen. Dejar como `dailyflights`. |
 | year | El componente año del día cuyos resúmenes de vuelos se calculan. Déjelo tal cual. |
 | month | El componente mes del día cuyos resúmenes de vuelos se calculan. Déjelo tal cual. |

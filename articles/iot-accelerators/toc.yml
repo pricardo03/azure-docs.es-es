@@ -97,7 +97,7 @@
           href: iot-accelerators-remote-monitoring-rbac.md
         - name: Exploración de datos de telemetría
           items:
-            - name: Visualización de telemetría con Power BI
+            - name: Visualización de datos de telemetría con Power BI
               href: iot-accelerators-integrate-data-powerbi.md
             - name: Integración de Azure Time Series Insights con Supervisión remota
               href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
@@ -133,26 +133,22 @@
       items:
         - name: ¿Qué es IoT industrial?
           href: overview-iot-industrial.md
-        - name: OPC Twin
-          items:
-            - name: ¿Qué es OPC Twin?
-              href: overview-opc-twin.md
-            - name: OPC Twin Architecture
-              href: overview-opc-twin-architecture.md
-        - name: OPC Vault
-          items:
-            - name: ¿Qué es OPC Vault?
-              href: overview-opc-vault.md
-        - name: Fábrica conectada
-          items:
-            - name: Introducción a factoría conectada
-              href: iot-accelerators-connected-factory-features.md
-            - name: Arquitectura de factoría conectada
-              href: iot-accelerators-connected-factory-sample-walkthrough.md
+        - name: ¿Qué es OPC Twin?
+          href: overview-opc-twin.md
+        - name: ¿Qué es OPC Vault?
+          href: overview-opc-vault.md
+        - name: ¿Qué es la solución de factoría conectada?
+          href: iot-accelerators-connected-factory-features.md
     - name: Guías de inicio rápido
       items:
         - name: Prueba de una solución de factoría conectada
           href: quickstart-connected-factory-deploy.md
+    - name: Conceptos
+      items:
+        - name: OPC Twin Architecture
+          href: overview-opc-twin-architecture.md
+        - name: Arquitectura de factoría conectada
+          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Guías de procedimientos
       items:
         - name: Fábrica conectada
