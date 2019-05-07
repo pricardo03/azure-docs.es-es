@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 05/02/2019
 ms.author: fmegen
-ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 771168a13d7192581aae2ff4128e979b6924484a
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009406"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020673"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Inicio rápido: Reconocimiento de voz con el SDK de Voz para Java
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-En este artículo creará una aplicación de consola Java mediante el [SDK de Voz](speech-sdk.md). Transcribirá la conversión de voz en texto en tiempo real desde el micrófono de su PC. La aplicación se crea con el paquete Maven del SDK de Voz y el IDE de Java de Eclipse (v4.8) en Windows de 64 bits, Ubuntu Linux 16.04/18.04 de 64 bits o en macOS 10.13 o posterior. Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
+En este artículo creará una aplicación de consola Java mediante el [SDK de Voz](speech-sdk.md). Transcribirá la conversión de voz en texto en tiempo real desde el micrófono de su PC. La aplicación se crea con el paquete Maven de Speech SDK y el IDE de Java de Eclipse (v4.8) en Windows de 64 bits, Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9) o en macOS 10.13 o posterior. Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
 
 > [!NOTE]
 > Para el SDK de dispositivos de Voz y el dispositivo Roobo, consulte [SDK de dispositivos de voz](speech-devices-sdk.md).
@@ -30,21 +30,29 @@ En este artículo creará una aplicación de consola Java mediante el [SDK de Vo
 
 Esta guía de inicio rápido requiere:
 
-* Sistema operativo: Windows (64 bits), Ubuntu Linux 16.04/18.04 (64 bits) o macOS 10.13 o superior
+* Sistema operativo: Windows de 64 bits, Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9) o macOS 10.13 o posterior
 * [IDE de Java de Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) o [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
 
-Si ejecuta Ubuntu 16.04/18.04, asegúrese de que estén instaladas estas dependencias antes de iniciar Eclipse.
+Si ejecuta Ubuntu Linux, asegúrese de que estén instaladas estas dependencias antes de iniciar Eclipse.
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+* En Ubuntu:
 
-Si está ejecutando Windows (64 bits), asegúrese de que ha instalado Microsoft Visual C++ Redistributable para su plataforma.
+  ```sh
+  sudo apt-get update
+  sudo apt-get install libssl1.0.0 libasound2
+  ```
+
+* En Debian 9:
+
+  ```sh
+  sudo apt-get update
+  sudo apt-get install libssl1.0.2 libasound2
+  ```
+
+Si está ejecutando Windows (64 bits), asegúrese de que ha instalado Microsoft Visual C++ Redistributable para su plataforma.
 * [Descarga de Microsoft Visual C++ Redistributable para Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-
 
 ## <a name="create-and-configure-project"></a>Creación y configuración de un proyecto
 

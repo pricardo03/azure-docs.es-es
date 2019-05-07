@@ -15,6 +15,9 @@
     - name: Traducción de voz
       href: speech-translation.md
       displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
+    - name: Asistentes virtuales por voz (versión preliminar)
+      href: voice-first-virtual-assistants.md
+      displayName: 'virtual assistants, speech-enabled bots, conversational agents'
 - name: Guías de inicio rápido
   items:
     - name: SDK de voz
@@ -73,7 +76,7 @@
               displayName: 'recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform'
             - name: C++ (Windows)
               href: quickstart-translate-speech-cpp-windows.md
-            - name: 'Java (Windows, Linux)'
+            - name: 'Java (Windows, macOS, Linux)'
               href: quickstart-translate-speech-java-jre.md
         - name: Texto a voz
           items:
@@ -86,6 +89,14 @@
             - name: C++ (Linux)
               href: quickstart-text-to-speech-cpp-linux.md
               displayName: 'synthesize speech, speech synthesis, text-to-speech, tts'
+        - name: Asistentes virtuales por voz (versión preliminar)
+          items:
+            - name: 'C# (UWP)'
+              href: quickstart-virtual-assistant-csharp-uwp.md
+              displayName: 'virtual assistant, speech-enabled bot, conversational agent'
+            - name: 'Java (Windows, macOS, Linux)'
+              href: quickstart-virtual-assistant-java-jre.md
+              displayName: 'virtual assistant, speech-enabled bot, conversational agent'
     - name: API de REST
       items:
         - name: Lista de voces admitidas por región
@@ -103,7 +114,7 @@
             - name: Python
               href: quickstart-python-text-to-speech.md
     - name: SDK de dispositivos de voz
-      href: speech-devices-sdk-qsg.md
+      href: speech-devices-sdk-android-quickstart.md
       displayName: 'roobo, speech devices sdk'
 - name: Tutoriales
   items:
@@ -113,6 +124,12 @@
     - name: Compilación de una aplicación en Flask para traducir y sintetizar texto mediante REST
       maintainContext: true
       href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
+- name: Conceptos
+  items:
+    - name: Servicio de transcripción de conversaciones
+      href: conversation-transcription-service.md
+    - name: Transcripción para los centros de llamadas
+      href: call-center-transcription.md
 - name: Guías de procedimientos
   items:
     - name: Registro en el servicio Voz
@@ -131,26 +148,38 @@
     - name: Habilitación del registro (SDK)
       href: how-to-use-logging.md
       displayName: 'debug, log, logging'
+    - name: Mejora del reconocimiento con listas de frases
+      href: how-to-phrase-lists.md
+      displayname: 'phrase lists, phrase, list, recognition accuracy'
+    - name: Transcripción de conversaciones (SDK)
+      href: how-to-use-conversation-transcription-service.md
+      displayName: 'conversation, transcription, speech recognition'
     - name: Personalización
       items:
         - name: Voz a texto
           items:
-            - name: Preparación de transcripciones para la personalización
-              href: prepare-transcription.md
-            - name: Personalización de modelos acústicos
-              href: how-to-customize-acoustic-models.md
-            - name: Personalización de modelos de lenguaje
-              href: how-to-customize-language-model.md
-            - name: Personalización de la pronunciación
-              href: how-to-customize-pronunciation.md
-            - name: Creación de un punto de conexión de reconocimiento personalizado
-              href: how-to-create-custom-endpoint.md
+            - name: Introducción a Custom Speech
+              href: how-to-custom-speech.md
+            - name: Preparación de los datos
+              href: how-to-custom-speech-test-data.md
+            - name: Inspección de los datos
+              href: how-to-custom-speech-inspect-data.md
+            - name: Evaluación de la precisión
+              href: how-to-custom-speech-evaluate-data.md
+            - name: Entrenamiento de un modelo personalizado
+              href: how-to-custom-speech-train-model.md
+            - name: Implementación de un modelo personalizado
+              href: how-to-custom-speech-deploy-model.md
+            - name: 'Guía: Creación de transcripciones con la etiqueta humana'
+              href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Texto a voz
           items:
             - name: Creación de fuentes de voz (voz de marca de bot)
               href: how-to-customize-voice-font.md
             - name: Grabación de ejemplos de voz
               href: record-custom-voice-samples.md
+            - name: Ajuste de la salida de texto a voz
+              href: how-to-voice-tuning.md
         - name: Creación de una palabra de reactivación personalizada (SDK de dispositivos)
           href: speech-devices-sdk-create-kws.md
           displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
@@ -162,6 +191,14 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: Desde Translator Speech API
           href: how-to-migrate-from-translator-speech-api.md
+    - name: Uso de contenedores
+      items:
+        - name: Instalación y ejecución de contenedores
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          href: speech-container-howto.md
+        - name: Configuración de contenedores
+          href: speech-container-configuration.md
+          displayName: 'docker, container, billing, apikey, pull, logging'
 - name: Ejemplos
   items:
     - name: SDK de voz
@@ -196,9 +233,13 @@
     - name: SDK de dispositivos de voz
       items:
         - name: Obtener el SDK de dispositivos de voz
-          href: 'get-speech-devices-sdk.md#download-the-speech-devices-sdk'
+          href: get-speech-devices-sdk.md
         - name: Notas de la versión
           href: devices-sdk-release-notes.md
+        - name: Detalles de Roobo v1
+          href: speech-devices-sdk-roobo-v1.md
+        - name: Especificación del micrófono
+          href: speech-devices-sdk-microphone.md
     - name: API de REST
       items:
         - name: Voz a texto
@@ -238,6 +279,8 @@
         - name: Traducción de voz
           href: 'https://www.microsoft.com/translator/faq.aspx'
           displayName: 'translate speech, speech translation, translator, s2s, speech to speech'
+        - name: Asistentes virtuales por voz (versión preliminar)
+          href: faq-voice-first-virtual-assistants.md
     - name: Licencias del SDK de voz
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
       items:
@@ -246,17 +289,18 @@
         - name: Avisos de terceros
           href: 'https://aka.ms/csspeech/toctpn'
     - name: SDK de dispositivos de voz
-      href: speech-devices-sdk.md
       displayName: 'roobo, speech devices sdk'
       items:
+        - name: Información
+          href: speech-devices-sdk.md
         - name: Licencia
           href: speech-devices-sdk-license.md
-          displayName: 'roobo, speech devices sdk'
         - name: Avisos de terceros
           href: devices-sdk-third-party-notices.md
-          displayName: 'roobo, speech devices sdk'
     - name: Solución de problemas del SDK de voz
       href: troubleshooting.md
+    - name: Solución de problemas de Speech Devices SDK
+      href: speech-devices-sdk-troubleshooting.md
     - name: Soporte técnico
       href: support.md
     - name: Precios y límites

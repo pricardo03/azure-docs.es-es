@@ -1,0 +1,82 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de Ink Recognizer
+metadata:
+  title: 'Documentación de Ink Recognizer: inicios rápidos, tutoriales, referencia de API: Azure Cognitive Services | Microsoft Docs'
+  description: Aprenda a usar Translator Text para traducir texto en varios idiomas.
+  services: cognitive-services
+  author: erhopf
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/02/2019
+  ms.author: erhopf
+abstract:
+  description: 'La entrada de lápiz digital hace referencia a las tecnologías que permiten las representaciones digitales de la entrada de texto, como la escritura a mano y los dibujos. A medida que los dispositivos siguen permitiendo experiencias de entradas de lápiz digital enriquecidas, la inteligencia artificial y el aprendizaje automático permiten el reconocimiento de formas escritas y textos en cualquier contexto. La API Ink Recognizer es un servicio en la nube que permite enviar trazos de entrada de lápiz y obtener información detallada sobre ellos.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/ink-recognizer/overview
+            html: <p>Obtenga información acerca de Ink Recognizer y de cómo integrarlo en sus productos</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: ¿Qué es la API Ink Recognizer?
+          - href: concepts/send-ink-data.md
+            html: <p>Obtenga información acerca de los patrones de llamada recomendados cuando se usa la API</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Envío de datos de entrada de lápiz a la API Ink Recognizer
+  - title: Inicio rápido en 5 minutos
+    items:
+      - type: paragraph
+        text: 'Introducción al uso de API Ink Recognizer:'
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo-csharp.svg
+            title: 'C#'
+          - image:
+              src: media/index/logo-java.svg
+            title: Java
+          - image:
+              src: media/index/logo-js.svg
+            title: Javascript
+        rows:
+          - title: Reconocimiento de trazos de lápiz digital
+            values:
+              - href: quickstarts/csharp.md
+              - href: quickstarts/java.md
+              - href: quickstarts/javascript.md
+  - title: Ejemplos
+    items:
+      - type: paragraph
+        text: 'Use estos programas de ejemplo para ver cómo puede integrar la API Ink Recognizer en sus aplicaciones:'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089502">C# y Plataforma universal de Windows (UWP)</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# y Windows Presentation Foundation (WPF)</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089908">Aplicación para explorador web de JavaScript</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089906">Aplicación móvil Java y Android</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089805">Aplicación móvil iOS y SWIFT</a>'
+  - title: Referencia
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API DE REST
+            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2089907">Referencia de API REST</a></p>'
+          - title: PowerShell
+            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">CLI de Azure</a></p>'

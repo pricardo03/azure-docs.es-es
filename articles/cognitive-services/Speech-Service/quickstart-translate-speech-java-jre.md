@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 36eaaeabcf888aac10bcf9b8a27e3590d21079ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5dc1852a57970c2994d9f36cbd7242a18b580a61
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897114"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021006"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Inicio rápido: Traducción de voz con Speech SDK para Java
 
-En este inicio rápido, creará una sencilla aplicación de Java que captura la voz del usuario procedente del micrófono del equipo, traduce el contenido de voz y transcribe el texto traducido en la línea de comandos en tiempo real. La aplicación se crea con el paquete Maven del SDK de Voz y el IDE de Java de Eclipse (v4.64) y está diseñada para ejecutarse en Windows de 64 bits o Ubuntu Linux 16.04/18.04 de 64 bits.
+En este inicio rápido, creará una sencilla aplicación de Java que captura la voz del usuario procedente del micrófono del equipo, traduce el contenido de voz y transcribe el texto traducido en la línea de comandos en tiempo real. Esta aplicación está diseñada para ejecutarse en Windows de 64 bits o Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9), o en macOS 10.13 o posterior. Se crea con el paquete de Maven de Speech SDK y el IDE de Java de Eclipse.
 
 Para obtener una lista completa de los idiomas disponibles para la traducción de voz, consulte la [compatibilidad con idiomas](language-support.md).
 
@@ -27,17 +27,26 @@ Para obtener una lista completa de los idiomas disponibles para la traducción d
 
 Esta guía de inicio rápido requiere:
 
-* Sistema operativo: Windows de 64 bits o Ubuntu Linux 16.04/18.04 de 64 bits
+* Sistema operativo: Windows de 64 bits, Linux de 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9) o macOS 10.13 o posterior
 * [IDE de Java de Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) o [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
 
-Si ejecuta Ubuntu 16.04/18.04, asegúrese de que estén instaladas estas dependencias antes de iniciar Eclipse.
+Si ejecuta Ubuntu Linux, asegúrese de que estén instaladas estas dependencias antes de iniciar Eclipse.
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+ * En Ubuntu:
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.0 libasound2
+   ```
+
+ * En Debian 9:
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.2 libasound2
+   ```
 
 > [!NOTE]
 > Para el SDK de dispositivos de Voz y el dispositivo Roobo, consulte [SDK de dispositivos de voz](speech-devices-sdk.md).

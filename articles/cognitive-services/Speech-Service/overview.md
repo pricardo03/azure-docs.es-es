@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2e82e033e56af10bd8e676570e9409941753eb38
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010199"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020984"
 ---
 # <a name="what-are-the-speech-services"></a>¿Qué son los servicios Voz?
 
-Los servicios de voz de Azure son la unificación de voz a texto, texto a voz y traducción de voz en una sola suscripción a Azure. Es fácil habilitar voz en sus aplicaciones, herramientas y dispositivos con el [SDK de voz](speech-sdk-reference.md), el [SDK de dispositivos de voz](speech-devices-sdk-qsg.md) o las [API de REST](rest-apis.md).
+Los servicios de voz de Azure son la unificación de voz a texto, texto a voz y traducción de voz en una sola suscripción a Azure. Es fácil habilitar voz en sus aplicaciones, herramientas y dispositivos con el [SDK de voz](speech-sdk-reference.md), el [SDK de dispositivos de voz](https://aka.ms/sdsdk-quickstart) o las [API de REST](rest-apis.md).
 
 > [!IMPORTANT]
 > Los servicios de voz han reemplazado Bing Speech API, Translator Speech y Custom Speech. Consulte *Guías de procedimientos > Migración* para obtener instrucciones de migración.
@@ -30,6 +30,7 @@ Estas características conforman los servicios de voz de Azure. Use los vínculo
 |---------|---------|-------------|-----|------|
 | [Voz a texto](speech-to-text.md) | Voz a texto | Voz a texto transcribe secuencias de audio a texto en tiempo real que sus aplicaciones, herramientas o dispositivos pueden usar o mostrar. Use voz a texto con [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) para derivar las intenciones del usuario a partir de voz transcrita y actuar en los comandos de voz. | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Batch Transcription](batch-transcription.md) (Transcripción de Azure Batch) | La transcripción de Azure Batch permite la transcripción de voz a texto asincrónica de grandes volúmenes de datos. Este es un servicio basado en REST, que usa el mismo punto de conexión que la personalización y la administración de modelos. | Sin  | [Sí](https://westus.cris.ai/swagger/ui/index) |
+| | [Servicio de transcripción de conversaciones](conversation-transcription-service.md) | Permite el reconocimiento de voz en tiempo real, la identificación del hablante y la diarización. Es perfecto para transcribir reuniones en persona con la capacidad de distinguir a los oradores. | Sí | Sin  |
 | | [Personalización](#customize-your-speech-experience) | Si usa voz a texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados para dirigir el sonido ambiental o vocabulario específico del sector. | Sin  | [Sí](https://westus.cris.ai/swagger/ui/index) |
 | [Texto a voz](text-to-speech.md) | Texto a voz | Texto a voz convierte el texto de entrada en voz sintetizada similar a la humana. Elija entre voces estándar y voces neuronales (consulte [Compatibilidad de idioma](language-support.md)). | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Personalización](#customize-your-speech-experience) | Cree fuentes de voz personalizadas únicas para su marca o producto. | Sin  | [Sí](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
@@ -39,7 +40,8 @@ Estas características conforman los servicios de voz de Azure. Use los vínculo
 
 Obtenga información sobre las novedades con los servicios de voz de Azure.
 
-* Abril de 2019: publicación del SDK de Voz 1.4.0 con compatibilidad con conversión de texto a voz (Beta) para C++, C# y Java en Windows y Linux. Además, el SDK ahora admite formatos de audio MP3 y Opus/Ogg para C++ y C# en Linux. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md). 
+* Mayo de 2019 - Speech SDK versión 1.5.0 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
+* Abril de 2019: publicación del SDK de Voz 1.4.0 con compatibilidad con conversión de texto a voz (Beta) para C++, C# y Java en Windows y Linux. Además, el SDK ahora admite formatos de audio MP3 y Opus/Ogg para C++ y C# en Linux. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
 * Marzo de 2019: está disponible un nuevo punto de conexión para la conversión de texto a voz (TTS) que devuelve una lista completa de las voces disponibles en una región concreta. Además, ahora se admiten regiones nuevas para TTS. Para más información, consulte la [referencia de Text-to-speech API (REST)](rest-text-to-speech.md).
 * Febrero de 2019: Speech SDK 1.3.0 publicado con compatibilidad para [Unity (beta)](quickstart-csharp-unity.md). Se agregó compatibilidad para la clase `AudioInput`, que le permite elegir el origen de streaming para audio. Para obtener una lista completa de mejoras y problemas conocidos, consulte [Notas de la versión](releasenotes.md).
 * Diciembre de 2018: Speech SDK 1.2.0 publicado con compatibilidad para [Python](quickstart-python.md) y [Node.js](quickstart-js-node.md), así como Ubuntu 18.04 LTS. Para más información, consulte [Notas de la versión](releasenotes.md).

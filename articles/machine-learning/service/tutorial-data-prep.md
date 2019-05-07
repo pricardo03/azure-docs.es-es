@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c1c00fec5f56fc81b2cb73404728b214b5aaf3f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a717fa4191c57c21705d24884397ebb485726492
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698364"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025120"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparación de datos para el modelado de regresión
 
@@ -41,18 +41,16 @@ Vaya a [Configuración del entorno de desarrollo](#start) para leer los pasos de
     * El SDK de preparación de datos de Azure Machine Learning para Python
 * El cuaderno del tutorial
 
-Obtenga todos estos requisitos previos de cualquiera de las siguientes secciones.
-
-* Uso de [Azure Notebooks](#azure)
+* Uso de un [servidor de cuadernos en la nube en el área de trabajo](#azure) 
 * Uso del [propio servidor de Notebook](#server)
 
-### <a name="azure"></a>Uso de Azure Notebooks: cuadernos de Jupyter gratuitos en la nube
+### <a name="azure"></a>Uso de un servidor de cuadernos en la nube en el área de trabajo
 
-Es fácil empezar a usar Azure Notebooks. El SDK de preparación de datos de Azure Machine Learning se instala y configura automáticamente en [Azure Notebooks](https://notebooks.azure.com/). Tanto la instalación como las actualizaciones futuras se administran automáticamente mediante servicios de Azure.
-
-Después de completar los pasos siguientes, ejecute el cuaderno **tutorials/regression-part1-data-prep.ipynb** en el proyecto **Getting Started**.
+Es fácil empezar con su propio servidor de cuadernos basado en la nube. El [SDK de Azure Machine Learning para Python](https://aka.ms/aml-sdk) ya está instalado y configurado para el usuario una vez creado este recurso en la nube.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Después de iniciar la página web del cuaderno, ejecute el cuaderno **tutorials/regression-part1-data-prep.ipynb**.
 
 ### <a name="server"></a>Uso del propio servidor de Jupyter Notebook
 

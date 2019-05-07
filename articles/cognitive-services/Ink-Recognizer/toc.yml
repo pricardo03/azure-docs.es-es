@@ -1,0 +1,54 @@
+- name: Documentación de Ink Recognizer
+  href: index.yml
+- name: Información general
+  expanded: true
+  items:
+    - name: ¿Qué es la API Ink Recognizer?
+      href: overview.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: API DE REST
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Java
+          href: quickstarts/java.md
+        - name: Javascript
+          href: quickstarts/javascript.md
+- name: Conceptos
+  items:
+    - name: Envío de datos de entrada de lápiz a la API Ink Recognizer
+      href: concepts/send-ink-data.md
+- name: Ejemplos
+  items:
+    - name: 'C# y Plataforma universal de Windows (UWP)'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089803'
+    - name: 'C# y Windows Presentation Foundation (WPF)'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089804'
+    - name: Aplicación para explorador web de JavaScript
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089908'
+    - name: Aplicación móvil Java y Android
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089906'
+    - name: Aplicación móvil iOS y SWIFT
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089805'
+- name: Referencia
+  items:
+    - name: Referencia de la API REST
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089907'
+    - name: PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: Compatibilidad con idiomas
+      href: language-support.md
+    - name: Regiones
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+- name: Recursos
+  items:
+    - name: Precios y límites
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Privacidad y cookies
+      href: 'https://privacy.microsoft.com/privacystatement'

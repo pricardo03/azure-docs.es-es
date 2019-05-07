@@ -16,32 +16,68 @@
       href: setup-create-workspace.md
 - name: Guías de inicio rápido
   items:
-    - name: Experimento con un bloc de notas en la nube
-      displayName: workspace
-      href: quickstart-run-cloud-notebook.md
-    - name: Experimento con un bloc de notas local
-      displayName: 'workspace, install, sdk'
-      href: quickstart-run-local-notebook.md
+    - name: SDK de Python
+      items:
+        - name: Ejecución del experimento en la nube
+          displayName: workspace
+          href: quickstart-run-cloud-notebook.md
+        - name: Ejecución del experimento localmente
+          displayName: 'workspace, install, sdk'
+          href: quickstart-run-local-notebook.md
+    - name: Interfaz visual
+      items:
+        - name: Preparación y visualización de los datos
+          displayName: experiment drag-and-drop
+          href: ui-quickstart-run-experiment.md
 - name: Tutoriales
   items:
-    - name: Clasificación de imágenes (datos MNIST)
+    - name: SDK de Python
       items:
-        - name: 1. Entrenamiento de un modelo
-          displayName: build modeling
-          href: tutorial-train-models-with-aml.md
-        - name: 2. Implementar un modelo
-          href: tutorial-deploy-models-with-aml.md
-    - name: Regresión (datos de taxis de Nueva York)
+        - name: Clasificación de imágenes (datos MNIST)
+          items:
+            - name: 1. Entrenamiento de un modelo
+              displayName: build modeling
+              href: tutorial-train-models-with-aml.md
+            - name: 2. Implementar un modelo
+              href: tutorial-deploy-models-with-aml.md
+        - name: Regresión (datos de taxis de Nueva York)
+          items:
+            - name: 1. Preparación de datos para el modelado
+              displayName: data prep
+              href: tutorial-data-prep.md
+            - name: 2. Entrenamiento automático de un modelo de Machine Learning
+              displayName: 'automl, automated, auto ml,'
+              href: tutorial-auto-train-models.md
+    - name: Interfaz visual
       items:
-        - name: 1. Preparación de datos para el modelado
-          displayName: data prep
-          href: tutorial-data-prep.md
-        - name: 2. Entrenamiento automático de un modelo de Machine Learning
-          displayName: 'automl, automated, auto ml,'
-          href: tutorial-auto-train-models.md
+        - name: Entrenamiento del modelo de regresión
+          displayName: experiment drag-and-drop visual interface Tutorial 1
+          href: ui-tutorial-automobile-price-train-score.md
+        - name: Implementación del modelo de regresión
+          displayName: experiment drag-and-drop visual interface Tutorial 2
+          href: ui-tutorial-automobile-price-deploy.md
 - name: Ejemplos
-  displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
-  href: samples-notebooks.md
+  items:
+    - name: Notebooks
+      displayName: 'example, examples, jupyter, azure notebooks, python, notebook, github'
+      href: samples-notebooks.md
+    - name: Experimentos de la interfaz visual
+      items:
+        - name: Predicción del precio
+          displayName: 'Sample 1, training, regression'
+          href: ui-sample-regression-predict-automobile-price-basic.md
+        - name: Predicción del precio (avanzado)
+          displayName: 'Sample 2, training, regression'
+          href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
+        - name: Predicción del riesgo de crédito
+          displayName: 'Sample 3, training, classification'
+          href: ui-sample-classification-predict-credit-risk-basic.md
+        - name: Predicción del riesgo crediticio (avanzado)
+          displayName: 'Sample 4, training, classification'
+          href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
+        - name: Predicción de la renovación
+          displayName: 'Sample 5, training, CRM, classification'
+          href: ui-sample-classification-predict-churn.md
 - name: Conceptos
   items:
     - name: Funcionamiento del servicio
@@ -50,14 +86,16 @@
     - name: Automated Machine Learning
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: Administración de modelos
-      displayName: 'deploy, deployment'
+    - name: Administración de modelos (MLOps)
+      displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
     - name: Interoperabilidad del modelo
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
     - name: Aceleración con FPGA
       href: concept-accelerate-with-fpgas.md
+    - name: Optimización con ONNX y ONNX Runtime
+      href: concept-onnx.md
     - name: Canalizaciones de Machine Learning
       href: concept-ml-pipelines.md
     - name: Seguridad
@@ -85,24 +123,40 @@
         - name: Configuración de entornos de desarrollo
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Uso de la extensión de Visual Studio Code
+        - name: Habilitación del registro
+          displayName: 'troubleshoot, log, files, tracing'
+          href: how-to-enable-logging.md
+        - name: Uso de la extensión de VS Code
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md
     - name: Trabajar con datos
-      displayName: 'data prep, ETL, ELT, data preparation'
       items:
-        - name: Exploración y preparación de datos
-          displayName: 'data prep, ETL, ELT, data preparation'
+        - name: Adición y registro de conjuntos de datos
+          displayName: 'data, dataset'
+          href: how-to-create-register-datasets.md
+        - name: Preparación con azureml.dataprep
           items:
             - name: Carga de datos
+              displayName: 'data, etl, data prep, dataprep'
               href: how-to-load-data.md
             - name: Transformación de datos
+              displayName: 'data, etl, dataprep, data prep'
               href: how-to-transform-data.md
             - name: Escritura de datos
+              displayName: 'data, etl, data prep, dataprep'
               href: how-to-write-data.md
-    - name: Obtención de datos del almacén de datos
-      displayName: blob get fileshare access storage
-      href: how-to-access-data.md
+        - name: Preparación con conjuntos de datos (versión preliminar)
+          displayName: 'data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
+          href: how-to-explore-prepare-data.md
+        - name: Control de versiones y administración de definiciones de datos
+          displayName: 'data, etl, dataset, data preparation, dataprep, version'
+          href: how-to-manage-dataset-definitions.md
+        - name: Creación de una instantánea de los datos
+          displayName: 'snapshots, profile, summary statistics, data copy'
+          href: how-to-create-dataset-snapshots.md
+        - name: Obtención de datos desde un almacén de datos
+          displayName: blob get fileshare access storage
+          href: how-to-access-data.md
     - name: Entrenamiento de modelos
       items:
         - name: Configuración de entornos de entrenamiento
@@ -130,21 +184,24 @@
         - name: Uso de Machine Learning automatizado (Python)
           displayName: SDK automl
           href: how-to-configure-auto-train.md
+        - name: Uso de Machine Learning automatizado (Azure Portal)
+          href: how-to-create-portal-experiments.md
         - name: Uso de destinos de proceso remoto
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
         - name: Entrenamiento automático de un modelo de previsión
           displayName: time series
           href: how-to-auto-train-forecast.md
-    - name: Modelos de ONNX
-      href: how-to-build-deploy-onnx.md
-    - name: Implementación de modelos
+    - name: Implementación y servicio de modelos
       items:
         - name: Dónde y cómo implementar
           displayName: publish azure kubernetes azure container instances
           href: how-to-deploy-and-where.md
         - name: FPGA
           href: how-to-deploy-fpga-web-service.md
+        - name: IoT Edge
+          href: ../../iot-edge/tutorial-deploy-machine-learning.md
+          maintainContext: true
         - name: Solución de problemas
           href: how-to-troubleshoot-deployment.md
     - name: Consumo de servicios web
@@ -162,31 +219,118 @@
           href: how-to-enable-data-collection.md
         - name: Supervisión con Application Insights
           href: how-to-enable-app-insights.md
-    - name: Cree su primera canalización
-      href: how-to-create-your-first-pipeline.md
-    - name: Habilitación del registro
-      displayName: logging
-      href: how-to-enable-logging.md
+    - name: Creación de flujos de trabajo reutilizables
+      displayName: pipelines
+      items:
+        - name: Creación de una canalización de Machine Learning
+          href: how-to-create-your-first-pipeline.md
     - name: Administración de cuotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md
-    - name: Uso de la CLI de Machine Learning
-      displayName: cli extension command line command-line az ci/cd automate automated
-      href: reference-azure-machine-learning-cli.md
     - name: Exportación y eliminación de datos
       displayName: GDPR
       href: how-to-export-delete-data.md
 - name: Referencia
   items:
     - name: SDK de Machine Learning
-      displayName: api core package python
+      displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
     - name: SDK de preparación de datos
-      displayName: api preparation package python
+      displayName: api core package python data prep
       href: 'https://aka.ms/data-prep-sdk'
     - name: Supervisión de SDK
       displayName: api package python monitor
       href: 'https://aka.ms/aml-monitoring-sdk'
+    - name: CLI de Machine Learning
+      displayName: 'cli, extension, command line, command-line, az, ci/cd, automate, automated'
+      href: reference-azure-machine-learning-cli.md
+    - name: Módulos de la interfaz visual
+      displayName: module reference
+      items:
+        - name: Introducción a la referencia de módulos
+          href: ../algorithm-module-reference/module-reference.md
+        - name: Conversiones de formato de datos
+          items:
+            - name: Conversión a CSV
+              href: ../algorithm-module-reference/convert-to-csv.md
+        - name: Entrada y salida de datos
+          items:
+            - name: Importar datos
+              href: ../algorithm-module-reference/import-data.md
+            - name: Exportación de datos
+              href: ../algorithm-module-reference/export-data.md
+            - name: Introducción manual de datos
+              href: ../algorithm-module-reference/enter-data-manually.md
+        - name: Transformaciones de datos
+          items:
+            - name: Seleccionar columnas de conjunto de datos
+              href: ../algorithm-module-reference/select-columns-in-dataset.md
+            - name: Edición de metadatos
+              href: ../algorithm-module-reference/edit-metadata.md
+            - name: Limpiar datos que faltan
+              href: ../algorithm-module-reference/clean-missing-data.md
+            - name: Adición de columnas
+              href: ../algorithm-module-reference/add-columns.md
+            - name: Adición de filas
+              href: ../algorithm-module-reference/add-rows.md
+            - name: Supresión de filas duplicadas
+              href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: División de datos
+              href: ../algorithm-module-reference/split-data.md
+            - name: Normalización de datos
+              href: ../algorithm-module-reference/normalize-data.md
+            - name: Partición y ejemplo
+              href: ../algorithm-module-reference/partition-and-sample.md
+        - name: Machine Learning
+          items:
+            - name: Puntuación de modelo
+              href: ../algorithm-module-reference/score-model.md
+            - name: Asignación de datos a clústeres
+              href: ../algorithm-module-reference/assign-data-to-clusters.md
+            - name: Entrenamiento de modelo
+              href: ../algorithm-module-reference/train-model.md
+            - name: Entrenamiento del modelo de agrupación en clústeres
+              href: ../algorithm-module-reference/train-clustering-model.md
+            - name: Evaluación de modelo
+              href: ../algorithm-module-reference/evaluate-model.md
+            - name: Aplicación de la transformación
+              href: ../algorithm-module-reference/apply-transformation.md
+            - name: Regresión lineal
+              href: ../algorithm-module-reference/linear-regression.md
+            - name: Regresión de red neuronal
+              href: ../algorithm-module-reference/neural-network-regression.md
+            - name: Regresión de bosque de decisión
+              href: ../algorithm-module-reference/decision-forest-regression.md
+            - name: Regresión de árbol de decisión incrementado
+              href: ../algorithm-module-reference/boosted-decision-tree-regression.md
+            - name: Árbol de decisión ampliado de dos clases
+              href: ../algorithm-module-reference/two-class-boosted-decision-tree.md
+            - name: Regresión logística de dos clases
+              href: ../algorithm-module-reference/two-class-logistic-regression.md
+            - name: Regresión logística multiclase
+              href: ../algorithm-module-reference/multiclass-logistic-regression.md
+            - name: Red neuronal multiclase
+              href: ../algorithm-module-reference/multiclass-neural-network.md
+            - name: Bosque de decisión multiclase
+              href: ../algorithm-module-reference/multiclass-decision-forest.md
+            - name: Perceptrón promedio de dos clases
+              href: ../algorithm-module-reference/two-class-averaged-perceptron.md
+            - name: Bosque de decisión de dos clases
+              href: ../algorithm-module-reference/two-class-decision-forest.md
+            - name: Red neuronal de dos clases
+              href: ../algorithm-module-reference/two-class-neural-network.md
+            - name: Máquina de vectores de soporte de dos clases
+              href: ../algorithm-module-reference/two-class-support-vector-machine.md
+            - name: Agrupación en clústeres K-Means
+              href: ../algorithm-module-reference/k-means-clustering.md
+        - name: Módulos de lenguaje Python
+          items:
+            - name: Ejecución de script de Python
+              href: ../algorithm-module-reference/execute-python-script.md
+            - name: Creación de modelo Python
+              href: ../algorithm-module-reference/create-python-model.md
+        - name: Códigos y mensajes de error
+          href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Recursos
   items:
     - name: Notas de la versión

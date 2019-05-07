@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d09fca68af55b577c47316363ed386e98525baf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925751"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035462"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Uso del aprendizaje automático para crear un modelo de regresión
 
@@ -54,16 +54,16 @@ Vaya a [Configuración del entorno de desarrollo](#start) para leer los pasos de
 
 Obtenga todos estos requisitos previos de cualquiera de las siguientes secciones.
 
-* Uso de [Azure Notebooks](#azure)
+* Uso de un [servidor de cuadernos en la nube en el área de trabajo](#azure) 
 * Uso del [propio servidor de Notebook](#server)
 
-### <a name="azure"></a>Uso de Azure Notebooks: cuadernos de Jupyter gratuitos en la nube
+### <a name="azure"></a>Uso de un servidor de cuadernos en la nube en el área de trabajo
 
-Es fácil empezar a usar Azure Notebooks. El [SDK de Azure Machine Learning para Python](https://aka.ms/aml-sdk) ya está instalado y configurado en [Azure Notebooks](https://notebooks.azure.com/). Tanto la instalación como las actualizaciones futuras se administran automáticamente mediante servicios de Azure.
-
-Después de completar los pasos siguientes, ejecute el cuaderno **tutorials/regression-part2-automated-ml.ipynb** en el proyecto **Getting Started**.
+Es fácil empezar con su propio servidor de cuadernos basado en la nube. El [SDK de Azure Machine Learning para Python](https://aka.ms/aml-sdk) ya está instalado y configurado para el usuario una vez creado este recurso en la nube.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Después de iniciar la página web del cuaderno, ejecute el cuaderno **tutorials/regression-part2-automated-ml.ipynb**.
 
 ### <a name="server"></a>Uso del propio servidor de Jupyter Notebook
 

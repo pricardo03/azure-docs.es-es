@@ -1,0 +1,43 @@
+- name: Documentación de Form Recognizer
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es Form Recognizer?
+      href: overview.md
+- name: Guías de inicio rápido
+  expaned: true
+  items:
+    - name: Entrenamiento de un modelo y extracción de datos
+      items:
+        - name: Uso de la API de REST
+          items:
+            - name: cURL
+              href: quickstarts/curl-train-extract.md
+            - name: Python
+              href: quickstarts/python-train-extract.md
+- name: Guías de procedimientos
+  items:
+    - name: Uso de contenedores
+      items:
+        - name: Instalación y ejecución de contenedores
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          href: form-recognizer-container-howto.md
+        - name: Configuración de contenedores
+          href: form-recognizer-container-configuration.md
+          displayName: 'docker, container, run, billing, apikey, logging'
+- name: Referencia
+  items:
+    - name: API de Form Recognizer
+      href: 'https://aka.ms/form-recognizer/api'
+- name: Recursos
+  items:
+    - name: Precios y límites
+      href: 'https://go.microsoft.com/fwlink/?linkid=2087258'
+    - name: UserVoice
+      href: 'https://go.microsoft.com/fwlink/?linkid=2090535'
+    - name: Stack Overflow
+      href: 'https://go.microsoft.com/fwlink/?linkid=2087186'
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Disponibilidad regional
+      href: 'https://go.microsoft.com/fwlink/?linkid=2087185'

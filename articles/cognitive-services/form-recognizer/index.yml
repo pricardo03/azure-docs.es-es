@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de Form Recognizer
+metadata:
+  title: 'Documentación de API (Form Recognizer): Azure Cognitive Services | Microsoft Docs'
+  description: Aprenda a usar Form Recognizer para extraer de forma inteligente datos del par clave-valor de los documentos del formulario.
+  services: cognitive-services
+  author: PatrickFarley
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.subservice: form-recognizer
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/16/2019
+  ms.author: pafarley
+ms.custom: seodec18
+abstract:
+  description: 'Azure Form Recognizer es un servicio cognitivo que utiliza tecnología de aprendizaje automático para identificar y extraer pares clave-valor, así como datos de tablas de los documentos de formularios. A continuación, genera datos estructurados que incluyen las relaciones del fichero original. El aprendizaje sin supervisión permite que el modelo comprenda el diseño y las relaciones entre los campos y las entradas sin necesidad de un etiquetado de datos manual o de una codificación y un mantenimiento intensivos.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/form-recognizer/overview
+            html: <p>Obtenga información acerca de Form Recognizer.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: ¿Qué es Form Recognizer?
+          - href: /azure/cognitive-services/form-recognizer/form-recognizer-container-howto
+            html: <p>Aprenda a utilizar el contenedor de Form Recognizer para analizar datos de formularios y tablas.</p>
+            image:
+              src: ../media/index/i_get-started.svg
+            title: Instalación y ejecución de contenedores
+  - title: Inicio rápido en 5 minutos
+    items:
+      - type: paragraph
+        text: 'Entrene un modelo de Form Recognizer y extraiga datos de formularios mediante:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/logos/logo-curl.svg
+            text: cURL
+            href: quickstarts/curl-train-extract.md
+          - image:
+              src: ./media/logos/logo-python.svg
+            text: Python
+            href: quickstarts/python-train-extract.md
+  - title: Referencia
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API existentes
+            html: '<p><a href="https://aka.ms/form-recognizer/api">API de Form Recognizer</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">CLI de Azure</a></p>'

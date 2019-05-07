@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
-ms.openlocfilehash: d818f8a8fc813d3da5eea4d8ef9cd2f4fd18bb53
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a9613f0839735457cf172fdacb0ef6a943ca27de
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688516"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020797"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Inicio rápido: Síntesis de voz en C++ en Windows mediante el SDK de Voz
 
 En este artículo, creará una aplicación de consola de C++ para Windows. Usará el [SDK de Voz](speech-sdk.md) de Cognitive Services para sintetizar la voz a partir de texto en tiempo real y reproducirla en los altavoces de su PC. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 (cualquier edición).
 
-La característica descrita en este artículo está disponible en el [SDK de Voz 1.4.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.4.0).
+La característica descrita en este artículo está disponible en [Speech SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0).
 
 Para obtener una lista completa de los idiomas o voces disponibles para la síntesis de voz, consulte la [compatibilidad con idiomas](language-support.md#text-to-speech).
 
