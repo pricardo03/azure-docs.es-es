@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c20e7796d152c9198786c491f9a61752d88ea6f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f98e38556458b8d8a675d1e3f985aacfca022082
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726611"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074157"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la autenticación y autorización en Azure Kubernetes Service (AKS)
 
@@ -88,7 +88,7 @@ Para ver cómo usar grupos de Azure AD para controlar el acceso a los recursos d
 
 ## <a name="use-pod-identities"></a>Uso de identidades de pod
 
-**Guía de procedimientos recomendados**: no use credenciales fijas dentro de pods o imágenes de contenedor, ya que corren riesgo de exposición o abuso. En su lugar, use identidades de pod para solicitar acceso automáticamente mediante una solución central de identidades de Azure AD.
+**Guía de procedimientos recomendados**: no use credenciales fijas dentro de pods o imágenes de contenedor, ya que corren riesgo de exposición o abuso. En su lugar, use identidades de pod para solicitar acceso automáticamente mediante una solución central de identidades de Azure AD. Las identidades de pod está pensado para su uso con pods de Linux y las imágenes de contenedor.
 
 Cuando los pods necesitan obtener acceso a otros servicios de Azure, como Cosmos DB, Key Vault o Blob Storage, el pod necesita credenciales de acceso. Estas credenciales de acceso pueden definirse con la imagen de contenedor o insertadas como un secreto de Kubernetes, pero es necesario crearlas y asignarlas manualmente. A menudo, las credenciales se reutilizan en los pods y no se rotan de forma periódica.
 

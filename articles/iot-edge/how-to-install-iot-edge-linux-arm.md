@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kgremban
-ms.openlocfilehash: ad7e34110b0c6d047eb7454b7fac9f8c10df8be2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6c22680102c57fdfc3d25beb19e5bc9847995b28
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126382"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152728"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)
 
@@ -22,7 +22,7 @@ El entorno de ejecución de Azure IoT Edge es lo que convierte a un dispositivo 
 
 Para más información acerca de cómo funciona el entorno de ejecución de IoT Edge y los componentes que se incluyen, consulte [Información del entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md).
 
-En este artículo se enumera los pasos para instalar el runtime de Azure IoT Edge en un dispositivo Linux ARM32v7/armhf IoT Edge. Por ejemplo, estos pasos podrían funcionar con dispositivos Raspberry Pi. Para obtener una lista de sistemas operativos de ARM32 compatibles, consulte [soporte técnico de Azure IoT Edge](support.md#operating-systems). 
+En este artículo se enumera los pasos para instalar el runtime de Azure IoT Edge en un dispositivo Linux ARM32v7/armhf IoT Edge. Por ejemplo, estos pasos podrían funcionar con dispositivos Raspberry Pi. Para obtener una lista de sistemas operativos de ARM32 compatibles, consulte [sistemas compatibles con Azure IoT Edge](support.md#operating-systems). 
 
 >[!NOTE]
 >Los paquetes en los repositorios de software de Linux están sujetos a los términos de licencia que se encuentran en cada paquete (/usr/share/doc/*nombre-de-paquete*). Lea los términos de licencia antes de usar el paquete. La instalación y uso del paquete constituye la aceptación de estos términos. Si no acepta los términos de licencia, no utilice el paquete.

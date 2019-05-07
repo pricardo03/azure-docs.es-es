@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e000c034d10efc652f328fa8d1db8d1902fac693
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026122"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153048"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar y ejecutar contenedores de servicios de voz
 
@@ -107,7 +107,7 @@ La etiqueta a la siguiente es un ejemplo del formato:
 
 En la tabla siguiente se enumera las configuraciones regionales admitidas para **texto a voz** en el 1.1.1 versión del contenedor:
 
-|Configuración regional de idioma|Etiquetas|
+|Configuración regional de idioma|`Tags`|
 |--|--|
 |Chino|`zh-cn`|
 |English |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
@@ -136,7 +136,7 @@ La etiqueta a la siguiente es un ejemplo del formato:
 
 En la tabla siguiente se enumera las configuraciones regionales admitidas para **texto a voz** en la 1.1.0 versión del contenedor:
 
-|Configuración regional de idioma|Etiquetas|Voces admitidas|
+|Configuración regional de idioma|`Tags`|Voces admitidas|
 |--|--|--|
 |Chino|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao-apollo|
 |English |`en-au`|Catherine<br>hayleyrus|
@@ -178,9 +178,9 @@ Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice
 
 Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar cualquiera de los tres contenedores. El comando usa los parámetros siguientes:
 
-**Durante la versión preliminar privada**, la configuración de facturación debe ser válida para iniciar el contenedor, pero no se factura el uso.
+**Durante la versión preliminar**, la configuración de facturación debe ser válida para iniciar el contenedor, pero no se factura el uso.
 
-| Marcador de posición | Valor |
+| Marcador de posición | `Value` |
 |-------------|-------|
 |{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en la página de claves de voz del portal de Azure.  |
 |{BILLING_ENDPOINT_URI} | El valor del identificador URI del punto de conexión facturación está disponible en la página de introducción a la voz del portal de Azure.|
@@ -226,7 +226,7 @@ Este comando:
 
 ### <a name="speech-to-text"></a>Voz a texto
 
-El contenedor proporciona el punto de conexión de consulta basada en websocket API, que se accede mediante [documentación del SDK de servicios de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+El contenedor proporciona el punto de conexión de consulta basada en websocket API, que se accede mediante el [Speech SDK](index.yml).
 
 De forma predeterminada, el SDK de voz usa servicios de voz en línea. Para usar el contenedor, deberá cambiar el método de inicialización. Vea los ejemplos siguientes.
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ed798995807f4037f0127b08e25e04bdd0340d42
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 216eae383c704125cd32d9ed4cb1309299af7336
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724308"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153393"
 ---
 # <a name="encoding-with-media-services"></a>Codificación con Media Services
 
@@ -91,7 +91,7 @@ Media Services es totalmente compatible con la personalización de todos los val
 
 Para escalar el procesamiento multimedia, consulte [escala con CLI](media-reserved-units-cli-how-to.md).
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

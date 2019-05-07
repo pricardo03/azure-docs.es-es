@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/22/2019
-ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e451b7837a1cff4bbeaecd1573dc860524caf4d3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403529"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142654"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Clasificación y detección de datos de SQL Database y SQL Data Warehouse de Azure
 
@@ -127,7 +127,7 @@ Un aspecto importante del paradigma de protección de la información es la capa
 
 ![Registro de auditoría](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>Clasificación automática o mediante programación
+## <a id="subheading-4"></a>Administrar la clasificación de datos mediante T-SQL
 
 Puede utilizar T-SQL para agregar o quitar las clasificaciones de columna, así como recuperar todas las clasificaciones para toda la base de datos.
 
@@ -146,7 +146,26 @@ También puede usar las API de REST para administrar las clasificaciones mediant
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) (Enumerar actuales por base de datos): enumera las etiquetas de confidencialidad actuales de una base de datos determinada
 - [Lista recomendada por la base de datos](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -Obtiene las etiquetas de confidencialidad recomendados de una base de datos
 
+## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Administrar la detección de datos y clasificación con Azure PowerShell
+
+Puede usar PowerShell para obtener todas las columnas recomendadas en una base de datos SQL de Azure y una instancia administrada.
+
+### <a name="powershell-cmdlets-for-azure-sql-database"></a>Cmdlets de PowerShell para Azure SQL database
+
+- [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
+- [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
+- [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
+- [Get-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
+
+### <a name="powershell-cmdlets-for-managed-instance"></a>Cmdlets de PowerShell para la instancia administrada
+
+- [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
+- [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
+- [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
+- [Get-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
+
 ## <a name="permissions"></a>Permisos
+
 Los siguientes roles integrados pueden leer la clasificación de datos de Azure SQL database: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` y `User Access Administrator`.
 
 Los siguientes roles integrados pueden modificar la clasificación de datos de Azure SQL database: `Owner`, `Contributor`, `SQL Security Manager`.

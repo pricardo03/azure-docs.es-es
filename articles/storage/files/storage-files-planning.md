@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574474"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073355"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -111,20 +111,16 @@ Es posible reducir el tamaño de los recursos compartidos aprovisionados por deb
 
 En la tabla siguiente se muestra algunos ejemplos de estas fórmulas para los tamaños de recurso compartido aprovisionado:
 
-(Los tamaños que se indican con un * están en versión preliminar pública limitada)
-
 |Capacidad (GiB) | IOPS base | Ráfaga de e/s por segundo | Salida (MiB/s) | Entrada (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Hasta 300     | 66   | 44   |
 |500         | 500     | 1.500   | 90   | 60   |
 |1024       | 1024   | Hasta 3.072   | 122   | 81   |
 |5120       | 5120   | Hasta 15.360  | 368   | 245   |
-|10,240 *     | 10,240  | Hasta 30.720  | 675 | 450   |
-|33,792 *     | 33,792  | Hasta 100.000 | 2,088 | 1,392   |
-|51,200 *     | 51,200  | Hasta 100.000 | 3132 | 2,088   |
-|102,400 *    | 100 000 | Hasta 100.000 | 6,204 | 4,136   |
-
-Actualmente, los tamaños de recurso compartido de archivos hasta 5 TB están en versión preliminar pública, mientras que los tamaños de hasta 100 TB están en versión preliminar pública limitada para solicitar acceso a la versión preliminar pública limitada completa [esta encuesta.](https://aka.ms/azurefilesatscalesurvey)
+|10,240      | 10,240  | Hasta 30.720  | 675 | 450   |
+|33,792      | 33,792  | Hasta 100.000 | 2,088 | 1,392   |
+|51,200      | 51,200  | Hasta 100.000 | 3132 | 2,088   |
+|102,400     | 100 000 | Hasta 100.000 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>Creación de ráfagas
 
@@ -184,7 +180,7 @@ Tenga en cuenta estos puntos cuando decida qué opción de replicación usar:
 
 ## <a name="data-growth-pattern"></a>Patrón de crecimiento de datos
 
-En la actualidad, el tamaño máximo de un recurso compartido de archivos de Azure es de 5 TB (100 TB para archivo premium comparten versión preliminar pública limitada). Debido a esta limitación actual, debe tener en cuenta el crecimiento esperado de los datos al implementar un recurso compartido de archivos de Azure.
+En la actualidad, el tamaño máximo de un recurso compartido de archivos de Azure es de 5 TB (100 TB para los recursos compartidos de archivos de premium, que se encuentran en versión preliminar pública). Debido a esta limitación actual, debe tener en cuenta el crecimiento esperado de los datos al implementar un recurso compartido de archivos de Azure.
 
 Es posible sincronizar varios recursos compartidos de archivos de Azure en un único servidor de archivos de Windows con Azure File Sync. Esto permite garantizar que los recursos compartidos de archivos anteriores de gran tamaño que pueda tener en un entorno local se incluyen en Azure File Sync. Para más información, consulte [Planeamiento de una implementación de Azure File Sync](storage-files-planning.md).
 

@@ -3,8 +3,7 @@ title: Rendimiento de la red de máquinas virtual de Azure | Microsoft Docs
 description: Aprenda acerca del rendimiento de la red de máquinas virtuales de Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: steveesp
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: kumud
-ms.openlocfilehash: 182b3b7dad828e67d006391e00986406729c959d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 4/26/2019
+ms.author: kumud,steveesp, mareat
+ms.openlocfilehash: 9d74e53c754367ecfa63642514db93354fcadf25
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689247"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153724"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Ancho de banda de la red de máquinas virtuales
 
@@ -43,6 +42,30 @@ El límite de rendimiento se aplica a la máquina virtual. El rendimiento no se 
 - **Las redes aceleradas**: Aunque la característica puede ser útil para lograr el límite publicado, no cambia el límite.
 - **Destino del tráfico**: Todos los destinos se cuentan para el límite de salida.
 - **Protocolo**: Todo el tráfico saliente a través de todos los protocolos cuenta para el límite.
+
+## <a name="network-flow-limits"></a>Límites de flujo de red
+
+Además de ancho de banda, el número de conexiones de red presentes en una máquina virtual en un momento dado puede afectar al rendimiento de su red. La pila de red Azure mantiene el estado para cada dirección de una conexión TCP/UDP en estructuras de datos denominado 'flujos'. Una conexión TCP/UDP típica tendrá 2 flujos creados, uno para la entrada y otro para la dirección de salida. 
+
+Transferencia de datos entre los puntos de conexión requiere la creación de varios flujos además de los que realizar la transferencia de datos. Algunos ejemplos son los flujos creados para la resolución DNS y los flujos creados para los sondeos de estado del equilibrador de carga. También tenga en cuenta que la red de aplicaciones virtuales (NVA) como puertas de enlace, los servidores proxy, firewalls, verá los flujos que se crea para las conexiones que terminan en el dispositivo y se originan en el dispositivo. 
+
+![Recuento de flujo de conversación de TCP a través de una aplicación de reenvío](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
+
+## <a name="flow-limits-and-recommendations"></a>Límites de flujo y recomendaciones
+
+Hoy en día, la pila de red de Azure admite flujos de red total de 250K con buen rendimiento para las máquinas virtuales con más de 8 núcleos de CPU y 100 k fluye total con buen rendimiento para las máquinas virtuales con menos de 8 núcleos de CPU. Más allá de esta red de límite rendimiento descenderá para flujos adicionales hasta un límite máximo de 1 millón de total de 500 K entrante y 500, flujos de salida después de qué flujos adicionales se quitan K.
+
+||Las máquinas virtuales con < 8 núcleos de CPU|Máquinas virtuales con más de 8 núcleos de CPU|
+|---|---|---|
+|<b>Buen rendimiento</b>|Flujos de 100K |Flujos de 250K|
+|<b>Disminución del rendimiento</b>|Superior a 100k fluye|Superior a 250K fluye|
+|<b>Límite del flujo</b>|1M flujos|1M flujos|
+
+Las métricas están disponibles en [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) para realizar un seguimiento del número de flujos de red y la velocidad de creación de flujo en las instancias de VM o VMSS.
+
+![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+
+Las tasas de establecimiento y finalización de conexión también pueden afectar al rendimiento de red como conexión establecimiento y finalización recursos compartidos de CPU con rutinas de procesamiento de paquetes. Se recomienda evaluar cargas de trabajo en los patrones de tráfico esperado y escalar horizontalmente cargas de trabajo adecuadamente para satisfacer las necesidades de rendimiento. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

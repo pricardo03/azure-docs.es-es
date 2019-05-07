@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465379"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073772"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Comprobación de los procedimientos recomendados de Kubernetes en el clúster
 
@@ -21,6 +21,8 @@ Hay varios procedimientos recomendados que debería seguir en las implementacion
 ## <a name="about-kube-advisor"></a>Acerca de kube-advisor
 
 La [herramienta kube-advisor][kube-advisor-github] es un contenedor único diseñado para ejecutarse en el clúster. Consulta el servidor de API de Kubernetes para obtener información acerca de las implementaciones y devuelve un conjunto de mejoras sugeridas.
+
+La herramienta Asesor de kube puede informar sobre la solicitud de recurso y los límites que no se encuentra en las aplicaciones PodSpecs para Windows, así como las aplicaciones de Linux, pero la propia herramienta de kube-advisor debe programarse en un pod de Linux. Puede programar un pod para ejecutarse en un grupo de nodos con un sistema operativo específico mediante un [selector del nodo] [ k8s-node-selector] en configuración del pod.
 
 > [!NOTE]
 > La herramienta kube-advisor es compatible con Microsoft dentro de lo posible. Los problemas y las sugerencias deben presentarse en GitHub.
@@ -73,3 +75,4 @@ Si ejecuta la herramienta en un clúster que no tenga RBAC habilitado, no se req
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
 [kube-advisor-github]: https://github.com/azure/kube-advisor
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

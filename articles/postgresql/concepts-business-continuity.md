@@ -1,19 +1,19 @@
 ---
-title: Introducción a la continuidad empresarial con Azure Database for PostgreSQL
+title: 'Información general de continuidad empresarial con Azure Database for PostgreSQL: servidor único'
 description: Introducción a la continuidad empresarial con Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a31112f3b6f7bd79785f89822e2881b152708254
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456281"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068932"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL
+# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Información general de continuidad empresarial con Azure Database for PostgreSQL: servidor único
 
 En este artículo de introducción se describen las funcionalidades de continuidad empresarial y recuperación ante desastres que proporciona Azure Database for PostgreSQL. Conozca más información sobre opciones para recuperarse de eventos de interrupción que podrían provocar la pérdida de información o que su base de datos y aplicación dejen de estar disponibles. Sepa qué hacer en caso de que un error del usuario o la aplicación afecte a la integridad de los datos, se produzca una interrupción en una región de Azure o su aplicación requiera mantenimiento.
 

@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6ada4a25f24a6dcbb1ebd54daad15b37127f7a21
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710875"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154191"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas de Azure Storage Explorer
 
@@ -235,7 +235,7 @@ Si asoció accidentalmente una dirección URL de SAS no válida y no se puede de
 
 En general, los paquetes siguientes son necesarios para ejecutar el Explorador de Storage en Linux:
 
-* [Tiempo de ejecución de .NET core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [Tiempo de ejecución 2.0 de .NET core](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Nota: Explorador de Storage versión 1.7.0 y requieren versiones anteriores de .NET Core 2.0. Si tiene una versión más reciente de .NET Core instalado, a continuación, deberá revisar el Explorador de Storage (ver abajo). Si está ejecutando el Explorador de Storage 1.8.0 o mayor, a continuación, podrá usar .NET Core 2.2. Las versiones posteriores 2.2 no se ha comprobado que funcionan en este momento.
 * `libgnome-keyring-common` y `libgnome-keyring-dev`
 * `libgconf-2-4`
 

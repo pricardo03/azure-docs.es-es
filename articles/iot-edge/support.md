@@ -4,17 +4,17 @@ description: Obtenga información sobre qué sistemas operativos pueden ejecutar
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5bc133e81f9917aafb406a6bfb27922cdba48ef5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1db999f5d3172734311ecc7dbec72214a1e07e91
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612222"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137803"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas compatibles con Azure IoT Edge
 
@@ -60,14 +60,15 @@ Disponibilidad general
 | Raspbian-stretch | Sin  | Sí|
 | Ubuntu Server 16.04 | Sí | Sin  |
 | Ubuntu Server 18.04 | Sí | Sin  |
+| Windows 10 IoT Enterprise, compilación 17763 | Sí | Sin  |
 
 Versión preliminar pública
 
 | Sistema operativo | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT Core, compilación 17763 | Sí | Sin  |
-| Windows 10 IoT Enterprise, compilación 17763 | Sí | Sin  |
-| Windows Server 2019 | Sí | Sin  |
+| Windows Server 2019, compilación 17763 | Sí | Sin  |
+| Windows Server IoT 2019, compilación 17763 | Sí | Sin  |
 
 Los sistemas operativos de Windows enumerados anteriormente son los requisitos para los dispositivos que ejecutan los contenedores de Windows en Windows. Esta configuración es la única configuración admitida para la producción. Los paquetes de instalación de Azure IoT Edge para Windows permiten el uso de contenedores de Linux en Windows; Sin embargo, esta configuración es únicamente para desarrollo y pruebas. No se permite utilizar contenedores de Linux en Windows en el entorno de producción. En este escenario de desarrollo, puede utilizarse cualquier versión de Windows 10 compilación 14393 y Windows Server 2016 o versiones posteriores.
 
