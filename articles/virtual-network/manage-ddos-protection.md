@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: kumud
-ms.openlocfilehash: 6b1d62f4cedb7add843a5ddae24125019130d58f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728350"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203527"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Administración de Protección contra DDoS de Azure estándar mediante Azure Portal
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-a-ddos-protection-plan"></a>Creación de un plan de protección contra DDoS
 
-Un plan de protección contra DDoS define un conjunto de redes virtuales que tiene habilitada la protección contra DDoS estándar en distintas suscripciones. Puede configurar un plan de protección contra DDoS para la organización y vincular redes virtuales de distintas suscripciones al mismo plan. El propio plan de protección contra DDoS también está asociado a una suscripción, la que selecciona durante la creación del plan. La suscripción a la que está asociado el plan incurre en la factura mensual recurrente del plan, además de cargos de uso por encima del límite, en caso de que la cantidad de direcciones IP públicas protegidas supere las 100. Para más información sobre los precios de DDoS, consulte los [detalles de precios](https://azure.microsoft.com/pricing/details/ddos-protection/).
+Un plan de protección contra DDoS define un conjunto de redes virtuales que tiene habilitada la protección contra DDoS estándar en distintas suscripciones. Puede configurar un plan de protección contra DDoS para la organización y vincular redes virtuales de distintas suscripciones al mismo plan. El propio plan de protección contra DDoS también está asociado a una suscripción, la que selecciona durante la creación del plan. El Plan de DDoS Protection funciona entre regiones y suscripciones. Ejemplo: puede crear el plan en la región East-US y vínculo a la suscripción #1 en el inquilino. El mismo plan se puede vincular a las redes virtuales de otras suscripciones en distintas regiones, en todo el inquilino. La suscripción a la que está asociado el plan incurre en la factura mensual recurrente del plan, además de cargos de uso por encima del límite, en caso de que la cantidad de direcciones IP públicas protegidas supere las 100. Para más información sobre los precios de DDoS, consulte los [detalles de precios](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
 En la mayoría de las organizaciones, no es necesario crear más de un plan. Un plan no puede moverse entre suscripciones. Si desea cambiar la suscripción en que se encuentra un plan, debe [eliminar el plan existente](#work-with-ddos-protection-plans) y crear uno nuevo.
 
@@ -47,7 +47,7 @@ En la mayoría de las organizaciones, no es necesario crear más de un plan. Un 
     |NOMBRE           | myDdosProtectionPlan                              |
     |Subscription   | Seleccione su suscripción.                         |
     |Grupos de recursos | Seleccione **Crear nuevo** y escriba *myResourceGroup* |
-    |Location       | Este de EE. UU                                           |
+    |Ubicación       | Este de EE. UU                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>Habilitación de DDoS para una red virtual nueva
 
@@ -60,7 +60,7 @@ En la mayoría de las organizaciones, no es necesario crear más de un plan. Un 
     | NOMBRE            | myVirtualNetwork                                             |
     | Subscription    | Seleccione su suscripción.                                    |
     | Grupos de recursos  | Seleccione **Usar existente** y, luego, seleccione **myResourceGroup** |
-    | Location        | Este de EE. UU                                                      |
+    | Ubicación        | Este de EE. UU                                                      |
     | Protección contra DDOS | Seleccione **Estándar** y, luego, en **Protección contra DDoS**, seleccione **myDdosProtectionPlan**. El plan que selecciona puede estar en la misma suscripción que la red virtual, o una suscripción distinta, pero ambas suscripciones deben estar asociadas al mismo inquilino de Azure Active Directory.|
 
 No puede mover una red virtual a otro grupo de recursos ni a otra suscripción si DDoS Standard está habilitado para la red virtual. Si tiene que mover una red virtual que tenga habilitado DDoS Standard, primero deshabilítelo, mueva la red virtual y, luego, habilite DDoS Standard. Después de eso, se restablecen los umbrales de directiva ajustados automáticamente para todas las direcciones IP públicas protegidas en la red virtual.
@@ -127,6 +127,7 @@ La telemetría para un ataque se proporciona a través de Azure Monitor en tiemp
 4. Seleccione la **suscripción** y el **grupo de recursos** que contienen la dirección IP pública para la que desea la telemetría.
 5. Seleccione la **dirección IP pública** para el **tipo de recurso**, luego seleccione la dirección IP pública específica para la que desea la telemetría.
 6. En el lado izquierdo de la pantalla se muestra una serie de **métricas disponibles**. Cuando se seleccionan estas métricas, se representan en el **gráfico de métricas de Azure Monitor**, en la pantalla de información general.
+7. Seleccione el **agregación** escriba como **máx.**
 
 Los nombres de las métricas presentan distintos tipos de paquetes y bytes frente a paquetes, con una construcción básica de nombres de etiqueta en cada métrica, como se muestra aquí:
 
@@ -138,7 +139,7 @@ Para simular un ataque de DDoS para validar la telemetría, consulte [Validació
 
 ## <a name="view-ddos-mitigation-policies"></a>Visualización de las directivas de mitigación de DDoS
 
-DDoS Protection Standard aplica tres directivas de mitigación de ajuste automático (TCP SYN, TCP y UDP) a cada dirección IP pública del recurso protegido, en la red virtual que tiene habilitado DDoS. Puede ver los umbrales de directiva si selecciona las métricas **Paquetes entrantes TCP para desencadenar la mitigación de DDoS** y **Paquetes entrantes UDP para desencadenar la mitigación de DDoS** métricas, como se muestra en la siguiente imagen:
+DDoS Protection Standard aplica tres directivas de mitigación de ajuste automático (TCP SYN, TCP y UDP) a cada dirección IP pública del recurso protegido, en la red virtual que tiene habilitado DDoS. Puede ver los umbrales de directiva seleccionando el **paquetes entrantes TCP para desencadenar la mitigación de DDoS** y **paquetes entrantes UDP para desencadenar la mitigación de DDoS** métricas con **agregación** tipo como 'Max', como se muestra en la siguiente imagen:
 
 ![Vista de directivas de mitigación](./media/manage-ddos-protection/view-mitigation-policies.png)
 

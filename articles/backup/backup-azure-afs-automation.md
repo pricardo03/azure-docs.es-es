@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 46719d3f72c57a44fb48489891e2348bb418da1e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 986414d0bac24d0c7e37b34df473346742fa97fd
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918944"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204179"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Copia de seguridad y restaurar archivos de Azure con PowerShell
 
@@ -108,7 +108,7 @@ Siga estos pasos para crear un almacén de Recovery Services.
 3. Especifique el tipo de redundancia que se usará para el almacenamiento del almacén.
 
    - Puede usar [almacenamiento con redundancia local](../storage/common/storage-redundancy-lrs.md) o [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy-grs.md).
-   - El ejemplo siguiente se establece la **- BackupStorageRedundancy** opción el[conjunto AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) cmd para **testvault** establecido en  **Con redundancia geográfica**.
+   - El ejemplo siguiente se establece la **- BackupStorageRedundancy** opción el[conjunto AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd para **testvault** establecido en  **Con redundancia geográfica**.
 
      ```powershell
      $vault1 = Get-AzRecoveryServicesVault -Name "testvault"

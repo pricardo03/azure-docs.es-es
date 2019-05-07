@@ -1,19 +1,19 @@
 ---
-title: Supervisión y ajuste en Azure Database for PostgreSQL
-description: En este artículo se describen las características de supervisión y ajuste en Azure Database for PostgreSQL.
+title: 'Supervisión y optimización en Azure Database for PostgreSQL: servidor único'
+description: 'Este artículo describe las características de supervisión y ajuste en Azure Database for PostgreSQL: servidor único.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 5e03a3e33d618c393241a649be50fe78632caafe
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456230"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068991"
 ---
-# <a name="monitor-and-tune"></a>Supervisión y ajuste
+# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Supervisar y optimizar la base de datos de Azure Database for PostgreSQL - servidor único
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for PostgreSQL proporciona diversas opciones de supervisión para ofrecer información detallada sobre el comportamiento del servidor.
 
 ## <a name="metrics"></a>Métricas
@@ -33,8 +33,8 @@ Estas métricas están disponibles para Azure Database for PostgreSQL:
 |serverlog_storage_percent|Porcentaje de almacenamiento del registro del servidor|Percent|El porcentaje usado del almacenamiento máximo de registro del servidor.|
 |serverlog_storage_usage|Almacenamiento del registro del servidor usado|Bytes|La cantidad de almacenamiento de registro del servidor en uso.|
 |serverlog_storage_limit|Límite de almacenamiento del registro del servidor|Bytes|El almacenamiento máximo de registro de este servidor.|
-|active_connections|Conexiones activas|Número|Número de conexiones activas al servidor.|
-|connections_failed|Conexiones con errores|Número|Número de conexiones con errores al servidor.|
+|active_connections|Conexiones activas|Count|Número de conexiones activas al servidor.|
+|connections_failed|Conexiones con errores|Count|Número de conexiones con errores al servidor.|
 |network_bytes_egress|Red interna|Bytes|Red externa a través de conexiones activas.|
 |network_bytes_ingress|Red interna|Bytes|Red interna a través de conexiones activas.|
 |backup_storage_used|Almacenamiento de copia de seguridad utilizado|Bytes|Cantidad de almacenamiento de copia de seguridad utilizado.|

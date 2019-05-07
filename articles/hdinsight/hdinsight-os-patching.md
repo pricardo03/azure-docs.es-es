@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: a887d6c69b9fa80f3144434e72a097e80d123a1b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722303"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203638"
 ---
 # <a name="os-patching-for-hdinsight"></a>Aplicación de revisión del SO para HDInsight 
 
@@ -23,29 +23,25 @@ ms.locfileid: "64722303"
 Las máquinas virtuales de un clúster de HDInsight se deben reiniciar de forma ocasional para poder instalar las revisiones de seguridad importantes. 
 
 Con la acción de script que se describe en este artículo, puede modificar la programación de aplicación de revisión del SO de la siguiente manera:
-1. Habilite o deshabilite los reinicios automáticos.
-2. Establezca la frecuencia de los reinicios (días entre reinicios).
-3. Establezca el día de la semana en que se realizará un reinicio.
+1. Instalar actualizaciones del sistema operativo completas o instalar las actualizaciones de seguridad
+2. Reinicie la máquina virtual
 
 > [!NOTE]  
-> Esta acción de script solo funcionará con clústeres de HDInsight basado en Linux que se hayan creado después del 1 de agosto de 2016. Las revisiones solo entrarán en vigor una vez que se reinicien las máquinas virtuales. 
+> Esta acción de script solo funcionará con clústeres de HDInsight basado en Linux que se hayan creado después del 1 de agosto de 2016. Las revisiones solo entrarán en vigor una vez que se reinicien las máquinas virtuales. Este script no aplicará automáticamente actualizaciones para todos los ciclos de actualización futura. Ejecute el script que cada nuevas actualizaciones de tiempo deben aplicarse para poder instalar las actualizaciones y reinicie la máquina virtual.
 
 ## <a name="how-to-use-the-script"></a>Uso del script 
 
 Cuando se usa este script, se requiere la información siguiente:
-1. Ubicación del script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  HDInsight usa este URI para encontrar y ejecutar el script en todas las máquinas virtuales del clúster.
+1. Ubicación del script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/os-patching-reboot-config.sh.  HDInsight usa este URI para encontrar y ejecutar el script en todas las máquinas virtuales del clúster.
   
-2. Los tipos de nodo de clúster al que se aplica el script: headnode, workernode, zookeeper. Este script se debe aplicar a todos los tipos de nodo del clúster. Si no se aplica a un tipo de nodo, las máquinas virtuales de ese tipo de nodo seguirán usando la programación de aplicación de revisión anterior.
+2. Los tipos de nodo de clúster al que se aplica el script: headnode, workernode, zookeeper. Este script se debe aplicar a todos los tipos de nodo del clúster. Si no se aplica a un tipo de nodo, no se actualizará las máquinas virtuales para ese tipo de nodo.
 
 
-3.  Parámetro: Este script acepta tres parámetros numéricos:
+3.  Parámetro: Este script acepta un parámetro numérico:
 
     | Parámetro | Definición |
     | --- | --- |
-    | Habilite o deshabilite los reinicios automáticos |0 o 1. El valor 0 deshabilita los reinicios automáticos, mientras que 1 los habilita. |
-    | Frecuencia |7 a 90 (incluido). La cantidad de días que se esperará antes de reiniciar las máquinas virtuales para las revisiones que requieren un reinicio. |
-    | Día de la semana |1 a 7 (incluido). El valor 1 indica que el reinicio debe realizarse un lunes y el valor 7 indica que se debe realizar el domingo. Por ejemplo, si usa los parámetros 1 60 2, los reinicios automáticos se realizan cada 60 días (como máximo) los martes. |
-    | Persistencia |Cuando aplica una acción de script en un clúster existente, puede marcar el script como persistente. Los scripts persistentes se aplican cuando los nuevos nodos workernode se agregan al clúster a través de operaciones de escalado. |
+    | Sistema operativo completo de instalar las actualizaciones o instalar las actualizaciones de seguridad |0 o 1. Un valor de 0 instala las actualizaciones de seguridad mientras que 1 instala actualizaciones del sistema operativo completas. Si no se proporciona ningún parámetro, que el valor predeterminado es 0. |
 
 > [!NOTE]  
 > Debe marcar este script como resistente cuando lo aplique en un clúster existente. De lo contrario, en todos los nodos que se creen mediante operaciones de escalado se usará la programación de aplicación de revisión predeterminada.  Si aplica el script como parte del proceso de creación de clústeres, se marcará como persistente de forma automática.

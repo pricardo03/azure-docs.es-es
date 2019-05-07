@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916380"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205370"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
@@ -274,7 +274,7 @@ Si la prueba debe iniciar sesión con OAuth, el enfoque general es el siguiente:
 
 ## <a name="performance-tests"></a>Pruebas de rendimiento
 > [!NOTE]  
-> El servicio de prueba de carga basado en la nube está en desuso. Puede encontrar más información sobre el desuso, la disponibilidad del servicio y servicios alternativos [aquí](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+> El servicio de prueba de carga basado en la nube está en desuso. Puede encontrar más información sobre el desuso, la disponibilidad del servicio y servicios alternativos [aquí](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
 Puede ejecutar una prueba de carga en el sitio web. Al igual que la prueba de disponibilidad, puede enviar solicitudes sencillas o solicitudes de varios pasos desde nuestros puntos de todo el mundo. A diferencia de una prueba de disponibilidad, se envían muchas solicitudes, que simulan a varios usuarios simultáneos.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b97fe5d638b5967f533e489a67d4235bbc5a3db1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128422"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198576"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 En este documento, se describe la característica Integración con redes virtuales de Azure App Service y se muestra cómo configurarla con aplicaciones en el [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Network][VNETOverview] (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet. Después, estas redes se pueden conectar a sus redes locales mediante tecnologías de VPN. 
@@ -271,9 +271,9 @@ La nueva versión está en versión preliminar y tiene las siguientes caracterí
 * Puede acceder a recursos en conexiones de ExpressRoute sin ninguna configuración adicional, aparte de la integración con la red virtual conectada a ExpressRoute.
 * La aplicación y la red virtual deben estar en la misma región
 * La nueva característica requiere una subred sin usar en la red virtual de Resource Manager.
+* La aplicación debe estar en una implementación de Azure App Service que se pueda escalar verticalmente a Premium v2.
 * El plan de App Service debe ser un plan Estándar, Premium o PremiumV2.
 * No se admiten en la nueva característica de las cargas de trabajo de producción mientras se encuentra en versión preliminar.
-* La aplicación debe estar en una implementación de Azure App Service que se pueda escalar verticalmente a Premium v2.
 * La nueva característica Integración con red virtual no funciona con aplicaciones en App Service Environment.
 * No puede eliminar una red virtual con una aplicación integrada.  
 * Las tablas de rutas y el emparejamiento global no están aún disponibles con la nueva integración con red virtual.  

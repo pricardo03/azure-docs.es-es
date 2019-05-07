@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.openlocfilehash: babe2ac55953940370daa0731463ed6ed8988502
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 05/06/2019
 ms.locfileid: "64925921"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervisión en Azure Database for MariaDB
@@ -35,8 +35,8 @@ Estas métricas están disponibles para Azure Database for MariaDB:
 |serverlog_storage_usage|Almacenamiento del registro del servidor usado|Bytes|La cantidad de almacenamiento de registro del servidor en uso.|
 |serverlog_storage_limit|Límite de almacenamiento del registro del servidor|Bytes|El almacenamiento máximo de registro de este servidor.|
 |storage_limit|Límite de almacenamiento|Bytes|Almacenamiento máximo de este servidor.|
-|active_connections|Conexiones activas|Número|Número de conexiones activas al servidor.|
-|connections_failed|Conexiones con errores|Número|Número de conexiones con errores al servidor.|
+|active_connections|Conexiones activas|Count|Número de conexiones activas al servidor.|
+|connections_failed|Conexiones con errores|Count|Número de conexiones con errores al servidor.|
 |network_bytes_egress|Red interna|Bytes|Red externa a través de conexiones activas.|
 |network_bytes_ingress|Red interna|Bytes|Red interna a través de conexiones activas.|
 

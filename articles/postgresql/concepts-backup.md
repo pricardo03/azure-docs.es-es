@@ -1,19 +1,19 @@
 ---
-title: Copia de seguridad y restauración en Azure Database for PostgreSQL
-description: Obtenga información acerca de cómo realizar copias de seguridad y restaurar automáticamente su servidor de Azure Database for PostgreSQL.
+title: 'Copia de seguridad y restauración en Azure Database for PostgreSQL: servidor único'
+description: Obtenga información sobre copias de seguridad automáticas y restaurar el servidor Azure Database for PostgreSQL - servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b4086497375bb651f4c88411e3237b27740dfd07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 08a061a76f1532441817e61d423533bcc0850227
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456264"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068854"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Copia de seguridad y restauración en Azure Database for PostgreSQL
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Copia de seguridad y restauración en Azure Database for PostgreSQL: servidor único
 
 Azure Database for PostgreSQL crea automáticamente copias de seguridad del servidor y las almacena en el almacenamiento con redundancia local o con redundancia geográfica configurado por el usuario. Las copias de seguridad pueden utilizarse para restaurar el servidor a un momento dado. Las copias de seguridad y las restauraciones son una parte esencial de cualquier estrategia de continuidad del negocio, ya que protegen los datos frente a daños o eliminaciones accidentales.
 

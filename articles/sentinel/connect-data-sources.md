@@ -4,7 +4,7 @@ description: Aprenda a conectar orígenes de datos a Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: a3b63cfa-b5fe-4aff-b105-b22b424c418a
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b54c4ef1b188896a70cf8b2f9352d0b76874fd50
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492369"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204287"
 ---
 # <a name="connect-data-sources"></a>Conexión con orígenes de datos
 
@@ -40,8 +40,8 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
 
 - **Servicios Microsoft**:<br> Los servicios Microsoft se conectan de forma nativa, aprovechando la base de Azure de la integración lista para usar. Con solo unos clics, se pueden conectar las soluciones siguientes:
     - [Office 365](connect-office-365.md)
-    - [Inicios de sesión y pistas de auditoría de Azure AD](connect-azure-active-directory.md)
-    - [Actividad de Azure](connect-azure-activity.md)
+    - [Azure AD audit logs and sign-ins](connect-azure-active-directory.md) (Inicios de sesión y pistas de auditoría de Azure AD)
+    - [Azure Activity](connect-azure-activity.md) (Actividad de Azure)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Azure Security Center](connect-azure-security-center.md)
     - [Azure Information Protection](connect-azure-information-protection.md)
@@ -56,14 +56,14 @@ Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel
 - **Soluciones externas mediante agente**: Azure Sentinel se puede conectar a todos los demás orígenes de datos que pueden realizar secuencias de registro en tiempo real mediante el protocolo de Syslog, a través de un agente. <br>La mayoría de las aplicaciones usan el protocolo de Syslog para enviar mensajes de eventos que incluyen el propio registro y datos sobre este. El formato de los registros varía, pero la mayoría de los dispositivos admiten el estándar de Common Event Format (CEF). <br>El agente de Azure Sentinel, que se basa en el agente de OMS, proporciona a los registros con formato CEF un formato que Log Analytics puede ingerir. Dependiendo del tipo de dispositivo, el agente se instala directamente en el dispositivo o en un servidor Linux dedicado. El agente para Linux recibe eventos del demonio de Syslog a través de UDP; sin embargo, en los casos en los que se espera que una máquina Linux recopile un gran volumen de eventos Syslog, se envían a través de TCP del demonio de Syslog al agente y desde allí a Log Analytics.
     - Firewalls, proxies y puntos de conexión:
         - [F5](connect-f5.md)
-        - [Punto de comprobación](connect-checkpoint.md)
+        - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Fortinet](connect-fortinet.md)
         - [Palo Alto](connect-paloalto.md)
-        - [Otros dispositivos CEF](connect-common-event-format.md)
-        - [Otros dispositivos de Syslog](connect-syslog.md)
+        - [Other CEF appliances](connect-common-event-format.md) (Otros dispositivos CEF)
+        - [Other Syslog appliances](connect-syslog.md) (Otros dispositivos de Syslog)
     - Soluciones de DLP
-    - [Proveedores de información sobre amenazas](connect-threat-intelligence.md)
+    - [Threat intelligence providers](connect-threat-intelligence.md) (Proveedores de información sobre amenazas)
     - [DNS machines](connect-dns.md) (Máquinas DNS): agente instalado directamente en la máquina DNS
     - Servidores Linux
     - Otras nubes

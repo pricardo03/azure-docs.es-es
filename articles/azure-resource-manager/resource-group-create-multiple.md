@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2019
+ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 84f2d82ba6103382d7f9ff850bb6f1930ebbeb9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 05b68fde30587967f65ee362344eea9a258f89a7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904600"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205971"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementación de varias instancias de un recurso o una propiedad en plantillas de Azure Resource Manager
 
@@ -148,6 +148,8 @@ Por ejemplo, para implementar en serie dos cuentas de almacenamiento a la vez, u
 ```
 
 La propiedad mode también acepta **parallel**, que es el valor predeterminado.
+
+Para obtener información sobre el uso de copia con las plantillas anidadas, vea [mediante copia](resource-group-linked-templates.md#using-copy).
 
 ## <a name="property-iteration"></a>Iteración de propiedades
 

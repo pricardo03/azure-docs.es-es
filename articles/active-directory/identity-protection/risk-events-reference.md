@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709617"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191525"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referencia sobre eventos de riesgo de Azure Active Directory Identity Protection
 
@@ -80,7 +80,9 @@ Este tipo de evento de riesgo indica inicios de sesión desde direcciones IP inf
 
 ## <a name="unfamiliar-sign-in-properties"></a>Propiedades de inicio de sesión desconocidas
 
-**Tipo de detección**: En tiempo real **nombre anterior:** Inicios de sesión desde ubicaciones desconocidas
+**Tipo de detección**: Tiempo real  
+**Nombre anterior**: Inicios de sesión desde ubicaciones desconocidas
+
 
 Este tipo de evento de riesgo se considera más allá del historial de inicio de sesión (dirección IP, latitud / longitud y ASN) para buscar los inicios de sesión erróneos. El sistema almacena información acerca de las ubicaciones anteriores utilizadas por un usuario y considera estas ubicaciones "conocidas". El evento de riesgo se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. Los usuarios recién creados estará en "modo de aprendizaje" durante un período de tiempo en las propiedades de inicio de sesión no conocidas los eventos de riesgo se desactivará aunque nuestros algoritmos Obtenga información sobre el comportamiento del usuario. El aprendizaje de duración de modo es dinámica y depende de cuánto tiempo tarda el algoritmo para recopilar suficiente información sobre los patrones de inicio de sesión del usuario. La duración mínima es de cinco días. Un usuario puede volver al modo de aprendizaje tras un largo período de inactividad. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. 
 

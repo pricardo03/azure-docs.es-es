@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: f2f207b62522ceef9fe72d47026f4c2f8ed02e3b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0a329722b65e407f011016a1f55e86ef17b47d70
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130430"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192402"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introducción a Table API de Azure Cosmos DB y Azure Table Storage mediante el SDK de .NET
 
@@ -135,7 +135,7 @@ Para obtener el paquete NuGet, siga estos pasos:
 
 ## <a name="create-a-table"></a>Creación de una tabla 
 
-La clase [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtableclient?redirectedfrom=MSDN&view=azure-dotnet) le permite recuperar las tablas y las entidades almacenadas en Almacenamiento de tablas. Dado que no hay ninguna tabla en la cuenta de Table API de Cosmos DB, vamos a agregar el método `CreateTableAsync` a la clase **Common.cs** para crear una tabla:
+La clase [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) le permite recuperar las tablas y las entidades almacenadas en Almacenamiento de tablas. Dado que no hay ninguna tabla en la cuenta de Table API de Cosmos DB, vamos a agregar el método `CreateTableAsync` a la clase **Common.cs** para crear una tabla:
 
 ```csharp
 public static async Task<CloudTable> CreateTableAsync(string tableName)
@@ -168,7 +168,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 ## <a name="define-the-entity"></a>Definición de la entidad 
 
-Las entidades se asignan a objetos C# utilizando una clase personalizada derivada de [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx). Para agregar una entidad a una tabla, cree una clase que defina las propiedades de la entidad.
+Las entidades se asignan a objetos C# utilizando una clase personalizada derivada de [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). Para agregar una entidad a una tabla, cree una clase que defina las propiedades de la entidad.
 
 Haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccione **Agregar**, **Nueva carpeta** y asígnele el nombre **Model**. En la carpeta Model, agregue una clase llamada **CustomerEntity.cs** y agréguele el código siguiente.
 
@@ -194,11 +194,11 @@ namespace CosmosTableSamples.Model
 }
 ```
 
-El código define una clase de entidad que utiliza el nombre de pila del cliente como clave de fila y el apellido como clave de partición. En conjunto, las claves de partición y de fila de una entidad la identifican inequívocamente en la tabla. Las entidades con la misma clave de partición pueden consultarse más rápidamente que aquellas con diferentes claves de partición, pero el uso de claves de partición diversas permite una mayor escalabilidad de las operaciones paralelas. Las entidades que se almacenan en tablas deben ser de un tipo compatible, por ejemplo, derivadas de la clase [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableentity?redirectedfrom=MSDN&view=azure-dotnet). Las propiedades de entidad que desee almacenar en una tabla deben ser propiedades públicas del tipo, y deben admitir que se obtengan y establezcan valores. Además, el tipo de entidad debe exponer un constructor sin parámetros.
+El código define una clase de entidad que utiliza el nombre de pila del cliente como clave de fila y el apellido como clave de partición. En conjunto, las claves de partición y de fila de una entidad la identifican inequívocamente en la tabla. Las entidades con la misma clave de partición pueden consultarse más rápidamente que aquellas con diferentes claves de partición, pero el uso de claves de partición diversas permite una mayor escalabilidad de las operaciones paralelas. Las entidades que se almacenan en tablas deben ser de un tipo compatible, por ejemplo, derivadas de la clase [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). Las propiedades de entidad que desee almacenar en una tabla deben ser propiedades públicas del tipo, y deben admitir que se obtengan y establezcan valores. Además, el tipo de entidad debe exponer un constructor sin parámetros.
 
 ## <a name="insert-or-merge-an-entity"></a>Inserción o combinación de la entidad
 
-En el ejemplo de código siguiente se crea un objeto de entidad y se agrega a la tabla. El método InsertOrMerge dentro de la clase [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) se utiliza para insertar o combinar una entidad. Se llama al método [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtable.executeasync?view=azure-dotnet) para ejecutar la operación. 
+En el ejemplo de código siguiente se crea un objeto de entidad y se agrega a la tabla. El método InsertOrMerge dentro de la clase [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) se utiliza para insertar o combinar una entidad. Se llama al método [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) para ejecutar la operación. 
 
 Haga clic con el botón derecho en el proyecto **CosmosTableSamples**. Seleccione **Agregar**, **Nuevo elemento** y agregue una clase denominada **SamplesUtils.cs**. Esta clase almacena todo el código necesario para realizar operaciones CRUD en las entidades. 
 
@@ -237,7 +237,7 @@ public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable tab
 
 ### <a name="get-an-entity-from-a-partition"></a>Obtención de una entidad de una partición
 
-Puede obtener la entidad de una partición mediante el método Retrieve de la clase [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet). En el ejemplo de código siguiente se obtiene la clave de fila de la clave de partición, el correo electrónico y el número de teléfono de una entidad de cliente. Este ejemplo también imprime las unidades de solicitud utilizadas para consultar la entidad. Para consultar una entidad, anexe el código siguiente al archivo **SamplesUtils.cs**: 
+Puede obtener la entidad de una partición mediante el método Retrieve de la clase [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation). En el ejemplo de código siguiente se obtiene la clave de fila de la clave de partición, el correo electrónico y el número de teléfono de una entidad de cliente. Este ejemplo también imprime las unidades de solicitud utilizadas para consultar la entidad. Para consultar una entidad, anexe el código siguiente al archivo **SamplesUtils.cs**: 
 
 ```csharp
 public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(CloudTable table, string partitionKey, string rowKey)

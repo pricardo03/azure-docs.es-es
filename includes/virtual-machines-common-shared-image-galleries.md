@@ -5,22 +5,21 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: fd1dd1f8af8fee9b1fecb05405381dba879facde
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149809"
+ms.locfileid: "65192393"
 ---
 La galería de imágenes compartidas es un servicio que ayuda a generar estructura y organización en torno a las imágenes de VM administradas y personalizadas. Galerías de imágenes compartidas proporcionan:
 
 - Administrar la replicación global de imágenes.
 - Control de versiones y la agrupación de imágenes para facilitar la administración.
-- Límites de escalado posterior. Imágenes personalizadas permiten 600 máquinas virtuales concurrentes, mientras permiten 1000 máquinas virtuales simultáneos Shared galerías de imágenes.
-- Imágenes de alta disponibilidad mediante almacenamiento con redundancia de zona. Incluso si un centro de datos deja de funcionar, tendrá acceso a las imágenes en dicha región.
+- Asegúrese de las imágenes de alta disponibilidad con las cuentas de almacenamiento con redundancia de zona (ZRS) en las regiones que admiten zonas de disponibilidad. ZRS ofrece una mejor resistencia frente a errores de zona.
 - Compartir entre suscripciones e incluso entre inquilinos, mediante RBAC.
 
 Uso de una galería de imágenes compartidas para compartir imágenes con diferentes usuarios, entidades de servicio o grupos de AD dentro de su organización. Las imágenes compartidas se pueden replicar en varias regiones, para un escalado más rápido de las implementaciones.
@@ -92,12 +91,10 @@ Regiones de origen se muestran en la tabla siguiente. Todas las regiones públic
 
 ## <a name="limits"></a>límites 
 
-Con imágenes administradas, solo puede tener 600 máquinas virtuales simultáneas por imagen, con galerías de imágenes compartidas, esto se ha aumentado hasta 1000 máquinas virtuales simultáneos por versión de la imagen.
-
 Hay límites por suscripción, para implementar los recursos con galerías de imágenes compartidas:
-- 10 galerías de imágenes compartidas por suscripción, por región
-- 200 definiciones de imágenes por suscripción, por región
-- 2000 versiones de imágenes por suscripción, por región
+- 100 galerías de imágenes compartidas, por suscripción por región
+- 1000 definiciones de imagen, por suscripción por región
+- 10 000 versiones de imágenes, por suscripción por región
 
 Para obtener más información, consulte [comprobar el uso de recursos con límites de](https://docs.microsoft.com/azure/networking/check-usage-against-limits) para obtener ejemplos sobre cómo comprobar el uso actual.
  

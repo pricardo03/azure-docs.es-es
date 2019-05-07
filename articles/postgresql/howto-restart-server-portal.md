@@ -1,19 +1,19 @@
 ---
-title: Reinicio de un servidor de Azure Database for PostgreSQL mediante Azure Portal
-description: En este artículo se describe cómo puede reiniciar un servidor Azure Database for PostgreSQL mediante Azure portal.
+title: 'Reinicie Azure Database for PostgreSQL: servidor único con Azure portal'
+description: En este artículo se describe cómo puede reiniciar una base de datos de Azure Database for PostgreSQL - servidor único con Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 3/18/2019
-ms.openlocfilehash: bf73120e462b740de5d2245f8a647896ac61f2c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: fd92e27f53f52de3e9a7fd65d577c9dfea44991b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420503"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066834"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Reiniciar la base de datos de Azure para el servidor de PostgreSQL mediante Azure portal
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Reinicie Azure Database for PostgreSQL: servidor único con Azure portal
 En este tema se describe cómo reiniciar un servidor de Azure Database for PostgreSQL. Es posible que deba reiniciar el servidor por motivos de mantenimiento, lo que causa una breve interrupción del servicio mientras el servidor realiza la operación.
 
 Si el servicio está ocupado, se bloqueará el reinicio del servidor. Por ejemplo, el servicio puede estar procesando una operación solicitada anteriormente, como el escalado de núcleos virtuales.

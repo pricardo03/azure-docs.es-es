@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471649"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192432"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -40,7 +40,7 @@ Una regla de pertenencia que rellena automáticamente un grupo con usuarios o di
 
 * Propiedad
 * Operador
-* Value
+* `Value`
 
 El orden de los elementos de una expresión es importante para evitar errores de sintaxis.
 
@@ -61,7 +61,7 @@ Los paréntesis son opcionales para una expresión única. La longitud total del
 Hay tres tipos de propiedades que se pueden usar para construir una regla de pertenencia.
 
 * Boolean
-* string
+* String
 * Colección de cadenas
 
 Las siguientes son las propiedades de usuario que puede utilizar para crear una expresión única.
@@ -346,8 +346,8 @@ Pueden utilizarse los siguientes atributos del dispositivo.
  Atributo de dispositivo  | Valores | Ejemplo
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
- DisplayName | Cualquier valor de cadena |(device.displayName -eq "Rob Iphone”)
- deviceOSType | Cualquier valor de cadena | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")
+ DisplayName | Cualquier valor de cadena |(device.displayName -eq "Rob iPhone")
+ deviceOSType | Cualquier valor de cadena | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | Cualquier valor de cadena | (device.deviceOSVersion -eq "9.1")
  deviceCategory | un nombre de la categoría de dispositivo válido | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Cualquier valor de cadena | (device.deviceManufacturer -eq "Samsung")

@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2019
+ms.date: 06/06/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 688bcc02b14d101008afc76662fd6548446cb329
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870288"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205700"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instalar y configurar la integración de informes de uso y costos de AWS
 
 Con la integración de informes de uso y costo de Amazon Web Services, puede supervisar y controlar los gastos de AWS en Azure Cost Management. La integración permite una sola ubicación en el portal de Azure donde puede supervisar y el control de gasto de Azure y AWS. En este artículo se explica cómo configurar la integración y configúrelo para que use las características de administración de costos para analizar los costos y revisar los presupuestos.
 
-Administración de costos lee el informe de uso y costos de AWS almacenado en un depósito de S3 con sus credenciales de acceso AWS para obtener las definiciones de informe y descargar archivos GZIP CSV del informe.
+Costo los procesos de administración en el informe de uso y costos de AWS almacenado en un depósito de S3 con sus credenciales de acceso AWS para obtener las definiciones de informe y descargar archivos GZIP CSV del informe.
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Crear un informe de costo y uso en AWS
 
@@ -45,13 +45,15 @@ Use la **informes** página de la consola de administración de costos y factura
 14. Después de haber revisado la configuración para el informe, haga clic en **revisar y completar**.
     Tenga en cuenta la **nombre del informe**. Se usará en pasos posteriores.
 
-Puede tardar hasta 24 horas para AWS empezar a entregar los informes en el depósito de Amazon S3. Cuando se inicia la entrega, AWS actualiza los archivos de informe de uso y costos de AWS al menos una vez al día.
+Puede tardar hasta 24 horas para AWS empezar a entregar los informes en el depósito de Amazon S3. Cuando se inicia la entrega, AWS actualiza los archivos de informe de uso y costos de AWS al menos una vez al día. Puede seguir para configurar un entorno de AWS sin tener que esperar para que su entrega a iniciar.
 
 ## <a name="create-a-role-and-policy-in-aws"></a>Crear un rol y una directiva en AWS
 
 Azure Cost Management tiene acceso el depósito de S3, donde el costo y uso se encuentra informe varias veces al día. Cost Management necesita acceso a las credenciales que se va a comprobar si hay nuevos datos. Crear un rol y una directiva en AWS para permitir el acceso a Cost Management.
 
 Para habilitar el acceso basado en roles para una cuenta de AWS en Azure Cost Management, se crea el rol en la consola de AWS. Debe tener la _ARN de rol_ y _Id. externo_ desde la consola AWS. Más adelante, usarlos en el crear una página del conector AWS en Azure Cost Management.
+
+Use el Asistente Crear un nuevo rol:
 
 1. Inicie sesión en la consola AWS y seleccione **servicios**.
 2. En la lista de servicios, seleccione **IAM**.
@@ -64,30 +66,42 @@ Para habilitar el acceso basado en roles para una cuenta de AWS en Azure Cost Ma
 8. Haga clic en **Siguiente: Permisos**.
 9. Haga clic en **Create policy** (Crear directiva). Se abre una nueva pestaña del explorador donde se crea una nueva directiva.
 10. Haga clic en **elegir un servicio**.
-11. Tipo **informe de uso y costo**.
-12. Seleccione **nivel de acceso**, **lectura** > **DescribeReportDefinitions**. Esto permite el que costo de administración, consulte ¿Qué informes CUR se definen y determinar si coinciden con los requisitos previos de definición de informe.
-13. Haga clic en **agregar permisos adicionales**.
-14. Haga clic en **elegir un servicio**.
-15. Tipo _S3_.
-16. Seleccione **nivel de acceso**, **lista** > **ListBucket**. Esta acción obtiene la lista de objetos en el depósito de S3.
-17. Seleccione **nivel de acceso**, **lectura** > **GetObject**. Esta acción permite la descarga de archivos de facturación.
-18. Seleccione **recursos**.
-19. Seleccione **depósito: agregar ARN**.
-20. En **nombre del depósito**, escriba el depósito que se usa para almacenar los archivos CUR.
-21. Seleccione **objeto: agregar ARN**.
-22. En **nombre del depósito**, escriba el depósito que se usa para almacenar los archivos CUR.
-23. En **nombre de objeto**, seleccione **cualquier**.
-24. Haga clic en **agregar permisos adicionales**.
-25. Haga clic en **elegir un servicio**.
-26. Tipo _costo servicio Explorer_.
-27. Seleccione **acciones de todos los costos de servicio de explorador (ce:\*)**. Esta acción Valida que la colección es correcta.
-28. Haga clic en **agregar permisos adicionales**.
-29. Tipo **organizaciones**.
-30. Seleccione **nivel de acceso, lista** > **ListAccounts**. Esta acción obtiene los nombres de las cuentas.
-31. En **revisar directiva**, escriba un nombre para la nueva directiva. Comprobación para asegurarse de que escribió la información correcta y, a continuación, haga clic en **Crear directiva**.
-32. Vuelva a la pestaña anterior y actualice la página del explorador web. En la barra de búsqueda, busque la nueva directiva.
-33. Seleccione **siguiente: revisión**.
-34. Escriba un nombre para el nuevo rol. Comprobación para asegurarse de que escribió la información correcta y, a continuación, haga clic en **Create Role**.
+
+Configurar los permisos de informe de uso y costo:
+
+1. Tipo **informe de uso y costo**.
+2. Seleccione **nivel de acceso**, **lectura** > **DescribeReportDefinitions**. Esto permite el que costo de administración, consulte ¿Qué informes CUR se definen y determinar si coinciden con los requisitos previos de definición de informe.
+3. Haga clic en **agregar permisos adicionales**.
+
+Configurar el permiso de cubo y los objetos S3:
+
+1. Haga clic en **elegir un servicio**.
+2. Tipo _S3_.
+3. Seleccione **nivel de acceso**, **lista** > **ListBucket**. Esta acción obtiene la lista de objetos en el depósito de S3.
+4. Seleccione **nivel de acceso**, **lectura** > **GetObject**. Esta acción permite la descarga de archivos de facturación.
+5. Seleccione **recursos**.
+6. Seleccione **depósito: agregar ARN**.
+7. En **nombre del depósito**, escriba el depósito que se usa para almacenar los archivos CUR.
+8. Seleccione **objeto: agregar ARN**.
+9. En **nombre del depósito**, escriba el depósito que se usa para almacenar los archivos CUR.
+10. En **nombre de objeto**, seleccione **cualquier**.
+11. Haga clic en **agregar permisos adicionales**.
+
+Configurar los permisos del explorador de costos:
+
+1. Haga clic en **elegir un servicio**.
+2. Tipo _costo servicio Explorer_.
+3. Seleccione **acciones de todos los costos de servicio de explorador (ce:\*)**. Esta acción Valida que la colección es correcta.
+4. Haga clic en **agregar permisos adicionales**.
+
+Agregue el permiso de las organizaciones:
+
+1. Tipo **organizaciones**.
+2. Seleccione **nivel de acceso, lista** > **ListAccounts**. Esta acción obtiene los nombres de las cuentas.
+3. En **revisar directiva**, escriba un nombre para la nueva directiva. Comprobación para asegurarse de que escribió la información correcta y, a continuación, haga clic en **Crear directiva**.
+4. Vuelva a la pestaña anterior y actualice la página del explorador web. En la barra de búsqueda, busque la nueva directiva.
+5. Seleccione **siguiente: revisión**.
+6. Escriba un nombre para el nuevo rol. Comprobación para asegurarse de que escribió la información correcta y, a continuación, haga clic en **Create Role**.
     Tenga en cuenta la **ARN de rol** y **Id. externo** utilizado en los pasos anteriores cuando creó el rol. Se usarán más adelante cuando configure el conector de Azure Cost Management.
 
 La directiva JSON debe parecerse al ejemplo siguiente. Reemplace _bucketname_ con el nombre del cubo S3.

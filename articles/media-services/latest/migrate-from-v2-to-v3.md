@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 921d154226862d822802562442f59bf1c37c4745
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e64b18cef44a5fa6d63137f57fcada27adcd0299
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148918"
+ms.locfileid: "65205478"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
 
@@ -71,7 +71,7 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
     * Localizador de streaming reemplaza a Localizador.
     * Evento en directo reemplaza a Canal.<br/>La facturación de Eventos en directo se basa en los medidores de Canal en vivo. Para más información, consulte la [facturación](live-event-states-billing.md) y los [precios](https://azure.microsoft.com/pricing/details/media-services/).
     * Salida en vivo reemplaza a Programa.
-* Salidas en vivo no necesita iniciarse de forma explícita; se inicia con la creación y detención cuando se elimina. Los programas funcionaban de forma diferente en las API v2; deben iniciarse después de la creación.
+* Los objetos LiveOutput comienzan al crearlos y se detienen cuando se eliminan. Los programas funcionaban de forma diferente en las API v2; deben iniciarse después de la creación.
 *  Para obtener información acerca de un trabajo, debe conocer el nombre de la transformación en la que se creó el trabajo. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Carencias de características con respecto a las API v2

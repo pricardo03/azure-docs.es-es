@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031412"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192289"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -94,3 +94,27 @@ Las operaciones del clúster están limitadas cuando se producen las operaciones
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>¿Puedo mover mi clúster a una suscripción diferente o mi suscripción con mi clúster a un nuevo inquilino?
 
 Si el clúster de AKS se ha movido a otra suscripción o el propietario de la suscripción a un nuevo inquilino de clúster, el clúster perderá la funcionalidad debido a perder las asignaciones de roles y derechos de entidades de seguridad de servicio. **AKS no admite clústeres de movimiento entre suscripciones o inquilinos** debido a esta restricción.
+
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Recibo errores al intentar usar las características que requieren conjuntos de escalado de máquinas virtuales
+
+*Se dirige esta asistencia para solucionar problemas de aka.ms/aks-vmss-habilitación*
+
+Puede recibir errores que indican que el clúster de AKS no está en un conjunto de escalado de máquinas virtuales, como en el ejemplo siguiente:
+
+**AgentPool 'agentpool' ha establecido como habilitado el escalado automático, pero no está en Virtual Machine Scale Sets**
+
+Para usar características como el Escalador automático del clúster o nodo de varios grupos, se deben crear clústeres AKS que usan conjuntos de escalado de máquinas virtuales. Se devuelven errores si intenta utilizar las características que dependen de los conjuntos de escalado de máquinas virtuales y el destino un clúster de AKS del conjunto de escalado normal, el equipo no virtual. Compatibilidad con conjunto de escalado de máquina virtual está actualmente en versión preliminar de AKS.
+
+Siga el *antes de comenzar* pasos en el documento adecuado para registrar correctamente para el escalado de máquinas virtuales del conjunto de característica de vista previa y crear un clúster de AKS:
+
+* [Usar el Escalador automático de clúster](cluster-autoscaler.md)
+* [Crear y usar varios grupos de nodos](use-multiple-node-pools.md)
+ 
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>¿Se aplican las restricciones de nomenclatura para los recursos AKS y los parámetros?
+
+*Se dirige esta asistencia para solucionar problemas de aka.ms/aks--reglas de nomenclatura*
+
+Las restricciones de nomenclatura se implementan mediante la plataforma Windows Azure y el AKS. Si un nombre de recurso o el parámetro interrumpe una de estas restricciones, se devuelve un error que le pide que proporcione una entrada distinta. Se aplican las siguientes directrices de nomenclatura comunes:
+
+* El AKS *MC_* nombre del grupo de recursos combina el nombre del grupo de recursos y el nombre del recurso. La sintaxis generado automáticamente de `MC_resourceGroupName_resourceName_AzureRegion` debe ser no supere los 80 caracteres. Si es necesario, reduzca la longitud del nombre del grupo de recursos o el nombre del clúster AKS.
+* El *dnsPrefix* debe empezar y terminar por valores alfanuméricos. Caracteres válidos son valores alfanuméricos y guiones (-). El *dnsPrefix* no puede incluir caracteres especiales, como un punto (.).

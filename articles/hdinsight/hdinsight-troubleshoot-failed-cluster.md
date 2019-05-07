@@ -1,5 +1,5 @@
 ---
-title: 'Solución de problemas de un clúster de HDInsight lento o con errores: Azure HDInsight'
+title: 'Solución de problemas de un trabajo lento o con errores en un clúster de HDInsight: Azure HDInsight'
 description: Diagnostique y solucione los problemas de un clúster de HDInsight lento o con errores.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 785eac065e10c64b99839ab8667e9b613f62aeb9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708917"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203629"
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Solución de problemas de un clúster de HDInsight lento o con errores
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solución de problemas de un trabajo lento o con errores en un clúster de HDInsight
 
-Si un clúster de HDInsight se ejecutan con lentitud o genera un error con un código de error, tiene varias opciones para solucionar los problemas. Si los trabajos tardan en ejecutarse más de lo esperado o si ve tiempos de respuesta lentos en general, puede haber errores en niveles superiores al clúster, como los servicios en los que se ejecuta el clúster. Sin embargo, la causa más común de estas ralentizaciones es un escalado insuficiente. Cuando se crea un nuevo clúster de HDInsight, seleccione la [tamaños de máquina virtual](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+Si una aplicación de procesamiento de datos en un clúster de HDInsight está ejecutándose con lentitud o genera un error con un código de error, si tienen varias opciones de solución de problemas. Si los trabajos tardan en ejecutarse más de lo esperado o si ve tiempos de respuesta lentos en general, puede haber errores en niveles superiores al clúster, como los servicios en los que se ejecuta el clúster. Sin embargo, la causa más común de estas ralentizaciones es un escalado insuficiente. Cuando se crea un nuevo clúster de HDInsight, seleccione la [tamaños de máquina virtual](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
 Para diagnosticar un clúster lento o con errores, recopile información sobre todos los aspectos del entorno, como los servicios asociados de Azure, la configuración del clúster y la información sobre la ejecución de trabajo. Un diagnóstico útil consiste en intentar reproducir el estado de error en otro clúster.
 

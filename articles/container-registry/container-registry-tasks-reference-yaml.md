@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d50d5bc91fbb86e5c0c3d2acc3b55c7d02c71723
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827262"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192265"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
 
@@ -452,8 +452,10 @@ ACR Tasks incluye un conjunto predeterminado de variables que están disponibles
 * `Run.ID`
 * `Run.Registry`
 * `Run.Date`
+* `Run.Commit`
+* `Run.Branch`
 
-### <a name="run46id"></a>Run&#46;ID
+### <a name="runid"></a>Run.ID
 
 Cada ejecución, mediante `az acr run`, o la ejecución basada en desencadenador de las tareas creadas por medio de `az acr task create`, tiene un identificador único. El identificador representa la ejecución actualmente en marcha.
 
@@ -478,6 +480,14 @@ steps:
 ### <a name="rundate"></a>Run.Date
 
 La hora UTC actual a la que comenzó la ejecución.
+
+### <a name="runcommit"></a>Run.Commit
+
+Para una tarea desencadenada por una confirmación en un repositorio de GitHub, el identificador de confirmación.
+
+### <a name="runbranch"></a>Run.Branch
+
+Para una tarea desencadenada por una confirmación en un repositorio de GitHub, el nombre de rama.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

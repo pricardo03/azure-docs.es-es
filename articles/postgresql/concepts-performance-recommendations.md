@@ -1,21 +1,21 @@
 ---
-title: Recomendaciones de rendimiento en Azure Database for PostgreSQL
-description: En este artículo se describe la característica de recomendaciones de rendimiento de base de datos de Azure Database for PostgreSQL.
+title: 'Recomendaciones de rendimiento en Azure Database for PostgreSQL: servidor único'
+description: 'En este artículo se describe la característica de recomendaciones de rendimiento en Azure Database for PostgreSQL: servidor único.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2018
-ms.openlocfilehash: c5324618eeda90b4ef1a512385fb2f14bf391215
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 31d8c0fdf1b4df3ee00f3652c933b4b738384bea
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564465"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068841"
 ---
-# <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Recomendaciones de rendimiento en Azure Database for PostgreSQL
+# <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Recomendaciones de rendimiento en Azure Database for PostgreSQL: servidor único
 
-**Se aplica a:** Azure Database for PostgreSQL 9.6 y 10
+**Se aplica a:** Azure Database for PostgreSQL: servidor único 9.6 y 10
 
 La característica de las recomendaciones de rendimiento analiza las bases de datos para la creación de sugerencias personalizadas para mejorar el rendimiento. Para generar las recomendaciones, el análisis se examinan diversas características de base de datos, incluido el esquema. Habilitar [Query Store](concepts-query-store.md) en el servidor para poder utilizar la característica de las recomendaciones de rendimiento. Después de implementar las recomendaciones de rendimiento, debe probar el rendimiento para evaluar el impacto de estos cambios. 
 

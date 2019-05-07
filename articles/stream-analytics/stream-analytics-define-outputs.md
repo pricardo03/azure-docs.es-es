@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3fab76613bb992b29ceeef12cf5f410c5c3b208d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926063"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205529"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 En este artículo se describe los tipos de salidas disponibles para un trabajo de Azure Stream Analytics. Las salidas le permiten almacenar y guardar los resultados de los trabajos de Stream Analytics. Mediante el uso de los datos de salida, puede realizar más análisis de negocios y el almacenamiento de datos de los datos.
@@ -228,7 +228,7 @@ En la tabla siguiente se enumera los nombres de propiedad y sus descripciones pa
 | Nombre de tabla |El nombre de la tabla. Si no existe, se crea la tabla. |
 | Clave de partición |El nombre de la columna de salida que contiene la clave de partición. La clave de partición es un identificador único para la partición dentro de una tabla que constituye la primera parte de la clave principal de la entidad. Es un valor de cadena que puede ser de hasta 1 KB de tamaño. |
 | Clave de fila |El nombre de la columna de salida que contiene la clave de fila. La clave de fila es un identificador único para una entidad dentro de una partición. Forma la segunda parte de la clave principal de la entidad. La clave de fila es un valor de cadena que puede ser de hasta 1 KB de tamaño. |
-| Tamaño de lote |El número de registros para una operación por lotes. El valor predeterminado (100) es suficiente para la mayoría de los trabajos. Consulte la [especificación de operación por lotes de tabla](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obtener más información acerca de cómo modificar esta configuración. |
+| Tamaño de lote |El número de registros para una operación por lotes. El valor predeterminado (100) es suficiente para la mayoría de los trabajos. Consulte la [especificación de operación por lotes de tabla](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) para obtener más información acerca de cómo modificar esta configuración. |
 
 ## <a name="service-bus-queues"></a>Colas de Service Bus
 [Colas de Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) ofrecen una entrega de mensajes FIFO a uno o varios consumidores en competencia. Normalmente, los mensajes se reciban y procesen los receptores en el orden temporal en el que se agregaron a la cola. Cada mensaje se recibe y procesa un solo consumidor de mensaje.

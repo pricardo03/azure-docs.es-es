@@ -1,20 +1,19 @@
 ---
-title: Réplicas de lectura en Azure Database for PostgreSQL
-description: En este artículo se describe la característica de réplica de lectura de Azure Database for PostgreSQL.
-author: WenJason
-ms.author: v-jay
+title: 'Réplicas de lectura en Azure Database for PostgreSQL: servidor único'
+description: 'Este artículo describe la característica de réplica de lectura en Azure Database for PostgreSQL: servidor único.'
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: f340f1e42b6993a1f834ab05570c669d4241222b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 1d75d01df74a239ba865d9a4e2b216a410e6069c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564364"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067429"
 ---
-# <a name="read-replicas-in-azure-database-for-postgresql"></a>Réplicas de lectura en Azure Database for PostgreSQL
+# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
 La característica de réplica de lectura permite replicar datos de un servidor Azure Database for PostgreSQL en un servidor de solo lectura. Puede crear réplicas desde el servidor maestro hasta cinco réplicas dentro de la misma región de Azure. Las réplicas se actualizan de manera asincrónica mediante la tecnología de replicación nativa del motor de PostgreSQL.
 
@@ -51,7 +50,7 @@ La réplica hereda su cuenta de administrador del servidor maestro. Todas las cu
 Puede conectarse a la réplica mediante su nombre de host y una cuenta de usuario válida, igual que haría en un servidor Azure Database for PostgreSQL normal. En un servidor denominado **myreplica** con el nombre de usuario administrador **myadmin**, puede conectarse a la réplica mediante psql:
 
 ```
-psql -h myreplica.postgres.database.chinacloudapi.cn -U myadmin@myreplica -d postgres
+psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
 
 Cuando se le solicite, escriba la contraseña de la cuenta de usuario.

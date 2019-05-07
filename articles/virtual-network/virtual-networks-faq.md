@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148520"
+ms.locfileid: "65205715"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -67,7 +67,7 @@ Sí. Para más información sobre los intervalos de direcciones IP públicas, co
 Sí. Para más información, consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Los espacios de direcciones de las subredes no pueden superponerse entre sí.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>¿Hay alguna restricción en el uso de direcciones IP dentro de estas subredes?
-Sí. Azure reserva algunas direcciones IP dentro de cada subred. Las direcciones IP primera y última de cada subred están reservadas para la conformidad de los protocolos, junto con las direcciones x.x.x.1-x.x.x.3 de cada subred, que se usan para los servicios de Azure.
+Sí. Azure reserva 5 direcciones IP dentro de cada subred. Las direcciones IP primera y última de cada subred están reservadas para la conformidad de los protocolos, junto con las direcciones x.x.x.1-x.x.x.3 de cada subred, que se usan para los servicios de Azure.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>¿Qué tamaños mínimo y máximo pueden tener las redes virtuales y las subredes?
 La subred más pequeña admitida es /29 y la más grande /8 (mediante definiciones de subred CIDR).
@@ -231,7 +231,7 @@ Sí. Más información acerca del uso de:
 El emparejamiento de VNet (o emparejamiento de redes virtuales) permite conectar redes virtuales. Una conexión de emparejamiento de VNet entre redes virtuales permite enrutar el tráfico entre ellas de manera privada a través de direcciones IPv4. Las máquinas virtuales de las VNet emparejadas pueden comunicarse entre sí como si estuvieran dentro de la misma red. Estas redes virtuales pueden estar en la misma región o en regiones diferentes (también conocidas como emparejamiento de VNet global). También se pueden crear conexiones de emparejamiento de VNet a través de las suscripciones a Azure.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>¿Puedo crear una conexión de emparejamiento a una red virtual en una región diferente?
-Sí. El emparejamiento de VNET global permite emparejar redes virtuales en diferentes regiones. El emparejamiento de VNET global está disponible en todas las regiones públicas de Azure y en las regiones de nube de China. No se puede emparejar globalmente desde las regiones públicas de Azure a las regiones de nube nacionales. El emparejamiento global no está disponible actualmente en la nube de administración pública.
+Sí. El emparejamiento de VNET global permite emparejar redes virtuales en diferentes regiones. Emparejamiento de VNet global está disponible en todas las regiones públicas de Azure, regiones de la nube de China y regiones de gobierno en la nube. Global no se pueden emparejar desde las regiones públicas de Azure para regiones de la nube nacional.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>¿Cuáles son las restricciones relacionadas con el emparejamiento de VNet Global y equilibradores de carga?
 Si las dos redes virtuales están en otra región (emparejamiento de VNet Global), no se puede conectar a los recursos que usan Load Balancer básico. Puede conectarse a los recursos que usan Load Balancer estándar.
@@ -241,7 +241,6 @@ Los siguientes recursos usan equilibradores de carga básica de lo que significa
 - Redis Cache 
 - Puerta de enlace de aplicaciones (v1) SKU
 - Service Fabric
-- SQL Always on
 - SQL MI
 - API Managemenet
 - Servicio de dominio de Active Directory (ADDS)

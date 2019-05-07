@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 1e212e752309fd8347836d462a3394da2fca4a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61358546"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198438"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configuración de agentes de seguridad
 
@@ -122,18 +122,18 @@ Los valores predeterminados están disponibles en el esquema apropiado en [Githu
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |Evento de diagnóstico|eventPriorityDiagnostic| Off| False| Los eventos de diagnóstico relacionados con el agente. Use este evento para el registro detallado.| 
 |Error de configuración |eventPriorityConfigurationError |Bajo |False |No se pudo analizar la configuración de agente. Compruebe la configuración en el esquema.| 
-|Estadísticas de eventos descartados |eventPriorityDroppedEventsStatistics |Bajo |True|Estadísticas de eventos relacionados con el agente. |
-|Estadísticas de mensajes|eventPriorityMessageStatistics |Bajo |True |Estadísticas de mensajes relacionados con el agente. |
-|Hardware conectado|eventPriorityConnectedHardware |Bajo |True |Instantánea de todo el hardware conectado al dispositivo.|
-|Puertos de escucha|eventPriorityListeningPorts |Alto |True |Instantánea de todos los puertos de escucha en el dispositivo.|
+|Estadísticas de eventos descartados |eventPriorityDroppedEventsStatistics |Bajo |True |Estadísticas de eventos relacionados con el agente. |
+|Estadísticas de mensajes|eventPriorityMessageStatistics |Bajo |True  |Estadísticas de mensajes relacionados con el agente. |
+|Hardware conectado|eventPriorityConnectedHardware |Bajo |True  |Instantánea de todo el hardware conectado al dispositivo.|
+|Puertos de escucha|eventPriorityListeningPorts |Alto |True  |Instantánea de todos los puertos de escucha en el dispositivo.|
 |Crear proceso |eventPriorityProcessCreate |Bajo |False |En el dispositivo de creación del proceso de las auditorías.|
 |Terminar proceso|eventPriorityProcessTerminate |Bajo |False |Las auditorías de finalización en el dispositivo del proceso.| 
-|Información del sistema |eventPrioritySystemInformation |Bajo |True |Una instantánea de la información del sistema (por ejemplo: Sistema operativo o CPU).| 
-|Usuarios locales| eventPriorityLocalUsers |Alto |True|Una instantánea de los usuarios registrados locales dentro del sistema. |
+|Información del sistema |eventPrioritySystemInformation |Bajo |True  |Una instantánea de la información del sistema (por ejemplo: Sistema operativo o CPU).| 
+|Usuarios locales| eventPriorityLocalUsers |Alto |True |Una instantánea de los usuarios registrados locales dentro del sistema. |
 |Inicio de sesión|  eventPriorityLogin |Alto|False|Auditar los eventos de inicio de sesión en el dispositivo (inicios de sesión locales y remotos).|
 |Crear conexión |eventPriorityConnectionCreate|Bajo|False|Las auditorías de las conexiones TCP creadas hacia y desde el dispositivo. |
-|Configuración del firewall| eventPriorityFirewallConfiguration|Bajo|True|Instantánea de configuración de firewall de dispositivo (reglas de firewall). |
-|Línea base del SO| eventPriorityOSBaseline| Bajo|True|Compruebe la instantánea de línea base del sistema operativo de dispositivo.|
+|Configuración del firewall| eventPriorityFirewallConfiguration|Bajo|True |Instantánea de configuración de firewall de dispositivo (reglas de firewall). |
+|Línea base del SO| eventPriorityOSBaseline| Bajo|True |Compruebe la instantánea de línea base del sistema operativo de dispositivo.|
  
 
 ## <a name="next-steps"></a>Pasos siguientes

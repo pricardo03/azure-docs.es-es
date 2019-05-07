@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b1c43cb82d6dc2b7f0708dee8471f077befe349
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d28cb35b1e8e4eaa86418da632c6fcabb636e643
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722160"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205016"
 ---
 # <a name="data-querying"></a>Consultas de datos
 
@@ -35,9 +35,9 @@ El [lenguaje Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/t
 
 Se admiten los siguientes tipos de API principal.
 
-![tsq][1]
+[![Información general de consulta de serie de tiempo](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
-### <a name="environment-apis"></a>API de entorno
+## <a name="environment-apis"></a>API de entorno
 
 Las siguientes Environment API están disponibles:
 
@@ -45,7 +45,7 @@ Las siguientes Environment API están disponibles:
 * [Get Environment Availability API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): Devuelve la distribución del recuento de eventos a través de la marca de tiempo `$ts` del evento. Esta API ayuda a determinar si hay cualquier evento en la marca de tiempo al devolver el recuento de eventos, si es que existe alguno.
 * [Get Event Schema API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): Devuelve los metadatos de esquema de eventos para un intervalo de búsqueda determinado. Esta API le ayuda a recuperar todos los metadatos y propiedades disponibles en el esquema para el intervalo de búsqueda determinado.
 
-### <a name="time-series-model-query-tsm-q-apis"></a>API de consulta de modelo de serie temporal (TSM-Q)
+## <a name="time-series-model-query-tsm-q-apis"></a>API de consulta de modelo de serie temporal (TSM-Q)
 
 Las siguientes API de consulta de modelo de serie temporal están disponibles:
 
@@ -54,7 +54,7 @@ Las siguientes API de consulta de modelo de serie temporal están disponibles:
 * [Hierarchies API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Habilita CRUD en jerarquías de serie temporal y en sus variables asociadas.
 * [Instances API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Habilita CRUD en jerarquías de serie temporal y en sus campos de instancias asociados.
 
-### <a name="time-series-query-tsq-apis"></a>API de consulta de serie temporal (TSQ)
+## <a name="time-series-query-tsq-apis"></a>API de consulta de serie temporal (TSQ)
 
 Las siguientes API de consulta de serie temporal están disponibles:
 
@@ -80,6 +80,3 @@ Las siguientes API de consulta de serie temporal están disponibles:
 - Leer la versión preliminar de tiempo Series Insights [modelado de datos](./time-series-insights-update-tsm.md) artículo.
 
 - Detectar [procedimientos recomendados al elegir un identificador de la serie de tiempo](./time-series-insights-update-how-to-id.md).
-
-<!-- Images -->
-[1]: media/v2-update-tsq/tsq.png

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 0294c7eefb6cad17ef83c24a59c37a42e68861b9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e4ec13453c204885f38b10272e76245e641fbef9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728556"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203592"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de Azure Blob Storage para Azure Functions
 
@@ -389,13 +389,13 @@ Si el blob se denomina *{20140101}-soundfile.mp3*, el valor de variable `name` e
 
 ## <a name="trigger---metadata"></a>Desencadenador: metadatos
 
-El desencadenador de blobs proporciona varias propiedades de metadatos. Estas propiedades pueden usarse como parte de expresiones de enlace en otros enlaces o como parámetros del código. Estos valores tienen la misma semántica que el tipo [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
+El desencadenador de blobs proporciona varias propiedades de metadatos. Estas propiedades pueden usarse como parte de expresiones de enlace en otros enlaces o como parámetros del código. Estos valores tienen la misma semántica que el tipo [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet).
 
 |Propiedad  |Escriba  |DESCRIPCIÓN  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|Ruta de acceso del blob de desencadenamiento.|
 |`Uri`|`System.Uri`|Es el identificador URI del blob correspondiente a la ubicación principal.|
-|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|Son las propiedades del sistema del blob. |
+|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobproperties)|Son las propiedades del sistema del blob. |
 |`Metadata` |`IDictionary<string,string>`|Son los metadatos definidos por el usuario para el blob.|
 
 Por ejemplo, los ejemplos de JavaScript y el script de C# siguientes registran la ruta de acceso al blob de desencadenamiento, incluido el contenedor:
@@ -426,7 +426,7 @@ Azure Functions almacena confirmaciones de blobs en un contenedor llamado *azure
 * El nombre del blob
 * ETag (un identificador de la versión del blob, por ejemplo: "0x8D1DC6E70A277EF")
 
-Si desea forzar el reprocesamiento de un blob, puede eliminar manualmente la recepción de ese blob desde el contenedor *azure-webjobs-hosts* . Mientras reprocesamiento podría no producirse inmediatamente, está garantizada para que se produzca en un momento posterior en el tiempo.
+Si desea forzar el reprocesamiento de un blob, puede eliminar manualmente la recepción de ese blob desde el contenedor *azure-webjobs-hosts* . Al volver a procesar podría no producirse inmediatamente, se garantiza que se producen en un momento posterior en el tiempo.
 
 ## <a name="trigger---poison-blobs"></a>Desencadenador: blobs dudosos
 
@@ -1068,7 +1068,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**type** | N/D | Se debe establecer en `blob`. |
 |**dirección** | N/D | Debe establecerse en `out` para un enlace de salida. Las excepciones se indican en la sección [uso](#output---usage). |
 |**name** | N/D | Nombre de la variable que representa el blob en el código de la función.  Se establece en `$return` para hacer referencia al valor devuelto de la función.|
-|**path** |**BlobPath** | La ruta de acceso al blob. |
+|**path** |**BlobPath** | La ruta de acceso al contenedor de blobs. |
 |**conexión** |**Connection**| El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions utiliza la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de almacenamiento solo de blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |N/D | **Acceder** | Indica si va a leer o escribir. |
 
