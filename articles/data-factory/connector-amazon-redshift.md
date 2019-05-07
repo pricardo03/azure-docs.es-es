@@ -54,9 +54,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado Amazon Reds
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **AmazonRedshift** | Sí |
-| Servidor |Dirección IP o nombre de host del servidor de Amazon Redshift. |Sí |
-| puerto |El número del puerto TCP que el servidor de Amazon Redshift utiliza para escuchar las conexiones del cliente. |No, el valor predeterminado es 5439 |
-| Base de datos |Nombre de la base de datos de Amazon Redshift. |Sí |
+| server |Dirección IP o nombre de host del servidor de Amazon Redshift. |Sí |
+| port |El número del puerto TCP que el servidor de Amazon Redshift utiliza para escuchar las conexiones del cliente. |No, el valor predeterminado es 5439 |
+| database |Nombre de la base de datos de Amazon Redshift. |Sí |
 | username |Nombre del usuario que tiene acceso a la base de datos. |Sí |
 | password |Contraseña para la cuenta de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
