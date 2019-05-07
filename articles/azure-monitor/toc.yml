@@ -555,6 +555,8 @@
                   href: app/usage-workbooks.md
             - name: Solución de análisis de aplicaciones web
               href: insights/azure-web-apps-analytics.md
+            - name: Aplicaciones hospedadas en Kubernetes
+              href: app/kubernetes.md
         - name: Supervisión de contenedores
           items:
             - name: Azure Monitor para contenedores
@@ -563,13 +565,19 @@
                   href: insights/container-insights-overview.md
                 - name: Preguntas más frecuentes
                   href: insights/container-insights-faq.md
-                - name: Incorporación
-                  href: insights/container-insights-onboard.md
+                - name: Habilitar supervisión
+                  items:
+                    - name: Habilitar información general de la supervisión
+                      href: insights/container-insights-onboard.md
+                    - name: Habilitar para nuevo clúster
+                      href: insights/container-insights-enable-new-cluster.md
+                    - name: Habilitar para un clúster ya existente
+                      href: insights/container-insights-enable-existing-clusters.md
                 - name: Análisis
                   href: insights/container-insights-analyze.md
                 - name: Deshabilitar la supervisión
                   href: insights/container-insights-optout.md
-                - name: Visualización de registros activos de contenedores
+                - name: Vista de registros dinámicos
                   href: insights/container-insights-live-logs.md
                 - name: Análisis de datos con consultas de registros
                   href: insights/container-insights-log-search.md
@@ -585,8 +593,6 @@
               href: insights/containers.md
             - name: Supervisión de aplicaciones de Docker
               href: app/docker.md
-            - name: Application Insights para Kubernetes
-              href: app/kubernetes.md
         - name: Supervisión de grupos de recursos
           href: insights/resource-group-insights.md
         - name: Supervisión de bases de datos

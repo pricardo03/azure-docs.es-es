@@ -66,6 +66,10 @@
       items:
         - name: Ingesta de datos de ejemplo
           href: ingest-sample-data.md
+    - name: Implementación
+      items:
+        - name: Tarea de DevOps
+          href: devops.md
     - name: Datos de consulta
       items:
         - name: Escritura de consultas

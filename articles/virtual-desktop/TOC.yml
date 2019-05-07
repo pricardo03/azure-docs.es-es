@@ -18,9 +18,9 @@
   items:
     - name: Conexión a recursos de Windows Virtual Desktop
       items:
-        - name: Conexión con Windows 7 y Windows 10
+        - name: "Conexión desde Windows\_10 o Windows\_7"
           href: connect-windows-7-and-10.md
-        - name: Conexión con el cliente web
+        - name: Conexión desde un explorador web
           href: connect-web.md
     - name: Creación de un grupo host con una plantilla de Azure Resource Manager
       href: create-host-pools-arm-template.md
@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: Preparación y personalización de una imagen de disco duro virtual maestro
       href: set-up-customize-master-image.md
+    - name: Configuración de GPU para Windows Virtual Desktop
+      href: configure-vm-gpu.md
     - name: Escalado automático de los host de sesiones
       href: set-up-scaling-script.md
 - name: Conceptos

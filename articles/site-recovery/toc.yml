@@ -167,6 +167,8 @@
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
             - name: Habilitamiento de la replicación de Azure en Azure para máquinas virtuales de S2D
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
+            - name: Habilitar la replicación para un disco agregado
+              href: azure-to-azure-enable-replication-added-disk.md
             - name: Exclusión de discos
               href: azure-to-azure-exclude-disks.md
             - name: Reprotección de máquinas virtuales de Azure después de la conmutación por error

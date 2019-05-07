@@ -63,6 +63,7 @@ sections:
           - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Creación de una aplicación de varios contenedores en Web App for Containers</a>
           - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Compilación e implementación de imágenes de contenedor con Azure Container Registry Tasks</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Compilación e implementación de un contenedor en Azure Container Instances</a>
+          - html: <a href="/azure/openshift/tutorial-create-cluster">Creación de un clúster de Red Hat OpenShift en Azure</a>
   - title: Desarrollo de aptitudes con Microsoft Learn
     items:
       - type: list

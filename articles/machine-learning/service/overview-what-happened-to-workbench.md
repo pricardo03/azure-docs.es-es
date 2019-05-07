@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 217eecfe8f380718361c2f1b56965e4af85d54c9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 61c5d60f0c2fab3786aa6adfa194c0716e621ea3
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526714"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023648"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>¿Qué ha ocurrido con Azure Machine Learning Workbench?
 
@@ -87,7 +87,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 Debe migrar los modelos que ha registrado en el registro del modelo antiguo a la nueva área de trabajo si quiere seguir usándolos. Para migrar los modelos, descárguelos y vuelva a registrarlos en el área de trabajo nueva. 
 
-Las imágenes que creó en el registro de la imagen anterior se deben volver a crear en el área de trabajo nueva para seguir usándolas. Para volver a crear estas imágenes, siga las instrucciones que aparecen en las secciones sobre la [configuración y la creación de imágenes](how-to-deploy-and-where.md#configureimage). 
+Las imágenes que ha creado en el antiguo registro de imágenes no se pueden migrar directamente al área de trabajo nueva. En la mayoría de los casos, el modelo puede implementarse sin tener que crear una imagen. Si es necesario, puede crear una imagen para el modelo en el área de trabajo nueva. Para más información, consulte [Administración, registro, implementación y supervisión de modelos de Machine Learning](concept-model-management-and-deployment.md).
 
 ## <a name="what-about-deployed-web-services"></a>¿Qué sucede con los servicios web implementados?
 

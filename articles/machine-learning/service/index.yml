@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 02/19/2019
+  ms.date: 05/06/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -57,6 +57,7 @@ sections:
           - html: '<a href="https://aka.ms/aml-sdk">SDK principal de Python</a>: funcionalidad principal, aprendizaje automático, canalizaciones, etc'
           - html: '<a href="https://aka.ms/aml-monitoring-sdk">Supervisión</a> SDK de Python: recopilación de datos en los servicios web implementados'
           - html: <a href="../algorithm-module-reference/module-reference.md">Referencia de módulos y algoritmos</a> para la interfaz visual
+          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">CLI de Azure ML</a>: una extensión de la interfaz de la línea de comandos de Machine Learning'
   - title: Otras tecnologías de Azure Machine Learning
     items:
       - type: list

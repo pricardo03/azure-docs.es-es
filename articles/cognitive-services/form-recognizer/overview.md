@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: pafarley
-ms.openlocfilehash: df3db534550e709e40cc94d5f951056d93a1003e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2a120a59a58eb8d7a017cce0dd85c21038bdcf51
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025433"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143211"
 ---
 # <a name="what-is-form-recognizer"></a>¿Qué es Form Recognizer?
 
@@ -73,13 +73,7 @@ Explore el [documento de referencia de la API REST](https://aka.ms/form-recogniz
 
 ## <a name="data-privacy-and-security"></a>Seguridad y privacidad de los datos
 
-El servicio se ofrece como [versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de un servicio de Azure bajo los [términos de los servicios en línea](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). El usuario conservará la propiedad de los datos y solo se utilizarán para proporcionar los servicios en línea según lo explicado en el contrato:
-
-### <a name="processing-of-customer-data-ownership"></a>Procesamiento de datos del cliente; propiedad
-
-Los datos del cliente solo se utilizarán o se procesarán para proporcionar al cliente los servicios en línea, incluidas las finalidades compatibles con la prestación de esos servicios. Microsoft no utilizará ni procesará de ningún modo los datos de los clientes ni derivará información a partir de ellos para ningún fin publicitario o comercial similar. Las partes acuerdan que el cliente se reserva todos los derechos, títulos e intereses sobre los datos del cliente. Microsoft no adquiere ningún derecho sobre los datos del cliente, salvo los derechos que el cliente concede a Microsoft para proporcionar los servicios en línea al cliente.
-
-Al igual que sucede con todas las instancias de Cognitive Services, los desarrolladores que usan el servicio Form Recognizer deben estar al tanto de las directivas de Microsoft sobre los datos de los clientes. Para más información, consulte la [página de Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) en Microsoft Trust Center.
+El servicio se ofrece como [versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de un servicio de Azure bajo los [términos de los servicios en línea](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Al igual que sucede con todas las instancias de Cognitive Services, los desarrolladores que usan el servicio Form Recognizer deben estar al tanto de las directivas de Microsoft sobre los datos de los clientes. Para más información, consulte la [página de Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) en Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

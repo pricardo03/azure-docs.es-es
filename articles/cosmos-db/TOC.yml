@@ -74,6 +74,8 @@
       href: powershell-samples.md
     - name: Azure CLI
       href: cli-samples.md
+    - name: Azure Resource Manager
+      href: resource-manager-samples.md
 - name: Conceptos
   items:
     - name: Distribución global
@@ -203,6 +205,9 @@
           href: firewall-support.md
         - name: Acceso desde redes virtuales
           href: vnet-service-endpoint.md
+        - name: Control de acceso basado en rol
+          displayName: rbac
+          href: role-based-access-control.md
     - name: Adecuado para empresas
       items:
         - name: Copias de seguridad y restauración a petición en línea
@@ -266,6 +271,8 @@
                   href: cassandra-spark-aggregation-ops.md
                 - name: Copia de datos de tabla
                   href: cassandra-spark-table-copy-ops.md
+            - name: Administración mediante plantillas de Resource Manager
+              href: manage-cassandra-with-resource-manager.md
     - name: MongoDB API
       items:
         - name: Introducción
@@ -343,6 +350,8 @@
             - name: Comandos de extensión de MongoDB
               href: mongodb-custom-commands.md
               displayName: custom commands
+            - name: Administración mediante plantillas de Resource Manager
+              href: manage-mongodb-with-resource-manager.md
     - name: API de Gremlin
       displayName: 'graph, graph database'
       items:
@@ -379,6 +388,8 @@
             - name: Almacenamiento y administración de datos de Spring
               href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
               maintainContext: true
+            - name: Administración mediante plantillas de Resource Manager
+              href: manage-gremlin-with-resource-manager.md
     - name: Table API
       items:
         - name: Introducción
@@ -429,6 +440,8 @@
               href: table-support.md
             - name: Guía de diseño de almacenamiento en tablas
               href: table-storage-design-guide.md
+            - name: Administración mediante plantillas de Resource Manager
+              href: manage-table-with-resource-manager.md
         - name: Referencia
           items:
             - name: .NET
@@ -443,6 +456,16 @@
               href: table-sdk-python.md
             - name: API de REST de Table Storage
               href: /rest/api/storageservices/Table-Service-Concepts
+    - name: Etcd API
+      items:
+        - name: Introducción
+          href: etcd-api-introduction.md
+        - name: Azure Kubernetes con Azure Cosmos DB
+          href: bootstrap-kubernetes-cluster.md
+    - name: API de Spark
+      items:
+        - name: Introducción
+          href: spark-api-introduction.md
 - name: Guías de procedimientos
   items:
     - name: Administración de la cuenta de Azure Cosmos
@@ -473,11 +496,15 @@
       items:
         - name: Crear un contenedor
           href: how-to-create-container.md
+        - name: Creación de un contenedor con una clave de partición de gran tamaño
+          href: large-partition-keys.md
         - name: Consultar un contenedor
           href: how-to-query-container.md
         - name: 'Modelado de datos y creación de particiones: un ejemplo del mundo real'
           displayName: 'model, partition, example'
           href: how-to-model-partition-example.md
+        - name: Migración a contenedores con particiones
+          href: migrate-containers-partitioned-to-nonpartitioned.md
         - name: Configuración del período de vida
           displayName: 'delete, delete data, ttl'
           href: how-to-time-to-live.md
@@ -521,9 +548,11 @@
     - name: Administración de recursos de Azure Cosmos DB
       items:
         - name: Administración mediante PowerShell
-          href: manage-account-with-powershell.md
+          href: manage-with-powershell.md
         - name: Administración mediante la CLI de Azure
           href: manage-with-cli.md
+        - name: Administración mediante plantillas de Resource Manager
+          href: manage-sql-with-resource-manager.md
     - name: Registro
       items:
         - name: Registro de diagnósticos
@@ -652,7 +681,7 @@
     - name: Proveedor de recursos de REST
       href: /rest/api/cosmos-db-resource-provider/
     - name: Plantilla de Resource Manager
-      href: /azure/templates/microsoft.documentdb/databaseaccounts
+      href: /templates/microsoft.documentdb/allversions
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn

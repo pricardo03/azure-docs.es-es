@@ -129,6 +129,8 @@
         - name: Rendimiento de Premium Storage
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
+        - name: Discos de sistema operativo efímero
+          href: ephemeral-os-disks.md
         - name: Objetivos de escalabilidad para discos
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
@@ -204,7 +206,7 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: Uso de la CLI de Azure
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
-            - name: Cifrado de discos con la secuenciación de extensiones
+            - name: Secuenciación de extensiones
               href: ../security/azure-security-disk-encryption-extension-sequencing.md
               maintainContext: true
         - name: Uso de grandes conjuntos de escalado
@@ -221,13 +223,16 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Uso de Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
-        - name: Galerías de imágenes compartidas (versión preliminar)
-          href: shared-image-galleries.md
+        - name: Galerías de imágenes compartidas
           items:
+            - name: Información general
+              href: shared-image-galleries.md
             - name: CLI
               href: shared-images-cli.md
             - name: PowerShell
               href: shared-images-powershell.md
+            - name: Uso compartido de imágenes entre inquilinos
+              href: share-images-across-tenants.md
             - name: Solución de problemas de imágenes compartidas
               href: troubleshooting-shared-images.md
         - name: Escalado vertical en un conjunto de escalado

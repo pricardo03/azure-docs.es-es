@@ -6,12 +6,12 @@ description: Aprenda a compilar y administrar aplicaciones eficaces mediante Mic
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 73dda32c3f5f89a8b3e7465fbfdde28cb0ad2d6f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1e1fdc43caf01ea33ce7587c1612ad416aed6d3d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020836"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074316"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -448,7 +448,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                         <li>
                                             <a href="/azure/sql-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>Azure SQL Database</p>
+                                                <p>Azure SQL Database</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2094,7 +2094,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                     </div>
                                 </a>
                             </li>
-<li>
+                            <li>
                                 <a href="/azure/vmware-cloudsimple/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2107,6 +2107,25 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Azure VMware Solution by CloudSimple</h3>
                                                     <p>Ejecución de la plataforma de VMware en Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/openshift/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/openshift.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Red Hat OpenShift en Azure</h3>
+                                                    <p>Servicio de OpenShift totalmente administrado que funciona de forma conjunta con Red Hat</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3069,6 +3088,25 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/openshift/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/openshift.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Red Hat OpenShift en Azure</h3>
+                                                    <p>Servicio de OpenShift totalmente administrado que funciona de forma conjunta con Red Hat</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3085,7 +3123,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure SQL Database</h3>
+                                                    <h3>Azure SQL Database</h3>
                                                     <p>SQL Database relacional administrada como servicio</p>
                                                 </div>
                                             </div>

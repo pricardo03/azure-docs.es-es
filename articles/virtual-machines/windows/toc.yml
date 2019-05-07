@@ -326,6 +326,8 @@
           href: detach-disk.md
         - name: Implementación de discos con plantilla
           href: using-managed-disks-template-deployments.md
+        - name: 'Cargar un disco duro virtual en un disco: PowerShell'
+          href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: Cambio del tamaño de un disco
           href: expand-os-disk.md
         - name: Instantánea de un disco
