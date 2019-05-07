@@ -68,9 +68,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Da
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** se debe establecer en **AzureDataExplorer** | Sí |
-| punto de conexión | Dirección URL del punto de conexión del clúster de Azure Data Explorer, con el formato como `https://<clusterName>.<regionName>.kusto.windows.net`. | Sí |
-| Base de datos | Nombre de la base de datos. | Sí |
+| type | La propiedad **type** se debe establecer en **AzureDataExplorer** | Sí |
+| endpoint | Dirección URL del punto de conexión del clúster de Azure Data Explorer, con el formato como `https://<clusterName>.<regionName>.kusto.windows.net`. | Sí |
+| database | Nombre de la base de datos. | Sí |
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Esto es lo que normalmente conoce como "**Id. de entidad**" en [cadena de conexión de Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. Esto es lo que normalmente conoce como "**Id. de cliente de aplicación de AAD**" en [cadena de conexión de Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sí |
 | servicePrincipalKey | Especifique la clave de la aplicación. Esto es lo que normalmente conoce como "**clave de aplicación de AAD**" en [cadena de conexión de Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí |
@@ -106,7 +106,7 @@ Se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** debe establecerse en **AzureDataExplorerTable** | Sí |
+| type | La propiedad **type** debe establecerse en **AzureDataExplorerTable** | Sí |
 | table | El nombre de la tabla a la que hace referencia el servicio vinculado. | Sí para el receptor, no para el origen |
 
 **Ejemplo de propiedades del conjunto de datos**
@@ -137,7 +137,7 @@ Para copiar datos desde Azure Data Explorer, establezca la propiedad **type** de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en: **AzureDataExplorerSource** | Sí |
+| type | La propiedad **type** del origen de la actividad de copia debe establecerse en: **AzureDataExplorerSource** | Sí |
 | query | Una solicitud de solo lectura dada en un [formato KQL](/azure/kusto/query/). Use la consulta KQL personalizada como referencia. | Sí |
 | queryTimeout | El tiempo de espera antes de que se agote el tiempo de espera de la solicitud de consulta. El valor predeterminado es de 10 minutos (00:10:00); el valor máximo permitido es de 1 hora (01: 00:00). | Sin  |
 
@@ -183,7 +183,7 @@ Para copiar datos en Azure Data Explorer, establezca la propiedad type del recep
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del receptor de la actividad de copia debe establecerse en: **AzureDataExplorerSink** | Sí |
+| type | La propiedad **type** del receptor de la actividad de copia debe establecerse en: **AzureDataExplorerSink** | Sí |
 | ingestionMappingName | Nombre de creada previamente **[asignación](/azure/kusto/management/mappings#csv-mapping)** en una tabla de Kusto. Para asignar las columnas del origen al explorador de datos de Azure - que se aplica a **[admiten almacenes y formatos de origen](copy-activity-overview.md#supported-data-stores-and-formats)** incluido JSON o CSV o Avro formatos etc., puede usar la actividad de copia [columna asignación](copy-activity-schema-and-type-mapping.md) (implícitamente por el nombre o explícitamente, como se ha configurado) o asignaciones del explorador de datos de Azure. | Sin  |
 
 **Ejemplo:**
