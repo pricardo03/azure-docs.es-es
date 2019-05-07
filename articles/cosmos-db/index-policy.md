@@ -4,14 +4,14 @@ description: Aprenda a configurar y cambiar el valor predeterminado para la inde
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: c7f2ccd2c074f2488c86b45a09859b308655df8d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872681"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068607"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
@@ -72,6 +72,36 @@ Cualquier directiva de indexación tiene que incluir la ruta de acceso raíz `/*
 - Para las rutas de acceso con caracteres normales que incluyen: caracteres alfanuméricos y _ (carácter de subrayado), no tienes que escape de la cadena de ruta de acceso en torno a las comillas dobles (por ejemplo, "/ path /?"). Para rutas de acceso con otros caracteres especiales, necesitará la cadena de ruta de acceso en torno a las comillas dobles de escape (por ejemplo, "/\"abc de la ruta de acceso\"/?"). Si se esperan caracteres especiales en la ruta de acceso, puede omitir cada ruta de acceso por motivos de seguridad. Funcionalmente no hay ninguna diferencia si aplica el escape de cada ruta de acceso frente a sólo aquellos que tienen caracteres especiales.
 
 Consulte [en esta sección](how-to-manage-indexing-policy.md#indexing-policy-examples) para ejemplos de directivas de indexación.
+
+## <a name="composite-indexes"></a>Índices compuestos
+
+Las consultas que `ORDER BY` dos o más propiedades requieren un índice compuesto. Actualmente, sólo se utilizan los índices compuestos por varios `ORDER BY` consultas. De forma predeterminada, no se definen índices compuestos por lo que debería [agregar índices compuestos](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) según sea necesario.
+
+Al definir un índice compuesto, especifique:
+
+- Dos o más rutas de acceso de propiedad. La secuencia en la propiedad son rutas de acceso define es importante.
+- El orden (ascendente o descendente).
+
+Al utilizar los índices compuestos, se utilizan las siguientes consideraciones:
+
+- Si las rutas de acceso de índice compuesto no coincide con la secuencia de las propiedades en la cláusula ORDER BY, el índice compuesto no admite la consulta
+
+- El orden de las rutas de acceso de índice compuesto (ascendente o descendente) también debe coincidir con el orden en la cláusula ORDER BY.
+
+- El índice compuesto también admite una cláusula ORDER BY con el orden inverso en todas las rutas.
+
+Considere el ejemplo siguiente, donde se define un índice compuesto en las propiedades a, b y c:
+
+| **Índice compuesto**     | **Ejemplo `ORDER BY` consulta**      | **¿Es compatible con el índice?** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
+| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+
+Debe personalizar la directiva de indexación para que pueda servir toda `ORDER BY` consultas.
 
 ## <a name="modifying-the-indexing-policy"></a>Modificación de la directiva de indexación
 

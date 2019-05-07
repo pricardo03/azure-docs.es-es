@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 12/04/2018
+ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474851"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154265"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Solución de problemas de Azure SQL Data Warehouse
 En este artículo figuran las preguntas habituales sobre la solución de problemas.
@@ -57,8 +57,9 @@ En este artículo figuran las preguntas habituales sobre la solución de problem
 ## <a name="polybase"></a>PolyBase
 | Problema                                           | Resolución                                                   |
 | :---------------------------------------------- | :----------------------------------------------------------- |
-| Se produce un error en la carga porque hay filas de gran tamaño                | Actualmente la compatibilidad con filas de gran tamaño no está disponible en Polybase.  Esto significa que si su tabla contiene VARCHAR(MAX), NVARCHAR(MAX) o VARBINARY(MAX), no se pueden utilizar tablas externas para cargar los datos.  La carga de filas de gran tamaño solo se admite mediante Azure Data Factory (con BCP), Azure Stream Analytics, SSIS, BCP o la clase SQLBulkCopy de .NET. La compatibilidad con filas de gran tamaño en PolyBase se agregará en una versión futura. |
-| La carga de la tabla bcp con el tipo de datos MAX está dando error | Existe un problema conocido que requiere la colocación de VARCHAR(MAX), NVARCHAR(MAX) o VARBINARY(MAX) al final de la tabla en algunos escenarios.  Intente mover las columnas MAX al final de la tabla. |
+| Exportaciones producirá un error con los tipos de fecha y TINYINT             | Para formatos de archivo Parquet y ORC, los valores de tipo fecha deben estar entre 1970-01-01 00:00:01 2038-01-19 y UTC-03:14:07. Los valores de tipo TINYINT deben estar entre 0 y 127.    |
+| Problema con el tipo DECIMAL de Parquet: escritura de Spark escriba DecimalType(18,4) y proporciona a importar en una columna de tipo double o real "Error: no puede convertirse java.base/java.lang.Long java.base/java.lang.Float". | Debe importar en bigint y dividir por 10000 o use el [Databricks] conector de SQL Data Warehouse. |
+| Problema con Parquet tipo DATE: escribir desde la fecha del tipo de Spark e importar en una columna de tipo date o datetime ofrece "Error: no puede convertirse java.base/java.lang.Integer parquet.io.api.Binary". | Debe utilizar un tipo diferente de Spark (int) y la fecha de proceso o utilizar el [Databricks] conector de SQL Data Warehouse. |
 
 ## <a name="differences-from-sql-database"></a>Diferencias con respecto a SQL Database
 | Problema                                 | Resolución                                                   |
@@ -132,3 +133,4 @@ Para obtener más ayuda en la búsqueda de soluciones para su problema, aquí ti
 [Foro Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Databricks]: https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse

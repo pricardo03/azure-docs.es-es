@@ -2,18 +2,19 @@
 title: Supervisión, diagnóstico y solución de problemas de Azure Storage | Microsoft Docs
 description: Use características como análisis de almacenamiento, registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage.
 services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: fhryo-msft
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: c17774ffdf7918aa4f9203ebef751f9b5f9ebbf1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103872"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153649"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -560,7 +561,7 @@ Si la aplicación cliente trata de usar una clave SAS que no incluye los permiso
 
 En la siguiente tabla, puede ver una muestra de un mensaje de registro del lado servidor del archivo de registro del registro de Almacenamiento:
 
-| NOMBRE | Valor |
+| NOMBRE | `Value` |
 | --- | --- |
 | Hora de inicio de la solicitud | 2014-05-30T06:17:48.4473697Z |
 | Tipo de operación     | GetBlobProperties            |

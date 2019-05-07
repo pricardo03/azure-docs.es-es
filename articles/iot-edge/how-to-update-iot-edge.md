@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a3dd7f78362b5f5c99dc4a74fe0a32c4d26be5b7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a3b6327b9e05b039696cc1743fc2d16c5e945e26
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125940"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152627"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Actualice el archivo de configuración del demonio de seguridad y el entorno de ejecución de IoT Edge.
 
@@ -50,25 +50,15 @@ apt-get install libiothsm iotedge
 
 ### <a name="windows-devices"></a>Dispositivos Windows
 
-En los dispositivos Windows, use el script de PowerShell para desinstalar y, a continuación, volver a instalar el demonio de seguridad. El script de instalación extrae automáticamente la versión más reciente del demonio de seguridad. 
-
-Desinstale el demonio de seguridad en una sesión de PowerShell de administrador. 
+En los dispositivos de Windows, utilice el script de PowerShell para actualizar el demonio de seguridad. El script extrae automáticamente la versión más reciente del demonio de seguridad. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Uninstall-SecurityDaemon
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-Ejecuta el `Uninstall-SecurityDaemon` comando sin parámetros solo quita el demonio de seguridad de su dispositivo, junto con las dos imágenes de contenedor en tiempo de ejecución. El archivo config.yaml se mantiene en el dispositivo, así como los datos del motor de contenedor Moby. Mantener la información de configuración significa que no tendrá que proporcionar la cadena de conexión o la información del servicio Device Provisioning para el dispositivo nuevo durante el proceso de instalación. 
+Ejecutando el comando Update-IoTEdge quita el demonio de seguridad de su dispositivo, junto con las dos imágenes de contenedor en tiempo de ejecución. El archivo config.yaml se mantiene en el dispositivo, así como los datos desde el motor de contenedor Moby (si usa contenedores de Windows). Mantener la información de configuración significa que no tendrá que proporcionar la cadena de conexión o la información del servicio Device Provisioning para el dispositivo nuevo durante el proceso de actualización. 
 
-Vuelva a instalar el demonio de seguridad según si el dispositivo IoT Edge usa contenedores de Windows o contenedores de Linux. Reemplazar la frase **\<Windows o Linux\>** con los sistemas operativos de contenedor adecuado. Use la marca **-ExistingConfig** para apuntar al archivo config.yaml existente en el dispositivo. 
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -ExistingConfig -ContainerOS <Windows or Linux>
-```
-
-Si desea instalar una versión específica del demonio de seguridad, descargue el archivo adecuado iotedged-windows.zip de las [versiones de IoT Edge](https://github.com/Azure/azure-iotedge/releases). A continuación, use el parámetro `-OfflineInstallationPath` para que apunte a la ubicación del archivo. Para más información, consulte la [Instalación sin conexión](how-to-install-iot-edge-windows.md#offline-installation).
+Si desea instalar una versión específica del demonio de seguridad, descargue el archivo de Microsoft-Azure-IoTEdge.cab apropiado de [IoT Edge libera](https://github.com/Azure/azure-iotedge/releases). A continuación, use el parámetro `-OfflineInstallationPath` para que apunte a la ubicación del archivo. Para más información, consulte la [Instalación sin conexión](how-to-install-iot-edge-windows.md#offline-installation).
 
 ## <a name="update-the-runtime-containers"></a>Actualización de los contenedores del entorno de ejecución
 

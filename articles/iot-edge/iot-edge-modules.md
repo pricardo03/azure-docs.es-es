@@ -3,19 +3,18 @@ title: 'Obtenga información sobre cómo los módulos ejecutan la lógica en los
 description: Los módulos de Azure IoT Edge son unidades de lógica en contenedores que se pueden implementar y administrar de forma remota para que pueda ejecutar la lógica de negocios en dispositivos IoT Edge
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 03/21/2019
-ms.date: 04/08/2019
+ms.author: kgremban
+ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d1e2e35dafd90c16e9d0dbf38afb1e981653d1fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65cac484a9395aca47a38e2ba430b80c868267f5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445050"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152661"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Información sobre los módulos de Azure IoT Edge
 
@@ -44,6 +43,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 ## <a name="module-identities"></a>Identidades de módulo
 
 Cuando la instancia de IoT Edge en tiempo de ejecución crea una nueva instancia de módulo, se asocia con la identidad de módulo correspondiente. La identidad de módulo se almacena en IoT Hub y se emplea como el ámbito seguridad y direccionamiento en todas las comunicaciones locales y en la nube correspondientes a esa instancia de módulo.
+
 La identidad asociada con una instancia de módulo depende de la identidad del dispositivo en que se ejecuta la instancia y del nombre que proporcione para ese módulo en la solución. Por ejemplo, si llama `insight` a un módulo que utiliza Azure Stream Analytics y lo implementa en un dispositivo denominado `Hannover01`, la instancia de IoT Edge en tiempo de ejecución crea una identidad de módulo correspondiente llamada `/devices/Hannover01/modules/insight`.
 
 Obviamente, en escenarios cuando necesite implementar una imagen de módulo varias veces en el mismo dispositivo, puede implementar la misma imagen varias veces con nombres diferentes.
@@ -69,26 +69,9 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>Funcionalidades sin conexión
 
-Azure IoT Edge permite realizar operaciones sin conexión en los dispositivos IoT Edge. Estas funcionalidades están limitadas por ahora. Hay capacidades sin conexión adicionales disponibles en la versión preliminar pública. Para obtener más información, consulte [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md) (Entender las capacidades sin conexión extendidas para dispositivos IoT Edge, módulos y dispositivos secundarios).
-
-Los módulos de IoT Edge pueden permanecer sin conexión durante largos períodos de tiempo siempre que se cumplan los requisitos siguientes: 
-
-* **Que no haya expirado el período de vida (TTL)**. El valor predeterminado para el TTL de un mensaje es de dos horas, pero puede aumentarse o reducirse en Microsoft Azure Store y reenviar la configuración del centro de IoT Edge. 
-* **Que los módulos no tengan que volver a autenticarse con el centro de IoT Edge cuando estén sin conexión**. Los módulos solo pueden autenticarse con centros de IoT Edge que tengan una conexión activa con un centro de IoT. Los módulos tienen que volver a autenticarse si se reinician por algún motivo. Los módulos pueden seguir enviando mensajes al centro de IoT Edge aunque el token de SAS haya expirado. Cuando se reanuda la conectividad, el centro de IoT Edge solicita un nuevo token desde el módulo y lo valida con el centro de IoT. Si es correcto, el centro de IoT Edge reenvía los mensajes del módulo que están guardados, incluso lo que se enviaron mientras el token del módulo estaba vencido. 
-* **Que el módulo que envía los mensajes mientras no hay conexión siga en funcionamiento cuando se reanude la conectividad**. Cuando se restablece la conexión con IoT Hub, el centro de IoT Edge tiene que validar un nuevo token del módulo (si el anterior venció) para poder reenviar los mensajes del módulo. Si el módulo no es capaz de proporcionar un nuevo token, el centro de IoT Edge no puede realizar ninguna operación con los mensajes almacenados del módulo. 
-* **Que el centro de IoT Edge tenga espacio en disco para almacenar los mensajes**. De forma predeterminada, los mensajes se guardan en el sistema de archivos del contenedor del centro de IoT Edge. No obstante, hay una opción de configuración que permite especificar un volumen montado para guardar los mensajes. En cualquier caso, debe haber espacio en disco suficiente para guardar los mensajes que se van a entregar en diferido a IoT Hub.  
-
+Módulos de Azure IoT Edge pueden funcionar sin conexión indefinidamente después de la sincronización con IoT Hub al menos una vez. Dispositivos IoT Edge también pueden ampliar esta funcionalidad sin conexión a otros dispositivos de IoT. Para obtener más información, consulte [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md) (Entender las capacidades sin conexión extendidas para dispositivos IoT Edge, módulos y dispositivos secundarios).
 
 ## <a name="next-steps"></a>Pasos siguientes
  - [Descripción de los requisitos y las herramientas para desarrollar módulos de IoT Edge](module-development.md)
  - [Información del entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md)
 
-<!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
-[2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md
-[lnk-mod-dev]: module-development.md

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/29/2019
 ms.author: magoedte
-ms.openlocfilehash: c7031e54c354392379fee83dbf2a777ba726c5e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34f02b1d72f08ef5da6b8a5740243b6e557bfb4a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777378"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138141"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Conectar equipos Windows con Azure Monitor
 
@@ -31,16 +31,18 @@ El agente puede instalarse mediante uno de los métodos siguientes. La mayoría 
 * Instalación manual. El programa de instalación se ejecuta de forma manual en el equipo mediante el Asistente para la instalación, desde la línea de comandos, o bien se implementa mediante una herramienta de distribución de software existente.
 * Desired State Configuration (DSC) de Azure Automation. Use DSC de Azure Automation con un script para equipos Windows que ya esté implementado en su entorno.  
 * Script de PowerShell.
-* Plantilla de Resource Manager para máquinas virtuales que ejecutan Windows de forma local en Azure Stack.  
+* Plantilla de Resource Manager para máquinas virtuales que ejecutan Windows de forma local en Azure Stack. 
 
 >[!NOTE]
 >Azure Security Center (ASC) depende de Microsoft Monitoring Agent (también denominado el agente de Windows de Log Analytics) e instalará y configurarlo para que informe a un área de trabajo de Log Analytics como parte de su implementación. ASC incluye una opción de aprovisionamiento automático que permite la instalación automática del agente de Windows de Log Analytics en todas las máquinas virtuales en su suscripción y lo configura para que informe a un área de trabajo específica. Para obtener más información acerca de esta opción, consulte [habilitar el aprovisionamiento automático del agente de Log Analytics](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-).
 >
 
+Si tiene que configurar el agente para informar a varias áreas de trabajo, no puede realizarse durante la instalación inicial, sólo después poniendo al día la configuración del Panel de Control o PowerShell como se describe en [agregando o quitando un área de trabajo](agent-manage.md#adding-or-removing-a-workspace).  
+
 Para comprender la configuración compatible, revise los [sistemas operativos Windows admitidos](log-analytics-agent.md#supported-windows-operating-systems) y la [configuración del firewall de red](log-analytics-agent.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Obtención de la clave y el identificador de área de trabajo
-Antes de instalar el agente Log Analytics para Windows, necesita la clave y el identificador de área de trabajo para el área de trabajo de Log Analytics.  Esta información es necesaria durante la instalación de cada método de instalación para configurar al agente y garantizar que puede comunicarse correctamente con Azure Monitor en Azure comercial y en la nube del gobierno de Estados Unidos correctamente.  
+Antes de instalar el agente Log Analytics para Windows, necesita la clave y el identificador de área de trabajo para el área de trabajo de Log Analytics.  Esta información es necesaria durante la instalación de cada método de instalación para configurar al agente y garantizar que puede comunicarse correctamente con Azure Monitor en Azure comercial y en la nube del gobierno de Estados Unidos correctamente. 
 
 1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
 2. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo que quiera configurar para informar al agente.

@@ -1,20 +1,19 @@
 ---
-title: Introducción al punto de conexión de servicios de red virtual del servidor de Azure Database for PostgreSQL
-description: Obtenga información sobre el funcionamiento de los puntos de conexión de servicio de red virtual del servidor de Azure Database for PostgreSQL.
-author: WenJason
-ms.author: v-jay
+title: Red virtual (VNet) de servicios de información general de punto de conexión de base de datos de Azure Database for PostgreSQL - servidor único
+description: 'Obtenga información sobre cómo funcionan los puntos de conexión de servicio de red Virtual (VNet) para Azure Database for PostgreSQL: servidor único.'
+author: bolzmj
+ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/20/2018
-ms.date: 04/22/2019
-ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: c873abcdf3c64f8357c584c8e24809270946bf74
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560132"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073472"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for PostgreSQL
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Usar reglas y puntos de conexión de servicio de red Virtual para Azure Database for PostgreSQL: servidor único
 
 Las *reglas de red virtual* son una característica de firewall que controla si el servidor de Azure Database for PostgreSQL acepta las comunicaciones que se envían desde subredes específicas en redes virtuales. En este artículo se explica por qué la característica de la regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con el servidor de Azure Database for PostgreSQL.
 

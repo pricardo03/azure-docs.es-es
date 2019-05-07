@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c260273c647dd5dd6050f1fd543ebd5a5aa47b89
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922767"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138123"
 ---
 # <a name="action-rules-preview"></a>Reglas de acción (versión preliminar)
 
@@ -46,7 +46,7 @@ Ahora debería ver el flujo de creación de reglas de acción Abrir. Configure l
 
 ![Nuevo flujo de creación de reglas de acción](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>Ámbito
+### <a name="scope"></a>Scope
 
 En primer lugar, elija el ámbito, es decir, el recurso de destino, grupo de recursos o suscripción. También tiene la capacidad de realizar una selección múltiple una combinación de cualquiera de las opciones anteriores (dentro de una sola suscripción). 
 
@@ -184,8 +184,8 @@ A alertas del registro aprovechar mejor con las reglas de acción, se aconseja c
 
 * P: ¿Qué ocurre si tengo un recurso que se supervisan en dos reglas de acción independiente? ¿Puedo obtener una o dos notificaciones? Por ejemplo 'VM2' en este escenario:
 
-      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
-      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1' 
+      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1'
+      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1'
 
     A. Para cada alerta de 'VM1' y 'VM3', 'AG1' del grupo de acciones se desencadenaría una vez. Para cada alerta en 'VM2', 'AG1' del grupo de acciones se desencadenará dos veces (**reglas acción desduplicar acciones**). 
 
@@ -198,9 +198,10 @@ A alertas del registro aprovechar mejor con las reglas de acción, se aconseja c
 
 * P: ¿Qué ocurre si tengo una regla de alerta y una regla de acción definido para el mismo recurso de una llamada a grupos de acciones diferentes? Por ejemplo, 'VM1' en este escenario:
 
-     regla de alerta 'rule1' en 'VM1' con la regla de acción grupo 'AG2' acción 'AR1' definido para 'VM1' con 'AG1', del grupo de acciones  
+      alert rule  'rule1' on          'VM1' with action group 'AG2'
+      action rule 'AR1'   defined for 'VM1' with action group 'AG1' 
  
-    A. Para cada alerta en 'VM1', 'AG1' del grupo de acciones se desencadenaría una vez. Cada vez que se desencadena la regla de alerta 'rule1', también se desencadena además 'AG2'. (**acción grupos definidos dentro de las reglas de acción y las reglas de alertas funcionan de forma independiente, con ningún desduplicación**) 
+    A. Para cada alerta en 'VM1', 'AG1' del grupo de acciones se desencadenaría una vez. Cada vez que se desencadena la regla de alerta 'rule1', también se desencadena además 'AG2'. **Grupos de acciones definen en las reglas de acción y las reglas de alertas funcionan de forma independiente, con ningún desduplicación**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

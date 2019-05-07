@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894464"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072763"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -282,27 +282,19 @@ Use el ejemplo de LUIS para [buscar regiones](https://github.com/Azure-Samples/c
 
 Sí, puede usar el [contenedor](luis-container-howto.md) de LUIS para estos escenarios, si tiene la conectividad necesaria para medir el uso. 
 
-### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Escuché hablar de una característica o demo de Language Understanding en la conferencia Build 2018, pero no recuerdo cómo se llama
+## <a name="migrating-to-the-next-version"></a>Migración a la siguiente versión
 
-Las siguientes características se publicaron en la conferencia Build 2018:
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>¿Cómo migro a obtener una vista previa de API de V3? 
 
-|NOMBRE|Contenido|
-|--|--|
-|Mejoras|La entidad de [expresión regular](luis-concept-data-extraction.md##regular-expression-entity-data) y la entidad de [frase clave](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)
-|Patrones|[Conceptos](luis-concept-patterns.md), [tutoriales](luis-tutorial-pattern.md) y [procedimientos](luis-how-to-model-intent-pattern.md) sobre patrones<br>Concepto de la entidad [Patterns.Any](luis-concept-entity-types.md) que incluye las [listas explícitas](luis-concept-patterns.md#explicit-lists) para excepciones<br>Concepto de [roles](luis-concept-roles.md)|
-|Integraciones|Integración de [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) del [análisis de sentimiento](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Integración de [Speech](https://docs.microsoft.com/azure/cognitive-services/speech) de preparación para la voz con [Speech SDK](https://aka.ms/SpeechSDK)|
-|Herramienta de distribución|[Herramienta](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) de distribución por línea de comandos que es parte de [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) y combina varias aplicaciones de LUIS y QnA Maker en una única aplicación de LUIS para optimizar el reconocimiento de intención en un bot
+Consulte [API v2 a la migración de v3 guía para las aplicaciones de LUIS](luis-migration-api-v3.md)
 
-Se incluyeron [rutas de API](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) de creación adicionales.
+## <a name="build-2019-conference-announcements"></a>Anuncios de conferencia de Build 2019
 
-Videos:
-* [Azure Friday en la compilación de 2018: Cognitive Services - Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Build 2018 AI Show - What’s New with Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player) (Presentación de IA en Build 2018: Novedades de Language Understanding Service)
-* [Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices](https://channel9.msdn.com/events/Build/2018/BRK3208) (Sesión de Build 2018: inteligencia de bot, funcionalidades de voz y procedimientos recomendados de NLU)
-* [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player) (Build 2018: actualizaciones de LUIS)
+Las siguientes características publicadas en la conferencia de Build 2019:
 
-Proyectos:
-* Demostración [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) (Bot de Contoso Cafe): código fuente en GitHub
+* [Vista previa de la Guía de migración de la API de V3](luis-migration-api-v3.md)
+* [Panel de análisis mejorado](luis-how-to-use-dashboard.md)
+* [Mejorado dominios creados previamente](luis-reference-prebuilt-domains.md) profesional con V2 y V3 API
 
 ## <a name="next-steps"></a>Pasos siguientes
 

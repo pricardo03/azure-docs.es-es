@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 4288eb7d051c44149a6f1970430dc8c409ca957d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1048b4e2ac3a8523d5539ddc1a1bdaca3ec2d912
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572870"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074259"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
 
-En este artículo se describe cómo escalar los recursos de proceso y almacenamiento disponibles para una sola base de datos en el nivel de proceso aprovisionada. 
+En este artículo se describe cómo escalar los recursos de proceso y almacenamiento disponibles para una sola base de datos en el nivel de proceso aprovisionada. Como alternativa, el [nivel de proceso sin servidor (versión preliminar)](sql-database-serverless.md) proporciona escalado automático de proceso y las facturas por segundo para el proceso usa.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

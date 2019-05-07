@@ -2,18 +2,19 @@
 title: Habilitación de la conexión TLS segura para el cliente de Azure Storage | Microsoft Docs
 description: Aprenda a habilitar TLS 1.2 en el cliente de Azure Storage.
 services: storage
-author: fhryo-msft
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 06/25/2018
-ms.author: fryu
+ms.author: tamram
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 4af86b570dfb24f990f1d8b4ff501d1a222bd21d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 218708ffc9a680150d7b6bf559a00ca87054bbe8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494296"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152966"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Habilitación de la conexión TLS segura para el cliente de Azure Storage
 
@@ -75,7 +76,7 @@ La captura de pantalla siguiente es un ejemplo de la comprobación.
 
 ![captura de pantalla de comprobación de la versión de TLS en Fiddler](./media/storage-security-tls/storage-security-tls-verify-in-fiddler.png)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 * [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
 * [Cumplimiento del estándar PCI en TLS](https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls)

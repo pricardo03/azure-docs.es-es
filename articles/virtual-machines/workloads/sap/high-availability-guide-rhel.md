@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: c6746dc4bd5732a13c25793ed572a85acfca82d4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4e224a1abf72bfa068bebaf971e34c492b15d7c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925797"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142992"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver en Red Hat Enterprise Linux
 
@@ -87,6 +87,9 @@ Para lograr alta disponibilidad, SAP NetWeaver requiere almacenamiento compartid
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP HANA usan direcciones IP virtuales y el nombre de host virtual. En Azure, se requiere un equilibrador de carga para usar una dirección IP virtual. En la lista siguiente se muestra la configuración del equilibrador de carga (A)SCS y ERS.
 
+> [!IMPORTANT]
+> Clústeres de varios SID de SAP ASCS/ERS con Red Hat Linux como sistema operativo invitado en máquinas virtuales de Azure es **no admite**. Agrupación en clústeres de varios SID se describe la instalación de varias instancias de SAP ASCS/ERS con SID diferentes en un clúster de Pacemaker.
+
 ### <a name="ascs"></a>(A)SCS
 
 * Configuración de front-end
@@ -113,6 +116,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP 
 * Puerto de sondeo
   * Puerto 621<strong>&lt;nr&gt;</strong>
 * Reglas de equilibrio de carga
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -145,7 +149,7 @@ Azure Marketplace contiene una imagen de Red Hat Enterprise Linux que puede usar
    1. Disponibilidad del sistema  
       Seleccione alta disponibilidad
    1. Nombre de usuario administrador, contraseña del administrador o clave SSH  
-      Se crea un usuario nuevo que se puede usar para iniciar sesión en la máquina.
+      Se crea un nuevo usuario que se puede usar para iniciar sesión en la máquina.
    1. Identificador de subred  
    Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. El identificador suele tener este aspecto: /subscriptions/**&lt;id. de suscripción&gt;**/resourceGroups/**&lt;nombre del grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nombre de red virtual&gt;**/subnets/**&lt;nombre de subred&gt;**
 
@@ -527,7 +531,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   Si está actualizando desde una versión anterior y cambiar a poner en cola el servidor 2, consulte la nota de sap [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+   Si está actualizando desde una versión anterior y cambiar a poner en cola el servidor 2, consulte SAP nota [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
 

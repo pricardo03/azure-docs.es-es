@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/06/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5f488811e57ee20cb25db56b2d9e04202b17ffb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fffc54428b152a060594a5c107d3ac08457aaaa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869816"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154659"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementación de Azure Blockchain Workbench
 
@@ -27,16 +27,16 @@ Para más información acerca de los componentes de Blockchain Workbench, consul
 
 Blockchain Workbench le permite implementar un libro de contabilidad de cadena de bloques junto con un conjunto de los servicios de Azure correspondientes que se usan más frecuentemente para compilar una aplicación basada en cadena de bloques. La implementación de Blockchain Workbench hace que los siguientes servicios de Azure se aprovisionen en un grupo de recursos de la suscripción de Azure.
 
-* 1 tema de Event Grid
-* 1 espacio de nombres de Service Bus
-* 1 instancia de Application Insights
-* 1 instancia de SQL Database (Estándar S0)
-* 2 instancias de App Service (Estándar)
-* 2 instancias de Azure Key Vault
-* 2 cuentas de Azure Storage (Estándar LRS)
-* 2 Virtual Machine Scale Sets (para los nodos de validador y de trabajo)
-* 2 instancias de Virtual Network (incluidos el equilibrador de carga, el grupo de seguridad de red y la dirección IP pública de cada red virtual)
-* Opcional: Azure Monitor
+* Plan de App Service (estándar)
+* Application Insights
+* Event Grid
+* Azure Key Vault
+* Azure Service Bus
+* Base de datos SQL (para estándar S0) + servidor lógico de SQL
+* Cuenta de Azure Storage (LRS estándar)
+* Escalado de máquinas virtuales que se establezca con capacidad 1
+* Grupo de recursos de red virtual (con red Virtual de Load Balancer, Network Security Group, dirección IP pública)
+* Opcional: Azure Blockchain Service (valor predeterminado de B0 para básico)
 
 La siguiente es una implementación de ejemplo creada en el grupo de recursos **myblockchain**.
 
@@ -44,17 +44,12 @@ La siguiente es una implementación de ejemplo creada en el grupo de recursos **
 
 El costo de Blockchain Workbench se agrega al costo de los servicios de Azure subyacentes. La información de precios de los servicios de Azure se pueden calcular mediante la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/).
 
-> [!IMPORTANT]
-> Si usa una suscripción con límites de servicio bajos, como una suscripción a Azure de nivel Gratis, puede producirse un error en la implementación por una cuota insuficiente de núcleos de máquina virtual. Antes de la implementación, compruebe la cuota con las instrucciones indicadas en el artículo [Cuotas de vCPU de máquinas virtuales](../../virtual-machines/windows/quotas.md). La selección de máquina virtual predeterminada requiere seis núcleos de máquina virtual. Al cambiar a un tamaño más pequeño de máquina virtual, como *Estándar DS1 v2*, se reduce el número de núcleos a 4.
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 Azure Blockchain Workbench requiere de registros de aplicación y configuraciones de Azure AD. Puede elegir entre [configurar manualmente](#azure-ad-configuration) Azure AD antes de la implementación o ejecutar un script posterior a la implementación. Si está implementando nuevamente Blockchain Workbench, consulte la [configuración de Azure AD](#azure-ad-configuration) para verificar la configuración de Azure AD.
 
 > [!IMPORTANT]
 > El área de trabajo no tiene que implementarse en el mismo inquilino que el que se usa para registrar una aplicación de Azure AD. Se debe implementar en un inquilino donde tenga permisos suficientes para implementar recursos. Para más información sobre los inquilinos de Azure AD, consulte [Obtención de un inquilino de Azure Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md) e [Integración de aplicaciones con Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
-
-
 
 ## <a name="deploy-blockchain-workbench"></a>Implementación de Blockchain Workbench
 
@@ -82,11 +77,11 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
     | Tipo de autenticación | Seleccione si desea utilizar una contraseña o clave para conectarse a las máquinas virtuales. |
     | Contraseña | La contraseña se usa para conectarse a las máquinas virtuales. |
     | SSH | Use una clave pública RSA en formato de una sola línea con **ssh-rsa** o utilice el formato PEM de varias líneas. Puede generar claves SSH mediante `ssh-keygen` en Linux y OS X o PuTTYGen en Windows. Para más información sobre las claves SSH, consulte [Uso de claves SSH con Windows en Azure](../../virtual-machines/linux/ssh-from-windows.md). |
-    | Contraseña de base de datos / Confirmar contraseña de la base de datos | Especifique la contraseña que se utilizará para acceder a la base de datos creada como parte de la implementación. |
+    | Contraseña de la base de datos y la cadena de bloques | Especifique la contraseña que se utilizará para acceder a la base de datos creada como parte de la implementación. La contraseña debe cumplir tres de los cuatro requisitos siguientes: longitud debe estar entre 12 y 72 caracteres, caracteres de 1 letra minúscula, 1 letra mayúscula, 1 número y 1 carácter especial que es el número no sign(#), porcentaje (%), coma (,), star(*), comilla inversa (\`), haga doble quote("), comillas simples, dash(-) y semicolumn(;) |
     | Región de la implementación | Especifique dónde se van a implementar los recursos de Blockchain Workbench. Para una mejor disponibilidad, el valor debe ser el mismo que el de **Ubicación**. |
     | Subscription | Especifique la suscripción de Azure que desea usar para la implementación. |
     | Grupos de recursos | Cree un nuevo grupo de recursos seleccionando **Crear nuevo** y especifique un nombre de grupo de recursos único. |
-    | Location | Especifique la región en la que desea implementar la plataforma. |
+    | Ubicación | Especifique la región en la que desea implementar la plataforma. |
 
 7. Seleccione **Aceptar** para finalizar la sección de configuración básica.
 
@@ -94,15 +89,15 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
 
     Para **Crear nueva**:
 
-    La opción *crear nueva* opción crea un conjunto de prueba de autoridad de (PoA) Ethereum dentro de la suscripción de un miembro único. 
+    El *crear nuevos* opción implementa un libro de contabilidad de quórum de servicio de Azure Blockchain con la sku básica de forma predeterminada.
 
     ![Configuración avanzada para la nueva red de la cadena de bloques](media/deploy/advanced-blockchain-settings-new.png)
 
     | Configuración | DESCRIPCIÓN  |
     |---------|--------------|
-    | Supervisión | Elija si desea habilitar Azure Monitor para supervisar la red de la cadena de bloques |
+    | Tarifa de Azure Blockchain Service | Elija **básica** o **estándar** nivel de servicio de la cadena de bloques de Azure que se usa para Blockchain Workbench |
     | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Agregar ahora*. |
-    | Selección de máquina virtual | Elija el tamaño preferido de la máquina virtual para la red de cadena de bloques. Elija un tamaño más pequeño de máquina virtual, como *Estándar DS1 v2*, si tiene una suscripción con límites de servicio bajos, como el nivel Gratis de Azure. |
+    | Selección de máquina virtual | Seleccione el rendimiento de almacenamiento que prefiera y tamaño de máquina virtual para la red de la cadena de bloques. Elija un tamaño más pequeño de máquina virtual, como *Estándar DS1 v2*, si tiene una suscripción con límites de servicio bajos, como el nivel Gratis de Azure. |
 
     Para **Usar existente**:
 
@@ -121,7 +116,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
      |---------|--------------|
      | Punto de conexión RPC de Ethereum | Proporcione el punto de conexión RPC de una red de cadena de bloques PoA existente. El punto de conexión comienza con https:// o http:// y termina con un número de puerto. Por ejemplo: `http<s>://<network-url>:<port>` |
      | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Agregar ahora*. |
-     | Selección de máquina virtual | Elija el tamaño preferido de la máquina virtual para la red de cadena de bloques. |
+     | Selección de máquina virtual | Seleccione el rendimiento de almacenamiento que prefiera y tamaño de máquina virtual para la red de la cadena de bloques. Elija un tamaño más pequeño de máquina virtual, como *Estándar DS1 v2*, si tiene una suscripción con límites de servicio bajos, como el nivel Gratis de Azure. |
 
 9. Seleccione **Aceptar** para finalizar la configuración avanzada.
 

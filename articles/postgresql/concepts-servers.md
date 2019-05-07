@@ -1,23 +1,23 @@
 ---
-title: Conceptos sobre servidores de Azure Database for PostgreSQL
-description: En este artículo se incluyen consideraciones e instrucciones para configurar y administrar servidores de Azure Database for PostgreSQL.
+title: 'Conceptos sobre servidores de Azure Database for PostgreSQL: servidor único'
+description: 'En este artículo se incluyen consideraciones e instrucciones para configurar y administrar Azure Database for PostgreSQL: servidor único.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.openlocfilehash: a5b6db9f4bfbe9a11119270e9236580b41fae8c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422106"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067153"
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Servidores de Azure Database for PostgreSQL
-En este artículo se incluyen consideraciones e instrucciones para trabajar con servidores de Azure Database for PostgreSQL.
+# <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - servidor único
+En este artículo se incluyen consideraciones e instrucciones para trabajar con Azure Database for PostgreSQL: servidor único.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>¿Qué es un servidor de Azure Database for PostgreSQL?
-Un servidor de Azure Database for PostgreSQL es un punto central de administración de varias bases de datos. Se trata de la misma construcción de servidores de PostgreSQL con la que puede estar familiarizado en entornos locales. En concreto, el servicio PostgreSQL se administra, ofrece garantías de rendimiento y expone el acceso y las características a nivel de servidor.
+Un servidor en Azure Database for PostgreSQL: opción de implementación de servidor único es un punto administrativo central para varias bases de datos. Se trata de la misma construcción de servidores de PostgreSQL con la que puede estar familiarizado en entornos locales. En concreto, el servicio PostgreSQL se administra, ofrece garantías de rendimiento y expone el acceso y las características a nivel de servidor.
 
 Un servidor de Azure Database for PostgreSQL:
 

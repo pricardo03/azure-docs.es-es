@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60814039"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154572"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Límites de las claves y el modelo de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-boundaries), que controla las intenciones, entidades y características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS. 
@@ -31,9 +31,11 @@ Si la aplicación supera los límites del modelo LUIS, puede usar una aplicació
 | [Nombre de aplicación][luis-get-started-create-app] | *Máximo de caracteres predeterminado |
 | [Pruebas por lotes][batch-testing]| 10 conjuntos de datos, 1000 expresiones por cada conjunto de datos|
 | Lista explícita | 50 por aplicación|
+| Entidades externas | sin límites |
 | [Intenciones][intents]|500 por aplicación: 499 intenciones personalizadas y la intención _Ninguno_ necesaria.<br>La aplicación [basada en la distribución](https://aka.ms/dispatch-tool) tiene 500 orígenes de distribución correspondientes.|
 | [Listar entidades](./luis-concept-entity-types.md) | Elemento principal: 50, elemento secundario: 20 000 elementos. El nombre canónico es *Máximo de caracteres predeterminado. Los valores de los sinónimos no tienen ninguna restricción de longitud. |
-| [Entidades con aprendizaje automático](./luis-concept-entity-types.md):<br> Compuesta,<br>  Jerárquico<br> Simple|Un límite de 100 entidades principales (sin incluir los elementos secundarios jerárquicos) o 330 entidades (incluidos los elementos secundarios jerárquicos), sea cual sea el límite que el usuario alcance primero.<br><br>Un ejemplo con jerarquía sería 30 jerarquías con 10 elementos secundarios cada una.  Los elementos secundarios consumirán 300 en total y los elementos de jerarquía consumirán los 30 restantes. |
+| [Ha aprendido la máquina entidades + roles](./luis-concept-entity-types.md):<br> Compuesto,<br>simple,<br>rol de entidad|Un límite de 100 entidades primarias o 330 entidades, lo que limita las visitas del usuario en primer lugar. Un rol de cuenta como una entidad con el fin de este límite. Un ejemplo es una composición con una entidad sencilla que tiene 2 roles: 1 simple compuesto + 1 + 2 roles = 4 de las 330 entidades.|
+| [Versión preliminar: las entidades de la lista dinámica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~ 1 KB por solicitud de punto de conexión de predicción de consulta|
 | [Patrones](luis-concept-patterns.md)|500 patrones por aplicación.<br>El patrón puede contener 400 caracteres como máximo.<br>3 entidades Pattern.any por patrón<br>Máximo de 2 textos opcionales anidados en el patrón|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicación, 3 entidades Pattern.any por patrón |
 | [Lista de frases][phrase-list]|10 listas de frases, 5000 elementos por lista|

@@ -1,21 +1,21 @@
 ---
-title: Configuración y acceso a los registros del servidor para PostgreSQL en Azure Portal
-description: En este artículo se describe cómo configurar los registros de servidor de Azure Database for PostgreSQL, y obtener acceso a ellos, mediante Azure Portal.
+title: 'Configurar y obtener acceso a los registros de servidor para Azure Database for PostgreSQL: servidor único en Azure Portal'
+description: 'En este artículo se describe cómo configurar y obtener acceso a los registros del servidor en Azure Database for PostgreSQL: servidor único desde el Portal de Azure.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 509c3af66e8228f142126dae6938ad74daf1d7ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 13a8c1ee4b7ca114211f93245d74866e5aa5d52c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421913"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067448"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configuración y acceso a los registros de servidor en Azure Portal
+# <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-in-the-azure-portal"></a>Configurar y obtener acceso a Azure Database for PostgreSQL: registros de servidor único de Azure portal
 
-Puede configurar, enumerar y descargar los [registros del servidor Azure Database for PostgreSQL](concepts-server-logs.md) de Azure Portal.
+Puede configurar, enumerar y descargar el [-Azure Database for PostgreSQL registros](concepts-server-logs.md) desde el portal de Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para seguir esta guía, necesitará:

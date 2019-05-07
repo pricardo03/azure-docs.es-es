@@ -2,18 +2,19 @@
 title: Migración de máquinas virtuales a Azure Premium Storage | Microsoft Docs
 description: Migre las máquinas virtuales existentes a Azure Premium Storage. Premium Storage le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en Azure Virtual Machines.
 services: storage
-author: yuemlu
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: yuemlu
+ms.author: rogarana
+ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372325"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153760"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migración a Azure Premium Storage (discos no administrados)
 
@@ -255,7 +256,7 @@ Una vez que el VHD se encuentra en el directorio local, se puede utilizar AzCopy
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-Un ejemplo <Uri> podría ser ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Un ejemplo <FileInfo> podría ser ***"C:\path\to\upload.vhd"***.
+Un ejemplo \<Uri > podría ser ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Un ejemplo \<FileInfo > puede ser ***"C:\path\to\upload.vhd"***.
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Opción 2: Uso de AzCopy para cargar el archivo .vhd
 Con AzCopy resulta muy fácil cargar el VHD a través de Internet. Dependiendo del tamaño de los discos duros virtuales, esto puede tardar tiempo. Recuerde comprobar los límites de entrada/salida de la cuenta de almacenamiento cuando use esta opción. Vea [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](storage-scalability-targets.md) para obtener detalles.

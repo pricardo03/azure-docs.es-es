@@ -1,25 +1,28 @@
 ---
 title: Cifrado de Azure Storage para datos en reposo | Microsoft Docs
-description: Almacenamiento de Azure protege los datos cifrándolos automáticamente guardarlos antes en la nube. Todos los datos en Azure Storage, ya sea en discos, blobs, archivos, colas o tablas, se cifra y descifra de forma transparente mediante cifrado AES de 256 bits y es compatible con FIPS 140-2.
+description: Almacenamiento de Azure protege los datos cifrándolos automáticamente guardarlos antes en la nube. Todos los datos en Azure Storage se cifra y descifra de forma transparente mediante cifrado AES de 256 bits y es compatible con FIPS 140-2.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/30/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 211cfeb3aba29245e154f4a7db86fb4a3659c36f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730842"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153087"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Cifrado de Azure Storage para datos en reposo
 
 Azure Storage cifra automáticamente los datos al almacenarlos en la nube. El cifrado protege los datos y para ayudar a satisfacer los compromisos de cumplimiento y seguridad organizativos. Datos de Azure Storage se cifra y descifra de forma transparente de 256 bits [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), uno de los bloques más sólidos disponibles, y es compatible con FIPS 140-2. Cifrado de almacenamiento de Azure es similar a cifrado de BitLocker en Windows.
 
-Cifrado de almacenamiento de Azure está habilitado para todas las cuentas de almacenamiento nuevas y existentes y no se puede deshabilitar. Dado que los datos están protegidos de forma predeterminada, no es necesario modificar el código o las aplicaciones para aprovechar las ventajas del cifrado de almacenamiento de Azure. Las cuentas de almacenamiento se cifran independientemente de su nivel de rendimiento (estándar o premium) o el modelo de implementación (Azure Resource Manager o clásico). Todas las opciones de redundancia de almacenamiento de Azure admiten el cifrado, y se cifran todas las copias de una cuenta de almacenamiento. Se cifran todos los recursos de Azure Storage, incluidos blobs, discos, archivos, colas y tablas.
+Cifrado de almacenamiento de Azure está habilitado para todas las cuentas de almacenamiento nuevas y existentes y no se puede deshabilitar. Dado que los datos están protegidos de forma predeterminada, no es necesario modificar el código o las aplicaciones para aprovechar las ventajas del cifrado de almacenamiento de Azure. 
+
+Las cuentas de almacenamiento se cifran independientemente de su nivel de rendimiento (estándar o premium) o el modelo de implementación (Azure Resource Manager o clásico). Todas las opciones de redundancia de almacenamiento de Azure admiten el cifrado, y se cifran todas las copias de una cuenta de almacenamiento. Se cifran todos los recursos de Azure Storage, incluidos blobs, discos, archivos, colas y tablas. También se cifran todos los metadatos del objeto.
 
 El cifrado no afectar al rendimiento de Azure Storage. No hay ningún costo adicional para el cifrado de almacenamiento de Azure.
 
