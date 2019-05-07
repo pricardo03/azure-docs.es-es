@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728757"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199451"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -51,7 +51,7 @@ Sí.
 
 **¿Puedo usar un archivo de disco duro virtual en una cuenta de Azure Storage para crear un disco administrado en una región diferente?**
 
-No.
+ No.
 
 **¿Hay alguna limitación de escala para los clientes que usen discos administrados?**
 
@@ -59,11 +59,11 @@ Managed Disks elimina los límites asociados a las cuentas de almacenamiento. Si
 
 **¿Puedo tomar una instantánea incremental de un disco administrado?**
 
-No. La funcionalidad de instantánea actual realiza una copia completa de un disco administrado.
+ No. La funcionalidad de instantánea actual realiza una copia completa de un disco administrado.
 
 **¿Pueden las máquinas virtuales de un conjunto de disponibilidad estar compuestas de una combinación de discos administrados y no administrados?**
 
-No. Las máquinas virtuales de un conjunto de disponibilidad deben utilizar únicamente discos administrados o no administrados. Cuando cree un conjunto de disponibilidad, puede elegir qué tipo de discos desea usar.
+ No. Las máquinas virtuales de un conjunto de disponibilidad deben utilizar únicamente discos administrados o no administrados. Cuando cree un conjunto de disponibilidad, puede elegir qué tipo de discos desea usar.
 
 **¿Es Managed Disks la opción predeterminada en Azure Portal?**
 
@@ -103,7 +103,7 @@ Sí, se admiten discos administrados y no administrados. Recomendamos que empiec
 
 **¿Puedo localizar conjuntamente discos administrados y no administrados en la misma máquina virtual?**
 
-No.
+ No.
 
 **¿Si creo un disco de 128 GB y después lo aumento a 130 gibibytes (GiB), cobrará por el siguiente tamaño de disco (256 GiB)?**
 
@@ -115,15 +115,15 @@ Actualmente, Azure Managed Disks solo admite discos administrados de almacenamie
 
 **¿Puedo reducir mis discos administrados?**
 
-No. En la actualidad no se admite esta característica.
+ No. En la actualidad no se admite esta característica.
 
 **¿Se puede interrumpir una concesión en el disco?**
 
-No. Esto no es posible actualmente, ya que la concesión está presente para evitar una eliminación accidental cuando se está utilizando el disco.
+ No. Esto no es posible actualmente, ya que la concesión está presente para evitar una eliminación accidental cuando se está utilizando el disco.
 
 **¿Se puede cambiar la propiedad de nombre de equipo cuando se usa un disco de sistema operativo especializado (no creado mediante la herramienta de preparación del sistema o generalizado) para aprovisionar una máquina virtual?**
 
-No. No se puede actualizar la propiedad de nombre de equipo. La nueva máquina virtual lo hereda de la máquina virtual principal que se usó para crear el disco del sistema operativo. 
+ No. No se puede actualizar la propiedad de nombre de equipo. La nueva máquina virtual lo hereda de la máquina virtual principal que se usó para crear el disco del sistema operativo. 
 
 **¿Dónde puedo encontrar plantillas de Azure Resource Manager de ejemplo para crear máquinas virtuales con discos administrados**
 * [Lista de plantillas mediante discos administrados](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
@@ -140,6 +140,20 @@ No se puede cambiar el nombre de los discos administrados. Sin embargo, es posib
 **¿Puedo usar la creación de particiones de GPT en un disco de Azure?**
 
 La creación de particiones de GPT solo se puede usar en discos de datos, no en discos de sistemas operativos. Los discos de SO deben usar el estilo de partición de MBR.
+
+## <a name="uploading-to-a-managed-disk"></a>Cargar en un disco administrado
+
+**¿Puedo cargar datos en un disco administrado existente?**
+
+No, carga solo se puede usar durante la creación de un nuevo disco vacío con el **ReadyToUpload** estado.
+
+**¿Puedo conectar un disco a una máquina virtual mientras está en un estado de carga?**
+
+ No.
+
+**¿Puedo tomar una instantánea de un disco administrado en un estado de carga?**
+
+ No.
 
 ## <a name="standard-ssd-disks"></a>Discos SSD estándar
 
@@ -207,11 +221,11 @@ No es preciso realizar cambios.
 
 **¿Es automatizar la migración de un escalado de máquinas virtuales existentes conjunto de discos no administrados a Managed Disks?**
 
-No. Puede crear un nuevo conjunto de escalado con Managed Disks con la imagen del antiguo conjunto de escalado con discos no administrados.
+ No. Puede crear un nuevo conjunto de escalado con Managed Disks con la imagen del antiguo conjunto de escalado con discos no administrados.
 
 **¿Puedo crear un disco administrado desde una instantánea de blob en páginas tomada antes de migrar a Managed Disks?**
 
-No. Puede exportar una instantánea del blob en páginas como un blob en páginas y, a continuación, crear un disco administrado a partir del blob en páginas exportado.
+ No. Puede exportar una instantánea del blob en páginas como un blob en páginas y, a continuación, crear un disco administrado a partir del blob en páginas exportado.
 
 **¿Se puede realizar una conmutación por error de mis equipos locales protegidos por Azure Site Recovery a una máquina virtual con Managed Disks?**
 
@@ -237,11 +251,11 @@ Microsoft administra las claves de cifrado.
 
 **¿Puedo deshabilitar Storage Service Encryption para Managed Disks?**
 
-No.
+ No.
 
 **¿Storage Service Encryption está solo disponible en determinadas regiones?**
 
-No. Está en todas las regiones donde esté disponible Managed Disks. Managed Disks está disponible en todas las regiones públicas y Alemania. También está disponible en China, sin embargo, solo para las claves administradas por Microsoft, no para las claves administradas por el cliente.
+ No. Está en todas las regiones donde esté disponible Managed Disks. Managed Disks está disponible en todas las regiones públicas y Alemania. También está disponible en China, sin embargo, solo para las claves administradas por Microsoft, no para las claves administradas por el cliente.
 
 **¿Cómo averiguo si mi disco administrado está cifrado?**
 
@@ -264,7 +278,7 @@ Sí
 
 **¿Se cifrará también un VHD exportado de un disco administrado o de una instantánea?**
 
-No. Pero si exporta un disco duro virtual a una cuenta de almacenamiento cifrada desde un disco administrado cifrado o una instantánea, en este caso se cifra. 
+ No. Pero si exporta un disco duro virtual a una cuenta de almacenamiento cifrada desde un disco administrado cifrado o una instantánea, en este caso se cifra. 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Discos premium: Administrados y no administrados
 
@@ -274,7 +288,7 @@ Sí.
 
 **¿Puedo conectar discos de datos tanto premium como estándar a una serie de tamaño que no admita discos SSD premium, por ejemplo, las series D, Dv2, G o F?**
 
-No. Solo puede conectar discos de datos estándar a máquinas virtuales que no utilicen una serie de tamaño que admita discos SSD premium.
+ No. Solo puede conectar discos de datos estándar a máquinas virtuales que no utilicen una serie de tamaño que admita discos SSD premium.
 
 **Si creo un disco de datos premium a partir un disco duro virtual existente con 80 GB, ¿cuánto me costará?**
 

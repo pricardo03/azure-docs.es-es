@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 1bdf73dc6a4edf0c170b51e70fca2128d22e0eb8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59805168"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150322"
 ---
 En la tabla siguiente se enumera los límites asociados con los niveles de servicio S1, S2, S3 y F1. Para obtener información sobre el costo de cada *unidad* en cada nivel, consulte [precios de Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -40,9 +40,9 @@ En la tabla siguiente se enumera los límites que se aplican a los recursos de I
 | Número máximo de entregas para los mensajes de nube a dispositivo  <br/> messages |100 |
 | Número máximo de entregas de mensajes de comentarios  <br/>  en respuesta a un mensaje de nube a dispositivo |100 |
 | TTL máximo para los mensajes de comentarios en  <br/>  respuesta a un mensaje de nube a dispositivo |2 días |
-| Tamaño máximo del dispositivo gemelo <br/> (etiquetas, propiedades notificadas y propiedades deseadas) | 8 KB |
+| [Tamaño máximo del dispositivo gemelo](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (etiquetas, propiedades notificadas y propiedades deseadas) | 8 KB |
 | Tamaño máximo del valor de cadena del dispositivo gemelo | 4 KB |
-| Profundidad máxima del objeto en el dispositivo gemelo | 5 |
+| [Profundidad máxima del objeto en el dispositivo gemelo](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5 |
 | Tamaño máximo de carga del método directo | 128 KB |
 | Retención máxima del historial de trabajos | 30 días |
 | Número máximo de trabajos simultáneos | 10 (para S3), 5 para (S2), 1 (para S1) |
@@ -51,10 +51,8 @@ En la tabla siguiente se enumera los límites que se aplican a los recursos de I
 | Número máximo de secuencias de dispositivos conectados simultáneamente | 50 (solo para S1, S2, S3 y F1) |
 | Nivel máximo de transferencia de datos de secuencia de dispositivos | 300 MB por día (solo para S1, S2, S3 y F1) |
 
-
 > [!NOTE]
 > Si necesita más de 50 IoT hub de pago en una suscripción de Azure, póngase en contacto con Microsoft Support.
-
 
 > [!NOTE]
 > Actualmente, el número máximo de dispositivos que pueden conectarse a un solo centro de IoT es de 1 000 000. Si quiere aumentar este límite, póngase en contacto con el [soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).

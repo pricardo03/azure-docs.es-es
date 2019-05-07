@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001585"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154429"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Uso de firmas de acceso compartido (SAS)
 
@@ -117,7 +118,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Recurso |`sr=b` |El recurso es un blob. |
 | Permisos |`sp=rw` |Los permisos que concede la SAS son de lectura y escritura. |
 | Intervalo de IP |`sip=168.1.5.60-168.1.5.70` |El intervalo de direcciones IP desde el que se aceptará una solicitud. |
-| Protocolo |`spr=https` |Solo se permiten solicitudes con HTTPS. |
+| Protocol |`spr=https` |Solo se permiten solicitudes con HTTPS. |
 | Firma |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Se usa para autorizar el acceso al blob. La firma es un HMAC que se procesa mediante una cadena para firmar y una clave con el algoritmo SHA256, y que se codifica mediante Base64. |
 
 ### <a name="account-sas-uri-example"></a>Ejemplo de identificador URI de SAS de cuenta

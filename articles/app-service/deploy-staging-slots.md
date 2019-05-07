@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266212"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137875"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -265,6 +265,8 @@ Para permitir a los usuarios participar en la aplicación de la versión beta, e
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
+
+De forma predeterminada, las ranuras de nuevo tienen una regla de enrutamiento de `0%`, como se muestra en gris. Si se establece explícitamente este valor `0%` (se muestra en texto negro), los usuarios pueden tener acceso a la ranura de ensayo manualmente mediante el `x-ms-routing-name` parámetro de consulta, pero no se enrutarán a la ranura automáticamente ya que el porcentaje de enrutamiento está establecido en 0. Se trata de un escenario avanzado, donde puede "Ocultar" su ranura de ensayo del público permitiendo que los equipos internos probar los cambios en la ranura.
 
 <a name="Delete"></a>
 

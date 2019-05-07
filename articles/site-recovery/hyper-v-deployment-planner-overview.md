@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/18/2019
 ms.author: mayg
-ms.openlocfilehash: aecbe666814a9ae80611de7798b4ab21fe15e219
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a793de302eb0833c959f2486fc2cda1f2eec4674
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946502"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149122"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Información sobre Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure
 
@@ -120,6 +120,9 @@ Ejemplo: Copie el archivo .zip en la unidad E:\ y extráigalo. E:\ASR Deployment
 E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Actualización a la versión más reciente de Deployment Planner
+
+Se resumen las actualizaciones más recientes en Deployment Planner [historial de versiones](site-recovery-deployment-planner-history.md).
+
 Si tiene una versión anterior de la herramienta, realice una de las siguientes acciones:
  * Si la versión más reciente no contiene una corrección de la generación de perfiles y la generación de perfiles ya está en curso en la versión actual del programador, continúe con la generación de perfiles.
  * Si la versión más reciente contiene una corrección de la generación de perfiles, se recomienda detener la versión actual de la generación de perfiles y reiniciar la generación de perfiles con la nueva versión.

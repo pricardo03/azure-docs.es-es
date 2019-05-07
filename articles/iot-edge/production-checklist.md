@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80bf4718b63496c0b220aa79dcdd27f2711b70ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998462"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148097"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparación para implementar la solución IoT Edge en producción
 
@@ -186,7 +186,11 @@ Si sus dispositivos se van a implementar en una red que utiliza un servidor prox
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurar los registros y diagnósticos
 
-En Linux, el demonio de IoT Edge utiliza diarios como el controlador de registro predeterminado. Puede usar la herramienta de línea de comandos `journalctl` para consultar los registros del demonio. En Windows, el demonio de IoT Edge utiliza diagnósticos de PowerShell. Use `Get-WinEvent` para consultar los registros del demonio. Módulos de IoT Edge usan el controlador JSON para el registro, que es el valor predeterminado.  
+En Linux, el demonio de IoT Edge utiliza diarios como el controlador de registro predeterminado. Puede usar la herramienta de línea de comandos `journalctl` para consultar los registros del demonio. En Windows, el demonio de IoT Edge utiliza diagnósticos de PowerShell. Use `Get-IoTEdgeLog` para consultar los registros del demonio. Módulos de IoT Edge usan el controlador JSON para el registro, que es el valor predeterminado.  
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
 
 Cuando está probando una implementación de IoT Edge, normalmente puede acceder a sus dispositivos para recuperar registros y solucionar problemas. En un escenario de implementación, es posible que no tenga esa opción. Considere cómo va a recopilar información sobre los dispositivos en producción. Una opción es usar un módulo de registro que recoge información de los otros módulos y la envía a la nube. Un ejemplo de un módulo de registro es [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics) o puede diseñar el suyo propio. 
 
@@ -208,7 +212,7 @@ Puede limitar el tamaño de todos los archivos de registro de contenedor en las 
 
 Agregar (o anexar) esta información en un archivo denominado `daemon.json` y colóquelo en la ubicación adecuada para su plataforma de dispositivo.
 
-| Plataforma | Location |
+| Plataforma | Ubicación |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 |  Windows | `C:\ProgramData\iotedge-moby-data\config\` |

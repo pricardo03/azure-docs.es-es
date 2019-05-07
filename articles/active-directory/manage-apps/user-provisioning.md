@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 67956b3369394f68d067fc4753a859c066428aea
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708299"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191491"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 
@@ -269,11 +269,15 @@ Sin embargo, el uso de grupos dinámicos puede afectar al rendimiento general de
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>¿Funciona el aprovisionamiento automático de usuarios para aplicaciones SaaS con grupos anidados en Azure AD?
 
-No. Cuando se configura en "Sincronizar solo asignada los usuarios y grupos", el servicio de aprovisionamiento de usuario de Azure AD no puede leer ni aprovisionar los usuarios que están en grupos anidados. Solo es capaz de leer y aprovisionamiento de usuarios que son miembros inmediatos del grupo asignado explícitamente.
+ No. Cuando se configura en "Sincronizar solo asignada los usuarios y grupos", el servicio de aprovisionamiento de usuario de Azure AD no puede leer ni aprovisionar los usuarios que están en grupos anidados. Solo es capaz de leer y aprovisionamiento de usuarios que son miembros inmediatos del grupo asignado explícitamente.
 
 Esta es una limitación de las "asignaciones basadas en grupos a aplicaciones" que también afecta al inicio de sesión único y se describe en [Uso de un grupo para administrar el acceso a aplicaciones SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 
 Como alternativa, debe asignar explícitamente (o de otro modo [definir el ámbito en](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) los grupos que contienen los usuarios que necesiten aprovisionarse.
+
+### <a name="is-provisioning-between-azure-ad-and-a-target-application-using-an-encrypted-channel"></a>¿Se está aprovisionando entre Azure AD y una aplicación de destino mediante un canal cifrado?
+
+Sí. Se usa el cifrado SSL de HTTPS para el destino de servidor. 
 
 ## <a name="related-articles"></a>Artículos relacionados
 

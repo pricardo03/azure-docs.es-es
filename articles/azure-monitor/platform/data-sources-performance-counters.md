@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 93f47529e3be44ff1db4e089bdcdca3eb1b4dea3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363522"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205750"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor
 Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
@@ -211,10 +211,10 @@ La tabla siguiente proporciona distintos ejemplos de consultas de registros que 
 | Perf |Todos los datos de rendimiento |
 | Perf &#124; where Computer == "MyComputer" |Todos los datos de rendimiento de un equipo concreto |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |Todos los datos de rendimiento de un contador concreto |
-| Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(Average) by Computer |Uso medio de CPU en todos los equipos |
-| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(Max) by Computer |Uso máximo de CPU en todos los equipos |
-| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(Average) by InstanceName |Longitud media de cola de disco actual en todas las instancias de un equipo dado |
-| Perf &#124; where CounterName == "DiskTransfers/sec" &#124; summarize AggregatedValue = percentile(Average, 95) by Computer |Percentil 95 de transferencias de disco por segundo en todos los equipos |
+| Perf &#124; donde ObjectName == "Processor" and CounterName == "% Processor Time" e InstanceName == "_Total" &#124; resumir AVGCPU = AVG (countervalue) by Computer |Uso medio de CPU en todos los equipos |
+| Perf &#124; donde CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(CounterValue) por equipo |Uso máximo de CPU en todos los equipos |
+| Perf &#124; donde ObjectName == "LogicalDisk" and CounterName == "Longitud actual de cola de disco" y el equipo == "NombreDelEquipo" &#124; summarize AggregatedValue = AVG (countervalue) por nombreDeInstancia |Longitud media de cola de disco actual en todas las instancias de un equipo dado |
+| Perf &#124; donde CounterName == "Las transferencias de disco/s" &#124; summarize AggregatedValue = percentil (CounterValue, 95) por equipo |Percentil 95 de transferencias de disco por segundo en todos los equipos |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |Promedio por hora de uso de CPU en todos los equipos |
 | Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | Percentil 70 por hora de cada contador de porcentaje % para un equipo concreto |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Promedio, mínimo, máximo y percentil 75 por hora de uso de CPU de un equipo específico |

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.date: 05/06/2019
+ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572690"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148978"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Elija entre los niveles de servicio con núcleo virtual y migrar desde los niveles de servicio DTU
 
@@ -38,14 +38,16 @@ El modelo de núcleo virtual ofrece tres niveles de servicio: Uso general, Hiper
 
 La tabla siguiente le ayudará a comprender las diferencias entre estos tres niveles:
 
-||**Uso general**|**Crítico para la empresa**|**Hiperescala (versión preliminar)**|
+||**Uso general**|**Crítico para la empresa**|**Hyperscale**|
 |---|---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables orientadas al presupuesto.|Aplicaciones empresariales con elevados requisitos de E/S. Ofrece la máxima resistencia a errores mediante varias réplicas aisladas.|La mayoría de las cargas de trabajo de una empresa que tengan requisitos de almacenamiento y un escalado de lectura que sean altamente escalables.|
-|CPU|**Aprovisiona el proceso**:<br/>Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales<br/>**Proceso sin servidor**<br/>Gen5: 0.5 - 4 memoria con núcleo virtual|**Aprovisiona el proceso**:<br/>Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|**Aprovisiona el proceso**:<br/>Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|
-|Memoria|**Aprovisiona el proceso**:<br/>Gen4: 7 GB por núcleo<br/>Gen5: 5,1 GB por núcleo<br/>**Proceso sin servidor**<br/>Gen5: 3 GB por núcleo|**Aprovisiona el proceso**:<br/>Gen4: 7 GB por núcleo<br/>Gen5: 5,1 GB por núcleo |**Aprovisiona el proceso**:<br/>Gen4: 7 GB por núcleo<br/>Gen5: 5,1 GB por núcleo|
+|Proceso|**Aprovisiona el proceso**:<br/>Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: núcleo virtual de 2 a 80<br/>**Proceso sin servidor**<br/>Gen5: 0.5 - 4 memoria con núcleo virtual|**Aprovisiona el proceso**:<br/>Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: núcleo virtual de 2 a 80|**Aprovisiona el proceso**:<br/>Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: núcleo virtual de 2 a 80|
+|Memoria|**Aprovisiona el proceso**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual<br/>**Proceso sin servidor**<br/>Gen5: 3 GB por núcleo virtual|**Aprovisiona el proceso**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual |**Aprovisiona el proceso**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual|
 |Almacenamiento|Usa el almacenamiento remoto:<br/>**Base de datos única aprovisionado proceso**:<br/>5 GB – 4 TB<br/>**Informática de base de datos única**:<br/>5 GB A 1 TB<br/>**Instancia administrada**: 32 GB - 8 TB |Usa almacenamiento local de SSD:<br/>**Base de datos única aprovisionado proceso**:<br/>5 GB – 4 TB<br/>**Instancia administrada**:<br/>32 GB - 4 TB |Flexible; crecimiento automático de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento y mucho más. Almacenamiento SSD local para la caché del grupo de búferes local y el almacenamiento de datos local. Almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
+|Memoria|Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo |Gen5: 5,1 GB por núcleo|
+|Almacenamiento|Usa el almacenamiento remoto:<br/>Base de datos única: 5 GB – 4 TB<br/>Instancia administrada: 32 GB - 8 TB |Usa almacenamiento local de SSD:<br/>Base de datos única: 5 GB – 4 TB<br/>Instancia administrada: 32 GB - 4 TB |Flexible; crecimiento automático de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento y mucho más. Almacenamiento SSD local para la caché del grupo de búferes local y el almacenamiento de datos local. Almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
 |Rendimiento de E/S (aproximado)|Base de datos única: 500 IOPS por núcleo virtual con 7000 IOPS como máximo</br>Instancia administrada: Depende del [tamaño del archivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo con 200 000 IOPS como máximo|TBD|
-|Disponibilidad|1 réplica, sin escalado de lectura|3 réplicas, 1 [réplica de escalado de lectura](sql-database-read-scale-out.md),<br/>Con alta disponibilidad y redundancia de zona|?|
+|Disponibilidad|1 réplica, sin escalado de lectura|3 réplicas, 1 [réplica de escalado de lectura](sql-database-read-scale-out.md),<br/>Con alta disponibilidad y redundancia de zona|réplica de lectura/1 escritura además de 0 a 4 [réplicas de escalado de lectura](sql-database-read-scale-out.md)|
 |Copias de seguridad|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|Copias de seguridad basadas en instantáneas que se encuentran en el almacenamiento remoto de Azure, y restauraciones que usan esas instantáneas para una recuperación rápida. Las copias de seguridad son instantáneas y no afectan el rendimiento de E/S del proceso. Las restauraciones son muy rápidas y no tienen el tamaño de una operación de datos (tardan minutos en lugar de horas o días).|
 |En memoria|No compatible|Compatible|No compatible|
 |||
@@ -54,10 +56,8 @@ La tabla siguiente le ayudará a comprender las diferencias entre estos tres niv
 > Puede obtener una base de datos SQL de Azure gratuita en el nivel de servicio básico, junto con una cuenta gratuita de Azure para explorar Azure. Para obtener información, consulte [Cree una base de datos administrada en la nube con su cuenta gratuita de Azure](https://azure.microsoft.com/free/services/sql-database/).
 
 - Para más información, consulte [Límites de recursos de núcleo virtual para una base de datos única](sql-database-vcore-resource-limits-single-databases.md) y [Límites de recursos de núcleo virtual en una Instancia administrada](sql-database-managed-instance.md#vcore-based-purchasing-model).
-- Para obtener más información acerca de los niveles de servicio Uso general y Crítico para la empresa, consulte [Niveles de servicio Uso general y Crítico para la empresa.](sql-database-service-tiers-general-purpose-business-critical.md).
+- Para obtener más información acerca de los niveles de servicio Uso general y Crítico para la empresa, consulte [Niveles de servicio Uso general y Crítico para la empresa](sql-database-service-tiers-general-purpose-business-critical.md).
 - Para obtener información sobre el nivel de servicio Hiperescala en el modelo de compra basado en núcleo virtual, consulte [Nivel de servicio Hiperescala](sql-database-service-tier-hyperscale.md).  
-
-
 
 ## <a name="azure-hybrid-benefit"></a>Ventaja híbrida de Azure
 

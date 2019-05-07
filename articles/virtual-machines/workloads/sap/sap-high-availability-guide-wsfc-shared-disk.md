@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 987cd1e5860b0fe340ba8a5163d844bec29b541c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637733"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205097"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -264,7 +264,7 @@ Para crear un recurso de disco compartido para un clúster:
 2. Ejecute SIOS DataKeeper Cluster Edition en ambos nodos de la máquina virtual.
 3. Configure SIOS DataKeeper Cluster Edition de forma que refleje el contenido del volumen del disco adicional asociado desde la máquina virtual de origen al volumen del disco adicional asociado de la máquina virtual de destino. SIOS DataKeeper abstrae los volúmenes locales de origen y de destino y los presenta a los clústeres de conmutación por error de Windows Server como un disco compartido.
 
-Obtenga más información sobre [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
+Obtenga más información sobre [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
 
 ![Ilustración 5: Configuración de Azure con SIOS DataKeeper de clústeres de conmutación por error de Windows Server][sap-ha-guide-figure-1002]
 
