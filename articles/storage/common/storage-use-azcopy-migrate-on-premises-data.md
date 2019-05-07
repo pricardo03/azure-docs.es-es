@@ -2,18 +2,19 @@
 title: 'Tutorial: Migración de datos locales a Azure Storage mediante AzCopy | Microsoft Docs'
 description: En este tutorial, va a utilizar AzCopy para migrar datos al contenido de archivos, blobs y tablas o copiarlos. Realice la migración de los datos fácilmente desde el almacenamiento local a Azure Storage.
 services: storage
-author: roygara
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 12/14/2017
-ms.author: rogarana
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 40138a69baf9cd621b2f287b2fe035225bfd9bec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5c10edc4f11aad23801045011b67592b6cc537e4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877506"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149059"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Tutorial: Migración de datos locales al almacenamiento en la nube mediante AzCopy
 

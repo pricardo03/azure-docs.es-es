@@ -2,19 +2,20 @@
 title: Cifrado del lado de cliente con Java para el Microsoft Azure Storage | Microsoft Docs
 description: La biblioteca de cliente de Azure Storage para Azure ofrece compatibilidad para el cifrado de cliente e integración con Azure Key Vault para obtener una seguridad máxima para sus aplicaciones de Azure Storage.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 058dc97054aad310135ccc1f51d765f0af3f571b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992450"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147022"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -118,7 +119,7 @@ Hay tres paquetes de Key Vault:
 1. Crear un secreto sin conexión y cargarlo en  Key Vault.  
 2. Usar el identificador de base del secreto como un parámetro para resolver la versión actual del secreto para el cifrado y el almacenamiento en caché de esta información localmente. Usar CachingKeyResolver para el almacenamiento en caché (los usuarios no deben implementar su propia lógica de almacenamiento en caché).  
 3. Utilizar la resolución de caché como una entrada al crear la directiva de cifrado.
-   Puede encontrar más información acerca del uso de Key Vault en los ejemplos de código de cifrado. <fix URL>  
+   Puede encontrar más información acerca del uso de Key Vault en los ejemplos de código de cifrado.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 La compatibilidad con el cifrado solo está disponible en la biblioteca de cliente de almacenamiento para Java.
@@ -142,7 +143,7 @@ Al crear un objeto de EncryptionPolicy, los usuarios pueden proporcionar solo un
   * La resolución de claves se invoca si se especifica para obtener la clave. Si se especifica la resolución, pero no se proporciona una asignación para el identificador de clave, se produce un error.  
   * Si no se especifica la resolución, pero sí se especifica una clave, la clave se usa si su identificador coincide con el identificador de clave necesario. Si el identificador no coincide, se genera un error.  
     
-    Los [ejemplos de cifrado](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>muestran un escenario más detallado de un extremo a otro para blobs, colas y tablas, junto con la integración de Key Vault.
+    Los [ejemplos de cifrado](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) muestran un escenario más detallado de un extremo a otro para blobs, colas y tablas, junto con la integración de Key Vault.
 
 ### <a name="requireencryption-mode"></a>Modo RequireEncryption
 Los usuarios pueden habilitar opcionalmente un modo de operación en el que se deben cifrar todas las cargas y descargas. En este modo, los intentos de cargar datos sin una directiva de cifrado o de descargar datos no cifrados en el servicio generarán un error en el cliente. La marca **requireEncryption** del objeto de opciones de solicitud es la que controla este comportamiento. Si la aplicación va a cifrar todos los objetos almacenados en Azure Storage, puede establecer la propiedad **requireEncryption** en las opciones de solicitud predeterminadas del objeto de cliente de servicio.   

@@ -1,20 +1,18 @@
 ---
 title: Usar Azure Backup para cambiar su infraestructura de cintas
 description: Aprenda cómo Microsoft Azure Backup proporciona semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure
-services: backup
-author: trinadhk
-manager: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/10/2017
-ms.author: saurse
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2017
+ms.author: dacurwin
+ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646959"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146017"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Traslado del almacenamiento a largo plazo de la cinta a la nube de Azure
 Los clientes de Microsoft Azure Backup y System Center Data Protection Manager pueden:
@@ -59,8 +57,7 @@ El número total de "puntos de retención" (desde los que un cliente puede resta
 El número total de puntos de recuperación es 56.
 
 > [!NOTE]
-> La copia de seguridad de Azure no tiene una restricción sobre el número de puntos de recuperación.
->
+> Puede crear hasta 9999 puntos de recuperación por instancia protegida mediante Azure Backup. Una instancia protegida es un equipo, un servidor (físico o virtual) o una carga de trabajo que realiza copias de seguridad en Azure.
 >
 
 ## <a name="advanced-configuration"></a>Configuración avanzada

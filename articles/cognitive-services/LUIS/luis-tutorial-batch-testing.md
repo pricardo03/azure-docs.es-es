@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 391a5386a5ecc144b15c35a85d501dfb5ce2d172
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597404"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146157"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: Pruebas en lote de conjuntos de datos
 
@@ -28,7 +28,7 @@ Requisitos de las pruebas por lotes:
 
 * Máximo de 1000 expresiones por prueba. 
 * Sin duplicados. 
-* Tipos de entidad permitidos: solo entidades de aprendizaje automático de entidades simples, jerárquicas (solo principales) y compuestos. Las pruebas por lotes solo son útiles para las entidades e intenciones de aprendizaje automático.
+* Tipos de entidad permitidos: solo entidades aprendido las máquinas de simple y compuesta. Las pruebas por lotes solo son útiles para las entidades e intenciones de aprendizaje automático.
 
 Cuando use una aplicación que no sea este tutorial, asegúrese de *no* usar las expresiones de ejemplo que ya están agregadas en una intención. 
 
@@ -95,7 +95,7 @@ Para ello, siga los pasos que se describen a continuación:
 
 ## <a name="review-batch-results"></a>Revisar los resultados de lote
 
-El gráfico por lotes muestra cuatro cuadrantes de resultados. Hay un filtro a la derecha del gráfico. De manera predeterminada, el filtro se establece en la primera intención de la lista. El filtro contiene todas las intenciones y solo las entidades simples, jerárquicas (solo principales) y compuestas. Cuando se selecciona una [sección del gráfico](luis-concept-batch-test.md#batch-test-results) o un punto dentro del gráfico, las expresiones asociadas se muestra debajo del gráfico. 
+El gráfico por lotes muestra cuatro cuadrantes de resultados. Hay un filtro a la derecha del gráfico. De manera predeterminada, el filtro se establece en la primera intención de la lista. El filtro contiene todas las intenciones y entidades solo simple y compuestas. Cuando se selecciona una [sección del gráfico](luis-concept-batch-test.md#batch-test-results) o un punto dentro del gráfico, las expresiones asociadas se muestra debajo del gráfico. 
 
 Si mantiene el mouse sobre el gráfico y gira la rueda del mouse, puede agrandar o disminuir la visualización del gráfico. Esto resulta útil cuando hay muchos puntos en el gráfico estrechamente agrupados. 
 
@@ -169,7 +169,7 @@ Para comprobar que las expresiones en la prueba por lotes se predicen correctame
 
 ## <a name="create-batch-file-with-entities"></a>Creación de archivo por lotes con entidades 
 
-A fin de comprobar las entidades de una prueba por lotes, es necesario etiquetar las entidades en el archivo JSON por lotes. Solo se usan las entidades de aprendizaje automático: las entidades simples, jerárquicas (solo principales) y compuestas. No agregue entidades que no son de aprendizaje automático, porque siempre se encuentran ya sea a través de expresiones regulares o de coincidencias de texto explícitas.
+A fin de comprobar las entidades de una prueba por lotes, es necesario etiquetar las entidades en el archivo JSON por lotes. Se usan sólo las entidades que ha aprendido la máquina: entidades simples y compuestas. No agregue entidades que no son de aprendizaje automático, porque siempre se encuentran ya sea a través de expresiones regulares o de coincidencias de texto explícitas.
 
 La variación de entidades para el número total de palabras ([token](luis-glossary.md#token)) puede afectar a la calidad de la predicción. Asegúrese de que los datos de entrenamiento proporcionados a la intención con expresiones etiquetadas incluyen una variedad de longitudes de entidad. 
 
@@ -205,11 +205,11 @@ El valor de una entidad **Job** (Trabajo), que se proporciona en las expresiones
 
 ## <a name="review-entity-batch-results"></a>Revisión de los resultados de lote de las entidades
 
-El gráfico se abre con todas las intenciones que se predicen correctamente. Desplácese hacia abajo en el filtro de la derecha para buscar las predicciones de entidades con error. 
+El gráfico se abre con todas las intenciones que se predicen correctamente. Desplácese hacia abajo en el filtro de la derecha para buscar las predicciones de la entidad con errores. 
 
 1. Seleccione la entidad **Job** (Trabajo) en el filtro.
 
-    ![Predicciones de entidades con error en el filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![Predicciones de entidad de error de filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     El gráfico cambia para mostrar las predicciones de la entidad. 
 

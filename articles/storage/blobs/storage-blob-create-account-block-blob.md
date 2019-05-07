@@ -1,20 +1,21 @@
 ---
 title: 'Crear una cuenta de almacenamiento blob de bloque: almacenamiento de Azure | Microsoft Docs'
 description: Muestra cómo crear una cuenta de almacenamiento de blobs de bloques de Azure con las características de rendimiento premium.
+author: tamram
+services: storage
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/23/2019
-author: twooley
-ms.author: twooley
+ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f4d3e3ad923b6a603902bc007107cb41dae8cf6c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9d8fb8f5f470dc47088efb30b7f823a0b8c624c8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400463"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141015"
 ---
-# <a name="create-a-block-blob-storage-account"></a>Crear una cuenta de almacenamiento de blobs de bloque
+# <a name="create-a-block-blob-storage-account"></a>Creación de una cuenta de almacenamiento de blobs en bloques
 
 El tipo de cuenta de almacenamiento de blobs de bloque le permite crear blobs en bloques con características de rendimiento premium. Este tipo de cuenta de almacenamiento está optimizado para cargas de trabajo con las tarifas de transacciones elevadas o que requieren tiempos de acceso muy rápidos. En este artículo se muestra cómo crear una cuenta de almacenamiento de blobs de bloque mediante el portal de Azure, la CLI de Azure o Azure PowerShell.
 
@@ -42,7 +43,7 @@ Para crear una cuenta de almacenamiento de blobs de bloque en el portal de Azure
 
 1. Para el resto de la configuración, configure lo siguiente:
 
-   |Campo     |Valor  |
+   |Campo     |`Value`  |
    |---------|---------|
    |**Rendimiento**    |  Seleccione **Premium**.   |
    |**Tipo de cuenta**    | Seleccione **BlockBlobStorage**.      |

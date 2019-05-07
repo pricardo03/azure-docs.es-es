@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813189"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141044"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidad y sus propósitos en LUIS
 
@@ -97,7 +97,6 @@ Una vez que se extrae la entidad, sus datos pueden representarse como una sola u
 |Con aprendizaje automático|Se puede marcar|Tutorial|Ejemplo<br>Response|Tipo de entidad|Propósito|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Compuesta**](#composite-entity)|Agrupación de entidades, independientemente del tipo de entidad.|
-|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Jerárquica**](#hierarchical-entity)|Agrupación de entidades simples.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Lista**](#list-entity)|Lista de elementos y sus sinónimos extraída con coincidencia de texto exacta.|
 |Mixta||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entidad cuyo final es difícil de determinar.|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Creada previamente**](#prebuilt-entity)|Entidad entrenada para extraer distintos tipos de datos.|
@@ -112,7 +111,7 @@ Las entidades mixtas usan una combinación de métodos de detección de entidade
 
 ## <a name="composite-entity"></a>Entidad compuesta
 
-Una entidad compuesta está formada de otras entidades, como las entidades precompiladas, simples, de expresión regular, de lista y jerárquicas. Las entidades independientes forman una entidad completa. 
+Una entidad compuesta se compone de otras entidades, como entidades precompiladas, simple, expresión regular y las entidades de la lista. Las entidades independientes forman una entidad completa. 
 
 Esta entidad es la opción ideal cuando los datos:
 
@@ -126,18 +125,6 @@ Esta entidad es la opción ideal cuando los datos:
 
 [Tutorial](luis-tutorial-composite-entity.md)<br>
 [Respuesta JSON de ejemplo de entidad](luis-concept-data-extraction.md#composite-entity-data)<br>
-
-## <a name="hierarchical-entity"></a>Entidad jerárquica
-
-**Entidades jerárquicas quedará obsoleto finalmente. Use [roles entidad](luis-concept-roles.md) para determinar los subtipos de entidad, en lugar de entidades jerárquicas.**
-
-Una entidad jerárquica es una categoría de entidades simples de aprendizaje contextual, denominadas entidades secundarias.
-
-![entidad jerárquica](./media/luis-concept-entities/hierarchical-entity.png)
-
-### <a name="roles-versus-hierarchical-entities"></a>Roles frente a entidades jerárquicas
-
-[Roles](luis-concept-roles.md) resolver el mismo problema como entidades jerárquicas, pero se aplican a todos los tipos de entidad.  
 
 ## <a name="list-entity"></a>Entidad de lista
 
@@ -171,10 +158,10 @@ En la tabla siguiente, cada fila tiene dos versiones de la declaración. La decl
 
 |Expresión|
 |--|
-|¿El libro El hombre que confundió a su mujer con un sombrero lo escribió un autor americano este año?<br>¿El libro **El hombre que confundió a su mujer con un sombrero** lo escribió un autor americano este año?|
-|¿El libro Was Half Asleep in Frog Pajamas (Medio dormido en pijama con estampado de ranas) lo escribió un autor americano este año?<br>¿El libro **Was Half Asleep in Frog Pajamas** (Medio dormido en pijama con estampado de ranas) lo escribió un autor americano este año?|
-|¿El libro La insólita amargura del pastel de limón lo escribió un autor americano este año?<br>¿El libro **La insólita amargura del pastel de limón** lo escribió un autor americano este año?|
-|¿El libro ¡Hay un molillo en mi bolsillo! lo escribió un autor americano este año?<br>¿El libro **¡Hay un molillo en mi bolsillo!** lo escribió un autor americano este año?|
+|¿' Era el hombre que ha confundido con su esposa para un Hat y otras historias clínicas escritos por un American este año?<br>¿El libro **El hombre que confundió a su mujer con un sombrero** lo escribió un autor americano este año?|
+|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
+|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
 
 ## <a name="prebuilt-entity"></a>Entidad creada previamente
 

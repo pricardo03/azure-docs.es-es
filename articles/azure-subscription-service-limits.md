@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: ae6547b7940ee4007c747847e6cec7b0c67a9d3c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8d7fa7bbb501675ee38ccc9183e981ce7bb714cf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717444"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150326"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 Este documento enumeran algunos de los límites más comunes de Microsoft Azure, que a veces se denominan cuotas. Actualmente, este documento no cubre todos los servicios de Azure. Con el tiempo, se expande y actualizada para cubrir más servicios de la lista.
@@ -123,6 +123,13 @@ Para más información sobre los límites de lectura y escritura de Resource Man
 Los límites siguientes se aplican cuando se usan Azure Resource Manager y grupos de recursos de Azure. No se enumeran los límites que no han cambiado con Azure Resource Manager. Vea la tabla anterior para esos límites.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
+
+#### <a name="shared-image-gallery-limits"></a>Comparten los límites de la Galería de imágenes
+
+Hay límites por suscripción, para implementar los recursos con galerías de imágenes compartidas:
+- 10 galerías de imágenes compartidas por suscripción, por región
+- 200 definiciones de imágenes por suscripción, por región
+- 2000 versiones de imágenes por suscripción, por región
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Establece los límites de escalado de máquinas virtuales
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
