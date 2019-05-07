@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 2493866f2926f29e673a7825dbd3c4a2d0e41808
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e4268cb3a8d6ac62da12f689560338eee7e6935
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494935"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071813"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Cómo detener la supervisión de Azure Kubernetes Service (AKS) con Azure Monitor para contenedores
 
@@ -32,7 +32,7 @@ Use el comando [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-Para volver a habilitar la supervisión para el clúster, consulte [Habilitación de la supervisión mediante la CLI de Azure](container-insights-onboard.md#enable-using-azure-cli).
+Para volver a habilitar la supervisión para el clúster, consulte [Habilitación de la supervisión mediante la CLI de Azure](container-insights-enable-new-cluster.md#enable-using-azure-cli).
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 Se proporcionan dos plantillas de Azure Resource Manager para permitir la eliminación de los recursos de la solución de manera coherente y repetida en el grupo de recursos. Una es una plantilla JSON que especifica la configuración para dejar de supervisar y la otra contiene valores de parámetros que debe configurar para especificar el identificador de recurso del clúster de AKS y el grupo de recursos en el que se implementa el clúster. 

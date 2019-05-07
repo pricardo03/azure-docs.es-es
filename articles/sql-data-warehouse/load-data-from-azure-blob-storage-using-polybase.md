@@ -2,20 +2,20 @@
 title: 'Tutorial: Carga de datos de taxis de Nueva York en Azure SQL Data Warehouse | Microsoft Docs'
 description: En este tutorial se utiliza Azure Portal y SQL Server Management Studio para cargar datos de taxis de Nueva York de un blob de Azure público en Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/27/2019
-ms.author: mlee3gsd
+ms.date: 04/26/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca4084fb271320eb4cdfdeb6cb9026367761be0a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61079062"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143654"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos de taxis de Nueva York en Azure SQL Data Warehouse
 
@@ -561,6 +561,49 @@ El script utiliza la instrucción de T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/
 
     ![Visualización de tablas cargadas](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>Autenticarse con identidades administradas de carga (opcional)
+Cargar con PolyBase y autentican a través de las identidades administradas es el mecanismo más seguro y le permite aprovechar los puntos de conexión de servicio de red virtual con almacenamiento de Azure. 
+
+### <a name="prerequisites"></a>Requisitos previos
+1.  Instale Azure PowerShell mediante esta [guía](https://docs.microsoft.com/powershell/azure/install-az-ps).
+2.  Si tiene una cuenta de uso general v1 o de Blob Storage, primero debe actualizar a Uso general v2 mediante esta [guía](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+3.  Debe activar **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en el menú de configuración **Firewalls y redes virtuales** de la cuenta de Azure Storage. Consulte [esta guía](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para obtener más información.
+
+#### <a name="steps"></a>Pasos
+1. En PowerShell, **registre el servidor de SQL Database** con Azure Active Directory (AAD):
+
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
+    
+   1. Cree una **cuenta de almacenamiento de uso general v2** con esta [guía](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+
+   > [!NOTE]
+   > - Si tiene una cuenta de uso general v1 o de Blob Storage, **primero debe actualizar a Uso general v2** mediante esta [guía](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    
+1. En la cuenta de almacenamiento, vaya a **Control de acceso (IAM)** y haga clic en **Agregar asignación de roles**. Asignar **colaborador de datos de almacenamiento Blob** rol RBAC a su servidor de base de datos SQL.
+
+   > [!NOTE] 
+   > Solo los miembros con el privilegio Propietario pueden realizar este paso. Para obtener los distintos roles integrados para los recursos de Azure, consulte esta [guía](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  
+1. **Conectividad de PolyBase a la cuenta de Azure Storage:**
+    
+   1. Crear la credencial con ámbito de base de datos con **IDENTITY = 'Managed Service Identity'**:
+
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - No es necesario especificar SECRET con la clave de acceso de Azure Storage porque este mecanismo usa la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) en segundo plano.
+       > - Nombre de identidad debe ser **'Managed Service Identity'** para la conectividad de PolyBase trabajar con la cuenta de almacenamiento de Azure.
+    
+   1. Crear el origen de datos externo especifica la credencial de ámbito de base de datos con Managed Service Identity.
+        
+   1. Realice una consulta normal con las [tablas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+
+Consulte las siguientes [documentación] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) si desea configurar los puntos de conexión de servicio de red virtual para SQL Data Warehouse. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

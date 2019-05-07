@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657567"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141069"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management
 
@@ -44,7 +44,7 @@ Aquí se muestra una introducción rápida de los pasos:
 
 Para proteger una API con Azure AD, el primer paso es registrar una aplicación en Azure AD que la represente. 
 
-1. Vaya a su inquilino de Azure AD y, después, a **Registros de aplicaciones**.
+1. Vaya a su inquilino de Azure AD y, a continuación, vaya a **registros de aplicaciones (heredado)**.
 
 2. Seleccione **Nuevo registro de aplicaciones**. 
 
@@ -62,7 +62,7 @@ Una vez creada la aplicación, tome nota del **Id. de aplicación** para usarlo 
 
 Todas las aplicaciones cliente que llamen a la API deben registrarse también como aplicación en Azure AD. En este ejemplo, la aplicación cliente de ejemplo es la consola del desarrollador en el portal para desarrolladores de API Management. A continuación se indica cómo registrar otra aplicación en Azure AD que represente la consola del desarrollador.
 
-1. Seleccione **Nuevo registro de aplicaciones**. 
+1. Mientras se encuentre en **registros de aplicaciones (heredado)**, seleccione **nuevo registro de aplicaciones**. 
 
 2. Proporcione el nombre de la aplicación. (En este ejemplo, el nombre es `client-app`).
 
@@ -86,7 +86,7 @@ Anote el valor de la clave.
 
 Ahora que hemos registrado dos aplicaciones que representan la API y la consola del desarrollador, es necesario conceder permisos para que la aplicación cliente pueda llamar a la aplicación back-end.  
 
-1. Vaya a **Registros de aplicación**. 
+1. Vaya a **registros de aplicación (heredada)**. 
 
 2. Seleccione `client-app` y vaya a **Configuración**.
 

@@ -1,19 +1,20 @@
 ---
-title: Administración del ciclo de vida de Azure Storage
+title: Administrar el ciclo de vida de almacenamiento de Azure
 description: Aprenda a crear reglas de directiva de ciclo de vida para realizar la transición de datos antiguos del nivel de almacenamiento de acceso frecuente al nivel de almacenamiento de acceso esporádico y al nivel de almacenamiento de archivo.
 services: storage
-author: yzheng-msft
+author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.author: yzheng
+ms.author: mhopkins
+ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938561"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148318"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administrar el ciclo de vida de almacenamiento de blobs de Azure
 
@@ -155,10 +156,10 @@ Cada regla dentro de la directiva tiene varios parámetros:
 
 | Nombre de parámetro | Tipo de parámetro | Notas | Obligatorio |
 |----------------|----------------|-------|----------|
-| Nombre           | string |Nombre de una regla puede incluir hasta 256 caracteres alfanuméricos. El nombre de regla distingue mayúsculas de minúsculas.  Debe ser único dentro de una directiva. | True |
-| Enabled | Boolean | Un valor booleano opcional para permitir que una regla ser temporal deshabilitada. Valor predeterminado es true si no se establece. | False | 
-| Tipo           | Un valor de enumeración | El tipo actual válido es `Lifecycle`. | True |
-| definición     | Un objeto que define la regla del ciclo de vida | Cada definición se compone de un conjunto de filtros y un conjunto de acciones. | True |
+| Nombre           | string |Nombre de una regla puede incluir hasta 256 caracteres alfanuméricos. El nombre de regla distingue mayúsculas de minúsculas.  Debe ser único dentro de una directiva. | True  |
+| enabled | Boolean | Un valor booleano opcional para permitir que una regla ser temporal deshabilitada. Valor predeterminado es true si no se establece. | False | 
+| Tipo           | Un valor de enumeración | El tipo actual válido es `Lifecycle`. | True  |
+| definición     | Un objeto que define la regla del ciclo de vida | Cada definición se compone de un conjunto de filtros y un conjunto de acciones. | True  |
 
 ## <a name="rules"></a>Reglas
 

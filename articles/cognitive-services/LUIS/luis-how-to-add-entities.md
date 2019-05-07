@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196139"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148727"
 ---
 # <a name="create-entities-without-utterances"></a>Creación de entidades sin expresiones
 
@@ -66,29 +66,6 @@ Una entidad de expresión regular se usa para extraer datos de la expresión en 
 
     Esta expresión regular coincide con los caracteres literales `hrf-`, a continuación, de 6 dígitos para representar un formulario de número para un formulario de recursos humanos.
 
-## <a name="add-hierarchical-entities"></a>Incorporación de entidades jerárquicas
-
-Una entidad jerárquica es una categoría de entidades relacionadas conceptualmente y aprendidas contextualmente. En el ejemplo siguiente, la entidad contiene ubicaciones de origen y destino. 
-
-En la expresión `Move John Smith from Seattle to Cairo`, Seattle es la ubicación de origen y el Cairo es la ubicación de destino. Cada ubicación es contextualmente diferente y se aprende a partir del orden de palabras y elección de palabras en la expresión.
-
-Complete estos pasos para agregar entidades jerárquicas: 
-
-1. En la aplicación, seleccione **Entities** (Entidades) en el menú de navegación de la izquierda y seleccione **Create new entity** (Crear nueva entidad).
-
-1. En el cuadro de diálogo emergente, escriba `Location` en el cuadro **Entity name** (Nombre de la entidad) y seleccione **Hierarchical** (Jerárquica) en la lista **Entity type** (Tipo de entidad).
-
-    ![Incorporación de entidad jerárquica](./media/add-entities/hier-location-entity-creation.png)
-
-1. Seleccione **Add Child** (Agregar elemento secundario) y escriba `Origin` en el cuadro **Child #1** (Elemento secundario n.° 1). 
-
-1. Seleccione **Add Child** (Agregar elemento secundario) y escriba `Destination` en el cuadro **Child #2** (Elemento secundario n.° 2). Seleccione **Listo**.
-
-    >[!CAUTION]
-    >Los nombres de entidad secundaria deben ser únicos en todas las entidades en una sola aplicación. Dos entidades jerárquicas diferentes no pueden contener entidades secundarias con el mismo nombre. 
-
-    Una vez creada esta entidad, vaya a todas las intenciones que tienen expresiones de ejemplo que contienen la entidad. Seleccione el texto de la expresión de ejemplo y marque el texto como la entidad. 
-
 <a name="add-composite-entities"></a>
 
 ## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Agregar entidades compuestas para agrupar en una relación de elementos primarios y secundarios
@@ -137,9 +114,7 @@ En la expresión `Where is Request relocation from employee new to the company o
 
 Un rol es un subtipo con nombre en función del contexto. Está disponible en todas las entidades incluidas entidades creadas previamente y no ha aprendido la máquina. 
 
-Con el mismo ejemplo que la entidad jerárquica de las ciudades de origen y destino, la diferencia es que un rol se llama desde el origen en lugar de un elemento secundario jerárquico. 
-
-La sintaxis de un rol es **{Entityname:Rolename}**, donde después del nombre de la entidad aparecen dos puntos y, luego, el nombre del rol. Por ejemplo, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+La sintaxis para un rol es **`{Entityname:Rolename}`** donde el nombre de entidad es seguido de dos puntos y, a continuación, el nombre del rol. Por ejemplo, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. En la sección **Build** (Compilar), seleccione **Entities** (Entidades) en el panel de la izquierda.
 

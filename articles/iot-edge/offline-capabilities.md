@@ -9,19 +9,17 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74d2601c2319ccad9cc980b83894a3242705aa46
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998527"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148117"
 ---
-# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Descripción de las funcionalidades sin conexión ampliadas en dispositivos, módulos y dispositivos secundarios de IoT Edge (versión preliminar)
+# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Comprender extendidas capacidades sin conexión para los dispositivos IoT Edge, módulos y dispositivos secundarios
 
 Azure IoT Edge permite realizar operaciones sin conexión ampliadas en los dispositivos de IoT Edge y operaciones sin conexión en dispositivos secundarios que no son de Edge. Si un dispositivo de IoT Edge ha podido conectarse a IoT Hub aunque sea una sola vez, ese dispositivo y cualquier dispositivo secundario podrá seguir funcionando con una conexión a Internet intermitente o sin conexión. 
 
->[!NOTE]
->La compatibilidad de IoT Edge para trabajar sin conexión está disponible en [versión preliminar pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-it-works"></a>Cómo funciona
 
@@ -61,24 +59,49 @@ Para que un dispositivo de IoT Edge amplíe sus funcionalidades sin conexión a 
 
 ### <a name="assign-child-devices"></a>Asignación de dispositivos secundarios
 
-Los dispositivos secundarios pueden ser cualquier dispositivo que no pertenezca a Edge que esté registrado en la misma instancia de IoT Hub. Puede administrar la relación primario/secundario al crear un nuevo dispositivo o desde la página de detalles del dispositivo de IoT Edge primario o del dispositivo IoT secundario. 
+Los dispositivos secundarios pueden ser cualquier dispositivo que no pertenezca a Edge que esté registrado en la misma instancia de IoT Hub. Los dispositivos primarios pueden tener varios dispositivos secundarios, pero un dispositivo secundario solo puede tener un dispositivo primario. Hay tres opciones para configurar dispositivos secundarios en un dispositivo perimetral:
+
+#### <a name="option-1-iot-hub-portal"></a>Opción 1: Portal de IoT Hub
+
+ Puede administrar la relación primario/secundario al crear un nuevo dispositivo o desde la página de detalles del dispositivo de IoT Edge primario o del dispositivo IoT secundario. 
 
    ![Administración de dispositivos secundarios desde la página de detalles del dispositivo de IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
-Los dispositivos primarios pueden tener varios dispositivos secundarios, pero un dispositivo secundario solo puede tener un dispositivo primario.
+
+#### <a name="option-2-use-the-az-command-line-tool"></a>Opción 2: Use el `az` herramienta de línea de comandos
+
+Mediante el [interfaz de línea de comandos de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) con [extensión de IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 o posterior), puede administrar relaciones de elementos secundarios del elemento primario con el [identidad de dispositivo](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) subcomandos. En el ejemplo siguiente, se ejecuta una consulta para asignar dispositivos en el centro de todos los que no son de IoT Edge como dispositivos secundarios de un dispositivo IoT Edge. 
+
+```shell
+# Set IoT Edge parent device
+egde_device="edge-device1"
+
+# Get All IoT Devices
+device_list=$(az iot hub query \
+        --hub-name replace-with-hub-name \
+        --subscription replace-with-sub-name \
+        --resource-group replace-with-rg-name \
+        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
+        --query 'join(`, `, [].deviceId)' -o tsv)
+
+# Add all IoT devices to IoT Edge (as child)
+az iot hub device-identity add-children \
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name 
+```
+
+Puede modificar el [consulta](../iot-hub/iot-hub-devguide-query-language.md) para seleccionar un subconjunto diferente de los dispositivos. El comando puede tardar varios segundos si especifica un conjunto grande de dispositivos.
+
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Opción 3: Usar el servicio SDK de IoT Hub 
+
+Por último, puede administrar relaciones de elementos secundarios del elemento primario mediante programación con cualquiera C#, Java o el SDK del servicio IoT Hub de Node.js. Este es un [ejemplo de asignación de un dispositivo secundario](https://aka.ms/set-child-iot-device-c-sharp) utilizando el C# SDK.
 
 ### <a name="specifying-dns-servers"></a>Especificar los servidores DNS 
 
-Para mejorar la solidez, se recomienda que especificar las direcciones de servidor DNS usadas en su entorno. Por ejemplo, en Linux, actualice **/etc/docker/daemon.json** (es posible que tenga que crear el archivo) para que incluya:
-
-```json
-{
-    "dns": ["1.1.1.1"]
-}
-```
-
-Si usa un servidor DNS local, reemplace el 1.1.1.1 con la dirección IP del servidor DNS local. Reinicie el servicio de Docker para que los cambios surtan efecto.
-
+Para mejorar la solidez, se recomienda que especificar las direcciones de servidor DNS, usadas en su entorno. Consulte la [dos opciones para hacerlo desde el artículo de solución](troubleshoot.md#resolution-7).
 
 ## <a name="optional-offline-settings"></a>Ajustes opcionales del modo sin conexión
 
@@ -86,7 +109,7 @@ Si espera recopilar todos los mensajes generados por sus dispositivos durante la
 
 ### <a name="time-to-live"></a>Período de vida
 
-La configuración del período de vida es la cantidad de tiempo (en segundos) que puede esperar un mensaje para entregarse antes de que expire. El valor predeterminado es 7200 segundos (dos horas). 
+La configuración del período de vida es la cantidad de tiempo (en segundos) que puede esperar un mensaje para entregarse antes de que expire. El valor predeterminado es 7200 segundos (dos horas). El valor máximo solo está limitado por el valor máximo de una variable de entero, que es aproximadamente 2 mil millones. 
 
 Esta configuración es una propiedad deseada del centro de IoT Edge, que se almacena en el módulo gemelo. Puede configurarla en Azure Portal, en la sección **Configurar las opciones avanzadas del entorno en tiempo de ejecución de Edge** o directamente en el manifiesto de implementación. 
 

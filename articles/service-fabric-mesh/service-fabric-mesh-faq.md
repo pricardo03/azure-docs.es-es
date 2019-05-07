@@ -9,12 +9,12 @@ ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728575"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143292"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Preguntas frecuentes sobre Service Fabric Mesh
 
@@ -28,7 +28,7 @@ Formule preguntas, obtenga respuestas de los ingenieros de Microsoft e informe d
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>¿Cuál es el costo de participar en la versión preliminar?
 
-No hay ningún cargo por implementar aplicaciones o contenedores actualmente en la versión preliminar de Mesh. Sin embargo, le recomendamos que elimine los recursos que implemente y dejarlos no ejecutándose a menos que se está probando activamente.
+Actualmente no hay ningún cargo por la implementación de aplicaciones o contenedores en la vista previa de la malla. Vea las actualizaciones de mayo para su habilitación para la facturación. Sin embargo, le recomendamos que elimine los recursos que implemente y dejarlos no ejecutándose a menos que se está probando activamente.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>¿Hay un límite de cuota del número de núcleos y RAM?
 
@@ -88,10 +88,15 @@ Si va a desarrollar en un equipo con la Actualización de abril de 2018 de Windo
 Las siguientes imágenes del sistema operativo de contenedor pueden usarse para implementar servicios:
 
 - Windows: windowsservercore y nanoserver
-    - Windows Server versión 1709
-    - Windows Server versión 1803
+    - Windows Server 1709
+    - Windows Server 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - Ninguna limitación conocida
+
+> [!NOTE]
+> Herramientas de malla de Visual Studio no admite aún la implementación en Windows Server 2019 y 1809 contenedores.
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>¿Qué tipos de aplicaciones puedo implementar? 
 
@@ -138,6 +143,10 @@ Podría resultar que los límites y la disponibilidad de la CPU se hayan resuelt
 No se pueden implementar varias aplicaciones en un clúster de un nodo. Para mitigar este problema:
 - Use un clúster de cinco nodos al implementar varias aplicaciones en un clúster local.
 - Quite las aplicaciones que no se estén probando actualmente.
+
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Herramientas de VS con compatibilidad limitada para los contenedores de Windows
+
+Las herramientas de Visual Studio solo admiten la implementación de contenedores de Windows con una versión de sistema operativo base de Windows Server 1709 y 1803 hoy en día. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>Lagunas de características y otros problemas conocidos
 

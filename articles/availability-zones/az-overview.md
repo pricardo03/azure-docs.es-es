@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 04/18/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0c5a57ab6d84e1eeda62ab149a9aa7eb3ca71a7a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 302354484142619813ef58bf185c3556d4492de1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697141"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147784"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>¿Qué son las zonas de disponibilidad en Azure?
 Las zonas de disponibilidad son una oferta que protege las aplicaciones y datos de los errores del centro de datos. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de las zonas de disponibilidad dentro de una región protege las aplicaciones y los datos frente a los errores del centro de datos. Los servicios con redundancia de zona replican las aplicaciones y los datos entre zonas de disponibilidad para protegerlos frente a puntos de error únicos. Con las zonas de disponibilidad, Azure ofrece el mejor Acuerdo de Nivel de Servicio del sector de tiempo de actividad de máquina virtual, con un 99,99 %. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
@@ -53,8 +53,8 @@ Las combinaciones de servicios de Azure y regiones que admiten zonas de disponib
 | Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Almacenamiento con redundancia de zona          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | **Redes**                     |            |              |           |           |                |              |          |             |            |                |
-| Dirección IP estándar        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; &#42;| &#10003;    | &#10003;   | &#10003;       |
-| Standard Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; &#42;| &#10003;    | &#10003;   | &#10003;       |
+| Dirección IP estándar        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Standard Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | VPN Gateway                     | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 | ExpressRoute                    | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 | Puerta de enlace de aplicaciones (vista previa)   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
@@ -66,7 +66,6 @@ Las combinaciones de servicios de Azure y regiones que admiten zonas de disponib
 | Service Bus (solo nivel Premium) | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 
 
-&#42;Pronto se convertirán los recursos creados en el sur de Reino Unido antes del 25 de marzo de 2019 para tener redundancia de zona. Los recursos creados después del 25 de marzo de 2019 será con redundancia de zona inmediatamente.
 
 ## <a name="services-resiliency"></a>Resistencia de servicios
 Todos los servicios de administración de Azure están diseñados para ser resistente ante errores de nivel de región. En el espectro de errores, uno o más errores de zona de disponibilidad dentro de una región tienen un radio de error más pequeño en comparación con un error de toda la región. Azure puede recuperar de un error de nivel de zona de servicios de administración dentro de la región o en otra región de Azure. Azure realiza una zona de mantenimiento crítico a la vez dentro de una región, para evitar los errores que afectan a los recursos de cliente implementados en zonas de disponibilidad dentro de una región.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 3e9e3afd5172783c6b5ed8e6342ce9927353d006
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed775bfca2db02b9bfddebb85bbd3f1f668cf3e0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386862"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142691"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creación de un clúster independiente con Windows Server
 Puede usar Azure Service Fabric para crear clústeres de Service Fabric en las máquinas virtuales o los equipos que ejecutan Windows Server. Es decir, podrá implementar y ejecutar aplicaciones de Service Fabric en cualquier entorno donde haya un conjunto de equipos con Windows Server que estén conectados entre sí, ya sea de manera local o con algún proveedor de servicios en la nube. Service Fabric proporciona un paquete de instalación para crear clústeres de Service Fabric, llamado paquete independiente de Windows Server.
@@ -27,7 +27,7 @@ Puede usar Azure Service Fabric para crear clústeres de Service Fabric en las m
 Este artículo le guía por los pasos para crear un clúster independiente de Service Fabric.
 
 > [!NOTE]
-> Este paquete de Windows Server independiente está disponible en el mercado y puede usarse para las implementaciones de producción. Además, puede contener nuevas características de Service Fabric que están en versión preliminar. Desplácese hacia abajo hasta "[Características de versión preliminar incluidas en este paquete](#previewfeatures_anchor)". Sección de la lista de las características de versión preliminar. Puede [descargar una copia de los términos de licencia](https://go.microsoft.com/fwlink/?LinkID=733084) ahora.
+> Este paquete de Windows Server independiente está comercialmente disponible sin costo alguno y se puede usar para las implementaciones de producción. Además, puede contener nuevas características de Service Fabric que están en versión preliminar. Desplácese hacia abajo hasta "[Características de versión preliminar incluidas en este paquete](#previewfeatures_anchor)". Sección de la lista de las características de versión preliminar. Puede [descargar una copia de los términos de licencia](https://go.microsoft.com/fwlink/?LinkID=733084) ahora.
 > 
 > 
 

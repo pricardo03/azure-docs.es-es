@@ -12,22 +12,27 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f17df53c1ea77bf99ab86329fe914d058eb00f64
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574097"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072706"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>Elija entre la memoria con núcleo virtual y el modelo de compra de DTU
 
 Azure SQL Database le permite comprar fácilmente motores de base de datos PaaS completamente administrados que se ajusten a sus necesidades de rendimiento y costos. Según el modelo de implementación de Azure SQL Database, puede seleccionar el modelo de compra que se adapte a sus necesidades:
+
+- [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) (recomendado). Este modelo de compra permite elegir entre el nivel de proceso aprovisionada y el nivel de proceso sin servidor (versión preliminar). Con el nivel de proceso aprovisionada, elige la cantidad exacta de los procesos que siempre se aprovisionan para la carga de trabajo. El nivel de proceso sin servidor, se configura el escalado automático de proceso a través de un intervalo configurable de proceso. Con este nivel de proceso, también tiene una opción para pausar y reanudar la base de datos según la actividad de carga de trabajo automáticamente. El precio unitario de núcleos virtuales por unidad de tiempo es más bajo en el nivel de proceso aprovisionada de nivel de compute en la sin servidor.
+- [Modelo de compra basado en DTU](sql-database-service-tiers-dtu.md). Este modelo de compra proporciona paquetes de proceso y almacenamiento integrados con equilibrio de cargas de trabajo comunes.
 
 Hay disponibles distintos modelos de compra en los modelos de implementación de Azure SQL Database:
 
 - Las opciones de implementación de [base de datos única](sql-database-single-databases-manage.md) y [grupo elástico](sql-database-elastic-pool.md) de [Azure SQL Database](sql-database-technical-overview.md) ofrecen ambas el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 - La opción de implementación de [instancia administrada](sql-database-managed-instance.md) de Azure SQL Database solo ofrece el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md).
 
+
+- El [nivel de servicio de hiperescala](sql-database-service-tier-hyperscale.md) está actualmente disponible para bases de datos únicas mediante la[modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
 
 La siguiente tabla y gráfico de comparan y contrastar lo núcleos virtuales y lo modelos de compra de DTU.
 
@@ -45,6 +50,9 @@ La siguiente tabla y gráfico de comparan y contrastar lo núcleos virtuales y l
 
 En el nivel de proceso aprovisionada, el costo de proceso refleja la capacidad de proceso total que se ha aprovisionado para la aplicación.  En el nivel de servicio Crítico para la empresa, se asignan automáticamente como mínimo tres réplicas. Para reflejar esta asignación adicional de recursos de proceso, el precio del núcleo virtual es aproximadamente 2,7 veces más elevado en el nivel Crítico para la empresa que en el nivel Uso general. Por la misma razón, el mayor precio del almacenamiento por GB en el nivel Crítico para la empresa refleja la E/S alta y la baja latencia del almacenamiento SSD. Al mismo tiempo, el costo de almacenamiento de copia de seguridad no es diferente entre estos dos niveles de servicio porque en ambos casos se usa una clase de almacenamiento estándar.
 
+### <a name="serverless-compute-costs"></a>Costos de proceso sin servidor
+
+Para el nivel de proceso sin servidor, consulte [SQL Database sin servidor (versión preliminar)](sql-database-serverless.md) para obtener una descripción de cómo se define la capacidad de proceso y los costos se calculan.
 
 ## <a name="storage-costs"></a>Costos de almacenamiento
 
@@ -56,7 +64,7 @@ Para más información sobre los precios de almacenamiento, consulte la página 
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleo virtual
 
-Un núcleo virtual representa la CPU lógica que ofrece una opción para elegir entre varias generaciones de hardware y las características físicas de hardware (por ejemplo, el número de núcleos, memoria, el tamaño de almacenamiento). El modelo de compra basado en núcleo virtual le ofrece flexibilidad, control, transparencia de consumo de recursos individuales y una manera sencilla de trasladar los requisitos de carga de trabajo locales a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de la carga de trabajo. En el modelo de compra basado en núcleo virtual, puede elegir entre los niveles de servicio [Uso general](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) y [Crítico para la empresa](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para [bases de datos únicas](sql-database-single-database-scale.md), [grupos elásticos](sql-database-elastic-pool.md) e [instancias administradas](sql-database-managed-instance.md). Para las bases de datos únicas, también puede elegir el [nivel de servicio de hiperescala (versión preliminar)](sql-database-service-tier-hyperscale.md).
+Un núcleo virtual representa la CPU lógica que ofrece una opción para elegir entre varias generaciones de hardware y las características físicas de hardware (por ejemplo, el número de núcleos, memoria, el tamaño de almacenamiento). El modelo de compra basado en núcleo virtual le ofrece flexibilidad, control, transparencia de consumo de recursos individuales y una manera sencilla de trasladar los requisitos de carga de trabajo locales a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de la carga de trabajo. En el modelo de compra basado en núcleo virtual, puede elegir entre los niveles de servicio [Uso general](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) y [Crítico para la empresa](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para [bases de datos únicas](sql-database-single-database-scale.md), [grupos elásticos](sql-database-elastic-pool.md) e [instancias administradas](sql-database-managed-instance.md). Para las bases de datos únicos, también puede elegir el [nivel de servicio de hiperescala](sql-database-service-tier-hyperscale.md).
 
 El modelo de compra basado en núcleo virtual permite elegir los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. En un modelo de compra basado en núcleo virtual, los clientes pagan por:
 

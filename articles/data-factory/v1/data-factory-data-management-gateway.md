@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60489768"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143301"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -205,8 +205,8 @@ Puede ver y actualizar el proxy HTTP mediante la herramienta Administrador de co
 ### <a name="configure-proxy-server-settings"></a>Configuración de un servidor proxy
 Si selecciona la opción **Usar proxy del sistema** para el proxy HTTP, la puerta de enlace utilizará la configuración de proxy de diahost.exe.config y diawp.exe.config. Si no hay ningún proxy especificado en diahost.exe.config y diawp.exe.config, la puerta de enlace se conecta al servicio en la nube directamente sin pasar por el proxy. En el procedimiento siguiente se proporcionan instrucciones para actualizar el archivo diahost.exe.config.
 
-1. En el Explorador de archivos, cree una copia segura de C:\Archivos de programa\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config para conservar una copia de seguridad del archivo original.
-2. Inicie Notepad.exe como administrador y abra el archivo de texto C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. Encontrará la etiqueta predeterminada para system.net como se muestra en el siguiente código:
+1. En el Explorador de archivos, realice una copia de seguridad *C:\\\\archivos de programa\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config* a realizar una copia de seguridad del archivo original.
+2. Inicie Notepad.exe como administrador y abra el archivo de texto *C:\\\\archivos de programa\\Microsoft Data Management Gateway\\2.0\\Shared\\ diahost.exe.config*. Encontrará la etiqueta predeterminada para system.net como se muestra en el siguiente código:
 
     ```
     <system.net>
@@ -280,7 +280,7 @@ Se puede habilitar o deshabilitar la función de actualización automática real
 
 [Para puerta de enlace de nodo único]
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
-2. Cambie a la carpeta C:\Archivos de programa\Microsoft Integration Runtime\3.0\PowerShellScript.
+2. Cambie a la *C:\\\\archivos de programa\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  carpeta.
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.
 
     ```powershell
@@ -293,7 +293,7 @@ Se puede habilitar o deshabilitar la función de actualización automática real
     ```
    [Para puerta de enlace escalable y altamente disponible de varios nodos](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
-2. Cambie a la carpeta C:\Archivos de programa\Microsoft Integration Runtime\3.0\PowerShellScript.
+2. Cambie a la *C:\\\\archivos de programa\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  carpeta.
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.
 
     Se requiere un parámetro AuthKey adicional para la característica de puerta de enlace con alta disponibilidad.
@@ -310,7 +310,7 @@ Se puede habilitar o deshabilitar la función de actualización automática real
 Una vez instalada la puerta de enlace, puede iniciar el Administrador de configuración de Data Management Gateway de una de las siguientes maneras:
 
 1. En la ventana **Búsqueda**, escriba **Data Management Gateway** para tener acceso a esta utilidad.
-2. Ejecute el archivo ejecutable **ConfigManager.exe** en la carpeta: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+2. Ejecute el archivo ejecutable *ConfigManager.exe* en la carpeta: *C:\\\\archivos de programa\\Microsoft Data Management Gateway\\2.0\\compartido*.
 
 ### <a name="home-page"></a>Página de inicio
 En la página principal puede hacer las siguientes acciones:
@@ -511,7 +511,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. En Azure PowerShell, cambie a la carpeta: **C:\\programa de programa\Microsoft Data Management Gateway\2.0\PowerShellScript\\**. Ejecute el script **RegisterGateway.ps1** asociado a la variable local **$Key** tal y como se muestra en el siguiente comando. Este script registra al agente cliente instalado en la máquina con la puerta de enlace lógica que creó antes.
+1. En Azure PowerShell, cambie a la carpeta: *C:\\\\archivos de programa\\en tiempo de ejecución de integración de Microsoft\\3.0\\PowerShellScript\\*. Ejecute el script *RegisterGateway.ps1* asociado a la variable local **$Key** tal y como se muestra en el siguiente comando. Este script registra al agente cliente instalado en la máquina con la puerta de enlace lógica que creó antes.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

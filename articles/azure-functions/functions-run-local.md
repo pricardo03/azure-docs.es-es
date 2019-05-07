@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 380cd84cc5ec56fe54c12201b9c1db810ac457bf
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 14990cd4a066c126b5e4d498c5a109dac1b8820a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875920"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140935"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -94,7 +94,7 @@ Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core 
     sudo apt-get update
     ```
 
-    | Distribución de Linux | `Version` |
+    | Distribución de Linux | Version |
     | --------------- | ----------- |
     | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
@@ -186,7 +186,7 @@ El archivo local.settings.json almacena la configuración de la aplicación, las
 
 | Configuración      | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Cuando se establece en `true`, todos los valores se cifran mediante una clave del equipo local. Se usa con los comandos `func settings`. El valor predeterminado es `false`. |
+| **`IsEncrypted`** | Cuando se establece en `true`, todos los valores se cifran mediante una clave del equipo local. Se usa con los comandos `func settings`. El valor predeterminado es `true`. Cuando `true`, todas las configuraciones que se agregan mediante `func settings add` se cifran mediante la clave del equipo local. Esto refleja cómo se almacena la configuración de function app en la configuración de la aplicación en Azure. Cifrar los valores de configuración local proporciona protección adicional para los datos importantes deben estar expuestos públicamente la local.settings.json.  |
 | **`Values`** | Colección de opciones de configuración de la aplicación y las cadenas de conexión que se usan en la ejecución local. Estos valores se corresponden con la configuración de la aplicación en la aplicación de función en Azure, como [ `AzureWebJobsStorage` ]. Muchos desencadenadores y enlaces tienen una propiedad que hace referencia a una configuración de la aplicación de cadena de conexión, como `Connection` para el [desencadenador de Blob storage](functions-bindings-storage-blob.md#trigger---configuration). Para estas propiedades, se necesita una configuración de aplicación definido en el `Values` matriz. <br/>[`AzureWebJobsStorage`] es una aplicación requiere la configuración para los desencadenadores que no sean HTTP. <br/>Versión 2.x de Functions runtime requiere la [ `FUNCTIONS_WORKER_RUNTIME` ] configuración, que se genera para el proyecto de Core Tools. <br/> Cuando tenga el [emulador de Azure storage](../storage/common/storage-use-emulator.md) instalado localmente, puede establecer [ `AzureWebJobsStorage` ] a `UseDevelopmentStorage=true` y Core Tools usa el emulador. Esto es útil durante el desarrollo, pero debe probar con una conexión de almacenamiento real antes de la implementación. |
 | **`Host`** | La configuración que se muestra esta sección permite personalizar el proceso de host de Functions cuando se ejecuta localmente. |
 | **`LocalHttpPort`** | Establece el puerto predeterminado que se usa cuando al ejecutar el host de Functions local (`func host start` y `func run`). La opción de línea de comandos `--port` tiene prioridad sobre este valor. |

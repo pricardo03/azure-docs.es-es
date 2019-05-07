@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690462"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074197"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 
@@ -30,6 +30,8 @@ Este artículo de procedimientos recomendados se centra en las características 
 **Orientación con procedimientos recomendados**: limite el acceso a aplicaciones que consumen muchos recursos, como los controladores de entrada, a nodos específicos. Mantenga recursos de nodo disponibles para las cargas de trabajo que los necesite y no permita la programación de otras cargas de trabajo en los nodos.
 
 Al crear el clúster de AKS, puede implementar los nodos con compatibilidad con GPU o un gran número de CPU eficaces. Estos nodos se utilizan a menudo para cargas de trabajo de procesamiento de datos grandes, como el aprendizaje automático o la inteligencia artificial. Como este tipo de hardware suele ser un recurso de nodo costoso para implementar, limite las cargas de trabajo que se pueden programar en esos nodos. En su lugar, puede dedicar algunos nodos del clúster a ejecutar servicios de entrada y evitar otras cargas de trabajo.
+
+Se proporciona esta compatibilidad para distintos nodos mediante el uso de varios grupos de nodos. Un clúster de AKS proporciona uno o varios grupos de nodos. Compatibilidad con varios grupos de nodos de AKS está actualmente en versión preliminar.
 
 El programador de Kubernetes puede utilizar taints y tolerations para limitar las cargas de trabajo que se pueden ejecutar en los nodos.
 
@@ -53,13 +55,13 @@ spec:
   containers:
   - name: tf-mnist
     image: microsoft/samples-tf-mnist-demo:gpu
-  resources:
-    requests:
-      cpu: 0.5
-      memory: 2Gi
-    limits:
-      cpu: 4.0
-      memory: 16Gi
+    resources:
+      requests:
+        cpu: 0.5
+        memory: 2Gi
+      limits:
+        cpu: 4.0
+        memory: 16Gi
   tolerations:
   - key: "sku"
     operator: "Equal"
@@ -72,6 +74,8 @@ Cuando se implemente este pod, como el uso de `kubectl apply -f gpu-toleration.y
 Al aplicar valores taint, el trabajo con los desarrolladores y propietarios de su aplicación les permite definir las tolerancias necesarias en sus implementaciones.
 
 Para obtener más información acerca de taints y tolerations, consulte [applying taints and tolerations][k8s-taints-tolerations] (aplicación de taints y tolerations).
+
+Para obtener más información sobre cómo usar varios grupos de nodos de AKS, consulte [crear y administrar varios grupos de nodos para un clúster de AKS][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamiento de taints y tolerations en AKS
 
@@ -195,3 +199,4 @@ Este artículo se ha centrado en las características avanzadas del programador 
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

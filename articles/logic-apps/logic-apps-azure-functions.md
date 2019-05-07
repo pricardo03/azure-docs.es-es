@@ -1,37 +1,35 @@
 ---
-title: Incorporación y ejecución de código personalizado en Azure Logic Apps con Azure Functions | Microsoft Docs
-description: Aprenda a agregar y ejecutar fragmentos de código personalizados en Azure Logic Apps con Azure Functions
+title: Agregar y ejecutar código en Azure Logic Apps con Azure Functions
+description: Agregar y ejecutar código en Azure Logic Apps con Azure Functions
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e371a6abe32a1a41d3babeaa27aaec3e30bd3323
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687694"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142324"
 ---
-# <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Incorporación y ejecución de fragmentos de código personalizados en Azure Logic Apps con Azure Functions
+# <a name="add-and-run-code-by-using-azure-functions-in-azure-logic-apps"></a>Agregar y ejecutar código con Azure Functions en Azure Logic Apps
 
-Cuando quiera ejecutar únicamente código suficiente para realizar un trabajo específico en sus aplicaciones lógicas, puede crear sus propias funciones con [Azure Functions](../azure-functions/functions-overview.md). Este servicio le ayuda a crear fragmentos de código de Node.js, C# y F#, por lo que no tiene que compilar una aplicación completa o la infraestructura para ejecutar el código. Azure Functions proporciona informática sin servidor en la nube y es útil para realizar tareas, como las siguientes:
+Cuando desea ejecutar código que realiza un trabajo específico en las aplicaciones lógicas, puede crear sus propias funciones con [Azure Functions](../azure-functions/functions-overview.md). Este servicio le permite crear Node.js, C#, y F# código por lo que no tiene que crear una aplicación completa o la infraestructura para ejecutar el código. También puede [llamar a aplicaciones lógicas desde Azure Functions](#call-logic-app).
+Azure Functions proporciona informática sin servidor en la nube y es útil para realizar tareas, como las siguientes:
 
 * Extender el comportamiento de la aplicación lógica con funciones en Node.js o C#.
 * Realizar cálculos en el flujo de trabajo de las aplicaciones lógicas.
 * Aplicar formato avanzado o campos de proceso a las aplicaciones lógicas.
 
-También puede [llamar a aplicaciones lógicas desde Azure Functions](#call-logic-app).
+Para ejecutar fragmentos de código sin necesidad de crear las funciones de Azure, obtenga información sobre cómo [adición y ejecución de código en línea](../logic-apps/logic-apps-add-run-inline-code.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para seguir este artículo, necesita estos elementos:
-
-* Si aún no tiene ninguna suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Una aplicación de función de Azure, que es un contenedor para las funciones de Azure, incluida la del usuario. Si no tiene una aplicación de función, [cree primero la aplicación de función](../azure-functions/functions-create-first-azure-function.md). Puede hacerlo [de manera independiente de la aplicación lógica](#create-function-external) o [dentro de ella](#create-function-designer) en el Diseñador de aplicación lógica.
 
@@ -58,7 +56,7 @@ Para seguir este artículo, necesita estos elementos:
 
 ## <a name="create-functions-outside-logic-apps"></a>Creación de funciones independientes de las aplicaciones lógicas
 
-En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, cree la aplicación de función de Azure, que debe tener la misma suscripción de Azure que la aplicación lógica, y, después, la función de Azure.
+En [Azure Portal](https://portal.azure.com), cree la aplicación de función de Azure, que debe tener la misma suscripción de Azure que la aplicación lógica, y, después, la función de Azure.
 Si no está familiarizado con la creación de funciones de Azure, aprenda a [crear su primera función en Azure Portal](../azure-functions/functions-create-first-azure-function.md), pero tenga en cuenta estos requisitos para crear funciones de Azure que pueda llamar desde aplicaciones lógicas:
 
 * Asegúrese de seleccionar la plantilla de función de **desencadenador de HTTP** para **JavaScript** o **C#**.
@@ -116,7 +114,7 @@ Ahora que ha creado la función de Azure, siga los pasos para saber cómo [agreg
 
 Para poder crear una función de Azure desde la aplicación lógica en el Diseñador de aplicación lógica primero debe tener una aplicación de función de Azure, que es un contenedor para las funciones. Si no tiene una aplicación de función, cree primero la aplicación de función. Consulte [Creación de su primera función en Azure Portal](../azure-functions/functions-create-first-azure-function.md). 
 
-1. En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, abra la aplicación lógica en Diseñador de aplicación lógica. 
+1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica. 
 
 2. Para crear y agregar la función, siga los pasos que se apliquen a su escenario:
 
@@ -176,7 +174,7 @@ En la lista de acciones, seleccione esta acción: **Elegir una función de Azure
 
 Para llamar a funciones de Azure existentes desde las aplicaciones lógicas, puede agregar funciones de Azure como cualquier otra acción en el Diseñador de aplicación lógica. 
 
-1. En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, abra la aplicación lógica en Diseñador de aplicación lógica. 
+1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica. 
 
 2. En el paso para agregar la función, elija **Nuevo paso** > **Agregar una acción**. 
 

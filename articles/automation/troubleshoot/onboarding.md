@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119136"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145162"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Solución de problemas de errores al incorporar soluciones
 
@@ -78,6 +78,36 @@ Para implementar correctamente la solución, debe considerar modificar la direct
   * Revisar el conjunto de recursos para los que se configuró en la directiva denegar el acceso.
 
 Compruebe las notificaciones en la esquina superior derecha de Azure portal o navegue hasta el grupo de recursos que contiene la cuenta de automation y seleccione **implementaciones** en **configuración** para ver el error despliegue. Para obtener más información sobre Azure Policy, visite: [Introducción a Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+
+### <a name="unlink"></a>Escenario: Error al intentar desvincular un área de trabajo
+
+#### <a name="issue"></a>Problema
+
+Recibirá el siguiente error al intentar desvincular un área de trabajo:
+
+```error
+The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
+```
+
+#### <a name="cause"></a>Causa
+
+Este error se produce cuando todavía dispone de soluciones activas en el área de trabajo de Log Analytics que dependen de su cuenta de Automation y Log Analytics del área de trabajo que se están vinculando.
+
+### <a name="resolution"></a>Resolución
+
+Para resolver este problema deberá quitar las siguientes soluciones del área de trabajo si está usando:
+
+* Administración de actualizaciones
+* Seguimiento de cambios
+* Inicio y detención de máquinas virtuales durante las horas de trabajo
+
+Una vez que quite las soluciones puede desvincular el área de trabajo. Es importante limpiar los artefactos de esas soluciones desde el área de trabajo y la cuenta de Automation existentes.  
+
+* Administración de actualizaciones
+  * Quitar las implementaciones de actualizaciones (programaciones) de la cuenta de Automation
+* Inicio y detención de máquinas virtuales durante las horas de trabajo
+  * Quitar los bloqueos de componentes de la solución en la cuenta de Automation en **configuración** > **bloqueos**.
+  * Para conocer pasos adicionales quitar el Start/Stop VMs During OFF-hours ver, [quitar la máquina virtual de inicios y paradas During OFF-hours](../automation-solution-vm-management.md##remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>Errores de extensión MMA
 

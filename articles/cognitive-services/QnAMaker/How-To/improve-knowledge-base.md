@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61372733"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144968"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Usar el aprendizaje activo para mejorar la base de conocimiento
 
@@ -75,7 +75,7 @@ El aprendizaje activo está desactivado de forma predeterminada. Actívelo para 
 
 ## <a name="add-active-learning-suggestion-to-knowledge-base"></a>Adición de sugerencias de aprendizaje activo a la base de conocimiento
 
-1. Para ver las preguntas sugeridas, en la página **Editar** de la base de conocimiento, seleccione **Mostrar sugerencias**. 
+1. Para ver las preguntas sugeridas, en el **editar** página de base de conocimiento, seleccione **opciones de vista**, a continuación, seleccione **Mostrar sugerencias de aprendizaje activo**. 
 
     [![En la sección Edición del portal, seleccione Mostrar sugerencias para ver nuevas alternativas de pregunta del aprendizaje activo.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 

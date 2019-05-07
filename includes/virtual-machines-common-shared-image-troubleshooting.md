@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418664"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149624"
 ---
 Si tiene problemas al realizar cualquier operación en galerías de imágenes compartidas, definiciones de imágenes y versiones de imágenes, vuelva a ejecutar el comando con errores en modo de depuración. El modo de depuración se activa al pasar el conmutador **-debug** con la CLI y el conmutador **-debug** con PowerShell. Una vez que haya encontrado el error, siga este documento para solucionar los errores.
 
@@ -24,7 +24,7 @@ Causas posibles:
 
 *El nombre de la galería no es válido.*
 
-Los caracteres permitidos para el nombre de la Galería son letras mayúsculas o minúsculas, números y puntos. El nombre de la galería no puede tener guiones. Cambie el nombre de la galería y vuelva a intentarlo. 
+Los caracteres permitidos para el nombre de la Galería son letras mayúsculas o minúsculas, números y puntos. El nombre de la Galería no puede contener guiones. Cambie el nombre de la galería y vuelva a intentarlo. 
 
 *El nombre de la galería no es único dentro de la suscripción.*
 
@@ -37,7 +37,7 @@ Causas posibles:
 
 *El nombre de la definición de la imagen no es válido.*
 
-Los caracteres permitidos para la definición de una imagen son letras mayúsculas o minúsculas, números, guiones y puntos. Cambie el nombre de la definición de la imagen y vuelva a intentarlo.
+Caracteres permitidos para la definición de la imagen son letras mayúsculas o minúsculas, dígitos, puntos, guiones y períodos. Cambie el nombre de la definición de la imagen y vuelva a intentarlo.
 
 *No se rellenan las propiedades obligatorias para crear la definición de una imagen.*
 
@@ -62,20 +62,7 @@ Compruebe si la imagen de origen existe y está en la misma región que la versi
 
 Asegúrese de que el estado de aprovisionamiento de la imagen administrada de origen sea **Correcto**.
 
-*La región de origen no se admite aún.*
-
-Use la tabla siguiente para ver si se admite la región de origen deseada:
-<br>
-
-| Crear galería en o "región de origen"   | Replicar versión en o “región de destino” |
-|----------------------------------------|-------------------------------------------|
-| Centro occidental de EE.UU.                        | Todas las regiones de nube pública de Azure            |
-| Centro-Sur de EE. UU                       |                                           |
-| Este de EE. UU. 2                              |                                           |
-| Sudeste asiático                         |                                           |
-| Europa occidental                            |                                           |
-
-<br>
+*La lista de regiones de destino no incluye la región de origen.*
 
 La lista de regiones de destino debe incluir la región de origen de la versión de la imagen. Asegúrese de haber incluido la región de origen en la lista de regiones de destino donde quiere que Azure replique la versión de la imagen.
 
@@ -101,7 +88,7 @@ Compruebe que el valor de **OSType** de la versión de la imagen a partir de la 
 
 ## <a name="unable-to-share-resources"></a>No se pueden compartir los recursos
 
-El uso compartido de los recursos de la galería de imágenes compartidas, versiones de imágenes y definiciones de imágenes entre suscripciones se habilita mediante el [Control de acceso basado en roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+El uso compartido de recursos de la versión de imagen, definición de la imagen y Galería de imágenes compartidas entre suscripciones se habilita mediante [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## <a name="replication-is-slow"></a>La replicación es lenta
 

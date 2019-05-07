@@ -1,19 +1,19 @@
 ---
-title: Uso de extensiones de PostgreSQL en Azure Database for PostgreSQL
-description: Describe la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones en Azure Database for PostgreSQL.
+title: 'Usar las extensiones de PostgreSQL en Azure Database for PostgreSQL: servidor único'
+description: 'Describe la capacidad de ampliar la funcionalidad de la base de datos mediante extensiones de Azure Database for PostgreSQL: servidor único.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.openlocfilehash: 8bbb638190928e0478053843264fde585ae17222
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: 1e3a27f953246ce29de419949362c23b8932b0d5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720592"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073501"
 ---
-# <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL
+# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensiones de PostgreSQL en Azure Database for PostgreSQL: servidor único
 PostgreSQL ofrece la capacidad de ampliar la funcionalidad de su base de datos mediante extensiones. Las extensiones permiten agrupar varios objetos SQL relacionados en un solo paquete que se puede cargar o quitar de la base de datos con un solo comando. Después de cargarse en la base de datos, las extensiones pueden funcionar de la misma forma que las características integradas. Para obtener más información sobre las extensiones de PostgreSQL, vea  [Empaquetar objetos relacionados en una extensión](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
 ## <a name="how-to-use-postgresql-extensions"></a>¿Cómo se utilizan las extensiones de PostgreSQL?

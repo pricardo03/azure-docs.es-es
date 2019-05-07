@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867613"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149227"
 ---
 # <a name="streaming-endpoints-origin"></a>Extremos de streaming (origen)
 
@@ -156,7 +156,7 @@ La integración de la red CDN está habilitada en todos los centros de datos de 
 
 Puede determinar si se ha realizado el cambio DNS en un extremo de Streaming (el tráfico se dirige a la red CDN de Azure) mediante https://www.digwebinterface.com. Si los resultados tiene nombres de dominio azureedge.net en los resultados, el tráfico que apuntan ahora a la red CDN.
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

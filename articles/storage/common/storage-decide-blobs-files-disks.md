@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f66a2699b6d29f10633b4853801240f0590ff918
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483424"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147636"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks
 Microsoft Azure proporciona varias características en Azure Storage para almacenar los datos en la nube y tener acceso a ellos. En este artículo se describen Azure Files, Azure Blobs y Azure Disks, y está diseñado para ayudarle a elegir entre estas características.
@@ -53,7 +53,7 @@ En la tabla siguiente se compara Azure Files con Azure Disks.
 ||||  
 |-|-|-|  
 |**Atributo**|**Azure Disks**|**Archivos de Azure**|  
-|Ámbito|Exclusivo para una máquina virtual individual|Acceso compartido entre varias máquinas virtuales|  
+|Scope|Exclusivo para una máquina virtual individual|Acceso compartido entre varias máquinas virtuales|  
 |Instantáneas y copia|Sí|Sí|  
 |Configuración|Se conecta al iniciarse la máquina virtual|Se conecta una vez iniciada la máquina virtual|  
 |Authentication|Característica integrada|Configurar con el uso de la red|  

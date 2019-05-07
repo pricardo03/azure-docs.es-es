@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598932"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073001"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
  
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Marcador de posición | Value |
+| Marcador de posición | `Value` |
 |-------------|-------|
 |{APPLICATION_ID} | Identificador de la aplicación de LUIS publicada. |
 |{APPLICATION_ENVIRONMENT} | Entorno de la aplicación de LUIS publicada. Utilice uno de los valores siguientes:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -196,7 +196,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Marcador de posición | Value |
+| Marcador de posición | `Value` |
 |-------------|-------|
 |{APPLICATION_ID} | Identificador de la aplicación de LUIS entrenada. |
 |{APPLICATION_VERSION} | Versión de la aplicación de LUIS entrenada. |
@@ -218,7 +218,7 @@ Si el proceso se realiza correctamente, la respuesta será un archivo de paquete
 
 Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar el contenedor. El comando usa los parámetros siguientes:
 
-| Marcador de posición | Value |
+| Marcador de posición | `Value` |
 |-------------|-------|
 |{ENDPOINT_KEY} | Esta clave se usa para iniciar el contenedor. No utilice la clave de inicio. |
 |{BILLING_ENDPOINT} | El valor de punto de conexión de facturación está disponible en el portal de Azure `Cognitive Services` página de información general. Deberá agregar el `luis/v2.0` enrutamiento para el URI del extremo, tal como se muestra en el ejemplo siguiente: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
@@ -337,19 +337,28 @@ Los envíos de contenedor de LUIS, información de facturación para Azure, medi
 
 Para obtener más información acerca de estas opciones, consulte [Configure containers](luis-container-configuration.md) (Configuración de contenedores).
 
-## <a name="unsupported-dependencies"></a>Dependencias no compatibles
+## <a name="supported-dependencies-for-latest-container"></a>Admite las dependencias de `latest` contenedor
+
+El contenedor más reciente, lanzado en 2019 / / crear, será compatible con:
+
+* Comprobar la ortografía de Bing: solicitudes al punto de conexión de predicción de consulta con el `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` parámetros de cadena de consulta. Use la [Bing Spell Check v7 tutorial](luis-tutorial-bing-spellcheck.md) para obtener más información. Si se usa esta característica, el contenedor envía la declaración para el recurso de Bing Spell Check V7.
+* [Nuevos dominios creados previamente](luis-reference-prebuilt-domains.md): estos dominios empresariales incluyen entidades, grabaciones de voz de ejemplo y patrones. Ampliar estos dominios para su propio uso. 
+
+<a name="unsupported-dependencies"></a>
+
+## <a name="unsupported-dependencies-for-latest-container"></a>No admite las dependencias de `latest` contenedor
+
+Si la aplicación LUIS no compatible dependencias, no podrá [exportar contenedor](#export-packaged-app-from-luis) hasta que quite las características no admitidas. Al intentar exportar para el contenedor, el portal de LUIS notifica las características no admitidas que se debe quitar.
 
 Puede usar una aplicación de LUIS si **no incluye** ninguna de las siguientes dependencias:
 
 Configuraciones de aplicaciones no admitidas|Detalles|
 |--|--|
-|Referencias culturales de contenedor no admitidas| Alemán (de-de)<br>Neerlandés (nl-NL)<br>Japonés (ja-JP)<br>|
-|Dominios no admitidos|Dominios creados previamente, incluidas las entidades y las intenciones del dominio que se crearon previamente|
+|Referencias culturales de contenedor no admitidas| Neerlandés (nl-NL)<br>Japonés (ja-JP)<br>Alemán solo es compatible con la [1.0.1 tokenizer o una versión posterior](luis-language-support.md#custom-tokenizer-versions).|
 |Entidades no compatibles con ninguna referencia cultural|Entidad [KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) pregenerada para todas las referencias culturales|
 |Entidades no compatibles con la referencia cultural Inglés (en-US)|Entidades [GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) pregeneradas|
 |Preparación para la voz|El contenedor no admite dependencias externas.|
 |análisis de opiniones|El contenedor no admite dependencias externas.|
-|Bing Spell Check|El contenedor no admite dependencias externas.|
 
 ## <a name="summary"></a>Resumen
 

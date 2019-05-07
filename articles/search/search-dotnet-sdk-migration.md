@@ -10,18 +10,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 488a9fe24fb8fca0b7309dea63d0640a6384f95c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d41c2b541bf80448d180a1d081c255e5bf754e5e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024092"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147333"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Actualización a la versión 3 del SDK de .NET para Azure Search
-
-> [!Important]
-> Este contenido todavía está en construcción. La versión 9.0 del SDK de .NET de Azure Search está disponible en NuGet. Estamos trabajando en este artículo se explica cómo actualizar a 9.0. 
-> 
 
 <!--- DETAILS in the word doc
 cosmosdb
@@ -152,6 +148,6 @@ Si la aplicación tiene una dependencia fuerte de estas características, no pod
 ## <a name="conclusion"></a>Conclusión
 Si necesita más detalles sobre el uso del SDK de .NET para Azure Search, consulte la [guía de .NET](search-howto-dotnet-sdk.md).
 
-Agradecemos sus comentarios sobre el SDK. Si tiene algún problema, no dude en pedirnos ayuda en el [foro de MSDN sobre Azure Search](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Si encuentra un error, puede enviarlo al [repositorio de GitHub del SDK de .NET para Azure](https://github.com/Azure/azure-sdk-for-net/issues). Asegúrese de agregar "[Azure Search]" como prefijo en el título del problema.
+Agradecemos sus comentarios sobre el SDK. Si tiene problemas, no dude en pedirnos ayuda en [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Si encuentra un error, puede enviarlo al [repositorio de GitHub del SDK de .NET para Azure](https://github.com/Azure/azure-sdk-for-net/issues). Asegúrese de agregar "[Azure Search]" como prefijo en el título del problema.
 
 Gracias por usar Azure Search.

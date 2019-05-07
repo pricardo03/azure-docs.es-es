@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1553bede87aab118b1fdddae20201a5d283a7b24
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 2a8ab0d22321be0095743228463ac859925f0847
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870468"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147499"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v021-alpha"></a>API de v2 del Monitor de estado: Get-ApplicationInsightsMonitoringStatus (v0.2.1-alpha)
 
@@ -129,3 +129,7 @@ Si este proceso se produce un error por algún motivo, puede ejecutar estos coma
 **Opcional**. Se utiliza sólo con InspectProcess. Este modificador omite el mensaje de usuario para descargar las herramientas adicionales.
 
 
+## <a name="next-steps"></a>Pasos siguientes
+
+ Hacer más con el Monitor de estado v2:
+ - Use nuestra guía para [solucionar](status-monitor-v2-troubleshoot.md) v2 del Monitor de estado.

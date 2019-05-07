@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 36a98ea52ea48c9828ca5857dc480742632056fb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ce23b891decd20db239e653702533ac7af21b980
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689872"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073337"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 
@@ -74,6 +74,7 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Lector de datos de servicios cognitivos (versión preliminar)](#cognitive-services-data-reader-preview) | Permite leer los datos de Cognitive Services. |
 | [Usuario de Cognitive Services](#cognitive-services-user) | Le permite leer y mostrar las claves de Cognitive Services. |
 | [Rol de lector de cuentas de Cosmos DB](#cosmos-db-account-reader-role) | Puede leer los datos de cuentas de Azure Cosmos DB. Vea [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) para administrar cuentas de Azure Cosmos DB. |
+| [Operador de COSMOS DB](#cosmos-db-operator) | Le permite administrar las cuentas de Azure Cosmos DB, pero no acceder a los datos en ellas. Impide el acceso a las claves de cuenta y las cadenas de conexión. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Puede enviar una solicitud de restauración para una base de datos de Cosmos DB o un contenedor de una cuenta |
 | [Colaborador de Cost Management](#cost-management-contributor) | Puede ver los costos y administrar la configuración de estos (por ejemplo, presupuestos, exportaciones) |
 | [Lector de Cost Management](#cost-management-reader) | Puede ver los datos de costo y la configuración (por ejemplo, presupuestos, exportaciones) |
@@ -1080,6 +1081,30 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | **NotActions** |  |
 > | *Ninguna* |  |
+> | **DataActions** |  |
+> | *Ninguna* |  |
+> | **NotDataActions** |  |
+> | *Ninguna* |  |
+
+## <a name="cosmos-db-operator"></a>Operador de COSMOS DB
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Le permite administrar las cuentas de Azure Cosmos DB, pero no acceder a los datos en ellas. Impide el acceso a las claves de cuenta y las cadenas de conexión. |
+> | **Id** | 230815da-be43-4aae-9cb4-875f7bd000aa |
+> | **Acciones** |  |
+> | Microsoft.DocumentDb/databaseAccounts/* |  |
+> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
+> | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
+> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | **NotActions** |  |
+> | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/regenerateKey/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/listKeys/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/* |  |
 > | **DataActions** |  |
 > | *Ninguna* |  |
 > | **NotDataActions** |  |

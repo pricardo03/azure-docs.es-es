@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: c8a5c839d6d662f9d330099f89c97eb83c4fe516
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1d47be159d4721aed4b055a51acf675688b855e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494701"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071802"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Administración de Azure Monitor para el agente de contenedores
 Azure Monitor para contenedores usa una versión con contenedores del agente de Log Analytics para Linux. Después de la implementación inicial, hay tareas rutinarias u opcionales que debe hacer durante su ciclo de vida. En este artículo se detallan los procedimientos para actualizar el agente manualmente y deshabilitar la recopilación de variables de entorno desde un contenedor determinado. 
@@ -35,7 +35,7 @@ El proceso para actualizar al agente consta de dos pasos sencillos. El primer pa
 >Mientras está realizando esta actividad de mantenimiento, los nodos del clúster no reenviarán los datos recopilados y las vistas de rendimiento no mostrarán datos en el período comprendido entre la eliminación del agente y la instalación de la nueva versión. 
 >
 
-Para instalar la nueva versión del agente, siga los pasos descritos en el artículo [Incorporación de la supervisión](container-insights-onboard.md?#enable-using-azure-cli) usando la CLI de Azure para completar este proceso.  
+Para instalar la nueva versión del agente, siga los pasos descritos en la [habilitar la supervisión mediante la CLI de Azure](container-insights-enable-new-cluster.md#enable-using-azure-cli), para completar este proceso.  
 
 Después de volver a habilitar la supervisión, pueden pasar unos 15 minutos hasta que pueda ver actualizada la métrica de estado del clúster. Para verificar que el agente se ha actualizado correctamente, ejecute el comando: `kubectl logs omsagent-484hw --namespace=kube-system`
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 62c7c6b2f78ea90999f72597291e8347ddc14029
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3aca64c7b0f1ad04967782cb3349da302db557a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870438"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145086"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Instrucciones detalladas de v2 del Monitor de estado
 
@@ -229,3 +229,24 @@ Necesitará el SDK de Application Insights enviar la telemetría de la aplicaci�
 Cmd: `Enable-ApplicationInsightsMonitoring`
 
 Revise nuestra [referencia de API](status-monitor-v2-api-enable-monitoring.md) para obtener una descripción detallada de cómo usar este cmdlet. 
+
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+ Vea la telemetría:
+
+- [Explore las métricas](../../azure-monitor/app/metrics-explorer.md) para supervisar el rendimiento y uso.
+- [Busque eventos y registros](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas
+- [Análisis](../../azure-monitor/app/analytics.md) para más consultas avanzadas
+- [Creación de paneles](../../azure-monitor/app/app-insights-dashboards.md)
+
+ Agregue más telemetría:
+
+- [Cree pruebas web](monitor-web-app-availability.md) para asegurarse de que el sitio permanece activo.
+- [Agregue telemetría de cliente web](../../azure-monitor/app/javascript.md) para ver las excepciones de código de la página web y para que le permitan insertar llamadas de seguimiento.
+- [Agregue el SDK de Application Insights al código](../../azure-monitor/app/asp-net.md) para que pueda insertar seguimiento y registrar las llamadas
+
+Hacer más con el Monitor de estado v2:
+
+- Use nuestra guía para [solucionar](status-monitor-v2-troubleshoot.md) v2 del Monitor de estado.

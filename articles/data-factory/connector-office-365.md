@@ -1,5 +1,5 @@
 ---
-title: Copiar datos de Office 365 con Azure Data Factory (versión preliminar) | Microsoft Docs
+title: Copiar datos de Office 365 mediante Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos desde Office 365 a almacenes de datos receptores compatibles mediante una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 05/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 5d2d5948d817cbe80d00b74ef104ebaffcb511fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b8ffeb505f7d0978a736190b3d38c0246a38ebc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405977"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144997"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiar datos de Office 365 en Azure con Azure Data Factory (versión preliminar) 
 
@@ -65,7 +65,7 @@ Si ADF se crea como parte de una aplicación administrada y las asignaciones de 
 Puede crear una canalización con la actividad de copia mediante una de las siguientes herramientas o SDK. Seleccione un vínculo para acceder a un tutorial con instrucciones detalladas sobre cómo crear una canalización con una actividad de copia. 
 
 - [Azure Portal](quickstart-create-data-factory-portal.md)
-- [SDK de .NET](quickstart-create-data-factory-dot-net.md)
+- [.NET SDK](quickstart-create-data-factory-dot-net.md)
 - [SDK de Python](quickstart-create-data-factory-python.md)
 - [Azure PowerShell](quickstart-create-data-factory-powershell.md)
 - [API DE REST](quickstart-create-data-factory-rest-api.md)
@@ -79,7 +79,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Office 3
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **Office365** | Sí |
+| Tipo | La propiedad type debe establecerse en: **Office365** | Sí |
 | office365TenantId | Id. de inquilino de Azure al que pertenece la cuenta de Office 365. | Sí |
 | servicePrincipalTenantId | Especifique la información del inquilino en el que reside la aplicación web de Azure AD. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |

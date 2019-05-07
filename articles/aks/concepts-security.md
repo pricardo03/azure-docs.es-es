@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 8fd5b726c01b056d38e7e187cec8270ee4e127a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466746"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074018"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)
 
@@ -34,9 +34,11 @@ De forma predeterminada, el servidor de API de Kubernetes utiliza una dirección
 
 ## <a name="node-security"></a>Seguridad de nodos
 
-Los nodos de AKS son máquinas virtuales de Azure de los que usted realiza la administración y el mantenimiento. Los nodos que ejecuten una distribución Ubuntu Linux optimizada con el tiempo de ejecución del contenedor de Moby. Cuando se crea o se escala verticalmente un clúster de AKS, los nodos se implementan automáticamente con las actualizaciones de seguridad del sistema operativo y las configuraciones más recientes.
+Los nodos de AKS son máquinas virtuales de Azure de los que usted realiza la administración y el mantenimiento. Nodos de Linux que se ejecutan una distribución Ubuntu optimizada con el tiempo de ejecución del contenedor de Moby. Los nodos de Windows Server (actualmente en versión preliminar de AKS) ejecute un servidor de Windows optimizado 2019 release y usar también el tiempo de ejecución del contenedor de Moby. Cuando se crea o se escala verticalmente un clúster de AKS, los nodos se implementan automáticamente con las actualizaciones de seguridad del sistema operativo y las configuraciones más recientes.
 
-La plataforma Azure aplica automáticamente las revisiones de seguridad del sistema operativo a los nodos del clúster durante la noche. Si una actualización de seguridad del sistema operativo requiere un reinicio del host, este no se realiza automáticamente. Puede reiniciar manualmente los nodos, o bien optar por un enfoque común que consiste en usar [Kured][kured], un demonio de reinicio de código abierto para Kubernetes. Kured se ejecuta como un elemento [DaemonSet][aks-daemonsets] y supervisa en todos los nodos la presencia de un archivo que indique que hace falta un reinicio. Los reinicios se administran en el clúster con el mismo [proceso de acordonar y purgar](#cordon-and-drain) que una actualización de clúster.
+La plataforma Azure aplica automáticamente revisiones de seguridad del sistema operativo en los nodos de Linux en cada noche. Si una actualización de seguridad del sistema operativo Linux requiere un reinicio del host, no se realiza automáticamente dicho reinicio. Puede reiniciar manualmente los nodos de Linux o un enfoque común consiste en usar [Kured][kured], un demonio de reinicio de código abierto para Kubernetes. Kured se ejecuta como un elemento [DaemonSet][aks-daemonsets] y supervisa en todos los nodos la presencia de un archivo que indique que hace falta un reinicio. Los reinicios se administran en el clúster con el mismo [proceso de acordonar y purgar](#cordon-and-drain) que una actualización de clúster.
+
+Para los nodos de Windows Server (actualmente en versión preliminar de AKS), Windows Update ejecute automáticamente y se aplican las actualizaciones más recientes. Según una programación regular en torno a su propio proceso de validación y el ciclo de lanzamiento de Windows Update, debe realizar una actualización en los grupos de nodos de Windows Server en el clúster de AKS. Este proceso de actualización crea nodos que ejecutan la última imagen de Windows Server y las revisiones, y quita los nodos anteriores. Para obtener más información sobre este proceso, consulte [actualizar un grupo de nodos de AKS][nodepool-upgrade].
 
 Los nodos se implementan en una subred de una red privada virtual, sin ninguna dirección IP pública asignada. Para fines de administración y solución de problemas, SSH está habilitado de forma predeterminada. El acceso de SSH solo está disponible mediante la dirección IP interna.
 
@@ -50,12 +52,12 @@ Por motivos de seguridad y cumplimiento, o para usar las características más r
 
 ### <a name="cordon-and-drain"></a>Acordonar y purgar
 
-Durante el proceso de actualización, los nodos de AKS se acordonan individualmente desde el clúster, de modo que no se programen nuevos pods en estos. A continuación, los nodos se purgan y actualizan de la siguiente manera:
+Durante el proceso de actualización, los nodos de AKS se acordonan individualmente desde el clúster por lo que no están programados nuevos pods en ellos. A continuación, los nodos se purgan y actualizan de la siguiente manera:
 
-- Los pods existentes se finalizan correctamente y se programan en los nodos restantes.
-- El nodo se reinicia, el proceso de actualización se completa y, a continuación, se vuelve a unir al clúster de AKS.
-- Los pods se programan para ejecutarse de nuevo en estos.
-- El siguiente nodo del clúster se acordona y purga mediante el mismo proceso hasta que todos los nodos están actualizados correctamente.
+- Se implementa un nuevo nodo en el grupo de nodos. Este nodo ejecuta la imagen de sistema operativo más reciente y las revisiones.
+- Uno de los nodos existentes identificada para su actualización. Los Pods en este nodo finalizan correctamente y programados en los otros nodos en el grupo de nodos.
+- Este nodo existente se elimina el clúster de AKS.
+- El siguiente nodo del clúster es acordonarán y vaciarán mediante el mismo proceso hasta que todos los nodos se han sustituido correctamente como parte del proceso de actualización.
 
 Para más información, consulte [Actualización de un clúster de AKS][aks-upgrade-cluster].
 
@@ -102,3 +104,4 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

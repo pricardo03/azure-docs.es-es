@@ -1,9 +1,9 @@
 ---
-title: Consola serie de máquina virtual de Azure para Windows | Microsoft Docs
-description: Consola serie bidireccional para máquinas virtuales Windows de Azure.
+title: Consola de serie de Azure para Windows | Microsoft Docs
+description: Consola de serie bidireccional para máquinas virtuales y conjuntos de escalado de máquinas virtuales.
 services: virtual-machines-windows
 documentationcenter: ''
-author: harijay
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -12,59 +12,75 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 5/1/2019
 ms.author: harijay
-ms.openlocfilehash: e50243c15b5b783976374bc8b8861a0245ce1b05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6611c75e61f7e381efd2e437b8281cc70601215
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307263"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141054"
 ---
-# <a name="virtual-machine-serial-console-for-windows"></a>Consola serie de máquina virtual para Windows
+# <a name="azure-serial-console-for-windows"></a>Consola de serie de Azure para Windows
 
-La consola serie de máquina virtual (VM) de Azure Portal proporciona acceso a una consola basada en texto para máquinas virtuales Windows. Esta conexión serie se conecta al puerto serie COM1 de la máquina virtual y ofrece acceso a la misma, sin estar relacionada con el estado del sistema operativo o de la red de la máquina virtual. Solo se puede acceder a la consola serie de una máquina virtual mediante Azure Portal. Solo se permite a los usuarios que tienen un rol de acceso de Colaborador de la máquina virtual o superior.
+La consola serie en el portal de Azure proporciona acceso a una consola basada en texto para máquinas virtuales (VM) de Windows y las instancias de (conjunto de escalado de máquinas virtuales) del conjunto de escalado de máquinas virtuales. Esta conexión en serie se conecta al puerto serie COM1 de la máquina virtual o instancia de conjunto de escalado de máquinas virtuales, que proporciona acceso a los que depende del estado del sistema operativo o de red. La consola serie solo puede obtenerse mediante el portal de Azure y se permite únicamente para los usuarios que tienen un rol de acceso de colaborador o superior para el conjunto de escalado de máquina virtual o una máquina virtual.
 
-Para obtener documentación sobre la consola serie para máquinas virtuales Linux, consulte [Consola serie de máquina virtual para Linux](serial-console-linux.md).
+Consola serie funciona de la misma manera para las máquinas virtuales e instancias del conjunto de escalado de máquinas virtuales. En este documento, todas las menciones a las máquinas virtuales incluirá implícitamente instancias del conjunto de escalado de máquina virtual, a menos que se indique lo contrario.
+
+Para obtener documentación de la consola serie para las máquinas virtuales Linux y conjunto de escalado de máquinas virtuales, consulte [consola serie de Azure para Linux](serial-console-linux.md).
 
 > [!NOTE]
-> La consola serie para máquinas virtuales suele estar disponible en las regiones de Azure globales. Aún no está disponible en las nubes de Azure Government ni Azure China.
+> La consola serie está disponible con carácter general en las regiones globales de Azure. Aún no está disponible en las nubes de Azure Government ni Azure China.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* La máquina virtual en la que accede a una consola serie tiene que usar el modelo de implementación de administración de recursos. No se admiten las implementaciones clásicas.
+* La instancia de conjunto de escalado de máquina virtual o una máquina virtual debe usar el modelo de implementación de resource Manager. No se admiten las implementaciones clásicas.
+
+- La cuenta que usa la consola serie debe tener la [rol Colaborador de máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para la máquina virtual y el [diagnósticos de arranque](boot-diagnostics.md) cuenta de almacenamiento
+
+- La instancia de conjunto de escalado de máquina virtual o una máquina virtual debe tener un usuario basado en contraseña. Puede crear una con la función para [restablecer la contraseña](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de la extensión de acceso de máquina virtual. Seleccione **Restablecer contraseña** en la sección **Soporte técnico y solución de problemas**.
 
 * La máquina virtual en la que accede a una consola serie tiene que tener los [diagnósticos de arranque](boot-diagnostics.md) habilitados.
 
     ![Configuración de los diagnósticos de arranque](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-* Una cuenta que usa una consola serie debe tener el [rol Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para la máquina virtual y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md).
-
-* La máquina virtual en la que accede a una consola serie tiene que tener una cuenta basada en contraseñas. Puede crear una con la función para [restablecer la contraseña](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de la extensión de acceso de máquina virtual. Seleccione **Restablecer contraseña** en la sección **Soporte técnico y solución de problemas**.
-
-
 ## <a name="get-started-with-the-serial-console"></a>Introducción al uso de la consola serie
-La consola serie para las máquinas virtuales solo es accesible mediante Azure Portal:
+La consola serie para las máquinas virtuales y el conjunto de escalado de máquina virtual es accesible a través de Azure portal:
 
+### <a name="serial-console-for-virtual-machines"></a>Consola serie para las máquinas virtuales
+Es tan sencillo como hacer clic en la consola serie para las máquinas virtuales **consola serie** dentro de la **soporte técnico y solución de problemas** sección en el portal de Azure.
   1. Abra [Azure Portal](https://portal.azure.com).
-  1. En el menú de la izquierda, seleccione **Máquinas virtuales**.
-  1. Seleccione la máquina virtual en la lista. Se abrirá la página de información general de la máquina virtual.
+
+  1. Vaya a **todos los recursos** y seleccione una máquina Virtual. Se abrirá la página de información general de la máquina virtual.
+
   1. Desplácese hacia abajo hasta la sección **Soporte técnico y solución de problemas** y seleccione la opción **Consola serie**. Se abrirá un panel nuevo con la consola serie y se iniciará la conexión.
 
-## <a name="enable-serial-console-functionality"></a>Habilitación de la funcionalidad de la consola serie
+### <a name="serial-console-for-virtual-machine-scale-sets"></a>Consola serie para conjuntos de escalado de máquinas virtuales
+Consola serie está disponible en una base por instancia para conjuntos de escalado de máquinas virtuales. Tendrá que vaya a la instancia individual de un conjunto de escalado de máquinas virtuales antes de ver el **consola serie** botón. Si el conjunto de escalado de máquina virtual no tiene habilitado el diagnóstico de arranque, asegúrese de que actualizar su modelo de conjunto de escalado de máquina virtual para habilitar diagnósticos de arranque y, a continuación, actualice todas las instancias al nuevo modelo con el fin de obtener acceso a la consola serie.
+  1. Abra [Azure Portal](https://portal.azure.com).
+
+  1. Vaya a **todos los recursos** y seleccione un conjunto de escalado de máquinas virtuales. Se abre la página de información general para el escalado de máquinas virtuales Set.
+
+  1. Vaya a **instancias**
+
+  1. Seleccione una instancia de conjunto de escalado de máquinas virtuales
+
+  1. Desde el **soporte técnico y solución de problemas** sección, seleccione **consola serie**. Se abrirá un panel nuevo con la consola serie y se iniciará la conexión.
+
+## <a name="enable-serial-console-functionality"></a>Habilitar la funcionalidad de la consola serie
 
 > [!NOTE]
-> Si no ve nada en la consola serie, asegúrese de que el diagnóstico de arranque está habilitado en la máquina virtual.
+> Si no ve nada en la consola serie, asegúrese de que diagnósticos de arranque está habilitado en el conjunto de escalado de máquina virtual o una máquina virtual.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Habilitación de la consola serie en imágenes personalizadas o antiguas
 Las imágenes más nuevas de Windows Server en Azure tienen la [consola de administración especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) habilitada de forma predeterminada. SAC se admite en versiones de servidor de Windows, pero no está disponible en versiones de cliente (por ejemplo, Windows 10, Windows 8 o Windows 7).
 
-En el caso de las imágenes de Windows Server anteriores (creadas antes de febrero de 2018), puede habilitar automáticamente la consola serie mediante la característica de ejecución de comandos de Azure Portal. En Azure Portal, seleccione **Ejecutar comando** y, a continuación, seleccione el comando llamado **EnableEM** en la lista.
+En el caso de las imágenes de Windows Server anteriores (creadas antes de febrero de 2018), puede habilitar automáticamente la consola serie mediante la característica de ejecución de comandos de Azure Portal. En el portal de Azure, seleccione **ejecutar comando**, a continuación, seleccione el comando llamado **EnableEMS** en la lista.
 
 ![Lista de comandos Ejecutar](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
 
-De manera alternativa, para habilitar manualmente la consola serie para las máquinas virtuales Windows creadas antes de febrero de 2018, siga estos pasos:
+Como alternativa, para habilitar manualmente la consola serie para las máquinas virtuales y virtuales de Windows conjunto de escalado de máquinas creadas antes de febrero de 2018, siga estos pasos:
 
 1. Conéctese a la máquina virtual Windows mediante Escritorio remoto
 1. Ejecute los siguientes comandos como administrador en un símbolo del sistema:
@@ -90,7 +106,7 @@ Si [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) no está 
 
 Si tiene que habilitar los mensajes del cargador de arranque de Windows para que se muestren en la consola serie, puede agregar las siguientes opciones adicionales a los datos de la configuración de arranque. Para más información, consulte [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
 
-1. Conéctese a la máquina virtual Windows mediante Escritorio remoto.
+1. Conéctese a la máquina virtual de Windows o instancia de conjunto de escalado de máquinas virtuales mediante Escritorio remoto.
 
 1. Ejecute los siguientes comandos como administrador en un símbolo del sistema:
    - `bcdedit /set {bootmgr} displaybootmenu yes`
@@ -102,9 +118,9 @@ Si tiene que habilitar los mensajes del cargador de arranque de Windows para que
 > [!NOTE]
 > El tiempo de espera que establezca para que se muestre el menú del administrador de arranque afectará al tiempo de arranque del sistema operativo. Si cree que el valor de tiempo de espera de 10 segundos es demasiado corto o demasiado largo, establézcalo en un valor diferente.
 
-## <a name="use-serial-console"></a>Uso de la consola serie
+## <a name="use-serial-console"></a>Uso de Serial Console
 
-### <a name="use-cmd-or-powershell-in-serial-console"></a>Uso de CMD o PowerShell en la consola serie
+### <a name="use-cmd-or-powershell-in-serial-console"></a>Utilice CMD o PowerShell en la consola serie
 
 1. Conéctese a la consola serie. Si se conecta correctamente, el símbolo del sistema es **SAC>**:
 
@@ -132,20 +148,23 @@ La consola serie se puede usar para enviar una interrupción NMI a una máquina 
 Para obtener información sobre cómo configurar Windows para crear un archivo de volcado de memoria cuando recibe una interrupción NMI, consulte: [Cómo generar un archivo de volcado de memoria con una interrupción NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
 ### <a name="use-function-keys-in-serial-console"></a>Uso de las teclas de función en la consola serie
-Las teclas de función están habilitadas para usarse en la consola serie en máquinas virtuales Windows. La tecla F8 en la lista desplegable de la consola serie ofrece la comodidad de especificar fácilmente el menú de configuración de arranque avanzado, pero la consola serie es compatible con todas las demás teclas de función. Es posible que tenga que presionar **Fn** + **F1** (o F2, F3, etc.) en el teclado en función del equipo en el que use la consola serie.
+Las teclas de función están habilitadas para usarse en la consola serie en máquinas virtuales Windows. La tecla F8 en la lista desplegable de la consola serie ofrece la comodidad de especificar fácilmente el menú de configuración de arranque avanzado, pero la consola serie es compatible con todas las demás teclas de función. Es posible que deba presionar **Fn** + **F1** (o F2, F3, etc.) en el teclado en función del equipo se utiliza la consola serie de.
 
 ### <a name="use-wsl-in-serial-console"></a>Uso de WSL en la consola serie
 Subsistema de Windows para Linux (WSL) se ha habilitado para Windows Server 2019 o versiones posteriores, por lo que también es posible habilitar WSL para usarlo dentro de la consola serie si se ejecuta Windows Server 2019 o posterior. Esto puede resultar útil para los usuarios que también conocen los comandos de Linux. Para obtener instrucciones que permitan habilitar WSL para Windows Server, consulte la [Guía de instalación](https://docs.microsoft.com/windows/wsl/install-on-server).
 
-### <a name="restart-your-windows-vm-within-serial-console"></a>Reinicie la máquina virtual Windows en la consola serie
-Para reiniciar la máquina virtual de la consola serie, vaya al botón de encendido y haga clic en "Reiniciar VM". Así se iniciará un reinicio de la máquina virtual, y verá una notificación en Azure Portal relativa al reinicio.
+### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>Reinicie la instancia de conjunto de escalado de máquinas Windows virtual/VM dentro de la consola serie
+Puede iniciar un reinicio en la consola serie, vaya al botón de encendido y haciendo clic en "Reiniciar VM". Así se iniciará un reinicio de la máquina virtual, y verá una notificación en Azure Portal relativa al reinicio.
 
-Esto es útil en aquellas situaciones en que es posible que desee acceder al menú de arranque de la máquina virtual sin salir de la consola serie.
+Esto es útil en situaciones donde es posible que desee para acceder al menú de arranque sin salir de la experiencia de consola serie.
 
 ![Reinicio de la consola serie Windows](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
 ## <a name="disable-serial-console"></a>Deshabilitación de la consola serie
 De forma predeterminada, todas las suscripciones tienen el acceso a la consola serie habilitado para todas las VM. Puede deshabilitar la consola serie en el nivel de la suscripción o de la máquina virtual.
+
+### <a name="vmvirtual-machine-scale-set-level-disable"></a>Deshabilitar de nivel de conjunto de escala de máquina virtual o una máquina virtual
+La consola serie puede deshabilitarse para una escala de máquina virtual o una máquina virtual específica establecida deshabilitando la configuración de diagnósticos de arranque. Desactivar el diagnóstico de arranque desde el portal de Azure para deshabilitar la consola serie para la máquina virtual o el conjunto de escalado de máquinas virtuales. Si se utiliza la consola serie en un conjunto de escalado de máquinas virtuales, asegúrese de que actualizar las instancias del conjunto de escalado de máquina virtual para el modelo más reciente.
 
 > [!NOTE]
 > Para habilitar o deshabilitar la consola serie en una suscripción, debe tener permisos de escritura en la suscripción. Estos permisos incluyen, entre otros, los roles de administrador o propietario. Los roles personalizados también pueden tener permisos de escritura.
@@ -181,9 +200,6 @@ Como alternativa, puede usar el conjunto de comandos Bash siguiente en Cloud She
 
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
-
-### <a name="vm-level-disable"></a>Deshabilitación a nivel de VM
-La consola serie puede deshabilitarse para una determinada VM al deshabilitar la configuración de diagnóstico de arranque de la VM. Desactive el diagnóstico de arranque desde Azure Portal a fin de deshabilitar la consola serie para la VM.
 
 ## <a name="serial-console-security"></a>Seguridad de la consola serie
 
@@ -226,7 +242,7 @@ Interacción con el cargador de arranque | Acceda a BCD mediante la consola seri
 
 
 ## <a name="errors"></a>Errors
-Dado que la mayoría de los errores son transitorios, es posible que se solucionen si vuelve a intentar la conexión. En la tabla siguiente se muestra una lista de errores y mitigaciones.
+Dado que la mayoría de los errores son transitorios, es posible que se solucionen si vuelve a intentar la conexión. En la tabla siguiente se muestra una lista de errores y mitigaciones para ambas máquinas virtuales e instancias del conjunto de escalado de máquinas virtuales.
 
 Error                            |   Mitigación
 :---------------------------------|:--------------------------------------------|
@@ -239,7 +255,7 @@ Socket web está cerrado o no se pudo abrir. | Puede que necesite incluir `*.con
 Se muestra solamente información de mantenimiento cuando se conecta a una máquina virtual Windows| Este error se produce si no se ha habilitado la consola de administración especial para la imagen de Windows. Consulte [Habilitación de la consola serie en imágenes personalizadas o antiguas](#enable-the-serial-console-in-custom-or-older-images) para obtener instrucciones sobre cómo habilitar manualmente SAC en la máquina virtual Windows. Para más información, consulte [Señales de mantenimiento de Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 
 ## <a name="known-issues"></a>Problemas conocidos
-Somos conscientes de que la consola serie presenta algunos problemas. A continuación, tiene una lista de dichos problemas y los pasos que puede realizar para mitigarlos.
+Somos conscientes de que la consola serie presenta algunos problemas. A continuación, tiene una lista de dichos problemas y los pasos que puede realizar para mitigarlos. Estos problemas y las mitigaciones se aplican a ambas máquinas virtuales e instancias del conjunto de escalado de máquinas virtuales.
 
 Problema                             |   Mitigación
 :---------------------------------|:--------------------------------------------|

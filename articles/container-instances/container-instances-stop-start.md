@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 50f3ecf69561313a5bda67827cfb02d2f61d461f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653668"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070813"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Manualmente, detener o iniciar los contenedores en Azure Container Instances
 
@@ -24,7 +24,7 @@ Detenga manualmente un grupo de contenedores de ejecución: por ejemplo, mediant
 
 *Cuando un grupo de contenedores entra en estado detenido, finaliza y se recicla todos los contenedores del grupo. No conserva el estado de contenedor.*
 
-Aunque se reciclan, los contenedores en un grupo de contenedores detenido el [recursos](container-instances-container-groups.md#resource-allocation) permanecen asignadas para su uso. Por lo tanto, la facturación continúa para un grupo de contenedores de detenido.
+Cuando se reciclan, los contenedores de la [recursos](container-instances-container-groups.md#resource-allocation) se cancela la asignación y la facturación se detiene el grupo de contenedores.
 
 La acción de detención no tiene ningún efecto si el grupo de contenedores ya finalizado (lo que se encuentra en estado Succeeded o Failed). Por ejemplo, un grupo de contenedores con las tareas de una sola ejecución de contenedores que se ejecutó correctamente finaliza en el estado correcto. Intenta detener el grupo en que el estado no se cambia el estado. 
 

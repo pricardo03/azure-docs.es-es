@@ -1,19 +1,19 @@
 ---
-title: Registros de servidor en Azure Database for PostgreSQL
-description: En este artículo se describe cómo Azure Database for PostgreSQL genera registros de consultas y de errores, y cómo se configura la retención de registros.
+title: 'Registros de servidor en Azure Database for PostgreSQL: servidor único'
+description: Este artículo describe cómo Azure Database for PostgreSQL - único servidor genera la consulta y los registros de errores y cómo se configura la retención de registro.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871534"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067381"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql"></a>Registros de servidor en Azure Database for PostgreSQL 
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Registros de servidor en Azure Database for PostgreSQL: servidor único
 Azure Database for PostgreSQL genera registros de errores y consultas. Los registros de consulta y errores se pueden usar para identificar, solucionar y reparar errores de configuración y casos de rendimiento no óptimo. (No se incluye acceso a los registros de transacciones). 
 
 ## <a name="configure-logging"></a>registro 
@@ -47,7 +47,7 @@ En la tabla siguiente se describe lo que contiene cada registro. En función del
 | ResourceType | `Servers` |
 | ResourceId | URI de recurso |
 | Recurso | Nombre del servidor |
-| Category | `PostgreSQLLogs` |
+| Categoría | `PostgreSQLLogs` |
 | nombreOperación | `LogEvent` |
 | errorLevel | Ejemplo de nivel de registro: LOG, ERROR, NOTICE |
 | Message | Mensaje de registro principal | 

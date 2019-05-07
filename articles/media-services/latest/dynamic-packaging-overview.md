@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: a907e35e8e39b9dadd9106e7fd99063db28647a5
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 02c3fb309755964f1a4b196189b7742fa3f91a9a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869672"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148211"
 ---
 # <a name="dynamic-packaging"></a>Empaquetado dinámico
 
@@ -198,7 +198,7 @@ El filtro dinámico se utiliza para controlar el número de pistas, formatos, ve
 > [!NOTE]
 > Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref) o uno de los [SDK](developers-guide.md) admitidos.
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

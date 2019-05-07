@@ -2,22 +2,23 @@
 title: Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage | Microsoft Docs
 description: Utilice Azure Portal para asignar su propio nombre canónico (CNAME) al punto de conexión de Blob Storage o web en una cuenta de Azure Storage.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: e40b6fe115d6b6dea38ead9f0b2550d96bd04c7a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112643"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148931"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage
 
-Puede configurar un dominio personalizado para obtener acceso a los datos Blob en la cuenta de almacenamiento de Azure. El punto de conexión predeterminado para Azure Blob Storage es *\<storage-account-name>.blob.core.windows.net*. También puede utilizar el punto de conexión web generado como parte de la [característica de sitios web estáticos (versión preliminar)](storage-blob-static-website.md). Si asigna un dominio y subdominio personalizados, como *www\.contoso.com*, hasta el extremo de blob o web para la cuenta de almacenamiento, los usuarios pueden usar ese dominio para acceder a los datos blob en la cuenta de almacenamiento.
+Puede configurar un dominio personalizado para obtener acceso a los datos Blob en la cuenta de almacenamiento de Azure. El punto de conexión predeterminado para Azure Blob Storage es *\<storage-account-name>.blob.core.windows.net*. También puede usar el punto de conexión web que se genera como parte de la [característica de los sitios Web estáticos](storage-blob-static-website.md). Si asigna un dominio y subdominio personalizados, como *www\.contoso.com*, hasta el extremo de blob o web para la cuenta de almacenamiento, los usuarios pueden usar ese dominio para acceder a los datos blob en la cuenta de almacenamiento.
 
 > [!IMPORTANT]
 > Azure Storage no admite aún HTTPS con dominios personalizados de forma nativa. Actualmente puede [usar Azure CDN para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md).

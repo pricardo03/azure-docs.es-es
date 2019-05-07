@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468387"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142876"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Azure Monitor para Windows
 
@@ -32,7 +32,10 @@ Registros de Azure Monitor proporciona capacidades de supervisión en los activo
 
 ### <a name="operating-system"></a>Sistema operativo
 
-La extensión del agente de Log Analytics para Windows se puede ejecutar en las versiones Windows Server 2008 R2, 2012, 2012 R2 y 2016.
+La extensión del agente de Log Analytics para Windows es compatible con las siguientes versiones del sistema operativo Windows:
+
+- Windows Server 2019
+- Windows Server 2008 R2, 2012, 2012 R2, 2016, versión 1709 y 1803
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
@@ -43,7 +46,7 @@ La extensión del agente de Log Analytics para Windows requiere que la máquina 
 
 ## <a name="extension-schema"></a>Esquema de extensión
 
-En el siguiente JSON se muestra el esquema para la extensión del agente de Log Analytics. La extensión requiere el identificador y la clave del área de trabajo de destino de Log Analytics. Se pueden encontrar en la configuración del área de trabajo en Azure Portal. Como la clave del área de trabajo debe tratarse como datos confidenciales, debe almacenarse en una configuración protegida. Los datos de configuración protegida de la extensión de VM de Azure están cifrados y solo se descifran en la máquina virtual de destino. Tenga en cuenta que **workspaceId** y **workspaceKey** distinguen mayúsculas de minúsculas.
+En el siguiente JSON se muestra el esquema para la extensión del agente de Log Analytics. La extensión requiere el Id. de área de trabajo y la clave de área de trabajo desde el área de trabajo de Log Analytics de destino. Se pueden encontrar en la configuración del área de trabajo en Azure Portal. Como la clave del área de trabajo debe tratarse como datos confidenciales, debe almacenarse en una configuración protegida. Los datos de configuración protegida de la extensión de VM de Azure están cifrados y solo se descifran en la máquina virtual de destino. Tenga en cuenta que **workspaceId** y **workspaceKey** distinguen mayúsculas de minúsculas.
 
 ```json
 {
@@ -84,6 +87,9 @@ En el siguiente JSON se muestra el esquema para la extensión del agente de Log 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
 Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. El esquema JSON detallado en la sección anterior se puede usar en una plantilla de Azure Resource Manager para ejecutar el agente de Log Analytics durante la implementación de una plantilla de Azure Resource Manager. Puede encontrar una plantilla de ejemplo que incluye la extensión de VM del agente de Log Analytics en la [Galería de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+
+>[!NOTE]
+>La plantilla no admite la especificación de más de un identificador de área de trabajo y la clave de área de trabajo cuando desea configurar el agente para informar a varias áreas de trabajo. Para configurar el agente para informar a varias áreas de trabajo, consulte [agregando o quitando un área de trabajo](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
 El JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual, o colocada en la raíz o un nivel superior de una plantilla JSON de Resource Manager. La colocación de la plantilla JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 

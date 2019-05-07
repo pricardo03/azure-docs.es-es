@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05e7dd11274bb120e40df4a63d428ac6b6d7489f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648115"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143331"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flujo de copia de seguridad sin conexión para DPM y Azure Backup Server
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. Azure Backup permite comprimir las copias de seguridad iniciales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos comprimidos iniciales de copia de seguridad sin conexión en Azure.
@@ -98,7 +98,7 @@ La información de esta sección le ayuda a completar el flujo de trabajo de cop
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Preparación de unidades SATA y envío a Azure
 La utilidad *AzureOfflineBackupDiskPrep* se usa para preparar las unidades SATA que se envían al centro de datos de Azure más próximo. Esta utilidad está disponible en el directorio de instalación del agente de Recovery Services en la ruta de acceso siguiente:
 
-   *\Microsoft**Azure**Recovery**Services* \*Agent\Utils\*
+*\\Microsoft Azure Recovery Services Agent\\Utils\\*
 
 1. Vaya al directorio y copie el directorio de **AzureOfflineBackupDiskPrep** en un equipo de copia en el que se conectarán las unidades SATA que se van a preparar. Compruebe que se cumplen los siguientes requisitos en el equipo de copia:
 

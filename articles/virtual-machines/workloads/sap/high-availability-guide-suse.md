@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 328aa4c80c830014de8ee8b573d13ae56af73efc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925802"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142970"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications
 
@@ -87,6 +87,9 @@ Para lograr alta disponibilidad, SAP NetWeaver requiere un servidor NFS. El serv
 
 El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP HANA usan direcciones IP virtuales y nombre de host virtual. En Azure, se requiere un equilibrador de carga para usar una dirección IP virtual. En la lista siguiente se muestra la configuración del equilibrador de carga (A)SCS y ERS.
 
+> [!IMPORTANT]
+> Clústeres de varios SID de SAP ASCS/ERS con SUSE Linux como sistema operativo invitado en máquinas virtuales de Azure es **no admite**. Agrupación en clústeres de varios SID, se describe la instalación de varias instancias de SAP ASCS/ERS con SID diferentes en un clúster de Pacemaker
+
 ### <a name="ascs"></a>(A)SCS
 
 * Configuración de front-end
@@ -114,6 +117,7 @@ El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la b
 * Puerto de sondeo
   * Puerto 621<strong>&lt;nr&gt;</strong>
 * Reglas de equilibrio de carga
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -587,7 +591,7 @@ Si usa la arquitectura de servidor 2 de puesta en cola ([ENSA2](https://help.sap
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  Si está actualizando desde una versión anterior y cambiar a poner en cola el servidor 2, consulte la nota de sap [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+  Si está actualizando desde una versión anterior y cambiar a poner en cola el servidor 2, consulte SAP nota [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
 

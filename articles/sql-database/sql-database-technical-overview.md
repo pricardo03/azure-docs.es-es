@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60580704"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073613"
 ---
 # <a name="what-is-azure-sql-database-service"></a>¿Qué es el servicio de Azure SQL Database
 
@@ -54,7 +54,7 @@ SQL Database ofrece un rendimiento predecible con varios tipos de recursos, nive
 
 ## <a name="scalable-performance-and-pools"></a>Grupos y rendimiento escalable
 
-- Con bases de datos únicas, las bases de datos están aisladas entre sí, son portátiles y cada una tiene su propia cantidad de recursos de proceso, memoria y almacenamiento garantizados. SQL Database ofrece distintos recursos de proceso, memoria y almacenamiento para las distintas necesidades, y la capacidad de [aumentar y reducir de manera dinámica los recursos de la base de datos única](sql-database-single-database-scale.md). El [nivel de servicio de hiperescala](sql-database-service-tier-hyperscale.md) (versión preliminar) para la base de datos única le permite escalar a 100 TB, con funcionalidades rápidas de copia de seguridad y restauración.
+- Con bases de datos únicas, las bases de datos están aisladas entre sí, son portátiles y cada una tiene su propia cantidad de recursos de proceso, memoria y almacenamiento garantizados. SQL Database ofrece distintos recursos de proceso, memoria y almacenamiento para las distintas necesidades, y la capacidad de [aumentar y reducir de manera dinámica los recursos de la base de datos única](sql-database-single-database-scale.md). El [nivel de servicio de hiperescala](sql-database-service-tier-hyperscale.md) de base de datos única permite escalar hasta 100 TB, con la copia de seguridad rápida y capacidades de restauración.
 - Con los grupos elásticos, puede crear nuevas bases de datos o mover bases de datos únicas en un grupo de recursos para maximizar el uso de los recursos y ahorrar dinero, además de la capacidad de [aumentar y reducir de manera dinámica los recursos del grupo elástico](sql-database-elastic-pool-scale.md).
 - Con las instancias administradas, cada instancia administrada está aislada de otras instancias con recursos garantizados. Dentro de una instancia administrada, las bases de datos de instancia comparten un conjunto de recursos y la capacidad de [aumentar y reducir de manera dinámica los recursos de la instancia administrada](sql-database-managed-instance-resource-limits.md).
 
@@ -69,8 +69,7 @@ SQL Database ofrece dos modelos de compra:
 - El [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) ofrece una combinación de recursos de proceso, memoria y E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas. Los tamaños de proceso de cada nivel ofrecen una combinación diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
 - El [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) le permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento. El modelo de compra basado en núcleo virtual también le permite usar la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para ahorrar en los costos. Para más información sobre la Ventaja híbrida de Azure, consulte las [preguntas frecuentes](#sql-database-frequently-asked-questions-faq).
 
-  > [!IMPORTANT]
-  > El [nivel de servicio de hiperescala](sql-database-service-tier-hyperscale.md) para bases de datos únicas está actualmente en versión preliminar pública. No se recomienda ejecutar ninguna carga de trabajo de producción en las bases de datos de hiperescala todavía. No se puede actualizar una base de datos de hiperescala a otros niveles de servicio. Con fines de prueba, se recomienda realizar una copia de la base de datos actual y actualizar la copia al nivel de servicio de hiperescala.
+  
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Grupos elásticos para maximizar la utilización de los recursos
 

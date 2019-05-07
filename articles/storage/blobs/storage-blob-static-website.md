@@ -2,18 +2,19 @@
 title: Hospedaje de sitios web estáticos en Azure Storage
 description: Azure Storage le ofrece hospedaje de sitios web estáticos, lo que le proporciona una solución rentable y escalable para hospedar aplicaciones web modernas.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
+ms.author: normesta
+ms.reviewer: seguler
 ms.date: 04/29/2019
-ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cd1fa71cb2a10c7e61f76bdd224ba6d0f039346f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925278"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148472"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 Las cuentas GPv2 de Azure Storage le permiten proporcionar contenido estático (HTML, CSS, JavaScript y archivos de imagen) directamente desde un contenedor de almacenamiento llamado *$web*. Si aprovecha el hospedaje que ofrece Azure Storage, podrá usar arquitecturas sin servidor, incluyendo[Azure Functions](/azure/azure-functions/functions-overview) y otros servicios de PaaS.
