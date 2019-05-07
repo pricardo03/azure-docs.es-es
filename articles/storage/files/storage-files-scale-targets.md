@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd60d6453b71387578b880ad580fb1741e6e512b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697902"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190034"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 
@@ -34,15 +34,15 @@ El recurso primario de un recurso compartido de archivos de Azure es una cuenta 
 
 ## <a name="azure-files-scale-targets"></a>Objetivos de escalabilidad de Azure Files
 
-### <a name="premium-files-scale-targets"></a>Archivos Premium escalar destinos
+### <a name="premium-scale-targets"></a>Objetivos de escalabilidad de Premium
 
-Hay tres categorías de limitaciones que deben considerarse para archivos premium: cuentas de almacenamiento, recursos compartidos y archivos.
+Hay tres categorías de limitaciones que deben considerarse para recursos compartidos de archivos premium: cuentas de almacenamiento, recursos compartidos y archivos.
 
 Por ejemplo:  Un solo recurso compartido puede lograr 100.000 IOPS y un único archivo puede escalar hasta 5000 e/s por segundo. Por ejemplo, si tiene tres archivos en un recurso compartido, el número máximo de IOPS puede obtener de ese recurso compartido es 15.000.
 
-### <a name="premium-filestorage-account-limits"></a>Límites de la cuenta de Premium filestorage
+### <a name="premium-filestorage-account-limits"></a>Límites de la cuenta de Premium FileStorage
 
-Archivos Premium usan una cuenta de almacenamiento único llamada **filestorage (versión preliminar)**, esta cuenta tiene objetivos de escalabilidad ligeramente diferente de la cuenta de almacenamiento utilizado por los archivos estándares. Para los objetivos de escalabilidad de cuenta de almacenamiento, consulte la tabla en la [objetivos de escalabilidad de cuenta de Azure storage](#azure-storage-account-scale-targets) sección.
+Recursos compartidos de archivos Premium se aprovisionan en una cuenta de almacenamiento especial denominada **filestorage (versión preliminar)**. Esta cuenta tiene objetivos de escalabilidad ligeramente diferente que la cuenta de almacenamiento utilizada para recursos compartidos de archivos estándar. Para los objetivos de escalabilidad de cuenta de almacenamiento, consulte la tabla en la [objetivos de escalabilidad de cuenta de Azure storage](#azure-storage-account-scale-targets) sección.
 
 > [!IMPORTANT]
 > Límites de la cuenta de almacenamiento se aplican a todos los recursos compartidos. El escalado hasta el número máximo de las cuentas de almacenamiento solo es factible si hay solo un recurso compartido por cuenta de almacenamiento.

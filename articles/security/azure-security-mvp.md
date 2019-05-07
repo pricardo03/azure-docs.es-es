@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: fa845ba81139c9930f66ce9bd8e99a5f65eece56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b75a6ef341483201dc9cb2a30f68b4854332cbce
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610985"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190417"
 ---
 # <a name="azure-security-mvp-program"></a>Programa MVP de seguridad de Azure
 
@@ -36,5 +36,3 @@ No hay ninguna prueba comparativa para convertirse en MVP. En parte, esto se deb
 - Conferencias y grupos de usuarios
 - Podcasts, sitios web, blogs y redes sociales
 - Artículos y libros
-
-¿Es experto en la seguridad de Azure? ¿Conoce a alguien que lo sea? En ese caso, [propóngase asimismo o a otra persona](https://mvp.microsoft.com/Nomination/nominate-an-mvp) para convertirse en un MVP de seguridad de Azure hoy mismo.

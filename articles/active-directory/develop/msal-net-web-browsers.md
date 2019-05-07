@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
-ms.author: ryanwi
+ms.date: 05/06/2019
+ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 350cb3fec4d325d6cf5848733c0bae18d5efacca
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: d6e13ec3d822ba8a8cd2484f42ea81e615bae268
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076846"
+ms.locfileid: "65190988"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Uso de los exploradores web en MSAL.NET
 Los exploradores Web son necesarios para la autenticación interactiva. De forma predeterminada, admite MSAL.NET el [explorador web del sistema](#system-web-browser-on-xamarinios-and-xamarinandroid) en Xamarin.iOS y [Xamarin.Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser). Pero [también puede habilitar el explorador Web incrustado](#enable-embedded-webviews) dependiendo de los requisitos (UX, necesario para single sign-on (SSO), seguridad) en [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) y [Xamarin.Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) aplicaciones. Y puede incluso [elija dinámicamente](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) qué explorador web para usar en función de la presencia de Chrome o un explorador compatible con las pestañas personalizadas de Chrome en Android.
@@ -40,7 +40,7 @@ Es importante comprender que, al adquirir un token de forma interactiva, el cont
 
 ## <a name="system-web-browser-on-xamarinios-and-xamarinandroid"></a>Explorador web del sistema en Xamarin.iOS y Xamarin.Android
 
-De forma predeterminada, MSAL.NET es compatible con el explorador web del sistema en Xamarin.iOS y Xamarin.Android. Para hospedar la interacción con el STS, ADAL.NET solo usa el **incrustado** explorador web. Para todas las plataformas que proporcionan la interfaz de usuario (es decir, .NET Core), se proporciona un cuadro de diálogo en la biblioteca de incrustación de un control de explorador Web. MSAL.NET también usa una vista web incrustado para el escritorio de .NET y WAB para la plataforma UWP. Sin embargo, aprovecha de forma predeterminada el **explorador web del sistema** para Xamarin aplicaciones de iOS y Xamarin Android. En iOS, incluso elige la vista web para utilizar según la versión del sistema operativo (iOS12, iOS11 y versiones anteriores).
+De forma predeterminada, MSAL.NET es compatible con el explorador web del sistema en Xamarin.iOS y Xamarin.Android. Para todas las plataformas que proporcionan la interfaz de usuario (es decir, .NET Core), se proporciona un cuadro de diálogo en la biblioteca de incrustación de un control de explorador Web. MSAL.NET también usa una vista web incrustado para el escritorio de .NET y WAB para la plataforma UWP. Sin embargo, aprovecha de forma predeterminada el **explorador web del sistema** para Xamarin aplicaciones de iOS y Xamarin Android. En iOS, incluso elige la vista web para utilizar según la versión del sistema operativo (iOS12, iOS11 y versiones anteriores).
 
 Mediante el explorador del sistema tiene la gran ventaja de uso compartido del estado de inicio de sesión único con otras aplicaciones y aplicaciones web sin necesidad de un agente (portal de empresa / Authenticator). Se utilizó el explorador del sistema, de forma predeterminada, en el MSAL.NET para Xamarin plataformas iOS y Xamarin Android porque, en estas plataformas, el explorador web del sistema ocupa toda la pantalla y la experiencia del usuario es mejor. La vista web del sistema no es discernible de un cuadro de diálogo. Sin embargo, en iOS, el usuario podría tener que dar su consentimiento para el explorador para volver a llamar la aplicación, que puede resultar molesta.
 
@@ -70,49 +70,55 @@ Hay algunas diferencias visuales entre webview incrustado y explorador del siste
 
 Como desarrollador mediante MSAL.NET, tiene varias opciones para mostrar el cuadro de diálogo interactivo de STS:
 
-- **Explorador del sistema.** El explorador del sistema se establece de forma predeterminada en la biblioteca. Si usa Android, lea [exploradores sistema](msal-net-system-browser-android-considerations.md) para obtener información específica acerca de qué exploradores se admiten para la autenticación. Al utilizar el explorador del sistema en Android, se recomienda que el dispositivo tiene un explorador compatible con las pestañas personalizadas de Chrome.  En caso contrario, puede producir un error de autenticación. 
-- **Webview incrustado.** Para usar solo incrustado webview en MSAL.NET, hay sobrecargas de los `UIParent()` constructor disponible para iOS y Android.
+- **Explorador del sistema.** El explorador del sistema se establece de forma predeterminada en la biblioteca. Si usa Android, lea [exploradores sistema](msal-net-system-browser-android-considerations.md) para obtener información específica acerca de qué exploradores se admiten para la autenticación. Al utilizar el explorador del sistema en Android, se recomienda que el dispositivo tiene un explorador compatible con las pestañas personalizadas de Chrome.  En caso contrario, puede producir un error de autenticación.
+- **Webview incrustado.** Para usar sólo incrustado webview en MSAL.NET, el `AcquireTokenInteractively` generador de parámetros contiene un `WithUseEmbeddedWebView()` método.
 
-    iOS:
+    iOS
 
     ```csharp
-    public UIParent(bool useEmbeddedWebview)
+    AuthenticationResult authResult;
+    authResult = app.AcquireTokenInteractively(scopes)
+                    .WithUseEmbeddedWebView(useEmbeddedWebview)
+                    .ExecuteAsync();
     ```
 
     Android:
 
     ```csharp
-    public UIParent(Activity activity, bool useEmbeddedWebview)
+    authResult = app.AcquireTokenInteractively(scopes)
+                .WithParentActivityOrWindow(activity)
+                .WithUseEmbeddedWebView(useEmbeddedWebview)
+                .ExecuteAsync();
     ```
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>Elegir entre el explorador web incrustado o explorador del sistema en Xamarin.iOS
 
-En la aplicación de iOS en `AppDelegate.cs` puede utilizar el explorador del sistema o webview incrustado.
+En la aplicación de iOS en `AppDelegate.cs` puede puede inicializar el `ParentWindow` a `null`. No se usa en iOS
 
 ```csharp
-// Use only embedded webview
-App.UIParent = new UIParent(true);
-
-// Use only system browser
-App.UIParent = new UIParent();
+App.ParentWindow = null; // no UI parent on iOS
 ```
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid"></a>Elegir entre el explorador web incrustado o explorador del sistema en Xamarin.Android
 
-En su aplicación de Android en `MainActivity.cs` puede decidir cómo implementar las opciones de vista Web.
+En su aplicación de Android en `MainActivity.cs` puede establecer la actividad primaria, por lo que los resultados de la autenticación se vuelve a ella:
 
 ```csharp
-// Use only embedded webview
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, true);
+ App.ParentWindow = this;
+```
 
-// or
-// Use only system browser
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
+A continuación, en el `MainPage.xaml.cs`:
+
+```csharp
+authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
+                      .WithParentActivityOrWindow(App.ParentWindow)
+                      .WithUseEmbeddedWebView(true)
+                      .ExecuteAsync();
 ```
 
 #### <a name="detecting-the-presence-of-custom-tabs-on-xamarinandroid"></a>Detectar la presencia de las pestañas personalizadas en Xamarin.Android
 
-Si desea usar el explorador web del sistema para habilitar SSO con las aplicaciones que se ejecutan en el explorador, pero se preocupa de la experiencia del usuario para dispositivos Android no tiene un explorador con compatibilidad de la ficha personalizada, tiene la opción de decidir mediante una llamada a la `IsSystemWebViewAvailable()` método < c 2 > `UIParent` . Este método devuelve `true` si el PackageManager detecta pestañas personalizadas y `false` si no se detectan en el dispositivo.
+Si desea usar el explorador web del sistema para habilitar SSO con las aplicaciones que se ejecutan en el explorador, pero se preocupa de la experiencia del usuario para dispositivos Android no tiene un explorador con compatibilidad de la ficha personalizada, tiene la opción de decidir mediante una llamada a la `IsSystemWebViewAvailable()` método < c 2 > `IPublicClientApplication` . Este método devuelve `true` si el PackageManager detecta pestañas personalizadas y `false` si no se detectan en el dispositivo.
 
 Según el valor devuelto por este método y sus requisitos, puede tomar una decisión:
 
@@ -122,23 +128,16 @@ Según el valor devuelto por este método y sus requisitos, puede tomar una deci
 El código siguiente muestra la opción de webview incrustado:
 
 ```csharp
-bool useSystemBrowser = UIParent.IsSystemWebviewAvailable();
-if (useSystemBrowser)
-{
-    // A browser with custom tabs is present on device, use system browser
-    App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
-}
-else
-{
-    // A browser with custom tabs is not present on device, use embedded webview
-    App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, true);
-}
+bool useSystemBrowser = app.IsSystemWebviewAvailable();
 
-// Alternative:
-App.UIParent = new UIParent(Xamarin.Forms.Forms.Context as Activity, !useSystemBrowser);
-
+authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
+                      .WithParentActivityOrWindow(App.ParentWindow)
+                      .WithUseEmbeddedWebView(!useSystemBrowser)
+                      .ExecuteAsync();
 ```
 
-## <a name="net-core-does-not-support-interactive-authentication"></a>.NET core no admite la autenticación interactiva
+## <a name="net-core-does-not-support-interactive-authentication-out-of-the-box"></a>.NET core no admite la autenticación interactiva de fábrica
 
 Para .NET Core, adquisición de tokens de forma interactiva no está disponible. De hecho, .NET Core no proporciona aún la interfaz de usuario. Si desea proporcionar inicio de sesión interactivo para una aplicación .NET Core, puede permitir que la aplicación presentar al usuario un código y una dirección URL para ir a la sesión de forma interactiva (consulte [flujo de código de dispositivo](msal-authentication-flows.md#device-code)).
+
+Como alternativa puede implementar la [IWithCustomUI](scenario-desktop-acquire-token.md#withcustomwebui) interfaz y proporcionar su propio explorador

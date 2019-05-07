@@ -5,19 +5,19 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: include
-ms.date: 07/18/2018
+ms.date: 05/05/2019
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 19c570be71583a2933a39780ba948edeb9f68498
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b480f9720cabddbba9e9c35c12ca1f8dda7ab5ab
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129107"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190028"
 ---
 | Recurso | Destino | Límite máximo |
 |----------|--------------|------------|
-| Servicios de sincronización de almacenamiento por región | 15 servicios de sincronización de almacenamiento | Sí |
+| Servicios de sincronización de almacenamiento por región | 20 servicios de sincronización de almacenamiento | Sí |
 | Grupos de sincronización por servicio de sincronización de almacenamiento | 100 grupos de sincronización | Sí |
 | Servidores registrados por servicio de sincronización de almacenamiento | 99 servidores | Sí |
 | Puntos de conexión en la nube por grupo de sincronización | 1 punto de conexión en la nube | Sí |

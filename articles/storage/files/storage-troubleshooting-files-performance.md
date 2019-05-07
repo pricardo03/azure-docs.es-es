@@ -2,22 +2,22 @@
 title: Rendimiento de los archivos de Azure Guía de solución de problemas
 description: Problemas de rendimiento con recursos compartidos de archivos de Azure premium (versión preliminar) y soluciones asociadas conocidos.
 services: storage
-author: jeffpatt24
+author: gunjanj
 ms.service: storage
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: jeffpatt
+ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 767473a037bf890756df68719698c3872fed6a9c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577921"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190047"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de rendimiento de Azure Files
 
-En este artículo se enumera algunos problemas comunes relacionados con recursos compartidos de archivos de Microsoft Azure premium (versión preliminar). Proporciona posibles causas y soluciones alternativas cuando se producen estos problemas.
+En este artículo se enumera algunos problemas comunes relacionados con los recursos compartidos de archivos de Azure premium (versión preliminar). Proporciona posibles causas y soluciones alternativas cuando se producen estos problemas.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Alta latencia, rendimiento bajo y problemas de rendimiento general
 
@@ -27,7 +27,7 @@ La cuota predeterminada en un recurso compartido es 100 GB, que proporciona la l
 
 Para confirmar si se está limitando el recurso compartido, puede aprovechar las métricas de Azure en el portal.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 1. Seleccione **todos los servicios** y, a continuación, busque **métricas**.
 
@@ -80,7 +80,7 @@ Se encontró la máquina virtual de cliente en una región distinta a recurso co
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>No se puede lograr un rendimiento máximo compatible con la red de cliente
 
-Una posible causa de esto es una falta fo SMB multicanal soporte. Actualmente, los archivos de premium solo admiten un canal único, por lo que hay solo una conexión desde la máquina virtual del cliente al servidor. Esta conexión solo se tiende a un solo núcleo en el cliente de máquina virtual, por lo que el rendimiento máximo alcanzable desde una máquina virtual está limitado por un solo núcleo.
+Una posible causa de esto es una falta fo SMB multicanal soporte. Actualmente, los recursos compartidos de archivos de Azure solo admiten canal único, por lo que hay solo una conexión desde la máquina virtual del cliente al servidor. Esta conexión solo se tiende a un solo núcleo en el cliente de máquina virtual, por lo que el rendimiento máximo alcanzable desde una máquina virtual está limitado por un solo núcleo.
 
 ### <a name="workaround"></a>Solución alternativa
 

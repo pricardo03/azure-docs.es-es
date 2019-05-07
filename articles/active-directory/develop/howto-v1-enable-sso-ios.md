@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 73d3c2846ed97b725d745cc76714738ac34ed1a0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917214"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190202"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Procedimientos para: Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL
 
@@ -165,7 +165,7 @@ En el caso del SSO entre aplicaciones no asistido por agente, los SDK administra
 
 Para habilitar el SSO entre aplicaciones de las que es el propietario debe hacer lo siguiente:
 
-1. Garantizar que todas las aplicaciones utilizan el mismo identificador de cliente o aplicación
+1. Asegúrese de que todas las aplicaciones usan el mismo Id. de cliente o identificador de aplicación.
 2. Garantizar que todas las aplicaciones comparten el mismo certificado de firma de Apple para que sea posible compartir las cadenas de claves.
 3. Solicitar los mismos permisos de llaveros para cada una de las aplicaciones.
 4. Indicar a los SDK cuál es la cadena de claves compartida que quiere que utilicemos.

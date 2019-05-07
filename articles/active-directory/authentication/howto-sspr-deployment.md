@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358010"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190361"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Cómo implementar correctamente el lanzamiento del restablecimiento de contraseña de autoservicio
 
@@ -32,6 +32,10 @@ Para garantizar un lanzamiento fluido de la funcionalidad del restablecimiento d
    * ¿Les ha proporcionado direcciones URL con fines de registro y restablecimiento?
       * Registro: https://aka.ms/ssprsetup
       * Restablecimiento: https://aka.ms/sspr
+
+   > [!WARNING]
+   > No se admite el uso de la casilla de verificación "el usuario debe cambiar la contraseña en el siguiente inicio de sesión" en Herramientas administrativas de Active Directory local, como usuarios de Active Directory y los equipos o el centro de administración de Active Directory. Al cambiar una contraseña en el entorno local no Active esta opción. 
+
 1. Ofrezca cursos a sus usuarios.
    * En las siguientes secciones de este documento se repasan ejemplos de comunicación, portales de contraseñas, aplicación del registro y relleno de los datos de autenticación.
    * El grupo de producto de Azure Active Directory ha creado un [plan de implementación paso a paso](https://aka.ms/SSPRDeploymentPlan) que las organizaciones pueden usar en paralelo con la documentación que se encuentra en este sitio para crear un caso empresarial y un plan de implementación de restablecimiento de contraseña de autoservicio.

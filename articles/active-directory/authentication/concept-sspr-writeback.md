@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694829"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190725"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 
@@ -120,9 +120,9 @@ La escritura diferida de contraseñas es un servicio muy seguro. Para garantizar
 
 Después de que un usuario envíe un restablecimiento de contraseña, la solicitud de restablecimiento pasa por varias fases de cifrado antes de que llegue al entorno local. Estos pasos de cifrado garantizan una seguridad y confiabilidad máximas del servicio. A continuación se detalla la descripción de estos pasos:
 
-* **Paso 1: Cifrado de contraseña con clave RSA de 2048 bits**: cuando el usuario envía una contraseña para que se escriba en diferido en el entorno local, se cifra la propia contraseña enviada con una clave RSA de 2048 bits.
-* **Paso 2: cifrado a nivel de paquete con AES-GCM**: todo el paquete (la contraseña y los metadatos necesarios) se cifra mediante AES-GCM. Este cifrado evita que cualquier persona con acceso directo al canal de Service Bus subyacente vea o manipule el contenido.
-* **Paso 3: Toda la comunicación se realiza a través de TLS/SSL**: toda comunicación con Service Bus tiene lugar en un canal SSL/TLS. Este cifrado protege el contenido de terceras personas no autorizadas.
+* **Paso 1: Cifrado de contraseña con clave RSA de 2048 bits**: cuando el usuario envía una contraseña para que se escriba en diferido en el entorno local, se cifra la propia contraseña enviada con una clave RSA de 2048 bits.
+* **Paso 2: cifrado a nivel de paquete con AES-GCM**: todo el paquete (la contraseña y los metadatos necesarios) se cifra mediante AES-GCM. Este cifrado evita que cualquier persona con acceso directo al canal de Service Bus subyacente vea o manipule el contenido.
+* **Paso 3: Toda la comunicación se realiza a través de TLS/SSL**: toda comunicación con Service Bus tiene lugar en un canal SSL/TLS. Este cifrado protege el contenido de terceras personas no autorizadas.
 * **Sustitución de clave automática cada seis meses**: todas las claves se sustituyen cada seis meses, o cada vez que la escritura diferida de contraseñas se deshabilita y luego se vuelve a habilitar en Azure AD Connect, para garantizar la máxima seguridad y protección del servicio.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Uso de ancho de banda de la escritura diferida de contraseñas
@@ -165,6 +165,9 @@ Las contraseñas *no* se escriben en diferido en ninguna de las situaciones sigu
 * **Operaciones de administrador no admitidas**
    * Cualquier restablecimiento de contraseña del usuario final iniciado por el administrador desde el [Portal de administración de Office](https://portal.office.com)
    * Cualquier restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell v1, v2 o Graph API de Azure AD
+
+> [!WARNING]
+> No se admite el uso de la casilla de verificación "el usuario debe cambiar la contraseña en el siguiente inicio de sesión" en Herramientas administrativas de Active Directory local, como usuarios de Active Directory y los equipos o el centro de administración de Active Directory. Al cambiar una contraseña en el entorno local no Active esta opción. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

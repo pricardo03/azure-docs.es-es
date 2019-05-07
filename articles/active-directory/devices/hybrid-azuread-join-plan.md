@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8827a51a23b2ea274d8096a154e630c9cecbba7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0d8f1024ba660bc0e879940f20db70d547eea40e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60352009"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190484"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -41,7 +41,7 @@ Si tiene un entorno local de Active Directory y quiere unir sus dispositivos uni
 En este artículo se da por hecho que está familiarizado con la [introducción a la administración de dispositivos en Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> El mínimo requerido funcional de dominio y los niveles funcionales del bosque de Windows 10 Azure AD híbrido es Windows Server 2008 R2. En versiones anteriores, el usuario no puede obtener un Token de actualización principal durante el inicio de sesión de Windows debido a problemas de la LSA.
+> El mínimo requerido funcional de dominio y los niveles funcionales del bosque de Windows 10 Azure AD híbrido es Windows Server 2008 R2.
 
 ## <a name="plan-your-implementation"></a>Planeamiento de la implementación
 
@@ -121,6 +121,9 @@ Si el entorno tiene dominios administrados, a unión a Azure AD híbrido admite:
 
 - Autenticación de paso a través (PTA)
 - Sincronización de hash de contraseña (PHS)
+
+> [!NOTE]
+> Azure AD no admite tarjetas inteligentes o certificados en dominios administrados.
 
 Desde la versión 1.1.819.0, Azure AD Connect proporciona un asistente para configurar la unión a Azure AD híbrido. El asistente permite simplificar considerablemente el proceso de configuración. Para más información, consulte:
 

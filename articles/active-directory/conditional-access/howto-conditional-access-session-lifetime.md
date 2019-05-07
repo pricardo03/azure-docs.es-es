@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 884b3c2d3f4414427df87ee5f04138416f363b1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577231"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190218"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar la administración de la sesión de autenticación con el acceso condicional
 
@@ -53,7 +53,7 @@ Una sesión de explorador persistente permite a los usuarios permanecer con la s
 Acceso condicional es una funcionalidad de Azure AD Premium y requiere una licencia premium. Para más información sobre el acceso condicional, consulte [Acceso condicional de Azure Active Directory](overview.md#license-requirements-for-using-conditional-access).
 
 > [!WARNING]
-> Si usas el [vigencia de tokens configurables](../develop/active-directory-configurable-token-lifetimes.md) características actualmente en versión preliminar pública, tenga en cuenta que no se admite crear dos directivas diferentes para la misma combinación de la aplicación o un usuario: uno con esta característica y otra con característica de vigencia de tokens configurables. Microsoft tiene planeado retirar la característica de vigencia de tokens configurables el 1 de noviembre y reemplácela con la característica de administración de sesión de autenticación de acceso condicional.  
+> Si usas el [vigencia de tokens configurables](../develop/active-directory-configurable-token-lifetimes.md) características actualmente en versión preliminar pública, tenga en cuenta que no se admite crear dos directivas diferentes para la misma combinación de la aplicación o un usuario: uno con esta característica y otra con característica de vigencia de tokens configurables. Microsoft tiene planeado retirar la característica de vigencia de tokens configurables del 15 de octubre y reemplácela con la característica de administración de sesión de autenticación de acceso condicional.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Directiva 1: Control de inicio de sesión de frecuencia
 
