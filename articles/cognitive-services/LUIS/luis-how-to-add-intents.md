@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: ed180563ea6138b3b4bab6092b39eeacf9dbf840
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097067"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148162"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adición de intenciones para determinar la intención de las expresiones del usuario
 
@@ -42,16 +42,25 @@ Las expresiones de ejemplo son ejemplos de texto de preguntas de los usuarios o 
 
     LUIS pasa todas las expresiones a minúsculas y agrega espacios alrededor de los tokens como guiones.
 
-## <a name="intent-prediction-discrepancy-errors"></a>Errores de discrepancia de predicción de intenciones 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-Es posible que en una intención una expresión tenga una discrepancia de predicción de intenciones entre la intención seleccionada y la puntuación de predicción. LUIS indica esta discrepancia con un cuadro rojo alrededor del valor de **Labeled intent** (Intención etiquetada) en la fila de la expresión de ejemplo. 
+## <a name="intent-prediction-errors"></a>Errores de predicción de intención 
 
-![Captura de pantalla de la página de detalles de las intenciones, con errores de discrepancia en la predicción de la expresión](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+Una declaración de ejemplo en una intención podría tener un error de predicción de intención entre la intención de en que la declaración de ejemplo está actualmente y la intención de predicción determinado durante el entrenamiento. 
 
-Seleccione **Train** (Entrenar) en la barra de navegación superior. La discrepancia de predicción habrá desaparecido.
+Para buscar errores de predicción de utterance (dictado) y corregirlos, utilice el **filtro** la opción **evaluación** las opciones de incorrecta y Unclear combinan con la **vista** opción de **Vista detallada**. 
 
-> [!Note]
-> Cuando una línea roja se encuentre en una palabra o frase en la declaración de ejemplo, un [error de predicción de la entidad](luis-how-to-add-example-utterances.md#entity-status-predictions) se ha producido. Necesario corregirlo. 
+![Para buscar errores de predicción de utterance (dictado) y corregirlos, utilice la opción de filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+Cuando se aplican los filtros y la vista, y hay declaraciones de ejemplo con errores, la lista de declaración de ejemplo muestra las grabaciones de voz y los problemas.
+
+![! [Cuando se aplican los filtros y la vista, y hay declaraciones de ejemplo con errores, la lista de declaración de ejemplo muestra las grabaciones de voz y los problemas.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+Cada fila muestra la puntuación de predicción del entrenamiento actual para la declaración de ejemplo, la puntuación del rival más cercano, que es la diferencia entre estas dos puntuaciones. 
+
+### <a name="fixing-intents"></a>Corrección de intenciones
+
+Para obtener información sobre cómo solucionar errores de predicción intención, use el [panel de resumen de](luis-how-to-use-dashboard.md). El panel de resumen proporciona un análisis para el entrenamiento de la versión activa último y ofrece las principales sugerencias para corregir el modelo.  
 
 ## <a name="add-a-custom-entity"></a>Incorporación de una entidad personalizada
 

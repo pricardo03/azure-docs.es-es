@@ -4,14 +4,14 @@ description: Más información sobre la sintaxis SQL, los conceptos de base de d
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054121"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148952"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Ejemplos de consultas SQL para Azure Cosmos DB
 
@@ -139,14 +139,14 @@ Los resultados de consulta son:
     }]
 ```
 
-La siguiente consulta devuelve todos los nombres proporcionados de los elementos secundarios de la familia cuyo `id` coincide con `WakefieldFamily`, ordenada por categoría.
+La siguiente consulta devuelve todos los nombres proporcionados de los elementos secundarios de la familia cuyo `id` coincide con `WakefieldFamily`, ordenada por la ciudad de residencia.
 
 ```sql
     SELECT c.givenName
     FROM Families f
     JOIN c IN f.children
     WHERE f.id = 'WakefieldFamily'
-    ORDER BY f.grade ASC
+    ORDER BY f.address.city ASC
 ```
 
 Los resultados son:
@@ -314,6 +314,70 @@ Los resultados son:
     ]
 ```
 
+## <a id="DistinctKeyword"></a>Palabra clave DISTINCT
+
+La palabra clave DISTINCT elimina los duplicados en la proyección de la consulta.
+
+```sql
+SELECT DISTINCT VALUE f.lastName
+FROM Families f
+```
+
+En este ejemplo, la consulta proyecta valores para cada apellido.
+
+Los resultados son:
+
+```json
+[
+    "Andersen"
+]
+```
+
+También puede proyectar objetos únicos. En este caso, el campo Apellidos no existe en uno de los dos documentos, por lo que la consulta devuelve un objeto vacío.
+
+```sql
+SELECT DISTINCT f.lastName
+FROM Families f
+```
+
+Los resultados son:
+
+```json
+[
+    {
+        "lastName": "Andersen"
+    },
+    {}
+]
+```
+
+También se puede usar DISTINCT en la proyección dentro de una subconsulta:
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
+```
+
+Esta consulta proyecta una matriz que contiene givenName de cada elemento secundario con los duplicados quitados. Esta matriz tiene un alias como ChildNames y proyecta en la consulta externa.
+
+Los resultados son:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a name="aliasing"></a>Establecimiento de alias
 
 Se pueden convertir explícitamente alias valores en las consultas. Si una consulta tiene dos propiedades con el mismo nombre, utilice alias para cambiar el nombre de una o ambas de las propiedades por lo que elimina la ambigüedad en el resultado proyectado.
@@ -380,7 +444,7 @@ Los resultados son:
         }
       ],
       [
-        {
+       {
             "familyName": "Merriam",
             "givenName": "Jesse",
             "gender": "female",
@@ -504,17 +568,17 @@ Los operadores lógicos operan en valores booleanos. Las siguientes tablas muest
 
 **operator OR**
 
-| OR | True | False | Undefined |
+| OR | True  | False | Undefined |
 | --- | --- | --- | --- |
-| True |True |True |True |
-| False |True |False |Undefined |
-| Undefined |True |Undefined |Undefined |
+| True  |True  |True  |True  |
+| False |True  |False |Undefined |
+| Undefined |True  |Undefined |Undefined |
 
 **operator AND**
 
-| Y | True | False | Undefined |
+| Y | True  | False | Undefined |
 | --- | --- | --- | --- |
-| True |True |False |Undefined |
+| True  |True  |False |Undefined |
 | False |False |False |False |
 | Undefined |Undefined |False |Undefined |
 
@@ -522,8 +586,8 @@ Los operadores lógicos operan en valores booleanos. Las siguientes tablas muest
 
 | NO |  |
 | --- | --- |
-| True |False |
-| False |True |
+| True  |False |
+| False |True  |
 | Undefined |Undefined |
 
 ## <a name="between-keyword"></a>Palabra clave BETWEEN
@@ -599,7 +663,7 @@ Use el?? operador para comprobar eficazmente una propiedad en un elemento cuando
 
 ## <a id="TopKeyword"></a>Operador TOP
 
-La palabra clave TOP devuelve el primer `N` número de resultados de la consulta en un orden indefinido. Como práctica recomendada, usar TOP con la cláusula ORDER BY para limitar los resultados de la primera `N` número de los valores ordenados. Combinación de estas dos cláusulas es la única manera previsible de indicar qué filas afecta TOP. 
+La palabra clave TOP devuelve el primer `N` número de resultados de la consulta en un orden indefinido. Como práctica recomendada, usar TOP con la cláusula ORDER BY para limitar los resultados de la primera `N` número de los valores ordenados. Combinación de estas dos cláusulas es la única manera previsible de indicar qué filas afecta TOP.
 
 Puede usar la parte superior con un valor constante, como se muestra en el ejemplo siguiente, o con un valor variable usando consultas con parámetros. Para obtener más información, consulte el [consultas parametrizadas](#parameterized-queries) sección.
 
@@ -679,6 +743,65 @@ Los resultados son:
       }
     ]
 ```
+
+Además, puede ordenar por varias propiedades. Una consulta que ordena por varias propiedades requiere una [índice compuesto](index-policy.md#composite-indexes). Considere la siguiente consulta:
+
+```sql
+    SELECT f.id, f.creationDate
+    FROM Families f
+    ORDER BY f.address.city ASC, f.creationDate DESC
+```
+
+Esta consulta recupera la familia `id` en orden ascendente de nombre de la ciudad. Si varios elementos tienen el mismo nombre de ciudad, la consulta se ordena por el `creationDate` en orden descendente.
+
+## <a id="OffsetLimitClause"></a>Cláusula de límite de desplazamiento
+
+LÍMITE de desplazamiento es una cláusula opcional para omitir y llevamos a cabo un número de valores de la consulta. El recuento de desplazamiento y el recuento de límite son necesarios en la cláusula de LIMIT de desplazamiento.
+
+Cuando se usa el límite de desplazamiento junto con una cláusula ORDER BY, el conjunto de resultados se genera haciendo skip y toman los valores ordenados. Si no se usa la cláusula ORDER BY, se producirá un error en un orden determinista de valores.
+
+Por ejemplo, aquí es una consulta que omite el primer valor y devuelve el segundo valor (en orden del nombre de la ciudad de residencia):
+
+```sql
+    SELECT f.id, f.address.city
+    FROM Families f
+    ORDER BY f.address.city
+    OFFSET 1 LIMIT 1
+```
+
+Los resultados son:
+
+```json
+    [
+      {
+        "id": "AndersenFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+Esta es una consulta que omite el primer valor y devuelve el segundo valor (sin orden):
+
+```sql
+   SELECT f.id, f.address.city
+    FROM Families f
+    OFFSET 1 LIMIT 1
+```
+
+Los resultados son:
+
+```json
+    [
+      {
+        "id": "WakefieldFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+
+
+
 ## <a name="scalar-expressions"></a>Expresiones escalares
 
 La cláusula SELECT es compatible con expresiones escalares como constantes, expresiones aritméticas y expresiones lógicas. La consulta siguiente utiliza una expresión escalar:
@@ -1018,7 +1141,7 @@ El ejemplo siguiente registra una UDF en un contenedor de elementos en la base d
        {
            Id = "REGEX_MATCH",
            Body = @"function (input, pattern) {
-                       return input.match(pattern) !== null;
+                      return input.match(pattern) !== null;
                    };",
        };
 

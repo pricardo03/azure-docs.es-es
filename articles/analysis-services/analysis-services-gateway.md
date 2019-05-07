@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497406"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141155"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local
 La puerta de enlace de datos local proporciona una transferencia de datos segura entre orígenes de datos locales y los servidores de Azure Analysis Services en la nube. Además de funcionar con varios servidores de Azure Analysis Services en la misma región, la versión más reciente de la puerta de enlace también funciona con Azure Logic Apps, Power BI, Power Apps y Microsoft Flow. Puede asociar varios servicios de la misma suscripción y región con una sola puerta de enlace. 
@@ -176,30 +176,9 @@ Los archivos de registro son un recurso importante a la hora de solucionar probl
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
-
 #### <a name="event-logs"></a>Registros de eventos
 
 Puede encontrar los registros de Data Management Gateway y PowerBIGateway en **Registros de aplicaciones y servicios**.
-
-
-## <a name="telemetry"></a>Telemetría
-La telemetría puede usarse para tareas de supervisión y solución de problemas. De forma predeterminada
-
-**Para activar la telemetría:**
-
-1.  Compruebe el directorio de cliente de puerta de enlace de datos local en el equipo. Normalmente, es **%systemdrive%\Program Files\On-premises data gateway**. O bien, puede abrir una consola de servicios y comprobar la ruta de acceso al archivo ejecutable: Una propiedad del servicio de puerta de enlace de datos local.
-2.  En el archivo Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config del directorio del cliente, cambie el valor SendTelemetry a true.
-        
-    ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
-    ```
-
-3.  Guarde los cambios y reinicie el servicio de Windows: Servicio de puerta de enlace de datos local.
-
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Instalación y configuración de una puerta de enlace de datos local](analysis-services-gateway-install.md)   

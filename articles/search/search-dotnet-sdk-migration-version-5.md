@@ -10,18 +10,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 980f16680ecc65bf8ac30a49e02f39b0f18a15f6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8382884b4ce2965dee4acf191f82eb012b670713
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024113"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147488"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Actualización a la versión 5 del SDK de .NET para Azure Search
-
-> [!Important]
-> Este contenido todavía está en construcción. La versión 9.0 del SDK de .NET de Azure Search está disponible en NuGet. Estamos trabajando en este artículo se explica cómo actualizar a 9.0. 
-> 
 
 Si usa la versión preliminar 4.0 o anterior del [SDK de .NET para Azure Search](https://aka.ms/search-sdk), este artículo le ayudará a actualizar la aplicación para que use la versión 5.
 
@@ -103,6 +99,6 @@ Si la aplicación tiene una dependencia fuerte de estas características, no pod
 ## <a name="conclusion"></a>Conclusión
 Si necesita más detalles sobre el uso del SDK de .NET para Azure Search, consulte la [guía de .NET](search-howto-dotnet-sdk.md).
 
-Agradecemos sus comentarios sobre el SDK. Si tiene algún problema, no dude en pedirnos ayuda en el [foro de MSDN sobre Azure Search](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Si encuentra un error, puede enviarlo al [repositorio de GitHub del SDK de .NET para Azure](https://github.com/Azure/azure-sdk-for-net/issues). Asegúrese de agregar "[Azure Search]" como prefijo en el título del problema.
+Agradecemos sus comentarios sobre el SDK. Si tiene problemas, no dude en pedirnos ayuda en [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Si encuentra un error, puede enviarlo al [repositorio de GitHub del SDK de .NET para Azure](https://github.com/Azure/azure-sdk-for-net/issues). Asegúrese de agregar "[Azure Search]" como prefijo en el título del problema.
 
 Gracias por usar Azure Search.

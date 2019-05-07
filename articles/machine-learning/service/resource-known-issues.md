@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021110"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149767"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conocidos y solución de problemas del servicio Azure Machine Learning
 
@@ -69,6 +69,9 @@ No podrá implementar modelos en FPGA hasta que haya solicitado y se haya aproba
 
 Aprendizaje automático de flujo automatizado de tensores no admite actualmente la versión del flujo de tensores 1.13. Instalar esta versión hará que las dependencias del paquete deje de funcionar. Estamos trabajando para corregir este problema en una versión futura. 
 
+### <a name="experiment-charts"></a>Gráficos del experimento
+
+Los gráficos de clasificación binaria (retirada-precisión, ROC, obtener curva, etc.) se muestra en iteraciones de experimentos de aprendizaje automático automatizadas no son representación correctamente en la interfaz de usuario desde 4/12. Trazados de gráficos son actualmente con los resultados inversa, donde se muestran los modelos con mejor rendimiento con resultados inferior. Una resolución está investigando.
 
 ## <a name="databricks"></a>Databricks
 

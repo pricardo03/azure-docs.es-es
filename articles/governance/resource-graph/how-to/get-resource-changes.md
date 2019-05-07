@@ -8,12 +8,12 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 81cb5e62c8abc93aa5defb690628c7178fd2a869
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720329"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142536"
 ---
 # <a name="get-resource-changes"></a>Obtención de los cambios del recurso
 
@@ -29,7 +29,7 @@ Detección de cambios y los detalles son valiosos para los escenarios de ejemplo
 - Mantener una base de datos de administración de configuración, se conoce como una CMDB, actualizada. En lugar de actualizar todos los recursos y sus conjuntos de propiedad completa en una frecuencia programada, solo obtiene qué ha cambiado.
 - Descripción de las otras propiedades de que pueden haber cambiado cuando un recurso puede cambiar el estado de cumplimiento. Evaluación de estas propiedades adicionales puede proporcionar información sobre otras propiedades que es posible que deba administrarse a través de una definición de directiva de Azure.
 
-En este artículo se muestra cómo recopilar esta información a través del SDK del gráfico de recursos. Para ver esta información en el portal de Azure, consulte la directiva de Azure [historial de cambios](../../policy/how-to/determine-non-compliance.md#change-history-preview).
+En este artículo se muestra cómo recopilar esta información a través del SDK del gráfico de recursos. Para ver esta información en el portal de Azure, consulte la directiva de Azure [historial de cambios](../../policy/how-to/determine-non-compliance.md#change-history-preview) o Azure Activity Log [historial de cambios](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
 
 > [!NOTE]
 > Detalles del cambio en el gráfico de recursos son propiedades del Administrador de recursos. Para realizar el seguimiento de cambios dentro de una máquina virtual, consulte Azure Automation [el seguimiento de cambios](../../../automation/automation-change-tracking.md) o la directiva de Azure [configuración de invitado para máquinas virtuales](../../policy/concepts/guest-configuration.md).

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 37d00abbbf726dc1b92bdcc5f39b16301de9b93d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2eea1a1d30558765a2f8320b0b23efdbe3368807
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697841"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140956"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -204,7 +204,9 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-Devuelve un objeto con nombre que contiene todos los datos de entrada y salida. Por ejemplo, las siguientes definiciones de enlace del archivo function.json permiten acceder al contenido de una cola desde `context.bindings.myInput` y asignar salidas a una cola mediante `context.bindings.myOutput`.
+Devuelve un objeto con nombre que se usa para leer o asignar el enlace de datos. Desencadenador de enlace de datos de entrada y salida pueden obtenerse mediante la lectura de propiedades en `context.bindings`. Enlace de datos de salida se puede asignar mediante la adición de datos a `context.bindings`
+
+Por ejemplo, las siguientes definiciones de enlace del archivo function.json permiten acceder al contenido de una cola desde `context.bindings.myInput` y asignar salidas a una cola mediante `context.bindings.myOutput`.
 
 ```json
 {
@@ -290,7 +292,7 @@ Consulte cómo [supervisar Azure Functions](functions-monitoring.md) para obtene
 
 ## <a name="writing-trace-output-to-the-console"></a>Escribir las salidas de seguimiento en la consola 
 
-En Functions, use los métodos `context.log` para escribir la salida de seguimiento en la consola. En Functions 2.x, las salidas de seguimiento mediante `console.log` se capturan en el nivel de Function App. Esto significa que las salidas de `console.log` no están vinculadas a la invocación de una función específica y, por lo tanto, no se muestran en los registros de una función determinada. No obstante, se propagan a Application Insights. En Functions 1.x, no puede usar `console.log` para escribir en la consola.
+En Functions, use los métodos `context.log` para escribir la salida de seguimiento en la consola. En Functions 2.x, las salidas de seguimiento mediante `console.log` se capturan en el nivel de Function App. Esto significa que las salidas de `console.log` no están asociados a una invocación de función específicos y no se muestran en los registros de una función específica. No obstante, se propagan a Application Insights. En Functions 1.x, no puede usar `console.log` para escribir en la consola.
 
 Cuando se llama a `context.log()`, el mensaje se escribe en la consola en el nivel de seguimiento predeterminado, que es el nivel de seguimiento de _información_. El siguiente código escribe en la consola en el nivel de seguimiento de información:
 
@@ -355,7 +357,7 @@ El objeto `context.req` (solicitud) tiene las siguientes propiedades:
 | _method_      | Método HTTP de la solicitud.                                |
 | _originalUrl_ | Dirección URL de la solicitud.                                        |
 | _params_      | Objeto que contiene los parámetros de enrutamiento de la solicitud. |
-| _query_       | Objeto que contiene los parámetros de consulta.                  |
+| _consulta_       | Objeto que contiene los parámetros de consulta.                  |
 | _rawBody_     | Cuerpo del mensaje como una cadena.                           |
 
 

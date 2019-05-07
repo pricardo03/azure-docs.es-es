@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
-ms.date: 04/02/2019
-ms.openlocfilehash: 39b44668a89ce0c77c09a7fa20dc4d95b2164bf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/25/2019
+ms.openlocfilehash: 265ed220b023a9d81fc5af48920152d95d9cac08
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61323862"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136686"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Cree su primera aplicación sin servidor con Azure Logic Apps y Azure Functions (Visual Studio)
 
@@ -25,33 +25,33 @@ Con las herramientas sin servidor y funcionalidades de Azure, como [Azure Logic 
 
 Para crear una aplicación sin servidor en Visual Studio se necesitan estos elementos:
 
-* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 * Descargue e instale estas herramientas si no las tiene aún:
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 o 2015 Community Edition o superior</a>. 
+  * [Visual Studio 2019, 2017 o 2015 Community Edition o superior](https://aka.ms/download-visual-studio). 
   Este inicio rápido usa Visual Studio Community 2017, que es gratuito.
 
     > [!IMPORTANT]
     > Al instalar Visual Studio de 2019 o 2017, asegúrese de que selecciona la carga de trabajo **desarrollo de Azure**.
-    > Para Visual Studio 2019, Cloud Explorer puede abrir el Diseñador de aplicación lógica en Azure Portal, pero aún no se puede abrir el Diseñador de aplicación lógica insertado.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK para .NET (2.9.1 o una versión posterior)</a>. Más información sobre <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK for .NET</a>.
+  * [Microsoft Azure SDK para .NET (2.9.1 o una versión posterior)](https://azure.microsoft.com/downloads/). 
+  Más información sobre [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
   * Herramientas de Azure Logic Apps para la versión de Visual Studio que desee:
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
-    Puede descargar e instalar Herramientas de Azure Logic Apps directamente desde Visual Studio Marketplace o aprender <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">a instalar esta extensión desde Visual Studio</a>. 
+    Puede descargar e instalar Herramientas de Azure Logic Apps directamente desde Visual Studio Marketplace o aprender [a instalar esta extensión desde Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Asegúrese de reiniciar Visual Studio después de finalizar la instalación.
 
-  * <a href="https://www.npmjs.com/package/azure-functions-core-tools" target="_blank">Herramientas principales de Azure Functions</a> para depurar Functions localmente
+  * [Herramientas principales de Azure Functions](https://www.npmjs.com/package/azure-functions-core-tools) para depurar Functions localmente
 
 * Acceso a la web al usar el Diseñador de aplicaciones lógicas integrado
 

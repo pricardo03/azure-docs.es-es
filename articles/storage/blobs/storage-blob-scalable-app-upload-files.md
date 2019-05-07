@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: a1dba92a9e156c82f49b9f6f85faf227fc652029
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0673d97f755d7e01d42d0be7c611720ff1e4ad01
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240087"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187768"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Cargar grandes cantidades de datos aleatorios en paralelo en Azure Storage
 
@@ -67,14 +67,14 @@ dotnet run
 
 La aplicación crea cinco contenedores con nombres aleatorios y comienza a cargar los archivos del directorio de almacenamiento provisional en la cuenta de almacenamiento. La aplicación establece el mínimo de subprocesos en 100 y el valor de [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) en 100 para garantizar que se pueda establecer un gran número de conexiones simultáneas al ejecutar la aplicación.
 
-Además de establecer la configuración del límite de subprocesos y de conexiones, la clase [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) del método [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) está configurada para usar el paralelismo y deshabilitar la validación de hash MD5. Los archivos se cargan en bloques de 100 MB. Esta configuración proporciona un mejor rendimiento, pero puede aumentar el costo si se usa una red con un rendimiento deficiente, ya que si se produce un error, se reintenta todo el bloque de 100 MB.
+Además de establecer la configuración del límite de subprocesos y de conexiones, la clase [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet) del método [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) está configurada para usar el paralelismo y deshabilitar la validación de hash MD5. Los archivos se cargan en bloques de 100 MB. Esta configuración proporciona un mejor rendimiento, pero puede aumentar el costo si se usa una red con un rendimiento deficiente, ya que si se produce un error, se reintenta todo el bloque de 100 MB.
 
 |Propiedad|Valor|DESCRIPCIÓN|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| La configuración divide el blob en bloques al realizar la carga. Para conseguir el máximo rendimiento, este valor debe ser 8 veces el número de núcleos. |
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Esta propiedad deshabilita la función de comprobación del hash MD5 del contenido cargado. Al deshabilitar la validación de MD5, se agiliza la transferencia. Aún así, hay que tener en cuenta que no se puede confirmar la validez o integridad de los archivos que se transfieren.   |
-|[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Esta propiedad determina si se calcula y almacena un hash MD5 con el archivo.   |
-| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| Retroceso de 2 segundos con 10 reintentos como máximo |Determina la directiva de reintentos de las solicitudes. Los errores de conexión se reintentan y, en este ejemplo, una directiva [ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) está configurada con un retroceso de 2 segundos y un número máximo de reintentos de 10. Esta configuración es importante cuando la aplicación se acerca a los [Objetivos de escalabilidad y rendimiento de Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| La configuración divide el blob en bloques al realizar la carga. Para conseguir el máximo rendimiento, este valor debe ser 8 veces el número de núcleos. |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| Esta propiedad deshabilita la función de comprobación del hash MD5 del contenido cargado. Al deshabilitar la validación de MD5, se agiliza la transferencia. Aún así, hay que tener en cuenta que no se puede confirmar la validez o integridad de los archivos que se transfieren.   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| Esta propiedad determina si se calcula y almacena un hash MD5 con el archivo.   |
+| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| Retroceso de 2 segundos con 10 reintentos como máximo |Determina la directiva de reintentos de las solicitudes. Los errores de conexión se reintentan y, en este ejemplo, una directiva [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry?view=azure-dotnet) está configurada con un retroceso de 2 segundos y un número máximo de reintentos de 10. Esta configuración es importante cuando la aplicación se acerca a los [Objetivos de escalabilidad y rendimiento de Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
 
 La tarea `UploadFilesAsync` se muestra en el ejemplo siguiente:
 

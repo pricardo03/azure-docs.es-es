@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/11/2018
+ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 6ea98792e6a1b7fef32e3be1ddfbb29743f50c6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3c035715de736b816027b08a1e242e6a65d1f13
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250759"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148784"
 ---
-# <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>Vista previa: Creación de una galería de imágenes compartidas con Azure PowerShell 
+# <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Creación de una galería de imágenes compartidas con Azure PowerShell 
 
 Una [galería de imágenes compartidas](shared-image-galleries.md) simplifica el uso compartido de imágenes personalizadas en toda una organización. Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas se pueden usar para realizar tareas de implementación de arranque, como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. 
 
@@ -46,7 +46,7 @@ La característica de galería de imágenes compartidas tiene varios tipos de re
 
 Para completar el ejemplo de este artículo, debe tener una imagen administrada existente. Puede seguir [Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con Azure PowerShell](tutorial-custom-images.md) para crear una si es necesario. Al trabajar en este artículo, reemplace los nombres de grupo de recursos y máquina virtual cuando proceda.
 
-[!INCLUDE [virtual-machines-common-shared-images-ps](../../../includes/virtual-machines-common-shared-images-powershell.md)]
+[!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
  
 ## <a name="create-vms-from-an-image"></a>Creación de máquinas virtuales a partir de una imagen
 
@@ -69,13 +69,7 @@ New-AzVm `
 
 [!INCLUDE [virtual-machines-common-gallery-list-ps](../../../includes/virtual-machines-common-gallery-list-ps.md)]
 
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Cuando ya no se necesiten, puede usar el cmdlet [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos, la VM y todos los recursos relacionados:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myGalleryRG
-```
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: 6ae094ddf1bfc55ce793995f60f1694be6eb19c1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 921d154226862d822802562442f59bf1c37c4745
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686800"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148918"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
 
@@ -115,7 +115,7 @@ En la tabla siguiente se muestran las diferencias de código entre v2 y v3 para 
 > [!NOTE]
 > Se hará el mantenimiento de esta página, ya que el equipo de Media Services realiza mejoras continuas de las API v3 y aborda las deficiencias entre las versiones.
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

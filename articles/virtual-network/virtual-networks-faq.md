@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 131d62fd2cea3ed76342f0fd179b7a9e0fd673e5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925259"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148520"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -170,7 +170,7 @@ Sí. Puede encontrar más información en el artículo [Traslado de una máquina
 No. Una dirección MAC no se puede configurar de forma estática.
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-its-created"></a>¿Seguirá siendo la dirección MAC la misma en mi máquina virtual una vez que se ha creado?
-Sí, la dirección MAC de una máquina virtual no cambia, independientemente de que esta se haya implementado a través del modelo de implementación clásica o de Resource Manager, hasta que se elimina. Antes, la dirección MAC se liberaba si la máquina virtual se detenía (se desasignaba), pero ahora la dirección MAC se conserva aunque la máquina virtual se encuentre en estado desasignada.
+Sí, la dirección MAC de una máquina virtual no cambia, independientemente de que esta se haya implementado a través del modelo de implementación clásica o de Resource Manager, hasta que se elimina. Antes, la dirección MAC se liberaba si la máquina virtual se detenía (se desasignaba), pero ahora la dirección MAC se conserva aunque la máquina virtual se encuentre en estado desasignada. La dirección MAC permanece asignada a la interfaz de red hasta que esta se elimina o se cambia la dirección IP privada asignada a la configuración de IP principal de la interfaz de red principal. 
 
 ### <a name="can-i-connect-to-the-internet-from-a-vm-in-a-vnet"></a>¿Puedo conectarme a Internet desde una máquina virtual de una red virtual?
 Sí. Todas las máquinas virtuales y las instancias de rol de Cloud Services implementadas dentro de una red virtual pueden conectarse a Internet.

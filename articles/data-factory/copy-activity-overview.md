@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: d04bb965ddf9616aaa01f4c8822ac42aea6dab2d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869558"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150868"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -176,12 +176,14 @@ Los detalles de la ejecución de la actividad de copia y las características de
 | dataRead | Tamaño de los datos leídos desde el origen | Valor Int64 en **bytes** |
 | dataWritten | Tamaño de los datos escritos en el receptor | Valor Int64 en **bytes** |
 | filesRead | Número de archivos que se copia al copiar datos desde el almacenamiento de archivos. | Valor Int64 (sin unidad) |
-| fileScanned | Número de archivos que se están examinando desde el almacenamiento de archivo de origen. | Valor Int64 (sin unidad) |
 | filesWritten | Número de archivos que se copia al copiar datos al almacenamiento de archivos. | Valor Int64 (sin unidad) |
-| rowsCopied | Número de filas que se copian (no se aplica a la copia binaria). | Valor Int64 (sin unidad) |
+| rowsRead | Número de filas que se va a leer desde el origen (no aplicable para copia binaria). | Valor Int64 (sin unidad) |
+| rowsCopied | Número de filas que se copian al receptor (no aplicable para copia binaria). | Valor Int64 (sin unidad) |
 | rowsSkipped | Número de filas incompatibles que se omiten. Puede establecer "enableSkipIncompatibleRow" en true para activar la característica. | Valor Int64 (sin unidad) |
-| throughput | Velocidad de transferencia de los datos | Número de punto flotante en **KB/s** |
-| copyDuration | Duración de la copia | Valor Int32 en segundos |
+| throughput | Relación con la que se transfieren los datos. | Número de punto flotante en **KB/s** |
+| copyDuration | La duración de la copia. | Valor Int32 en segundos |
+| sourcePeakConnections | Número máximo de conexiones simultáneas establecidas con el almacén de datos de origen durante la copia. | Valor Int32 |
+| sinkPeakConnections| Número máximo de conexiones simultáneas establecidas en el almacén de datos de receptor durante la copia.| Valor Int32 |
 | sqlDwPolyBase | Si se usa PolyBase cuando se copian datos en SQL Data Warehouse. | Boolean |
 | redshiftUnload | Si se usa UNLOAD cuando se copian datos desde Redshift. | Boolean |
 | hdfsDistcp | Si se usa DistCp cuando se copian datos desde HDFS. | Boolean |

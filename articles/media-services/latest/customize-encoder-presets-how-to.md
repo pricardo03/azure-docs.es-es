@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 03/11/2019
+ms.date: 05/03/2019
 ms.author: juliako
-ms.openlocfilehash: ed2ae50aa9d7a26ed6e0569264ee981f7be35525
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2167a74dc81bdbb2562211cf5c0195a755941d9d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733681"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148333"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Cómo codificar con una transformación personalizada - .NET
 
@@ -32,7 +32,7 @@ Al crear valores preestablecidos personalizados, se aplican las consideraciones 
 
 ## <a name="prerequisites"></a>Requisitos previos 
 
-[Cree una cuenta de Media Services](create-account-cli-how-to.md). <br/>Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services. 
+[Creación de una cuenta de Media Services](create-account-cli-how-to.md)
 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 
@@ -46,7 +46,7 @@ El ejemplo de valor preestablecido personalizado se encuentra en la carpeta [Enc
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Creación de una transformación con un valor preestablecido personalizado 
 
-Al crear una nueva [transformación](https://docs.microsoft.com/rest/api/media/transforms), debe especificar qué desea originar como salida. El parámetro requerido es un objeto [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput), como se muestra en el código siguiente. Cada objeto **TransformOutput** contiene un **valor preestablecido**. El **valor preestablecido** describe las instrucciones paso a paso de las operaciones de procesamiento de vídeo o audio que se utilizarán para generar el objeto **TransformOutput** deseado. El siguiente objeto **TransformOutput** crea el códec personalizado y la configuración de salida de la capa.
+Al crear una nueva [transformación](https://docs.microsoft.com/rest/api/media/transforms), debe especificar qué desea originar como salida. El parámetro requerido es un objeto [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput), como se muestra en el código siguiente. Cada objeto **TransformOutput** contiene un **valor preestablecido**. El **preestablecido** describe las instrucciones paso a paso de las operaciones de procesamiento de vídeo o audio que se usará para generar el deseado **TransformOutput**. El siguiente objeto **TransformOutput** crea el códec personalizado y la configuración de salida de la capa.
 
 Al crear una [transformación](https://docs.microsoft.com/rest/api/media/transforms), debe comprobar primero si ya existe una con el método **Get**, tal como se muestra en el código siguiente. En Media Services v3, los métodos **Get** en las entidades devuelven **null** si la entidad no existe (comprobación sin distinción entre mayúsculas y minúsculas en el nombre).
 

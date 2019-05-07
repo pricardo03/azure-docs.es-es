@@ -2,18 +2,18 @@
 title: 'Guía de inicio rápido de Azure: Creación de un blob en el almacenamiento de objetos con Azure PowerShell | Microsoft Docs'
 description: En esta guía de inicio rápido, utilizará Azure PowerShell en el almacenamiento de objetos (Blob). Después, puede usar PowerShell para cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
-author: roygara
+author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/14/2019
-ms.author: rogarana
-ms.openlocfilehash: 464f3db86c2b6dc4cfe51c74b224a8da4d512103
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.author: tamram
+ms.openlocfilehash: c0a5f7271628e11dbc8fa8b18b21358923f567cc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485601"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149400"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Guía de inicio rápido: Carga, descarga y enumeración de blobs mediante Azure PowerShell
 

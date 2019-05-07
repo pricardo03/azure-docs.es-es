@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 2ca738d5d79fc73f892922825d4b731e8ee92b72
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 953edcb98de6ea705721aef0922562d23e18f0f5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870498"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148234"
 ---
 # <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig-v021-alpha"></a>API de v2 del Monitor de estado: Set-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
 
@@ -121,3 +121,21 @@ VERBOSE: set config file
 VERBOSE: Config File Path:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 ```
+
+## <a name="next-steps"></a>Pasos siguientes
+
+  Vea la telemetría:
+ - [Explore las métricas](../../azure-monitor/app/metrics-explorer.md) para supervisar el rendimiento y uso.
+- [Busque eventos y registros](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas
+- [Análisis](../../azure-monitor/app/analytics.md) para más consultas avanzadas
+- [Creación de paneles](../../azure-monitor/app/app-insights-dashboards.md)
+ 
+ Agregue más telemetría:
+ - [Cree pruebas web](monitor-web-app-availability.md) para asegurarse de que el sitio permanece activo.
+- [Agregue telemetría de cliente web](../../azure-monitor/app/javascript.md) para ver las excepciones de código de la página web y para que le permitan insertar llamadas de seguimiento.
+- [Agregue el SDK de Application Insights al código](../../azure-monitor/app/asp-net.md) para que pueda insertar seguimiento y registrar las llamadas
+ 
+ Hacer más con el Monitor de estado v2:
+ - Use nuestra guía para [solucionar](status-monitor-v2-troubleshoot.md) v2 del Monitor de estado.
+ - [Obtener la configuración](status-monitor-v2-api-get-config.md) para confirmar que la configuración se registraron correctamente.
+ - [Obtener el estado](status-monitor-v2-api-get-status.md) para inspeccionar la supervisión.

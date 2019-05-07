@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
-ms.openlocfilehash: 75eaea22c4809eda78e54514961d13113b4a5f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f470647c218188705cfa65cba7077e62d1b2ac
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696858"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148029"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar el registro en el SDK de voz
 
-Registro en el archivo es una característica opcional para el SDK de voz. Durante el desarrollo de registro proporciona información adicional y el diagnóstico de los componentes principales de Speeck SDK. Se puede habilitar estableciendo la propiedad `Speech_LogFilename` en un objeto de configuración de voz para la ubicación y el nombre del archivo de registro. El registro se activará globalmente una vez creado un módulo de reconocimiento de que la configuración y no se puede deshabilitar posteriormente. No se puede cambiar el nombre de un archivo de registro durante un sesión de registro de ejecución.
+Registro en el archivo es una característica opcional para el SDK de voz. Durante el desarrollo de registro proporciona información adicional y diagnósticos de componentes principales de la voz del SDK. Se puede habilitar estableciendo la propiedad `Speech_LogFilename` en un objeto de configuración de voz para la ubicación y el nombre del archivo de registro. El registro se activará globalmente una vez creado un módulo de reconocimiento de que la configuración y no se puede deshabilitar posteriormente. No se puede cambiar el nombre de un archivo de registro durante un sesión de registro de ejecución.
 
 > [!NOTE]
 > El registro está disponible en todos los SDK de voz admitidos lenguajes de programación, con la excepción de JavaScript.

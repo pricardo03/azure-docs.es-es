@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 26d677df81df6e10fae8d63362d49deee2cd0aca
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f8e057bf2e71d5a00c1e2a8ef72a5c9415a5a207
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870753"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145118"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>Solución de problemas de estado supervisar v2
 
@@ -200,3 +200,9 @@ Si funciona la supervisión, se debe cargar al menos 12 dll.
 4. Intente ir a la aplicación.
 5. Después de la aplicación termine de cargarse, vuelva a PerfView y haga clic en "Detener colección"
 
+
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Revise nuestra [referencia de API](status-monitor-v2-overview.md#powershell-api-reference) para encontrar un parámetro podría haber pasado por alto.
+- Si encuentra un problema no aparece aquí, es posible que en contacto con nosotros [aquí](https://github.com/Microsoft/ApplicationInsights-Home/issues).

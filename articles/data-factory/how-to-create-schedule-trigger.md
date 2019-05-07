@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 62c9a8e6375f6ac7db86ae81cdd4e5c9eb445770
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432828"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151086"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creación de un desencadenador que ejecuta una canalización en una programación
 En este artículo se proporciona información sobre el desencadenador de programación y los pasos para crear, iniciar y supervisar un desencadenador de programación. Para otros tipos de desencadenadores, consulte [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
@@ -274,7 +274,7 @@ La siguiente definición de JSON le muestra cómo crear un desencadenador de pro
         "timeZone": "UTC"
         "schedule": {                    // Optional (advanced scheduling specifics)
           "hours": [<<0-23>>],
-          "weekDays": : [<<Monday-Sunday>>],
+          "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-59>>],
           "monthDays": [<<1-31>>],
           "monthlyOccurrences": [
@@ -328,10 +328,10 @@ En la tabla siguiente se muestra una descripción general de los elementos del e
 | Propiedad JSON | Type | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | string | Sí | None | Fechas-horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Objeto | Sí | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **recurrence** | Object | Sí | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Number | Sin  | 1 | De 1 a 1000 | `"interval":10` |
 | **endTime** | string | Sí | None | Valor de fecha y hora que representa un período de tiempo en el futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | Objeto | Sin  | None | Objeto de programación | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **schedule** | Object | Sin  | None | Objeto de programación | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propiedad startTime
 En la tabla siguiente se muestra cómo la propiedad **startTime** controla una ejecución de desencadenador:

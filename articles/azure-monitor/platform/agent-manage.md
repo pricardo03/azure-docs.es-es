@@ -1,6 +1,6 @@
 ---
 title: Administrar el agente de Azure Log Analytics | Microsoft Docs
-description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida de Microsoft Monitoring Agent (MMA) implementado en una máquina.
+description: En este artículo se describe las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del registro de análisis de Windows o del agente de Linux implementada en un equipo.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 19530aa676e681f9a6ec50d2cacf77711dcb0110
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1809cc50f3ad3c285e0b69bc6e383a2c7c398238
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730278"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139262"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Administrar y mantener el agente de Log Analytics para Windows y Linux
 
@@ -40,7 +40,7 @@ Para actualizar el agente en una máquina virtual de Windows a la versión más 
 
 Puede descargar la versión más reciente del agente de Windows desde el área de trabajo de Log Analytics, realizando los pasos siguientes.
 
-1. Inicie sesión en el Portal de Azure.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 2. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics**.
 
@@ -91,6 +91,7 @@ Ejecute el siguiente comando para actualizar al agente.
 ## <a name="adding-or-removing-a-workspace"></a>Adición o eliminación de un área de trabajo
 
 ### <a name="windows-agent"></a>Agente de Windows
+Los pasos descritos en esta sección son necesarios si desea que no solo reconfigura el agente de Windows para que informe a otra área de trabajo o para quitar un área de trabajo de su configuración, sino también cuando desee configurar el agente para informar a varias áreas de trabajo (normalmente denomina hospedaje múltiple). Configuración del agente de Windows para informar a varias áreas de trabajo solo puede realizarse después de la instalación inicial del agente y mediante los métodos descritos a continuación.    
 
 #### <a name="update-settings-from-control-panel"></a>Actualizar la configuración del Panel de control
 
@@ -140,7 +141,7 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Agente Linux
-En los pasos siguientes se muestra cómo volver a configurar el agente de Linux si decide registrarlo en un área de trabajo diferente o si desea quitar una área de trabajo de la configuración.
+Los pasos siguientes muestran cómo volver a configurar al agente de Linux si decide registrarlo con otra área de trabajo o para quitar un área de trabajo de su configuración.
 
 1. Para comprobar que está registrado en un área de trabajo, ejecute el siguiente comando:
 
@@ -231,7 +232,7 @@ Siga estos pasos si los equipos Linux necesitan comunicarse a través de un serv
     ```
 
 ## <a name="uninstall-agent"></a>Desinstalar agente
-Utilice uno de los procedimientos siguientes para desinstalar al agente de Windows o Linux mediante el asistente para instalación o la línea de comandos.
+Utilice uno de los procedimientos siguientes para desinstalar al agente de Windows o Linux mediante la línea de comandos o el Asistente para la instalación.
 
 ### <a name="windows-agent"></a>Agente de Windows
 

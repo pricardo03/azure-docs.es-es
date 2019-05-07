@@ -2,18 +2,19 @@
 title: Copia o traslado de datos a Azure Storage con AzCopy en Windows| Microsoft Docs
 description: Use la utilidad AzCopy en Windows para mover o copiar datos hacia o desde contenido de archivos, blobs y tablas. Copie datos a Azure Storage desde archivos locales o copie datos en o entre cuentas de almacenamiento. Migre fácilmente sus datos a Azure Storage.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: a91910d474b13fe8cc5306c53109575d2883224e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ead5729496253b553ea453a9d6ce33b6b673e027
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572932"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149055"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferencia de datos con AzCopy en Windows
 

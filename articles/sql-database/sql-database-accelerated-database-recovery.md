@@ -11,14 +11,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388750"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073459"
 ---
-# <a name="accelerated-database-recovery-preview"></a>Recuperación de base de datos acelerada (versión preliminar)
+# <a name="accelerated-database-recovery"></a>Recuperación de base de datos acelerado
 
 **Recuperación de base de datos acelerada (ADR)** es una nueva característica del motor de base de datos SQL que mejora considerablemente la disponibilidad de la base de datos, en especial en presencia de transacciones de ejecución prolongada, al rediseñar el proceso de recuperación del motor de base de datos SQL. ADR está actualmente disponible para bases de datos únicas y agrupadas de Azure SQL Database, y para bases de datos de Azure SQL Data Warehouse. Las principales ventajas de ADR son:
 
@@ -65,7 +65,7 @@ ADR aborda los problemas anteriores al rediseñar por completo el proceso de rec
 - Que sea constante o instantáneo al evitar el análisis del registro desde o hacia el principio de la transacción activa más antigua. Con el ADR, solo se procesa el registro de transacciones desde el último punto de comprobación correcta (o número de secuencia de registro (LSN) de página desfasada más antigua). Como resultado, el tiempo de recuperación no se ve afectado por las transacciones de ejecución prolongada.
 - Minimizar el espacio de registro de transacciones necesario, ya que ya no es necesario procesar el registro de toda la transacción. Como resultado, se puede truncar el registro de transacciones de forma agresiva a medida que se producen los puntos de comprobación y las copias de seguridad.
 
-En general, ADR consigue la recuperación rápida de bases de datos al controlar las versiones de todas las modificaciones de bases de datos físicas y deshacer únicamente las operaciones lógicas, que están limitadas y se pueden deshacer casi al instante. Cualquier transacción que estuviera activa en el momento de un bloqueo se marca como anulada y, por lo tanto, las consultas de usuario simultáneas pueden pasar por alto las versiones generadas por estas transacciones.
+En un nivel alto, ADR consigue la recuperación rápida de la base de datos al control de versiones de todas las modificaciones de base de datos física y sola deshacer operaciones lógicas, que se limitan y se pueden deshacer casi al instante. Cualquier transacción que estuviera activa en el momento de un bloqueo se marca como anulada y, por lo tanto, las consultas de usuario simultáneas pueden pasar por alto las versiones generadas por estas transacciones.
 
 El proceso de recuperación ADR tiene las mismas tres fases que el proceso de recuperación actual. El funcionamiento de estas fases con ADR se muestra en el siguiente diagrama y se explica con más detalle después del diagrama.
 
@@ -128,6 +128,3 @@ Los siguientes tipos de clientes deberían considerar la habilitación de ADR:
 - Clientes que han visto casos en que las transacciones activas hacen que el registro de transacciones crezca considerablemente.  
 - Clientes que han experimentado largos períodos de falta de disponibilidad de una base de datos debido a la recuperación de ejecución prolongada de SQL Server (por ejemplo, un reinicio inesperado de SQL Server o una reversión de transacción manual).
 
-## <a name="to-enable-adr-during-this-preview-period"></a>Para habilitar ADR durante este período de versión preliminar
-
-Durante el período de versión preliminar de esta característica, envíe un correo electrónico a [adr@microsoft.com](mailto:adr@microsoft.com) para obtener más información y probar la recuperación de base de datos acelerada (ADR). En el correo electrónico, incluya el nombre del servidor de SQL Database (para bases de datos únicas y bases de datos agrupadas de SQL Database, y para bases de datos de Azure Data Warehouse). Puesto que esta es una característica en vista previa, el servidor de pruebas debe ser un servidor que no sea de producción.

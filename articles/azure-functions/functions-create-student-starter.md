@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 5fd9f51185b8461269d498b254d9e9d9f4118270
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 860fedb13e84054e8ba264116be4e452445b7e9b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344102"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143094"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Creación de una función con Microsoft Azure for Students Starter
 
@@ -76,8 +76,6 @@ Debe tener una Function App para hospedar la ejecución de las funciones. Una Fu
 
 8. Seleccione **Ir al recurso** para ver la nueva aplicación de función.
 
-> [!TIP]
-> Si tiene problemas para encontrar las aplicaciones de función en el portal, intente [agregar Function App a favoritos en Azure Portal](./functions-how-to-use-azure-function-app-settings.md#favorite).
 Después, cree una función en la nueva Function App.
 
 ## <a name="create-function"></a>Crear una función desencadenada por HTTP

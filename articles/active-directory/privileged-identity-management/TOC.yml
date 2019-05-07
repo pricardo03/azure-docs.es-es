@@ -27,12 +27,6 @@
       href: pim-deployment-plan.md
     - name: Primer uso de PIM
       href: pim-getting-started.md
-    - name: Activación de mis roles
-      items:
-        - name: Activación de mis roles de Azure AD
-          href: pim-how-to-activate-role.md
-        - name: Activación de mis roles de recursos de Azure
-          href: pim-resource-roles-activate-your-roles.md
     - name: Configuración de PIM
       items:
         - name: Asistente para seguridad
@@ -43,6 +37,12 @@
           href: pim-how-to-give-access-to-pim.md
         - name: Elevación de los privilegios de acceso para administrar todas las suscripciones
           href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: Activación de mis roles
+      items:
+        - name: Activación de mis roles de Azure AD
+          href: pim-how-to-activate-role.md
+        - name: Activación de mis roles de recursos de Azure
+          href: pim-resource-roles-activate-your-roles.md
     - name: Administración de roles de Azure AD
       items:
         - name: Asignación de roles
@@ -73,21 +73,21 @@
           href: azure-pim-resource-rbac.md
         - name: Uso de roles personalizados
           href: pim-resource-roles-custom-role-policy.md
-    - name: Revisar acceso
+    - name: Revisiones de acceso
       items:
         - name: Roles de Azure AD
           items:
-            - name: Revisión de mis roles de Azure AD
-              href: pim-how-to-perform-security-review.md
-            - name: Inicio de una revisión de acceso
+            - name: Creación de una revisión de acceso
               href: pim-how-to-start-security-review.md
+            - name: Revisar acceso
+              href: pim-how-to-perform-security-review.md
             - name: Finalización de una revisión de acceso
               href: pim-how-to-complete-review.md
         - name: Roles de recursos de Azure
           items:
-            - name: Revisión de mis roles de recursos de Azure
-              href: pim-resource-roles-perform-access-review.md
-            - name: Inicio de una revisión de acceso
+            - name: Creación de una revisión de acceso
               href: pim-resource-roles-start-access-review.md
+            - name: Revisar acceso
+              href: pim-resource-roles-perform-access-review.md
             - name: Finalización de una revisión de acceso
               href: pim-resource-roles-complete-access-review.md

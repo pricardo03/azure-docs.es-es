@@ -1,6 +1,6 @@
 ---
-title: Revisión de acceso para los roles de Azure AD en PIM - Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo realizar una revisión de acceso para los roles de Azure AD en Azure AD Privileged Identity Management (PIM) y ver los resultados
+title: Revisión de acceso de roles de Azure AD en PIM - Azure Active Directory | Microsoft Docs
+description: Obtenga información sobre cómo realizar una revisión de acceso de roles de Azure AD en Azure AD Privileged Identity Management (PIM) y ver los resultados
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed53c8bb3cb735822fc40aab86ca40bef7b9607a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: decba8f46432891a44a2b231890da4214bd5b1bb
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288311"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140990"
 ---
-# <a name="complete-an-access-review-for-azure-ad-roles-in-pim"></a>Revisión de acceso para los roles de Azure AD en PIM
+# <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Revisión de acceso de roles de Azure AD en PIM
 Los administradores de roles con privilegios pueden revisar el acceso con privilegios una vez que se [ha iniciado una revisión del acceso](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) envía automáticamente un correo electrónico para pedir a los usuarios que revisen su acceso. Si algún usuario no ha recibido un correo electrónico, puede enviarle las instrucciones necesarias para [realizar una revisión del acceso](pim-how-to-perform-security-review.md).
 
 Cuando acabe el período de la revisión del acceso o cuando todos los usuarios hayan finalizado su autorrevisión, siga los pasos de este artículo para administrar la revisión y ver los resultados.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 05/02/2019
 ms.author: monhaber
-ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 581db3ebe3ce1cad5c8db3702af179e141f334b4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910496"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143460"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controles de aplicación adaptables en Azure Security Center
 Obtenga información acerca de cómo configurar el control de aplicación en Azure Security Center con este tutorial.
@@ -154,6 +154,22 @@ La lista contiene:
 
 Azure Security Center también le permite definir una directiva de creación de listas de aplicaciones permitidas en grupos no recomendados de máquinas virtuales. Siga los mismos principios que se han descrito anteriormente, para configurar una directiva de creación de listas de aplicaciones permitidas también en esos grupos.
 
+## <a name="move-a-vm-from-one-group-to-another"></a>Mover una máquina virtual de un grupo a otro
+
+ Al mover una máquina virtual de un grupo a otro, aplicada la directiva de control de aplicación cambia a la configuración del grupo que ha trasladado a. También puede mover una máquina virtual de un grupo configurado a un grupo no configurado, lo que da como resultado la eliminación de cualquier directiva de control de aplicación que se aplicó anteriormente a la máquina virtual.
+
+ 1. Desde el **controles de aplicación adaptables** página, desde el **configurado** pestaña, haga clic en el grupo al que pertenece la máquina virtual va a mover actualmente.
+1. Haga clic en **configurado máquinas virtuales y equipos**.
+1. Haga clic en los tres puntos en la línea de la máquina virtual para mover y haga clic en **mover**. El **equipo mover a otro grupo** abre la ventana.
+
+    ![Protección](./media/security-center-adaptive-application/adaptive-application-move-group.png)
+
+ 1. Seleccione el grupo para mover la máquina virtual y haga clic en **mover equipo**y haga clic en **guardar**.
+
+    ![Protección](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
+
+ > [!NOTE]
+> Haga clic en **guardar** después de hacer clic **mover equipo**. Si no hace clic en **guardar**, a continuación, el equipo no se moverá.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, aprendió a usar control de aplicación adaptables en Azure Security Center para aplicaciones de lista blanca de direcciones que se ejecutan en Azure y máquinas virtuales de Azure: no. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:

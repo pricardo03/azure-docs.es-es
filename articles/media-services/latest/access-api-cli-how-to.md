@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8374e4c49012a2c49de41001be0fdb30f9151332
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a27f7597ddc934b925d63507a816ac5816b682d6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733511"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151048"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Acceso a la API de Azure Media Services con la CLI de Azure
  
@@ -54,7 +54,11 @@ Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media
 - [Creación de EventGrid: CLI](./scripts/cli-create-event-grid.md)
 - [Publicación de un recurso: CLI](./scripts/cli-publish-asset.md)
 - [Filtrado: CLI](filters-dynamic-manifest-cli-howto.md)
+- [CLI de Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[CLI de Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+El punto de conexión de Streaming desde el que van a transmitir el contenido debe estar en el estado en ejecución. El siguiente comando CLI inicia el extremo de Streaming de forma predeterminada:
+
+
+`az ams streaming-endpoint start -n default -a <amsaccount> -g <amsResourceGroup>`

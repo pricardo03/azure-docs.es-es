@@ -5,23 +5,23 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: 86693e829ab08c3cb7befc6f0047472e8faa61fa
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 0506ef82a00b46bf9be14757f15195bcbf8ab432
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947208"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148901"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>El escalado automático y la puerta de enlace de aplicaciones con redundancia de zona 
 
-Application Gateway y Firewall de aplicaciones Web (WAF) también están disponibles en un Standard_v2 y SKU WAF_v2 que ofrece mejoras de rendimiento y agrega compatibilidad para las nuevas características esenciales, como el escalado automático, redundancia de zona y soporte técnico para VIP estáticas. Las características existentes en el estándar y la SKU de WAF siguen siendo compatibles en la nueva SKU v2, con algunas excepciones que aparecen en la sección de la comparación. 
+Application Gateway y Firewall de aplicaciones Web (WAF) también están disponibles en una SKU de WAF_v2 y Standard_v2. La SKU v2 ofrece mejoras de rendimiento y agrega compatibilidad con nuevas características esenciales, como el escalado automático, redundancia de zona y soporte técnico para VIP estáticas. Siguen siendo compatibles en la nueva SKU v2, con algunas excepciones que se muestran en las características existentes en el estándar y la SKU de WAF [comparación](#differences-with-v1-sku) sección.
 
 La nueva SKU v2 incluye las siguientes mejoras:
 
 - **Escalabilidad automática**: Las implementaciones de Application Gateway o WAF en la SKU de escalado automática pueden escalarse o reducirse verticalmente en función de los cambiantes patrones de la carga de tráfico. La escalabilidad automática también elimina el requisito de tener elegir un tamaño de implementación o un número de instancias durante el aprovisionamiento. Esta SKU ofrece elasticidad es true. En la SKU de WAF_v2 y Standard_v2, Application Gateway puede operar en capacidad fija (el escalado automático deshabilitado) y en modo de escalado automático habilitado. El modo de capacidad fija es útil para escenarios con cargas de trabajo coherentes y predecibles. Modo de escalado automático es útil en aplicaciones que se vea varianza en el tráfico de la aplicación.
-- **Redundancia de zona**: Una implementación de WAF o Application Gateway puede abarcar varias zonas de disponibilidad, eliminando la necesidad de aprovisionar instancias independientes de Application Gateway en cada zona con un administrador de tráfico. Puede elegir una o varias zonas donde se implementarán las instancias de Application Gateway, lo que garantiza la resistencia a errores de zona. El grupo de back-end de las aplicaciones se puede distribuir de manera similar entre las zonas de disponibilidad.
+- **Redundancia de zona**: Una implementación de WAF o Application Gateway puede abarcar varias zonas de disponibilidad, eliminando la necesidad de aprovisionar instancias independientes de Application Gateway en cada zona con un administrador de tráfico. Puede elegir una sola zona o varias zonas donde se implementan instancias de Application Gateway, que hace sea más resistente a errores de zona. El grupo de back-end de las aplicaciones se puede distribuir de manera similar entre las zonas de disponibilidad.
 - **VIP estática**: Application gateway admite la SKU v2 la VIP estática de tipo exclusivamente. Esto garantiza que la VIP asociada con application gateway no cambia para el ciclo de vida de la implementación, incluso después del reinicio.
 - **Reescritura de encabezado**: Instancia de Application Gateway permite agregar, quitar o actualizar los encabezados de solicitud y respuesta HTTP con SKU v2. Para obtener más información, consulte [encabezados HTTP reescribir con Application Gateway](rewrite-http-headers.md)
 - **Integración de Key Vault (versión preliminar)**: V2 de la puerta de enlace de aplicaciones admite la integración con Key Vault (en versión preliminar pública) para los certificados de servidor que se adjuntan a los agentes de escucha HTTPS habilitado. Para obtener más información, consulte [terminación SSL con certificados de Key Vault](key-vault-certs.md).
@@ -33,7 +33,7 @@ La nueva SKU v2 incluye las siguientes mejoras:
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-La SKU de WAF_v2 y Standard_v2 está disponible en las siguientes regiones: Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Europa del Norte, Europa Occidental, Sudeste Asiático, Centro de Francia, Oeste de Reino Unido, Este de Japón, Oeste de Japón. Compatibilidad con otras regiones está próxima.
+La SKU de WAF_v2 y Standard_v2 está disponible en las siguientes regiones: Centro-norte de EE. UU., Centro-sur de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Europa del Norte, Europa Occidental, Sudeste Asiático, Centro de Francia, Oeste de Reino Unido, Este de Japón, Oeste de Japón. En el futuro se agregará más regiones.
 
 ## <a name="pricing"></a>Precios
 
@@ -42,12 +42,12 @@ Con la SKU v2, el modelo de precios está controlado por el consumo y ya no est�
 - **Precio fijo** -esto es cada hora (o fracciones de hora) precio para aprovisionar un Standard_v2 o WAF_v2 puerta de enlace.
 - **Precio unitario capacidad** -se trata de un costo basado en consumo que se cobra adicionales al costo fijo. Cargo de unidad de capacidad también se calcula por hora o parcial cada hora. Existen tres dimensiones a la unidad de capacidad, rendimiento, las conexiones persistentes y unidad de proceso. Calcular la unidad es una medida de capacidad de procesador consumida. Factores que afectan a la unidad de proceso son las conexiones TLS/seg., los cálculos de reescritura de direcciones URL y procesamiento de reglas de WAF. Conexión persistente es una medida de las conexiones TCP establecidas para la puerta de enlace de aplicaciones en un intervalo de facturación determinado. El rendimiento es medio Megabits por segundo procesadas por el sistema en un intervalo de facturación determinado.
 
-Cada unidad de capacidad a lo sumo se compone de: 1 unidad, o las conexiones persistentes de 2500 o 2,22 Mbps de rendimiento de proceso.
+Cada unidad de capacidad a lo sumo se compone de: 1 unidad, o las conexiones persistentes de 2500 o 2.22 Mbps de rendimiento de proceso.
 
 Orientación de la unidad de proceso:
 
 - **Standard_v2** -cada unidad de proceso es capaz de aproximadamente 50 conexiones por segundo con certificado TLS de la clave RSA 2048 bits.
-- **WAF_v2** : cada unidad de proceso se capaz de aproximadamente 10 solicitudes simultáneas por segundo de solicitudes de combinación de 70-30% del tráfico con un 70% menos de 2 KB GET/POST y restante más alto. Rendimiento de WAF no se ve afectado por el tamaño de respuesta en actualmente.
+- **WAF_v2** : cada unidad puede admitir aproximadamente 10 solicitudes simultáneas por segundo de solicitudes de combinación de 70-30% del tráfico con un 70% menos de 2 KB GET/POST de proceso y restante más alto. Rendimiento de WAF no se ve afectado por el tamaño de respuesta en actualmente.
 
 > [!NOTE]
 > Cada instancia actualmente puede admitir aproximadamente 10 unidades de capacidad.
@@ -73,7 +73,7 @@ Precio total = $148.8 + $297.6 = $446.4
 
 **Ejemplo 2**
 
-Se aprovisiona un standard_v2 Application Gateway para un mes y durante este tiempo recibe 25 nuevas SSL conexiones por segundo, promedio 8.88 Mbps transferencia de datos. Suponiendo que las conexiones tienen una duración breve, el precio sería:
+Se aprovisiona un standard_v2 Application Gateway para un mes y durante este tiempo recibe 25 nuevas SSL conexiones por segundo, promedio de transferencia de datos de 8.88 Mbps. Suponiendo que las conexiones tienen una duración breve, el precio sería:
 
 Precio fijo = 744(hours) * 0,20 USD = $148.8
 
@@ -83,7 +83,7 @@ Precio total = $148. 23.81 8 + = $172.61
 
 **Ejemplo 3**
 
-Se aprovisiona un WAF_v2 de puerta de enlace de aplicación durante un mes y durante este tiempo recibe 25 nuevas SSL conexiones por segundo, promedio de transferencia de datos de 8.88 Mbps y 80 solicitudes por segundo. Suponiendo que las conexiones son de cortas duración, y que el cálculo de unidad de proceso para la aplicación es compatible con 10 solicitudes por segundo por unidad de proceso, el precio sería:
+Se aprovisiona un WAF_v2 de puerta de enlace de aplicación durante un mes. Durante este tiempo, recibe el 25 nuevas SSL conexiones por segundo, promedio de transferencia de datos de 8.88 Mbps y 80 solicitudes por segundo. Suponiendo que las conexiones son de cortas duración, y que el cálculo de unidad de proceso para la aplicación es compatible con 10 solicitudes por segundo por unidad de proceso, el precio sería:
 
 Precio fijo = 744(hours) * $0,36 = $267.84
 
@@ -97,8 +97,8 @@ El [página de precios](https://azure.microsoft.com/en-us/pricing/details/applic
 
 WAF y Application Gateway pueden configurarse a escala en dos modos:
 
-- **El escalado automático** : con el escalado automático habilitado la puerta de enlace de aplicaciones y las SKU de WAF v2 se escale o reduzca verticalmente según los requisitos de tráfico de la aplicación. Este modo ofrece elasticidad mejor a su aplicación y elimina la necesidad de adivinar el recuento de tamaño o la instancia de puerta de enlace de aplicaciones. Este modo también le permite ahorrar costos al no requerir para ejecutar las puertas de enlace en su capacidad máxima aprovisionada para la carga de tráfico máximo previsto. Los clientes deben especificar un recuento de instancias mínimas y máximas opcionalmente. Capacidad mínima que se garantiza que Application Gateway y WAF v2 no se encuentran por debajo del recuento de instancias mínimo especificado, incluso en ausencia de tráfico. Se le facturará esta capacidad mínima incluso en ausencia de todo el tráfico. Opcionalmente, también puede especificar número máximo de instancias que garantiza que la puerta de enlace de aplicaciones no escala más allá del número especificado de instancias. Seguirá facturando para la cantidad de tráfico atendido por la puerta de enlace. Los números de instancias pueden oscilar entre 0 y 125. Valor predeterminado de recuento de instancias máximo es 20 si no se especifica.
-- **Manual** -o bien puede elegir dónde la puerta de enlace se ejecutará escale automáticamente de modo Manual. En este modo, si se envía más tráfico a qué instancia de Application Gateway o WAF es capaz de manejar, podría provocar pérdida de tráfico. Con el modo manual es obligatorio especificar número de instancias. Recuento de instancias puede variar de 1 a 125 instancias.
+- **El escalado automático** : con el escalado automático habilitado, la puerta de enlace de aplicaciones y WAF v2 SKU escalar o reducir verticalmente en función de los requisitos de tráfico de aplicación. Este modo ofrece elasticidad mejor a su aplicación y elimina la necesidad de adivinar el recuento de tamaño o la instancia de puerta de enlace de aplicaciones. Este modo también le permite ahorrar costos al no requerir para ejecutar las puertas de enlace en su capacidad máxima aprovisionada para la carga de tráfico máximo previsto. Los clientes deben especificar un recuento de instancias mínimas y máximas opcionalmente. Capacidad mínima que se garantiza que Application Gateway y WAF v2 no se encuentran por debajo del recuento de instancias mínimo especificado, incluso en ausencia de tráfico. Se le facturará esta capacidad mínima incluso en ausencia de todo el tráfico. Opcionalmente, también puede especificar un recuento máximo de instancias, lo que garantiza que la puerta de enlace de aplicaciones no escala más allá del número especificado de instancias. Seguirá facturando para la cantidad de tráfico atendido por la puerta de enlace. Los números de instancias pueden oscilar entre 0 y 125. El valor predeterminado de recuento de instancias máximo es 20 si no se especifica.
+- **Manual** -o bien puede elegir que no se escalará automáticamente la puerta de enlace de modo Manual. En este modo, si hay más tráfico que qué puerta de enlace de aplicaciones o WAF es capaz de manejar, podría provocar pérdida de tráfico. Con el modo manual, es obligatorio especificar el número de instancia. Recuento de instancias puede variar de 1 a 125 instancias.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparación de características entre SKU v1 y v2 SKU
 
@@ -125,7 +125,7 @@ En la tabla siguiente se compara las características disponibles con cada SKU.
 | Purga de la conexión                               | &#x2713; | &#x2713; |
 
 > [!NOTE]
-> El escalado automático y la puerta de enlace de aplicaciones con redundancia de zona SKU ahora admite [sondeos de estado predeterminada](application-gateway-probe-overview.md#default-health-probe) para supervisar el estado de todos los recursos de su grupo de back-end y resaltar los miembros de back-end que se consideran automáticamente Insalubre. El quedará de sondeo de estado predeterminada se configura automáticamente para todos esos back-ends que no ha configurado ninguna configuración de sondeo personalizado. Para obtener más información, consulte [sondeos de estado de application gateway](application-gateway-probe-overview.md).
+> La versión 2 de escalado automático ahora es compatible con la SKU [sondeos de estado predeterminada](application-gateway-probe-overview.md#default-health-probe) para supervisar el estado de todos los recursos de su grupo de back-end y resaltar los miembros de back-end que se consideran en mal estado automáticamente. El sondeo de estado predeterminada se configura automáticamente para el back-ends que no tienen ninguna configuración de sondeo personalizado. Para obtener más información, consulte [sondeos de estado de application gateway](application-gateway-probe-overview.md).
 
 ## <a name="differences-with-v1-sku"></a>Diferencias con SKU v1
 
@@ -140,6 +140,7 @@ En la tabla siguiente se compara las características disponibles con cada SKU.
 |Modo FIPS|Actualmente no se admiten.|
 |Solo modo ILB|Actualmente no se admite. Se admiten los modos público e ILB juntos.|
 |Integración de Netwatcher|No compatible.|
+|Integración del centro de soporte técnico de Azure|No disponible todavía.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

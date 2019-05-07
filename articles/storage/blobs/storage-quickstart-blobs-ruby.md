@@ -2,18 +2,19 @@
 title: 'Guía de inicio rápido de Azure: Creación de un blob en el almacenamiento de objetos con Ruby | Microsoft Docs'
 description: En esta guía de inicio rápido, creará una cuenta de almacenamiento y un contenedor en el almacenamiento de objetos (Blob). Después, puede usar la biblioteca de clientes de almacenamiento para Ruby a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: seguler
-ms.openlocfilehash: 47143a76c2b57bc889b74f29d709785d0c19451a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: 77e8e3dd8c32545b24230512ded00e335108d802
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008224"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150429"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Ruby
 

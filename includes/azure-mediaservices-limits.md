@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557157"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150334"
 ---
 >[!NOTE]
 >Para obtener recursos que no son fijos, abra una incidencia de soporte técnico para solicitar un aumento en las cuotas. No cree cuentas adicionales de Azure Media Services en un intento de obtener límites mayores.
@@ -50,12 +50,12 @@ A partir del 1 de abril de 2017, se eliminan automáticamente los registros de t
 >[!NOTE]
 > Si siempre usa los mismos días y los permisos de acceso, use el mismo identificador de directiva. Para obtener información y un ejemplo, vea [administrar recursos con el SDK de .NET de Media Services](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
 
-<sup>7</sup>si va a cargar contenido en un recurso de Media Services para procesarlo con uno de los procesadores de multimedia en el servicio, tenga en cuenta el tamaño máximo de archivo que se admite. Los recursos incluyen codificadores como Media Encoder Standard y motores de Media Encoder Premium Workflow o análisis como Face Detector.
+<sup>7</sup>el tamaño máximo admitido para un único blob es actualmente de 5 TB en Azure Blob Storage. Se aplican límites adicionales en Media Services en función de los tamaños de máquina virtual que se usan por el servicio. El límite de tamaño se aplica a los archivos que se cargan y también los archivos que se generan como resultado de procesar (codificar o analizar) de Media Services. Si el archivo de origen es mayor de 260 GB, es muy probable que el trabajo presente un error. 
 
-El tamaño máximo admitido para un único blob es actualmente de 5 TB en Azure Blob Storage. Se aplican límites adicionales en Media Services en función de los tamaños de máquina virtual que se usan por el servicio. En la tabla siguiente se muestra los límites en el medio reservado unidades de S1, S2 y S3. Si el archivo de origen es mayor que los límites definidos en la tabla, se produce un error en el trabajo de codificación. Si utiliza la codificación orígenes de resolución de 4K de larga duración, es necesario utilizar unidades reservada de multimedia S3 para lograr el rendimiento necesario. Si tiene contenido de 4K mayor que el límite de 260 GB en las unidades reservadas de multimedia S3, póngase en contacto con nosotros en amshelp@microsoft.com para posibles mitigaciones admitir su escenario.
+En la tabla siguiente se muestra los límites en el medio reservado unidades de S1, S2 y S3. Si el archivo de origen es mayor que los límites definidos en la tabla, se produce un error en el trabajo de codificación. Si utiliza la codificación orígenes de resolución de 4K de larga duración, es necesario utilizar unidades reservada de multimedia S3 para lograr el rendimiento necesario. Si tiene contenido de 4K mayor que el límite de 260 GB en las unidades reservadas de multimedia S3, póngase en contacto con nosotros en amshelp@microsoft.com para posibles mitigaciones admitir su escenario.
 
-| Tipo de unidad reservada de medios | Tamaño máximo de entrada (GB)| 
-| --- | --- | 
-|S1 | 325|
-|S2 | 640|
-|S3 | 260|
+|Tipo de unidad reservada de medios   |Tamaño máximo de entrada (GB)|
+|---|---|
+|S1 |   26|
+|S2 | 60|
+|S3 |260|

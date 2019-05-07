@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e13bcb7d4eeded691669277b64aba9048f3bbefa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684561"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150410"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Protección de contenido con cifrado dinámico
 
@@ -206,7 +206,7 @@ Si se produce la `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` error, asegúre
 
 Si se producen errores que terminan con `_NOT_SPECIFIED_IN_URL`, asegúrese de especificar el formato de cifrado en la dirección URL. Por ejemplo, `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Consulte [protocolos y tipos de cifrado de Streaming](#streaming-protocols-and-encryption-types).
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

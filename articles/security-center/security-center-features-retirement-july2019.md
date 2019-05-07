@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 392782310d8bc3b38a3dd1349cb1760ca287acd1
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875583"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147923"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Retirada de las características de Security Center (julio de 2019)
 
@@ -155,7 +155,7 @@ Esta característica ha estado en versión preliminar y se va a retirar.
 
 ### <a name="edit-security-configurations---new-experience"></a>Editar configuraciones de seguridad: nueva experiencia
 
-Security Center admitirá la [agente en invitado](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) en un futuro próximo, lo que permite un conjunto de características mucho más completo - incluida la compatibilidad con sistemas operativos adicionales y la integración con la configuración de invitado con las directivas de Azure (en el invitado directivas). También proporcionará la capacidad de controlar a escala y aplicar automáticamente en nuevos recursos.
+Security Center admitirá el [agente invitado de la configuración](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) en un futuro próximo, lo que permite un conjunto de características mucho más completo - incluida la compatibilidad para la integración con la configuración de invitado con las directivas de Azure (y sistemas operativos adicionales directivas de invitado). También proporcionará la capacidad de controlar a escala y aplicar automáticamente en nuevos recursos.
 
 ## Panel seguridad y auditoría (usado originalmente en el portal de OMS) para las áreas de trabajo de Log Analytics<a name="menu_securityomsdashboard"></a>
 

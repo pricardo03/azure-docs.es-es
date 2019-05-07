@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f7fa1d58c21ea0ed457cc5987d7823fad68d554f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339818"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153813"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Creación de una aplicación de función en Linux en un plan de Azure App Service
 
@@ -62,9 +62,6 @@ Debe tener una aplicación de función para hospedar la ejecución de las funcio
     ![Definir nueva configuración de Function App](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
 
 5. Seleccione **Ir al recurso** para ver la nueva aplicación de función.
-
-> [!TIP]
-> Si tiene problemas para encontrar las aplicaciones de función en el portal, intente [agregar Function App a favoritos en Azure Portal](functions-how-to-use-azure-function-app-settings.md#favorite).
 
 Después, cree una función en la nueva Function App. Incluso después de que la aplicación de función está disponible, puede tardar unos minutos en inicializarse totalmente.
 

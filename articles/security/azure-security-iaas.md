@@ -12,31 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4b2506781df5572ddaff8dda34bf3edab8987be
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586529"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145198"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
+En este artículo se describen los procedimientos recomendados de seguridad para máquinas virtuales y sistemas operativos.
+
+Los procedimientos recomendados se basan en un consenso de opinión y son válidos para las funcionalidades y conjuntos de características actuales de la plataforma Azure. Puesto que las opiniones y las tecnologías pueden cambiar con el tiempo, este artículo se actualizará para reflejar dichos cambios.
 
 En la mayoría de los escenarios de IaaS (infraestructura como servicio), las [máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machines/) son la principal carga de trabajo de las organizaciones que usan la informática en la nube. Esto es evidente en los [escenarios híbridos](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx), en los que las organizaciones quieran migrar lentamente las cargas de trabajo a la nube. En estos escenarios, siga las [consideraciones generales de seguridad de IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx) y aplique los procedimientos recomendados de seguridad a todas las máquinas virtuales.
 
+## <a name="shared-responsibility"></a>Responsabilidad compartida
 Su responsabilidad de la seguridad se basa en el tipo de servicio en la nube. En el siguiente gráfico se resume cómo se reparte la responsabilidad entre Microsoft y usted.
 
 ![Áreas de responsabilidad](./media/azure-security-iaas/sec-cloudstack-new.png)
 
 Los requisitos de seguridad varían en función de una serie de factores entre los que se encuentran los diferentes tipos de cargas de trabajo. Ninguno de estos procedimientos recomendados puede por sí solo proteger sus sistemas. Al igual que en otros aspectos de la seguridad, es preciso elegir las opciones adecuadas y ver si las soluciones se pueden complementar entre sí y suplir las deficiencias.
 
-En este artículo se describen los procedimientos recomendados de seguridad para máquinas virtuales y sistemas operativos.
-
-Los procedimientos recomendados se basan en un consenso de opinión y son válidos para las funcionalidades y conjuntos de características actuales de la plataforma Azure. Puesto que las opiniones y las tecnologías pueden cambiar con el tiempo, este artículo se actualizará para reflejar dichos cambios.
-
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Protección de máquinas virtuales mediante la autenticación y el control de acceso
 El primer paso para proteger la máquina virtual es garantizar que solo los usuarios autorizados puedan configurar nuevas máquinas virtuales y obtener acceso a ellas.
+
+> [!NOTE]
+> Para mejorar la seguridad de máquinas virtuales Linux en Azure, puede integrar con autenticación de Azure AD. Cuando usas [autenticación de Azure AD para máquinas virtuales Linux](../virtual-machines/linux/login-using-aad.md), controlar y aplicar directivas que permiten o deniegan el acceso a las máquinas virtuales de forma centralizada.
+>
+>
 
 **Procedimiento recomendado**: Control de acceso a las máquinas virtuales.   
 **Detalles**: Use [directivas de Azure](../azure-policy/azure-policy-introduction.md) para establecer convenciones para los recursos de la organización y crear directivas personalizadas. Aplique estas directivas a los recursos, como los [grupos de recursos](../azure-resource-manager/resource-group-overview.md). Las máquinas virtuales que pertenecen a un grupo de recursos heredan sus directivas.
@@ -102,6 +107,9 @@ Si usa Windows Update, deje habilitada la configuración automática de Windows 
 **Procedimiento recomendado**: Volver a implementar periódicamente las máquinas virtuales para forzar una nueva versión del sistema operativo.   
 **Detalles**: Defina la máquina virtual con una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para poder implementarla fácilmente. El uso de una plantilla le ofrece una máquina virtual segura y revisada cuando la necesite.
 
+**Procedimiento recomendado**: Aplicar rápidamente las actualizaciones de seguridad a las máquinas virtuales.   
+**Detalles**: Habilite Azure Security Center (gratuita o los niveles estándar) para [detecte si faltan actualizaciones de seguridad y aplicarlas](../security-center/security-center-apply-system-updates.md).
+
 **Procedimiento recomendado**: Instalación de las últimas actualizaciones de seguridad.   
 **Detalles**: Algunas de las primeras cargas de trabajo que los clientes mueven a Azure son laboratorios y sistemas orientados externamente. Si las máquinas virtuales de Azure hospedan aplicaciones o servicios que deben estar accesibles desde Internet, esté atento a la aplicación de revisiones. Aplique revisiones no solo del sistema operativo. Las vulnerabilidades de aplicaciones de asociados a las que no se han aplicado revisiones también pueden provocar problemas que podrían haberse evitado si hubiera una buena administración de revisiones vigente.
 
@@ -165,6 +173,18 @@ Cuando se aplica Azure Disk Encryption, puede atender las siguientes necesidades
 
 - Las máquinas virtuales IaaS se protegen en reposo a través de la tecnología de cifrado estándar del sector para cumplir los requisitos de seguridad y cumplimiento de la organización.
 - Las máquinas virtuales IaaS se inician bajo directivas y claves controladas por el cliente, y puede auditar su uso en el almacén de claves.
+
+## <a name="restrict-direct-internet-connectivity"></a>Restringir la conectividad directa a internet
+Supervisar y restringir la conectividad de internet directa de máquina virtual. Los atacantes constantemente examen intervalos IP pública en la nube para los puertos de administración abierto e intente realizar ataques "fáciles", como contraseñas comunes y vulnerabilidades conocidas de sin revisiones. En la tabla siguiente se enumera las prácticas recomendadas para ayudar a proteger frente a estos ataques:
+
+**Procedimiento recomendado**: Evitar la exposición accidental para enrutamiento y la seguridad de red.   
+**Detalles**: Utilice RBAC para asegurarse de que solo el grupo de la red central tiene permiso para los recursos de red.
+
+**Procedimiento recomendado**: Identificar y corregir las máquinas virtuales expuestas que permiten el acceso desde "cualquiera" dirección IP de origen.   
+**Detalles**: Use el centro de seguridad de Azure. Security Center recomendará restringir el acceso a través de los puntos de conexión accesible desde internet si alguno de los grupos de seguridad de red tiene una o varias reglas de entrada que permiten el acceso desde "cualquiera" dirección IP de origen. Security Center le recomendará que editar estas reglas de entrada a [restringir el acceso](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) a direcciones IP de origen que realmente necesiten acceder.
+
+**Procedimiento recomendado**: Restringir los puertos de administración (RDP, SSH).   
+**Detalles**: [Acceso de máquina virtual Just-in-time (JIT)](../security-center/security-center-just-in-time.md) puede utilizarse para bloquear el tráfico entrante a las máquinas virtuales de Azure, lo que reduce la exposición a ataques al tiempo que proporciona un acceso sencillo a conectarse a máquinas virtuales cuando sea necesario. Cuando se habilita JIT, Security Center bloquea el tráfico entrante a las máquinas virtuales de Azure mediante la creación de una regla de grupo de seguridad de red. Se deben seleccionar los puertos de la máquina virtual para la que se bloqueará el tráfico entrante. Estos puertos están controlados por la solución JIT.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](security-best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.

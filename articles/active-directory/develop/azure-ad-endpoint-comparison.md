@@ -1,31 +1,30 @@
 ---
-title: Comparar el punto de conexión de la plataforma (v2.0) de identidad de Microsoft con el punto de conexión de Azure AD v1.0 | Microsoft Docs
-description: Conocer las diferencias entre el punto de conexión de Microsoft identity platform (v2.0) y el extremo de la versión 1.0 de Azure Active Directory (Azure AD).
+title: ¿Por qué actualizar a la plataforma de identidad de Microsoft (v2.0) | Azure
+description: Conocer las diferencias entre el punto de conexión de Microsoft identity platform (v2.0) y el punto de conexión de Azure Active Directory (Azure AD) v1.0 y descubra las ventajas de actualizar a la versión 2.0.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 editor: ''
-ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
+ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dd443c95e8cf6dbddd66e5531b182469a118e4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dba74735b4c703123f9ff89b63a57d53faa84fde
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410674"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138778"
 ---
-# <a name="comparing-the-microsoft-identity-platform-endpoint-and-azure-ad-v10-endpoint"></a>Comparación de punto de conexión de plataforma de identidad de Microsoft y el punto de conexión de Azure AD v1.0
+# <a name="why-update-to-microsoft-identity-platform-v20"></a>¿Por qué actualizar a la plataforma de identidad de Microsoft (v2.0)?
 
 Al desarrollar una nueva aplicación, es importante conocer las diferencias entre la plataforma de identidad de Microsoft (v2.0) y los puntos de conexión de Azure Active Directory (v1.0). En este artículo se trata las principales diferencias entre los puntos de conexión y algunas limitaciones para la plataforma Microsoft identity existentes.
 
@@ -56,7 +55,7 @@ Los permisos establecidos directamente en el registro de la aplicación son **es
 
 * La aplicación tiene que conocer por adelantado todos los recursos a los que va a tener acceso alguna vez. Era difícil crear aplicaciones que podrían tener acceso a un número arbitrario de recursos.
 
-Con el punto de conexión de plataforma de identidad de Microsoft, puede omitir los permisos estáticos definidos en la información de registro de aplicación en el Azure portal y solicitar permisos incrementalmente en su lugar, lo que significa que solicita un conjunto de permisos por adelantado mínimo y acumular más con el tiempo que el cliente usa las características de aplicaciones adicionales. Para ello, puede especificar los ámbitos que la aplicación necesita en cualquier momento incluyendo los nuevos ámbitos en el parámetro `scope` cuando solicite un token de acceso. No es necesario predefinirlos en la información de registro de la aplicación. Si el usuario aún no ha dado su consentimiento a los ámbitos nuevos que se agregan a la solicitud, se le pedirá que dé su consentimiento solo a los nuevos permisos. Para obtener más información, consulte sobre [permisos, consentimiento y ámbitos](v2-permissions-and-consent.md).
+Con el punto de conexión de plataforma de identidad de Microsoft, puede omitir los permisos estáticos definidos en la información de registro de aplicación en el Azure portal y solicitar permisos incrementalmente en su lugar, lo que significa que solicita un conjunto de permisos por adelantado mínimo y crezca más con el tiempo que el cliente usa las características de aplicaciones adicionales. Para ello, puede especificar los ámbitos que la aplicación necesita en cualquier momento incluyendo los nuevos ámbitos en el parámetro `scope` cuando solicite un token de acceso. No es necesario predefinirlos en la información de registro de la aplicación. Si el usuario aún no ha dado su consentimiento a los ámbitos nuevos que se agregan a la solicitud, se le pedirá que dé su consentimiento solo a los nuevos permisos. Para obtener más información, consulte sobre [permisos, consentimiento y ámbitos](v2-permissions-and-consent.md).
 
 Permitir que una aplicación solicite permisos dinámicamente mediante el parámetro `scope` da a los desarrolladores un control total sobre la experiencia del usuario. También puede adelantar la experiencia de consentimiento y pedir todos los permisos en una solicitud de autorización inicial. Si su aplicación requiere un gran número de permisos, puede elegir recopilarlos del usuario de forma incremental, a medida que intentan usar determinadas características de la aplicación con el tiempo.
 
@@ -69,7 +68,7 @@ Las aplicaciones que usan el punto de conexión v1.0 pueden comportarse como un 
 * Identificador de recursos o `AppID URI`: `https://graph.windows.net/`
 * Los ámbitos, o `oAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.
 
-Esto es válido para el punto de conexión de plataforma de identidad de Microsoft. Una aplicación todavía se puede comportar como recurso, definir ámbitos y ser identificada por un URI. Las aplicaciones cliente todavía pueden solicitar acceso a esos ámbitos. Sin embargo, ha cambiado la manera en que un cliente solicita esos permisos.
+Esto es válido para el punto de conexión de plataforma de identidad de Microsoft. Una aplicación todavía se puede comportar como recurso, definir ámbitos y ser identificada por un URI. Las aplicaciones cliente todavía pueden solicitar acceso a esos ámbitos. Sin embargo, la forma en que un cliente solicita esos permisos han cambiado.
 
 Para el punto de conexión v1.0, una solicitud de autorización de OAuth 2.0 para Azure AD podría haber tenido un aspecto similar al siguiente:
 
@@ -91,7 +90,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Aquí, el parámetro **scope** indica para qué recursos y permisos está solicitando autorización la aplicación. El recurso deseado sigue estando presente en la solicitud; está incluido en cada uno de los valores del parámetro scope. Usar el parámetro de ámbito de esta manera permite que el punto de conexión de la plataforma de identidad de Microsoft sea más compatible con la especificación OAuth 2.0 y alinee más estrechamente con prácticas comunes del sector. También permite que las aplicaciones realicen un [consentimiento incremental](#incremental-and-dynamic-consent): solo solicita permisos cuando la aplicación los requiere, en lugar de hacerlo por adelantado.
+Aquí, el parámetro **scope** indica para qué recursos y permisos está solicitando autorización la aplicación. El recurso deseado sigue estando presente en la solicitud; está incluido en cada uno de los valores del parámetro scope. Usar el parámetro de ámbito de esta manera permite que el punto de conexión de la plataforma de identidad de Microsoft sea más compatible con la especificación OAuth 2.0 y alinee más estrechamente con prácticas comunes del sector. También permite que las aplicaciones realizar [consentimiento incremental](#incremental-and-dynamic-consent) : solo solicita permisos cuando la aplicación los necesita en contraposición a por adelantado.
 
 ## <a name="well-known-scopes"></a>Ámbitos conocidos
 
@@ -99,7 +98,7 @@ Aquí, el parámetro **scope** indica para qué recursos y permisos está solici
 
 Aplicaciones con el punto de conexión de plataforma de identidad de Microsoft pueden requerir el uso de un nuevo permiso conocido para aplicaciones: el `offline_access` ámbito. Todas las aplicaciones deberán solicitar este permiso si necesitan tener acceso a los recursos en nombre de un usuario durante un período de tiempo prolongado, incluso cuando es posible que el usuario no haya estado usando la aplicación activamente. El ámbito `offline_access` se mostrará al usuario en cuadros de diálogo de consentimiento como **Obtener acceso a los datos en cualquier momento**, que el usuario debe aceptar. Solicitar el `offline_access` permiso permitirá a la aplicación web recibir refresh_tokens de OAuth 2.0 desde el punto de conexión de plataforma de identidad de Microsoft. Los token de actualización son de larga duración y se pueden intercambiar por nuevos tokens de actualización de OAuth 2.0 para períodos de acceso más prolongados.
 
-Si la aplicación no solicita el ámbito `offline_access`, no recibirá tokens de actualización. Esto significa que cuando se canjea un código de autorización en el flujo del código de autorización de OAuth 2.0, solo se recibirá un token de acceso desde el punto de conexión `/token`. Ese token de acceso sigue siendo válido durante un breve período de tiempo (normalmente una hora), pero finalmente expirará. En ese momento, la aplicación tendrá que redirigir el usuario de nuevo al punto de conexión `/authorize` para recuperar un nuevo código de autorización. Durante esta redirección, es posible o no que el usuario necesite escribir sus credenciales de nuevo o volver a dar el consentimiento a permisos, según el tipo de aplicación.
+Si la aplicación no solicita el `offline_access` ámbito, no recibirá tokens de actualización. Esto significa que cuando se canjea un código de autorización en el flujo del código de autorización de OAuth 2.0, solo se recibirá un token de acceso desde el punto de conexión `/token`. Ese token de acceso sigue siendo válido durante un breve período de tiempo (normalmente una hora), pero finalmente expirará. En ese momento, la aplicación tendrá que redirigir el usuario de nuevo al punto de conexión `/authorize` para recuperar un nuevo código de autorización. Durante esta redirección, es posible o no que el usuario necesite escribir sus credenciales de nuevo o volver a dar el consentimiento a permisos, según el tipo de aplicación.
 
 Para obtener más información sobre OAuth 2.0, `refresh_tokens`, y `access_tokens`, consulte el [referencia del protocolo de plataforma de identidad de Microsoft](active-directory-v2-protocols.md).
 
@@ -109,8 +108,8 @@ Históricamente, la más básica inicio de sesión de flujo de OpenID Connect co
 
 La información a la que el ámbito `openid` permite acceder a la aplicación está restringida. El ámbito `openid` solo permitirá que el usuario inicie sesión en la aplicación y que esta reciba un identificador específico de la aplicación para el usuario. Si quiere obtener información personal acerca del usuario en la aplicación, esta tendrá que solicitar permisos adicionales al usuario. Dos nuevos ámbitos, `email` y `profile`, le permitirán solicitar permisos adicionales.
 
-* El ámbito `email` permite que la aplicación acceda a la dirección de correo electrónico principal del usuario a través de la notificación `email` en id_token, suponiendo que el usuario tiene una dirección de correo electrónico direccionable. 
-* El ámbito `profile` ofrece a la aplicación acceso a toda la demás información básica sobre el usuario, como su nombre, el nombre de usuario preferido, el identificador de objeto y demás en el id_token.
+* El ámbito `email` permite que la aplicación acceda a la dirección de correo electrónico principal del usuario a través de la notificación `email` en id_token, suponiendo que el usuario tiene una dirección de correo electrónico direccionable.
+* El `profile` ámbito ofrece a su aplicación acceso a toda la demás información básica sobre el usuario, como su nombre, nombre de usuario preferido, identificador y así sucesivamente, en el id_token de objeto.
 
 Estos ámbitos le permiten codificar la aplicación en un modo de divulgación mínima, así que puede pedir al usuario solo el conjunto de información que la aplicación necesita para hacer su trabajo. Para obtener más información sobre estos ámbitos, consulte [la referencia de ámbito de plataforma de identidad de Microsoft](v2-permissions-and-consent.md).
 
@@ -124,7 +123,7 @@ Hay algunas restricciones para tener en cuenta al usar la plataforma Microsoft i
 
 Al compilar aplicaciones que se integran con la plataforma Microsoft identity, deberá decidir si los protocolos de autenticación y de punto de conexión a la plataforma de identidad de Microsoft cumplen con sus necesidades. La plataforma y el punto de conexión v1.0 sigue siendo totalmente compatible y, en algunos aspectos, tiene más características que la plataforma Microsoft identity. Sin embargo, plataforma Microsoft identity [presenta ventajas importantes](azure-ad-endpoint-comparison.md) para desarrolladores.
 
-Esta es nuestra recomendación simplificada para desarrolladores en este momento:
+Esta es una recomendación simplificada para desarrolladores ahora:
 
 * Si desea o necesita admitir cuentas personales de Microsoft en la aplicación, o está escribiendo una nueva aplicación, use la plataforma Microsoft identity. Pero antes, asegúrese de comprender las limitaciones que se analizan en este artículo.
 * Si va a migrar o actualizar una aplicación que se basa en SAML, no puede usar la plataforma Microsoft identity. En su lugar, consulte el [Guía de Azure AD v1.0](v1-overview.md).
@@ -133,7 +132,7 @@ El punto de conexión de plataforma de identidad de Microsoft evolucionará para
 
 ### <a name="restrictions-on-app-registrations"></a>Restricciones en los registros de aplicaciones
 
-Para cada aplicación que desee integrar con el punto de conexión de plataforma de identidad de Microsoft, puede crear un registro de aplicación en el nuevo [ **registros de aplicaciones** experimentar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) en Azure portal. Las aplicaciones de la cuenta de Microsoft existentes no son compatibles con el portal de vista previa, pero son todas las aplicaciones de Azure AD, independientemente de dónde y cuándo que se han registrado.
+Para cada aplicación que desee integrar con el punto de conexión de plataforma de identidad de Microsoft, puede crear un registro de aplicación en el nuevo [ **registros de aplicaciones** experimentar](https://aka.ms/appregistrations) en Azure portal. Las aplicaciones de la cuenta de Microsoft existentes no son compatibles con el portal, pero son todas las aplicaciones de Azure AD, independientemente de dónde y cuándo que se han registrado.
 
 Los registros de aplicaciones que admiten cuentas profesionales y educativas y cuentas personales tienen las siguientes limitaciones:
 
@@ -168,9 +167,9 @@ Si desea que una aplicación tenga `login-east.contoso.com` y `login-west.contos
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-Puede agregar las dos últimas porque son subdominios de la primera URL de redireccionamiento, contoso.com. Esta limitación se eliminará en una próxima versión.
+Puede agregar los dos últimos porque son subdominios de la primera dirección URL de redireccionamiento, contoso.com.
 
-Además, tenga en cuenta que solo puede tener 20 URL de respuesta para una aplicación en particular; este límite se aplica a todos los tipos de aplicaciones que admite el registro (SPA, cliente nativo, aplicación web y servicio).  
+Puede tener solo 20 direcciones URL de respuesta para una aplicación determinada: este límite se aplica a todos los tipos de aplicación que es compatible con el registro (aplicación de página única (SPA), native client, web app y servicio).  
 
 Para obtener información sobre cómo registrar una aplicación para su uso con la plataforma Microsoft identity, vea [registrar una aplicación mediante la nueva experiencia de los registros de aplicación](quickstart-register-app.md).
 
@@ -178,9 +177,9 @@ Para obtener información sobre cómo registrar una aplicación para su uso con 
 
 Actualmente, la compatibilidad con bibliotecas para el punto de conexión de plataforma de identidad de Microsoft es limitado. Si desea usar el punto de conexión de plataforma de identidad de Microsoft en una aplicación de producción, tienes estas opciones:
 
-* Si está creando una aplicación web, puede utilizar sin ningún riesgo nuestro software intermedio del lado del servidor disponible con carácter general, para realizar el inicio de sesión y la validación de tokens. Incluye el software intermedio OWIN OpenID Connect para ASP.NET y el complemento NodeJS Passport. Para obtener ejemplos de código que usar el software intermedio de Microsoft, consulte el [Introducción a la plataforma de identidad de Microsoft](v2-overview.md#getting-started) sección.
-* Si crea una aplicación de escritorio o para dispositivos móviles, puede usar una de las bibliotecas de autenticación de Microsoft (MSAL) de versión preliminar. Estas bibliotecas están en una versión de versión preliminar compatible con producción, por lo que su uso en aplicaciones de producción es seguro. Puede obtener más información sobre los términos y condiciones de la versión preliminar y las bibliotecas disponibles en la [referencia de bibliotecas de autenticación](reference-v2-libraries.md).
-* Para las plataformas no cubiertas por las bibliotecas de Microsoft, puede integrar con el punto de conexión de plataforma de identidad de Microsoft directamente enviando y recibiendo mensajes de protocolo en el código de aplicación. Los protocolos OpenID Connect y OAuth [se documentan explícitamente](active-directory-v2-protocols.md) que le ayudarán a realizar dicha integración.
+* Si va a compilar una aplicación web, puede utilizar el middleware de servidor disponible con carácter general para el inicio de sesión y validación de tokens. Incluye el software intermedio OWIN OpenID Connect para ASP.NET y el complemento NodeJS Passport. Para obtener ejemplos de código que usar el software intermedio de Microsoft, consulte el [Introducción a la plataforma de identidad de Microsoft](v2-overview.md#getting-started) sección.
+* Si va a compilar una aplicación de escritorio o móvil, puede usar una de las bibliotecas de autenticación de Microsoft (MSAL). Estas bibliotecas están disponibles con carácter general o por lo que en una versión preliminar compatible con producción, es seguro para usarlos en aplicaciones de producción. Puede obtener más información sobre los términos y condiciones de la versión preliminar y las bibliotecas disponibles en la [referencia de bibliotecas de autenticación](reference-v2-libraries.md).
+* Para las plataformas no cubiertas por las bibliotecas de Microsoft, puede integrar con el punto de conexión de plataforma de identidad de Microsoft directamente enviando y recibiendo mensajes de protocolo en el código de aplicación. Los protocolos OpenID Connect y OAuth [se documentan explícitamente](active-directory-v2-protocols.md) para ayudarle a realizar dicha integración.
 * Por último, puede usar las bibliotecas de código abierto de OpenID Connect y OAuth para integrarse con el punto de conexión de plataforma de identidad de Microsoft. El punto de conexión de plataforma de identidad de Microsoft debe ser compatible con muchas bibliotecas de protocolo abierto sin cambios. La disponibilidad de estos tipos de bibliotecas varía según el lenguaje y la plataforma. Los sitios web [OpenID Connect](https://openid.net/connect/) y [OAuth 2.0](https://oauth.net/2/) mantienen una lista de las implementaciones populares. Para obtener más información, consulte [bibliotecas de autenticación y la plataforma de identidad de Microsoft](reference-v2-libraries.md)y la lista de bibliotecas de cliente de código abierto y ejemplos que se han probado con el punto de conexión de plataforma de identidad de Microsoft.
 * Como referencia, el `.well-known` es el punto de conexión para el extremo en la plataforma de identidad de Microsoft comunes `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Reemplace `common` con el identificador de inquilino para obtener los datos específicos para el inquilino.  
 
@@ -196,4 +195,4 @@ Para entender mejor el ámbito de funcionalidad de protocolo admitida en el punt
 
 #### <a name="saml-restrictions"></a>Restricciones de SAML
 
-Si ha usado la biblioteca de autenticación de Active Directory (ADAL) en aplicaciones de Windows, es posible que haya aprovechado la autenticación integrada de Windows, que usa la concesión de aserción de Lenguaje de marcado de aserción de seguridad (SAML). Con esta concesión, los usuarios de los inquilinos de Azure AD federado pueden autenticarse de manera silenciosa con su instancia local de Active Directory sin escribir las credenciales. No se admite la concesión de aserción de SAML en el punto de conexión de plataforma de identidad de Microsoft.
+Si usó Active Directory Authentication Library (ADAL) en aplicaciones de Windows, es posible que haya aprovechado de la autenticación integrada de Windows, que usa la concesión de aserción de lenguaje de marcado de aserción de seguridad (SAML). Con esta concesión, los usuarios de los inquilinos de Azure AD federado pueden autenticarse de manera silenciosa con su instancia local de Active Directory sin escribir las credenciales. No se admite la concesión de aserción de SAML en el punto de conexión de plataforma de identidad de Microsoft.

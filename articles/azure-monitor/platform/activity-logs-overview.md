@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: d9583f232a7afd6ab64421d57bbf14a45299e374
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995666"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138237"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Supervise la actividad de suscripción con Azure Activity Log
 
@@ -63,6 +63,7 @@ Estas son algunas de las cosas que puede hacer con el registro de actividad:
 * Analizarlo en Power BI con el [ **paquete de contenido de Power BI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Guardarlo en una **cuenta de almacenamiento** para archivarlo o inspeccionarlo manualmente](../../azure-monitor/platform/archive-activity-log.md). Puede especificar el tiempo de retención (en días) mediante el **perfil de registro**.
 * Consultarlo mediante un cmdlet de PowerShell, la CLI o la API de REST.
+* Ver el [historial de cambios](#view-change-history) para ciertos eventos
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Consulta de Activity Log en Azure Portal
 
@@ -183,6 +184,20 @@ Para obtener la documentación completa para crear un perfil de monitor con la C
 ```azurecli
 az monitor log-profiles delete --name <profile name>
 ```
+
+## <a name="view-change-history"></a>Ver historial de cambios
+
+Al revisar el registro de actividad, puede ayudar a ver lo que se produjeron cambios durante esa hora del evento. Puede ver esta información con el historial de cambios.
+
+Vaya al registro de actividad mediante el menú en el lado izquierdo del portal. Seleccione un evento del que desea ver más detalles en el registro de actividad. Seleccione el **(versión preliminar) historial de cambios** ficha vean los cambios asociados al evento.
+
+![Lista de historial de cambios para un evento](./media/activity-logs-overview/change-history-event.png)
+
+Si hay algún cambio asociado con el evento, verá una lista de cambios que se pueden seleccionar. Se abrirá el **(versión preliminar) historial de cambios** página. En esta página ve los cambios en el recurso. Como puede ver en el ejemplo siguiente, se pueden ver no solo que la máquina virtual cambiado tamaños, pero ¿cuál era el tamaño de VM anterior antes del cambio y lo que se ha cambiado a.
+
+![Página de historial de cambios que muestra las diferencias](./media/activity-logs-overview/change-history-event-details.png)
+
+Para obtener más información sobre el historial de cambios, consulte [obtener los cambios de recursos](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

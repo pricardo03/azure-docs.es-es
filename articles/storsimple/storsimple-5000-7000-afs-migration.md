@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: d107a9dae29f18b90ba7c23198c0cc1f97d83c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309827"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150734"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migración de datos de la serie 5000-7000 de StorSimple a Azure File Sync
 
@@ -87,7 +87,7 @@ Realice los pasos siguientes para migrar el recurso compartido de archivos de Wi
     Omita este paso y vaya al paso siguiente si utiliza un host distinto de Windows Server. Si usa el mismo servidor de archivos de Windows en AFS, ahora experimentará algunos minutos de tiempo de inactividad. 
     - **Inicio del tiempo de inactividad**: elimine el punto de conexión de servidor que creó en el *paso 1F*. 
     - Cree otro punto de conexión de servidor con la ruta en la que quiere que los datos residan de ahora en adelante.
-    - Cuando el punto de conexión de servidor se muestre como Correcto (puede tardar unos minutos), verá los datos en esta nueva ubicación. Ahora puede configurar el host de Windows Server para que sirva archivos desde esta nueva ubicación. -**Finalización del tiempo de inactividad**.
+    - Cuando el punto de conexión de servidor se muestre como Correcto (puede tardar unos minutos), verá los datos en esta nueva ubicación. Ahora puede configurar el host de Windows Server para que sirva archivos desde esta nueva ubicación. - **Finalización del tiempo de inactividad**.
 5.  Si usa otro servidor de archivos de Windows en Azure File Sync, no experimentará ningún tiempo de inactividad. 
     - Agregue otro punto de conexión de servidor con la ruta de acceso del almacenamiento local que está dispuesto a utilizar como memoria caché en lugar del dispositivo StorSimple. 
     - En unos minutos podrá ver los archivos en el nuevo servidor. Puede cambiar en cualquier momento de su dispositivo StorSimple a esta nueva ubicación en el host.

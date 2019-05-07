@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2fd7b05a5411c03e1324871fbff3c29061ce7b3d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713342"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139240"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedimientos para: Proporcionar notificaciones opcionales para la aplicación de Azure AD
 
@@ -70,7 +70,8 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 | `xms_pl`                   | Idioma preferido del usuario  | JWT ||El idioma preferido del usuario, si se establece. Se origina desde su inquilino principal, en escenarios de acceso de invitado. Con formato LL-CC ("en-us"). |
 | `xms_tpl`                  | Idioma preferido del inquilino| JWT | | El idioma preferido del inquilino de recursos, si se establece. Con formato LL ("en"). |
 | `ztdid`                    | Identificador de implementación sin interacción | JWT | | La identidad del dispositivo usada en [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). |
-| `email`                    | Correo electrónico direccionable de este usuario, si tiene uno.  | JWT, SAML | MSA, AAD | Si el usuario es un invitado en el inquilino, este valor se incluye de forma predeterminada.  Para los usuarios administrados (aquellos dentro del inquilino), se debe solicitar a través de esta notificación opcional o, en la versión 2.0, con el ámbito OpenID.  Para los usuarios administrados, se debe establecer la dirección de correo electrónico en el [portal de administración de Office](https://portal.office.com/adminportal/home#/users).|  
+| `email`                    | Correo electrónico direccionable de este usuario, si tiene uno.  | JWT, SAML | MSA, AAD | Si el usuario es un invitado en el inquilino, este valor se incluye de forma predeterminada.  Para los usuarios administrados (aquellos dentro del inquilino), se debe solicitar a través de esta notificación opcional o, en la versión 2.0, con el ámbito OpenID.  Para los usuarios administrados, se debe establecer la dirección de correo electrónico en el [portal de administración de Office](https://portal.office.com/adminportal/home#/users).| 
+| `groups`| Opcional de formato para las notificaciones de grupo |JWT, SAML| |Usar junto con la configuración de GroupMembershipClaims en el [manifiesto de aplicación](reference-app-manifest.md), que se debe establecer también. Para obtener información detallada, consulte [notificaciones de grupo](#Configuring-group-optional claims) a continuación. Para obtener más información sobre las notificaciones de grupo vea [cómo configurar notificaciones de grupo](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`             | Estado de la cuenta de los usuarios de un inquilino. | JWT, SAML | | Si el usuario es miembro del inquilino, el valor es `0`. Si es un invitado, el valor es `1`. |
 | `upn`                      | Notificación UserPrincipalName. | JWT, SAML  |           | Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados  |
 
@@ -91,7 +92,6 @@ Estas notificaciones son siempre se incluye en los tokens de Azure AD v1.0, pero
 | `family_name` | Apellido                       | Proporciona el último nombre, apellido o apellidos del usuario tal como se define en el objeto de usuario. <br>"family_name": "Miller" | Se admite en MSA y AAD   |
 | `given_name`  | Nombre                      | Proporciona la primera o "nombre" propio"del usuario, como está establecido en el objeto de usuario.<br>"given_name": "Frank"                   | Se admite en MSA y AAD  |
 | `upn`         | Nombre principal de usuario | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse con datos de clave. | Consulte a continuación las [propiedades adicionales](#additional-properties-of-optional-claims) de la configuración de la notificación. |
-
 
 ### <a name="additional-properties-of-optional-claims"></a>Propiedades adicionales de las notificaciones opcionales
 
@@ -131,24 +131,24 @@ Puede configurar notificaciones opcionales para la aplicación al modificar el m
 ```json
 "optionalClaims":  
    {
-       "idToken": [
-             { 
-                   "name": "auth_time", 
-                   "essential": false
-              }
-        ],
- "accessToken": [ 
+      "idToken": [
+            {
+                  "name": "auth_time", 
+                  "essential": false
+             }
+      ],
+      "accessToken": [
              {
                     "name": "ipaddr", 
                     "essential": false
               }
-        ],
-"saml2Token": [ 
-              { 
+      ],
+      "saml2Token": [
+              {
                     "name": "upn", 
                     "essential": false
                },
-               { 
+               {
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
                     "essential": false
@@ -187,7 +187,7 @@ Si lo admite una notificación concreta, también puede modificar el comportamie
 Además del conjunto de notificaciones opcionales estándar, también puede configurar los tokens para incluir las extensiones de esquema. Para obtener más información, consulte [las extensiones de esquema](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). Esta característica es útil para adjuntar información de usuario adicional que puede usar la aplicación, por ejemplo, un identificador adicional o la opción de configuración importante que el usuario haya establecido. 
 
 > [!Note]
-> Las extensiones de esquema de directorio son una característica exclusiva de AAD, por lo que si el manifiesto de aplicación solicita una extensión personalizada y un usuario de MSA inicia sesión en la aplicación, estas extensiones no se devolverán. 
+> Las extensiones de esquema de directorio son una característica exclusiva de AAD, por lo que si el manifiesto de aplicación solicita una extensión personalizada y un usuario de MSA inicia sesión en la aplicación, estas extensiones no se devolverán.
 
 ### <a name="directory-extension-formatting"></a>Formato de extensión de directorio
 
@@ -196,6 +196,98 @@ Para los atributos de extensión, utilice el nombre completo de la extensión (c
 En el JWT, estas notificaciones se emitirán con el siguiente formato de nombre: `extn.<attributename>`.
 
 En los tokens SAML, estas notificaciones se emitirán con el siguiente formato de identificador uniforme de recursos: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`.
+
+## <a name="configuring-group-optional-claims"></a>Configuración de notificaciones opcionales de grupo
+
+   > [!NOTE]
+   > La capacidad de emitir los nombres de grupo para usuarios y grupos sincronizados desde un entorno local es la versión preliminar pública
+
+Esta sección describen las opciones de configuración de notificaciones opcionales para cambiar los atributos de grupo usados en notificaciones de grupo desde el objectID del grupo predeterminado para los atributos que se sincronizan desde Active Directory de Windows en el entorno local
+> [!IMPORTANT]
+> Consulte [configurar notificaciones de grupo para las aplicaciones con Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md) para obtener más detalles, incluyendo advertencias importantes sobre la versión preliminar pública de las notificaciones de grupo de atributos en el entorno local.
+
+1. En el portal -> Azure Active Directory -> aplicación registros -> seleccione aplicación -> manifiesto
+
+2. Habilitar notificaciones de pertenencia a grupo cambiando el groupMembershipClaim
+
+   Los valores válidos son:
+
+   - "Todo"
+   - "SecurityGroup"
+   - "DistributionList"
+   - "DirectoryRole"
+
+   Por ejemplo: 
+
+   ```json
+   "groupMembershipClaims": "SecurityGroup"
+   ```
+
+   De forma predeterminada, de que se emitirá el objectID del grupo en el grupo valor de notificación.  Para modificar el valor de notificación para contienen atributos de grupo local, o para cambiar el tipo de notificación al rol, use OptionalClaims configuración de la siguiente manera:
+
+3. Establecer notificaciones opcionales de configuración de nombre de grupo.
+
+   Si desea grupos en el token para contener el entorno local los atributos de grupo de AD en la sección de notificaciones opcionales especifican qué notificación opcional de tipo de token se debe aplicar a, el nombre de la notificación opcional solicitada y cualquier otra propiedad deseado.  Pueden aparecer varios tipos de token:
+
+   - idToken para el token de identificador de OIDC
+   - accessToken para el token de acceso de OAuth/OIDC
+   - Saml2Token para los tokens SAML.
+
+   > [!NOTE]
+   > El tipo de Saml2Token aplica tanto a SAML1.1 SAML2.0 tokens con formato
+
+   Para cada tipo de token pertinente, modifique la notificación de grupos para usar la sección OptionalClaims en el manifiesto. El esquema OptionalClaims es como sigue:
+
+   ```json
+   {
+   "name": "groups",
+   "source": null,
+   "essential": false,
+   "additionalProperties": []
+   }
+   ```
+
+   | Esquema de notificaciones opcionales | `Value` |
+   |----------|-------------|
+   | **name:** | Debe ser "grupos" |
+   | **Origen:** | No se usa. Omitir o especifique null |
+   | **essential:** | No se usa. Omitir o especifique false |
+   | **additionalProperties:** | Lista de propiedades adicionales.  Las opciones válidas son "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+
+   En additionalProperties solo uno de "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" son necesarios.  Si hay más de uno, se usa la primera y omiten los demás.
+
+   Algunas aplicaciones requieren información de grupo sobre el usuario en la notificación de rol.  Para cambiar el tipo de notificación a un grupo de notificación para una notificación de rol, agregue "emit_as_roles" para propiedades adicionales.  Los valores de grupo se emitirá en la notificación de rol.
+
+   > [!NOTE]
+   > Si se utiliza "emit_as_roles" configurado de los Roles de aplicación que el usuario está asignado a voluntad no aparecen en la notificación de rol
+
+**Ejemplos:** Emita grupos como nombres de grupo en los tokens de acceso de OAuth en formato dnsDomainName\sAMAccountName
+
+```json
+"optionalClaims": {
+    "accessToken": [{
+        "name": "groups",
+        "additionalProperties": ["dns_domain_and_sam_account_name"]
+    }]
+}
+ ```
+
+Para emitir los nombres de grupos que se devuelven en formato netbiosDomain\sAMAccountName como las funciones de notificación de SAML y los Tokens de identificador de OIDC:
+
+```json
+"optionalClaims": {
+    "saml2Token": [{
+        "name": "groups",
+        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+    }],
+
+    "idToken": [{
+        "name": "groups",
+        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+    }]
+ }
+
+ ```
 
 ## <a name="optional-claims-example"></a>Ejemplo de notificaciones opcionales
 
@@ -213,7 +305,7 @@ Hay varias opciones disponibles para actualizar las propiedades de configuració
 1. En la página de la aplicación, haga clic en **Manifiesto** para abrir el editor de manifiestos en línea. 
 1. Puede editar directamente el manifiesto mediante este editor. El manifiesto sigue el esquema de la [entidad de la aplicación](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) y da formato al manifiesto automáticamente al guardarlo. Se agregarán los elementos nuevos a la propiedad `OptionalClaims`.
 
-      ```json
+    ```json
       "optionalClaims": 
       {
             "idToken": [ 
@@ -223,13 +315,13 @@ Hay varias opciones disponibles para actualizar las propiedades de configuració
                         "additionalProperties": [ "include_externally_authenticated_upn"]  
                   }
             ],
-      "accessToken": [ 
+            "accessToken": [ 
                   {
                         "name": "auth_time", 
                         "essential": false
                   }
             ],
-      "saml2Token": [ 
+            "saml2Token": [ 
                   { 
                         "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                         "source": "user", 
@@ -237,8 +329,10 @@ Hay varias opciones disponibles para actualizar las propiedades de configuració
                   }
             ]
       }
-      ```
-      En este caso, se agregaron distintas notificaciones opcionales para cada tipo de token que la aplicación puede recibir. Los tokens de identificación contendrán el nombre principal de usuario de los usuarios federados en la forma completa (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Ahora, los tokens de acceso que soliciten otros clientes para esta aplicación incluirán la notificación auth_time. Los tokens SAML contendrán ahora la extensión del esquema de directorio skypeId (en este ejemplo, el identificador de esta aplicación es ab603c56068041afb2f6832e2a17e237). Los tokens SAML expondrán el identificador de Skype como `extension_skypeId`.
+
+    ```
+
+    En este caso, se agregaron distintas notificaciones opcionales para cada tipo de token que la aplicación puede recibir. Los tokens de identificación contendrán el nombre principal de usuario de los usuarios federados en la forma completa (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Ahora, los tokens de acceso que soliciten otros clientes para esta aplicación incluirán la notificación auth_time. Los tokens SAML contendrán ahora la extensión del esquema de directorio skypeId (en este ejemplo, el identificador de esta aplicación es ab603c56068041afb2f6832e2a17e237). Los tokens SAML expondrán el identificador de Skype como `extension_skypeId`.
 
 1. Cuando haya terminado de actualizar el manifiesto, haga clic en **Guardar** para guardarlo.
 

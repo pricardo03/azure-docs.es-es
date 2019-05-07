@@ -2,19 +2,20 @@
 title: Transferencia de datos con la Biblioteca de movimiento de datos de Microsoft Azure Storage | Microsoft Docs
 description: Use la Biblioteca de movimiento de datos para realizar operaciones de movimiento o copia de datos con blobs y contenido de archivos. Copie datos a Azure Storage desde archivos locales o copie datos en o entre cuentas de almacenamiento. Migre fácilmente sus datos a Azure Storage.
 services: storage
-author: seguler
+author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
-ms.author: seguler
+ms.author: tamram
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 0641a097761530285c2dd9aa176ddd8c2c159001
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 40a1356c9a7300a44087efdd1ab4762826da5a3f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125601"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148991"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transferencia de datos con la Biblioteca de movimiento de datos de Microsoft Azure Storage
 

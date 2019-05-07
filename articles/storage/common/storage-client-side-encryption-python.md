@@ -2,19 +2,20 @@
 title: Cifrado del lado cliente con Python para Microsoft Azure Storage | Microsoft Docs
 description: Biblioteca de cliente de Azure Storage para Python admite el cifrado de lado cliente para obtener una seguridad máxima de las aplicaciones de Azure Storage.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d04c1e137a190b01554106c041853aa2fd6786d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011126"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146913"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Cifrado del lado cliente con Python para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -138,7 +139,7 @@ La resolución de claves debe, como mínimo, implementar un método que, dado un
   * La resolución de claves se invoca si se especifica para obtener la clave. Si se especifica la resolución, pero no se proporciona una asignación para el identificador de clave, se produce un error.
   * Si no se especifica la resolución, pero sí se especifica una clave, la clave se usa si su identificador coincide con el identificador de clave necesario. Si el identificador no coincide, se genera un error.
 
-    Los ejemplos de cifrado en azure.storage.samples <fix URL>muestran un escenario más detallado de un extremo a otro para blobs, colas y tablas.
+    Los ejemplos de cifrado en azure.storage.samples muestran un escenario más detallado de extremo a otro para blobs, colas y tablas.
       En los archivos de ejemplo, se proporcionan ejemplos de implementaciones de la KEK y de la resolución de claves, como KeyWrapper y KeyResolver, respectivamente.
 
 ### <a name="requireencryption-mode"></a>Modo RequireEncryption

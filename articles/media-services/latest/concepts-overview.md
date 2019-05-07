@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8a4ffdc09cb12f7a16173c86bd3d0e3aee78d46d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867063"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152646"
 ---
 # <a name="media-services-concepts"></a>Conceptos de Media Services
 
@@ -134,7 +134,7 @@ Puede usar Azure Media Player para reproducir contenido multimedia que se transm
 
 - [Información general sobre Azure Media Player](use-azure-media-player.md)
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

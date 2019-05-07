@@ -1,6 +1,6 @@
 ---
-title: Realizar una revisión de acceso de Mis roles de Azure AD en PIM - Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo realizar una revisión de acceso de los roles de Azure AD en Azure AD Privileged Identity Management (PIM).
+title: Revisar el acceso a los roles de Azure AD en PIM - Azure Active Directory | Microsoft Docs
+description: Obtenga información sobre cómo revisar el acceso de roles de Azure AD en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,15 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66f16e02716ceb94d2c8b10bb246a13dc566229c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3850af026ea13e1920aea65e18358ebb04ef0d25
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287819"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140981"
 ---
-# <a name="perform-an-access-review-of-my-azure-ad-roles-in-pim"></a>Realizar una revisión de acceso de Mis roles de Azure AD en PIM
+# <a name="review-access-to-azure-ad-roles-in-pim"></a>Revisar el acceso a los roles de Azure AD en PIM
+
 Azure Active Directory (AD) Privileged Identity Management (PIM) simplifica cómo las empresas administran el acceso con privilegios a los recursos de Azure AD y otros servicios en línea de Microsoft como Office 365 o Microsoft Intune.  
 
 Si se le ha asignado un rol administrativo, el administrador de roles con privilegios de su organización le puede pedir que revise y confirme periódicamente que aún necesita ese rol para su trabajo. Puede que reciba un correo electrónico con un vínculo o que vaya directamente al [Portal de Azure](https://portal.azure.com). Siga los pasos de este artículo para realizar una autorrevisión de los roles asignados.

@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427e293c28f634df9f66a7210d79e0df0d4d063c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410355"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138351"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedimientos para: Agregar roles de aplicación en la aplicación y recibirlos en el token
 
@@ -51,7 +51,9 @@ Estos roles de aplicación se definen en [Azure Portal](https://portal.azure.com
 1. Localice la opción de configuración `appRoles` para editar el manifiesto de la aplicación y agregar los roles de aplicación.
 
      > [!NOTE]
-     > Cada definición de roles de este manifiesto debe tener un **Guid** válido diferente para la propiedad "Id". La propiedad `"value"` de cada rol debe coincidir exactamente con las cadenas que se usan en el código de la aplicación.
+     > Cada definición de rol de aplicación en este manifiesto debe tener un GUID válido diferente para el `id` propiedad. 
+     > 
+     > El `value` propiedad de cada definición de rol de aplicación debe coincidir exactamente con las cadenas que se usan en el código de la aplicación. El `value` propiedad no puede contener espacios. Si es así, recibirá un error al guardar el manifiesto.
      
 1. Guarde el manifiesto.
 

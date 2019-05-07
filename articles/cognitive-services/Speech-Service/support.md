@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc03db268ab05c6718fb323bc30574a36d0ca092
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460310"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138148"
 ---
 # <a name="support-and-help-options"></a>Opciones de ayuda y soporte técnico
 
@@ -64,13 +64,14 @@ Stack Overflow es el canal preferido para las preguntas relacionadas con el desa
 
 Si no encuentra una respuesta a su problema a través de la búsqueda, envíe una nueva pregunta a Stack Overflow. Use una de las siguientes etiquetas al formular la pregunta:
 
-|Componente/área  |Etiquetas  |
+|Componente/área  |`Tags`  |
 |---------|---------|
 |Reconocimiento de voz |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |Síntesis de voz |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
 |Speech Translation |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Intención de voz |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |Speech SDK general |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+| Asistentes de voz en primer lugar Virtual (versión preliminar) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
 
 > [!TIP]
 > Las siguientes publicaciones de Stack Overflow contienen sugerencias sobre cómo formular preguntas y agregar código fuente. Seguir estas directrices puede ayudarle a aumentar las posibilidades de que los miembros de la comunidad evalúen y respondan a su pregunta rápidamente:  
