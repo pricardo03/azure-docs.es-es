@@ -62,8 +62,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de DB2:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Db2** | Sí |
-| Servidor |Nombre del servidor DB2. Puede especificar el número de puerto después del nombre del servidor delimitado por dos puntos, por ejemplo `server:port`. |Sí |
-| Base de datos |Nombre de la base de datos DB2. |Sí |
+| server |Nombre del servidor DB2. Puede especificar el número de puerto después del nombre del servidor delimitado por dos puntos, por ejemplo `server:port`. |Sí |
+| database |Nombre de la base de datos DB2. |Sí |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos DB2.<br/>El valor permitido es: **Básico**. |Sí |
 | username |Especifique el nombre de usuario para conectarse a la base de datos DB2. |Sí |
 | password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
@@ -176,28 +176,28 @@ Al copiar datos desde DB2, se utilizan las siguientes asignaciones de tipos de d
 | BigInt |Int64 |
 | Binary |Byte[] |
 | Blob |Byte[] |
-| Char |string |
-| Clob |string |
-| Date |DateTime |
-| DB2DynArray |string |
-| DbClob |string |
+| Char |String |
+| Clob |String |
+| Date |Datetime |
+| DB2DynArray |String |
+| DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Graphic |string |
-| Entero |Int32 |
+| Graphic |String |
+| Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |string |
-| LongVarGraphic |string |
+| LongVarChar |String |
+| LongVarGraphic |String |
 | Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
 | Time |TimeSpan |
 | Timestamp |DateTime |
 | VarBinary |Byte[] |
-| VarChar |string |
-| VarGraphic |string |
+| VarChar |String |
+| VarGraphic |String |
 | Xml |Byte[] |
 
 
