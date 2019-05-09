@@ -56,7 +56,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** debe establecerse en **Dynamics AX**. |Sí |
+| type | La propiedad **type** debe establecerse en **Dynamics AX**. |Sí |
 | url | El extremo de OData de instancia de Dynamics AX (o Dynamics 365 Finance and Operations). |Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí |
@@ -100,7 +100,7 @@ Para copiar datos desde Dynamics AX, establezca la propiedad **type** del conjun
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del conjunto de datos debe establecerse en **DynamicsAXResource**. | Sí |
+| type | La propiedad **type** del conjunto de datos debe establecerse en **DynamicsAXResource**. | Sí |
 | path | La ruta de acceso a la entidad de OData de Dynamics AX. | Sí |
 
 **Ejemplo**
@@ -133,7 +133,7 @@ Para copiar datos desde Dynamics AX, establezca el tipo de **origen** en activid
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en **DynamicsAXSource**. | Sí |
+| type | La propiedad **type** del origen de la actividad de copia debe establecerse en **DynamicsAXSource**. | Sí |
 | query | Opciones de consulta de OData para filtrar datos. Ejemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: El conector copia datos de la dirección URL combinada: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para más información, consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Sin  |
 
 **Ejemplo**
