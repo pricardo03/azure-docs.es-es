@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520014"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415892"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introducción a las consultas de registro en Azure Monitor
 
@@ -108,7 +108,7 @@ SecurityEvent
 
 Al escribir las condiciones de filtro, puede usar las siguientes expresiones:
 
-| Expression | DESCRIPCIÓN | Ejemplo |
+| Expresión | DESCRIPCIÓN | Ejemplo |
 |:---|:---|:---|
 | == | Coincidencia con igualdad<br>(distingue mayúsculas y minúsculas) | `Level == 8` |
 | =~ | Coincidencia con igualdad<br>(no distingue mayúsculas y minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -184,7 +184,7 @@ SecurityEvent
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend localtime = TimeGenerated -8h
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>summarize: incorporación de grupos de filas
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Resumen por una columna de tiempo
 La agrupación de resultados también puede basarse en una columna de tiempo o con cualquier otro valor continuo. Sin embargo, simplemente resumir por `by TimeGenerated` crearía grupos para cada milisegundo del intervalo de tiempo, ya que son valores únicos. 
 
-Para crear grupos basados en valores continuos es mejor dividir el intervalo en unidades manejables mediante **bin**. En la siguiente consulta se analizan los registros *Perf* que miden la memoria libre (*Available MBytes*) en un equipo específico. Calcula el valor promedio para cada período de 1 hora de los últimos 7 días:
+Para crear grupos basados en valores continuos es mejor dividir el intervalo en unidades manejables mediante **bin**. En la siguiente consulta se analizan los registros *Perf* que miden la memoria libre (*Available MBytes*) en un equipo específico. Calcula el valor promedio de cada período de 1 hora durante los últimos 7 días:
 
 ```Kusto
 Perf 

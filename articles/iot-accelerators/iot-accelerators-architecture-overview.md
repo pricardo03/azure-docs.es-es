@@ -1,6 +1,6 @@
 ---
 title: 'Arquitectura de referencia de aceleradores de soluciones de IoT: Azure | Microsoft Docs'
-description: Obtenga información sobre la arquitectura de referencia de los aceleradores de soluciones de Azure IoT. Los aceleradores de soluciones existentes aprovechan esta arquitectura de referencia. También puede usar la arquitectura de referencia al crear sus propias soluciones de IoT personalizadas.
+description: Obtenga información sobre la arquitectura de referencia de los aceleradores de soluciones de IoT de Azure. Los aceleradores de soluciones existentes aprovechan esta arquitectura de referencia. También puede usar la arquitectura de referencia al crear sus propias soluciones de IoT personalizadas.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/04/2018
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450318"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466458"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Introducción a la arquitectura de referencia de Azure IoT
 
@@ -38,11 +38,11 @@ La [arquitectura de referencia de Azure IoT](https://aka.ms/iotrefarchitecture) 
 
 La arquitectura de referencia identifica los subsistemas principales que se muestran en el diagrama siguiente:
 
-![Subsistemas principales](media/iot-accelerators-architecture-overview/CoreSubsystems.png)
+![Subsistemas principales](media/iot-accelerators-architecture-overview/coresubsystems1.png)
 
 En las secciones siguientes, se describe cómo se asignan los componentes del acelerador de soluciones de supervisión remota a los subsistemas principales.
 
-### <a name="iot-devices"></a>Dispositivos IoT
+### <a name="iot-devices"></a>Dispositivos de IoT
 
 Una solución de IoT tiene que habilitar una comunicación segura, eficiente y sólida entre prácticamente cualquier tipo de dispositivo y una puerta de enlace de nube. Los dispositivos son activos empresariales que varían desde sencillos sensores de temperatura a complejas líneas de producción de fábrica con cientos de componentes y sensores.
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a355d18de875ad980e0c2b6c564d3379c2b90ee7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 186ecf055cdf7b10690fdb4cbc574778a841b85a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154299"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464805"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de la versión del servicio Azure Machine Learning
 
@@ -42,6 +42,15 @@ En el portal de Azure, ahora puede:
 + Se agregó la posibilidad de descargar el archivo config.json de la página de información general del área de trabajo del servicio de Azure Machine Learning.
 + Admite la creación de área de trabajo de servicio de Machine Learning desde el área de trabajo de Azure Databricks 
 
+## <a name="2019-04-26"></a>2019-04-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1033"></a>Azure Machine Learning SDK for Python v1.0.33
++ **Nuevas características:**
+  + El _Workspace.create_ método ahora acepta las configuraciones de clúster predeterminado para los clústeres de CPU y GPU.
+  + Si se produce un error en la creación del área de trabajo, se limpian los recursos dependientes.
+  + De forma predeterminada Azure Container Registry SKU se cambió a básico.
+  + Azure Container Registry se crea de forma diferida, cuando sea necesario para la creación de imagen o de ejecución.
+  + Compatibilidad con entornos para las ejecuciones de entrenamiento.
 
 ### <a name="notebook-virtual-machine"></a>Máquina Virtual de Bloc de notas 
 

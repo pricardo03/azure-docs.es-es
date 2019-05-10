@@ -10,32 +10,34 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149827"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510614"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Uso de un servidor de cuadernos basado en la nube para empezar a trabajar con Azure Machine Learning
 
 Cree un servidor de cuadernos en la nube y úselo.  En este inicio rápido, va a ejecutar un código de Python que registra valores en el [área de trabajo de Azure Machine Learning Service](concept-azure-machine-learning-architecture.md). El área de trabajo se encuentra en la nube y es el bloque fundamental que se utiliza para experimentar, entrenar e implementar modelos de aprendizaje automático con Machine Learning. 
 
 En este inicio rápido se muestra cómo crear un recurso de nube en el área de trabajo de Azure Machine Learning, configurado con el entorno de Python necesario para ejecutar Azure Machine Learning. Para usar su propio entorno, consulte [Inicio rápido: Uso de su propio servidor de cuadernos para empezar a trabajar con Azure Machine Learning](quickstart-run-local-notebook.md).  
- 
+
 En este artículo de inicio rápido, lleve a cabo las acciones siguientes:
 
 * Crear un nuevo servidor de cuadernos en la nube en su área de trabajo.
 * Iniciar la interfaz web de Jupyter.
 * Abra un cuaderno que contiene código para estimar PI y registre los errores en cada iteración.
 * Ejecute el cuaderno.
-* Ver los valores de los errores registrados en el área de trabajo. En este ejemplo se muestra cómo el área de trabajo puede ayudarle a realizar un seguimiento de la información generada en un script. 
+* Ver los valores de los errores registrados en el área de trabajo. En este ejemplo se muestra cómo el área de trabajo puede ayudarle a realizar un seguimiento de la información generada en un script.
 
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="create-a-workspace"></a>Crear un área de trabajo
 
-- Un área de trabajo de Azure Machine Learning.  [Cree el área de trabajo](setup-create-workspace.md#portal) ahora si no tiene ya una.
+Si tiene un área de trabajo de Azure Machine Learning Service, vaya a la [siguiente sección](#create-a-cloud-based-notebook-server). En caso contrario, créela ahora.
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="create-a-cloud-based-notebook-server"></a>Creación de un servidor de cuadernos en la nube
 
@@ -57,7 +59,6 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
     ![Creación de una máquina virtual nueva](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Espere unos 4 o 5 minutos, hasta que el estado cambie a **En ejecución**.
-
 
 ## <a name="launch-jupyter-web-interface"></a>Inicio de la interfaz web de Jupyter
 
@@ -102,10 +103,9 @@ Ejecute un cuaderno que calcule Pi y que registre el error en el área de trabaj
 
     En la celda de código más grande, podrá ver que `run.log` se usa en varios lugares. Cada `run.log` agrega su valor al área de trabajo.
 
-
 ## <a name="view-logged-values"></a>Visualización de los datos registrados
 
-1. La salida de la celda `run` contiene un vínculo que lleva de vuelta a Azure Portal para que vea los resultados del experimento en el área de trabajo. 
+1. La salida de la celda `run` contiene un vínculo que lleva de vuelta a Azure Portal para que vea los resultados del experimento en el área de trabajo.
 
     ![Visualización de experimentos](./media/quickstart-run-cloud-notebook/view-exp.png)
 
@@ -117,7 +117,7 @@ Ejecute un cuaderno que calcule Pi y que registre el error en el área de trabaj
 
 Dado que el código para la aproximación de pi usa valores aleatorios, los trazados mostrarán otros valores.  
 
-## <a name="clean-up-resources"></a>Limpieza de recursos 
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 ### <a name="stop-the-notebook-vm"></a>Detención de la máquina virtual de Notebook
 

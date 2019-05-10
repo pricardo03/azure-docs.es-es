@@ -15,19 +15,19 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 737c72e6225cdfc9fdeec59810ffd9100c48d1ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4113d582647b5bea86980824714936d24dafc870
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61305124"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511141"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expansión de discos duros virtuales en una VM Linux con la CLI de Azure
 
 En este artículo se describe cómo expandir discos administrados para una máquina virtual (VM) Linux con la CLI de Azure. Tiene la opción de [agregar discos de datos](add-disk.md) para proporcionar espacio de almacenamiento adicional, y también puede expandir un disco de datos existente. Normalmente, el tamaño predeterminado del disco duro virtual del sistema operativo (SO) es de 30 GB en una VM Linux en Azure. 
 
 > [!WARNING]
-> Siempre asegúrese de que el sistema de archivos está en un estado correcto y asegúrese de que los datos es una copia de seguridad antes de realizar operaciones de cambio de tamaño de disco. Para más información, consulte [Copia de seguridad de máquinas virtuales Linux en Azure](tutorial-backup-vms.md).
+> Asegúrese siempre de que el sistema de archivos está en buen estado, se admiten el nuevo tamaño del tipo de tabla de partición de disco y asegúrese de que los datos es una copia de seguridad antes de realizar operaciones de cambio de tamaño de disco. Para más información, consulte [Copia de seguridad de máquinas virtuales Linux en Azure](tutorial-backup-vms.md). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Expansión de un disco administrado de Azure
 Asegúrese de que tiene instalada la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) y de que ha iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az-login).

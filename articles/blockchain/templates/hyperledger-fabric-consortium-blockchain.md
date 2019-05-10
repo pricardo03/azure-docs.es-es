@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/23/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: ce1afbd5499e798888e77f52d7b652e7e1f548fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60690657"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510747"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Red del consorcio de Hyperledger Fabric
 
@@ -99,8 +99,8 @@ En **Configuración de red**, especifique las entradas para crear una red para e
 |---|---|---|
 **Configuración de la red** |Puede elegir entre crear una red o unirse a una existente. Si elige *Unirse a existente*, debe proporcionar valores adicionales. |Nueva red <br/> Unirse a existente |
 **Contraseña de la entidad de certificación HLF** |Una contraseña utilizada para los certificados generada por las entidades de certificación que se crean como parte de la implementación. La contraseña debe contener tres de los siguientes tipos de caracteres: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial.<br /><br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 1 y 25 caracteres |
-**Configuración de la organización** |Puede personalizar el nombre y el certificado de su organización o usar valores predeterminados.|Valor predeterminado <br/> Avanzado |
-**Configuración de red VPN** | Puede aprovisionar una puerta de enlace de un túnel de VPN para acceder a las máquinas virtuales. | Sí <br/> Sin  |
+**Configuración de la organización** |Puede personalizar el nombre y el certificado de su organización o usar valores predeterminados.|Valor predeterminado <br/> Opciones avanzadas |
+**Configuración de red VPN** | Puede aprovisionar una puerta de enlace de un túnel de VPN para acceder a las máquinas virtuales. | Sí <br/> No |
 
 Seleccione **Aceptar**.
 
@@ -135,7 +135,7 @@ Esta plantilla permite elegir el motor de persistencia por cada nodo del mismo n
 
 Seleccione **Aceptar**.
 
-### <a name="deploy"></a>Implementación
+### <a name="deploy"></a>Implementar
 
 En **Resumen**, revise las entradas especificadas y ejecute una validación básica previa a la implementación.
 

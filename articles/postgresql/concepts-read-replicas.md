@@ -6,16 +6,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 1d75d01df74a239ba865d9a4e2b216a410e6069c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ce99e03cbd767b5e25871397ea9ae9a301132ab6
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067429"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510978"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
-La característica de réplica de lectura permite replicar datos de un servidor Azure Database for PostgreSQL en un servidor de solo lectura. Puede crear réplicas desde el servidor maestro hasta cinco réplicas dentro de la misma región de Azure. Las réplicas se actualizan de manera asincrónica mediante la tecnología de replicación nativa del motor de PostgreSQL.
+La característica de réplica de lectura permite replicar datos de un servidor Azure Database for PostgreSQL en un servidor de solo lectura. Puede replicar desde el servidor maestro para hasta cinco réplicas. Las réplicas se actualizan de manera asincrónica mediante la tecnología de replicación nativa del motor de PostgreSQL.
+
+> [!IMPORTANT]
+> Puede crear una réplica de lectura en la misma región que el servidor maestro o en cualquier otra región de Azure de su elección. La replicación entre regiones está actualmente en versión preliminar pública.
 
 Las réplicas son nuevos servidores que se administran de forma similar a los servidores de Azure Database for PostgreSQL normales. En cada réplica de lectura, se le cobra por el proceso aprovisionado en núcleos virtuales y el almacenamiento aprovisionado en GB/mes.
 
@@ -29,6 +32,8 @@ Un caso habitual es que las cargas de trabajo de análisis e inteligencia empres
 Dado que las réplicas son de solo lectura, no reducen directamente las cargas de capacidad de escritura en el servidor maestro. Esta característica no está destinada a cargas de trabajo intensivas de escritura.
 
 Esta característica de réplica de lectura utiliza la replicación asincrónica nativa de PostgreSQL. La característica no está diseñada para escenarios de replicación sincrónica. Habrá un retraso medible entre el servidor maestro y la réplica. Los datos de la réplica se vuelven finalmente coherentes con los datos del servidor maestro. Use esta característica con cargas de trabajo que puedan admitir este retraso.
+
+Las réplicas de lectura pueden mejorar el plan de recuperación ante desastres. Primero deberá tener una réplica en otra región de Azure del servidor maestro. Si se produce un desastre de región, puede detener la replicación en la réplica y redirigir la carga de trabajo a ella. Al detener la replicación permite a la réplica comenzar a Aceptar operaciones de escritura, así como lecturas. Obtenga más información en el [detener la replicación](#stop-replication) sección. 
 
 ## <a name="create-a-replica"></a>Creación de una réplica
 El servidor maestro debe tener el `azure.replication_support` establecido en **RÉPLICA**. Cuando se cambia este parámetro, es necesario reiniciar el servidor para que el cambio surta efecto. Este parámetro `azure.replication_support` se aplica únicamente a los niveles De uso General y Optimizado para memoria.
@@ -47,7 +52,7 @@ Al crear una réplica, no se heredan las reglas de firewall o el punto de conexi
 
 La réplica hereda su cuenta de administrador del servidor maestro. Todas las cuentas de usuario existentes en el servidor se replican en las réplicas de lectura. Solo se puede conectar a una réplica de lectura utilizando las cuentas de usuario disponibles en el servidor maestro.
 
-Puede conectarse a la réplica mediante su nombre de host y una cuenta de usuario válida, igual que haría en un servidor Azure Database for PostgreSQL normal. En un servidor denominado **myreplica** con el nombre de usuario administrador **myadmin**, puede conectarse a la réplica mediante psql:
+Puede conectarse a la réplica mediante su nombre de host y una cuenta de usuario válida, igual que haría en un servidor Azure Database for PostgreSQL normal. Para un servidor denominado **mi réplica** con el nombre de usuario administrador **myadmin**, puede conectarse a la réplica mediante psql:
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
@@ -63,7 +68,7 @@ Azure Database for PostgreSQL también proporciona la métrica **Retraso entre r
 La métrica se calcula a partir de la vista `pg_stat_wal_receiver`:
 
 ```SQL
-EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp())
+EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
 
 La métrica de retardo de réplica muestra el tiempo desde la última transacción reproducida. Si no se produce ninguna transacción en el servidor maestro, la métrica refleja este retardo de tiempo.
@@ -89,12 +94,14 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 > [!NOTE]
 > Si se reinicia un servidor maestro o una réplica de lectura, el tiempo que tarda en reiniciarse y ponerse al día se reflejará en la métrica de retardo de la réplica.
 
-## <a name="stop-replication"></a>Detención replicación
+## <a name="stop-replication"></a>Detener replicación
 Puede decidir detener la replicación entre un servidor maestro y una réplica. La acción de detención reinicia la réplica para quitar su configuración de replicación. Una vez que se ha detenido la replicación entre un servidor maestro y una réplica de lectura, la réplica se convierte en un servidor independiente. Los datos del servidor independiente son los datos que estaban disponibles en la réplica en el momento en que se inició el comando para detener la replicación. El servidor independiente no alcanza al servidor maestro.
 
 > [!IMPORTANT]
 > Este servidor independiente no puede volver a convertirse en una réplica.
 > Asegúrese de que la réplica tenga todos los datos que necesita antes de detener la replicación en una réplica de lectura.
+
+Al detener la replicación, la réplica pierde todos los vínculos a su principal anterior y otras réplicas. No hay ninguna conmutación por error automatizada entre una principal y réplica. 
 
 Aprenda a [detener la replicación en una réplica](howto-read-replicas-portal.md).
 
@@ -107,7 +114,7 @@ En esta sección se resumen las consideraciones sobre la característica de rép
 El parámetro `azure.replication_support` debe establecerse en **RÉPLICA** en el servidor maestro antes de crear una réplica de lectura. Cuando se cambia este parámetro, es necesario reiniciar el servidor para que el cambio surta efecto. El parámetro `azure.replication_support` se aplica únicamente a los niveles De uso General y Optimizado para memoria.
 
 ### <a name="new-replicas"></a>Nuevas réplicas
-Las réplicas de lectura se crean como nuevos servidores Azure Database for PostgreSQL. Un servidor no puede volver a convertirse en una réplica. Las réplicas de lectura solo se pueden crear en la misma región de Azure que el servidor maestro. No se puede crear una réplica de otra réplica de lectura.
+Las réplicas de lectura se crean como nuevos servidores Azure Database for PostgreSQL. Un servidor no puede volver a convertirse en una réplica. No se puede crear una réplica de otra réplica de lectura.
 
 ### <a name="replica-configuration"></a>Configuración de réplicas
 Las réplicas se crean con la misma configuración de servidor que el servidor maestro. Después de crear una réplica, se pueden cambiar varias configuraciones independientemente del servidor maestro: generación de proceso, núcleos virtuales, almacenamiento y período de retención de copia de seguridad. El plan de tarifa también se puede cambiar de forma independiente, excepto si es con origen o destino en el nivel Básico.

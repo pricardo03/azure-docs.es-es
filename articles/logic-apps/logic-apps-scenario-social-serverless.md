@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dd9d8eac7d65815d7c98a28b0d5af55f19cec47
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60508038"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464435"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creación de un panel de streaming de Customer Insights con Azure Logic Apps y Azure Functions
 
@@ -98,6 +98,9 @@ Para probar fácilmente la aplicación lógica, en el Diseñador de aplicación 
 Para ver historiales de ejecuciones anteriores en Visual Studio o en Azure Portal: 
 
 * Abra Visual Studio Cloud Explorer. Busque la aplicación lógica y abra el menú contextual de la aplicación. Seleccione **Abrir el historial de ejecución**.
+
+  > [!NOTE]
+  > Para Visual Studio 2019, Cloud Explorer puede abrir el Diseñador de aplicación lógica en Azure portal, pero no se puede aún abrir el Diseñador de aplicaciones lógicas incrustado o historial de ejecución.
 
 * Busque la aplicación lógica en Azure Portal. En el menú de la aplicación lógica, elija **Información general**. 
 

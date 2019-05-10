@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb5f92258ff31dd7077bb1ade7fa7e5644c8bac
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61445708"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466913"
 ---
 # <a name="add-an-email-action"></a>Adición de una acción de correo electrónico
 
@@ -102,11 +102,11 @@ En los pasos siguientes se muestra cómo configurar y comprobar manualmente las 
 
 1. Haga clic en el conector **office365-connector**:
 
-    ![API Connection](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector.png)
+    ![Conexión de API](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
 
 1. Haga clic en el banner para comenzar el proceso de autorización:
 
-    ![autorización](./media/iot-accelerators-remote-monitoring-email-actions/connector.png)
+    ![autorización](./media/iot-accelerators-remote-monitoring-email-actions/connector1.png)
 
 1. Haga clic en **Autorizar**. Se le pedirá que inicie sesión. La cuenta que utilice para iniciar sesión debe ser la misma que la que utilice la aplicación para enviar las notificaciones por correo electrónico:
 
@@ -116,7 +116,7 @@ En los pasos siguientes se muestra cómo configurar y comprobar manualmente las 
 
 1. Para cambiar la dirección de correo electrónico desde la que se envían las notificaciones, haga clic en **Editar la conexión de API**.
 
-    ![cambiar correo electrónico](./media/iot-accelerators-remote-monitoring-email-actions/editemail.png)
+    ![cambiar correo electrónico](./media/iot-accelerators-remote-monitoring-email-actions/editemail1.png)
 
 ### <a name="owner-role-outlook-setup"></a>Configuración de Outlook para el rol de propietario
 
@@ -142,7 +142,7 @@ Los pasos siguientes le ayudarán a iniciar sesión y a configurar las acciones 
 
 El acelerador de soluciones de supervisión remota incluye de fábrica una plantilla HTML básica para los correos electrónicos de las acciones. La plantilla de correo electrónico utiliza los valores de la configuración de las acciones de correo electrónico. Este es un ejemplo de correo electrónico:
 
-![ejemplo de correo electrónico](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate.png)
+![ejemplo de correo electrónico](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate1.png)
 
 En los pasos siguientes se muestra cómo editar la plantilla HTML de correo electrónico. Por ejemplo, puede incluir más información o agregar imágenes personalizadas:
 

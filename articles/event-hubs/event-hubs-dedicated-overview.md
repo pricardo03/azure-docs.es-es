@@ -15,18 +15,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a5184b9980dd9f83764950445c10e8bdfea6d71a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4f721dc4fda5bef002c794d79dfd2f054f9eaf38
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203941"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511189"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
 
 *Clústeres de Event Hubs* ofrecen implementaciones de inquilino único para los clientes con las necesidades más exigentes de transmisión por secuencias. Esta oferta de inquilino único tiene un SLA del 99,99% garantizado y solo está disponible en nuestro plan de tarifa de dedicado. Un clúster de Event Hubs puede incorporar millones de eventos por segundo con capacidad garantizada y la latencia de fracciones de segundo. Espacios de nombres y event hubs creados dentro del clúster dedicado incluyen todas las características de la oferta estándar y mucho más, pero sin los límites de entrada. También incluye el popular [Event Hubs Capture](event-hubs-capture-overview.md) característica sin costo adicional, lo que le permite automáticamente por lotes y el registro de flujos de datos en Azure Storage o Azure Data Lake. 
 
-Los clústeres se aprovisionan y se factura por **unidades de capacidad (Cu)**, una cantidad de recursos de CPU y memoria previamente asignada. Puede adquirir Cu 1, 2, 4, 8, 12, 16 ó 20 para cada clúster. ¿Cuánto tiempo puede ingerir y transmitir por unidad de capacidad depende de diversos factores, como el número de productores y consumidores, la forma de carga, salida, velocidad (vea los resultados de pruebas comparativas a continuación para obtener más detalles). 
+Los clústeres se aprovisionan y se factura por **unidades de capacidad (Cu)**, una cantidad de recursos de CPU y memoria previamente asignada. Puede adquirir 1, 2, 4, 8, 12, 16 o 20 CU para cada clúster. ¿Cuánto tiempo puede ingerir y transmitir por unidad de capacidad depende de diversos factores, como el número de productores y consumidores, la forma de carga, salida, velocidad (vea los resultados de pruebas comparativas a continuación para obtener más detalles). 
 
 > [!NOTE]
 > Todos los clústeres de Event Hubs están habilitadas para Kafka de manera predeterminada y se admiten puntos de conexión de Kafka que se pueden usar por existentes Kafka aplicaciones basadas en. Tener habilitadas para Kafka en el clúster no afecta a los casos de uso no Kafka; No hay ninguna opción o la necesidad de deshabilitar a Kafka en un clúster.
@@ -54,27 +54,18 @@ La oferta de Event Hubs dedicado se factura a un precio mensual fijo, con un mí
 | --- |:---:|:---:|
 | Ancho de banda | 20 tu (hasta 40 tu) | 20 CUs |
 | Espacios de nombres |  1 | 50 por unidad de capacidad |
-| Event Hubs |  10 | Sin límite |
-| Eventos de entrada | Pago por millones de eventos | Se incluye |
+| Event Hubs |  10 | No hay límite en event hubs o temas |
+| Eventos de entrada | Pago por millones de eventos | Incluido |
 | Tamaño de los mensajes | 1 millón de Bytes | 1 millón de Bytes |
-| Particiones | 40 por espacio de nombres | 2000 por unidad de capacidad, 1024 por centro de eventos |
+| Particiones | 40 por espacio de nombres | 2000 por unidad de capacidad |
 | Grupos de consumidores | 20 por centro de eventos | No hay límite por unidad de capacidad, 1000 por centro de eventos |
-| Conexiones asincrónicas | 1000 incluidos | 100 000 incluidos |
+| Conexiones desacopladas | 1000 incluidos | 100 000 incluidos |
 | Retención de mensajes | 7 días, 84 GB por unidad incluido | 90 días, 10 TB incluido por unidad de capacidad |
-| Capture | Pago por hora | Se incluye |
+| Captura | Pago por hora | Incluido |
 
 ## <a name="how-to-onboard"></a>¿Cómo incorporarlo?
 
-La experiencia de autoservicio para la incorporación a dedicado se encuentra en versión preliminar, a través del cual puede crear 1 CU de clústeres en las siguientes regiones:
-  - Centro de Canadá
-  - Europa occidental
-  - Centro de EE. UU.
-  - Este de EE. UU.
-  - Este de EE. UU. - 2
-  - Centro y norte de EE. UU.
-  - Oeste de EE. UU.
-
-Nos activamente está agregando nuevas regiones, pero mientras tanto si su región preferida no está en la lista, envíe una solicitud de soporte técnico para el [equipo de Event Hubs](https://ms.portal.azure.com/#create/Microsoft.Support) en *técnicos > Event Hubs > cuota > solicitar para Dedicado SKU*. El plan dedicado es único en el sentido de que tendrá más ayuda del equipo del producto Event Hubs en el proceso de incorporación con el fin de obtener la implementación flexible adecuada. 
+Para incorporar a Event Hubs dedicado, póngase en contacto con el [equipo de Event Hubs](mailto:askeventhubs@microsoft.com). El plan dedicado es único en el sentido de que tendrá más ayuda del equipo del producto Event Hubs en el proceso de incorporación con el fin de obtener la implementación flexible adecuada. 
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
@@ -86,19 +77,15 @@ En la tabla siguiente se muestran los resultados del banco de pruebas que hemos 
 
 | Forma de la carga | Receptores | Ancho de banda de entrada| Mensajes de entrada | Ancho de banda de salida | Mensajes de salida | TU totales | TU por CU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Lotes de 100 x 1 KB | 2 | 400 MB/s | 400 000 mensajes/s | 800 MB/s | 800 000 mensajes/s | 400 TU | 100 TU | 
-| Lotes de 10 x 10 KB | 2 | 666 MB/s | 66 600 mensajes/s | 1,33 GB/s | 133 000 mensajes/s | 666 TU | 166 TU |
-| Lotes de 6 x 32 KB | 1 | 1,05 GB/s | 34 000 mensajes/s | 1,05 GB/s | 34 000 mensajes/s | 1000 TU | 250 TU |
+| Lotes de 100 x 1 KB | 2 | 400 MB/s | 400 k mensajes/s | 800 MB/s | 800 k de mensajes/seg. | 400 TU | 100 TU | 
+| Lotes de 10 x 10 KB | 2 | 666 MB/s | 66,6 k de mensajes/seg. | 1,33 GB/s | 133 k de mensajes/seg. | 666 TU | 166 TU |
+| Lotes de 6 x 32 KB | 1 | 1,05 GB/s | mensajes de 34 KB / seg | 1,05 GB/s | 34 KB de mensajes/seg. | 1000 TU | 250 TU |
 
 En las pruebas, se usaron los siguientes criterios:
 
 - Se usó un clúster de Event Hubs de nivel dedicado con cuatro unidades de capacidad (Cu). 
 - El centro de eventos usado para la ingesta tenía 200 particiones. 
 - Dos aplicaciones receptoras recibieron los datos ingeridos de todas las particiones.
-
-#### <a name="how-do-i-create-a-cluster-larger-than-1-cu"></a>¿Cómo puedo crear un clúster mayor que 1 CU?
-
-En la versión preliminar de la experiencia de autoservicio, puede solicitar para escalar verticalmente el clúster después de crear el clúster. Después de crear un clúster CU 1, póngase en contacto con soporte técnico de Event Hubs rellene una [solicitud de soporte técnico](https://ms.portal.azure.com/#create/Microsoft.Support) en *técnicos > cuota > solicitud para escalar verticalmente o escalar hacia abajo clúster dedicado*. En la versión de GA, podrá escalar verticalmente el clúster directamente a través del portal. 
 
 #### <a name="can-i-scale-down-my-cluster"></a>¿Puedo reducir mi clúster?
 
@@ -107,7 +94,6 @@ Después de la creación, los clústeres se facturan durante un mínimo de 4 hor
 #### <a name="how-will-geo-dr-work-with-my-cluster"></a>¿Cómo funcionarán Geo-DR con mi clúster?
 
 Puede que un espacio de nombres en un clúster dedicado capa con otro espacio de nombres en un clúster dedicado capa del par de replicación geográfica. No se recomienda un espacio de nombres de nivel de dedicado con un espacio de nombres en nuestro estándar que ofrece, ya que el límite de rendimiento serán incompatibles que se producirán errores de asignación. 
-
 
 #### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>¿Puedo migrar mi espacios de nombres estándar para que pertenezcan a un clúster dedicado niveles?
 No actualmente admitimos un proceso de migración automatizada para migrar los datos de event hubs de un espacio de nombres estándar a un dedicado uno. Para migrar a un clúster dedicado capa, se recomienda purgar los mensajes que queden en los centros de eventos de nivel estándar y reemplazando los puntos de conexión con el de su espacio de nombres dedicado.

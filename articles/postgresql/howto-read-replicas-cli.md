@@ -1,21 +1,24 @@
 ---
-title: Administración de réplicas de lectura para Azure Database for PostgreSQL desde la CLI de Azure
-description: Obtenga información sobre cómo administrar Azure Database for PostgreSQL leer las réplicas de la CLI de Azure.
+title: 'Administrar las réplicas de lectura para Azure Database for PostgreSQL: servidor único de la CLI de Azure'
+description: 'Obtenga información sobre cómo administrar las réplicas de lectura en Azure Database for PostgreSQL: servidor único de la CLI de Azure.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420247"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510249"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Crear y administrar réplicas de lectura desde la CLI de Azure
 
 En este artículo, aprenderá a crear y administrar las réplicas de lectura en la base de datos de Azure Database for PostgreSQL desde la CLI de Azure. Para más información acerca de las réplicas de lectura, consulte la [introducción](concepts-read-replicas.md).
+
+> [!NOTE]
+> CLI de Azure no admite aún creación de réplicas en una región diferente desde el servidor maestro. Para crear una réplica entre regiones, use el [portal Azure](howto-read-replicas-portal.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Un [servidor de Azure Database for PostgreSQL](quickstart-create-server-up-azure-cli.md) que se usará como servidor maestro.

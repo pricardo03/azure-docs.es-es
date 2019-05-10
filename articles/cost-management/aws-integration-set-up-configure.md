@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e87e95ec9e4e20ee4785c2b1f448a7ca5f442b8a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205700"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409197"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instalar y configurar la integración de informes de uso y costos de AWS
 
@@ -38,7 +38,7 @@ Use la **informes** página de la consola de administración de costos y factura
 7. Para **habilitar la compatibilidad con**, se requiere ninguna selección.
 8. Para **configuración de actualización de datos**, seleccione **actualizar automáticamente el costo &amp; cerrado de informe de uso cuando se detectan los cargos de los meses anteriores con facturas**.
 9. Haga clic en **Next**.
-10. Para **depósito de Amazon S3**, escriba el nombre del depósito de Amazon S3 en la que desea entregar a los informes y haga clic en **compruebe**. El cubo debe tener los permisos adecuados para ser válido. Para obtener más información acerca de cómo agregar permisos para el cubo, vea [depósito de configuración y los permisos de acceso del objeto](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
+10. Para **depósito de Amazon S3**, escriba el nombre del depósito de Amazon S3 en la que desea entregar a los informes y haga clic en **compruebe**. El cubo debe tener los permisos adecuados para ser válido. Para obtener más información acerca de cómo agregar permisos para el cubo, vea [depósito de configuración y los permisos de acceso del objeto](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
 11. Para **prefijo de ruta de acceso del informe**, escriba el prefijo de ruta de acceso del informe que desea que se agrega al nombre del informe.
 12. Para **compresión**, seleccione **GZIP**.
 13. Haga clic en **Next**.

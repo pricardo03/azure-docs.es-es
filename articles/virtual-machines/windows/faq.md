@@ -13,20 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 65d4326763ef9754159e94c9426f3aee69f80ffd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61f24b3c13a53b23538327cd1458a54756b7caa5
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61095679"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466346"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Preguntas más frecuentes sobre máquinas virtuales Windows
-En este artículo se responden algunas preguntas frecuentes que los usuarios plantean sobre las máquinas virtuales Windows creadas en Azure mediante el modelo de implementación de Resource Manager. Para la versión de Linux de este tema, consulte [Preguntas frecuentes sobre las máquinas virtuales de Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+En este artículo se responden algunas preguntas frecuentes que los usuarios plantean sobre las máquinas virtuales Windows creadas en Azure mediante el modelo de implementación de Resource Manager. Para la versión de Linux de este tema, consulte [preguntas más frecuentes acerca de máquinas virtuales Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>¿Qué puedo ejecutar en una máquina virtual de Azure?
-Todos los suscriptores pueden ejecutar software de servidor en una máquina virtual de Azure. Para obtener información sobre la directiva de soporte de software de servidor de Microsoft ejecutado en Azure, consulte [Microsoft server software support for Azure Virtual Machines](https://support.microsoft.com/kb/2721672)
+Todos los suscriptores pueden ejecutar software de servidor en una máquina virtual de Azure. Para obtener información acerca de la directiva de soporte técnico para ejecutar software de servidor de Microsoft en Azure, consulte [soporte de software de servidor de Microsoft para Azure Virtual Machines](https://support.microsoft.com/kb/2721672).
 
 Existen determinadas versiones de Windows 7, Windows 8.1 y Windows 10 para suscriptores de ventajas de MSDN Azure y suscriptores de pago por uso de desarrollo y prueba de MSDN, para tareas de desarrollo y prueba. Para obtener más información, como instrucciones y limitaciones, consulte [Imágenes de cliente de Windows para los suscriptores de MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
@@ -38,7 +38,7 @@ Azure Managed Disks son las nuevas ofertas de almacenamiento en disco recomendad
 Las cuentas de Azure Storage también pueden proporcionar almacenamiento para el disco del sistema operativo y los discos de datos. Cada disco es un archivo .vhd almacenado como un blob en páginas. Para obtener información detallada sobre los precios, consulte [Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>¿Cómo puedo tener acceso a mi máquina virtual?
-Establezca una conexión remota mediante conexión a Escritorio remoto (RDP) para una máquina virtual Windows. Para obtener instrucciones, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows e inicio de sesión en ella](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor esté configurado como un host de sesión de servicios de escritorio remoto.  
+Establezca una conexión remota mediante conexión a Escritorio remoto (RDP) para una máquina virtual Windows. Para obtener instrucciones, consulte [cómo conectarse e iniciar sesión una máquina virtual de Azure ejecutando Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor esté configurado como un host de sesión de servicios de escritorio remoto.  
 
 Si tiene problemas con Escritorio remoto, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
@@ -85,36 +85,26 @@ Sí. El nombre del grupo de recursos puede tener como máximo 90 caracteres. Con
 
 Los nombres de usuario pueden tener un máximo de 20 caracteres y no pueden terminar con un punto ("."). 
 
-
 No se permiten los siguientes nombres de usuario:
-<table>
-    <tr>
-        <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">a</td><td style="text-align:center">actuser</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">adm</td><td style="text-align:center">admin</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
-    </tr>   <tr>
-        <td style="text-align:center">administrator</td><td style="text-align:center">aspnet</td><td style="text-align:center">backup</td><td style="text-align:center">console</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">david </td><td style="text-align:center">guest</td><td style="text-align:center">john</td><td style="text-align:center">owner</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">root</td><td style="text-align:center">Servidor</td><td style="text-align:center">sql</td><td style="text-align:center">support</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">test</td><td style="text-align:center">test1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">test2</td><td style="text-align:center">test3</td><td style="text-align:center">user</td><td style="text-align:center">user1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">user2</td><td style="text-align:center">user3</td><td style="text-align:center">user4</td><td style="text-align:center">user5</td>
-    </tr>
-</table>
+
+| | | | |
+|-----------------|-----------|--------------------|----------|
+| `administrator` | `admin`   | `user`             | `user1`  |
+| `test`          | `user2`   | `test1`            | `user3`  |
+| `admin1`        | `1`       | `123`              | `a`      |
+| `actuser`       | `adm`     | `admin2`           | `aspnet` |
+| `backup`        | `console` | `david`            | `guest`  |
+| `john`          | `owner`   | `root`             | `server` |
+| `sql`           | `support` | `support_388945a0` | `sys`    |
+| `test2`         | `test3`   | `user4`            | `user5`  |
+
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>¿Cuáles son los requisitos de contraseña cuando se crea una VM?
-Las contraseñas deben tener entre 12 y 123 caracteres y deben cumplir 3 de estos 4 requisitos de complejidad:
+
+Hay una contraseña diferente requisitos de longitud, dependiendo de la herramienta que usa:
+ - Portal: entre 12 y 72 caracteres
+ - PowerShell - entre 8 y 123 caracteres
+ - CLI - entre 12 y 123
 
 * Deben incluir caracteres en minúsculas.
 * Deben incluir caracteres en mayúsculas.

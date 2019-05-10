@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: f58d06cd191166f47d864241564bc57019b59132
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c72de0ef874659a5d7840689e38bd7857c25b840
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60707433"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464098"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Administración de IoT Central desde Azure Portal
 
@@ -29,19 +29,19 @@ Para crear una aplicación, vaya a la [portal Azure](https://ms.portal.azure.com
 
 En la barra de búsqueda escriba el término **IoT Central**.
 
-![Portal de administración: buscar](media/howto-manage-iot-central-from-portal/image0a.png)
+![Portal de administración: buscar](media/howto-manage-iot-central-from-portal/image0a1.png)
 
 Seleccione el **IoT Central Application** elementos de línea en los resultados de búsqueda.
 
-![Portal de administración: resultados de la búsqueda](media/howto-manage-iot-central-from-portal/image0b.png)
+![Portal de administración: resultados de la búsqueda](media/howto-manage-iot-central-from-portal/image0b1.png)
 
 Ahora, seleccione **Crear**.
 
-![Portal de administración: Recurso de IoT Central](media/howto-manage-iot-central-from-portal/image0c.png)
+![Portal de administración: Recurso de IoT Central](media/howto-manage-iot-central-from-portal/image0c1.png)
 
 Rellene todos los campos en el formulario. Este formulario es similar al que se debe rellenar para crear aplicaciones en la página del [Application Manager](https://aka.ms/iotcentral) (Administrador de aplicaciones) de IoT Central. Para más información, consulte la guía de inicio rápido para [Crear una aplicación de IoT Central](quick-deploy-iot-central.md).
 
-![Portal de administración: crear un recurso de IoT Central](media/howto-manage-iot-central-from-portal/image1.png)  
+![Portal de administración: crear un recurso de IoT Central](media/howto-manage-iot-central-from-portal/image1a.png)  
 
 Después de rellenar todos los campos, seleccione **crear**.
 
@@ -54,7 +54,7 @@ Si ya tiene una aplicación de Azure IoT Central, puede eliminarla o moverla a u
 
 Para empezar, seleccione **todos los recursos** en el menú de navegación principal de la izquierda. En el cuadro de búsqueda, escriba el nombre de la aplicación para buscarla en la lista de recursos. A continuación, seleccione la aplicación de IoT Central que desea administrar.
 
-![Portal de administración: administración de recursos](media/howto-manage-iot-central-from-portal/image2.png)
+![Portal de administración: administración de recursos](media/howto-manage-iot-central-from-portal/image2a.png)
 
 Para navegar a la aplicación, seleccione la dirección URL de aplicación Central de IoT.
 
@@ -62,11 +62,11 @@ Para navegar a la aplicación, seleccione la dirección URL de aplicación Centr
 
 Para mover la aplicación a otro grupo de recursos, seleccione **cambiar** al lado del grupo de recursos. En la página **Mover recursos**, seleccione el grupo de recursos al que le gustaría migrar esta aplicación.
 
-![Portal de administración: administración de recursos](media/howto-manage-iot-central-from-portal/image4.png)
+![Portal de administración: administración de recursos](media/howto-manage-iot-central-from-portal/image4a.png)
 
 Para mover la aplicación a otra suscripción, seleccione la **cambiar** vínculo junto a la suscripción. Seleccione la suscripción a la que le gustaría migrar esta aplicación en el cuadro de diálogo que aparece.
 
-![Portal de administración: administración de recursos](media/howto-manage-iot-central-from-portal/image5.png)
+![Portal de administración: administración de recursos](media/howto-manage-iot-central-from-portal/image5a.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

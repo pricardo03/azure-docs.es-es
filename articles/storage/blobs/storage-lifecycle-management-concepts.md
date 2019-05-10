@@ -9,12 +9,12 @@ ms.date: 4/29/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 560f7eb8a8809cdd6ef410a610be9806f9709754
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148318"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409981"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administrar el ciclo de vida de almacenamiento de blobs de Azure
 
@@ -87,7 +87,7 @@ Puede definir e implementar la administración del ciclo de vida como parte de l
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -208,10 +208,10 @@ Los filtros limitan las acciones de regla a un subconjunto de blobs dentro de la
 
 Filtros válidos incluyen:
 
-| Nombre de filtro | Tipo de filtro | Notas | Es obligatorio |
+| Nombre de filtro | Tipo de filtro | Notas | Necesario |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Una matriz de valores de enumeración predefinidos. | La versión actual admite `blockBlob`. | Sí |
-| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Cada regla puede definir hasta 10 prefijos. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si quiere que todos los blobs de "https://myaccount.blob.core.windows.net/container1/foo/..." coincidan en una regla, prefixMatch es `container1/foo`. | Si no define prefixMatch, la regla se aplica a todos los blobs dentro de la cuenta de almacenamiento.  | Sin  |
+| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Cada regla puede definir hasta 10 prefijos. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si quiere que todos los blobs de "https://myaccount.blob.core.windows.net/container1/foo/..." coincidan en una regla, prefixMatch es `container1/foo`. | Si no define prefixMatch, la regla se aplica a todos los blobs dentro de la cuenta de almacenamiento.  | No |
 
 ### <a name="rule-actions"></a>Acciones de regla
 
@@ -223,7 +223,7 @@ Administración del ciclo de vida es compatible con los niveles y eliminación d
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Admite blobs actualmente en el nivel de acceso frecuente.         | No compatible |
 | tierToArchive | Admite blobs actualmente en el nivel de acceso frecuente o esporádico. | No compatible |
-| delete        | Compatible                                   | Compatible     |
+| eliminar        | Compatible                                   | Compatible     |
 
 >[!NOTE] 
 >Si define más de una acción en el mismo blob, la administración del ciclo de vida aplica la acción menos cara al blob. Por ejemplo, la acción `delete` es más económica que la acción `tierToArchive`. La acción `tierToArchive` es más económica que la acción `tierToCool`.

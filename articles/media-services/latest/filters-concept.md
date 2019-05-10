@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 61b877c322fcd58472990c328beea2e309502bce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3a562f98635d581aa320fdbd59d05a0382f09606
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734582"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465543"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Definición de filtros de cuenta y de recurso  
 
@@ -26,7 +26,7 @@ Al entregar su contenido a los clientes (eventos de Streaming en directo o víde
 
 Los filtros son reglas del servidor que permitirán a los clientes a hacer cosas como: 
 
-- Reproducir solo una sección de un vídeo (en lugar de reproducir todo el vídeo). Por ejemplo: 
+- Reproducir solo una sección de un vídeo (en lugar de reproducir todo el vídeo). Por ejemplo:
   - Reduzca el manifiesto para mostrar un clip secundario de un evento en directo ("filtrado de vídeos secundarios"), o bien
   - Recorte el inicio de un vídeo ("recorte de un vídeo").
 - Entregue únicamente las representaciones y pistas de idioma especificadas que admite el dispositivo que se usa para la reproducción del contenido ("filtrado de representaciones"). 
@@ -90,7 +90,7 @@ Las condiciones de la propiedad de la pista del filtro describen tipos de pista,
 
 ## <a name="associate-filters-with-streaming-locator"></a>Asociar filtros de localizador de Streaming
 
-Puede especificar una lista de filtros de activo o una cuenta que se aplicaría a su localizador de Streaming. El [empaquetador dinámico](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente se especifica en la dirección URL. Esta combinación se genera un [dyanamic manifiesto](filters-dynamic-manifest-overview.md), que se basa en los filtros en la dirección URL y los filtros que especifique en el localizador de Streaming. Se recomienda usar esta característica si desea aplicar filtros pero no desea exponer los nombres de filtro en la dirección URL.
+Puede especificar una lista de filtros de activo o una cuenta que se aplicaría a su localizador de Streaming. El [empaquetador dinámico](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente se especifica en la dirección URL. Esta combinación se genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros en la dirección URL y los filtros que especifique en el localizador de Streaming. Se recomienda usar esta característica si desea aplicar filtros pero no desea exponer los nombres de filtro en la dirección URL.
 
 ## <a name="definition-example"></a>Ejemplo de definición
 

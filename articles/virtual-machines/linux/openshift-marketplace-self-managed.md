@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 1228c770799de37c85b8a48b1dc923ac8294eeca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773613"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233082"
 ---
 # <a name="configure-prerequisites"></a>Configuración de los requisitos previos
 
@@ -39,8 +39,8 @@ Esta opción es la más sencilla, pero también tiene funcionalidades de persona
 - **Tipo de disco**: se usan discos administrados.
 - **Redes**: Compatibilidad con red nueva o existente y el intervalo CIDR personalizado.
 - **CNS**: se puede habilitar CNS.
-- **Métricas**: se pueden habilitar métricas.
-- **Registro**: se puede habilitar el registro.
+- **Métricas**: Se pueden habilitar las métricas hawkular.
+- **Registro**: Puede habilitar el registro EFK.
 - **Proveedor de soluciones en la nube de Azure**: Habilitado de forma predeterminada, se puede deshabilitar.
 
 En la parte superior izquierda de Azure portal, haga clic en **crear un recurso**, escriba 'openshift container platform' en el cuadro de búsqueda y presione ENTRAR.
@@ -70,7 +70,7 @@ Especifique valores para los parámetros de entrada y haga clic en **Aceptar**.
 | SSH clave pública para el usuario administrador | Clave pública SSH utilizada para iniciar sesión en una máquina virtual: no debe tener una frase de contraseña |
 | Subscription | Suscripción de Azure para implementar el clúster a |
 | Grupo de recursos | Crear un nuevo grupo de recursos o seleccione un grupo de recursos vacío existente para los recursos de clúster |
-| Location | Región de Azure para implementar el clúster a |
+| Ubicación | Región de Azure para implementar el clúster a |
 
    ![Hoja de datos básicos de la oferta](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
@@ -81,7 +81,7 @@ Especifique valores para los parámetros de entrada y haga clic en **Aceptar**.
 
 | Parámetro de entrada | Descripción del parámetro |
 |-----------------------|-----------------|
-| Prefijo del nombre de clúster OCP | El usuario de administrador que se crearán en todas las instancias de máquina virtual |
+| Prefijo del nombre de clúster OCP | Prefijo que se usa para configurar los nombres de host para todos los nodos del clúster. Entre 1 y 20 caracteres |
 | Tamaño del nodo maestro | Acepte el tamaño de máquina virtual predeterminada o haga clic en **cambiar tamaño** para seleccionar un tamaño de máquina virtual diferente.  Seleccione el tamaño de máquina virtual adecuado para su carga de trabajo |
 | Tamaño de nodo de infraestructura | Acepte el tamaño de máquina virtual predeterminada o haga clic en **cambiar tamaño** para seleccionar un tamaño de máquina virtual diferente.  Seleccione el tamaño de máquina virtual adecuado para su carga de trabajo |
 | Número de nodos de aplicación | Acepte el tamaño de máquina virtual predeterminada o haga clic en **cambiar tamaño** para seleccionar un tamaño de máquina virtual diferente.  Seleccione el tamaño de máquina virtual adecuado para su carga de trabajo |

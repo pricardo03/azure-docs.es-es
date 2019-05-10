@@ -40,6 +40,9 @@
     - name: Uso de procedimientos de implementación seguros
       displayName: adm
       href: deployment-manager-tutorial.md
+    - name: Uso de la comprobación de estado en el Administrador de implementaciones
+      displayName: adm
+      href: deployment-manager-tutorial-health-check.md
     - name: Solución de problemas de las implementaciones de plantillas
       href: resource-manager-tutorial-troubleshoot.md
 - name: Ejemplos
@@ -62,6 +65,9 @@
     - name: Administrador de implementaciones
       displayName: adm
       href: deployment-manager-overview.md
+    - name: Comprobación de estado del Administrador de implementaciones
+      displayName: adm
+      href: deployment-manager-health-check.md
     - name: Modos de implementación
       href: deployment-modes.md
     - name: Eliminación de recursos

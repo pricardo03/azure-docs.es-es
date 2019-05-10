@@ -2,20 +2,20 @@
 title: Solución de problemas de Azure File Sync | Microsoft Docs
 description: Solución de problemas comunes con Azure File Sync.
 services: storage
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: rogarana
+ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e399566a67161219e1d778ba1c6f874f7cede251
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190081"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510836"
 ---
-# <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
+# <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
 
 Este artículo está diseñado para ayudarle a solucionar problemas que podrían producirse con la implementación de Azure File Sync. Se describe cómo recopilar registros importantes del sistema si es necesario investigar los problemas en mayor profundidad. Si no encuentra una respuesta a su pregunta, póngase en contacto con nosotros mediante los siguientes canales (en orden incremental):
@@ -85,9 +85,9 @@ Este problema se produce si la cuenta de usuario no tiene derechos suficientes p
 
 Para crear un punto de conexión de nube, la cuenta de usuario debe tener los siguientes permisos de autorización de Microsoft:  
 * Lectura: Obtener definición de rol
-* Escritura: Creación o actualización de definiciones de roles personalizadas
-* Lectura: Obtener asignación de rol
-* Escritura: Creación de asignaciones de roles
+* Escritura: Crear o actualizar una definición de rol personalizada
+* Lectura: Obtener asignación de roles
+* Escritura: Crear asignación de roles
 
 Los siguientes roles integrados tienen los permisos necesarios de autorización de Microsoft:  
 * Propietario
@@ -275,7 +275,7 @@ La siguiente tabla contiene todos los caracteres Unicode que Azure File Sync aú
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (decimal)** | -2147023673 | 
 | **Cadena de error** | ERROR_CANCELLED |
-| **Se requiere una corrección** | Sin  |
+| **Se requiere una corrección** | No |
 
 Las sesiones de sincronización pueden producir un error por varias razones, incluido el reinicio o actualización del servidor o instantáneas de VSS, entre otras. Aunque este error parece que requiere seguimiento, es seguro pasar por alto este error a menos que persista durante un período de varias horas.
 
@@ -297,7 +297,7 @@ Las sesiones de sincronización pueden producir un error por varias razones, inc
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (decimal)** | -2134376372 |
 | **Cadena de error** | ECS_E_USER_REQUEST_THROTTLED |
-| **Se requiere una corrección** | Sin  |
+| **Se requiere una corrección** | No |
 
 No se requiere ninguna acción; el servidor lo intentará de nuevo. Si este error persiste durante más de un par de horas, cree una solicitud de soporte técnico.
 
@@ -432,7 +432,7 @@ Quite estas reglas para corregir este problema.
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (decimal)** | -2134375911 |
 | **Cadena de error** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT |
-| **Se requiere una corrección** | Sin  |
+| **Se requiere una corrección** | No |
 
 Este error suele resolverse solo y puede producirse si hay:
 
@@ -527,7 +527,7 @@ Este error se produce porque el volumen se ha llenado. Este error suele producir
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (decimal)** | -2134364145 |
 | **Cadena de error** | ECS_E_REPLICA_NOT_READY |
-| **Se requiere una corrección** | Sin  |
+| **Se requiere una corrección** | No |
 
 Este error se produce porque hay cambios en el recurso compartido de archivos Azure directamente y la detección de cambios está en curso. Se iniciará la sincronización cuando se complete la detección de cambios.
 
@@ -566,7 +566,7 @@ En los casos en los que hay muchos errores de sincronización por archivo, las s
 | **Cadena de error** | ECS_E_SYNC_INVALID_PATH |
 | **Se requiere una corrección** | Sí |
 
-Asegúrese de que la ruta de acceso existe, está en un volumen NTFS local y no es un punto de reanálisis o un punto de conexión de servidor existente.
+Asegúrese de que la ruta de acceso existe, está en un volumen NTFS local y no es un punto de repetición de análisis ni un punto de conexión de servidor existente.
 
 <a id="-2134375817"></a>**Se produjo un error en la sincronización porque la versión del controlador del filtro no es compatible con la versión del agente**.  
 
@@ -586,7 +586,7 @@ Este error se debe a que la versión del controlador del filtro de la nube por n
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (decimal)** | -2134376373 |
 | **Cadena de error** | ECS_E_SERVICE_UNAVAILABLE |
-| **Se requiere una corrección** | Sin  |
+| **Se requiere una corrección** | No |
 
 Este error se produce porque el servicio Azure File Sync no está disponible. Este error se resolverá automáticamente cuando el servicio Azure File Sync vuelva a estar disponible.
 
@@ -597,7 +597,7 @@ Este error se produce porque el servicio Azure File Sync no está disponible. Es
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (decimal)** | -2134375922 |
 | **Cadena de error** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
-| **Se requiere una corrección** | Sin  |
+| **Se requiere una corrección** | No |
 
 Este error se produce debido a un problema interno con la base de datos de sincronización. Este error se resolverá automáticamente cuando se vuelva a intentar la sincronización de Azure File Sync. Si este error continúa durante un período de tiempo prolongado, el usuario debe crear una solicitud de soporte técnico y nos pondremos en contacto con él para ayudarle a resolver este problema.
 

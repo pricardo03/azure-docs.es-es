@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68801f888df55924791188a3f4ff5b718798c9f3
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60521364"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510565"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
 
@@ -36,7 +36,7 @@ La aplicación es un tablón de anuncios publicitario. Los usuarios crean un anu
 La aplicación usa el [patrón de trabajo centrado en colas](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descargar el trabajo de uso intensivo de CPU de creación de miniaturas y pasarlo a un proceso back-end.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitectura alternativa: App Service y WebJobs
-En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en [Azure App Service](/azure/app-service/) y usar la característica [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para el back-end. Para ver un tutorial en el que se utiliza WebJobs, consulte [Introducción al SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki). Para información sobre cómo elegir los servicios que mejor se adapten a su escenario, consulte [Comparación de Azure App Service, Cloud Services y Virtual Machines](../app-service/overview-compare.md).
+En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en [Azure App Service](/azure/app-service/) y usar la característica [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para el back-end. Para ver un tutorial en el que se utiliza WebJobs, consulte [Introducción al SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki). Para información sobre cómo elegir los servicios que mejor se adapten a su escenario, consulte [Comparación de Azure App Service, Cloud Services y Virtual Machines](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="what-youll-learn"></a>Temas que se abordarán
 * Habilitar su equipo para desarrollar contenido de Azure mediante la instalación del SDK de Azure.

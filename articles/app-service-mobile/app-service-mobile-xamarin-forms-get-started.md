@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 2e0a4b51e9140b9b3c0032980b7c6cd5a4d55638
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b99513cad34bba1b050a24795ecb21d0357d19c1
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128947"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416088"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Creación de una aplicación Xamarin.Forms con Azure
 
@@ -34,9 +34,9 @@ Para completar este tutorial, necesitará lo siguiente:
 
 * Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para más información, consulte [Obtener una evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Visual Studio Tools para Xamarin, en Visual Studio 2017 o Visual Studio para Mac. Consulte la [página de instalación de Xamarin][Install Xamarin] para obtener instrucciones.
+* Visual Studio Tools para Xamarin en Visual Studio 2017 o posterior, o Visual Studio para Mac. Consulte la [página de instalación de Xamarin][Install Xamarin] para obtener instrucciones.
 
-* (opcional) Para crear una aplicación iOS, es necesario un equipo Mac con Xcode 9.0 o posterior. Se puede usar Visual Studio para Mac para desarrollar aplicaciones iOS, o se puede usar Visual Studio 2017 (siempre y cuando el equipo Mac esté disponible en la red).
+* (opcional) Para crear una aplicación iOS, es necesario un equipo Mac con Xcode 9.0 o posterior. Visual Studio para Mac se puede usar para desarrollar aplicaciones de iOS o Visual Studio 2017 o versiones posteriores puede usarse (siempre y cuando el equipo Mac está disponible en la red).
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>Creación de un back-end de Mobile Apps
 
@@ -64,7 +64,7 @@ Para abrir la solución, se necesita Visual Studio Tools para Xamarin (consulte 
 
    Esta acción permite descargar un proyecto que contiene la aplicación cliente que está conectada a la aplicación móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 
-3. Extraiga el proyecto descargado y, después, ábralo en Visual Studio 2017.
+3. Extraiga el proyecto que ha descargado y luego ábralo en Visual Studio.
 
    ![Proyecto extraído en Visual Studio][8]
 

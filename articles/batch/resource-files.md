@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 113faffb0ebac50a67c96ce21e0ee2c1564bb4fc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616558"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405654"
 ---
 # <a name="creating-and-using-resource-files"></a>Crear y usar archivos de recursos
 
@@ -38,7 +38,7 @@ Opciones para crear un archivo de recursos:
 
 ### <a name="storage-container-url"></a>Dirección URL del contenedor de almacenamiento
 
-Mediante una dirección URL de contenedor de almacenamiento, significa que puede tener acceso a archivos en cualquier contenedor de almacenamiento en Azure. Con los permisos correctos
+Mediante una dirección URL de contenedor de almacenamiento, significa que puede tener acceso a archivos en cualquier contenedor de almacenamiento en Azure con los permisos correctos.
 
 En este C# ejemplo, los archivos ya se han cargado en un contenedor de Azure storage como almacenamiento de blobs. Para obtener acceso a los datos necesarios para crear un archivo de recursos, primero es necesario obtener acceso al contenedor de almacenamiento.
 

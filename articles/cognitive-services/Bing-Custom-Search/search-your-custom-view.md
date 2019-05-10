@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: f00a8a02ac7f9468516506b6e6a376209d24c270
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed34b20073a150e38b5d5992ab4e4b8c80453fb2
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946792"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510287"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Llamada a la instancia de Bing Custom Search desde el portal
 
@@ -26,7 +26,7 @@ Después de configurar su experiencia de búsqueda personalizada, puede probarla
 
 Una vez que haya iniciado sesión en el [portal](https://customsearch.ai) de Bing Custom Search, seleccione la instancia de búsqueda y haga clic en la pestaña **Producción**. En **Endpoints** (Puntos de conexión), seleccione un punto de conexión de API (por ejemplo, Web API). La suscripción determina qué puntos de conexión se muestran.
 
-Para crear una consulta de búsqueda, escriba los valores de parámetro para el punto de conexión. Tenga en cuenta que los parámetros que aparecen en el portal pueden cambiar en función del punto de conexión que elija. Para más información, consulte la [Documentación de referencia de Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters). 
+Para crear una consulta de búsqueda, escriba los valores de parámetro para el punto de conexión. Tenga en cuenta que los parámetros que aparecen en el portal pueden cambiar en función del punto de conexión que elija. Para más información, consulte la [Documentación de referencia de Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters). Para cambiar la suscripción que usa la instancia de la búsqueda, agregue la clave de suscripción adecuado y actualizar los parámetros adecuados del mercado o lenguaje.
 
 A continuación, se muestran algunos parámetros importantes:
 
@@ -44,7 +44,7 @@ Al hacer clic en **Additional Parameters** (Parámetros adicionales) aparecen lo
 |---------|---------|
 |Safe Search     | Un filtro usado para filtrar las páginas web de contenido para adultos. Solo está disponible para los puntos de conexión Web, Image, Video y Hosted UI.        |
 |Idioma de la interfaz de usuario    | Idioma que se usa para las cadenas de la interfaz de usuario. Por ejemplo, si habilita las imágenes y los vídeos en Hosted UI, las pestañas **Image** (Imagen) y **Video** (Vídeo) usan el lenguaje especificado.        |
-|Número     | Número de resultados de búsqueda que se devolverán en la respuesta. Disponible solo para los puntos de conexión Web, Image y Video.         |
+|Count     | Número de resultados de búsqueda que se devolverán en la respuesta. Disponible solo para los puntos de conexión Web, Image y Video.         |
 |Offset    | El número de resultados de búsqueda que se van a omitir antes de devolver los resultados. Disponible solo para los puntos de conexión Web, Image y Video.        |
     
 Tras especificar todas las opciones necesarias, haga clic en **Call** (Llamar) para ver la respuesta de JSON en el panel derecho. Si selecciona el punto de conexión Hosted UI, puede probar la experiencia de búsqueda en el panel derecho.

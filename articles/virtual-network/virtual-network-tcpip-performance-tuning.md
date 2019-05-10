@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924783"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410044"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP optimizar el rendimiento de las máquinas virtuales de Azure
 
@@ -276,7 +276,7 @@ Para usar las redes aceleradas, debe habilitarse explícitamente en cada máquin
 
 Recepción (RSS) de escalado es una tecnología de controlador de red que distribuye la recepción de tráfico de red de forma más eficaz mediante la distribución de procesamiento de recepción a través de varias CPU en un sistema multiprocesador. En términos sencillos, RSS permite que un sistema procesar más tráfico recibido porque usa todas las CPU disponibles en lugar de uno. Para obtener información más técnica de RSS, consulte [Introducción a escala en lado de recepción](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-Para obtener el mejor rendimiento cuando accelerated networking esté habilitado en una máquina virtual, deberá habilitar RSS. RSS también puede proporcionar ventajas en máquinas virtuales que no usan las redes aceleración. Para obtener información general de cómo determinar si RSS está habilitado y cómo habilitarlo, consulte [optimizar el rendimiento de red para Azure virtual machines](http://aka.ms/FastVM).
+Para obtener el mejor rendimiento cuando accelerated networking esté habilitado en una máquina virtual, deberá habilitar RSS. RSS también puede proporcionar ventajas en máquinas virtuales que no usan las redes aceleración. Para obtener información general de cómo determinar si RSS está habilitado y cómo habilitarlo, consulte [optimizar el rendimiento de red para Azure virtual machines](https://aka.ms/FastVM).
 
 ### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT y TIME_WAIT assassination
 
@@ -316,7 +316,7 @@ El límite de rendimiento se aplica a la máquina virtual. El rendimiento no se 
 
 - **Protocolo**: Todo el tráfico saliente a través de todos los protocolos cuenta para el límite.
 
-Para obtener más información, consulte [ancho de banda de red de máquina Virtual](http://aka.ms/AzureBandwidth).
+Para obtener más información, consulte [ancho de banda de red de máquina Virtual](https://aka.ms/AzureBandwidth).
 
 ### <a name="internet-performance-considerations"></a>Consideraciones de rendimiento de Internet
 

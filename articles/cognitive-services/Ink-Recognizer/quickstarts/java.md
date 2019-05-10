@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 43dc388c9f24e3975d6efddbeec6e096bf062548
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6237253922544dc47bb11aec4dd58139f99eb0da
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026278"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518627"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Inicio rápido: Reconocer la entrada de lápiz digital con la API de REST de módulo de reconocimiento de tinta y Java
 
@@ -30,13 +30,13 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- El [Java&trade; desarrollo Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) o una versión posterior.
+- El [Java&trade; desarrollo Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) o una versión posterior.
 
 - Estas bibliotecas de importación del repositorio de Maven
     - [JSON en Java](https://mvnrepository.com/artifact/org.json/json) paquete
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) paquete
 
-- Los datos del trazo de tinta de ejemplo para este inicio rápido pueden encontrarse en [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+- Los datos del trazo de tinta de ejemplo para este inicio rápido pueden encontrarse en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -134,7 +134,7 @@ static void recognizeInk(String requestData) {
 
 ## <a name="run-the-application-and-view-the-response"></a>Ejecute la aplicación y ver la respuesta
 
-Ejecute la aplicación. Se devuelve una respuesta correcta en formato JSON. También puede encontrar la respuesta JSON en [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+Ejecute la aplicación. Se devuelve una respuesta correcta en formato JSON. También puede encontrar la respuesta JSON en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -142,9 +142,9 @@ Ejecute la aplicación. Se devuelve una respuesta correcta en formato JSON. Tamb
 > [Referencia de API de REST](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-Para ver cómo funciona la API de reconocimiento de tinta en una aplicación de entrada de lápiz digital, eche un vistazo a las siguientes aplicaciones de ejemplo en GitHub:
-* [C#y Platform(UWP) Windows Universal](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#y Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [Aplicación de explorador web de JavaScript](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Aplicación móvil de Java y Android](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [Aplicación móvil de iOS y SWIFT](https://go.microsoft.com/fwlink/?linkid=2089805)
+Para ver el funcionamiento de la API Ink Recognition en una aplicación de entrada de lápiz digital, eche un vistazo a las siguientes aplicaciones de ejemplo en GitHub:
+* [C# y Plataforma universal de Windows (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# y Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [Aplicación para explorador web de JavaScript](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Aplicación móvil Java y Android](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Aplicación móvil iOS y SWIFT](https://go.microsoft.com/fwlink/?linkid=2089805)

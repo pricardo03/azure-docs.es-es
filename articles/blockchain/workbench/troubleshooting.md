@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b55c84773d99c325689fbc5182e75c7cb108d00a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0263761a4aaf663b16584fbf9caa11bb124d5c4
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60896327"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510088"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Solución de problemas de Azure Blockchain Workbench
 
@@ -39,7 +39,7 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>Ejecute el script
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-Ejecute el script `collectBlockchainWorkbenchTroubleshooting.ps1` para recopilar registros y crear un archivo ZIP que contiene una carpeta con información para la solución de problemas. Por ejemplo: 
+Ejecute el script `collectBlockchainWorkbenchTroubleshooting.ps1` para recopilar registros y crear un archivo ZIP que contiene una carpeta con información para la solución de problemas. Por ejemplo:
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"
@@ -50,11 +50,11 @@ El script acepta los siguientes parámetros:
 |---------|---------|----|
 | SubscriptionID | Identificador de suscripción para crear o ubicar todos los recursos. | Sí |
 | ResourceGroupName | Nombre del grupo de recursos de Azure donde se haya implementado Blockchain Workbench. | Sí |
-| OutputDirectory | Ruta de acceso para crear el archivo .ZIP de salida. Si no se especifica, tiene como valor predeterminado el directorio actual. | Sin  |
-| LookbackHours | Número de horas que se usará al extraer la telemetría. El valor predeterminado es 24 horas. El valor máximo es 90 horas. | Sin  |
-| OmsSubscriptionId | Se implementa en Azure Monitor registra el identificador de suscripción. Pase este parámetro únicamente si los registros de Azure Monitor para la red de la cadena de bloques se implementa fuera del grupo de recursos de Blockchain Workbench.| Sin  |
-| OmsResourceGroup |Se implementa el grupo de recursos donde se registra Azure Monitor. Pase este parámetro únicamente si los registros de Azure Monitor para la red de la cadena de bloques se implementa fuera del grupo de recursos de Blockchain Workbench.| Sin  |
-| OmsWorkspaceName | Nombre del área de trabajo de Log Analytics. Pase este parámetro únicamente si los registros de Azure Monitor para la red de la cadena de bloques se implementa fuera del grupo de recursos de Blockchain Workbench | Sin  |
+| OutputDirectory | Ruta de acceso para crear el archivo .ZIP de salida. Si no se especifica, tiene como valor predeterminado el directorio actual. | No |
+| LookbackHours | Número de horas que se usará al extraer la telemetría. El valor predeterminado es 24 horas. El valor máximo es 90 horas. | No |
+| OmsSubscriptionId | Se implementa en Azure Monitor registra el identificador de suscripción. Pase este parámetro únicamente si los registros de Azure Monitor para la red de la cadena de bloques se implementa fuera del grupo de recursos de Blockchain Workbench.| No |
+| OmsResourceGroup |Se implementa el grupo de recursos donde se registra Azure Monitor. Pase este parámetro únicamente si los registros de Azure Monitor para la red de la cadena de bloques se implementa fuera del grupo de recursos de Blockchain Workbench.| No |
+| OmsWorkspaceName | Nombre del área de trabajo de Log Analytics. Pase este parámetro únicamente si los registros de Azure Monitor para la red de la cadena de bloques se implementa fuera del grupo de recursos de Blockchain Workbench | No |
 
 ## <a name="what-is-collected"></a>¿Qué información se recopila?
 

@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: f03593292289cbc093832667505da2738c2b1633
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 9bb9c23cc1f807cae1d0d22f1652e8f4408f1f91
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026291"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518671"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Inicio rápido: Reconocer la entrada de lápiz digital con la API de REST de módulo de reconocimiento de tinta yC#
 
@@ -36,9 +36,9 @@ El código fuente de este inicio rápido está disponible en [GitHub](https://go
         1. Haga clic con el botón derecho en el **Administrador de la solución**
         2. Haga clic en **Administrar paquetes de NuGet...**
         3. Busque `Newtonsoft.Json` e instale el paquete
-- Si usa Linux, MacOS, se puede ejecutar esta aplicación mediante [Mono](http://www.mono-project.com/).
+- Si usa Linux, MacOS, se puede ejecutar esta aplicación mediante [Mono](https://www.mono-project.com/).
 
-- Los datos del trazo de tinta de ejemplo para este inicio rápido pueden encontrarse en [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+- Los datos del trazo de tinta de ejemplo para este inicio rápido pueden encontrarse en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -158,7 +158,7 @@ public static JObject LoadJson(string fileLocation){
 
 ## <a name="run-the-application-and-view-the-response"></a>Ejecute la aplicación y ver la respuesta
 
-Ejecute la aplicación. Se devuelve una respuesta correcta en formato JSON. También puede encontrar la respuesta JSON en [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+Ejecute la aplicación. Se devuelve una respuesta correcta en formato JSON. También puede encontrar la respuesta JSON en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-response.json).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -167,9 +167,9 @@ Ejecute la aplicación. Se devuelve una respuesta correcta en formato JSON. Tamb
 > [Referencia de API de REST](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-Para ver cómo funciona la API de reconocimiento de tinta en una aplicación de entrada de lápiz digital, eche un vistazo a las siguientes aplicaciones de ejemplo en GitHub:
-* [C#y Platform(UWP) Windows Universal](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#y Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [Aplicación de explorador web de JavaScript](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Aplicación móvil de Java y Android](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [Aplicación móvil de iOS y SWIFT](https://go.microsoft.com/fwlink/?linkid=2089805)
+Para ver el funcionamiento de la API Ink Recognition en una aplicación de entrada de lápiz digital, eche un vistazo a las siguientes aplicaciones de ejemplo en GitHub:
+* [C# y Plataforma universal de Windows (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# y Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [Aplicación para explorador web de JavaScript](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Aplicación móvil Java y Android](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Aplicación móvil iOS y SWIFT](https://go.microsoft.com/fwlink/?linkid=2089805)

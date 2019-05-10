@@ -1,6 +1,6 @@
 ---
-title: Bibliotecas de autenticación de Azure Active Directory v2.0 | Microsoft Docs
-description: Las bibliotecas de cliente y de middleware de servidor compatibles, junto con vínculos dlibrary/source/samples relacionados, para el punto de conexión Azure Active Directory v2.0.
+title: Bibliotecas de autenticación de plataforma de identidad de Microsoft | Microsoft Docs
+description: Bibliotecas de cliente compatible y bibliotecas de middleware de servidor y biblioteca relacionado, origen y vínculos de ejemplos, para el extremo de plataforma de identidad de Microsoft.
 services: active-directory
 documentationcenter: ''
 author: negoe
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2018
+ms.date: 05/07/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda17994f0279c975682b52449c71ef88a252401
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: e7678969f58e650382ff2ed478784f4d0107f6e0
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139308"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441560"
 ---
-# <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliotecas de autenticación de Azure Active Directory v2.0
+# <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotecas de autenticación de plataforma de identidad de Microsoft
 
-El [punto de conexión de Azure Active Directory (Azure AD) v2.0](active-directory-v2-compare.md) admite los protocolos OAuth 2.0 y OpenID Connect 1.0 estándar del sector. Microsoft Authentication Library (MSAL) está diseñada para trabajar con el punto de conexión de Azure AD 2.0. También es posible usar las bibliotecas de código abierto que admiten OAuth 2.0 y OpenID Connect 1.0.
+El [extremos de plataforma de identidad de Microsoft](active-directory-v2-compare.md) admite los protocolos de OAuth 2.0 y OpenID Connect 1.0 estándar del sector. La biblioteca de autenticación de Microsoft (MSAL) está diseñado para trabajar con el punto de conexión de plataforma de identidad de Microsoft. También es posible usar las bibliotecas de código abierto que admiten OAuth 2.0 y OpenID Connect 1.0.
 
 Se recomienda usar bibliotecas escritas por expertos en los dominios del protocolo que sigan una metodología de ciclo de vida de desarrollo de seguridad (SDL), como [a la que sigue Microsoft][Microsoft-SDL]. Si decide codificar manualmente los protocolos, siga una metodología como SDL de Microsoft y observe detenidamente las consideraciones de seguridad de las especificaciones de los estándares de cada protocolo.
 
 > [!NOTE]
-> ¿Busca la biblioteca de Azure AD v1.0 (ADAL)? Revise la [Guía de la biblioteca ADAL](active-directory-authentication-libraries.md).
+> ¿Busca la biblioteca de autenticación de Azure AD (ADAL)? Revise la [Guía de la biblioteca ADAL](active-directory-authentication-libraries.md).
 
 ## <a name="types-of-libraries"></a>Tipos de bibliotecas
 
-El punto de conexión de Azure AD v2.0 funciona con dos tipos de bibliotecas:
+Punto de conexión de plataforma de identidad de Microsoft funciona con dos tipos de bibliotecas:
 
 * **Bibliotecas cliente**: Los servidores y clientes nativos utilizan bibliotecas de clientes para obtener tokens de acceso para llamar a un recurso, como Microsoft Graph.
 * **Bibliotecas de middleware de servidores**: Las aplicaciones web usan bibliotecas de middleware de servidor para el inicio de sesión de usuario. Las API de web utilizan bibliotecas de middleware de servidor para validar los tokens que se envían mediante clientes nativos o mediante otros servidores.
@@ -46,9 +46,9 @@ El punto de conexión de Azure AD v2.0 funciona con dos tipos de bibliotecas:
 Las bibliotecas se dividen en dos categorías de soporte técnico:
 
 * **Soporte técnico de Microsoft**: Microsoft proporciona soluciones para estas bibliotecas y ha hecho las diligencias necesarias con SDL para dichas bibliotecas.
-* **Compatible**: Microsoft ha probado estas bibliotecas en escenarios básicos y ha confirmado que funcionan con el punto de conexión v2.0. Microsoft no proporciona correcciones para estas bibliotecas y no ha realizado una revisión de estas bibliotecas. Los problemas y las solicitudes de características deben dirigirse al proyecto de código abierto de la biblioteca.
+* **Compatible**: Microsoft ha probado estas bibliotecas en escenarios básicos y ha confirmado que funcionan con el punto de conexión de plataforma de identidad de Microsoft. Microsoft no proporciona correcciones para estas bibliotecas y no ha realizado una revisión de estas bibliotecas. Los problemas y las solicitudes de características deben dirigirse al proyecto de código abierto de la biblioteca.
 
-Para obtener una lista de bibliotecas que funcionan con el punto de conexión v2.0, lea las secciones siguientes de este artículo.
+Para obtener una lista de bibliotecas que funcionan con el punto de conexión de plataforma de identidad de Microsoft, consulte las secciones siguientes de este artículo.
 
 ## <a name="microsoft-supported-client-libraries"></a>Bibliotecas de cliente compatibles con Microsoft
 
@@ -56,10 +56,12 @@ Las bibliotecas de autenticación de clientes se utilizan para adquirir un token
 
 | Plataforma | Biblioteca | Descargar | Código fuente | Muestra | Referencia | Documentación conceptual | Roadmap |
 | --- | --- | --- | --- | --- | --- | --- | ---|
-| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js (versión preliminar) | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [Aplicación de una sola página](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Referencia](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki)| [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
+| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [Aplicación de una sola página](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Referencia](https://htmlpreview.github.io/? https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [Docs conceptuales](msal-overview.md)| [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 |![Angular JS](media/sample-v2-code/logo_angular.png) | MSAL Angular JS | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular (versión preliminar) | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
-| ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL .NET (versión preliminar) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Aplicación de escritorio](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#conceptual-documentation) | [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
+| ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL .NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Aplicación de escritorio](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#conceptual-documentation) | [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
+| ![Python](media/sample-v2-code/logo_python.png) | MSAL Python (versión preliminar) | [PyPI](https://pypi.org/project/msal) | [Github](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [Muestras](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [ReadTheDocs](https://msal-python.rtfd.io/) | [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
+| ![Java](media/sample-v2-code/logo_java.png) | Java MSAL (versión preliminar) | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [Github](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [Muestras](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | | | [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 | ![iOS / Objective C o Swift](media/sample-v2-code/logo_iOS.png) | MSAL obj_c (versión preliminar) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [Aplicación para iOS](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
 |![Android / Java](media/sample-v2-code/logo_Android.png) | MSAL (versión preliminar) | [Repositorio central](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Aplicación para Android](quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.identity.client/msal) | | |
 
@@ -86,16 +88,16 @@ Las bibliotecas de middleware se usan para proteger las aplicaciones web y las A
 | ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1<br />omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 | ![iOS](media/sample-v2-code/logo_iOS.png) ![Android](media/sample-v2-code/logo_Android.png) | [React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth) | [Versión 4.2.0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [React Native App Auth](https://github.com/FormidableLabs/react-native-app-auth) | |
 
-Para cualquier biblioteca que cumpla los estándares puede utilizar el punto de conexión v2.0; por tanto, es importante saber dónde obtener soporte técnico.
+Puede usar el punto de conexión de plataforma de identidad de Microsoft, para cualquier biblioteca que cumpla los estándares, por tanto, es importante saber dónde obtener soporte técnico.
 
 * Para problemas y solicitudes de nuevas características en el código de la biblioteca, póngase en contacto con el propietario de la biblioteca.
 * Para problemas y solicitudes de nuevas características de la implementación del protocolo en el servicio, póngase en contacto con Microsoft.
 * [Archive una solicitud de característica](https://feedback.azure.com/forums/169401-azure-active-directory) para características adicionales que le gustaría ver en el protocolo.
-* [Cree una solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) si encuentra un problema donde el punto de conexión de Azure AD v2.0 no es compatible con OAuth 2.0 u OpenID Connect 1.0.
+* [Crear una solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) si encuentra un problema donde el punto de conexión de plataforma de identidad de Microsoft no es compatible con OAuth 2.0 u OpenID Connect 1.0.
 
 ## <a name="related-content"></a>Contenido relacionado
 
-Para obtener más información sobre el punto de conexión de Azure AD v2.0, consulte la [introducción a la versión 2.0 del modelo de aplicaciones de Azure AD][AAD-App-Model-V2-Overview].
+Para obtener más información sobre el punto de conexión de plataforma de identidad de Microsoft, consulte el [información general de plataforma de Microsoft identity][AAD-App-Model-V2-Overview].
 
 <!--Image references-->
 

@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478799"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413906"
 ---
 # <a name="what-is-azure-importexport-service"></a>¿Qué es el servicio Azure Import/Export?
 
@@ -112,7 +112,7 @@ En un nivel alto, un trabajo de exportación implica los siguientes pasos:
 
 Para obtener instrucciones detalladas sobre la exportación de datos, vaya a [Exportación de datos desde Azure Blobs](storage-import-export-data-from-blobs.md).
 
-## <a name="region-availability"></a>Disponibilidad en regiones 
+## <a name="region-availability"></a>Disponibilidad por región 
 
 El servicio Azure Import/Export permite copiar datos en todas las cuentas de almacenamiento de Azure y desde estas. Las unidades de disco se pueden enviar a una de las ubicaciones de la lista. Si la cuenta de almacenamiento está en una ubicación de Azure que no se especifica aquí, se proporcionará una ubicación de envío alternativa cuando cree el trabajo.
 
@@ -122,13 +122,13 @@ El servicio Azure Import/Export permite copiar datos en todas las cuentas de alm
 |País  |País  |País  |País  |
 |---------|---------|---------|---------|
 |Este de EE. UU    | Europa del Norte        | India Central        |US Gov Iowa         |
-|Oeste de EE. UU.     |Europa occidental         | Sur de la India        | Departamento de Defensa de EE. UU. Este        |
-|Este de EE. UU. 2    | Asia oriental        |  Oeste de la India        | Departamento de Defensa de EE. UU. Centro        |
+|Oeste de EE. UU.     |Europa occidental         | Sur de la India        | US DoD oriental        |
+|Este de EE. UU. 2    | Asia oriental        |  Oeste de la India        | US DoD central        |
 |Oeste de EE. UU. 2     | Sudeste asiático        | Centro de Canadá        | Este de China         |
 |Centro de EE. UU.     | Este de Australia        | Este de Canadá        | Norte de China        |
 |Centro-Norte de EE. UU     |  Sudeste de Australia       | Sur de Brasil        | Sur de Reino Unido 2        |
 |Centro-Sur de EE. UU     | Oeste de Japón        |Corea Central         | Centro de Alemania        |
-|Centro occidental de EE.UU.     |  Este de Japón       | Gobierno de EE. UU. - Virginia        | Noreste de Alemania        |
+|Centro occidental de EE.UU.     |  Este de Japón       | US Gov Virginia        | Noreste de Alemania        |
 
 
 ## <a name="security-considerations"></a>Consideraciones sobre la seguridad
@@ -160,7 +160,7 @@ Al enviar unidades a Azure, pagar los gastos de envío al transportista. Cuando 
 
 **Costos de transacción**
 
-No hay ningún costo de transacción además de los costos de transacciones de almacenamiento estándar al importar datos en Azure Storage. Los cargos de salida estándar son aplicables cuando se exportan datos desde Blob Storage. Para más información sobre los costos de transacción, consulte [Detalles de precios de transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/)
+[Cargo de transacción de almacenamiento estándar](https://azure.microsoft.com/pricing/details/storage/) se aplican durante la importación, así como la exportación de datos. Los cargos de salida estándar también son aplicables, junto con los cargos de transacción de almacenamiento cuando se exportan datos desde el almacenamiento de Azure. Para obtener más información sobre los costos de salida, vea [precios de transferencias de datos.](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 
 

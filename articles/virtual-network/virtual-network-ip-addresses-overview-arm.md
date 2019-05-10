@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 30186d0f8197a35db409684775e2ec78288b8818
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726651"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236360"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
 
@@ -43,7 +43,7 @@ En el Administrador de recursos de Azure, una dirección [IP pública](virtual-n
 
 * Interfaces de red de máquinas virtuales
 * Equilibradores de carga accesibles desde Internet
-* Puertas de enlace de VPN
+* Puertas de enlace VPN
 * Puertas de enlace de aplicaciones
 
 ### <a name="ip-address-version"></a>Versión de la dirección IP
@@ -105,11 +105,14 @@ Las direcciones IP públicas se suelen usar en los escenarios siguientes:
 >
 
 ### <a name="dns-hostname-resolution"></a>Resolución de nombres de host DNS
-Puede especificar una etiqueta de nombre de dominio DNS para un recurso de IP pública, lo que crea una asignación para *etiquetadenombrededominio*.*ubicación.cloudapp.azure.com* en la dirección IP pública de los servidores DNS que administra Azure. Por ejemplo, si crea un recurso de IP pública con **contoso** como *etiquetaDeNombreDeDominio* en la *ubicación* **Oeste de EE. UU.** de Azure, el nombre de dominio completo (FQDN) **contoso.westus.cloudapp.azure.com** se resolverá en la dirección IP pública del recurso. Puede usar el FQDN para crear un registro CNAME de dominio personalizado que apunte a la dirección IP pública en Azure. En lugar de usar la etiqueta de nombre DNS con el sufijo predeterminado, o además de ello, puede usar el servicio Azure DNS para configurar un nombre DNS con un sufijo personalizado que se resuelva en la dirección IP pública. Para obtener más información, vea los detalles relativos al [uso de Azure DNS con una dirección IP pública de Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).
+Puede especificar una etiqueta de nombre de dominio DNS para un recurso de IP pública, lo que crea una asignación para *etiquetadenombrededominio*.*ubicación.cloudapp.azure.com* en la dirección IP pública de los servidores DNS que administra Azure. Por ejemplo, si crea un recurso de IP pública con **contoso** como *etiquetaDeNombreDeDominio* en la *ubicación* **Oeste de EE. UU.** de Azure, el nombre de dominio completo (FQDN) **contoso.westus.cloudapp.azure.com** se resolverá en la dirección IP pública del recurso.
 
 > [!IMPORTANT]
 > Cada etiqueta de nombre de dominio que se cree debe ser única dentro de su ubicación de Azure.  
 >
+
+### <a name="dns-best-practices"></a>Procedimientos recomendados DNS
+Si alguna vez necesita migrar a una región distinta, no puede migrar el FQDN de la dirección IP pública. Como práctica recomendada, puede usar el FQDN para crear un registro CNAME de dominio personalizado que apunte a la dirección IP pública en Azure. Si tiene que mover a otra dirección IP pública, requerirán una actualización para el registro CNAME en lugar de tener que actualizar manualmente el FQDN a la nueva dirección. Puede usar [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) o un proveedor DNS externo para el registro de DNS. 
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
 
@@ -119,7 +122,7 @@ Puede asociar una dirección IP pública con una máquina virtual [Windows](../v
 
 Puede asociar una dirección IP pública creada con una [SKU](#sku) o con una instancia de [Azure Load Balancer](../load-balancer/load-balancer-overview.md) asignándola a la configuración del **front-end** del equilibrador de carga. La dirección IP pública actúa como dirección IP virtual (VIP) de carga equilibrada. Puede asignar una dirección IP pública estática o dinámica al front-end de un equilibrador de carga. También le puede asignar varias direcciones IP públicas a un front-end del equilibrador de carga, lo que hace posibles aquellos escenarios con [varias VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , como un entorno de varios inquilinos con sitios web basados en SSL. Para más información sobre las SKU de los equilibradores de carga de Azure, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU estándar de equilibrador de carga de Azure).
 
-### <a name="vpn-gateways"></a>Puertas de enlace de VPN
+### <a name="vpn-gateways"></a>Puertas de enlace VPN
 
 Una instancia de [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) permite conectar una red virtual de Azure a otras redes virtuales de Azure o a una red local. Se asigna una dirección IP pública a la instancia de VPN Gateway para habilitar la comunicación con la red remota. Solo puede asignar una dirección IP pública *dinámica* de nivel básico a una puerta de enlace de VPN.
 
@@ -134,8 +137,8 @@ La siguiente tabla muestra la propiedad específica a través de la cual una dir
 | --- | --- | --- | --- |
 | Máquina virtual |interfaz de red |Sí |Sí |
 | Equilibrador de carga accesible desde Internet |Configuración de front-end |Sí |Sí |
-| puerta de enlace de VPN |Configuración de dirección IP de puerta de enlace |Sí |Sí |
-| puerta de enlace de aplicaciones |Configuración de front-end |Sí (solo en V1) |Sí (solo en V2) |
+| VPN Gateway |Configuración de dirección IP de puerta de enlace |Sí |No |
+| Puerta de enlace de aplicaciones |Configuración de front-end |Sí (solo en V1) |Sí (solo en V2) |
 
 ## <a name="private-ip-addresses"></a>Direcciones IP privadas
 Las direcciones IP privadas permiten que los recursos de Azure se comuniquen con otros recursos en una [red virtual](virtual-networks-overview.md) , o en la red local a través de una puerta de enlace de VPN o un circuito ExpressRoute, sin usar una dirección IP accesible desde Internet.
@@ -182,9 +185,9 @@ La siguiente tabla muestra la propiedad específica a través de la cual una dir
 | --- | --- | --- | --- |
 | Máquina virtual |interfaz de red |Sí |Sí |
 | Equilibrador de carga |Configuración de front-end |Sí |Sí |
-| puerta de enlace de aplicaciones |Configuración de front-end |Sí |Sí |
+| Puerta de enlace de aplicaciones |Configuración de front-end |Sí |Sí |
 
-## <a name="limits"></a>límites
+## <a name="limits"></a>Límites
 Los límites impuestos en una dirección IP se indican en el conjunto completo de [límites de red](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) de Azure. Los límites son por región y suscripción. Puede [ponerse en contacto con el servicio de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar los límites predeterminados hasta alcanzar los límites máximos, según las necesidades empresariales.
 
 ## <a name="pricing"></a>Precios

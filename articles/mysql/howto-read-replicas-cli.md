@@ -5,17 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: e291cb46b5f8cb8722348bd8fcd6031ed29beb9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: a9ca34953827c1f94e2696eb4f09163be335d2f4
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61423453"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510681"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Procedimiento para crear y administrar réplicas de lectura en Azure Database for MySQL mediante la CLI de Azure
 
 En este artículo, obtendrá información sobre cómo crear y administrar las réplicas de lectura en la misma región de Azure que el servidor maestro del servicio Azure Database for MySQL mediante la CLI de Azure.
+
+> [!NOTE]
+> CLI de Azure no admite aún creación de réplicas en una región diferente desde el servidor maestro. Para crear una réplica entre regiones, use el [portal Azure]( howto-read-replicas-portal.md) en su lugar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

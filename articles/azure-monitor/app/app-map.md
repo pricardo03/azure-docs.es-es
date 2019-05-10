@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 618453ec9857254fe14608df8091bb79bd3815b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60693421"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509991"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: Evaluación de prioridades de las aplicaciones distribuidas
 
@@ -68,7 +68,7 @@ Para solucionar problemas de rendimiento haga clic en **Investigar el rendimient
 
 ### <a name="go-to-details"></a>Ir a los detalles
 
-Haga clic en **Ir a los detalles** para explorar una experiencia de transacción completa, que puede ofrecer las vistas realizadas en el nivel de la pila de llamadas.
+Seleccione **vaya a detalles** para explorar la experiencia de transacción to-end, que puede ofrecer vistas hasta el nivel de la pila de llamadas.
 
 ![Captura de pantalla del botón Ir a los detalles](media/app-map/go-to-details.png)
 

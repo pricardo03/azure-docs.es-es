@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637767"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409613"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con un clúster de conmutación por error de Windows y el recurso compartido de archivos para instancias de SAP ASCS/SCS
 
@@ -36,6 +36,7 @@ ms.locfileid: "60637767"
 [arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
 [arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
 [deploy-cloud-witness]:https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -316,7 +317,7 @@ También puede automatizar la implementación del servidor de archivos de escala
 > En la interfaz de usuario de la plantilla de Resource Manager del servidor de archivos de escalabilidad horizontal debe especificar el recuento de máquinas virtuales.
 >
 
-### <a name="use-managed-disks"></a>Uso de discos administrados
+### <a name="use-managed-disks"></a>Usar discos administrados
 
 La plantilla de Azure Resource Manager para implementar el servidor de archivos de escalabilidad horizontal con Espacios de almacenamiento directo y Azure Managed Disks está disponible en [GitHub][arm-sofs-s2d-managed-disks].
 
@@ -341,6 +342,16 @@ La plantilla de Azure Resource Manager para implementar el servidor de archivos 
 _**Figura 2**: Pantalla de la interfaz de usuario para la plantilla de servidor Azure Resource Manager de archivos de escalabilidad horizontal sin discos administrados_
 
 En el cuadro **Tipo de cuenta de almacenamiento**, seleccione **Premium Storage**. Las demás opciones son las mismas que con discos administrados.
+
+## <a name="adjust-cluster-timeout-settings"></a>Ajustar la configuración de tiempo de espera de clúster
+
+Después de instalar correctamente el clúster de servidor de archivos de escalabilidad horizontal de Windows, adaptar los umbrales de tiempo de espera de la detección de conmutación por error a las condiciones de Azure. Los parámetros que se van a cambiar se documentan en el blog [Tuning Failover Cluster Network Thresholds][tuning-failover-cluster-network-thresholds] (Ajuste de los umbrales de la red en clúster de conmutación por error). Suponiendo que las máquinas virtuales en clúster están en la misma subred, cambie los parámetros siguientes a estos valores:
+
+- SameSubNetDelay = 2000
+- SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
+
+Esta configuración se han probado con clientes y ofrece un buen compromiso. Son lo suficientemente resistentes, pero también proporcionan velocidad suficiente en condiciones de error real o error de la máquina virtual de conmutación por error.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

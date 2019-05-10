@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8605e614574b7ebd45e9f18c4e5685a9c5450e64
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688344"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409914"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas del registro de actividad de Azure
 Como parte de la definición de un grupo de acciones, se pueden configurar puntos de conexión de webhook para recibir notificaciones de alertas del registro de actividad. Los webhooks permiten enrutar estas notificaciones a otros sistemas para su procesamiento posterior o acciones personalizadas. Este artículo muestra el aspecto de la carga útil para HTTP POST a un webhook.
@@ -156,7 +156,7 @@ La carga útil JSON incluida en la operación POST difiere según el campo data.
                 "resourceGroupName": "<resource group>",
                 "resourceProviderName": "Microsoft.Resourcehealth/healthevent/action",
                 "status": "Active",
-                "subscriptionId": "<subscription Id",
+                "subscriptionId": "<subscription Id>",
                 "submissionTimestamp": "2018-09-04T23:11:06.1607287+00:00",
                 "resourceType": "Microsoft.Compute/virtualMachines"
             }
@@ -186,13 +186,13 @@ Para obtener información del esquema específico en todas las otras alertas del
 | event |Elemento que contiene metadatos sobre el evento. |
 | authorization |Las propiedades del Control de acceso basado en rol del evento. Estas propiedades normalmente incluyen la acción, el rol y el ámbito. |
 | category |Categoría del evento. Los valores admitidos incluyen: Administrative, Alert, Security, ServiceHealth y Recommendation. |
-| caller |Dirección de correo electrónico del usuario que realizó la operación, la notificación de UPN o la notificación de SPN basada en la disponibilidad. Puede ser null para ciertas llamadas del sistema. |
+| autor de llamada |Dirección de correo electrónico del usuario que realizó la operación, la notificación de UPN o la notificación de SPN basada en la disponibilidad. Puede ser null para ciertas llamadas del sistema. |
 | correlationId |Normalmente, un GUID en formato de cadena. Los eventos con correlationId pertenecen a la misma acción de mayor tamaño y suelen compartir un campo correlationId. |
 | eventDescription |Descripción de texto estático del evento |
 | eventDataId |Identificador único para el evento |
 | eventSource |Nombre de la infraestructura o el servicio de Azure que generó el evento |
 | httpRequest |La solicitud normalmente incluye clientRequestId, clientIpAddress y el método HTTP (por ejemplo, PUT). |
-| level |Uno de los valores siguientes: crítico, error, advertencia e informativo. |
+| nivel |Uno de los valores siguientes: crítico, error, advertencia e informativo. |
 | operationId |Por lo general, un GUID compartido entre los eventos correspondientes a una sola operación |
 | operationName |Nombre de la operación. |
 | properties |Propiedades del evento. |

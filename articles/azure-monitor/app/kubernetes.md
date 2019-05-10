@@ -2,18 +2,18 @@
 title: 'Azure Monitor: cero aplicaciones alojadas de supervisión de Kubernetes de aplicaciones de instrumentación | Microsoft Docs'
 description: Cero supervisión para aplicaciones de Kubernetes hospedado de aplicaciones de instrumentación son una solución de supervisión que le permite recopilar datos de telemetría de Application Insights que pertenecen a las solicitudes entrantes y salientes a y desde los pods que se ejecutan en el clúster de Kubernetes mediante al utilizar la tecnología de la malla de servicio denomina Istio.
 services: application-insights
-author: rishabjolly
+author: tokaplan
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: rijolly
-ms.openlocfilehash: 73f95ab75b49fb8ec5b61f6e30080f8f6d474c16
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.author: alkaplan
+ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149876"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408209"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Cero supervisión de aplicaciones de instrumentación para Kubernetes aplicaciones hospedadas
 
@@ -84,7 +84,7 @@ Aplicaciones que se ejecutan fuera de la malla de servicio no se ven afectadas.
    kubectl apply -f .
    ```
 
-### <a name="verify-deployment"></a>Comprobación de la implementación
+### <a name="verify-deployment"></a>Comprobar la implementación
 
 - Asegúrese de que se ha implementado el adaptador de Application Insights:
 
@@ -134,7 +134,7 @@ A continuación se espera que el flujo que se usará al telemetría no aparece e
 
 Para obtener la información más reciente para ver el progreso en este proyecto, visite la [el adaptador de Application Insights para GitHub del proyecto de Mixer Istio](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 
-## <a name="uninstall"></a>Desinstalación
+## <a name="uninstall"></a>Desinstalar
 
 Para desinstalar el producto, para *cada* archivo YAML se encuentra en *kubernetes/src/* ejecutar:
 

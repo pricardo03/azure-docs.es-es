@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43ca5bbfd789c1c41826c9a13a0030b80c72d4bc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919702"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510650"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -234,7 +234,7 @@ Para crear una nueva implementación de actualizaciones, seleccione **Programar 
 | Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md) |
 |Clasificaciones de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite|
 |Incluir o excluir actualizaciones|Se abrirá la página **Incluir/Excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte la sección [Comportamiento de inclusión](automation-update-management.md#inclusion-behavior). |
-|Configuración de programación|Seleccione la hora de inicio y seleccione Una vez o de manera periódica para la periodicidad|
+|Configuración de la programación|Seleccione la hora de inicio y seleccione Una vez o de manera periódica para la periodicidad|
 | Scripts previos + scripts posteriores|Seleccione los scripts que se ejecutarán antes y después de la implementación.|
 | Ventana de mantenimiento |Número de minutos establecido para las actualizaciones. El valor no puede ser inferior a 30 minutos ni más de 6 horas |
 | Control de reinicio| Determina cómo se deben controlar los reinicios. Las opciones disponibles son la siguientes:</br>Reboot if required (Default) [Reiniciar si es necesario (predeterminada)]</br>Always reboot (Reiniciar siempre)</br>Never reboot (No reiniciar nunca)</br>Only reboot (solo reiniciar), no se instalarán las actualizaciones|
@@ -274,20 +274,20 @@ En las siguientes tablas se muestran las clasificaciones de actualizaciones en U
 
 ### <a name="windows"></a> Windows
 
-|clasificación  |DESCRIPCIÓN  |
+|Clasificación  |DESCRIPCIÓN  |
 |---------|---------|
 |Actualizaciones críticas     | Actualización para un problema específico que resuelve un error crítico no relacionado con la seguridad.        |
 |Actualizaciones de seguridad     | Actualización para un problema específico del producto relacionado con la seguridad.        |
-|Paquetes acumulativos de actualizaciones     | Conjunto acumulativo de revisiones que se empaquetan para facilitar la implementación.        |
-|Feature Packs     | Nuevas características del producto que se distribuyen fuera de una versión del producto.        |
-|Service Packs     | Un conjunto acumulativo de revisiones que se aplican a una aplicación.        |
+|Paquetes acumulativos de revisiones     | Conjunto acumulativo de revisiones que se empaquetan para facilitar la implementación.        |
+|Paquetes de características     | Nuevas características del producto que se distribuyen fuera de una versión del producto.        |
+|Service Pack     | Un conjunto acumulativo de revisiones que se aplican a una aplicación.        |
 |Actualizaciones de definiciones     | Una actualización de archivos de definiciones de virus o de otra índole.        |
 |Herramientas     | Utilidad o característica que ayuda a realizar una o más tareas.        |
 |Actualizaciones     | Actualización de una aplicación o archivo que están instalados actualmente.        |
 
 ### <a name="linux"></a>Linux
 
-|clasificación  |DESCRIPCIÓN  |
+|Clasificación  |DESCRIPCIÓN  |
 |---------|---------|
 |Actualizaciones críticas y de seguridad     | Actualizaciones para un problema específico o un problema de un producto específico relacionado con la seguridad.         |
 |Otras actualizaciones     | Todas las demás actualizaciones que ni son críticas por naturaleza ni son actualizaciones de seguridad.        |
@@ -356,7 +356,7 @@ Para más información sobre los puertos que necesita Hybrid Runbook Worker, con
 
 Se recomienda utilizar las direcciones mostradas al definir las excepciones. Puede descargar los [intervalos de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Este archivo se actualiza semanalmente y refleja los intervalos implementados en ese momento y los próximos cambios en los intervalos de direcciones.
 
-## <a name="search-logs"></a>Búsqueda de registros
+## <a name="search-logs"></a>Buscar registros
 
 Además de los detalles que se proporcionan en Azure Portal, se pueden realizar búsquedas en los registros. En la página de la solución, seleccione **Log Analytics**. Se abre el panel **Búsqueda de registros**.
 
@@ -584,9 +584,9 @@ Estos grupos se definen mediante una consulta, cuando se inicia una implementaci
 * Subscription
 * Grupos de recursos
 * Ubicaciones
-* Etiquetas
+* `Tags`
 
-![Selección de grupos](./media/automation-update-management/select-groups.png)
+![Seleccionar grupos](./media/automation-update-management/select-groups.png)
 
 Para obtener una vista previa de los resultados de un grupo dinámico, haga clic en el botón **Vista previa**. Esta vista previa muestra la pertenencia al grupo en ese momento; en este ejemplo, estamos buscando máquinas con la etiqueta **Role** es igual a **BackendServer**. Si se ha agregado esta etiqueta a varias máquinas, se agregarán a las implementaciones futuras en ese grupo.
 
@@ -596,7 +596,7 @@ Para obtener una vista previa de los resultados de un grupo dinámico, haga clic
 
 Para que no son de Azure las máquinas, las búsquedas guardadas también conocen como grupos de equipos se utilizan para crear el grupo dinámico. Para obtener información sobre cómo crear una búsqueda guardada, consulte [crear un grupo de equipos](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Una vez creado el grupo puede seleccionarla en la lista de búsquedas guardadas. Haga clic en **Preview** para obtener una vista previa de los equipos de la búsqueda guardada en ese momento.
 
-![Selección de grupos](./media/automation-update-management/select-groups-2.png)
+![Seleccionar grupos](./media/automation-update-management/select-groups-2.png)
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integración con System Center Configuration Manager
 
@@ -634,7 +634,7 @@ Sin embargo, es posible que Update Management todavía notifique que esa máquin
 
 La implementación de actualizaciones mediante la clasificación de actualizaciones no funciona en CentOS de forma nativa. Para implementar correctamente actualizaciones para CentOS, seleccione todas las clasificaciones para asegurarse de que se aplican las actualizaciones. En SUSE, al seleccionar *solo* "Otras actualizaciones" como clasificación, puede dar lugar a que se instalen también algunas actualizaciones de seguridad si primero se requieren actualizaciones de seguridad relacionadas con zypper (administrador de paquetes) o sus dependencias. Este comportamiento es una limitación de zypper. En algunos casos, puede que se le pida volver a ejecutar la implementación de actualizaciones. Para ello, compruebe el registro de actualizaciones.
 
-## <a name="remove-a-vm-for-update-management"></a>Eliminación de una VM de Update Management
+## <a name="remove-a-vm-from-update-management"></a>Quitar una máquina virtual de administración de actualizaciones
 
 Para quitar una VM de Update Management:
 

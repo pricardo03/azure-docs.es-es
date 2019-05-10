@@ -8,19 +8,19 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: 7324ab1d7aa6e42100c9c6760c17b0ea6445f21d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f3473d83678ffea888dad736a9620006b2961f7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079460"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406387"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: Diseño de un panel de análisis en tiempo real on Azure Database for PostgreSQL: hiperescala (Citus) (versión preliminar)
 
 En este tutorial, usa Azure Database for PostgreSQL: hiperescala (Citus) (versión preliminar) para obtener información sobre lo siguiente:
 
 > [!div class="checklist"]
-> * Creación de un grupo de servidores de hiperescala (Citus)
+> * Creación de un grupo de servidores Hiperescala (Citus)
 > * Uso de la utilidad psql para crear un esquema
 > * Particiones de tablas entre nodos
 > * Generación de datos de ejemplo
@@ -41,7 +41,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
 1. Haga clic en **Crear un recurso** de la esquina superior izquierda de Azure Portal.
 2. En la página **Nuevo**, seleccione **Bases de datos** y, en la página **Bases de datos**, seleccione **Azure Database for PostgreSQL**.
-3. Para la opción de implementación, haga clic en el botón **Crear** en **Hyperscale (Citus) server group - PREVIEW** (Grupo de servidores de hiperescala (Citus): VERSIÓN PRELIMINAR).
+3. Para la opción de implementación, haga clic en el botón **Crear** en **Hyperscale (Citus) server group - PREVIEW** (Grupo de servidores Hiperescala (Citus): VERSIÓN PRELIMINAR).
 4. Rellene el formulario del nuevo servidor con la siguiente información:
    - Grupo de recursos: haga clic en el vínculo **Crear nuevo** que está debajo de este cuadro de texto para este campo. Escriba un nombre como **myresourcegroup**.
    - Nombre del grupo de servidores: **mydemoserver** (el nombre de un servidor que se asigna al nombre DNS y que debe ser globalmente único).
@@ -52,8 +52,8 @@ Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
    > [!IMPORTANT]
    > El inicio de sesión y la contraseña de administrador del servidor que especifique aquí serán necesarios para iniciar sesión más adelante en ese servidor y en las bases de datos que se especificarán en este tutorial. Recuerde o grabe esta información para su uso posterior.
 
-5. Haga clic en **Configure server group** (Configurar grupo de servidores). No modifique los valores de esa sección y haga clic en **Guardar**.
-6. Haga clic en **Review + create** (Revisar y crear) y luego en **Crear** para aprovisionar el servidor. El aprovisionamiento tarda unos minutos.
+5. Haga clic en **Configurar grupo de servidores**. No modifique los valores de esa sección y haga clic en **Guardar**.
+6. Haga clic en **Revisar y crear**  y luego en **Crear** para aprovisionar el servidor. El aprovisionamiento tarda unos minutos.
 7. La página irá a la supervisión de la implementación. Cuando el estado activo cambia de **La implementación está en curso** a **Se completó la implementación**, haga clic en el elemento de menú **Salidas** que se encuentra a la izquierda de la página.
 8. La página de resultados incluirá un nombre de host de coordinación junto a un botón para copiar el valor en el Portapapeles. Anote esta información para usarla más adelante.
 
@@ -65,7 +65,7 @@ El servicio Azure Database for PostgreSQL usa un firewall en el nivel de servido
 
 2. Busque el grupo de escalado correspondiente a la implementación en la lista de recursos y haga clic en él. (Su nombre tendrá el prefijo "sg-".)
 
-3. Haga clic en **Firewall** en **Seguridad** del menú de la izquierda.
+3. Haga clic en **Firewall** en **Seguridad**, en el menú de la izquierda.
 
 4. Haga clic en el vínculo **+ Agregar regla de firewall para la dirección IP del cliente actual**. Por último, haga clic en el botón **Guardar**.
 
@@ -170,7 +170,7 @@ DO $$
       ip_address, status_code, response_time_msec
     ) VALUES (
       trunc(random()*32), clock_timestamp(),
-      concat('http://example.com/', md5(random()::text)),
+      concat('https://example.com/', md5(random()::text)),
       ('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
       concat(
         trunc(random()*250 + 2), '.',
@@ -282,11 +282,11 @@ En el entorno de producción, podría encapsular estas consultas en una función
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-En los pasos anteriores, creó recursos de Azure en un grupo de recursos. Si no cree que va a necesitar estos recursos en el futuro, elimine el grupo de servidores. Presione el botón *Eliminar* en la página *Información general* del grupo de servidores. Cuando aparezca una página emergente en la que se le pida hacerlo, confirme el nombre del grupo de servidores y haga clic en el botón *Eliminar* final.
+En los pasos anteriores, creó recursos de Azure en un grupo de servidores. Si no cree que vaya a necesitar estos recursos en el futuro, elimine el grupo de servidores. Presione el botón *Eliminar* en la página *Información general* del grupo de servidores. Cuando aparezca una página emergente en la que se le pida hacerlo, confirme el nombre del grupo de servidores y haga clic en el botón *Eliminar* final.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, aprendió a aprovisionar un grupo de servidores de hiperescala (Citus). Se conectó a él con psql, creó un esquema y distribuyó datos. Aprendió a consultar datos en formato sin procesar, agregar esos datos de manera habitual, consultar las tablas de agregados y hacer expirar los datos antiguos.
+En este tutorial, aprendió a aprovisionar un grupo de servidores Hiperescala (Citus). Se conectó a él con psql, creó un esquema y distribuyó datos. Aprendió a consultar datos en formato sin procesar, agregar esos datos de manera habitual, consultar las tablas de agregados y hacer expirar los datos antiguos.
 
 A continuación, conozca los conceptos de hiperescala.
 > [!div class="nextstepaction"]

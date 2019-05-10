@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f90ca51349eef92bd25095f5a2a10d7d181fdb2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: acb44a34eae84d8a5718ebcc0003d3cf50b9d43a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61488367"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510062"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Habilitación de la virtualización anidada en una máquina virtual de Azure
 
@@ -80,7 +80,7 @@ Cree un adaptador de red virtual nuevo para la máquina virtual invitada y confi
 2. Cree un conmutador interno.
 
     ```powershell
-    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNAT" -SwitchType Internal
     ```
 
 3. Consulte las propiedades del conmutador y anote el valor de ifIndex del adaptador nuevo.

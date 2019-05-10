@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: c8bc11b8f81fe034ceaa93c7bd8a49771d9407f9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 63dd64e900cf68e708032569ca75ac2e8b221491
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025784"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237005"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendaciones de matriz de micrófono de SDK de dispositivos de voz
 
@@ -29,9 +29,11 @@ Se recomiendan las geometrías de matriz siguientes para su uso con la pila de A
 
 |          | Matriz circular    |       |  Matriz lineal              |                |
 |----------|-------------------|-------------------|----------------|----------------|
-|          |![7 matriz circular de mic](media/speech-devices-sdk/7-mic-c.png)|![4 matriz circular de mic](media/speech-devices-sdk/4-mic-c.png)|![4 matriz lineal de mic](media/speech-devices-sdk/4-mic-l.png)|![2 matriz lineal de mic](media/speech-devices-sdk/2-mic-l.png)|
+|          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# MIC  | 7                 | 4                 | 4              | 2              |
 | Geometría | 1 externo, 6 centro, el radio = mm 42,5, espaciado de manera uniforme| 3 1 exterior, centro, el radio = mm 42,5, espaciado de manera uniforme | Longitud = 120 mm, espaciado = 40 mm | Espaciado = 40 mm |
+
+Canales de micrófono deben ordenarse según la numeración se muestra para cada uno por encima de la matriz, aumentando de 0.  La pila de Audio de Microsoft requiere un flujo de referencia adicional de reproducción de audio para realizar la eliminación del eco.
 
 ## <a name="component-selection"></a>Selección de componentes
 
@@ -39,7 +41,7 @@ Componentes de micrófono deben seleccionarse para reproducir con precisión una
 
 Las propiedades recomendadas cuando se selecciona micrófonos son:
 
-| Parámetro                         | Recomendado                       |
+| Parámetro                         | Recomendada                       |
 |-----------------------------------|-----------------------------------|
 | SNR                               | \> 65 dB (1 kHz señal 94 dBSPL, ruido ponderado)   |
 | Coincidencia de Amplitude                | ± 1 dB @ 1 kHz                     |
@@ -59,7 +61,7 @@ Selección de componentes buena debe estar emparejado con buena integración ele
 
 El rendimiento de las matrices cuando se integra en un dispositivo y después de cualquier ganancia fijo o EQ debe cumplir las siguientes recomendaciones:
 
-|  Parámetro        |    Recomendado |
+|  Parámetro        |    Recomendada |
 |--------------------|----------------------------------------------------|
 |  SNR                 | \> 65 dB (1 kHz señal 94 dBSPL, ruido ponderado) |
 |  Sensibilidad de salida  | -dBFS 26/Pa @ 1 kHz (recomendado) |
@@ -74,7 +76,7 @@ El rendimiento de las matrices cuando se integra en un dispositivo y después de
 
 Como eco acústico es necesario para los dispositivos de reconocimiento de voz que contienen los altavoces, se proporcionan recomendaciones adicionales para la integración y la selección del orador.
 
-| Parámetro                         | Recomendado                       |
+| Parámetro                         | Recomendada                       |
 |-----------------------------------|-----------------------------------|
 | Consideraciones de linealidad          | Ningún procesamiento no lineal después de la referencia de speaker, en caso contrario, se requiere una secuencia de referencia de bucle invertido basada en hardware  |
 | Bucle invertido de orador                  | Proporciona a través de WASAPI, las API privadas, complemento ALSA personalizada (Linux), o proporciona a través de canal de firmware      |
@@ -110,4 +112,4 @@ Alta velocidad USB 2.0 Audio de clase debe ser compatible dentro de cualquier MC
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> Obtenga más información sobre la [Speech SDK de dispositivos](speech-devices-sdk.md)
+> [Más información sobre el SDK de dispositivos de voz](speech-devices-sdk.md)

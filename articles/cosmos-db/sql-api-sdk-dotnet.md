@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 83a866b20d2802b7d49363b7c6451356e938eac1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626849"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510719"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK de Azure Cosmos DB para .NET para SQL API: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -47,6 +47,20 @@ ms.locfileid: "60626849"
 * Nuevo modelo de objetos, con CosmosClient de nivel superior y métodos divididos entre las clases CosmosDatabases, CosmosContainers y CosmosItems adecuadas. 
 * Compatibilidad con secuencias. 
 * Actualización de CosmosResponseMessage desde el servidor para devolver el código de estado y solo iniciar la excepción cuando no se devuelve ninguna respuesta. 
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+
+* Versión SDK System.Net.Http coincide con lo que se define en el paquete NuGet
+* Aumentar el tamaño de la precisión decimal para las consultas LINQ.
+* Se ha agregado nuevas clases CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType y PartitionKeyDefinitionVersion
+* Se ha agregado TimeToLivePropertyPath a DocumentCollection
+* Se ha agregado CompositeIndexes y SpatialIndexes a IndexPolicy
+* Versión se ha agregado a PartitionKeyDefinition
+* Agregar ninguno para la PartitionKey
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+
+ * Se ha agregado IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection y MaxTcpConnectionsPerEndpoint a ConnectionPolicy.
 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
@@ -359,8 +373,10 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 
 <br/>
 
-| `Version` | Fecha de lanzamiento | Fecha de retirada |
+| Version | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |05 de mayo de 2019 |--- |
+| [2.3.0](#2.3.0) |04 de abril de 2019 |--- |
 | [2.2.3](#2.2.3) |11 de febrero de 2019 |--- |
 | [2.2.2](#2.2.2) |6 de febrero de 2019 |--- |
 | [2.2.1](#2.2.1) |24 de diciembre de 2018 |--- |

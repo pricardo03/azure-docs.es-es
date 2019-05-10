@@ -1,23 +1,21 @@
 ---
 title: Ejecutar la actividad de flujo de datos en Azure Data Factory | Microsoft Docs
-description: La actividad de flujo de datos execute ejecuta flujos de datos.
+description: Cómo ejecutar los datos fluye desde dentro de una canalización de factoría de datos.
 services: data-factory
 documentationcenter: ''
 author: kromerm
-manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: 856f4bd9c2b04ff10ed598c5e641955e1de99398
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557603"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236679"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Ejecutar la actividad de flujo de datos en Azure Data Factory
 Utilice la actividad de flujo de datos de execute para ejecutar el flujo de datos ADF en ejecuciones de canalización depuración (sandbox) y en las ejecuciones de canalización desencadenada.
@@ -51,7 +49,7 @@ Utilice la actividad de flujo de datos de execute para ejecutar el flujo de dato
 
 ![Ejecutar el flujo de datos](media/data-flow/activity-data-flow.png "ejecutar el flujo de datos")
 
-### <a name="run-on"></a>Ejecutar en
+### <a name="run-on"></a>Ejecutar el
 
 Elija el entorno de proceso para esta ejecución del flujo de datos. El valor predeterminado es la resolución automática de Azure predeterminada Integration Runtime. Esta opción ejecutará el flujo de datos en el entorno de Spark en la misma región que la factoría de datos. El tipo de cálculo será un clúster de trabajo, lo que significa que el entorno de proceso tardará varios minutos en Inicio.
 
@@ -59,15 +57,13 @@ Elija el entorno de proceso para esta ejecución del flujo de datos. El valor pr
 
 ![Depurar botón](media/data-flow/debugbutton.png "botón Depurar")
 
-Utilizar la depuración de flujo de datos para utilizar un clúster calienten para probar los flujos de datos interactivamente en una ejecución de depuración de canalización. Use la opción de depuración de canalización para probar los flujos de datos dentro de una canalización.
+Utilizar la depuración de flujo de datos para utilizar un clúster calienten para probar los flujos de datos interactivamente en una ejecución de depuración de canalización. Use la opción de la canalización de depuración para probar los flujos de datos dentro de una canalización.
 
-### <a name="compute-type"></a>Tipo de proceso
+### <a name="run-on"></a>Ejecutar el
 
-Puede elegir el uso General, de proceso optimizado o con optimización para memoria, dependiendo de los requisitos del flujo de datos.
+Este es un campo obligatorio que define qué tiempo de ejecución de integración que se usará para la ejecución de la actividad de flujo de datos. De forma predeterminada, la factoría de datos usará el tiempo de ejecución de integración de Azure de resolución automática de forma predeterminada. Sin embargo, puede crear sus propios tiempos de ejecución de integración de Azure que definir regiones específicas, TTL, recuentos básicos y tipo de proceso para la ejecución de actividad de flujo de datos.
 
-### <a name="core-count"></a>Núm. de núcleos
-
-Elija el número de núcleos que desea asignar al trabajo. Para los trabajos más pequeños, menos núcleos funcionan mejor.
+La configuración predeterminada para las ejecuciones de flujo de datos es de 8 núcleos de proceso general con un TTL de 60 minutos.
 
 ### <a name="staging-area"></a>Área de ensayo
 
@@ -82,6 +78,8 @@ Si usa conjuntos de datos con parámetros, asegúrese de establecer los valores 
 ### <a name="debugging-parameterized-data-flows"></a>Depuración de flujos de datos con parámetros
 
 Solo se pueden depurar flujos de datos con conjuntos de datos con parámetros de la canalización de depuración ejecutar mediante la actividad de flujo de datos de ejecución. Actualmente, las sesiones de depuración interactiva en el flujo de datos de ADF no funcionan con conjuntos de datos con parámetros. Depuración de ejecuciones de canalización funcionará con parámetros.
+
+Una buena práctica consiste en compilar el flujo de datos con un conjunto de datos estático para que tengan la propagación de columna de metadatos completos disponible en tiempo de diseño. A continuación, reemplace el conjunto de datos estático con un conjunto de datos con parámetros dinámico al poner en operación su canalización de flujo de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte otras actividades de flujo de control compatibles con Data Factory: 

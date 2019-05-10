@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/01/2019
+ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679314"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236579"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Copia de seguridad y restauración en Azure SQL Data Warehouse
 
@@ -27,7 +27,7 @@ Una *instantánea de almacenamiento de datos* crea un punto de restauración que
 
 Una *restauración de almacenamiento de datos* es un nuevo almacenamiento de datos que se crea a partir de un punto de restauración de un almacenamiento de datos existente o eliminado. La restauración del almacenamiento de datos es una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad empresarial, ya que vuelve a crear los datos tras daños o eliminaciones accidentales. El almacenamiento de datos es también un mecanismo eficaz para crear copias del almacenamiento de datos con fines de prueba o desarrollo.  Tarifas de restauración de SQL Data Warehouse pueden variar según el tamaño de la base de datos y la ubicación del almacén de datos de origen y de destino. Promedio de la misma región, las tasas de restauración suelen tardar unos 20 minutos. 
 
-## <a name="automatic-restore-points"></a>Puntos de restauración automáticos
+## <a name="automatic-restore-points"></a>Puntos de restauración automática
 
 Las instantáneas son una característica integrada del servicio que crea los puntos de restauración. No es necesario habilitar esta funcionalidad. Actualmente, los usuarios no pueden eliminar los puntos de restauración automática cuando el servicio utiliza estos puntos de restauración para mantener los contratos de nivel de servicio para la recuperación.
 
@@ -83,7 +83,7 @@ El costo total del almacenamiento de datos principal y de los siete días de cam
 
 Si usa almacenamiento con redundancia geográfica, recibirá un cargo de almacenamiento por separado. El almacenamiento con redundancia geográfica se factura según la tarifa estándar de almacenamiento geográficamente redundante con acceso de lectura (RA-GRS).
 
-Para más información sobre los precios de SQL Data Warehouse, vea [Precios de SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) y [cargos de salida](https://azure.microsoft.com/pricing/details/bandwidth/) al restaurar entre regiones.
+Para obtener más información sobre los precios de SQL Data Warehouse, consulte [precios de almacenamiento de datos SQL]. No se cobran por la salida de datos al restaurar entre regiones.
 
 ## <a name="restoring-from-restore-points"></a>Restauración a partir de puntos de restauración
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 8fd73b1e0fcde6bcd69c7ce76b888d1adda37de4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939546"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233964"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Control de acceso en Azure Data Lake Storage Gen2
 
@@ -37,7 +37,7 @@ Aunque utilizando las asignaciones de roles RBAC es un mecanismo eficaz para con
 Cuando una entidad de seguridad se concede permisos de RBAC de datos a través de un [rol integrado](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), o a través de un rol personalizado, estos permisos se evalúan primero tras la autorización de una solicitud. Si la operación solicitada está autorizada por las asignaciones de RBAC de la entidad de seguridad, a continuación, la autorización es resolver inmediatamente y sin necesidad de adicionales se realizan comprobaciones ACL. Como alternativa, si la entidad de seguridad no tiene una asignación de RBAC, o la operación de la solicitud no coincide con el permiso asignado, se realizan comprobaciones ACL para determinar si la entidad de seguridad está autorizada para realizar la operación solicitada.
 
 > [!NOTE]
-> Si la entidad de seguridad se ha asignado la [datos de Blob de almacenamiento]() asignación de roles integrada de propietario y, a continuación, la entidad de seguridad se considera un *superusuario* y se le concede acceso completo a una mutación de todos los operaciones, e incluso establecer el propietario de un directorio o archivo, así como las ACL para los directorios y archivos para el que no es el propietario. El acceso de superusuario es la única manera autorizada para cambiar el propietario de un recurso.
+> Si la entidad de seguridad se ha asignado la asignación de roles integrados de propietario de datos de Blob de almacenamiento, la entidad de seguridad se considera un *superusuario* y se le concede acceso completo a todas las operaciones de mutación, incluida la configuración de la propietario de un directorio o archivo, así como las ACL para los directorios y archivos para el que no es el propietario. El acceso de superusuario es la única manera autorizada para cambiar el propietario de un recurso.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Autenticación de clave compartida y la firma de acceso compartido (SAS)
 
@@ -281,7 +281,7 @@ Utilice siempre grupos de seguridad de Azure AD como la entidad asignada en las 
 
 - El autor de la llamada tiene los permisos de "superusuario",
 
-o
+O
 
 - El directorio principal debe tener permisos de escritura y ejecución.
 - Tanto el directorio que se va a eliminar como todos los directorios que contiene requieren permisos de lectura, escritura y ejecución.

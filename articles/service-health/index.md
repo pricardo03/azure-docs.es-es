@@ -7,12 +7,12 @@ ms.service: service-health
 ms.topic: landing-page
 ms.date: 03/4/2019
 ms.author: stbaron
-ms.openlocfilehash: cf7084b569e2c90337e475beb9f49563214941d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa00d4b08725eaf4b667fc7b53b225198db95a02
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506933"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441662"
 ---
 # <a name="azure-service-health-documentation"></a>Documentación de Azure Service Health
 
@@ -25,6 +25,11 @@ Es posible que esté familiarizado con la **[página de estado de Azure](https:/
 **[Azure Resource Health](resource-health-overview.md)** proporciona información acerca del mantenimiento de los recursos en la nube individuales como una instancia de máquina virtual específica. Mediante Azure Monitor también puede configurar alertas que le notifiquen los cambios de disponibilidad de los recursos en la nube. Azure Resource Health junto con las notificaciones de Azure Monitor le ayudarán a estar mejor informado acerca de la disponibilidad de los recursos minuto a minuto y a evaluar rápidamente si un problema se le puede achacar a usted o está relacionado con un evento de plataforma de Azure.
 
 Conjuntamente, estas experiencias proporcionan una vista completa del estado de Azure con el nivel de detalle relevante.
+
+### <a name="watch-an-overview-of-the-azure-status-page-azure-service-health-and-azure-resource-health"></a>Vea una introducción de la página de estados de Azure, Azure Service Health y Azure Resource Health
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
 
 <ul class="panelContent cardsFTitle">
     <li>

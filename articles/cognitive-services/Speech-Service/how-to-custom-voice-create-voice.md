@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fad69c4108d747c44eccf37b81adf2c7c615cb58
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6189ea2866d1c16f994179df0179e29353e6c47d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156851"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410714"
 ---
 # <a name="create-a-custom-voice"></a>Creación de una voz personalizada
 
-En [preparar los datos de voz personalizados](how-to-custom-voice-prepare-data.md), se describen los tipos de datos diferentes que puede usar para entrenar una voz personalizados y los requisitos de formato diferente. Una vez que haya preparado los datos, puede empezar a cargarlos en el [portal personalizado voz](http://aka.ms/custom-voice-portal), o a través de la API de entrenamiento de voz personalizado. Aquí se describen los pasos del entrenamiento de una voz personalizada a través del portal.
+En [preparar los datos de voz personalizados](how-to-custom-voice-prepare-data.md), se describen los tipos de datos diferentes que puede usar para entrenar una voz personalizados y los requisitos de formato diferente. Una vez que haya preparado los datos, puede empezar a cargarlos en el [portal personalizado voz](https://aka.ms/custom-voice-portal), o a través de la API de entrenamiento de voz personalizado. Aquí se describen los pasos del entrenamiento de una voz personalizada a través del portal.
 
 > [!NOTE]
 > Esta página se supone que ha leído [empezar a trabajar con voz personalizada](how-to-custom-voice.md) y [preparar los datos de voz personalizado](how-to-custom-voice-prepare-data.md)y ha creado un proyecto de voz personalizado.
@@ -28,7 +28,7 @@ Comprobar los idiomas admitidos de voz personalizados: [lenguaje para la persona
 
 ## <a name="upload-your-datasets"></a>Cargar los conjuntos de datos
 
-Cuando esté listo para cargar los datos, vaya a la [portal personalizado voz](http://aka.ms/custom-voice-portal). Cree o seleccione un proyecto de voz personalizado. El proyecto debe compartir el idioma o configuración regional adecuada y las propiedades de género como los datos pretende usar para el entrenamiento de voz. Por ejemplo, seleccione `en-GB` si las grabaciones de audio tiene se realiza en inglés con un énfasis de Reino Unido.
+Cuando esté listo para cargar los datos, vaya a la [portal personalizado voz](https://aka.ms/custom-voice-portal). Cree o seleccione un proyecto de voz personalizado. El proyecto debe compartir el idioma o configuración regional adecuada y las propiedades de género como los datos pretende usar para el entrenamiento de voz. Por ejemplo, seleccione `en-GB` si las grabaciones de audio tiene se realiza en inglés con un énfasis de Reino Unido.
 
 Vaya a la **datos** ficha y haga clic en **cargar datos**. En el asistente, seleccione el tipo de datos correcto que coincida con lo que haya preparado.
 
@@ -46,9 +46,9 @@ En la siguiente tabla se muestran los estados de procesamiento de los conjuntos 
 
 | Estado | Significado |
 | ----- | ------- |
-| Processing | El conjunto de datos se ha recibido y se está procesando. |
-| Succeeded | El conjunto de datos se ha validado y ahora se puede usar para crear un modelo de voz. |
-| Con error | El conjunto de datos ha error durante el procesamiento debido a muchas razones, por ejemplo, errores de archivo, problemas de datos o problemas de red. |
+| Procesando | El conjunto de datos se ha recibido y se está procesando. |
+| Correcto | El conjunto de datos se ha validado y ahora se puede usar para crear un modelo de voz. |
+| Incorrecto | El conjunto de datos ha error durante el procesamiento debido a muchas razones, por ejemplo, errores de archivo, problemas de datos o problemas de red. |
 
 Una vez completada la validación, puede ver el número total de grabaciones de voz coincidentes para cada uno de los conjuntos de datos en el **grabaciones de voz** columna. Si el tipo de datos que ha seleccionado requiere prolongada audio segmentación, esta columna sólo refleja las grabaciones de voz que se ha segmentado por usted basándose en sus expedientes o a través del servicio de transcripción de voz. Aún más, puede descargar el conjunto de datos valida para ver el detalle de los resultados de las declaraciones que se importó correctamente y sus expedientes de asignación. Sugerencia: long audio segmentación puede tardar más de una hora para completar el procesamiento de datos.
 
@@ -88,9 +88,9 @@ El estado que se muestra refleja el proceso de convertir el conjunto de datos a 
 
 | Estado | Significado |
 | ----- | ------- |
-| Processing | Se está creando el modelo de voz. |
-| Succeeded | El modelo de voz se ha creado y se puede implementar. |
-| Con error | El modelo de voz ha error en aprendizaje debido a muchas razones, problemas de red o problemas de datos no vistos por ejemplo. |
+| Procesando | Se está creando el modelo de voz. |
+| Correcto | El modelo de voz se ha creado y se puede implementar. |
+| Incorrecto | El modelo de voz ha error en aprendizaje debido a muchas razones, problemas de red o problemas de datos no vistos por ejemplo. |
 
 El tiempo de aprendizaje varía según el volumen de datos de audio procesados. El intervalo de tiempo típicos varía, aproximadamente, desde los 30 minutos para unos cientos de expresiones, hasta 40 horas para 20.000 expresiones. Cuando se complete correctamente el entrenamiento del modelo, puede empezar a probarla.
 

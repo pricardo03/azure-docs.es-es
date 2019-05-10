@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689396"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409781"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -370,7 +370,7 @@ El punto de entrada para la carga de trabajo SAP en la documentación de Azure s
 
 Las siguientes notas de SAP están relacionadas con el tema de SAP en Azure:
 
-| Número de nota | Título |
+| Número de nota | Puesto |
 | --- | --- |
 | [1928533] |SAP Applications on Azure: Supported Products and Sizing (Aplicaciones de SAP en Microsoft Azure con Base de datos de Oracle: versiones y tamaños compatibles) |
 | [2015553] |SAP on Microsoft Azure: Support Prerequisites (Requisitos previos de soporte técnico de SAP en Microsoft Azure) |
@@ -391,17 +391,10 @@ En [este artículo][azure-subscription-service-limits-subscription] se exponen l
 ## <a name="possible-scenarios"></a>Escenarios posibles
 Con frecuencia, SAP se considera una de las aplicaciones críticas en las empresas. La arquitectura y las operaciones de estas aplicaciones suelen resultar complejas y es importante asegurarse de que se cumplen los requisitos de disponibilidad y rendimiento.
 
-Por ello, las empresas tienen que pensar detenidamente qué aplicaciones pueden ejecutarse en un entorno de nube pública, independientemente del proveedor de nube elegido.
+Por lo tanto, las empresas tienen que pensar detenidamente sobre qué proveedor de nube que elija para la ejecución de actividad procesos de negocios críticos en. Azure es la plataforma de nube pública ideal para aplicaciones de SAP críticas del negocio y los procesos empresariales. Dada la amplia variedad de infraestructura de Azure, casi todos los sistemas SAP NetWeaver y S/4HANA existentes se pueden hospedar en Azure hoy mismo. Azure proporciona máquinas virtuales con muchos Terabytes de memoria y CPU más de 200. Más allá de lo que ofrece Azure [instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), que permite que las implementaciones de HANA de escalado horizontal de hasta 24 TB y ANA escalar horizontalmente implementaciones de hasta 120 TB. 
 
-La lista siguiente muestra los posibles tipos de sistemas para la implementación de aplicaciones basadas en SAP NetWeaver en entornos de nube pública:
 
-1. Sistemas de producción de tamaño medio
-2. Sistemas de desarrollo
-3. Sistemas de pruebas
-4. Sistemas de prototipos
-5. Sistemas de aprendizaje y de demostración
-
-Para implementar correctamente sistemas SAP en una IaaS general o en la de Azure, es importante comprender las diferencias significativas entre las ofertas de outsourcers o proveedores de servicios de hosting tradicionales y las ofertas de IaaS. Mientras que el outsourcer o proveedor de hosting tradicional adapta la infraestructura (tipo de red, almacenamiento y servidor) a la carga de trabajo que el cliente desea hospedar, en realidad es responsabilidad del cliente elegir la carga de trabajo adecuada para las implementaciones de IaaS.
+Para implementar correctamente sistemas SAP en una IaaS general o en la de Azure, es importante comprender las diferencias significativas entre las ofertas de outsourcers o proveedores de servicios de hosting tradicionales y las ofertas de IaaS. Mientras que el outsourcer o proveedor de Hosting tradicional adapta la infraestructura (tipo de red, almacenamiento y servidor) a la carga de trabajo de que un cliente desea hospedar, en realidad es responsabilidad del cliente o el socio para caracterizar la carga de trabajo y elija Azure correcta componentes de las máquinas virtuales, almacenamiento y red para las implementaciones de IaaS.
 
 Como primer paso, los clientes deben comprobar los elementos siguientes:
 
@@ -422,11 +415,13 @@ Se puede encontrar la mayoría de los datos [aquí (Linux)][virtual-machines-siz
 
 Tenga en cuenta que los límites mencionados en el vínculo anterior son los superiores. No significa que siempre puedan proporcionarse esos límites para todos los recursos, como, por ejemplo, E/S por segundo. Sin embargo, las excepciones son los recursos de CPU y memoria de un tipo de máquina virtual elegido. Para los tipos de máquina virtual compatibles con SAP, los recursos de CPU y memoria están reservados y, por tanto, están disponibles en cualquier momento para su consumo en la máquina virtual.
 
-La plataforma Microsoft Azure, como otras plataformas de IaaS, es una plataforma multiempresa. Esto significa que el almacenamiento, la red y otros recursos se comparten entre los inquilinos. Se usa la limitación inteligente y la lógica de cuotas para impedir que un inquilino perjudique el rendimiento de otro (vecino ruidoso) significativamente. Aunque la lógica de Azure intenta que las variaciones de ancho de banda sean pequeñas, las plataformas con más uso compartido suelen generar mayores variaciones en la disponibilidad de recursos y ancho de banda que las experimentadas por muchos clientes en sus implementaciones locales. Como resultado, pueden experimentarse diferentes niveles de ancho de banda en lo que respecta a los valores de E/S de datos en redes o almacenamiento (volumen y latencia) de un minuto a otro. Debe tenerse en cuenta que un sistema SAP en Azure podría sufrir mayores variaciones que un entorno local.
+La plataforma Microsoft Azure es una plataforma de varios inquilinos. Esto significa que el almacenamiento, la red y otros recursos se comparten entre los inquilinos. Se usa la limitación inteligente y la lógica de cuotas para impedir que un inquilino perjudique el rendimiento de otro (vecino ruidoso) significativamente. Especialmente para certificar la plataforma Azure para SAP HANA, Microsoft debe demostrar el aislamiento de recursos para los casos donde pueden ejecutar varias máquinas virtuales en el mismo host de forma periódica a SAP. Aunque la lógica de Azure intenta mantener variaciones en el ancho de banda sean pequeñas, compartidas las plataformas tienden a presentar mayores variaciones en la disponibilidad de recursos/ancho de banda que los clientes pueden experimentar en sus implementaciones locales. Debe tenerse en cuenta que un sistema SAP en Azure podría sufrir mayores variaciones que un entorno local.
 
-Un último paso es evaluar los requisitos de disponibilidad. Puede ocurrir que la infraestructura subyacente de Azure necesite actualizarse y que los hosts que ejecuten las máquinas virtuales tengan que reiniciarse. En ese caso, estas máquinas virtuales también se cerrarán y reiniciarán. Este mantenimiento se lleva a cabo fuera del horario de oficina de una región concreta, pero el intervalo de varias horas durante el cual puede ocurrir el reinicio es relativamente amplio. Hay varias tecnologías en la plataforma Azure que pueden configurarse para mitigar total o parcialmente los efectos de estas actualizaciones. Se han diseñado mejoras futuras de la plataforma Azure, DBMS y la aplicación SAP para minimizar el impacto de estos reinicios.
+Un último paso es evaluar los requisitos de disponibilidad. Puede ocurrir que la infraestructura subyacente de Azure necesite actualizarse y que los hosts que ejecuten las máquinas virtuales tengan que reiniciarse. Microsoft documenta los diferentes casos de [mantenimiento de máquinas virtuales en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). Para mitigar los raros casos donde las máquinas virtuales se ven obligadas a reiniciar, pero incluso más importante para los casos deberá SO invitado de revisiones o componentes del DBMS, deberá desarrollar un conceptos de alta disponibilidad válido para los sistemas SAP de producción. Este requisito no es diferente a los requisitos que enfrenta a nivel local. Microsoft está promoviendo constantemente la plataforma Azure para reducir el tiempo de inactividad causado por cambios de plataforma. 
 
 Para implementar correctamente un sistema SAP en Azure, el sistema operativo, la base de datos y las aplicaciones SAP del entorno SAP local deben aparecer en la matriz de soporte de SAP de Azure. Además, deben ser adecuados a los recursos que la infraestructura de Azure puede proporcionar y deben funcionar con los contratos de nivel de servicio que ofrece Microsoft Azure en lo que respecta a la disponibilidad. Cuando identifique esos sistemas, debe decidirse por uno de los dos siguientes escenarios de implementación.
+
+
 
 
 
@@ -1006,7 +1001,7 @@ La solución de infraestructura como servicio de Azure no solo funciona unidirec
 
 Durante la descarga, los discos duros virtuales o los discos de Managed Disks no pueden estar activos. Incluso cuando se descargan los discos que están montados en máquinas virtuales, la máquina virtual tiene que estar apagada y desasignada. Si solo quiere descargar el contenido de la base de datos, que después se debe usar para configurar un nuevo sistema local, y si desea que, durante el tiempo que dure la descarga y la configuración del nuevo sistema, el sistema presente en Azure continúe estando operativo, podría evitar un tiempo de inactividad prolongado realizando una copia de seguridad comprimida de la base de datos en un disco para sencillamente descargar este último en lugar de descargar también la máquina virtual base del sistema operativo.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Powershell
 
 * Descarga de un disco de Managed Disks  
   En primer lugar, debe acceder al blob subyacente del disco de Managed Disks. Después, puede copiar el blob subyacente en una cuenta de almacenamiento nueva y descargarlo desde esta cuenta.
@@ -1066,7 +1061,7 @@ Los discos de datos pueden almacenarse como archivos VHD en una cuenta de Azure 
 
 Los discos de datos también pueden ser discos de Managed Disks. En este caso, el disco de Managed Disks se usa para crear un disco de Managed Disks antes de conectarlo a la máquina virtual. El nombre del disco de Managed Disks debe ser exclusivo dentro de un grupo de recursos.
 
-##### <a name="powershell"></a>PowerShell
+##### <a name="powershell"></a>Powershell
 
 Puede usar cmdlets de Azure PowerShell para copiar un VHD, como se muestra en [este artículo][storage-powershell-guide-full-copy-vhd]. Para crear un nuevo disco administrado, utilice New-AzDiskConfig y New-AzDisk tal como se muestra en el ejemplo siguiente.
 
@@ -1094,7 +1089,7 @@ Las ediciones profesionales de los Exploradores de Azure Storage se pueden encon
 
 La copia de un disco duro virtual dentro de una cuenta de almacenamiento es un proceso que solo tarda unos pocos segundos (como sucede en el caso de la creación de instantáneas con copia diferida y copia en escritura por parte de hardware de SAN). Una vez que tenga una copia del archivo de disco duro virtual, podrá asociarlo a una máquina virtual o usarlo como una imagen para conectar copias del disco duro virtual a máquinas virtuales.
 
-##### <a name="powershell"></a>PowerShell
+##### <a name="powershell"></a>Powershell
 
 ```powershell
 # attach a vhd to a vm
@@ -1140,7 +1135,7 @@ az vm disk attach --disk <new disk name or managed disk id> --resource-group <re
 #### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Copia de discos entre cuentas de Azure Storage
 Esta tarea no puede realizarse en Azure Portal. Puede usar cmdlets de Azure PowerShell, la CLI de Azure o un explorador de almacenamiento de terceros. Los cmdlets de PowerShell o los comandos de la CLI pueden crear y administrar blobs, lo que abarca la capacidad de copiar blobs de forma asincrónica entre las distintas cuentas de almacenamiento y regiones de la suscripción de Azure.
 
-##### <a name="powershell"></a>PowerShell
+##### <a name="powershell"></a>Powershell
 También puede copiar discos duros virtuales entre suscripciones. Para más información, lea [este artículo][storage-powershell-guide-full-copy-vhd].
 
 El flujo básico de la lógica de los cmdlets de PowerShell se compone, a grandes rasgos, de estos pasos:
@@ -1337,7 +1332,7 @@ Puede que haga falta configurar el firewall en las máquinas virtuales para perm
 > ![ Windows][Logo_Windows]  Windows
 >
 > De forma predeterminada, el Firewall de Windows está activado en una máquina virtual implementada de Azure. Ahora debe permitir la apertura del puerto de SAP; de lo contrario, la GUI de SAP no podrá conectarse.
-> Para ello, siga estos pasos:
+> Para ello:
 >
 > * Abra Panel de control\Sistema y seguridad\Firewall de Windows y vaya a **Configuración avanzada**.
 > * Ahora haga clic con el botón derecho en Reglas de entrada y seleccione **Nueva regla**.
@@ -1379,7 +1374,7 @@ La suposición es que ha creado una imagen de máquina virtual como se describe 
 
 La secuencia de eventos para implementar el escenario es similar a esta:
 
-##### <a name="powershell"></a>PowerShell
+##### <a name="powershell"></a>Powershell
 
 * Cree un grupo de recursos para cada entorno de aprendizaje o demostración.
 
@@ -1506,7 +1501,7 @@ rgNameLower=saperpdemo1
 az group create --name $rgName --location "North Europe"
 ```
 
-* Creación de una cuenta de almacenamiento nueva
+* Crear una nueva cuenta de almacenamiento
 
 ```
 az storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku Standard_LRS --name $rgNameLower
@@ -1634,7 +1629,7 @@ En la tabla siguiente, se enumeran los puertos de comunicación de SAP típicos.
 
 <!-- sapms is prefix of a SAP service name and not a spelling error -->
 
-| Servicio | Nombre del puerto | Ejemplo `<nn`> = 01 | Intervalo predeterminado (mín.-máx.) | Comentario |
+| Servicio | Nombre de puerto | Ejemplo `<nn`> = 01 | Intervalo predeterminado (mín.-máx.) | Comentario |
 | --- | --- | --- | --- | --- |
 | Distribuidor |sapdp`<nn>` consulte * |3201 |3200 - 3299 |Distribuidor de SAP, utilizado por la GUI de SAP para Windows y Java |
 | Servidor de mensajes |sapms`<sid`> consulte ** |3600 |sapms libre`<anySID`> |sid = identificador del sistema SAP |
@@ -1663,7 +1658,7 @@ La configuración de las impresoras de red basadas en TCP/IP locales en una VM d
 - - -
 > ![ Windows][Logo_Windows]  Windows
 >
-> Para ello, siga estos pasos:
+> Para ello:
 >
 > * Algunas impresoras de red incluyen un Asistente para la configuración, lo que permite configurarlas más fácilmente en una VM de Azure. Si no se distribuyó ningún software de asistente con la impresora, la forma manual de configurar la impresora consiste en crear un nuevo puerto de impresora TCP/IP.
 > * Abra Panel de control -> Dispositivos e impresoras -> Agregar una impresora.

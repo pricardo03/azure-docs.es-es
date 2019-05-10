@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: bf5126360140580282ebc1cb2bf73e1afa4d8829
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 565bcfa6c2f8a3da2ac16df0016b5adc54e27380
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920526"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407609"
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -78,9 +78,9 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|apply|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   always: indica que se debe aplicar la conversión siempre.<br />-   content-type-json: especifica que solo se debe realizar la conversión si el encabezado Content-Type indica la presencia de JSON.|Sí|N/D|
-|consider-accept-header|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   true: especifica que se debe aplicar la conversión si se solicita JSON en el encabezado de aceptación (Accept) de la solicitud.<br />-   false: indica que se debe aplicar siempre la conversión.|Sin |true|
-|parse-date|Cuando se establece en `false`, los valores de fecha simplemente se copian durante la transformación.|Sin |true|
+|aplicar|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   always: indica que se debe aplicar la conversión siempre.<br />-   content-type-json: especifica que solo se debe realizar la conversión si el encabezado Content-Type indica la presencia de JSON.|Sí|N/D|
+|consider-accept-header|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   true: especifica que se debe aplicar la conversión si se solicita JSON en el encabezado de aceptación (Accept) de la solicitud.<br />-   false: indica que se debe aplicar siempre la conversión.|No|true|
+|parse-date|Cuando se establece en `false`, los valores de fecha simplemente se copian durante la transformación.|No|true|
 
 ### <a name="usage"></a>Uso
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
@@ -123,8 +123,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
 |kind|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   javascript-friendly: el código JSON convertido presenta un formato intuitivo para los desarrolladores de JavaScript.<br />-   direct: el código JSON convertido refleja la estructura del documento XML original.|Sí|N/D|
-|apply|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   always: indica que se debe realizar la conversión siempre.<br />-   content-type-XML: especifica que solo se debe realizar la conversión si el encabezado Content-Type indica la presencia de XML.|Sí|N/D|
-|consider-accept-header|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   true: especifica que se debe aplicar la conversión si se solicita XML en el encabezado de aceptación (Accept) de la solicitud.<br />-   false: indica que se debe aplicar siempre la conversión.|Sin |true|
+|aplicar|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   always: indica que se debe realizar la conversión siempre.<br />-   content-type-XML: especifica que solo se debe realizar la conversión si el encabezado Content-Type indica la presencia de XML.|Sí|N/D|
+|consider-accept-header|El atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   true: especifica que se debe aplicar la conversión si se solicita XML en el encabezado de aceptación (Accept) de la solicitud.<br />-   false: indica que se debe aplicar siempre la conversión.|No|true|
 
 ### <a name="usage"></a>Uso
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
@@ -158,7 +158,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|De|La cadena que se va a buscar.|Sí|N/D|
+|from|La cadena que se va a buscar.|Sí|N/D|
 |Para|La cadena de sustitución. Especifique una cadena de reemplazo de longitud cero para quitar la cadena de búsqueda.|Sí|N/D|
 
 ### <a name="usage"></a>Uso
@@ -271,11 +271,11 @@ En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabri
 |----------|-----------------|--------------|-------------|
 |base-url|Nueva dirección URL base del servicio back-end.|Uno de `base-url` o `backend-id` debe estar presente.|N/D|
 |backend-id|Identificador del back-end al que se va a enrutar. (Las entidades de back-end se administran a través [API](https://docs.microsoft.com/rest/api/apimanagement/backend) y [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Uno de `base-url` o `backend-id` debe estar presente.|N/D|
-|sf-partition-key|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Se usa para resolver una partición específica desde el servicio de resolución de nombres.|Sin |N/D|
-|sf-replica-type|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Controla si la solicitud debe ir a la réplica principal o secundaria de una partición. |Sin |N/D|
-|sf-resolve-condition|Solo se aplica cuando el back-end es un servicio de Service Fabric. Condición que identifica si la llamada al back-end de Service Fabric tiene que repetirse con la nueva resolución.|Sin |N/D|
-|sf-service-instance-name|Solo se aplica cuando el back-end es un servicio de Service Fabric. Permite cambiar instancias de servicio en tiempo de ejecución. |Sin |N/D|
-|sf-listener-name|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Service Fabric Reliable Services le permite crear varios agentes de escucha en un servicio. Este atributo se utiliza para seleccionar un agente de escucha específico cuando una instancia de Reliable Service de back-end tiene más de un agente de escucha. Si no se especifica este atributo, API Management intentará usar un agente de escucha sin nombre. Un agente de escucha sin nombre es típico de las instancias de Reliable Services que tienen un solo agente de escucha. |Sin |N/D|
+|sf-partition-key|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Se usa para resolver una partición específica desde el servicio de resolución de nombres.|No|N/D|
+|sf-replica-type|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Controla si la solicitud debe ir a la réplica principal o secundaria de una partición. |No|N/D|
+|sf-resolve-condition|Solo se aplica cuando el back-end es un servicio de Service Fabric. Condición que identifica si la llamada al back-end de Service Fabric tiene que repetirse con la nueva resolución.|No|N/D|
+|sf-service-instance-name|Solo se aplica cuando el back-end es un servicio de Service Fabric. Permite cambiar instancias de servicio en tiempo de ejecución. |No|N/D|
+|sf-listener-name|Solo se aplica cuando el back-end es un servicio de Service Fabric y se especifica con "backend-id". Service Fabric Reliable Services le permite crear varios agentes de escucha en un servicio. Este atributo se utiliza para seleccionar un agente de escucha específico cuando una instancia de Reliable Service de back-end tiene más de un agente de escucha. Si no se especifica este atributo, API Management intentará usar un agente de escucha sin nombre. Un agente de escucha sin nombre es típico de las instancias de Reliable Services que tienen un solo agente de escucha. |No|N/D|
 
 ### <a name="usage"></a>Uso
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
@@ -375,7 +375,7 @@ La directiva `set-body` se puede configurar para usar el lenguaje de plantillas 
 #### <a name="convert-json-to-soap-using-a-liquid-template"></a>Conversión de JSON en SOAP mediante una plantilla Liquid
 ```xml
 <set-body template="liquid">
-    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <GetOpenOrders>
                 <cust>{{body.getOpenOrders.cust}}</cust>
@@ -405,7 +405,7 @@ La directiva `set-body` se puede configurar para usar el lenguaje de plantillas 
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|template|Se utiliza para cambiar el modo de creación de plantillas que ejecutará la directiva de establecer cuerpo. Actualmente, el único valor admitido es:<br /><br />- liquid: la directiva de establecer cuerpo usará el motor de plantillas Liquid |Sin |Liquid|
+|plantilla|Se utiliza para cambiar el modo de creación de plantillas que ejecutará la directiva de establecer cuerpo. Actualmente, el único valor admitido es:<br /><br />- liquid: la directiva de establecer cuerpo usará el motor de plantillas Liquid |No|Liquid|
 
 Para acceder a información sobre solicitud y respuesta, la plantilla Liquid puede enlazar a un objeto de contexto con las siguientes propiedades: <br />
 <pre>context.
@@ -513,7 +513,7 @@ OriginalUrl.
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|exists-action|Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -   override: sustituye el valor del encabezado existente.<br />-   skip: no sustituye el valor del encabezado existente.<br />-   append: anexa el valor al encabezado existente.<br />-   delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado.|Sin |override|
+|exists-action|Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -   override: sustituye el valor del encabezado existente.<br />-   skip: no sustituye el valor del encabezado existente.<br />-   append: anexa el valor al encabezado existente.<br />-   delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado.|No|override|
 |Nombre|Especifica el nombre del encabezado que se va a establecer.|Sí|N/D|
 
 ### <a name="usage"></a>Uso
@@ -573,7 +573,7 @@ OriginalUrl.
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|exists-action|Especifica la acción que se debe realizar cuando ya se especifica un parámetro de consulta. Este atributo debe tener uno de los siguientes valores:<br /><br /> -   override: sustituye el valor del parámetro de consulta existente.<br />-   skip: no sustituye el valor del parámetro de consulta existente.<br />-   append: anexa el valor al del parámetro de consulta existente.<br />-   delete: quita el parámetro de consulta de la solicitud.<br /><br /> Cuando se establece en `override`, se inscriben varias entradas con los resultados del mismo nombre del parámetro de consulta que se están estableciendo de acuerdo con todas las entradas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado.|Sin |override|
+|exists-action|Especifica la acción que se debe realizar cuando ya se especifica un parámetro de consulta. Este atributo debe tener uno de los siguientes valores:<br /><br /> -   override: sustituye el valor del parámetro de consulta existente.<br />-   skip: no sustituye el valor del parámetro de consulta existente.<br />-   append: anexa el valor al del parámetro de consulta existente.<br />-   delete: quita el parámetro de consulta de la solicitud.<br /><br /> Cuando se establece en `override`, se inscriben varias entradas con los resultados del mismo nombre del parámetro de consulta que se están estableciendo de acuerdo con todas las entradas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado.|No|override|
 |Nombre|Especifica el nombre del parámetro de consulta que se debe establecer.|Sí|N/D|
 
 ### <a name="usage"></a>Uso
@@ -651,8 +651,8 @@ OriginalUrl.
 
 |Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |---------------|-----------------|--------------|-------------|
-|template|La dirección URL del servicio web real con cualquier parámetro de cadena de consulta. Cuando se usan expresiones, todo el valor debe ser una expresión.|Sí|N/D|
-|copy-unmatched-params|Especifica si los parámetros de consulta de la solicitud entrante no presentes en la plantilla de la dirección URL original se agregan en la dirección URL definida por la plantilla de reescritura|Sin |true|
+|plantilla|La dirección URL del servicio web real con cualquier parámetro de cadena de consulta. Cuando se usan expresiones, todo el valor debe ser una expresión.|Sí|N/D|
+|copy-unmatched-params|Especifica si los parámetros de consulta de la solicitud entrante no presentes en la plantilla de la dirección URL original se agregan en la dirección URL definida por la plantilla de reescritura|No|true|
 
 ### <a name="usage"></a>Uso
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
@@ -715,7 +715,7 @@ OriginalUrl.
 |NOMBRE|DESCRIPCIÓN|Obligatorio|
 |----------|-----------------|--------------|
 |xsl-transform|Elemento raíz.|Sí|
-|Parámetro|Permite definir las variables utilizadas en la transformación.|Sin |
+|parámetro|Permite definir las variables utilizadas en la transformación.|No|
 |xsl:stylesheet|Elemento raíz de la hoja de estilo. Todos los elementos y atributos definidos dentro de él cumplen la [especificación XSLT](https://www.w3.org/TR/xslt) estándar.|Sí|
 
 ### <a name="usage"></a>Uso
@@ -727,7 +727,7 @@ OriginalUrl.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información, consulte los temas siguientes:
+Para obtener más información, vea los temas siguientes:
 
 + [Directivas de Azure API Management](api-management-howto-policies.md)
 + En la [Referencia de directivas](api-management-policy-reference.md) se muestra una lista completa de declaraciones de directivas y su configuración

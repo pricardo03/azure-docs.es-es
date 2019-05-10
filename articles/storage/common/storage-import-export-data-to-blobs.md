@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479310"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409375"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Uso del servicio Azure Import/Export para importar datos de Azure Blob Storage
 
@@ -114,7 +114,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 4. En **Información de envío de devolución**:
 
    - Seleccione el transportista en la lista desplegable. Si desea usar un operador distinto de FedEx o DHL, elija una opción existente en la lista desplegable. Parte del equipo de operaciones de cuadro de datos de Azure contacto `adbops@microsoft.com` con la información relacionada con el transportista que se va a usar.
-   - Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de importación. Si no tiene un número de cuenta, cree una cuenta de transportista [FedEx](https://www.fedex.com/us/oadr/) o [DHL](http://www.dhl.com/).
+   - Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de importación. Si no tiene un número de cuenta, cree una cuenta de transportista [FedEx](https://www.fedex.com/us/oadr/) o [DHL](https://www.dhl.com/).
    - Proporcione información completa y válida del contacto: nombre, teléfono, correo electrónico, dirección postal, ciudad, código postal, estado o provincia y país o región. 
         
        > [!TIP] 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870730"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410581"
 ---
 # <a name="automatically-scale-session-hosts"></a>Escalado automático de los host de sesiones
 
@@ -26,9 +26,9 @@ El entorno donde se ejecuta el script debe tener lo siguiente:
 
 - Un inquilino de Escritorio Virtual de Windows y la cuenta o una entidad de servicio con permisos para consultar ese inquilino (por ejemplo, el colaborador de RDS).
 - Máquinas virtuales del grupo de host de sesión configurado y registren con el servicio de Escritorio Virtual de Windows.
-- Un scaler adicional de máquina virtual que ejecuta la tarea programada a través de la programación de tareas y que tiene acceso a la red para hosts de sesión.
-- El módulo de PowerShell de Microsoft Azure Resource Manager instalado en la máquina virtual ejecutando la tarea programada.
-- El módulo de PowerShell de Escritorio Virtual de Windows instalado en la máquina virtual ejecutando la tarea programada.
+- Una máquina virtual adicional que se ejecuta la tarea programada a través del programador de tareas y tiene acceso a la red para hosts de sesión. Se trata más adelante en el documento se refiere a como máquina virtual de scaler.
+- El [módulo Microsoft Azure Resource Manager PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) instalado en la máquina virtual ejecutando la tarea programada.
+- El [módulo Windows PowerShell de Escritorio Virtual](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) instalado en la máquina virtual ejecutando la tarea programada.
 
 ## <a name="recommendations-and-limitations"></a>Limitaciones y recomendaciones
 
@@ -37,7 +37,7 @@ Al ejecutar el script de escalado, tenga en cuenta lo siguiente:
 - Este script de escalado solo puede controlar un grupo host por cada instancia de la tarea programada que se está ejecutando el script de escalado.
 - Las tareas programadas que se ejecutan scripts de escala deben estar en una máquina virtual que siempre está activada.
 - Cree una carpeta independiente para cada instancia de la secuencia de comandos de escalado y su configuración.
-- Este script no es compatible con las cuentas con autenticación multifactor. Se recomienda que usar a entidades de servicio para acceder al servicio de Escritorio Virtual de Windows y Azure.
+- Este script no admite iniciar sesión como administrador al escritorio Virtual de Windows con cuentas de usuario de Azure AD que requieren la autenticación multifactor. Se recomienda que usar a entidades de servicio para acceder al servicio de Escritorio Virtual de Windows y Azure. Siga [este tutorial](create-service-principal-role-powershell.md) para crear una entidad de servicio y una asignación de roles con PowerShell.
 - Garantía de SLA de Azure solo se aplica a las máquinas virtuales en un conjunto de disponibilidad. La versión actual del documento describe un entorno con una sola máquina virtual realiza el escalado, que puede no cumplir los requisitos de disponibilidad.
 
 ## <a name="deploy-the-scaling-script"></a>Implementar el script de escalado
@@ -48,26 +48,34 @@ Los procedimientos siguientes le indicará cómo implementar la secuencia de com
 
 En primer lugar, prepare el entorno para el script de escalado:
 
-1. Inicie sesión en la máquina virtual (**escalado de máquina virtual**) que ejecutará la tarea programada con una cuenta administrativa de dominio.
-2. Cree una carpeta en la máquina virtual de escalado para contener la secuencia de comandos de escalado y su configuración (por ejemplo, **C:\\HostPool1 escalado**).
-3. Descargue el **basicScaler.ps1**, **Config.xml**, y **funciones PSStoredCredentials.ps1** archivos y el **PowershellModules** carpeta desde la [escalado repositorio de scripts](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) y copiarlos en la carpeta que creó en el paso 2.
+1. Inicie sesión en la máquina virtual (VM de scaler) que se ejecutará la tarea programada con una cuenta administrativa de dominio.
+2. Cree una carpeta en la máquina virtual para almacenar el script de escalado y su configuración de scaler (por ejemplo, **C:\\HostPool1 escalado**).
+3. Descargue el **basicScale.ps1**, **Config.xml**, y **funciones PSStoredCredentials.ps1** archivos y el **PowershellModules** carpeta desde la [escalado repositorio de scripts](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) y copiarlos en la carpeta que creó en el paso 2. Hay dos métodos principales para obtener los archivos antes de copiarlos en la máquina virtual de scaler:
+    - Clone el repositorio de git en el equipo local.
+    - Ver el **Raw** versión de cada archivo, copie y pegue el contenido de cada archivo en un editor de texto, y después guarde los archivos con el nombre de archivo correspondiente y el tipo de archivo. 
 
 ### <a name="create-securely-stored-credentials"></a>Crear las credenciales almacenadas de forma segura
 
 A continuación, deberá crear las credenciales almacenadas de forma segura:
 
 1. Abra PowerShell ISE como administrador.
-2. Abra el panel de edición y carga el **función PSStoredCredentials.ps1** archivo.
-3. Ejecute el siguiente cmdlet:
+2. Importe el módulo de PowerShell de RDS, ejecute el siguiente cmdlet:
+
+    ```powershell
+    Install-Module Microsoft.RdInfra.RdPowershell
+    ```
+    
+3. Abra el panel de edición y carga el **función PSStoredCredentials.ps1** archivo.
+4. Ejecute el siguiente cmdlet:
     
     ```powershell
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
     Por ejemplo, **Set-Variable - nombre KeyPath-ámbito Global-valor "c:\\HostPool1 escalado"**
-4. Ejecute el **StoredCredential de New - KeyPath \$KeyPath** cmdlet. Cuando se le solicite, escriba sus credenciales de Escritorio Virtual de Windows con permisos para consultar el grupo de host (el grupo host se especifica en el **config.xml**).
+5. Ejecute el **StoredCredential de New - KeyPath \$KeyPath** cmdlet. Cuando se le solicite, escriba sus credenciales de Escritorio Virtual de Windows con permisos para consultar el grupo de host (el grupo host se especifica en el **config.xml**).
     - Si utiliza diferentes entidades de servicio o cuenta estándar, ejecute el **StoredCredential de New - KeyPath \$KeyPath** cmdlet una vez para que cada cuenta crear las credenciales almacenadas.
-5. Ejecute **StoredCredentials de Get-lista** para confirmar las credenciales se han creado correctamente.
+6. Ejecute **StoredCredentials de Get-lista** para confirmar las credenciales se han creado correctamente.
 
 ### <a name="configure-the-configxml-file"></a>Configurar el archivo config.xml
 
@@ -87,7 +95,7 @@ Escriba los valores correspondientes en los campos siguientes para actualizar lo
 | BeginPeakTime                 | Cuando comienza el tiempo de uso máximo                                                            |
 | EndPeakTime                   | Cuando finaliza el tiempo de uso máximo                                                              |
 | TimeDifferenceInHours         | Diferencia horaria entre la hora local y UTC, en horas                                   |
-| SessionThresholdPerCPU        | Número máximo de sesiones por el umbral de CPU que se usa para determinar cuándo un nuevo servidor RDSH debe iniciarse durante las horas punta.  |
+| SessionThresholdPerCPU        | Número máximo de sesiones por el umbral de CPU que se usa para determinar cuándo debe iniciar durante las horas de una máquina virtual del host de sesión nuevo.  |
 | MinimumNumberOfRDSH           | Número mínimo de máquinas virtuales siga ejecutándose durante el tiempo de poca actividad de uso de grupos de host             |
 | LimitSecondsToForceLogOffUser | Número de segundos que deben transcurrir antes de obligar a los usuarios para cerrar la sesión. Si se establece en 0, los usuarios no está obligado a cerrar la sesión.  |
 | LogOffMessageTitle            | Título del mensaje enviado a un usuario antes de que obliga a cerrar sesión                  |
@@ -111,11 +119,11 @@ Después de configurar el archivo .xml de configuración, deberá configurar el 
 
 Este script de escalado lee la configuración de un archivo config.xml, incluido el inicio y final del período de uso máximo durante el día.
 
-Durante el tiempo de uso máximo, el script comprueba el número actual de sesiones y la capacidad RDSH de ejecución actual para cada colección. Calcula si los servidores RDSH ejecución tienen capacidad suficiente para admitir las sesiones existentes basándose en el parámetro SessionThresholdPerCPU definido en el archivo config.xml. De lo contrario, el script inicia servidores RDSH adicionales en la colección.
+Durante el tiempo de uso máximo, el script comprueba el número actual de sesiones y la capacidad RDSH de ejecución actual para cada grupo host. Calcula si el host de sesión está ejecutando las máquinas virtuales tiene capacidad suficiente para admitir las sesiones existentes basándose en el parámetro SessionThresholdPerCPU definido en el archivo config.xml. De lo contrario, el script inicia las máquinas virtuales del host de sesión adicional en el grupo host.
 
-Durante el tiempo de uso de poca actividad, la secuencia de comandos determina qué servidores RDSH deben apagar basándose en el parámetro MinimumNumberOfRDSH en el archivo config.xml. El script establecerá los servidores RDSH para purgar el modo para evitar que las nuevas sesiones conectarse a los hosts. Si establece la **LimitSecondsToForceLogOffUser** parámetro en el archivo config.xml para un valor positivo distinto de cero, el script le notificará cualquier actualmente ha iniciado sesión a los usuarios guardar trabajo, espere el tiempo predeterminado y, a continuación, forzar el usuarios a cerrar la sesión. Una vez que todas las sesiones de usuario se han firmado en un servidor RDSH, se apagará el servidor en la secuencia de comandos.
+Durante el tiempo de uso de poca actividad, la secuencia de comandos determina qué host de sesión de las máquinas virtuales deben apagar basándose en el parámetro MinimumNumberOfRDSH en el archivo config.xml. El script establecerá la sesión agote modo para evitar que las nuevas sesiones conectarse a los hosts de máquinas virtuales de host. Si establece la **LimitSecondsToForceLogOffUser** parámetro en el archivo config.xml para un valor positivo distinto de cero, el script le notificará cualquier actualmente ha iniciado sesión a los usuarios guardar trabajo, espere el tiempo predeterminado y, a continuación, forzar el usuarios a cerrar la sesión. Una vez que todas las sesiones de usuario se han firmado en una máquina virtual del host de sesión, se apagará el servidor en la secuencia de comandos.
 
-Si establece la **LimitSecondsToForceLogOffUser** parámetro en el archivo config.xml en cero, la secuencia de comandos permitirá que la opción de configuración de sesión en las propiedades de colección para controlar las sesiones de usuario la firma. Si no hay ninguna sesión en un servidor RDSH, saldrá del servidor RDSH ejecutando. Si no existe ninguna sesión, se apagará el servidor RDSH en la secuencia de comandos.
+Si establece la **LimitSecondsToForceLogOffUser** parámetro en el archivo config.xml en cero, la secuencia de comandos permitirá que la opción de configuración de sesión en el host de propiedades de grupo controlar las sesiones de usuario la firma. Si no hay ninguna sesión en una máquina virtual del host de sesión, dejará la máquina virtual del host de sesión ejecutando. Si no existe ninguna sesión, se apagará la máquina virtual del host de sesión en la secuencia de comandos.
 
 El script está diseñado para ejecutarse periódicamente en el servidor de la máquina virtual de scaler mediante el programador de tareas. Seleccione el intervalo de tiempo adecuado en función del tamaño de su entorno de servicios de escritorio remoto y recuerde que iniciar y apagar las máquinas virtuales pueden tardar algún tiempo. Se recomienda ejecutar el script de escalado cada 15 minutos.
 
@@ -125,6 +133,6 @@ El script de escalado crea dos archivos de registro, **WVDTenantScale.log** y **
 
 El **WVDTenantUsage.log** archivo registrará el número de núcleos de activos y el número de máquinas virtuales activos cada vez que ejecute el script de escalado. Puede usar esta información para calcular el uso real de las máquinas virtuales de Microsoft Azure y el costo. El archivo de formato es como valores separados por comas, con cada elemento que contiene la información siguiente:
 
->tiempo, colección, núcleos, las máquinas virtuales
+>tiempo, el grupo host, núcleos, las máquinas virtuales
 
 El nombre de archivo también puede modificarse para que tenga una extensión .csv, cargado en Microsoft Excel y analizan.

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 65a861c647c2dc92e416fa356075821aa5060042
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 938f13524b22f34f4becc936885d1611cb854df1
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205034"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510504"
 ---
 # <a name="create-and-register-azure-machine-learning-datasets-preview"></a>Crear y registrar los conjuntos de datos de Azure Machine Learning (versión preliminar)
 
@@ -87,7 +87,7 @@ dataset = Dataset.from_delimited_files(datapath)
 dataset.head(5)
 ```
 
-||ID|Case Number|Date|Block|IUCR|Primary Type|DESCRIPCIÓN|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitud|Longitud|Ubicación|
+||ID|Case Number|Date|Bloquear|IUCR|Primary Type|DESCRIPCIÓN|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitud|Longitud|Ubicación|
 |--|--|---|---|---|---|----|------|-------|------|-----|---|----|----|-----|-----|------|----|-----|----|----|-----
 |0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|PRÁCTICA ENGAÑOSA|ROBO DE IDENTIDAD FINANCIERA A TRAVÉS DE 300 USD|OTHER|FALSE|FALSE|...|9|50|11|1183356|1831503|2016|5/11/2016 15:48|41.69283384|-87.60431945|(41.692833841, -87.60431945)|
 1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT| DESDE LA CREACIÓN|RESIDENCIA|FALSE|FALSE|...|21|71|6|1166776|1850053|2016|5/12/2016 15:48|41.74410697|-87.66449429|(41.744106973, -87.664494285)
@@ -102,7 +102,6 @@ Use la [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azure
 ```Python
 dataset = dataset.register(workspace = workspace,
                            name = 'dataset_crime',
-
                            description = 'Training data',
                            exist_ok = False
                            )
@@ -116,6 +115,9 @@ El `register()` método devuelve el conjunto de datos ya registrado con el valor
 ```Python
 dataset = dataset.register(workspace = workspace,
                            name = 'dataset_crime',
+                           description = 'Training data',
+                           exist_ok = True
+                           )
 ```
 
 Use `list()` para ver todos los conjuntos de datos registrados en el área de trabajo.

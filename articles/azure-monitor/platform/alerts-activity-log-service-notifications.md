@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b3c967cd43745a4ae87fefc578282f5427a5f79
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776903"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405694"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Creación de alertas del registro de actividad en notificaciones del servicio
 ## <a name="overview"></a>Información general
@@ -36,6 +36,10 @@ También puede configurar a quién se debe enviar la alerta:
 Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../../azure-monitor/platform/action-groups.md).
 
 Para obtener información sobre cómo configurar las alertas de notificación de mantenimiento del servicio mediante plantillas de Azure Resource Manager, consulte [Plantillas de Resource Manager](alerts-activity-log.md).
+
+### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>Vea un vídeo sobre cómo configurar la primera alerta de Azure Service Health
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
 ## <a name="alert-and-new-action-group-using-azure-portal"></a>Alerta y nuevo grupo de acciones mediante Azure Portal
 1. En el [portal](https://portal.azure.com), seleccione **Estado del servicio**.
@@ -195,6 +199,8 @@ Después de crear una alerta, es visible en la sección **Alertas** de **Supervi
 * Deshabilitarla o habilitarla, si desea detener temporalmente o reanudar la recepción de notificaciones de la alerta.
 
 ## <a name="next-steps"></a>Pasos siguientes
+- Obtenga información sobre [procedimientos recomendados para la configuración de alertas de Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa).
+- Obtenga información sobre cómo [configurar notificaciones de inserción móviles de Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](../../service-health/service-health-alert-webhook-guide.md).
 - Más información acerca de las [Notificaciones del estado del servicio](../../azure-monitor/platform/service-notifications.md).
 - Más información sobre la [Limitación del número de notificaciones](../../azure-monitor/platform/alerts-rate-limiting.md).

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 84dddf5ed9c31e8585480319af189d31e39163e5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998998"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408917"
 ---
-# <a name="tutorial-integrate-with-azure-managed-identities"></a>Tutorial: Integración con identidades administradas de Azure
+# <a name="integrate-with-azure-managed-identities"></a>Integración con identidades administradas de Azure
 
 Las [identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) de Azure Active Directory ayudan a simplificar la administración de secretos de su aplicación de nube. Con una identidad administrada, puede configurar el código para usar la entidad de servicio que se creó para el servicio de proceso de Azure en que se ejecuta. Usar una identidad administrada en lugar de una credencial diferente que se almacenan en Azure Key Vault o una cadena de conexión local. 
 

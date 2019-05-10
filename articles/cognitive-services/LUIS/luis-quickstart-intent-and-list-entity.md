@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9083227dd81dca219666e07b70f487069413855d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: df37e7aad2420d0bc280121634d49675ae29ee5a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521278"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236424"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutorial: Obtener datos coincidentes con el texto exacto de una expresión
 
@@ -108,11 +108,7 @@ El nombre principal _canónico_ de cada elemento es el nombre de departamento. L
 
 1. En la página de la entidad Department, escriba `Accounting` como el nuevo valor.
 
-    [![Captura de pantalla de ingreso de valor](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Captura de pantalla de ingreso de valor")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
-
 1. Para Synonyms (Sinónimos), agregue los sinónimos de la tabla anterior.
-
-    [![Captura de pantalla de ingreso de sinónimos](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Captura de pantalla de ingreso de sinónimos")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 1. Continúe agregando todos los nombres canónicos y sus sinónimos. 
 

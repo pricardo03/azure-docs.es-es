@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845ca13bdd8e3677f559bac373efa078f3b951be
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0d0295162acdf358bd798e86bd7d3479f5e78d72
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920370"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: Integración de Azure Active Directory con TOPdesk - Secure
 
@@ -184,7 +184,7 @@ Para configurar el inicio de sesión único de Azure AD con TOPdesk - Secure, re
 
     d. Para cargar el archivo de logotipo que obtuvo del equipo de soporte técnico de TOPdesk, en **Logo icon** (Icono de logotipo), haga clic en **Browse** (Examinar).
 
-    e. En el cuadro de texto **User name attribute** (Atributo de nombre de usuario), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. En el cuadro de texto **User name attribute** (Atributo de nombre de usuario), escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     f. En el cuadro de texto **Display name** (Nombre para mostrar), escriba un nombre para su configuración.
 
