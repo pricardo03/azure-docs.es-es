@@ -1,20 +1,20 @@
 ---
-title: Devolución de Microsoft Azure Data Box Disk | Microsoft Docs
+title: Tutorial sobre la devolución de Azure Data Box Disk | Microsoft Docs
 description: Use este tutorial para saber cómo enviar Azure Data Box Disk a Microsoft
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7c62ec722e5bb909c13b21a7b98d86dd72d9e665
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425957"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150760"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolución de Azure Data Box Disk y comprobación de la carga de datos en Azure
 
@@ -54,7 +54,12 @@ Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos o
     - Pegue la etiqueta en el dispositivo.
 
 2. Selle la caja de envío y asegúrese de que la etiqueta de envío de devolución está visible.
-3. Póngase en contacto con UPS para programar la recogida del dispositivo.
+3. Póngase en contacto con UPS para programar la recogida del dispositivo. Para programar una recogida:
+
+    - Llame a la oficina local de UPS (número gratuito específico del país).
+    - En la llamada, indique el número de seguimiento del envío inverso, que se muestra en la etiqueta impresa.
+    - Si no se indica el número de seguimiento, UPS solicitará que el abono de una cantidad adicional en la recogida.
+    - En lugar de programar la recogida, también puede devolver la instancia de Data Box Disk en el punto de recogida más cercano.
 
 
 ### <a name="pick-up-in-europe"></a>Recogida en Europa

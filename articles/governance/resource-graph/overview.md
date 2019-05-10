@@ -3,35 +3,35 @@ title: Información general de Azure Resource Graph
 description: Sepa en modo en que el servicio Azure Resource Graph permite realizar consultas complejas de recursos a escala.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/30/2019
+ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: d76a5b32403bd14f18181580f891925130808922
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 45d5cf7c4235d10e136cc96364d52aa4319bbf79
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002891"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137778"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Introducción al servicio Azure Resource Graph
 
-Azure Resource Graph es un servicio de Azure diseñado para extender Azure Resource Management; para ello, proporciona una exploración de recursos eficaz y de alto rendimiento con la capacidad de consultar a escala a través de todas las suscripciones y grupos de administración para que pueda controlar eficazmente el entorno. Estas consultas proporcionan las siguientes características:
+Azure Resource Graph es un servicio de Azure diseñado para extender Azure Resource Management; para ello, proporciona una exploración de recursos eficaz y de alto rendimiento con la capacidad de consultar a escala a través de un conjunto especificado de suscripciones para que pueda controlar eficazmente el entorno. Estas consultas proporcionan las siguientes características:
 
 - Capacidad para consultar recursos con propiedades complejas de filtrado, agrupación y ordenación por recursos.
-- Capacidad de explorar recursos según los requisitos de gobernanza de forma iterativa y convertir la expresión resultante en una definición de directiva.
+- Capacidad de explorar recursos de forma iterativa en función de los requisitos de gobernanza.
 - Capacidad de evaluar el impacto de aplicar directivas en un entorno de nube de gran capacidad.
 - Capacidad de [detallar los cambios realizados en las propiedades de los recursos](./how-to/get-resource-changes.md) (versión preliminar).
 
 En esta documentación, repasará cada característica en detalle.
 
 > [!NOTE]
-> Azure Resource Graph se usa en la nueva experiencia de exploración de "Todos los recursos" de Azure Portal y en el [historial de cambios](../policy/how-to/determine-non-compliance.md#change-history-preview) de Azure Policy.
-> _diferencia visual_. Se ha diseñado para ayudar a los clientes a administrar entornos a gran escala.
+> Azure Resource Graph se usa en la barra de búsqueda de Azure Portal, en la nueva experiencia de exploración de "Todos los recursos" y en el [historial de cambios](../policy/how-to/determine-non-compliance.md#change-history-preview)
+> _diferencia visual_ de Azure Policy. Se ha diseñado para ayudar a los clientes a administrar entornos a gran escala.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Cómo Resource Graph complementa Azure Resource Manager
 
-Actualmente, Azure Resource Manager envía datos a una caché de recursos limitados que hace disponibles varios campos de recursos, específicamente: nombre del recurso, identificador, tipo, grupo de recursos, suscripciones y ubicación. Anteriormente, el trabajo con varias propiedades de recursos requería llamadas a cada proveedor de recursos individual y solicitar los detalles de las propiedades de cada recurso.
+Actualmente, Azure Resource Manager admite consultas sobre campos de recursos básicos, específicamente: nombre del recurso, identificador, tipo, grupo de recursos, suscripción y ubicación. Resource Manager también proporciona los medios para llamar a proveedores de recursos individuales a fin de obtener las propiedades detalladas de los recursos de uno en uno.
 
 Con Azure Resource Graph, puede tener acceso a estas propiedades que devuelven los proveedores de recursos sin necesidad de realizar llamadas individuales a cada proveedor de recursos. Para obtener una lista de tipos de recurso compatibles, busque **Sí** en la tabla [Resources for complete mode deployments](../../azure-resource-manager/complete-mode-deletion.md) (Recursos para implementaciones en modo completo).
 
@@ -39,6 +39,11 @@ Con Azure Resource Graph, puede:
 
 - Acceder a las propiedades que devuelven los proveedores de recursos sin necesidad de realizar llamadas individuales a cada uno de ellos.
 - Ver los últimos 14 días del historial de cambios realizados en el recurso para ver qué propiedades cambiaron y cuándo lo hicieron. (versión preliminar)
+
+## <a name="how-resource-graph-is-kept-current"></a>Cómo se mantiene actualizado Resource Graph
+
+Cuando se actualiza un recurso de Azure, Resource Manager informa a Resource Graph del cambio.
+A continuación, Resource Graph actualiza su base de datos. Resource Graph también realiza un _examen completo_ regular. Este examen garantiza que los datos de Resource Graph sean actuales en caso de que falten notificaciones o al actualizarse un recurso fuera de Resource Manager.
 
 ## <a name="the-query-language"></a>El lenguaje de consulta
 
@@ -58,7 +63,9 @@ Para usar Resource Graph, debe tener los derechos adecuados en el [Control de ac
 
 ## <a name="throttling"></a>Limitaciones
 
-Las consultas a Resource Graph se limitan para proporcionar la mejor experiencia y tiempo de respuesta para todos los clientes. Si la organización desea utilizar Resource Graph API para consultas frecuentes y a gran escala, utilice el portal de comentarios de la página de Resource Graph. Asegúrese de proporcionar su caso de negocio y seleccione la casilla "Microsoft puede ponerse en contacto con usted por correo electrónico en relación con sus comentarios" para que el equipo pueda ponerse en contacto con usted.
+Como servicio gratuito, las consultas a Resource Graph se limitan para proporcionar la mejor experiencia y tiempo de respuesta para todos los clientes. Si la organización desea utilizar Resource Graph API para consultas frecuentes y a gran escala, utilice el portal de comentarios de la página de Resource Graph. Asegúrese de proporcionar su caso de negocio y seleccione la casilla "Microsoft puede ponerse en contacto con usted por correo electrónico en relación con sus comentarios" para que el equipo pueda ponerse en contacto con usted.
+
+Resource Graph se limita en el nivel de inquilino. El servicio invalida y establece el encabezado de respuesta `x-ms-ratelimit-remaining-tenant-reads` para indicar las consultas restantes disponibles por usuario en el inquilino. Resource Graph restablece la cuota cada 5 segundos en lugar de cada hora. Para más información, consulte [Limitación de solicitudes de Resource Manager](../../azure-resource-manager/resource-manager-request-limits.md).
 
 ## <a name="running-your-first-query"></a>Ejecución de la primera consulta
 

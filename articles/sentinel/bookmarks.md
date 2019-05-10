@@ -4,7 +4,7 @@ description: En este artículo se describe cómo usar los marcadores de búsqued
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9a7ceeab6d2ad761752f778038692256bd87624b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1a438b9645dbb37d852eb0092355850d816872d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596962"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65207464"
 ---
 # <a name="keep-track-of-data-during-hunting"></a>Realizar un seguimiento de los datos durante la búsqueda
 
@@ -74,7 +74,7 @@ También puede visualizar los datos de marcadores, haciendo clic en **investigar
 
 Existen varias opciones para ver los datos de marcadores de Log Analytics. 
 
-Es la manera más fácil de ver consultas de marcado, los resultados o historial seleccionando el marcador deseado en el **marcadores** de tabla y use los vínculos proporcionados en el panel de detalles. Las opciones incluyen: 
+Es la manera más fácil de ver consultas de marcado, los resultados o historial seleccionando el marcador deseado en el **marcadores** de tabla y use los vínculos proporcionados en el panel de detalles. Las opciones son: 
 - Haga clic en **ver consulta** para ver la consulta de origen en Log Analytics.  
 - Haga clic en **ver el historial de marcador** para ver todos los marcadores de metadatos, como: quién realizó la actualización, los valores actualizados y la hora en que se produjo la actualización. 
 

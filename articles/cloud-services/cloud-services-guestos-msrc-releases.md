@@ -11,21 +11,51 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/26/2019
+ms.date: 5/8/2019
 ms.author: raiye
-ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63b707f72b6966615d09ef0b86ce3d056a39249
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623075"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465550"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
 
+## <a name="april-2019-guest-os"></a>SO invitado de abril de 2019
+
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| Rel 04-19 | [4493509] | Seguridad de Windows 10 | 6.6 | 9 de abril de 2019 |
+| Rel 04-19 | [4493470] | Seguridad de Windows 10 | 5.30 | 9 de abril de 2019 |
+| Rel 04-19 | [4493467] | Seguridad de Windows | 4.65 | 9 de abril de 2019 |
+| Rel 04-19 | [4493450] | Seguridad de Windows | 3.72 | 9 de abril de 2019 |
+| Rel 04-19 | [4493448] | Seguridad de Windows | 2.85 | 9 de abril de 2019 |
+| Rel 04-19 | [4493478] | Intermitente | 3.72, 4.65, 5.30, 6.6 | 9 de abril de 2019 |
+| Rel 04-19 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 de abril de 2019 |
+| Rel 04-19 | [KB4490628] | Actualización de la pila de servicio | 2.85 | 12 de marzo de 2019 |
+| Rel 04-19 | [KB4474419] | Soporte técnico de SHA2 | 2.85 | 12 de marzo de 2019 |
+| Rel 04-19 | [KB4489878] | Paquete acumulativo de actualizaciones no son de seguridad de marzo | 2.85 | 12 de marzo de 2019 |
+| Rel 04-19 | [KB4489891] | Paquete acumulativo de actualizaciones no son de seguridad de marzo | 3.72 | 12 de marzo de 2019 |
+| Rel 04-19 | [KB4489881] | Paquete acumulativo de actualizaciones no son de seguridad de marzo | 4.65 | 12 de marzo de 2019 |
+
+[4493509]: https://support.microsoft.com/kb/4493509
+[4493470]: https://support.microsoft.com/kb/4493470
+[4493467]: https://support.microsoft.com/kb/4493467
+[4493450]: https://support.microsoft.com/kb/4493450
+[4493448]: https://support.microsoft.com/kb/4493448
+[4493478]: https://support.microsoft.com/kb/4493478
+[4493435]: https://support.microsoft.com/kb/4493435
+[KB4490628]: https://support.microsoft.com/kb/KB4490628
+[KB4474419]: https://support.microsoft.com/kb/KB4474419
+[KB4489878]: https://support.microsoft.com/kb/KB4489878
+[KB4489891]: https://support.microsoft.com/kb/KB4489891
+[KB4489881]: https://support.microsoft.com/kb/KB4489881
+
 ## <a name="march-2019-guest-os"></a>SO invitado de marzo de 2019
 
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 19-03 | [4489873] | Internet Explorer | 2.84, 3.71, 4.64 | 12 de marzo de 2019 |
 | Rel 19-03 | [4489907] | Intermitente | 3.71, 4.64, 5.29, 6.5 | 12 de marzo de 2019 |
@@ -67,7 +97,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 ## <a name="february-2019-guest-os"></a>SO invitado de febrero de 2019
 
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 19-02 | [4486474] | Internet Explorer | 2.83, 3.70, 4.63 | 12 de febrero de 2019 |
 | Rel 19-02 | [4487038] | Intermitente | 3.70, 4.63, 5.28, 6.4 | 12 de febrero de 2019 |
@@ -81,8 +111,8 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | Rel 19-02 | [4483484] | .NET 3.5 seguridad | 4.63 | 12 de febrero de 2019 |
 | Rel 19-02 | [4483472] | .NET 4.5.2 seguridad | 4.63 | 12 de febrero de 2019 |
 | Rel 19-02 | [4487026] | Seguridad de Windows | 5.28 | 12 de febrero de 2019 |
-| Rel 19-02 | [4487044] | Seguridad de Windows | 6.4. | 12 de febrero de 2019 |
-| Rel 19-02 | [4483452] | .NET 3.5, 4.7.2 seguridad | 6.4. | 12 de febrero de 2019 |
+| Rel 19-02 | [4487044] | Seguridad de Windows | 6.4 | 12 de febrero de 2019 |
+| Rel 19-02 | [4483452] | .NET 3.5, 4.7.2 seguridad | 6.4 | 12 de febrero de 2019 |
 | N/D | [4480970] | Paquete acumulativo de actualizaciones de seguridad que no son de enero | 2.83 | 8 de enero de 2019 |
 | N/D | [4483483] | Paquete acumulativo de actualizaciones de seguridad que no son de enero .NET 3.5.1  | 2.83 | 8 de enero de 2019 |
 | N/D | [4480059] | Paquete acumulativo de actualizaciones de seguridad que no son de enero .NET 4.5.2  | 2.83 | 8 de enero de 2019 |
@@ -119,7 +149,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 ## <a name="january-2019-guest-os"></a>SO invitado de enero de 2019
 
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Versión 19-01 | [4480116] | Seguridad de Windows 10 | 6.3 | 8 de enero de 2019 |
 | Versión 19-01 | [4480961] | Seguridad de Windows 10 | 5.27 | 8 de enero de 2019 |
@@ -171,7 +201,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 ## <a name="december-2018-guest-os"></a>SO invitado de diciembre de 2018
 
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Versión 18-12 | [4471321] | Seguridad de Windows 10 | 5.26 | 11 de diciembre de 2018 |
 | Versión 18-12 | [4471328] | Seguridad de Windows   | 2.81 | 11 de diciembre de 2018 |
@@ -209,7 +239,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 ## <a name="november-2018-guest-os"></a>SO invitado de noviembre de 2018
 
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 18-11 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | 13 de noviembre de 2018 |
 | Rel 18-11 | [4467694] | Intermitente | 3.67, 4.60, 5.25 | 13 de noviembre de 2018 |
@@ -241,7 +271,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 ## <a name="october-2018-guest-os"></a>SO invitado de octubre de 2018
 
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Ver. 18-10 | [4462917] | Seguridad de Windows 10 | 5.24 | 9 de octubre de 2018 |
 | Ver. 18-10 | [4462915] | Seguridad de Windows | 2.79 | 9 de octubre de 2018 |
@@ -278,7 +308,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [4457036]: https://support.microsoft.com/kb/4457036
 
 ## <a name="september-2018-guest-os"></a>SO invitado de septiembre de 2018
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Ver. 18-09 | [4457131] | Seguridad de Windows 10 | 5.23 | 11 de septiembre de 2018 |
 | Ver. 18-09 | [4457145] | Indicador de seguridad de Windows | 2.78 | 11 de septiembre de 2018 |
@@ -300,7 +330,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4344147] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad para .NET 4x, agosto | 4.58 | 14 de agosto de 2018 |
 
 ## <a name="august-2018-guest-os"></a>SO invitado de agosto de 2018
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Ver. 18-08 | [4343887] | Seguridad de Windows 10 | 5.22 | 14 de agosto de 2018 |
 | Ver. 18-08 | [4343899] | Indicador de seguridad de Windows | 2.77 | 14 de agosto de 2018 |
@@ -323,7 +353,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4338415] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad para .NET 4x, julio |3.64 | 10 de julio de 2018 |
 
 ## <a name="july-2018-guest-os"></a>SO invitado de julio de 2018
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Ver. 18-07 | [4338814] |Seguridad de Windows 10 |5.21 |10 de julio de 2018 |
 | Ver. 18-07 | [4338823] |Indicador de seguridad de Windows |2.76 |10 de julio de 2018 |
@@ -343,7 +373,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4284815] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, junio |4.56 |12 de junio de 2018 |
 
 ## <a name="june-2018-guest-os"></a>SO invitado de junio de 2018
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Ver. 18-06 | [4284880] |Seguridad de Windows 10 |5.20 |12 de junio de 2018 |
 | Ver. 18-06 | [4284867] |Indicador de seguridad de Windows |2.75 |12 de junio de 2018 |
@@ -368,7 +398,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4132216] |SSU de mayo |5.20 |8 de mayo de 2018 |
 
 ## <a name="may-2018-guest-os"></a>SO invitado de mayo de 2018
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 18-05 | [4103721], [4103727] y [4103723] |Seguridad de Windows 10 |5.19 |8 de mayo de 2018 |
 | Rel 18-05 | [4103712] |Indicador de seguridad de Windows |2.74 |8 de mayo de 2018 |
@@ -388,7 +418,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 
 ## <a name="april-2018-guest-os"></a>SO invitado de abril de 2018
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 18-04 | [4093119] |Seguridad de Windows 10 |5.18 |10 de abril de 2018 |
 | Rel 18-04 | [4093108] |Indicador de seguridad de Windows |2.73 |10 de abril de 2018 |
@@ -402,7 +432,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4088876] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, marzo |4.53 |13 de marzo de 2018 |
 
 ## <a name="march-2018-guest-os"></a>SO invitado de marzo de 2018
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 18-03 | [4088787], [4088776] |Seguridad de Windows 10 |5.17 |13 de marzo de 2018 |
 | Rel 18-03 | [4088878], [4088880], [4088879] |Indicador de seguridad de Windows |2.72, 3.59, 4.52 |13 de marzo de 2018 |
@@ -415,7 +445,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 
 ## <a name="february-2018-guest-os"></a>SO invitado de febrero de 2018
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 18-02 | [4074590], [4074588] |Seguridad de Windows 10 |5.16 |13 de febrero de 2018 |
 | Rel 18-02 | [4074587], [4074589], [4074597] |Indicador de seguridad de Windows |2.71, 3.58 y 4.51 |13 de febrero de 2018 |
@@ -429,7 +459,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4054177], [4054170] |Paquete acumulativo de .NET, enero |4.51 |4 de enero de 2018 |
 
 ## <a name="january-2018-guest-os"></a>SO invitado de enero de 2018
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Indicador de seguridad de Windows |2.70, 3.57, 4.50 |3 de enero de 2018 |
 | Rel 18-01 | [4056890], [4056892] |Indicador de seguridad de Windows |5.15 |3 de enero de 2018 |
@@ -441,7 +471,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 
 ## <a name="december-2017-guest-os"></a>SO invitado de diciembre de 2017
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Versión 17-12 | [4053579], [4054517] |Actualizaciones de seguridad de Windows 10 |4.49, 5.14 |12 de diciembre de 2017 |
 | Versión 17-12 | [4054521], [4054522], [4054523] |Indicador de seguridad de Windows |2.69, 3.56, 4.49 |12 de diciembre de 2017 |
@@ -453,7 +483,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4049068] |Actualización de zona horaria de diciembre |2.69, 3.56, 4.49 |12 de diciembre de 2017 |
 
 ## <a name="november-2017-guest-os"></a>SO invitado de noviembre de 2017
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 17-11 | [4048953] |Actualizaciones de Windows 10 |5.13 |14 de noviembre de 2017 |
 | Rel 17-11 | [4048960], [4048962], [4048961] |Indicador de seguridad de Windows |2.68, 3.55, 4.48 |14 de noviembre de 2017 |
@@ -467,7 +497,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [3191564] |Actualización de Windows Management Framework 5.1  |4.48 |14 de noviembre de 2017 |
 
 ## <a name="october-2017-guest-os"></a>SO invitado de octubre de 2017
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Versión 17-10 | [4041691] |Actualizaciones de Windows 10 |5.12 |10 de octubre de 2017 |
 | Versión 17-10 | [4041678], [4041679], [4041687] |Indicador de seguridad de Windows |2.67, 3.54, 4.47 |10 de octubre de 2017 |
@@ -481,7 +511,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4040981] |Paquete acumulativo de actualizaciones de .NET no relacionadas con la seguridad de septiembre |4.47 |12 de septiembre de 2017 |
 
 ## <a name="september-2017-guest-os"></a>SO invitado de septiembre de 2017
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Versión 17-09 | [4038782] |Actualizaciones de Windows 10 |5.11 |12 de septiembre de 2017 |
 | Versión 17-09 | [4038779], [4038786], [4038793] |Indicador de seguridad de Windows |2.66, 3.53, 4.46 |12 de septiembre de 2017 |
@@ -493,7 +523,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4034681] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de agosto |4.46 |8 de agosto de 2017 |
 
 ## <a name="august-2017-guest-os"></a>SO invitado de agosto de 2017
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Versión 17-07 | [4034658] |Actualizaciones de Windows 10 |5.10 |8 de agosto de 2017 |
 | Versión 17-07 | [4034679] |Indicador de seguridad de Windows |2.65 |8 de agosto de 2017 |
@@ -507,7 +537,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | Versión 17-07 | [4025336] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, julio |4.45 |11 de julio de 2017 |
 
 ## <a name="july-2017-guest-os"></a>SO invitado de julio de 2017
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Versión 17-07 | [4025339] |Actualizaciones de Windows 10 |5.9 |11 de julio de 2017 |
 | Versión 17-07 | [4025337] |Indicador de seguridad de Windows |2.64 |11 de julio de 2017 |
@@ -521,7 +551,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4022726] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, junio |4.44 |13 de junio de 2017 |
 
 ## <a name="june-2017-guest-os"></a>SO invitado de junio de 2017
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 17-06 | [4019472] |Mejoras de calidad del SO WS 2016 |5.8 |9 de mayo de 2017 |
 | Rel 17-06 | [4022722] |Indicador de seguridad de Windows |2.63 |13 de junio de 2017 |
@@ -537,11 +567,11 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4014508] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |2.63 |9 de mayo de 2017 |
 | N/D | [4014511] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |2.63 |9 de mayo de 2017 |
 | N/D | [4014514] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |2.63 |9 de mayo de 2017 |
-| N/D | [4019216] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, mayo |3.50 |9 de mayo de 2017 |
-| N/D | [4014503] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |3.50 |9 de mayo de 2017 |
-| N/D | [4014506] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |3.50 |9 de mayo de 2017 |
-| N/D | [4014509] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |3.50 |9 de mayo de 2017 |
-| N/D | [4014513] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |3.50 |9 de mayo de 2017 |
+| N/D | [4019216] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, mayo |3,50 |9 de mayo de 2017 |
+| N/D | [4014503] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |3,50 |9 de mayo de 2017 |
+| N/D | [4014506] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |3,50 |9 de mayo de 2017 |
+| N/D | [4014509] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |3,50 |9 de mayo de 2017 |
+| N/D | [4014513] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |3,50 |9 de mayo de 2017 |
 | N/D | [4019215] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, mayo |4.43 |9 de mayo de 2017 |
 | N/D | [4014505] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |4.43 |9 de mayo de 2017 |
 | N/D | [4014507] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |4.43 |9 de mayo de 2017 |
@@ -549,12 +579,12 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4014512] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, mayo |4.43 |9 de mayo de 2017 |
 
 ## <a name="may-2017-guest-os"></a>SO invitado de mayo de 2017
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 17-05 | [4019472] |Mejoras de calidad del SO WS 2016 |5.7 | 9 de mayo de 2017 |
 | Rel 17-05 | [4019263] |Indicador de seguridad de Windows |2.62 | 9 de mayo de 2017 |
 | Rel 17-05 | [4019213] |Indicador de seguridad de Windows |4.42 | 9 de mayo de 2017 |
-| Rel 17-05 | [4019214] |Indicador de seguridad de Windows |3.49 | 9 de mayo de 2017 |
+| Rel 17-05 | [4019214] |Indicador de seguridad de Windows |3,49 | 9 de mayo de 2017 |
 | Rel 17-05 | [4018271] |Actualización de seguridad acumulativa para Internet Explorer |3.49 | 9 de mayo de 2017 |
 | Rel 17-05 | [4010323] |Aviso de SHA1 |2.62, 4.42, 5.7 | 9 de mayo de 2017 |
 | Rel 17-05 | [4022344] |Documento informativo sobre seguridad de Microsoft |5.7 | 9 de mayo de 2017 |
@@ -564,12 +594,12 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4014565] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |2.62 | 11 de abril de 2017 |
 | N/D | [4014559] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |2.62 | 11 de abril de 2017 |
 | N/D | [4015549] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, abril |2.62 | 11 de abril de 2017 |
-| N/D | [4019990] |Actualización de D3DCompiler, requisito de .NET 4.7 |3.49 | 9 de mayo de 2017 |
-| N/D | [4014563] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3.49 | 11 de abril de 2017 |
-| N/D | [4014557] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3.49 | 11 de abril de 2017 |
-| N/D | [4014545] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3.49 | 11 de abril de 2017 |
-| N/D | [4014548] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3.49 | 11 de abril de 2017 |
-| N/D | [4015551] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, abril |3.49 | 11 de abril de 2017 |
+| N/D | [4019990] |Actualización de D3DCompiler, requisito de .NET 4.7 |3,49 | 9 de mayo de 2017 |
+| N/D | [4014563] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3,49 | 11 de abril de 2017 |
+| N/D | [4014557] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3,49 | 11 de abril de 2017 |
+| N/D | [4014545] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3,49 | 11 de abril de 2017 |
+| N/D | [4014548] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |3,49 | 11 de abril de 2017 |
+| N/D | [4015551] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, abril |3,49 | 11 de abril de 2017 |
 | N/D | [3173424] |Actualización de la pila de servicio  |4.42 | 12 de julio de 2016 |
 | N/D | [4014555] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril  |4.42 | 11 de abril de 2017 |
 | N/D | [4014567] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad de .NET, abril |4.42 | 11 de abril de 2017 |
@@ -577,7 +607,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D | [4013418] |Actualización de la pila de servicio |5.7 | 14 de marzo de 2017 |
 
 ## <a name="april-2017-guest-os"></a>SO invitado de abril de 2017
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 17-04 |  [4015217]  |Mejoras de calidad del SO WS 2016 | 5.6 | 11 de abril de 2017 |
 | Rel 17-04 |  [4015546]  |Indicador de seguridad de Windows |2.61 | 11 de abril de 2017 |
@@ -597,7 +627,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | Rel 17-04 |  [4012216]  |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de marzo de 2017 para Windows 8.1 y Windows Server 2012 R2 |4.41 | 11 de abril de 2017 |
 
 ## <a name="march-2017-guest-os"></a>SO invitado de marzo de 2017
-| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| Categoría de producto | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |Mejoras y correcciones | 5.5 | 14 de marzo de 2017 |
 | Rel 17-03 |  [4012212] |Actualización de calidad exclusiva de seguridad de marzo de 2017 para Windows 7 SP1 y Windows Server 2008 R2 SP1 |2.60 |14 de marzo de 2017 |

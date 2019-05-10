@@ -1,6 +1,6 @@
 ---
-title: Protección de implementaciones de PaaS | Microsoft Docs
-description: " Conozca las ventajas de seguridad de PaaS con respecto a los modelos de servicio en la nube y consulte los procedimientos recomendados para proteger la implementación de PaaS en Azure. "
+title: Procedimientos recomendados para implementaciones seguras de PaaS - Microsoft Azure
+description: Aprenda las prácticas recomendadas de diseño, creación y administración segura de aplicaciones en Azure en la nube y comprender las ventajas de seguridad de PaaS en comparación con otros modelos de servicio en la nube.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107453"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231124"
 ---
 # <a name="securing-paas-deployments"></a>Protección de implementaciones de PaaS
 
@@ -29,6 +29,8 @@ En este artículo se proporciona información que ayuda a:
 - Evaluar las ventajas de seguridad de plataforma como servicio (PaaS) en comparación con otros modelos de servicio en la nube
 - Cambiar el enfoque de seguridad de un perímetro basado en la red por un perímetro basado en identidades
 - Implementar recomendaciones generales de procedimientos recomendados de PaaS
+
+[Desarrollar aplicaciones seguras en Azure](abstract-develop-secure-apps.md) es una guía general para los controles que se debe considerar en cada fase del ciclo de vida de desarrollo de software al desarrollar aplicaciones para la nube y las preguntas de seguridad.
 
 ## <a name="cloud-security-advantages"></a>Ventajas de seguridad en la nube
 La nube ofrece ventajas de seguridad. En un entorno local, las organizaciones probablemente tengan responsabilidades inadecuadas y recursos limitados disponibles para invertir en seguridad, de tal manera que se crea un entorno donde los atacantes pueden aprovechar vulnerabilidades a todos los niveles.
@@ -155,6 +157,10 @@ Use [Azure Application Insights](https://azure.microsoft.com/documentation/servi
 
 Application Insights tiene numerosas herramientas para interactuar con los datos que recopila. Application Insights almacena sus datos en un repositorio común. Puede aprovechar la funcionalidad compartida, como alertas, paneles y un análisis profundo con el lenguaje de consulta Kusto.
 
+## <a name="perform-security-penetration-testing"></a>Realizar pruebas de penetración de seguridad
+Validando las defensas de seguridad es tan importante como probar cualquier otra funcionalidad. Asegúrese de [pruebas de penetración](azure-security-pen-testing.md) una parte estándar del proceso de compilación e implementación. Programe pruebas de seguridad y el examen de vulnerabilidades en las aplicaciones implementadas y supervise para puertos abiertos, los puntos de conexión y los ataques.
+
+Las pruebas de exploración de vulnerabilidades son un método para buscar errores de programa (errores de código), proporcionando los datos de entrada con formato incorrecto para interfaces de programación (puntos de entrada) que analizarán y consumen estos datos. [Detección de riesgos de seguridad de Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) es una herramienta basada en la nube que puede usar para buscar errores y otras vulnerabilidades de seguridad en el software antes de implementarla en Azure. La herramienta está diseñada para detectar vulnerabilidades antes de implementar software para que no tenga que aplicar revisiones a un error, tratar los bloqueos o responder a un ataque después del lanzamiento de software.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -166,6 +172,8 @@ Este artículo se centra en las ventajas de seguridad que ofrece una implementac
 - Azure Cache for Redis
 - Azure Service Bus
 - Firewall de aplicaciones web
+
+Consulte [desarrollar aplicaciones seguras en Azure](abstract-develop-secure-apps.md) para las preguntas de seguridad y los controles que se debe considerar en cada fase del ciclo de vida de desarrollo de software al desarrollar aplicaciones para la nube.
 
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](security-best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c419ee1eec9e451cad835d8b4a56818101dc853a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120864"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413659"
 ---
 # <a name="duplicate-detection"></a>Detección de duplicados
 
@@ -36,7 +36,10 @@ En el caso de un proceso empresarial en el que se envían varios mensajes en el 
 
 El valor *MessageId* siempre puede ser algún GUID, pero el anclaje del identificador al proceso empresarial produce una capacidad de repetición predecible, lo que resulta conveniente para aprovechar con efectividad la característica de detección de duplicados.
 
-## <a name="enable-duplicate-detection"></a>Habilitación de la detección de duplicados
+> [!NOTE]
+> Si está habilitada la detección de duplicados y no se establece la clave de partición o el Id. de sesión, el identificador del mensaje se utiliza como clave de partición. Si no también se establece el identificador del mensaje, las bibliotecas de .NET y AMQP generan automáticamente un identificador de mensaje para el mensaje. Para obtener más información, consulte [uso de claves de partición](service-bus-partitioning.md#use-of-partition-keys).
+
+## <a name="enable-duplicate-detection"></a>Habilitar detección de duplicados
 
 En el portal, la característica se activa durante la creación de la entidad con la casilla **Habilitar detección de duplicados**, que está desactivada de forma predeterminada. La configuración para la creación de nuevos temas es equivalente.
 

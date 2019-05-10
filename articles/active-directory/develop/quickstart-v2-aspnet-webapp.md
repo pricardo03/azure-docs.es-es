@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786ace2ef88fc4b94372041cbdd5bc16586b5193
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: d63ff648f89a231f0077363c88709a17d157ae8c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682566"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190896"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
@@ -68,13 +68,14 @@ Seleccione el menú **Autenticación**, establezca los **Tokens de identificador
 
 #### <a name="step-2-download-your-project"></a>Paso 2: Descarga del proyecto
 
-[Descargue la solución de Visual Studio 2017](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Descargue la solución de Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Paso 3: Configuración del proyecto de Visual Studio
 
 1. Extraiga el archivo ZIP en la carpeta local más próxima a la carpeta raíz (por ejemplo, **C:\Azure-Samples**).
 1. Abra la solución en Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
-1. Según la versión de Visual Studio que use, es posible que necesite hacer clic con el botón derecho en el proyecto `AppModelv2-WebApp-OpenIDConnect-DotNet` y **Restaurar paquetes NuGet**.
+1. Según la versión de Visual Studio que use, es posible que necesite hacer clic con el botón derecho en el proyecto `AppModelv2-WebApp-OpenIDConnect-DotNet` y **Restaurar paquetes NuGet**.
+1. Abra la Consola del Administrador de paquetes (Ver -> Otras ventanas -> Consola del Administrador de paquetes) y ejecute `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`.
 1. Edite **Web.config** y reemplace los parámetros `ClientId` y `Tenant` por:
 
     ```xml
@@ -109,7 +110,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>Clase de inicio OWIN
 
-El middleware OWIN usa una *clase de inicio* que se ejecuta cuando se inicializa el proceso de host (en el caso de esta guía de inicio rápido, el archivo *startup.cs* se encuentra en la carpeta raíz). En el código siguiente se muestra el parámetro utilizado por esta guía de inicio rápido:
+El middleware OWIN usa una *clase startup* que se ejecuta cuando se inicializa el proceso de hospedaje. En este tutorial, el archivo *startup.cs* se encuentra en la carpeta raíz. En el código siguiente se muestra el parámetro utilizado por esta guía de inicio rápido:
 
 ```csharp
 public void Configuration(IAppBuilder app)

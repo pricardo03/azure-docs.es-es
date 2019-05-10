@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190178"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227925"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory? 
 
@@ -32,7 +32,7 @@ Azure AD habilita el inicio de sesión único en dispositivos, aplicaciones y se
 - Solicitar la autenticación multifactor a los usuarios que obtengan acceso a un servicio desde fuera de la red corporativa.
 - Bloquear el acceso a los usuarios que accedan a un servicio desde determinados países o regiones.
 
-Una ubicación es una etiqueta para una ubicación de red que representa una ubicación con nombre o IP de autenticación multifactor de confianza.
+Una ubicación es una etiqueta para una ubicación de red que representa una ubicación con nombre o la autenticación multifactor direcciones IP de confianza.
 
 ## <a name="named-locations"></a>Ubicaciones con nombre
 
@@ -54,7 +54,7 @@ Una ubicación con nombre tiene los siguientes componentes:
 
 - **Marcar como ubicación de confianza**: marca que puede establecer a una ubicación con nombre para indicar una ubicación de confianza. Las ubicaciones de confianza son áreas de red que controla el departamento de TI. Además del acceso condicional, Azure Identity Protection y los informes de seguridad de Azure AD también usan las ubicaciones con nombre de confianza para reducir los [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Países o regiones**: esta opción le permite seleccionar uno o más países o regiones para definir una ubicación con nombre.
-- **Incluir áreas desconocidas**: algunas direcciones IP no están asignadas a ningún país determinado. Esta opción le permite elegir si estas direcciones IP deberían estar incluidas en la ubicación con nombre. Use esta configuración cuando la directiva que usa la ubicación con nombre deba aplicarse en ubicaciones desconocidas.
+- **Incluir áreas desconocidas** -algunas direcciones IP no están asignadas a un país o región determinados. Esta opción le permite elegir si estas direcciones IP deberían estar incluidas en la ubicación con nombre. Use esta configuración cuando la directiva que usa la ubicación con nombre deba aplicarse en ubicaciones desconocidas.
 
 El número de ubicaciones con nombre que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Las organizaciones pueden configurar hasta 90 ubicaciones con nombre, cada una configurada con hasta 12000 intervalos IP.
 
@@ -67,9 +67,9 @@ Si se configura una directiva para aplicar a "Cualquier ubicación", se aplicar�
 
 ## <a name="trusted-ips"></a>IP de confianza
 
-También puede configurar los intervalos de direcciones IP que representen a la intranet local de su organización en la [configuración del servicio de la autenticación multifactor](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esta función le permite configurar hasta 50 intervalos de direcciones IP. Los intervalos de direcciones IP están en formato CIDR. Para más información, vea [IP de confianza](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
+También puede configurar los intervalos de direcciones IP que representen a la intranet local de su organización en la [configuración del servicio de la autenticación multifactor](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esta función le permite configurar hasta 50 intervalos de direcciones IP. Los intervalos de direcciones IP están en formato CIDR. Para obtener más información, consulte [IP de confianza](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-Si ha configurado IP de confianza, se mostrarán como **IP de confianza de MFA** en la lista de ubicaciones de la condición de ubicación.
+Si tiene direcciones IP de confianza configurado, se mostrarán como **IP de confianza de MFA** en la lista de ubicaciones para la condición de ubicación.
 
 ### <a name="skipping-multi-factor-authentication"></a>Omisión de la autenticación multifactor
 

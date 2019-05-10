@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/29/2019
+ms.date: 05/03/2019
 ms.author: kumud
-ms.openlocfilehash: 52524e6291faae8ccc27c0d53e9e38ab63a4c8d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a09492fcb8a7985fa27b6daae89aa5dec0fa6e0
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736858"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413858"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer con restablecimiento de TCP inactivo (versión preliminar pública)
 
@@ -74,6 +74,7 @@ Disponible en todas las regiones.
 ## <a name="limitations"></a>Limitaciones
 
 - El portal no se puede usar para configurar o ver el restablecimiento de TCP.  Use plantillas, API REST, Az CLI 2.0 o PowerShell en su lugar.
+- TCP RST solo se envían durante la conexión TCP en el estado ESTABLISHED.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

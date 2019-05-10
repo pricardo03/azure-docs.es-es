@@ -1,22 +1,22 @@
 ---
-title: 'Inicio rápido: Creación de un índice basado en inteligencia artificial en Azure Portal: Azure Search'
+title: 'Inicio rápido: Creación de un índice enriquecido con IA en Azure Portal: Azure Search'
 description: Aptitudes de extracción de datos, lenguaje natural y procesamiento de imágenes en un portal de indexación de datos de Azure Search mediante Azure Portal y datos de ejemplo.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cb029530d2c6cdac82fd0d257e10717386eebf0e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265022"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022110"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Inicio rápido: Creación de una canalización de indexación basada en inteligencia artificial mediante aptitudes cognitivas y datos de ejemplo
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Inicio rápido: Creación de una canalización de indexación basada en IA mediante aptitudes cognitivas en Azure Search
 
 Azure Search se integra con [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) lo cual permite agregar aptitudes de extracción de contenido, procesamiento de lenguaje natural (NLP) y procesamiento de imágenes a una canalización de indexación de Azure Search, lo que hace que el contenido no apto para la búsqueda o no estructurado sea más fácil de buscar. 
 
@@ -30,12 +30,12 @@ En este artículo de inicio rápido, cree su primera la canalización de enrique
 > * Ejecute el asistente (una aptitud de la entidad detecta personas, ubicaciones y organizaciones).
 > * Use el [**Explorador de búsqueda**](search-explorer.md) para consultar los datos enriquecidos.
 
-Este inicio rápido se ejecuta en el servicio Gratis, pero el número de transacciones gratuitas está limitado a 20 documentos por día. Si desea ejecutar este inicio rápido más de una vez en el mismo día, use un conjunto de archivos más pequeño para que pueda realizar más ejecuciones.
+Este inicio rápido se ejecuta en el servicio Gratis, pero el número de transacciones gratuitas está limitado a 20 documentos por día. Si desea ejecutar esta guía de inicio rápido más de una vez al día, use un conjunto de archivos más pequeño, para que pueda realizar varias ejecuciones.
 
 > [!NOTE]
-> A medida que expande el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de inteligencia artificial, tendrá que asociar un recurso facturable de Cognitive Services. Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
+> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobra a los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. La extracción de imágenes se cobra al precio de la versión preliminar, tal y como se describe en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Más información](cognitive-search-attach-cognitive-services.md).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. La extracción de imágenes se cobra tal y como se describe en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

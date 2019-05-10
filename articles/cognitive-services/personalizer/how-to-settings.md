@@ -10,28 +10,34 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 0cd08e1191c68c57975d3e68648134925155e7f2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025601"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143256"
 ---
 # <a name="personalizer-settings"></a>Configuración de Personalizer
 
 La configuración del servicio incluye la forma en que el servicio trata las recompensas, la frecuencia con el servicio realiza las exploraciones, la frecuencia con que se vuelve a entrenar al modelo y la cantidad de datos que se almacenan.
 
+## <a name="create-personalizer-resource"></a>Creación de un recurso de Personalizer
+
 Crear un recurso de Personalizer para cada bucle de comentarios. 
+
+1. Inicie sesión en el [portal de Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). El vínculo anterior le lleva a la página **Crear** del servicio Personalizer. 
+1. Escriba el nombre del servicio, seleccione la suscripción, la ubicación, el plan de tarifa y el grupo de recursos.
+1. Confirme la selección y elija **Crear**.
 
 ## <a name="configure-service-settings-in-the-azure-portal"></a>Configuración de los valores del servicio en Azure Portal
 
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
 1. Busque el recurso Personalizer. 
 1. En la sección **Administración de recursos**, seleccione **Configuración**.
 
-    ![Inicie sesión en el Portal de Azure. Busque el recurso Personalizer. En la sección Administración de recursos, seleccione Configuración.](media/settings/how-to-configure.png)
+    Antes de salir de Azure Portal, copie una de las claves de recurso de la página **Claves**. La necesitará para usar [Personalizer SDK](https://aka.ms/personalizer-dotnet-sdk-docs).
 
-### <a name="reward-settings-for-the-feedback-loop"></a>Configuración de recompensas para el bucle de comentarios
+### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Configure las opciones de recompensas para el bucle de comentarios según cada caso de uso
 
 Configure el servicio para el uso de recompensas del bucle de comentarios. Los cambios que se realicen en la siguiente configuración restablecerán el modelo actual de Personalizer y volverán a entrenarlo con los datos de los dos últimos días:
 
@@ -81,4 +87,4 @@ En la sección de administración de recursos para **Modelo y directiva**, impor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Aprendizaje de refuerzo](concepts-reinforcement-learning.md) 
+[Procedimientos para usar el contenedor Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)

@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 985f1f73fbfc8c75df8393615fca32f5d1c08b9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f85b0088fac97f4b9f2dd2835e3052cb598a987
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078319"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142760"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implementación de Azure Machine Learning como un módulo de IoT Edge (versión preliminar)
+
+Use Azure Notebooks para desarrollar un módulo de aprendizaje automático e implementarlo en un dispositivo Linux que ejecuta Azure IoT Edge. 
 
 Los módulos de IoT Edge se pueden usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos de IoT Edge. Este tutorial le guía por la implementación de un módulo de Azure Machine Learning que predice cuándo un dispositivo produce un error basándose en datos de temperatura de la máquina simulada. Para más información sobre Azure Machine Learning Service en IoT Edge, consulte la [documentación de Azure Machine Learning](../machine-learning/service/how-to-deploy-to-iot.md).
 
@@ -51,58 +53,12 @@ Recursos en la nube:
    * Anote el nombre de área de trabajo, el grupo de recursos y el identificador de suscripción. Estos valores están disponibles en la información general del área de trabajo en Azure Portal. Estos valores le servirán más adelante en el tutorial para conectar un cuaderno de Azure con los recursos del área de trabajo. 
 
 
-### <a name="disable-process-identification"></a>Deshabilitación de la identificación del proceso
-
->[!NOTE]
->
-> Mientras está en la versión preliminar, Azure Machine Learning no admite la característica de seguridad de identificación de procesos habilitada de forma predeterminada con IoT Edge.
-> A continuación se muestran los pasos necesarios para deshabilitarlo. Sin embargo, esto no es adecuado para su uso en producción. Estos pasos solo son necesarios en los dispositivos Linux. 
-
-Para deshabilitar la identificación del proceso en el dispositivo de IoT Edge, deberá proporcionar la dirección IP y el puerto para **workload_uri** y **management_uri** en la sección **connect** de la configuración del demonio de IoT Edge.
-
-Obtenga primero la dirección IP. Escriba `ifconfig` en la línea de comandos y copie la dirección IP de la interfaz **docker0**.
-
-Edite el archivo de configuración del demonio de IoT Edge:
-
-```cmd/sh
-sudo nano /etc/iotedge/config.yaml
-```
-
-Actualice la sección **connect** de la configuración con la dirección IP. Por ejemplo:
-```yaml
-connect:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-Escriba las mismas direcciones de la sección **listen** de la configuración. Por ejemplo: 
-
-```yaml
-listen:
-  management_uri: "http://172.17.0.1:15580"
-  workload_uri: "http://172.17.0.1:15581"
-```
-
-Guarde y cierre el archivo de configuración.
-
-Cree la variable de entorno IOTEDGE_HOST con la dirección management_uri (para establecerlo de forma permanente, agréguela a `/etc/environment`). Por ejemplo: 
-
-```cmd/sh
-export IOTEDGE_HOST="http://172.17.0.1:15580"
-```
-
-Reinicie el servicio IoT Edge para que los cambios surtan efecto.
-
-```cmd/sh
-sudo systemctl restart iotedge
-```
-
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>Creación e implementación de un módulo de Azure Machine Learning
 
 En esta sección, se entrenan los archivos del modelo de Machine Learning y se convierten en un contenedor del servicio Azure Machine Learning. Todos los componentes necesarios para la imagen de Docker están en el [repositorio de Git del kit de herramientas de inteligencia artificial para Azure IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial). Siga estos pasos para cargar el repositorio en Microsoft Azure Notebooks para crear el contenedor e insertarlo en Azure Container Registry.
 
 
-1. Vaya a los proyectos de Azure Notebooks. Puede obtenerlos desde el área de trabajo del servicio Azure Machine Learning de [Azure Portal](https://portal.azure.com) o al iniciar sesión en [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects) con la cuenta de Azure.
+1. Vaya a los proyectos de Azure Notebooks. Puede obtenerlos desde el área de trabajo de Azure Machine Learning Service de [Azure Portal](https://portal.azure.com) o al iniciar sesión en [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects) con la cuenta de Azure.
 
 2. Seleccione **Upload GitHub Repo** (Cargar repositorio de GitHub).
 
@@ -131,7 +87,7 @@ En esta sección, se entrenan los archivos del modelo de Machine Learning y se c
     >[!TIP]
     >Algunas de las celdas del cuaderno del tutorial de detección de anomalías son opcionales, ya que crean recursos que algunos usuarios podrían tener o no aún, como IoT Hub. Si coloca la información del recurso existente en la primera celda, recibirá errores si ejecuta las celdas que crean recursos, ya que Azure no crea recursos duplicados. Esto es correcto, puede pasar por alto los errores u omitir completamente esas secciones opcionales. 
 
-Una vez completados todos los pasos del cuaderno, habrá entrenado el modelo de detección de anomalías, lo habrá compilado como imagen de contenedor de Docker y habrá insertado esta en Azure Container Registry. A continuación, habrá probado el modelo y, finalmente, lo habrá implementado en el dispositivo IoT Edge. 
+Al completar todos los pasos del cuaderno, ha entrenado el modelo de detección de anomalías, lo ha compilado como imagen de contenedor de Docker y ha insertado dicha imagen en Azure Container Registry. A continuación, habrá probado el modelo y, finalmente, lo habrá implementado en el dispositivo IoT Edge. 
 
 ## <a name="view-container-repository"></a>Visualización del repositorio del contenedor
 
@@ -151,7 +107,7 @@ Compruebe que la imagen de contenedor se creó y almacenó correctamente en la i
 
    Estas credenciales se pueden incluir en el manifiesto de implementación para proporcionar acceso a los dispositivos IoT Edge para extraer imágenes de contenedor del registro. 
 
-Ahora ya sabe dónde se almacena la imagen de contenedor de Machine Learning. La siguiente sección es una guía a través de los pasos para ver cómo funciona como un módulo implementado en el dispositivo IoT Edge. 
+Ahora ya sabe dónde se almacena la imagen de contenedor de Machine Learning. La siguiente sección le guía en los pasos para ver cómo se ejecuta el contenedor como un módulo en su dispositivo IoT Edge. 
 
 ## <a name="view-generated-data"></a>Visualización de datos generados
 

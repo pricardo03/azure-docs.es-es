@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 90c20bcd289c3bcf4a7fa3c41d245f2b7f159582
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884248"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154095"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Inicio rápido: Creación del primer flujo de trabajo automatizado con Azure Logic Apps: Azure Portal
 
@@ -26,11 +26,11 @@ En esta guía de inicio rápido se muestra cómo crear su primer flujo de trabaj
 
 Para seguir esta guía de inicio rápido, necesita una cuenta de correo electrónico de un proveedor compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](https://docs.microsoft.com/connectors/). Esta aplicación lógica usa una cuenta de Office 365 Outlook. Si usa otra cuenta de correo electrónico, los pasos generales serán los mismos, pero su interfaz de usuario puede ser ligeramente distinta. 
 
-Asimismo, si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
+Asimismo, si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> con sus credenciales de su cuenta de Azure.
+Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales de su cuenta de Azure.
 
 ## <a name="create-your-logic-app"></a>Creación de una aplicación lógica 
 
@@ -38,7 +38,7 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
 
    ![Creación de la aplicación lógica](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. En **Crear aplicación lógica**, proporcione información sobre la aplicación lógica, como se muestra a continuación. Cuando termine, seleccione **Crear**.
+1. En **Crear aplicación lógica**, proporcione información sobre la aplicación lógica, como se muestra a continuación. Cuando termine, seleccione **Crear**.
 
    ![Proporcione los detalles de la aplicación lógica](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -51,7 +51,7 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
    | **Log Analytics** | Off | Mantenga el valor **Off** para el registro de diagnóstico. | 
    |||| 
 
-3. Una vez que Azure ha implementado la aplicación, el Diseñador de aplicaciones lógicas se abre y muestra una página con un vídeo de introducción y desencadenadores utilizados frecuentemente. En **plantillas**, elija **Aplicación lógica en blanco**.
+1. Una vez que Azure ha implementado la aplicación, el Diseñador de aplicaciones lógicas se abre y muestra una página con un vídeo de introducción y desencadenadores utilizados frecuentemente. En **plantillas**, elija **Aplicación lógica en blanco**.
 
    ![Selección de la plantilla de aplicación lógica en blanco](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
@@ -61,11 +61,13 @@ A continuación, añada un [desencadenador](../logic-apps/logic-apps-overview.md
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Comprobación de la fuente RSS con un desencadenador
 
-1. En el diseñador, escriba "rss" en el cuadro de búsqueda. Seleccione este desencadenador: **RSS - When a feed item is published** (RSS: Cuando se publica un elemento de fuente)
+1. En el cuadro de búsqueda del Diseñador de aplicación lógica, elija **Todas**.
+
+1. En el cuadro de búsqueda, escriba "rss". En la lista de desencadenadores, seleccione este desencadenador: **Cuando se publica un elemento de fuente (RSS)**
 
    ![Seleccione el desencadenador: "RSS - When a feed item is published" (RSS: Cuando se publica un elemento de fuente)](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
 
-2. Proporcione esta información para el desencadenador, como se describe a continuación: 
+1. Proporcione esta información para el desencadenador, como se describe a continuación:
 
    ![Configuración del desencadenador con la fuente RSS, la frecuencia y el intervalo](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
@@ -79,23 +81,25 @@ A continuación, añada un [desencadenador](../logic-apps/logic-apps-overview.md
    Juntos, el intervalo y la frecuencia definen la programación para el desencadenador de la aplicación lógica. 
    Esta aplicación lógica comprueba la fuente cada minuto.
 
-3. Para ocultar por ahora los detalles del desencadenador, haga clic dentro de la barra de título del desencadenador.
+1. Para ocultar por ahora los detalles del desencadenador, haga clic dentro de la barra de título del desencadenador.
 
    ![Contraer la forma para ocultar detalles](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
-4. Guarde la aplicación lógica. En la barra de herramientas del diseñador, haga clic en **Guardar**. 
+1. Guarde la aplicación lógica. En la barra de herramientas del diseñador, haga clic en **Guardar**.
 
 La aplicación lógica estará activa, pero no hace más que comprobar la fuente RSS. Por lo tanto, agregue una acción que responda cuando se active el desencadenador.
 
 ## <a name="send-email-with-an-action"></a>Envío de correo electrónico con una acción
 
-Ahora, añada una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) para enviar un correo electrónico cuando aparezca un nuevo elemento en la fuente RSS. 
+Ahora, añada una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) para enviar un correo electrónico cuando aparezca un nuevo elemento en la fuente RSS.
 
 1. En el desencadenador **When a feed item is published** (Cuando se publica un elemento de fuente), elija **New step** (Nuevo paso).
 
    ![Agregar una acción](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. En **Elegir una acción**, escriba "enviar un correo electrónico" en el cuadro de búsqueda. En el cuadro de búsqueda, elija **Todas**. En la lista de acciones, seleccione la acción "enviar un correo electrónico" del proveedor de correo electrónico que desee. 
+1. En **Elegir una acción** y en el cuadro de búsqueda, seleccione **Todas**.
+
+1. En el cuadro de búsqueda, escriba "Enviar un correo electrónico". En la lista de acciones, seleccione la acción "enviar un correo electrónico" del proveedor de correo electrónico que desee.
 
    ![Seleccione esta acción: "Office 365 Outlook - Send an email" (Office 365 Outlook: Enviar un correo electrónico)](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
@@ -104,9 +108,9 @@ Ahora, añada una [acción](../logic-apps/logic-apps-overview.md#logic-app-conce
    * Para las cuentas profesionales o educativas de Azure, seleccione Office 365 Outlook. 
    * Para las cuentas de Microsoft personales, seleccione Outlook.com.
 
-3. Si se le piden credenciales, inicie sesión en su cuenta de correo electrónico para que Logic Apps cree una conexión a su cuenta de correo electrónico.
+1. Si se le piden credenciales, inicie sesión en su cuenta de correo electrónico para que Logic Apps cree una conexión a su cuenta de correo electrónico.
 
-4. En la acción **Enviar correo electrónico**, especifique los datos que desea que el correo electrónico incluya. 
+1. En la acción **Enviar correo electrónico**, especifique los datos que desea que el correo electrónico incluya.
 
    1. En el cuadro **Para**, escriba la dirección de correo electrónico del destinatario. 
    Para realizar pruebas, puede usar su propia dirección de correo electrónico.
@@ -114,11 +118,11 @@ Ahora, añada una [acción](../logic-apps/logic-apps-overview.md#logic-app-conce
       Por ahora, ignore la lista **Agregar contenido dinámico** que aparece. 
       Al hacer clic en algunos cuadros de edición, esta lista aparece y muestra los parámetros disponibles del paso anterior que se pueden incluir como entradas en el flujo de trabajo. 
 
-   2. En el cuadro **Asunto**, escriba este texto con un espacio en blanco final: ```New RSS item:```
+   1. En el cuadro **Asunto**, escriba este texto con un espacio en blanco final: ```New RSS item:```
 
       ![Incorporación del asunto del correo electrónico](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
- 
-   3. En la lista **Agregar contenido dinámico**, seleccione **Título de fuente** para incluir el título del elemento RSS.
+
+   1. En la lista **Agregar contenido dinámico**, seleccione **Título de fuente** para incluir el título del elemento RSS.
 
       ![Lista de contenido dinámico - "Título de fuente"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-dynamic-content.png)
 
@@ -131,7 +135,7 @@ Ahora, añada una [acción](../logic-apps/logic-apps-overview.md#logic-app-conce
       De este modo, la aplicación lógica realiza la misma acción en cada elemento de la matriz. 
       Para quitar el bucle, elija el botón de **puntos suspensivos** (**...**) de la barra de título del bucle y **Eliminar**.
 
-   4. En el cuadro **Cuerpo**, escriba este texto y seleccione estos tokens para el cuerpo del correo electrónico. 
+   1. En el cuadro **Cuerpo**, escriba este texto y seleccione estos tokens para el cuerpo del correo electrónico. 
    Para agregar líneas en blanco en el cuadro de edición, presione Mayús + Entrar. 
 
       ![Incorporación del contenido del cuerpo del correo electrónico](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
@@ -141,9 +145,9 @@ Ahora, añada una [acción](../logic-apps/logic-apps-overview.md#logic-app-conce
       | **Título de fuente** | Título del elemento | 
       | **Fuente publicada el** | Fecha y hora de publicación del elemento | 
       | **Vínculo de fuente principal** | Dirección URL del elemento | 
-      ||| 
-   
-5. Guarde la aplicación lógica.
+      |||
+
+1. Guarde la aplicación lógica.
 
 A continuación, pruebe la aplicación lógica.
 
@@ -168,7 +172,7 @@ Cuando ya no necesite este ejemplo, elimine el grupo de recursos que contiene la
 
    !["Grupos de recursos" > "Introducción" > "Eliminar grupo de recursos"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
-2. Escriba el nombre del grupo de recursos como confirmación y elija **Eliminar**.
+1. Escriba el nombre del grupo de recursos como confirmación y elija **Eliminar**.
 
    ![Confirmar eliminación](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
@@ -177,8 +181,7 @@ Cuando ya no necesite este ejemplo, elimine el grupo de recursos que contiene la
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
+Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

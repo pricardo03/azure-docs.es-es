@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 69b142cd46c006e562218c949fb450864589a661
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ccddb1ffd86ce95b1ca5563de2f4b04c41d5737d
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622165"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442428"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Configuración de las notificaciones de estado para los sistemas de administración de problemas existentes mediante un webhook
 
@@ -26,6 +26,10 @@ Si desea usar una integración preconfigurada, vea los siguientes procedimientos
 * [Configure alerts with ServiceNow](service-health-alert-webhook-servicenow.md) (Configuración de alertas con ServiceNow)
 * [Configure alerts with PagerDuty](service-health-alert-webhook-pagerduty.md) (Configuración de alertas con PagerDuty)
 * [Configure alerts with OpsGenie](service-health-alert-webhook-opsgenie.md) (Configuración de alertas con OpsGenie)
+
+### <a name="watch-an-introductory-video"></a>Vea el vídeo de introducción
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUV]
 
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Configuración de una notificación personalizada con la carga de webhook de estado del servicio
 Si desea configurar su propia integración de webhook personalizada, tiene que analizar la carga JSON enviada durante las notificaciones de Estado del servicio.

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829725"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231428"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Cómo usar el reconocimiento de entidades con nombre en el análisis de texto
 
@@ -42,28 +42,28 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 | Type  | SubType | Ejemplo |
 |:-----------   |:------------- |:---------|
 | Persona        | N/D\*         | "Jeff", "Bill Gates"     |
-| Location      | N/D\*         | "Redmond, Washington", "París"  |
+| Ubicación      | N/D\*         | "Redmond, Washington", "París"  |
 | Organización  | N/D\*         | "Microsoft"   |
-| Cantidad      | Number        | "6", "seis"     | 
+| Cantidad      | Número        | "6", "seis"     | 
 | Cantidad      | Porcentaje    | "50 %", "cincuenta por ciento"| 
 | Cantidad      | Ordinal       | "2.º", "segundo"     | 
 | Cantidad      | NumberRange   | "De 4 a 8"     | 
-| Cantidad      | Edad           | "90 días","30 años"    | 
+| Cantidad      | Antigüedad           | "90 días","30 años"    | 
 | Cantidad      | Moneda      | "10,99 $"     | 
-| Cantidad      | Dimension Data     | "10 millas", "40 cm"     | 
+| Cantidad      | Dimensión     | "10 millas", "40 cm"     | 
 | Cantidad      | Temperatura   | "32 grados"    |
 | DateTime      | N/D\*         | "6:30 p. m., 4 de febrero de 2012"      | 
 | DateTime      | Date          | "2 de mayo de 2017", "02/05/2017"   | 
-| DateTime      | Hora          | "8 a. m.", "8:00"  | 
+| DateTime      | Time          | "8 a. m.", "8:00"  | 
 | DateTime      | DateRange     | "Del 2 de mayo al 5 de mayo"    | 
 | DateTime      | TimeRange     | "De las 6 p. m. a las 7 p. m."     | 
-| DateTime      | Duration      | "1 minuto y 45 segundos"   | 
-| DateTime      | Set           | "Todos los martes"     | 
+| DateTime      | Duración      | "1 minuto y 45 segundos"   | 
+| DateTime      | Conjunto           | "Todos los martes"     | 
 | DateTime      | TimeZone      |    | 
-| URL           | N/D\*         | "https:\//www.bing.com"    |
+| Dirección URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 
-\* En función de las entidades de entrada y extraídas, algunas entidades pueden omitir el valor `SubType`.
+\* En función de las entidades de entrada y extraídas, algunas entidades pueden omitir el valor `SubType`.  Todos los tipos de entidad admitidos enumerados solo están disponibles para los idiomas inglés, chino simplificado, francés, alemán y español.
 
 
 
@@ -109,7 +109,7 @@ El análisis se realiza tras la recepción de la solicitud. El servicio acepta h
 
 Recuerde que el servicio no tiene estado. No se almacena ningún dato en su cuenta. Los resultados se devuelven inmediatamente en la respuesta.
 
-## <a name="step-3-view-results"></a>Paso 3: Visualización de los resultados
+## <a name="step-3-view-results"></a>Paso 3: Ver resultados
 
 Todas las solicitudes POST devolverán una respuesta con formato JSON con los identificadores y las propiedades detectadas.
 

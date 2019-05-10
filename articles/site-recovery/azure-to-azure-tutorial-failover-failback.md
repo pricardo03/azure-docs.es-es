@@ -6,21 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 96e3c0b761a9ed4c5f84d8ece1ba504bd5aacf6f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 95e4e3f3acc52c230405f0c0cc4a05b03b21a386
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797574"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153809"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Conmutación por error y reprotección de máquinas virtuales de Azure entre regiones
 
-El servicio [Azure Site Recovery](site-recovery-overview.md) contribuye a su estrategia de recuperación ante desastres mediante la administración y la coordinación de la replicación, la conmutación por error y la conmutación por recuperación de máquinas locales y máquinas virtuales (VM) de Azure.
-
-Este tutorial describe cómo conmutar por error una máquina virtual de Azure en una región de Azure secundaria. Una vez realizada la conmutación por error, volverá a proteger la máquina virtual. En este tutorial, aprenderá a:
+En este tutorial se describe cómo conmutar por error una máquina virtual (VM) de Azure en una región secundaria de Azure con el servicio [Azure Site Recovery](site-recovery-overview.md). Una vez realizada la conmutación por error, volverá a proteger la máquina virtual. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Conmutar por error la máquina virtual de Azure
@@ -29,8 +27,10 @@ Este tutorial describe cómo conmutar por error una máquina virtual de Azure en
 > [!NOTE]
 > Este tutorial describe la ruta más sencilla, con las opciones predeterminadas y la mínima personalización. Para escenarios más complejos, use los artículos de Guías de procedimientos para máquinas virtuales de Azure.
 
+
 ## <a name="prerequisites"></a>Requisitos previos
 
+- Antes de empezar, repase las [preguntas más frecuentes](site-recovery-faq.md#failover) sobre la conmutación por error.
 - Asegúrese de que ha completado una [exploración de la recuperación ante desastres](azure-to-azure-tutorial-dr-drill.md) para comprobar que todo funciona según lo previsto.
 - Compruebe las propiedades de la máquina virtual antes de ejecutar la conmutación por error de prueba. La máquina virtual debe cumplir los [requisitos de Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
@@ -54,6 +54,11 @@ Este tutorial describe cómo conmutar por error una máquina virtual de Azure en
 
 6. Realice la acción **Confirmar** una vez que quede satisfecho con la conmutación por error de la máquina virtual.
    Al confirmar, se eliminan todos los puntos de recuperación disponibles con el servicio. Ahora no podrá cambiar el punto de recuperación.
+
+> [!NOTE]
+> Cuando se conmuta por error una máquina virtual a la que agrega un disco después de habilitar la replicación para la máquina virtual, los puntos de la replicación mostrarán los discos que están disponibles para la recuperación. Por ejemplo, si una máquina virtual tiene un único disco y agrega uno nuevo, los puntos de replicación que se crearon antes de agregar el disco mostrarán que el punto de replicación se compone de "1 de 2 discos".
+
+![Conmutación por error con un disco agregado](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>Volver a proteger la máquina virtual secundaria
 

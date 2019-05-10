@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: c01eccb63639a3838c9f726bc48400a76aba8cf0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/01/2019
+ms.openlocfilehash: 131b86fec5fb51c6ff6f29a8e0beed86145a24b7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799055"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136638"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutorial: Migración de SQL Server a una base de datos única o agrupada en Azure SQL Database en línea mediante DMS
 
@@ -71,7 +71,7 @@ Para completar este tutorial, necesita:
 - Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
 - Crear una [regla de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) de nivel de servidor para que el servidor de Azure SQL Database permita a Azure Database Migration Service acceder a las bases de datos de destino. Proporcionar el intervalo de subred de la red virtual usada para Azure Database Migration Service.
 - Asegurarse de que las credenciales usadas para conectarse a la instancia de SQL Server de origen tenga permisos [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
-- Asegurarse de que las credenciales usadas para conectarse a la instancia de Azure SQL Database de destino tengan permisos CONTROL DATABASE en las bases de datos SQL de Azure de destino.
+- Asegurarse de que las credenciales usadas para conectarse a la base de datos de Azure SQL de destino tengan permisos CONTROL DATABASE en las bases de datos de Azure SQL de destino.
 - La versión del servidor SQL Server de origen debe ser SQL Server 2005 u otra posterior. Para determinar la versión que está ejecutando la instancia de SQL Server, consulte el artículo [Cómo determinar la versión, la edición y el nivel de actualización de SQL Server y sus componentes](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
 - Las bases de datos deben estar en el modelo de recuperación completa o en el optimizado para cargas masivas de registros. Para determinar el modelo de recuperación configurado para la instancia de SQL Server, consulte el artículo [Ver o cambiar el modelo de recuperación de una base de datos (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server?view=sql-server-2017).
 - Asegúrese de realizar copias de seguridad completas de las bases de datos. Para crear una copia de seguridad de base de datos completa, consulte el artículo [Cómo crear una copia de seguridad de la base de datos completa (Transact-SQL)](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms191304(v=sql.105)).
@@ -109,9 +109,9 @@ Para completar este tutorial, necesita:
 
     Si no está configurada la distribución y el servidor de distribución muestra NULL para la salida del comando anterior, configure la distribución mediante la guía que se proporciona en el artículo [Configurar la publicación y la distribución](https://docs.microsoft.com/sql/relational-databases/replication/configure-publishing-and-distribution?view=sql-server-2017).
 
-- Deshabilite los desencadenadores de la base de datos en la instancia de Azure SQL Database de destino.
+- Deshabilite los desencadenadores de la base de datos en la base de datos de Azure SQL de destino.
     >[!NOTE]
-    > Puede encontrar los desencadenadores de la base de datos en la instancia de Azure SQL Database de destino mediante la consulta siguiente:
+    > Puede encontrar los desencadenadores de la base de datos en la base de datos de Azure SQL de destino mediante la consulta siguiente:
 
     ```sql
     Use <Database name>
@@ -234,9 +234,7 @@ Para migrar el esquema de **AdventureWorks2012** a una base de datos única o ag
 
     Para más información sobre los costos y planes de tarifa, vea la [página de precios](https://aka.ms/dms-pricing).
 
-    Si necesita ayuda para elegir el nivel adecuado de Azure Database Migration Service, consulte las recomendaciones descritas en [esta publicación](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Configuración de la instancia de Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
+    ![Configuración de la instancia de Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7. Seleccione **Crear** para crear el servicio.
 
@@ -299,7 +297,7 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 
 3. Seleccione **Guardar** y, en la pantalla **Seleccionar tablas**, expanda la lista de tablas y revise la lista de campos afectados.
 
-    Azure Database Migration Service selecciona automáticamente todas las tablas de origen vacías que existen en la instancia de Azure SQL Database de destino. Si quiere volver a migrar tablas que ya contienen datos, deberá seleccionar de forma explícita las tablas de esta hoja.
+    Azure Database Migration Service selecciona automáticamente todas las tablas de origen vacías que existen en la base de datos de Azure SQL de destino. Si quiere volver a migrar tablas que ya contienen datos, deberá seleccionar de forma explícita las tablas de esta hoja.
 
     ![Selección de tablas](media/tutorial-sql-server-to-azure-sql-online/dms-configure-setting-activity3.png)
 
@@ -333,7 +331,7 @@ Una vez completada la carga completa inicial, las bases de datos se marcan como 
 
 2. Asegúrese de detener todas las transacciones entrantes a la base de datos de origen. Espere hasta que el contador **Cambios pendientes** muestre **0**.
 3. Seleccione **Confirmar** y, después, **Aplicar**.
-4. Cuando aparezca el estado **Completado** de la migración de base de datos, conecte las aplicaciones a la nueva instancia de Azure SQL Database de destino.
+4. Cuando aparezca el estado **Completado** de la migración de base de datos, conecte las aplicaciones a la nueva base de datos de Azure SQL de destino.
 
     ![Estado de actividad Completado](media/tutorial-sql-server-to-azure-sql-online/dms-activity-completed.png)
 

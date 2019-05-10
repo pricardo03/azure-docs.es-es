@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 05/03/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 41311dce20237a300ae57f21bcc969c91da617b1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e6b4ba902e9951cd04dc282cc2a163200a38607a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708379"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142894"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>Inicio rápido: Creación de un clúster de Apache Spark en HDInsight mediante PowerShell
 Aprenda a crear clústeres de [Apache Spark](https://spark.apache.org/) en Azure HDInsight y a ejecutar consultas SQL de Spark en tablas de [Apache Hive](https://hive.apache.org/). Apache Spark permite el análisis rápido de datos y procesamiento de clústeres con el procesamiento en memoria. Para información sobre Spark en HDInsight, consulte [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md).
@@ -23,9 +23,11 @@ En esta guía de inicio rápido, usará Azure PowerShell para crear un clúster 
 > [!IMPORTANT]  
 > La facturación de los clústeres de HDInsight se prorratea por minuto, tanto si se usan como si no. Por consiguiente, es aconsejable eliminar el clúster al terminar de usarlo. Para obtener más información, consulte la sección [Limpieza de recursos](#clean-up-resources) de este artículo.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+* Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+
+* Instalación del [módulo Az](https://docs.microsoft.com/powershell/azure/overview) de PowerShell.
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>Creación de un clúster de Spark en HDInsight
 
@@ -46,57 +48,63 @@ Usará un script de PowerShell para crear los recursos.  Cuando ejecute el scrip
 |Credenciales de inicio de sesión del clúster | Use esta cuenta para conectarse al panel del clúster más adelante en el inicio rápido.|
 |Credenciales de usuario de SSH | Los clientes de SSH se pueden usar para crear una sesión de línea de comandos remota con los clústeres de HDInsight.|
 
+1. Seleccione **Try It** (Probarlo) en la esquina superior derecha para que el bloque de código siguiente abra [Azure Cloud Shell](../../cloud-shell/overview.md) y siga las instrucciones para conectarse a Azure.
 
-
-1. Haga clic en **Try It** (Probarlo) en la esquina superior derecha para que el bloque de código siguiente abra [Azure Cloud Shell](../../cloud-shell/overview.md) y siga las instrucciones para conectarse a Azure.
-2. Copie y pegue el script siguiente de PowerShell en Cloud Shell. 
+2. Copie y pegue el script siguiente de PowerShell en Cloud Shell.
 
     ```azurepowershell-interactive
     ### Create a Spark 2.3 cluster in Azure HDInsight
-        
+
+    # Default cluster size (# of worker nodes), version, and type
+    $clusterSizeInNodes = "1"
+    $clusterVersion = "3.6"
+    $clusterType = "Spark"
+    
     # Create the resource group
     $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
     $location = Read-Host -Prompt "Enter the Azure region to create resources in, such as 'Central US'"
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
-    
     $defaultStorageAccountName = Read-Host -Prompt "Enter the default storage account name"
     
-    # Create an Azure storae account and container
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    
+    # Create an Azure storage account and container
+    # Note: Storage account kind BlobStorage can only be used as secondary storage for HDInsight clusters.
     New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
-        -Type Standard_LRS `
-        -Location $location
+        -Location $location `
+        -SkuName Standard_LRS `
+        -Kind StorageV2 `
+        -EnableHttpsTrafficOnly 1
+
     $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
+    
     $defaultStorageContext = New-AzStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
     
     # Create a Spark 2.3 cluster
     $clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
+
     # Cluster login is used to secure HTTPS services hosted on the cluster
     $httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
-    # SSH user is used to remotely connect to the cluster using SSH clients
-    $sshCredentials = Get-Credential -Message "Enter SSH user credentials"
     
-    # Default cluster size (# of worker nodes), version, type, and OS
-    $clusterSizeInNodes = "1"
-    $clusterVersion = "3.6"
-    $clusterType = "Spark"
-    $clusterOS = "Linux"
+    # SSH user is used to remotely connect to the cluster using SSH clients
+    $sshCredentials = Get-Credential -Message "Enter SSH user credentials" -UserName "sshuser"
     
     # Set the storage container name to the cluster name
     $defaultBlobContainerName = $clusterName
     
     # Create a blob container. This holds the default data store for the cluster.
     New-AzStorageContainer `
-        -Name $clusterName -Context $defaultStorageContext 
+        -Name $clusterName `
+        -Context $defaultStorageContext 
     
     $sparkConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
     $sparkConfig.Add("spark", "2.3")
-    
+
     # Create the HDInsight cluster
     New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroupName `
@@ -104,7 +112,7 @@ Usará un script de PowerShell para crear los recursos.  Cuando ejecute el scrip
         -Location $location `
         -ClusterSizeInNodes $clusterSizeInNodes `
         -ClusterType $clusterType `
-        -OSType $clusterOS `
+        -OSType "Linux" `
         -Version $clusterVersion `
         -ComponentVersion $sparkConfig `
         -HttpCredential $httpCredential `
@@ -113,15 +121,17 @@ Usará un script de PowerShell para crear los recursos.  Cuando ejecute el scrip
         -DefaultStorageContainer $clusterName `
         -SshCredential $sshCredentials 
     
-    Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+    Get-AzHDInsightCluster `
+        -ResourceGroupName $resourceGroupName `
+        -ClusterName $clusterName
     ```
    La creación del clúster tarda aproximadamente 20 minutos. El clúster debe crearse para poder pasar a la siguiente sesión.
 
-Si surge un problema con la creación de clústeres de HDInsight, podría deberse a que no tiene los permisos adecuados para hacerlo. Para más información, consulte [Requisitos de control de acceso](../hdinsight-hadoop-create-linux-clusters-portal.md).
+Si surge un problema con la creación de clústeres de HDInsight, podría deberse a que no tiene los permisos adecuados para hacerlo. Para más información, consulte [Requisitos de control de acceso](../hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## <a name="create-a-jupyter-notebook"></a>Creación de un cuaderno de Jupyter
 
-[Jupyter Notebook](https://jupyter.org/) es un entorno de cuaderno interactivo que admite varios lenguajes de programación. El cuaderno le permite interactuar con los datos, combinar código con el texto de marcado y realizar visualizaciones básicas. 
+[Jupyter Notebook](https://jupyter.org/) es un entorno de cuaderno interactivo que admite varios lenguajes de programación. El cuaderno le permite interactuar con los datos, combinar código con el texto de marcado y realizar visualizaciones básicas.
 
 1. Abra [Azure Portal](https://portal.azure.com).
 2. Seleccione **Clústeres de HDInsight** y, a continuación, seleccione el clúster que creó.
@@ -182,7 +192,30 @@ Vuelva a Azure Portal y seleccione **Eliminar**.
 
 También puede seleccionar el nombre del grupo de recursos para abrir la página del grupo de recursos y, a continuación, seleccionar **Eliminar grupo de recursos**. Al eliminar el grupo de recursos, se eliminan tanto el clúster de HDInsight Spark como la cuenta de almacenamiento predeterminada.
 
-## <a name="next-steps"></a>Pasos siguientes 
+### <a name="piecemeal-clean-up-with-powershell-az-module"></a>Limpieza por etapas con el módulo Az de PowerShell
+
+```powershell
+# Removes the specified HDInsight cluster from the current subscription.
+Remove-AzHDInsightCluster `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $clusterName
+
+# Removes the specified storage container.
+Remove-AzStorageContainer `
+    -Name $clusterName `
+    -Context $defaultStorageContext
+
+# Removes a Storage account from Azure.
+Remove-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $defaultStorageAccountName
+
+# Removes a resource group.
+Remove-AzResourceGroup `
+    -Name $resourceGroupName
+```
+
+## <a name="next-steps"></a>Pasos siguientes
 
 En esta guía de inicio rápido, ha aprendido a crear un clúster de HDInsight Spark y a ejecutar una consulta básica de Spark SQL. Continúe hasta el siguiente tutorial para obtener información sobre cómo usar un clúster de Spark de HDInsight para ejecutar consultas interactivas en datos de ejemplo.
 

@@ -12,18 +12,18 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/23/2019
+ms.date: 04/24/2019
 ms.author: pepogors
-ms.openlocfilehash: a0174a5442de7a10e45e9dc2a2f43f5f401d1a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051d6b1129724ce4e8a67bde4e56ebe61cd832f3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803168"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231370"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Procedimientos recomendados para aplicaciones y clústeres de Azure Service Fabric
 
-Para administrar clústeres y aplicaciones de Azure Service Fabric correctamente, hay operaciones muy recomendables que se pueden realizar para optimizar la confiabilidad del entorno de producción. Realice las operaciones definidas en este documento y seleccione una de nuestras [plantillas de clúster de Service Fabric de los ejemplos de Azure](https://github.com/Azure-Samples/service-fabric-cluster-templates) para comenzar a diseñar la solución de producción o para modificar la plantilla existente con el fin de incorporar estos procedimientos.
+Para administrar clústeres y las aplicaciones de Azure Service Fabric correctamente, hay operaciones que se recomienda encarecidamente que realiza para optimizar la confiabilidad del entorno de producción; Por favor, realice las operaciones definidas en este documento y seleccione uno de nuestros [plantillas de clúster de Service Fabric de ejemplos de Azure](https://github.com/Azure-Samples/service-fabric-cluster-templates) para comenzar a diseñar la solución de producción o modificar la plantilla existente para incorporar estas prácticas.
 
 ## <a name="security"></a>Seguridad 
 
@@ -45,6 +45,10 @@ Para administrar clústeres y aplicaciones de Azure Service Fabric correctamente
 ## <a name="monitoring-and-diagnostics"></a>Supervisión y diagnóstico
 
 * [Procedimientos recomendados para la supervisión y diagnóstico de clústeres](service-fabric-best-practices-monitoring.md)
+
+## <a name="application-design"></a>Diseño de aplicación
+
+* [Procedimientos recomendados para diseñar aplicaciones](service-fabric-best-practices-applications.md)
 
 ## <a name="checklist"></a>Lista de comprobación
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: harijay
-ms.openlocfilehash: c6611c75e61f7e381efd2e437b8281cc70601215
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 31811d3d48f791e11bd6b709f59f5f6aaa18be0e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141054"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442117"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola de serie de Azure para Windows
 
-La consola serie en el portal de Azure proporciona acceso a una consola basada en texto para máquinas virtuales (VM) de Windows y las instancias de (conjunto de escalado de máquinas virtuales) del conjunto de escalado de máquinas virtuales. Esta conexión en serie se conecta al puerto serie COM1 de la máquina virtual o instancia de conjunto de escalado de máquinas virtuales, que proporciona acceso a los que depende del estado del sistema operativo o de red. La consola serie solo puede obtenerse mediante el portal de Azure y se permite únicamente para los usuarios que tienen un rol de acceso de colaborador o superior para el conjunto de escalado de máquina virtual o una máquina virtual.
+La consola serie en el portal de Azure proporciona acceso a una consola basada en texto para máquinas virtuales (VM) de Windows e instancias del conjunto de escalado de máquinas virtuales. Esta conexión en serie se conecta al puerto serie COM1 de la máquina virtual o instancia de conjunto de escalado de máquinas virtuales, que proporciona acceso a los que depende del estado del sistema operativo o de red. La consola serie solo puede obtenerse mediante el portal de Azure y se permite únicamente para los usuarios que tienen un rol de acceso de colaborador o superior para el conjunto de escalado de máquina virtual o una máquina virtual.
 
 Consola serie funciona de la misma manera para las máquinas virtuales e instancias del conjunto de escalado de máquinas virtuales. En este documento, todas las menciones a las máquinas virtuales incluirá implícitamente instancias del conjunto de escalado de máquina virtual, a menos que se indique lo contrario.
 

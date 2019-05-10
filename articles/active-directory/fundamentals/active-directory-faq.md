@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f602b5f9809e5bbe0b1efb52cfa66877a31a2170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f29ab7b908184533885929040ca8eccf56cda92d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249561"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464412"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Preguntas más frecuentes sobre Azure Active Directory
 Azure Active Directory (Azure AD) es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
@@ -59,7 +59,7 @@ Además, los servicios de pago de Azure AD, como Enterprise Mobility + Security,
 - - -
 **P: ¿Existe un informe que muestra cuándo expirarán mis licencias de usuario de Azure AD?**
 
-**R:**  No.  No está disponible actualmente.
+**R:** No.  No está disponible actualmente.
 
 - - -
 
@@ -145,7 +145,7 @@ Se refiere a las contraseñas que son comunes a nivel global, como las variantes
 
 Tenemos una puerta de enlace que filtra las solicitudes y proporciona alguna protección contra los botnets, y se aplica a todos los inquilinos B2C.
 
-## <a name="application-access"></a>Acceso a las aplicaciones
+## <a name="application-access"></a>Acceso a la aplicación
 
 **P: ¿Dónde puedo encontrar una lista de las aplicaciones preintegradas en Azure AD y sus funcionalidades?**
 
@@ -210,4 +210,4 @@ Para más información, consulte [Automatización del aprovisionamiento y desapr
 - - -
 **P:  ¿Puedo configurar una conexión LDAP segura con Azure Active Directory?**
 
-**R:**   No. Azure AD no admite el protocolo LDAP. Sin embargo, pude configurar un LDAP seguro con Azure AD Domain Services.
+**R:**  No. Azure AD no admite el protocolo del Protocolo ligero de acceso a directorios (LDAP). Sin embargo, es posible usar Azure AD Domain Services (Azure AD DS) con grupos de seguridad de red configuradas correctamente a través de redes de Azure para lograr la conectividad LDAP. Para obtener más información, consulta https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.

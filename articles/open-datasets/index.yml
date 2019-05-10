@@ -1,0 +1,30 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de la versión preliminar de Open Datasets
+metadata:
+  title: 'Documentación de la versión preliminar de Azure Open Datasets: tutoriales y referencia de API | Microsoft Docs'
+  description: 'Obtenga información sobre cómo usar las instancias de Azure Open Datasets: datos seleccionados y limpios que puede usar con una preparación mínima. Las instancias de Open Datasets son datos públicos (por ejemplo, meteorológicos, de censos o de días festivos) que pueden enriquecer los modelos de Machine Learning. Los documentos de referencia de API, ejemplos y tutoriales le muestran cómo hacerlo.'
+  ms.service: open-datasets
+  ms.topic: landing-page
+  author: cjgronlund
+  ms.author: cgronlun
+  ms.date: 05/02/2019
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+abstract:
+  description: 'Obtenga información sobre cómo usar las instancias de Azure Open Datasets: datos seleccionados y limpios que puede usar con una preparación mínima. Las instancias de Open Datasets incluyen datos públicos (por ejemplo, meteorológicos, de censos o de días festivos) que pueden enriquecer los modelos de Machine Learning. Los documentos de referencia de API, ejemplos y tutoriales le muestran cómo hacerlo.'
+sections:
+  - title: Tutorial detallado
+    items:
+      - type: paragraph
+        text: <a href="tutorial-opendatasets-automl">Creación de un modelo de regresión con aprendizaje automático automatizado</a>
+  - title: Ejemplos
+    items:
+      - type: paragraph
+        text: <a href="samples">Cuadernos para el enriquecimiento de conjuntos de datos</a>
+  - title: Referencia
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/open-datasets-api">Referencia de API</a>'

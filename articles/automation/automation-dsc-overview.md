@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: da746d80e3ae1fa5cc02683a8bb0ff0402722b8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 926629660c9593c59362bd1bc49c5115ac5e3187
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61071475"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441056"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Introducción a Azure Automation State Configuration
 
@@ -62,7 +62,7 @@ Para los nodos que ejecutan Linux, se admiten las siguientes versiones o distrib
 
 La extensión DSC Linux es compatible con todas las distribuciones de Linux [aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) excepto:
 
-Distribución | `Version`
+Distribución | Version
 -|-
 Debian  | Todas las versiones
 Ubuntu  | 18,04
@@ -82,6 +82,16 @@ Si los nodos se encuentran en una red privada, los siguientes puertos y direccio
 * Direcciones URL globales de US Gov Virginia: *.azure-automation.us
 * Servicio de agente: https://\<workspaceId\>.agentsvc.azure-automation.net
 
+#### <a name="proxy-support"></a>Compatibilidad con servidores proxy
+
+Compatibilidad con el proxy para el agente DSC está disponible en Windows 1809 y versiones posteriores.
+Para configurar esta opción, establezca el valor de **ProxyURL** y **ProxyCredential** en el [metaconfiguración script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) usa para registrar los nodos.
+Proxy no está disponible en DSC para versiones anteriores de Windows.
+
+Para los nodos de Linux, el agente de DSC es compatible con proxy y utilizará la variable http_proxy para determinar la dirección url.
+
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Espacio de nombres e intervalos de red de configuración de estado de azure
+
 Se recomienda utilizar las direcciones mostradas al definir las excepciones. Puede descargar los [intervalos de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Este archivo se actualiza semanalmente y tiene los intervalos implementados en ese momento y los próximos cambios en los intervalos de direcciones IP.
 
 Si tiene una cuenta de Automation definida para una región específica, puede restringir la comunicación con ese centro de datos regional. En la tabla siguiente se proporciona el registro de DNS para cada región:
@@ -99,7 +109,7 @@ Si tiene una cuenta de Automation definida para una región específica, puede r
 | Este de Japón |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Sudeste de Australia |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | Sur de Reino Unido 2 | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| Gobierno de EE. UU. - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Para obtener una lista de direcciones IP de regiones en lugar de nombres de regiones, descargue el archivo XML [Direcciones IP de los centros de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) desde el Centro de descarga de Microsoft.
 

@@ -1,0 +1,341 @@
+---
+title: Tutorial Diseño de una base de datos multiinquilino con Azure Database for PostgreSQL Hiperscala (Citus) (versión preliminar)
+description: Este tutorial muestra cómo crear, rellenar y consultar tablas distribuidas en Azure Database for PostgreSQL Hiperscala (Citus) (versión preliminar).
+author: jonels-msft
+ms.author: jonels
+ms.service: postgresql
+ms.subservice: hyperscale-citus
+ms.custom: mvc
+ms.devlang: azurecli
+ms.topic: tutorial
+ms.date: 05/06/2019
+ms.openlocfilehash: b135baf73e21cd524b6e8fad35452362f36cf0c0
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65079550"
+---
+# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: Diseño de una base de datos multiinquilino con Azure Database for PostgreSQL Hiperscala (Citus) (versión preliminar)
+
+En este tutorial, usará Azure Database for PostgreSQL Hiperscala (Citus) (versión preliminar) para aprender lo siguiente:
+
+> [!div class="checklist"]
+> * Creación de un grupo de servidores Hiperescala (Citus)
+> * Uso de la utilidad psql para crear un esquema
+> * Particiones de tablas entre nodos
+> * Ingesta de datos de ejemplo
+> * Consulta de datos de inquilino
+> * Datos compartidos entre los inquilinos
+> * Personalización de esquema por inquilino
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
+
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
+
+Inicie sesión en el [Azure Portal](https://portal.azure.com).
+
+## <a name="create-an-azure-database-for-postgresql"></a>Creación de una instancia de Azure Database for PostgreSQL
+
+Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
+1. Haga clic en **Crear un recurso** de la esquina superior izquierda de Azure Portal.
+2. En la página **Nuevo**, seleccione **Bases de datos** y, en la página **Bases de datos**, seleccione **Azure Database for PostgreSQL**.
+3. Para la opción de implementación, haga clic en el botón **Crear** en **Hyperscale (Citus) server group - PREVIEW** (Grupo de servidores Hiperescala (Citus): VERSIÓN PRELIMINAR).
+4. Rellene el formulario del nuevo servidor con la siguiente información:
+   - Grupo de recursos: haga clic en el vínculo **Crear nuevo** que está debajo de este cuadro de texto para este campo. Escriba un nombre como **myresourcegroup**.
+   - Nombre del grupo de servidores: escriba un nombre único para el nuevo grupo de servidores, que también se usará para un subdominio de servidor.
+   - Nombre de usuario administrador: escriba un nombre de usuario único, que se usará más adelante para conectarse a la base de datos.
+   - Contraseña: debe contener al menos ocho caracteres de las tres categorías siguientes: letras mayúsculas del alfabeto inglés, letras minúsculas del alfabeto inglés, números (0-9) y caracteres no alfanuméricos (!, $, #, %, etc.)
+   - Ubicación: use la ubicación más cercana a los usuarios para que puedan acceder de la forma más rápida posible a los datos.
+
+   > [!IMPORTANT]
+   > El inicio de sesión y la contraseña de administrador del servidor que especifique aquí serán necesarios para iniciar sesión más adelante en ese servidor y en las bases de datos que se especificarán en este tutorial. Recuerde o grabe esta información para su uso posterior.
+
+5. Haga clic en **Configurar grupo de servidores**. No modifique los valores de esa sección y haga clic en **Guardar**.
+6. Haga clic en **Revisar y crear**  y luego en **Crear** para aprovisionar el servidor. El aprovisionamiento tarda unos minutos.
+7. La página irá a la supervisión de la implementación. Cuando el estado activo cambia de **La implementación está en curso** a **Se completó la implementación**, haga clic en el elemento de menú **Salidas** que se encuentra a la izquierda de la página.
+8. La página de resultados incluirá un nombre de host de coordinación junto a un botón para copiar el valor en el Portapapeles. Anote esta información para usarla más adelante.
+
+## <a name="configure-a-server-level-firewall-rule"></a>Configuración de una regla de firewall de nivel de servidor
+
+El servicio Azure Database for PostgreSQL usa un firewall en el nivel de servidor. De manera predeterminada, el firewall impide que todas las herramientas y aplicaciones externas se conecten al servidor y a cualquier base de datos del servidor. Debemos agregar una regla para abrir el firewall en un intervalo específico de direcciones IP.
+
+1. Desde la sección **Salidas** donde anteriormente copió el nombre de host del nodo de coordinación, haga clic en Atrás para volver al elemento de menú **Información general**.
+
+2. Busque el grupo de escalado correspondiente a la implementación en la lista de recursos y haga clic en él. (Su nombre tendrá el prefijo "sg-".)
+
+3. Haga clic en **Firewall** en **Seguridad**, en el menú de la izquierda.
+
+4. Haga clic en el vínculo **+ Agregar regla de firewall para la dirección IP del cliente actual**. Por último, haga clic en el botón **Guardar**.
+
+5. Haga clic en **Save**(Guardar).
+
+   > [!NOTE]
+   > El servidor Azure PostgreSQL se comunica a través de puerto 5432. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 5432. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 5432.
+   >
+
+## <a name="connect-to-the-database-using-psql-in-cloud-shell"></a>Conexión a la base de datos mediante psql en Cloud Shell
+
+Ahora vamos a usar la utilidad de línea de comandos [psql](https://www.postgresql.org/docs/current/app-psql.html) para conectarnos al servidor de Azure Database for PostgreSQL.
+1. Inicie Azure Cloud Shell desde el icono del terminal en el panel de navegación superior.
+
+   ![Azure Database for PostgreSQL: icono del terminal de Azure Cloud Shell](./media/tutorial-design-database-hyperscale-multi-tenant/psql-cloud-shell.png)
+
+2. Azure Cloud Shell se abrirá en el explorador y podrá escribir comandos de Bash.
+
+   ![Azure Database for PostgreSQL: indicador de Bash de Azure Shell](./media/tutorial-design-database-hyperscale-multi-tenant/psql-bash.png)
+
+3. En el símbolo de sistema de Cloud Shell, conéctese al servidor de Azure Database for PostgreSQL con los comandos psql. El formato siguiente sirve para conectarse a un servidor de Azure Database for PostgreSQL con la utilidad [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
+   ```bash
+   psql --host=<myserver> --username=myadmin --dbname=citus
+   ```
+
+   Por ejemplo, el siguiente comando se conecta a la base de datos predeterminada llamada **citus** en el servidor PostgreSQL **mydemoserver.postgres.database.azure.com** con las credenciales de acceso. Escriba la contraseña de administrador del servidor cuando se le solicite.
+
+   ```bash
+   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
+   ```
+
+## <a name="use-psql-utility-to-create-a-schema"></a>Uso de la utilidad psql para crear un esquema
+
+Una vez conectado a Azure Database for PostgreSQL Hiperescala (Citus) (versión preliminar) mediante psql, puede completar algunas tareas básicas. Este tutorial explica cómo crear una aplicación web que permite a los anunciantes realizar un seguimiento de sus campañas.
+
+Varias empresas pueden usar la aplicación, así que crearemos una tabla que contenga las empresas y otra para sus campañas. En la consola de psql, ejecute estos comandos:
+
+```sql
+CREATE TABLE companies (
+  id bigserial PRIMARY KEY,
+  name text NOT NULL,
+  image_url text,
+  created_at timestamp without time zone NOT NULL,
+  updated_at timestamp without time zone NOT NULL
+);
+
+CREATE TABLE campaigns (
+  id bigserial,
+  company_id bigint REFERENCES companies (id),
+  name text NOT NULL,
+  cost_model text NOT NULL,
+  state text NOT NULL,
+  monthly_budget bigint,
+  blacklisted_site_urls text[],
+  created_at timestamp without time zone NOT NULL,
+  updated_at timestamp without time zone NOT NULL,
+
+  PRIMARY KEY (company_id, id)
+);
+```
+
+Cada campaña pagará por anunciarse. Agregue también una tabla para anuncios, ejecutando el siguiente código en psql después del código anterior:
+
+```sql
+CREATE TABLE ads (
+  id bigserial,
+  company_id bigint,
+  campaign_id bigint,
+  name text NOT NULL,
+  image_url text,
+  target_url text,
+  impressions_count bigint DEFAULT 0,
+  clicks_count bigint DEFAULT 0,
+  created_at timestamp without time zone NOT NULL,
+  updated_at timestamp without time zone NOT NULL,
+
+  PRIMARY KEY (company_id, id),
+  FOREIGN KEY (company_id, campaign_id)
+    REFERENCES campaigns (company_id, id)
+);
+```
+
+Por último, realizaremos un seguimiento de las estadísticas de clics e impresiones por cada anuncio:
+
+```sql
+CREATE TABLE clicks (
+  id bigserial,
+  company_id bigint,
+  ad_id bigint,
+  clicked_at timestamp without time zone NOT NULL,
+  site_url text NOT NULL,
+  cost_per_click_usd numeric(20,10),
+  user_ip inet NOT NULL,
+  user_data jsonb NOT NULL,
+
+  PRIMARY KEY (company_id, id),
+  FOREIGN KEY (company_id, ad_id)
+    REFERENCES ads (company_id, id)
+);
+
+CREATE TABLE impressions (
+  id bigserial,
+  company_id bigint,
+  ad_id bigint,
+  seen_at timestamp without time zone NOT NULL,
+  site_url text NOT NULL,
+  cost_per_impression_usd numeric(20,10),
+  user_ip inet NOT NULL,
+  user_data jsonb NOT NULL,
+
+  PRIMARY KEY (company_id, id),
+  FOREIGN KEY (company_id, ad_id)
+    REFERENCES ads (company_id, id)
+);
+```
+
+Ahora puede ver las tablas recién creadas en la lista de tablas con este comando de psql:
+
+```postgres
+\dt
+```
+
+Las aplicaciones multiinquilino pueden exigir exclusividad solo por inquilino, por lo que todas las claves principales y externas incluyen el identificador de la empresa.
+
+## <a name="shard-tables-across-nodes"></a>Particiones de tablas entre nodos
+
+Una implementación de hiperescala almacena filas de tablas en distintos nodos en función del valor de una columna designada por el usuario. Esta "columna de distribución" indica qué filas pertenecen a qué inquilino.
+
+Vamos a establecer la columna de distribución como company\_id, el identificador del inquilino. En psql, ejecute estas funciones:
+
+```sql
+SELECT create_distributed_table('companies',   'id');
+SELECT create_distributed_table('campaigns',   'company_id');
+SELECT create_distributed_table('ads',         'company_id');
+SELECT create_distributed_table('clicks',      'company_id');
+SELECT create_distributed_table('impressions', 'company_id');
+```
+
+## <a name="ingest-sample-data"></a>Ingesta de datos de ejemplo
+
+Ahora, fuera de psql, en la línea de comandos normal, descargue conjuntos de datos de ejemplo:
+
+```bash
+for dataset in companies campaigns ads clicks impressions geo_ips; do
+  curl -O https://examples.citusdata.com/mt_ref_arch/${dataset}.csv
+done
+```
+
+De vuelta en psql, realice una carga masiva de los datos. No olvide ejecutar psql en el mismo directorio donde descargó los archivos de datos.
+
+```sql
+\copy companies from 'companies.csv' with csv
+\copy campaigns from 'campaigns.csv' with csv
+\copy ads from 'ads.csv' with csv
+\copy clicks from 'clicks.csv' with csv
+\copy impressions from 'impressions.csv' with csv
+```
+
+Estos datos ahora se distribuirán entre nodos de trabajo.
+
+## <a name="query-tenant-data"></a>Consulta de datos de inquilino
+
+Cuando la aplicación solicita datos de un único inquilino, la base de datos puede ejecutar la consulta en un único nodo de trabajo. Las consultas de un único inquilino filtran por un único identificador de inquilino. Por ejemplo, la siguiente consulta filtra `company_id = 5` para anuncios e impresiones. Intente ejecutarla en psql y observe los resultados.
+
+```sql
+SELECT a.campaign_id,
+       RANK() OVER (
+         PARTITION BY a.campaign_id
+         ORDER BY a.campaign_id, count(*) desc
+       ), count(*) as n_impressions, a.id
+  FROM ads as a
+  JOIN impressions as i
+    ON i.company_id = a.company_id
+   AND i.ad_id      = a.id
+ WHERE a.company_id = 5
+GROUP BY a.campaign_id, a.id
+ORDER BY a.campaign_id, n_impressions desc;
+```
+
+## <a name="share-data-between-tenants"></a>Datos compartidos entre los inquilinos
+
+Hasta ahora `company_id` ha distribuido todas las tablas, pero algunos datos no "pertenecen" de manera natural a ningún inquilino en particular y se pueden compartir. Por ejemplo, es posible que todas las empresas de la plataforma de anuncios del ejemplo deseen obtener información geográfica sobre su audiencia según las direcciones IP.
+
+Cree una tabla que contenga información geográfica compartida. Ejecute esto en psql:
+
+```sql
+CREATE TABLE geo_ips (
+  addrs cidr NOT NULL PRIMARY KEY,
+  latlon point NOT NULL
+    CHECK (-90  <= latlon[0] AND latlon[0] <= 90 AND
+           -180 <= latlon[1] AND latlon[1] <= 180)
+);
+CREATE INDEX ON geo_ips USING gist (addrs inet_ops);
+```
+
+A continuación convierta `geo_ips` en una "tabla de referencia" para almacenar una copia de la tabla en cada nodo de trabajo.
+
+```sql
+SELECT create_reference_table('geo_ips');
+```
+
+Cargue en ella datos de ejemplo. No olvide ejecutar esto en psql desde dentro del directorio donde descargó el conjunto de datos.
+
+```sql
+\copy geo_ips from 'geo_ips.csv' with csv
+```
+
+La combinación de la tabla de clics con geo\_ips es eficaz en todos los nodos.
+Esta es una combinación para encontrar las ubicaciones de todas las personas que hicieron clic en el anuncio.
+290. Intente ejecutar la consulta en psql.
+
+```sql
+SELECT c.id, clicked_at, latlon
+  FROM geo_ips, clicks c
+ WHERE addrs >> c.user_ip
+   AND c.company_id = 5
+   AND c.ad_id = 290;
+```
+
+## <a name="customize-the-schema-per-tenant"></a>Personalización de esquema por inquilino
+
+Cada inquilino puede necesitar almacenar información especial que otros no necesitan. Sin embargo, todos los inquilinos comparten una infraestructura común con un esquema de base de datos idéntico. ¿Dónde pueden ubicarse los datos adicionales?
+
+Un truco consiste en usar un tipo de columna abierto, como JSONB de PostgreSQL.  Nuestro esquema tiene un campo JSONB en `clicks` llamado `user_data`.
+Una empresa (por ejemplo, la número cinco) puede usar la columna para realizar un seguimiento que determine si el usuario utiliza un dispositivo móvil.
+
+Esta es una consulta para determinar qué usuarios hacen más clics: los visitantes tradicionales o los usuarios de dispositivos móviles.
+
+```sql
+SELECT
+  user_data->>'is_mobile' AS is_mobile,
+  count(*) AS count
+FROM clicks
+WHERE company_id = 5
+GROUP BY user_data->>'is_mobile'
+ORDER BY count DESC;
+```
+
+Podemos optimizar esta consulta para una empresa mediante la creación de un [índice parcial](https://www.postgresql.org/docs/current/static/indexes-partial.html).
+
+```sql
+CREATE INDEX click_user_data_is_mobile
+ON clicks ((user_data->>'is_mobile'))
+WHERE company_id = 5;
+```
+
+Por lo general, podemos crear un [índices GIN](https://www.postgresql.org/docs/current/static/gin-intro.html) en cada clave y valor de la columna.
+
+```sql
+CREATE INDEX click_user_data
+ON clicks USING gin (user_data);
+
+-- this speeds up queries like, "which clicks have
+-- the is_mobile key present in user_data?"
+
+SELECT id
+  FROM clicks
+ WHERE user_data ? 'is_mobile'
+   AND company_id = 5;
+```
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+En los pasos anteriores, creó recursos de Azure en un grupo de recursos. Si no cree que vaya a necesitar estos recursos en el futuro, elimine el grupo de servidores. Presione el botón *Eliminar* en la página *Información general* del grupo de servidores. Cuando aparezca una página emergente en la que se le pida hacerlo, confirme el nombre del grupo de servidores y haga clic en el botón *Eliminar* final.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial, aprendió a aprovisionar un grupo de servidores Hiperescala (Citus). Se conectó a él con psql, creó un esquema y distribuyó datos. Ha aprendido a consultar los datos dentro de los inquilinos y entre ellos, así como a personalizar el esquema por inquilino.
+
+A continuación, conozca los conceptos de hiperescala.
+> [!div class="nextstepaction"]
+> [Tipos de nodo de hiperescala](https://aka.ms/hyperscale-concepts)

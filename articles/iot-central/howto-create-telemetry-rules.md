@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0fb7cdaa24d139549545c93c920d60936d3c9fc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de4fba88784f41485b446f0f31cccb9a43092a3c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886126"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464323"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creación de una regla de telemetría y configuración de las notificaciones en la aplicación de Azure IoT Central
 
@@ -31,19 +31,19 @@ Para crear una regla de telemetría, la plantilla de dispositivos debe tener def
 
 1. Si aún no ha creado ninguna regla, consulte la siguiente pantalla:
 
-    ![No hay ninguna regla todavía](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
+    ![No hay ninguna regla todavía](media/howto-create-telemetry-rules/rules_landing_page1.png)
 
 1. En el **reglas** ficha, seleccione **+ nueva regla** para ver los tipos de reglas que puede crear.
 
 1. Seleccione **telemetría** para crear una regla para supervisar la telemetría del dispositivo.
 
-    ![Tipos de regla](media/howto-create-telemetry-rules/Rule_Types.png)
+    ![Tipos de regla](media/howto-create-telemetry-rules/rule_types1.png)
 
 1. Escriba un nombre que le ayude a identificar la regla en esta plantilla de dispositivos.
 
 1. Para habilitar inmediatamente la regla para todos los dispositivos creados a partir esta plantilla, cambie el valor de **Enable rule for all devices of this template** (Habilitar regla para todos los dispositivos de esta plantilla).
 
-   ![Detalle de la regla](media/howto-create-telemetry-rules/Rule_Detail.png)
+   ![Detalle de la regla](media/howto-create-telemetry-rules/rule_detail1.png)
 
     La regla se aplica automáticamente a todos los dispositivos de la plantilla de dispositivos.
 
@@ -59,7 +59,7 @@ La condición define los criterios que la regla supervisa.
    - La agregación es opcional. Sin la agregación, la regla se desencadena para cada punto de datos de telemetría que cumple la condición. Por ejemplo, si se configura la regla se activa cuando la temperatura es superior a 80, a continuación, la regla genera casi al instante cuando el dispositivo notifica temperatura > 80.
    - Si se elige una función de agregado, como Promedio, Mín., Máx., Recuento, el usuario debe proporcionar una **ventana de tiempo agregado** en la cual debe evaluarse la condición. Por ejemplo, si establece el período como "5 minutos" y la regla busca la temperatura promedio por encima de 80, la regla se desencadena cuando la temperatura promedio está por encima de 80 durante al menos 5 minutos. La frecuencia de evaluación de la regla es la misma que la **ventana de tiempo agregado**, lo que significa que, en este ejemplo, la regla se evalúa una vez cada 5 minutos.
 
-     ![Condición](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
+     ![Condición](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
      >En **Condición** se puede agregar más de una medición de datos de telemetría. Cuando se especifican varias condiciones, deben cumplirse todas ellas para que la regla se desencadene. Cada condición se une mediante una cláusula "AND" de manera implícita. Al usar el agregado, se debe agregar cada medida.
@@ -70,14 +70,14 @@ En esta sección se muestra cómo configurar las acciones que se realizarán cua
 
 1. Seleccione **+** junto a **Acciones**. Aquí puede ver la lista de acciones disponibles.  
 
-    ![Adición de acción](media/howto-create-telemetry-rules/Add_Action.png)
+    ![Adición de acción](media/howto-create-telemetry-rules/add_action1.png)
 
 1. Elija la acción **Correo electrónico**, escriba una dirección de correo electrónico válida en el campo **Para** y proporcione una nota que aparecerá en el cuerpo del correo electrónico cuando la regla se desencadene.
 
     > [!NOTE]
     > Solo se envían mensajes de correo electrónico a los usuarios que se han agregado a la aplicación y han iniciado sesión al menos una vez. Obtenga más información sobre la [administración de usuarios](howto-administer.md) en Azure IoT Central.
 
-   ![Configuración de acción](media/howto-create-telemetry-rules/Configure_Action.png)
+   ![Configuración de acción](media/howto-create-telemetry-rules/configure_action1.png)
 
 1. Para guardar la regla, elija **Guardar**. La regla está activa en unos minutos e inicia la supervisión de telemetría que se envía a la aplicación. Cuando se cumple la condición especificada en la regla, la regla desencadena la acción de correo electrónico configurada.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cbecdb39a35339bd0b3f4d3d29d7893cdab0ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7d1de50e6b1b673a2613a893c19633bbd4bd43fd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835369"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409261"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines de IBM Db2 para carga de trabajo de SAP
 
@@ -158,7 +158,7 @@ ms.locfileid: "60835369"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "60835369"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -319,7 +319,7 @@ Hay varios artículos publicados sobre la carga de trabajo de SAP en Azure.  Se 
 
 Las notas de SAP siguientes están relacionadas con SAP en Azure con respecto al área que se describe en este documento:
 
-| Número de nota | Título |
+| Número de nota | Puesto |
 | --- | --- |
 | [1928533] |SAP Applications on Azure: Supported Products and Azure VM Types (Aplicaciones de SAP en Azure: productos y tipos de máquina virtual de Azure compatibles) |
 | [2015553] |SAP on Microsoft Azure: Support Prerequisites (Requisitos previos de soporte técnico de SAP en Microsoft Azure) |
@@ -342,7 +342,7 @@ SAP en IBM Db2 para LUW en los servicios de máquina Virtual de Microsoft Azure 
 Para más información de los tipos de máquina virtual de Azure y los productos de SAP compatibles, consulte la nota de SAP [1928533].
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM Db2 para Linux, UNIX y directrices de configuración de Windows para las instalaciones de SAP en máquinas virtuales de Azure
-### <a name="storage-configuration"></a>Configuración de almacenamiento
+### <a name="storage-configuration"></a>Configuración de Storage
 Todos los archivos de las bases de datos se deben almacenar en el sistema de archivos NTFS basado en discos conectados directamente. Estos discos se montan en la máquina virtual de Azure y se basan en Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) o en Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). **NINGÚN** tipo de unidad de red o recurso compartido remoto, como los siguientes servicios de archivos de Azure, es compatible con archivos de bases de datos: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
@@ -360,11 +360,11 @@ También puede usar grupos de almacenamiento de Windows (solo disponibles en Win
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-Para los discos que contienen las rutas de acceso de almacenamiento de Db2 para los directorios de directorios sapdata y saptmp, debe especificar un tamaño de sector de disco físico de 512 KB. Si usa bloques de almacenamiento de Windows, debe crearlos manualmente en la interfaz de la línea de comandos con el parámetro `-LogicalSectorSizeDefault`. Para más información, consulte <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+Para los discos que contienen las rutas de acceso de almacenamiento de Db2 para los directorios de directorios sapdata y saptmp, debe especificar un tamaño de sector de disco físico de 512 KB. Si usa bloques de almacenamiento de Windows, debe crearlos manualmente en la interfaz de la línea de comandos con el parámetro `-LogicalSectorSizeDefault`. Para obtener más información, consulta <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
 Para la máquina virtual de Azure de la serie M, se puede reducir la latencia de escritura en los registros de transacciones mediante factores, en comparación con el rendimiento de Azure Premium Storage, cuando se usa el Acelerador de escritura de Azure. Por lo tanto, debe implementar el Acelerador de escritura de Azure para los discos duros virtuales que forman el volumen para los registros de transacciones de Db2. En el documento [Acelerador de escritura](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) se pueden leer los detalles.
 
-### <a name="backuprestore"></a>Copia de seguridad y restauración
+### <a name="backuprestore"></a>Copia de seguridad o restauración
 En la misma manera que en el estándar de los sistemas operativos Windows Server y Hyper-V, se admite la funcionalidad de copia de seguridad y restauración para IBM Db2 para LUW.
 
 Debe asegurarse de seguir una estrategia establecida de copias de seguridad de bases de datos válida. 

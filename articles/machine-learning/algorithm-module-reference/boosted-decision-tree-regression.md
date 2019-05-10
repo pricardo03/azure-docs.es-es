@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b4ebf1740ec2b0288d8052cb075a61b720b031a2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 67e54f10074ee566ce974dbd27485904bfe0a653
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028341"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411544"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regresión de árbol de decisión impulsado
 
@@ -45,7 +45,7 @@ Para obtener más información, consulte estos artículos:
 
     Este artículo de Wikipedia sobre potenciación del gradiente proporciona cierta información general sobre los árboles impulsados. 
   
--  [http://research.microsoft.com/apps/pubs/default.aspx?id=132652](http://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
+-  [https://research.microsoft.com/apps/pubs/default.aspx?id=132652](https://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
 
     Microsoft Research: De RankNet a lambdarank y a LambdaMART: Información general. Por J.C. Burges.
 
@@ -88,7 +88,7 @@ También se pueden usar el método de potenciación de gradientes para problemas
 
 10. Ejecute el experimento.  
   
-### <a name="results"></a>Results
+### <a name="results"></a>Resultados
 
 Una vez completada la formación:
 

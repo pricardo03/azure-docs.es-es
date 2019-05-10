@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918409"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463623"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -64,8 +64,8 @@ Para poder asociar o agregar su suscripción, debe realizar las siguientes tarea
 
     Se cambia el directorio de la suscripción y se muestra un mensaje de confirmación.
 
-    ![Mensaje de confirmación sobre el cambio de directorio](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
-4. Use la **modificador del directorio** para ir a su nuevo directorio. Puede tardar hasta 10 minutos para que todo se muestre correctamente.
+    ![Mensaje de confirmación sobre el cambio de directorio](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+4. Use la **modificador del directorio** para ir a su nuevo directorio. Puede tardar varias horas para que todo se muestre correctamente. Si parece que esté tardando demasiado, asegúrese de comprobar la **filtro de suscripción Global** para la suscripción ha movido, para asegurarse de que simplemente no ocultarlo.
 
     ![Página de modificador Directory, con información de ejemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

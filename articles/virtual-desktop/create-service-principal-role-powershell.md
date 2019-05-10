@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400023"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146141"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell
 
@@ -111,5 +111,5 @@ Estas son las tres credenciales que debe anotar y los cmdlets que necesita para 
 
 En este tutorial aprendió a crear una entidad de servicio y a iniciar sesión en Windows Virtual Desktop con ella. Para más información sobre el inicio de sesión en Windows Virtual Desktop, continúe con los procedimientos de conexión a Windows Virtual Desktop.
 
-- [Conexión al cliente de Escritorio remoto en Windows 7 y Windows 10](connect-windows-7-and-10.md)
-- [Conexión al cliente web de la versión preliminar de Windows Virtual Desktop](connect-web.md)
+- [Conexión desde Windows 10 o Windows 7](connect-windows-7-and-10.md)
+- [Conexión desde un explorador web](connect-web.md)

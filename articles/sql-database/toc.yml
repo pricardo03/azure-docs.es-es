@@ -462,6 +462,8 @@
           href: sql-database-managed-instance-create-vnet-subnet.md
         - name: Configuración de una red virtual y una subred ya existentes para Instancia administrada
           href: sql-database-managed-instance-configure-vnet-subnet.md
+        - name: Eliminación de subred después de eliminar una instancia administrada
+          href: sql-database-managed-instance-delete-virtual-cluster.md
         - name: Configuración de DNS personalizado
           href: sql-database-managed-instance-custom-dns.md
         - name: Sincronización de la configuración de red

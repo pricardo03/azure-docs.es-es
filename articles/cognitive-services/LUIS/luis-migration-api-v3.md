@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d0b5537f31edf330b54b91ddf7268338df0c0a6b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6412f0a2e295a19f741c70e7870a4d198ee03b71
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148273"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233551"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Vista previa: Migrar a la API versión 3.x para aplicaciones de LUIS
 
@@ -43,10 +43,6 @@ Son las siguientes características de LUIS **no admite** en la API de V3:
 * Bing Spell Check V7
 
 [Documentación de referencia](https://aka.ms/luis-api-v3) está disponible para V3.
-
-## <a name="prebuilt-domains-with-new-models-and-language-coverage"></a>Dominios creados previamente con los nuevos modelos y la cobertura de idiomas
-
-Revise el [lista de API de V3 de dominios creados previamente](luis-reference-prebuilt-domains.md). Estos dominios son más completos, tanto en el modelo y la cobertura de idiomas. 
 
 ## <a name="prebuilt-entities-with-new-json"></a>Entidades precompiladas con JSON nuevo
 
@@ -164,7 +160,7 @@ En la versión 2, el `entities` matriz devuelve todas las entidades de predicci�
 
 En el siguiente ejemplo: considere la posibilidad de una declaración que incluye el texto, `Yellow Bird Lane`. Este texto se prevé sea un personalizado `Location` rol de la entidad de `Destination`.
 
-|Texto utterance (dictado)|Nombre de entidad|Nombre de rol|
+|Texto utterance (dictado)|Nombre de entidad|Nombre del rol|
 |--|--|--|
 |`Yellow Bird Lane`|`Location`|`Destination`|
 

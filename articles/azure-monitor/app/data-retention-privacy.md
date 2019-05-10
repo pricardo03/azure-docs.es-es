@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0f8f1c5585eb13506baea1e5ddbe611cc931758e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899255"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204884"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recopilación, retención y almacenamiento de datos en Application Insights
 
@@ -87,7 +87,7 @@ Los puntos de datos sin procesar (es decir, elementos que puede consultar en Ana
 
 Los datos agregados (es decir, recuentos, promedios y otros datos estadísticos que se ven en el Explorador de métricas) se retienen con un nivel de detalle de un minuto durante 90 días.
 
-Las [instantáneas de depuración](../../azure-monitor/app/snapshot-debugger.md) se guardan durante siete días. Esta directiva de retención se establece para cada aplicación. Si necesita aumentar este valor, puede solicitar un aumento abriendo una incidencia de soporte técnico en Azure Portal.
+[Depuración de instantáneas](../../azure-monitor/app/snapshot-debugger.md) se almacenan durante quince días. Esta directiva de retención se establece para cada aplicación. Si necesita aumentar este valor, puede solicitar un aumento abriendo una incidencia de soporte técnico en Azure Portal.
 
 ## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 Usted puede ver los datos y, si tiene una cuenta de organización, también pueden los miembros del equipo. 
@@ -101,7 +101,7 @@ Microsoft usa los datos con el fin exclusivo de proporcionarle el servicio.
 * En EE. UU., Europa o el Sudeste Asiático. Puede seleccionar la ubicación cuando se crea un nuevo recurso de Application Insights. 
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>¿Significa que la aplicación tiene que estar hospedada en Estados Unidos, Europa o el Sudeste Asiático?
-* No. La aplicación puede ejecutarse desde cualquier lugar, en sus propios hosts locales o en la nube.
+*  No. La aplicación puede ejecutarse desde cualquier lugar, en sus propios hosts locales o en la nube.
 
 ## <a name="how-secure-is-my-data"></a>¿Están seguros mis datos?
 Application Insights es un servicio de Azure. Las directivas de seguridad se describen en las [notas del producto de seguridad, privacidad y cumplimiento de Azure](https://go.microsoft.com/fwlink/?linkid=392408).

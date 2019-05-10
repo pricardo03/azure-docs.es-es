@@ -50,11 +50,11 @@ Los campos y las convenciones siguientes se aplican a VMConnection y VMBoundPort
 
 Para administrar el costo y la complejidad, los registros de conexión no representan conexiones de red físicas individuales. Varias conexiones de red físicas se agrupan en una conexión lógica, que, a continuación, se refleja en la tabla correspondiente.  Lo que significa que los registros de la tabla *VMConnection* representan una agrupación lógica, y no las conexiones físicas individuales que se observan. Las conexiones de red físicas que comparten el mismo valor para los siguientes atributos durante un intervalo determinado de un minuto se agregan en un registro lógico único en *VMConnection*. 
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
-|Dirección |Dirección de la conexión; el valor es *inbound* u *outbound* |
-|Máquina |FQDN del equipo |
-|Proceso |Identidad de proceso o grupos de procesos; iniciar/aceptar la conexión |
+|Direction |Dirección de la conexión; el valor es *inbound* u *outbound* |
+|Machine |FQDN del equipo |
+|Process |Identidad de proceso o grupos de procesos; iniciar/aceptar la conexión |
 |SourceIp |Dirección IP de origen |
 |DestinationIp |Dirección IP de destino. |
 |DestinationPort |Número de puerto de destino |
@@ -62,7 +62,7 @@ Para administrar el costo y la complejidad, los registros de conexión no repres
 
 Para tener en cuenta el impacto de la agrupación, se proporciona información sobre el número de conexiones físicas agrupadas en las siguientes propiedades del registro:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 |LinksEstablished |Número de conexiones de red físicas que se han establecido durante el período de tiempo de generación de informes |
 |LinksTerminated |Número de conexiones de red físicas que han finalizado durante el período de tiempo de generación de informes |
@@ -73,7 +73,7 @@ Para tener en cuenta el impacto de la agrupación, se proporciona información s
 
 Además de las métricas de recuento de conexión, también se incluye información sobre el volumen de datos enviado y recibido en una conexión lógica o puerto de red concreto en las siguientes propiedades del registro:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 |BytesSent |Número total de bytes enviados durante el período de tiempo de generación de informes |
 |BytesReceived |Número total de bytes recibidos durante el período de tiempo de generación de informes |
@@ -99,7 +99,7 @@ Para mayor comodidad, la dirección IP del extremo remoto de una conexión se in
 #### <a name="geolocation"></a>Geolocalización
 *VMConnection* también incluye información de ubicación geográfica para el extremo remoto de cada registro de conexión en las siguientes propiedades del registro: 
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 |RemoteCountry |Nombre del país que hospeda la dirección IP de RemoteIp.  Por ejemplo: *United States* |
 |RemoteLatitude |Latitud de geolocalización. Por ejemplo, *47.68* |
@@ -108,14 +108,14 @@ Para mayor comodidad, la dirección IP del extremo remoto de una conexión se in
 #### <a name="malicious-ip"></a>Direcciones IP malintencionadas
 Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un conjunto de direcciones IP con actividad malintencionada conocida. Si el valor de RemoteIp se identifica como malintencionado, las propiedades siguientes se completarán (si la IP no se considera malintencionada, están vacías) en las siguientes propiedades del registro:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 |MaliciousIP |Dirección RemoteIp |
 |IndicatorThreadType |El indicador de amenazas detectado es uno de los siguientes valores: *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|DESCRIPCIÓN |Descripción de la amenaza observada. |
+|Descripción |Descripción de la amenaza observada. |
 |TLPLevel |Nivel de protocolo de semáforo (TLP) es uno de los valores definidos: *blanco*, *verde*, *ámbar*, *rojo*. |
-|Confianza |Los valores válidos se encuentran entre *0 y 100*. |
-|Gravedad |Los valores se encuentran entre *0 y 5*, donde *5* es el más grave y *0* no es grave en absoluto. El valor predeterminado es *3*.  |
+|Confidence |Los valores válidos se encuentran entre *0 y 100*. |
+|Severity |Los valores se encuentran entre *0 y 5*, donde *5* es el más grave y *0* no es grave en absoluto. El valor predeterminado es *3*.  |
 |FirstReportedDateTime |La primera vez que el proveedor informó sobre el indicador. |
 |LastReportedDateTime |La última vez que Interflow ha visto el indicador. |
 |IsActive |Indica que los indicadores se desactivan con el valor *True* o *False*. |
@@ -134,9 +134,9 @@ Puertos en una máquina que activamente acepten el tráfico entrante o potencial
 
 Todos los registros de VMBoundPort se identifican mediante los siguientes campos: 
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
-|Proceso | Identidad de proceso (o grupos de procesos) que está asociado con el puerto.|
+|Process | Identidad de proceso (o grupos de procesos) que está asociado con el puerto.|
 |Ip | Dirección IP de puerto (puede ser la dirección IP de carácter comodín, *0.0.0.0*) |
 |Port |El número de puerto |
 |Protocol | El protocolo.  Ejemplo, *tcp* o *udp* (sólo *tcp* actualmente se admite).|
@@ -160,7 +160,7 @@ A continuación se incluyen puntos importantes que debe tener en cuenta:
 ### <a name="servicemapcomputercl-records"></a>Registros de ServiceMapComputer_CL
 Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario para servidores con Dependency Agent. Estos registros tienen las propiedades de la tabla siguiente:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 | Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
@@ -185,7 +185,7 @@ Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario 
 ### <a name="servicemapprocesscl-type-records"></a>Registros con un tipo ServiceMapProcess_CL
 Los registros con un tipo *ServiceMapProcess_CL* tienen datos de inventario para procesos con conexión TCP en servidores con Dependency Agent. Estos registros tienen las propiedades de la tabla siguiente:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--|:--|
 | Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |

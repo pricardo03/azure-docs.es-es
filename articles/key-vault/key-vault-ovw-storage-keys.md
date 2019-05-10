@@ -4,21 +4,21 @@ description: Las claves de cuenta de almacenamiento proporcionan una integració
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: mbaldwin
+author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: eefdb4d644c97bb55342e21c9a2fcf0a122a6ec5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 190375700f65cf2d3ea47335a646562eb46b2d49
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724782"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232561"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Cuenta de almacenamiento administrado por Azure Key Vault: CLI
 
 > [!NOTE]
-> [Integración de Azure Storage con Azure Active Directory (Azure AD) está ahora en versión preliminar](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Se recomienda usar Azure AD para la autenticación y autorización, que proporciona acceso basado en tokens OAuth2 a Azure Storage, al igual que Azure Key Vault. Esto le permite:
+> [Integración de azure storage con Azure Active Directory (Azure AD)] es en la nube identidad y acceso de servicio de administración. de Microsoft Integración de Azure AD está disponible para los servicios Blob y cola. (https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Se recomienda usar Azure AD para la autenticación y autorización, que proporciona acceso basado en tokens OAuth2 a Azure Storage, al igual que Azure Key Vault. Esto le permite:
 > - Autenticar la aplicación cliente mediante una identidad de aplicación o usuario, en lugar de las credenciales de cuenta de almacenamiento. 
 > - Usar una [identidad administrada de Azure AD](/azure/active-directory/managed-identities-azure-resources/) cuando se ejecuta en Azure. Las identidades administradas eliminan la necesidad de autenticación del cliente en conjunto y de almacenar las credenciales en la aplicación o con ella.
 > - Utilice el control de acceso basado en rol (RBAC) para administrar la autorización, que también es compatible con Key Vault.

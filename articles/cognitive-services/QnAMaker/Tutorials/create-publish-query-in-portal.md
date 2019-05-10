@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266960"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149926"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Tutorial: Creación de una base de conocimiento desde el portal de QnA Maker
 
@@ -68,7 +68,7 @@ Este tutorial requiere que exista un [servicio QnA Maker](../How-To/set-up-qnama
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |El formato del contenido de las preguntas frecuentes de esa dirección URL es una pregunta seguida de una respuesta. QnA Maker puede interpretar este formato para extraer las preguntas y las respuestas asociadas.|
     |Archivo |_no se usa en este tutorial_|Carga los archivos para las preguntas y respuestas. |
-    |Personalidad de charla|El amigo|Proporciona una personalidad descriptiva y desenfadada a las preguntas y respuestas frecuentes. Dichas preguntas y respuestas de pueden editar más adelante. |
+    |Personalidad de charla|Descriptiva|Proporciona una personalidad descriptiva y desenfadada a las preguntas y respuestas frecuentes. Dichas preguntas y respuestas de pueden editar más adelante. |
 
     ![Paso 4 del proceso de creación de KB](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
@@ -84,9 +84,9 @@ Este tutorial requiere que exista un [servicio QnA Maker](../How-To/set-up-qnama
 
 1. Seleccione la última página de preguntas y respuestas en la parte inferior de la tabla. La página muestra preguntas y respuestas de la personalidad de la charla. 
 
-1. En la barra de herramientas que hay encima de la lista de preguntas y respuestas, seleccione el icono de los metadatos. Muestra las etiquetas de metadatos de cada pregunta y respuesta. Las preguntas de la charla tienen los metadatos **editorial: chit chat** ya establecido. Estos metadatos se devuelven a la aplicación cliente junto con la respuesta seleccionada. La aplicación cliente, como un bot de chat, puede usar estos metadatos filtrados para determinar un procesamiento adicional o las interacciones con el usuario.
+1. En la barra de herramientas que hay encima de la lista de preguntas y respuestas, seleccione el icono **Opciones de vista** y después seleccione **Mostrar metadatos**. Muestra las etiquetas de metadatos de cada pregunta y respuesta. Las preguntas de la charla tienen los metadatos **editorial: chit chat** ya establecido. Estos metadatos se devuelven a la aplicación cliente junto con la respuesta seleccionada. La aplicación cliente, como un bot de chat, puede usar estos metadatos filtrados para determinar un procesamiento adicional o las interacciones con el usuario.
 
-    ![Visualización de etiquetas de metadatos](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![![View Metadata tags](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png#lightbox)
 
 1. Seleccione **Save and train** (Guardar y entrenar) en la barra de menús superior.
 
