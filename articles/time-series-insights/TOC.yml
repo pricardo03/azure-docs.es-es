@@ -40,6 +40,16 @@
           href: time-series-insights-explorer.md
         - name: Descripción de la retención de los datos
           href: time-series-insights-concepts-retention.md
+        - name: Desarrollo
+          items:
+            - name: Autenticación y autorización
+              href: time-series-insights-authentication-and-authorization.md
+            - name: 'Consulta de datos mediante C#'
+              href: time-series-insights-query-data-csharp.md
+            - name: 'Administración de datos de referencia en C#'
+              href: time-series-insights-manage-reference-data-csharp.md
+            - name: Uso compartido de una vista personalizada
+              href: time-series-insights-parameterized-urls.md
     - name: Azure Time Series Insights Preview
       items:
         - name: Planeamiento del entorno
@@ -54,16 +64,12 @@
           href: time-series-insights-update-tsq.md
         - name: Visualización de datos en la versión preliminar del explorador
           href: time-series-insights-update-explorer.md
-    - name: Desarrollo
-      items:
-        - name: Autenticación y autorización
-          href: time-series-insights-authentication-and-authorization.md
-        - name: 'Consulta de datos mediante C#'
-          href: time-series-insights-query-data-csharp.md
-        - name: 'Administración de datos de referencia en C#'
-          href: time-series-insights-manage-reference-data-csharp.md
-        - name: Uso compartido de una vista personalizada
-          href: time-series-insights-parameterized-urls.md
+        - name: Desarrollo
+          items:
+            - name: Autenticación y autorización
+              href: time-series-insights-authentication-and-authorization.md
+            - name: 'Consulta de datos mediante C#'
+              href: time-series-insights-update-query-data-csharp.md
 - name: Guías de procedimientos
   items:
     - name: Concesión de acceso a datos
