@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 02/11/2019
 ms.author: kromerm
-ms.openlocfilehash: ac07373bcdf4bbf0f7bfc5b131ffe4eb26bc3ac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f987b236cbec9bd4dd332213c2ec7eadcb0752e7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478737"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212043"
 ---
 > [!NOTE] 
-> La asignación de Data Flow es una nueva característica de Azure Data Factory. Esta es actualmente la versión preliminar pública limitada y no está sujeta a las disposiciones del Acuerdo de Nivel de Servicio de cliente de Azure. [Para registrarse en la vista previa, solicite acceso aquí](https://aka.ms/dataflowpreview).
+> Azure Data Factory de asignación de flujo de datos es actualmente una característica de versión preliminar pública y no está sujeto a las disposiciones del SLA de cliente de Azure.

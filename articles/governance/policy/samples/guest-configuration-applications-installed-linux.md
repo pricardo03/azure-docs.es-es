@@ -5,18 +5,18 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c8ee73da16f4f3de2378e38d273051355c5c624c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256471"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142839"
 ---
-# <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Ejemplo: Auditar si las aplicaciones especificadas no están instaladas en máquinas virtuales Linux
+# <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Ejemplo: Auditar si las aplicaciones especificadas no están instaladas en máquinas virtuales Linux.
 
-Esta iniciativa de configuración de invitado de directiva audita que la aplicación especificada esté instalada dentro de máquinas virtuales Linux. El identificador de esta iniciativa integrada es `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
+Esta iniciativa de configuración de invitado de directiva crea un evento de auditoría si las aplicaciones especificadas no están instaladas dentro de máquinas virtuales Linux. El identificador de esta iniciativa integrada es `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
 
 > [!IMPORTANT]
 > Todas las iniciativas de configuración de invitado se componen de las definiciones de directiva **audit** y **deployIfNotExists**. La asignación de solo una de las definiciones de directiva hace que la configuración de invitado no funcione.
@@ -32,9 +32,9 @@ Puede asignar este ejemplo mediante:
 
 Esta iniciativa de [configuración de invitado](../concepts/guest-configuration.md) se compone de las siguientes directivas:
 
-- [audit](#audit-definition): audita que una aplicación esté instalada en máquinas virtuales Linux.
+- [audit](#audit-definition): auditar si las aplicaciones no están instaladas en máquinas virtuales Linux.
   - Identificador: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
-- [deployIfNotExists](#deployIfNotExists-definition): implementa la extensión de máquina virtual para auditar que una aplicación está instalada dentro de máquinas virtuales Linux.
+- [deployIfNotExists](#deployIfNotExists-definition): implementar una extensión de máquina virtual para auditar si las aplicaciones no están instaladas dentro de máquinas virtuales Linux.
   - Identificador: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>Definición de iniciativa
@@ -45,7 +45,9 @@ Para crear la iniciativa se combinan las definiciones **audit** y **deployIfNotE
 
 ### <a name="initiative-parameters"></a>Parámetros de iniciativa
 
-|Nombre |Tipo ||Descripción | |---|---||---| |applicationName |Cadena |Nombres de aplicación. Por ejemplo: "python", "powershell" o una lista de valores separados por coma, como "python,powershell". Use \* para la búsqueda de coincidencia con comodines, como "power\*". |
+|NOMBRE |Type |DESCRIPCIÓN |
+|---|---|---|
+|applicationName |string |Nombres de aplicación. Por ejemplo: "python", "powershell" o una lista de valores separados por coma, como "python,powershell". Use \* para la búsqueda de coincidencia con comodines, como "power\*". |
 
 Al crear una asignación a través de PowerShell o la CLI de Azure, los valores de los parámetros se pueden pasar como JSON en una cadena o a través de un archivo mediante `-PolicyParameter` (PowerShell) o `--params` (la CLI de Azure).
 PowerShell también admite `-PolicyParameterObject`, que requiere que se pase al cmdlet una tabla de hash de nombre y valor donde **Nombre** es el nombre del parámetro y **Valor** es un valor único o una matriz de valores que se pasa durante la asignación.

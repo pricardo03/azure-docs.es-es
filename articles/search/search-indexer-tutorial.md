@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: c9413fb78bbb92618818ac4311ab1af8ad65576d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528057"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025081"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial de C#: Cómo rastrear una base de datos SQL de Azure mediante los indexadores de Azure Search
 
@@ -267,7 +267,7 @@ La manera más rápida de borrar el contenido después de un tutorial es elimina
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede asociar algoritmos con inteligencia artificial a una canalización del indexador. Como paso siguiente, continúe con el siguiente tutorial.
+Puede asociar algoritmos de enriquecimiento por IA a una canalización del indexador. Como paso siguiente, continúe con el siguiente tutorial.
 
 > [!div class="nextstepaction"]
 > [Indexación de documentos en Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)

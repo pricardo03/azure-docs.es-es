@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 98c2ad15d836162608affbfbc89908a15e274cee
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528778"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149311"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extracción de datos relacionados contextualmente de una expresión
 
 En este tutorial, busque datos relacionados en función del contexto. Por ejemplo, una ubicación de origen y destino para una transferencia de una ciudad a otra. Ambas partes de datos pueden ser necesarias y están relacionadas entre sí.  
 
-Previamente, este tutorial se escribió mediante entidades jerárquicas. Los roles de entidad reemplazan la necesidad del tipo de entidad jerárquica. Un rol se puede usar con cualquier tipo de entidad precompilada o personalizada, y tanto en patrones como en expresiones de ejemplo. 
+Un rol se puede usar con cualquier tipo de entidad precompilada o personalizada, y tanto en patrones como en expresiones de ejemplo. 
 
 **En este tutorial, aprenderá a:**
 
@@ -93,12 +93,8 @@ La entidad precompilada, geographyV2, extrae información de ubicación, incluid
     ![Adición de roles a la entidad precompilada](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Seleccione **Intenciones** desde el panel de navegación del lado izquierdo y la intención **MoveEmployeeToCity**. Tenga en cuenta los nombres de ciudades están etiquetados con la entidad precompilada **geographyV2**.
 1. En el primer expresión de la lista, seleccione la ubicación de origen. Aparecerá un menú desplegable. Seleccione **geographyV2** en la lista y, a continuación, desplácese por el menú para seleccionar **Origen**.
-
-    [![Captura de pantalla en la que se marca la ciudad como ubicación de origen](media/tutorial-entity-roles/tag-origin-city-with-role.png "Screenshot of marking city as Origin location")](media/tutorial-entity-roles/tag-origin-city-with-role.png#lightbox)
-
 1. Use el método del paso anterior para marcar todos los roles de las ubicaciones en todas las expresiones. 
 
-    [![Captura de pantalla de la entidad Locations etiquetada en expresiones](media/tutorial-entity-roles/all-locations-marked-with-roles.png "Screenshot of Locations entity labeled in utterances")](media/tutorial-entity-roles/all-locations-marked-with-roles.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Incorporación de expresiones de ejemplo a la intención None 
 
@@ -117,7 +113,7 @@ La entidad precompilada, geographyV2, extrae información de ubicación, incluid
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. Vaya al final de la dirección URL en la barra de direcciones y escriba `Please move Carl Chamerlin from Tampa to Portland`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `MoveEmployee` con la entidad jerárquica extraída.
+1. Vaya al final de la dirección URL en la barra de direcciones y escriba `Please move Carl Chamerlin from Tampa to Portland`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `MoveEmployee` con la entidad extraída.
 
     ```json
     {

@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b30fa61cd46acd4fa9da9d97c100e3b3a0aaf067
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282668"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024763"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Inicio rápido: Uso de herramientas integradas el portal para la importación, indexación y consultas de Azure Search
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Omitiremos este paso por ahora y pasaremos directamente a **Personalización del
    ![Omitir el paso sobre aptitud cognitiva](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> Puede probar la nueva característica en versión preliminar de búsqueda cognitiva en Azure Search con la [guía de inicio rápido de la búsqueda cognitiva](cognitive-search-quickstart-blob.md) o con el [tutorial](cognitive-search-tutorial-blob.md).
+> Puede recorrer un ejemplo de indización con IA en una [guía de inicio rápido](cognitive-search-quickstart-blob.md) o [tutorial](cognitive-search-tutorial-blob.md).
 
 ### <a name="step-3---configure-index"></a>Paso 3: Configuración del índice
 
@@ -154,7 +154,7 @@ El **explorador de Search** está equipado solo para administrar [solicitudes de
 
    ![Comando del explorador de búsqueda](media/search-get-started-portal/search-explorer-cmd2.png)
 
-2. Haga clic en **Change index** (Cambiar índice) en la barra de comandos para cambiar a *realestate-us-sample*. Haga clic en **Definir versión de API** en la barra de comandos para ver cuáles son las API de REST que están disponibles. Con las siguientes consultas, use la versión disponible con carácter general (2017-11-11).
+2. Haga clic en **Change index** (Cambiar índice) en la barra de comandos para cambiar a *realestate-us-sample*. Haga clic en **Definir versión de API** en la barra de comandos para ver cuáles son las API de REST que están disponibles. Con las siguientes consultas, use la versión disponible con carácter general (2019-05-06).
 
    ![Comandos de índice y API](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 

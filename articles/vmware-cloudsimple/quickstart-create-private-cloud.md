@@ -8,21 +8,21 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: efeadd2e1600e5ee572c4a69dde0ff4c53a13cd7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1fc7809ad94d589483b87c638d027a39098164e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577666"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209540"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Inicio rápido: configurar un entorno de nube privada
 
 En este artículo, obtenga información sobre cómo crear una nube privada CloudSimple y configurar el entorno de nube privada.
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-private-cloud"></a>Crear una nube privada
+## <a name="create-a-private-cloud"></a>Creación de una nube privada
 
 1. Seleccione **Todos los servicios**.
 2. Busque **CloudSimple servicios**.
@@ -104,7 +104,7 @@ Se necesita el cliente VPN para conectarse a CloudSimple desde su equipo.  Desca
 4. Seleccione **Usuarios**.
 5. Haga clic en **descargar mi configuración de VPN**
 
-    ![Descarga de la configuración de VPN](media/download-p2s-vpn-configuration.png)
+    ![Descargar configuración VPN](media/download-p2s-vpn-configuration.png)
 
 6. Importar la configuración en el cliente VPN
 
@@ -135,7 +135,7 @@ Se creará la subred/VLAN.  Ahora puede usar este identificador de VLAN para cre
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Conectar el entorno a una red virtual de Azure
 
-CloudSimple proporciona un circuito ExpressRoute para la nube privada. Puede conectar su red virtual en Azure al circuito ExpressRoute. Para obtener detalles completos acerca de cómo configurar la conexión, siga los pasos de [conexión de red Virtual de Azure mediante ExpressRoute](https://docs.azure.cloudsimple.com/azure-er-connection)
+CloudSimple proporciona un circuito ExpressRoute para la nube privada. Puede conectar su red virtual en Azure al circuito ExpressRoute. Para obtener detalles completos acerca de cómo configurar la conexión, siga los pasos de [conexión de red Virtual de Azure mediante ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)
 
 ## <a name="sign-in-to-vcenter"></a>Inicie sesión en vCenter
 

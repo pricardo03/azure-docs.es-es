@@ -4,14 +4,14 @@ description: Aprenda a administrar conflictos en Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/16/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: fb9850548f0bfb71b797830eb0d5fdfddbc32306
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a6e57dc5b4bcfa3f02e323253e24d68381c3535d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997026"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068732"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Administración de directivas de resolución de conflictos en Azure Cosmos DB
 
@@ -86,16 +86,16 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Creación de una directiva de resolución de conflictos personalizada con un procedimiento almacenado
 
-En estos ejemplos se muestran cómo configurar un contenedor con una directiva de resolución de conflictos personalizada con un procedimiento almacenado para resolver el conflicto. Estos conflictos no se mostrarán en la fuente de conflictos, salvo que haya un error en el procedimiento almacenado. Una vez creada la directiva con el contenedor, deberá crear el procedimiento almacenado. La siguiente instancia de SDK de .NET muestra un ejemplo de eso. Esta directiva solo se admite en Core (SQL) API.
+En estos ejemplos se muestran cómo configurar un contenedor con una directiva de resolución de conflictos personalizada con un procedimiento almacenado para resolver el conflicto. Estos conflictos no se mostrarán en la fuente de conflictos, salvo que haya un error en el procedimiento almacenado. Una vez que se crea una directiva en el contenedor, es necesario crear el procedimiento almacenado. En el ejemplo del SDK de .NET siguiente se muestra un ejemplo. Esta directiva solo se admite en Core (SQL) API.
 
 ### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Ejemplo de un procedimiento almacenado de resolución de conflictos personalizada
 
 Los procedimientos almacenados de resolución de conflictos personalizada deben implementarse mediante la signatura de función que se muestra a continuación. No es necesario que el nombre de la función coincida con el nombre usado al registrar el procedimiento almacenado con el contenedor, pero simplifica la nomenclatura. A continuación, se muestra una descripción de los parámetros que se deben implementar para este procedimiento almacenado.
 
 - **incomingItem**: el elemento insertado o actualizado en la confirmación que está generando los conflictos. Es nulo para las operaciones de eliminación.
-- **existingItem**: el elemento confirmado actualmente. Este valor es no nulo en una actualización y nulo para una inserción o eliminación.
+- **existingItem**: el elemento confirmado actualmente. Este valor no es NULL en una actualización ye s NULL en una inserción o eliminaciones.
 - **isTombstone**: valor booleano que indica si incomingItem está en conflicto con un elemento eliminado anteriormente. Cuando es verdadero, existingItem también es nulo.
-- **conflictingItems**: matriz de la versión confirmada de todos los elementos del contenedor que están en conflicto con incomingItem en el identificador o en cualquier otra propiedad de índice único.
+- **conflictingItems**: Matriz de la versión confirmada de todos los elementos del contenedor que están en conflicto con incomingItem en el identificador o cualquier otra propiedad de índice único.
 
 > [!IMPORTANT]
 > Al igual que con cualquier procedimiento almacenado, un procedimiento de resolución de conflictos personalizado puede acceder a los datos con la misma clave de partición y puede realizar cualquier operación de inserción, actualización o eliminación para resolver los conflictos.
@@ -361,7 +361,7 @@ Obtenga información acerca de los siguientes conceptos de Azure Cosmos DB:
 
 * [Distribución global en segundo plano](global-dist-under-the-hood.md)
 * [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md)
-* [Configuración de los clientes para el hospedaje múltiple](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Configuración de los clientes para el hospedaje múltiple](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Incorporación o eliminación de regiones de una cuenta de Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md).
 * [Creación de particiones y distribución de datos](partition-data.md)
