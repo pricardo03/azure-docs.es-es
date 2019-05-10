@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f3e7cab6e33fa9373095441685f6ecb04f1d91a5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 73b7822c56e2b07eeefdedce1bce6d410d110ebc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029376"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411477"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo de bosque de decisión Multiclase
 
@@ -46,7 +46,7 @@ En general, los árboles de decisión tienen numerosas ventajas para las tareas 
 
 Sin embargo, los árboles de decisión simple pueden saturar en los datos y son menos generalizables de árboles de árbol.
 
-Para obtener más información, consulte [bosques de decisión](http://go.microsoft.com/fwlink/?LinkId=403677).  
+Para obtener más información, consulte [bosques de decisión](https://go.microsoft.com/fwlink/?LinkId=403677).  
 
 ## <a name="how-to-configure"></a>Configuración
   
@@ -90,7 +90,7 @@ Para obtener más información, consulte [bosques de decisión](http://go.micros
     -   Si establece **crear modo de entrenador** a **único parámetro**, utilice el [Train Model](./train-model.md) módulo.  
   
     
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Una vez completada la formación:
 

@@ -64,26 +64,34 @@
   items:
     - name: Laboratorios educativos
       items:
-        - name: Administración de cuentas de laboratorio
-          href: classroom-labs/how-to-manage-lab-accounts.md
-        - name: Administración de laboratorios educativos
-          href: classroom-labs/how-to-manage-classroom-labs.md
-        - name: Configuración y publicación de plantillas
-          href: classroom-labs/how-to-create-manage-template.md
-        - name: Configuración y control del uso
-          href: classroom-labs/how-to-configure-student-usage.md
-        - name: Acceso a laboratorios educativos
-          href: classroom-labs/how-to-use-classroom-lab.md
-        - name: Creación y administración de programaciones
-          href: classroom-labs/how-to-create-schedules.md
-        - name: Creación de un entorno con varias máquinas virtuales en una máquina virtual de plantilla
-          href: classroom-labs/how-to-enable-multi-vm-environment.md
-        - name: Conexión de los laboratorios a una red virtual del mismo nivel
-          href: classroom-labs/how-to-connect-peer-virtual-network.md
-        - name: Asociación y uso de una galería de imágenes compartidas
-          href: classroom-labs/how-to-use-shared-image-gallery.md
-        - name: Habilitar conexión de escritorio remoto para Linux
-          href: classroom-labs/how-to-enable-remote-desktop-linux.md
+        - name: Creación y configuración de cuentas de laboratorio
+          items:
+            - name: Creación y administración de cuentas de laboratorio
+              href: classroom-labs/how-to-manage-lab-accounts.md
+            - name: Configuración de cuentas de laboratorio
+              href: classroom-labs/how-to-configure-lab-accounts.md
+            - name: Conexión de los laboratorios a una red virtual del mismo nivel
+              href: classroom-labs/how-to-connect-peer-virtual-network.md
+            - name: Asociación o desasociación de una galería de imágenes compartidas
+              href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
+        - name: 'Creación, configuración y uso de laboratorios educativos'
+          items:
+            - name: Creación y administración de laboratorios educativos
+              href: classroom-labs/how-to-manage-classroom-labs.md
+            - name: Configuración y publicación de plantillas
+              href: classroom-labs/how-to-create-manage-template.md
+            - name: Configuración y control del uso
+              href: classroom-labs/how-to-configure-student-usage.md
+            - name: Acceso a laboratorios educativos
+              href: classroom-labs/how-to-use-classroom-lab.md
+            - name: Creación y administración de programaciones
+              href: classroom-labs/how-to-create-schedules.md
+            - name: Creación de un entorno con varias máquinas virtuales en una máquina virtual de plantilla
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
+            - name: Uso de una galería de imágenes compartidas
+              href: classroom-labs/how-to-use-shared-image-gallery.md
+            - name: Habilitar conexión de escritorio remoto para Linux
+              href: classroom-labs/how-to-enable-remote-desktop-linux.md
     - name: DevTest Labs
       items:
         - name: Especificación del grupo de recursos para máquinas virtuales de laboratorio
@@ -166,12 +174,16 @@
               href: connect-environment-lab-virtual-network.md
             - name: Integración de entornos en la canalización de integración y entrega continuas de Azure DevOps
               href: integrate-environments-devops-pipeline.md
+            - name: Uso de los servicios de plataforma como servicio (PaaS)
+              href: use-paas-services.md
         - name: Acceso seguro a laboratorios
           items:
             - name: Agregar usuarios y propietarios de laboratorio
               href: devtest-lab-add-devtest-user.md
             - name: Personalización de permisos con roles personalizados
               href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+            - name: Automatizar la adición de un usuario de laboratorio
+              href: automate-add-lab-user.md
         - name: Configuración de un laboratorio
           items:
             - name: Configuración de directivas y programaciones

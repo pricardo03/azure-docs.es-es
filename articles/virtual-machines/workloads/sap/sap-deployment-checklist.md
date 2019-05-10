@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648795"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236900"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure 
 
@@ -140,9 +140,10 @@ La fase piloto puede ejecutarse antes o en paralelo con la planeamiento y prepar
       2. Con el fin de evitar tiempos de espera de la interfaz gráfica de usuario entre las interfaces GUI de SAP implementadas en un solo entorno local y los niveles de aplicación de SAP implementados en Azure, compruebe si los parámetros siguientes se establecen en default.pfl o el perfil de instancia:
          1.   rdisp/keepalive_timeout = 3600
          2.   rdisp/keepalive = 20
-      3. Si usa una configuración de clúster de conmutación por error de Windows, asegúrese de que el tiempo para reaccionar en nodos que no responden esté correctamente configurado para Azure. En el artículo de Microsoft sobre el [ajuste de los umbrales de red en clúster de conmutación por error](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) se muestran los parámetros cómo afectan a las sensibilidades de la conmutación por error. De los parámetros que aparecen, se deben establecer estos dos parámetros con los valores:
-         1.   SameSubNetDelay = 2
+      3. Si usa una configuración de clúster de conmutación por error de Windows, asegúrese de que el tiempo para reaccionar en nodos que no responden esté correctamente configurado para Azure. En el artículo de Microsoft sobre el [ajuste de los umbrales de red en clúster de conmutación por error](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) se muestran los parámetros cómo afectan a las sensibilidades de la conmutación por error. Suponiendo que los nodos del clúster están en la misma subred, se deben cambiar los parámetros siguientes:
+         1.   SameSubNetDelay = 2000
          2.   SameSubNetThreshold = 15
+         3.   RoutingHistorylength = 30
 4. Pruebe sus procedimientos de Alta disponibilidad y recuperación ante desastres.
    1. Simule situaciones de conmutación por error apagando las máquinas virtuales (sistema operativo invitado de Windows) o poniendo los sistemas operativos en modo de pánico (sistema operativo invitado de Linux) para averiguar si las configuraciones de conmutación por error funcionan como se han diseñado. 
    2. Mida el tiempo que tarda en ejecutarse una conmutación por error. Si tarda demasiado, tenga en cuenta:

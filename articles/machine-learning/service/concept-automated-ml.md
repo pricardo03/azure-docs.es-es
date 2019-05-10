@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: cba01b5ad5c2cfea32f1faa6cb67c5ce7ee98fcd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 136141f5b598fd080edf3254fd01200f2742c763
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024918"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235834"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
@@ -90,7 +90,7 @@ Con Azure Machine Learning, puede usar para generar un modelo de Python y conver
 ## <a name="automated-ml-across-microsoft"></a>ML automatizada a través de Microsoft
 
 ML automatizada también está disponible en otras soluciones de Microsoft, como:
-+ En las aplicaciones de .NET con Visual Studio y Visual Studio Code con [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/what-is-mldotnet)
++ En las aplicaciones de .NET con Visual Studio y Visual Studio Code con [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)
 + [En HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md), donde escala horizontalmente sus trabajos de aprendizaje de ML automatizados en Spark en clústeres de HDInsight en paralelo. 
 + [En Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)
 

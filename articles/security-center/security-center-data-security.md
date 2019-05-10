@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911551"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234074"
 ---
 # <a name="azure-security-center-data-security"></a>Seguridad de datos de Azure Security Center
 Para ayudar a los clientes a evitar, detectar y responder a las amenazas, Azure Security Center recopila y procesa datos relacionados con la seguridad, entre los que se incluyen la información de configuración, los metadatos, los registros de eventos y los archivos de volcado de memoria, entre otros. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.
@@ -46,12 +46,18 @@ Azure Security Center analiza los datos de los orígenes siguientes para proporc
 
 **Sus áreas de trabajo**: se especifica un área de trabajo para las siguientes geoáreas y datos recopilados de sus máquinas virtuales de Azure, como los volcados de datos y algunos tipos de datos de alerta, que se guardan en el área de trabajo más próxima.
 
-| Geoárea de la máquina virtual                        | Geoárea del área de trabajo |
-|-------------------------------|---------------|
-| Estados Unidos, Brasil, Canadá | Estados Unidos |
-| Europa, Reino Unido        | Europa        |
-| Asia Pacífico, Japón, India    | Asia Pacífico  |
-| Australia                     | Australia     |
+| Geoárea de la máquina virtual                              | Geoárea del área de trabajo |
+|-------------------------------------|---------------|
+| Estados Unidos, Brasil, Sudáfrica | Estados Unidos |
+| Canadá                              | Canadá        |
+| Europa (excepto el Reino Unido)   | Europa        |
+| Reino Unido                      | Reino Unido |
+| Asia (excepto India, Japón, Corea, China)   | Asia Pacífico  |
+| Corea                              | Asia Pacífico  |
+| India                               | India         |
+| Japón                               | Japón         |
+| China                               | China         |
+| Australia                           | Australia     |
 
 
 Las instantáneas del disco de máquina virtual se almacenan en la misma cuenta de almacenamiento que el disco de máquina virtual.

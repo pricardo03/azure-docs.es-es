@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551317"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507226"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Administrar grupos de recursos de Azure Resource Manager mediante el portal de Azure
 
@@ -31,7 +31,7 @@ Otros artículos acerca de cómo administrar grupos de recursos:
 
 ## <a name="what-is-a-resource-group"></a>¿Qué es un grupo de recursos?
 
-Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. El grupo de recursos puede incluir todos los recursos de la solución o solo aquellos que se desean administrar como grupo. Para decidir cómo asignar los recursos a los grupos de recursos, tenga en cuenta lo que más conviene a su organización. Por lo general, se recomienda agregar recursos que compartan el mismo ciclo de vida al mismo grupo de recursos para que los pueda implementar, actualizar y eliminar con facilidad como un grupo.
+Un grupo de recursos es un contenedor que tiene los recursos relacionados de una solución de Azure. El grupo de recursos puede incluir todos los recursos de la solución o solo aquellos que se desean administrar como grupo. Para decidir cómo asignar los recursos a los grupos de recursos, tenga en cuenta lo que más conviene a su organización. Por lo general, se recomienda agregar recursos que compartan el mismo ciclo de vida al mismo grupo de recursos para que los pueda implementar, actualizar y eliminar con facilidad como un grupo.
 
 Los grupos de recursos almacenan metadatos acerca de los recursos. Por consiguiente, al especificar la ubicación del grupo de recursos, se especifica el lugar en que se almacenan dichos metadatos. Por motivos de compatibilidad, es posible que sea preciso asegurarse de que los datos se almacenan en una región concreta.
 
@@ -57,7 +57,7 @@ Los grupos de recursos almacenan metadatos acerca de los recursos. Al especifica
 
     ![Vaya al grupo de recursos](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
 
-## <a name="list-resource-groups"></a>Enumeración de grupos de recursos
+## <a name="list-resource-groups"></a>Mostrar grupos de recursos
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Para obtener una lista de los grupos de recursos, seleccione **grupos de recursos**
@@ -108,64 +108,7 @@ Puede aplicar etiquetas a los recursos y grupos de recursos para organizar de ma
 
 ## <a name="export-resource-groups-to-templates"></a>Exportar grupos de recursos en plantillas
 
-Después de configurar correctamente el grupo de recursos, puede ver la plantilla de Resource Manager para el grupo de recursos. Exportar la plantilla ofrece dos ventajas:
-
-- Automatice las implementaciones futuras de la solución porque la plantilla contiene toda la infraestructura completa.
-- Obtenga información sobre la sintaxis de la plantilla mediante la búsqueda en JavaScript Object Notation (JSON) que representa la solución.
-
-Hay dos maneras de exportar una plantilla:
-
-- Puede exportar la plantilla real que se utiliza para la implementación. La plantilla exportada incluye todos los parámetros y variables exactamente como aparecían en la plantilla original. Este enfoque es útil cuando se implementan recursos a través del portal y se desea ver la plantilla para crearlos. Esta plantilla es fácil de usar. 
-- Puede exportar una plantilla generada que representa el estado actual del grupo de recursos. La plantilla exportada no se basa en ninguna plantilla que se haya utilizado para la implementación. Al contrario, crea una plantilla que es una "instantánea" o "copia de seguridad" del grupo de recursos. La plantilla exportada tiene muchos valores codificados de forma rígida y es probable que no tenga tantos parámetros como normalmente se definirían. Use esta opción para volver a implementar recursos en el mismo grupo de recursos. Para utilizar esta plantilla para otro grupo de recursos, es posible que tenga que modificarla de forma significativa.
-
-### <a name="export-templates-from-deployment-history"></a>Exportar plantillas desde el historial de implementación
-
-Este método exporta las plantillas para algunas implementaciones. Si han cambiado los recursos desde el portal o a agregar o quitar recursos en varias implementaciones, consulte [exportar plantillas de grupos de recursos](#export-templates-from-resource-groups).
-
-1. Abra el grupo de recursos que desea exportar.  Consulte [abrir grupos de recursos](#open-resource-groups).
-2. En el panel izquierdo, seleccione **Implementaciones** o seleccione el vínculo situado bajo **Implementaciones**.  En la captura de pantalla siguiente se muestra **Succeeded 4** porque había cuatro implementaciones separadas con cuatro nombres de implementación diferentes. Es posible que vea **1 correcto**.
-
-    ![plantillas de exportación del grupo de recursos de Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
-
-3. Seleccione una de las implementaciones de la lista.
-4. En el panel izquierdo, seleccione **plantilla**. Resource Manager recupera los seis archivos siguientes:
-
-   - **Plantilla** : la plantilla que define la infraestructura de la solución. Cuando creó la cuenta de almacenamiento por medio del portal, Resource Manager usó una plantilla para implementarla y la guardó para futura referencia.
-   - **Parámetros**: un archivo de parámetros que puede usar para pasar valores durante la implementación. Contiene los valores que proporcionó en la primera implementación. Todos estos valores se pueden cambiar al volver a implementar la plantilla.
-   - **CLI**: archivo de script de la CLI de Azure que se puede usar para implementar la plantilla.
-   - **PowerShell** : un archivo de script de Azure PowerShell que puede usar para implementar la plantilla.
-   - **.NET** : una clase .NET que puede utilizar para implementar la plantilla.
-   - **Ruby** : una clase Ruby que puede utilizar para implementar la plantilla.
-
-     De forma predeterminada, el portal muestra la plantilla.
-
-5. Seleccione **descargar** para exportar una plantilla en el equipo local.
-
-    ![plantillas de exportación del grupo de recursos de Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history-download.png)
-
-<a name="export-templates-from-resource-groups"></a>
-### <a name="export-templates-from-resource-groups"></a>Exportación de plantillas de grupos de recursos
-
-Si ha cambiado los recursos desde el portal, o agregar o quitar recursos en varias implementaciones, la recuperación de una plantilla desde el historial de implementaciones no refleja el estado actual del grupo de recursos. En esta sección se muestra cómo exportar una plantilla que refleja el estado actual del grupo de recursos. Se ha diseñado como una instantánea del grupo de recursos, el cual puede usar para volver a implementar en el mismo grupo de recursos. Para usar la plantilla exportada para otras soluciones, debe modificarla de forma significativa.
-
-1. Abra el grupo de recursos que desea exportar.  Consulte [abrir grupos de recursos](#open-resource-groups).
-2. En el panel izquierdo, seleccione **Exportar plantilla**. Resource Manager recupera los seis archivos siguientes:
-
-   - **Plantilla** : la plantilla que define la infraestructura de la solución. Cuando creó la cuenta de almacenamiento por medio del portal, Resource Manager usó una plantilla para implementarla y la guardó para futura referencia.
-   - **Parámetros**: un archivo de parámetros que puede usar para pasar valores durante la implementación. Contiene los valores que proporcionó en la primera implementación. Todos estos valores se pueden cambiar al volver a implementar la plantilla.
-   - **CLI**: archivo de script de la CLI de Azure que se puede usar para implementar la plantilla.
-   - **PowerShell** : un archivo de script de Azure PowerShell que puede usar para implementar la plantilla.
-   - **.NET** : una clase .NET que puede utilizar para implementar la plantilla.
-   - **Ruby** : una clase Ruby que puede utilizar para implementar la plantilla.
-
-     De forma predeterminada, el portal muestra la plantilla.
-3. Seleccione **descargar** para exportar una plantilla en el equipo local.
-
-Algunas plantillas exportadas necesitan algunas modificaciones para que se puedan usar. Para obtener información sobre cómo desarrollar las plantillas, consulte el [tutoriales paso a paso](/azure/azure-resource-manager/).
-
-### <a name="export-template-before-deploying"></a>Exportar plantilla antes de implementar
-
-Puede usar el portal para definir un recurso.  Antes de implementar el recurso, puede ver y exportar una plantilla. Para ver las instrucciones, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md).
+Para obtener información sobre la exportación de plantillas, consulte [único y varios recurso Exportar plantilla - Portal](export-template-portal.md).
 
 ### <a name="fix-export-issues"></a>Solución de problemas de exportación
 

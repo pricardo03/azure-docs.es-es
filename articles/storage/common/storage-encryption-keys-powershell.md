@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0eeae1451e77d9000c87b1aff7ad73323e74f7ee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: be876b370cd476bee2af7d90a9f0433fd80de3b4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154124"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233678"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configurar las claves administradas por el cliente para el cifrado de almacenamiento de Azure desde PowerShell
 
@@ -63,7 +63,7 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get,recover
 ```
 
-## <a name="create-a-new-key"></a>Creación de una nueva clave
+## <a name="create-a-new-key"></a>Crear una nueva clave
 
 A continuación, cree una nueva clave en el almacén de claves. Para crear una nueva clave, llame a [agregar AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Recuerde reemplazar los valores de marcador de posición entre corchetes por los suyos propios y para usar las variables definidas en los ejemplos anteriores.
 
@@ -75,7 +75,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 
 De forma predeterminada, el cifrado de almacenamiento de Azure usa claves administradas por Microsoft. En este paso, configure la cuenta de almacenamiento de Azure para usar claves administradas por el cliente y especifique la clave para asociar la cuenta de almacenamiento.
 
-Llame a [conjunto AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento. Recuerde reemplazar los valores de marcador de posición entre corchetes por los suyos propios y para usar las variables definidas en los ejemplos anteriores.
+Llame a [conjunto AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento. Recuerde reemplazar los valores de marcador de posición entre corchetes por los suyos propios y para usar las variables definidas en los ejemplos anteriores.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -88,7 +88,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 ## <a name="update-the-key-version"></a>Actualizar la versión de la clave
 
-Cuando se crea una nueva versión de una clave, deberá actualizar la cuenta de almacenamiento para usar la nueva versión. En primer lugar, llame a [Get AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obtener la versión más reciente de la clave. A continuación, llame a [conjunto AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento para usar la nueva versión de la clave, como se muestra en la sección anterior.
+Cuando se crea una nueva versión de una clave, deberá actualizar la cuenta de almacenamiento para usar la nueva versión. En primer lugar, llame a [Get AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obtener la versión más reciente de la clave. A continuación, llame a [conjunto AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento para usar la nueva versión de la clave, como se muestra en la sección anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

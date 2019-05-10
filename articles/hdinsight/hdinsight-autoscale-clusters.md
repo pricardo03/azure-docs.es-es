@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92f4616a415c4ddebd0d9b2e466536b2f30c486f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146363"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413691"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Escalado automático de clústeres de HDInsight de Azure (versión preliminar)
 
@@ -21,16 +21,19 @@ Característica de escalado automático del Azure HDInsight clúster escala auto
 
 ## <a name="cluster-compatibility"></a>Compatibilidad de clúster
 
+> [!Important]
+> La característica de escalado automático solo funciona para los clústeres creados después de la disponibilidad pública de la característica en mayo de 2019. No funcionará para los clústeres existentes previamente.
+
 La tabla siguiente describen los tipos de clúster y las versiones son compatibles con la característica de escalado automático.
 
 | Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sin ESP | Sí | Sí | No | No | No | No | Sin  |
-| HDInsight 4.0 sin ESP | Sí | Sí | No | No | No | No | Sin  |
-| HDInsight 3.6 con ESP | Sí | Sí | No | No | No | No | Sin  |
-| HDInsight 3.6 con ESP | Sí | Sí | No | No | No | No | Sin  |
+| HDInsight 3.6 sin ESP | Sí | Sí | No | No | No | No | No |
+| HDInsight 4.0 sin ESP | Sí | Sí | No | No | No | No | No |
+| HDInsight 3.6 con ESP | Sí | Sí | No | No | No | No | No |
+| HDInsight 3.6 con ESP | Sí | Sí | No | No | No | No | No |
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 Puede elegir la escala basada en la carga o basadas en programación escalado para el clúster de HDInsight. Escalado basado en la carga cambia el número de nodos del clúster, dentro de un intervalo que se establece, para asegurar la utilización óptima de CPU y minimizar el costo de ejecución.
 
@@ -199,7 +202,7 @@ Todos los mensajes de estado de clúster que podría ver se explican en la lista
 
 | Estado del clúster | Explicación |
 |---|---|
-| En ejecución | El clúster está funcionando con normalidad. Todas las actividades anteriores del escalado automático han completado correctamente. |
+| Ejecutando | El clúster está funcionando con normalidad. Todas las actividades anteriores del escalado automático han completado correctamente. |
 | Actualizando  | Se está actualizando la configuración de escalado automático del clúster.  |
 | Configuración de HdInsight  | Un clúster de escalado vertical o reducción de la operación está en curso.  |
 | Error de actualización  | HDInsight encontrado problemas durante la actualización de la configuración de escalado automático. Los clientes pueden elegir volver a intentar la actualización o deshabilitar escalado automático.  |

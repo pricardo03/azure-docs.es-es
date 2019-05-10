@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: peterlu
+author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502442"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234050"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Volver a entrenar e implementar un servicio web de Studio
 
@@ -25,7 +25,7 @@ Una forma de garantizar que los modelos de Machine Learning siguen siendo precis
 
 En este artículo se asume que tiene un experimento de reciclaje y un experimento de predicción. Estos pasos se explican en [Reciclaje de un modelo de Azure Machine Learning Studio](/azure/machine-learning/studio/retrain-machine-learning-model). Sin embargo, en lugar de implementar el modelo de Machine Learning como un servicio web nuevo, implementará el experimento de predicción como un servicio web clásico.
      
-## <a name="add-a-new-endpoint"></a>Adición de un punto de conexión nuevo
+## <a name="add-a-new-endpoint"></a>Agregar un nuevo extremo
 
 El servicio web de predicción que ha implementado contiene un punto de conexión de puntuación predeterminado que se mantiene sincronizado con el entrenamiento original y el modelo entrenado de experimentos de puntuación. Para actualizar el servicio web a un nuevo modelo entrenado, debe crear un nuevo punto de conexión para la puntuación.
 

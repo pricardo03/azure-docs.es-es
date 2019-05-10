@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 270f400f78b971e022a59e5e9a04a76dfa929941
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e235af8ae35a6ff8e310bac802484e6c3d0f5397
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761171"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506932"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure
 
@@ -164,7 +164,7 @@ Para más información, vea el [Centro para desarrolladores de Node.js].
 
 <!-- URL List -->
 
-[Comparación entre Azure Websites, Cloud Services y Virtual Machines]: ../app-service/overview-compare.md
+[Comparación entre Azure Websites, Cloud Services y Virtual Machines]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [utilizar una aplicación web ligera]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [SDK de Azure para .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: a82004fdd6bbb4eda0842670f210f846f9446384
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310883"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413729"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restauración de una copia de seguridad en Azure Service Fabric
 
@@ -37,6 +37,20 @@ Por ejemplo, puede configurar un servicio para realizar una copia de seguridad d
 - Para desencadenar la restauración, el _servicio de análisis de errores (FAS)_ debe estar habilitado para el clúster.
 - El _servicio de restauración de copia de seguridad (BRS)_ creó la copia de seguridad.
 - La restauración solo se puede desencadenar en una partición.
+- Instale el módulo de Microsoft.ServiceFabric.Powershell.Http [preliminar] para realizar llamadas de la configuración.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- Asegúrese de que el clúster está conectado mediante el `Connect-SFCluster` comando antes de realizar cualquier solicitud de configuración mediante el módulo Microsoft.ServiceFabric.Powershell.Http.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## <a name="triggered-restore"></a>Restauración desencadenada
 
@@ -50,6 +64,15 @@ Una restauración se puede desencadenar en cualquiera de los siguientes casos:
 Si se pierde un clúster entero de Service Fabric, puede recuperar los datos de las particiones del servicio de confianza con estado y Reliable Actors. La copia de seguridad deseada se puede seleccionar de la lista cuando se usan los [detalles de GetBackupAPI con almacenamiento de copia de seguridad](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). La enumeración de copia de seguridad puede ser para una aplicación, un servicio o una partición.
 
 En el ejemplo siguiente, suponga que el clúster perdido es el mismo clúster al que se hace referencia en [Habilitación de la copia de seguridad periódica del servicio de confianza con estado y Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). En este caso, `SampleApp` se implementa con la directiva de copia de seguridad habilitada, y las copias de seguridad se configuran para Azure Storage.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con el módulo Microsoft.ServiceFabric.Powershell.Http
+
+```powershell
+Get-SFBackupsFromBackupLocation -Application -ApplicationName 'fabric:/SampleApp' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
 
 Ejecute un script de PowerShell para usar la API REST para devolver una lista de copias de seguridad creadas para todas las particiones dentro de la aplicación `SampleApp`. La API requiere la información de almacenamiento de copia de seguridad para enumerar las copias de seguridad disponibles.
 
@@ -142,12 +165,30 @@ Si el identificador de partición del clúster alternativo es `1c42c47f-439e-4e0
 
 Para la _creación de particiones con nombre_, el valor de nombre se compara para identificar la partición de destino en el clúster alternativo.
 
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con el módulo Microsoft.ServiceFabric.Powershell.Http
+
+```powershell
+
+Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
+
 La restauración se solicita en la partición del clúster de copia de seguridad mediante la siguiente [API de restauración](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
 
 ```powershell
+
+$StorageInfo = @{
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
+    ContainerName = 'backup-container'
+    StorageKind = 'AzureBlobStore'
+}
+
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4'
     BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+    BackupStorage  = $StorageInfo
 }
 
 $body = (ConvertTo-Json $RestorePartitionReference) 
@@ -184,6 +225,16 @@ FailureError            :
 
 Para la API de restauración, proporcione los detalles _BackupId_ y _BackupLocation_. Dado que el clúster tiene la copia de seguridad habilitada, el _servicio de restauración de copia de seguridad (BRS)_ de Service Fabric identifica la ubicación de almacenamiento correcta a partir de la directiva de copia de seguridad asociada.
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con el módulo Microsoft.ServiceFabric.Powershell.Http
+
+```powershell
+Restore-SFPartition  -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
+
 ```powershell
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4',
@@ -201,6 +252,14 @@ Puede realizar un seguimiento del progreso de la restauración mediante TrackRes
 ## <a name="track-restore-progress"></a>Seguimiento del progreso de la restauración
 
 Una partición de un servicio de confianza con estado o de Reliable Actors acepta solo una solicitud de restauración a la vez. Una partición solo acepta otra solicitud una vez completada la solicitud de restauración actual. Se pueden desencadenar varias solicitudes de restauración en distintas particiones al mismo tiempo.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con el módulo Microsoft.ServiceFabric.Powershell.Http
+
+```powershell
+    Get-SFPartitionRestoreProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+```
+
+#### <a name="rest-call-using-powershell"></a>Llamada de REST con Powershell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"

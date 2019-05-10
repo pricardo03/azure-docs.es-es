@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d80f58215b1a8f1b93db158cd2f47186ba6354a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5b87e452b0c79ae9cdc1d7f9f391a611dceda2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443456"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231506"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Consideraciones sobre la topología de red al utilizar el Proxy de aplicación de Azure Active Directory
 
@@ -39,7 +39,7 @@ Cuando se publica una aplicación a través del proxy de aplicación de Azure AD
 
 ## <a name="tenant-location-and-application-proxy-service"></a>Ubicación del inquilino y el servicio de Proxy de aplicación
 
-Cuando se suscribe a un inquilino de Azure AD, la región de su inquilino viene determinada por el país que especifique. Al habilitar el proxy de aplicación, se muestran las instancias del servicio Application Proxy para el inquilino de la misma región del inquilino de Azure AD o la región más cercana a este.
+Al suscribirse a un inquilino de Azure AD, la región de su inquilino viene determinada por el país o región que especifique. Al habilitar el proxy de aplicación, se muestran las instancias del servicio Application Proxy para el inquilino de la misma región del inquilino de Azure AD o la región más cercana a este.
 
 Por ejemplo, si el país o la región del inquilino de Azure AD es el Reino Unido, todos los conectores del proxy de la aplicación usan las instancias de servicio de los centros de datos en la Unión Europea. Cuando los usuarios acceden a aplicaciones publicadas, el tráfico pasa por las instancias del servicio de proxy de la aplicación de esta ubicación.
 
@@ -78,7 +78,7 @@ Si tiene un vínculo de VPN o ExpressRoute dedicado entre Azure y la red corpora
 
 ## <a name="focus-your-optimization-strategy"></a>Centrar la estrategia de optimización
 
-Se puede hacer poco para controlar la conexión entre los usuarios y el servicio Aplication Proxy. Los usuarios pueden tener acceso a las aplicaciones desde una red doméstica, una cafetería u otro país. En cambio, puede optimizar las conexiones del servicio Application Proxy a los conectores del proxy de aplicación con las aplicaciones. Es aconsejable incorporar los siguientes patrones a su entorno.
+Se puede hacer poco para controlar la conexión entre los usuarios y el servicio Aplication Proxy. Los usuarios pueden tener acceso a las aplicaciones de una red doméstica, una cafetería o un país o región diferente. En cambio, puede optimizar las conexiones del servicio Application Proxy a los conectores del proxy de aplicación con las aplicaciones. Es aconsejable incorporar los siguientes patrones a su entorno.
 
 ### <a name="pattern-1-put-the-connector-close-to-the-application"></a>Patrón 1: colocar el conector cerca de la aplicación
 

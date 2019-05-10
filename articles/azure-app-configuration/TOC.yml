@@ -4,23 +4,35 @@
   items:
     - name: Acerca de Azure App Configuration
       href: overview.md
+    - name: Preguntas más frecuentes
+      href: faq.md
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Creación de una aplicación web de ASP.NET Core
-      href: quickstart-aspnet-core-app.md
-    - name: Creación de una aplicación .NET Core
-      href: quickstart-dotnet-core-app.md
-    - name: Creación de una aplicación de .NET Framework
-      href: quickstart-dotnet-app.md
-    - name: Creación de una función de Azure
-      href: quickstart-azure-function-csharp.md
-    - name: Creación de una aplicación de Java Spring
-      href: quickstart-java-spring-app.md
+    - name: Configuración
+      items:
+        - name: ASP.NET Core
+          href: quickstart-aspnet-core-app.md
+        - name: .NET Core
+          href: quickstart-dotnet-core-app.md
+        - name: .NET Framework
+          href: quickstart-dotnet-app.md
+        - name: Azure Functions en .NET Core
+          href: quickstart-azure-function-csharp.md
+        - name: Java Spring
+          href: quickstart-java-spring-app.md
+    - name: Administración de características
+      items:
+        - name: ASP.NET Core
+          href: quickstart-feature-flag-aspnet-core.md
 - name: Tutoriales
   items:
     - name: Habilitar la configuración dinámica en ASP.NET Core
       href: enable-dynamic-configuration-aspnet-core.md
+    - name: Uso de marcas de características en una aplicación de .NET Core
+      href: use-feature-flags-dotnet-core.md
+    - name: Administración de marcas de características
+      href: manage-feature-flags.md
     - name: Integración con una canalización de CI/CD
       href: integrate-ci-cd-pipeline.md
 - name: Ejemplos
@@ -33,24 +45,36 @@
       href: concept-key-value.md
     - name: Instantánea en un momento dado
       href: concept-point-time-snapshot.md
+    - name: Administración de características
+      href: concept-feature-management.md
 - name: Guías de procedimientos
   items:
     - name: Integración con Azure Managed Service Identity
       href: howto-integrate-azure-managed-service-identity.md
     - name: Importación o exportación de datos de configuración
       href: howto-import-export-data.md
+    - name: Procedimientos recomendados
+      href: howto-best-practices.md
 - name: Referencia
   items:
-    - name: Proveedor de configuración de .NET Core
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
-    - name: Generador de configuración de .NET Framework
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-    - name: Proveedor de configuración de Java Spring
-      href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
-    - name: Azure SDK para .NET
-      href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
-    - name: REST
-      href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: Configuración
+      items:
+        - name: Proveedor de configuración de .NET Core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+        - name: Generador de configuración de .NET Framework
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
+        - name: Proveedor de configuración de Java Spring
+          href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+        - name: Azure SDK para .NET
+          href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
+        - name: REST
+          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: Administración de características
+      items:
+        - name: Biblioteca de .NET Core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: Biblioteca de ASP.NET Core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091410'
 - name: Recursos
   items:
     - name: Vídeo de introducción

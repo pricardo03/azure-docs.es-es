@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615872"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232483"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Escenarios de automatización de administración de costos y facturación
 
@@ -85,9 +85,9 @@ Los clientes de Web Direct y Enterprise pueden usar todas las API siguientes, ex
 -   [Unrated Usage API](/previous-versions/azure/reference/mt219003(v=azure.100)): obtenga información sobre el uso sin procesar antes de que Azure realice cualquier medición o aplique algún cargo.
 
 ### <a name="billing"></a>Facturación
--   [Billing Periods API](https://docs.microsoft.com/rest/api/billing/billingperiods): determine un período de facturación para analizar, junto con el identificador de la factura de ese período. Puede usar los identificadores de las facturas con Invoices API.
+-   [Billing Periods API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): determine un período de facturación para analizar, junto con el identificador de la factura de ese período. Puede usar los identificadores de las facturas con Invoices API.
 
--   [Invoices API](https://docs.microsoft.com/rest/api/billing/invoices): obtenga la dirección URL de descarga de una factura para un período de facturación en formato PDF.
+-   [Invoices API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): obtenga la dirección URL de descarga de una factura para un período de facturación en formato PDF.
 
 ### <a name="enterprise-consumption"></a>Consumo de Enterprise
 Las siguientes API son solo para Enterprise:
@@ -126,7 +126,7 @@ Estas API ofrecen básicamente distintos datos:
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>¿Cuál es la diferencia entre Invoice API y Usage Details API?
 Estas API ofrecen una vista diferente de los mismos datos:
 
-- [Invoice API](https://docs.microsoft.com/rest/api/billing/invoices) es solamente para los clientes de Web Direct. Proporciona una acumulación mensual de su factura según los cargos agregados por cada tipo de medidor. 
+- [Invoice API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) es solamente para los clientes de Web Direct. Proporciona una acumulación mensual de su factura según los cargos agregados por cada tipo de medidor. 
 
 - [Usage Details API](https://docs.microsoft.com/rest/api/consumption/usagedetails) proporciona una vista detallada de los registros de uso y costo diarios. La pueden usar tanto clientes Enterprise como Web Direct.
 

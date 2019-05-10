@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025235"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65502107"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona Azure Machine Learning Service: Arquitectura y conceptos
 
@@ -32,9 +32,7 @@ Por lo general, el flujo de trabajo de machine learning sigue esta secuencia:
 1. **Se envían los scripts** al destino de proceso configurado para ejecutarse en ese entorno. Durante el entrenamiento, los scripts pueden leer o escribir en el **almacén de datos**. Y los registros de ejecución se guardan como **ejecuciones** en el **área de trabajo**, agrupados en **experimentos**.
 1. **Se consulta el experimento** para las métricas registradas en ejecuciones actuales y anteriores. Si las métricas no ofrecen el resultado deseado, se vuelve en bucle al paso 1 y se repiten los scripts.
 1. Cuando se encuentra una ejecución satisfactoria, se registra el modelo guardado en el **registro de modelos**.
-1. Se desarrolla un script de puntuación.
-1. **Se crea una imagen** y se registra en el **registro de imágenes**.
-1. **Se implementa la imagen** como un **servicio web** en Azure.
+1. Desarrollar un script de puntuación que usa el modelo y **implantarlo** como un **servicio web** en Azure, o a un **dispositivo de IoT Edge**.
 
 
 > [!NOTE]
@@ -46,7 +44,7 @@ El área de trabajo es el recurso de nivel superior de Azure Machine Learning Se
 
 El área de trabajo conserva una lista de destinos de proceso que se puede usar para entrenar el modelo. También conserva un historial de las ejecuciones del entrenamiento, que incluye registros, métricas, resultados y una instantánea de sus scripts. Esta información se usa para determinar qué ejecución de entrenamiento crea el mejor modelo.
 
-Los modelos se registran con el área de trabajo. Debe usar un modelo registrado y los scripts de puntuación para crear una imagen. A continuación, la imagen se puede implementar en Azure Container Instances, en Azure Kubernetes Service o en una matriz de puerta programable en el campo (FPGA) como un punto de conexión HTTP basado en REST. También puede implementar la imagen en un dispositivo de Azure IoT Edge como un módulo.
+Los modelos se registran con el área de trabajo. Usar un modelo registrado y puntuación de secuencias de comandos para implementar un modelo en Azure Container Instances, Azure Kubernetes Service, o en una matriz de puerta programable de campo (FPGA) como un punto de conexión HTTP basado en REST. También puede implementar la imagen en un dispositivo de Azure IoT Edge como un módulo. Internamente, se crea una imagen de docker para hospedar la imagen implementada. Si es necesario, puede especificar su propia imagen.
 
 Puede crear varias áreas de trabajo, y cada área de trabajo se puede compartir entre varias personas. Cuando comparte un área de trabajo, puede controlar el acceso a ella mediante la asignación de usuarios a los roles siguientes:
 
@@ -94,7 +92,7 @@ Los modelos se identifican por el nombre y la versión. Cada vez que registra un
 
 Una vez registrado el modelo, puede proporcionar etiquetas de metadatos adicionales y, después, usar esas etiquetas al buscar modelos.
 
-No se pueden eliminar los modelos que una imagen esté utilizando.
+No se puede eliminar los modelos que están siendo utilizados por una implementación activa.
 
 Para obtener un ejemplo de registro de un modelo, consulte [Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -126,7 +124,7 @@ Use la API del SDK de Python o la CLI de Azure Machine Learning para almacenar y
 
 Un destino de proceso es el recurso de proceso que se usa para ejecutar el script de entrenamiento o para hospedar la implementación del servicio web. Los destinos de proceso admitidos son los siguientes:
 
-| Destino de proceso | Cursos | Implementación |
+| Destino de proceso | Aprendizaje | Implementación |
 | ---- |:----:|:----:|
 | Equipo local | ✓ | &nbsp; |
 | Proceso de Azure Machine Learning | ✓ | &nbsp; |
@@ -159,7 +157,7 @@ Para entrenar un modelo, especifique el directorio que contiene el script de ent
 
 Si quiere ver un ejemplo, consulte [Tutorial: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
-## <a name="run"></a>Ejecute
+## <a name="run"></a>Ejecutar
 
 Una ejecución es un registro que contiene la información siguiente:
 
@@ -208,11 +206,11 @@ El registro de imágenes realiza un seguimiento de las imágenes creadas a parti
 
 ## <a name="deployment"></a>Implementación
 
-Una implementación es una instancia de la imagen en un servicio web que puede hospedarse en la nube o un módulo de IoT para las implementaciones de dispositivos integrados.
+Una implementación es una instancia del modelo en un servicio web que se puede hospedar en la nube o un módulo de IoT para las implementaciones de dispositivos integrados.
 
-### <a name="web-service"></a>Servicio web
+### <a name="web-service"></a>Servicio Web
 
-Un servicio web implementado puede usar Azure Container Instances, Azure Kubernetes Service o FPGA. El servicio se crea a partir de una imagen que encapsula el modelo, los scripts y los archivos asociados. La imagen tiene un punto de conexión HTTP de carga equilibrada que recibe solicitudes de puntuación que se envían al servicio web.
+Un servicio web implementado puede usar Azure Container Instances, Azure Kubernetes Service o FPGA. Cree el servicio desde el modelo, scripts y archivos asociados. Estas se encapsulan en una imagen, que proporciona el entorno de tiempo de ejecución para el servicio web. La imagen tiene un punto de conexión HTTP de carga equilibrada que recibe solicitudes de puntuación que se envían al servicio web.
 
 Azure le ayuda a supervisar la implementación del servicio web mediante la recopilación de telemetría de Application Insight o telemetría de modelos, si es que ha optado por habilitar esta característica. Solo usted puede obtener acceso a los datos de telemetría, que se almacenan en las instancias de su cuenta de almacenamiento y Application Insights.
 

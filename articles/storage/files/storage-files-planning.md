@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073355"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232759"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -94,7 +94,7 @@ Recursos compartidos de archivos de Premium (versión preliminar) se aprovisiona
 
 En su máximo esfuerzo, todos los recursos compartidos pueden aumentar hasta tres IOPS por GiB de almacenamiento aprovisionado durante 60 minutos, o más, según el tamaño del recurso compartido. Los nuevos recursos compartidos comienzan con todos los créditos de aumento según la capacidad aprovisionada.
 
-Los recursos compartidos deben aprovisionarse en incrementos de 1 GB. Tamaño mínimo es 100 GB, siguiente tamaño es GIB 101 y así sucesivamente.
+Los recursos compartidos deben aprovisionarse en incrementos de 1 GB. Tamaño mínimo es 100 GB, siguiente tamaño es GiB 101 y así sucesivamente.
 
 > [!TIP]
 > Línea de base de e/s por segundo = 1 * aprovisionado GiB. (Hasta un máximo de 100 000 e/s por segundo).

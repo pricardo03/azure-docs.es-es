@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 554b7b7f401ec7cdb1ae08839550b81d797764f2
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530337"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230077"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>La depuración local de PowerShell de Azure Functions
 
@@ -97,7 +97,7 @@ Con `Wait-Debugger` en su lugar, ahora puede depurar las funciones con Visual St
 
 Para depurar sus funciones de PowerShell en Visual Studio Code, debe tener las siguientes extensiones para Visual Studio Code:
 
-* [PowerShell](/powershell/scripting/components/Visual Studio Code/using-Visual Studio Code)
+* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions](functions-create-first-function-vs-code.md)
 
 Después de instalar las extensiones de PowerShell y Azure Functions, cargar un proyecto de aplicación de función existente. También puede [crear un proyecto de Functions](functions-create-first-function-vs-code.md).
@@ -189,7 +189,7 @@ Tome nota de la `ProcessId` para el elemento en la tabla con el `ProcessName` co
 A continuación, ejecute el siguiente fragmento de código:
 
 ```powershell
-# This enters into the the Azure Functions PowerShell process.
+# This enters into the Azure Functions PowerShell process.
 # Put your value of `ProcessId` here.
 Enter-PSHostProcess -Id $ProcessId
 

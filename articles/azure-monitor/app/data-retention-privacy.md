@@ -14,7 +14,7 @@ ms.date: 03/04/2019
 ms.author: mbullwin
 ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
 ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/06/2019
 ms.locfileid: "65204884"

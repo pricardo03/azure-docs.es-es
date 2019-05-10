@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6c0ecf70935d4504472156f6bda726d94f130dbb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148178"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233898"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referencia de dominio creado previamente para la aplicación de LUIS
 Esta referencia ofrece información sobre los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md), que son colecciones creadas previamente de intenciones y entidades que LUIS ofrece.
@@ -62,7 +62,6 @@ The table below summarizes the currently supported domains. Support for English 
 |Lugares|Lugares incluyen las empresas, instituciones, restaurantes, espacios públicos y las direcciones. El dominio es compatible con el lugar de buscar y le pregunta sobre la información de un lugar público como ubicación, horas y distancia operativos.|
 |RestaurantReservation|Dominio de reserva de restaurante es compatible con las intenciones para controlar las reservas para restaurantes.|
 |ToDo|Dominio de la lista de tareas proporciona tipos de listas de tareas para que los usuarios agregar, marcar y eliminar sus tareas pendientes.|
-|ToDo_IPA|En función de dominio de la lista de tareas, ToDo_IPA es una versión personalizada para expandir las entidades en la lista de tareas. La versión de IPA proporciona intenciones y entidades para admitir el reconocimiento de un tipo de lista de tareas pendientes. El modelo define tres tipos de listas de tareas pendientes: lista de la compra, lista de la compra y lista de tareas pendientes que abarcan los demás casos.|
-|Sectores públicos|Utilidades es un dominio general entre LUIS todos los modelos creados previamente que contiene las intenciones y grabaciones de voz en escenarios de diferencia comunes.|
+|Suministros|Utilidades es un dominio general entre LUIS todos los modelos creados previamente que contiene las intenciones y grabaciones de voz en escenarios de diferencia comunes.|
 |Tiempo|Dominio de tiempo se centra en la comprobación condiciones meteorológicas y Asesorías con la ubicación y la hora o la comprobación de tiempo por las condiciones meteorológicas.|
 |Web|El dominio de Web proporciona la intención y las entidades de búsqueda para un sitio Web.|

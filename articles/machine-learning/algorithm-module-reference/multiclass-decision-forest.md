@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5ff1809886198f7f1e4f4b9c36f877ce61d512e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 10364d014431a500e7c38a02d47f432cd464feb6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029436"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411485"
 ---
 # <a name="multiclass-decision-forest-module"></a>Módulo de bosque de decisión multiclase
 
@@ -36,7 +36,7 @@ En general, los árboles de decisión son modelos no paramétricos, lo que signi
 + Realizar la clasificación y selección de características integradas.
 + Son resistentes en presencia de características ruidosas.
 
-El clasificador de bosque de decisión en Azure Machine Learning consta de un conjunto de árboles de decisión. Por lo general, los modelos de conjunto proporcionan una mejor cobertura y precisión que los árboles de decisión únicos. Para obtener más información, consulte [árboles de decisión](http://go.microsoft.com/fwlink/?LinkId=403677).
+El clasificador de bosque de decisión en Azure Machine Learning consta de un conjunto de árboles de decisión. Por lo general, los modelos de conjunto proporcionan una mejor cobertura y precisión que los árboles de decisión únicos. Para obtener más información, consulte [árboles de decisión](https://go.microsoft.com/fwlink/?LinkId=403677).
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>Cómo configurar el bosque de decisión Multiclase
 
@@ -79,7 +79,7 @@ El clasificador de bosque de decisión en Azure Machine Learning consta de un co
 
 11. Ejecute el experimento.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Una vez completada la formación:
 

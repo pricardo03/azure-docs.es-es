@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 664099322bef3ac85d980fbe5e43dcc49cba862b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718242"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411557"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Implementación de OpenShift Container Platform en Azure
 
@@ -66,7 +66,7 @@ En el ejemplo siguiente se muestra un archivo de parámetros llamado azuredeploy
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "_artifactsLocation": {
@@ -257,7 +257,7 @@ Diferentes versiones pueden tener distintos parámetros; por ello, compruebe los
 | `infraVmSize` | Tamaño de la infraestructura máquina virtual. Seleccione uno de los tamaños permitidos de máquina virtual aparece en el archivo azuredeploy.json |  | Standard_D4s_v3 |
 | `nodeVmSize` | Tamaño de la máquina virtual del nodo de aplicación. Seleccione uno de los tamaños permitidos de máquina virtual aparece en el archivo azuredeploy.json |  | Standard_D4s_v3 |
 | `cnsVmSize` | Tamaño de la máquina virtual del nodo de almacenamiento nativo (CNS) de contenedor. Seleccione uno de los tamaños permitidos de máquina virtual aparece en el archivo azuredeploy.json |  | Standard_E4s_v3 |
-| `osImageType` | La imagen RHEL que se usará. defaultgallery: Petición; Marketplace: imagen de terceros | defaultgallery <br> marketplace | defaultgallery |
+| `osImageType` | La imagen RHEL que se usará. defaultgallery: Petición; Marketplace: imagen de terceros | defaultgallery <br> Marketplace | defaultgallery |
 | `marketplaceOsImage` | Si `osImageType` es marketplace, a continuación, especifique los valores adecuados para 'publisher', 'ofrecen', 'sku', 'version' de la oferta de marketplace. Este parámetro es un tipo de objeto |  |  |
 | `storageKind` | El tipo de almacenamiento que se usará  | administrado<br> no administrado | administrado |
 | `openshiftClusterPrefix` | Prefijo que se usa para configurar los nombres de host para todos los nodos del clúster.  Entre 1 y 20 caracteres |  | mycluster |
@@ -282,12 +282,12 @@ Diferentes versiones pueden tener distintos parámetros; por ello, compruebe los
 | `keyVaultName` | El nombre del que creó el almacén de claves |  |  |
 | `enableAzure` | Habilitar a proveedor de nube de Azure | true <br> false | true |
 | `aadClientId` | Azure Active Directory Id. de cliente también se conoce como identificador de la aplicación para la entidad de servicio |  |  |
-| `domainName` | Nombre del nombre de dominio personalizado para usar (si corresponde). Establecido en "none" Si no implementar clúster totalmente privado |  | None |
+| `domainName` | Nombre del nombre de dominio personalizado para usar (si corresponde). Establecido en "none" Si no implementar clúster totalmente privado |  | ninguno |
 | `masterClusterDnsType` | Tipo de dominio para la consola web de OpenShift. 'default' usará la etiqueta DNS del maestro de infraestructura IP pública. 'custom' permite definir su propio nombre | default <br> personalizado | default |
 | `masterClusterDns` | El nombre DNS personalizado para tener acceso a la consola de OpenShift web si ha seleccionado "personalizada" para `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | Si establece en 'nipio', `routingSubDomain` usará nip.io.  Use 'custom' Si tiene su propio dominio que desea utilizar para el enrutamiento | nipio <br> personalizado | nipio |
 | `routingSubDomain` | El nombre DNS de carácter comodín que desea usar para el enrutamiento si ha seleccionado "personalizada" para `routingSubDomainType` |  | apps.contoso.com |
-| `virtualNetworkNewOrExisting` | Seleccione si desea usar una red Virtual existente o crear una nueva red Virtual | Existente <br> new | new |
+| `virtualNetworkNewOrExisting` | Seleccione si desea usar una red Virtual existente o crear una nueva red Virtual | Existente <br> nuevo | nuevo |
 | `virtualNetworkResourceGroupName` | Nombre del grupo de recursos para la nueva red Virtual si ha seleccionado 'new' para `virtualNetworkNewOrExisting` |  | resourceGroup().name |
 | `virtualNetworkName` | El nombre de la nueva red Virtual para crear si ha seleccionado 'new' para `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | Prefijo de dirección de la nueva red virtual |  | 10.0.0.0/14 |

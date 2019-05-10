@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 2ab8f272fc264f153144803be772d381c1780512
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143267"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235746"
 ---
 # <a name="sql-database-serverless-preview"></a>Sin servidor de SQL Database (versión preliminar)
 
@@ -53,7 +53,7 @@ En la tabla siguiente se compara niveles de proceso sin servidor con el nivel de
 |**Escenario de uso típico**|Las bases de datos con el uso por ráfagas, imprevisible intercalan con períodos inactivos|Las bases de datos o grupos elásticos con el uso más habitual|
 |**Esfuerzo de administración del rendimiento**|inferior|Superior|
 |**Proceso de escalado**|Automático|Manual|
-|**Calcular la capacidad de respuesta**|Inferior después de períodos inactivos|Inmediata|
+|**Calcular la capacidad de respuesta**|Inferior después de períodos inactivos|Inmediato|
 |**Granularidad de facturación**|por segundo|Por hora|
 |
 
@@ -101,7 +101,7 @@ Autoresume se desencadena si alguna de las siguientes condiciones es verdadera e
 
 |Característica|Desencadenador Autoresume|
 |---|---|
-|Autenticación y autorización|Inicio de sesión|
+|Autenticación y autorización|Iniciar sesión|
 |Detección de amenazas|Habilitación o deshabilitación de la configuración de detección de amenazas en el nivel de base de datos o servidor<br>Modificar la configuración de detección de amenazas en el nivel de base de datos o servidor|
 |Detección y clasificación de datos|Agregar, modificar, eliminar o ver las etiquetas de confidencialidad|
 |Auditoría|Ver registros de auditoría.<br>Actualizar o ver la directiva de auditoría|

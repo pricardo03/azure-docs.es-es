@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809076"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236443"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de las cargas de trabajo de copia de seguridad de Azure
 
@@ -49,7 +49,7 @@ Las alertas son principalmente los escenarios donde los usuarios reciben notific
 Los escenarios siguientes se definen por servicio como escenarios genera alertas.
 
   - Errores de copia de seguridad y restauración
-  - Copia de seguridad correcta con advertencias
+  - Copia de seguridad correcta con advertencias para el agente de copia de seguridad de Azure (AM)
   - Detener la protección con conservar datos y detenga la protección con eliminación de datos
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Excepciones cuando no se genera una alerta
@@ -92,7 +92,7 @@ Cuando se configura la notificación, recibirá un correo electrónico de bienve
 Si la frecuencia se estableció en un resumen cada hora y se generó una alerta y se puede resolver dentro de una hora, no será una parte de la próxima resumen cada hora.
 
 > [!NOTE]
-> 
+>
 > * Si una operación destructiva como **detener la protección con eliminación de datos** es realiza, se genera una alerta y se envía un correo electrónico a los propietarios de suscripciones, los administradores y coadministradores incluso si no se configuran las notificaciones para el servicio de recuperación almacén.
 > * Para configurar la notificación para trabajos realizados correctamente, use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
