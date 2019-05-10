@@ -5,47 +5,33 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61027979"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230013"
 ---
-# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Obtener una vista previa: proteger el tráfico entre pods mediante las directivas de redes en Azure Kubernetes Service (AKS)
+# <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)
 
 Al ejecutar aplicaciones modernas basadas en microservicios en Kubernetes, con frecuenta querrá controlar qué componentes pueden comunicarse entre sí. El principio de privilegio mínimo se debe aplicar a cómo el tráfico puede fluir entre pods en un clúster de Azure Kubernetes Service (AKS). Supongamos que es posible que desean bloquear el tráfico directamente a las aplicaciones de back-end. El *directiva de red* característica en Kubernetes le permite definir las reglas de tráfico de entrada y salida entre pods en un clúster.
 
-Este artículo muestra cómo instalar el motor de directiva de red y crear directivas de red de Kubernetes para controlar el flujo del tráfico entre pods en AKS. Esta funcionalidad actualmente está en su versión preliminar.
-
-> [!IMPORTANT]
-> Características de versión preliminar AKS son autoservicio y participación. Las versiones preliminares se proporcionan para recopilar comentarios y los errores de nuestra comunidad. Sin embargo, no se admiten por soporte técnico de Azure. Si crea un clúster, o agregar estas características para clústeres existentes, ese clúster no se admite hasta que la característica ya no está en versión preliminar y se aprueba para disponibilidad general (GA).
->
-> Si tiene problemas con las características de vista previa, [abra una incidencia en el repositorio de GitHub de AKS] [ aks-github] con el nombre de la característica de vista previa en el título del error.
+Este artículo muestra cómo instalar el motor de directiva de red y crear directivas de red de Kubernetes para controlar el flujo del tráfico entre pods en AKS. Solo se debe usar la directiva de red para los nodos basados en Linux y los pods en AKS.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Necesita la CLI de Azure versión 2.0.61 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
-Para crear un clúster de AKS que puede usar la directiva de red, habilitar una marca de características en su suscripción. Para registrar la marca de característica *EnableNetworkPolicy*, use el comando [az feature register][az-feature-register] tal como se muestra en el ejemplo siguiente:
-
-```azurecli-interactive
-az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
-```
-
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro mediante el [lista de características de az] [ az-feature-list] comando:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableNetworkPolicy')].{Name:name,State:properties.state}"
-```
-
-Cuando esté listo, actualizar el registro de la *Microsoft.ContainerService* proveedor de recursos mediante el uso de la [registrar proveedor de az] [ az-provider-register] comando:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+> [!TIP]
+> Si usa la característica de directiva de red durante la versión preliminar, se recomienda [crear un nuevo clúster](#create-an-aks-cluster-and-enable-network-policy).
+> 
+> Si desea seguir usando los clústeres de prueba existente que usa la directiva de red durante la versión preliminar, actualizar el clúster a un nuevas versiones de Kubernetes en la versión de GA más reciente y, a continuación, implemente el siguiente manifiesto YAML para corregir el bloqueo server métricas y Kubernetes panel. Esta solución solo es necesario para los clústeres que usan el motor de directiva de red Calico.
+>
+> Como práctica recomendada de seguridad, [revisar el contenido de este manifiesto YAML] [ calico-aks-cleanup] para comprender lo que se implementa en el clúster de AKS.
+>
+> `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
 ## <a name="overview-of-network-policy"></a>Información general sobre la directiva de red
 
@@ -71,13 +57,14 @@ Directiva de red sólo funciona con la opción Azure CNI (avanzado). Implementac
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferencias entre las directivas de Azure y Calico y sus capacidades
 
-| Capacidad                               | Azure                      | Calico                      |
+| Funcionalidad                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Plataformas compatibles                      | Linux                      | Linux                       |
 | Admite las opciones de red             | Azure CNI                  | Azure CNI                   |
 | Compatibilidad con la especificación de Kubernetes | Todos los tipos de directiva admitidos |  Todos los tipos de directiva admitidos |
 | Características adicionales                      | None                       | Extender el modelo de directiva que consta de la directiva de red Global, conjunto de red Global y el punto de conexión de Host. Para obtener más información sobre el uso de la `calicoctl` CLI para administrar estos extendidos de las características, consulte [referencia de usuario calicoctl][calicoctl]. |
 | Soporte técnico                                  | Compatible con el soporte técnico de Azure y el equipo de ingeniería | Soporte de la Comunidad calico. Para obtener más información sobre soporte técnico de pago adicional, consulte [opciones de soporte técnico de proyecto Calico][calico-support]. |
+| Registro                                  | Las reglas de agregado o eliminado en IPTables se registran en cada host en */var/log/azure-npm.log* | Para obtener más información, consulte [registros de componente Calico][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Creación de un clúster de AKS y habilitación de la directiva de red
 
@@ -140,7 +127,6 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --kubernetes-version 1.12.6 \
     --generate-ssh-keys \
     --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
@@ -478,12 +464,13 @@ Para más información acerca de las directivas, consulte [las directivas de red
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
 [calico-support]: https://www.projectcalico.org/support
+[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

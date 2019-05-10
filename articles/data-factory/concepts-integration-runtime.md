@@ -10,23 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 05/07/2019
 ms.author: abnarain
-ms.openlocfilehash: d63ede800f7e60db44072234f5ec74910e4c70f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a7daae90254bb4192dbaf13e1c2f9202e2d2baa
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262109"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232426"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory
 Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Factory para proporcionar las siguientes capacidades de integración de datos en distintos entornos de red:
 
+- **Flujo de datos**: Ejecutar un [de flujo de datos](concepts-data-flow-overview.md) en el entorno de proceso de Azure administrado.  
 - **Movimiento de datos**: Copie los datos entre almacenes de datos en redes públicas y almacenes de datos en redes privadas (red privada local o virtual). Proporciona compatibilidad para conectores integrados, conversión de formato, asignación de columnas y transferencia de datos escalable y de rendimiento superior.
-- **Distribución de actividades**:  distribuya y supervise actividades de transformación que se ejecuten en una gran variedad de servicios de proceso, como Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, etc.
+- **Distribución de actividades**:  Distribuya y supervise actividades de transformación que se ejecutan en una variedad de servicios de proceso como Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server y mucho más.
 - **Ejecución de paquetes SSIS**: ejecute de forma nativa paquetes de SQL Server Integration Services (SSIS) en un entorno de proceso de Azure administrado.
 
-En Data Factory, una actividad define la acción que se realizará. Un servicio vinculado define un almacén de datos o un servicio de proceso de destino. Una instancia de Integration Runtime proporciona el puente entre la actividad y los servicios vinculados.  El servicio vinculado hace referencia a él, y este proporciona el entorno de proceso donde se ejecuta la actividad o desde donde se distribuye.  De esta manera, la actividad puede realizarse en la región más cercana posible al almacén de datos o servicio de proceso de destino de la manera con mayor rendimiento, a la vez que se satisfacen las necesidades de seguridad y cumplimiento.
+En Data Factory, una actividad define la acción que se realizará. Un servicio vinculado define un almacén de datos o un servicio de proceso de destino. Una instancia de Integration Runtime proporciona el puente entre la actividad y los servicios vinculados.  Se hace referencia el servicio vinculado o la actividad y proporciona el entorno de proceso donde la actividad se ejecuta o se distribuye desde. De esta manera, la actividad puede realizarse en la región más cercana posible al almacén de datos o servicio de proceso de destino de la manera con mayor rendimiento, a la vez que se satisfacen las necesidades de seguridad y cumplimiento.
 
 ## <a name="integration-runtime-types"></a>Tipos de instancias de Integration Runtime
 Data Factory ofrece tres tipos de instancias de Integration Runtime, y debe elegir el tipo que atienda mejor las funcionalidades de integración de datos y las necesidades del entorno de red que está buscando.  Estos tres tipos son:
@@ -39,7 +40,7 @@ En la tabla siguiente se describen las funcionalidades y la compatibilidad de re
 
 Tipo de IR | Red pública | Red privada
 ------- | -------------- | ---------------
-Azure | Movimiento de datos<br/>Distribución de actividades | &nbsp;
+Azure | Flujo de datos<br/>Movimiento de datos<br/>Distribución de actividades | &nbsp;
 Autohospedado | Movimiento de datos<br/>Distribución de actividades | Movimiento de datos<br/>Distribución de actividades
 SSIS de Azure | Ejecución de paquetes SSIS | Ejecución de paquetes SSIS
 
@@ -50,20 +51,24 @@ En el diagrama siguiente se muestra cómo pueden utilizarse los distintos tipos 
 ## <a name="azure-integration-runtime"></a>Tiempo de ejecución de integración de Azure
 Una instancia de Integration Runtime de Azure es capaz de:
 
+- Ejecución de flujos de datos en Azure 
 - Ejecutar la actividad de copia entre los almacenes de datos en la nube
-- Distribuir las siguientes actividades de transformación en la red pública: Actividad de HDInsight Hive, actividad HDInsight Pig, actividad HDInsight MapReduce, actividad de HDInsight Spark, actividad Streaming de HDInsight, actividad de ejecución de lotes de Machine Learning, actividades de recurso de actualización de Machine Learning, actividad de procedimiento almacenado Actividad de Data Lake Analytics U-SQL, actividad personalizada. NET, actividad Web, actividad de búsqueda y actividad de obtener metadatos.
+- Distribuir las siguientes actividades de transformación en la red pública: Cuaderno de Databricks / Jar / actividad de Python, actividad de HDInsight Hive, actividad HDInsight Pig, actividad HDInsight MapReduce, actividad de HDInsight Spark, actividad de Streaming de HDInsight, actividad de ejecución de lotes de Machine Learning, el recurso de actualización de Machine Learning las actividades, actividad de procedimiento almacenado, actividad de Data Lake Analytics U-SQL, actividad personalizada de .NET, actividad Web, actividad de búsqueda y actividad de obtener metadatos.
 
 ### <a name="azure-ir-network-environment"></a>Entorno de red de Azure Integration Runtime
-Integration Runtime de Azure admite la conexión a almacenes de datos y servicios de proceso en la red pública con puntos de conexión de acceso público. Use Integration Runtime autohospedado para el entorno de Azure Virtual Network.
+Integration Runtime de Azure admite la conexión a almacenes de datos y servicios de proceso con puntos de conexión accesibles públicos. Use Integration Runtime autohospedado para el entorno de Azure Virtual Network.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Recursos de proceso y escalado de Azure Integration Runtime
 Integration Runtime de Azure proporciona un proceso completamente administrado y sin servidor en Azure.  No tiene que preocuparse del aprovisionamiento de la infraestructura, la instalación de software, la aplicación de revisiones ni el escalado de la capacidad.  Además, solo se paga por la duración de la utilización real.
 
-Integration Runtime de Azure proporciona el proceso nativo para mover datos entre almacenes de datos en la nube de forma segura, confiable y con alto rendimiento.  Puede establecer cuántas unidades de integración de datos se usarán en la actividad de copia, y el tamaño de proceso de Integration Runtime de Azure se escala verticalmente de manera elástica en consecuencia sin tener que ajustar de manera explícita el tamaño de Integration Runtime de Azure.
+Integration Runtime de Azure proporciona el proceso nativo para mover datos entre almacenes de datos en la nube de forma segura, confiable y con alto rendimiento.  Puede establecer cuántas unidades de integración de datos se usarán en la actividad de copia, y el tamaño de proceso de Integration Runtime de Azure se escala verticalmente de manera elástica en consecuencia sin tener que ajustar de manera explícita el tamaño de Integration Runtime de Azure. 
 
 La distribución de actividades es una operación ligera para enrutar la actividad al servicio de proceso de destino, por lo que no hay necesidad de escalar verticalmente el tamaño de proceso para este escenario.
 
 Para obtener información sobre cómo crear y configurar una instancia de Integration Runtime de Azure, consulte cómo crear y configurar una instancia de Integration Runtime de Azure en las guías de procedimientos. 
+
+> [!NOTE] 
+> Integration runtime de Azure tiene propiedades relacionadas con el flujo de datos en tiempo de ejecución, que define la infraestructura de proceso subyacentes que se usará para ejecutar los flujos de datos en. 
 
 ## <a name="self-hosted-integration-runtime"></a>Integration Runtime autohospedado
 Una instancia de Integration Runtime autohospedado es capaz de:
@@ -112,7 +117,13 @@ Puede establecer una ubicación determinada para una instancia de Azure Integrat
 Si opta por utilizar la resolución automática de Azure Integration Runtime, que es la opción predeterminada: 
 
 - En la actividad de copia, ADF intentará detectar automáticamente el receptor y el almacén de datos de origen para elegir la mejor ubicación en la misma región si está disponible, o la más cercana en la misma ubicación geográfica, o si esta no se puede detectar, para usar la región de la factoría de datos como alternativa.
+
 - Para la ejecución de la actividad Lookup/GetMetadata y la distribución de actividades de transformación, ADF usará la instancia de IR de la región de la factoría de datos.
+
+- Para el flujo de datos, ADF usará la instancia de IR en la región de la factoría de datos. 
+
+  > [!TIP] 
+  > Sería una buena práctica para asegurarse de flujo de datos se ejecuta en la misma región que los almacenes de datos correspondiente (si es posible). Puede conseguirlo mediante la resolución automática de IR de Azure (si la ubicación del almacén de datos es igual a la ubicación de la factoría de datos), o mediante la creación de una nueva instancia de IR de Azure en la misma región que los almacenes de datos y, a continuación, ejecutar el flujo de datos en él. 
 
 Puede supervisar qué ubicación de IR se usa durante la ejecución de la actividad en la vista de supervisión de actividades de la canalización en la interfaz de usuario, o en la carga de supervisión de actividades.
 
@@ -153,8 +164,13 @@ La actividad Lookup y GetMetadata se ejecuta en el entorno de ejecución de inte
 
 Cada actividad de transformación tiene un destino de servicio vinculado de proceso de destino, que apunta a una instancia de Integration Runtime. Esta instancia de Integration Runtime es desde donde se distribuye la actividad de transformación.
 
+### <a name="data-flow-activity"></a>Actividad de flujo de datos
+
+Actividad de flujo de datos se ejecuta en el tiempo de ejecución de integración asociada a él. 
+
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes:
 
+- [Crear en tiempo de ejecución de integración de Azure](create-azure-integration-runtime.md)
 - [Crear Integration Runtime autohospedado](create-self-hosted-integration-runtime.md)
 - [Creación de una instancia de Integration Runtime de SSIS de Azure](create-azure-ssis-integration-runtime.md). Este artículo amplía el tutorial y proporciona instrucciones acerca del uso de Instancia administrada de Azure SQL Database y cómo unir un entorno de ejecución de integración a una red virtual. 

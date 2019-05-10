@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570839"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228170"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Preguntas más frecuentes relacionadas con Azure Multi-Factor Authentication
 
@@ -146,11 +146,11 @@ Si la organización no tiene clientes heredados, no debe permitir que los usuari
 
 **P: Mis usuarios dicen que hay ocasiones en que no reciben el mensaje de texto o que responder a mensajes de texto bidireccionales, pero se agota el tiempo de espera de la comprobación.**
 
-Tanto el envío de mensajes de texto como la recepción de respuestas en SMS bidireccionales no están garantizados, pues hay factores que no se pueden controlar y que podrían afectar a la confiabilidad del servicio. Entre estos factores se incluyen el país de destino, el operador del teléfono móvil y la intensidad de la señal.
+Tanto el envío de mensajes de texto como la recepción de respuestas en SMS bidireccionales no están garantizados, pues hay factores que no se pueden controlar y que podrían afectar a la confiabilidad del servicio. Estos factores incluyen el país o región de destino, el operador de telefonía móvil y la intensidad de señal.
 
 Si frecuentemente sus usuarios tienen problemas para recibir mensajes de texto de manera confiable, indíqueles que usen en su lugar el método de llamada de teléfono o aplicación móvil. La aplicación móvil puede recibir notificaciones con conexiones de telefonía móvil y Wi-Fi. Además, la aplicación móvil puede generar códigos de comprobación aunque el dispositivo no tenga señal. La aplicación Microsoft Authenticator está disponible para [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) y [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
-En la medida de lo posible, recomendamos usar SMS unidireccionales en lugar de bidireccionales si tiene que usar mensajes de texto. Esto se debe a que los SMS unidireccionales son más seguros y evitan que los usuarios incurran en cargos SMS globales como consecuencia de responder a un mensaje de texto enviado desde otro país.
+En la medida de lo posible, recomendamos usar SMS unidireccionales en lugar de bidireccionales si tiene que usar mensajes de texto. SMS unidireccional es más confiable y evita que los usuarios incurran en cargos SMS globales como consecuencia de responder a un mensaje de texto enviado desde otro país o región.
 
 **P: ¿Puedo cambiar la cantidad de tiempo que los usuarios tienen para escribir el código de verificación de un mensaje de texto antes de que se agote el tiempo de espera del sistema?**
 

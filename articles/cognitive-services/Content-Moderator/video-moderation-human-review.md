@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 04/30/2019
 ms.author: sajagtap
-ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098208"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228115"
 ---
 # <a name="video-moderation-with-human-review"></a>Moderación de vídeo con revisión humana
 
-Use [moderación de vídeo](video-moderation-api.md) asistida automáticamente de Content Moderator y [herramientas de revisión humana](Review-Tool-User-Guide/human-in-the-loop.md) para moderar vídeos y transcripciones de contenido para adultos (explícito) y subido de tono (sugerente) a fin de obtener los mejores resultados para su negocio.
+Utilice Content Moderator asistida por máquina [moderación de vídeo](video-moderation-api.md) y [herramienta de revisión humana](Review-Tool-User-Guide/human-in-the-loop.md) vídeos moderados y las transcripciones de adulto (explícito) y subido de tono contenido (sugerida) para obtener los mejores resultados para su negocio.
 
 ## <a name="video-trained-classifier-preview"></a>Clasificador entrenado con vídeo (vista previa)
 
@@ -28,52 +28,53 @@ La clasificación de vídeo asistido automáticamente se logra con modelos entre
 ## <a name="shot-detection"></a>Detección de cortes
 
 Cuando se generan los detalles de clasificación, la inteligencia adicional de vídeo contribuye con una mayor flexibilidad al análisis de los vídeos. En lugar de generar simplemente los fotogramas, el servicio de moderación de vídeo de Microsoft proporciona también información de los cortes. Ahora tiene la opción de analizar los vídeos en los niveles de corte y fotograma.
- 
+
 ## <a name="key-frame-detection"></a>Detección de fotogramas principales
 
 En lugar de generar fotogramas a intervalos regulares, el servicio de moderación de vídeo identifica y genera solo los fotogramas que es probable que estén completos (los buenos). La característica permite la generación eficaz de fotogramas para análisis de contenido para adultos y explícito en el nivel de fotograma.
 
 El extracto siguiente muestra una respuesta parcial con cortes posibles, fotogramas principales y puntuaciones de contenido para adultos y explícito:
 
-    "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
+```json
+"fragments":[  
+  {  
+    "start":0,
+    "duration":18000
+  },
+  {  
+    "start":18000,
+    "duration":3600,
+    "interval":3600,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":false,
+          "adultScore":0.00001,
+          "racyScore":0.03077,
+          "index":5,
+          "timestamp":18000,
+          "shotIndex":0
+        }
       ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
+    ]
+  },
+  {  
+    "start":18386372,
+    "duration":119149,
+    "interval":119149,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":true,
+          "adultScore":0.00000,
+          "racyScore":0.91902,
+          "index":5085,
+          "timestamp":18386372,
+          "shotIndex":62
+        }
       ]
-
+    ]
+```
 
 ## <a name="visualization-for-human-reviews"></a>Visualización para revisiones humanas
 
@@ -101,10 +102,7 @@ Los vídeos tienen normalmente voz de narración o habla ofensiva que necesitan 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Empiece con el [inicio rápido de moderación de vídeo](video-moderation-api.md). 
-
-Aprenda a generar [revisiones de vídeo](video-reviews-quickstart-dotnet.md) para los revisores humanos desde su salida moderada.
-
-Agregue [revisiones de transcripción de vídeo](video-transcript-reviews-quickstart-dotnet.md) a las revisiones de vídeo.
-
-Consulte el tutorial detallado sobre cómo desarrollar una [solución completa de moderación de vídeo](video-transcript-moderation-review-tutorial-dotnet.md). 
+- Empiece con el [inicio rápido de moderación de vídeo](video-moderation-api.md).
+- Aprenda a generar [revisiones de vídeo](video-reviews-quickstart-dotnet.md) para los revisores humanos desde su salida moderada.
+- Agregue [revisiones de transcripción de vídeo](video-transcript-reviews-quickstart-dotnet.md) a las revisiones de vídeo.
+- Consulte el tutorial detallado sobre cómo desarrollar una [solución completa de moderación de vídeo](video-transcript-moderation-review-tutorial-dotnet.md).

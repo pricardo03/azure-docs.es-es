@@ -67,7 +67,7 @@ Los clústeres de HDInsight Spark no son compatibles con el conector Spark-Phoen
 
 **Mitigación:**
 
-Debe usar el conector Spark-HBase en su lugar. Para instrucciones, consulte el artículo sobre el [uso del conector Spark-HBase](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Debe usar el conector Spark-HBase en su lugar. Para instrucciones, consulte el artículo sobre el [uso del conector Spark-HBase](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problemas relacionados con los cuadernos de Jupyter Notebook
 A continuación, se muestran algunos problemas conocidos relacionados con los cuadernos de Jupyter Notebook.

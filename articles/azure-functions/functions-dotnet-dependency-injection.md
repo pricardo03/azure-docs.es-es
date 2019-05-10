@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2019
 ms.author: jehollan
-ms.openlocfilehash: 1ef688dff65dc11f875f76e2f9127bf89af2f2b9
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2044718d2ec7a7acc58e1e7ba9ba04ec5caf16b3
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074596"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408443"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar inserción de dependencias en .NET de Azure Functions
 
@@ -65,7 +65,7 @@ En una aplicación de función, una duración de servicio con ámbito coincide c
 
 Servicios de duración de singleton se recomiendan para las conexiones y los clientes, por ejemplo un `SqlConnection`, `CloudBlobClient`, o `HttpClient`.
 
-Ver o descargar un [ejemplo de duración de los diferentes servicios](http://aka.ms/functions/di-sample).
+Ver o descargar un [ejemplo de duración de los diferentes servicios](https://aka.ms/functions/di-sample).
 
 ## <a name="logging-services"></a>Servicios de registro
 

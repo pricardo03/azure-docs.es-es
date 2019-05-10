@@ -4,8 +4,6 @@
   items:
     - name: ¿Qué es Azure Search?
       href: search-what-is-azure-search.md
-    - name: ¿Qué es Cognitive Search?
-      href: cognitive-search-concept-intro.md
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -15,7 +13,7 @@
       items:
         - name: Carga y consulta de un índice
           href: search-get-started-portal.md
-        - name: Enriquecimiento con inteligencia artificial (Cognitive Search)
+        - name: Enriquecimiento con IA (Cognitive Search)
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
       items:
@@ -35,8 +33,12 @@
       href: search-indexer-tutorial.md
     - name: Indexación de blobs en formato JSON de Azure
       href: search-semi-structured-data.md
-    - name: Indexación con AI (Cognitive Services)
-      href: cognitive-search-tutorial-blob.md
+    - name: Enriquecimiento con IA (Cognitive Search)
+      items:
+        - name: REST
+          href: cognitive-search-tutorial-blob.md
+        - name: 'C#'
+          href: cognitive-search-tutorial-blob-dotnet.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código de Azure
@@ -53,11 +55,15 @@
   items:
     - name: Búsqueda de texto completo
       href: search-lucene-query-architecture.md
-    - name: Patrones de diseño para varios inquilinos
-      href: search-modeling-multitenant-saas-applications.md
+    - name: Cognitive Search
+      href: cognitive-search-concept-intro.md
+    - name: Knowledge Store
+      href: knowledge-store-concept-intro.md
+    - name: Proyecciones
+      href: knowledge-store-projection-overview.md
 - name: Guías de procedimientos
   items:
-    - name: Planificación de capacidad
+    - name: Planificación
       items:
         - name: Elija un nivel
           href: search-sku-tier.md
@@ -67,6 +73,8 @@
           href: search-capacity-planning.md
         - name: Estrategias de implementación y procedimientos recomendados
           href: search-performance-optimization.md
+        - name: Arquitectura multiinquilino
+          href: search-modeling-multitenant-saas-applications.md
     - name: Seguridad
       items:
         - name: Introducción a la seguridad
@@ -79,6 +87,8 @@
           href: search-security-trimming-for-azure-search.md
         - name: Filtro por identidades de AAD
           href: search-security-trimming-for-azure-search-with-aad.md
+        - name: Administración de claves de cifrado (versión preliminar)
+          href: search-security-manage-encryption-keys.md
     - name: Desarrollo
       items:
         - name: Versiones de API
@@ -91,6 +101,8 @@
           href: search-get-started-java.md
         - name: Actualización del SDK
           items:
+            - name: .NET SDK 9.0
+              href: search-dotnet-sdk-migration-version-9.md
             - name: .NET SDK 5.0
               href: search-dotnet-sdk-migration-version-5.md
             - name: .NET SDK 3.0
@@ -119,7 +131,7 @@
           items:
             - name: Creación de un proveedor de sugerencias
               href: index-add-suggesters.md
-            - name: 'Ejemplos (sugerencias, autocompletar)'
+            - name: Agregar sugerencias o autocompletar
               href: search-autocomplete-tutorial.md
         - name: Sinónimos
           items:
@@ -169,26 +181,36 @@
           href: search-indexer-field-mappings.md
         - name: Solución de problemas habituales
           href: search-indexer-troubleshooting.md
-    - name: Indexación de inteligencia artificial (Cognitive Search)
+    - name: Enriquecimiento con IA
       items:
         - name: Adjuntar un recurso de Cognitive Services
           href: cognitive-search-attach-cognitive-services.md
-        - name: Definición de un conjunto de habilidades
-          href: cognitive-search-defining-skillset.md
-        - name: Referencia a una anotación
-          href: cognitive-search-concept-annotations-syntax.md
-        - name: Asignación a campos de índice
-          href: cognitive-search-output-field-mapping.md
-        - name: Procesamiento y extracción de información de imágenes
-          href: cognitive-search-concept-image-scenarios.md
-        - name: Integración de habilidades personalizadas
-          href: cognitive-search-custom-skill-interface.md
-        - name: Ejemplo de habilidades personalizadas
-          href: cognitive-search-create-custom-skill-example.md
+        - name: Conjuntos de aptitudes
+          items:
+            - name: Definición de un conjunto de habilidades
+              href: cognitive-search-defining-skillset.md
+            - name: Referencia a una anotación
+              href: cognitive-search-concept-annotations-syntax.md
+            - name: Asignación a campos de índice
+              href: cognitive-search-output-field-mapping.md
+            - name: Procesamiento y extracción de información de imágenes
+              href: cognitive-search-concept-image-scenarios.md
+        - name: Aptitudes personalizadas
+          items:
+            - name: Integración de habilidades personalizadas
+              href: cognitive-search-custom-skill-interface.md
+            - name: 'Ejemplo: Azure Functions'
+              href: cognitive-search-create-custom-skill-example.md
+            - name: 'Ejemplo: contenedores'
+              href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Sugerencias de solución de problemas
           href: cognitive-search-concept-troubleshooting.md
         - name: Vínculos de documentación
           href: cognitive-search-resources-documentation.md
+    - name: Knowledge Store (versión preliminar)
+      items:
+        - name: Primeros pasos
+          href: knowledge-store-howto.md
     - name: Datos de consulta
       items:
         - name: Creación de una consulta básica
@@ -203,6 +225,8 @@
           href: search-query-simple-examples.md
         - name: Ejemplos (completa de Lucene)
           href: search-query-lucene-examples.md
+        - name: moreLikeThis (versión preliminar)
+          href: search-more-like-this.md
     - name: Filtrado y ordenación de datos
       items:
         - name: Introducción sobre los filtros
@@ -276,9 +300,11 @@
           href: cognitive-search-skill-ocr.md
         - name: Conformador
           href: cognitive-search-skill-shaper.md
+        - name: Condicional
+          href: cognitive-search-skill-conditional.md
         - name: Habilidades en desuso
           href: cognitive-search-skill-deprecated.md
-    - name: Aptitudes personalizadas (versión preliminar)
+    - name: Aptitudes personalizadas
       items:
         - name: API web personalizada
           href: cognitive-search-custom-skill-web-api.md

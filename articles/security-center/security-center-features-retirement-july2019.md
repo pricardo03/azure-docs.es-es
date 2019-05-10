@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 614dabe842c7fe99da3ddb486c27003c79382ea1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147923"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231397"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Retirada de las características de Security Center (julio de 2019)
 
@@ -81,6 +81,7 @@ Al hacer clic en el área de trabajo, abre el panel de análisis de registro "Id
 ![Página de identidad: panel][8]
 
 A partir de ahora todas las tres pantallas anteriores se va a retirar. Los datos seguirán estando disponibles en la solución de seguridad de log analytics y no se puede modificar ni quitar.
+Las consultas de Log Analytics originales utilizadas para rellenar el panel identidad y acceso están disponibles en el centro de seguridad [repositorio de GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="classic-identity--access-preview---new-experience"></a>Clásica identidad y acceso (versión preliminar): nueva experiencia
 Mientras el panel de análisis de registro ha proporcionado información en solo un área de trabajo determinado, las capacidades nativas de Security Center proporcionan visibilidad en todas las suscripciones y todas las áreas de trabajo asociados a ellos, en una forma sencilla de-para usar la vista que le permite centrarse en lo que de importante, según la puntuación segura de sus en las recomendaciones de identidad y acceso.
@@ -96,13 +97,14 @@ El botón, junto con el panel por área de trabajo, se quitará después de la d
 
 Hoy en día al hacer clic en "Ir a la asignación de eventos de seguridad" se abre el panel de inteligencia de amenazas. El panel de inteligencia sobre amenazas que se va a retirar.  
 
-![Panel Inteligencia sobre amenazas][11]
+![Panel Inteligencia de amenazas][11]
 
 Al elegir un área de trabajo para ver su panel de inteligencia de amenazas, la seguridad de alertas pantalla map(Preview) *en Log Analytics* se abre. Esta pantalla se va a retirar.
 
 ![Mapa de las alertas de seguridad en Log Analytics][12]
 
 Los datos existentes seguirán estando disponibles en la solución de seguridad de log analytics y no se puede modificar ni quitar.
+Las consultas de Log Analytics originales utilizadas para rellenar el panel de inteligencia de amenazas están disponibles en el centro de seguridad [repositorio de GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="security-events-map---new-experience"></a>Mapa de eventos de seguridad: nueva experiencia
 Le animamos a nuestros clientes para usar la funcionalidad de asignación de las alertas integrada en el centro de seguridad: "(versión preliminar) asignan las alertas de seguridad". Esto proporciona una experiencia optimizada y funciona en todas las suscripciones y áreas de trabajo asociados, lo que permite una macro ver a través de su entorno y se centra en un área de trabajo.
@@ -165,6 +167,8 @@ El panel de seguridad en Log analytics proporciona una introducción al área de
 
 ### <a name="security--audit-dashboard---new-experience"></a>Panel seguridad y auditoría: nueva experiencia
 Nuestros clientes se recomienda usar Azure Security Center, que proporciona la misma información general de seguridad a través de varias suscripciones y áreas de trabajo asociados con ellos, junto con un conjunto de características más completo.
+
+Las consultas de Log Analytics originales utilizadas para rellenar la seguridad y auditoría panel están disponibles en el centro de seguridad [repositorio de GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de [Azure Security Center](https://docs.microsoft.com/azure/security-center/)

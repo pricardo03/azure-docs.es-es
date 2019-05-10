@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/21/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f63c62cd23fef5565628793379afd8bcc9f447b
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60896428"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510154"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integración de los mensajes de Azure Blockchain Workbench
 
@@ -406,7 +406,7 @@ Contiene información sobre bloques individuales. *BlockMessage* incluye una sec
 |--------------------|-------------|
 | transactionId      | Identificador único de la transacción en Azure Blockchain Workbench |
 | transactionHash    | Hash de la transacción en el libro de contabilidad |
-| De               | Identificador único en el libro de contabilidad para el origen de la transacción |
+| from               | Identificador único en el libro de contabilidad para el origen de la transacción |
 | to                 | Identificador único en el libro de contabilidad para el destino de la transacción |
 | provisioningStatus | Identifica el estado actual del proceso de aprovisionamiento de la transacción. Los valores posibles son: </br>0: la API ha creado la transacción en la base de datos</br>1: la transacción se ha enviado al libro de contabilidad</br>2: la transacción se ha confirmado correctamente en el libro de contabilidad</br>3 o 4: la transacción no se pudo confirmar en el libro de contabilidad</br>5: la transacción se confirmó correctamente en el libro de contabilidad |
 
@@ -468,7 +468,7 @@ Contiene información sobre un contrato. El mensaje incluye una sección con pro
 |--------------------|-------------|
 | transactionId | Identificador único de la transacción en Azure Blockchain Workbench |
 | transactionHash | Hash de la transacción en el libro de contabilidad |
-| De | Identificador único en el libro de contabilidad para el origen de la transacción |
+| from | Identificador único en el libro de contabilidad para el origen de la transacción |
 | to | Identificador único en el libro de contabilidad para el destino de la transacción |
 
 #### <a name="contract-properties"></a>Propiedades del contrato
@@ -563,7 +563,7 @@ Contiene información cuando se invoca una función de contrato, por ejemplo, el
 | NOMBRE | DESCRIPCIÓN |
 |------|-------------|
 | eventName                   | **ContractFunctionInvocation** |
-| caller                      | [Información del autor de la llamada](#caller-information) |
+| autor de llamada                      | [Información del autor de la llamada](#caller-information) |
 | contractId                  | Identificador único del contrato en Azure Blockchain Workbench |
 | contractLedgerIdentifier    | Identificador único del contrato en el libro de contabilidad |
 | functionName                | Nombre de la función. |
@@ -588,7 +588,7 @@ Contiene información cuando se invoca una función de contrato, por ejemplo, el
 | NOMBRE | DESCRIPCIÓN |
 |------|-------------|
 | Nombre | Nombre de parámetro |
-| value | Valor del parámetro |
+| value | Valor de parámetro |
 
 #### <a name="event-message-transaction-information"></a>Información de la transacción del mensaje de eventos
 
@@ -596,7 +596,7 @@ Contiene información cuando se invoca una función de contrato, por ejemplo, el
 |--------------------|-------------|
 | transactionId      | Identificador único de la transacción en Azure Blockchain Workbench |
 | transactionHash    | Hash de la transacción en el libro de contabilidad |
-| De               | Identificador único en el libro de contabilidad para el origen de la transacción |
+| from               | Identificador único en el libro de contabilidad para el origen de la transacción |
 | to                 | Identificador único en el libro de contabilidad para el destino de la transacción |
 
 Ejemplo de *EventMessage ContractFunctionInvocation* de Blockchain Workbench:
@@ -662,7 +662,7 @@ Contiene información de cuando una aplicación se carga en Workbench, como el n
 |------|-------------|
 | id | Identificador único del archivo de código de contrato en Azure Blockchain Workbench |
 | ledgerId | Identificador único del libro de contabilidad en Azure Blockchain Workbench |
-| location | Dirección URL donde se encuentra el archivo de código de contrato |
+| ubicación | Dirección URL donde se encuentra el archivo de código de contrato |
 
 #### <a name="application-role-information"></a>Información de rol de la aplicación
 
@@ -677,8 +677,8 @@ Contiene información de cuando una aplicación se carga en Workbench, como el n
 |------|-------------|
 | id | Identificador único del flujo de trabajo de la aplicación en Azure Blockchain Workbench |
 | Nombre | Nombre del flujo de trabajo de la aplicación |
-| DisplayName | Nombre para mostrar del flujo de trabajo de la aplicación |
-| functions | Colección de [funciones para el flujo de trabajo de aplicación](#workflow-function-information)|
+| displayName | Nombre para mostrar del flujo de trabajo de la aplicación |
+| funciones | Colección de [funciones para el flujo de trabajo de aplicación](#workflow-function-information)|
 | states | Colección de [estados para el flujo de trabajo de la aplicación](#workflow-state-information) |
 | properties | [Información de propiedades del flujo de trabajo](#workflow-property-information) de la aplicación |
 
@@ -695,7 +695,7 @@ Contiene información de cuando una aplicación se carga en Workbench, como el n
 | NOMBRE | DESCRIPCIÓN |
 |------|-------------|
 | Nombre | Nombre del estado |
-| DisplayName | Nombre para mostrar del estado |
+| displayName | Nombre para mostrar del estado |
 | style | Estilo del estado (completado o error) |
 
 ##### <a name="workflow-property-information"></a>Información de la propiedad del flujo de trabajo

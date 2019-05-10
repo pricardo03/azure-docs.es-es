@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: b7b096bd1ecf0a4df37ed4de0cf618216dccc2bc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 445579eb780b49f536ef1a9e13e5ca43db6f98f6
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159471"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508540"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Tutorial: Configurar Keeper Password Manager & Digital Vault para el aprovisionamiento automático de usuarios
 
@@ -84,7 +84,7 @@ Esta sección le guiará a través de los pasos para configurar el servicio de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-keeper-password-manager--digital-vault-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios de Keeper Password Manager & Digital Vault en Azure AD:
 
-1. Inicie sesión en el [portal Azure](https://portal.azure.com) y seleccione **aplicaciones empresariales**, seleccione **todas las aplicaciones**, a continuación, seleccione **Keeper Password Manager & Digital Almacén**.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **aplicaciones empresariales**, a continuación, seleccione **todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -104,19 +104,19 @@ Esta sección le guiará a través de los pasos para configurar el servicio de a
 
 6. Inicie sesión en su [consola de administración de Keeper](https://keepersecurity.com/console/#login). Haga clic en **Admin** y seleccione un nodo existente o cree uno nuevo. Navegue hasta la **aprovisionamiento** pestaña y seleccione **Agregar método**.
 
-    ![Consola de administración de Keeper](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-admin-console.png)
+    ![Consola de administración de Keeper](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-admin-console.png)
 
     Seleccione **SCIM (System for Cross-Domain Identity Management**.
 
-    ![Keeper agregar SCIM](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-add-scim.png)
+    ![Keeper agregar SCIM](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-add-scim.png)
 
     Haga clic en **crear un Token de aprovisionamiento**.
 
-    ![Keeper crear punto de conexión](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-create-endpoint.png)
+    ![Keeper crear punto de conexión](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-endpoint.png)
 
     Copie los valores de **URL** y **Token** y péguelas en **dirección URL del inquilino** y **Token secreto** en Azure AD. Haga clic en **guardar** para completar la configuración de aprovisionamiento en Keeper.
 
-    ![Crear Token Keeper](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-create-token.png)
+    ![Crear Token Keeper](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-token.png)
 
 7. Tras rellenar los campos que se muestran en el paso 5, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Keeper Password Manager & Digital Vault. Si se produce un error en la conexión, asegúrese de que su cuenta de Keeper Password Manager & Digital Vault tiene permisos de administrador y vuelva a intentarlo.
 
@@ -130,19 +130,19 @@ Esta sección le guiará a través de los pasos para configurar el servicio de a
 
 10. En el **asignaciones** sección, seleccione **sincronizar Active Directory usuarios de Azure a Keeper Password Manager & Digital Vault**.
 
-    ![Asignaciones de usuario de Keeper](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-user-mappings.png)
+    ![Asignaciones de usuario de Keeper](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-mappings.png)
 
 11. Revise los atributos de usuario que se sincronizan entre Azure AD con Keeper Password Manager & Digital Vault en el **asignación de atributos** sección. Los atributos seleccionados como **coincidencia** propiedades se utilizan para coincidir con las cuentas de usuario en Keeper Password Manager & Digital Vault para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Atributos de usuario de Keeper](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-user-attributes.png)
+    ![Atributos de usuario de Keeper](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-attributes.png)
 
 12. En el **asignaciones** sección, seleccione **sincronizar Azure grupos de Active Directory a Keeper Password Manager & Digital Vault**.
 
-    ![Asignaciones de grupos de Keeper](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-group-mappings.png)
+    ![Asignaciones de grupos de Keeper](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-mappings.png)
 
 13. Revise los atributos de grupo que se sincronizan entre Azure AD con Keeper Password Manager & Digital Vault en el **asignación de atributos** sección. Los atributos seleccionados como **coincidencia** propiedades se utilizan para que coincidan con los grupos en Keeper Password Manager & Digital Vault para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Atributos de grupo de Keeper](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-group-attributes.png)
+    ![Atributos de grupo de Keeper](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-attributes.png)
 
 14. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -176,7 +176,3 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

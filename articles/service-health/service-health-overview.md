@@ -9,12 +9,12 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5385777134b911aa08b751978c44597f79acbc7
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620811"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442401"
 ---
 # <a name="service-health"></a>Service Health
 Service Health proporciona un panel personalizable que realiza un seguimiento del estado de los servicios de Azure en las regiones donde los use. En este panel, puede realizar el seguimiento de eventos activos, como problemas de servicio, próximos mantenimientos planeados o avisos de estado relevantes. Cuando los eventos se vuelven inactivos, se colocan en el historial de estado durante 90 días. Por último, puede usar el panel de Service Health para crear y administrar las alertas de estado de servicio que proactivamente le notifican cuando los problemas del servicio le afectan.
@@ -60,5 +60,7 @@ Filtre Service Health para mostrar las suscripciones, regiones y tipos de recurs
 ## <a name="configure-service-health-alerts"></a>Configuración de alertas de estado de servicio
 Service Health se integra con Azure Monitor para enviarle alertas al usuario por correo electrónico, mensajes de texto y notificaciones webhook cuando se vean afectados recursos críticos. Configure una alerta de registro de actividad para el evento de estado de servicio adecuado. Enrute esa alerta a las personas adecuadas de la organización mediante grupos de acciones. Para más información, consulte [Creación de alertas de registro de actividad en notificaciones del servicio](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
-# <a name="next-steps"></a>Pasos siguientes
-Configure alertas de forma que se le notifiquen los problemas de mantenimiento. Para más información, consulte el artículo de [configuración de alertas para Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
+
+## <a name="next-steps"></a>Pasos siguientes
+Configure alertas de forma que se le notifiquen los problemas de estado. Para obtener más información, consulte [procedimientos recomendados para la configuración de alertas de estado del servicio de Azure](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 2df0fea4d1dbdfb532cff663ceabfef80d61fe45
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15babefda36ba37cf6df7820ac888668e4a502be
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60867964"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509917"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Administración de usuarios en Azure Blockchain Workbench
 
@@ -87,11 +87,11 @@ Utilice la aplicación Blockchain Workbench para administrar los usuarios y las 
 1. Seleccione el icono de miembro para mostrar una lista de los miembros actuales.
 2. Seleccione **Agregar miembros**.
 
-    ![Adición de miembros](./media/manage-users/application-add-members.png)
+    ![Agregar miembros](./media/manage-users/application-add-members.png)
 
 3. Busque el nombre del usuario.  Solo se muestran los usuarios de Azure AD que existen en el inquilino de Blockchain Workbench. Si no se encuentra el usuario, deberá [agregar usuarios de Azure AD](#add-azure-ad-users).
 
-    ![Adición de miembros](./media/manage-users/find-user.png)
+    ![Agregar miembros](./media/manage-users/find-user.png)
 
 4. Seleccione un **Rol** en la lista desplegable.
 

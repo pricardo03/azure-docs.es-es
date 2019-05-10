@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2a2df8b47b60f29d8ecd3c040e8ef979ee23afa8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b8caa5cd7476489a92ce97570794a1d397f32630
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575405"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230893"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificación de Azure Maps
 
 Cuando busca una ubicación con Azure Maps, el servicio de búsqueda toma los términos de su búsqueda y devuelve las coordenadas de latitud y longitud mediante un proceso denominado geocodificación. Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas las regiones y países. Use este artículo para determinar qué tipo de ubicaciones puede buscar de forma confiable en cada región. 
 
-La capacidad de obtener las coordenadas geográficas en un país depende de la cobertura de los datos de carretera y la precisión de la codificación geográfica del servicio de geocodificación. Las siguientes clasificaciones se usan para especificar el nivel de geocodificación en cada país.
+La capacidad de código geográfico en un país o región depende de la cobertura de datos de la carretera y la precisión de codificación geográfica del servicio de geocodificación. Se usan las siguientes clasificaciones de especificar el nivel de compatibilidad de geocodificación en cada país o región.
 * **Puntos de dirección**: Los datos de direcciones se pueden resolver en una coordenada de latitud y longitud dentro de la parcela de la dirección (límite de la propiedad). Este nivel de precisión, a veces llamada de azotea, es el mayor disponible para las direcciones. 
 * **Números de casa**: Las direcciones se interpolan a una coordenada de latitud y longitud de la calle.
 * **Nivel de calle**: Las direcciones se resuelven en la coordenada de latitud y longitud de la calle que contiene la dirección. No se puede procesar el número de casa.
@@ -27,14 +27,14 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 
 ## <a name="americas"></a>América
 
-| País/región                                       | Puntos de dirección | Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
+| País o región                                       | Puntos de dirección | Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguila                                            |                 |                |              |      ✓     |          ✓         |
 | Antártida                                          |                 |                |              |      ✓     |          ✓         |
 | Antigua y Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Argentina                                           |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | Aruba                                               |                 |                |              |      ✓     |          ✓         |
-| Bahamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Las Bahamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Barbados                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Belice                                              |                 |                |              |      ✓     |          ✓         |
 | Bermudas                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -88,31 +88,31 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 
 ## <a name="asia-pacific"></a>Asia Pacífico
 
-| País/región                                      | Puntos de dirección |Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
+| País o región                                      | Puntos de dirección |Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Samoa Americana                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bangladés                                          |                 |                |              |      ✓     |          ✓         |
-| Bután                                              |                 |                |              |      ✓     |          ✓         |
+| Bhután                                              |                 |                |              |      ✓     |          ✓         |
 | Territorio Británico del Océano Índico                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Camboya                                            |                 |                |              |      ✓     |          ✓         |
 | China                                               |                 |                |              |      ✓     |          ✓         |
 | Isla Christmas                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
-| Islas Cocos (Keeling)                             |                 |                |              |      ✓     |          ✓         |
+| Islas Cocos                             |                 |                |              |      ✓     |          ✓         |
 | Comores                                             |                 |                |              |      ✓     |          ✓         |
 | Islas Cook                                        |                 |                |              |      ✓     |          ✓         |
-| Islas Fiji                                                |                  |                |              |      ✓     |          ✓        |
-| Polinesia francesa                                    |                 |                |              |      ✓     |          ✓         |
-| Isla Heard e Islas McDonald                   |                 |                |              |      ✓     |          ✓         |
-| RAE de Hong Kong                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Fiji                                                |                  |                |              |      ✓     |          ✓        |
+| Polinesia Francesa                                    |                 |                |              |      ✓     |          ✓         |
+| Islas Heard y McDonald                   |                 |                |              |      ✓     |          ✓         |
+| Hong Kong RAE                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | India                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japón                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Corea                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
-| RAE de Macao                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Macao RAE                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malasia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Micronesia                                          |                 |                |              |      ✓     |          ✓         |
 | Mongolia                                            |                 |                |              |      ✓     |          ✓         |
@@ -129,8 +129,8 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 | Papúa Nueva Guinea                                    |                 |                |              |      ✓     |          ✓         |
 | Paracelso                                     |                 |                |              |      ✓     |                    |
 | Filipinas                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Islas Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
-| Samoa                                               |                 |                |              |      ✓     |          ✓         |
+| Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
+| Estado Independiente de Samoa                                               |                 |                |              |      ✓     |          ✓         |
 | Islas Senkaku/Diaoyutai                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapur                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Islas Salomón                                     |                 |                |              |      ✓     |          ✓         |
@@ -141,7 +141,7 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 | Tailandia                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Tokelau                                             |                 |                |              |      ✓     |          ✓         |
 | Tonga                                               |                 |                |              |      ✓     |          ✓         |
-| Islas Turcas y Caicos                            |                 |                |              |      ✓     |          ✓         |
+| Islas Turks y Caicos                            |                 |                |              |      ✓     |          ✓         |
 | Tuvalu                                              |                 |                |              |      ✓     |          ✓         |
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
 | Vietnam                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -149,7 +149,7 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 
 ## <a name="europe"></a>Europa
 
-| País/región                                      | Puntos de dirección |Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
+| País o región                                      | Puntos de dirección |Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Albania                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorra                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -160,7 +160,7 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 | Bosnia y Herzegovina                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bulgaria                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Belarús                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Croacia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Croacia (Hrvatska)                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Chipre                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | República Checa                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Dinamarca                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -190,15 +190,15 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 | Luxemburgo                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Macedonia del Norte                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Moldavia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mónaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Montenegro                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Países Bajos                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Países bajos                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Noruega                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Polonia                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Portugal                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | +Azores y Madeira                                 |                 |                |       ✓      |      ✓     |          ✓         |
-| Rumania                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Rumanía                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Federación Rusa                                  |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | San Marino                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Serbia                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -219,12 +219,12 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 
 ## <a name="middle-east-and-africa"></a>Oriente Medio y África
 
-| País/región                                      | Puntos de dirección |Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
+| País o región                                      | Puntos de dirección |Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Afganistán                                         |                 |                |              |      ✓     |          ✓         |
 | Argelia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Angola                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Bahréin                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
+| Reino de Baréin                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
 | Benín                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Botsuana                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Isla Bouvet                                       |                 |                |              |      ✓     |          ✓         |
@@ -247,7 +247,7 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 | Gambia                                              |                 |                |              |      ✓     |          ✓         |
 | Ghana                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Guinea                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Guinea-Bisáu                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Guinea-Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Irán                                                |                 |                |              |      ✓     |          ✓         |
 | Iraq                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Israel                                              |        ✓        |       ✓        |              |      ✓     |          ✓         |
@@ -273,7 +273,7 @@ La capacidad de obtener las coordenadas geográficas en un país depende de la c
 | Níger                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Nigeria                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Omán                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Qatar                                               |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Catar                                               |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Reunión                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ruanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Santa Elena                                        |                 |                |              |      ✓     |          ✓         |

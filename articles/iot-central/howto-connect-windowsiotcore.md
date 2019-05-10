@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af6d66d2e3eae80477a151323578b930dcd7727a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8d4ab46c598580a3a87f4344202f2700926bf5c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886636"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510319"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo Windows IoT Core a una aplicación de Azure IoT Central
 
@@ -74,7 +74,7 @@ Después de unos minutos, puede ver la telemetría del dispositivo en la aplicac
 El [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) incluye herramientas que puede usar para solucionar problemas del dispositivo:
 
 - El **Administrador de aplicaciones** página le permite controlar las aplicaciones que se ejecutan en el dispositivo.
-- Si no tiene un monitor conectado al dispositivo, puede usar el **configuración del dispositivo** página para realizar capturas de pantalla del dispositivo. Por ejemplo: 
+- Si no tiene un monitor conectado al dispositivo, puede usar el **configuración del dispositivo** página para realizar capturas de pantalla del dispositivo. Por ejemplo:
 
     ![Captura de pantalla de aplicación](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 
@@ -88,7 +88,7 @@ Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits
 
 ### <a name="telemetry-measurements"></a>Medidas de telemetría
 
-| Nombre del campo     | Unidades  | Mínima | Máxima | Posiciones decimales |
+| Nombre del campo     | Unidades  | Mínimo | Máximo | Posiciones decimales |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humedad       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -98,17 +98,17 @@ Una aplicación creada a partir de la plantilla de aplicación **Ejemplo Devkits
 
 Valores numéricos
 
-| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Inicial |
+| `Display name` | Nombre del campo | Unidades | Posiciones decimales | Mínimo | Máximo | Inicial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 ### <a name="properties"></a>Properties (Propiedades)
 
-| Type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| Type            | `Display name` | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
-| Propiedad de dispositivo | Die number   | dieNumber  | número    |
-| Text            | Location     | location   | N/D       |
+| Propiedad de dispositivo | Die number   | dieNumber  | de serie    |
+| Text            | Ubicación     | ubicación   | N/D       |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido cómo conectar un dispositivo Raspberry Pi a una aplicación de Azure IoT Central, el siguiente paso sugerido es obtener información sobre cómo [configurar una plantilla personalizada del dispositivo](howto-set-up-template.md) para su propio dispositivo de IoT.
+Ahora que ha aprendido cómo conectar un dispositivo Windows IoT Core a una aplicación de Azure IoT Central, el siguiente paso sugerido es obtener información sobre cómo [configurar una plantilla personalizada del dispositivo](howto-set-up-template.md) para su propio dispositivo de IoT.

@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6bda1af8095e7026c79b7d8ffe45b39f6cbb3508
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028701"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442425"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX y Azure Machine Learning: Crear y acelerar los modelos de aprendizaje automático
 
@@ -30,7 +30,7 @@ Microsoft y una comunidad de asociados crean ONNX como un estándar abierto para
 
 El tiempo de ejecución ONNX se usa en servicios de Microsoft de gran escala, como Bing, Office y Cognitive Services. Mejoras de rendimiento dependen de una serie de factores, pero estos servicios de Microsoft han visto un __promedio de 2 x ganancia de rendimiento de CPU__. También se utiliza en tiempo de ejecución ONNX como parte del aprendizaje automático de Windows en cientos de millones de dispositivos. Puede usar el tiempo de ejecución con los servicios de Azure Machine Learning. Mediante el uso de ONNX en tiempo de ejecución, puede beneficiarse de las optimizaciones amplias de producción, mejoras de pruebas y en curso.
 
-[![Diagrama de flujo ONNX que muestra el entrenamiento, los convertidores de tipos y la implementación](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![Diagrama de flujo ONNX que muestra el entrenamiento, los convertidores de tipos y la implementación](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Obtención de modelos de ONNX
 

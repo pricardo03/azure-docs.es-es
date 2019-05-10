@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 61d168a5f501923812db5945fa6df439ae7e70f9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 27adc0eeeabed2b1f2e86f301a60604a3d358b82
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145108"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464717"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -57,6 +57,7 @@ En la tabla siguiente se enumera todas las otras características y herramientas
 | **AzCopy** | Compatibilidad con versiones específicas <br><br>Use solo la versión más reciente de AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). No se admiten versiones anteriores de AzCopy como AzCopy v8.1.|
 | **Directivas de administración del ciclo de vida de Azure Blob storage** | Todavía no se admite |
 | **Azure Content Delivery Network (CDN)** | Todavía no se admite|
+| **Azure Event Grid** | Todavía no se admite |
 | **Búsqueda de Azure** |Todavía no se admite|
 | **Explorador de Azure Storage** | Compatibilidad con versiones específicas <br><br>Use solo la versión `1.6.0` o superior. <br>Versión `1.6.0` está disponible como un [descarga gratuita](https://azure.microsoft.com/features/storage-explorer/).|
 | **Las ACL del contenedor de BLOB** |Todavía no se admite|
@@ -65,7 +66,7 @@ En la tabla siguiente se enumera todas las otras características y herramientas
 | **Registros de diagnóstico** |Todavía no se admite|
 | **Explorador de sistema de archivos** | Compatibilidad limitada |
 | **Almacenamiento inmutable** |Todavía no se admite <br><br>Inmutable storage ofrece la capacidad de almacenar datos en un [gusano (escribir una vez, leer muchas)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) estado.|
-| **Niveles de nivel de objeto** |Todavía no se admite <br><br>Por ejemplo:  Premium, los niveles frecuente, esporádico y archivo.|
+| **Niveles de nivel de objeto** |Todavía no se admite <br><br>Por ejemplo: Premium, los niveles frecuente, esporádico y archivo.|
 | **Compatibilidad con PowerShell y CLI** | Funcionalidad limitada <br><br>Puede crear una cuenta mediante el uso de Powershell o la CLI. No se puede realizar operaciones o establecer listas de control de acceso en los sistemas de archivos, directorios y archivos.|
 | **Sitios Web estáticos** |Todavía no se admite <br><br>En concreto, la capacidad de administrar los archivos [los sitios Web estáticos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
 | **Aplicaciones de terceros** | Compatibilidad limitada <br><br>Aplicaciones de terceros que usan las API de REST para trabajar seguirán funcionando si usas con Data Lake Storage Gen2. <br>Si tiene una aplicación que utiliza la API de Blob, esa aplicación probablemente tendrá problemas si usa esa aplicación con Data Lake Storage Gen2. Para obtener más información, consulte el [API están deshabilitadas para las cuentas de almacenamiento de Gen2 de almacenamiento del lago de datos de almacenamiento de blobs](#blob-apis-disabled) sección de este artículo.|

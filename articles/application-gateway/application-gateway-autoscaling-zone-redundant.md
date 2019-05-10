@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202908"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510819"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>El escalado automático y la puerta de enlace de aplicaciones con redundancia de zona 
 
@@ -62,7 +62,7 @@ Orientación de la unidad de proceso:
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-El [página de precios](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) se actualizará para reflejar los precios regionales en 14 de mayo de 2019. La facturación está programada para que comience el 1 de junio de 2019.
+El [página de precios](https://azure.microsoft.com/pricing/details/application-gateway/) se actualizará para reflejar los precios regionales en 14 de mayo de 2019. La facturación está programada para que comience el 1 de junio de 2019.
 
 **Ejemplo 1**
 
@@ -93,7 +93,7 @@ Precio unitario de capacidad = 744(hours) * Max (proceso unidad Max(25/50 for co
 
 Precio total = $267.84 + $85.71 = $353.55
 
-El [página de precios](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) se actualizará para reflejar los precios regionales en 14 de mayo de 2019. La facturación está programada para que comience el 1 de junio de 2019.
+El [página de precios](https://azure.microsoft.com/pricing/details/application-gateway/) se actualizará para reflejar los precios regionales en 14 de mayo de 2019. La facturación está programada para que comience el 1 de junio de 2019.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Escalado v2 Application Gateway y WAF
 
@@ -124,7 +124,7 @@ En la tabla siguiente se compara las características disponibles con cada SKU.
 | Páginas de error personalizadas                                | &#x2713; | &#x2713; |
 | Compatibilidad con WebSocket                                 | &#x2713; | &#x2713; |
 | Compatibilidad con HTTP/2                                    | &#x2713; | &#x2713; |
-| Purga de la conexión                               | &#x2713; | &#x2713; |
+| Purga de conexión                               | &#x2713; | &#x2713; |
 
 > [!NOTE]
 > La versión 2 de escalado automático ahora es compatible con la SKU [sondeos de estado predeterminada](application-gateway-probe-overview.md#default-health-probe) para supervisar el estado de todos los recursos de su grupo de back-end y resaltar los miembros de back-end que se consideran en mal estado automáticamente. El sondeo de estado predeterminada se configura automáticamente para el back-ends que no tienen ninguna configuración de sondeo personalizado. Para obtener más información, consulte [sondeos de estado de application gateway](application-gateway-probe-overview.md).
