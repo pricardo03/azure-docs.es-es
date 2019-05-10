@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8851248c395a1f03c46490c8eb5e71221dd133
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733307"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409280"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nubes y regiones donde existe Azure Media Services v3
 
@@ -35,10 +35,7 @@ Azure Media Services v3 está disponible a través del manifiesto de Azure Resou
 
 ## <a name="regionsgeographieslocations"></a>Regiones, zonas geográficas y ubicaciones
 
-* [Regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Producto por región](https://azure.microsoft.com/global-infrastructure/services/)
-* [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
-* [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/)
+[Regiones en que se implementa el servicio de Azure Media Services](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### <a name="region-code-name"></a>Nombre de código de región 
 
@@ -98,6 +95,12 @@ Es importante conocer los siguientes puntos de conexión al conectarse a cuentas
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Authentication | `https://login.chinacloudapi.cn/` |
 | Público del token |  `https://management.core.chinacloudapi.cn/` |
+
+## <a name="see-also"></a>Vea también
+
+* [Regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Ubicaciones de Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

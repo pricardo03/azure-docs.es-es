@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b9b2461d888f37b7ae72a3e097d77856255d7e2e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160011"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416361"
 ---
 Las imágenes estandarizadas virtual machine (VM) permiten a las organizaciones migrar a la nube y garantizar la coherencia de las implementaciones. Normalmente, las imágenes incluyen configuraciones predefinidas de seguridad y la configuración y el software necesario. La configuración de su propia canalización de procesamiento de imágenes requiere tiempo, infraestructura y el programa de instalación, pero con el generador de imágenes de máquina virtual de Azure, basta con que proporcione una configuración simple que describe la imagen, enviarlo al servicio, y la imagen se crea y distribuye.
  
@@ -20,7 +20,7 @@ El generador de imágenes de máquina virtual de Azure (generador de imágenes d
 > Generador de imágenes de Azure está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="preview-features"></a>Características de la versión de vista previa
+## <a name="preview-features"></a>Vista previa de las características
 
 Para la versión preliminar, se admiten estas características:
 
@@ -51,7 +51,7 @@ AIB será compatible con imágenes de sistema operativo bases de Azure Marketpla
 - Windows 2019
 
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 
 ![Dibujo conceptual de generador de imágenes de Azure](./media/virtual-machines-image-builder-overview/image-builder.png)
@@ -95,7 +95,7 @@ Durante el proceso de creación de imagen, los archivos se descargan y se almace
  
 Image Builder crea una máquina virtual con un tamaño de máquina virtual D1v2 y el almacenamiento y redes necesarios para la máquina virtual. Estos recursos estará en vigor para la duración del proceso de compilación y se eliminarán una vez que el generador de imágenes ha terminado de crear la imagen. 
  
-Generador de imágenes de Azure va a distribuir la imagen a las regiones elegidas, los cuales pueden incurrir en cargos de salida de red.
+Generador de imágenes de Azure distribuirá la imagen a las regiones elegidas, lo cual podría suponer cargos de salida de red.
  
 ## <a name="next-steps"></a>Pasos siguientes 
  

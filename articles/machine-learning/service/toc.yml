@@ -224,6 +224,9 @@
       items:
         - name: Creación de una canalización de Machine Learning
           href: how-to-create-your-first-pipeline.md
+        - name: Entrenamiento e implementación de modelos de Machine Learning con Azure Pipelines
+          href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
+          mainContext: true
     - name: Administración de cuotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md

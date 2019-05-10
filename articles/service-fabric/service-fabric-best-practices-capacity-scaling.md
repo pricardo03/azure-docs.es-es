@@ -12,44 +12,47 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/23/2019
+ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 425154958e4c60902b56f320f714a011b9095830
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c72392e46805049703300dd6f60fc7bf08b9053b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471543"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235760"
 ---
 # <a name="capacity-planning-and-scaling"></a>Escalado y planeamiento de capacidad
 
-Es importante planear la capacidad antes de crear cualquier clúster de Azure Service Fabric o de escalar los recursos de proceso que hospedan al clúster. Para obtener más información sobre el planeamiento de la capacidad, consulte [planeamiento de capacidad del clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). Además de tomar en cuenta las características de clúster y tipo de nodo, planifique las operaciones de escalado para que tarden más de una hora en completarse en un entorno de producción, independientemente del número de máquinas virtuales que vaya a agregar.
+Es importante planear la capacidad antes de crear cualquier clúster de Azure Service Fabric o de escalar los recursos de proceso que hospedan al clúster. Para obtener más información sobre el planeamiento de la capacidad, consulte [planeamiento de capacidad del clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). Para más recomendado vea una guía para la escalabilidad del clúster [consideraciones sobre escalabilidad de Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations)
+
+Además de considerar las características de tipo y el clúster de nodo, debe planear para escalar las operaciones que tarden más de una hora en completarse para un entorno de producción, independientemente del número de máquinas virtuales que se va a agregar.
 
 ## <a name="auto-scaling"></a>Ajuste de escala automático
-Las operaciones de escalado deben realizarse a través de la implementación de plantillas de recursos de Azure, ya que es un procedimiento recomendado para tratar [las configuraciones de recursos como código]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). Además, usar el escalado automático de un conjunto de escalado de máquinas virtuales dará como resultado que la plantilla de Resource Manager con control de versiones defina de manera inexacta el número de instancias del conjunto de escalado de máquinas virtuales. Esto eleva el riesgo de que las implementaciones futuras ocasionen operaciones de escalado no deseadas. En general, debe usar el escalado automático solo en los siguientes casos:
+Las operaciones de escalado deben realizarse a través de la implementación de plantillas de recursos de Azure, porque es el procedimiento recomendado para tratar [las configuraciones de recursos como código]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)y el uso conjunto de escalado de máquina virtual, el escalado automático dará como resultado la plantilla de Resource Manager con control de versiones definir de manera inexacta el escalado de máquinas virtuales del conjunto de números de instancias; aumenta el riesgo de las futuras implementaciones causando las operaciones de escalado no deseadas y, en general debe usar el escalado automático si:
 
 * Si implementar las plantillas de Resource Manager con la capacidad adecuada declarada no es compatible con su caso de uso.
-  * Además del escalado manual, puede configurar una [integración continua y canalización de entrega en Azure DevOps Services con proyectos del grupo de recursos de Azure]( https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts). Normalmente, esta integración se desencadena gracias a una aplicación lógica que aprovecha las métricas de rendimiento de la máquina virtual consultadas desde la [API REST de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough), lo que realiza un escalado automático eficaz en función de las métricas que quiera y se optimiza para agregar valor a Azure Resource Manager.
+  * Además del escalado manual, puede configurar un [integración continua y la canalización de entrega de servicios de DevOps de Azure con proyectos de implementación de grupo de recursos de Azure](https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts), que se desencadena habitualmente por una aplicación lógica que aprovecha las métricas de rendimiento de máquina virtual consultadas desde [API de REST de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough); eficazmente el escalado automático en función de las métricas que desee, al tiempo que optimiza para la suma del valor de Azure Resource Manager.
 * Solo será necesario escalar horizontalmente un nodo del conjunto de escalado de máquinas virtuales a la vez.
-  * Para escalar horizontalmente tres o más nodos a la vez, debe [escalar horizontalmente un clúster de Service Fabric mediante la adición de un conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out). Además, es más seguro escalar y reducir horizontalmente los conjuntos de escalado de máquinas virtuales un nodo a la vez.
+  * Para escalar horizontalmente por 3 o más nodos a la vez y debería [escalar un clúster de Service Fabric reducir horizontalmente mediante la adición de un conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/azure service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)y es más seguro escalar en y máquina virtual conjuntos de escalado horizontal de 1 nodo a la vez.
 * Si tiene un nivel de confiabilidad Silver o superior en su clúster de Service Fabric y un nivel de durabilidad Silver o superior en cualquier conjunto de escalado en el que haya configurado reglas de escalado automático.
-  * La capacidad [mínima] de las reglas de escalabilidad automática debe ser igual o mayor que cinco instancias de máquina virtual y debe ser igual o mayor que el mínimo del nivel de confiabilidad para el tipo de nodo principal.
+  * Capacidad de las reglas de escalado automático (mínimo) debe ser igual o mayor que 5 instancias de máquina virtual y debe ser igual o mayor que el mínimo nivel de confiabilidad para el tipo de nodo principal.
 
 > [!NOTE]
-> El tejido de servicio con estado de Azure Service Fabric: / System/InfastructureService/< NOMBRE_DEL_TIPO_DE_NODO> se ejecuta en cada tipo de nodo que tiene una durabilidad de nivel Silver o superior, que es el único servicio de sistema que se puede ejecutar en Azure en cualquiera de los tipos de nodo de clústeres. 
+> Tejido de servicio con estado de Azure Service Fabric: / System/InfastructureService/< NODE_TYPE_NAME >, se ejecuta en cada tipo de nodo que tiene Silver o mayor durabilidad, que es el único servicio de sistema que se puede para ejecutar en Azure en cualquiera de los tipos de nodo de clústeres .
 
 ## <a name="vertical-scaling-considerations"></a>Consideraciones sobre escalado vertical
 
-Para [escalar verticalmente](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) un tipo de nodo en Azure Service Fabric, se necesitan una serie de pasos y consideraciones. Por ejemplo: 
-* El clúster debe estar en buen estado antes de escalarlo. En caso contrario, solo se desestabilizará aún más el clúster.
-* Se requiere un **nivel de durabilidad Silver o superior** en todos los tipos de nodo de los clústeres de Service Fabric que hospedan servicios con estado.
+[Escalado vertical](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) un tipo de nodo en Azure Service Fabric requiere un número de pasos y consideraciones. Por ejemplo:
+
+* El clúster debe estar en buen estado antes de escalarlo. En caso contrario, solo se desestabilizar aún más el clúster.
+* **Mayor o nivel de durabilidad Silver** es necesaria para todos los tipos de nodo de clúster de Service Fabric que hospedan servicios con estado.
 
 > [!NOTE]
-> El tipo de nodo principal que hospeda los servicios del sistema con estado de Service Fabric deben tener un nivel de durabilidad Silver o superior. Tras habilitar la durabilidad nivel Silver, las operaciones del clúster tales como las actualizaciones o la adición o remoción de nodos serán más lentas, ya que el sistema realiza optimizaciones para la seguridad de los datos y no para la velocidad de las operaciones.
+> El tipo de nodo principal que hospeda los servicios del sistema Stateful Service Fabric debe ser la durabilidad Silver nivel o superior. Tras habilitar la durabilidad nivel Silver, las operaciones del clúster tales como las actualizaciones o la adición o remoción de nodos serán más lentas, ya que el sistema realiza optimizaciones para la seguridad de los datos y no para la velocidad de las operaciones.
 
-Realizar el escalado vertical de un conjunto de escalado de máquinas virtuales es una operación destructiva. En su lugar, escale horizontalmente el clúster agregando un nuevo conjunto de escalado con la SKU deseada y migre los servicios a la SKU deseada para completar una operación de escalado vertical segura. Cambiar la SKU del recurso de conjunto de escalado de máquinas virtuales es una operación destructiva ya que restablece la imagen inicial de los hosts, eliminando todos los estados que persistan de forma local.
+Un conjunto de escalado de máquinas virtuales de escalado vertical es una operación destructiva. En su lugar, escale horizontalmente el clúster agregando un nuevo conjunto de escalado con la SKU deseada y migre los servicios a la SKU deseada para completar una operación de escalado vertical segura. Cambiar un recurso de conjunto de escalado SKU de máquina virtual es una operación destructiva porque vuelve a las imágenes de los hosts que se encarga de todo el estado guardado de forma local.
 
-El clúster usa las [restricciones de ubicación y propiedades de nodo](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) de Service Fabric para determinar en qué ubicación hospedará los servicios de las aplicaciones. Al escalar verticalmente el tipo de nodo principal, declare valores de propiedad idénticos para `"nodeTypeRef"`, que se encuentra en la extensión de Service Fabric para el conjunto de escalado de máquinas virtuales. En el siguiente fragmento de plantilla de Resource Manager se muestran las propiedades que va a declarar (con el mismo valor para los nuevos conjuntos de escalado aprovisionado que escalará) y que solo se admiten como un estado temporal para el clúster:
+El clúster usa las [restricciones de ubicación y propiedades de nodo](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) de Service Fabric para determinar en qué ubicación hospedará los servicios de las aplicaciones. Cuando el tipo de nodo principal, el escalado vertical declarar valores idénticos de propiedad para `"nodeTypeRef"`, que se encuentra en el escalado de máquinas virtuales establece la extensión de Service Fabric. En el siguiente fragmento de plantilla de Resource Manager se muestran las propiedades que va a declarar (con el mismo valor para los nuevos conjuntos de escalado aprovisionado que escalará) y que solo se admiten como un estado temporal para el clúster:
 
 ```json
 "settings": {
@@ -59,9 +62,10 @@ El clúster usa las [restricciones de ubicación y propiedades de nodo](https://
 
 > [!NOTE]
 > No deje el clúster ejecutándose con varios conjuntos de escalado que usen los mismos valores de la propiedad `nodeTypeRef` durante más tiempo del necesario para que la operación de escalado vertical se realice correctamente.
-> Valide siempre las operaciones en entornos de prueba antes de intentar realizar cambios en el entorno de producción. De forma predeterminada, los servicios de sistema del clúster de Service Fabric tienen una restricción de ubicación dirigida solo a los tipos de nodo principal.
+> Valide siempre las operaciones en entornos de prueba antes de intentar realizar cambios en el entorno de producción. De forma predeterminada, servicios de sistema de clúster de Service Fabric tiene una restricción de colocación para el tipo de nodo principal de destino solo.
 
 Una vez declaradas las restricciones de ubicación y las propiedades de nodo, realice los siguientes pasos en una instancia de máquina virtual a la vez. De este modo, los servicios del sistema (y los servicios con estado) se cerrarán correctamente en la instancia de máquina virtual que se va a quitar a la vez que se crean nuevas réplicas en otros nodos.
+
 1. En PowerShell, ejecute `Disable-ServiceFabricNode` con la intención 'RemoveNode' para deshabilitar el nodo que se va a quitar. Quite el tipo de nodo que tiene el número más alto. Por ejemplo, si tiene un clúster de seis nodos, quite la instancia de máquina virtual "MyNodeType_5".
 2. Ejecute `Get-ServiceFabricNode` para asegurarse de que el nodo ya está como deshabilitado. Si no es así, espere hasta que se deshabilite. Esta operación puede tardar un par de horas por cada nodo. No continúe hasta que el nodo esté como deshabilitado.
 3. Disminuya en uno el número de máquinas virtuales de ese tipo de nodo. Se quitará la instancia de máquina virtual más alta.
@@ -76,7 +80,7 @@ El escalado horizontal en Service Fabric puede hacerse [manualmente](https://doc
 
 ### <a name="scaling-out"></a>Escalado horizontal
 
-Puede escalar horizontalmente un clúster de Service Fabric al aumentar el número de instancias para un determinado conjunto de escalado de máquinas virtuales. Puede escalar horizontalmente mediante programación si utiliza AzureClient y el identificador del conjunto de escalado para aumentar su capacidad.
+Escalar horizontalmente un clúster de Service Fabric aumentando el número de instancias para un conjunto de escalado de máquina virtual concreta. Puede escalar horizontalmente mediante programación si utiliza AzureClient y el identificador del conjunto de escalado para aumentar su capacidad.
 
 ```c#
 var scaleSet = AzureClient.VirtualMachineScaleSets.GetById(ScaleSetId);
@@ -84,7 +88,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ```
 
-Para escalar horizontalmente de forma manual, actualice la capacidad de la propiedad SKU del recurso de [conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) deseado.
+Para escalar horizontalmente de forma manual, actualice la capacidad de la propiedad de SKU de deseado [conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) recursos.
 ```json
 "sku": {
     "name": "[parameters('vmNodeType0Size')]",
@@ -95,7 +99,8 @@ Para escalar horizontalmente de forma manual, actualice la capacidad de la propi
 
 ### <a name="scaling-in"></a>Reducir horizontalmente
 
-La reducción horizontal requiere más atención que el escalado horizontal. Por ejemplo: 
+La reducción horizontal requiere más atención que el escalado horizontal. Por ejemplo:
+
 * Los servicios del sistema de Service Fabric se ejecutan en el tipo de nodo principal del clúster. Nunca apague las instancias de esos tipos de nodo ni las reduzca a un número inferior al que garantiza el nivel de confiabilidad. 
 * Para los servicios con estado, necesita que un determinado número de nodos estén siempre activos para mantener la disponibilidad y preservar el estado del servicio. Como mínimo, necesita que el número de nodos sea igual al recuento de conjuntos de réplicas de destino de la partición o el servicio.
 
@@ -106,7 +111,7 @@ Para reducir horizontalmente de forma manual, siga estos pasos:
 3. Disminuya en uno el número de máquinas virtuales de ese tipo de nodo. Se quitará la instancia de máquina virtual más alta.
 4. repita los pasos del 1 al 3 según vea necesario, pero nunca apague las instancias del nodo principal ni las reduzca a un número inferior al que garantiza el nivel de confiabilidad. Consulte el [planeamiento de la capacidad del clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obtener una lista de instancias recomendadas.
 
-Para reducir horizontalmente de forma manual, actualice la capacidad de la propiedad SKU del recurso de [conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) deseado.
+Para escalar de forma manual, actualice la capacidad de la propiedad de SKU de deseado [conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) recursos.
 
 ```json
 "sku": {
@@ -118,7 +123,7 @@ Para reducir horizontalmente de forma manual, actualice la capacidad de la propi
 
 1. Repita los pasos del 1 al 3 hasta que aprovisione la capacidad que quiera. Nunca reduzca las instancias del nodo principal a un número inferior al que garantiza el nivel de confiabilidad. Para obtener más información acerca de los niveles de confiabilidad y el número de instancias que necesitan, consulte el [planeamiento de la capacidad del clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
-Debe preparar el nodo para que se apague con el fin de realizar una reducción vertical mediante programación. Esto implica buscar el nodo que se quitará (el nodo más alto de la instancia) y desactivarlo. Por ejemplo: 
+Debe preparar el nodo para que se apague con el fin de realizar una reducción vertical mediante programación. Esto implica buscar el nodo que se quitará (el nodo más alto de la instancia) y desactivarlo. Por ejemplo:
 
 ```c#
 using (var client = new FabricClient())
@@ -161,15 +166,14 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> Al escalar un clúster horizontalmente verá la instancia de quitado nodo o máquina virtual que se muestra en un estado incorrecto en el Explorador de Service Fabric. Para obtener una explicación de este comportamiento, consulte [comportamientos que se puede observar en Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer).
-> 
-> Puede:
+> Al escalar un clúster horizontalmente verá la instancia de quitado nodo o máquina virtual que se muestra en un estado incorrecto en el Explorador de Service Fabric. Para obtener una explicación de este comportamiento, consulte [comportamientos que se puede observar en Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer). Puede:
 > * Llame a [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) con el nombre de nodo adecuado.
 > * Implementar [aplicación de service fabric escalado automático auxiliar](https://github.com/Azure/service-fabric-autoscale-helper/) en el clúster, lo que garantiza la escala nodos inactivos se borran de Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Niveles de confiabilidad
 
-El [nivel de confiabilidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) es una propiedad de los recursos de clúster de Service Fabric y no puede configurarse de forma diferente para los tipos de nodos individuales. Controla el factor de replicación de los servicios del sistema para el clúster y es una configuración a nivel de recursos de clúster. El nivel de confiabilidad determinará el número mínimo de nodos que debe tener el tipo de nodo principal. El nivel de confiabilidad puede adoptar los siguientes valores:
+El [nivel de confiabilidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) es una propiedad de los recursos de clúster de Service Fabric y no puede configurarse de forma diferente para los tipos de nodo individual. Controla el factor de replicación de los servicios del sistema para el clúster y es una configuración a nivel de recursos de clúster. El nivel de confiabilidad determinará el número mínimo de nodos que debe tener el tipo de nodo principal. El nivel de confiabilidad puede adoptar los siguientes valores:
+
 * Platinum: ejecuta los servicios del sistema con un objetivo de recuento de conjunto de réplicas de siete y nueve nodos raíz.
 * Gold: ejecuta los servicios del sistema con un objetivo de recuento de conjunto de réplicas de siete y siete nodos raíz.
 * Silver: ejecuta los servicios del sistema con un objetivo de recuento de conjunto de réplicas de cinco y cinco nodos raíz.
@@ -190,7 +194,7 @@ El nivel de confiabilidad se establece en la sección de propiedades del [recurs
 > [!WARNING]
 > Los tipos de nodos que se ejecutan con la durabilidad Bronze _no obtienen privilegios_. Es decir, los trabajos de infraestructura que afectan a las cargas de trabajo sin estado no se detendrán ni retrasarán, lo que podría afectar a las cargas de trabajo. Utilice el nivel de durabilidad Bronze en los tipos de nodos que ejecutan cargas de trabajo sin estado. Para las cargas de trabajo de producción, ejecute el nivel Silver o superior para garantizar la coherencia del estado. Elija la confiabilidad adecuada según las instrucciones de la [documentación de planeamiento de capacidad](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
-El nivel de durabilidad se debe establecer en los dos recursos. En el perfil de extensión del [recurso del conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile), agregue:
+El nivel de durabilidad se debe establecer en los dos recursos. El perfil de la extensión de la [recurso de conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile):
 
 ```json
 "extensionProfile": {

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025314"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506969"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualización asincrónica con la API de REST
 
@@ -188,7 +188,7 @@ Los valores para `syncstate`:
 
 - 0: Replicating. Los archivos de base de datos se replican en una carpeta de destino.
 - 1: Rehydrating. La base de datos se rehidrata en las instancias de servidor de solo lectura.
-- 2. Completed. La operación de sincronización se completó correctamente.
+- 2: Completed. La operación de sincronización se completó correctamente.
 - 3: Failed. Error en la operación de sincronización.
 - 4: Finalizing. La operación de sincronización se completó, pero está realizando los pasos de limpieza.
 
@@ -201,42 +201,9 @@ Este es un ejemplo de código de C# para comenzar, [RestApiSample en GitHub](htt
 1.  Clone o descargue el repositorio. Abra la solución RestApiSample.
 2.  Busque la línea **client.BaseAddress = …** y proporcione su [dirección URL base](#base-url).
 
-El código de ejemplo puede utilizar el inicio de sesión interactivo, el nombre de usuario/contraseña o la [entidad de servicio](#service-principal).
+El ejemplo de código usa [serviceprincipal](#service-principal) autenticación.
 
-#### <a name="interactive-login-or-usernamepassword"></a>Inicio de sesión interactivo o nombre de usuario/contraseña
-
-Este tipo de autenticación requiere que se cree una aplicación de Azure con los permisos de API necesarios asignados. 
-
-1.  En Azure Portal, seleccione **Crear un recurso** > **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro de aplicaciones**.
-
-    ![Nuevo registro de aplicaciones](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.  En **Crear**, escriba un nombre y seleccione **Nativa** en el tipo de aplicación. En **URI de redirección**, escriba **urn:ietf:wg:oauth:2.0:oob** y después haga clic en **Crear**.
-
-    ![Configuración](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.  Seleccione la aplicación y después copie y guarde el **identificador de la aplicación**.
-
-    ![Copia del identificador de la aplicación](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.  En **Configuración**, haga clic en **Permisos necesarios** > **Agregar**.
-
-    ![Agregar acceso de API](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.  En **Selección de una API**, escriba **Azure Analysis Services** en el cuadro de búsqueda y, a continuación, selecciónelo.
-
-    ![Seleccionar API](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.  Seleccione **Read and Write all Models** (Leer y escribir todos los modelos) y después haga clic en **Seleccionar**. Una vez seleccionadas las dos opciones, haga clic en **Listo** para agregar los permisos. La propagación puede tardar unos minutos.
-
-    ![Seleccionar la lectura y escritura de todos los modelos](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.  En el código de ejemplo, busque el método **UpdateToken()**. Observe el contenido de este método.
-8.  Busque **string clientID = …** y después escriba el **identificador de la aplicación** que copió en el paso 3.
-9.  Ejecute el ejemplo.
-
-#### <a name="service-principal"></a>Entidad de servicio
+### <a name="service-principal"></a>Entidad de servicio
 
 Consulte [Creación de una entidad de servicio: Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) e [Adición de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md) para más información sobre cómo configurar una entidad de servicio y asignar los permisos necesarios en Azure AS. Una vez completados los pasos, siga estos pasos adicionales:
 

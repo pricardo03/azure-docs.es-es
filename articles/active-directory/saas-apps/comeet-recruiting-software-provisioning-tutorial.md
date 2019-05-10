@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: 0f1b5f424a71aeccd4b1e57129c0f5b22ff158af
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e8414b9737e0ee7f847827a432dd9887931a2532
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159396"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470370"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: Configurar el Software de contratación Comeet para aprovisionar usuarios automáticamente
 
@@ -84,7 +84,7 @@ Esta guía de sección le guía por los pasos para configurar el servicio de apr
 
 ### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para el Software de contratación Comeet en Azure AD:
 
-1. Inicie sesión en el [portal Azure](https://portal.azure.com) y seleccione **aplicaciones empresariales**, seleccione **todas las aplicaciones**, a continuación, seleccione **Comeet contratación Software**.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Seleccione **aplicaciones empresariales**, a continuación, seleccione **todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -104,12 +104,11 @@ Esta guía de sección le guía por los pasos para configurar el servicio de apr
 
 6. En el [consola de administración de Software de contratación Comeet](https://app.comeet.co/), vaya a **Comeet > Configuración > autenticación > Microsoft Azure**y copie el **Token secreto para su empresa**valor para el **Token secreto** campo en Azure AD.
 
-    ![Comeet contratación de aprovisionamiento de Software](./media/comeetrecruitingsoftware-provisioning-tutorial/secret-token-1.png)
-    
+    ![Comeet contratación de aprovisionamiento de Software](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
 7. Tras rellenar los campos que se muestran en el paso 5, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Comeet Software de contratación. Si se produce un error en la conexión, asegúrese de que su cuenta de Software de contratación Comeet tiene permisos de administrador y vuelva a intentarlo.
 
-    ![Se necesita el cifrado de tokens](common/provisioning-testconnection-token.png)
+    ![Token](common/provisioning-testconnection-token.png)
 
 8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
@@ -119,11 +118,11 @@ Esta guía de sección le guía por los pasos para configurar el servicio de apr
 
 10. En el **asignaciones** sección, seleccione **sincronizar Azure Active Directory a los usuarios Comeet**.
 
-    ![Comeet contratación de aprovisionamiento de Software](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mappings.png)
+    ![Comeet contratación asignaciones de usuario de Software](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
 
 11. Revise los atributos de usuario que se sincronizan entre Azure AD y Comeet contratación de Software en el **asignación de atributos** sección. Los atributos seleccionados como **coincidencia** propiedades se utilizan para coincidir con las cuentas de usuario en el Software de contratación Comeet para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
-    ![Comeet contratación de aprovisionamiento de Software](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mapping-attributes.png)
+    ![Comeet contratación de los atributos de grupo de Software](media/comeet-recruiting-software-provisioning-tutorial/user-mapping-attributes.png)
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -156,7 +155,3 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

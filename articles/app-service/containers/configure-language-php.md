@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ed6a50ee68d39e6e0d01b405eb02edd6d4c93613
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920427"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407586"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurar una aplicación PHP de Linux para Azure App Service
 
@@ -151,7 +151,7 @@ Si necesita realizar cambios en la instalación de PHP, puede cambiar cualquiera
 
 Personalizar directivas PHP_INI_USER, PHP_INI_PERDIR y PHP_INI_ALL (consulte [directivas de php.ini](https://www.php.net/manual/ini.list.php)), agregue un *.htaccess* archivo al directorio raíz de la aplicación.
 
-En el *.htaccess* , agregue las directivas mediante el `php_value <directive-name> <value>` sintaxis. Por ejemplo: 
+En el *.htaccess* , agregue las directivas mediante el `php_value <directive-name> <value>` sintaxis. Por ejemplo:
 
 ```
 php_value upload_max_filesize 1000M
@@ -187,7 +187,7 @@ Cree un directorio en `/home/site` llamado `ini`, a continuación, cree un *.ini
 > En los contenedores de Linux integrados en App Service, */home* se usa como almacenamiento compartido persistente. 
 >
 
-Por ejemplo, para cambiar el valor de [expose_php](http://php.net/manual/ini.core.php#ini.expose-php) ejecute los siguientes comandos:
+Por ejemplo, para cambiar el valor de [expose_php](https://php.net/manual/ini.core.php#ini.expose-php) ejecute los siguientes comandos:
 
 ```bash
 cd /home/site
@@ -233,7 +233,7 @@ Para que surtan efecto los cambios, reinicie la aplicación.
 Cuando una aplicación PHP en funcionamiento se comporta de manera diferente en App Service o tiene errores, intente lo siguiente:
 
 - [Acceso a la secuencia de registros](#access-diagnostic-logs).
-- Probar la aplicación localmente en el modo de producción. App Service se ejecuta las aplicaciones de Node.js en el modo de producción, por lo que deberá asegurarse de que el proyecto funciona según lo previsto en modo de producción localmente. Por ejemplo: 
+- Probar la aplicación localmente en el modo de producción. App Service se ejecuta las aplicaciones de Node.js en el modo de producción, por lo que deberá asegurarse de que el proyecto funciona según lo previsto en modo de producción localmente. Por ejemplo:
     - En función de su *composer.json*, distintos paquetes pueden instalarse para el modo de producción (`require` frente a `require-dev`).
     - Algunos marcos web pueden implementar los archivos estáticos de forma diferente en modo de producción.
     - Algunos marcos web pueden usar scripts de inicio personalizada cuando se ejecuta en modo de producción.

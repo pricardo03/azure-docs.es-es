@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: c85ee31a54cdbbb09686a2d20200f65fdcd8994a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148978"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235922"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Elija entre los niveles de servicio con núcleo virtual y migrar desde los niveles de servicio DTU
 
@@ -44,7 +44,7 @@ La tabla siguiente le ayudará a comprender las diferencias entre estos tres niv
 |Proceso|**Aprovisiona el proceso**:<br/>Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: núcleo virtual de 2 a 80<br/>**Proceso sin servidor**<br/>Gen5: 0.5 - 4 memoria con núcleo virtual|**Aprovisiona el proceso**:<br/>Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: núcleo virtual de 2 a 80|**Aprovisiona el proceso**:<br/>Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: núcleo virtual de 2 a 80|
 |Memoria|**Aprovisiona el proceso**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual<br/>**Proceso sin servidor**<br/>Gen5: 3 GB por núcleo virtual|**Aprovisiona el proceso**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual |**Aprovisiona el proceso**:<br/>Gen4: 7 GB por núcleo virtual<br/>Gen5: 5,1 GB por núcleo virtual|
 |Almacenamiento|Usa el almacenamiento remoto:<br/>**Base de datos única aprovisionado proceso**:<br/>5 GB – 4 TB<br/>**Informática de base de datos única**:<br/>5 GB A 1 TB<br/>**Instancia administrada**: 32 GB - 8 TB |Usa almacenamiento local de SSD:<br/>**Base de datos única aprovisionado proceso**:<br/>5 GB – 4 TB<br/>**Instancia administrada**:<br/>32 GB - 4 TB |Flexible; crecimiento automático de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento y mucho más. Almacenamiento SSD local para la caché del grupo de búferes local y el almacenamiento de datos local. Almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
-|Memoria|Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo |Gen5: 5,1 GB por núcleo|
+|Memoria|Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo |Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo|
 |Almacenamiento|Usa el almacenamiento remoto:<br/>Base de datos única: 5 GB – 4 TB<br/>Instancia administrada: 32 GB - 8 TB |Usa almacenamiento local de SSD:<br/>Base de datos única: 5 GB – 4 TB<br/>Instancia administrada: 32 GB - 4 TB |Flexible; crecimiento automático de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento y mucho más. Almacenamiento SSD local para la caché del grupo de búferes local y el almacenamiento de datos local. Almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
 |Rendimiento de E/S (aproximado)|Base de datos única: 500 IOPS por núcleo virtual con 7000 IOPS como máximo</br>Instancia administrada: Depende del [tamaño del archivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo con 200 000 IOPS como máximo|TBD|
 |Disponibilidad|1 réplica, sin escalado de lectura|3 réplicas, 1 [réplica de escalado de lectura](sql-database-read-scale-out.md),<br/>Con alta disponibilidad y redundancia de zona|réplica de lectura/1 escritura además de 0 a 4 [réplicas de escalado de lectura](sql-database-read-scale-out.md)|

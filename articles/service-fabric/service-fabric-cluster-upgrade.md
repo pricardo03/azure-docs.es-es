@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3ddda89b19a04bdcd45f392f297ee5e930833538
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fa461d8c3a70d4b0d2d9973a840ffc7d1ff6470
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711613"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472764"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Actualización de un clúster de Azure Service Fabric
 
@@ -99,7 +99,7 @@ Puede especificar las directivas de mantenimiento personalizado o revisar la con
 Pueden personalizarse muchas opciones de configuración diferentes en un clúster, como el nivel de confiabilidad de las propiedades del nodo y del clúster. Para más información, lea [Service Fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md) (Configuración de un clúster de Service Fabric).
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>Revisión del sistema operativo en los nodos del clúster
-La aplicación de orquestación de revisiones (POA) es una aplicación de Service Fabric que automatiza la aplicación de revisiones de sistema operativo en un clúster de Service Fabric sin tiempo de inactividad. La [aplicación de orquestación de revisiones de Windows](service-fabric-patch-orchestration-application.md) o la [aplicación de orquestación de revisiones de Linux](service-fabric-patch-orchestration-application-linux.md) se puede implementar en el clúster para instalar revisiones de una manera orquestada, manteniendo los servicios disponibles todo el tiempo. 
+La aplicación de orquestación de revisiones (POA) es una aplicación de Service Fabric que automatiza la aplicación de revisiones de sistema operativo en un clúster de Service Fabric sin tiempo de inactividad. La [aplicación de orquestación de revisiones de Windows](service-fabric-patch-orchestration-application.md) se puede implementar en el clúster para instalar revisiones de una manera orquestada, manteniendo los servicios disponibles todo el tiempo.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

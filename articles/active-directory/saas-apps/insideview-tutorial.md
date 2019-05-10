@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 91e1780462021430913a1354b4add7c5f047ec15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76db7381985853a81843df812dffcd8ab2bd8f9a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263186"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407460"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutorial: Integración de Azure Active Directory con InsideView
 
@@ -142,13 +142,13 @@ Para configurar el inicio de sesión único de Azure AD con InsideView, realice 
 
     c. Abra el certificado codificado en base 64 descargado de Azure Portal, copie su contenido en el Portapapeles y péguelo en el cuadro de texto **Certificado STS**.
 
-    d. En el cuadro de texto **Crm User Id Mapping** (Asignación de Id de usuario de Crm), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. En el cuadro de texto **Crm User Id Mapping** (Asignación de Id de usuario de Crm), escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    e. En el cuadro de texto **Crm Email Mapping** (Asignación de correo electrónico de Crm), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. En el cuadro de texto **Crm Email Mapping** (Asignación de correo electrónico de Crm), escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    f. En el cuadro de texto **Crm First Name Mapping** (Asignación de nombre de Crm), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    f. En el cuadro de texto **Crm First Name Mapping** (Asignación de nombre de Crm), escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    g. En el cuadro de texto **Crm lastName Mapping** (Asignación de apellido de Crm), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
+    g. En el cuadro de texto **Crm lastName Mapping** (Asignación de apellido de Crm), escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
 
     h. Haga clic en **Save**(Guardar).
 

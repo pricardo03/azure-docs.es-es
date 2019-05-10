@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 680e087e80d3e9891e201e7cb474ccfcf7fcc70b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d421fad5f574b0d10b24453aca01adf574f493e8
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072628"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407706"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conexión con SSH a los nodos de clúster de Azure Kubernetes Service (AKS) para mantenimiento o solución de problemas
 
@@ -69,7 +69,7 @@ Los nodos de AKS no están expuestos públicamente a Internet. Para conectarse m
 Vea la dirección IP privada de un nodo de clúster de AKS con el comando [az vm list-ip-addresses][az-vm-list-ip-addresses]. Proporcione su propio nombre de grupo de recursos de clúster de AKS obtenido en un paso anterior [az-aks-show][az-aks-show]:
 
 ```azurecli-interactive
-az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
+az vm list-ip-addresses --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
 ```
 
 En la siguiente salida de ejemplo se muestran las direcciones IP privadas de los nodos de AKS:

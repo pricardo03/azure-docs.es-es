@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0c1b877a9468ce9c3b851bce62cb87c64c04260
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363721"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472729"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Envío de mensajes de nube a dispositivo desde IoT Hub
 
@@ -71,10 +71,11 @@ Una forma habitual de aprovechar la expiración de los mensajes y evitar enviarl
 
 ## <a name="message-feedback"></a>Comentarios de mensajes
 
-Cuando envía un mensaje de nube a dispositivo, el servicio puede solicitar la entrega de los comentarios de cada mensaje en relación con el estado final de ese mensaje.
+Cuando envía un mensaje de nube a dispositivo, el servicio puede solicitar la entrega de los comentarios de cada mensaje en relación con el estado final de ese mensaje. Esto se hace estableciendo el `iothub-ack` propiedad de la aplicación en el mensaje C2D que se envían a cualquiera de los siguientes valores:
 
-| Propiedad Ack | Comportamiento |
+| Valor de propiedad de confirmación | Comportamiento |
 | ------------ | -------- |
+| **Ninguna**     | IoT Hub no genera un mensaje de comentarios (comportamiento predeterminado). |
 | **positive** | IoT Hub genera un mensaje de comentarios si el mensaje de la nube a dispositivo alcanza el estado **Completed** (completado). |
 | **negative** | IoT Hub genera un mensaje de comentarios si el mensaje de la nube al dispositivo alcanza el estado **Deadlettered** (procesado como devuelto). |
 | **full**     | IoT Hub genera un mensaje de comentarios en cualquiera de los casos. |

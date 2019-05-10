@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ec5b3572cbf74bad9b82eb93a45d7a4664023b95
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922455"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408237"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
@@ -23,7 +23,7 @@ Habilitar la supervisión en un .NET y .NET Core en función de las aplicaciones
 > [!NOTE]
 > Cómo agregar manualmente una extensión de sitio de Application Insights a través de **herramientas de desarrollo** > **extensiones** está en desuso. Este método de instalación de la extensión dependía de actualizaciones manuales para cada nueva versión. La última versión estable de la extensión es ahora [preinstalado](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte de la imagen de App Service. Los archivos se encuentran en `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` y se actualizan automáticamente con cada versión estable. Si sigue las instrucciones en función del agente para habilitar la supervisión a continuación, quitará automáticamente la extensión en desuso para usted.
 
-## <a name="enable-application-insights"></a>Habilitación de Application Insights
+## <a name="enable-application-insights"></a>Habilitar Application Insights
 
 Hay dos maneras de habilitar la supervisión de aplicaciones para las aplicaciones hospedadas de Azure App Services:
 
@@ -274,7 +274,7 @@ A continuación es un ejemplo, reemplace todas las instancias de `AppMonitoredSi
             "type": "string"
         }
     },
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
 }
 ```
@@ -348,7 +348,7 @@ A continuación es nuestra guía de solución de problemas paso a paso para la s
 
 La tabla siguiente proporciona una explicación más detallada de lo que significan estos valores, sus subyacente provoca y las correcciones recomendadas:
 
-|Valor de problema|Explicación|Solución
+|Valor de problema|Explicación|Corregir
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Este valor indica que la extensión ha detectado que algún aspecto SDK de ya está presente en la aplicación y se espera. Esto puede deberse a una referencia a `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`, o `Microsoft.ApplicationInsights`  | Quite las referencias. Algunas de estas referencias se agregan de forma predeterminada en ciertas plantillas de Visual Studio y las versiones anteriores de Visual Studio pueden agregar referencias a `Microsoft.ApplicationInsights`.
 |`AppAlreadyInstrumented:true` | Si la aplicación tiene como destino .NET Core 2.1 o 2.2 y hace referencia a [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) metapaquete, a continuación, presenta en Application Insights y extensión se retroceso. | Los clientes con .NET Core 2.1,2.2 [recomienda](https://github.com/aspnet/Announcements/issues/287) usar Microsoft.AspNetCore.App metapaquete en su lugar.|

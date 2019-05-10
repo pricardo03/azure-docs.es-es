@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 113c894122fe2b0673dfb47f8a9c0cbecf4c6290
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45421a249642abf37c89aa33e2e8a1b4a9e5e497
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205077"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507005"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementación de modelos con el servicio Azure Machine Learning
 
@@ -26,7 +26,7 @@ Obtenga información sobre cómo implementar el modelo de machine learning como 
 | ----- | ----- | ----- |
 | [Servicio web local](#local) | Prueba y depuración | Bueno para limitado de probar y solucionar problemas.
 | [Azure Kubernetes Service (AKS)](#aks) | Inferencia en tiempo real | Es útil para las implementaciones de producción a gran escala. Proporciona escalado automático y tiempos de respuesta rápidos. |
-| [Azure Container Instances (ACI)](#aci) | Prueba | Es útil para la pequeña escala, cargas de trabajo basadas en CPU. |
+| [Azure Container Instances (ACI)](#aci) | Pruebas | Es útil para la pequeña escala, cargas de trabajo basadas en CPU. |
 | [Proceso de Azure Machine Learning](how-to-run-batch-predictions.md) | (Versión preliminar) Inferencia de lote | Ejecute el proceso sin servidor de puntuación por lotes. Es compatible con máquinas virtuales normales y de baja prioridad. |
 | [Azure IoT Edge](#iotedge) | (Versión preliminar) Módulo de IoT | Implementación y servir de modelos de aprendizaje automático en dispositivos IoT. |
 
@@ -42,7 +42,7 @@ Para obtener más información sobre los conceptos implicados en el flujo de tra
 
 ## <a name="prerequisites-for-deployment"></a>Requisitos previos de implementación
 
-- Un modelo. Si no tiene un modelo entrenado, puede usar el modelo de & archivos de dependencia proporcionan en [este tutorial](http://aka.ms/azml-deploy-cloud).
+- Un modelo. Si no tiene un modelo entrenado, puede usar el modelo de & archivos de dependencia proporcionan en [este tutorial](https://aka.ms/azml-deploy-cloud).
 
 - El [extensión de la CLI de Azure para el servicio Machine Learning](reference-azure-machine-learning-cli.md), o el [SDK de Python de Azure Machine Learning](https://aka.ms/aml-sdk).
 
@@ -211,7 +211,7 @@ En la tabla siguiente proporciona un ejemplo de creación de una configuración 
 | Destino de proceso | Ejemplo de configuración de implementación |
 | ----- | ----- |
 | Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
-| Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+| Instancia de Azure Container | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 Las siguientes secciones muestran cómo crear la configuración de implementación y, a continuación, usarlo para implementar el servicio web.
@@ -458,7 +458,7 @@ Objetivos de Machine Learning Compute de Azure se crean y administran mediante e
 Para ver un tutorial de inferencia de batch con Azure Machine Learning Compute, lea el [cómo ejecutar predicciones por lotes](how-to-run-batch-predictions.md) artículo.
 
 ## <a id="iotedge"></a> Inferencia en IoT Edge
-Compatibilidad para implementar en el extremo está en versión preliminar. Para obtener más información, consulte el [implementar Azure Machine Learning como un módulo IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning) artículo.
+Compatibilidad para implementar en el extremo está en versión preliminar. Para obtener más información, consulte el [implementar Azure Machine Learning como un módulo IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) artículo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Solución de problemas de implementación](how-to-troubleshoot-deployment.md)

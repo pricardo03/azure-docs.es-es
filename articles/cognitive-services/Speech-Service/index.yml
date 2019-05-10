@@ -18,7 +18,19 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: 'Aprenda a usar el servicio Voz y el SDK de Voz para agregar características habilitadas para voz a sus aplicaciones. Puede usar el SDK de Voz para agregar funcionalidades de <i>voz a texto</i> (reconocimiento de voz o SR), <i>intención</i>, <i>traducción</i> y <i>texto a voz</i> (TTS) a las aplicaciones. Speech Services también tiene API REST que funcionan con cualquier lenguaje de programación que pueda realizar solicitudes HTTP.'
+  description: |
+    Aprenda a usar el servicio Voz con las API REST o con el SDK de Voz para agregar características habilitadas para voz a las aplicaciones. Puede usar el SDK de Voz para agregar las siguientes funcionalidades (y más) a las aplicaciones&colon; 
+    <div class="row" style="font-size:16px"><div class="column"><ul>
+    <li><b><a href="speech-to-text.md">texto a voz</a> </b> (reconocimiento de voz/SR)</li>
+    <li><b><a href="speech-devices-sdk-create-kws.md">palabras de activación personalizadas</a></b> (detector de palabras clave/KWS)</li>
+    <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">Intención</a></b></li>
+    <li><b><a href="speech-translation.md">traducción</a></b></li>
+    <li><b><a href="speech-container-howto.md">contenedor local</a></b></li></ul></div><div class="column"><ul>
+    <li><b><a href="text-to-speech.md">texto a voz</a></b> (TTS)</li>
+    <li><b><a href="conversation-transcription-service.md">transcripción de conversaciones</a></b> (CTS)</li>
+    <li><b><a href="how-to-phrase-lists.md">personalización de lista de frases</a>/<a href="how-to-custom-speech.md">adaptación de voz personalizada</a></b></li>
+    <li><b><a href="voice-first-virtual-assistants.md">asistentes virtual por voz</a></b></li>
+    <li><b><a href="call-center-transcription.md">transcripción para centros de llamadas</a></b></li></ul></div></div>
 sections:
   - items:
       - type: list
@@ -44,7 +56,7 @@ sections:
   - title: Inicios rápidos en 5 minutos
     items:
       - type: paragraph
-        text: 'Aprenda a descargar, instalar y usar el SDK seleccionando un vínculo de flecha <img src="media/index/link.jpg" height="15" width="15"></img>.'
+        text: 'Aprenda a descargar, instalar y usar el SDK seleccionando un vínculo de flecha <img src="media/index/link.jpg" height="15" width="15"></img>.<br/><br/>De forma predeterminada, todos los vínculos de flecha <img src="media/index/link.jpg" height="15" width="15"></img> conducen a un inicio rápido de voz a texto. Desde ahí se pueden seleccionar otros inicios rápidos (<a href="scenario-availability.md">si están disponibles</a>) como el de texto a voz o el del asistente virtual por voz.'
       - type: table
         style: dataMatrix
         columns:

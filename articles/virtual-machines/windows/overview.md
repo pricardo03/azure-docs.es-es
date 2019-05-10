@@ -16,16 +16,16 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 24914cc3ff673d04e8c181082e13c087aeabe709
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 604a47ef73d50a2d127d1569b0b6a240a7a27d73
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482052"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506839"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Información general sobre las máquinas virtuales Windows en Azure
 
-Azure Virtual Machines (VM) es uno de los diversos tipos de [recursos informáticos a petición y escalables](../../app-service/overview-compare.md) que ofrece Azure. Por lo general, elegirá una máquina virtual cuando necesite más control sobre su entorno informático del que ofrecen las otras opciones. En este artículo se proporciona información sobre lo que debe considerar antes de crear una máquina virtual, cómo crearla y cómo administrarla.
+Azure Virtual Machines (VM) es uno de los diversos tipos de [recursos informáticos a petición y escalables](/azure/architecture/guide/technology-choices/compute-decision-tree) que ofrece Azure. Por lo general, elegirá una máquina virtual cuando necesite más control sobre su entorno informático del que ofrecen las otras opciones. En este artículo se proporciona información sobre lo que debe considerar antes de crear una máquina virtual, cómo crearla y cómo administrarla.
 
 Una máquina virtual de Azure le ofrece la flexibilidad de la virtualización sin necesidad de adquirir y mantener el hardware físico que la ejecuta. Sin embargo, aún necesita mantener la máquina virtual con tareas como configurar, aplicar revisiones e instalar el software que se ejecuta en ella.
 
@@ -106,9 +106,9 @@ Los recursos de esta tabla se usan en la máquina virtual y deben ya existir o c
 | [Grupos de recursos](../../azure-resource-manager/resource-group-overview.md) |Sí |La máquina virtual debe encontrarse en un grupo de recursos. |
 | [Cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md) |Sí |La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales. |
 | [Red virtual](../../virtual-network/virtual-networks-overview.md) |Sí |La máquina virtual debe ser miembro de una red virtual. |
-| [Dirección IP pública](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Sin  |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella. |
+| [Dirección IP pública](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |No |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella. |
 | [Interfaz de red](../../virtual-network/virtual-network-network-interface.md) |Sí |La máquina virtual necesita la interfaz de red para comunicarse en la red. |
-| [Discos de datos](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Sin  |La máquina virtual puede incluir discos de datos para ampliar las funcionalidades de almacenamiento. |
+| [Discos de datos](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |La máquina virtual puede incluir discos de datos para ampliar las funcionalidades de almacenamiento. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>¿Cómo se crea la primera máquina virtual?
 Hay varias opciones para crear la máquina virtual. La decisión que tome depende del entorno en que se encuentre. 

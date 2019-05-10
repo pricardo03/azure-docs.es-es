@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9cbd924f87ff2f5b38f67a1bf7db34c36e9c264b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020423"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237103"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-speech REST API
 
@@ -42,27 +42,27 @@ El `voices/list` punto de conexión le permite obtener una lista completa de las
 
 ### <a name="regions-and-endpoints"></a>Regiones y puntos de conexión
 
-| Region | Punto de conexión |
+| Área | Punto de conexión |
 |--------|----------|
-| Este de Australia | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Sur de Brasil | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centro de Canadá | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centro de EE. UU. | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Este de Asia | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Este de EE. UU. | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Este de EE. UU. 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centro de Francia | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| India central | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Este de Japón | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Corea Central | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centro-Norte de EE. UU | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Norte de Europa | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centro-Sur de EE. UU | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Sudeste asiático | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Sur del Reino Unido 2 | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Europa occidental | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Oeste de EE. UU. | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Oeste de EE. UU. 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Este de Australia | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sur de Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro de Canadá | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro de EE. UU. | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Este de Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Este de EE. UU. | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Este de EE. UU. 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro de Francia | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| India central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Este de Japón | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Corea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro-Norte de EE. UU | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Norte de Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro-Sur de EE. UU | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sudeste asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sur del Reino Unido 2 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europa occidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Oeste de EE. UU. | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Oeste de EE. UU. 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 ### <a name="request-headers"></a>Encabezados de solicitud
 
@@ -139,10 +139,10 @@ El estado HTTP de cada respuesta indica estados de corrección o error comunes.
 | Código de estado HTTP | DESCRIPCIÓN | Posible motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | La solicitud es correcta. |
-| 400 | Bad Request | Falta un parámetro requerido, está vacío o es nulo. O bien, el valor pasado a un parámetro obligatorio u opcional no es válido. Un problema común es que el encabezado sea demasiado largo. |
-| 401 | No autorizado | La solicitud no está autenticada. Asegúrese de que la clave de suscripción o el token sean válidos y de la región correcta. |
+| 400 | Solicitud incorrecta | Falta un parámetro requerido, está vacío o es nulo. O bien, el valor pasado a un parámetro obligatorio u opcional no es válido. Un problema común es que el encabezado sea demasiado largo. |
+| 401 | Sin autorización | La solicitud no está autenticada. Asegúrese de que la clave de suscripción o el token sean válidos y de la región correcta. |
 | 429 | Demasiadas solicitudes | Ha superado la cuota o la tasa de solicitudes permitidas para su suscripción. |
-| 502 | Puerta de enlace incorrecta | Problema de red o de servidor. Podría indicar también encabezados no válidos. |
+| 502 | Puerta de enlace no válida | Problema de red o de servidor. Podría indicar también encabezados no válidos. |
 
 
 ## <a name="convert-text-to-speech"></a>Conversión de texto a voz
@@ -222,11 +222,11 @@ El estado HTTP de cada respuesta indica estados de corrección o error comunes.
 | Código de estado HTTP | DESCRIPCIÓN | Posible motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | La solicitud es correcta; el cuerpo de la respuesta es un archivo de audio. |
-| 400 | Bad Request | Falta un parámetro requerido, está vacío o es nulo. O bien, el valor pasado a un parámetro obligatorio u opcional no es válido. Un problema común es que el encabezado sea demasiado largo. |
-| 401 | No autorizado | La solicitud no está autenticada. Asegúrese de que la clave de suscripción o el token sean válidos y de la región correcta. |
+| 400 | Solicitud incorrecta | Falta un parámetro requerido, está vacío o es nulo. O bien, el valor pasado a un parámetro obligatorio u opcional no es válido. Un problema común es que el encabezado sea demasiado largo. |
+| 401 | Sin autorización | La solicitud no está autenticada. Asegúrese de que la clave de suscripción o el token sean válidos y de la región correcta. |
 | 413 | Entidad de solicitud demasiado larga | La entrada de SSML tiene más de 1024 caracteres. |
 | 429 | Demasiadas solicitudes | Ha superado la cuota o la tasa de solicitudes permitidas para su suscripción. |
-| 502 | Puerta de enlace incorrecta | Problema de red o de servidor. Podría indicar también encabezados no válidos. |
+| 502 | Puerta de enlace no válida | Problema de red o de servidor. Podría indicar también encabezados no válidos. |
 
 Si el estado HTTP es `200 OK`, el cuerpo de la respuesta contiene un archivo de audio en el formato solicitado. Este archivo se puede reproducir mientras se transfiere o guardarse en un búfer o en un archivo.
 

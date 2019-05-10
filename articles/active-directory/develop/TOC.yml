@@ -342,6 +342,8 @@
               items:
                 - name: Adquisición de un token de la memoria caché
                   href: msal-net-acquire-token-silently.md
+                - name: Borrado de la memoria caché del token
+                  href: msal-net-clear-token-cache.md
                 - name: Creación de instancias de un cliente público con opciones
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: Creación de instancias de un cliente confidencial con opciones

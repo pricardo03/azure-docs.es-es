@@ -1,33 +1,68 @@
 ---
 title: Secreto de Key Vault con la plantilla de Azure Resource Manager | Microsoft Docs
 description: Muestra cómo pasar un secreto de un almacén de claves como un parámetro durante la implementación.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-editor: tysonn
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2019
+ms.date: 05/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 93b92a8a3b8aacd1f665725643314858fe92ad3c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: e47a087e27b6a8ade947e36ded762ce2e518ca25
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233775"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507986"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación
 
-En lugar de pasar un valor seguro (por ejemplo, una contraseña) directamente en el archivo del parámetro, puede recuperar el valor de [Azure Key Vault](../key-vault/key-vault-whatis.md) durante una implementación. El valor se recupera haciendo referencia a Key Vault y al secreto del archivo de parámetros. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. Key Vault puede existir en una suscripción diferente en la que está implementando el grupo de recursos.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+En lugar de colocar un valor seguro (por ejemplo, una contraseña) directamente en el archivo de plantilla o un parámetro, puede recuperar el valor de un [Azure Key Vault](../key-vault/key-vault-whatis.md) durante la implementación. El valor se recupera haciendo referencia a Key Vault y al secreto del archivo de parámetros. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. El almacén de claves puede existir en el grupo de recursos que se va a implementar en una suscripción diferente.
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Implementación de almacenes de claves y secretos
 
-Para crear almacenes de claves y agregar secretos, consulte:
+Para acceder a un almacén de claves durante la implementación de plantilla, establezca `enabledForTemplateDeployment` en el almacén de claves a `true`.
+
+Los siguientes ejemplos de CLI de Azure y Azure PowerShell muestran cómo crear el almacén de claves e incorporación de un secreto.
+
+```azurecli
+az group create --name $resourceGroupName --location $location
+az keyvault create \
+  --name $keyVaultName \
+  --resource-group $resourceGroupName \
+  --location $location \
+  --enabled-for-template-deployment true
+az keyvault secret set --vault-name $keyVaultName --name "ExamplePassword" --value "hVFkk965BuUv"
+```
+
+```azurepowershell
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzKeyVault `
+  -VaultName $keyVaultName `
+  -resourceGroupName $resourceGroupName `
+  -Location $location `
+  -EnabledForTemplateDeployment
+$secretvalue = ConvertTo-SecureString 'hVFkk965BuUv' -AsPlainText -Force
+$secret = Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'ExamplePassword' -SecretValue $secretvalue
+```
+
+Como el propietario del almacén de claves, automáticamente tiene acceso a la creación de secretos. Si el usuario trabaja con secretos no es el propietario del almacén de claves, conceda acceso con:
+
+```azurecli
+az keyvault set-policy \
+  --upn $userPrincipalName \
+  --name $keyVaultName \
+  --secret-permissions set delete get list
+```
+
+```azurepowershell
+$userPrincipalName = "<Email Address of the deployment operator>"
+
+Set-AzKeyVaultAccessPolicy `
+  -VaultName $keyVaultName `
+  -UserPrincipalName $userPrincipalName `
+  -PermissionsToSecrets set,delete,get,list
+```
+
+Para obtener más información sobre cómo crear los almacenes de claves y adición de secretos, consulte:
 
 - [Establecimiento y recuperación de un secreto mediante la CLI](../key-vault/quick-create-cli.md)
 - [Establecimiento y recuperación de un secreto mediante Powershell](../key-vault/quick-create-powershell.md)
@@ -35,35 +70,9 @@ Para crear almacenes de claves y agregar secretos, consulte:
 - [Establecimiento y recuperación de un secreto mediante .NET](../key-vault/quick-create-net.md)
 - [Establecimiento y recuperación de un secreto mediante Node.js](../key-vault/quick-create-node.md)
 
-Hay algunos requisitos y consideraciones adicionales respecto a la integración de Key Vault con la implementación de la plantilla de Resource Manager:
-
-- `enabledForTemplateDeployment` es una propiedad de Key Vault. Para acceder a los secretos de esta instancia de Key Vault desde la implementación de Resource Manager, `enabledForTemplateDeployment` debe ser `true`. 
-- Si no es el propietario del almacén de claves, este debe actualizar la configuración de la directiva de seguridad del almacén de claves para agregar secretos.
-
-Los ejemplos de la CLI de Azure y Azure PowerShell siguientes muestran cómo hacerlo:
-
-```azurecli
-# Create a Key Vault
-az keyvault create \
-  --name $keyVaultName \
-  --resource-group $resourceGroupName \
-  --location $location \
-  --enabled-for-template-deployment true
-az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
-```
-
-```azurepowershell
-New-AzKeyVault `
-  -VaultName $keyVaultName `
-  -resourceGroupName $resourceGroupName `
-  -Location $location `
-  -EnabledForTemplateDeployment
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
-```
-
 ## <a name="grant-access-to-the-secrets"></a>Concesión de acceso a los secretos
 
-El usuario que implementa la plantilla debe tener el permiso `Microsoft.KeyVault/vaults/deploy/action` en el ámbito que contiene Key Vault, incluidos el grupo de recursos y Key Vault. Los roles [Propietario](../role-based-access-control/built-in-roles.md#owner) y [Colaborador](../role-based-access-control/built-in-roles.md#contributor) conceden este acceso. Si usted crea el almacén de claves, es el propietario, por lo que tiene el permiso. Si el almacén de claves está en una suscripción diferente, el propietario del almacén debe conceder el acceso.
+El usuario que implementa la plantilla debe tener la `Microsoft.KeyVault/vaults/deploy/action` permiso para el ámbito del grupo de recursos y almacén de claves. Los roles [Propietario](../role-based-access-control/built-in-roles.md#owner) y [Colaborador](../role-based-access-control/built-in-roles.md#contributor) conceden este acceso. Si ha creado el almacén de claves, es el propietario, por lo que tiene el permiso.
 
 El siguiente procedimiento muestra cómo crear un rol con los permisos mínimos y cómo asignar el usuario:
 
@@ -89,14 +98,23 @@ El siguiente procedimiento muestra cómo crear un rol con los permisos mínimos 
 
 2. Cree el nuevo rol con el archivo JSON:
 
-    ```azurepowershell
-    $resourceGroupName= "<Resource Group Name>" # the resource group which contains the Key Vault
-    $userPrincipalName = "<Email Address of the deployment operator>"
-    New-AzRoleDefinition -InputFile "<PathToTheJSONFile>" 
-    New-AzRoleAssignment -ResourceGroupName $resourceGroupName -RoleDefinitionName "Key Vault resource manager template deployment operator" -SignInName $userPrincipalName
+    ```azurecli
+    az role definition create --role-definition "<PathToRoleFile>"
+    az role assignment create \
+      --role "Key Vault resource manager template deployment operator" \
+      --assignee $userPrincipalName \
+      --resource-group $resourceGroupName
     ```
 
-    El ejemplo `New-AzRoleAssignment` asigna el rol personalizado al usuario en el nivel de grupo de recursos.  
+    ```azurepowershell
+    New-AzRoleDefinition -InputFile "<PathToRoleFile>" 
+    New-AzRoleAssignment `
+      -ResourceGroupName $resourceGroupName `
+      -RoleDefinitionName "Key Vault resource manager template deployment operator" `
+      -SignInName $userPrincipalName
+    ```
+
+    Los ejemplos de asignación el rol personalizado para el usuario en el nivel de grupo de recursos.  
 
 Cuando se usa una instancia de Key Vault con la plantilla para una [aplicación administrada](../managed-applications/overview.md), debe conceder acceso a la entidad de servicio del **proveedor de recursos de dispositivo**. Para más información, consulte [Acceso al secreto de Key Vault al implementar Azure Managed Applications](../managed-applications/key-vault-access.md).
 
@@ -106,18 +124,75 @@ Con este enfoque, se hace referencia al almacén de claves del archivo de parám
 
 ![Diagrama de identificador estático de integración de almacén de claves de Resource Manager](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
-[Tutorial: Integración de Azure Key Vault en Template Deployment de Resource Manager](./resource-manager-tutorial-use-key-vault.md) usa este método. El tutorial implementa una máquina virtual que incluye una contraseña de administrador. El parámetro de contraseña se establece en una cadena segura:
+[Tutorial: Integración de Azure Key Vault en Template Deployment de Resource Manager](./resource-manager-tutorial-use-key-vault.md) usa este método.
 
-![Archivo de la plantilla de identificador estático de integración de almacén de claves de Resource Manager](./media/resource-manager-keyvault-parameter/resource-manager-key-vault-static-id-template-file.png)
+La siguiente plantilla implementa un servidor SQL server que incluye una contraseña de administrador. El parámetro de contraseña se establece en una cadena segura. Sin embargo, la plantilla no especifica de dónde procede ese valor.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminLogin": {
+      "type": "string"
+    },
+    "adminPassword": {
+      "type": "securestring"
+    },
+    "sqlServerName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "name": "[parameters('sqlServerName')]",
+      "type": "Microsoft.Sql/servers",
+      "apiVersion": "2015-05-01-preview",
+      "location": "[resourceGroup().location]",
+      "tags": {},
+      "properties": {
+        "administratorLogin": "[parameters('adminLogin')]",
+        "administratorLoginPassword": "[parameters('adminPassword')]",
+        "version": "12.0"
+      }
+    }
+  ],
+  "outputs": {
+  }
+}
+```
 
 Ahora, cree un archivo de parámetros para la plantilla anterior. En el archivo de parámetros, especifique un parámetro que coincida con el nombre del parámetro de la plantilla. Para el valor del parámetro, haga referencia al secreto del almacén de claves. Se hace referencia al secreto pasando el identificador de recurso de almacén de claves y el nombre del secreto:
 
-![Archivo del parámetro de identificador estático de integración de almacén de claves de Resource Manager](./media/resource-manager-keyvault-parameter/resource-manager-key-vault-static-id-parameter-file.png)
+En el siguiente archivo de parámetros, ya debe existir el secreto del almacén de claves y proporcionar un valor estático para su identificador de recurso.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminLogin": {
+            "value": "exampleadmin"
+        },
+        "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+              },
+              "secretName": "ExamplePassword"
+            }
+        },
+        "sqlServerName": {
+            "value": "<your-server-name>"
+        }
+    }
+}
+```
 
 Si necesita utilizar una versión del secreto que no sea la versión actual, use la propiedad `secretVersion`.
 
 ```json
-"secretName": "examplesecret",
+"secretName": "ExamplePassword",
 "secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
 ```
 

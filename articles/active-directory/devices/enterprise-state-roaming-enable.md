@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97d0be1dfd77035a3522ef8a6b3f4ac93ae20741
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7e665f3124296392c8138f4f2bd3632b56e53de
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353872"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230935"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Habilitación de Enterprise State Roaming en Azure Active Directory
 Enterprise State Roaming está disponible para cualquier organización con una licencia de Azure AD Premium o Enterprise Mobility + Security (EMS). Para más información acerca de cómo obtener una suscripción de Azure AD, consulte la [página de producto de Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -42,13 +42,13 @@ Al habilitar Enterprise State Roaming, a su organización se le otorgará autom�
 Para que un dispositivo Windows 10 utilice el servicio Enterprise State Roaming, el dispositivo debe autenticarse mediante una identidad de Azure AD. Para los dispositivos que están unidos a Azure AD, la identidad de inicio de sesión principal del usuario es la identidad de Azure AD, por lo que no se requiere ninguna configuración adicional. Para los dispositivos que usan una instancia de Active Directory local, los administradores de TI deben [configurar los dispositivos unidos a Azure Active Directory híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
 ## <a name="data-storage"></a>Almacenamiento de datos
-Los datos de Enterprise State Roaming se hospedan en las [regiones de Azure](https://azure.microsoft.com/regions/) que mejor se alineen con el valor de país o región establecido en la instancia de Azure Active Directory. Se crean particiones de los datos de Enterprise State Roaming en función de las tres regiones geográficas principales: Estados Unidos, EMEA y APAC. Los datos móviles de Enterprise State Roaming del inquilino se encuentran ubicados de manera local con la región geográfica y no se replican entre regiones.  Por ejemplo: 
+Los datos de Enterprise State Roaming se hospedan en las [regiones de Azure](https://azure.microsoft.com/regions/) que mejor se alineen con el valor de país o región establecido en la instancia de Azure Active Directory. Se crean particiones de los datos de Enterprise State Roaming en función de las tres regiones geográficas principales: Estados Unidos, EMEA y APAC. Los datos móviles de Enterprise State Roaming del inquilino se encuentran ubicados de manera local con la región geográfica y no se replican entre regiones.  Por ejemplo:
 
 Valor de país o región | sus datos se hospedan en
 ---------------------|-------------------------
-Un país de EMEA como Francia o Zambia | Una o más regiones de Azure en Europa 
-Un país de América del Norte, como Estados Unidos o Canadá | Una o más regiones de Azure en EE. UU.
-Un país de APAC como Australia o Nueva Zelanda | Una o más regiones de Azure en Asia
+Un país o región EMEA como Francia o Zambia | Una o más regiones de Azure en Europa 
+Un país o región América del Norte, por ejemplo, Estados Unidos o Canadá | Una o más regiones de Azure en EE. UU.
+Un país o región APAC como Australia o Nueva Zelanda | Una o más regiones de Azure en Asia
 Regiones de Sudamérica y Antártida | Una o más regiones de Azure en EE. UU.
 
 El valor de país o región se establece como parte del proceso de creación del directorio de AD de Azure y no se puede modificar posteriormente. Para más detalles sobre la ubicación del almacenamiento de datos, genere una incidencia con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/).
@@ -81,7 +81,7 @@ La eliminación explícita se da cuando un administrador de Azure elimina un usu
 * **Eliminación bajo demanda**: si el administrador de Azure AD desea eliminar manualmente los datos de configuración o los de un usuario concreto, puede generar una incidencia en el [Soporte técnico de Azure](https://azure.microsoft.com/support/). 
 
 ### <a name="stale-data-deletion"></a>Eliminación de datos obsoletos
-Los datos a los que no se ha accedido durante un año (el período de retención) se considerarán obsoletos y se podrán eliminar de la nube de Microsoft. El periodo de retención está sujeto a cambios, pero no será inferior a 90 días. Los datos obsoletos pueden ser un conjunto específico de valores de configuración de Windows o de la aplicación o toda la configuración de un usuario. Por ejemplo: 
+Los datos a los que no se ha accedido durante un año (el período de retención) se considerarán obsoletos y se podrán eliminar de la nube de Microsoft. El periodo de retención está sujeto a cambios, pero no será inferior a 90 días. Los datos obsoletos pueden ser un conjunto específico de valores de configuración de Windows o de la aplicación o toda la configuración de un usuario. Por ejemplo:
 
 * Si ningún dispositivo accede a una colección de configuraciones concreta (por ejemplo, una aplicación se quita del dispositivo o un grupo de configuraciones, como "Tema", está deshabilitado para todos los dispositivos de un usuario), esa colección quedará obsoleta tras el período de retención y se puede eliminar. 
 * Si un usuario ha desactivado la sincronización de la configuración en todos sus dispositivos, no se podrá acceder a ninguno de los datos de configuración y todos los datos de configuración para ese usuario quedarán obsoletos y pueden eliminarse tras el período de retención. 

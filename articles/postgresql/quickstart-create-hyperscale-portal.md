@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 30de4da43569abf4d7bd668fd0fa481ecac23f4d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 4271d94f07125a870cc4aa859b01db819d583f40
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080033"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406446"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure Database for PostgreSQL Hiperescala (Citus) (versión preliminar) en Azure Portal
 
@@ -30,9 +30,9 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
 1. Haga clic en **Crear un recurso** de la esquina superior izquierda de Azure Portal.
 2. En la página **Nuevo**, seleccione **Bases de datos** y, en la página **Bases de datos**, seleccione **Azure Database for PostgreSQL**.
-3. Para la opción de implementación, haga clic en el botón **Crear** en **Grupo de servidores de hiperescala (Citus): VERSIÓN PRELIMINAR.**
+3. Para la opción de implementación, haga clic en el botón **Crear** en **Hyperscale (Citus) server group - PREVIEW** (Grupo de servidores Hiperescala (Citus): VERSIÓN PRELIMINAR).
 4. Rellene el formulario del nuevo servidor con la siguiente información:
-   - Grupo de recursos: haga clic en el vínculo **Crear nuevo** que está debajo del cuadro de texto para este campo. Escriba un nombre como **myresourcegroup**.
+   - Grupo de recursos: haga clic en el vínculo **Crear nuevo** que está debajo de este cuadro de texto para este campo. Escriba un nombre como **myresourcegroup**.
    - Nombre del grupo de servidores: escriba un nombre exclusivo para el nuevo grupo de servidores, que también se usará para un subdominio de servidor.
    - Nombre de usuario administrador: escriba un nombre de usuario exclusivo, que se usará más adelante para conectarse con la base de datos.
    - Contraseña: tiene que tener al menos ocho caracteres de las tres categorías siguientes: letras mayúsculas del alfabeto inglés, letras minúsculas del alfabeto inglés, números (0-9) y caracteres no alfanuméricos (!, $, #, %, etc.)
@@ -42,7 +42,7 @@ Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
    > Se requiere el inicio de sesión y la contraseña de administrador de servidor que especifique aquí para iniciar sesión en el servidor y a sus bases de datos más adelante en esta guía de inicio rápido. Recuerde o grabe esta información para su uso posterior.
 
 5. Haga clic en **Configurar grupo de servidores**. No modifique los valores de esa sección y haga clic en **Guardar**.
-6. Haga clic en **Review + create** (Revisar y crear) y luego en **Crear** para aprovisionar el servidor. El aprovisionamiento tarda unos minutos.
+6. Haga clic en **Revisar y crear**  y luego en **Crear** para aprovisionar el servidor. El aprovisionamiento tarda unos minutos.
 7. La página irá a la supervisión de la implementación. Cuando el estado activo cambia de **La implementación está en curso** a **Se completó la implementación**, haga clic en el elemento de menú **Salidas** que se encuentra a la izquierda de la página.
 8. La página de resultados incluirá un nombre de host de coordinación junto a un botón para copiar el valor en el Portapapeles. Anote esta información para usarla más adelante.
 
@@ -169,7 +169,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Hasta ahora, las consultas que hemos realizado solo han utilizado github\_events, pero podemos combinar esta información con github\_users. Como hemos particionado tanto los usuarios como los eventos en el mismo identificador (`user_id`), las filas de ambas tablas con identificadores de usuario que coincidan se [coubicarán](http://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) en los mismos nodos de base de datos con lo que pueden combinarse fácilmente.
+Hasta ahora, las consultas que hemos realizado solo han utilizado github\_events, pero podemos combinar esta información con github\_users. Como hemos particionado tanto los usuarios como los eventos en el mismo identificador (`user_id`), las filas de ambas tablas con identificadores de usuario que coincidan se [coubicarán](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) en los mismos nodos de base de datos con lo que pueden combinarse fácilmente.
 
 Si incorporamos `user_id`, Hiperescala puede insertar la ejecución conjunta en particiones para su ejecución en paralelo en nodos de trabajo. Por ejemplo, vamos a buscar los usuarios que hayan creado el mayor número de repositorios:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7305c6a5047bd09f6c9bda018748643ff81fe893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708088"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235819"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Información general de las instantáneas de recurso compartido de Azure Files 
 Azure Files proporciona la funcionalidad de tomar instantáneas de recurso compartido de recursos compartidos de archivos. Las instantáneas de recursos compartidos capturan el estado del recurso compartido en ese momento dado. En este artículo se describen las funcionalidades que proporcionan las instantáneas de recurso compartido y cómo se puede sacar provecho de ellas en el caso de uso personalizado.
@@ -40,7 +40,7 @@ En el nivel del recurso compartido de archivos se proporciona la funcionalidad d
 
 Una instantánea de recurso compartido de un recurso compartido de archivos es idéntica a su recurso compartido de archivos base. La única diferencia es que se anexa un valor **DateTime** al URI del recurso compartido para indicar el momento en que se tomó la instantánea de recurso compartido. Por ejemplo, si el URI de un recurso compartido de archivos es http://storagesample.core.file.windows.net/myshare, el URI de instantánea es similar a:
 ```
-http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Las instantáneas de recurso compartido se conservan hasta que se eliminan explícitamente. Una instantánea de recurso compartido no puede durar más que su recurso compartido de archivos base. Puede enumerar las instantáneas asociadas al recurso compartido de archivos base para llevar a cabo un seguimiento de las instantáneas actuales. 
@@ -58,7 +58,7 @@ Incluso si las instantáneas de recurso compartido se guardan de forma increment
 
 Las instantáneas no se tienen en cuenta en el límite de recursos compartidos de 5 TB. No hay ninguna restricción en la cantidad de espacio que ocupan las instantáneas de recurso compartido. Los límites de cuenta de almacenamiento se siguen aplicando.
 
-## <a name="limits"></a>límites
+## <a name="limits"></a>Límites
 En cambio, el número máximo de instantáneas de recurso compartido que permite Azure Files actualmente es de 200. Una vez se llegue a las 200 instantáneas de recurso compartido, las instantáneas más antiguas se eliminarán para poder crear otras nuevas. 
 
 No hay ningún límite en las llamadas simultáneas dedicadas a crear instantáneas de recurso compartido. Asimismo, tampoco hay ningún límite en la cantidad de espacio que las instantáneas de recurso compartido de un recurso compartido de archivos determinado pueden consumir. 

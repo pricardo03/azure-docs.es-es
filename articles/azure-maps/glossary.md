@@ -57,7 +57,7 @@ A continuación se incluye una lista de palabras comunes que se usan con Azure M
 
 ## <a name="b"></a>b
 
-<a name="base-map"></a> **Mapa base**: parte de una aplicación de mapa que muestra información de referencia en segundo plano, como carreteras, monumentos y fronteras políticas.
+<a name="base-map"></a> **Mapa base**: parte de una aplicación de mapas que muestra información de referencia en segundo plano, como carreteras, monumentos y fronteras políticas.
 
 <a name="batch-request"></a> **Solicitud por lotes**: proceso de combinar varias solicitudes en una única.
 

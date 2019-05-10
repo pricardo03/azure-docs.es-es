@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 55b18051f2376a59fa79b11cccc9e71cad5debbc
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.date: 05/06/2019
+ms.openlocfilehash: 4f0691dcc8a0c4b0ebbfe26a49b75b86fa50f597
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067803"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236018"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Preguntas más frecuentes sobre las bases de datos de hiperescala de Azure SQL
 
@@ -73,11 +73,7 @@ El nivel de servicio Hiperescala está pensado principalmente para clientes que 
 
 ### <a name="what-regions-currently-support-hyperscale"></a>¿En qué regiones se admite actualmente Hiperescala?
 
-El nivel de hiperescala de base de datos de SQL Azure está actualmente disponible en las siguientes regiones:
-
-Este de Australia, sudeste de Australia, sur de Brasil, Canadá Central, EE. UU., Asia oriental, este de Estados Unidos, East Us 2, Francia. UU., Japón oriental, Japón occidental, centro y Norte Central EE. UU., Europa del Norte, Sudáfrica Norte, centro y sur Central EE. UU., sudeste asiático, Reino Unido sur, oeste de Reino Unido, Europa occidental , Oeste de Estados Unidos, oeste de EE.UU. 2
-
-Consulte [información general de Azure SQL Database a gran escala](sql-database-service-tier-hyperscale-faq.md) para conocer el procedimiento si necesita acceso en otra región.
+El nivel de hiperescala de base de datos de SQL Azure está disponible actualmente en las regiones incluidas en [información general de Azure SQL Database a gran escala](sql-database-service-tier-hyperscale.md#regions).
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>¿Puedo crear varias bases de datos de hiperescala por servidor lógico?
 
@@ -174,7 +170,7 @@ El tamaño de la base de datos crece automáticamente a medida que inserta o ing
 
 ### <a name="what-is-the-smallest-database-size-that-sql-database-hyperscale-supports-or-starts-with"></a>¿Cuál es el tamaño de base de datos más pequeño que admite Hiperescala de SQL Database?
 
-10 GB
+10 GB
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>¿En cuantos GB se incrementa el tamaño de mi base de datos cada vez?
 
@@ -216,7 +212,7 @@ Sí. Puede trasladar las bases de datos de Azure SQL existentes a Hiperescala. S
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-editions"></a>¿Puedo mover mis bases de datos de hiperescala a otras ediciones?
 
- No. En este momento, no se puede mover una base de datos a gran escala a otro nivel de servicio.
+No. En este momento, no se puede mover una base de datos a gran escala a otro nivel de servicio.
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>¿Pierdo alguna funcionalidad al migrar al nivel de servicio Hiperescala?
 
@@ -369,19 +365,19 @@ Puede conectarse a estos nodos de proceso adicionales de solo lectura establecie
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>¿Puedo crear un punto de conexión dedicado para la réplica de escalado de lectura?
 
- No. Réplica de escalado de lectura solo se puede conectar mediante la especificación de `ApplicationIntent=ReadOnly`.
+No. Réplica de escalado de lectura solo se puede conectar mediante la especificación de `ApplicationIntent=ReadOnly`.
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>¿Realiza el sistema un equilibrio de carga inteligente de la carga de trabajo de lectura?
 
- No. La carga de trabajo solo lectura se redirige a una réplica aleatoria de escalado de lectura.
+No. La carga de trabajo solo lectura se redirige a una réplica aleatoria de escalado de lectura.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>¿Se puede realizar un escalado y reducción vertical de los nodos de proceso secundarios independientemente del nodo de proceso principal?
 
- No. Los nodos de proceso secundario también se utilizan para alta disponibilidad, por lo que necesitan para ser la misma configuración que el servidor principal, en el caso de una conmutación por error.
+No. Los nodos de proceso secundario también se utilizan para alta disponibilidad, por lo que necesitan para ser la misma configuración que el servidor principal, en el caso de una conmutación por error.
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>¿Puedo obtener un tamaño de temp db diferente para mi nodo de proceso principal y los secundarios adicionales?
 
- No. Su `tempdb` se configura basándose en el aprovisionamiento de tamaño de proceso, los nodos de proceso secundario son el mismo tamaño que el proceso principal.
+No. Su `tempdb` se configura basándose en el aprovisionamiento de tamaño de proceso, los nodos de proceso secundario son el mismo tamaño que el proceso principal.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-nodes"></a>¿Puedo agregar índices y vistas en mis nodos de proceso secundarios?
 

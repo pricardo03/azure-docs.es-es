@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129651"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236259"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configuración de la experiencia de Bing Custom Search
 
@@ -27,8 +27,8 @@ Al definir los sectores de la web, use los siguientes elementos:
 
 | Nombre del sector | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dominio     | Un sector de dominio incluye todo el contenido que se encuentra en un dominio de Internet. Por ejemplo, `www.microsoft.com`. Si se omite `www.`, Bing también busca en los subdominios del dominio. Por ejemplo, si especifica  `microsoft.com`, Bing también devuelve los resultados de  `support.microsoft.com` o `technet.microsoft.com`. |
-| Subpágina    | Un sector de subpágina incluye todo el contenido encontrado en la subpágina y las rutas de acceso que hay debajo de ella. Puede especificar como máximo dos subpáginas en la ruta de acceso. Por ejemplo: `www.microsoft.com/en-us/windows/`                                                                                                                       |
+| Dominio     | Un sector de dominio incluye todo el contenido que se encuentra en un dominio de Internet. Por ejemplo, `www.microsoft.com`. Si se omite `www.`, Bing también busca en los subdominios del dominio. Por ejemplo, si especifica `microsoft.com`, Bing también devuelve los resultados de `support.microsoft.com` o `technet.microsoft.com`. |
+| Subpágina    | Un sector de subpágina incluye todo el contenido encontrado en la subpágina y las rutas de acceso que hay debajo de ella. Puede especificar como máximo dos subpáginas en la ruta de acceso. Por ejemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Página web    | Un sector de página web puede incluir solo esa página web en una búsqueda personalizada. Opcionalmente, puede especificar si se deben incluir subpáginas.                                                                                                                                                                                  |
 
 > [!IMPORTANT]
@@ -40,7 +40,7 @@ Al crear la instancia de Custom Search, puede especificar los sectores de la web
 
 Si conoce los sectores que quiere incluir en la instancia de Custom Search, agréguelos a la lista **Active** (Activos) de esta. 
 
-Si no está seguro de qué sectores incluir, puede enviar consultas de búsqueda a Bing en el panel **Vista previa** y seleccionar los sectores que quiera. Para ello, siga estos pasos: 
+Si no está seguro de qué sectores incluir, puede enviar consultas de búsqueda a Bing en el panel **Vista previa** y seleccionar los sectores que quiera. Para ello: 
 
 1. Seleccione Bing en la lista desplegable del panel Vista previa y escriba la consulta de búsqueda.
 
@@ -94,7 +94,7 @@ El portal le permite ajustar la clasificación de la búsqueda de contenido de s
 
 |            |                                                                                                                                                                      |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Block      | Mueve el dominio, la subpágina o la página web a la lista de bloqueados. Bing excluirá la aparición de contenido del sitio seleccionado en los resultados de búsqueda.                    |
+| Bloquear      | Mueve el dominio, la subpágina o la página web a la lista de bloqueados. Bing excluirá la aparición de contenido del sitio seleccionado en los resultados de búsqueda.                    |
 | Aumentar de nivel      | Coloca el contenido del dominio o la subpágina en un nivel más alto en los resultados de búsqueda.                                                                                        |
 | Reducir de nivel     | Coloca el contenido del dominio o la subpágina en un nivel inferior en los resultados de búsqueda. Seleccione si desea reducir de nivel el contenido del dominio o la subpágina a los que pertenece la página web. |
 | Anclar al principio | Mueve el dominio, la subpágina o la página web a la lista **Pinned** (Anclados). Esto obliga a la página web a aparecer como el resultado de búsqueda principal para una consulta de búsqueda determinada.                   |
@@ -118,9 +118,9 @@ El portal también le permite anclar las direcciones URL al principio de los res
 
 Puede anclar una página web al principio de dos maneras:
 
-* En la pestaña  **Pinned**  (Anclado), escriba la dirección URL de la página web que se va a anclar al principio y la consulta correspondiente.
+* En el **anclado** , escriba la dirección URL de la página Web para anclar a la parte superior y la consulta correspondiente.
 
-* En el panel **Vista previa**, escriba una consulta de búsqueda y haga clic en el botón de búsqueda. Busque la página web que quiere anclar para la consulta y haga clic en  **Anclar al principio**. La página web y la consulta se agregarán a la lista **Anclado**.
+* En el panel **Vista previa**, escriba una consulta de búsqueda y haga clic en el botón de búsqueda. Busque la página Web que desea anclar para la consulta y haga clic en **Pin al principio**. La página web y la consulta se agregarán a la lista **Anclado**.
 
 ### <a name="specify-the-pins-match-condition"></a>Especificación de la condición de coincidencia de anclaje
 
@@ -129,11 +129,11 @@ De manera predeterminada, las páginas web solo están ancladas al principio de 
 > [!NOTE]
 > Todas las comparaciones entre la consulta de búsqueda del usuario y la consulta de búsqueda del anclaje distinguen mayúsculas de minúsculas.
 
-| Value | DESCRIPCIÓN                                                                          |
+| Valor | DESCRIPCIÓN                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | Empieza por | El anclaje coincide si la cadena de consulta del usuario empieza por lo mismo que la de anclaje. |
 | Termina por   | El anclaje coincide si la cadena de consulta del usuario termina por lo mismo que la de anclaje.  |
-| Contains    | El anclaje coincide si la cadena de consulta del usuario contiene la de anclaje.   |
+| Contiene    | El anclaje coincide si la cadena de consulta del usuario contiene la de anclaje.   |
 
 
 Para cambiar la condición de coincidencia de anclaje, haga clic en el icono de edición del anclaje. En la columna **Query match condition** (Condición de coincidencia de la consulta), haga clic en la lista desplegable y seleccione la nueva condición para usarla. Después, haga clic en el icono para guardar el cambio.
@@ -144,7 +144,7 @@ Para cambiar el orden de los anclajes, puede arrastrarlos y colocarlos o editar 
 
 Si varios anclajes satisfacen una condición de coincidencia, Bing Custom Search usará la más alta de la lista.
 
-## <a name="view-statistics"></a>Visualización de estadísticas
+## <a name="view-statistics"></a>Ver estadísticas
 
 Si se ha suscrito a Custom Search en el nivel adecuado (consulte los [planes de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), se agrega una pestaña **Statistics** (Estadísticas) a las instancias de producción. En la pestaña de estadísticas se muestra información detallada sobre cómo se usan los puntos de conexión de Custom Search, como el volumen de llamadas, las mejores consultas, la distribución geográfica, los códigos de respuesta y la búsqueda segura. Puede filtrar esta información mediante los controles proporcionados.
 

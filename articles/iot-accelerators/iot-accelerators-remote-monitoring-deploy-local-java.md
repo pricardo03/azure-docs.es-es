@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 209a91453875531e81ddbcead8c1ed2fb309a0a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 996111fbe23000182dab774ba3bbad0cc6435824
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147442"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412719"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implementación local del acelerador de soluciones de supervisión remota: IntelliJ
 
@@ -100,9 +100,9 @@ En los pasos siguientes se muestra cómo ejecutar los microservicios de Supervis
     * WebService (services\iothub-manager)
     * WebService (services\storage-adapter)
 
-Como ejemplo la siguiente imagen muestra cómo agregar la configuración de un servicio:
+Por ejemplo, la siguiente imagen muestra cómo agregar la configuración de un servicio:
 
-[![Agregar configuración](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+[![Agregar configuración](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 
 #### <a name="create-compound-configuration"></a>Creación de una configuración compuesta
@@ -111,14 +111,11 @@ Como ejemplo la siguiente imagen muestra cómo agregar la configuración de un s
 1. Escriba el **nombre** y **agregue tareas sbt**
 1. Haga clic en **Apply > OK** (Aplicar > Aceptar) para guardar las opciones.
 
-Como ejemplo la siguiente imagen muestra cómo se agregan todas las tareas sbt a una sola configuración:
+Por ejemplo, la siguiente imagen muestra la adición de todas las tareas de sbt a configuración única:
 
+[![Agregar todos los servicios](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
-[![Agregar todos los servicios](./media/deploy-locally-intelliJ/all-services.png)](./media/deploy-locally-intelliJ/all-services.png#lightbox)
-
-
-
-1. Haga clic en **Run** (Ejecutar) para compilar y ejecutar los servicios web en el equipo local.
+Haga clic en **Run** (Ejecutar) para compilar y ejecutar los servicios web en el equipo local.
 
 Cada servicio web abre una ventana del explorador web y del símbolo del sistema. En el símbolo del sistema, verá el resultado del servicio en ejecución y la ventana del explorador le permitirá supervisar el estado. No cierre el símbolo del sistema ni las páginas web, ya que esta acción detiene el servicio web.
 

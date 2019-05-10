@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1118d1de72ca7cd44844a0b526efd85eb419bc67
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926589"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412772"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de compatibilidad para replicar máquinas virtuales de Azure desde una región a otra
 
@@ -47,7 +47,7 @@ Puede replicar y recuperar máquinas virtuales entre dos regiones cualesquiera d
 **Clúster geográfico** | **Regiones de Azure**
 -- | --
 América | Centro de Canadá y este de Canadá, centro-sur de EE. UU., centro-oeste de EE. UU., este de EE. UU., este de EE. UU. 2, oeste de EE. UU., oeste de EE. UU. 2 centro de EE. UU., centro-norte de EE. UU.
-Europa | Oeste de Reino Unido, Sur de Reino Unido, Europa del Norte, Europa Occidental, Centro de Francia, Sur de Francia
+Europa | Oeste de Reino Unido, sur de Reino Unido, Europa del Norte, Europa occidental, sur de Francia, sur de Francia, Sudáfrica occidental, centro y Norte de Sudáfrica
 Asia | India del Sur, centro de la India, Sudeste Asiático, Asia Oriental, Japón Oriental, Japón Occidental, Corea Central, Corea del Sur
 Australia   | Este de Australia, Sudeste de Australia, Centro de Australia, Centro de Australia 2
 Azure Government    | Virginia Gob. EE. UU., Iowa Gob. EE. UU., US Gov de Arizona, US Gov de Texas, US DOD este, US DOD central
@@ -156,6 +156,7 @@ Imágenes de la Galería de Azure (publicadas por terceros) | Compatible | Se ad
 Imágenes personalizadas (publicadas de terceros) | Compatible | Se admiten si la máquina virtual se ejecuta en un sistema operativo compatible.
 Máquinas virtuales migradas con Site Recovery | Compatible | Si se migró una máquina virtual de VMware o una física a Azure mediante Site Recovery, deberá desinstalar la versión antigua de Mobility Service que se ejecuta en la máquina y reiniciarla antes de replicarla en otra región de Azure.
 Directivas de RBAC | No compatible | Directivas de control (RBAC) en máquinas virtuales no se replican en la máquina virtual en la región de destino de conmutación por error de acceso basado en roles.
+Extensiones | No compatible | Las extensiones no se replican en la máquina virtual en la región de destino de conmutación por error. Debe instalarse manualmente después de la conmutación por error.
 
 ## <a name="replicated-machines---disk-actions"></a>Máquinas replicadas: acciones de disco
 

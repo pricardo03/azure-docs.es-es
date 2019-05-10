@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 81d7572f800f191791158f2c1f99e1f072980116
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65151064"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233880"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Uso de las colas de Azure Storage
 
@@ -206,7 +206,7 @@ Agregue la cadena de conexión a la aplicación para que pueda acceder a la cuen
 
 ## <a name="insert-messages-into-the-queue"></a>Inserción de mensajes en la cola
 
-Cree un nuevo método para enviar un mensaje a la cola. Agregue el método siguiente a la clase **Program**. Este método obtiene una referencia de cola y, después, crea una nueva cola si esta no existe mediante una llamada a [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). A continuación, agrega el mensaje a la cola mediante una llamada a [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
+Cree un nuevo método para enviar un mensaje a la cola. Agregue el método siguiente a la clase **Program**. Este método obtiene una referencia de cola y, después, crea una nueva cola si esta no existe mediante una llamada a [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). A continuación, agrega el mensaje a la cola mediante una llamada a [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
 
 1. Agregue el siguiente método **SendMessageAsync** a la clase **Program**.
 
@@ -229,7 +229,7 @@ Cree un nuevo método para enviar un mensaje a la cola. Agregue el método sigui
 
 ## <a name="dequeue-messages"></a>Retirar mensajes de la cola
 
-Cree un nuevo método denominado **ReceiveMessageAsync**. Este método recibe un mensaje de la cola mediante una llamada a [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Una vez que el mensaje se recibe correctamente, es importante eliminarlo de la cola para que no se procese más de una vez. Una vez recibido el mensaje, elimínelo de la cola mediante una llamada a [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+Cree un nuevo método denominado **ReceiveMessageAsync**. Este método recibe un mensaje de la cola mediante una llamada a [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Una vez que el mensaje se recibe correctamente, es importante eliminarlo de la cola para que no se procese más de una vez. Una vez recibido el mensaje, elimínelo de la cola mediante una llamada a [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
 
 1. Agregue el siguiente método **ReceiveMessageAsync** a la clase **Program**.
 

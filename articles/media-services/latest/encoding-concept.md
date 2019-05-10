@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 216eae383c704125cd32d9ed4cb1309299af7336
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153393"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472454"
 ---
 # <a name="encoding-with-media-services"></a>Codificación con Media Services
 
@@ -87,11 +87,15 @@ Media Services es totalmente compatible con la personalización de todos los val
 - [Personalizar valores preestablecidos con CLI](custom-preset-cli-howto.md)
 - [Personalizar valores preestablecidos con REST](custom-preset-rest-howto.md)
 
+## <a name="preset-schema"></a>Valor preestablecido de esquema
+
+En Media Services v3, los valores preestablecidos son entidades fuertemente tipadas en la propia API. Puede encontrar la definición de "schema" para estos objetos en [Open API Specification (o Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). También puede ver las definiciones preestablecidas (como **StandardEncoderPreset**) en el [API de REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (o en otra documentación de referencia SDK de Media Services v3).
+
 ## <a name="scaling-encoding-in-v3"></a>Escalado de la codificación en v3
 
 Para escalar el procesamiento multimedia, consulte [escala con CLI](media-reserved-units-cli-how-to.md).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

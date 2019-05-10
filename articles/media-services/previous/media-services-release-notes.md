@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 427ba2b386810749810397afed8ef3f62dcf9217
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728036"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506636"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
 
@@ -36,7 +36,7 @@ Queremos recibir opiniones de nuestros clientes para poder centrarnos en la solu
 | --- | --- |
 | Varios encabezados HTTP comunes no se proporcionan en la API de REST. |Si desarrolla aplicaciones de Media Services mediante la API de REST, encontrará que algunos campos de encabezado HTTP comunes (como CLIENT-REQUEST-ID, REQUEST-ID y RETURN-CLIENT-REQUEST-ID) no se admiten. Los encabezados se agregarán en una futura actualización. |
 | No se permite la codificación porcentual. |Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Por esta razón, no se permite la codificación porcentual. El valor de la propiedad Name no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un "." para la extensión del nombre de archivo. |
-| El método ListBlobs que es parte del SDK de Azure Storage, versión 3.x, no funciona correctamente. |Media Services genera direcciones URL de SAS basadas en la versión del [12-02-2012](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) . Si desea usar el SDK de Azure Storage para mostrar los blobs de un contenedor de blobs, utilice el método [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) que es parte del SDK de Azure Storage, versión 2.x. |
+| El método ListBlobs que es parte del SDK de Azure Storage, versión 3.x, no funciona correctamente. |Media Services genera direcciones URL de SAS basadas en la versión del [12-02-2012](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) . Si desea usar el SDK de Azure Storage para mostrar los blobs de un contenedor de blobs, utilice el método [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) que es parte del SDK de Azure Storage, versión 2.x. |
 | El mecanismo de limitación de Media Services restringe el uso de recursos en las aplicaciones que realizan un número excesivo de solicitudes al servicio. El servicio puede devolver el código de estado HTTP 503 "Servicio no disponible". |Para más información, consulte la descripción del código de estado HTTP 503 en el tema [Códigos de error de Media Services](media-services-encoding-error-codes.md). |
 | Al consultar entidades, hay un límite de 1 000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1 000 resultados. |Debe usar Skip y Take (.NET) o top (REST) como se describe en [este ejemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) y [este ejemplo de la API de REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Algunos clientes pueden experimentar un problema de etiqueta de repetición en el manifiesto de streaming con velocidad de transmisión adaptable. |Para más información, consulte [esta sección](media-services-deliver-content-overview.md#known-issues). |
@@ -534,7 +534,7 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK:
   
     * Se ha agregado compatibilidad asincrónica a todos los métodos.
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="provide-feedback"></a>Proporcionar comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 <!-- Anchors. -->

@@ -7,9 +7,6 @@
       href: storage-queues-introduction.md
 - name: Guías de inicio rápido
   items:
-    - name: Crear una cuenta de almacenamiento
-      displayName: 'resource manager, resource manager template, template, ARM'
-      href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Administración de colas sin código
       items:
         - name: Azure Portal
@@ -94,8 +91,11 @@
               href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Procedimientos
   items:
-    - name: Administrar cuentas de almacenamiento
+    - name: Crear y administrar cuentas de almacenamiento
       items:
+        - name: Crear una cuenta de almacenamiento
+          displayName: 'resource manager, resource manager template, template, ARM'
+          href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Administración de una cuenta de almacenamiento
           href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Actualización de una cuenta de almacenamiento
@@ -195,7 +195,7 @@
         - name: 'Blobs, colas, tablas y archivos'
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: Movimiento de datos
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
         - name: Resource Manager
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java

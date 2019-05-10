@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/05/2019
+ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: e550111e04ea77e35a4554bcc6e3bffaf4d543d2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924953"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236658"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creación de un grupo host con PowerShell
 
@@ -100,17 +100,6 @@ Para registrar a los agentes de Escritorio Virtual de Windows, haga lo siguiente
    - Descargue el [cargador de arranque de Windows del agente de Escritorio Virtual](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Haga clic en el instalador descargado, seleccione **propiedades**, seleccione **desbloquear**, a continuación, seleccione **Aceptar**. Esto permitirá que el sistema debe confiar en el programa de instalación.
    - Ejecute al programa de instalación.
-4. Instalar o activar la pila de Escritorio Virtual de Windows en paralelo. Los pasos serán diferentes según la versión del sistema operativo que usa la máquina virtual.
-   - Si el sistema operativo de la máquina virtual es Windows Server 2016:
-     - Descargue el [pila de Escritorio Virtual de Windows side-by-side](https://go.microsoft.com/fwlink/?linkid=2084270).
-     - Haga clic en el instalador descargado, seleccione **propiedades**, seleccione **desbloquear**, a continuación, seleccione **Aceptar**. Esto permitirá que el sistema debe confiar en el programa de instalación.
-     - Ejecute al programa de instalación.
-   - Si el sistema operativo de la máquina virtual es Windows 10 1809 o posterior o Windows Server 2019 o posterior:
-     - Descargue el [script](https://go.microsoft.com/fwlink/?linkid=2084268) para activar la pila en paralelo.
-     - Haga clic en el script descargado, seleccione **propiedades**, seleccione **desbloquear**, a continuación, seleccione **Aceptar**. Esto permitirá que el sistema debe confiar en la secuencia de comandos.
-     - Desde el **iniciar** menú, busque Windows PowerShell ISE, haga clic en él y luego seleccione **ejecutar como administrador**.
-     - Seleccione **archivo**, a continuación, **abrir...** y, a continuación, busque el script de PowerShell en los archivos descargados y ábralo.
-     - Seleccione el botón verde de reproducción para ejecutar el script.
 
 >[!IMPORTANT]
 >Para ayudar a proteger su entorno de Windows Virtual Desktop en Azure, se recomienda no abrir el puerto de entrada 3389 en las máquinas virtuales. Windows Virtual Desktop no requiere un puerto de entrada abierto 3389 para que los usuarios accedan a máquinas virtuales del grupo host. Si debe abrir el puerto 3389 para solucionar problemas, se recomienda usar [acceso de máquina virtual Just-in-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

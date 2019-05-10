@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3168bbbf70c1ffeb3827482459febbcea256eda6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1edd4777839c947cf8f60bb6857f939553e2603
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887007"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467608"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurar el panel de la aplicación
 
@@ -26,19 +26,19 @@ El **panel** es la página que se carga cuando los usuarios que tienen acceso a 
 
 Captura de pantalla siguiente muestra el panel en una aplicación creada a partir del **ejemplo Contoso** plantilla. Para personalizar el panel predeterminado para la aplicación, seleccione **editar** en la parte superior derecha de la página.
 
-![Panel para aplicaciones basadas en la plantilla "Ejemplo de Contoso"](media/howto-configure-homepage/image1.png)
+![Panel para aplicaciones basadas en la plantilla "Ejemplo de Contoso"](media/howto-configure-homepage/image1a.png)
 
 Seleccionar **editar**, se abre el panel de la biblioteca. La biblioteca contiene los iconos y primitivas de panel que puede usar para personalizar el panel.
 
-![Biblioteca de paneles](media/howto-configure-homepage/image2.png)
+![Biblioteca de paneles](media/howto-configure-homepage/image2a.png)
 
 Por ejemplo, puede agregar un **propiedades y configuración del dispositivo** icono para mostrar una selección de los valores actuales de configuración y las propiedades de un dispositivo. Para ello, seleccione primero una **plantilla de dispositivo** y, a continuación, una **instancia de dispositivo**. Después, asígnele un título al icono y seleccione una **configuración** o una **propiedad** para mostrar. Captura de pantalla siguiente muestra la configuración y las propiedades que se van a agregar al icono. Seleccione **realiza** para guardar el cambio en el panel.
 
-![El formulario "Configure Device Details" (Configurar detalles del dispositivo) con detalles de la configuración y las propiedades](media/howto-configure-homepage/image3.png)
+![El formulario "Configure Device Details" (Configurar detalles del dispositivo) con detalles de la configuración y las propiedades](media/howto-configure-homepage/image3a.png)
 
 Ahora cuando un operador ve el panel de la aplicación de forma predeterminada, verán el icono de nuevo con el **temperatura establecido** establecer para el dispositivo:
 
-![Pestaña "Dashboard" (Panel) en la que se muestran la configuración y las propiedades del icono](media/howto-configure-homepage/image4.png)
+![Pestaña "Dashboard" (Panel) en la que se muestran la configuración y las propiedades del icono](media/howto-configure-homepage/image4a.png)
 
 Puede explorar otros tipos de iconos en la biblioteca para descubrir cómo personalizar aún más el panel de la aplicación predeterminada.
 

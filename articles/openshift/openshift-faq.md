@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 77e0e11582808901b10877d0d9284637145aa6f2
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/08/2019
+ms.openlocfilehash: 881734caf855ccfc4f001693fe261b8448b49bc4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65078676"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466197"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift preguntas más frecuentes
 
@@ -25,7 +25,7 @@ Consulte [admite recursos](supported-resources.md#azure-regions) para obtener un
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>¿Puedo implementar un clúster en una red virtual existente?
 
-Sí. Puede implementar un clúster de Azure Red Hat OpenShift en una red virtual existente al crear un clúster. Consulte la [conectar la red virtual de un clúster con una red virtual existente ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) para obtener más información.
+No. Pero puede conectarse a una red virtual existente mediante el emparejamiento de un clúster de Azure Red Hat OpenShift. Consulte [conectar la red virtual de un clúster con una red virtual existente ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) para obtener más información.
 
 ## <a name="what-cluster-operations-are-available"></a>¿Qué operaciones de clúster están disponibles?
 
@@ -61,8 +61,8 @@ Sí. Puede restringir qué Azure AD usuarios pueden iniciar sesión en un clúst
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>¿Puede un clúster tiene nodos de proceso en varias regiones de Azure?
 
- No. Todos los nodos de un clúster de Azure Red Hat OpenShift deben originarse a partir de la misma región de Azure.
+No. Todos los nodos de un clúster de Azure Red Hat OpenShift deben originarse a partir de la misma región de Azure.
 
 ## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>¿Son los nodos de infraestructura y maestro abstraen tal como están con Azure Kubernetes Service (AKS)?
 
- No. Todos los recursos, incluida a la maestra del clúster, se ejecutan en su suscripción de cliente. Estos tipos de recursos se colocan en un grupo de recursos de solo lectura.
+No. Todos los recursos, incluida a la maestra del clúster, se ejecutan en su suscripción de cliente. Estos tipos de recursos se colocan en un grupo de recursos de solo lectura.

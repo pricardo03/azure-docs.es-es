@@ -1,6 +1,6 @@
 ---
 title: Utilizar los libros de Azure Monitor para los informes de Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo usar los libros de Azure Monitor para los informes de Azure Active Directory
+description: Obtenga información sobre cómo utilizar los libros de Azure Monitor para los informes de Azure Active Directory.
 services: active-directory
 author: MarkusVi
 manager: daveba
@@ -14,62 +14,61 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2c9b3d0ef110fea0629af345a71d0d7b7cce7313
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ae14ec152975717af5d55780bcc39aa87c4b01a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287326"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406590"
 ---
-# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Procedimientos para: Utilizar los libros de Azure Monitor para los informes de Azure Active Directory
+# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Cómo usar los libros de Azure Monitor para los informes de Azure Active Directory
 
 Si desea:
 
-- ¿Comprender el impacto de su [directivas de acceso condicional](../conditional-access/overview.md) en iniciar sesión sus usuarios?
+- ¿Entender el efecto de su [directivas de acceso condicional](../conditional-access/overview.md) en la experiencia de inicio de sesión de usuarios?
 
-- ¿Solucionar errores de inicio de sesión para obtener una vista mejor de su estado de inicio de sesión de organización así como solucionar los problemas rápidamente?
+- ¿Solucionar errores de inicio de sesión para obtener una mejor visión del estado de inicio de sesión de su organización y resuelva problemas rápidamente?
 
-- ¿Saber quién está utilizando las autenticaciones heredadas para iniciar sesión su entorno? Por [bloqueo de la autenticación heredada](../conditional-access/block-legacy-authentication.md), puede mejorar la protección de su inquilino.
+- ¿Saber quién está utilizando las autenticaciones heredadas para iniciar sesión en su entorno? (Por [bloqueo de la autenticación heredada](../conditional-access/block-legacy-authentication.md), puede mejorar la protección de su inquilino.)
 
-
-[Libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinar texto, consultas de análisis, métricas de Azure y los parámetros en informes interactivos enriquecidos. Azure Active Directory proporciona para la supervisión de los libros que le ayudarán a encontrar respuestas a las preguntas anteriores.
+Para ayudarle a resolver estas cuestiones, Active Directory proporciona los libros para la supervisión. [Libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinar texto, las consultas de análisis, métricas y los parámetros en informes interactivos enriquecidos. 
 
 Este artículo:
 
-- Se da por supuesto que está familiarizado con cómo [cree informes interactivos con libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+- Se supone que está familiarizado con cómo [crear informes interactivos con libros Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
 
-- Explica cómo puede usar los libros de Azure Monitor sobre la supervisión de responder a las preguntas anteriores.
+- Explica cómo utilizar los libros de Monitor para comprender el efecto de las directivas de acceso condicional, para solucionar problemas de errores de inicio de sesión y para identificar las autenticaciones heredadas.
  
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar esta característica, necesita:
+Para utilizar los libros de Monitor, necesita:
 
-- Un inquilino de Azure Active Directory, con una licencia premium (P1 y P2). Obtenga información sobre cómo [obtener una licencia premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Un inquilino de Active Directory con una licencia de premium (P1 o P2). Obtenga información sobre cómo [obtener una licencia premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - Un [área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-## <a name="access-workbooks"></a>Libros de acceso 
+## <a name="workbook-access"></a>Acceso a los libros 
 
 Para obtener acceso a los libros:
 
-1. Inicie sesión en su [portal Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. En la barra de navegación izquierda, haga clic en **Azure Active Directory**.
+2. En el panel de navegación izquierdo, seleccione **Azure Active Directory**.
 
-3. En el **supervisión** sección, haga clic en **Insights**. 
+3. En el **supervisión** sección, seleccione **Insights**. 
 
-    ![Información detallada](./media/howto-use-azure-monitor-workbooks/41.png)
+    ![Seleccione Insights](./media/howto-use-azure-monitor-workbooks/41.png)
 
-4. Haga clic en un informe o una plantilla, o haga clic en **abierto** en la barra de herramientas. 
+4. Seleccione un informe o una plantilla o en la barra de herramientas **abierto**. 
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/42.png)
+    ![Seleccione Abrir](./media/howto-use-azure-monitor-workbooks/42.png)
 
 
 ## <a name="sign-in-analysis"></a>Inicio de sesión de análisis
 
-Para acceder al documento de inicio de sesión de análisis, haga clic en **inicios de sesión** en el **uso** sección. 
+Para tener acceso al libro de inicio de sesión de análisis, en el **uso** sección, seleccione **inicios de sesión**. 
 
 Este libro muestra las siguientes tendencias:
 
@@ -81,7 +80,7 @@ Este libro muestra las siguientes tendencias:
 
 - Error
 
-Puede filtrar cada tendencia por:
+Puede filtrar cada tendencia por las siguientes categorías:
 
 - Intervalo de tiempo
 
@@ -89,24 +88,24 @@ Puede filtrar cada tendencia por:
 
 - Usuarios
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/43.png)
+![Inicio de sesión de análisis](./media/howto-use-azure-monitor-workbooks/43.png)
 
 
-Para cada tendencia, obtener un desglose:
+Para cada tendencia, obtener un desglose por las siguientes categorías:
 
-- Location
+- Ubicación
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/45.png)
+    ![Inicios de sesión por ubicación](./media/howto-use-azure-monitor-workbooks/45.png)
 
 - Dispositivo
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/46.png)
+    ![Inicios de sesión por dispositivo](./media/howto-use-azure-monitor-workbooks/46.png)
 
 
 ## <a name="sign-ins-using-legacy-authentication"></a>Inicios de sesión mediante autenticación heredados 
 
 
-Para obtener acceso a los inicios de sesión mediante [autenticación heredados](../conditional-access/block-legacy-authentication.md) libro, haga clic en **inicios de sesión mediante la autenticación heredada** en el **uso** sección. 
+Para tener acceso al libro para inicios de sesión que usan [autenticación heredados](../conditional-access/block-legacy-authentication.md), en el **uso** sección, seleccione **inicios de sesión mediante la autenticación heredada**. 
 
 Este libro muestra las siguientes tendencias:
 
@@ -115,7 +114,7 @@ Este libro muestra las siguientes tendencias:
 - Correcto
 
 
-Puede filtrar cada tendencia por:
+Puede filtrar cada tendencia por las siguientes categorías:
 
 - Intervalo de tiempo
 
@@ -123,25 +122,23 @@ Puede filtrar cada tendencia por:
 
 - Usuarios
 
-- Protocolos 
+- Protocolos
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/47.png)
+![Inicios de sesión mediante autenticación heredados](./media/howto-use-azure-monitor-workbooks/47.png)
 
 
 Para cada tendencia, obtener un desglose por aplicación y protocolo.
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/48.png)
+![Inicios de sesión de autenticación heredado por aplicación y protocolo](./media/howto-use-azure-monitor-workbooks/48.png)
 
 
 
 ## <a name="sign-ins-by-conditional-access"></a>Inicios de sesión de acceso condicional 
 
 
-Para obtener acceso a los inicios de sesión por [directivas de acceso condicional](../conditional-access/overview.md) libro, haga clic en **inicios de sesión de acceso condicional** en el **acceso condicional** sección. 
+Para tener acceso al libro para inicios de sesión por [directivas de acceso condicional](../conditional-access/overview.md), en el **acceso condicional** sección, seleccione **inicios de sesión de acceso condicional**. 
 
-Este libro muestra la tendencia para inicios de sesión deshabilitados.
-
-Puede filtrar cada tendencia por:
+Este libro muestra las tendencias para inicios de sesión deshabilitados. Puede filtrar cada tendencia por las siguientes categorías:
 
 - Intervalo de tiempo
 
@@ -149,10 +146,10 @@ Puede filtrar cada tendencia por:
 
 - Usuarios
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/49.png)
+![Inicios de sesión con acceso condicional](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
-Para los inicios de sesión deshabilitados, obtener un desglose por el estado de acceso condicional.
+Para inicios de sesión deshabilitados, obtener un desglose por el estado de acceso condicional.
 
 ![Estado de acceso condicional](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
@@ -165,7 +162,7 @@ Para los inicios de sesión deshabilitados, obtener un desglose por el estado de
 
 ## <a name="sign-ins-by-grant-controls"></a>Inicios de sesión por los controles de concesión
 
-Para obtener acceso a los inicios de sesión por [controles de concesión](../conditional-access/controls.md) libro, haga clic en **inicios de sesión por los controles de concesión** en el **acceso condicional** sección. 
+Para tener acceso al libro para inicios de sesión por [controles de concesión](../conditional-access/controls.md), en el **acceso condicional** sección, seleccione **inicios de sesión por los controles de concesión**. 
 
 Este libro muestra la siguientes deshabilitadas inicio de sesión de tendencias:
 
@@ -178,7 +175,7 @@ Este libro muestra la siguientes deshabilitadas inicio de sesión de tendencias:
 - Otros
 
 
-Puede filtrar cada tendencia por:
+Puede filtrar cada tendencia por las siguientes categorías:
 
 - Intervalo de tiempo
 
@@ -186,26 +183,26 @@ Puede filtrar cada tendencia por:
 
 - Usuarios
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/50.png)
+![Inicios de sesión por los controles de concesión](./media/howto-use-azure-monitor-workbooks/50.png)
 
 
 Para cada tendencia, obtener un desglose por aplicación y protocolo.
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/51.png)
+![Desglose de los inicios de sesión recientes](./media/howto-use-azure-monitor-workbooks/51.png)
 
 
 
 
 ## <a name="sign-ins-failure-analysis"></a>Análisis de errores de inicios de sesión
 
-Use la **análisis de errores de inicios de sesión** libro para solucionar los errores con:
+Use la **análisis de errores de inicios de sesión** libro para solucionar los errores con los siguientes:
 
 - Inicios de sesión
 - Directivas de acceso condicional
-- Autenticación heredados. 
+- Autenticación heredada 
 
 
-Para obtener acceso a los inicios de sesión por los datos de acceso condicional, haga clic en **inicios de sesión mediante la autenticación heredada** en el **solucionar** sección. 
+Para obtener acceso a los inicios de sesión por los datos de acceso condicional, en el **solucionar** sección, seleccione **inicios de sesión mediante la autenticación heredada**. 
 
 Este libro muestra las siguientes tendencias:
 
@@ -218,7 +215,7 @@ Este libro muestra las siguientes tendencias:
 - Error
 
 
-Puede filtrar cada tendencia por:
+Puede filtrar cada tendencia por las siguientes categorías:
 
 - Intervalo de tiempo
 
@@ -226,18 +223,18 @@ Puede filtrar cada tendencia por:
 
 - Usuarios
 
-![Gallery](./media/howto-use-azure-monitor-workbooks/52.png)
+![Solución de problemas de inicios de sesión](./media/howto-use-azure-monitor-workbooks/52.png)
 
 
-Para solucionar problemas de inicios de sesión, obtener un desglose:
+Para ayudarle a solucionar problemas de inicios de sesión, Azure Monitor proporciona un desglose por las siguientes categorías:
 
 - Errores principales
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/53.png)
+    ![Resumen de errores principales](./media/howto-use-azure-monitor-workbooks/53.png)
 
 - Inicios de sesión a la espera en la acción del usuario
 
-    ![Gallery](./media/howto-use-azure-monitor-workbooks/54.png)
+    ![Resumen de inicios de sesión a la espera en la acción del usuario](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
 
@@ -246,4 +243,4 @@ Para solucionar problemas de inicios de sesión, obtener un desglose:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Cree informes interactivos con libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)
+[Cree informes interactivos mediante el uso de los libros de Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).

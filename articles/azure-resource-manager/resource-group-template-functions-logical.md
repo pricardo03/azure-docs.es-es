@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782997"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405665"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funciones lógicas para las plantillas de Azure Resource Manager
 
@@ -29,7 +29,7 @@ Resource Manager proporciona varias funciones para realizar comparaciones en las
 * [not](#not)
 * [or](#or)
 
-## <a name="and"></a>y
+## <a name="and"></a>y el
 
 `and(arg1, arg2, ...)`
 
@@ -41,7 +41,7 @@ Comprueba si todos los valores de parámetros son verdaderos.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |boolean |Primer valor cuya veracidad se comprueba. |
 | arg2 |Sí |boolean |Segundo valor cuya veracidad se comprueba. |
-| argumentos adicionales |Sin  |boolean |Argumentos adicionales para comprobar si son verdaderos. |
+| argumentos adicionales |No |boolean |Argumentos adicionales para comprobar si son verdaderos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -78,7 +78,7 @@ El resultado del ejemplo anterior es:
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
+| orExampleOutput | Bool | True  |
 | notExampleOutput | Bool | False |
 
 ## <a name="bool"></a>booleano
@@ -130,9 +130,9 @@ La salida del ejemplo anterior con el valor predeterminado es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| trueString | Bool | True |
+| trueString | Bool | True  |
 | falseString | Bool | False |
-| trueInt | Bool | True |
+| trueInt | Bool | True  |
 | falseInt | Bool | False |
 
 ## <a name="if"></a>if
@@ -145,7 +145,7 @@ Devuelve un valor dependiendo de si una condición es verdadera o falsa.
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| condition |Sí |boolean |El valor que se comprobará si es true o false. |
+| condición |Sí |boolean |El valor que se comprobará si es true o false. |
 | trueValue |Sí | cadena, int, objeto o matriz |Valor que se devuelve cuando la condición es verdadera. |
 | falseValue |Sí | cadena, int, objeto o matriz |Valor que se devuelve cuando la condición es falsa. |
 
@@ -188,7 +188,7 @@ El resultado del ejemplo anterior es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| yesOutput | string | Sí |
+| yesOutput | String | sí |
 | noOutput | string | no |
 | objectOutput | Object | { "test": "value1" } |
 
@@ -196,7 +196,7 @@ La siguiente [plantilla de ejemplo](https://github.com/krnese/AzureDeploy/blob/m
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -287,7 +287,7 @@ El resultado del ejemplo anterior es:
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
+| orExampleOutput | Bool | True  |
 | notExampleOutput | Bool | False |
 
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) siguiente se usa **not** con [equals](resource-group-template-functions-comparison.md#equals).
@@ -310,7 +310,7 @@ El resultado del ejemplo anterior es:
 
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True |
+| checkNotEquals | Bool | True  |
 
 ## <a name="or"></a>o
 
@@ -324,7 +324,7 @@ Comprueba si algún valor de parámetro es verdadero.
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |boolean |Primer valor cuya veracidad se comprueba. |
 | arg2 |Sí |boolean |Segundo valor cuya veracidad se comprueba. |
-| argumentos adicionales |Sin  |boolean |Argumentos adicionales para comprobar si son verdaderos. |
+| argumentos adicionales |No |boolean |Argumentos adicionales para comprobar si son verdaderos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -361,7 +361,7 @@ El resultado del ejemplo anterior es:
 | NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
-| orExampleOutput | Bool | True |
+| orExampleOutput | Bool | True  |
 | notExampleOutput | Bool | False |
 
 ## <a name="next-steps"></a>Pasos siguientes

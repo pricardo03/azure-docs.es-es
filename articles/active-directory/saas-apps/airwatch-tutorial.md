@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e20a298c34a7b2723963396f8ccaafaa9472e19a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ec8b575157dcf2fe8430f554798af62b966c78d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888338"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Tutorial: Integración de Azure Active Directory con AirWatch
 
@@ -207,15 +207,15 @@ Para configurar el inicio de sesión único de Azure AD con AirWatch, realice lo
 
      a. En el cuadro de texto **Identificador de objetos**, escriba `http://schemas.microsoft.com/identity/claims/objectidentifier`.
 
-    b. En el cuadro de texto **Nombre de usuario**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    b. En el cuadro de texto **Nombre de usuario**, escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    c. En el cuadro de texto **Nombre para mostrar**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    d. En el cuadro de texto **Nombre**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. En el cuadro de texto **Nombre**, escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    e. En el cuadro de texto **Apellidos**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. En el cuadro de texto **Apellidos**, escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-    f. En el cuadro de texto **Correo electrónico**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. En el cuadro de texto **Correo electrónico**, escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     g. Haga clic en **Save**(Guardar).
 
@@ -237,7 +237,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

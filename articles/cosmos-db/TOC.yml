@@ -163,6 +163,8 @@
         - name: Desencadenar Azure Functions
           displayName: change feed
           href: change-feed-functions.md
+    - name: Analytics con Apache Spark
+      href: spark-api-introduction.md
     - name: Programación en el lado servidor
       items:
         - name: 'procedimientos almacenados, desencadenadores y UDF'
@@ -462,10 +464,6 @@
           href: etcd-api-introduction.md
         - name: Azure Kubernetes con Azure Cosmos DB
           href: bootstrap-kubernetes-cluster.md
-    - name: API de Spark
-      items:
-        - name: Introducción
-          href: spark-api-introduction.md
 - name: Guías de procedimientos
   items:
     - name: Administración de la cuenta de Azure Cosmos

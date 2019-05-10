@@ -10,10 +10,6 @@
       maintainContext: true
 - name: Guías de inicio rápido
   items:
-    - name: Crear una cuenta de almacenamiento
-      displayName: 'resource manager, resource manager template, template, ARM'
-      href: /azure/storage/common/storage-quickstart-create-account
-      maintainContext: true
     - name: Creación de una tabla en Azure Portal
       href: table-storage-quickstart-portal.md
 - name: Ejemplos
@@ -70,6 +66,10 @@
       href: table-storage-design-patterns.md
 - name: Guías de procedimientos
   items:
+    - name: Crear una cuenta de almacenamiento
+      displayName: 'resource manager, resource manager template, template, ARM'
+      href: /azure/storage/common/storage-quickstart-create-account
+      maintainContext: true
     - name: Uso del emulador de Storage
       href: /azure/storage/common/storage-use-emulator
       maintainContext: true

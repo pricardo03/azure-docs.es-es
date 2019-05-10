@@ -6,14 +6,14 @@ author: rboucher
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/08/2019
 ms.author: robb
-ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395057"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471783"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solución de problemas de Azure Diagnostics
 En este artículo se proporciona información para la solución de problemas relacionados con el uso de Azure Diagnostics. Para obtener información sobre Azure Diagnostics, consulte la [introducción a Azure Diagnostics](diagnostics-extension-overview.md).
@@ -29,7 +29,7 @@ En este artículo se proporciona información para la solución de problemas rel
 Estas son las rutas de acceso a algunos de los registros y artefactos más importantes. Se tendrá en cuenta esta información a lo largo del documento.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
-| Artefacto | Ruta de acceso |
+| Artefacto | Path |
 | --- | --- |
 | **Archivo de configuración de Azure Diagnostics** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Archivos de registro** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ Estas son las rutas de acceso a algunos de los registros y artefactos más impor
 | **Archivo de registro de MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Máquinas virtuales
-| Artefacto | Ruta de acceso |
+| Artefacto | Path |
 | --- | --- |
 | **Archivo de configuración de Azure Diagnostics** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Archivos de registro** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -48,7 +48,7 @@ Estas son las rutas de acceso a algunos de los registros y artefactos más impor
 | **Archivo de configuración del agente de supervisión** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **Archivo de estado** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Paquete de extensión de Azure Diagnostics** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
-| **Ruta de acceso a la utilidad de recopilación de registros** | C:\WindowsAzure\Packages |
+| **Ruta de acceso a la utilidad de recopilación de registros** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **Archivo de registro de MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Los datos métricos no aparecen en Azure Portal
@@ -232,7 +232,7 @@ El complemento devuelve los siguientes códigos de salida:
 
 | Código de salida | DESCRIPCIÓN |
 | --- | --- |
-| 0 |Correcta. |
+| 0 |Correcto. |
 | -1 |Error genérico. |
 | -2 |No se puede cargar el archivo rcf.<p>Este error interno solo debería ocurrir si el iniciador del complemento del agente invitado se invoca manualmente de forma incorrecta en la máquina virtual. |
 | -3 |No se puede cargar el archivo de configuración de Diagnósticos.<p><p>Solución: Esto se debe a que un archivo de configuración no supera la validación del esquema. La solución es proporcionar un archivo de configuración que cumpla el esquema. |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbf6a44f1a3210906ec7ab0d04eecb997bc2c470
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838919"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412825"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
@@ -42,7 +42,7 @@ Este tutorial funciona con el entorno de desarrollo, proyecto web y aplicación 
 
 Los ejemplos de código que aparecen en este tutorial son para una aplicación web C# MVC, pero los procedimientos de solución de problemas son los mismos para las aplicaciones de Web Forms y Visual Basic.
 
-El tutorial supone que está utilizando Visual Studio 2017. 
+El tutorial supone que está utilizando Visual Studio de 2019. 
 
 La característica de registros de streaming solo funciona para aplicaciones dirigidas a .NET Framework 4 o superior.
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7db73ff8bef553b36408cfae90e32014f875bd3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 39f323c2ac86e8d42319b3d99221f6c20beff3e4
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191001"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406686"
 ---
 # <a name="authentication-flows"></a>Flujos de autenticación
 
@@ -39,7 +39,7 @@ En este artículo se describe los flujos de autenticación diferente que proporc
 | [Autenticación integrada de Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Permite que las aplicaciones en Azure AD o de dominio unido los equipos para adquirir un token de forma silenciosa (sin ninguna interacción de la interfaz de usuario del usuario).| [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
 | [Nombre de usuario/contraseña](scenario-desktop-acquire-token.md#username--password) | Permite que una aplicación iniciar sesión en el usuario al controlar directamente la contraseña. No se recomienda este flujo. | [Aplicaciones de escritorio o móviles](scenario-desktop-acquire-token.md#username--password) | 
 
-## <a name="interactive"></a>Interactive
+## <a name="interactive"></a>Interactivo
 MSAL es compatible con la capacidad de preguntar interactivamente al usuario sus credenciales para iniciar sesión y obtener un token mediante esas credenciales.
 
 ![Flujo interactivo](media/msal-authentication-flows/interactive.png)
@@ -126,7 +126,7 @@ Mediante el uso del flujo de código de dispositivo, la aplicación obtiene los 
 
 ![Flujo de código de dispositivo](media/msal-authentication-flows/device-code.png)
 
-1. Cada vez que se requiere autenticación de usuario, la aplicación proporciona un código y pide al usuario que use otro dispositivo (por ejemplo, un smartphone conectado a internet) para navegar a una dirección URL (por ejemplo, http://microsoft.com/devicelogin), donde se pedirá al usuario que escriba el código. Que hace, la página web llevará al usuario a través de una experiencia de autenticación normal, incluidas las peticiones de consentimiento y autenticación multifactor si es necesario.
+1. Cada vez que se requiere autenticación de usuario, la aplicación proporciona un código y pide al usuario que use otro dispositivo (por ejemplo, un smartphone conectado a internet) para navegar a una dirección URL (por ejemplo, https://microsoft.com/devicelogin), donde se pedirá al usuario que escriba el código. Que hace, la página web llevará al usuario a través de una experiencia de autenticación normal, incluidas las peticiones de consentimiento y autenticación multifactor si es necesario.
 
 2. Tras una autenticación correcta, la aplicación de línea de comandos recibirá los tokens necesarios a través de un canal y utiliza para realizar las llamadas a API web que necesita.
 

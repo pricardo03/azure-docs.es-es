@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404712"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510540"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticar y solucionar problemas al usar el desencadenador de Azure Cosmos DB en Azure Functions
 
@@ -27,17 +27,19 @@ El desencadenador de Azure Cosmos DB y los enlaces dependen de los paquetes de e
 
 En este artículo siempre hará referencia a Azure Functions V2 cada vez que se menciona el tiempo de ejecución, a menos que especifique explícitamente.
 
-## <a name="consuming-the-cosmos-db-sdk-separately-from-the-trigger-and-bindings"></a>Consume el SDK de Cosmos DB por separado de los desencadenadores y enlaces
+## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Consumir de forma independiente el SDK de Azure Cosmos DB
 
 Es la funcionalidad clave del paquete de extensión proporcionar compatibilidad con el desencadenador de Azure Cosmos DB y los enlaces. También incluye el [.NET SDK de Azure Cosmos DB](sql-api-sdk-dotnet-core.md), lo que resulta útil si desea interactuar con Azure Cosmos DB mediante programación sin usar el desencadenador y enlaces.
 
-Si desea usar el SDK de Azure Cosmos DB, asegúrese de que no agregue al proyecto otra referencia de paquete de NuGet. En su lugar, **permiten la referencia del SDK resolver a través del paquete de extensión de Azure Functions**.
+Si desea usar el SDK de Azure Cosmos DB, asegúrese de que no agregue al proyecto otra referencia de paquete de NuGet. En su lugar, **permiten la referencia del SDK resolver a través del paquete de extensión de Azure Functions**. Usar el SDK de Azure Cosmos DB por separado de los desencadenadores y enlaces
 
 Además, si va a crear manualmente su propia instancia de la [cliente SDK de Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), debe seguir el patrón de tener solo una instancia del cliente [mediante un enfoque de patrón Singleton](../azure-functions/manage-connections.md#documentclient-code-example-c) . Este proceso evita los problemas potenciales de socket en sus operaciones.
 
-## <a name="common-known-scenarios-and-workarounds"></a>Escenarios comunes de conocidos y soluciones alternativas
+## <a name="common-scenarios-and-workarounds"></a>Escenarios comunes y soluciones alternativas
 
-### <a name="azure-function-fails-with-error-message-either-the-source-collection-collection-name-in-database-database-name-or-the-lease-collection-collection2-name-in-database-database2-name-does-not-exist-both-collections-must-exist-before-the-listener-starts-to-automatically-create-the-lease-collection-set-createleasecollectionifnotexists-to-true"></a>Se produce un error en la función de Azure con el mensaje de error "en la colección de origen 'nombre de la colección' (en la base de datos 'nombre de la base de datos') o la colección de concesión"colección2-name"(en la base de datos 'nombre de la base de datos2') no existe. Ambas colecciones deben existir antes de que se inicia el agente de escucha. Para crear automáticamente la colección de concesión, establezca 'CreateLeaseCollectionIfNotExists' en 'true' "
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>No existe la función de Azure no con la colección de mensajes de error
+
+Se produce un error en la función de Azure con el mensaje de error "en la colección de origen 'nombre de la colección' (en la base de datos 'nombre de la base de datos') o la colección de concesión"colección2-name"(en la base de datos 'nombre de la base de datos2') no existe. Ambas colecciones deben existir antes de que se inicia el agente de escucha. Para crear automáticamente la colección de concesión, establezca 'CreateLeaseCollectionIfNotExists' en 'true' "
 
 Esto significa que uno o ambos de los contenedores de Azure Cosmos necesarios para que el desencadenador de trabajo no existen o no son accesibles para la función de Azure. **El propio error le indicará qué base de datos de Azure Cosmos y contenedores es el desencadenador buscando** según su configuración.
 
@@ -78,7 +80,8 @@ Si faltan algunos cambios en el destino, esto podría significar que es algún e
 
 En este escenario, la mejor forma de acción consiste en agregar `try/catch blocks` en el código y dentro de los bucles que podrían estar procesando los cambios, para detectar cualquier error para un subconjunto determinado de elementos y controlarlos según corresponda (enviarlos a otro almacenamiento adicional análisis o vuelva a intentarlo). 
 
-> **El desencadenador de Azure Cosmos DB, de forma predeterminada, no vuelva a intentar un lote de cambios si se ha producido una excepción no controlada** durante la ejecución del código. Esto significa que la razón por la que no han llegado los cambios en el destino es ya que se producen errores al procesarlos.
+> [!NOTE]
+> El desencadenador de Azure Cosmos DB, de forma predeterminada, no vuelva a intentar un lote de cambios si se ha producido una excepción no controlada durante la ejecución del código. Esto significa que la razón por la que no han llegado los cambios en el destino es ya que se producen errores al procesarlos.
 
 Si encuentra que algunos cambios no han recibido en absoluto el desencadenador, el escenario más común es que hay **se está ejecutando otra instancia de Azure Functions**. Es posible que otra función de Azure implementados en Azure o una función de Azure que se ejecuta localmente en un desarrollador de la máquina que tiene **exactamente la misma configuración** (mismo supervisados y contenedores de la concesión), y esta función de Azure se robe un subconjunto de los cambios que se esperaría que la función de Azure para procesar.
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747e177b0fbbfb9049959c3194ee39c3234bba50
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870496"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234030"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identificación de problemas con la característica de diagnóstico
 
@@ -118,7 +118,7 @@ El **-resultado** parámetro también se puede combinar con otros parámetros de
 
 Escenarios de error se clasifican en interno al servicio y externas al escritorio Virtual de Windows.
 
-* Problema interno: especifica los escenarios que no se pueden mitigar mediante el Administrador de inquilinos y deben resolverse como problema de soporte técnico. Se ha producido al generar un ticket de proporcionar el Id. de actividad, el nombre de inquilino y el período de tiempo aproximado el problema.
+* Problema interno: especifica los escenarios que no se pueden mitigar mediante el Administrador de inquilinos y deben resolverse como un problema de soporte técnico. Al proporcionar comentarios a través de la [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), incluya el identificador de actividad y de aproximar el período de tiempo de cuándo se produjo el problema.
 * Problema externo: se refieren a escenarios que se pueden mitigar mediante el administrador del sistema. Estos son externos al escritorio Virtual de Windows.
 
 En la tabla siguiente se enumera los errores comunes que pueden surgir los administradores.

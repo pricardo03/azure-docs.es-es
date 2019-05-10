@@ -1,24 +1,26 @@
 ---
-title: 'Inicio rápido: Creación de una cuenta de almacenamiento: Azure Storage'
-description: En esta guía de inicio rápido, aprenderá a crear una nueva cuenta de almacenamiento con Azure Portal, Azure PowerShell o la CLI de Azure. Una cuenta de Azure Storage proporciona un espacio de nombres único en Microsoft Azure para almacenar los objetos de datos que crea y acceder a ellos en Azure Storage.
+title: 'Creación de una cuenta de almacenamiento: Azure Storage'
+description: En este artículo de instrucciones, aprenderá a crear una cuenta de almacenamiento mediante el portal de Azure, Azure PowerShell o la CLI de Azure. Una cuenta de Azure Storage proporciona un espacio de nombres único en Microsoft Azure para almacenar los objetos de datos que crea y acceder a ellos en Azure Storage.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
-ms.date: 09/18/2018
+ms.topic: article
+ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ebe23c606d95baa6c79c668fc929177c8bc37e44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 8375f4c54dc436ecf0694ec5f629c81d3591594d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862954"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234188"
 ---
 # <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-En esta guía de inicio rápido, aprenderá a crear una cuenta de almacenamiento con [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o la [CLI de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).  
+Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. La cuenta de almacenamiento proporciona un espacio de nombres único para los datos de almacenamiento de Azure que sea accesibles desde cualquier lugar del mundo a través de HTTP o HTTPS. Datos de la cuenta de almacenamiento de Azure están duradero y altamente disponible, seguro y escalable a gran escala.
+
+En este artículo de instrucciones, aprenderá a crear una cuenta de almacenamiento mediante el [portal Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), [CLI de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), o un [Azure Resource Manager plantilla](../../azure-resource-manager/resource-group-overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -32,28 +34,28 @@ Ninguno.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para realizar los pasos de este inicio rápido, se requiere la versión 0.7 del módulo Az de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable Az` para buscar la versión actual. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
+Este artículo de procedimientos requiere el módulo Azure PowerShell Az 0,7 o posterior. Ejecute `Get-Module -ListAvailable Az` para buscar la versión actual. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
 
 # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Puede iniciar sesión en Azure y ejecutar los comandos de la CLI de Azure utilizando uno de los procedimientos siguientes:
+Puede iniciar sesión en Azure y ejecutar los comandos de la CLI de Azure de dos maneras:
 
-- Puede ejecutar los comandos de la CLI desde Azure Portal, en Azure Cloud Shell. 
-- Puede instalar la CLI y ejecutar los comandos de la CLI localmente.  
+- Puede ejecutar comandos CLI desde Azure portal, en Azure Cloud Shell.
+- Puede instalar la CLI y ejecutar comandos de la CLI localmente.
 
 ### <a name="use-azure-cloud-shell"></a>Uso de Azure Cloud Shell
 
-Azure Cloud Shell es un shell de Bash gratuito que puede ejecutarse directamente en Azure Portal. Tiene la CLI de Azure preinstalada y configurada para utilizarla con la cuenta. Haga clic en el botón **Cloud Shell** del menú situado en la parte superior derecha de Azure Portal:
+Azure Cloud Shell es un shell de Bash gratuito que puede ejecutarse directamente en Azure Portal. La CLI de Azure está preinstalada y configurada para usar con su cuenta. Haga clic en el **Cloud Shell** botón en el menú en la sección superior derecha de Azure portal:
 
 [![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
-Este botón inicia un shell interactivo que se puede utilizar para ejecutar los pasos de esta guía de inicio rápido:
+El botón inicia un shell interactivo que puede usar para ejecutar los pasos descritos en este artículo de procedimientos:
 
 [![Captura de pantalla en la que aparece la ventana de Cloud Shell del portal](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>Instalación local de la CLI
 
-También puede instalar y usar la CLI de Azure localmente. Para realizar este tutorial de inicio rápido, es necesario ejecutar la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
+También puede instalar y usar la CLI de Azure localmente. Este artículo de Ayuda requiere que se está ejecutando la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
 
 # <a name="templatetabtemplate"></a>[Plantilla](#tab/template)
 
@@ -61,11 +63,11 @@ Ninguno.
 
 ---
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-Inicie sesión en [Azure Portal](https://portal.azure.com).
+Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -77,9 +79,9 @@ Connect-AzAccount
 
 # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Para abrir Azure Cloud Shell, inicie sesión en [Azure Portal](https://portal.azure.com).
+Para iniciar Azure Cloud Shell, inicie sesión en el [portal Azure](https://portal.azure.com).
 
-Para iniciar sesión en la instalación local de la CLI, ejecute el comando de inicio de sesión:
+Para iniciar sesión en la instalación local de la CLI, ejecute el [inicio de sesión de az](/cli/azure/reference-index#az-login) comando:
 
 ```cli
 az login
@@ -95,9 +97,9 @@ N/D
 
 Ahora ya está listo para crear la cuenta de almacenamiento.
 
-Cada cuenta de almacenamiento debe pertenecer a un grupo de recursos de Azure. Un grupo de recursos es un contenedor lógico para agrupar servicios de Azure. Al crear una cuenta de almacenamiento, puede elegir entre crear un grupo de recursos o usar uno existente. En esta guía de inicio rápido se muestra cómo crear un nuevo grupo de recursos. 
+Cada cuenta de almacenamiento debe pertenecer a un grupo de recursos de Azure. Un grupo de recursos es un contenedor lógico para agrupar servicios de Azure. Al crear una cuenta de almacenamiento, puede elegir entre crear un grupo de recursos o usar uno existente. En este artículo se muestra cómo crear un nuevo grupo de recursos.
 
-Una cuenta de almacenamiento de **uso general v2** proporciona acceso a todos los servicios de Azure Storage: Blob, File, Queue, Table y Disk. La guía de inicio rápido crea una cuenta de almacenamiento de uso general v2, pero los pasos para crear cualquier otro tipo de cuenta de almacenamiento son similares.   
+Una cuenta de almacenamiento de **uso general v2** proporciona acceso a todos los servicios de Azure Storage: Blob, File, Queue, Table y Disk. Los pasos descritos aquí crean una cuenta de almacenamiento de uso general v2, pero los pasos para crear cualquier tipo de cuenta de almacenamiento son similares.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -105,33 +107,33 @@ Una cuenta de almacenamiento de **uso general v2** proporciona acceso a todos lo
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-En primer lugar, cree un grupo de recursos con PowerShell mediante el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup): 
+En primer lugar, cree un grupo de recursos con PowerShell mediante el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
-# without hardcoding it repeatedly
-$resourceGroup = "storage-quickstart-resource-group"
-New-AzResourceGroup -Name $resourceGroup -Location $location 
+# without hard-coding it repeatedly
+$resourceGroup = "storage-resource-group"
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 Si no está seguro de qué región especificar para el parámetro `-Location`, puede recuperar una lista de regiones admitidas para la suscripción con el comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation):
 
 ```powershell
-Get-AzLocation | select Location 
+Get-AzLocation | select Location
 $location = "westus"
 ```
 
-A continuación, cree una cuenta de almacenamiento de uso general v2 con almacenamiento con redundancia local (LRS). Use el comando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount): 
+A continuación, cree una cuenta de almacenamiento de uso general v2 con almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS) mediante el uso de la [New AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) comando. Recuerde que el nombre de la cuenta de almacenamiento debe ser único en Azure, así que reemplace el valor de marcador de posición entre corchetes con su propio valor único:
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName $resourceGroup `
-  -Name "storagequickstart" `
+  -Name <account-name> `
   -Location $location `
-  -SkuName Standard_LRS `
+  -SkuName Standard_RAGRS `
   -Kind StorageV2 
 ```
 
-Para crear una cuenta de almacenamiento de uso general v2 con almacenamiento con redundancia de zona (ZRS) (versión preliminar), almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS), sustituya el valor deseado de la tabla siguiente por el parámetro **SkuName**. 
+Para crear una cuenta de almacenamiento de uso general v2 con una opción de replicación diferente, sustituya el valor deseado en la tabla siguiente para el **SkuName** parámetro.
 
 |Opción Replicación  |Parámetro SkuName  |
 |---------|---------|
@@ -142,11 +144,11 @@ Para crear una cuenta de almacenamiento de uso general v2 con almacenamiento con
 
 # <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-Primero, cree un grupo de recursos con la CLI de Azure mediante el comando [az group create](/cli/azure/group#az_group_create). 
+Primero, cree un grupo de recursos con la CLI de Azure mediante el comando [az group create](/cli/azure/group#az_group_create).
 
 ```azurecli-interactive
 az group create \
-    --name storage-quickstart-resource-group \
+    --name storage-resource-group \
     --location westus
 ```
 
@@ -158,18 +160,18 @@ az account list-locations \
     --out table
 ```
 
-A continuación, cree una cuenta de almacenamiento de uso general v2 con almacenamiento con redundancia local. Use el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create):
+A continuación, cree una cuenta de almacenamiento de uso general v2 con almacenamiento con redundancia geográfica de acceso de lectura mediante el uso de la [crear cuenta de almacenamiento de az](/cli/azure/storage/account#az_storage_account_create) comando. Recuerde que el nombre de la cuenta de almacenamiento debe ser único en Azure, así que reemplace el valor de marcador de posición entre corchetes con su propio valor único:
 
 ```azurecli-interactive
 az storage account create \
-    --name storagequickstart \
-    --resource-group storage-quickstart-resource-group \
+    --name <account-name> \
+    --resource-group storage-resource-group \
     --location westus \
-    --sku Standard_LRS \
+    --sku Standard_RAGRS \
     --kind StorageV2
 ```
 
-Para crear una cuenta de almacenamiento de uso general v2 con almacenamiento con redundancia de zona (versión preliminar de ZRS), almacenamiento con redundancia geográfica (GRS) o almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS), sustituya el valor deseado de la tabla siguiente por el parámetro **sku**. 
+Para crear una cuenta de almacenamiento de uso general v2 con una opción de replicación diferente, sustituya el valor deseado en la tabla siguiente para el **sku** parámetro.
 
 |Opción Replicación  |Parámetro sku  |
 |---------|---------|
@@ -180,7 +182,7 @@ Para crear una cuenta de almacenamiento de uso general v2 con almacenamiento con
 
 # <a name="templatetabtemplate"></a>[Plantilla](#tab/template)
 
-Puede usar Azure PowerShell o la CLI de Azure para implementar una plantilla de Resource Manager y crear así una cuenta de almacenamiento. La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para ejecutar los scripts, seleccione **Pruébelo** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y, a continuación, seleccione **Pegar**.
+Puede usar Azure PowerShell o la CLI de Azure para implementar una plantilla de Resource Manager y crear así una cuenta de almacenamiento. Es la plantilla utilizada en este artículo de procedimientos de [plantillas de inicio rápido de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para ejecutar los scripts, seleccione **Pruébelo** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y, a continuación, seleccione **Pegar**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -211,7 +213,7 @@ Para más información acerca de las opciones de replicación, consulte [Opcione
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si desea limpiar los recursos creados por esta guía de inicio rápido, basta con eliminar el grupo de recursos. Al eliminar el grupo de recursos, también se elimina la cuenta de almacenamiento asociada y cualquier otro recurso que esté asociado a dicho grupo.
+Si desea limpiar los recursos creados en este artículo de procedimientos, puede eliminar el grupo de recursos. Al eliminar el grupo de recursos, también se elimina la cuenta de almacenamiento asociada y cualquier otro recurso que esté asociado a dicho grupo.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -223,7 +225,7 @@ Para quitar un grupo de recursos desde Azure Portal:
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para quitar el grupo de recursos y sus recursos asociados, incluida la nueva cuenta de almacenamiento, use el comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup): 
+Para quitar el grupo de recursos y sus recursos asociados, incluida la nueva cuenta de almacenamiento, use el comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
@@ -234,7 +236,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 Para quitar el grupo de recursos y sus recursos asociados, incluida la nueva cuenta de almacenamiento, use el comando [az group delete](/cli/azure/group#az_group_delete).
 
 ```azurecli-interactive
-az group delete --name storage-quickstart-resource-group
+az group delete --name storage-resource-group
 ```
 
 # <a name="templatetabtemplate"></a>[Plantilla](#tab/template)
@@ -256,7 +258,7 @@ az group delete --name $resourceGroupName
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo de inicio rápido creó una cuenta de almacenamiento estándar v2 de propósito general. Para aprender a cargar y descargar blobs en la cuenta de almacenamiento, siga con la guía de inicio rápido de Blob Storage.
+En este artículo de instrucciones ha creado una cuenta de almacenamiento estándar de uso general v2. Para obtener información sobre cómo cargar y descargar blobs hacia y desde la cuenta de almacenamiento, seguir uno de los inicios rápidos de almacenamiento de blobs.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 

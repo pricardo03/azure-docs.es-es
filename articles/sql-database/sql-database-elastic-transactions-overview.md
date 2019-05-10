@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fc945a00360e4eea4a5cf1e3962da2390d3bfeb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331899"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506849"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Introducción sobre las transacciones de base de datos elástica con Base de datos SQL de Azure
 
@@ -99,7 +99,7 @@ Las transacciones de base de datos elástica para Base de datos SQL también adm
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Instalación de .NET para Azure Cloud Services
 
-Azure proporciona varias ofertas para hospedar aplicaciones. NET. Hay disponible una comparación de las diferentes ofertas en [Comparación de Azure App Service, Cloud Services y Virtual Machines](../app-service/overview-compare.md). Si el SO invitado de la oferta es inferior a .NET 4.6.1, que es el que se requiere para las transacciones elásticas, debe actualizar el SO invitado a 4.6.1. 
+Azure proporciona varias ofertas para hospedar aplicaciones. NET. Hay disponible una comparación de las diferentes ofertas en [Comparación de Azure App Service, Cloud Services y Virtual Machines](/azure/architecture/guide/technology-choices/compute-decision-tree). Si el SO invitado de la oferta es inferior a .NET 4.6.1, que es el que se requiere para las transacciones elásticas, debe actualizar el SO invitado a 4.6.1. 
 
 Para Azure App Service, no se admiten las actualizaciones del SO invitado en estos momentos. En el caso de Azure Virtual Machines, solo tiene que iniciar sesión en la máquina virtual y ejecutar el instalador para la última versión de .NET Framework. Para Azure Cloud Services, hay que incluir la instalación de una versión más reciente de .NET en las tareas de inicio de la implementación. Los conceptos y los pasos se documentan en [Instalación de .NET en un rol de servicio en la nube](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 74be798106ef5d028f3ad497a6e726439e86ad51
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e4f32e14e8c1035055bd8a37bb453764984fbe4d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714741"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149131"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Tutorial: Streaming en vivo con Media Services v3 mediante .NET
 
@@ -183,7 +183,7 @@ az group delete --name amsResourceGroup
 > [!IMPORTANT]
 > Si se deja el evento en directo en ejecución, este incurrirá en costos de facturación. Tenga en cuenta que si el proyecto o programa se bloquea o se cierra por cualquier motivo, es posible que el evento en directo se quede en ejecución en un estado de facturación.
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

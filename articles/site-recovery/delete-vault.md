@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: b5d035308c50525449edf47131c4a6a8c62b750b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 981b78345a0d9ea589e9c39ddaa2e253f1dd343f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784767"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412838"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Eliminación de un almacén de Site Recovery Services
 
@@ -22,6 +22,10 @@ Las dependencias pueden evitar la eliminación de un almacén de Azure Site Reco
 
 ## <a name="delete-a-site-recovery-vault"></a>Eliminación del almacén de Site Recovery 
 Para eliminar el almacén, siga los pasos recomendados para su escenario.
+### <a name="azure-vms-to-azure"></a>Máquinas virtuales de Azure en Azure
+
+1. Siga los pasos descritos en el artículo sobre la [deshabilitación de la protección para VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure) para eliminar todas las máquinas virtuales protegidas.
+2. Elimine el almacén.
 
 ### <a name="vmware-vms-to-azure"></a>Máquinas virtuales de VMware en Azure
 

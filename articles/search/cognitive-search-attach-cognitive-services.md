@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b979609374afbd11bde0e15ce540e8930315482f
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024582"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472480"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Search 
 
@@ -28,7 +28,7 @@ Aunque la canalización conste de aptitudes no relacionadas con Cognitive Servic
 > [!NOTE]
 > A medida que expande el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de inteligencia artificial, tendrá que asociar un recurso facturable de Cognitive Services. Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> Ejecución de habilidades integrados se cobra a los existentes [Cognitive Services paga a medida que vaya precio](https://azure.microsoft.com/pricing/details/cognitive-services/). Precios de extracción de imagen se describen en el [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="use-free-resources"></a>Uso de recursos gratis
 
@@ -60,7 +60,7 @@ Solo se aplican cargos por las aptitudes que llaman a Cognitive Services APIs. N
 
    ![Crear un recurso de Cognitive Services](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "crear un recurso de Cognitive Services")
 
-1. En la ubicación, elija la misma región que Azure Search para evitar cargos de ancho de banda saliente entre regiones.
+1. En la ubicación, elija la misma región que Azure Search. Esto es necesario por motivos de rendimiento, pero también se anulan los cargos de ancho de banda saliente entre regiones.
 
 1. En el nivel de precios, elija **S0** para obtener la colección all-in-one de características de Cognitive Services, incluidas las funciones de visión y el idioma que respaldan las habilidades predefinidas usadas por Azure Search. 
 

@@ -81,24 +81,28 @@
           href: data-box-edge-technical-specifications-compliance.md
     - name: Procedimientos
       items:
-        - name: Administración de procesos
-          href: data-box-edge-manage-compute.md
         - name: 'Desarrollo de un módulo de C#'
           href: data-box-edge-create-iot-edge-module.md
-        - name: Administración de recursos compartidos
-          href: data-box-edge-manage-shares.md
-        - name: Administrar usuarios
-          href: data-box-edge-manage-users.md
-        - name: Administración de programaciones de ancho de banda
-          href: data-box-edge-manage-bandwidth-schedules.md
-        - name: 'Administración de encendido, acceso y conectividad'
-          href: data-box-edge-manage-access-power-connectivity-mode.md
-        - name: Administración mediante PowerShell
-          href: data-box-edge-connect-powershell-interface.md
+        - name: administración
+          items:
+            - name: Proceso perimetral
+              href: data-box-edge-manage-compute.md
+            - name: Recursos compartidos
+              href: data-box-edge-manage-shares.md
+            - name: Usuarios
+              href: data-box-edge-manage-users.md
+            - name: Programaciones de ancho de banda
+              href: data-box-edge-manage-bandwidth-schedules.md
+            - name: 'Encendido, acceso y conectividad'
+              href: data-box-edge-manage-access-power-connectivity-mode.md
+            - name: A través de PowerShell
+              href: data-box-edge-connect-powershell-interface.md
         - name: Solución de problemas
           href: data-box-edge-troubleshoot.md
         - name: Supervisión
           href: data-box-edge-monitor.md
+        - name: Dispositivo de retorno
+          href: data-box-edge-return-device.md
     - name: Notas de la versión
       items:
         - name: Disponibilidad general

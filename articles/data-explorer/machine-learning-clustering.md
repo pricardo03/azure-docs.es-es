@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 2358cb2ea411a0077f34798183da30bd32ae067b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: bc72cc21ab525ec82d9ce4b24e80ce82d92a5d21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925124"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233500"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>Capacidad en el Explorador de datos de Azure de aprendizaje automático
 
@@ -59,7 +59,7 @@ demo_clustering1
 | count
 ```
 
-|Número |
+|Count |
 |---------|
 |972    |
 
@@ -73,7 +73,7 @@ demo_clustering1
 | take 20
 ```
 
-| PreciseTimeStamp            | Region | ScaleUnit | DeploymentId                     | Punto de seguimiento | ServiceHost                          |
+| PreciseTimeStamp            | Área | ScaleUnit | DeploymentId                     | Punto de seguimiento | ServiceHost                          |
 |-----------------------------|--------|-----------|----------------------------------|------------|--------------------------------------|
 | 2016-08-23 15:00:08.7302460 | scus   | su5       | 9dbd1b161d5b4779a73cf19a7836ebd6 | 100005     | 00000000-0000-0000-0000-000000000000 |
 | 2016-08-23 15:00:09.9496584 | scus   | su5       | 9dbd1b161d5b4779a73cf19a7836ebd6 | 10007006   | 8d257da1-7a1c-44f5-9acd-f9e02ff507fd |
@@ -96,7 +96,7 @@ demo_clustering1
 | 2016-08-23 15:00:58.2222707 | scus   | su5       | 9dbd1b161d5b4779a73cf19a7836ebd6 | 10007007   | 8215dcf6-2de0-42bd-9c90-181c70486c9c |
 | 2016-08-23 15:00:59.9382620 | scus   | su3       | 90d3d2fc7ecc430c9621ece335651a01 | 10007006   | 451e3c4c-0808-4566-a64d-84d85cf30978 |
 
-### <a name="use-autocluster-for-single-record-set-clustering"></a>Use `autocluster()` para el conjunto de agrupación en clústeres de registros único
+### <a name="use-autocluster-for-single-record-set-clustering"></a>Usar autocluster() para el conjunto de agrupación en clústeres de registros único
 
 Aunque hay menos de mil excepciones, es aún más difícil de encontrar segmentos comunes, como hay varios valores en cada columna. Puede usar [ `autocluster()` ](/azure/kusto/query/autoclusterplugin) complemento para extraer una pequeña lista de segmentos comunes al instante y buscar las interesantes de clústeres en dos minutos de especial tal como se muestra en la siguiente consulta:
 
@@ -108,7 +108,7 @@ demo_clustering1
 | evaluate autocluster()
 ```
 
-| SegmentId | Número | Percent | Region | ScaleUnit | DeploymentId | ServiceHost |
+| SegmentId | Count | Porcentaje | Área | ScaleUnit | DeploymentId | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 1 | 94 | 9.67078189300411 | scus | su5 | 9dbd1b161d5b4779a73cf19a7836ebd6 |  |
@@ -120,7 +120,7 @@ Puede ver en los resultados anteriores que el segmento predominante contiene 65.
 
 Autocluster utiliza un algoritmo propietario para varias dimensiones de minería de datos y extraer segmentos interesantes. "Interesantes" significa que cada segmento tiene una gran cobertura del conjunto de registros y el conjunto de características. Los segmentos se también han desviado, lo que significa que cada uno de ellos es significativamente diferente de los demás. Uno o varios de estos segmentos pueden ser relevante para el proceso RCA. Para minimizar la evaluación y revisión de segmento, autocluster extrae sólo una lista de segmentos pequeños.
 
-### <a name="use-basket-for-single-record-set-clustering"></a>Use `basket()` para el conjunto de agrupación en clústeres de registros único
+### <a name="use-basket-for-single-record-set-clustering"></a>Usar basket() para el conjunto de agrupación en clústeres de registros único
 
 También puede usar el [ `basket()` ](/azure/kusto/query/basketplugin) complemento tal como se muestra en la siguiente consulta:
 
@@ -132,7 +132,7 @@ demo_clustering1
 | evaluate basket()
 ```
 
-| SegmentId | Número | Percent | Region | ScaleUnit | DeploymentId | Punto de seguimiento | ServiceHost |
+| SegmentId | Count | Porcentaje | Área | ScaleUnit | DeploymentId | Punto de seguimiento | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 1 | 642 | 66.0493827160494 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  |  |
@@ -171,7 +171,7 @@ demo_clustering1
 | evaluate diffpatterns(AB, 'Anomaly', 'Baseline')
 ```
 
-| SegmentId | CountA | CountB | PercentA | PercentB | PercentDiffAB | Region | ScaleUnit | DeploymentId | Punto de seguimiento |
+| SegmentId | CountA | CountB | PercentA | PercentB | PercentDiffAB | Área | ScaleUnit | DeploymentId | Punto de seguimiento |
 |-----------|--------|--------|----------|----------|---------------|--------|-----------|----------------------------------|------------|
 | 0 | 639 | 21 | 65.74 | 1.7 | 64.04 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  |
 | 1 | 167 | 544 | 17.18 | 44.16 | 26.97 | scus |  |  |  |

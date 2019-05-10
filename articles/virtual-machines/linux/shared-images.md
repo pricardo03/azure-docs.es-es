@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 40ac8badfac3c004d3451c598d7cd2a17982a585
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f69b1aff28165b9bf37c49fe62d1fb5aada91285
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138892"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236408"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Creación de una galería de imágenes compartidas con la CLI de Azure
 
@@ -61,7 +61,9 @@ az vm create\
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-Puede crear también recursos de galería de imágenes compartidas con plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
+[Generador de imágenes de Azure (versión preliminar)](image-builder-overview.md) pueden ayudar a automatizar la creación de imágenes de versión, incluso puede usar para actualizar y [crear una nueva versión de imagen de una versión de imagen existente](image-builder-gallery-update-image-version.md). 
+
+También puede crear recursos de galería de imágenes compartidas mediante plantillas. Hay varias plantillas de Inicio rápido de Azure disponibles: 
 
 - [Creación de una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/15/2019
-ms.openlocfilehash: c11f52d2bbc55187a16227cf9553cc7ba6013e1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/22/2019
+ms.openlocfilehash: 7f3afec0425033fba174e000195fa26b295aaef1
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331101"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507939"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual
 
@@ -52,7 +52,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |IOPS de destino (64 KB)|500|1000|1.500|2000|2.500|3000|
-|Registro de los límites de frecuencia (MBps)|2.5|5|7.5|10|12.5|15|
+|Registro de los límites de frecuencia (MBps)|4.6875|9.375|14.0625|18.75|23.4375|28.125|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)* |210|420|630|840|1050|1260|
 |Inicios de sesión simultáneos máximo por grupo * |210|420|630|840|1050|1260|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
@@ -80,7 +80,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |IOPS de destino (64 KB)|3500|4000|4500|5000|7000|7000|
-|Registro de los límites de frecuencia (MBps)|17.5|20|20|20|20|20|
+|Registro de los límites de frecuencia (MBps)|32.8125|37.5|37.5|37.5|37.5|37.5|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1470|1680|1890|2100|3360|5040|
 |Máximo de grupo de inicios de sesión simultáneos (solicitudes) *|1470|1680|1890|2100|3360|5040|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
@@ -107,8 +107,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|IOPS de destino (64 KB)|500|1000|1.500|2000|2.500|3000|3500|
-|Registro de los límites de frecuencia (MBps)|2.5|5.6|7.5|10|12.5|15|17.5|
+|IOPS de destino (64 KB)|1000|2000|3000|4000|5000|6000|7000|
+|Registro de los límites de frecuencia (MBps)|4.6875|9.375|14.0625|18.75|23.4375|28.125|32.8125|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|210|420|630|840|1050|1260|1470|
 |Inicios de sesión simultáneos máximo por grupo (solicitudes) *|210|420|630|840|1050|1260|1470|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
@@ -135,8 +135,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño de TempDB (GB)|384|384|384|384|384|384|384|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|IOPS de destino (64 KB)|4000|4500|5000|6000|7000|7000|7000|
-|Registro de los límites de frecuencia (MBps)|20|20|20|20|20|20|20|
+|IOPS de destino (64 KB)|7000|7000|7000|7000|7000|7000|7000|
+|Registro de los límites de frecuencia (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1680|1890|2100|2520|33600|4200|8400|
 |Inicios de sesión simultáneos máximo por grupo (solicitudes) *|1680|1890|2100|2520|33600|4200|8400|
 |Máximo número de bases de datos por grupo|500|500|500|500|500|500|500|
@@ -165,7 +165,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño de TempDB (GB)|32|64|96|128|160|192|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|5000|10000|15000|20000|25000|30000|
-|Registro de los límites de frecuencia (MBps)|7.5|15|22.5|30|37.5|45|
+|Registro de los límites de frecuencia (MBps)|10|20|30|40|50|60|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|210|420|630|840|1050|1260|
 |Inicios de sesión simultáneos máximo por grupo (solicitudes) *|210|420|630|840|1050|1260|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
@@ -193,7 +193,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño de TempDB (GB)|224|256|288|320|384|384|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|35000|40000|45000|50000|80000|120000|
-|Registro de los límites de frecuencia (MBps)|52.5|60|67.5|75|80|80|
+|Registro de los límites de frecuencia (MBps)|70|80|80|80|80|80|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1470|1680|1890|2100|3360|5040|
 |Inicios de sesión simultáneos máximo por grupo (solicitudes) *|1470|1680|1890|2100|3360|5040|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
@@ -221,7 +221,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|5000|10000|15000|20000|25000|30000|35000|
-|Registro de los límites de frecuencia (MBps)|7.5|15|22.5|30|37.5|45|52.5|
+|Registro de los límites de frecuencia (MBps)|15|30|45|60|75|90|105|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|210|420|630|840|1050|1260|1470|
 |Inicios de sesión simultáneos máximo por grupo (solicitudes) *|210|420|630|840|1050|1260|1470|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
@@ -249,7 +249,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Registro de los límites de frecuencia (MBps)|60|67.5|75|90|120|120|120|
+|Registro de los límites de frecuencia (MBps)|120|120|120|120|120|120|120|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1680|1890|2100|2520|3360|4200|8400|
 |Inicios de sesión simultáneos máximo por grupo (solicitudes) *|1680|1890|2100|2520|3360|4200|8400|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716773"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506708"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -24,7 +24,7 @@ El esquema utilizado por Azure Policy puede encontrarse aquí: [https://schema.m
 
 Para crear una definición de directiva se utiliza JSON. La definición de directiva contiene elementos para:
 
-- modo
+- mode
 - parameters
 - nombre para mostrar
 - description
@@ -46,7 +46,7 @@ Por ejemplo, el siguiente JSON muestra una directiva que limita las ubicaciones 
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -114,7 +114,7 @@ Por ejemplo, podría definir una definición de directiva para limitar las ubica
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
@@ -166,7 +166,7 @@ Si la ubicación de la definición es:
 
 Use los valores **displayName** y **description** para identificar la definición de directiva y proporcionar el contexto para su uso. **displayName** tiene una longitud máxima de _128_ caracteres y **description** tiene una longitud máxima de _512_ caracteres.
 
-## <a name="policy-rule"></a>Regla de directiva
+## <a name="policy-rule"></a>Regla de directivas
 
 La regla de directiva se compone de los bloques **If** y **Then**. En el bloque **If**, defina una o varias condiciones que especifican cuándo se aplica la directiva. Puede aplicar operadores lógicos a estas condiciones para definir con precisión el escenario de una directiva.
 
@@ -229,6 +229,10 @@ Una condición evalúa si un **campo** o el descriptor de acceso **value** cumpl
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 Cuando se usan las condiciones **like** y **notLike**, incluya un carácter comodín (`*`) en el valor.
@@ -416,15 +420,25 @@ Para obtener información detallada sobre cada efecto, el orden de evaluación, 
 
 ### <a name="policy-functions"></a>Funciones de directiva
 
-Se pueden usar todas las [funciones de plantillas de Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) dentro de la regla de directiva, excepto las siguientes:
+Todos los [funciones de plantilla de Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) están disponibles para su uso dentro de una regla de directiva, excepto las siguientes funciones y las funciones definidas por el usuario:
 
 - copyIndex()
 - deployment()
 - lista*
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
+
+Las siguientes funciones están disponibles para usar en una regla de directiva, pero difieren de uso en una plantilla de Azure Resource Manager:
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **fecha y hora**: cadena [obligatorio] - cadena con el formato de fecha y hora de Universal ISO 8601 "aaaa-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: integer [obligatorio] - número de días que desea agregar
+- utcNow() - a diferencia de un administrador de recursos de plantilla, se puede usar fuera defaultValue.
+  - Devuelve una cadena que se establece en la fecha y hora actuales en formato de fecha y hora de Universal ISO 8601 "aaaa-MM-ddTHH:mm:ss.fffffffZ'
 
 Además, la función `field` está disponible para las reglas de directiva. `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
 
@@ -484,7 +498,7 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
 
 ### <a name="understanding-the--alias"></a>Descripción del alias [*]
 
-Algunos de los alias disponibles tienen una versión que aparece como un nombre "normal" y otra que tiene agregado **[\*]**. Por ejemplo: 
+Algunos de los alias disponibles tienen una versión que aparece como un nombre "normal" y otra que tiene agregado **[\*]**. Por ejemplo:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

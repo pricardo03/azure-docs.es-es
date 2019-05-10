@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414839"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506869"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementación de la protección de contraseñas de Azure AD
 
@@ -39,6 +39,9 @@ Después de la característica de ejecutarla en modo de auditoría durante un pe
 * Todos los controladores de dominio que obtienen al agente de controlador de dominio de servicio de protección de contraseña de Azure AD instalada debe ejecutar Windows Server 2012 o posterior. Este requisito no implica que el dominio de Active Directory o el bosque también debe estar en el nivel funcional de dominio o bosque de Windows Server 2012. Como se mencionó en [los principios de diseño](concept-password-ban-bad-on-premises.md#design-principles), hay ningún mínimo nivel funcional de dominio o FFL necesarios para que el controlador de dominio proxy o el agente de software ejecutar.
 * Todos los equipos que obtienen instalado el servicio de agente de controlador de dominio deben tener instalado .NET 4.5.
 * Todos los equipos que obtienen al proxy de servicio de protección de contraseña de Azure AD instalada debe ejecutar Windows Server 2012 R2 o posterior.
+   > [!NOTE]
+   > Implementación del proxy de servicio es un requisito obligatorio para la implementación de protección mediante contraseña de Azure AD, aunque el controlador de dominio puede tener conectividad directa a internet saliente. 
+   >
 * Todas las máquinas donde se instalará el servicio de Proxy de la protección de contraseña de Azure AD deben tener .NET 4.7 instalado.
   .NET 4.7 ya debe instalarse en un servidor de Windows completamente actualizada. Si esto no es el caso, descargue y ejecute el instalador se encuentra en [The .NET Framework 4.7 instalador sin conexión para Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Todos los equipos, incluidos los controladores de dominio, que obtienen instalados componentes de protección de contraseña de Azure AD deben tener instalado el Runtime de C universales. Puede obtener el tiempo de ejecución porque nos aseguramos de que tiene todas las actualizaciones desde Windows Update. O bien, puede obtenerlo en un paquete de actualización del sistema operativo específico. Para obtener más información, consulte [actualización de Universal C Runtime en Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
@@ -92,7 +95,7 @@ Hay dos instaladores necesarios para la protección de contraseña de Azure AD. 
 
    * Para comprobar que el servicio se está ejecutando, use el siguiente comando de PowerShell:
 
-      `Get-Service AzureADPasswordProtectionProxy | fl`.
+      `Get-Service AzureADPasswordProtectionProxy | fl` 
 
      El resultado debería mostrar un **estado** "Running".
 
@@ -262,7 +265,7 @@ Hay dos instaladores necesarios para la protección de contraseña de Azure AD. 
 
    Puede instalar el servicio del agente de controlador de dominio en un equipo que todavía no es un controlador de dominio. En este caso, el servicio se inicie y ejecute pero permanecerá inactivo hasta que el equipo pasa a ser un controlador de dominio.
 
-   Puede automatizar la instalación de software mediante procedimientos estándares de MSI. Por ejemplo: 
+   Puede automatizar la instalación de software mediante procedimientos estándares de MSI. Por ejemplo:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
 

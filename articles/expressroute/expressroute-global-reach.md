@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 05/06/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9875047ad74dd13d94ce9c498c3cad6153d24ca5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 28cfbc7183628b00c463f1c3a8a954ba4074409b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725367"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415959"
 ---
 # <a name="expressroute-global-reach"></a>Alcance Global de ExpressRoute
 ExpressRoute es una forma privada y resistente de conectar las redes locales a Microsoft Cloud. Puede obtener acceso a muchos servicios en la nube de Microsoft, como Azure, Office 365 y Dynamics 365, desde su centro de datos privado o la red corporativa. Por ejemplo, puede tener una sucursal en San Francisco con un circuito ExpressRoute en Silicon Valley y otra sucursal en Londres con un circuito ExpressRoute en la misma ciudad. Ambas sucursales pueden tener conectividad de alta velocidad a recursos de Azure en el sur de Reino Unido y el oeste de EE. UU. Sin embargo, las sucursales no pueden intercambiar datos directamente entre sí. En otras palabras, 10.0.1.0/24 puede enviar datos a 10.0.3.0/24 y 10.0.4.0/24, pero NO a 10.0.2.0/24.
@@ -35,11 +35,14 @@ Actualmente, Global Reach de ExpressRoute se admite en los siguientes lugares.
 * Australia
 * Canadá
 * Francia
-* RAE de Hong Kong
+* Alemania
+* Hong Kong RAE
 * Irlanda
 * Japón
 * Corea
-* Países Bajos
+* Países bajos
+* Singapur
+* Suiza
 * Reino Unido
 * Estados Unidos
 

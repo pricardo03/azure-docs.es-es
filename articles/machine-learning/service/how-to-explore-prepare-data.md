@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: f9087d1fda7574043879983e31d7b608dbe58798
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204968"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409824"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Explorar y preparar los datos con la clase de conjunto de datos (versión preliminar)
 
@@ -35,7 +35,7 @@ Para explorar y preparar los datos, necesitará:
 
 * El SDK de Azure Machine Learning para Python (versión 1.0.21 o posterior). Para instalar o actualizar a la versión más reciente del SDK, consulte [instalar o actualizar el SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* La preparación de datos de aprendizaje de máquina de Azure SDK. Para instalar o actualizar a la versión más reciente, consulte [instalar o actualizar el el SDK de preparación de datos](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
+* La preparación de datos de aprendizaje de máquina de Azure SDK. Para instalar o actualizar a la versión más reciente, consulte [instalar o actualizar el SDK de preparación de datos](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
 
 * Descargar los archivos de ejemplo para seguir los ejemplos: [crime.csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) y [city.json](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json).
 
@@ -63,7 +63,7 @@ top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
 top_n_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Case Number|Date|Block|IUCR|Primary Type|...|
+||ID|Case Number|Date|Bloquear|IUCR|Primary Type|...|
 -|--|-----------|----|-----|----|------------|---
 0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|PRÁCTICA ENGAÑOSA|...
 1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
@@ -80,7 +80,7 @@ simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.
 simple_random_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Case Number|Date|Block|IUCR|Primary Type|...|
+||ID|Case Number|Date|Bloquear|IUCR|Primary Type|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
 1|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|PRÁCTICA ENGAÑOSA|...
@@ -103,7 +103,7 @@ sample_dataset = dataset.sample('stratified', {'columns': ['Primary Type'], 'fra
 sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Case Number|Date|Block|IUCR|Primary Type|...|
+||ID|Case Number|Date|Bloquear|IUCR|Primary Type|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
@@ -122,7 +122,7 @@ dataset.get_profile()
 ID|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
 Case Number|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Block|FieldType.STRING|004XX UARDAR KILBOURN|113XX UARDAR ASUSTADOS|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Bloquear|FieldType.STRING|004XX UARDAR KILBOURN|113XX UARDAR ASUSTADOS|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 Primary Type|FieldType.STRING|PRÁCTICA ENGAÑOSA|THEFT|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 DESCRIPCIÓN|FieldType.STRING|COMPROBACIÓN DE FANTASMA|A TRAVÉS DE 500 USD|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -288,7 +288,7 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 dataset.head(3)
 ```
 
-||ID|Case Number|Date|Block|...|
+||ID|Case Number|Date|Bloquear|...|
 -|---------|-----|---------|----|---
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...

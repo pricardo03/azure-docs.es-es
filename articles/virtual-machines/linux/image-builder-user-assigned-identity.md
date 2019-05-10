@@ -7,18 +7,18 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: d10ee8c1af85de5eb79cd4a4af6882c7a8f084f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b0a6c016b2be12ac6686b3748b4b16281899323e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159561"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511054"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Crear una imagen y usar una identidad administrada asignada por el usuario acceso a los archivos en el almacenamiento de Azure 
 
 Azure admite el generador de imágenes mediante secuencias de comandos, o copiar archivos desde varias ubicaciones, como GitHub y Azure storage etcetera. Para utilizar estos métodos, debe haber estado externamente puede tener acceso al generador de imágenes de Azure, pero puede proteger mediante Tokens de SAS de Azure Storage BLOB.
 
-En este artículo se muestra cómo crear una imagen personalizada mediante el almacén de imágenes de máquina virtual de Azure que usará el servicio de un [identidad administrada asignada por el usuario](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) para tener acceso a los archivos de almacenamiento de Azure de la personalización de la imagen, sin tener que volver a realizar los archivos accesibles públicamente o configuración de tokens de SAS.
+En este artículo se muestra cómo crear una imagen personalizada mediante el almacén de imágenes de máquina virtual de Azure que usará el servicio de un [identidad administrada asignada por el usuario](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para tener acceso a los archivos de almacenamiento de Azure de la personalización de la imagen, sin tener que volver a realizar los archivos accesibles públicamente o configuración de tokens de SAS.
 
 En el ejemplo siguiente, creará dos grupos de recursos, se utilizará para la imagen personalizada de uno y otro va a hospedar una cuenta de almacenamiento de Azure, que contiene un archivo de script. Esto simula un escenario real, donde puede tener los artefactos de compilación o archivos de imagen en diferentes cuentas de almacenamiento, fuera de Image Builder. Se creará una identidad asignada por el usuario, a continuación, conceda a ese permisos de lectura en el archivo de script, pero no establecerá cualquier acceso público a ese archivo. A continuación, usará el personalizador del Shell para descargar y ejecutar ese script desde la cuenta de almacenamiento.
 
@@ -130,7 +130,7 @@ az role assignment create \
 
 ## <a name="create-user-assigned-managed-identity"></a>Crear la identidad administrada asignada por el usuario
 
-Crear la identidad y asignar permisos para la cuenta de almacenamiento de la secuencia de comandos. Para obtener más información, consulte [asignada por el usuario administra identidades](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Crear la identidad y asignar permisos para la cuenta de almacenamiento de la secuencia de comandos. Para obtener más información, consulte [asignada por el usuario administra identidades](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
 
 ```azurecli-interactive
 # Create the user assigned identity 

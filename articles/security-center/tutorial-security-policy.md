@@ -3,7 +3,7 @@ title: Trabajo con directivas de seguridad | Microsoft Docs
 description: En este artículo se describe cómo trabajar con directivas de seguridad en Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 5/05/2019
 ms.author: monhaber
-ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0465f12e3da6acc2ec8f7259ee9f040ccd3ce88e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111517"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236309"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -110,6 +110,9 @@ Para obtener más información acerca de las recomendaciones, consulte [administ
    ![Administración de directivas](./media/tutorial-security-policy/policy-management.png)
 
 2. Haga clic en el grupo de administración o de suscripción para el que desea deshabilitar la recomendación.
+
+   > [!Note]
+   > Recuerde que un grupo de administración aplica sus directivas a sus suscripciones. Por lo tanto, si deshabilita la directiva de una suscripción y la suscripción pertenece a un grupo de administración que aún use la misma directiva, se seguirá recibir las recomendaciones de directivas. Todavía se aplicará la directiva desde el nivel de administración y las recomendaciones se seguirá generando.
 
 1. Haga clic en la directiva asignada.
 

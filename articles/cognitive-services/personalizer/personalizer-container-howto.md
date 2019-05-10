@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/09/2019
 ms.author: edjez
-ms.openlocfilehash: 2a62fd288f9118882e5cd9899ab572d4b247fc5a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a197531a7c78823271c0a5fa5413b76746f63a9a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156802"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507030"
 ---
 # <a name="install-and-run-personalizer-containers"></a>Instalación y ejecución de contenedores de Personalizer
 
@@ -182,7 +182,7 @@ El contenedor cuenta con un completo conjunto de documentación sobre los puntos
 
 Los contenedores del servicio Personalizer envían información de facturación a Azure mediante un recurso del _servicio Personalizer_ de la cuenta de Azure. 
 
-Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento. Los contenedores de Cognitive Services no envían los datos del cliente a Microsoft. 
+Los contenedores de Cognitive Services no tienen licencia para ejecutarse sin estar conectados a Azure para realizar mediciones. Los clientes tienen que habilitar los contenedores para comunicar la información de facturación con el servicio de medición en todo momento.  
 
 El comando `docker run` utiliza los siguientes argumentos para la facturación:
 

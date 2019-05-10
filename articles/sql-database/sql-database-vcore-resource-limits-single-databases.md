@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/19/2019
-ms.openlocfilehash: aa9217251965b35dd90e09c619607c9421a9f6f4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 04/22/2019
+ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572651"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507841"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Límites del modelo de compra basado en núcleo virtual de Azure SQL Database para una base de datos única
 
@@ -50,7 +50,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |IOPS de destino (64 KB)|500|1000|1.500|2000|2.500|3000|
-|Registro de los límites de frecuencia (MBps)|2.5|5|7.5|10|12.5|15|
+|Registro de los límites de frecuencia (MBps)|3,75|7.5|11,25|15|18.75|22.5|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -73,7 +73,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)
 |IOPS de destino (64 KB)|3500|4000|4500|5000|7000|7000|
-|Registro de los límites de frecuencia (MBps)|17.5|20|20|20|20|20|
+|Registro de los límites de frecuencia (MBps)|26.25|30|30|30|30|30|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1400|1600|1.800|2000|3200|4800|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -95,8 +95,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|IOPS de destino (64 KB)|500|1000|1.500|2000|2.500|3000|3500|
-|Registro de los límites de frecuencia (MBps)|2.5|56|7.5|10|12.5|15|17.5|
+|IOPS de destino (64 KB)|1000|2000|3000|4000|5000|6000|7000|
+|Registro de los límites de frecuencia (MBps)|3,75|7.5|11,25|15|18.75|22.5|26.25|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|1400|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -118,8 +118,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño de TempDB (GB)|384|384|384|384|384|384|384|
 |Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|IOPS de destino (64 KB)|4000|4500|5000|6000|7000|7000|7000|
-|Registro de los límites de frecuencia (MBps)|20|20|20|20|20|20|20|
+|IOPS de destino (64 KB)|7000|7000|7000|7000|7000|7000|7000|
+|Registro de los límites de frecuencia (MBps)|30|30|30|30|30|30|30|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1600|1.800|2000|2400|3200|4000|8000|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -127,7 +127,35 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Nivel de servicio Crítico para la empresa: tamaños de almacenamiento y tamaños de proceso
+### <a name="serverless-compute-tier"></a>Nivel de servicio de informática sin servidor
+
+El [nivel de proceso sin servidor](sql-database-serverless.md) en versión preliminar pública y es sólo para bases de datos únicas mediante la compra de núcleos virtuales del modelo.
+
+#### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
+
+|Tamaño de proceso|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|
+|:--- | --: |--: |--: |
+|Generación de H/W|5|5|5|
+|Núcleos virtuales mín. máx.|0.5-1|0.5-2|0.5-4|
+|Memoria mínima / máxima (GB)|2.02-3|2.05-6|2.10-12|
+|Retraso de pausa automática min (horas)|6|6|6|
+|Compatible con almacén de columnas|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|
+|Tamaño máximo de datos (GB)|512|1024|1024|
+|Tamaño máximo de registro (GB)|12|24|48|
+|Tamaño de TempDB (GB)|32|64|128|
+|Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
+|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
+|IOPS de destino (64 KB)|250|500|1000|
+|Registro de los límites de frecuencia (MBps)|2.5|5.6|10|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|75|150|300|
+|Sesiones máximas permitidas|30000|30000|30000|
+|Número de réplicas|1|1|1|
+|AZ múltiple|N/D|N/D|N/D|
+|Escalado horizontal de lectura|N/D|N/D|N/D|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
+## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Nivel de servicio crítico de negocio para el nivel de proceso aprovisionada
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Nivel de servicio Crítico para la empresa: Plataforma de procesos de generación 4 (parte 1)
 
@@ -144,7 +172,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño de TempDB (GB)|32|64|96|128|160|192|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|5000|10000|15000|20000|25000|30000|
-|Registro de los límites de frecuencia (MBps)|6|12|18|24|30|36|
+|Registro de los límites de frecuencia (MBps)|8|16|24|32|40|48|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|
 |Máximo de inicios de sesión simultáneos|200|400|600|800|1000|1200|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
@@ -168,7 +196,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño de TempDB (GB)|224|256|288|320|384|384|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |IOPS de destino (64 KB)|35000|40000|45000|50000|80000|120000|
-|Registro de los límites de frecuencia (MBps)|42|48|54|60|64|64|
+|Registro de los límites de frecuencia (MBps)|56|64|64|64|64|64|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1400|1600|1.800|2000|3200|4800|
 |Inicios de sesión máxima simultáneos (solicitudes)|1400|1600|1.800|2000|3200|4800|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
@@ -191,8 +219,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
-|IOPS de destino (64 KB)|5000|10000|15000|20000|25000|30000|35000|
-|Registro de los límites de frecuencia (MBps)|6|12|18|24|30|36|42|
+|IOPS de destino (64 KB)|8000|16000|24000|32000|40000|48000|56000|
+|Registro de los límites de frecuencia (MBps)|12|24|36|48|60|72|84|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|1400|
 |Máximo de inicios de sesión simultáneos|200|400|600|800|1000|1200|1400|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
@@ -215,8 +243,8 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Tamaño de TempDB (GB)|384|384|384|384|384|384|384|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
-|IOPS de destino (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Registro de los límites de frecuencia (MBps)|48|54|60|72|96|96|96|
+|IOPS de destino (64 KB)|64000|72000|80000|96000|128000|160000|320000|
+|Registro de los límites de frecuencia (MBps)|96|96|96|96|96|96|96|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1600|1.800|2000|2400|3200|4000|8000|
 |Máximo de inicios de sesión simultáneos|1600|1.800|2000|2400|3200|4000|8000|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
@@ -225,30 +253,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
-## <a name="hyperscale-service-tier-preview"></a>Nivel de servicio Hiperescala (versión preliminar)
-
-### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Plataforma de procesos de generación 4: tamaños de almacenamiento y tamaños de proceso
-
-|Nivel de rendimiento|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
-|:--- | --: |--: |--: |--: |--: |--: |
-|Generación de H/W|4|4|4|4|4|4|
-|Núcleos virtuales|1|2|4|8|16|24|
-|Memoria (GB)|7|14|28|56|112|168|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamaño máximo de datos (TB)|100 |100 |100 |100 |100 |100 |
-|Tamaño máximo de registro (TB)|1 |1 |1 |1 |1 |1 |
-|Tamaño de TempDB (GB)|32|64|128|256|384|384|
-|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|IOPS de destino (64 KB)|Por determinar|Por determinar|Por determinar|Por determinar|Por determinar|Por determinar|
-|Latencia de E/S (aproximada)|Por determinar|Por determinar|Por determinar|Por determinar|Por determinar|Por determinar|
-|Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|3200|4800|
-|Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
-|Número de réplicas|2|2|2|2|2|2|
-|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento de copia de seguridad incluido|7|7|7|7|7|7|
-|||
+## <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
 ### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
 
@@ -270,7 +275,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Número de réplicas|2|2|2|2|2|2|2|2|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento de copia de seguridad incluido (límite de la versión preliminar)|7|7|7|7|7|7|7|7|
+|Almacenamiento de copia de seguridad incluido |7|7|7|7|7|7|7|7|
 |||
 
 ## <a name="next-steps"></a>Pasos siguientes

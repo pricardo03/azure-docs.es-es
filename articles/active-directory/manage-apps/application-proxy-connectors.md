@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb2a2aa8204ef442bbe3a0e6ff9018cd3f153910
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293054"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406489"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -29,9 +29,9 @@ Los conectores son agentes ligeros que se colocan en local y facilitan la conexi
 
 ## <a name="requirements-and-deployment"></a>Requisitos e implementación
 
-Para implementar correctamente Proxy de aplicación necesita al menos un conector, pero se recomiendan dos o más para conseguir una mayor resistencia. Instale el conector en un equipo Windows Server 2012 R2 o 2016. El conector tiene que comunicarse con el servicio Application Proxy, así como con las aplicaciones locales que se publiquen. 
+Para implementar correctamente Proxy de aplicación necesita al menos un conector, pero se recomiendan dos o más para conseguir una mayor resistencia. Instalar el conector en un equipo que ejecuta Windows Server 2012 R2 o posterior. El conector tiene que comunicarse con el servicio Application Proxy, así como con las aplicaciones locales que se publiquen. 
 
-### <a name="windows-server"></a>Windows Server
+### <a name="windows-server"></a>Servidor de Windows
 Se necesita un servidor en el que se ejecute Windows Server 2012 R2 o superior en el que se pueda instalar el conector del proxy de la aplicación. El servidor tiene que conectarse a los servicios de Application Proxy de Azure y a las aplicaciones locales que se publiquen.
 
 El servidor de Windows debe tener habilitado TLS 1.2 antes de instalar el conector del proxy de aplicación. Los conectores existentes con versiones anteriores a 1.5.612.0 seguirán funcionando en versiones anteriores de TLS hasta nuevo aviso. Para habilitar TLS 1.2, siga estos pasos:
@@ -85,7 +85,7 @@ Los grupos de conectores facilitan la administración de implementaciones a gran
 
 Para más información acerca de los grupos de conectores, consulte [Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores](application-proxy-connector-groups.md).
 
-## <a name="capacity-planning"></a>Planificación de capacidad 
+## <a name="capacity-planning"></a>Planeamiento de capacidad 
 
 Es importante asegurarse de que la capacidad prevista entre los conectores es suficiente para administrar el volumen de tráfico esperado. En general, cuantos más usuarios tenga, mayor será la máquina que necesitará. A continuación se muestra una tabla que proporciona un esquema del volumen que pueden controlar distintas máquinas. Tenga en cuenta que todo se basa en las transacciones por segundo (TPS) que se esperan en len lugar de en las transacciones por usuario, ya que los patrones de uso varían y no se pueden utilizar para predecir la carga. Tenga en cuenta también que habrá algunas diferencias en función del tamaño de las respuestas y el tiempo de respuesta de la aplicación de back-end: cuanto mayor sea el tamaño de respuesta y menor el tiempo de respuesta, menor será el TPS máximo. Le recomendamos que tenga máquinas adicionales para que la carga distribuida entre las máquinas sea de en torno al 50 %. La capacidad adicional garantizará que tanto la resistencia como la disponibilidad son elevadas.
 
@@ -103,7 +103,7 @@ Es importante asegurarse de que la capacidad prevista entre los conectores es su
 
 ## <a name="security-and-networking"></a>Seguridad y redes
 
-Los conectores pueden instalarse en cualquier ubicación de la red que les permita enviar solicitudes al servicio Proxy de aplicación. Lo importante es que el equipo que ejecuta el conector también tenga acceso a las aplicaciones. Puede instalar conectores dentro de la red corporativa o en una máquina virtual que se ejecute en la nube. Los conectores se pueden ejecutar en una red perimetral (DMZ), pero no es necesario, ya que todo el tráfico es saliente, así que la red se mantiene protegida.
+Los conectores pueden instalarse en cualquier ubicación de la red que les permita enviar solicitudes al servicio Proxy de aplicación. Lo importante es que el equipo que ejecuta el conector también tenga acceso a las aplicaciones. Puede instalar conectores dentro de la red corporativa o en una máquina virtual que se ejecute en la nube. Los conectores se pueden ejecutar dentro de una red perimetral, también conocida como zona desmilitarizada (DMZ), pero no es necesario porque todo el tráfico es saliente, por lo que la red se mantengan segura.
 
 Los conectores solo envían solicitudes salientes. El tráfico saliente se envía al servicio de Proxy de aplicación y a las aplicaciones publicadas. No hay que abrir los puertos de entrada, porque una vez que se ha establecido una sesión, el tráfico fluye en ambos sentidos. Tampoco es necesario que configure el acceso de entrada en los firewalls. 
 

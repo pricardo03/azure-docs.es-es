@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: f94a65e469fdb3cee4f02bc5a8f6f5a4a1ea5a16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386727"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209716"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Opciones de configuración de un clúster de Windows independiente
 En este artículo se describen las opciones de configuración de un clúster de Azure Service Fabric independiente que puede configurarse en el archivo *ClusterConfig.json*. Usará este archivo para especificar la información acerca de los nodos del clúster y las configuraciones de seguridad, así como la topología de red en cuanto a dominios de error y actualización.  Después de cambiar o agregar valores de configuración, puede [crear un clúster independiente](service-fabric-cluster-creation-for-windows-server.md) o [actualizar la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -122,7 +122,7 @@ La sección security es necesaria para un clúster de Service Fabric independien
 }
 ```
 
-El valor metadata es una descripción del clúster protegido y se puede establecer según su configuración. Los valores de ClusterCredentialType y ServerCredentialType determinan el tipo de seguridad que implementan el clúster y los nodos. Se pueden establecer en *X509* para una seguridad basada en certificados, o en *Windows* para una seguridad basada en Azure Active Directory. El resto de la sección security se basará en el tipo de la seguridad. Lea [Protección de un clúster independiente en Windows mediante certificados ](service-fabric-windows-cluster-x509-security.md) o [Proteger un clúster independiente en Windows mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md) para obtener más información sobre cómo rellenar el resto de la sección security.
+El valor metadata es una descripción del clúster protegido y se puede establecer según su configuración. Los valores de ClusterCredentialType y ServerCredentialType determinan el tipo de seguridad que implementan el clúster y los nodos. Se puede establecer en *X509* para una seguridad basada en certificados o *Windows* seguridad basada en Active Directory. El resto de la sección security se basará en el tipo de la seguridad. Lea [Protección de un clúster independiente en Windows mediante certificados ](service-fabric-windows-cluster-x509-security.md) o [Proteger un clúster independiente en Windows mediante la seguridad de Windows](service-fabric-windows-cluster-windows-security.md) para obtener más información sobre cómo rellenar el resto de la sección security.
 
 ### <a name="node-types"></a>Tipos de nodo
 La sección nodeTypes describe el tipo de los nodos que tiene el clúster. Se debe especificar al menos un tipo de nodo en un clúster, tal y como se muestra en el siguiente fragmento de código: 
