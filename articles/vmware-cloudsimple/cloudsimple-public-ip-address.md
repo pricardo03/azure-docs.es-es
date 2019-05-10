@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a366ec821e5e9663908f790ab3a88424fa956075
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f57b7397f4a2d288cd2b8b55cf23b2d635aa5f8c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576976"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209564"
 ---
 # <a name="cloudsimple-public-ip-address-overview"></a>Resumen de dirección IP pública CloudSimple
 
@@ -33,4 +33,4 @@ Uso de una dirección IP pública para la comunicación entrante proporciona:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo [asignar una dirección IP pública](https://docs.azure.cloudsimple.com/publicips/)
+* Obtenga información sobre cómo [asignar una dirección IP pública](https://docs.azure.cloudsimple.com/public-ips/)

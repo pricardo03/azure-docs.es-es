@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7287616dbad1aa77a6e4aaa110ade39dcea4f195
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb48d37e1cf552f9ad375906d8cd05301ac2dd0c
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470062"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407865"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets de la versión 2 de Azure Active Directory para la administración de grupos
 
@@ -163,12 +163,12 @@ Ahora, si encontramos el grupo nuevo, veremos que la propiedad Description se ac
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-## <a name="delete-groups"></a>Eliminación de grupos
+## <a name="delete-groups"></a>Eliminar grupos
 Para eliminar grupos del directorio, use el cmdlet Remove-AzureADGroup de la siguiente manera:
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
-## <a name="manage-group-membership"></a>Administración de pertenencia al grupo 
+## <a name="manage-group-membership"></a>Administrar pertenencia al grupo 
 ### <a name="add-members"></a>Adición de miembros
 Para agregar nuevos miembros a un grupo, utilice el cmdlet Add-AzureADGroupMember. Este comando agrega un miembro al grupo de administradores de Intune que utilizamos en el ejemplo anterior:
 
@@ -186,7 +186,7 @@ Para obtener los miembros existentes de un grupo, use el cmdlet Get-AzureADGroup
                           72cd4bbd-2594-40a2-935c-016f3cfeeeea User
                           8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 
-### <a name="remove-members"></a>Eliminación de miembros
+### <a name="remove-members"></a>Quitar miembros
 Para quitar al miembro que agregamos anteriormente al grupo, use el cmdlet Remove-AzureADGroupMember, como se muestra aquí:
 
     PS C:\Windows\system32> Remove-AzureADGroupMember -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -MemberId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
@@ -233,13 +233,13 @@ Para agregar propietarios a un grupo, utilice el cmdlet Add-AzureADGroupOwner:
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
-El parámetro -ObjectId es el id. de objeto del grupo al que desea agregar un propietario y RefObjectId es el del usuario que desea agregar como propietario al grupo.
+El parámetro - ObjectId es el valor de ObjectID del grupo al que desea agregar un propietario y RefObjectId es el valor de ObjectID del usuario o entidad que desea agregar como propietario del grupo de servicio.
 
 Para recuperar los propietarios de un grupo, utilice el cmdlet Get-AzureADGroupOwner:
 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 
-El cmdlet devuelve la lista de propietarios del grupo especificado:
+El cmdlet devuelve la lista de propietarios (usuarios y entidades de servicio) para el grupo especificado:
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------

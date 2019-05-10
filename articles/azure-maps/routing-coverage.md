@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 028f16b480ceb57598c6499739ab0e5745b4a132
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f9f5b24a52ebfb8b87f1abaa3b60091d7f4690ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870001"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230659"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de enrutamiento en Azure Maps
 
@@ -27,9 +27,9 @@ Consulte la cobertura para [**Representación**](render-coverage.md).
 
 | Símbolo             | Significado                                |
 |--------------------|----------------------------------------|
-| ✓                  | Se proporciona el país con datos detallados.   |
-| Ø                  | Se proporciona el país con datos simplificados. |
-| Falta el país | No se proporcionan datos del país.          |
+| ✓                  | País o región proporcionada con datos detallados.   |
+| Ø                  | País o región proporcionada con datos simplificados. |
+| Falta el país | No se proporcionan los datos de país o región.          |
 
 <br>  
 
@@ -39,7 +39,7 @@ En la siguiente tabla se proporciona información sobre la cobertura del enrutam
 
 ## <a name="africa"></a>África
 
-| País/región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
+| País o región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Argelia                        |        ✓       |                       |             |
 | Angola                         |        ✓       |                       |             |
@@ -76,18 +76,18 @@ En la siguiente tabla se proporciona información sobre la cobertura del enrutam
 | Togo                           |        ✓       |                       |             |
 | Túnez                        |        ✓       |                       |             |
 | Uganda                         |        ✓       |                       |             |
-| Sahara Occidental                 |        ✓       |                       |             |
+| Sáhara Occidental                 |        ✓       |                       |             |
 | Zambia                         |        ✓       |                       |             |
 | Zimbabue                       |        ✓       |                       |             |
 
 
 ## <a name="americas"></a>América
 
-| País/región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
+| País o región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Argentina                      |        ✓       |         ✓            |     ✓       |
 | Antigua y Barbuda            |        ✓       |                      |             |
-| Bahamas                        |        ✓       |                      |             |
+| Las Bahamas                        |        ✓       |                      |             |
 | Barbados                       |        ✓       |                      |             |
 | Belice                         |        ✓       |                      |             |
 | Brasil                         |        ✓       |         ✓            |     ✓       | 
@@ -128,20 +128,20 @@ En la siguiente tabla se proporciona información sobre la cobertura del enrutam
 
 ## <a name="asia-pacific"></a>Asia Pacífico
 
-| País/región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
+| País o región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Australia                      |        ✓       |         ✓            |     ✓       |
 | + La Isla Christmas              |        ✓       |                      |             |
 | Brunei                         |        ✓       |         ✓            |             |
 | Camboya                       |        ✓       |                      |             |
-| Islas Fiji                           |        ✓       |                      |             |
+| Fiji                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
-| RAE de Hong Kong                  |        ✓       |         ✓            |             |
+| Hong Kong RAE                  |        ✓       |         ✓            |             |
 | India                          |        ✓       |         ✓            |             |
 | Indonesia                      |        ✓       |         ✓            |             |
 | Corea                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
-| RAE de Macao                      |        ✓       |         ✓            |             |
+| Macao RAE                      |        ✓       |         ✓            |             |
 | Malasia                       |        ✓       |         ✓            |             |
 | Myanmar                        |        ✓       |                      |             |
 | Nueva Zelanda                    |        ✓       |         ✓            |     ✓       | 
@@ -154,7 +154,7 @@ En la siguiente tabla se proporciona información sobre la cobertura del enrutam
 
 ## <a name="europe"></a>Europa
 
-| País/región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
+| País o región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Albania                        |        ✓       |                      |             |
 | Andorra                        |        ✓       |         ✓            |             |
@@ -164,7 +164,7 @@ En la siguiente tabla se proporciona información sobre la cobertura del enrutam
 | Bolivia                        |        ✓       |                      |             |
 | Bosnia y Herzegovina             |        ✓       |                      |             |
 | Bulgaria                       |        ✓       |         ✓            |     ✓      | 
-| Croacia                        |        ✓       |         ✓            |     ✓      |
+| Croacia (Hrvatska)                        |        ✓       |         ✓            |     ✓      |
 | Chipre                         |        ✓       |                      |             |
 | República Checa                 |        ✓       |         ✓            |     ✓      |
 | Dinamarca                        |        ✓       |         ✓            |     ✓      |
@@ -192,21 +192,21 @@ En la siguiente tabla se proporciona información sobre la cobertura del enrutam
 | Luxemburgo                     |        ✓       |         ✓            |     ✓      | 
 | Macedonia del Norte                |        ✓       |                      |             |
 | Malta                          |        ✓       |         ✓            |             |
-| Moldova                        |        ✓       |                      |             |
+| Moldavia                        |        ✓       |                      |             |
 | Mónaco                         |        ✓       |         ✓            |             |
 | Montenegro                     |        ✓       |                      |     ✓      | 
-| Países Bajos                    |        ✓       |         ✓            |     ✓      | 
+| Países bajos                    |        ✓       |         ✓            |     ✓      | 
 | +Aruba                         |        ✓       |                      |             | 
 | + Países bajos Caribe         |        ✓       |                      |             |
 | + Curazao                       |        ✓       |                      |             |
-| + SAN Maarten                  |        ✓       |                      |             |
+| + Sint Maarten                  |        ✓       |                      |             |
 | Noruega                         |        ✓       |         ✓            |     ✓      | 
 | Polonia                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
-| Rumania                        |        ✓       |         ✓            |     ✓      | 
+| Rumanía                        |        ✓       |         ✓            |     ✓      | 
 | Federación Rusa             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| + SAN Maarten                  |        ✓       |                      |             |
+| + Sint Maarten                  |        ✓       |                      |             |
 | Serbia                         |        ✓       |                      |     ✓      | 
 | Eslovaquia                       |        ✓       |         ✓            |     ✓      | 
 | Eslovenia                       |        ✓       |         ✓            |     ✓      |
@@ -220,25 +220,25 @@ En la siguiente tabla se proporciona información sobre la cobertura del enrutam
 | +Bermuda                       |        ✓       |                      |             |
 | + Islas Vírgenes de Británicas        |        ✓       |                      |             |
 | + Islas Caimán                |        ✓       |                      |             |
-| +Gibraltar                      |        ✓       |         ✓            |             | 
+| +Gibraltar                     |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
-| + Islas Turcas & Islas Turcas y Caicos        |        ✓       |                      |             |
+| + Islas Turcas y Caicos      |        ✓       |                      |             |
 | Ciudad del Vaticano                   |        ✓       |         ✓            |             |
 | Isla de Man                    |        ✓       |                      |             |
 
 
 ## <a name="middle-east"></a>Oriente Medio
 
-| País/región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
+| País o región                 | Enrutamiento         | Enrutamiento de tráfico | Enrutamiento de camión |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
-| Bahréin                        |        ✓       |         ✓            |             |
+| Reino de Baréin                        |        ✓       |         ✓            |             |
 | Iraq                           |        ✓       |                      |             |
 | Israel                         |        ✓       |         ✓            |             |
 | Jordania                         |        ✓       |                      |             |
 | Kuwait                         |        ✓       |         ✓            |             |
 | Líbano                        |        ✓       |                      |             |
 | Omán                           |        ✓       |         ✓            |             |
-| Qatar                          |        ✓       |         ✓            |             |
+| Catar                          |        ✓       |         ✓            |             |
 | Arabia Saudí                   |        ✓       |         ✓            |             |
 | Emiratos Árabes Unidos           |        ✓       |         ✓            |             |
 | Yemen                          |        ✓       |                      |             |

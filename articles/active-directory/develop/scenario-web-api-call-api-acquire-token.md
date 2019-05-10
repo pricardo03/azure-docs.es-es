@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ada4323b0e61c6dc9fb87af133c40ec9c35e3834
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 986e2e0f8a481d61dc870af2548290658b44d2d3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074986"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231101"
 ---
 # <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>Web API que llama a web API: adquirir un token para la aplicación
 
@@ -49,7 +49,7 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()` es similar a lo que ha visto en el artículo [API - configuración de la aplicación web de API Web que llama a](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` crea una instancia de `IConfidentialClientApplication` con una memoria caché que contiene únicamente la información de una cuenta. La cuenta es proporcionada por el `GetAccountIdentifier` método.
+`BuildConfidentialClient()` es similar a lo que ha visto en el artículo [API - configuración de la aplicación web de API Web que llama a](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` crea una instancia de `IConfidentialClientApplication` con una memoria caché que contiene únicamente la información de una cuenta. La cuenta se proporciona mediante el `GetAccountIdentifier` método.
 
 El `GetAccountIdentifier` método usa las notificaciones asociadas con la identidad del usuario para el que la API web recibe el token JWT:
 

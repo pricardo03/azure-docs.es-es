@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 083ed7209efd88d3d221b55cfb53fe3998dd2987
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703283"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228008"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Habilitación de la restricción de acceso por edad en Azure Active Directory B2C
 
@@ -25,20 +25,20 @@ ms.locfileid: "64703283"
 
 La restricción de acceso por edad en Azure Active Directory (Azure AD) B2C le permite identificar a los menores que quieren usar la aplicación. Puede optar por impedir que los menores inicien sesión en la aplicación. Los usuarios también pueden volver a la aplicación e identificar su grupo de edad y su estado de consentimiento parental. Azure AD B2C puede bloquear a los menores sin consentimiento parental. Azure AD B2C también se puede configurar para permitir que la aplicación decida qué hacer con los menores.
 
-Después de habilitar la restricción de acceso por edad en su [flujo de usuario](active-directory-b2c-reference-policies.md), se pedirá a los usuarios su fecha de nacimiento y el país donde residen. Si inicia sesión un usuario que no ha introducido la información anteriormente, deberá escribirla la próxima vez que inicie sesión. Las reglas se aplican cada vez que un usuario inicia sesión.
+Después de habilitar el acceso por edad en su [flujo de usuario](active-directory-b2c-reference-policies.md), se piden a los usuarios cuando nacieron y en qué país o región vive. Si inicia sesión un usuario que no ha introducido la información anteriormente, deberá escribirla la próxima vez que inicie sesión. Las reglas se aplican cada vez que un usuario inicia sesión.
 
 Azure AD B2C usa la información que escribe el usuario para identificar si es un menor. A continuación, el campo **ageGroup** se actualiza en su cuenta. El valor puede ser `null`, `Undefined`, `Minor`, `Adult` y `NotAdult`.  Los campos **ageGroup** y **consentProvidedForMinor** se utilizan para calcular el valor de **legalAgeGroupClassification**.
 
 La restricción de acceso por edad implica dos valores de edad: la edad en que alguien ya se no considera un menor y la edad en la que un menor debe tener consentimiento parental. En la tabla siguiente se enumeran las reglas de edad que se usan para la definición de un menor y de un menor que requiere consentimiento.
 
-| País | Nombre del país | Edad de consentimiento de menores | Edad del menor |
-| ------- | ------------ | ----------------- | --------- |
+| País o región | Nombre de país o región | Edad de consentimiento de menores | Edad del menor |
+| -------------- | ------------------- | ----------------- | --------- |
 | Valor predeterminado | None | None | 18 |
 | AE | Emiratos Árabes Unidos | None | 21 |
 | AT | Austria | 14 | 18 |
 | BE | Bélgica | 14 | 18 |
 | BG | Bulgaria | 16 | 18 |
-| BH | Bahréin | None | 21 |
+| BH | Reino de Baréin | None | 21 |
 | CM | Camerún | None | 21 |
 | CY | Chipre | 16 | 18 |
 | CZ | República Checa | 16 | 18 |
@@ -50,7 +50,7 @@ La restricción de acceso por edad implica dos valores de edad: la edad en que a
 | VF | Francia | 16 | 18 |
 | GB | Reino Unido | 13 | 18 |
 | GR | Grecia | 16 | 18 |
-| HR | Croacia | 16 | 18 |
+| HR | Croacia (Hrvatska) | 16 | 18 |
 | HU | Hungría | 16 | 18 |
 | IE | Irlanda | 13 | 18 |
 | IT | Italia | 16 | 18 |
@@ -60,10 +60,10 @@ La restricción de acceso por edad implica dos valores de edad: la edad en que a
 | LV | Letonia | 16 | 18 |
 | MT | Malta | 16 | 18 |
 | N/D | Namibia | None | 21 |
-| NL | Países Bajos | 16 | 18 |
+| NL | Países bajos | 16 | 18 |
 | PL | Polonia | 13 | 18 |
 | PT | Portugal | 16 | 18 |
-| RO | Rumania | 16 | 18 |
+| RO | Rumanía | 16 | 18 |
 | SE | Suecia | 13 | 18 |
 | SG | Singapur | None | 21 |
 | SI | Eslovenia | 16 | 18 |

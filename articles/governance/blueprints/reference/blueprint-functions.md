@@ -7,12 +7,12 @@ ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 0de3e0add804290cdfe27e2e97d8b1a0f240e0a6
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63769307"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209403"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funciones para su uso con proyectos de Azure
 
@@ -41,11 +41,11 @@ Devuelve un objeto de propiedades que rellena con ese artefacto de plano técnic
 
 ### <a name="return-value"></a>Valor devuelto
 
-Un objeto de propiedades de salida. Las propiedades de salida dependen del tipo de artefacto de plano técnico que se hace referencia. Todos los tipos tienen el formato:
+Un objeto de propiedades de salida. El **genera** propiedades dependen del tipo de artefacto de plano técnico que se hace referencia. Todos los tipos tienen el formato:
 
 ```json
 {
-  "output": {collectionOfOutputProperties}
+  "outputs": {collectionOfOutputProperties}
 }
 ```
 
@@ -53,7 +53,7 @@ Un objeto de propiedades de salida. Las propiedades de salida dependen del tipo 
 
 ```json
 {
-    "output": {
+    "outputs": {
         "policyAssignmentId": "{resourceId-of-policy-assignment}",
         "policyAssignmentName": "{name-of-policy-assignment}",
         "policyDefinitionId": "{resourceId-of-policy-definition}",
@@ -63,13 +63,13 @@ Un objeto de propiedades de salida. Las propiedades de salida dependen del tipo 
 
 #### <a name="resource-manager-template-artifact"></a>Artefacto de la plantilla de Resource Manager
 
-El **salida** las propiedades del objeto devuelto se definen dentro de la plantilla de Resource Manager y devuelto por la implementación.
+El **genera** las propiedades del objeto devuelto se definen dentro de la plantilla de Resource Manager y devuelto por la implementación.
 
 #### <a name="role-assignment-artifact"></a>Artefacto de asignación de rol
 
 ```json
 {
-    "output": {
+    "outputs": {
         "roleAssignmentId": "{resourceId-of-role-assignment}",
         "roleDefinitionId": "{resourceId-of-role-definition}",
         "principalId": "{principalId-role-is-being-assigned-to}",
@@ -107,14 +107,14 @@ Un artefacto de la plantilla de Resource Manager con el Id. de _myTemplateArtifa
 
 Algunos ejemplos de recuperación de datos desde el _myTemplateArtifact_ ejemplo son:
 
-| Expression | Type | Valor |
+| Expresión | Type | Valor |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").output.myArray]` | Matriz | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").output.myArray[0]]` | string | "primero" |
-|`[artifacts("myTemplateArtifact").output.myString]` | string | "Mi valor de cadena" |
-|`[artifacts("myTemplateArtifact").output.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").output.myObject.myProperty]` | string | "Mi value" |
-|`[artifacts("myTemplateArtifact").output.myObject.anotherProperty]` | Bool | True |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matriz | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | string | "primero" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | string | "Mi valor de cadena" |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | string | "Mi value" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True  |
 
 ## <a name="concat"></a>concat
 
@@ -127,7 +127,7 @@ Combina varios valores de cadena y devuelve la cadena concatenada.
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | string1 |Sí |string |El primer valor para la concatenación. |
-| argumentos adicionales |Sin  |string |Valores adicionales en orden secuencial para la concatenación |
+| argumentos adicionales |No |string |Valores adicionales en orden secuencial para la concatenación |
 
 ### <a name="return-value"></a>Valor devuelto
 

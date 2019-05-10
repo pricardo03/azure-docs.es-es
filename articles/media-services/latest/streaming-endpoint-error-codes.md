@@ -1,6 +1,6 @@
 ---
 title: Errores de empaquetado y el origen de Azure de Media Services | Microsoft Docs
-description: En este tema se describe errores que puede recibir desde el servicio de empaquetado de Azure Media Services.
+description: En este tema se describe los errores que puede recibir desde el servicio de extremo de Streaming de servicios de Azure Media (Origin).
 author: Juliako
 manager: femila
 editor: ''
@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: e30c51ff3526bb5ed193b65b3f36a64c552024ff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ebcda6026f79bc88df91471d8be88316ba57bfc6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204152"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411371"
 ---
-# <a name="media-services-packaging-errors"></a>Errores de empaquetado de Media Services 
+# <a name="streaming-endpoint-origin-errors"></a>Errores de transmisión por secuencias (origen) del punto de conexión 
 
-En este tema se describe los errores que puede recibir desde el Azure Media Services [servicio de empaquetado](streaming-endpoint-concept.md).
+En este tema se describe los errores que puede recibir desde el Azure Media Services [servicio Streamingendpoint](streaming-endpoint-concept.md).
 
 ## <a name="400-bad-request"></a>400 - Solicitud incorrecta
 
@@ -48,7 +48,7 @@ No se aceptó la solicitud debido a una de las siguientes razones:
 |MPE_ENC_ENCRYPTION_REQUIRED |0x8088021E |Se necesita cifrado para el contenido, directiva de entrega es necesaria para el formato de salida. |
 |MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY |0x8088024D |El cifrado no se establece en la configuración de directiva de entrega. |
 
-## <a name="404-not-found"></a>404 No encontrado
+## <a name="404-not-found"></a>405 No encontrado
 
 La operación está intentando actuar en un recurso que ya no existe. Por ejemplo, el recurso que ya se eliminara.
 
@@ -194,7 +194,7 @@ El servidor actualmente no puede recibir solicitudes. Este error puede deberse a
 |---|---|---|
 |MPE_STORAGE_SERVER_BUSY|0x808900E8|Error de operación de almacenamiento, recibe el error de disponibilidad de servidor HTTP 503.|
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

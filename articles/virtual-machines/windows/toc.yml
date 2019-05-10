@@ -112,6 +112,8 @@
           href: disk-scalability-targets.md
         - name: Copia de seguridad y recuperación ante desastres para discos
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Discos de sistema operativo efímero
+          href: ephemeral-os-disks.md
     - name: Redes
       href: network-overview.md
     - name: Aplicaciones de escalado automático
@@ -243,18 +245,38 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: Uso de imágenes
       items:
-        - name: Imágenes compartidas (versión preliminar)
+        - name: Imágenes compartidas
           items:
             - name: Información general
               href: shared-image-galleries.md
-            - name: Creación de imágenes compartidas mediante PowerShell
+            - name: PowerShell
               href: shared-images.md
-            - name: Creación de imágenes compartidas mediante la CLI
+            - name: Portal
+              href: shared-images-portal.md
+            - name: CLI
               href: ../linux/shared-images.md
             - name: Portal
               href: shared-images-portal.md
+            - name: Uso compartido de imágenes entre inquilinos
+              href: share-images-across-tenants.md
             - name: Solución de problemas de imágenes compartidas
               href: troubleshooting-shared-images.md
+        - name: Generador de imágenes (versión preliminar)
+          items:
+            - name: Información general
+              href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Uso de la CLI
+              href: image-builder.md
+            - name: Uso con galerías
+              href: image-builder-gallery.md
+            - name: Actualización de la versión de una imagen
+              href: image-builder-gallery-update-image-version.md
+            - name: Uso de scripts en Azure Storage
+              href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Referencia de plantilla
+              href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Solución de problemas
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Búsqueda y uso de imágenes
           href: cli-ps-findimage.md
         - name: Preparación de la máquina virtual para la carga
@@ -326,8 +348,6 @@
           href: detach-disk.md
         - name: Implementación de discos con plantilla
           href: using-managed-disks-template-deployments.md
-        - name: 'Cargar un disco duro virtual en un disco: PowerShell'
-          href: disks-upload-vhd-to-managed-disk-powershell.md
         - name: Cambio del tamaño de un disco
           href: expand-os-disk.md
         - name: Instantánea de un disco

@@ -9,24 +9,34 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: 8d8b314965253dc00b39d0b068b1d6fb3e4aa471
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8d21e41ad487ad17598f2320fab5eebae02309e8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395510"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021736"
 ---
-1. Siga las instrucciones que encontrará en [Creación de un área de trabajo de Azure Machine Learning Service](../articles/machine-learning/service/setup-create-workspace.md#portal) para crear un entorno de Miniconda, crear un área de trabajo y escribir un archivo de configuración de área de trabajo (**aml_config/config.json**).
-
+1. Use las instrucciones del artículo [Create an Azure Machine Learning service workspace](../articles/machine-learning/service/setup-create-workspace.md#portal) (Creación de un área de trabajo de Azure Machine Learning Service) para hacer lo siguiente:
+    * Crear un entorno Miniconda
+    * Instalar el SDK de Azure Machine Learning para Python
+    * Crear un área de trabajo
+    * Escribir un archivo de configuración de área de trabajo (**aml_config/config.json**).
+    
 1. Clone [el repositorio de GitHub](https://aka.ms/aml-notebooks).
 
     ```
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
 
-1. Agregue un archivo de configuración del área de trabajo mediante uno de estos métodos:
-    * Copie el archivo **aml_config/config.json** que creó mediante la información del inicio rápido de los requisitos previos en el directorio clonado.
+1. Agregue un archivo de configuración de área de trabajo con uno de estos métodos:
+    * Copie el archivo **aml_config/config.json** que creó en el paso 1 en el directorio clonado.
+
+    * En [Azure Portal](https://ms.portal.azure.com), seleccione **Descargar config.json** desde la sección **Información general** del área de trabajo. 
+
+    ![Descargar config.json](./media/aml-dsvm-server/download-config.png)
+
     * Cree un área de trabajo mediante código en [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
+
 1. Inicie el servidor del cuaderno desde el directorio clonado.
     
     ```shell

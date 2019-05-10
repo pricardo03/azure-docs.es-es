@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4389af86e27ddb04f5a3e5f53c5509eeede005
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e1fe9594471c6e8f723afff2def940bb675e04fb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075346"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407008"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Aplicación de escritorio que llama a web API: adquirir un token
 
@@ -502,7 +502,7 @@ static async Task GetATokenForGraph()
   catch (MsalClientException ex) when (ex.ErrorCode == "unknown_user")
   {
    // the username was probably empty
-   // ex.Message = "Could not identify the user logged into the OS. See http://aka.ms/msal-net-iwa for details."
+   // ex.Message = "Could not identify the user logged into the OS. See https://aka.ms/msal-net-iwa for details."
    throw new ArgumentException("U/P: Wrong username", ex);
   }
   catch (MsalClientException ex) when (ex.ErrorCode == "parsing_wstrust_response_failed")
@@ -529,7 +529,7 @@ Si va a escribir una herramienta de línea de comandos (que no tiene controles W
 
 Autenticación interactiva con Azure AD requiere un explorador web (para obtener información detallada, consulte [uso de los exploradores web](https://aka.ms/msal-net-uses-web-browser)). Sin embargo, para autenticar usuarios en dispositivos o sistemas operativos que no ofrecen un explorador Web, flujo de código de dispositivo permite al usuario usar otro dispositivo (por ejemplo, otro equipo o un teléfono móvil) para iniciar sesión forma interactiva. Mediante el uso del flujo de código de dispositivo, la aplicación obtiene los tokens a través de un proceso de dos pasos diseñado especialmente para estos dispositivos/OS. Ejemplos de estas aplicaciones son aplicaciones que se ejecutan en iOT o herramientas de línea de comandos (CLI). La idea es:
 
-1. Cada vez que se requiere autenticación de usuario, la aplicación proporciona un código y pide al usuario que use otro dispositivo (por ejemplo, un smartphone conectado a internet) para navegar a una dirección URL (por ejemplo, `http://microsoft.com/devicelogin`), donde se pedirá al usuario que escriba el código. Que hace, la página web llevará al usuario a través de una experiencia de autenticación normal, incluidas las peticiones de consentimiento y autenticación multifactor si es necesario.
+1. Cada vez que se requiere autenticación de usuario, la aplicación proporciona un código y pide al usuario que use otro dispositivo (por ejemplo, un smartphone conectado a internet) para navegar a una dirección URL (por ejemplo, `https://microsoft.com/devicelogin`), donde se pedirá al usuario que escriba el código. Que hace, la página web llevará al usuario a través de una experiencia de autenticación normal, incluidas las peticiones de consentimiento y autenticación multifactor si es necesario.
 
 2. Tras una autenticación correcta, la aplicación de línea de comandos recibirá los tokens necesarios a través de un canal y utiliza para realizar las llamadas a API web que necesita.
 
@@ -643,16 +643,16 @@ En el caso de .NET Framework y .NET core, si no hace nada más, la caché de tok
 Las clases e interfaces implicadas en la serialización de caché de tokens son los siguientes tipos:
 
 - ``ITokenCache``, que define los eventos para suscribirse a las solicitudes de serialización de caché de tokens, así como métodos para serializar o deserializar la memoria caché en diversos formatos (v3.0 ADAL, MSAL 2.x y MSAL 3.x = ADAL v5.0)
-- ``TokenCacheCallback`` se pasa una devolución de llamada para los eventos de manera que pueda controlar la serialización. en su posible denominación con argumentos de tipo ``TokenCacheNotificationArgs``.
+- ``TokenCacheCallback`` es una devolución de llamada que se pasa a los eventos para que pueda controlar la serialización. en su posible denominación con argumentos de tipo ``TokenCacheNotificationArgs``.
 - ``TokenCacheNotificationArgs`` sólo proporciona el ``ClientId`` de la aplicación y una referencia a la que estará disponible el token de usuario
 
   ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
-> MSAL.NET crea las cachés de tokens por usted y le ofrece la `IToken` almacenar en caché cuando se llama a una aplicación `GetUserTokenCache` y `GetAppTokenCache` métodos. No se debe para implementar la interfaz usted mismo. Es responsabilidad suya, al implementar una serialización de caché de tokens personalizada:
+> MSAL.NET crea automáticamente las cachés de tokens y le ofrece la caché de `IToken` cuando se llama a los métodos `GetUserTokenCache` y `GetAppTokenCache` de una aplicación. No se debe para implementar la interfaz usted mismo. Su responsabilidad al implementar una serialización de caché de tokens personalizada es:
 >
-> - Reaccionar a `BeforeAccess` y `AfterAccess` "eventos". El`BeforeAccess` delegado es responsable de deserializar la memoria caché, mientras que el `AfterAccess` uno es responsable de serializar la memoria caché.
-> - Parte de estos eventos almacenar o cargar blobs, que se pasan a través del argumento de evento para el almacenamiento que desee.
+> - Reaccionar a los "eventos" `BeforeAccess` y `AfterAccess`. El`BeforeAccess` delegado es responsable de deserializar la memoria caché, mientras que el `AfterAccess` uno es responsable de serializar la memoria caché.
+> - Una parte de estos eventos almacena o carga blobs, que se pasan a través del argumento del evento al almacenamiento que se desee.
 
 Las estrategias son diferentes en función de si está escribiendo una serialización de caché de tokens para una aplicación de cliente público (escritorio), o una aplicación cliente confidencial (web app/API web, aplicación de demonio).
 
@@ -660,9 +660,9 @@ Desde V2.x MSAL tiene varias opciones, dependiendo de si desea serializar la mem
 
 La personalización de serialización de la memoria caché de Token para compartir el estado de inicio de sesión único entre ADAL.NET 3.x, ADAL.NET 5.x y MSAL.NET se explican en la parte del ejemplo siguiente: [active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
 
-### <a name="simple-token-cache-serialization-msal-only"></a>Serialización de caché de tokens simple (sólo MSAL)
+### <a name="simple-token-cache-serialization-msal-only"></a>Serialización de la caché de tokens simple (solo MSAL)
 
-A continuación es un ejemplo de una implementación sencilla de serialización personalizada de una caché de tokens para aplicaciones de escritorio. Aquí la caché de tokens de usuario en un archivo en la misma carpeta que la aplicación.
+A continuación encontrará un ejemplo de una implementación sencilla de serialización personalizada de una caché de tokens para aplicaciones de escritorio. Aquí la caché de tokens de usuario en un archivo en la misma carpeta que la aplicación.
 
 Después de compilar la aplicación, habilitar la serialización mediante una llamada a ``TokenCacheHelper.EnableSerialization()`` pasa la aplicación `UserTokenCache`
 
@@ -722,7 +722,7 @@ static class TokenCacheHelper
  }
 ```
 
-Una vista previa de una caché de tokens de calidad de producto serializador basados en archivos para las aplicaciones de cliente público (para aplicaciones de escritorio que se ejecutan en Windows, Mac y linux) está disponible en el [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) biblioteca de código abierto. Se puede incluir en sus aplicaciones desde el paquete nuget siguiente: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
+Una vista previa de una caché de tokens de calidad de producto serializador basados en archivos para las aplicaciones de cliente público (para aplicaciones de escritorio que se ejecutan en Windows, Mac y linux) está disponible en el [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) biblioteca de código abierto. La puede incluir en sus aplicaciones desde el siguiente paquete NuGet: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
 > Declinación de responsabilidades. La biblioteca Microsoft.Identity.Client.Extensions.Msal es una extensión a través de MSAL.NET. Las clases de estas bibliotecas podrían llegar en MSAL.NET en el futuro, tal como están o con cambios importantes.
 

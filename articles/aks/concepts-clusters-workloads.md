@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467466"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230154"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -83,7 +83,7 @@ No es necesario administrar los componentes principales de Kubernetes en cada no
 
 Estas reservas significan que la cantidad de CPU y memoria disponibles para las aplicaciones puede parecer menos de lo que contiene el nodo propiamente dicho. Si hay restricciones de recursos debido al número de aplicaciones que se ejecutan, estas reservas garantizan que CPU y memoria permanecen disponibles para los componentes principales de Kubernetes. No se puede cambiar las reservas de recursos.
 
-Por ejemplo: 
+Por ejemplo:
 
 - El tamaño de nodo **Estándar DS2 v2** contiene 2 vCPU y 7 GiB de memoria.
     - 20 % de 7 GiB de memoria = 1,4 GiB
@@ -99,9 +99,11 @@ Para las prácticas recomendadas asociadas, consulte [procedimientos recomendado
 
 ### <a name="node-pools"></a>Grupos de nodos
 
-Los nodos de la misma configuración se agrupan en *grupos de nodos*. Un clúster de Kubernetes contiene uno o varios grupos de nodos. El número de nodos y el tamaño iniciales se definen al crear un clúster de AKS, que crea un *grupo de nodos predeterminado*. Este grupo de nodos predeterminado de AKS contiene las máquinas virtuales subyacentes que ejecutan los nodos del agente.
+Los nodos de la misma configuración se agrupan en *grupos de nodos*. Un clúster de Kubernetes contiene uno o varios grupos de nodos. El número de nodos y el tamaño iniciales se definen al crear un clúster de AKS, que crea un *grupo de nodos predeterminado*. Este grupo de nodos predeterminado de AKS contiene las máquinas virtuales subyacentes que ejecutan los nodos del agente. Soporte para varios nodos grupo está actualmente en versión preliminar de AKS.
 
-Al escalar o actualizar un clúster de AKS, la acción se realiza en el grupo de nodos predeterminado. Para las operaciones de actualización, los contenedores en ejecución se programan en otros nodos del grupo de nodos hasta que todos los nodos se actualizan correctamente.
+Al escalar o actualizar un clúster de AKS, la acción se realiza en el grupo de nodos predeterminado. También puede escalar o actualizar un grupo de nodos específicos. Para las operaciones de actualización, los contenedores en ejecución se programan en otros nodos del grupo de nodos hasta que todos los nodos se actualizan correctamente.
+
+Para obtener más información sobre cómo usar varios grupos de nodos de AKS, consulte [crear y administrar varios grupos de nodos para un clúster de AKS][use-multiple-node-pools].
 
 ## <a name="pods"></a>Pods
 
@@ -245,3 +247,4 @@ En este artículo se tratan algunos de los componentes básicos de Kubernetes y 
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

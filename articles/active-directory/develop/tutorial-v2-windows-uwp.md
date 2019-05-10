@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 448858efeaae4c3e2a41d41181e9ec74b03223f6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522799"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138249"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (XAML)
 
@@ -333,8 +333,10 @@ Ahora tiene que registrar la aplicación en el Portal de registro de aplicacione
    - En **Tipos de cuenta compatibles**, seleccione **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)**.
    - Seleccione **Registrar** para crear la aplicación.
 1. En la página **Información general** de la aplicación, busque el valor de **Id. de aplicación (cliente)** y regístrelo para usarlo más tarde. Vuelva a Visual Studio, abra **MainPage.xaml.cs** y reemplace el valor de ClientId por el identificador de la aplicación que acaba de registrar:
-1. En la lista de páginas de la aplicación, seleccione **Autenticación**:
-   - En la sección **URI de redirección** | **URI de redireccionamiento sugeridos para clientes públicos (para dispositivos móviles o de escritorio)**, marque **urn:ietf:wg:oauth:2.0:oob**.
+1. En la lista de páginas de la aplicación, seleccione **Autenticación**.
+   1. En la sección **URI de redirección**, en la lista de identificadores URI de redirección:
+   1. En la columna **TIPO**, seleccione **Cliente público (móvil y escritorio)**.
+   1. Escriba `urn:ietf:wg:oauth:2.0:oob` en la columna **URI DE REDIRECCIÓN**.
 1. Seleccione **Guardar**.
 1. En la lista de páginas de la aplicación, seleccione **Permisos de API**.
    - Haga clic en el botón **Agregar un permiso** y, a continuación,
@@ -384,7 +386,7 @@ También verá información básica sobre el token adquirido a través de `Acqui
 |Propiedad  |Formato  |DESCRIPCIÓN |
 |---------|---------|---------|
 |**Nombre de usuario** |<span>user@domain.com</span> |El nombre de usuario que identifica al usuario.|
-|**Expiración del token** |DateTime |La hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
+|**Expiración del token** |Datetime |La hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Más información sobre los ámbitos y permisos delegados
 

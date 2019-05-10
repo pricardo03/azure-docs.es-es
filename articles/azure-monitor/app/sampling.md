@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d88de2bf660165022b39aaa0321ff5c62ea81cd3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653810"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231845"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -61,7 +61,7 @@ Los recuentos de métrica, como la tasa de solicitudes y la tasa de excepciones,
 
 ## <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>Configuración del muestreo adaptable para las aplicaciones ASP.NET
 
-[Obtenga información sobre](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) acerca de cómo configurar el muestreo adaptable para las aplicaciones de ASP.NET Core. 
+[Obtenga información sobre](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) acerca de cómo configurar el muestreo adaptable para aplicaciones ASP.NET Core. 
 
 En [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), puede ajustar varios parámetros en el nodo `AdaptiveSamplingTelemetryProcessor`. Las cifras que se muestran son los valores predeterminados:
 
@@ -461,7 +461,7 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 * Asegúrese de que la versión del SDK es 2.0 o superior.
 * Compruebe que establece el mismo porcentaje de muestreo en el cliente y el servidor.
 
-## <a name="frequently-asked-questions"></a>Preguntas frecuentes
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 *¿Qué es el comportamiento de muestreo predeterminado en ASP.NET y ASP.NET Core SDK?*
 

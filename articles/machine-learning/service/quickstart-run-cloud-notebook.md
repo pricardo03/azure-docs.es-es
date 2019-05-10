@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d4127226037bf28ba677a49f6444ca987118cb9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023924"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149827"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Uso de un servidor de cuadernos basado en la nube para empezar a trabajar con Azure Machine Learning
 
@@ -25,11 +25,11 @@ En este inicio rápido se muestra cómo crear un recurso de nube en el área de 
  
 En este artículo de inicio rápido, lleve a cabo las acciones siguientes:
 
-* Cree un servidor de cuadernos en la nube en el área de trabajo.
-* Inicie la interfaz web de Jupyter.
+* Crear un nuevo servidor de cuadernos en la nube en su área de trabajo.
+* Iniciar la interfaz web de Jupyter.
 * Abra un cuaderno que contiene código para estimar PI y registre los errores en cada iteración.
 * Ejecute el cuaderno.
-* Ver los valores de los errores registrados en el área de trabajo.  En este ejemplo se muestra cómo el área de trabajo puede ayudarle a realizar un seguimiento de la información generada en un script. 
+* Ver los valores de los errores registrados en el área de trabajo. En este ejemplo se muestra cómo el área de trabajo puede ayudarle a realizar un seguimiento de la información generada en un script. 
 
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
@@ -49,13 +49,15 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 
      ![Seleccionar nueva máquina virtual](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-1. Proporcione un nombre para la máquina virtual. Seleccione **Crear**. 
+1. Proporcione un nombre para la máquina virtual. Seleccione **Crear**.
+
+    > [!NOTE]
+    > El nombre de la máquina virtual del cuaderno debe tener entre 2 y 16 caracteres. Los caracteres válidos son letras, dígitos y el carácter -.  El nombre también debe ser único en la suscripción de Azure.
 
     ![Creación de una máquina virtual nueva](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-1. Espere aproximadamente 4-5 minutos y luego seleccione **Actualizar**.  Pruebe a actualizar cada 30 segundos aproximadamente hasta que el estado sea **En ejecución**.
+1. Espere unos 4 o 5 minutos, hasta que el estado cambie a **En ejecución**.
 
-    ![Actualizar](media/quickstart-run-cloud-notebook/refresh.png)
 
 ## <a name="launch-jupyter-web-interface"></a>Inicio de la interfaz web de Jupyter
 
@@ -67,7 +69,11 @@ Una vez que la máquina virtual se esté ejecutando, use la sección **Máquinas
 
     El vínculo inicia el servidor de cuadernos y abre la página web de Jupyter Notebook en una nueva pestaña del explorador.  Este vínculo solo funcionará para el usuario que cree la máquina virtual.
 
-1. En la página web de Jupyter Notebook, seleccione la carpeta **samples/quickstart** para ver el cuaderno del inicio rápido.
+1. En la página web de Jupyter Notebook, el nombre de la carpeta principal es su nombre de usuario.  Seleccione esta carpeta.
+
+1. El nombre de la carpeta de ejemplos incluye un número de versión, por ejemplo, **samples-1.0.33.1**.  Seleccione la carpeta de ejemplos.
+
+1. Seleccione el cuaderno **quickstart**.
 
 ## <a name="run-the-notebook"></a>Ejecución del cuaderno
 
@@ -75,15 +81,7 @@ Ejecute un cuaderno que calcule Pi y que registre el error en el área de trabaj
 
 1. Seleccione **01.run-experiment.ipynb** para abrir el cuaderno.
 
-1. Puede que aparezca un mensaje que indica que no se ha establecido el kernel.  Seleccione **Python 3.6 - AzureML** y **Set Kernel** (Establecer kernel).
-
-   ![Establecer kernel](./media/quickstart-run-cloud-notebook/set-kernel.png)
-
-1. El área de estado le dice que espere hasta que se haya iniciado el kernel. El mensaje desaparece una vez que el kernel está listo.
-
-    ![Esperar a que se inicie el kernel](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
-
-1.  Haga clic en la primera celda de código y seleccione **Ejecutar**.
+1. Haga clic en la primera celda de código y seleccione **Ejecutar**.
 
     > [!NOTE]
     > Las celdas de código tienen corchetes delante de ellas. Si los corchetes están vacíos (__[  ]__), no se ha ejecutado el código. Si el código está en ejecución, verá un asterisco (__[*]__). Una vez completado el código, aparecerá un número **[1]**.  El número le indica el orden en que se ejecutaron las celdas.
@@ -94,16 +92,15 @@ Ejecute un cuaderno que calcule Pi y que registre el error en el área de trabaj
 
 1. Ejecute la segunda celda de código. Si ve instrucciones para autenticarse, copie el código y siga el vínculo para iniciar sesión. Una vez que inicie sesión, el explorador recordará esta configuración.  
 
-    > [!TIP]
-    > Asegúrese de no copiar el espacio que aparece después del código.  
-
     ![Autenticar](media/quickstart-run-cloud-notebook/authenticate.png)
 
-1. Cuando haya terminado, aparecerá el número de celda __[2]__.  Si tuvo que iniciar sesión, verá un mensaje de estado de autenticación correcta.   Si no tiene que iniciar sesión, no verá ningún resultado en esta celda, solo el número que aparece para mostrar que la celda se ejecutó correctamente.
+1. Cuando haya terminado, aparece el número de celdas __[2]__.  Si tuvo que iniciar sesión, verá un mensaje de estado de autenticación correcta.   Si no tiene que iniciar sesión, no verá ningún resultado en esta celda, solo el número que aparece para mostrar que la celda se ejecutó correctamente.
 
     ![Mensaje de operación correcta](media/quickstart-run-cloud-notebook/success.png)
 
-1. Ejecute el resto de celdas de código.  A medida que finaliza la ejecución de cada celda, verá que aparece su número de celda. Solo la última celda puede mostrar cualquier otro resultado.  En la celda de código más grande, podrá ver que `run.log` se usa en varios lugares. Cada `run.log` agrega su valor al área de trabajo.
+1. Ejecute el resto de celdas de código.  A medida que finaliza la ejecución de cada celda, verá que aparece su número de celda. Solo la última celda puede mostrar cualquier otro resultado.  
+
+    En la celda de código más grande, podrá ver que `run.log` se usa en varios lugares. Cada `run.log` agrega su valor al área de trabajo.
 
 
 ## <a name="view-logged-values"></a>Visualización de los datos registrados
@@ -146,11 +143,13 @@ También puede mantener el grupo de recursos pero eliminar una sola área de tra
 
 En este inicio rápido, ha completado estas tareas:
 
-* Creación de una máquina virtual de Notebook
-* Inicio de un servidor de Jupyter Notebook en la máquina virtual de Notebook
+* Crear una máquina virtual de cuaderno.
+* Iniciar la interfaz web de Jupyter.
 * Abra un cuaderno que contiene código para estimar PI y registre los errores en cada iteración.
 * Ejecute el cuaderno.
 * Ver los valores de los errores registrados en el área de trabajo.  En este ejemplo se muestra cómo el área de trabajo puede ayudarle a realizar un seguimiento de la información generada en un script. 
+
+En la página web de Jupyter Notebook, examine los demás cuadernos de la carpeta de ejemplos para obtener más información sobre el servicio Azure Machine Learning.
 
 Para ver de forma detallada la experiencia de flujo de trabajo, siga los tutoriales de Machine Learning para entrenar e implementar un modelo:  
 

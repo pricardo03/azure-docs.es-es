@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3940adfaa42de8ac9c3f32a9eadc8f6d643ce3ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c0bb8d7a5a1ea30b704b44c9337cd28043597ff7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149539"
+ms.locfileid: "65209515"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Inicio rápido: usar máquinas virtuales de VMware en Azure
 
@@ -69,7 +69,7 @@ Crear una máquina virtual en la nube privada de la interfaz de usuario de vCent
 
     Los discos, haga clic en **Agregar disco** y configure las siguientes opciones.
 
-    | item | DESCRIPCIÓN | 
+    | Elemento | DESCRIPCIÓN | 
     | ------------ | ------------- | 
     | NOMBRE | Escriba un nombre para identificar el disco.  | 
     | Tamaño | Seleccione uno de los tamaños disponibles.  | 
@@ -82,5 +82,5 @@ Crear una máquina virtual en la nube privada de la interfaz de usuario de vCent
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Ver la lista de máquinas virtuales de CloudSimple](https://docs.azure.cloudsimple.com/azure-manage-vm/)
-* [Administrar la máquina virtual de CloudSimple de Azure](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [Ver la lista de máquinas virtuales de CloudSimple](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [Administrar la máquina virtual de CloudSimple de Azure](https://docs.azure.cloudsimple.com/azure-manage-vm/)

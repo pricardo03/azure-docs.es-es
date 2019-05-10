@@ -194,7 +194,7 @@ Al copiar datos desde DB2, se utilizan las siguientes asignaciones de tipos de d
 | Real |Single |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| Timestamp |DateTime |
+| Timestamp |Datetime |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |

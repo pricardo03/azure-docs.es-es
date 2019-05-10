@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138123"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227970"
 ---
 # <a name="action-rules-preview"></a>Reglas de acción (versión preliminar)
 
@@ -142,11 +142,11 @@ Desde aquí, puede reglas habilitar/deshabilitar/eliminar acción a escala selec
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
-Registrar las alertas creadas con el ['número de resultados'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) opción Generar **una sola instancia de alerta** con el resultado de búsqueda completa (que podría ser en varios equipos por ejemplo). En este escenario, si una regla de acción utiliza el filtro 'Contexto de alerta (carga)', actuará sobre la instancia de alerta, siempre hay una coincidencia. En el escenario 2 como se describió anteriormente, si los resultados de búsqueda para la alerta de registro generada contienen 'Equipo-01' y 'Equipo-02', se suprime la notificación completa (es decir, no hay ninguna notificación generada para 'Equipo-02' en absoluto).
+Registrar las alertas creadas con el ['número de resultados'](alerts-unified-log.md) opción Generar **una sola instancia de alerta** con el resultado de búsqueda completa (que podría ser en varios equipos por ejemplo). En este escenario, si una regla de acción utiliza el filtro 'Contexto de alerta (carga)', actuará sobre la instancia de alerta, siempre hay una coincidencia. En el escenario 2 como se describió anteriormente, si los resultados de búsqueda para la alerta de registro generada contienen 'Equipo-01' y 'Equipo-02', se suprime la notificación completa (es decir, no hay ninguna notificación generada para 'Equipo-02' en absoluto).
 
 ![Las reglas de acción y las alertas del registro (número de resultados)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-A alertas del registro aprovechar mejor con las reglas de acción, se aconseja crear alertas del registro con el ['unidades métricas'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) opción. Con esta opción, instancias independientes de la alerta se generan basándose en el campo de grupo definido. A continuación, en el escenario 2, instancias independientes de la alerta se generan para 'Equipo-01' y 'Equipo 02'. Con la regla de acción que se describe en el escenario, solo la notificación para 'Equipo-01' podría suprimirse mientras la notificación para 'Equipo-02' seguiría se activan con normalidad.
+A alertas del registro aprovechar mejor con las reglas de acción, se aconseja crear alertas del registro con el ['unidades métricas'](alerts-unified-log.md) opción. Con esta opción, instancias independientes de la alerta se generan basándose en el campo de grupo definido. A continuación, en el escenario 2, instancias independientes de la alerta se generan para 'Equipo-01' y 'Equipo 02'. Con la regla de acción que se describe en el escenario, solo la notificación para 'Equipo-01' podría suprimirse mientras la notificación para 'Equipo-02' seguiría se activan con normalidad.
 
 ![Las reglas de acción y las alertas del registro (número de resultados)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 

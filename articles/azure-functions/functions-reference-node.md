@@ -357,7 +357,7 @@ El objeto `context.req` (solicitud) tiene las siguientes propiedades:
 | _method_      | Método HTTP de la solicitud.                                |
 | _originalUrl_ | Dirección URL de la solicitud.                                        |
 | _params_      | Objeto que contiene los parámetros de enrutamiento de la solicitud. |
-| _consulta_       | Objeto que contiene los parámetros de consulta.                  |
+| _query_       | Objeto que contiene los parámetros de consulta.                  |
 | _rawBody_     | Cuerpo del mensaje como una cadena.                           |
 
 

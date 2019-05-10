@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 4b996effbc03bd1f7c446965b0aa5fb6fa2d0175
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525354"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024382"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Tutorial de REST: Indexación y búsqueda de datos semiestructurados (blobs JSON) en Azure Search
 
@@ -27,9 +27,6 @@ En este tutorial, usará las [API REST de Azure Search](https://docs.microsoft.c
 > * Crear un índice de Azure Search que contenga el contenido que permite búsquedas
 > * Configurar y ejecutar un indexador para leer el contenedor y extraer contenido que permite búsquedas de Azure Blob Storage
 > * Buscar el índice que acaba de crear.
-
-> [!NOTE]
-> Este tutorial se basa en la compatibilidad de la matriz de JSON, que actualmente es una característica de versión preliminar de Azure Search. No está disponible en el portal. Por esta razón, estamos usando la versión preliminar de la API de REST, que proporciona esta característica, y una herramienta del cliente de REST para llamar a la API.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -81,7 +78,7 @@ El método de solicitud de todas las llamadas del tutorial es **POST**. Las clav
 
 Estamos usando Postman para realizar tres llamadas API al servicio de búsqueda con el fin de crear un origen de datos, un índice y un indexador. El origen de datos incluye un puntero a la cuenta de almacenamiento y a los datos JSON. El servicio de búsqueda realiza la conexión al cargar los datos.
 
-La cadena de consulta debe contener una API en versión preliminar (como **api-version=2017-11-11-Preview**) y cada llamada debe devolver **201 - Creado**. El parámetro api-version normalmente disponible aún no tiene la capacidad de administrar JSON como jsonArray, actualmente esto solo lo hace la versión preliminar del parámetro api-version.
+Las cadenas de consulta deben especificar un elemento api-version. Además, cada llamada debe devolver el mensaje **201 - Creado**. El elemento api-version disponible con carácter general para el uso de matrices JSON es `2019-05-06`.
 
 Ejecute las siguientes tres llamadas API desde el cliente de REST.
 
@@ -89,7 +86,7 @@ Ejecute las siguientes tres llamadas API desde el cliente de REST.
 
 [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crea un objeto de Azure Search que especifica qué datos se indexan.
 
-El punto de conexión de esta llamada es `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`. Reemplace `[service name]` por el nombre del servicio de búsqueda. 
+El punto de conexión de esta llamada es `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Reemplace `[service name]` por el nombre del servicio de búsqueda. 
 
 Para esta llamada, el cuerpo de solicitud debe incluir el nombre y la clave de la cuenta de almacenamiento, y el nombre del contenedor de blob. Encontrará la clave de la cuenta de almacenamiento en Azure Portal, en la sección **Access Keys** (Claves de acceso) de la cuenta de almacenamiento. La ubicación se muestra en la imagen siguiente:
 
@@ -132,7 +129,7 @@ La respuesta debería tener este aspecto:
     
 La segunda llamada es [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), que crea un índice de Azure Search que almacena todos los datos en los que se pueden realizar búsquedas. Un índice especifica todos los parámetros y sus atributos.
 
-La dirección URL de esta llamada es `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`. Reemplace `[service name]` por el nombre del servicio de búsqueda.
+La dirección URL de esta llamada es `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Reemplace `[service name]` por el nombre del servicio de búsqueda.
 
 Primero reemplace la dirección URL. A continuación, copie y pegue el código siguiente en el cuerpo y ejecute la consulta.
 
@@ -222,7 +219,7 @@ La respuesta debería tener este aspecto:
 
 Un indexador conecta el origen de datos, importa los datos en un índice de búsqueda de destino y proporciona opcionalmente una programación para automatizar la actualización de datos. La API REST es [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-La dirección URL de esta llamada es `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`. Reemplace `[service name]` por el nombre del servicio de búsqueda.
+La dirección URL de esta llamada es `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. Reemplace `[service name]` por el nombre del servicio de búsqueda.
 
 Primero reemplace la dirección URL. A continuación, copie y pegue el código siguiente en el cuerpo y envíe la solicitud. La solicitud se procesa inmediatamente. Cuando vuelva la respuesta, tendrá un índice de búsqueda de texto completo.
 
@@ -267,7 +264,7 @@ Puede empezar a realizar búsquedas en cuanto se cargue el primer documento. Par
 
 En Azure Portal, abra la página **Introducción** del servicio de búsqueda y busque el índice que creó en la lista **Índices**.
 
-Asegúrese de elegir el índice que acaba de crear. La versión de API puede ser versión preliminar o una versión disponible con carácter general. El único requisito de la versión preliminar es que es para la indización de matrices JSON.
+Asegúrese de elegir el índice que acaba de crear. 
 
   ![Búsqueda no estructurada](media/search-semi-structured-data/indexespane.png)
 

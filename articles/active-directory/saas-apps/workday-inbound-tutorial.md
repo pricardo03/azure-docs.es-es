@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386080"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407925"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -152,8 +152,8 @@ En este escenario, tiene un inquilino de Workday y le gustaría aprovisionar usu
 
 |   |   |
 | - | - |
-|  No. de agentes de aprovisionamiento para implementar de forma local | 3 (para alta disponibilidad y conmutación por error) |
-|  No. de aplicaciones de aprovisionamiento de usuarios de Workday en AD para configurar en Azure Portal | 1 |
+| No. de agentes de aprovisionamiento para implementar de forma local | 3 (para alta disponibilidad y conmutación por error) |
+| No. de aplicaciones de aprovisionamiento de usuarios de Workday en AD para configurar en Azure Portal | 1 |
 
   ![Escenario 1.](./media/workday-inbound-tutorial/dep_scenario1.png)
 
@@ -163,8 +163,8 @@ Este escenario implica el aprovisionamiento de usuarios desde Workday en varios 
 
 |   |   |
 | - | - |
-|  No. de agentes de aprovisionamiento para implementar de forma local | 3 (para alta disponibilidad y conmutación por error) |
-|  No. de aplicaciones de aprovisionamiento de usuarios de Workday en AD para configurar en Azure Portal | una aplicación por dominio secundario |
+| No. de agentes de aprovisionamiento para implementar de forma local | 3 (para alta disponibilidad y conmutación por error) |
+| No. de aplicaciones de aprovisionamiento de usuarios de Workday en AD para configurar en Azure Portal | una aplicación por dominio secundario |
 
   ![Escenario 2.](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -174,8 +174,8 @@ Este escenario implica el aprovisionamiento de usuarios desde Workday en dominio
 
 |   |   |
 | - | - |
-|  No. de agentes de aprovisionamiento para implementar de forma local | 3 por cada bosque de AD no contiguo |
-|  No. de aplicaciones de aprovisionamiento de usuarios de Workday en AD para configurar en Azure Portal | una aplicación por dominio secundario |
+| No. de agentes de aprovisionamiento para implementar de forma local | 3 por cada bosque de AD no contiguo |
+| No. de aplicaciones de aprovisionamiento de usuarios de Workday en AD para configurar en Azure Portal | una aplicación por dominio secundario |
 
   ![Escenario 3.](./media/workday-inbound-tutorial/dep_scenario3.png)
 
@@ -368,7 +368,7 @@ Para aprovisionar en Active Directory local, debe haber un agente instalado en u
 
 Una vez que ha implementado .NET 4.7.1+, puede descargar el **[agente de aprovisionamiento local aquí](https://go.microsoft.com/fwlink/?linkid=847801)** y seguir los pasos indicados a continuación para llevar a cabo la configuración del agente.
 
-1. Inicie sesión en el servidor Windows Server donde desee instalar el nuevo agente.
+1. Inicie sesión en Windows Server donde desea instalar al nuevo agente.
 2. Inicie el instalador del agente de aprovisionamiento, acepte los términos y haga clic en el botón **Instalar**.
 
    ![Pantalla Instalar](./media/workday-inbound-tutorial/pa_install_screen_1.png "Install Screen")
@@ -406,7 +406,7 @@ Una vez que ha implementado .NET 4.7.1+, puede descargar el **[agente de aprovis
    ![Pantalla Salir](./media/workday-inbound-tutorial/pa_install_screen_9.png "Exit Screen")
 1. Compruebe la instalación del agente y asegúrese de que se está ejecutando; para ello, abra el complemento "Servicios" y busque el servicio denominado "Microsoft Azure AD Connect Provisioning Agent".
   
-   ![Services](./media/workday-inbound-tutorial/services.png)
+   ![Servicios](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Parte 2: agregación de la aplicación del conector de aprovisionamiento y creación de la conexión con Workday
 
@@ -472,7 +472,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
       * Atributo: EmployeeID
 
-      * Operador: IS NOT NULL
+      * Operador: NO ES NULO
 
 > [!TIP]
 > Al configurar la aplicación de aprovisionamiento por primera vez, deberá probar y verificar las expresiones y asignaciones de atributos para asegurarse de que ofrece el resultado deseado. Microsoft recomienda usar los filtros de ámbito en **Ámbito de objeto de origen** para probar las asignaciones con algunos usuarios de prueba de Workday. Una vez haya verificado que las asignaciones funcionan, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
@@ -527,12 +527,12 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 | **SelectUniqueValue (unir ("\@", únase a (".", \[FirstName\], \[LastName\]), "contoso.com"), unir ("\@", únase a (".", Mid (\[FirstName\], 1, 1 (), \[LastName\]), "contoso.com"), únase a ("\@", únase a (".", Mid (\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Escrito únicamente en Crear 
 | **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Escrito únicamente en Crear |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Crear y Actualizar |
-| **Nombre**   | givenName       |     |    Crear y Actualizar |
+| **FirstName**   | givenName       |     |    Crear y Actualizar |
 | **Apellidos**   |   sn   |     |  Crear y Actualizar |
-| **PreferredNameData**  |  DisplayName |     |   Crear y Actualizar |
+| **PreferredNameData**  |  displayName |     |   Crear y Actualizar |
 | **Company**         | company   |     |  Crear y Actualizar |
 | **SupervisoryOrganization**  | department  |     |  Crear y Actualizar |
-| **ManagerReference**   | manager  |     |  Crear y Actualizar |
+| **ManagerReference**   | administrador  |     |  Crear y Actualizar |
 | **BusinessTitle**   |  título     |     |  Crear y Actualizar | 
 | **AddressLineData**    |  streetAddress  |     |   Crear y Actualizar |
 | **Municipality**   |   l   |     | Crear y Actualizar |
@@ -612,7 +612,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
       * Atributo: ContingentID
 
-      * Operador: IS NOT NULL
+      * Operador: NO ES NULO
 
 3. En el campo **Acciones del objeto de destino**, puede filtrar de forma global qué acciones se realizan en Azure AD. **Crear** y **Actualizar** son las más habituales.
 
@@ -816,7 +816,7 @@ Al sugerir una nueva idea, compruebe si alguien ha sugerido ya una característi
 
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>¿Cómo puedo saber la versión de mi agente de aprovisionamiento?
 
-* Inicie sesión en el servidor de Windows en el que está instalado el agente de aprovisionamiento.
+* Inicie sesión en el servidor de Windows está instalado el agente de aprovisionamiento.
 * Vaya al menú **Panel de control** -> **Desinstalar o cambiar un programa**.
 * Busque la versión correspondiente a la entrada **Microsoft Azure AD Connect Provisioning Agent**.
 
@@ -867,7 +867,7 @@ Sí, un agente de aprovisionamiento puede configurarse para controlar varios dom
 #### <a name="how-do-i-de-register-the-domain-associated-with-my-provisioning-agent"></a>¿Cómo puedo anular el registro del dominio asociado con mi agente de aprovisionamiento?
 
 * En Azure Portal, obtenga el *Id. de inquilino* del inquilino de Azure AD.
-* Inicie sesión en el servidor de Windows que ejecuta el agente de aprovisionamiento.
+* Inicie sesión en el servidor de Windows que ejecuta al agente de aprovisionamiento.
 * Abra PowerShell como administrador de Windows.
 * Cambie al directorio que contiene los scripts de registro y ejecute los siguientes comandos reemplazando el parámetro \[Id. de inquilino\] con el valor del identificador del inquilino.
 
@@ -878,7 +878,7 @@ Sí, un agente de aprovisionamiento puede configurarse para controlar varios dom
   ```
 
 * En la lista de agentes que aparece, copie el valor del campo "Id." de dicho recurso cuyo parámetro *resourceName* es el mismo que el nombre de dominio de AD.
-* Pegue el identificador en este comando y ejecútelo en PowerShell.
+* Pegue el valor de identificador en este comando y ejecute el comando en PowerShell.
 
   ```powershell
   Remove-PublishedResource -ResourceId "[resource ID]" -TenantId "[tenant ID]"
@@ -889,7 +889,7 @@ Sí, un agente de aprovisionamiento puede configurarse para controlar varios dom
 
 #### <a name="how-do-i-uninstall-the-provisioning-agent"></a>¿Cómo puedo desinstalar el agente de aprovisionamiento?
 
-* Inicie sesión en el servidor de Windows en el que está instalado el agente de aprovisionamiento.
+* Inicie sesión en el servidor de Windows está instalado el agente de aprovisionamiento.
 * Vaya al menú **Panel de control** -> **Desinstalar o cambiar un programa**.
 * Desinstale los programas siguientes:
   * Microsoft Azure AD Connect Provisioning Agent
@@ -946,9 +946,9 @@ La solución actualmente no permite establecer los atributos binarios como *thum
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>¿Cómo puedo dar formato a los nombres para mostrar en AD según los atributos de departamento/país/ciudad del usuario y controlar las variaciones regionales?
 
-Es un requisito común configurar el atributo *displayName* de AD para que también proporcione información sobre el departamento y el país del usuario. Por ejemplo, si John Smith trabaja en el departamento de marketing en Estados Unidos, puede que desee que su atributo *displayName* aparezca como *Smith, John (Marketing-EE. UU.)*.
+Es un requisito común para configurar el *displayName* atributo de AD para que también proporciona información acerca de departamento y el país o región del usuario. Por ejemplo, si John Smith trabaja en el departamento de marketing en Estados Unidos, puede que desee que su atributo *displayName* aparezca como *Smith, John (Marketing-EE. UU.)*.
 
-Esta es la forma en que puede controlar tales requisitos para construir *CN* o *displayName* a fin de incluir atributos como empresa, unidad de negocio, ciudad o país.
+Aquí es cómo puede controlar estos requisitos para construir *CN* o *displayName* para incluir los atributos como empresa, unidad de negocio, ciudad o país o región.
 
 * Cada atributo de Workday se recupera mediante una expresión de API XPATH subyacente, que se puede configurar en **Asignación de atributos -> Sección avanzada -> Editar lista de atributos para Workday**. Esta es la expresión de API XPATH predeterminada para los atributos de Workday *PreferredFirstName*, *PreferredLastName*, *Company* y *SupervisoryOrganization*.
 
@@ -957,7 +957,7 @@ Esta es la forma en que puede controlar tales requisitos para construir *CN* o *
      | ----------------- | -------------------- |
      | PreferredFirstName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:First_Name/text() |
      | PreferredLastName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:Last_Name/text() |
-     | Compañía | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Company']/wd:Organization_Reference/@wd:Descriptor |
+     | Empresa | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Company']/wd:Organization_Reference/@wd:Descriptor |
      | SupervisoryOrganization | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Supervisory']/wd:Organization_Name/text() |
   
    Confirme con su equipo de Workday que la expresión de API anterior es válida para la configuración de su inquilino de Workday. Si es necesario, puede modificar los atributos como se describe en la sección [Personalización de la lista de atributos de usuario de Workday](#customizing-the-list-of-workday-user-attributes).
@@ -976,7 +976,7 @@ Esta es la forma en que puede controlar tales requisitos para construir *CN* o *
 
   Confirme con su equipo de Workday que las expresiones de API anteriores son válidas para la configuración de su inquilino de Workday. Si es necesario, puede modificar los atributos como se describe en la sección [Personalización de la lista de atributos de usuario de Workday](#customizing-the-list-of-workday-user-attributes).
 
-* Para compilar la expresión de asignación de atributos correcta, identifique qué atributo de Workday representa "de forma confiable" el nombre, apellido, país y departamento del usuario. Supongamos que los atributos son *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* y *SupervisoryOrganization*, respectivamente. Puede usar esto para compilar una expresión para el atributo *displayName* de AD como se indica a continuación para obtener un nombre para mostrar como *Smith, John (Marketing-EE. UU.)*.
+* Para compilar la expresión de asignación de atributo adecuado, identifique qué atributo de Workday "de forma autoritativa" representa el usuario nombre, nombre, país o región y la última departamento. Supongamos que los atributos son *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* y *SupervisoryOrganization*, respectivamente. Puede usar esto para compilar una expresión para el atributo *displayName* de AD como se indica a continuación para obtener un nombre para mostrar como *Smith, John (Marketing-EE. UU.)*.
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
@@ -1038,7 +1038,7 @@ En esta sección se tratan los siguientes aspectos sobre la solución de problem
 
 ### <a name="setting-up-windows-event-viewer-for-agent-troubleshooting"></a>Configuración del Visor de eventos de Windows para solucionar problemas del agente
 
-* Inicie sesión en el equipo Windows Server en el que se ha implementado el agente de aprovisionamiento.
+* Inicie sesión en la máquina de Windows Server donde se implementa el agente de aprovisionamiento
 * Abra la aplicación de escritorio **Visor de eventos de Windows Server**.
 * Seleccione **Registros de Windows > Aplicación**.
 * Use la opción **Filtrar registro actual...** para ver todos los eventos registrados en el origen **AAD.Connect.ProvisioningAgent** y excluir eventos con el identificador "5", especificando el filtro "-5", tal como se muestra a continuación.
@@ -1236,7 +1236,7 @@ Para realizar este cambio, debe usar [Workday Studio](https://community.workday.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -1349,7 +1349,7 @@ En el Probador de Graph de Microsoft, ejecute la siguiente consulta GET; para el
 
 Obtendrá una respuesta como la que se muestra a continuación. Copie el "atributo de identificador" que aparece en la respuesta. Este valor se corresponde con la propiedad **ProvisioningJobId** y se utilizará para recuperar los metadatos del esquema subyacente.
 
-   [![Id. del trabajo de aprovisionamiento](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
+   [![Id. de trabajo de aprovisionamiento](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
 
 #### <a name="step-4-download-the-provisioning-schema"></a>Paso 4: Descargar el esquema de aprovisionamiento
 

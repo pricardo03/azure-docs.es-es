@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines
-author: rockboyfor
+author: roygara
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/13/2019
-ms.author: v-yeche
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a4110d68dc8aa921d647f90de654d2ebb4e17d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 885bc1c627626ee7ba4f391be31131b18fa1ab39
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618069"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65212038"
 ---
 ## <a name="premium-ssd"></a>SSD Premium
 
@@ -22,12 +22,16 @@ Los discos SSD Premium de Azure ofrecen soporte de disco de alto rendimiento y l
 ### <a name="disk-size"></a>Tamaño del disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
+Cuando se aprovisiona un disco de Premium Storage, a diferencia de Standard Storage, se garantizan la capacidad, las E/S por segundo y el rendimiento del mismo. Por ejemplo, si crea un disco P50, Azure aprovisiona una capacidad de almacenamiento de 4095 GB, 7500 E/S por segundo y un rendimiento de 250 MB/s para él. La aplicación puede usar toda la capacidad y el rendimiento o parte de ellos. Los discos SSD premium están diseñados para proporcionar rendimiento de destino el 99,9 % del tiempo.
+
 ## <a name="standard-ssd"></a>SSD estándar
 
 Los discos SSD estándar de Azure son una opción de almacenamiento rentable, optimizada para cargas de trabajo que necesitan un rendimiento constante en niveles inferiores de IOPS. Los discos SSD estándar ofrecen una buena experiencia de nivel de entrada para aquellos que desean pasarse a la nube, en especial si tiene problemas con la variación de las cargas de trabajo que se ejecutan en las soluciones de disco duro locales. Los discos SSD estándar ofrecen mayor disponibilidad, coherencia, confiabilidad y latencia en comparación con los discos HDD. Los discos SSD estándar son convenientes para servidores web, servidores de aplicaciones con IOPS bajas, aplicaciones empresariales de poco uso y cargas de trabajo de desarrollo/pruebas.
 
 ### <a name="disk-size"></a>Tamaño del disco
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
+
+SSDs estándares están diseñadas para proporcionar las latencias de milisegundos para la mayoría de las operaciones de E/S y para entregar la IOPS y el rendimiento hasta los límites descritos en la anterior tabla 99% del tiempo. IOPS y el rendimiento real pueden variar a veces, según los patrones de tráfico. Los discos SSD estándar proporcionarán un rendimiento más coherente que los discos HDD, con una latencia menor.
 
 ## <a name="standard-hdd"></a>HDD estándar
 

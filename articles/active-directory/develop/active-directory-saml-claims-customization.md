@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411337"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231348"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos para: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -73,14 +73,14 @@ Para obtener más información sobre el atributo NameIDPolicy, consulte [protoco
 
 Seleccione el origen que desee para la notificación `NameIdentifier` (o NameID). Puede seleccionar entre las opciones siguientes:
 
-| Name | DESCRIPCIÓN |
+| NOMBRE | DESCRIPCIÓN |
 |------|-------------|
 | Email | Dirección de correo electrónico del usuario |
 | userprincipalName | Nombre principal de usuario (UPN) del usuario |
 | onpremisessamaccount | Nombre de cuenta SAM que se ha sincronizado desde Azure AD local. |
 | objectid | objectID del usuario en Azure AD |
 | employeeid | EmployeeID del usuario |
-| Sincronización de Azure AD Connect: Extensiones de directorio | Extensiones de directorio [sincronizadas desde Active Directory local con Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Extensiones de directorio | Extensiones de directorio [sincronizadas desde Active Directory local con Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Atributos de extensión 1-15 | Los atributos de extensión locales usados para extender el esquema de AD Azure. |
 
 Para obtener más información, consulte [tabla 3: Los valores de identificador válidos por origen](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
@@ -116,7 +116,7 @@ También puede usar las funciones de transformación de notificaciones.
 | **ToUpper()** | Convierte los caracteres del atributo seleccionado en caracteres en mayúscula. |
 | **Contains()** | Genera un atributo o una constante si la entrada coincide con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si desea emitir una notificación donde el valor es la dirección de correo electrónico del usuario si contiene el dominio "@contoso.com", en caso contrario, desea obtener el nombre principal de usuario. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1(input)*: user.email<br/>*Valor*: "@contoso.com"<br/>Parámetro 2 (salida): user.email<br/>Parámetro 3 (si no hay ninguna coincidencia de salida): user.userprincipalname |
 | **EndWith()** | Genera un atributo o una constante si finaliza la entrada con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si desea emitir una notificación cuando el valor sea employeeid del usuario si el valor employeeid termina con "000", en caso contrario, desea un atributo de extensión de salida. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1(input)*: user.employeeid<br/>*Valor*: "000"<br/>Parámetro 2 (salida): user.employeeid<br/>Parámetro 3 (si no hay ninguna coincidencia de salida): extensionAttribute1 |
-| **StartWith()** | Genera un atributo o una constante si la entrada comienza con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si desea emitir una notificación cuando el valor sea employeeid del usuario si el país comienza con "US", en caso contrario, desea un atributo de extensión de salida. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1(input)*: user.country<br/>*Valor*: "NOSOTROS"<br/>Parámetro 2 (salida): user.employeeid<br/>Parámetro 3 (si no hay ninguna coincidencia de salida): extensionAttribute1 |
+| **StartWith()** | Genera un atributo o una constante si la entrada comienza con el valor especificado. En caso contrario, puede especificar otra salida si no hay ninguna coincidencia.<br/>Por ejemplo, si desea emitir una notificación cuando el valor sea employeeid del usuario si el país o región comienza con "US", en caso contrario, desea un atributo de extensión de salida. Para ello, configuraría los siguientes valores:<br/>*Parámetro 1(input)*: user.country<br/>*Valor*: "NOSOTROS"<br/>Parámetro 2 (salida): user.employeeid<br/>Parámetro 3 (si no hay ninguna coincidencia de salida): extensionAttribute1 |
 | **Extract() - después de la coincidencia** | Devuelve la subcadena después de coincide con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "Finance_BSimon", el valor coincidente es "Finance_", entonces el resultado de la notificación es "BSimon". |
 | **Extract() - antes de coincidencia** | Devuelve la subcadena hasta que coincida con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "BSimon_US", el valor coincidente es "_US", entonces el resultado de la notificación es "BSimon". |
 | **Extract() - entre coincidentes** | Devuelve la subcadena hasta que coincida con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "Finance_BSimon_US", el primer valor coincidente es "Finance_", el segundo valor coincidente es "_US", entonces el resultado de la notificación es "BSimon". |

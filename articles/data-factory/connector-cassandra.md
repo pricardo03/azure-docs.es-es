@@ -176,9 +176,9 @@ Al copiar datos desde Cassandra, se utilizan las siguientes asignaciones de tipo
 | ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |Boolean |
+| Boolean |Boolean |
 | DECIMAL |Decimal |
-| DOUBLE |Double |
+| Double |Double |
 | FLOAT |Single |
 | INET |String |
 | INT |Int32 |

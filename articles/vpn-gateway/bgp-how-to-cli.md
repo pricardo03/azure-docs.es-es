@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
-ms.openlocfilehash: f0367a360de97d3935c7fa8de9f3dafa6555811e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51402196c8429797b644357822a1e3c08982b384
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390687"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209500"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Configuración de BGP en Azure VPN Gateway con la CLI
 
@@ -131,7 +131,7 @@ Para establecer una conexión entre locales, debe crear una puerta de enlace de 
 Este ejercicio es continuación del paso de creación de la configuración mostrada en el diagrama. Asegúrese de reemplazar los valores por los que desea usar para su configuración. Cuando trabaje con puertas de enlace de red local, tenga en cuenta los siguientes aspectos:
 
 * La puerta de enlace de red local puede estar en la misma ubicación y grupo de recursos que la puerta de enlace de VPN o en una ubicación y grupo de recurso distintos. Este ejemplo los muestra las puertas de enlace en distintos grupos de recursos en diferentes ubicaciones.
-* El prefijo mínimo que debe declarar para la puerta de enlace de red local es la dirección del host de la dirección IP del par BGP en el dispositivo VPN. En este caso, es un prefijo /32 de 10.52.255.254/32.
+* El prefijo mínimo que debe declarar para la puerta de enlace de red local es la dirección del host de la dirección IP del par BGP en el dispositivo VPN. En este caso, es un/32 prefijo de 10.51.255.254/32.
 * Como recordatorio, debe usar diferentes ASN de BGP entre las redes locales y la red virtual de Azure. Si son iguales, debe cambiar el ASN de la red virtual si los dispositivos VPN locales ya utilizan el ASN para estar al mismo nivel que otros vecinos BGP.
 
 Antes de continuar, asegúrese de haber completado la sección [Habilitar BGP para VPN Gateway](#enablebgp) de este ejercicio y de que aún está conectado a la suscripción 1. Tenga en cuenta que, en este ejemplo, se crea un grupo de recursos. Además, observe los dos parámetros adicionales para la puerta de enlace de red local: `Asn` y `BgpPeerAddress`.

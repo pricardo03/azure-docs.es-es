@@ -1,7 +1,7 @@
 ---
 title: Configuración de contenedor (Form Recognizer)
 titleSuffix: Azure Cognitive Services
-description: Aprenda a utilizar el contenedor de Form Recognizer para analizar datos de formularios y tablas.
+description: Vea cómo configurar el contenedor Form Recognizer para analizar los datos de formularios y tablas.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 6066e7856ddf8ef757afc2072218c87420a37c10
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3f6cc32f6fb2a9fb11220ac1a3134fb3ae4d2f84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025553"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147464"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configuración de contenedores de Form Recognizer
 
@@ -70,7 +70,7 @@ Este valor se puede encontrar en el siguiente lugar:
 
 Utilice montajes de enlace para leer y escribir datos hacia y desde el contenedor. Puede especificar un montaje de entrada o un montaje de salida mediante la opción `--mount` del comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
-Los contenedores de Form Recognizer requieren un montaje de entrada y salida. El de entrada puede ser de solo lectura y es necesario para acceder a los datos que se usarán para el entrenamiento y la puntuación. En el de salida se debe poder escribir y se usará para almacenar los modelos y los datos temporales.
+El contenedor Form Recognizer requiere un montaje de entrada y salida. El de entrada puede ser de solo lectura y es necesario para acceder a los datos que se usarán para el entrenamiento y la puntuación. En el de salida se debe poder escribir y se usará para almacenar los modelos y los datos temporales.
 
 La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](form-recognizer-container-howto.md#the-host-computer) puede no ser accesible debido a un conflicto entre los permisos que usa la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host.
 
