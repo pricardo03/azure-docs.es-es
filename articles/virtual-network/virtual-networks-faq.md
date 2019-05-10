@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205715"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508414"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -67,7 +67,9 @@ Sí. Para más información sobre los intervalos de direcciones IP públicas, co
 Sí. Para más información, consulte los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Los espacios de direcciones de las subredes no pueden superponerse entre sí.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>¿Hay alguna restricción en el uso de direcciones IP dentro de estas subredes?
-Sí. Azure reserva 5 direcciones IP dentro de cada subred. Las direcciones IP primera y última de cada subred están reservadas para la conformidad de los protocolos, junto con las direcciones x.x.x.1-x.x.x.3 de cada subred, que se usan para los servicios de Azure.
+Sí. Azure reserva 5 direcciones IP dentro de cada subred. Estos son x.x.x.0-x.x.x.3 y la última dirección de la subred.    
+- x.x.x.0 y la última dirección de la subred está reservada para la conformidad con el protocolo.
+- x.x.x.1-x.x.x.3 está reservada en cada subred para los servicios de Azure.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>¿Qué tamaños mínimo y máximo pueden tener las redes virtuales y las subredes?
 La subred más pequeña admitida es /29 y la más grande /8 (mediante definiciones de subred CIDR).
@@ -242,7 +244,7 @@ Los siguientes recursos usan equilibradores de carga básica de lo que significa
 - Puerta de enlace de aplicaciones (v1) SKU
 - Service Fabric
 - SQL MI
-- API Managemenet
+- API Management
 - Servicio de dominio de Active Directory (ADDS)
 - Logic Apps
 - HD Insight
@@ -281,6 +283,9 @@ No. No se admite el emparejamiento transitivo. Se deben emparejar VNETA y VNETC 
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>¿Hay alguna limitación de ancho de banda para las conexiones de emparejamiento?
 No. El emparejamiento de VNET, ya sea local o global, no impone ninguna restricción de ancho de banda. El ancho de banda solo está limitado por el recurso de proceso o de máquina virtual.
+
+### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>¿Cómo puedo solucionar problemas de emparejamiento de redes virtuales?
+Esta es una [Guía de solucionador de problemas] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) para probarlo.
 
 ## <a name="virtual-network-tap"></a>TAP de red virtual
 

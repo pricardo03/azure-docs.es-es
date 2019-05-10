@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791258"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472154"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotección de máquinas virtuales de Azure conmutadas por error en la región principal
 
@@ -68,7 +68,7 @@ Cuando se desencadena un trabajo de reprotección y la máquina virtual de desti
 1. La máquina virtual de destino se apaga en caso de que esté en ejecución.
 2. Si la máquina virtual está usando discos administrados, se crea una copia de los discos originales con el sufijo "-ASRReplica". Los discos originales se eliminan. Las copias de "-ASRReplica" se usan para la replicación.
 3. Si la máquina virtual usa discos no administrados, los discos de datos de la máquina virtual de destino se separan y se usan para la replicación. Se crea una copia del disco del sistema operativo y se adjunta a la máquina virtual. El disco del sistema operativo original se separa y se usa para la replicación.
-4. Solo se sincronizan los cambios entre el disco de origen y el disco de destino. Las copias de seguridad diferenciales se calculan comparando los discos y, a continuación, se transfieren. La actualización tardará unas horas en completarse.
+4. Solo se sincronizan los cambios entre el disco de origen y el disco de destino. Las copias de seguridad diferenciales se calculan comparando los discos y, a continuación, se transfieren. Para buscar la siguiente comprobación de tiempo estimado.
 5. Una vez que finaliza el trabajo de sincronización, comienza la replicación diferencial y se crea un punto de recuperación según la directiva de replicación.
 
 Cuando se desencadena un trabajo de reprotección y la máquina virtual y los discos de destino no existen, ocurre lo siguiente:
@@ -76,6 +76,21 @@ Cuando se desencadena un trabajo de reprotección y la máquina virtual y los di
 2. Si usa discos no administrados en la máquina virtual, los discos de réplica se crean en la cuenta de almacenamiento de destino.
 3. Todos los discos se copian de la región que ha conmutado por error a la nueva región de destino.
 4. Una vez que finaliza el trabajo de sincronización, comienza la replicación diferencial y se crea un punto de recuperación según la directiva de replicación.
+
+#### <a name="estimated-time--to-do-the-reprotection"></a>Tiempo estimado para realizar la reprotección 
+
+En la mayoría de los casos, Azure Site Recovery no replica los datos completos en la región de origen. A continuación se muestran las condiciones que determina la cantidad de datos se replicarán:
+
+1.  Si el origen de datos de la máquina virtual es eliminada, está dañado o inaccesible por algún motivo, como el grupo de recursos cambia o elimina, a continuación, durante la reprotección completa IR se realizará porque no hay ningún dato disponible en la región de origen para usar.
+2.  Si el origen de datos de la máquina virtual es accesible solo copias de seguridad diferenciales se calcula comparando los discos y, a continuación, se transfieren. Compruebe la siguiente tabla para obtener el tiempo estimado 
+
+|** Situación de ejemplo ** | ** Tiempo necesario para volver a proteger ** |
+|--- | --- |
+|Región de origen tiene 1 máquina virtual con discos estándar de 1 TB<br/>-Solo 127 GB se utilizan datos y el resto del disco está vacío<br/>-Tipo de disco es estándar con un rendimiento de 60 MiB/S<br/>-Ningún cambio de datos después de la conmutación por error| Hora aproximada en 45 minutos – 1,5 horas<br/> -Durante la reprotección, Site Recovery se llenará la suma de comprobación de datos completa que le llevarán a 127 GB / 45 MB aproximadamente 45 minutos<br/>-Un tiempo de sobrecarga es necesario para la recuperación del sitio automáticamente la escala que es de 20 a 30 minutos<br/>-No hay cargos de salida |
+|Región de origen tiene 1 máquina virtual con discos estándar de 1 TB<br/>-Solo 127 GB se utilizan datos y el resto del disco está vacío<br/>-Tipo de disco es estándar con un rendimiento de 60 MiB/S<br/>-Los cambios de datos de 45 GB tras la conmutación por error| Tiempo aproximado de 1 horas: 2 horas<br/>-Durante la reprotección, Site Recovery se llenará la suma de comprobación de datos completa que le llevarán a 127 GB / 45 MB aproximadamente 45 minutos<br/>-Tiempo para aplicar los cambios de 45 GB es 45 GB de transferencia / 45 MBps ~ 17 minutos<br/>-Los cargos de salida sería únicamente para datos de 45 GB no para la suma de comprobación|
+ 
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

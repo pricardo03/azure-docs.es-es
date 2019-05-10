@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a7927868a9a4bebc80ec995baefbae4c45d747f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363179"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410476"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Ejemplo 3: Creación de una red perimetral para proteger las redes con un firewall, UDR y NSG
 
@@ -635,7 +635,7 @@ Modifique las variables definidas por el usuario en los archivos según sea nece
 Después de establecer las variables definidas por el usuario, ejecute esta secuencia de comandos:
 
 1. Conexión a una suscripción de Azure
-1. Creación de una cuenta de almacenamiento nueva
+1. Crear una nueva cuenta de almacenamiento
 1. Crear una nueva red virtual y tres subredes, tal como se define en el archivo de configuración de red
 1. Crear cinco máquinas virtuales: un firewall y cuatro máquinas virtuales de Windows Server
 1. Configurar UDR:
@@ -989,7 +989,7 @@ Ejecute este PowerShell script localmente en un internet conectado a PC o servid
 Guarde este archivo XML con la ubicación actualizada. Cambiar el `$NetworkConfigFile` variable en el script completo anterior para vincular al archivo de configuración de red guardada.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

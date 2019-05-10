@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691689"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472041"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -29,7 +29,7 @@ Su instalación se realiza desde Visual Studio con unos pocos clics. Tiene la op
 Para agregar Application Insights al sitio web de ASP.NET, necesita:
 
 - Instale [Visual Studio 2017 para Windows](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
-    - ASP.NET y desarrollo web
+    - Desarrollo de ASP.NET y web (desactive los componentes opcionales)
     - Desarrollo de Azure
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
@@ -101,7 +101,7 @@ En el portal, haga clic en cualquier icono para ver su contenido con mayor detal
 
 [Más información acerca del uso de Application Insights en Azure Portal](../../azure-monitor/app/app-insights-dashboards.md).
 
-## <a name="step-4-publish-your-app"></a>Paso 4: Publicación de la aplicación
+## <a name="step-4-publish-your-app"></a>Paso 4: Publique su aplicación
 Publique su aplicación en el servidor IIS o en Azure. Consulte [Secuencia de métricas en directo](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) para asegurarse de que todo está ejecutándose sin problemas.
 
 La telemetría se crea en el portal de Application Insights, donde puede supervisar las métricas, buscar en la telemetría y configurar los [paneles](../../azure-monitor/app/app-insights-dashboards.md). También puede usar el eficaz [lenguaje de consulta de Kusto](/azure/kusto/query/) para analizar el uso y rendimiento o para buscar eventos concretos.

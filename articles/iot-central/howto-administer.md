@@ -3,17 +3,17 @@ title: Administración de una aplicación de Azure IoT Central | Microsoft Docs
 description: Como administrador, cómo administrar la aplicación de Azure IoT Central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 29ded279e2a76940049c257b954b1dae75f14836
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 87ed31836fcda922b085ec951eb6d9d14542db6a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118908"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467554"
 ---
 # <a name="administer-your-iot-central-application"></a>Administración de la aplicación de IoT Central
 
@@ -26,7 +26,10 @@ Después de crear una aplicación de IoT Central, puede ir a la sección de **Ad
 - Convertir la cuenta de evaluación gratuita en una de pago por uso
 - Exportar datos
 - Administrar la conexión del dispositivo
-- Usar tokens de acceso
+- Usar tokens de acceso para herramientas de desarrollo
+- Personalizar la interfaz de usuario de la aplicación
+- Personalizar los vínculos de ayuda en la aplicación
+- Administrar IoT Central mediante programación
 
 Para tener acceso a la sección **Administración** y poder usarla, debe disponer del rol **Administrador** para la aplicación Azure IoT Central. Si crea una aplicación Azure IoT Central, se le asigna automáticamente el rol **Administrator** para esa aplicación. En la sección [Administración de usuarios](#manage-users) de este artículo se explica en profundidad cómo asignar el rol **Administrador** a otros usuarios.
 
@@ -36,6 +39,8 @@ Para tener acceso a la sección **Administración** y poder usarla, debe dispone
 En la página **Configuración de la aplicación** puede cambiar el nombre y la dirección URL de la aplicación, después, seleccione **Guardar**.
 
 ![Página Configuración de la aplicación](media/howto-administer/image0-a.png)
+
+Si el administrador crea un tema personalizado para su aplicación, esta página incluye una opción para ocultar el **nombre de la aplicación** en la interfaz de usuario. Esto es útil si el logotipo de la aplicación en el tema personalizado incluye el nombre de la aplicación. Para obtener más información, consulte [personalizar Azure IoT Central UI](./howto-customize-ui.md).
 
 > [!Note]
 > Si cambia la dirección URL, la dirección URL anterior la puede tomar otro cliente de Azure IoT Central. En ese caso, usted ya no podrá usarla. Cuando cambie la dirección URL, la dirección antigua ya no funcionará y tendrá que notificar a los usuarios la nueva URL que deben usar.
@@ -50,9 +55,9 @@ Seleccione **copia**. En el cuadro de diálogo, escriba los detalles de la nueva
 
 ![Página Configuración de la aplicación](media/howto-administer/appcopy2.png)
 
-Una vez finalizada correctamente la operación de copia de la aplicación, puede ir a la nueva aplicación que ha creado al copiar la aplicación mediante el vínculo que aparece.
+Una vez finalizada correctamente la operación de copia de la aplicación, puede navegar a la nueva aplicación mediante el vínculo.
 
-![Página Configuración de la aplicación](media/howto-administer/appCopy3.png)
+![Página Configuración de la aplicación](media/howto-administer/appcopy3a.png)
 
 > [!Note]
 > Al copiar una aplicación, también se copia la definición de las reglas y las acciones. Aun así, puesto que los usuarios que tienen acceso a la aplicación original no se copian en la aplicación copiada, tendrá que agregar manualmente los usuarios a las acciones del tipo correo electrónico, para las que los usuarios son un requisito previo. En general, es una buena idea comprobar las reglas y las acciones para garantizar que están actualizadas en la nueva aplicación.
@@ -62,7 +67,7 @@ Una vez finalizada correctamente la operación de copia de la aplicación, puede
 > [!Note]
 > Para eliminar una aplicación, también debe tener permisos para eliminar recursos en la suscripción de Azure que haya elegido al crear la aplicación. Para obtener más información, vea el artículo sobre el [uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-Use el botón **Eliminar** para quitar permanentemente la aplicación de IoT Central. Hacerlo de forma permanente, elimina todos los datos que está asociado con esa aplicación.
+Use el botón **Eliminar** para quitar permanentemente la aplicación de IoT Central. Esta acción elimina permanentemente todos los datos que está asociado con la aplicación.
 
 ## <a name="manage-users"></a>Administrar usuarios
 
@@ -105,11 +110,11 @@ El usuario que crea una aplicación se asigna automáticamente al rol **Administ
 
 ### <a name="application-builder"></a>Generador de aplicaciones
 
-Los usuarios con el rol **Application Builder** (Generador de aplicaciones) pueden hacerlo todo en una aplicación, excepto administrarla. Esto significa que los generadores de pueden crear, editar y eliminar plantillas de dispositivo y dispositivos, administrar conjuntos de dispositivos y ejecutar análisis y trabajos. Los generadores no tienen acceso a la sección **Administración** de la aplicación.
+Los usuarios con el rol **Application Builder** (Generador de aplicaciones) pueden hacerlo todo en una aplicación, excepto administrarla. Los generadores de pueden crear, editar y eliminar los dispositivos y las plantillas de dispositivo, administrar conjuntos de dispositivos y ejecutar trabajos de análisis y. Los generadores no tienen acceso a la sección **Administración** de la aplicación.
 
 ### <a name="application-operator"></a>Operador de aplicaciones
 
-Los usuarios con el rol **Application Operator** (Operador de la aplicación) no puede realizar cambios en las plantillas de dispositivo ni administrar la aplicación. Esto significa que los operadores pueden agregar y eliminar dispositivos, administrar conjuntos de dispositivos y ejecutar análisis y trabajos. Los operadores no tienen acceso a las páginas **Application Builder** (Generador de aplicaciones) ni **Administración**.
+Los usuarios con el rol **Application Operator** (Operador de la aplicación) no puede realizar cambios en las plantillas de dispositivo ni administrar la aplicación. Pueden agregar y eliminar dispositivos, administrar conjuntos de dispositivos y ejecutar trabajos de análisis y los operadores. Los operadores no tienen acceso a las páginas **Application Builder** (Generador de aplicaciones) ni **Administración**.
 
 ## <a name="view-your-bill"></a>Ver la factura
 
@@ -119,8 +124,8 @@ Para ver la factura, vaya a la página **Facturación** en la sección **Adminis
 
 Puede convertir la aplicación de prueba en una de pago por uso. Estas son las diferencias entre estos tipos de aplicaciones.
 
-- Las aplicaciones de **versión de evaluación** son gratuitas durante siete días y luego caducan. Se pueden convertir a pago por uso en cualquier momento antes.
-- Las aplicaciones de **pago por uso** se cobran por dispositivo y los cinco primeros dispositivos son gratuitos.
+- **Versión de prueba** aplicaciones son gratuitas durante siete días antes de que caduquen. Se pueden convertir a pago por uso en cualquier momento antes.
+- **Pago por uso** aplicaciones se cobran por dispositivo, con los cinco primeros dispositivos gratuitos.
 
 Obtenga más información sobre los precios en la [página de precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
@@ -148,15 +153,23 @@ Conecte dispositivos a escala en la aplicación mediante estos certificados y cl
 
 ## <a name="use-access-tokens"></a>Usar tokens de acceso
 
-Genere tokens de acceso para usarlos en las herramientas para desarrolladores. Actualmente hay una herramienta para desarrolladores disponible que es el Explorador de IoT Central para supervisar los mensajes de dispositivo y los cambios de propiedades y la configuración. Más información sobre el [explorador de IoT Central](howto-use-iotc-explorer.md).
+Genere tokens de acceso para usarlos en las herramientas para desarrolladores. Actualmente, la herramienta de desarrollador única disponible es el Explorador de IoT Central para la supervisión de los mensajes de dispositivo y los cambios de propiedades y la configuración. Más información sobre el [explorador de IoT Central](howto-use-iotc-explorer.md).
 
-## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Usar Azure SDK para operaciones de plano de control
+## <a name="customize-your-application"></a>Personalizar la aplicación
 
-Hay paquetes de SDK de Azure Resource Manager SDK de IoT Central disponibles para Node, Python, C#, Ruby, Java y Go. Estas bibliotecas admiten operaciones de plano de control para IoT Central, que permiten crear, enumerar, actualizar o eliminar aplicaciones de IoT Central. También proporcionan aplicaciones auxiliares para tratar con la autenticación y el control de errores específico de cada idioma. 
+Para obtener más información acerca de cómo cambiar los colores e iconos en la aplicación, consulte [personalizar Azure IoT Central UI](./howto-customize-ui.md).
+
+## <a name="customize-help"></a>Personalizar la Ayuda
+
+Para obtener más información acerca de cómo agregar vínculos de ayuda personalizados en la aplicación, consulte [personalizar Azure IoT Central UI](./howto-customize-ui.md).
+
+## <a name="manage-programatically"></a>Administrar mediante programación
+
+Hay paquetes de SDK de Azure Resource Manager SDK de IoT Central disponibles para Node, Python, C#, Ruby, Java y Go. Puede usar estos paquetes para crear, enumerar, actualizar o eliminar las aplicaciones de IoT Central. Los paquetes incluyen aplicaciones auxiliares para administrar la autenticación y control de errores.
 
 Encontrará ejemplos de cómo usar los SDK de Azure Resource Manager en [https://github.com/emgarten/iotcentral-arm-sdk-examples](https://github.com/emgarten/iotcentral-arm-sdk-examples).
 
-Para obtener más información, eche un vistazo a estos paquetes en GitHub.
+Para obtener más información, consulte los siguientes repositorios de GitHub y paquetes:
 
 | Idioma | Repositorio | Paquete |
 | ---------| ---------- | ------- |
@@ -165,7 +178,7 @@ Para obtener más información, eche un vistazo a estos paquetes en GitHub.
 | C# | [https://github.com/Azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) | [https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral](https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral)
 | Ruby | [https://github.com/Azure/azure-sdk-for-ruby](https://github.com/Azure/azure-sdk-for-ruby) | [https://rubygems.org/gems/azure_mgmt_iot_central](https://rubygems.org/gems/azure_mgmt_iot_central)
 | Java | [https://github.com/Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java) | [https://search.maven.org/search?q=a:azure-mgmt-iotcentral](https://search.maven.org/search?q=a:azure-mgmt-iotcentral)
-| Go | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
+| Ir | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

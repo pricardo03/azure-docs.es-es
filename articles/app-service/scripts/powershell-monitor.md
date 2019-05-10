@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: becec6881ccc5c061a0f0e93e697852645f9388f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ac503c4408432da4e2c0c9281ee5cdd6e5d9e984
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115970"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198596"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>Supervisión de una aplicación web con registros de servidor web
 
@@ -53,7 +53,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Crea un plan de App Service, |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Crea una aplicación web. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifica la configuración de una aplicación web. |
-| [Get-AzWebAppMetrics](/powershell/module/az.websites/get-azwebappmetrics) | Obtiene las métricas de una aplicación web. |
+| [Get-AzWebAppMetric](/powershell/module/az.websites/get-azwebappmetric) | Obtiene las métricas de una aplicación web. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

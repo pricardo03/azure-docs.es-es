@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097148"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466507"
 ---
 # <a name="set-up-a-device-template"></a>Configuración de una plantilla de dispositivo
 
@@ -68,10 +68,9 @@ Para agregar una nueva medición de datos de telemetría, seleccione **+ nueva m
 
 > [!NOTE]
 > Los nombres de campo en la plantilla de dispositivo deben coincidir con los nombres de propiedad en el código de dispositivo correspondiente para que la medida de telemetría se muestre en la aplicación cuando se conecte un dispositivo real. Haga lo mismo cuando configure los ajustes, las propiedades del dispositivo y los comandos mientras continúa definiendo la plantilla de dispositivo en las secciones siguientes.
+.png, por ejemplo, puede agregar una nueva medición de datos de telemetría de temperatura:
 
-Por ejemplo, puede agregar una nueva medida de telemetría de temperatura:
-
-| Display Name (Nombre para mostrar)        | Nombre del campo    |  Unidades    | Min   |max|
+| Nombre para mostrar        | Nombre de campo    |  Unidades    | Mín.   |Máx.|
 | --------------------| ------------- |-----------|-------|---|
 | Temperatura         | temp          |  degC     |  0    |100|
 
@@ -92,7 +91,7 @@ Rellene los siguientes campos con los datos del evento: **Display Name** (Nombre
 
 Por ejemplo, puede agregar un nuevo evento denominado **Fan Motor Error**.
 
-| Display Name (Nombre para mostrar)        | Nombre del campo    |  Gravedad predeterminada |
+| Nombre para mostrar        | Nombre de campo    |  Gravedad predeterminada |
 | --------------------| ------------- |-----------|
 | Fan Motor Error     | fanmotorerror |  Error    |
 
@@ -115,7 +114,7 @@ Rellene los siguientes campos con los datos del estado: **Display Name** (Nombre
 
 Por ejemplo, puede agregar un nuevo estado denominado **Fan Mode** que tenga dos valores posibles que el dispositivo puede enviar: **Operating** (En funcionamiento) y **Stopped** (Detenido).
 
-| Display Name (Nombre para mostrar) | Nombre del campo    |  Value 1   | Display Name (Nombre para mostrar) | Value 2    |Display Name (Nombre para mostrar)  | 
+| Nombre para mostrar | Nombre de campo    |  Valor 1   | Nombre para mostrar | Valor 2    |Nombre para mostrar  | 
 | -------------| ------------- |----------- | -------------| -----------| -------------|
 | Fan Mode     | fanmode       |  1         | Operating    |     0      | Stopped      |
 
@@ -142,7 +141,7 @@ La configuración puede tener uno de estos tres estados. El dispositivo notifica
 
 Por ejemplo, puede agregar una nueva configuración de la velocidad del ventilador seleccionando **configuración** y escribir en el nuevo **número** configuración:
 
-| Display Name (Nombre para mostrar)  | Nombre del campo    |  Unidades  | Decimals |Inicial|
+| Nombre para mostrar  | Nombre de campo    |  Unidades  | Decimals |Inicial|
 | --------------| ------------- |---------| ---------|---- |
 | Fan Speed     | fanSpeed      | RPM     | 2        | 0   |
 
@@ -161,7 +160,7 @@ Existen dos categorías de propiedades:
 
 Por ejemplo, puede agregar la última fecha de mantenimiento del dispositivo como una nueva propiedad **Fecha** (una propiedad de la aplicación) en la pestaña **Propiedades**:
 
-| Display Name (Nombre para mostrar)  | Nombre del campo | Valor inicial   |
+| Nombre para mostrar  | Nombre de campo | Valor inicial   |
 | --------------| -----------|-----------------|
 | Última revisión      | lastServiced        | 01/29/2019     |
 
@@ -190,7 +189,7 @@ Puede crear una propiedad de ubicación como una propiedad de la aplicación med
 
 3. Configure los valores de los campos **Display Name** (Nombre para mostrar), **Field Name** (Nombre de campo) y (opcionalmente) **Initial Value** (Valor inicial) de la ubicación.
 
-    | Display Name (Nombre para mostrar)  | Nombre del campo | Valor inicial |
+    | Nombre para mostrar  | Nombre de campo | Valor inicial |
     | --------------| -----------|---------| 
     | Dirección de la instalación | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
@@ -212,9 +211,9 @@ Puede crear una propiedad de ubicación como una propiedad de dispositivo que el
 
 3. Configure el nombre para mostrar y el nombre del campo y seleccione **Ubicación** como tipo de datos:
 
-    | Display Name (Nombre para mostrar)  | Nombre del campo | Tipo de datos |
+    | Nombre para mostrar  | Nombre de campo | Tipo de datos |
     | --------------| -----------|-----------|
-    | Ubicación del dispositivo | deviceLocation | location  |
+    | Ubicación del dispositivo | deviceLocation | ubicación  |
 
    > [!NOTE]
    > Los nombres de campo deben coincidir con los nombres de propiedad en el código de dispositivo correspondiente.
@@ -235,11 +234,11 @@ Los comandos se usan para administrar un dispositivo de forma remota. Permiten a
 
 Por ejemplo, puede agregar un nuevo **Echo** comando seleccionando el **comandos** ficha, a continuación, seleccione **+ nuevo comando**y escriba los detalles del nuevo comando:
 
-| Display Name (Nombre para mostrar)  | Nombre del campo | Tiempo de espera predeterminado | Tipo de datos |
+| Nombre para mostrar  | Nombre de campo | Tiempo de espera predeterminado | Tipo de datos |
 | --------------| -----------|---------------- | --------- |
 | Comando Echo  | echo       |  30             | text      |
 
-![Formulario "Configure Command" (Configurar comando) con detalles del eco](./media/howto-set-up-template/commandsecho.png)
+![Formulario "Configure Command" (Configurar comando) con detalles del eco](./media/howto-set-up-template/commandsecho1.png)
 
 Después de seleccionar **Guardar**, el comando **Eco** aparece como un icono y está listo para usarse en **Device Explorer** una vez que se conecta el dispositivo real. Los nombres de campo del comando deben coincidir con los nombres de propiedad en el código de dispositivo correspondiente para que los comandos se ejecuten correctamente.
 
@@ -255,7 +254,7 @@ El panel es donde puede ir un operador para ver información sobre un dispositiv
 
 Por ejemplo, puede agregar un icono **Settings and Properties** (Configuración y propiedades) para mostrar una selección de los valores actuales de la configuración y las propiedades; para ello, seleccione la pestaña **Panel** y el icono de la biblioteca:
 
-![El formulario "Configure Device Details" (Configurar detalles del dispositivo) con detalles de la configuración y las propiedades](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+![El formulario "Configure Device Details" (Configurar detalles del dispositivo) con detalles de la configuración y las propiedades](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
 
 Ahora, cuando un operador acceda al panel en **Device Explorer**, verá el icono.
 

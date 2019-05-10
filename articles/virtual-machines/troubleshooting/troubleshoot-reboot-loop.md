@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 032bc1b9c4b1b0e3bf8040ed52bf4db65ba7b6c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c97b1da094b759ccf85f310ceec4c7abfd91b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318992"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472289"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Bucle de reinicio de Windows en una máquina virtual de Azure
 En este artículo se describe el bucle de reinicio que puede experimentar en una máquina virtual (VM) Windows en Microsoft Azure.
@@ -102,6 +102,8 @@ Para resolver este problema, [haga una copia de seguridad del disco del sistema 
 Restaure la máquina virtual a la última configuración válida conocida, siga los pasos que se indican en [Cómo iniciar la VM en Windows Azure con la última configuración válida conocida](https://support.microsoft.com/help/4016731/).
 
 ### <a name="solution-for-cause-3"></a>Solución para la causa 3
+>[!NOTE]
+>El siguiente procedimiento solo debe usarse como último recurso. Aunque la restauración desde regback puede restaurar el acceso a la máquina, el sistema operativo no se considera estable puesto que hay una pérdida de datos en el registro entre la marca de tiempo del subárbol y el día actual. Debe crear una nueva máquina virtual y planear una migración de los datos.
 
 1. Una vez que el disco esté conectado a una máquina virtual de solución de problemas, asegúrese de que el disco aparece marcado como **En línea** en la consola de administración de discos.
 
@@ -113,5 +115,4 @@ Restaure la máquina virtual a la última configuración válida conocida, siga 
 
 5. [Cree una nueva máquina virtual desde el disco del sistema operativo](../windows/create-vm-specialized.md).
 
->[!NOTE]
->El siguiente procedimiento solo debe usarse como último recurso. Aunque la restauración desde regback puede restaurar el acceso a la máquina, el sistema operativo no se considera estable puesto que hay una pérdida de datos en el registro entre la marca de tiempo del subárbol y el día actual. Debe crear una nueva máquina virtual y planear una migración de los datos.
+

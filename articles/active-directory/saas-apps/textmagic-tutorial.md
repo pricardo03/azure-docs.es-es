@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 66d0d791e4f32fc0828d400db7b59d836d221aee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c919d02a72565f42c125e6d123b48e2cedaea508
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261809"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407975"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Tutorial: Integración de Azure Active Directory con TextMagic
 
@@ -116,10 +116,10 @@ Para configurar el inicio de sesión único de Azure AD con TextMagic, realice l
 
     | NOMBRE |   Atributo de origen| Espacio de nombres  |
     | --------------- | --------------- | --------------- |
-    | company | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | firstName               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | lastName            | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | phone               | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | company | user.companyname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstName               | user.givenname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastName            | user.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | phone               | user.telephonenumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
      a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.

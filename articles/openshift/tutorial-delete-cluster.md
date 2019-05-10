@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
 ms.date: 05/06/2019
-ms.openlocfilehash: ce4142bdcdfb7a9ab687bb60dca91d6aab00c7bd
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 679be645f3c97d30df65c9f410d286d243bca73b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079420"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466575"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-cluster"></a>Tutorial: Eliminación de un clúster de Red Hat OpenShift en Azure
 
@@ -78,4 +78,4 @@ En esta parte del tutorial, ha aprendido a:
 > [!div class="checklist"]
 > * Eliminación de un clúster de Red Hat OpenShift en Azure
 
-Más información sobre cómo usar OpenShift con la [documentación oficial de Red Hat OpenShift](https://access.redhat.com/documentation/openshift_dedicated/3/)
+Más información sobre cómo usar OpenShift con la [documentación oficial de Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html)

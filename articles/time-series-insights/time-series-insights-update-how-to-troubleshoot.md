@@ -8,26 +8,26 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ab3c680f7279ff78e0319f28f67c1cc8c203b47
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e4a63bfd4e82147fe3324e146f2aaff8889da87e
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708020"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472332"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnóstico y solución de problemas
 
 Este artículo resume varios problemas comunes que pueden surgir al trabajar con el entorno de la versión preliminar de Azure Time Series Insights. El artículo también describe posibles causas y soluciones para cada problema.
 
-## <a name="problem-i-cant-find-my-environment-in-the-time-series-insights-preview-explorer"></a>Problema: No encuentro mi entorno en el explorador de la versión preliminar de Time Series Insights
+## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Problema: No se encuentra mi entorno en el Explorador de vista previa
 
 Este problema puede producirse si no tiene los permisos necesarios para acceder al entorno de Time Series Insights. El usuario necesita un rol de acceso de nivel lector para ver su entorno de Time Series Insights. Para comprobar los niveles de acceso actuales y conceder acceso adicional, visite la sección de directivas de acceso de datos en el recurso de Time Series Insights en [Azure Portal](https://portal.azure.com/).
 
-  ![Entorno][1]
+  [![Entorno](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
 
-## <a name="problem-no-data-is-seen-in-the-time-series-insights-preview-explorer"></a>Problema: No se ve ningún dato en el explorador de la versión preliminar de Time Series Insights
+## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: se ve ningún dato en el Explorador de vista previa
 
 Hay varias razones que pueden impedirle ver sus datos en el [explorador de la versión preliminar de Azure Time Series Insights](https://insights.timeseries.azure.com/preview).
 
@@ -35,7 +35,7 @@ Hay varias razones que pueden impedirle ver sus datos en el [explorador de la ve
 
     Compruebe que el origen del evento, que es un centro de eventos o un centro de IoT, está recibiendo datos de las etiquetas o las instancias. Para comprobarlo, vaya a la página de información general de Azure Portal.
 
-    ![Panel con las conclusiones][2]
+    [![Información de los paneles](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
 
 - Los datos de origen del evento no tienen formato JSON.
 
@@ -45,12 +45,12 @@ Hay varias razones que pueden impedirle ver sus datos en el [explorador de la ve
 
   * Para IoT Hub, debe proporcionar la clave con el permiso de **conexión de servicio**.
 
-    ![Configuración][3]
+    [![Configuración](media/v2-update-diagnose-and-troubleshoot/configuration.png)](media/v2-update-diagnose-and-troubleshoot/configuration.png#lightbox)
 
   * Tal como se muestra en la imagen anterior, servirían las directivas **iothubowner** o **service**, dado que ambas tienen permiso de **conexión del servicio**.
   * Para una instancia de Event Hubs, debe proporcionar la clave con el permiso de **escucha**.
   
-    ![Permisos][4]
+    [![Permisos](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
 
   * Como se muestra en la imagen anterior, servirían las directivas **read** o **manage**, dado que ambas tienen permiso de **escucha**.
 
@@ -62,7 +62,7 @@ Hay varias razones que pueden impedirle ver sus datos en el [explorador de la ve
 
     Este problema puede producirse si la propiedad Time Series ID se configura incorrectamente en el momento de aprovisionamiento del entorno. Para más información, consulte [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) (Procedimientos recomendados para elegir un identificador de Time Series). En la actualidad, no se puede actualizar un entorno de Time Series Insights existente para usar un identificador de Time Series distinto.
 
-## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: Se muestran algunos datos, pero faltan otros
+## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: algunos datos se muestra, pero algunos falta
 
 Podría estar enviando datos sin el identificador de Time Series.
 
@@ -73,7 +73,7 @@ Podría estar enviando datos sin el identificador de Time Series.
     > [!NOTE]
     > En este momento, Time Series Insights admite una tasa máxima de ingesta de 6 Mbps.
 
-## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problema: Mi configuración de nombre de propiedad Timestamp del origen de eventos no funciona
+## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problema: el nombre de propiedad de marca de tiempo de mi origen de evento no funciona
 
 Asegúrese de que el nombre y el valor se ajustan a las reglas siguientes:
 
@@ -88,34 +88,26 @@ La manera más fácil de asegurarse de que el nombre de la propiedad Timestamp s
 
 Si no se especifica explícitamente la propiedad Timestamp, se utiliza como marca de tiempo predeterminado la hora de puesta en cola de un centro de IoT o centro de eventos de un evento.
 
-## <a name="problem-i-cant-edit-or-view-my-time-series-model"></a>Problema: No puedo editar o ver mi modelo de Times Series
+## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>Problema: No se puede ver o editar mi modelo de serie temporal
 
 - Puede que esté accediendo a un entorno Time Series Insights S1 o S2.
 
    Los modelos de Time Series solo se admiten en entornos PAYG (pago por uso). Para más información sobre cómo acceder a su entorno S1/S2 desde el explorador de versión preliminar de Time Series Insights, consulte [Visualización de datos en el explorador](./time-series-insights-update-explorer.md).
 
-   ![Access][5]
+   [![Acceso](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
 
 - Puede que no tenga permisos para ver y editar el modelo.
 
    Los usuarios necesitan acceso de nivel de colaborador para editar y ver su modelo de Time Series. Para comprobar los niveles de acceso actuales y conceder acceso adicional, visite la sección de directivas de acceso de datos en el recurso de Time Series Insights en Azure Portal.
 
-## <a name="problem-all-my-instances-in-the-time-series-insights-preview-explorer-dont-have-a-parent"></a>Problema: Todas mis instancias en el explorador de versión preliminar de Time Series Insights no tienen un elemento primario
+## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problema: todas las instancias de mi en el Explorador de vista previa no tienen un elemento primario
 
 Este problema puede producirse si el entorno no tiene una jerarquía de modelo de Time Series definida. Para más información, consulte el [trabajo con modelos de Time Series](./time-series-insights-update-how-to-tsm.md).
 
-  ![Modelos de Time Series][6]
+  [![Modelos de serie temporal](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Lea el artículo sobre [trabajo con modelos de Time Series](./time-series-insights-update-how-to-tsm.md).
 
 - Obtenga información sobre [admite formas de JSON](./how-to-shape-query-json.md).
-
-<!-- Images -->
-[1]: media/v2-update-diagnose-and-troubleshoot/environment.png
-[2]: media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png
-[3]: media/v2-update-diagnose-and-troubleshoot/configuration.png
-[4]: media/v2-update-diagnose-and-troubleshoot/permissions.png
-[5]: media/v2-update-diagnose-and-troubleshoot/access.png
-[6]: media/v2-update-diagnose-and-troubleshoot/tsm.png

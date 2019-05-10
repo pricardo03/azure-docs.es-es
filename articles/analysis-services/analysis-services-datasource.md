@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327146"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506811"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -25,12 +25,12 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 |---------|---------|---------|
 |Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   Sí      |    Sí      |
 |Azure SQL Data Warehouse     |   Sí      |   Sí       |
-|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   Sí       |    Sin       |
-|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   Sí       |    Sin       |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sí        |  Sin         |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sí       |    Sin       |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sí     |   Sin        |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sí       |   Sin        |
+|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   Sí       |    No      |
+|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   Sí       |    No      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sí        |  No        |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Sí       |    No      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Sí     |   No       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Sí       |   No       |
 ||||
 
 <a name="tab1400a">1</a>: Tabular 1400 y modelos posteriores solamente.   
@@ -52,7 +52,7 @@ Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, 
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Proveedor OLE DB de Microsoft para SQL Server, Proveedor de datos .NET Framework para SQL Server | Proveedor de datos .NET Framework para SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, Proveedor OLE DB de Microsoft para SQL Server, Proveedor de datos .NET Framework para SQL Server | Proveedor de datos .NET Framework para SQL Server |
-| Oracle |Proveedor OLE DB de Microsoft para Oracle, Proveedor de datos de Oracle para .NET |Proveedor de datos de Oracle para .NET |
+| Oracle | Proveedor OLE DB para Oracle, proveedor de datos de Oracle para .NET |Proveedor de datos de Oracle para .NET |
 | Teradata |Proveedor OLE DB para Teradata, Proveedor de datos de Teradata para .NET |Proveedor de datos de Teradata para .NET |
 | | | |
 

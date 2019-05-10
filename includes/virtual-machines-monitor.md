@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473983"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65405012"
 ---
 Puede sacar provecho de numerosas oportunidades para supervisar las máquinas virtuales recopilando, viendo y analizando datos de registro y de diagnóstico. Para llevar a cabo una [supervisión](../articles/azure-monitor/overview.md) sencilla de una máquina virtual, puede usar la pantalla Información general correspondiente en Azure Portal. Puede usar [extensiones](../articles/virtual-machines/windows/extensions-features.md) a fin de configurar los diagnósticos en las máquinas virtuales para recopilar datos de métricas adicionales. También puede usar opciones de supervisión más avanzadas, como [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) y [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -23,7 +23,7 @@ Puede configurar y supervisar la recopilación de [datos de diagnóstico](https:
 
     Cuando las máquinas virtuales arrancan, el agente de los diagnósticos de arranque captura la salida del arranque y la almacena en Azure Storage. Estos datos se pueden utilizar para solucionar los problemas de arranque de la máquina virtual. Los diagnósticos de arranque no se habilitan automáticamente al crear una máquina virtual mediante las herramientas de línea de comandos. Antes de habilitar los diagnósticos de arranque, es preciso crear una cuenta de almacenamiento para almacenar los registros de arranque. Si habilita el diagnóstico de arranque en Azure Portal, se crea automáticamente una cuenta de almacenamiento.
 
-    Si no habilitó el diagnóstico de arranque cuando se creó la máquina virtual, siempre puede habilitarlo más adelante con la [CLI de Azure](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostics) o una [plantilla de Azure Resource Manager](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
+    Si no habilitó el diagnóstico de arranque cuando se creó la máquina virtual, siempre puede habilitarlo más adelante con la [CLI de Azure](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostic) o una [plantilla de Azure Resource Manager](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
 
 - **Habilitar la recopilación de datos de diagnóstico del sistema operativo invitado.** Cuando se crea una máquina virtual, en la pantalla de configuración tiene la oportunidad de habilitar los diagnósticos del sistema operativo invitado. Cuando habilita la recopilación de datos de diagnóstico, la [extensión IaaSDiagnostics para Linux](../articles/virtual-machines/linux/diagnostic-extension.md) o la [extensión IaaSDiagnostics para Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) se agregan a la máquina virtual, lo que le permite recopilar más datos de disco, CPU y memoria.
 

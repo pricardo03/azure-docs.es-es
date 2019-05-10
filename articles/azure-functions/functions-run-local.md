@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 14990cd4a066c126b5e4d498c5a109dac1b8820a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 55c5a61be8dadd538b73bd6378c030b98d837341
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65140935"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508226"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -43,7 +43,7 @@ A menos que se indique lo contrario, los ejemplos de este artículo son para la 
 La versión 2.x de las herramientas usa el entorno en tiempo de ejecución 2.x de Azure Functions, que se basa en .NET Core. Esta versión se admite en todas las plataformas que admiten .NET Core 2.x, incluidas [Windows](#windows-npm), [macOS](#brew) y [Linux](#linux). En primer lugar debe instalar el SDK de .NET Core 2.x.
 
 > [!IMPORTANT]
-> Cuando se habilita paquetes de extensión en el archivo del proyecto host.json, no es necesario instalar .NET Core SDK 2.x. Para obtener más información, consulte [desarrollo Local con Azure Functions Core Tools y agrupaciones de extensión ](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Paquetes de extensión requiere la versión 2.6.1071 de las herramientas básicas, o una versión posterior.
+> Cuando se habilita paquetes de extensión en el archivo del proyecto host.json, no es necesario instalar .NET Core SDK 2.x. Para obtener más información, consulte [desarrollo Local con Azure Functions Core Tools y agrupaciones de extensión ](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Los conjuntos de extensiones requieren la versión 2.6.1071 de Core Tools o una versión posterior.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -193,13 +193,7 @@ El archivo local.settings.json almacena la configuración de la aplicación, las
 | **`CORS`** | Define los orígenes permitidos para el [uso compartido de recursos entre orígenes (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Los orígenes se proporcionan en una lista de valores separados por comas y sin espacios. Se admite el valor comodín (\*), lo que permite realizar solicitudes desde cualquier origen. |
 | **`ConnectionStrings`** | No utilice esta colección para las cadenas de conexión que utilizan los enlaces de función. Esta colección solo se usa por marcos de trabajo que normalmente se obtienen las cadenas de conexión desde el `ConnectionStrings` sección de configuración de una archivo, como [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Las cadenas de conexión de este objeto se agregan al entorno con el tipo de proveedor de [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Los elementos de esta colección no se publican en Azure con otra configuración de aplicación. Debe agregar explícitamente estos valores para el `Connection strings` colección de la configuración de function app. Si está creando un [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) en el código de función, debe almacenar el valor de cadena de conexión **configuración de la aplicación** en el portal con las otras conexiones. |
 
-Esta configuración de la aplicación de función también se puede leer en el código como variables de entorno. Para más información, consulte la sección Variables de entorno de estos temas de referencia específicos del lenguaje:
-
-* [C# precompilado](functions-dotnet-class-library.md#environment-variables)
-* [Script de C# (.csx)](functions-reference-csharp.md#environment-variables)
-* [Script de F# (.fsx)](functions-reference-fsharp.md#environment-variables)
-* [Java](functions-reference-java.md#environment-variables)
-* [JavaScript](functions-reference-node.md#environment-variables)
+[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
 Cuando no se establece ninguna cadena de conexión de almacenamiento válida para [ `AzureWebJobsStorage` ] y no se usa el emulador, se muestra el mensaje de error siguiente:
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 51e0f6b7162c9bfa6c34f091bdce2b896bd5e284
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e5f16fa42e86442f6600e375df343f3b6369986
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688967"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190383"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Inicio rápido: Configuración del inicio de sesión en una aplicación de una sola página mediante Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) B2C proporciona administración de identidades
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
 - Instalar [Node.js](https://nodejs.org/en/download/)
 - Una cuenta de redes sociales de Facebook, Google, Microsoft o Twitter.
 - [Descargue un archivo zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clone la aplicación web de ejemplo desde GitHub.
@@ -82,7 +82,12 @@ Puede usar el inquilino de Azure AD B2C si tiene previsto leer otros tutoriales 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha utilizado una aplicación de página única para iniciar sesión con una página de inicio de sesión personalizada, iniciar sesión con un proveedor de identidades de redes sociales, crear una cuenta de Azure AD B2C y llamar a una API web protegida por Azure AD B2C. 
+En este inicio rápido, ha utilizado una aplicación de una página única de ejemplo para lo siguiente:
+
+* Iniciar sesión con una página de inicio de sesión personalizada
+* Iniciar sesión con un proveedor de identidades de redes sociales
+* Crear una cuenta de Azure AD B2C
+* Llamar a una API web protegida por Azure AD B2C
 
 Empiece a crear su propio inquilino de Azure AD B2C.
 

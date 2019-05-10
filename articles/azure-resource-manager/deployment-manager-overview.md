@@ -12,14 +12,14 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550927"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466553"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Habilite prácticas de implementación segura con Azure Deployment Manager (versión preliminar privada)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilite prácticas de desarrollo seguro con Azure Deployment Manager (versión preliminar)
 
 Para implementar un servicio en varias regiones y asegurarse de que se ejecuta según lo previsto en todas ellas, puede usar Azure Deployment Manager para coordinar su lanzamiento por fases. Igual que haría en cualquier implementación de Azure, los recursos del servicio se definen en las [plantillas de Resource Manager](resource-group-authoring-templates.md). Después de crear las plantillas, use Deployment Manager para describir la topología del servicio y cómo se debe lanzar.
 
@@ -119,7 +119,7 @@ En el siguiente ejemplo se muestra el formato general del recurso de la topolog�
 
 Para más información, consulte la [referencia de la plantilla serviceTopologies](/azure/templates/Microsoft.DeploymentManager/serviceTopologies).
 
-### <a name="services"></a>Services
+### <a name="services"></a>Servicios
 
 En el siguiente ejemplo se muestra el formato general del recurso de los servicios. En cada servicio, especifique la ubicación y el identificador de la suscripción de Azure que se usan para implementar el servicio. Para realizar la implementación en varias regiones, defina un servicio para cada una de ellas. El servicio depende de la topología del servicio.
 
@@ -200,7 +200,9 @@ En la plantilla de lanzamiento, cree un origen de artefacto para los archivos bi
 
 ### <a name="steps"></a>Pasos
 
-Puede definir que se realice un paso antes o después de la operación de implementación. Actualmente, solo está disponible el paso `wait`. El paso de espera detiene la implementación antes de continuar. Permite comprobar que el servicio se ejecuta según lo esperado antes de implementar la siguiente unidad de servicio. En el siguiente ejemplo se muestra el formato general de un paso de espera.
+Puede definir que se realice un paso antes o después de la operación de implementación. Actualmente, solo el `wait` paso y el 'healthCheck' están disponibles. 
+
+El paso de espera detiene la implementación antes de continuar. Permite comprobar que el servicio se ejecuta según lo esperado antes de implementar la siguiente unidad de servicio. En el siguiente ejemplo se muestra el formato general de un paso de espera.
 
 ```json
 {
@@ -219,7 +221,7 @@ Puede definir que se realice un paso antes o después de la operación de implem
 
 La propiedad duration usa el [estándar ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). El ejemplo anterior especifica una espera un minuto.
 
-Para más información, consulte la [referencia de la plantilla de pasos](/azure/templates/Microsoft.DeploymentManager/steps).
+Para obtener más información sobre el paso de comprobación de mantenimiento, consulte [ ]() y [ ]() para obtener más información, consulte [los pasos de referencia de plantilla](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Lanzamientos
 

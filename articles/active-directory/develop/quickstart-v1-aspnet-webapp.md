@@ -1,6 +1,6 @@
 ---
 title: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET | Microsoft Docs
-description: Obtenga información acerca de cómo agregar inicio de sesión de Microsoft en una solución ASP.NET con una aplicación basada en un explorador web tradicional mediante el estándar OpenID Connect.
+description: Obtenga información sobre cómo agregar inicio de sesión de Microsoft en una solución ASP.NET con una aplicación basada en un explorador web tradicional mediante el estándar OpenID Connect.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -16,18 +16,18 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548566"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191041"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-En esta guía de inicio rápido, obtendrá información acerca de cómo implementar el inicio de sesión con Microsoft mediante una solución MVC de ASP.NET con una aplicación basada en explorador web tradicional mediante OpenID Connect. Obtendrá información acerca de cómo habilitar los inicios de sesión de cuentas profesionales y educativas en la aplicación ASP.NET.
+En este inicio rápido, obtendrá información sobre cómo implementar el inicio de sesión con Microsoft mediante una solución MVC de ASP.NET con una aplicación basada en explorador web tradicional mediante OpenID Connect. Obtendrá información acerca de cómo habilitar los inicios de sesión de cuentas profesionales y educativas en la aplicación ASP.NET.
 
 Al final de esta guía de inicio rápido, la aplicación aceptará inicios de sesión de cuentas profesionales y educativas de organizaciones que se han integrado con Azure Active Directory (Azure AD).
 
@@ -38,15 +38,15 @@ Al final de esta guía de inicio rápido, la aplicación aceptará inicios de se
 
 Para comenzar, asegúrese de que cumple estos requisitos previos:
 
-* Tener instalado Visual Studio 2015 Update 3 o Visual Studio 2017. ¿No lo tiene? [Descargue Visual Studio 2017 de manera gratuita](https://www.visualstudio.com/downloads/)
+* Tener instalado Visual Studio 2015 Update 3 o Visual Studio 2019. ¿No lo tiene? [Descargar Visual Studio 2019 de manera gratuita](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Escenario: realice el inicio sesión de los usuarios desde cuentas profesionales y educativas en la aplicación ASP.NET
 
 ![Funcionamiento de esta guía](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
-En este escenario, un explorador tiene acceso a un sitio web ASP.NET y solicita a un usuario la autenticación mediante un botón de inicio de sesión. En esa situación, la mayoría del trabajo para representar la página web se produce en el servidor.
+Un explorador tiene acceso a un sitio web ASP.NET y solicita a un usuario la autenticación mediante un botón de inicio de sesión. En esa situación, la mayoría del trabajo para representar la página web se produce en el servidor.
 
-En esta guía de inicio rápido se muestra cómo iniciar sesión de los usuarios en una aplicación web ASP.NET a partir de una plantilla vacía e incluye pasos como la adición de un botón de inicio de sesión y cada controlador y método, a la vez que se discuten algunos conceptos relacionados con estas tareas. De manera alternativa, también puede crear un proyecto para iniciar sesión de los usuarios de Azure AD (cuentas profesionales y educativas) mediante el uso de la [plantilla web de Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) y la selección de **cuentas de organización** y, luego, una de las opciones de la nube. Esta opción usa una plantilla enriquecida, con controladores, métodos y vistas adicionales.
+El inicio rápido muestra cómo los usuarios inician sesión en una aplicación web ASP.NET a partir de una plantilla vacía. También incluye pasos para agregar un botón de inicio de sesión y cada controlador y métodos. Además, se explican los conceptos inherentes a estas tareas. También puede crear un proyecto para iniciar sesión de los usuarios de Azure AD (cuentas profesionales y educativas) mediante el uso de la [plantilla web de Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) y la selección de **cuentas de organización** y, luego, una de las opciones de la nube. Esta opción usa una plantilla enriquecida, con controladores, métodos y vistas adicionales.
 
 ## <a name="libraries"></a>Bibliotecas
 
@@ -158,7 +158,7 @@ Este controlador muestra los usos del atributo `[Authorize]` para proteger un co
 1. Seleccione **Controlador MVC {version}: vacío**.
 1. Seleccione **Agregar**.
 1. Asígnele el nombre **ClaimsController**.
-1. Reemplace el código de la clase de controlador por el código siguiente; el atributo `[Authorize]` se agrega a la clase:
+1. Reemplace el código de la clase de controlador por el código siguiente; en este ejemplo se agrega el atributo `[Authorize]` a la clase:
 
     [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
@@ -196,7 +196,7 @@ En Visual Studio, cree otra vista para mostrar las notificaciones del usuario en
 4. Copie la dirección URL de SSL del proyecto en el Portapapeles:<br/><br/>![Propiedades del proyecto](./media/quickstart-v1-aspnet-webapp/visual-studio-project-properties.png)<br />
 5. En <code>web.config</code>, reemplace <code>Enter_the_Redirect_URL_here</code> por la dirección URL de SSL del proyecto.
 
-### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Registre la aplicación en Azure Portal y, luego, agregue su información a *web.config*
+### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Registre la aplicación en Azure Portal y, luego, agregue su información a *web.config*.
 
 1. Vaya a [Microsoft Azure Portal: registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) para registrar una aplicación.
 2. Seleccione **Nuevo registro de aplicaciones**.
@@ -216,9 +216,9 @@ Puede configurar la aplicación para que solo permita que los usuarios que perte
 
 ### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>Configure la aplicación para que permita inicios de sesión de cuentas profesionales y educativas de cualquier empresa u organización (multiinquilino)
 
-Siga estos pasos si desea aceptar inicios de sesión de cuentas profesionales y educativas de cualquier empresa u organización que se integró con Azure AD. Este es un escenario común para las *aplicaciones de SaaS*:
+Siga estos pasos si desea aceptar inicios de sesión de cuentas profesionales y educativas de cualquier empresa u organización que se integró con Azure AD. La imprevisibilidad es habitual entre las *aplicaciones SaaS*:
 
-1. Vuelva a [Microsoft Azure Portal: registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) y ubique la aplicación que acaba de registrar.
+1. Vuelva a [Microsoft Azure Portal: registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) y localice la aplicación que acaba de registrar.
 2. En **Todas las configuraciones**, seleccione **Propiedades**.
 3. Cambio la propiedad **Multiinquilino** a **Sí** y, a continuación, seleccione **Guardar**.
 
@@ -238,7 +238,7 @@ Para solo permitir usuarios de una lista de organizaciones específicas, siga es
 1. Establezca `ValidateIssuer` en true.
 1. Use el parámetro `ValidIssuers` para especificar una lista de organizaciones.
 
-Otra posibilidad es implementar un método personalizado para validar los emisores con el parámetro *IssuerValidator*. Para más información sobre `TokenValidationParameters`, consulte [este artículo de MSDN](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "artículo de MSDN sobre TokenValidationParameters").
+Otra posibilidad es implementar un método personalizado para validar los emisores con el parámetro *IssuerValidator*. Para obtener más información sobre `TokenValidationParameters`, consulte [este artículo de MSDN](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "artículo de MSDN sobre TokenValidationParameters").
 
 <!--end-configure-->
 

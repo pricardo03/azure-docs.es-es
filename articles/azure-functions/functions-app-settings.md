@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 573e6ea857ef17a6160f7e03f52f9c64f903530a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d78fb546e954c4ae12e5836d9a7bef7ed5003090
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347521"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511071"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -177,7 +177,7 @@ Los valores válidos son una dirección URL que se resuelve en la ubicación de 
 
 De forma predeterminada, las proxies de Functions usarán accesos directos para enviar llamadas de API desde servidores proxy directamente a funciones en la misma instancia de Function App, en lugar de crear una nueva solicitud HTTP. Esta configuración le permite deshabilitar este comportamiento.
 
-|Clave|Value|DESCRIPCIÓN|
+|Clave|Valor|DESCRIPCIÓN|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Las llamadas con una dirección URL de back-end que señala a una instancia de Function App local ya no se enviarán directamente a la función y, en su lugar, se dirigirán al front-end HTTP para la instancia de Function App.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este es el valor predeterminado. Las llamadas con una dirección URL de back-end que señale a una instancia de Function App local se reenviarán directamente a esa función.|
@@ -187,7 +187,7 @@ De forma predeterminada, las proxies de Functions usarán accesos directos para 
 
 Esta opción de configuración controla si se descodifica %2F como barras diagonales en los parámetros de ruta cuando se insertan en la URL del back-end. 
 
-|Clave|Value|DESCRIPCIÓN|
+|Clave|Valor|DESCRIPCIÓN|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Los parámetros de ruta con barras diagonales codificadas los descodificarán. `example.com/api%2ftest` se convertirá en `example.com/api/test`|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Este es el comportamiento predeterminado. Todos los parámetros de ruta se pasarán sin cambios|
@@ -217,7 +217,7 @@ Este es un ejemplo de proxies.json en una aplicación de función en la direcci�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Obtenga información acerca de cómo actualizar la configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Obtenga información acerca de cómo actualizar la configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings)
 
 [Consulte la configuración global en el archivo host.json](functions-host-json.md)
 

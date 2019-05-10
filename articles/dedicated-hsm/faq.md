@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 5/8/2019
 ms.author: barclayn
-ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118985"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467735"
 ---
 # <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 
@@ -233,7 +233,7 @@ Microsoft no puede conectarse a los módulos HSM asignados a los clientes. Los c
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>P: ¿Qué ocurre si necesito reiniciar mi HSM?
 
- Lo HSM tiene una opción de reinicio de la línea de comandos y se debe tener en cuenta que debe usarse la opción "reinicio de hardware". Si se produce un error por algún motivo, presente una solicitud de soporte técnico con Microsoft y que podemos tener el dispositivo que se reinicia físicamente. 
+HSM tiene una opción de reinicio de la línea de comandos, sin embargo, se están experimentando problemas de falta de respuesta de reinicio de forma intermitente y por este motivo, se recomienda para el más seguro, reinicie que genera una solicitud de soporte técnico con Microsoft para que el dispositivo que se reinicia físicamente. 
 
 ## <a name="cryptography-and-standards"></a>Criptografía y estándares
 

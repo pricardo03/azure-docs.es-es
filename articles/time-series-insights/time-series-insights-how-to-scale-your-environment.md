@@ -10,23 +10,22 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: fcdfc78a62d901bdaf50c18e9286e6f2d30c5b13
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f7d9827b11136370bcb401073a4d9cc4871c1cc9
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714136"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472785"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Escalado de su entorno de Time Series Insights
 
-En este artículo se describe cómo cambiar la capacidad de su entorno en el entorno de Azure Time Series Insights a través de Azure Portal. La capacidad es el multiplicador que se aplica a la tasa de entrada, la capacidad de almacenamiento y el costo asociado a la SKU seleccionada. 
+En este artículo se describe cómo cambiar la capacidad de su entorno en el entorno de Azure Time Series Insights a través de Azure Portal. La capacidad es el multiplicador que se aplica a la tasa de entrada, la capacidad de almacenamiento y el costo asociado a la SKU seleccionada.
 
-Puede usar Azure Portal para aumentar o disminuir la capacidad en una SKU de precios determinada. 
+Puede usar Azure Portal para aumentar o disminuir la capacidad en una SKU de precios determinada.
 
-Sin embargo, el plan de tarifa de la SKU no se puede cambiar. Por ejemplo, un entorno con una SKU de precios de S1 no se puede convertir en una de S2 o viceversa. 
-
+Sin embargo, el plan de tarifa de la SKU no se puede cambiar. Por ejemplo, un entorno con una SKU de precios de S1 no se puede convertir en una de S2 o viceversa.
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>Capacidades y tasas de entrada de SKU de S1
 
@@ -45,19 +44,20 @@ Sin embargo, el plan de tarifa de la SKU no se puede cambiar. Por ejemplo, un en
 Las capacidades se escalan linealmente, por lo que una SKU de S1 con capacidad 2 admite una velocidad de entrada de 2 GB (2 millones) de eventos al día y 60 GB (60 millones de eventos) al mes.
 
 ## <a name="change-the-capacity-of-your-environment"></a>Cambio de la capacidad del entorno
-1. En Azure Portal, localice y seleccione el entorno de Time Series Insights. 
 
-2. En el menú de su entorno de Time Series Insights, seleccione **Configurar**.
+1. En Azure Portal, localice y seleccione el entorno de Time Series Insights.
 
-   ![configure.png](media/scale-your-environment/configure.png)
+1. En el menú de su entorno de Time Series Insights, seleccione **Configurar**.
 
-3. Utilice el control deslizante **Capacidad** para seleccionar la que cumpla los requisitos para la velocidad de entrada y la capacidad de almacenamiento. Tenga en cuenta la **velocidad de entrada**, **la capacidad de almacenamiento** y las actualizaciones de la **estimación de costos** dinámicamente para mostrar el efecto del cambio. 
+   [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
 
-   ![Control deslizante](media/scale-your-environment/slider.png)
+1. Utilice el control deslizante **Capacidad** para seleccionar la que cumpla los requisitos para la velocidad de entrada y la capacidad de almacenamiento. Tenga en cuenta la **velocidad de entrada**, **la capacidad de almacenamiento** y las actualizaciones de la **estimación de costos** dinámicamente para mostrar el efecto del cambio.
 
-   También puede escribir número del multiplicador de capacidad en el cuadro de texto de la derecha del control deslizante. 
+   [![Control deslizante](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
 
-4. Seleccione **Guardar** para escalar el entorno. El indicador de progreso se muestra hasta que el cambio se confirma, un tiempo breve. 
+   También puede escribir número del multiplicador de capacidad en el cuadro de texto de la derecha del control deslizante.
+
+1. Seleccione **Guardar** para escalar el entorno. El indicador de progreso se muestra hasta que el cambio se confirma, un tiempo breve.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,54 +1,57 @@
 ---
 title: Protección de puntos de conexión público de instancia administrada, Azure SQL Database instancia administrada | Microsoft Docs
-description: Usar puntos de conexión públicos de forma segura en Azure con instancia administrada
+description: Usar puntos de conexión públicos de forma segura en Azure con una instancia administrada
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
 ms.topic: conceptual
-author: WenJason
-ms.author: v-jay
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: vanto, carlrab
-manager: digimobile
-origin.date: 04/16/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 9d5a3d18e8a7d3c5a6cb08e16e74dd4fbda9ca31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: craigg
+ms.date: 05/08/2019
+ms.openlocfilehash: f06677b66c8f6586fec8cc5dfe97b1515b741e9c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61315059"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470304"
 ---
-# <a name="using-azure-sql-database-managed-instance-securely-with-public-endpoint"></a>Con Azure SQL Database administra la instancia de forma segura con el punto de conexión público
+# <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>Usar una instancia administrada de Azure SQL Database de forma segura con puntos de conexión públicos
 
-Se pudo habilitar la instancia administrada para proporcionar conectividad de usuario a través de Azure SQL Database [punto de conexión público](../virtual-network/virtual-network-service-endpoints-overview.md). Este artículo proporcionan instrucciones para hacer esta configuración más segura.
+Las instancias administradas pueden proporcionar conectividad de usuario a través de Azure SQL Database [puntos de conexión públicos](../virtual-network/virtual-network-service-endpoints-overview.md). En este artículo se explica cómo realizar esta configuración más segura.
 
 ## <a name="scenarios"></a>Escenarios
 
-Instancia administrada proporciona un punto de conexión privado para habilitar la conectividad desde dentro de su red virtual. La opción predeterminada es proporcionar aislamiento máximo. Sin embargo, hay escenarios donde se necesita una conexión de punto de conexión público:
+Una instancia administrada de SQL Database proporciona un punto de conexión privada para permitir la conectividad desde dentro de su red virtual. La opción predeterminada es proporcionar aislamiento máximo. Sin embargo, hay escenarios donde es necesario proporcionar una conexión de punto de conexión público:
 
-- Integración con ofertas de varios inquilinos sola PaaS.
-- Rendimiento máximo mayor de intercambio de datos mediante VPN.
+- La instancia administrada debe integrarse con multi-tenant solo plataforma como servicio (PaaS) las ofertas.
+- Necesita un mayor rendimiento de intercambio de datos que es posible cuando se usa una VPN.
 - Las directivas de empresa prohíben PaaS dentro de las redes corporativas.
 
-## <a name="deploying-managed-instance-for-public-endpoint-access"></a>Implementar instancia administrada para el acceso de punto de conexión público
+## <a name="deploy-a-managed-instance-for-public-endpoint-access"></a>Implementar una instancia administrada para el acceso de punto de conexión público
 
-Aunque no es obligatorio, es el modelo de implementación comunes para una instancia administrada con acceso de punto de conexión público crear la instancia en una red virtual aislada dedicada. En esta configuración, la red virtual se usa solo para el aislamiento de clúster virtual. No es relevante si el espacio de direcciones IP de instancia administrada se superpone con un espacio de direcciones IP de red corporativa.
+Aunque no es obligatorio, es el modelo de implementación comunes para una instancia administrada con acceso de punto de conexión público crear la instancia en una red virtual aislada dedicada. En esta configuración, la red virtual se usa solo para el aislamiento de clúster virtual. No importa si el espacio de direcciones IP de la instancia administrada se superpone con el espacio de direcciones IP de la red corporativa.
 
-## <a name="securing-data-in-motion"></a>Proteger los datos en movimiento
+## <a name="secure-data-in-motion"></a>Proteger los datos en movimiento
 
-Siempre se cifra el tráfico de datos de instancia administrada si el controlador cliente admite el cifrado. Los datos entre la instancia administrada y otras máquinas virtuales de Azure o servicios de Azure nunca abandona la red troncal de Azure. Si hay una instancia administrada a una conexión de red local, se recomienda usar Expressroute con emparejamiento de Microsoft. Expressroute le ayudará a evitar mover datos a través de Internet pública (conectividad privada de la instancia administrada, solo emparejamiento privado puede usarse).
+Siempre se cifra el tráfico de datos de instancia administrada si el controlador cliente admite el cifrado. Datos enviados entre la instancia administrada y otras máquinas virtuales o servicios de Azure nunca abandonan la red troncal de Azure. Si hay una conexión entre la instancia administrada y una red local, se recomienda que usar Azure ExpressRoute con emparejamiento de Microsoft. ExpressRoute le ayuda a evitar mover datos a través de internet pública. Para conectividad privada de la instancia administrada, se puede usar solo emparejamiento privado.
 
-## <a name="locking-down-inbound-and-outbound-connectivity"></a>Bloquear la conectividad entrante y saliente
+## <a name="lock-down-inbound-and-outbound-connectivity"></a>Bloquear la conectividad entrante y saliente
 
-El siguiente diagrama muestra las configuraciones de seguridad recomendada.
+El siguiente diagrama muestra las configuraciones de seguridad recomendadas:
 
-![managed-instance-vnet.png](media/sql-database-managed-instance-public-endpoint-securely/managed-instance-vnet.png)
+![Configuraciones de seguridad para bloquear la conectividad entrante y saliente](media/sql-database-managed-instance-public-endpoint-securely/managed-instance-vnet.png)
 
-Instancia administrada tiene un [dirección de punto de conexión público dedicada](sql-database-managed-instance-find-management-endpoint-ip-address.md). Esta dirección IP debe establecerse en el firewall de salida del lado cliente y las reglas del grupo de seguridad de red para limitar la conectividad de salida.
+Una instancia administrada tiene un [dirección de punto de conexión público dedicada](sql-database-managed-instance-find-management-endpoint-ip-address.md). En el firewall de salida del lado cliente y en las reglas del grupo de seguridad de red, establezca esta dirección IP de punto de conexión público para limitar la conectividad de salida.
 
-Para asegurarse de que el tráfico a la instancia administrada es procedentes de orígenes de confianza, se recomienda conectarse desde orígenes con direcciones IP conocidas. Limitar el acceso para el punto de conexión público de instancia administrada en el puerto 3342 mediante un grupo de seguridad de red.
+Para asegurarse de que el tráfico a la instancia administrada es procedentes de orígenes de confianza, se recomienda conectarse desde orígenes con direcciones IP conocidas. Usar un grupo de seguridad de red para limitar el acceso para el punto de conexión público de instancia administrada en el puerto 3342.
 
-Cuando los clientes deben iniciar una conexión desde una red local, asegúrese de que la dirección de origen se convierte en un conjunto conocido de direcciones IP. Si no se puede lograr que (por ejemplo, los trabajadores móviles que se va a un escenario típico), se recomienda para usar [Point-to-site VPN conexiones y un punto de conexión privada](sql-database-managed-instance-configure-p2s.md).
+Cuando los clientes deben iniciar una conexión desde una red local, asegúrese de que la dirección de origen se convierte en un conjunto conocido de direcciones IP. Si no puede hacerlo (por ejemplo, un recurso móvil que se va a un escenario típico), se recomienda usar [conexiones VPN de punto a sitio y un punto de conexión privada](sql-database-managed-instance-configure-p2s.md).
 
-Si se inician las conexiones de Azure, se recomienda que el tráfico procede conocido asignado [VIP](../virtual-network/virtual-networks-reserved-public-ip.md) (por ejemplo, máquinas virtuales). Para facilitar la administración de direcciones IP virtuales, los clientes podría usar [prefijo de dirección IP pública](../virtual-network/public-ip-address-prefix.md).
+Si se inician las conexiones de Azure, se recomienda que el tráfico que proviene de una cuenta conocida asignada [dirección IP virtual](../virtual-network/virtual-networks-reserved-public-ip.md) (por ejemplo, una máquina virtual). Para facilitar la administración de direcciones IP virtuales (VIP) sea más fácil, es posible que desee usar [prefijos de direcciones IP públicos](../virtual-network/public-ip-address-prefix.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Aprenda a configurar el punto de conexión público para administrar instancias: [Configurar el punto de conexión público](sql-database-managed-instance-public-endpoint-configure.md)

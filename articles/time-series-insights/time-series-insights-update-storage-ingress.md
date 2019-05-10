@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: fe6848caad7cdac98d6717b7cea4860e7ce2db8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725724"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405714"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights
 
@@ -51,7 +51,7 @@ Time Series Insights eligió Parquet porque proporciona compresión de datos efi
 
 Para entender mejor el formato de archivo Parquet, consulte la [documentación de Parquet](https://parquet.apache.org/documentation/latest/).
 
-## <a name="event-structure-in-parquet"></a>Estructura de los eventos en Parquet
+### <a name="event-structure-in-parquet"></a>Estructura de los eventos en Parquet
 
 Time Series Insights crea blobs y almacena copias suyas en los siguientes formatos:
 
@@ -79,18 +79,18 @@ Los eventos de Time Series Insights se asignan al contenido de los archivos Parq
 
 ## <a name="partitions"></a>Particiones
 
-Cada entorno de versión preliminar de Time Series Insights debe tener una propiedad Time Series ID y una Timestamp que la identifiquen en exclusiva. Time Series ID actúa como partición lógica para los datos y le otorga al entorno de la versión preliminar de Time Series Insights un límite natural de distribución de datos entre las particiones físicas. La versión preliminar de Time Series Insights administra la partición física en una cuenta de almacenamiento de Azure.
+Cada entorno de tiempo de vista previa de la información de serie debe tener un **Id. de serie de tiempo** propiedad y un **Timestamp** propiedad que identificar de forma exclusiva. Time Series ID actúa como partición lógica para los datos y le otorga al entorno de la versión preliminar de Time Series Insights un límite natural de distribución de datos entre las particiones físicas. La versión preliminar de Time Series Insights administra la partición física en una cuenta de almacenamiento de Azure.
 
 Time Series Insights usa la creación dinámica de particiones para abandonar y volver a crear particione y así optimizar el rendimiento de las consultas y del almacenamiento. El algoritmo de creación de particiones de la versión preliminar de Time Series Insights intenta evitar que una partición física contenga datos de distintas particiones lógicas, individuales y múltiples. En otras palabras, mantiene todos los datos específicos de una Time Series ID individual únicamente en los archivos Parquet, sin que se intercale con otras propiedades de este tipo. El algoritmo de creación de particiones dinámico también intenta conservar el orden original de los eventos de una propiedad Time Series ID individual.
 
 Inicialmente, en el momento de la entrada, datos se dividen por la marca de tiempo para que una partición lógica individual de un intervalo de tiempo determinado pueda distribuirse entre varias particiones físicas. Una partición física individual también puede contener varias particiones lógicas, incluso todas. Por las limitaciones de tamaño de los blobs, aunque la división sea óptima, una partición lógica individual puede ocupar varias físicas.
 
 > [!NOTE]
-> De forma predeterminada, el valor de Timestamp es el mensaje *Enqueued Time* del origen del evento configurado. 
+> De forma predeterminada, el valor de Timestamp es el mensaje *Enqueued Time* del origen del evento configurado.
 
 Al cargar datos históricos o mensajes en lote, asigne el valor que desee almacenar con los datos en la propiedad Timestamp y que se asigne a la marca de tiempo correspondiente. La propiedad Timestamp distingue mayúsculas y minúsculas. Para más información, consulte [Time Series Model](./time-series-insights-update-tsm.md) (Modelo de Time Series).
 
-## <a name="physical-partitions"></a>Particiones físicas
+### <a name="physical-partitions"></a>Particiones físicas
 
 Una partición física es un blob en bloques que se almacena en la cuenta de almacenamiento. El tamaño real de los blobs puede variar, porque el tamaño depende de la velocidad de inserción. Sin embargo, se espera que los blobs tengan un tamaño aproximado de 20 MB a 50 MB. Dentro de este rango, el equipo de Time Series Insights eligió el tamaño de 20 MG para optimizar el rendimiento de las consultas. Este tamaño puede cambiar con el tiempo, dependiendo del tamaño de archivo y la velocidad de entrada de los datos.
 
@@ -99,7 +99,7 @@ Una partición física es un blob en bloques que se almacena en la cuenta de alm
 > * En ocasiones, los blobs de Azure se abandonan y se vuelven a crear para dividirse y así mejorar su rendimiento.
 > * Además, los mismos datos de Time Series Insights pueden presentarse en dos o más blobs.
 
-## <a name="logical-partitions"></a>Particiones lógicas
+### <a name="logical-partitions"></a>Particiones lógicas
 
 Una partición lógica es aquella dentro de una partición física que almacena todos los datos asociados a un valor de clave de partición única. La versión preliminar de Time Series Insights divide lógicamente cada blob en función de dos propiedades:
 
@@ -110,9 +110,9 @@ La versión preliminar de Time Series Insights ofrece consultas eficientes basad
 
 Es importante seleccionar una propiedad Time Series ID adecuada, porque es una propiedad inmutable. Para más información, consulte el artículo sobre la [elección de Time Series ID](./time-series-insights-update-how-to-id.md).
 
-## <a name="your-azure-storage-account"></a>Su cuenta de almacenamiento de Azure
+## <a name="azure-storage"></a>Almacenamiento de Azure
 
-### <a name="storage"></a>Almacenamiento
+### <a name="your-storage-account"></a>La cuenta de almacenamiento
 
 Al crear un entorno de Time Series Insights de pago por uso, se crean dos recursos: un entorno de Time Series Insights y una cuenta de uso general V1 de Azure Storage donde almacenar los datos. Hemos optado por que la cuenta de uso general V1 de Azure Storage sea el recurso predeterminado por su interoperabilidad, precio y rendimiento. 
 
@@ -132,37 +132,25 @@ Quizá desee acceder a los datos almacenados en el explorador de la versión pre
 
 En general, se puede acceder a los datos de tres maneras:
 
-* Desde el explorador de la versión preliminar de Time Series Insights.
-* Desde las API de la versión preliminar de Time Series Insights.
-* Directamente desde una cuenta de almacenamiento de Azure.
-
-#### <a name="from-the-time-series-insights-preview-explorer"></a>Desde el explorador de la versión preliminar de Time Series Insights
-
-Exporte los datos como archivo .csv desde el explorador de la versión preliminar de Time Series Insights. Para más información, consulte el artículo sobre el [Explorador de la versión preliminar de Time Series Insights](./time-series-insights-update-explorer.md).
-
-#### <a name="from-the-time-series-insights-preview-apis"></a>Desde las API de la versión preliminar de Time Series Insights
-
-En `/getRecorded` se encuentra el punto de conexión de la API. Para más información acerca de esta API, consulte el artículo sobre las [Consultas en Time Series](./time-series-insights-update-tsq.md).
+* Desde el Explorador de vista previa en tiempo Series Insights: puede exportar los datos como un archivo CSV desde el Explorador de vista previa en tiempo Series Insights. Para más información, consulte el artículo sobre el [Explorador de la versión preliminar de Time Series Insights](./time-series-insights-update-explorer.md).
+* Desde la API de vista previa de información de serie temporal: se puede alcanzar el punto de conexión de API en `/getRecorded`. Para más información acerca de esta API, consulte el artículo sobre las [Consultas en Time Series](./time-series-insights-update-tsq.md).
+* Directamente desde una cuenta de almacenamiento de Azure (abajo).
 
 #### <a name="from-an-azure-storage-account"></a>Desde una cuenta de almacenamiento de Azure
 
 * Para acceder a los datos de Time Series Insights necesita acceso de lectura en la cuenta que vaya a utilizar para ello. Para más información, consulte el artículo sobre la [Administración del acceso a los recursos de la cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
-
 * Para más información sobre los métodos directos para leer datos de Azure Blob Storage, consulte el artículo sobre el [Movimiento de datos hacia y desde la cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
 * Para exportar datos desde una cuenta de almacenamiento de Azure:
-
     * En primer lugar, asegúrese de que la cuenta cumple los requisitos necesarios para la exportación. Para más información, consulte el artículo de [Requisitos de importación y exportación de Storage](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
-
     * Para información sobre otras maneras de exportar datos desde la cuenta de almacenamiento de Azure, consulte el artículo sobre la [Importación y exportación de datos desde los blobs](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs).
 
 ### <a name="data-deletion"></a>Eliminación de datos
 
 No elimine los blobs, ya que la versión preliminar de Time Series Insights conserva metadatos de ellos.
 
-## <a name="ingress"></a>Entrada
+## <a name="time-series-insights-data-ingress"></a>Entrada de datos de tiempo Series Insights
 
-### <a name="time-series-insights-ingress-policies"></a>Directivas de entrada de Time Series Insights
+### <a name="ingress-policies"></a>Directivas de entrada
 
 La versión preliminar admite los mismos orígenes de eventos y tipos de archivos que los que Time Series Insights admite actualmente.
 
@@ -184,7 +172,7 @@ En la versión preliminar de Time Series Insights se indexan los datos mediante 
 
 > [!IMPORTANT]
 > * La versión de disponibilidad general (GA) de Time Series Insights hará que los datos estén disponibles en un plazo de 60 segundos tras alcanzarse un origen de eventos. 
-> * Durante la versión preliminar, los datos tardarán más en estar disponibles. 
+> * Durante la versión preliminar, los datos tardarán más en estar disponibles.
 > * Si experimenta una latencia significativa, póngase en contacto con nosotros.
 
 ### <a name="scale"></a>Escala

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/25/2019
-ms.openlocfilehash: 265ed220b023a9d81fc5af48920152d95d9cac08
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136686"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467448"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Cree su primera aplicación sin servidor con Azure Logic Apps y Azure Functions (Visual Studio)
 
@@ -34,6 +34,7 @@ Para crear una aplicación sin servidor en Visual Studio se necesitan estos elem
 
     > [!IMPORTANT]
     > Al instalar Visual Studio de 2019 o 2017, asegúrese de que selecciona la carga de trabajo **desarrollo de Azure**.
+    > Para Visual Studio 2019, Cloud Explorer puede abrir el Diseñador de aplicación lógica en Azure Portal, pero aún no se puede abrir el Diseñador de aplicación lógica insertado.
 
   * [Microsoft Azure SDK para .NET (2.9.1 o una versión posterior)](https://azure.microsoft.com/downloads/). 
   Más información sobre [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
@@ -110,7 +111,7 @@ Para poder abrir la aplicación lógica con el Diseñador de aplicaciones lógic
 
 1. Si no está seleccionada, seleccione su suscripción de Azure y el grupo de recursos en el que desee realizar la implementación. Elija **Implementar**.
 
-   ![Configuración de implementación](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
+   ![Configuración de la implementación](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
 
 1. Si aparece el cuadro **Editar parámetros**, especifique el nombre de recurso que va a usar para la aplicación lógica y la aplicación de función de Azure en la implementación y guarde la configuración. Asegúrese de que usa un nombre globalmente único para la aplicación de función.
 

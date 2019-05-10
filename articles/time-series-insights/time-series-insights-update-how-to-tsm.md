@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: df94290c5e62b898b6490c78ef0ae1ee79437240
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1c8886cada80c02e99782159099aa626da35fc50
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716951"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466633"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelado de datos en la versión preliminar de Azure Time Series Insights
 
@@ -29,12 +29,12 @@ Para obtener más información acerca de cómo usar la actualización, lea [Azur
 
 1. Vaya al panel de selección de los modelos de serie temporal y seleccione **Types** (Tipos) en el menú. Contraiga el panel para centrarse en los tipos de modelos de serie temporal.
 
-    ![Portal_one][1]
+    [![Crear un tipo único](media/v2-update-how-to-tsm/portal_one.png)](media/v2-update-how-to-tsm/portal_one.png#lightbox)
 
 1. Seleccione **Agregar**.
 1. Escriba todos los detalles referentes a los tipos y seleccione **Create** (Crear). Esta acción crea tipos en el entorno.
 
-    ![Portal_two][2]
+    [![Agregar un tipo](media/v2-update-how-to-tsm/portal_two.png)](media/v2-update-how-to-tsm/portal_two.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-types"></a>Carga en bloque de uno o más tipos
 
@@ -42,19 +42,21 @@ Para obtener más información acerca de cómo usar la actualización, lea [Azur
 1. Seleccione el archivo que contiene el tipo de carga útil.
 1. Seleccione **Cargar**.
 
-    ![Portal_three][3]
+    [![Carga de JSON](media/v2-update-how-to-tsm/portal_three.png)](media/v2-update-how-to-tsm/portal_three.png#lightbox)
 
 ### <a name="edit-a-single-type"></a>Editar un solo tipo
 
-Seleccione el tipo y seleccione **Edit** (Editar). Realice los cambios necesarios y seleccione **Save** (Guardar).
+1. Seleccione el tipo y seleccione **Edit** (Editar). 
+1. Realice los cambios necesarios y seleccione **Save** (Guardar).
 
-![Portal_four][4]
+    [![Editar un tipo](media/v2-update-how-to-tsm/portal_four.png)](media/v2-update-how-to-tsm/portal_four.png#lightbox)
 
 ### <a name="delete-a-type"></a>Eliminar un tipo
 
-Seleccione el tipo y **Delete** (Eliminar). Si no hay instancias asociadas a los tipos, este se elimina.
+1. Seleccione el tipo y **Delete** (Eliminar).
+1. Si no hay instancias asociadas a los tipos, este se elimina.
 
-![Portal_five][5]
+    [![Eliminar un tipo](media/v2-update-how-to-tsm/portal_five.png)](media/v2-update-how-to-tsm/portal_five.png#lightbox)
 
 ## <a name="hierarchies"></a>Jerarquías
 
@@ -62,19 +64,19 @@ Seleccione el tipo y **Delete** (Eliminar). Si no hay instancias asociadas a los
 
 1. Vaya al panel de selección de los modelos de serie temporal y seleccione **Hierarchies** (Jerarquías) en el menú. Contraiga el panel para centrarse en las jerarquías de modelos de serie temporal.
 
-    ![Portal_six][6]
+    [![Seleccionar las jerarquías](media/v2-update-how-to-tsm/portal_six.png)](media/v2-update-how-to-tsm/portal_six.png#lightbox)
 
 1. Seleccione **Agregar**.
 
-    ![Portal_seven][7]
+    [![Agregar una jerarquía](media/v2-update-how-to-tsm/portal_seven.png)](media/v2-update-how-to-tsm/portal_seven.png#lightbox)
 
 1. Seleccione **Add Level** (Agregar nivel) en el panel derecho.
 
-    ![Portal_eight][8]
+    [![Agregar un nivel](media/v2-update-how-to-tsm/portal_eight.png)](media/v2-update-how-to-tsm/portal_eight.png#lightbox)
 
 1. Escriba los detalles de la jerarquía y seleccione **Create** (Crear).
 
-    ![Portal_nine][9]
+    [![Crear un nivel](media/v2-update-how-to-tsm/portal_nine.png)](media/v2-update-how-to-tsm/portal_nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Carga en bloque de una o más jerarquías
 
@@ -82,19 +84,21 @@ Seleccione el tipo y **Delete** (Eliminar). Si no hay instancias asociadas a los
 1. Seleccione el archivo que contiene la carga útil de la jerarquía.
 1. Seleccione **Cargar**.
 
-    ![Portal_ten][10]
+    [![Jerarquías de carga masiva](media/v2-update-how-to-tsm/portal_ten.png)](media/v2-update-how-to-tsm/portal_ten.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>Editar una sola jerarquía
 
-Seleccione la jerarquía y seleccione **Edit** (Editar). Realice los cambios necesarios y seleccione **Save** (Guardar).
+1. Seleccione la jerarquía y seleccione **Edit** (Editar).
+1. Realice los cambios necesarios y seleccione **Save** (Guardar).
 
-![Portal_eleven][11]
+    [![Editar una sola jerarquía](media/v2-update-how-to-tsm/portal_eleven.png)](media/v2-update-how-to-tsm/portal_eleven.png#lightbox)
 
 ### <a name="delete-a-hierarchy"></a>Eliminar una jerarquía
 
-Seleccione la jerarquía y seleccione **Delete** (Eliminar). Si no hay instancias asociadas a la jerarquía, esta se elimina.
+1. Seleccione la jerarquía y seleccione **Delete** (Eliminar). 
+1. Si no hay instancias asociadas a la jerarquía, esta se elimina.
 
-![Portal_twelve][12]
+    [![Eliminar una jerarquía](media/v2-update-how-to-tsm/portal_twelve.png)](media/v2-update-how-to-tsm/portal_twelve.png#lightbox)
 
 ## <a name="instances"></a>Instancias
 
@@ -102,11 +106,11 @@ Seleccione la jerarquía y seleccione **Delete** (Eliminar). Si no hay instancia
 
 1. Vaya al panel de selección de los modelos de serie temporal y seleccione **Instances** (Instancias) en el menú. Contraiga el panel para centrarse en las instancias de modelos de serie temporal.
 
-    ![Portal_thirteen][13]
+    [![Creación de una sola instancia](media/v2-update-how-to-tsm/portal_thirteen.png)](media/v2-update-how-to-tsm/portal_thirteen.png#lightbox)
 
 1. Seleccione **Agregar**.
 
-    ![Portal_fourteen][14]
+    [![Agregar una instancia](media/v2-update-how-to-tsm/portal_fourteen.png)](media/v2-update-how-to-tsm/portal_fourteen.png#lightbox)
 
 1. Escriba los detalles de la instancia, seleccione la asociación de tipo y de jerarquía y seleccione **Create** (Crear).
 
@@ -115,19 +119,16 @@ Seleccione la jerarquía y seleccione **Delete** (Eliminar). Si no hay instancia
 1. Seleccione **Upload JSON** (Cargar JSON).
 1. Seleccione el archivo que contiene la carga útil de la instancia.
 
-    ![Portal_fifteen][15]
+    [![Una o varias instancias de carga masiva](media/v2-update-how-to-tsm/portal_fifteen.png)](media/v2-update-how-to-tsm/portal_fifteen.png#lightbox)
 
 1. Seleccione **Cargar**.
 
 ### <a name="edit-a-single-instance"></a>Editar una sola instancia
 
-Seleccione la instancia y seleccione **Edit** (Editar). Realice los cambios necesarios y seleccione **Save** (Guardar).
+1. Seleccione la instancia y seleccione **Edit** (Editar). 
+1. Realice los cambios necesarios y seleccione **Save** (Guardar).
 
-![Portal_sixteen][16]
-
-### <a name="delete-an-instance"></a>Eliminar una instancia
-
-Seleccione la instancia y seleccione **Delete** (Eliminar). Si no hay eventos asociados a las instancias, esta se elimina.
+    [![Editar una sola instancia](media/v2-update-how-to-tsm/portal_sixteen.png)](media/v2-update-how-to-tsm/portal_sixteen.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -136,21 +137,3 @@ Seleccione la instancia y seleccione **Delete** (Eliminar). Si no hay eventos as
 - Para obtener más información acerca de la versión preliminar, lea [Visualize data in the Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) (Visualizar datos en el explorador de la versión preliminar de Azure Time Series Insights).
 
 - Para obtener información sobre las formas JSON admitidas, consulte [Supported JSON shapes](./time-series-insights-send-events.md#json) (Formas JSON admitidas).
-
-<!-- Images -->
-[1]: media/v2-update-how-to-tsm/portal_one.png
-[2]: media/v2-update-how-to-tsm/portal_two.png
-[3]: media/v2-update-how-to-tsm/portal_three.png
-[4]: media/v2-update-how-to-tsm/portal_four.png
-[5]: media/v2-update-how-to-tsm/portal_five.png
-[6]: media/v2-update-how-to-tsm/portal_six.png
-[7]: media/v2-update-how-to-tsm/portal_seven.png
-[8]: media/v2-update-how-to-tsm/portal_eight.png
-[9]: media/v2-update-how-to-tsm/portal_nine.png
-[10]: media/v2-update-how-to-tsm/portal_ten.png
-[11]: media/v2-update-how-to-tsm/portal_eleven.png
-[12]: media/v2-update-how-to-tsm/portal_twelve.png
-[13]: media/v2-update-how-to-tsm/portal_thirteen.png
-[14]: media/v2-update-how-to-tsm/portal_fourteen.png
-[15]: media/v2-update-how-to-tsm/portal_fifteen.png
-[16]: media/v2-update-how-to-tsm/portal_sixteen.png

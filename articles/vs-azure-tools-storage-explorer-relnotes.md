@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: c6416e36d7d2723577ca0d2009fb7bbad24f3b6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 18c52a47c291181547a9005c273dc1a329b8c207
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154697"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510966"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de la versión de Explorador de Microsoft Azure Storage
 
@@ -44,7 +44,7 @@ En este artículo encontrará las notas de la versión del Explorador de Azure S
 * Para cargas de AzCopy, ahora está habilitada la marca para calcular y establecer el hash MD5. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
 
 
-### <a name="preview-features"></a>Características de la versión de vista previa
+### <a name="preview-features"></a>Características de vista previa
 
 * Inicio de sesión del flujo de código de dispositivo en ahora está disponible para obtener una vista previa. Para habilitarlo, vaya a "Preview" → "Use dispositivos flujo de inicio de sesión de código". Animamos a los usuarios que han tenido problemas con en blanco inicio de sesión de windows para probar esta característica, tal como puede demostrar que es una forma más confiable de inicio de sesión.
 * Explorador de almacenamiento integrado con AzCopy está disponible actualmente en vista previa. Para habilitarlo, vaya a "Preview" → "Use AzCopy para mejorado Blob cargar y descargar". Transferencias de BLOB que se ha completado con AzCopy deben ser más rápidas y más eficaz.
@@ -82,7 +82,7 @@ En este artículo encontrará las notas de la versión del Explorador de Azure S
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Ejecuta el Explorador de Storage en Linux requiere ciertas dependencias que deben instalarse primero. Comprobar el Explorador de Storage [Guía de solución](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) para obtener más información.
+* Ejecuta el Explorador de Storage en Linux requiere ciertas dependencias que deben instalarse primero. Comprobar el Explorador de Storage [Guía de solución](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) para obtener más información.
 
 ## <a name="previous-releases"></a>Versiones anteriores
 
@@ -135,7 +135,7 @@ En este artículo encontrará las notas de la versión del Explorador de Azure S
 * Ahora puede cambiar el propietario y el grupo propietario al administrar el acceso a un contenedor de ADLS Gen2, archivo o carpeta.
 * En Windows, la actualización desde el Explorador de almacenamiento dentro del producto ahora es una instalación incremental. Esto debería producir una experiencia de actualización más rápida. Si prefiere una instalación limpia, a continuación, puede descargar el [instalador](https://azure.microsoft.com/features/storage-explorer/) usted mismo y, a continuación, instale manualmente. #1089
 
-### <a name="preview-features"></a>Características de la versión de vista previa
+### <a name="preview-features"></a>Características de vista previa
 
 * Inicio de sesión del flujo de código de dispositivo en ahora está disponible para obtener una vista previa. Para habilitarlo, vaya a "Preview" → "Use dispositivos flujo de inicio de sesión de código". Animamos a los usuarios que han tenido problemas con en blanco inicio de sesión de windows para probar esta característica, tal como puede demostrar que es una forma más confiable de inicio de sesión. #938
 * Explorador de almacenamiento integrado con AzCopy está disponible actualmente en vista previa. Para habilitarlo, vaya a "Preview" → "Use AzCopy para mejorado Blob cargar y descargar". Transferencias de BLOB que se ha completado con AzCopy deben ser más rápidas y más eficaz.
@@ -408,7 +408,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * La interrupción de concesiones ahora solo se puede realizar en un blob en cada momento. Además, debe escribir el nombre del blob cuya concesión está interrumpiendo. Este cambio se realizó para reducir la probabilidad de que una concesión se interrumpiera accidentalmente, especialmente en el caso de máquinas virtuales. #394
 * Si alguna vez se producen problemas de inicio de sesión, ahora puede intentar restablecer la autenticación. Vaya al menú "Ayuda" y haga clic en "Restablecer" para acceder a esta funcionalidad. #419
 
-### <a name="fix"></a>Solución
+### <a name="fix"></a>Corregir
 
 * Después de los comentarios de los usuarios seguros, el nodo de emulador predeterminado se ha vuelto a habilitar. Aún puede agregar conexiones de emulador adicionales a través del cuadro de diálogo Conectar, pero si el emulador está configurado para usar los puertos predeterminados, también puede usar el nodo "Emulator * Default Ports" (Emulador * Puertos predeterminados) bajo "Local & Attached/Storage Accounts" (Locales y conectados/Cuentas de almacenamiento). #669
 * El Explorador de Storage ya no le permitirá establecer los valores de metadatos de blob que tienen un espacio en blanco inicial o final. #760

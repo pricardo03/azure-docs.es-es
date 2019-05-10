@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/07/2019
 ms.author: carlrab
-ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 923e475cd690902c61c2f89578c2c62effe4cd86
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717434"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406582"
 ---
 # <a name="sql-database-release-notes"></a>Notas de la base de datos SQL
 
@@ -25,7 +25,8 @@ En este artículo se enumera las nuevas características y mejoras en el servici
 
 | Característica | Detalles |
 | ---| --- |
-| Trabajos de base de datos elástica | Para obtener información, consulte [crear, configurar y administrar trabajos elásticos](elastic-jobs-overview.md) |
+| Nivel de servicio de informática sin servidor | Para obtener información, consulte [SQL Database sin servidor (versión preliminar)](sql-database-serverless.md).|
+| Trabajos de base de datos elásticos | Para obtener información, consulte [crear, configurar y administrar trabajos elásticos](elastic-jobs-overview.md) |
 | Transacciones elásticas | [Transacciones distribuidas en bases de datos en la nube](sql-database-elastic-transactions-overview.md) |
 | Consultas elásticas | Para obtener información, consulte [información general de la consulta elástica](sql-database-elastic-query-overview.md) |
 | Replicación con las instancias administradas |Para obtener información, consulte [configurar la replicación en una base de datos de instancia administrada de Azure SQL Database](replication-with-sql-database-managed-instance.md)|
@@ -45,6 +46,16 @@ En este artículo se enumera las nuevas características y mejoras en el servici
 |SQL Analytics|Para obtener información, consulte [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
 | Compatibilidad de zona horaria para las instancias administradas|Para obtener más información, consulte [zona horaria en la instancia administrada de Azure SQL Database](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="may-2019"></a>Mayo de 2019
+
+### <a name="service-improvements"></a>Mejoras en el servicio
+
+| Mejoras en el servicio | Detalles |
+| --- | --- |
+|Nivel de servicio Hiperescala| Para obtener más información, consulte [a gran escala nivel de servicio para hasta 100 TB](sql-database-service-tier-hyperscale.md).|
+|Nivel de servicio de informática sin servidor| Para obtener más información, consulte [SQL Database sin servidor (versión preliminar)](sql-database-serverless.md).|
+
 
 ## <a name="april-2019"></a>Abril de 2019
 

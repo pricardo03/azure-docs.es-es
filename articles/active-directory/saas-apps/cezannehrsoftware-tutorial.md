@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 949b5b1aaab60e5b1d160963ac3f024dbbfbe552
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc4d96b900090cd217b4b49b1af2f09762c0da84
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834975"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407018"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integración de Azure Active Directory con el software Cezanne HR
 
@@ -156,7 +156,7 @@ Para configurar el inicio de sesión único de Azure AD con Cezanne HR Software,
 
     d. En el cuadro de texto **Security Token Service Endpoint** (Punto de conexión del servicio de token de seguridad), pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    e. En el cuadro de texto User ID Attribute Name (Nombre de atributo de Id. de usuario), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    e. En el cuadro de texto User ID Attribute Name (Nombre de atributo de Id. de usuario), escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     f. Para cargar el certificado descargado de Azure Portal, haga clic en **Upload** (Cargar).
 

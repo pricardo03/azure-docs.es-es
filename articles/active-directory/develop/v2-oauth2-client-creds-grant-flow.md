@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3073d34a6ffeadd1c1c0022b5c1636f06cc6210a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: df75d692bc61d155b35f5ce4e2bf08da6e4cbcc3
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190831"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507103"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0
 
@@ -116,7 +116,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | `tenant` | Obligatorio | El inquilino de directorio al que quiere solicitar permiso. Puede estar en formato de nombre descriptivo o GUID. Si no sabe a qué inquilino pertenece el usuario y desea permitirle iniciar sesión con cualquier inquilino, use `common`. |
 | `client_id` | Obligatorio | El **Id. de aplicación (cliente)** que la [Azure portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) experiencia asignado a la aplicación. |
 | `redirect_uri` | Obligatorio | El URI de redireccionamiento adonde desea que se envíe la respuesta para que la controle la aplicación. Debe coincidir exactamente con uno de los URI de redireccionamiento que registró en el portal, con la excepción de que debe estar codificado como dirección URL y puede tener segmentos de trazado adicionales. |
-| `state` | Recomendado | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
+| `state` | Recomendada | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
 
 En este momento, Azure AD exige solo un administrador de inquilinos puede firmar en completar la solicitud. Se pedirá al administrador que apruebe todos los permisos de aplicación directos que solicitó para la aplicación en el portal de registro de aplicaciones.
 
@@ -251,7 +251,7 @@ Una respuesta de error tiene el aspecto siguiente:
 | `correlation_id` | Un identificador único de la solicitud para ayudar con los diagnósticos entre componentes. |
 
 > [!NOTE]
-> Puede actualizar el archivo de manifiesto de la aplicación del portal de azure para su aplicación poder recibir el token de v2. Puede agregar el atributo `accessTokenAcceptedVersion` y establezca el valor en 2 como `"accessTokenAcceptedVersion": 2`. Consulte el artículo [manifiesto de aplicación](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-reference) para más información sobre el mismo. De forma predeterminada, la aplicación actualmente recibe un token de v1. Si esto no se define dentro del manifiesto de aplicación o Web API, que el valor de este atributo en el manifiesto predeterminado es 1 y, por tanto, la aplicación recibe el token de v1.  
+> Puede actualizar el archivo de manifiesto de la aplicación del portal de azure para su aplicación poder recibir el token de v2. Puede agregar el atributo `accessTokenAcceptedVersion` y establezca el valor en 2 como `"accessTokenAcceptedVersion": 2`. Consulte el artículo [manifiesto de aplicación](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) para más información sobre el mismo. De forma predeterminada, la aplicación actualmente recibe un token de v1. Si esto no se define dentro del manifiesto de aplicación o Web API, que el valor de este atributo en el manifiesto predeterminado es 1 y, por tanto, la aplicación recibe el token de v1.  
 
 
 ## <a name="use-a-token"></a>Uso de un token

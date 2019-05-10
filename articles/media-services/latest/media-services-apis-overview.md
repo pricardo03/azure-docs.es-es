@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b80f11ef97a10728f07cebe1fe80b954e506da52
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147892"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406548"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desarrollo con Media Services API v3
 
@@ -25,7 +25,11 @@ En este artículo se describe las reglas que se aplican a las entidades y las AP
 
 ## <a name="accessing-the-azure-media-services-api"></a>Obtener acceso a la API de Azure Media Services
 
-Para obtener acceso a los recursos de Azure Media Services, puede usar la autenticación de entidad de servicio de Azure Active Directory (AD).
+Para ser autorizado a acceder a recursos de Media Services y a Media Services API, se debe autenticar primero. Media Services admite [Azure Active Directory (Azure AD)-según](../../active-directory/fundamentals/active-directory-whatis.md) autenticación. Dos opciones de autenticación comunes son:
+ 
+* **Autenticación de entidad de servicio** : se usa para autenticar un servicio (por ejemplo: web apps, aplicaciones de función, logic apps, API y microservicios). Las aplicaciones que normalmente utilizan este método de autenticación son las que ejecutan servicios de demonio, servicios de nivel intermedio o trabajos programados. Por ejemplo, para Web allí las aplicaciones siempre deben ser un nivel intermedio que se conecta a Media Services con una entidad de servicio.
+* **Autenticación de usuario** : se usa para autenticar a alguien que está usando la aplicación para interactuar con recursos de Media Services. La aplicación interactiva, en primer lugar, debe solicitar al usuario las credenciales. Un ejemplo es una aplicación de consola de administración que usan los usuarios autorizados para supervisar trabajos de codificación o streaming en vivo.
+
 La API de Media Services requiere que el usuario o aplicación que realiza la API de REST solicita tiene acceso al recurso de la cuenta de Media Services y usar un **colaborador** o **propietario** rol. Se puede tener acceso a la API con la **lector** , pero solo para el rol **obtener** o **lista**   operaciones estará disponibles. Para obtener más información, consulte [control de acceso basado en roles para cuentas de Media Services](rbac-overview.md).
 
 En lugar de crear a una entidad de servicio, considere el uso de identidades administradas para los recursos de Azure para tener acceso a la API de Media Services mediante Azure Resource Manager. Para obtener más información acerca de las identidades administradas para los recursos de Azure, consulte [What ' s identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -52,6 +56,16 @@ En la siguiente ilustración, los números representan el flujo de las solicitud
 2. El token de acceso de Azure AD se envía al nivel intermedio.
 4. El nivel intermedio envía una solicitud a la API de REST de Azure Media Services con el token de Azure AD.
 5. El nivel intermedio recibe los datos de Media Services.
+
+### <a name="samples"></a>Ejemplos
+
+Consulte los siguientes ejemplos que muestran cómo conectarse con la entidad de servicio de Azure AD:
+
+* [Conectar con REST](media-rest-apis-with-postman.md)  
+* [Conexión con Java](configure-connect-java-howto.md)
+* [Conexión con .NET](configure-connect-dotnet-howto.md)
+* [Conexión con Node.js](configure-connect-nodejs-howto.md)
+* [Conexión con Python](configure-connect-python-howto.md)
 
 ## <a name="naming-conventions"></a>Convenciones de nomenclatura
 
@@ -88,7 +102,7 @@ Media Services tiene las siguientes operaciones de larga ejecución:
 
 Consulte [filtrado, ordenación, paginación de entidades de Azure Media Services](entities-overview.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

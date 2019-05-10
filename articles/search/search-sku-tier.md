@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3e813b8a1709675d0d870d64df83428ab82e25b3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5b9e0dfb88c979618ce4cc5ed56e372cb0f65608
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024294"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472716"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Selección de un plan de tarifa de Azure Search
 
@@ -43,9 +43,9 @@ Dentro de un nivel, también puede [ajustar los recursos de réplica y partició
 
 En la tabla siguiente se enumera los niveles disponibles. Incluyen otras fuentes de información de nivel el [página de precios](https://azure.microsoft.com/pricing/details/search/), [los límites de servicio y los datos](search-limits-quotas-capacity.md)y la página del portal cuando un servicio de aprovisionamiento.
 
-|Nivel | Capacity |
+|Nivel: | Capacity |
 |-----|-------------|
-|Gratuito | Se comparte con otros suscriptores. No escalable, limitada a 3 índices y 50 MB de almacenamiento. |
+|Gratis | Se comparte con otros suscriptores. No escalable, limitada a 3 índices y 50 MB de almacenamiento. |
 |Básica | Recursos informáticos dedicados para cargas de trabajo de producción en una escala menor. Una partición de 2 GB y hasta tres réplicas. |
 |1 estándar (S1) | Desde S1 en seguridad de máquinas dedicadas con más capacidad de almacenamiento y procesamiento en cada nivel. Tamaño de la partición es 25 GB por partición (máximo de 300 GB por servicio) para S1. |
 |Estándar 2 (S2) | Similar a S1, pero con 100 GB/particiones (máximo 1,2 TB por servicio) |
@@ -89,7 +89,7 @@ Si hay servicios en regiones diferentes se aplican cargos por los datos saliente
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. IA-indexación enriquecida con Cognitive Services
 
-Para [AI indexación con Cognitive Services](cognitive-search-concept-intro.md), debe planear sobre cómo conectar un recurso de Cognitive Services facturable en el S0 plan de tarifa para el procesamiento de pago por uso. No hay ningún "costo fijo" asociado asociar Cognitive Services. Solo paga por los procesos que necesite.
+Para [AI indexación con Cognitive Services](cognitive-search-concept-intro.md), debe planear sobre cómo conectar un recurso de Cognitive Services facturable, en la misma región que Azure Search, en el plan de tarifa S0 para el procesamiento de pago por uso. No hay ningún "costo fijo" asociado asociar Cognitive Services. Solo paga por los procesos que necesite.
 
 Extracción de la imagen durante la averiguación de documentos es un cargo de Azure Search, que se facturan en función del número de imágenes que se extraen de los documentos. La extracción de texto es actualmente gratuita. 
 

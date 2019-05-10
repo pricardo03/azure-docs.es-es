@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d7737f73ee4eb9ae9dc8c4845020b7543a5b3495
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159171"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65468426"
 ---
 Discos de SO efímeros se crean en el almacenamiento local de la máquina Virtual (VM) y no se conservan en el almacenamiento remoto de Azure. Discos de SO efímeros funcionan bien para las cargas de trabajo sin estado, donde las aplicaciones son tolerantes a errores de máquina virtual individuales, pero preocupan más el tiempo necesario para las implementaciones a gran escala o la hora a la imagen inicial de las instancias de máquina virtual individuales. También es adecuado para las aplicaciones implementadas con el modelo de implementación clásica, para mover al modelo de implementación de Resource Manager. Con el disco de SO efímero, podría observar una menor latencia de lectura/escritura para el disco del sistema operativo y más rápido crear una nueva imagen de máquina virtual. Además, el disco de SO efímero es gratuito, se incurre en ningún costo de almacenamiento de disco del sistema operativo. 
  
@@ -30,12 +30,12 @@ Diferencias clave entre los discos de SO efímeros y no persistentes:
 |                             | Disco del sistema operativo persistente                          | Disco de sistema operativo efímero                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | Límite de tamaño de disco del sistema operativo      | 2 TiB                                                                                        | Caché de tamaño para el tamaño de máquina virtual o 2TiB, lo que sea menor - [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), y [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| Tamaños de máquina virtual admitidos          | Todo                                                                                          | DSv1, DSv2, DSv3, Esv2, Fs, FsV2, GS, M                                               |
+| Tamaños de máquina virtual admitidos          | Todo                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Compatibilidad con tipos de disco           | Disco del sistema operativo administrado y no administrado                                                                | Solo los discos del sistema operativo administrado                                                               |
 | Regiones admitidas              | Todas las regiones                                                                                  | Todas las regiones                              |
 | Persistencia de los datos            | Datos del disco del sistema operativo escritos en disco del sistema operativo se almacenan en Azure Storage                                  | Los datos escritos en disco del sistema operativo se almacenan en el almacenamiento de máquina virtual local y no se conservan en el almacenamiento de Azure. |
 | Estado de detenida (desasignada)      | Máquinas virtuales e instancias de conjunto de escalado pueden estar detenida (desasignada) y reinicia desde el estado de detenida (desasignada) | Máquinas virtuales e instancias de conjunto de escalado no pueden estar detenida (desasignada)                                  |
-| Compatibilidad con discos de sistema operativo especializada | Sí                                                                                          | Sin                                                                                  |
+| Compatibilidad con discos de sistema operativo especializada | Sí                                                                                          | No                                                                                 |
 | Cambio de tamaño de disco del sistema operativo              | Durante la creación de máquinas virtuales y después la máquina virtual está detenida (desasignada) compatibles                                | Durante la creación de máquinas virtuales solo admite la                                                  |
 | Cambiar el tamaño de un nuevo tamaño de máquina virtual   | Se conservan los datos del disco del sistema operativo                                                                    | Se eliminan los datos en el disco del sistema operativo, se vuelven a aprovisionar el sistema operativo                                      |
 
@@ -48,13 +48,13 @@ Registrarse para la versión preliminar de discos de SO efímero utilizando la v
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 Para comprobar si está registrado para la versión preliminar:
 
 ```azurepowershell-interactive
-Get-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 ### <a name="cli"></a>CLI
@@ -67,7 +67,7 @@ az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
 Para comprobar si está registrado para la versión preliminar:
  
 ```azurecli-interactive
-az provider show –namespace ‘Microsoft.Compute’
+az provider show --namespace Microsoft.Compute
 ```
 
 

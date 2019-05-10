@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: d82b32e876144a626333f3df1481c5fce9862067
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c41ab1c0c8a26488c476d187fbc1bcac2e624ac8
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61268645"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472025"
 ---
 # <a name="mapping-data-flow-move-nodes"></a>Nodos de movimiento de Mapping Data Flow
 
@@ -24,7 +24,7 @@ La superficie de diseño de flujo de datos de Azure Data Factory Data Flow es un
 
 Por consiguiente, sin un paradigma de arrastrar y colocar, la forma de "mover" un nodo de transformación es cambiar el flujo de entrada. En su lugar, para mover las transformaciones cambiará el "flujo de entrada".
 
-En Azure Data Factory Data Flow, las secuencias representan el flujo de datos. En el panel de configuración de la transformación, verá el campo "Incoming Stream" (Secuencia de entrada). En se indica cuál es el flujo de datos de entrada que alimenta la transformación. Puede cambiar la ubicación física del nodo de la transformación en el gráfico. Para ello, solo es preciso hacer clic en el nombre del flujo de entrada y seleccionar otro flujo de datos. A continuación, tanto la transformación actual como todas las transformaciones posteriores de esa secuencia, se moverán a la nueva ubicación.
+En Azure Data Factory Data Flow, las secuencias representan el flujo de datos. En el panel de configuración de transformación, verá un campo "Entrante Stream". En se indica cuál es el flujo de datos de entrada que alimenta la transformación. Puede cambiar la ubicación física del nodo de la transformación en el gráfico. Para ello, solo es preciso hacer clic en el nombre del flujo de entrada y seleccionar otro flujo de datos. A continuación, tanto la transformación actual como todas las transformaciones posteriores de esa secuencia, se moverán a la nueva ubicación.
 
 Si va a mover una transformación con una o varias transformaciones posteriores, la nueva ubicación del flujo de datos se conectará mediante una nueva rama.
 

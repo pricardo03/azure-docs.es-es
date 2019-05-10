@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 0fcd688c9e5164522a482a4375c524a97a48d400
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175631"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467890"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Inicio rápido: Implementación y ejecución de una simulación de dispositivo IoT en Azure
 
@@ -36,7 +36,7 @@ Haga clic en el icono **Simulación de dispositivo**:
 
 Haga clic en **Probar ahora** en la página de descripción de Device Simulation:
 
-![Clic en Probar ahora](./media/quickstart-device-simulation-deploy/devicesimulationPDP.png)
+![Clic en Probar ahora](./media/quickstart-device-simulation-deploy/devicesimulationpdp1.png)
 
 En la página **Crear la solución Simulación de dispositivo**, escriba un **nombre de la solución único**.
 
@@ -58,7 +58,7 @@ Haga clic en **Aceptar** para aceptar la solicitud de permisos; la solución de 
 
 Cuando se abre por primera vez, verá el panel de la simulación de dispositivo con una guía de **Introducción**. Haga clic en el primer icono para abrir una simulación de ejemplo. Si cierra la guía de **Introducción**, puede abrir la **simulación sencilla de ejemplo** desde el panel; para ello, haga clic en su icono:
 
-![Panel de soluciones](./media/quickstart-device-simulation-deploy/GettingStarted.png)
+![Panel de soluciones](./media/quickstart-device-simulation-deploy/gettingstarted1.png)
 
 ## <a name="sample-simulation"></a>Simulación de ejemplo
 
@@ -72,7 +72,7 @@ Al ser una simulación de ejemplo, no se puede modificar. La simulación está c
 | Frecuencia de telemetría | 10 segundos                  |
 | Duración de la simulación | Ejecución indefinida            |
 
-![Configuración de la simulación](./media/quickstart-device-simulation-deploy/SampleSimulation.png)
+![Configuración de la simulación](./media/quickstart-device-simulation-deploy/samplesimulation1.png)
 
 ## <a name="run-the-simulation"></a>Ejecución de la simulación
 

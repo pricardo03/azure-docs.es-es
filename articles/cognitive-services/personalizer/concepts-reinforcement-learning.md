@@ -10,15 +10,14 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 30f009f76c25d80281d748e1e484175380ca9743
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b65073c0646db0cd0c27a71005bb4f74b091ae09
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025545"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506883"
 ---
 # <a name="what-is-reinforcement-learning"></a>¿Qué es el aprendizaje de refuerzo?
-
 
 El aprendizaje de refuerzo es un enfoque hacia el aprendizaje automático que aprende los comportamientos mediante la obtención de comentarios de su uso.
  
@@ -64,7 +63,7 @@ Actualmente, Personalizer usa [Vowpal Wabbit](https://github.com/VowpalWabbit/vo
 
 * [Making Contextual Decisions with Low Technical Debt](https://arxiv.org/abs/1606.03966) (Toma de decisiones contextuales con una deuda técnica baja)
 * [A Reductions Approach to Fair Classification](https://arxiv.org/abs/1803.02453) (Un enfoque de reducciones hacia una clasificación justa)
-* [Efficient Contextual Bandits in Non-stationary Worlds](https://arxiv.org/abs/1708.01799ds) (Bandidos contextuales eficaces en mundos que no son fijos)
+* [Efficient Contextual Bandits in Non-stationary Worlds](https://arxiv.org/abs/1708.01799) (Bandidos contextuales eficaces en mundos que no son fijos)
 * [Residual Loss Prediction: Reinforcement: learning With No Incremental Feedback](https://openreview.net/pdf?id=HJNMYceCW) (Predicción de pérdida residual: refuerzo: aprendizaje son comentarios incrementales)
 * [Mapping Instructions and Visual Observations to Actions with Reinforcement Learning](https://arxiv.org/abs/1704.08795) (Asignación de instrucciones y observaciones viduales a acciones con aprendizaje reforzado)
 * [Learning to Search Better Than Your Teacher](https://arxiv.org/abs/1502.02206) (Aprendiendo a buscar mejor que el profesor)

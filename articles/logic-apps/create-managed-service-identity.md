@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428152"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416114"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticación y acceso a los recursos con identidades administradas en Azure Logic Apps
 
@@ -59,7 +59,7 @@ Para habilitar una identidad administrada asignada por el sistema para la aplica
 
    ![GUID para el Id. de objeto](./media/create-managed-service-identity/object-id.png)
 
-   | Propiedad | Value | DESCRIPCIÓN | 
+   | Propiedad | Valor | DESCRIPCIÓN | 
    |----------|-------|-------------| 
    | **Id. de objeto** | <*identity-resource-ID*> | Un identificador único global (GUID) que representa la identidad administrada asignada por el sistema para la aplicación lógica en un inquilino de Azure AD | 
    ||| 
@@ -76,7 +76,7 @@ Si quiere automatizar la creación e implementación de los recursos de Azure, c
 }
 ```
 
-Por ejemplo: 
+Por ejemplo:
 
 ```json
 {
@@ -111,7 +111,7 @@ Cuando Azure crea la aplicación lógica, la definición de flujo de trabajo de 
 }
 ```
 
-| Propiedad | Value | DESCRIPCIÓN | 
+| Propiedad | Valor | DESCRIPCIÓN | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | Un identificador único global (GUID) que representa la aplicación lógica en el inquilino de Azure AD y, a veces, aparece como un "Id. de objeto" o `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | Un identificador único global (GUID) que representa un inquilino de Azure AD del que la aplicación lógica es ahora miembro. En el inquilino de Azure AD, la entidad de servicio tiene el mismo nombre que la instancia de aplicación lógica. | 
@@ -132,7 +132,7 @@ Para proporcionar acceso a otro recurso de Azure para la identidad administrada 
 
 1. En Azure Portal, vaya al recurso de Azure en el que quiere asignar acceso para la identidad administrada. 
 
-1. En el menú del recurso, seleccione **Control de acceso (IAM)** y elija **Add role assignment** (Agregar asignación de roles). 
+1. En menú del recurso, seleccione **control de acceso (IAM)**. En la barra de herramientas, elija **agregar** > **Agregar asignación de roles**.
 
    ![Agregar asignación de roles](./media/create-managed-service-identity/add-permissions-logic-app.png)
 

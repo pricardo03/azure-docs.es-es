@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693591"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467974"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Creación de flujos de trabajo con el conector de IoT Central en Microsoft Flow
 
@@ -43,7 +43,7 @@ En esta sección se muestra cómo desencadenar una notificación móvil en la ap
 
 1. Verá una lista de flujos de trabajo tha tienen acceso a y se adjuntan a esta regla IoT Central. Haga clic en **Explore plantillas** o **nuevo > crear desde plantilla** y puede elegir entre cualquiera de las plantillas disponibles. 
 
-    ![Plantillas disponibles de Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates.png)
+    ![Plantillas disponibles de Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates1.png)
 
 1. Se le pedirá que inicie sesión en los conectores en la plantilla elegida. Una vez que los conectores se ha iniciado sesión, se colocará en el diseñador para crear el flujo de trabajo. El flujo de trabajo tiene un desencadenador de IoT Central que ya tiene rellenados su Aplicación y Regla.
 
@@ -52,7 +52,7 @@ En esta sección se muestra cómo desencadenar una notificación móvil en la ap
     > [!NOTE]
     > Seleccione el **más** texto en la ventana de contenido dinámico para obtener los valores de propiedad y medición que desencadenó la regla.
 
-    ![Acción de edición de Flow con panel dinámico abierto](./media/howto-add-microsoft-flow/flowdynamicpane.png)
+    ![Acción de edición de Flow con panel dinámico abierto](./media/howto-add-microsoft-flow/flowdynamicpane1.png)
 
 1. Cuando haya terminado la acción de edición, seleccione **guardar**. Se le dirigirá a la página de información general de su flujo de trabajo. Aquí puede ver el historial de ejecución y compartirlo con otros compañeros.
 
@@ -79,7 +79,7 @@ En esta sección se muestra cómo crear un nuevo dispositivo en IoT Central con 
 
 1. Seleccione el campo Nombre de dispositivo. En el panel Contenido dinámico, elija **Nombre de dispositivo**. Este valor se pasa de la entrada del usuario se escribe a través de la aplicación móvil y es el nombre del nuevo dispositivo en IoT Central. En este ejemplo, el único campo obligatorio es el nombre de dispositivo, indicado por el asterisco rojo. Otra plantilla de dispositivo puede tener varios campos obligatorios que deban rellenarse para crear un nuevo dispositivo.
 
-    ![Panel dinámico de acciones de creación de dispositivos de Flow](./media/howto-add-microsoft-flow/flowcreatedevice.png)
+    ![Panel dinámico de acciones de creación de dispositivos de Flow](./media/howto-add-microsoft-flow/flowcreatedevice1.png)
 
 1. (Opcional) Rellene otros campos como considere oportuno para su creación de nuevos dispositivos.
 
@@ -110,7 +110,7 @@ En esta sección se muestra cómo actualizar las propiedades y la configuración
 
 1. Puede actualizar el nombre del dispositivo. Para actualizar cualquiera de las propiedades y la configuración del dispositivo, debe seleccionar la plantilla de dispositivo que quiera actualizar en la lista desplegable **Plantilla de dispositivo**. El icono de la acción se expande para mostrar todas las propiedades y la configuración que puede actualizar.
 
-    ![Flujo de trabajo de actualización de dispositivos de Flow](./media/howto-add-microsoft-flow/flowupdatedevice.png)
+    ![Flujo de trabajo de actualización de dispositivos de Flow](./media/howto-add-microsoft-flow/flowupdatedevice1.png)
 
 1. Seleccione cada una de las propiedades y la configuración que desee actualizar. En el panel Contenido dinámico, elija la entrada correspondiente del desencadenador. En este ejemplo, el valor Ubicación se propaga hacia abajo para actualizar la propiedad Ubicación del dispositivo.
 
@@ -126,7 +126,7 @@ Puede obtener información del dispositivo mediante su identificador utilizando 
 
 Puede obtener información como el nombre del dispositivo, nombre de la plantilla de dispositivo, los valores de propiedad y valores de configuración para pasar a las acciones posteriores en el flujo de trabajo. Este es un flujo de trabajo de ejemplo que se pasa el valor de propiedad de nombre de cliente desde un dispositivo a Microsoft Teams.
 
-   ![El flujo de trabajo de flujo de get dispositivos](./media/howto-add-microsoft-flow/flowgetdevice.png)
+   ![El flujo de trabajo de flujo de get dispositivos](./media/howto-add-microsoft-flow/flowgetdevice1.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>Ejecutar un comando en un dispositivo en un flujo de trabajo
@@ -137,7 +137,7 @@ Puede ejecutar un comando en un dispositivo especificado por su identificador co
     
 Puede elegir el comando para ejecutar y pasar los parámetros del comando a través de esta acción. Este es un flujo de trabajo de ejemplo que se ejecuta un comando de reinicio del dispositivo desde un botón en la aplicación móvil Microsoft Flow.
 
-   ![El flujo de trabajo de flujo de get dispositivos](./media/howto-add-microsoft-flow/flowrunacommand.png)
+   ![El flujo de trabajo de flujo de get dispositivos](./media/howto-add-microsoft-flow/flowrunacommand1.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Eliminación de un dispositivo en un flujo de trabajo
 

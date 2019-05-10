@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7aee10780512e284faccadface0dc928ef8270e
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472267"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501892"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>¿Qué es el registro de autoservicio de Azure Active Directory?
 
@@ -52,7 +52,7 @@ Un administrador puede configurar estas capacidades con estos parámetros Set-Ms
 AllowEmailVerifiedUsers y AllowAdHocSubscriptions son configuraciones de todo el directorio que se pueden aplicar a un directorio administrado o no administrado. A continuación, se muestra un ejemplo en el que:
 
 * Administra un directorio con un dominio verificado, como contoso.com.
-* Usa colaboración B2B de un directorio diferente para invitar a un usuario que ya no existe (userdoesnotexist@contoso.com) en el directorio principal de contoso.com.
+* Usar colaboración B2B de un directorio diferente para invitar a un usuario que ya no existe (userdoesnotexist@contoso.com) en el directorio principal de contoso.com
 * El directorio principal tiene la opción AllowEmailVerifiedUsers activada.
 
 Si se cumplen las condiciones anteriores, a continuación, se crea un usuario miembro en el directorio principal y un usuario invitado B2B en el directorio que invita.

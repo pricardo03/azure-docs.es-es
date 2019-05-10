@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470284"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466278"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificación y resolución de problemas de asignación de licencias de un grupo en Azure Active Directory
 
@@ -52,7 +52,7 @@ Cuando se usan licencias basadas en grupo, se pueden producir los mismos errores
 
 En las secciones siguientes se muestra una descripción de cada problema potencial y la manera de resolverlo.
 
-## <a name="not-enough-licenses"></a>No hay suficientes licencias
+## <a name="not-enough-licenses"></a>No hay licencias suficientes.
 
 **Problema:** No hay suficientes licencias disponibles para uno de los productos especificados en el grupo. Necesita adquirir más licencias para el producto o liberar las licencias sin usar de otros usuarios o grupos.
 
@@ -62,7 +62,7 @@ Para ver qué usuarios y grupos consumen las licencias, seleccione un producto. 
 
 **PowerShell:** Los cmdlets de PowerShell informan de este error como _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Planes de servicio en conflicto
+## <a name="conflicting-service-plans"></a>Planes del servicio en conflicto
 
 **Problema:** Uno de los productos especificados en el grupo contiene un plan de servicio que entra en conflicto con otro plan de servicio que ya está asignado al usuario a través de un producto diferente. Algunos planes de servicio se configuran de tal forma que no puedan asignarse al mismo usuario como otro plan de servicio relacionado.
 
@@ -77,7 +77,7 @@ El administrador es la única persona competente para decidir cómo resolver el 
 
 **PowerShell:** Los cmdlets de PowerShell informan de este error como _MutuallyExclusiveViolation_.
 
-## <a name="other-products-depend-on-this-license"></a>Otros productos dependen de esta licencia
+## <a name="other-products-depend-on-this-license"></a>Otros productos dependen de esta licencia.
 
 **Problema:** Uno de los productos que se especifica en el grupo contiene un plan de servicio que debe estar habilitado para otro plan de servicio, en otro producto, para funcionar. Este error se produce cuando Azure AD intenta quitar el plan del servicio subyacente. Por ejemplo, esto puede ocurrir cuando se elimina el usuario del grupo.
 
@@ -107,9 +107,15 @@ Si usa Exchange Online, es posible que algunos de los usuarios del inquilino no 
 > ```
 > Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Para más información acerca de este problema, consulte [Mensaje de error "la dirección del proxy ya está en uso" en Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). El artículo también incluye información sobre [cómo conectarse a Exchange Online mediante PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx). Para más información sobre [cómo se rellena el atributo proxyAddresses de Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad), consulte este artículo.
+> Para más información acerca de este problema, consulte [Mensaje de error "la dirección del proxy ya está en uso" en Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). El artículo también incluye información sobre [cómo conectarse a Exchange Online mediante PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx).
 
 Después de resolver los problemas de dirección del proxy para los usuarios afectados, asegúrese de forzar el procesamiento de la licencia en el grupo para asegurarse de que ahora se pueden aplicar las licencias.
+
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Cambio de atributo de correo electrónico de AD y ProxyAddresses de Azure
+
+**Problema:** Al actualizar la asignación de licencias en un grupo o un usuario, es posible que vea que se ha cambiado el atributo de correo electrónico de Azure AD y ProxyAddresses de algunos usuarios.
+
+Actualizar la asignación de licencias en un cálculo que se desencadene la dirección de lo proxy las causas usuario, lo que puede cambiar los atributos de usuario. Para comprender el motivo exacto del cambio y resolver el problema, consulte este artículo sobre [cómo se rellena el atributo proxyAddresses de Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>¿Qué ocurre si hay más de una licencia de producto en un grupo?
 

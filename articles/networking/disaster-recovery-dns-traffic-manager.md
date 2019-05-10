@@ -4,7 +4,7 @@ description: Introducción a las soluciones de recuperación ante desastres con 
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507744"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501692"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperación ante desastres mediante Azure DNS y Traffic Manager
 
@@ -140,7 +140,8 @@ Los pasos seguidos para configurar la conmutación por error con Azure Traffic M
 ### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>Paso 1: Creación de un nuevo perfil de Azure Traffic Manager
 Cree un nuevo perfil de Azure Traffic Manager con el nombre contoso123 y seleccione el método de enrutamiento por prioridad. Si tiene un grupo de recursos existente y desea asociarlo, puede seleccionar un grupo de recursos existente; de lo contrario, cree un nuevo grupo de recursos.
 
-![Creación de un perfil de Traffic Manager:](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+![Crear perfil de Traffic Manager](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+
 *Figura: creación de un perfil de Traffic Manager*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>Paso 2: Creación de puntos de conexión en el perfil de Traffic Manager

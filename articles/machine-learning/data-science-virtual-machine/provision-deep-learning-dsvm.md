@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943918"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410435"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Aprovisionamiento de Deep Learning Virtual Machine en Azure 
 
@@ -68,7 +68,7 @@ Una vez creada la máquina virtual, puede usar el escritorio remoto con las cred
 
 ### <a name="linux-edition"></a>Edición de Linux
 
-Después de crear la máquina virtual, puede iniciar sesión en ella mediante SSH. Use las credenciales de cuenta que creó en el [ **Fundamentos** ](#basics) sección del paso 3 para la interfaz de shell de texto. Para obtener más información sobre las conexiones de SSH para máquinas virtuales de Azure, consulte [instalar y configurar Escritorio remoto para conectarse a una VM Linux en Azure](/azure/virtual-machines/linux/use-remote-desktop). En un cliente de Windows, puede descargar una herramienta de cliente SSH como [Putty](http://www.putty.org). Si prefiere un escritorio gráfico (X Windows System), puede usar el reenvío de X11 en Putty o instalar el cliente X2Go. 
+Después de crear la máquina virtual, puede iniciar sesión en ella mediante SSH. Use las credenciales de cuenta que creó en el [ **Fundamentos** ](#basics) sección del paso 3 para la interfaz de shell de texto. Para obtener más información sobre las conexiones de SSH para máquinas virtuales de Azure, consulte [instalar y configurar Escritorio remoto para conectarse a una VM Linux en Azure](/azure/virtual-machines/linux/use-remote-desktop). En un cliente de Windows, puede descargar una herramienta de cliente SSH como [Putty](https://www.putty.org). Si prefiere un escritorio gráfico (X Windows System), puede usar el reenvío de X11 en Putty o instalar el cliente X2Go. 
 
 > [!NOTE]
 > El cliente X2Go ha tenido un mejor rendimiento que el reenvío de X11 durante las pruebas. Por lo tanto, se recomienda usar el cliente X2Go para la interfaz gráfica de escritorio.

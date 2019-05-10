@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 05/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ea2381287729579e10d457912c4147f59716bcc4
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 2c596b49d5587b07fe75cefde72e897478dc3dc8
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875713"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472105"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Prueba de la base de conocimiento de forma interactiva en QnA Maker
 
@@ -24,14 +24,10 @@ La prueba de la base de conocimiento de QnA Maker es una parte importante de un 
 
 ## <a name="test-answer-matching"></a>Probar la coincidencia de respuestas
 
-1.  Acceda a la base de conocimiento; para ello, seleccione su nombre en la página **Mis bases de conocimiento**.
-2.  Para acceder al panel deslizante Prueba, seleccione **Prueba** en el panel superior de la aplicación.
-
-    ![Acceso al panel Prueba](../media/qnamaker-how-to-test-kb/access-test.png)
-
-3.  Escriba una consulta en el cuadro de texto y presione ENTRAR.
-
-4.  Se devuelve como resultado la respuesta con mejor coincidencia de la base de conocimiento.
+1. Acceda a la base de conocimiento; para ello, seleccione su nombre en la página **Mis bases de conocimiento**.
+1. Para acceder al panel deslizante Prueba, seleccione **Prueba** en el panel superior de la aplicación.
+1. Escriba una consulta en el cuadro de texto y presione ENTRAR.
+1. Se devuelve como resultado la respuesta con mejor coincidencia de la base de conocimiento.
 
 ## <a name="clear-test-panel"></a>Borrar el panel de prueba
 
@@ -65,14 +61,20 @@ Puede agregar formas alternativas de una pregunta a una respuesta determinada. E
 
 ## <a name="add-a-new-answer"></a>Adición de una nueva respuesta
 
-Puede agregar una respuesta nueva si cualquiera de las respuestas existentes coincidentes son incorrectas o la respuesta no existe en la base de conocimiento (ninguna coincidencia adecuada encontrada en la base de conocimiento). Escriba la nueva respuesta a la pregunta actual en el cuadro de texto y presione ENTRAR para agregarla. 
+Puede agregar una respuesta nueva si cualquiera de las respuestas existentes coincidentes son incorrectas o la respuesta no existe en la base de conocimiento (ninguna coincidencia adecuada encontrada en la base de conocimiento). 
 
-Seleccione **Guardar y entrenar** para persistir esta respuesta. Se ha agregado un par pregunta-respuesta nuevo a la base de conocimiento.
+En la parte inferior de la lista de las respuestas, use el cuadro de texto para escribir una respuesta nueva y presione ENTRAR para agregarlo. 
 
-![Adición de un nuevo par de preguntas y respuestas](../media/qnamaker-how-to-test-kb/add-answer.png)
+Seleccione **Guardar y entrenar** para persistir esta respuesta. Se ha agregado un par pregunta-respuesta nuevo a la base de conocimiento. 
 
 > [!NOTE]
 > Todas las modificaciones realizadas en la base de conocimiento solo se guardan si presiona el botón **Guardar y entrenar**.
+
+## <a name="test-the-published-knowledge-base"></a>Probar la base de conocimiento publicada
+
+Puede probar la versión publicada de la base de conocimiento en el panel prueba. Una vez que ha publicado la KB, seleccione el **publica KB** cuadro y enviar una consulta para obtener los resultados de la KB publicados.
+
+![Probar con un KB publicados](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

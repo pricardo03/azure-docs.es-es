@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8508dbecceb9984f53a133d9634882603549cdd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573573"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199641"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment #
 
@@ -133,7 +133,7 @@ Después de crear su ASE, el nombre de dominio muestra el dominio especificado. 
 
 El ASE con un ILB necesita un certificado SSL válido. Use entidades de certificación internas, compre un certificado a un emisor externo o utilice un certificado autofirmado. Independientemente del origen del certificado SSL, es preciso configurar correctamente los siguientes atributos del certificado:
 
-* **Firmante**: Este atributo se debe establecer en *.su-dominio-raíz.
+* **Firmante**: Este atributo se debe establecer en *\.su-dominio-raíz.
 * **Nombre alternativo del firmante**: Este atributo debe incluir tanto **.su-dominio-raíz* como **.scm.su-dominio-raíz*. Las conexiones SSL con el sitio de SCM/Kudu asociadas a cada aplicación usan una dirección cuyo formato será *your-app-name.scm.your-root-domain-here*.
 
 Convierta/guarde el certificado SSL como un archivo .pfx. El archivo .pfx debe incluir todos los certificados intermedios y raíz. Protéjalo con una contraseña.

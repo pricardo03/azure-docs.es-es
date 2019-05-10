@@ -1,6 +1,6 @@
 ---
-title: Acerca de la versión 2.0 | Azure
-description: Obtenga información sobre la plataforma y el punto de conexión de la versión 2.0.
+title: 'Introducción a la Plataforma de identidad de Microsoft (versión 2.0): Azure'
+description: Obtenga información sobre la plataforma y el punto de conexión de la Plataforma de identidad de Microsoft (versión 2.0).
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -12,55 +12,71 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: saeeda
+ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb269df035bcc11583ebb7cff7d1ee2c3f6d8bca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208306"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231073"
 ---
-# <a name="about-v20"></a>Acerca de la versión 2.0
+# <a name="microsoft-identity-platform-v20-overview"></a>Introducción a la Plataforma de identidad de Microsoft (versión 2.0)
 
-La plataforma y el punto de conexión de la versión 2.0 han estado en versión preliminar y se han mejorado continuamente. Hoy en día, los escenarios de aplicación de página única (SPA) de JavaScript cuentan con todas las características. Le invitamos a que utilice MSAL.js para crear aplicaciones basadas en el explorador y nos envíe sus comentarios para que podamos actualizar el estado de versión preliminar a disponibilidad general (GA).
+La plataforma de identidad de Microsoft es una evolución de la plataforma de desarrolladores y de servicio de identidad de Azure Active Directory (Azure AD). Permite a los desarrolladores compilar aplicaciones que inicien sesión en todas las identidades de Microsoft, obtener tokens para llamar a las API de Microsoft, como Microsoft Graph, o a otras API que los desarrolladores hayan creado. El punto de conexión de la Plataforma de identidad de Microsoft consta de lo siguiente:
 
-> [!NOTE]
-> Las versiones de MSAL para .NET, iOS y Android todavía tienen características en desarrollo. Puede usarlas para crear aplicaciones y enviarnos sus comentarios.
+- **Servicio de autenticación compatibles con los estándares OAuth 2.0 y OpenID Connect** que permite a los desarrolladores autenticar identidades de Microsoft como las siguientes:
+  - Cuentas profesionales o educativas (aprovisionadas a través de Azure AD)
+  - Cuentas personales de Microsoft (por ejemplo, Skype, Xbox y Outlook.com)
+  - Cuentas locales y sociales (a través de Azure AD B2C)
+- **Bibliotecas de código abierto**: bibliotecas de autenticación de Microsoft (MSAL) y compatibilidad con cualquier otra biblioteca que cumpla con los estándares.
+- **Portal de administración de aplicaciones**: una experiencia de registro y configuración basada integrada en Azure Portal, junto con las demás funcionalidades de administración de Azure.
+- **PowerShell y API de configuración de aplicaciones**: permite la configuración mediante programación de las aplicaciones a través de la API de REST (Microsoft Graph y Azure Active Directory Graph 1.6) y PowerShell, para que pueda automatizar las tareas de DevOps.
+- **Contenido para desarrolladores**: documentación conceptual y de referencia, ejemplos de inicio rápido, ejemplos de código, tutoriales y guías paso a paso.
 
-La experiencia de [registros de aplicaciones (versión preliminar)](quickstart-register-app.md) de Azure Portal se ha actualizado de forma importante para incluir ahora todas las aplicaciones creadas con ADAL o MSAL y para mejorar la facilidad de uso.
+La Plataforma de identidad de Microsoft ofrece a los desarrolladores una perfecta integración con las innovaciones en el espacio de identidad y seguridad, como autenticación sin contraseña, autenticación de nivel superior y acceso condicional.  No es necesario que implemente esta funcionalidad manualmente: las aplicaciones integradas de manera nativa con la Plataforma de identidad de Microsoft aprovechan estas innovaciones.
 
-Antes, los desarrolladores de aplicaciones que querían admitir cuentas de Microsoft personales y profesionales de Azure Active Directory (Azure AD) debían realizar la integración con dos sistemas independientes. El punto de conexión y la plataforma de la versión 2.0 proporcionan una versión de API de autenticación que simplifica este proceso. Permiten iniciar sesión con los dos tipos de cuenta mediante el uso de una única integración. Las aplicaciones que usan el punto de conexión de la versión 2.0 también pueden usar las API REST de [Microsoft Graph API](https://developer.microsoft.com/graph) con cualquier tipo de cuenta.
+Con la Plataforma de identidad de Microsoft, puede escribir código una vez y llegar a cualquier usuario. Puede compilar una aplicación una sola vez y conseguir que funcione en muchas plataformas, o bien compilar una aplicación que funcione como un cliente, así como una aplicación de recursos (API).
 
 ## <a name="getting-started"></a>Introducción
 
-Elija su plataforma favorita de la lista siguiente para crear una aplicación mediante los marcos y bibliotecas de código abierto de Microsoft:
+Trabajar con la identidad no tiene porqué ser complicado. Elija un escenario que se aplique a su trabajo: cada ruta de acceso de escenario tiene un inicio rápido y una página de introducción para ayudarlo a ponerse en marcha en cuestión de minutos:
 
-[!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
+- [Compilación de una aplicación de una sola página](scenario-spa-overview.md)
+- [Compilación de una aplicación web que permite iniciar sesión a los usuarios](scenario-web-app-sign-user-overview.md)
+- [Compilación de una aplicación web que llama a las API web](scenario-web-app-call-api-overview.md)
+- [Compilación de una API web protegida](scenario-protected-web-api-overview.md)
+- [Compilación de una API web que llama a las API web](scenario-web-api-call-api-overview.md)
+- [Compilación de una aplicación de escritorio](scenario-desktop-overview.md)
+- [Compilación de una aplicación demonio](scenario-daemon-overview.md)
+- [Compilación de una aplicación móvil](scenario-mobile-overview.md)
 
-## <a name="learn-more-about-the-v20-endpoint-and-platform"></a>Obtenga más información sobre la plataforma y el punto de conexión de la versión 2.0
+En el gráfico siguiente se describen escenarios comunes de aplicaciones de autenticación: úselo como referencia al integrar la Plataforma de identidad de Microsoft con su aplicación.
 
-Obtener información sobre lo que puede hacer con el punto de conexión de la versión 2.0 de Azure AD:
+[![Escenarios de aplicaciones en la Plataforma de identidad de Microsoft](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
-* Descubra los [tipos de aplicaciones que se pueden crear con el punto de conexión de la versión 2.0 de Azure AD](v2-app-types.md).
-* Conozca las [limitaciones y restricciones](active-directory-v2-limitations.md) del punto de conexión de la versión 2.0 de Azure AD.
+## <a name="next-steps"></a>Pasos siguientes
 
-## <a name="additional-resources"></a>Recursos adicionales
+Si desea obtener más información sobre los conceptos de autenticación más importantes, se recomienda empezar por estos temas:
 
-Explore la información detallada acerca de la versión 2.0:
+- [Conceptos básicos sobre autenticación](authentication-scenarios.md)
+- [Aplicaciones y entidades de servicio](app-objects-and-service-principals.md)
+- [Audiencias](v2-supported-account-types.md)
+- [Permisos y consentimiento](v2-permissions-and-consent.md)
+- [Tokens de identificador](id-tokens.md) y [tokens de acceso](access-tokens.md)
 
-* [Acerca de la plataforma de identidad de Microsoft](about-microsoft-identity-platform.md)
-* [Referencia de protocolos de la versión 2.0](active-directory-v2-protocols.md)
-* [Referencia de los tokens de acceso](access-tokens.md)
-* [Referencia de los tokens de identificador](id-tokens.md)
-* [Referencia de las bibliotecas de autenticación de la versión 2.0](reference-v2-libraries.md)
-* [Permisos y consentimiento en la versión 2.0](v2-permissions-and-consent.md)
-* [Microsoft Graph API](https://developer.microsoft.com/graph)
+Compile una aplicación de datos enriquecido que llame a [Microsoft Graph](https://docs.microsoft.com/graph/overview).
 
-> [!NOTE]
-> Si solo necesita iniciar sesión en cuentas profesionales o educativas desde Azure Active Directory, comience con la [Guía del desarrollador de Azure AD](v1-overview.md). El punto de conexión v2.0 está diseñado para que lo usen desarrolladores que deban iniciar sesión explícitamente en cuentas personales de Microsoft.
+Cuando lo tenga todo listo para iniciar la aplicación en un **entorno de producción**, revise estos procedimientos recomendados:
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+- [Habilite el registro](msal-logging.md) en su aplicación.
+- Habilite la telemetría en su aplicación.
+- Habilite los [servidores proxy y personalice los clientes HTTP](msal-net-provide-httpclient.md).
+- Pruebe la integración siguiendo la [lista de comprobación de integración de la Plataforma de identidad de Microsoft](identity-platform-integration-checklist.md).
+
+## <a name="learn-more"></a>Más información
+
+Si tenía intención de compilar una aplicación orientada al cliente que inicie sesión en las identidades locales y sociales, eche un vistazo al artículo de [introducción a Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

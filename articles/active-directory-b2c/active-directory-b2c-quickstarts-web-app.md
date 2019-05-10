@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Configuración del inicio de sesión en una aplicación ASP.NET mediante Azure Active Directory B2C | Microsoft Docs'
+title: 'Inicio rápido: Configuración del inicio de sesión en una aplicación ASP.NET mediante Azure Active Directory B2C | Microsoft Docs'
 description: Ejecute una aplicación web ASP.NET de ejemplo que usa Azure Active Directory B2C para proporcionar el inicio de sesión de la cuenta.
 services: active-directory-b2c
 author: davidmu1
@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0d82a174f9fcfab84b5caf71853242ce68ebb60d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1d2fbe4dbbd7f5549d6c98f8183df58fa3f34e9d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699506"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190452"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Inicio rápido: Configuración del inicio de sesión en una aplicación ASP.NET con Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) B2C proporciona administración de identidades
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**. 
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**. 
 - Una cuenta de redes sociales de Facebook, Google, Microsoft o Twitter.
 - [Descargue un archivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) o clone la aplicación web de ejemplo desde GitHub.
 
@@ -95,7 +95,12 @@ Puede usar el inquilino de Azure AD B2C si tiene previsto leer otros tutoriales 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha utilizado una aplicación de ASP.NET para iniciar sesión con una página de inicio de sesión personalizada, iniciar sesión con un proveedor de identidades de redes sociales, crear una cuenta de Azure AD B2C y llamar a una API web protegida por Azure AD B2C. 
+En este inicio rápido, ha utilizado una aplicación de ASP.NET de ejemplo para lo siguiente:
+
+* Iniciar sesión con una página de inicio de sesión personalizada
+* Iniciar sesión con un proveedor de identidades de redes sociales
+* Crear una cuenta de Azure AD B2C
+* Llamar a una API web protegida por Azure AD B2C
 
 Empiece a crear su propio inquilino de Azure AD B2C.
 
