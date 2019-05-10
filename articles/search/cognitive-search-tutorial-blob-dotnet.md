@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 4e6f0317df2f0f631d2c8d3f8e5cefba06e154fd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1b3353cae73bb5710dc9343f1d211266d15743a2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027541"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153209"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutorial de C#: Llamar a Cognitive Services APIs en una canalización de indexación de Azure Search
 
@@ -94,9 +94,9 @@ Para comenzar, abra Visual Studio y cree un nuevo proyecto de Aplicación de con
 
 El [SDK de .NET de Azure Search](https://aka.ms/search-sdk) consta de algunas bibliotecas de cliente que le permiten administrar los índices, los orígenes de datos, indexadores y los conjuntos de aptitudes, así como cargar y administrar documentos y ejecutar consultas. Todo ello sin tener que encargarse de los detalles de HTTP y JSON. Esas bibliotecas de cliente se distribuyen como paquetes de NuGet.
 
-Para este proyecto, deberá instalar la versión preliminar 7.x.x del paquete NuGet `Microsoft.Azure.Search` y la versión más reciente del paquete NuGet `Microsoft.Extensions.Configuration.Json`.
+Para este proyecto, deberá instalar la versión 9 del paquete NuGet `Microsoft.Azure.Search` y la versión más reciente del paquete NuGet `Microsoft.Extensions.Configuration.Json`.
 
-Instale el paquete NuGet `Microsoft.Azure.Search` con la consola del Administrador de paquetes en Visual Studio. Para abrir la consola del Administrador de paquetes, seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**. Para que el comando se ejecute, vaya a la [página del paquete NuGet Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure.Search), seleccione la versión preliminar 7.x.x y copie el comando del Administrador de paquetes. En la consola del Administrador de paquetes, ejecute este comando.
+Instale el paquete NuGet `Microsoft.Azure.Search` con la consola del Administrador de paquetes en Visual Studio. Para abrir la consola del Administrador de paquetes, seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**. Para que el comando se ejecute, vaya a la [página del paquete NuGet Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure.Search), seleccione la versión 9 y copie el comando del Administrador de paquetes. En la consola del Administrador de paquetes, ejecute este comando.
 
 Para instalar el paquete NuGet `Microsoft.Extensions.Configuration.Json` en Visual Studio, seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Administrar paquetes NuGet para la solución...**. Seleccione Examinar y busque el paquete NuGet `Microsoft.Extensions.Configuration.Json`. Una vez que lo encuentre, seleccione el paquete, seleccione el proyecto, confirme que la versión sea la versión estable más reciente y, luego, seleccione Instalar.
 
@@ -137,13 +137,25 @@ using Microsoft.Extensions.Configuration;
 
 ## <a name="create-a-client"></a>Creación de un cliente
 
-Cree una instancia de la clase `SearchServiceClient` con la información que ha agregado a `appsettings.json`.
+Cree una instancia de la clase `SearchServiceClient`.
 
 ```csharp
 IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
 IConfigurationRoot configuration = builder.Build();
-
 SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);
+```
+
+`CreateSearchServiceClient` crea un nuevo `SearchServiceClient` mediante valores que se almacenan en el archivo de configuración de la aplicación (appsettings.json).
+
+```csharp
+private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
+{
+   string searchServiceName = configuration["SearchServiceName"];
+   string adminApiKey = configuration["SearchServiceAdminApiKey"];
+
+   SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));
+   return serviceClient;
+}
 ```
 
 > [!NOTE]
@@ -197,9 +209,9 @@ En esta sección, definirá un conjunto de pasos de enriquecimiento que quiere a
 
 + [Detección de idioma](cognitive-search-skill-language-detection.md) para identificar el idioma del contenido.
 
-+ [División de texto](cognitive-search-skill-textsplit.md) para dividir contenido grande en fragmentos más pequeños antes de llamar a la aptitud de extracción de frases clave y a la aptitud de reconocimiento de entidades con nombre. La extracción de frases clave y el reconocimiento de entidades con nombre aceptan entradas de 50 000 caracteres o menos. Algunos de los archivos de ejemplo deben dividirse para no superar este límite.
++ [División de texto](cognitive-search-skill-textsplit.md) para dividir contenido grande en fragmentos más pequeños antes de llamar a la aptitud de extracción de frases clave y a la aptitud de reconocimiento de entidades. La extracción de frases clave y el reconocimiento de entidades aceptan entradas de 50 000 caracteres, o menos. Algunos de los archivos de ejemplo deben dividirse para no superar este límite.
 
-+ [Reconocimiento de entidades con nombre](cognitive-search-skill-named-entity-recognition.md) para extraer los nombres de las organizaciones del contenido del contenedor de blobs.
++ [Reconocimiento de entidades](cognitive-search-skill-entity-recognition.md) para extraer los nombres de las organizaciones del contenido del contenedor de blobs.
 
 + [Extracción de frases clave](cognitive-search-skill-keyphrases.md) para extraer las frases clave principales.
 
@@ -225,7 +237,7 @@ outputMappings.Add(new OutputFieldMappingEntry(
     targetName: "text"));
 
 OcrSkill ocrSkill = new OcrSkill(
-    description: "Extract text (plain and structured) from image).",
+    description: "Extract text (plain and structured) from image",
     context: "/document/normalized_images/*",
     inputs: inputMappings,
     outputs: outputMappings,
@@ -279,7 +291,7 @@ outputMappings.Add(new OutputFieldMappingEntry(
     targetName: "languageCode"));
 
 LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
-    description: "Language detection skill",
+    description: "Detect the language used in the document",
     context: "/document",
     inputs: inputMappings,
     outputs: outputMappings);
@@ -312,9 +324,9 @@ SplitSkill splitSkill = new SplitSkill(
     maximumPageLength: 4000);
 ```
 
-### <a name="named-entity-recognition-skill"></a>Aptitud Reconocimiento de entidades con nombre
+### <a name="entity-recognition-skill"></a>Aptitud Reconocimiento de entidades
 
-Esta instancia `NamedEntityRecognitionSkill` está configurada para reconocer el tipo de categoría `organization`. La aptitud **Reconocimiento de entidades con nombre** también puede reconocer los tipos de categoría `person` y `location`.
+Esta instancia `EntityRecognitionSkill` está configurada para reconocer el tipo de categoría `organization`. La aptitud **Reconocimiento de entidades** también puede reconocer los tipos de categoría `person` y `location`.
 
 Tenga en cuenta que el campo "context" se establece en ```"/document/pages/*"``` con un asterisco, lo que significa que se llama al paso de enriquecimiento para cada página en ```"/document/pages"```.
 
@@ -329,21 +341,21 @@ outputMappings.Add(new OutputFieldMappingEntry(
     name: "organizations",
     targetName: "organizations"));
 
-List<NamedEntityCategory> namedEntityCategory = new List<NamedEntityCategory>();
-namedEntityCategory.Add(NamedEntityCategory.Organization);
+List<EntityCategory> entityCategory = new List<EntityCategory>();
+entityCategory.Add(EntityCategory.Organization);
     
-NamedEntityRecognitionSkill namedEntityRecognition = new NamedEntityRecognitionSkill(
+EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
     description: "Recognize organizations",
     context: "/document/pages/*",
     inputs: inputMappings,
     outputs: outputMappings,
-    categories: namedEntityCategory,
-    defaultLanguageCode: NamedEntityRecognitionSkillLanguage.En);
+    categories: entityCategory,
+    defaultLanguageCode: EntityRecognitionSkillLanguage.En);
 ```
 
 ### <a name="key-phrase-extraction-skill"></a>Aptitud Extracción de frases clave
 
-Al igual que la instancia `NamedEntityRecognitionSkill` recién creada, se llama a la aptitud **Extracción de frases clave** para cada página del documento.
+Al igual que la instancia `EntityRecognitionSkill` recién creada, se llama a la aptitud **Extracción de frases clave** para cada página del documento.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -368,7 +380,7 @@ KeyPhraseExtractionSkill keyPhraseExtractionSkill = new KeyPhraseExtractionSkill
 
 ### <a name="build-and-create-the-skillset"></a>Compilar y crear el conjunto de aptitudes
 
-Compile `SkillSet` con las aptitudes que ha creado.
+Compile `Skillset` con las aptitudes que ha creado.
 
 ```csharp
 List<Skill> skills = new List<Skill>();
@@ -376,12 +388,12 @@ skills.Add(ocrSkill);
 skills.Add(mergeSkill);
 skills.Add(languageDetectionSkill);
 skills.Add(splitSkill);
-skills.Add(namedEntityRecognition);
+skills.Add(entityRecognitionSkill);
 skills.Add(keyPhraseExtractionSkill);
 
-Skillset skillSet = new Skillset(
+Skillset skillset = new Skillset(
     name: "demoskillset",
-    description: "Demo Skillset",
+    description: "Demo skillset",
     skills: skills);
 ```
 
@@ -390,7 +402,7 @@ Cree el conjunto de aptitudes en el servicio de búsqueda.
 ```csharp
 try
 {
-    serviceClient.Skillsets.CreateOrUpdate(skillSet);
+    serviceClient.Skillsets.CreateOrUpdate(skillset);
 }
 catch (Exception e)
 {
@@ -459,16 +471,24 @@ var index = new Index()
 };
 ```
 
-Durante las pruebas, es posible que intente crear el índice de más de una vez. Por este motivo, compruebe si el índice que está por crear ya existe antes de intentar crearlo. 
+Durante las pruebas, es posible que intente crear el índice de más de una vez. Por este motivo, compruebe si el índice que está por crear ya existe antes de intentar crearlo.
 
 ```csharp
-bool exists = serviceClient.Indexes.Exists(index.Name);
-if (exists)
+try
 {
-    serviceClient.Indexes.Delete(index.Name);
-}
+    bool exists = serviceClient.Indexes.Exists(index.Name);
 
-serviceClient.Indexes.Create(index);
+    if (exists)
+    {
+        serviceClient.Indexes.Delete(index.Name);
+    }
+
+    serviceClient.Indexes.Create(index);
+}
+catch (Exception e)
+{
+    // Handle exception
+}
 ```
 
 Para más información acerca de cómo definir un índice, consulte [Crear índice (API de REST de Azure Search)](https://docs.microsoft.com/rest/api/searchservice/create-index).
@@ -526,14 +546,15 @@ Indexer indexer = new Indexer(
     fieldMappings: fieldMappings,
     outputFieldMappings: outputMappings);
 
-bool exists = serviceClient.Indexers.Exists(indexer.Name);
-if (exists)
-{
-    serviceClient.Indexers.Delete(indexer.Name);
-}
-
 try
 {
+    bool exists = serviceClient.Indexers.Exists(indexer.Name);
+
+    if (exists)
+    {
+        serviceClient.Indexers.Delete(indexer.Name);
+    }
+
     serviceClient.Indexers.Create(indexer);
 }
 catch (Exception e)
@@ -560,21 +581,29 @@ Una vez extraído el contenido, puede establecer `imageAction` para que se extra
 Una vez definido el indexador, se ejecuta automáticamente cuando se envía la solicitud. Dependiendo de las aptitudes cognitivas definidas, la indexación puede tardar más de lo esperado. Para averiguar si el indexador todavía se está ejecutando, use el método `GetStatus`.
 
 ```csharp
-IndexerExecutionInfo demoIndexerExecutionInfo = serviceClient.Indexers.GetStatus(indexer.Name);
-switch (demoIndexerExecutionInfo.Status)
+try
 {
-    case IndexerStatus.Error:
-        Console.WriteLine("Indexer has error status");
-        break;
-    case IndexerStatus.Running:
-        Console.WriteLine("Indexer is running");
-        break;
-    case IndexerStatus.Unknown:
-        Console.WriteLine("Indexer status is unknown");
-        break;
-    default:
-        Console.WriteLine("No indexer status information");
-        break;
+    IndexerExecutionInfo demoIndexerExecutionInfo = serviceClient.Indexers.GetStatus(indexer.Name);
+
+    switch (demoIndexerExecutionInfo.Status)
+    {
+        case IndexerStatus.Error:
+            Console.WriteLine("Indexer has error status");
+            break;
+        case IndexerStatus.Running:
+            Console.WriteLine("Indexer is running");
+            break;
+        case IndexerStatus.Unknown:
+            Console.WriteLine("Indexer status is unknown");
+            break;
+        default:
+            Console.WriteLine("No indexer information");
+            break;
+    }
+}
+catch (Exception e)
+{
+    // Handle exception
 }
 ```
 
@@ -603,6 +632,19 @@ catch (Exception e)
 }
 ```
 
+`CreateSearchIndexClient` crea un nuevo `SearchIndexClient` mediante valores que se almacenan en el archivo de configuración de la aplicación (appsettings.json). Tenga en cuenta que se usa la clave de API de consulta del servicio de búsqueda, no la clave de administrador.
+
+```csharp
+private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
+{
+   string searchServiceName = configuration["SearchServiceName"];
+   string queryApiKey = configuration["SearchServiceQueryApiKey"];
+
+   SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "demoindex", new SearchCredentials(queryApiKey));
+   return indexClient;
+}
+```
+
 La salida es el esquema de índice, con el nombre, el tipo y los atributos de cada campo.
 
 Envíe una segunda consulta para `"*"` a fin de devolver todo el contenido de un campo único, como `organizations`.
@@ -626,52 +668,11 @@ catch (Exception e)
 
 Repita el proceso para otros campos: contenido, languageCode, keyPhrases y organizaciones del ejercicio. Puede devolver varios campos a través de `$select` con una lista delimitada por comas.
 
-<a name="access-enriched-document"></a>
-
-## <a name="accessing-the-enriched-document"></a>Acceso al documento enriquecido
-
-Cognitive Search permite ver la estructura del documento enriquecido. Los documentos enriquecidos son estructuras temporales creadas durante el enriquecimiento, que se elimina cuando se completa el proceso.
-
-Para capturar una instantánea del documento enriquecido creado durante la indexación, agregue un campo denominado ```enriched``` al índice. El indexador vuelca automáticamente en el campo una representación de cadena del enriquecimiento del documento.
-
-El campo ```enriched``` contendrá una cadena que es una representación lógica del documento enriquecido en memoria en formato JSON.  Sin embargo, el valor del campo es un documento JSON válido. Las comillas son caracteres de escape, por lo que deberá reemplazar `\"` por `"` para ver el documento con el formato JSON.  
-
-El campo ```enriched``` está destinado a la depuración, solo para ayudarle a entender la forma lógica del contenido en el que se evalúan las expresiones. Puede ser una herramienta útil para entender y depurar su conjunto de aptitudes.
-
-Repita el ejercicio anterior, incluido un campo `enriched` para capturar el contenido de un documento enriquecido:
-
-### <a name="request-body-syntax"></a>Sintaxis del cuerpo de la solicitud
-```csharp
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
-// It ensures that Pascal-case property names in the model class are mapped to camel-case
-// field names in the index.
-[SerializePropertyNamesAsCamelCase]
-public class DemoIndex
-{
-    [System.ComponentModel.DataAnnotations.Key]
-    [IsSearchable, IsSortable]
-    public string Id { get; set; }
-
-    [IsSearchable]
-    public string Content { get; set; }
-
-    [IsSearchable]
-    public string LanguageCode { get; set; }
-
-    [IsSearchable]
-    public string[] KeyPhrases { get; set; }
-
-    [IsSearchable]
-    public string[] Organizations { get; set; }
-
-    public string Enriched { get; set; }
-}
-```
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Restablecer y volver a ejecutar
 
-En las primeras etapas experimentales de desarrollo, el enfoque más práctico para las iteraciones del diseño es eliminar los objetos de Azure Search y permitir que el código vuelva a generarlos. Los nombres de los recursos son únicos. La eliminación de un objeto permite volver a crearlo con el mismo nombre. 
+En las primeras etapas experimentales de desarrollo, el enfoque más práctico para las iteraciones del diseño es eliminar los objetos de Azure Search y permitir que el código vuelva a generarlos. Los nombres de los recursos son únicos. La eliminación de un objeto permite volver a crearlo con el mismo nombre.
 
 En este tutorial se encargó de comprobar los indexadores e índices existentes y eliminarlos, si ya existían, para poder volver a ejecutar el código.
 
@@ -681,11 +682,11 @@ A medida que el código evoluciona, puede refinar una estrategia de regeneració
 
 ## <a name="takeaways"></a>Puntos clave
 
-Este tutorial muestra los pasos básicos para la creación de una canalización de indexación enriquecida a través de la creación de componentes: un origen de datos, un conjunto de aptitudes, un índice y un indexador.
+En este tutorial se han mostrado los pasos básicos para la creación de una canalización de indexación enriquecida a través de la creación de componentes: un origen de datos, un conjunto de aptitudes, un índice y un indexador.
 
 Las [aptitudes predefinidas](cognitive-search-predefined-skills.md) se presentan, junto con la definición del conjunto de aptitudes y los mecanismos de encadenamiento de aptitudes, a través de entradas y salidas. También ha aprendido que `outputFieldMappings` en la definición del indexador se necesita para enrutar los valores enriquecidos de la canalización a un índice que permita búsquedas en un servicio Azure Search.
 
-Por último, ha aprendido cómo probar los resultados y restablecer el sistema para otras iteraciones. Ha aprendido que emitir consultas en el índice devuelve la salida creada por la canalización de indexación enriquecida. En esta versión, existe un mecanismo para ver las construcciones internas (documentos enriquecidos creados por el sistema). También ha aprendido cómo comprobar el estado del indexador y qué objetos se deben eliminar antes de volver a ejecutar una canalización.
+Por último, ha aprendido cómo probar los resultados y restablecer el sistema para otras iteraciones. Ha aprendido que emitir consultas en el índice devuelve la salida creada por la canalización de indexación enriquecida. También ha aprendido cómo comprobar el estado del indexador y qué objetos se deben eliminar antes de volver a ejecutar una canalización.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
