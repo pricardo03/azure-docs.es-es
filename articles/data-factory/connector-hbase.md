@@ -43,7 +43,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HBase:
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **HBase** | Sí |
 | host | Dirección IP o nombre de host del servidor de HBase. (es decir  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Sí |
-| puerto | Puerto TCP que el servidor de HBase utiliza para escuchar las conexiones del cliente. El valor predeterminado es 9090. Si se conecta a Azure HDInsights, especifique el puerto 443. | Sin  |
+| port | Puerto TCP que el servidor de HBase utiliza para escuchar las conexiones del cliente. El valor predeterminado es 9090. Si se conecta a Azure HDInsights, especifique el puerto 443. | Sin  |
 | httpPath | La dirección URL parcial correspondiente al servidor de HBase, por ejemplo, `/hbaserest0` cuando se usa el clúster de HDInsights. | Sin  |
 | authenticationType | Mecanismo de autenticación utilizado para conectarse al servidor de HBase. <br/>Los valores permitidos son: **Anonymous**, **Basic** | Sí |
 | username | Nombre de usuario que se usa para conectarse al servidor de HBase.  | Sin  |
