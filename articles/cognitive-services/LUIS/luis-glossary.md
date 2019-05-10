@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ced83b83c2d64ba5c4816f378c66dae9f4210391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193635"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523494"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio de API de LUIS.
@@ -26,7 +26,7 @@ La versión activa de LUIS es la versión que recibe los cambios que se hagan en
 
 ## <a name="authoring"></a>Creación
 
-La creación es la capacidad de crear, administrar e implementar una [aplicación de LUIS](#luis-app), ya sea mediante el sitio web de [LUIS](luis-reference-regions.md) o las [API de creación](https://aka.ms/luis-authoring-api).
+La creación es la capacidad de crear, administrar e implementar una [aplicación de LUIS](#luis-app), ya sea mediante el sitio web de [LUIS](luis-reference-regions.md) o las [API de creación](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Clave de creación
 
@@ -74,7 +74,7 @@ En el contexto de LUIS, un **dominio** es un área de conocimiento. El dominio e
 
 ## <a name="endpoint"></a>Punto de conexión
 
-La dirección URL del [punto de conexión de LUIS](https://aka.ms/luis-endpoint-apis) es donde se envían las consultas de LUIS después de crear y publicar la [aplicación de LUIS](#luis-app). La dirección URL del punto de conexión contiene la región de la aplicación publicada, así como el identificador de la aplicación. Puede encontrar el punto de conexión en la página **[Claves y puntos de conexión](luis-how-to-azure-subscription.md)** de la aplicación o bien puede obtener la dirección URL del punto de conexión desde la API [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
+La dirección URL del [punto de conexión de LUIS](https://go.microsoft.com/fwlink/?linkid=2092356) es donde se envían las consultas de LUIS después de crear y publicar la [aplicación de LUIS](#luis-app). La dirección URL del punto de conexión contiene la región de la aplicación publicada, así como el identificador de la aplicación. Puede encontrar el punto de conexión en la página **[Claves y puntos de conexión](luis-how-to-azure-subscription.md)** de la aplicación o bien puede obtener la dirección URL del punto de conexión desde la API [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
 
 Un punto de conexión de ejemplo tiene el siguiente aspecto:
 
@@ -82,11 +82,11 @@ Un punto de conexión de ejemplo tiene el siguiente aspecto:
 
 |Parámetro Querystring|description|
 |--|--|
-|region| [región publicada](luis-reference-regions.md#publishing-regions) |
+|Región| [región publicada](luis-reference-regions.md#publishing-regions) |
 |appID | Identificador de la aplicación de LUIS |
 |subscriptionID | Clave de punto de conexión (suscripción) de LUIS creada en Azure Portal |
 |q | expresión |
-|timezoneOffset| minutes|
+|timezoneOffset| minutos|
 
 ## <a name="entity"></a>Entidad
 

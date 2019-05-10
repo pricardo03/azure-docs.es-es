@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02c079e9cda88c969e5382b2c70c551cf9a88e14
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710629"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522490"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Prueba de expresiones de ejemplo en LUIS
 
@@ -46,7 +46,7 @@ Todas las pruebas de punto de conexión cuentan para la cuota de uso.
 Si hace una prueba en un punto de conexión y no quiere que la expresión quede registrada, recuerde que debe usar la configuración de cadena de consulta `logging=false`.
 
 ## <a name="where-to-find-utterances"></a>Dónde encontrar expresiones
-LUIS almacena todas las expresiones registradas en el registro de consultas, que se puede descargar en la página de la lista [Aplicaciones](luis-reference-regions.md) del sitio web de **LUIS**, así como las [API de creación](https://aka.ms/luis-authoring-apis) de LUIS. 
+LUIS almacena todas las expresiones registradas en el registro de consultas, que se puede descargar en la página de la lista [Aplicaciones](luis-reference-regions.md) del sitio web de **LUIS**, así como las [API de creación](https://go.microsoft.com/fwlink/?linkid=2092087) de LUIS. 
 
 Todas las expresiones de las que LUIS no esté seguro aparecerán en la página **[Revisión de las expresiones de punto de conexión](luis-how-to-review-endpoint-utterances.md)** del sitio web de [LUIS](luis-reference-regions.md). 
 

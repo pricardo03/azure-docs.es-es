@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1344de526564ab623a51eb903951b6a2e866048d
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138164"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523489"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Acerca de vista previa personalizado asistentes virtuales para la voz en primer lugar
 
-Asistentes virtuales personalizadas mediante Azure Speech Services permite a los desarrolladores crear interfaces de conversación naturales, similar a la humana para sus aplicaciones y experiencias. Canal de voz de línea directa de Bot Framework mejora estas funcionalidades proporcionando un punto de entrada coordinado y organizada a un bot compatible que permite la voz en voz interacción con baja latencia y alta confiabilidad. Estos bots puede utilizar Microsoft Language Understanding (LUIS) para la interacción del lenguaje natural. Voz de línea directa se tiene acceso a los dispositivos mediante el Kit de desarrollo de Software (SDK) de voz.
+Los asistentes virtuales personalizadas que utilizan los servicios de voz de Azure permiten a los desarrolladores crear interfaces de conversación naturales, similares a la humana, para sus aplicaciones y experiencias. El canal de voz Direct Line de Bot Framework mejora estas funcionalidades porque proporciona un punto de entrada coordinado y organizado a un bot compatible que permite la interacción de entrada y salida de voz con baja latencia y alta confiabilidad. Estos bots puede utilizar Microsoft Language Understanding (LUIS) para la interacción del lenguaje natural. Voz de línea directa se tiene acceso a los dispositivos mediante el Kit de desarrollo de Software (SDK) de voz.
 
    ![Diagrama conceptual del flujo de servicio de orquestación de voz de línea directa](media/voice-first-virtual-assistants/overview.png "flujo el canal de voz")
 
-Voz de línea directa y su funcionalidad asociada para los asistentes virtuales primero de voz personalizados son un complemento ideal para la [solución Ayudante Virtual](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) y [Enterprise Templates](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Aunque voz de línea directa puede funcionar con cualquier bot compatible, estos recursos ofrecen una línea base reutilizable para modelos para comenzar rápidamente, así como aptitudes auxiliares comunes y conversacionales experiencias de alta calidad.
+Voz de línea directa y su funcionalidad asociada para los asistentes virtuales primero de voz personalizados son un complemento ideal para la [solución Ayudante Virtual](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) y [Enterprise Templates](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction). Aunque voz de línea directa puede funcionar con cualquier bot compatible, estos recursos ofrecen una línea base reutilizable para modelos para comenzar rápidamente, así como aptitudes auxiliares comunes y conversacionales experiencias de alta calidad.
 
 ## <a name="core-features"></a>Características principales
 
