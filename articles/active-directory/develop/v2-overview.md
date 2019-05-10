@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 414200462d3575aa576b5ef2268a3ac0b01063ba
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231073"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190757"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Introducción a la Plataforma de identidad de Microsoft (versión 2.0)
 
@@ -56,7 +56,7 @@ Trabajar con la identidad no tiene porqué ser complicado. Elija un escenario qu
 
 En el gráfico siguiente se describen escenarios comunes de aplicaciones de autenticación: úselo como referencia al integrar la Plataforma de identidad de Microsoft con su aplicación.
 
-[![Escenarios de aplicaciones en la Plataforma de identidad de Microsoft](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
+[![Escenarios de aplicaciones en la Plataforma de identidad de Microsoft](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
