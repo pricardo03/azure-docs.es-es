@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b64315d8639cf8a7204ee809598567ec76fd188
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61373573"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541792"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Inicio rápido: Crear una base de conocimiento con el portal de servicios de QnA Maker API
 
@@ -50,7 +50,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     - Cargue los archivos de los datos que quiere extraer. Consulte la [información sobre precios](https://aka.ms/qnamaker-pricing) para ver cuántos documentos puede agregar.
     - Si quiere agregar manualmente preguntas y respuestas, puede omitir el **paso 4** que se muestra en la imagen anterior.
 
-1. Agregue **charlas** a la base de conocimiento. Opte por agregar compatibilidad de charla al bot al elegir entre una de las tres personalidades. 
+1. Agregue **charlas** a la base de conocimiento. Optar por agregar compatibilidad con chit chat para el bot, eligiendo una de las personalidades. 
 
     ![Adición de preguntas y respuestas de charla a la base de conocimiento](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9add80b7494ae2a8e671967a96dc5d3c7307f51
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61374635"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541625"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Edición de una base de conocimiento en QnA Maker
 
@@ -72,8 +72,7 @@ Agregue preguntas alternativas a un par de QnA existente para mejorar la probabi
 
 ## <a name="add-metadata"></a>Agregar metadatos
 
-
-Agregue los pares de metadatos seleccionando el icono de metadatos. Un par de metadatos consta de una clave y un valor.
+Agregar pares de metadatos, pero seleccione antes **ver opciones**, a continuación, seleccione **muestran metadatos**. Esto muestra la columna de metadatos. A continuación, seleccione el **+** inicie sesión para agregar un par de metadatos. Este par consta de una clave y un valor.
 
 ![Agregar metadatos](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

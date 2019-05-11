@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: garye
-ms.openlocfilehash: 6950cba5ac958233e7ea77c8dc783ca86cc5a386
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5adb5b8bddd0f379ac581f3268f0121791cf0bc
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829504"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546367"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Inicio rápido: Creación de una cuenta de Cognitive Services en Azure Portal
 
@@ -56,7 +56,7 @@ Las siguientes secciones le guiarán por la creación de una suscripción de uno
     | **Suscripción** | Seleccione una de las suscripciones de Azure disponibles. |
     | **Ubicación** | Ubicación de la instancia de Cognitive Services. Las diferentes ubicaciones pueden crear latencias, pero no tienen ningún impacto en la disponibilidad del tiempo de ejecución del recurso. |
     | **Plan de tarifa** | Costo de la cuenta de Cognitive Services, que depende del uso y de las opciones que elija. Para obtener más información, consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Grupos de recursos** | [Grupo de recursos de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) que contendrá su recurso de Cognitive Services. Puede crear un nuevo grupo o agregarlo a uno ya existente. |
+    | **Grupos de recursos** | [Grupo de recursos de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) que contendrá su recurso de Cognitive Services. Puede crear un nuevo grupo o agregarlo a uno ya existente. |
 
     ![Pantalla de creación de recursos](media/cognitive-services-apis-create-account/resource_create_screen_multi.png)
 
@@ -78,7 +78,7 @@ Las siguientes secciones le guiarán por la creación de una suscripción de uno
     | **Suscripción** | Seleccione una de las suscripciones de Azure disponibles. |
     | **Ubicación** | Ubicación de la instancia de Cognitive Services. Las diferentes ubicaciones pueden crear latencias, pero no tienen ningún impacto en la disponibilidad del tiempo de ejecución del recurso. |
     | **Plan de tarifa** | Costo de la cuenta de Cognitive Services, que depende del uso y de las opciones que elija. Para obtener más información, consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    | **Grupos de recursos** | [Grupo de recursos de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/azure-resource-access#what-is-an-azure-resource-group) que contendrá su recurso de Cognitive Services. Puede crear un nuevo grupo o agregarlo a uno ya existente. |
+    | **Grupos de recursos** | [Grupo de recursos de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) que contendrá su recurso de Cognitive Services. Puede crear un nuevo grupo o agregarlo a uno ya existente. |
 
     ![Pantalla de creación de recursos](media/cognitive-services-apis-create-account/resource_create_screen.png)
 

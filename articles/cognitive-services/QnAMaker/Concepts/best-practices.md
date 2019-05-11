@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78c445e70fcf972be81ef6dfd5d675f8e4843621
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61379236"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541504"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedimientos recomendados para una base de conocimiento de QnA Maker
 El artículo sobre el [ciclo de vida de desarrollo de una base de conocimiento](../Concepts/development-lifecycle-knowledge-base.md) indica cómo administrar una base de conocimiento de principio a fin. Siga estos procedimientos recomendados para mejorar la base de conocimiento y ofrecer mejores resultados a los usuarios finales del bot de chat o de la aplicación.
@@ -39,18 +39,20 @@ Agregue tantas preguntas alternativas como necesite, pero mantenga las variantes
 Las mejores respuestas son sencillas, pero no tanto como Sí y No. Si la respuesta debe remitir a otros orígenes o incluir una experiencia enriquecida con vínculos y multimedia, use [etiquetado](../how-to/metadata-generateanswer-usage.md) para distinguir qué tipo de respuesta espera, y envíe la etiqueta con la consulta para obtener la versión correcta de la respuesta.
 
 ## <a name="chit-chat"></a>Charla
-Agregue una charla a su bot para que sea más conversacional y atractivo fácilmente. Puede agregar fácilmente conjuntos de datos de charla para tres personalidades predefinidas al crear la base de conocimiento y cambiarlos en cualquier momento. Obtenga información sobre cómo [agregar una charla a la base de conocimiento](../How-To/chit-chat-knowledge-base.md). 
+Agregue una charla a su bot para que sea más conversacional y atractivo fácilmente. Fácilmente puede agregar conjuntos de datos chit chat desde personalidades predefinidos al crear su KB y cambiarlos en cualquier momento. Obtenga información sobre cómo [agregar una charla a la base de conocimiento](../How-To/chit-chat-knowledge-base.md). 
 
 ### <a name="choosing-a-personality"></a>Selección de una personalidad
-La charla es compatible con tres personalidades predefinidas: 
+Chit chat es compatible con varios personalidades predefinidos: 
 
-|Personalidades|
-|--|
-|Profesional|
-|El amigo|
-|Cómico|
+|Personalidad |Archivo de conjunto de datos de QnA Maker |
+|---------|-----|
+|Profesional |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|Descriptiva |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
+|Astuto |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
+|Preocuparse |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
+|Entusiasta |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-El rango de respuestas va de formal a informal e irreverente. Debe seleccionar la personalidad que sea más acorde con el tono que quiera para el bot. Puede ver los conjuntos de datos, elegir uno que sirva como base para el bot y, a continuación, personalizar las respuestas. 
+El rango de respuestas va de formal a informal e irreverente. Debe seleccionar la personalidad que sea más acorde con el tono que quiera para el bot. Puede ver el [conjuntos de datos](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets), elija uno que actúe como base para el bot y, a continuación, personalizar las respuestas. 
 
 ### <a name="edit-bot-specific-questions"></a>Edición de preguntas específicas de bot
 Hay algunas preguntas específicas de bot que forman parte del conjunto de datos de charla y que se han rellenado con respuestas genéricas. Cambie estas respuestas para reflejar mejor los detalles del bot. 
@@ -59,7 +61,7 @@ Se recomienda hacer que las siguientes preguntas y respuestas de charla sean má
 
 * ¿Quién es usted?
 * ¿Qué puede hacer?
-* ¿Cuántos años tiene?
+* Es necesario indicar la edad
 * ¿Quién le ha creado?
 * Hola
    
@@ -73,7 +75,7 @@ La puntuación de confianza predeterminada que se usa como umbral es de 50, pero
 ### <a name="add-alternate-questions"></a>Agregar preguntas alternativas
 [Alternar las preguntas](../How-To/edit-knowledge-base.md) aumenta las probabilidades de encontrar una coincidencia con una consulta de usuario. Las preguntas alternativas son útiles cuando hay varias maneras de plantear la misma pregunta. Esto puede incluir cambios en la estructura de la frase y el estilo de redacción.
 
-|Consulta original|Consultas alternativas|Change| 
+|Consulta original|Consultas alternativas|Cambio| 
 |--|--|--|
 |¿Hay estacionamiento disponible?|¿Dispone de estacionamiento?|estructura de la frase|
  |Hola|Buenas<br>¿Cómo estamos?|estilo de redacción o jerga|
