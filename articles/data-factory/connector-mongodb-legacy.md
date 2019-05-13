@@ -55,12 +55,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MongoDB:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type |La propiedad type debe establecerse en: **MongoDB** |Sí |
-| Servidor |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
-| puerto |Puerto TCP que el servidor de MongoDB utiliza para escuchar las conexiones del cliente. |No (el valor predeterminado es 27017) |
+| server |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
+| port |Puerto TCP que el servidor de MongoDB utiliza para escuchar las conexiones del cliente. |No (el valor predeterminado es 27017) |
 | databaseName |Nombre de la base de datos de MongoDB a la que desea acceder. |Sí |
 | authenticationType | Tipo de autenticación usado para conectarse a la base de datos MongoDB.<br/>Los valores permitidos son: **Basic** (básica) y **Anonymous** (anónima). |Sí |
 | username |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
-| contraseña |Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (si se usa la autenticación básica). |
+| password |Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (si se usa la autenticación básica). |
 | authSource |Nombre de la base de datos de MongoDB que desea usar para comprobar las credenciales de autenticación. |No. Para la autenticación básica, el valor predeterminado se utiliza la cuenta de administrador y la base de datos especificada mediante la propiedad databaseName. |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin  |
 | allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es false.  | Sin  |
@@ -183,7 +183,7 @@ Al copiar datos desde MongoDB, se utilizan las siguientes asignaciones de tipos 
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
-| string |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalizado en columnas acopladas con "_" como separador anidado |
 
