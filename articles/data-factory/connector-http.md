@@ -58,7 +58,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HTTP:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** debe establecerse en: **HttpServer**. | Sí |
+| type | La propiedad **type** debe establecerse en: **HttpServer**. | Sí |
 | url | La dirección URL base para el servidor web. | Sí |
 | enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados SSL al conectarse al punto de conexión HTTP. Si el servidor HTTPS usa un certificado autofirmado, establezca esta propiedad en **false**. | No<br /> (El valor predeterminado es: **true**) |
 | authenticationType | Especifica el tipo de autenticación. Los valores permitidos son: **Anonymous**, **Basic**, **Digest**, **Windows** y **ClientCertificate**. <br><br> Consulte las secciones que se encuentran después de esta tabla para obtener más propiedades y ejemplos de JSON para estos tipos de autenticación. | Sí |
@@ -171,7 +171,7 @@ Para copiar datos desde HTTP en **Parquet o formato de texto delimitado**, consu
 
 | Propiedad    | DESCRIPCIÓN                                                  | Obligatorio |
 | ----------- | ------------------------------------------------------------ | -------- |
-| Tipo        | La propiedad type en `location` en el conjunto de datos debe establecerse en **HttpServerLocation**. | Sí      |
+| type        | La propiedad type en `location` en el conjunto de datos debe establecerse en **HttpServerLocation**. | Sí      |
 | relativeUrl | Dirección URL relativa al recurso que contiene los datos.       | No       |
 
 > [!NOTE]
@@ -212,13 +212,13 @@ Para copiar datos desde HTTP en **formato ORC/Avro/JSON/binario**, se admiten la
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del conjunto de datos debe establecerse en **HttpFile**. | Sí |
+| type | La propiedad **type** del conjunto de datos debe establecerse en **HttpFile**. | Sí |
 | relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, solo se usa la dirección URL especificada en la definición del servicio vinculado. | No |
 | requestMethod | Método HTTP. Los valores permitidos son **Get** (valor predeterminado) y **Post**. | No |
 | additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin  |
 | requestBody | Cuerpo de la solicitud HTTP. | No |
 | format | Si desea recuperar datos tal cual desde el punto de conexión HTTP sin analizarlos y, después, copiarlos en un almacén basado en archivos, ignore la sección de **formato** de las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato de archivos: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. En **formato**, establezca la propiedad **type** de formato en uno de los siguientes valores. Para obtener más información, consulte las secciones sobre [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format) y [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |No |
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipos admitidos: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Niveles que se admiten:  **Optimal** y **Fastest**. |No |
+| compression | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipos admitidos: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Niveles que se admiten:  **Optimal** y **Fastest**. |No |
 
 > [!NOTE]
 > El tamaño de carga de la solicitud HTTP admitido es aproximadamente 500 KB. Si el que desea pasar al punto de conexión web supera los 500 KB, considere la posibilidad de agrupar la carga en fragmentos menores.
@@ -279,7 +279,7 @@ Para copiar datos desde HTTP en **Parquet o formato de texto delimitado**, consu
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| Tipo                     | La propiedad type en `storeSettings` debe establecerse en **HttpReadSetting**. | Sí      |
+| type                     | La propiedad type en `storeSettings` debe establecerse en **HttpReadSetting**. | Sí      |
 | requestMethod            | Método HTTP. <br>Los valores permitidos son **Get** (valor predeterminado) y **Post**. | No       |
 | addtionalHeaders         | Encabezados de solicitud HTTP adicionales.                             | Sin        |
 | requestBody              | Cuerpo de la solicitud HTTP.                               | No       |
@@ -336,7 +336,7 @@ Para copiar datos desde HTTP en **formato ORC/Avro/JSON/binario**, se admiten la
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en: **HttpSource**. | Sí |
+| type | La propiedad **type** del origen de la actividad de copia debe establecerse en: **HttpSource**. | Sí |
 | httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**.  | No |
 
 **Ejemplo**

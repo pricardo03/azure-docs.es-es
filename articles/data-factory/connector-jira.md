@@ -46,7 +46,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Jira:
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Jira** | Sí |
 | host | Dirección IP o nombre de host del servicio de Jira. (por ejemplo, jira.example.com)  | Sí |
-| puerto | Puerto TCP que el servidor de Jira utiliza para escuchar las conexiones del cliente. El valor predeterminado es 443 si se conecta a través de HTTPS o 8080 si se conecta a través de HTTP.  | Sin  |
+| port | Puerto TCP que el servidor de Jira utiliza para escuchar las conexiones del cliente. El valor predeterminado es 443 si se conecta a través de HTTPS o 8080 si se conecta a través de HTTP.  | Sin  |
 | username | Nombre de usuario que utiliza para acceder al servicio de Jira.  | Sí |
 | password | Contraseña correspondiente al nombre de usuario que ha proporcionado en el campo de nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
