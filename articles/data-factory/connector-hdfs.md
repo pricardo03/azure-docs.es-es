@@ -62,7 +62,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HDFS:
 | url |Dirección URL a HDFS |Sí |
 | authenticationType | Los valores permitidos son: **Anónima** o **Windows**. <br><br> Para usar la **autenticación Kerberos** para el conector HDFS, consulte [esta sección](#use-kerberos-authentication-for-hdfs-connector) a fin de configurar el entorno local en consecuencia. |Sí |
 | userName |Nombre de usuario para la autenticación de Windows Para la autenticación Kerberos, especifique `<username>@<domain>.com`. |Sí (para la autenticación de Windows) |
-| contraseña |Contraseña para la autenticación de Windows Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (para la autenticación de Windows) |
+| password |Contraseña para la autenticación de Windows Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (para la autenticación de Windows) |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |No |
 
 **Ejemplo: Uso de autenticación anónima**
@@ -122,7 +122,7 @@ Para copiar datos desde HDFS en **Parquet o formato de texto delimitado**, consu
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
-| Tipo       | La propiedad type en `location` en el conjunto de datos debe establecerse en **HdfsLocation**. | Sí      |
+| type       | La propiedad type en `location` en el conjunto de datos debe establecerse en **HdfsLocation**. | Sí      |
 | folderPath | La ruta de acceso a la carpeta. Si desea usar el carácter comodín a la carpeta de filtro, omita esta configuración y especificar en la configuración del origen de actividad. | Sin        |
 | fileName   | El nombre de archivo en folderPath determinado. Si desea usar el carácter comodín para filtrar los archivos, omita esta configuración y especificar en la configuración del origen de actividad. | No       |
 
@@ -217,7 +217,7 @@ Para copiar datos desde HDFS en **Parquet o formato de texto delimitado**, consu
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| Tipo                     | La propiedad type en `storeSettings` debe establecerse en **HdfsReadSetting**. | Sí                                           |
+| type                     | La propiedad type en `storeSettings` debe establecerse en **HdfsReadSetting**. | Sí                                           |
 | recursive                | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin                                             |
 | wildcardFolderPath       | La ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sin                                             |
 | wildcardFileName         | El nombre de archivo con caracteres comodín en el folderPath/wildcardFolderPath determinado para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí si `fileName` no se especifica en el conjunto de datos |
