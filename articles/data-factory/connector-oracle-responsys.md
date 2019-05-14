@@ -45,7 +45,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Oracle R
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Responsys** | Sí |
-| punto de conexión | Punto de conexión del servidor de Responsys.  | Sí |
+| endpoint | Punto de conexión del servidor de Responsys.  | Sí |
 | clientId | Identificador de cliente asociado a la aplicación Responsys.  | Sí |
 | clientSecret | Secreto de cliente asociado a la aplicación Responsys. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia de ADF incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
