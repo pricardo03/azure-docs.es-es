@@ -6,20 +6,20 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: 2a904cfb049af413887798c8aab449561bc2b73f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030053"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471756"
 ---
 # <a name="how-to-get-started-with-knowledge-store"></a>Introducción a Knowledge Store
 
 [Knowledge Store](knowledge-store-concept-intro.md) es una nueva característica en vista previa de Azure Search que guarda enriquecimientos de IA creados en una canalización de indexación para minería de datos de conocimientos en otras aplicaciones. También puede usar enriquecimientos guardados para comprender y refinar una canalización de indexación de Azure Search.
 
-Un almacén de conocimientos se define mediante un conjunto de aptitudes. Para escenarios normales de búsqueda de texto completo de Azure Search, el propósito de un conjunto de aptitudes es ofrecer enriquecimientos de IA para facilitar la búsqueda de contenido. Para los escenarios de un almacén de conocimientos, el rol de un conjunto de aptitudes es crear y rellenar varias estructuras de datos para minería de conocimientos.
+Un almacén de conocimientos se define mediante un conjunto de aptitudes. Para escenarios normales de búsqueda de texto completo de Azure Search, el propósito de un conjunto de aptitudes es ofrecer enriquecimientos de IA para facilitar la búsqueda de contenido. En el caso de los escenarios de minería, el rol de un conjunto de aptitudes es crear,rellenar y almacenar varias estructuras de datos para realizar análisis y crear modelos en otras aplicaciones y procesos.
 
 En este ejercicio, comience con datos, servicios y herramientas de ejemplo para conocer el flujo de trabajo básico para crear y usar su primer almacén de conocimientos, con énfasis en la definición del conjunto de aptitudes.
 
@@ -29,13 +29,13 @@ En este inicio rápido se usan los siguientes servicios, herramientas y datos.
 
 + [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial. 
 
-+ [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de ejemplo. El almacén de conocimientos existirá en Azure Storage.
++ [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de ejemplo. El almacén de conocimientos existirá en Azure Storage. 
 
-+ [Cree un recurso de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en el nivel de servicio de pago por uso S0 para un acceso exhaustivo a la gama completa de aptitudes usadas en los enriquecimientos de IA.
++ [Cree un recurso de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en el nivel de servicio de pago por uso S0 para un acceso exhaustivo a la gama completa de aptitudes usadas en los enriquecimientos de IA. Es preciso que este recurso y el servicio Azure Search estén en la misma región.
 
 + La [aplicación de escritorio Postman](https://www.getpostman.com/) se usa para enviar solicitudes a Azure Search.
 
-+ [Colección de Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/caselaw) con solicitudes preparadas para crear un origen de datos, un índice, un conjunto de aptitudes y un indexador. Varias definiciones de objeto son demasiado largas para incluirlas en este artículo. Debe obtener esta colección para ver las definiciones de índices y conjuntos de aptitudes en su totalidad.
++ [Colección de Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Caselaw) con solicitudes preparadas para crear un origen de datos, un índice, un conjunto de aptitudes y un indexador. Varias definiciones de objeto son demasiado largas para incluirlas en este artículo. Debe obtener esta colección para ver las definiciones de índices y conjuntos de aptitudes en su totalidad.
 
 + [Datos de ejemplo de Caselaw](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) que se originan en la página de descarga de datos públicos masivos de [Caselaw Access Project](https://case.law/bulk/download/). En concreto, el ejercicio usa los 10 primeros documentos de la primera descarga (Arkansas). Para este ejercicio, hemos cargado un ejemplo de 10 documentos en GitHub.
 
@@ -55,7 +55,7 @@ Todas las solicitudes requieren una clave de API en cada solicitud enviada al se
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com), vaya a su cuenta de Azure Storage, haga clic en **Blobs** y, después, en **+Contenedor**.
 
-1. [Cree un contenedor de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) que contenga los datos de ejemplo. Puede establecer el nivel de acceso público a cualquiera de sus valores válidos.
+1. [Cree un contenedor de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) que contenga los datos de ejemplo. Use el nombre de contenedor "caselaw-test". Puede establecer el nivel de acceso público a cualquiera de sus valores válidos.
 
 1. Una vez creado el contenedor, ábralo y seleccione **Cargar** en la barra de comandos.
 
@@ -66,19 +66,19 @@ Todas las solicitudes requieren una clave de API en cada solicitud enviada al se
 
 ## <a name="set-up-postman"></a>Configuración de Postman
 
-Inicie Postman y configure una solicitud HTTP. Si no está familiarizado con esta herramienta, consulte [Exploración de las API REST de Azure Search mediante Postman](search-fiddler.md).
+Inicie Postman e importe la colección Caselaw Postman. Como alternativa, configure una serie de solicitudes HTTP. Si no está familiarizado con esta herramienta, consulte [Exploración de las API REST de Azure Search mediante Postman](search-fiddler.md).
 
-+ El método de solicitud de todas las llamadas en esta guía es **POST**.
++ El método de solicitud que se usa en todas las llamadas de este tutorial es **PUT** o **POST**.
 + Los encabezados de solicitud (2) incluyen los siguientes: "Content-type" establecido en "application/json", "api-key" establecido en la "clave de administrador" (la clave de administrador es un marcador de posición para su clave principal de búsqueda), respectivamente. 
 + El cuerpo de la solicitud es donde se coloca el contenido real de la llamada. 
 
   ![Búsqueda de datos semiestructurados](media/search-semi-structured-data/postmanoverview.png)
 
-Estamos usando Postman para realizar cuatro llamadas API al servicio de búsqueda con el fin de crear un origen de datos, un índice, conjunto de aptitudes y un indexador. El origen de datos incluye un puntero a la cuenta de almacenamiento y a los datos JSON. El servicio de búsqueda realiza la conexión al importar los datos.
+Usamos Postman para realizar cuatro llamadas API al servicio de búsqueda, para crear un origen de datos, un índice, un conjunto de habilidades y un indizador (en ese orden). El origen de datos incluye un puntero a la cuenta de Azure Storage y a los datos JSON. El servicio de búsqueda realiza la conexión al importar los datos.
 
 [Crear un conjunto de aptitudes](#create-skillset) es el objetivo de esta guía: especifica los pasos de enriquecimiento y cómo persisten los datos en un almacén de conocimientos.
 
-El punto de conexión de dirección URL debe especificar api-version. Además, cada llamada debe devolver el mensaje **"201 - Creado"**. La versión preliminar de api-version para crear un conjunto de aptitudes con compatibilidad del almacén de conocimientos es `2019-05-06-Preview`.
+El punto de conexión de dirección URL debe especificar api-version. Además, cada llamada debe devolver el mensaje **"201 - Creado"**. La versión de API preliminar para crear un conjunto de habilidades que sea compatible con Knowledge Store es `2019-05-06-Preview` (distingue mayúsculas de minúsculas).
 
 Ejecute las siguientes llamadas API desde el cliente de REST.
 
@@ -101,10 +101,10 @@ El punto de conexión de esta llamada es `https://[service name].search.windows.
         "type": "azureblob",
         "subtype": null,
         "credentials": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your storage key>;EndpointSuffix=core.windows.net"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
         },
         "container": {
-            "name": "<your blob container name>",
+            "name": "<YOUR-BLOB-CONTAINER-NAME>",
             "query": null
         },
         "dataChangeDetectionPolicy": null,
@@ -318,24 +318,23 @@ El punto de conexión de esta llamada es `https://[service name].search.windows.
    }
    ```
 
-3. En primer lugar, establezca la clave y la cadena de conexión `cognitiveServices` y `knowledgeStore`. En el ejemplo, estas cadenas se encuentran después de la definición del conjunto de aptitudes, hacia el final del cuerpo de la solicitud.
+3. En primer lugar, establezca la clave y la cadena de conexión `cognitiveServices` y `knowledgeStore`. En el ejemplo, estas cadenas se encuentran después de la definición del conjunto de aptitudes, hacia el final del cuerpo de la solicitud. Use un recurso de Cognitive Services, aprovisionado en el nivel S0, ubicado en la misma región que Azure Search.
 
     ```json
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "<your cognitive services resource name>",
-        "key": "<your cognitive services key>"
+        "description": "YOUR-SAME-REGION-S0-COGNITIVE-SERVICES-RESOURCE",
+        "key": "YOUR-COGNITIVE-SERVICES-KEY"
     },
     "knowledgeStore": {
-        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your storage account key>;EndpointSuffix=core.windows.net",
+        "storageConnectionString": "YOUR-STORAGE-ACCOUNT-CONNECTION-STRING",
     ```
 
 3. Revise la colección de aptitudes, en particular las aptitudes de Conformador en las líneas 85 y 170, respectivamente. La aptitud Conformador es importante porque reúne las estructuras de datos que quiere para minería de conocimientos. Durante la ejecución del conjunto de aptitudes, estas estructuras solo están en memoria, pero conforme avanza al siguiente paso, verá cómo se puede guardar esta salida en un almacén de conocimientos para una exploración más a fondo.
 
-   Es el siguiente fragmento de código proviene de la línea 207. 
+   El siguiente fragmento de código es de la línea 217. 
 
     ```json
-    {
     "name": "Opinions",
     "source": null,
     "sourceContext": "/document/casebody/data/opinions/*",
@@ -361,44 +360,46 @@ El punto de conexión de esta llamada es `https://[service name].search.windows.
                     "name": "EntityType",
                     "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/category"
                 }
-             ]
-          }
-     ]
-   }
+            ]
+        }
+    ]
    . . .
    ```
 
-3. Revise el elemento `projections` en `knowledgeStore`, a partir de la línea 253. Las proyecciones especifican la composición del almacén de conocimientos. Las proyecciones se especifican en pares de tablas-objetos, pero actualmente solo una a la vez. Como puede ver en la primera proyección, se especifica `tables`, pero no `objects`. En la segunda, sucede lo contrario.
+3. Revise el elemento `projections` de `knowledgeStore`, que empieza en la línea 262. Las proyecciones especifican la composición del almacén de conocimientos. Las proyecciones se especifican en pares de tablas-objetos, pero actualmente solo una a la vez. Como puede ver en la primera proyección, se especifica `tables`, pero no `objects`. En la segunda, sucede lo contrario.
 
    En Azure Storage, las tablas se crearán en el almacenamiento de tablas para cada tabla que cree, y cada objeto obtiene un contenedor en el almacenamiento de blobs.
 
-   Normalmente, los objetos contienen la expresión completa de un enriquecimiento. Normalmente, las tablas contienen enriquecimientos parciales, en combinaciones que usted organiza para fines específicos. En este ejemplo, se muestra una tabla Cases, pero no se muestran otras tablas como Entities, Judges ni Opinions.
+   Los objetos BLOB normalmente contienen la expresión completa de un enriquecimiento. Normalmente, las tablas contienen enriquecimientos parciales, en combinaciones que usted organiza para fines específicos. Este ejemplo muestra una tabla Cases y una tabla Opinions, pero no se muestran otras como Entities, Attorneys, Judges y Parties.
 
     ```json
     "projections": [
-    {
-        "tables": [
-            {
-              "tableName": "Opinions",
-              "generatedKeyName": "OpinionId",
-              "source": "/document/Case/OpinionsSnippets/*"
-            },
-          . . . 
-        ],
-        "objects": []
-    },
-    {
-        "tables": [],
-        "objects": [
-            {
-                "storageContainer": "enrichedcases",
-                "key": "/document/CaseFull/Id",
-                "source": "/document/CaseFull"
-            }
-          ]
+        {
+            "tables": [
+                {
+                    "tableName": "Cases",
+                    "generatedKeyName": "CaseId",
+                    "source": "/document/Case"
+                },
+                {
+                    "tableName": "Opinions",
+                    "generatedKeyName": "OpinionId",
+                    "source": "/document/Case/OpinionsSnippets/*"
+                }
+            ],
+            "objects": []
+        },
+        {
+            "tables": [],
+            "objects": [
+                {
+                    "storageContainer": "enrichedcases",
+                    
+                    "source": "/document/CaseFull"
+                }
+            ]
         }
-      ]
-    }
+    ]
     ```
 
 5. Envíe la solicitud. La respuesta debe ser **201** y tener un aspecto similar al ejemplo siguiente; se muestran la primera parte de la respuesta.

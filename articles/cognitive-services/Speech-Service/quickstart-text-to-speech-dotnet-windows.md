@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
-ms.openlocfilehash: a013189e45b1c1c8eeb88d62a718d495c0c415a2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3b7addd369d5e26554dd4300e65bee66b8a62768
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012384"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465575"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Inicio rápido: Síntesis la voz con el SDK de Voz para .NET Framework (Windows)
+
+También hay inicios rápidos disponibles para el [reconocimiento de voz](quickstart-csharp-dotnet-windows.md) y la [traducción de voz](quickstart-translate-speech-dotnetframework-windows.md).
 
 Use esta guía para crear una aplicación de consola de conversión de texto a voz mediante .NET Framework para Windows y el SDK de Voz. Cuando termine, puede sintetizar la voz a partir de texto y escuchar la voz en su altavoz en tiempo real.
 

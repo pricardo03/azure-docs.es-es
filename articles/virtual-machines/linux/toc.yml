@@ -66,6 +66,8 @@
     - name: Tamaños y tipos de máquinas virtuales
       href: sizes.md
       items:
+        - name: Máquinas virtuales de segunda generación
+          href: generation-2.md
         - name: Uso general
           href: sizes-general.md
           items:

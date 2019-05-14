@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: ffa42eb2247d163dd6a146ffb26c1f8cc5cf6d82
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 04b331f3b63ad6400b4bb8efcd053d04ac88989b
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922531"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595848"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Inicio rápido: Detectar anomalías en datos de series temporales mediante la API de REST del Detector de anomalías yC# 
 
@@ -29,13 +29,15 @@ Use esta guía de inicio rápido para comenzar a usar los dos modos de detecció
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Cualquier edición de [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
-- [Newtonsoft.Json](https://www.newtonsoft.com/json)
-    - Para instalar Newtonsoft.Json como un paquete de NuGet en Visual studio:
-        1. Haga clic con el botón derecho en el **Administrador de la solución**
-        2. Haga clic en **Administrar paquetes de NuGet...**
-        3. Busque `Newtonsoft.Json` e instale el paquete
-- Si usa Linux, MacOS, se puede ejecutar esta aplicación mediante [Mono](https://www.mono-project.com/).
+- Cualquier edición de [Visual Studio 2017 o posterior](https://visualstudio.microsoft.com/downloads/),
+
+- El marco [Json.NET](https://www.newtonsoft.com/json), disponible como un paquete NuGet. Para instalar Newtonsoft.Json como un paquete de NuGet en Visual Studio:
+    
+    1. Haga clic en el proyecto de **el Explorador de soluciones**.
+    2. Seleccione **administrar paquetes de NuGet**.
+    3. Busque *Newtonsoft.Json* e instale el paquete.
+
+- Si usa Linux, MacOS, se puede ejecutar esta aplicación mediante el uso de [Mono](https://www.mono-project.com/).
 
 - Puntos de JSON que contiene tiempo serie datos de un archivo. Los datos de ejemplo para este inicio rápido pueden encontrarse en [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 

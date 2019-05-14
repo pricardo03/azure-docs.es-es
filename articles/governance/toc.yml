@@ -22,25 +22,12 @@
       href: policy/overview.md
     - name: Planos técnicos
       href: blueprints/overview.md
-- name: Implementaciones
-  expanded: true
+- name: Plataforma de adopción de la nube
   items:
-    - name: Adopción en la nube empresarial
-      items:
-        - name: ¿Qué es la gobernanza de los recursos en la nube?
-          href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-        - name: Gobernanza del acceso a los recursos en Azure
-          href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
-        - name: Diseño de gobernanza para un único equipo
-          href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
-        - name: Diseño de gobernanza para varios equipos
-          href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
-    - name: Scaffold de Azure Enterprise
-      items:
-        - name: Gobernanza de suscripción prescriptiva
-          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-        - name: Implementación de scaffold de Azure Enterprise
-          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
+    - name: Información general
+      href: /azure/architecture/cloud-adoption/index?toc=/azure/governance/toc.json
+    - name: Introducción a la gobernanza
+      href: /azure/architecture/cloud-adoption/governance/index?toc=/azure/governance/toc.json
 - name: Recursos
   items:
     - name: Azure Roadmap

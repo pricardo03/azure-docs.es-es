@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: c7d5d9421ec89f1d75723d3538ee9a73e56dc6a3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a7159fccc9c4ef232cfca08b173e712e268343ea
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143036"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507804"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Instalación y ejecución de contenedores de Form Recognizer
 Form Recognizer aplica tecnología de aprendizaje automático para identificar y extraer pares clave-valor de los formularios. Asocia valores y entradas en tabla con ellos y, después, genera datos estructurados que incluyen las relaciones en el fichero original. Puede llamar al modelo personalizado de Form Recognizer mediante una simple API REST para reducir la complejidad e integrarla fácilmente en su proceso de automatización del flujo de trabajo u otra aplicación. Solo se necesitan cinco documentos (o un formulario vacío), por lo que puede obtener resultados de forma rápida, precisa y adaptada a su contenido específico sin necesidad de una pesada intervención manual o una amplia experiencia en ciencia de datos. No requiere el etiquetado ni la anotación de datos.
@@ -261,7 +261,7 @@ formrecognizer_config = formrecognizersdk.FormRecognizerConfig(subscription=form
 
 ### <a name="form-recognizer"></a>Form Recognizer
 
-El contenedor proporciona API REST de punto de conexión, que se pueden encontrar [aquí](https://docs.microsoft.com/azure/cognitive-services/formrecognizer-service/rest-apis#formrecognier-api) y los ejemplos se pueden encontrar [aquí](https://azure.microsoft.com/resources/samples/cognitive-formrecognizer).
+El contenedor proporciona API de punto de conexión de REST, que se pueden encontrar [aquí](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel).
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]

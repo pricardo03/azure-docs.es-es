@@ -10,12 +10,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 201ee251b195845e33ed3829be8540664811f2ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c9ebacd8caf992874969106df58531538ea399ed
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025305"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510428"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>¿Qué es el servicio Azure Machine Learning?
 
@@ -38,7 +38,7 @@ Explore y prepare datos, entrene y pruebe modelos e impleméntelos mediante herr
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>¿Qué puedo hacer con el servicio Azure Machine Learning?
 
-Mediante el <a href="https://aka.ms/aml-sdk" target="_blank">SDK de Azure Machine Learning para Python</a>, con los paquetes Python de código abierto o mediante la [interfaz visual (versión preliminar)](ui-quickstart-run-experiment.md), se pueden crear y entrenar modelos de aprendizaje profundo y de aprendizaje automático sumamente precisos en un área de trabajo de Azure Machine Learning Service.
+Use el <a href="https://aka.ms/aml-sdk" target="_blank">SDK de Azure Machine Learning para Python</a> con paquetes Python de código abierto, o bien use la [interfaz visual (versión preliminar)](ui-quickstart-run-experiment.md) para crear y entrenar modelos de aprendizaje profundo y de aprendizaje automático muy precisos en un área de trabajo de Azure Machine Learning Service.
 
 Puede elegir entre muchos componentes de aprendizaje automático disponibles en los paquetes de Python de código abierto como, por ejemplo, <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a> y <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -106,8 +106,6 @@ Puede obtener créditos para gastarlos en servicios de Azure. Después de que se
 - Siga los tutoriales completos: 
   + [Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](tutorial-train-models-with-aml.md) 
   + [Preparación de datos y uso de Machine Learning automatizado para entrenar un modelo de regresión](tutorial-data-prep.md)
-
-- Use el [SDK de preparación de datos de Azure Machine Learning](https://aka.ms/data-prep-sdk) para preparar los datos.
 
 - Aprenda sobre [la canalización de aprendizaje automático ](/azure/machine-learning/service/concept-ml-pipelines) para crear, optimizar y administrar los escenarios de aprendizaje automático.
 

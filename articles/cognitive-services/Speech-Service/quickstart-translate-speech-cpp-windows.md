@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 9187863234dd62757efecf6f0817ff00da48064a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bf07e6a2daac7889e11df2cb5d689daef44266f9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685544"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465658"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Inicio rápido: Traducción de voz con el SDK de Voz para C++
+
+También hay inicios rápidos disponibles para el [reconocimiento de voz](quickstart-cpp-windows.md) y [de texto a voz](quickstart-text-to-speech-cpp-windows.md).
 
 En este inicio rápido, creará una sencilla aplicación de C++ que captura la voz del usuario procedente del micrófono del equipo, traduce el contenido de voz y transcribe el texto traducido en la línea de comandos en tiempo real. La aplicación está diseñada para ejecutarse en Windows de 64 bits y se ha creado con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017.
 

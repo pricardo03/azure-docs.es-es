@@ -10,15 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f3dd4d20c6455e97b566ed435b14437d614e25b4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009434"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466443"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Inicio rápido: Reconocimiento de voz con el SDK de Voz para .NET Core
 
+También hay inicios rápidos disponibles para la [traducción de voz](quickstart-translate-speech-dotnetcore-windows.md).
+
+Si lo desea, elija otro lenguaje de programación diferente o entorno:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 En este artículo, creará una aplicación de consola de C# para .NET Core en Windows o macOS mediante el [SDK de Voz](speech-sdk.md) de Cognitive Services. Transcribirá la conversión de voz en texto en tiempo real desde el micrófono de su PC. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 (cualquier edición).

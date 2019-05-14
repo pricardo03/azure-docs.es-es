@@ -11,15 +11,18 @@ ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 26d6e5e53968a88eaccff863b4affee6057f5952
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 674bb3f22f7b8c7c7ea3b52c2f27d862a9961fcb
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903307"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466245"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Guía de inicio rápido: Reconocimiento de voz en una aplicación para UWP mediante el SDK de Voz
 
+También hay disponibles inicios rápidos para la [traducción de voz](quickstart-translate-speech-uwp.md) y el [asistente virtual por voz](quickstart-virtual-assistant-csharp-uwp.md).
+
+Si lo desea, elija otro lenguaje de programación u otro entorno:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 En este artículo, desarrollará una aplicación de la Plataforma universal de Windows (UWP; versión de Windows 1709 o posterior) para C# mediante el [SDK de Voz](speech-sdk.md) de Cognitive Services. El programa transcribe voz a texto en tiempo real mediante el micrófono del dispositivo. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 (cualquier edición).

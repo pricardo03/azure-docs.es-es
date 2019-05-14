@@ -11,14 +11,16 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: ee7649dccf1ca50933e29cec9d40e4f5e16bd721
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e2b25875a0dff12bba32b033bca0c35394d407aa
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074106"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465642"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Inicio rápido: Creación de un asistente virtual de voz con el SDK de Voz, UWP
+
+Los inicios rápido también están disponibles para la [conversión de voz en texto](quickstart-csharp-uwp.md) y la [traducción de voz](quickstart-translate-speech-uwp.md).
 
 En este artículo, desarrollará una aplicación para Plataforma universal de Windows (UWP) de C# mediante el [SDK de Voz](speech-sdk.md). El programa se conectará a un bot previamente creado y configurado para permitir una experiencia de asistente virtual por voz desde la aplicación cliente. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 (cualquier edición).
 
@@ -80,16 +82,16 @@ En este inicio rápido se describirá, paso a paso, cómo hacer que una aplicaci
             <MediaElement x:Name="mediaElement"/>
         </Grid>
     </Page>
-        ```
+    ```
 
-1. Open the code-behind source file `MainPage.xaml.cs`. You'll find it grouped under `MainPage.xaml`. Replace the contents with the code below. Here's what this sample covers: 
+1. Abra el archivo de origen del código subyacente `MainPage.xaml.cs`. Lo encontrará agrupado bajo `MainPage.xaml`. Reemplace el contenido por el código siguiente. Esto es lo que se trata en este ejemplo: 
 
-    * Using statements for the Speech and Speech.Dialog namespaces
-    * A simple implementation to ensure microphone access, wired to a button handler
-    * Basic UI helpers to present messages and errors in the application
-    * A landing point for the initialization code path that will be populated later
-    * A helper to play back text-to-speech (without streaming support)
-    * An empty button handler to start listening that will be populated later
+    * Uso de instrucciones para los espacios de nombres Speech y Speech.Dialog
+    * Una implementación sencilla para garantizar el acceso del micrófono, conectado a un controlador de botón
+    * Asistentes básicos de la interfaz de usuario para presentar los errores y mensajes en la aplicación
+    * Un punto de aterrizaje para la ruta de acceso del código de inicialización que se rellenará más tarde
+    * Una asistente para la reproducción de texto a voz (sin compatibilidad con streaming)
+    * Un controlador de botón vacía para empezar a escuchar que se rellenará más tarde
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -239,7 +241,7 @@ En este inicio rápido se describirá, paso a paso, cómo hacer que una aplicaci
             }
         }
     }
-     ```
+    ```
 
 1. A continuación, creará el `SpeechBotConnector` con la información de la suscripción. Agregue lo siguiente al cuerpo del método de `InitializeBotConnector`, reemplazando las cadenas `YourChannelSecret`, `YourSpeechSubscriptionKey` y `YourServiceRegion` por sus propios valores para el bot, suscripción de voz y [región](regions.md).
 

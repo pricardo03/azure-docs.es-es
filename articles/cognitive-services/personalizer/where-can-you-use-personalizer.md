@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: b24e3d7fd71ef60cf8ebe5ba2c33889ff518580c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e51ef9afd0e49b690a4f9cab09fdfbd3e86eee66
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025473"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441045"
 ---
 # <a name="where-can-you-use-personalizer"></a>¿Dónde se puede utilizar Personalizer?
 
@@ -58,7 +58,7 @@ Para supervisar la eficacia de Personalizer periódicamente, realice las [evalua
 
 Muchas empresas utilizan motores de recomendación, herramientas de marketing y campañas, segmentación y agrupación de audiencias, filtrado colaborativo y otros medios para recomendar productos de un gran catálogo a los clientes.
 
-El [repositorio GitHub de Microsoft Recommenders ](https://github.com/Microsoft/Recommenders) proporciona ejemplos y procedimientos recomendados para la creación de sistemas de recomendación, en forma de cuadernos de Jupyter. Proporciona ejemplos prácticos para la preparación de datos, la creación de modelos, la evaluación, el ajuste y la puesta en marcha de los motores de recomendación, para muchos enfoques comunes, entre ellos xDeepFM, SAR, ALS, RBM y DKN.
+El [repositorio GitHub de Microsoft Recommenders](https://github.com/Microsoft/Recommenders) proporciona ejemplos y procedimientos recomendados para crear sistemas de recomendación, proporcionados como cuadernos de Jupyter Notebook. Proporciona ejemplos prácticos para la preparación de datos, la creación de modelos, la evaluación, el ajuste y la puesta en marcha de los motores de recomendación, para muchos enfoques comunes, entre ellos xDeepFM, SAR, ALS, RBM y DKN.
 
 Personalizer puede trabajar con un motor de recomendación cuando está presente.
 

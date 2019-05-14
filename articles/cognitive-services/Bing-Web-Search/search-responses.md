@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85087ce5a4fa3dd733f47a35bc18d76f1f4bc652
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60642833"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606689"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos y estructura de las respuestas de Bing Web Search API  
 
@@ -290,7 +290,7 @@ Una expresión matemática puede contener los siguientes símbolos:
 
 |Símbolo|DESCRIPCIÓN|
 |------------|-----------------|
-|+|Suma|
+|+|Adición|
 |-|Resta|
 |/|División|
 |*|Multiplicación|
@@ -314,7 +314,7 @@ Una expresión matemática puede contener las siguientes funciones:
 
 |Símbolo|DESCRIPCIÓN|
 |------------|-----------------|
-|Sort|Raíz cuadrada|
+|Ordenar|Raíz cuadrada|
 |Sen[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Funciones trigonométricas (con argumentos en radianes)|
 |ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Funciones trigonométricas inversas (que proporcionan los resultados en radianes)|
 |Exp[x], E^x|Función exponencial|
@@ -330,7 +330,7 @@ Si el usuario escribe una consulta de fecha u hora, la respuesta puede contener 
 
 La respuesta `timeZone` proporciona el nombre de la ubicación, la fecha y hora UTC actuales en la ubicación especificada y la diferencia horaria con UTC. Si el límite de la ubicación está en varias zonas horarias, la respuesta contiene la fecha y hora UTC actuales de todas las zonas horarias dentro del límite. Por ejemplo, como el estado de Florida se encuentra dentro de dos zonas horarias, la respuesta contiene la fecha y hora locales de ambas zonas.  
 
-Si la consulta solicita la hora de un estado o país, Bing determina la ciudad principal dentro del límite geográfico de la ubicación y la devuelve en el campo `primaryCityTime`. Si el límite contiene varias zonas horarias,las restantes zonas horarias se devuelven en el campo `otherCityTimes`.
+Si la consulta solicita el tiempo de un estado o país o región, Bing determina la ciudad principal dentro de límites de la ubicación geográfica y lo devuelve en el `primaryCityTime` campo. Si el límite contiene varias zonas horarias,las restantes zonas horarias se devuelven en el campo `otherCityTimes`.
 
 A continuación se muestran consultas de ejemplo que devuelven la respuesta `timeZone`.
 

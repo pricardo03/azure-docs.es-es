@@ -28,9 +28,10 @@
       href: user-help-auth-app-overview.md
     - name: Descarga e instalación de la aplicación
       href: user-help-auth-app-download-install.md
-    - name: Adición de información adicional de las cuentas
-      href: user-help-auth-app-add-account-overview.md
+    - name: Adición de cuentas
       items:
+        - name: Información general
+          href: user-help-auth-app-add-account-overview.md
         - name: Adición de una cuenta profesional o educativa
           href: user-help-auth-app-add-work-school-account.md
         - name: Adición de una cuenta Microsoft personal
@@ -63,9 +64,10 @@
       href: user-help-security-info-overview.md
     - name: Incorporación de la información de seguridad durante el inicio de sesión
       href: security-info-setup-signin.md
-    - name: Introducción a la incorporación o actualización de los métodos de información de seguridad
-      href: security-info-add-update-methods-overview.md
+    - name: Incorporación o actualización de los métodos de información de seguridad
       items:
+        - name: Información general
+          href: security-info-add-update-methods-overview.md
         - name: Configuración de una aplicación autenticadora
           href: security-info-setup-auth-app.md
         - name: Configuración de mensajería de texto

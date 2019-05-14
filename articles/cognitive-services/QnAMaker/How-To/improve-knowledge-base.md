@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f80e6a765cc165033a548ba6a5ee7bead0de872e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144968"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594088"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Usar el aprendizaje activo para mejorar la base de conocimiento
 
@@ -60,9 +60,9 @@ El algoritmo para determinar la proximidad no es un cálculo sencillo. Los inter
 
 El aprendizaje activo está desactivado de forma predeterminada. Actívelo para ver preguntas sugeridas. 
 
-1. Seleccione **publicar** para publicar la base de conocimiento. Las consultas de aprendizaje activo se recopilan desde el extremo de API GenerateAnswer predicción sólo. Las consultas en el panel de prueba en el portal de Qna Maker no afectará el aprendizaje activo.
+1. Seleccione **publicar** para publicar la base de conocimiento. Las consultas de aprendizaje activo se recopilan desde el extremo de API GenerateAnswer predicción sólo. Las consultas en el panel de prueba en el portal de QnA Maker no afectará el aprendizaje activo.
 
-1. Para activar el aprendizaje activo, haga clic en su **Nombre** y vaya a [**Configuración del servicio**](https://www.qnamaker.ai/UserSettings) en el portal de QnA Maker, en la esquina superior derecha.  
+1. Para desactivar el activo de aprendizaje en, haga clic en su **nombre**, vaya a [ **configuración del servicio** ](https://www.qnamaker.ai/UserSettings) en el portal de QnA Maker, en la esquina superior derecha.  
 
     ![Activar alternativas de pregunta sugerido del aprendizaje activo en la página de configuración de servicio. Seleccione su nombre de usuario en el menú superior derecho y luego seleccione la configuración del servicio.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
@@ -181,10 +181,10 @@ El cuerpo JSON tiene varias opciones:
 
 |Propiedad de cuerpo JSON|Type|Propósito|
 |--|--|--|--|
-|`feedbackRecords`|array|Lista de comentarios.|
+|`feedbackRecords`|matriz|Lista de comentarios.|
 |`userId`|string|El identificador de usuario de la persona que acepta las preguntas sugeridas. El formato de Id. de usuario es decisión suya. Por ejemplo, una dirección de correo electrónico puede ser un identificador de usuario válido en la arquitectura. Opcional.|
-|`userQuestion`|string|Texto exacto de la pregunta. Necesario.|
-|`qnaID`|número|Id. de la pregunta, se encuentra en la [GenerateAnswer respuesta](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+|`userQuestion`|string|Texto exacto de la pregunta. Obligatorio.|
+|`qnaID`|de serie|Id. de la pregunta, se encuentra en la [GenerateAnswer respuesta](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Un cuerpo JSON de ejemplo tiene el siguiente aspecto:
 
@@ -208,7 +208,7 @@ Una respuesta correcta devuelve el estado de 204 y ningún cuerpo de respuesta J
 
 Cuando la aplicación tiene el aprendizaje activo habilitado y exportar la aplicación, la `SuggestedQuestions` columna en el archivo tsv conserva los datos de aprendizaje activo. 
 
-El `SuggestedQuestions` columna es un objeto JSON de la información de implícito (`autosuggested`) y explícita (`usersuggested`) comentarios. Un ejemplo de este objeto JSON para una sola pregunta enviado por un usuario de `help` es:
+El `SuggestedQuestions` columna es un objeto JSON de la información de implícito, `autosuggested`y explícito, `usersuggested` comentarios. Un ejemplo de este objeto JSON para una sola pregunta enviado por un usuario de `help` es:
 
 ```JSON
 [

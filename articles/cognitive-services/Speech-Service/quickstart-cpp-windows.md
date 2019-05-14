@@ -10,15 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 956dfe54cec910a09ed16d7387bc3d32babd0876
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 672a691cdad5c83583ea840907fa7dd193c7ae3a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692391"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466959"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en C++ en Windows mediante el SDK de Voz
 
+También hay inicios rápidos disponibles para [texto a voz](quickstart-text-to-speech-cpp-windows.md) y [traducción de voz](quickstart-translate-speech-cpp-windows.md).
+
+Si lo desea, elija otro lenguaje de programación diferente o entorno:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 En este artículo, creará una aplicación de consola de C++ para Windows. El [SDK de Voz](speech-sdk.md) de Cognitive Services se usa para transcribir la conversión de voz en texto en tiempo real desde el micrófono de un equipo. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 (cualquier edición).

@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 241bda5c684197a43cc5564e950e924fed668b89
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 87599817ba7b50b941612c13c07842644f979fb7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147562"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619708"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Compatibilidad con contenedores en Azure Cognitive Services
 
@@ -57,7 +57,7 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 |[Face](Face/face-how-to-install-containers.md) |F0, S0|**Face** |Detecta caras humanas en imágenes e identifica atributos, incluidos faciales (como narices y ojos), sexo, edad y otras características faciales previstas por la máquina. Además de la detección, Face puede comprobar si dos caras en la misma o en diferentes imágenes son iguales mediante una puntuación de confianza, o bien comparar caras en una base de datos para ver si ya existe un aspecto similar o una cara idéntica. También puede organizar caras similares en grupos mediante rasgos visuales compartidos.<br>[Solicitar acceso](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Reconocedor de formulario](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Reconocedor de formulario** |Descripción del formulario aplica la tecnología de aprendizaje automático para identificar y extraer los pares de clave-valor y tablas de formularios.<br>[Solicitar acceso](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([imagen](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Carga un modelo de Language Understanding entrenado o publicado, lo que también se conoce como aplicación de LUIS, en un contenedor de Docker y proporciona acceso a las predicciones de consulta de los puntos de conexión de la API del contenedor. Puede recopilar registros de consultas en el contenedor y cargarlos de nuevo en el [portal de LUIS](https://www.luis.ai) para mejorar la precisión de predicción de la aplicación.|
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([imagen](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Personalizer Azure es un servicio de API basadas en la nube que le permite elegir la mejor experiencia para mostrar a los usuarios, aprendizaje de su comportamiento en tiempo real.|
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([imagen](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer es un servicio de API basado en la nube que permite elegir la mejor experiencia, mostrársela a los usuarios y aprender de su comportamiento en tiempo real.|
 |[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Voz a texto** |Permite transcribir en tiempo real voz en texto.<br>[Solicitar acceso](https://aka.ms/speechcontainerspreview/)|
 |[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Texto a voz** |Convierte el texto a una voz que parece natural.<br>[Solicitar acceso](https://aka.ms/speechcontainerspreview/)|
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Extracción de frases clave** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extrae las frases clave para identificar los puntos principales. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", la API devuelve los principales puntos de conversación: "comida" y "personal maravilloso". |
@@ -67,16 +67,21 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 Además, se admiten algunos contenedores en Cognitive Services [ **All-In-One oferta** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) las claves de recursos. Puede crear un único recurso de All-In-One Cognitive Services y usar la misma clave de facturación a través de servicios admitidos para los siguientes servicios:
 
 * Computer Vision
-* Caras
+* Face
 * LUIS
-* Text Analytics
+* Análisis de texto
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilidad de contenedores en Azure Cognitive Services
 
 Los contenedores de Azure Cognitive Services están disponibles públicamente a través de su suscripción a Azure y se pueden extraer imágenes de contenedor de Docker desde Microsoft Container Registry o Docker Hub. Puede usar el comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para descargar una imagen de contenedor desde el registro apropiado.
 
 > [!IMPORTANT]
-> Actualmente, debe completar un proceso de registro para obtener acceso a los contenedores de [Face](Face/face-how-to-install-containers.md) y [Reconocer texto](Computer-vision/computer-vision-how-to-install-containers.md), en el que debe rellenar y enviar un cuestionario con preguntas acerca de usted, su empresa y el caso de uso para el que desea implementar los contenedores. Una vez que se le concede acceso y se le proporcionan las credenciales, puede extraer las imágenes de contenedor para los contenedores de Face y Reconocer texto a partir de un registro de contenedor privado hospedado por Azure Container Registry.
+> Actualmente, debe completar un proceso de registro para obtener acceso a los siguientes contenedores, en el que se rellene y envíe un cuestionario con preguntas acerca de su empresa y el caso de uso para el que desea implementar los contenedores. Una vez que se le concede acceso y se le proporcionan las credenciales, puede extraer las imágenes de contenedor para los contenedores de Face y Reconocer texto a partir de un registro de contenedor privado hospedado por Azure Container Registry.
+> * [Anomalías dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
+> * [Face](Face/face-how-to-install-containers.md)
+> * [Reconocedor de formulario](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
+> * [Reconocer texto](Computer-vision/computer-vision-how-to-install-containers.md)
+> * [Texto a voz y texto a voz](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
 
 ## <a name="prerequisites"></a>Requisitos previos
 

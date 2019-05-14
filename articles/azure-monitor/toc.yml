@@ -314,8 +314,9 @@
                 - name: Monitor de estado
                   href: app/monitor-performance-live-website-now.md
                 - name: Monitor de estado v2
-                  href: app/status-monitor-v2-overview.md
                   items:
+                    - name: Información general
+                      href: app/status-monitor-v2-overview.md
                     - name: Introducción
                       href: app/status-monitor-v2-get-started.md
                     - name: Instrucciones detalladas
@@ -557,7 +558,7 @@
                   href: app/usage-workbooks.md
             - name: Solución de análisis de aplicaciones web
               href: insights/azure-web-apps-analytics.md
-            - name: Aplicaciones hospedadas en Kubernetes
+            - name: Supervisión de aplicaciones de Kubernetes
               href: app/kubernetes.md
         - name: Supervisión de contenedores
           items:
@@ -631,8 +632,18 @@
                   href: insights/vminsights-known-issues.md
                 - name: Preguntas más frecuentes
                   href: insights/vminsights-faq.md
-                - name: Incorporación
-                  href: insights/vminsights-onboard.md
+                - name: Habilitar supervisión
+                  items:
+                    - name: Habilitar información general de la supervisión
+                      href: insights/vminsights-enable-overview.md
+                    - name: Habilitar para una sola máquina virtual de Azure
+                      href: insights/vminsights-enable-single-vm.md
+                    - name: Habilitar el uso de Azure Policy
+                      href: insights/vminsights-enable-at-scale-policy.md
+                    - name: Habilitar con Azure PowerShell
+                      href: insights/vminsights-enable-at-scale-powershell.md
+                    - name: Habilitar para el entorno híbrido
+                      href: insights/vminsights-enable-hybrid-cloud.md
                 - name: Supervisión del mantenimiento
                   href: insights/vminsights-health.md
                 - name: Asignación de dependencias

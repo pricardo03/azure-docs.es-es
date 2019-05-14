@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264036"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471594"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creación de un servicio Azure Search en el portal
 
@@ -67,11 +67,13 @@ Si no combina recursos en un solo grupo o si los grupos de recursos existentes s
 > [!TIP]
 > Al eliminar un grupo de recursos también se eliminan los servicios que contiene. En el caso de proyectos de prototipo que usan muchos servicios, si se ponen todos ellos en el mismo grupo de recursos, la limpieza resulta más fácil después de que el proyecto ha finalizado.
 
-## <a name="select-a-hosting-location"></a>Selección de una ubicación de hospedaje
+## <a name="select-a-location"></a>Seleccionar una ubicación
 
 En cuanto servicio de Azure, Azure Search se puede hospedar en centros de datos de todo el mundo. Los [precios pueden variar](https://azure.microsoft.com/pricing/details/search/) según la región geográfica.
 
-Si está indexando contenido ubicado en un servicio de Azure (Azure Storage, Azure Cosmos DB, Azure SQL Database), cree el servicio Azure Search en la misma región que los datos para evitar cargos por ancho de banda. No hay ningún cargo por datos salientes si los servicios están en la misma región.
+Si va a indexar los datos que proporciona otro servicio de Azure (Azure Storage, Azure Cosmos DB, Azure SQL Database), cree un servicio Azure Search en la misma región para evitar cargos de ancho de banda. No hay ningún cargo por datos salientes si los servicios están en la misma región.
+
+Si usa los enriquecimientos de la inteligencia artificial de búsqueda cognitiva, cree su servicio en la misma región que el recurso de Cognitive Services. La coubicación de servicios es un requisito para el enriquecimiento de la inteligencia artificial.
 
 ## <a name="select-a-pricing-tier-sku"></a>Selección de un plan de tarifa (SKU)
 

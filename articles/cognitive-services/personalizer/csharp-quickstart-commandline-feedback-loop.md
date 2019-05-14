@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/08/2019
 ms.author: edjez
-ms.openlocfilehash: f0aca3e387d675064cf798b4efdeb66cfe906520
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 85252680fcc4d2592d242762d01040c3859b14a2
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153547"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442069"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Inicio rápido: Personalización de contenido mediante C# 
 
 Muestre contenido personalizado en este inicio rápido de C# con el servicio Personalizer.
 
-En este ejemplo se muestra cómo usar la biblioteca cliente de Personalization para C# para realizar las siguientes acciones: 
+Este ejemplo muestra cómo usar la biblioteca de cliente de Personalizer para C# para realizar las siguientes acciones: 
 
  * Clasificar una lista de acciones para su personalización.
  * Informe de la recompensa que se asignará a las principales acciones en función de la selección del usuario para el evento especificado.
 
-Empezar a usar Personalization implica los siguientes pasos:
+Empezar a trabajar con Personalizer implica los pasos siguientes:
 
 1. Hacer referencia al SDK 
 1. Escribir código para clasificar las acciones que desea mostrar a los usuarios.
@@ -34,9 +34,15 @@ Empezar a usar Personalization implica los siguientes pasos:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Se necesita un [servicio Personalizer](how-to-settings.md) para obtener la clave de suscripción y la dirección URL del servicio emisor de token. 
+* Necesita un [servicio Personalizer](how-to-settings.md) para obtener la clave de suscripción y la dirección URL del servicio del punto de conexión. 
 * [Visual Studio 2015 o 2017](https://visualstudio.microsoft.com/downloads/).
-* El paquete NuGet del SDK Microsoft.Azure.CognitiveServices.Personalization. A continuación, se proporcionan instrucciones de instalación.
+* El paquete NuGet del SDK de Microsoft.Azure.CognitiveServices.Personalizer. A continuación, se proporcionan instrucciones de instalación.
+
+## <a name="change-the-model-update-frequency"></a>Cambio de la frecuencia de actualización del modelo
+
+En el recurso Personalizer de Azure Portal, cambie el valor de **Model update frequency** (Frecuencia de actualización del modelo) en 10 segundos. Así se entrenará el servicio rápidamente, lo que permite ver cómo cambia la acción principal en cada iteración
+
+![Cambiar la frecuencia de actualización del modelo](./media/settings/configure-model-update-frequency-settings.png)
 
 ## <a name="creating-a-new-console-app-and-referencing-the-personalizer-sdk"></a>Creación de una aplicación de consola y referencia al SDK de Personalizer 
 
@@ -45,9 +51,9 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 -->
 
 1. Cree una aplicación de consola de Visual C# en Visual Studio.
-1. Instale el paquete NuGet de la biblioteca cliente de Personalization. En el menú, seleccione **Herramientas**, seleccione **Administrador de paquetes NuGet** y, luego, **Administrar paquetes NuGet para la solución**.
-1. Seleccione la pestaña **Examinar** y, en el cuadro **Buscar**, escriba `Microsoft.Azure.CognitiveServices.Personalization`.
-1. Seleccione **Microsoft.Azure.CognitiveServices.Personalization** cuando se muestre.
+1. Instale el paquete de NuGet de la biblioteca cliente de Personalizer. En el menú, seleccione **Herramientas**, seleccione **Administrador de paquetes NuGet** y, luego, **Administrar paquetes NuGet para la solución**.
+1. Seleccione la pestaña **Examinar** y, en el cuadro **Buscar**, escriba `Microsoft.Azure.CognitiveServices.Personalizer`.
+1. Seleccione **Microsoft.Azure.CognitiveServices.Personalizer** cuando se muestre.
 1. Seleccione la casilla que hay junto al nombre del proyecto y, después, seleccione **Instalar**.
 
 ## <a name="add-the-code-and-put-in-your-personalizer-and-azure-keys"></a>Adición del código y escritura de las claves de Personalizer y Azure

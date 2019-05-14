@@ -7,12 +7,12 @@ ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 05/02/2019
-ms.openlocfilehash: c1b86199f13454f4785a6737b25e489d45dd53f8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b62a2690e5879e45a14d0b06a38e8c5171dda14e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027551"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442337"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Los cuadernos de Jupyter de ejemplo muestran cómo enriquecer los datos con Open Datasets 
 Los cuadernos de Jupyter de ejemplo para Azure Open Datasets le muestran cómo cargar conjuntos de datos abiertos y usarlos para enriquecer los datos de demostración. Las técnicas incluyen el uso de Apache Spark y Pandas para procesar los datos.
@@ -29,7 +29,7 @@ Los cuadernos de Jupyter de ejemplo para Azure Open Datasets le muestran cómo c
 ## <a name="join-demo-data-with-noaa-isd-data"></a>Unir datos de demostración con datos de ISD de NOAA 
 |Bloc de notas        | DESCRIPCIÓN                                    |
 |----------------|------------------------------------------------|
-|[Unir datos de demostración con datos meteorológicos: Pandas ](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Una un conjunto de datos de demostración de un mes de ubicaciones de sensores con lecturas meteorológicas en un dataframe de Pandas.  |
+|[Combinar datos de demostración con datos meteorológicos: Pandas](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/02-weather-join-in-pandas.ipynb) | Una un conjunto de datos de demostración de un mes de ubicaciones de sensores con lecturas meteorológicas en un dataframe de Pandas.  |
 |[Unir datos de demostración con datos meteorológicos: Spark](https://github.com/Azure/OpenDatasetsNotebooks/blob/master/tutorials/data-join/01-weather-join-in-spark.ipynb) | Una un conjunto de datos de demostración de ubicaciones de sensores con lecturas meteorológicas en un dataframe de Spark. |
 
 ## <a name="join-nyc-taxi-data-with-noaa-isd-data"></a>Unir datos de taxis de Nueva York con datos de ISD de NOAA 

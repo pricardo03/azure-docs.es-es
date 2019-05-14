@@ -2,23 +2,24 @@
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/22/2019
 ms.author: sngun
-ms.openlocfilehash: e07a59ba0484910d87329be94f0fcc58b1011b95
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b940d7308648a3a55ed031d7d57542f3b31e9f27
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572709"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546768"
 ---
-En Azure Portal se supervisan el rendimiento, el almacenamiento, la disponibilidad, la latencia y la coherencia de los recursos de su cuenta. Vamos a echar un vistazo rápido a estas métricas. 
+Azure Portal supervisa el rendimiento, capacidad de almacenamiento, disponibilidad, latencia y coherencia de su cuenta de Cosmos DB. Los gráficos de las métricas asociadas con un [Acuerdo de Nivel de Servicio (SLA) de Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) muestran el rendimiento real en comparación con el valor de este acuerdo. Este conjunto de métricas hace que la supervisión de los Acuerdos de Nivel de Servicio sea transparente.
 
-1. Haga clic en **Métricas** en el menú de navegación.
+Para revisar las métricas y los Acuerdos de Nivel de Servicio: 
 
-   ![Métricas en Azure Portal](./media/cosmos-db-tutorial-review-slas/metrics.png)
-
-2. Haga clic en cada una de las pestañas para hacerse una idea de las métricas que Azure Cosmos DB proporciona. 
-
-    Todos los gráficos asociados a los [Acuerdos de Nivel de Servicio (SLA) de Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) contienen una línea que muestra si se ha violado alguno de ellos. Azure Cosmos DB hace que la supervisión de los Acuerdos de Nivel de Servicio sea transparente con este conjunto de métricas. 
-
+1. Seleccione **Métricas** en el menú de navegación de la cuenta de Cosmos DB.
+   
+2. Seleccione una pestaña como **Latencia** y seleccione un período de tiempo a la derecha. Compare las líneas **Real** y **SLA** de los gráficos.
+   
    ![Conjunto de métricas de Azure Cosmos DB](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)
+   
+3. Revise las métricas de las otras pestañas. 
+

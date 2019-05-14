@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/13/2019
 ms.author: jhakulin
-ms.openlocfilehash: e9de4faf18c54f7c7582ef5a8ab0648629d4f48e
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 80ec606fee30c239d47bca94188d3b9cbb7c82d5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190147"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604418"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Transcribir varios participantes conversaciones con el SDK de voz
 
@@ -24,45 +24,56 @@ El SDK de voz **ConversationTranscriber** API permite transcribir reuniones y co
 ## <a name="limitations"></a>Limitaciones
 
 * Se admite para la transcripción de conversación C++, C#y Java en Windows, Linux y Android.
-* El DevKit ROOBO es el entorno de hardware compatible para crear conversaciones, ya proporciona circular varios micrófonos que pueden utilizarse de forma eficaz por el servicio de conversación transcripción para la identificación del hablante. [Para obtener más información, consulte el SDK de dispositivos de voz](speech-devices-sdk.md).
-* Compatibilidad con SDK de voz está limitado a usar de extracción de audio e insertar secuencias de modo con ocho canales de audio PCM.
+* El DevKit ROOBO es el entorno de hardware compatible para crear las transcripciones de conversaciones, ya proporciona eficazmente el circular varios micrófonos que pueden utilizarse para la identificación del hablante. [Para obtener más información, consulte el SDK de dispositivos de voz](speech-devices-sdk.md).
+* Compatibilidad con SDK de voz para la transcripción de la conversación está limitado a usar de extracción de audio e insertar secuencias de modo con ocho canales de audio PCM kHz 16 de 16 bits.
+* Transcripción de la conversación está actualmente disponible en idiomas "en-US" y "zh-CN" en las siguientes regiones: centralus y este de Asia.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * [Aprenda a usar texto a voz con el SDK de voz.](quickstart-csharp-dotnet-windows.md)
 * [Obtenga su suscripción de prueba de voz.](https://azure.microsoft.com/try/cognitive-services/)
+* Speech SDK versión 1.5.1 o posterior es necesario.
 
 ## <a name="create-voice-signatures-for-participants"></a>Crear firmas de voz para los participantes
 
 El primer paso es crear las firmas de voz para los participantes de la conversación. Creación de firmas de voz es necesaria para la identificación del hablante eficaz.
-En el ejemplo siguiente, vamos a [usar la API de REST para obtener la firma de voz.](https://aka.ms/cts/signaturegenservice)
 
-El ejemplo siguiente muestra dos maneras diferentes para crear firmas de voz:
+### <a name="requirements-for-input-wave-file"></a>Requisitos para el archivo de onda de entrada
+
+* El archivo de onda de audio de entrada para la creación de firmas de voz debe aparecer en los ejemplos de 16 bits, tasa de muestreo de 16 y un formato único canal (Mono).
+* La longitud recomendada para cada muestra de sonido es de 30 segundos a dos minutos.
+
+El ejemplo siguiente muestra dos maneras diferentes de crear la firma de voz [con la API de REST]. (https://aka.ms/cts/signaturegenservice) desde C#:
+
 ```csharp
 class Program
 {
     static async Task CreateVoiceSignatureByUsingFormData()
     {
+        var region = "YourServiceRegion";
         byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
         var form = new MultipartFormDataContent();
         var content = new ByteArrayContent(fileBytes);
         form.Add(content, "file", "file");
         var client = new HttpClient();
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
-        var response = await client.PostAsync($"https://{region}.signature.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromFormData", form);
-        // A voice signature can be extracted from the jsonData
+        var response = await client.PostAsync($"https://signature.{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromFormData", form);
+        // A voice signature contains Version, Tag and Data key values from the Signature json structure from the Response body.
+        // Voice signature format example: { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
         var jsonData = await response.Content.ReadAsStringAsync();
     }
 
     static async Task CreateVoiceSignatureByUsingBody()
     {
+        var region = "YourServiceRegion";
         byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
         var content = new ByteArrayContent(fileBytes);
 
         var client = new HttpClient();
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
-        var response = await client.PostAsync($"https://{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray", content);
-        // A voice signature can be extracted from the jsonData
+        var response = await client.PostAsync($"https://signature.{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray", content);
+        // A voice signature contains Version, Tag and Data key values from the Signature json structure from the Response body.
+        // Voice signature format example: { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
         var jsonData = await response.Content.ReadAsStringAsync();
     }
 
@@ -87,13 +98,11 @@ using Microsoft.CognitiveServices.Speech.Conversation;
 
 public class MyConversationTranscriber
 {
-    private static string endpoint = "YourOwnEndpoint";
-
     public static async Task ConversationWithPullAudioStreamAsync()
     {
         // Creates an instance of a speech config with specified subscription key and service region.
-        // Replace with your own endpoint and subscription key.
-        var config = SpeechConfig.FromEndpoint(new Uri(endpoint), "YourSubScriptionKey");
+        // Replace with your own subscription key and region.
+        var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
         var stopTranscription = new TaskCompletionSource<int>();
 
         // Create an audio stream from a wav file.
@@ -113,7 +122,7 @@ public class MyConversationTranscriber
                 {
                     if (e.Result.Reason == ResultReason.RecognizedSpeech)
                     {
-                        Console.WriteLine($"RECOGNIZED: Text={e.Result.Text}, SpeakerID={e.Result.SpeakerId}");
+                        Console.WriteLine($"RECOGNIZED: Text={e.Result.Text}, UserID={e.Result.UserId}");
                     }
                     else if (e.Result.Reason == ResultReason.NoMatch)
                     {
@@ -121,12 +130,38 @@ public class MyConversationTranscriber
                     }
                 };
 
+                transcriber.Canceled += (s, e) =>
+                {
+                    Console.WriteLine($"CANCELED: Reason={e.Reason}");
+
+                    if (e.Reason == CancellationReason.Error)
+                    {
+                        Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
+                        Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
+                        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                        stopTranscription.TrySetResult(0);
+                    }
+                };
+
+                transcriber.SessionStarted += (s, e) =>
+                {
+                    Console.WriteLine("\nSession started event.");
+                };
+
+                transcriber.SessionStopped += (s, e) =>
+                {
+                    Console.WriteLine("\nSession stopped event.");
+                    Console.WriteLine("\nStop recognition.");
+                    stopTranscription.TrySetResult(0);
+                };
+
                 // Sets a conversation Id.
                 transcriber.ConversationId = "AConversationFromTeams";
 
                 // Add participants to the conversation.
-                // Create data for voice signatures using REST API described in the earlier section in this document.
-                // How to create voice signatureA, signatureB & signatureC variables, please check the SDK API samples.
+                // Create voice signatures using REST API described in the earlier section in this document. 
+                // Voice signature needs to be in the following format:
+                // { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
 
                 var speakerA = Participant.From("Speaker_A", "en-us", signatureA);
                 var speakerB = Participant.From("Speaker_B", "en-us", signatureB);

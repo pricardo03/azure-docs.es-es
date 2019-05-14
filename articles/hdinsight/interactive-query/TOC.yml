@@ -1,12 +1,17 @@
 - name: Documentación de Azure HDInsight
   href: /azure/hdinsight
-- name: Interactive Query en HDInsight
+- name: Información general
   items:
     - name: Componentes de Apache Hadoop en HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
+      maintainContext: true
+- name: Guías de inicio rápido
+  items:
+    - name: 'Ejecución de consultas de Apache Hive: Apache Zeppelin'
+      href: ../hdinsight-connect-hive-zeppelin.md
       maintainContext: true
 - name: Introducción
   items:
@@ -37,9 +42,6 @@
           href: ../hadoop/hdinsight-use-hive.md
           maintainContext: true
           items:
-            - name: Uso de Apache Zeppelin
-              href: ../hdinsight-connect-hive-zeppelin.md
-              maintainContext: true
             - name: Herramientas para Visual Studio
               href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
               maintainContext: true
@@ -180,7 +182,7 @@
             - name: Uso de cURL y la API de REST de Azure
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Uso de la CLI de Azure clásico
+            - name: Uso de la CLI de Azure
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: Creación de clústeres a petición

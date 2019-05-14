@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 797d0cdb8d164955991de321d8df22e43f5c6a40
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c3b2134fae86b988fb21e993cd01b77a90bd2896
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024337"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467058"
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Azure Search?
 Azure Search es una solución de búsqueda como servicio en la nube que ofrece a los desarrolladores las API y herramientas necesarias para agregar una experiencia de búsqueda de datos enriquecida en un contenido privado y heterogéneo en las aplicaciones web, para dispositivos móviles y empresariales. La ejecución de consultas se realiza sobre un índice definido por el usuario.
@@ -44,7 +44,7 @@ La funcionalidad se expone a través de [API de REST](/rest/api/searchservice/) 
 | Enriquecimiento&nbsp;por IA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Características |
 |-------------------|----------|
 |Documentos enriquecidos con inteligencia artificial | [**Cognitive Search**](cognitive-search-concept-intro.md) para el análisis de texto e imágenes se puede aplicar a una canalización de indexación para extraer información de texto a partir de contenido sin formato. Algunos ejemplos de [habilidades integradas](cognitive-search-predefined-skills.md) incluyen el reconocimiento óptico de caracteres (para realizar búsquedas en archivos JPEG escaneados), el reconocimiento de entidades (identificación de una organización, nombre o ubicación) y el reconocimiento de frases principales. También puede [codificar habilidades personalizadas](cognitive-search-create-custom-skill-example.md) para adjuntar a la canalización. |
-| Enriquecimientos almacenados para su análisis y consumo| [**Knowledge Store**](knowledge-store-concept-intro.md) es una extensión de indexación basada en inteligencia artificial. Con el almacenamiento de Azure como back-end, puede guardar enriquecimientos creados durante la indización. Estos artefactos pueden usarse para ayudarle a diseñar mejores conjuntos de aptitudes, o a crear formas y estructuras a partir de datos amorfos o ambiguos. Puede crear proyecciones de estas estructuras que estén dirigidas a cargas de trabajo o usuarios específicos. También puede analizar directamente los datos extraídos o cargarlos en otras aplicaciones.<br/><br/> |
+| Enriquecimientos almacenados para su análisis y consumo| [**Knowledge Store (versión preliminar)**](knowledge-store-concept-intro.md) es una extensión de indexación basada en inteligencia artificial. Con el almacenamiento de Azure como back-end, puede guardar enriquecimientos creados durante la indización. Estos artefactos pueden usarse para ayudarle a diseñar mejores conjuntos de aptitudes, o a crear formas y estructuras a partir de datos amorfos o ambiguos. Puede crear proyecciones de estas estructuras que estén dirigidas a cargas de trabajo o usuarios específicos. También puede analizar directamente los datos extraídos o cargarlos en otras aplicaciones.<br/><br/> |
 
 | Importación/indexación&nbsp;de datos | Características |
 |----------------------------------|----------|
@@ -57,7 +57,7 @@ La funcionalidad se expone a través de [API de REST](/rest/api/searchservice/) 
 |-------------------|----------|
 | Herramientas para la creación de prototipos y la inspección | En el portal, puede usar el [**Asistente para importación de datos**](search-import-data-portal.md) para configurar los indexadores, el diseñador de índices para crear un índice y el [**Explorador de búsqueda**](search-explorer.md) para probar consultas y perfeccionar los perfiles de puntuación. También puede abrir cualquier índice para ver su esquema. |
 | Supervisión y diagnóstico | [**Habilite las características de supervisión**](search-monitor-usage.md) para ir más allá de las "métricas de un vistazo" que están siempre disponibles en el portal. Las métricas sobre consultas por segundo, latencia y limitación se capturan y notifican en páginas del portal sin que sea necesaria ninguna configuración adicional. <br/><br/>El [**análisis de tráfico de búsqueda**](search-traffic-analytics.md) es otra alternativa de supervisión, en la que los datos tanto del servidor como del cliente se recopilan y analizan para descubrir información acerca de lo que los usuarios están escribiendo en el cuadro de búsqueda. |
-| Cifrado del servidor | El [**cifrado en reposo administrado por Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) está integrado en la capa de almacenamiento interno y es irrevocable. Si quiere, puede complementar el cifrado predeterminado con [**claves de cifrado administradas por el cliente**](search-security-manage-encryption-keys.md). Las claves que se crean y administran en Azure Key Vault se usan para cifrar los índices y asignaciones de sinónimos en Azure Search. |
+| Cifrado del servidor | El [**cifrado en reposo administrado por Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) está integrado en la capa de almacenamiento interno y es irrevocable. Si lo desea, puede complementar el cifrado predeterminado con [ **claves de cifrado administradas por el cliente (versión preliminar)**](search-security-manage-encryption-keys.md). Las claves que se crean y administran en Azure Key Vault se usan para cifrar los índices y asignaciones de sinónimos en Azure Search. |
 | Infraestructura | La **plataforma de alta disponibilidad** garantiza una experiencia de servicio de búsqueda muy confiable. Cuando se escala correctamente, [Azure Search ofrece un contrato de nivel de servicio del 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Totalmente administrada y escalable** como cualquier solución completa, Azure Search no requiere ninguna administración de la infraestructura en absoluto. El servicio se puede adaptar a sus necesidades mediante el escalado en dos dimensiones para controlar un mayor almacenamiento de documentos, mayores cargas de consultas o ambos.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Uso de Azure Search

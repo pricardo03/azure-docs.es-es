@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/10/2019
 ms.author: tulasim
-ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 278040cb487df6731df1ad3e18435f6e12ca9d50
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727318"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594061"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obtener una respuesta de conocimiento con la API de GenerateAnswer y metadatos
 
@@ -113,11 +113,11 @@ Una respuesta correcta devuelve el estado de 200 y una respuesta JSON.
 |Propiedad de respuestas (se ordenan por puntuación)|Propósito|
 |--|--|
 |de la aplicación|puntuación de clasificación entre 0 y 100.|
-|Id|identificador único asignado a la respuesta.|
+|Identificador|identificador único asignado a la respuesta.|
 |Preguntas|preguntas proporcionadas por el usuario.|
 |answer (responder)|la respuesta a la pregunta.|
 |source|nombre del origen desde el que se extrajo la respuesta o se guardó en la base de conocimiento.|
-|metadata|metadatos asociados a la respuesta.|
+|metadatos|metadatos asociados a la respuesta.|
 |metadata.name|nombre de los metadatos. (cadena, longitud máx.: 100, requerido)|
 |metadata.value: valor de los metadatos. (cadena, longitud máx.: 100, requerido)|
 
@@ -148,7 +148,7 @@ Una respuesta correcta devuelve el estado de 200 y una respuesta JSON.
 
 ## <a name="using-metadata-allows-you-to-filter-answers-by-custom-metadata-tags"></a>Uso de los metadatos le permite filtrar las respuestas por etiquetas de metadatos personalizados
 
-Adición de metadatos permite filtrar las respuestas por estas etiquetas de metadatos. Tenga en cuenta los siguientes datos de preguntas más frecuentes. Para agregar metadatos a Knowledge Base, haga clic en el icono de metadatos.
+Adición de metadatos permite filtrar las respuestas por estas etiquetas de metadatos. Agregar la columna de metadatos desde el **opciones de vista** menú. Agregar metadatos a la base de conocimiento, haga clic en los metadatos **+** icono para agregar un par de metadatos. Este par consta de una clave y un valor.
 
 ![agregar metadatos](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
