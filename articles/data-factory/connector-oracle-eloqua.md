@@ -45,7 +45,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Oracle E
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Eloqua** | Sí |
-| punto de conexión | Punto de conexión del servidor de Eloqua. Eloqua admite varios centros de datos; para determinar su punto de conexión, inicie sesión en https://login.eloqua.com mediante sus credenciales, y copie la porción de la **URL base** de la URL redirigida con el patrón de `xxx.xxx.eloqua.com`. | Sí |
+| endpoint | Punto de conexión del servidor de Eloqua. Eloqua admite varios centros de datos; para determinar su punto de conexión, inicie sesión en https://login.eloqua.com mediante sus credenciales, y copie la porción de la **URL base** de la URL redirigida con el patrón de `xxx.xxx.eloqua.com`. | Sí |
 | username | Nombre del sitio y del usuario de la cuenta de Eloqua con el siguiente formato: `SiteName\Username`por ejemplo, `Eloqua\Alice`.  | Sí |
 | password | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
