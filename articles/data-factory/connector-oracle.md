@@ -57,7 +57,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Oracle.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type se debe establecer en: **Oracle**. | Sí |
+| type | La propiedad type se debe establecer en: **Oracle**. | Sí |
 | connectionString | Especifica la información necesaria para conectarse a la instancia de Oracle Database. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña en Azure Key Vault y extraer la configuración de `password` de la cadena de conexión. Consulte los siguientes ejemplos y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. <br><br>**Tipo de conexión admitido**: para identificar su base de datos, puede usar el **SID de Oracle** o el **nombre de servicio de Oracle**:<br>- Si usa el SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si usa el nombre del servicio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
@@ -162,7 +162,7 @@ Para copiar datos con Oracle como origen o destino, establezca la propiedad type
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos se debe establecer en: **OracleTable**. | Sí |
+| type | La propiedad type del conjunto de datos se debe establecer en: **OracleTable**. | Sí |
 | tableName |El nombre de la tabla de la base de datos Oracle a la que hace referencia el servicio vinculado. | Sí |
 
 **Ejemplo:**
@@ -194,7 +194,7 @@ Para copiar datos desde Oracle, establezca el tipo de origen de la actividad de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **OracleSource**. | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **OracleSource**. | Sí |
 | oracleReaderQuery | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`. | Sin  |
 
 Si no se especifica "oracleReaderQuery", las columnas que se definen en la sección "structure" del conjunto de datos se usan para construir una consulta (`select column1, column2 from mytable`) para ejecutarla en la base de datos Oracle. Si la definición del conjunto de datos no tiene la sección "structure", se seleccionan todas las columnas de la tabla.
@@ -237,7 +237,7 @@ Si va a copiar datos en Oracle, establezca el tipo de receptor de la actividad d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **OracleSink**. | Sí |
+| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **OracleSink**. | Sí |
 | writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 10 000) |
 | writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son intervalos de tiempo. Un ejemplo es 00:30:00 (30 minutos). | Sin  |
 | preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Oracle en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. | Sin  |
