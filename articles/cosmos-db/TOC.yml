@@ -512,6 +512,8 @@
           href: data-explorer.md
         - name: Administración de directivas de indexación
           href: how-to-manage-indexing-policy.md
+        - name: Definición de claves únicas
+          href: how-to-define-unique-keys.md
         - name: Ejemplos de subconsultas de SQL
           displayName: 'subquery, exists'
           href: how-to-sql-subquery.md

@@ -165,7 +165,7 @@
           href: grant-access-to-create-subscription.md
         - name: Autenticación entre inquilinos
           href: authenticate-multi-tenant.md
-    - name: Auditoría de implementaciones
+    - name: Auditoría de los cambios
       items:
         - name: Visualización de registros de actividad
           href: resource-group-audit.md

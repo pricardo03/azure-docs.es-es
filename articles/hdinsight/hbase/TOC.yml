@@ -12,6 +12,8 @@
       maintainContext: true
 - name: Guías de inicio rápido
   items:
+    - name: 'Realización de consultas en Apache HBase: Apache Phoenix'
+      href: apache-hbase-phoenix-squirrel-linux.md
     - name: 'Realización de consultas en Apache HBase: Shell de HBase'
       href: ./query-hbase-with-hbase-shell.md
 - name: Introducción
@@ -52,8 +54,6 @@
         - name: Apache Phoenix en HDInsight
           href: ../hdinsight-phoenix-in-hdinsight.md
           maintainContext: true
-        - name: Uso de Apache Phoenix y SQLLine
-          href: apache-hbase-phoenix-squirrel-linux.md
         - name: Uso del SDK de REST del servidor de consultas de Apache Phoenix
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
     - name: Análisis de macrodatos
@@ -115,7 +115,7 @@
             - name: Uso de cURL y la API de REST de Azure
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: Uso de la CLI de Azure clásico
+            - name: Uso de la CLI de Azure
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
             - name: Creación de clústeres a petición
