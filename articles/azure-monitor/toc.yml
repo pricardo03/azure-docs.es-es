@@ -249,8 +249,6 @@
               href: platform/data-sources-json.md
             - name: Datos de rendimiento de CollectD
               href: platform/data-sources-collectd.md
-            - name: Alertas de Nagios y Zabbix
-              href: platform/data-sources-alerts-nagios-zabbix.md
             - name: syslog
               href: platform/data-sources-syslog.md
             - name: contadores de rendimiento
