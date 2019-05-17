@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: e9070127780659142ab8f956a8016622ecfea144
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540157"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823345"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Lista de comprobación de integración de plataforma de Microsoft identity
 
@@ -31,13 +31,13 @@ Si acaba de empezar, consulte el [documentación](index.yml) para obtener inform
 
 ## <a name="testing-your-integration"></a>Probar la integración
 
-Use la siguiente lista de comprobación para asegurarse de que la aplicación efectivamente está integrada con el [plataforma Microsoft identity](https://docs.microsoft.com/legal/mdsa).
+Use la siguiente lista de comprobación para asegurarse de que la aplicación efectivamente está integrada con el [plataforma Microsoft identity](https://docs.microsoft.com/azure/active-directory/develop/).
 
 ### <a name="basics"></a>Aspectos básicos
 
 |   |   |
 |---|---|
-| ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) | Lea y comprenda el [directivas de la plataforma de Microsoft](https://docs.microsoft.com/legal/mdsa). Asegúrese de que la aplicación se adhiere a los términos que se describen como están diseñados para proteger a usuarios y la plataforma. |
+| ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) | Lea y comprenda el [directivas de la plataforma de Microsoft](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Asegúrese de que la aplicación se adhiere a los términos que se describen como están diseñados para proteger a usuarios y la plataforma. |
 
 ### <a name="ownership"></a>Propiedad
 

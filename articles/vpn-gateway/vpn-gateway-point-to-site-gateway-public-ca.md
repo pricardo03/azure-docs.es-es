@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 05/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: ea3ee00e60ae5eaff5c7220e9502da11358c8793
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1d45e1a5e4053ead4330967c5e250c0797c19fe7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786743"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827468"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Transición a un certificado de puerta de enlace de entidad de certificación pública para P2S
 
@@ -29,19 +29,7 @@ Anteriormente, un certificado autofirmado para la puerta de enlace (que emitía 
 Solo las puertas de enlace anteriores se ven afectados por este cambio. Si el certificado de puerta de enlace se puede migrar, recibirá un aviso en Azure Portal. Puede ver si se ve afectada la puerta de enlace siguiendo los pasos de este artículo.
 
 > [!IMPORTANT]
-> **Esta transición se completó en el 12 de mayo de 2019.**
->
-> La transición está programada para el 12 de marzo de 2019 a partir de las 18:00 UTC. Puede crear una incidencia de soporte técnico si prefiere un período diferente. Cree y finalice la solicitud con al menos 24 horas de antelación.  Puede solicitar una de las ventanas siguientes:
->
-> * El 25 de febrero a partir de las 06:00 UTC
-> * El 25 de febrero a partir de las 18:00 UTC
-> * El 1 de marzo a partir de las 06:00 UTC
-> * El 1 de marzo a partir de las 18:00 UTC
->
-> Todas las puertas de enlace restantes se pasarán en 12 de marzo de 2019 empezando a las 18:00 UTC.
->
-> Los clientes recibirán un correo electrónico cuando se haya completado el proceso de transición de su puerta de enlace.
-> 
+> Se ha completado la transición para certificados de entidad de certificación pública en el 12 de mayo de 2019. **Este documento se quitará en el 31 de mayo de 2019.**
 
 ## <a name="1-verify-your-certificate"></a>1. Comprobación del certificado
 

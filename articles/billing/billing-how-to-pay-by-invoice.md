@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: banders
-ms.openlocfilehash: 8dc5918ac539abde2586e29a1608e9dc496a5e37
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7caa7df3817c51d63dfa2838e4223d3fba88e529
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794790"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827355"
 ---
 # <a name="pay-azure-subscription-by-invoice"></a>Suscripción de Azure de pago mediante factura
 
@@ -65,14 +65,14 @@ Si cambia al pago mediante factura, significa que pagar la factura de 30 días d
          (New quota) Requested cores:
          Specific region & series of Subscription:
 
-- El **nombre de la compañía** y **dirección de la empresa** debería coincidir con la información que ha proporcionado para la cuenta de Azure.  Para ver o actualizar la información, consulte [cambiar su información de perfil de cuenta de Azure](billing-how-to-change-azure-account-profile.md).
-- Debe agregar su contacto de facturación en Azure portal antes de que se puede aprobar el límite de crédito. Deben estar relacionado con los detalles de contacto al departamento de cuentas por pagar o finanzas de la empresa. Para actualizar el contacto de facturación, vaya a [centro de cuentas de Azure](https://account.azure.com/Profile).
+    - El **nombre de la compañía** y **dirección de la empresa** debería coincidir con la información que ha proporcionado para la cuenta de Azure.  Para ver o actualizar la información, consulte [cambiar su información de perfil de cuenta de Azure](billing-how-to-change-azure-account-profile.md).
+    - Debe agregar su contacto de facturación en Azure portal antes de que se puede aprobar el límite de crédito. Deben estar relacionado con los detalles de contacto al departamento de cuentas por pagar o finanzas de la empresa. Para actualizar el contacto de facturación, vaya a [centro de cuentas de Azure](https://account.azure.com/Profile).
 
 5. Compruebe la información de contacto y el método de contacto preferido, y haga clic en **Crear**.
 
 Si es necesario ejecutar una comprobación de crédito debido a la cantidad de crédito que necesita, te enviaremos un crédito de que compruebe la aplicación.
 
-## <a name="switch-your-azure-subscription-to-invoice-payment"></a>Cambiar la suscripción a Azure pago de factura
+## <a name="switch-to-invoice-pay"></a>Cambiar a pago de factura
 
 Una vez que se aprueban para pagar mediante factura, puede cambiar su suscripción de Azure para el método de pago de factura en el [portal Azure](https://portal.azure.com).
 
