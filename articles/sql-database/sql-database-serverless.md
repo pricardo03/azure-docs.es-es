@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/11/2019
-ms.openlocfilehash: ba79e2b9552f0c27ac11501b2b125a126e40eb1d
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551635"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620154"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database sin servidor (versión preliminar)
 
@@ -66,7 +66,7 @@ La tabla siguiente resume las diferencias entre el nivel de proceso sin servidor
 |**Escenario de uso principal**| Bases de datos con uso impredecible e intermitente, intercalado con períodos de inactividad. | Bases de datos o grupos elásticos con uso más habitual.|
 | **Trabajo de administración del rendimiento** |Inferior|Superior|
 |**Escalado de proceso**|Automático|Manual|
-|**Capacidad de respuesta del proceso**|Menor después de períodos de inactividad|Inmediata|
+|**Capacidad de respuesta del proceso**|Menor después de períodos de inactividad|Inmediato|
 |**Granularidad de facturación**|Por segundo|Por hora|
 
 ## <a name="purchasing-model-and-service-tier"></a>Modelo de compra y nivel de servicio
@@ -100,7 +100,7 @@ La reanudación automática se desencadena si se cumple cualquiera de las siguie
 
 |Característica|Desencadenamiento de reanudación automática|
 |---|---|
-|Autenticación y autorización|Inicio de sesión|
+|Autenticación y autorización|Iniciar sesión|
 |Detección de amenazas|Habilitación o deshabilitación de la configuración de detección de amenazas en el nivel de base de datos o servidor<br>Modificación de la configuración de detección de amenazas en el nivel de base de datos o servidor|
 |Detección y clasificación de datos|Adición, modificación, eliminación o visualización de las etiquetas de confidencialidad|
 |Auditoría|Visualización de registros de auditoría<br>Actualización o visualización de la directiva de auditoría|
@@ -204,11 +204,11 @@ El máximo de núcleos virtuales se modifica mediante el comando [Set-AzSqlDatab
 
 ### <a name="minimum-vcores"></a>Mínimo de núcleos virtuales
 
-El mínimo de núcleos virtuales se modifica mediante el comando [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) en PowerShell con el argumento `MinVcore`.
+Modificación de los núcleos virtuales mínimos se realiza mediante el [conjunto AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando en PowerShell mediante el `MinVcore` argumento.
 
 ### <a name="autopause-delay"></a>Demora de pausa automática
 
-La demora de pausa automática se modifica mediante el comando [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) en PowerShell con el argumento `AutoPauseDelay`.
+Modificar el retraso pausarautomáticamente se realiza mediante el [conjunto AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando en PowerShell mediante el `AutoPauseDelay` argumento.
 
 ## <a name="monitor-serverless-database"></a>Supervisión de la base de datos sin servidor
 
