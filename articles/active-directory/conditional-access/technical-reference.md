@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b10a91499dbe7e627025be8487efa15890861b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764723"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823549"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -48,7 +48,6 @@ Puede asignar una directiva de acceso condicional a las siguientes aplicaciones 
 - Microsoft Application Insights Analytics
 - Microsoft Azure Information Protection: [obtener más información](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Administración de Microsoft Azure - [obtener más información](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-- RemoteApp de Microsoft Azure
 - Administración de suscripciones de Microsoft Azure
 - Microsoft Cloud App Security
 - Portal de Control de acceso de las herramientas de Microsoft Commerce
@@ -167,7 +166,6 @@ Esta configuración afecta a los intentos de acceso realizados desde las siguien
 
 | Aplicaciones cliente | Servicio de destino | Plataforma |
 | --- | --- | --- |
-| Azure RemoteApp | Servicio Azure Remote App | Windows 10, Windows 8.1, Windows 7, iOS, Android y macOS |
 | Aplicación de Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS y Android |
 | Aplicación de Correo electrónico/Calendario/People, Outlook 2016, Outlook 2013 (con la autenticación moderna)| Office 365 Exchange Online | Windows 10 |
 | Directiva de MFA y de ubicación para las aplicaciones. No se admiten las directivas basadas en dispositivos.| Cualquier servicio de aplicaciones de Mis aplicaciones| Android e iOS |
