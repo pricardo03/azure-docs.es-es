@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec6caecde3e90f7113f60286e95cdaeb996003f7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437752"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784035"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con el Proxy de aplicación de Azure AD
 
@@ -59,13 +59,14 @@ La extensión de explorador de MyApps reconoce todas las URL internas publicadas
 
 Para usar esta característica, el usuario debe descargar la extensión e iniciar sesión. Los usuarios o administradores no tienen que configurar nada más. 
 
- 
+Para obtener más información, incluido cómo configurar esta opción, vea el [extensión del navegador MyApps](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) documentación.
 
 ### <a name="option-3-link-translation-setting"></a>Opción 3: Valor de traducción de vínculos 
 
-Si está habilitada la traducción de vínculos, el servicio Application Proxy busca a través de HTML y CSS los vínculos internos publicados y los traduce de forma que los usuarios reciban una experiencia sin interrupciones. 
+Si está habilitada la traducción de vínculos, el servicio Application Proxy busca a través de HTML y CSS los vínculos internos publicados y los traduce de forma que los usuarios reciban una experiencia sin interrupciones. Mediante la extensión de explorador MyApps es preferible a la configuración de la traducción de vínculos, ya que proporciona una experiencia de rendimiento más a los usuarios.
 
-
+> [!NOTE]
+> Si está utilizando la opción 2 ó 3, solo uno de ellos debe habilitarse a la vez.
 
 ## <a name="how-link-translation-works"></a>Funcionamiento de la traducción de vínculos
 
@@ -83,7 +84,7 @@ Hay dos tipos comunes de vínculos internos en aplicaciones locales:
 - **Vínculos internos codificados de manera rígida** a otras aplicaciones locales como `http://expenses` o archivos publicados como `http://expenses/logo.jpg`. La característica de traducción de vínculos funciona en vínculos internos codificados de manera rígida y los modifica para que apunten a las direcciones URL por las que deben pasar los usuarios remotos.
 
 La lista completa de etiquetas de código HTML que Proxy de aplicación admite la traducción de vínculos de incluyen:
-* a
+* un
 * audio
 * base
 * button
@@ -96,14 +97,14 @@ La lista completa de etiquetas de código HTML que Proxy de aplicación admite l
 * IFRAME
 * img
 * input
-* link
+* vínculo
 * MenuItem
 * meta
 * objeto
 * script
-* de origen
+* source
 * Seguimiento
-* video
+* vídeo
 
 Además, también se traduce el atributo URL en CSS.
 

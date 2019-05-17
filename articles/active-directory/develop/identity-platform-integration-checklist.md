@@ -3,8 +3,8 @@ title: Integración con la plataforma Microsoft identity | Azure
 description: Obtenga información sobre las prácticas recomendadas y descuidos común cuando se integra con la plataforma Microsoft identity (v2.0).
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 1f5a6d7501fd387548b111fcb0888515c8f8db25
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e9070127780659142ab8f956a8016622ecfea144
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076411"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540157"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Lista de comprobación de integración de plataforma de Microsoft identity
 
@@ -89,7 +89,7 @@ Use la siguiente lista de comprobación para asegurarse de que la aplicación ef
 | ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) | Registrar el conjunto completo de permisos que requiere la aplicación, por lo que los administradores pueden conceder consentimiento fácilmente con su inquilino. Use [consentimiento incremental](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) en tiempo de ejecución para ayudar a los usuarios a entender por qué la aplicación solicita permisos que es posible que se refieren a o confundir a los usuarios cuando se solicita en el primer inicio. |
 | ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) | Implemente un [limpiar una experiencia de cierre de sesión único](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). Es el requisito de seguridad y privacidad y hace que para una buena experiencia del usuario. |
 
-### <a name="testing"></a>Prueba
+### <a name="testing"></a>Pruebas
 
 |   |   |
 |---|---|
