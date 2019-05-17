@@ -3,8 +3,8 @@ title: Vigencia de tokens configurable en Azure Active Directory | Microsoft Doc
 description: Aprenda a establecer la vigencia de los tokens emitidos por Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: celested
-ms.custom: aaddev
+ms.date: 04/13/2019
+ms.author: ryanwi
+ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b0242a8e3745a0014e5c2a1289ca2bc8c85c75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0657057ceb3aca674e49a705c52c3b86dda73d98
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411375"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545385"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Vigencia de tokens configurable en Azure Active Directory (versión preliminar)
 
 Puede especificar la vigencia de un token emitido por Azure Active Directory (Azure AD). La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización.
 
 > [!IMPORTANT]
-> Después de los comentarios de los clientes durante la versión preliminar, tenemos intención de reemplazar esta funcionalidad por una nueva característica de acceso condicional de Azure Active Directory.  Una vez finalizada la nueva característica, esta funcionalidad entrará en desuso tras un período de notificación.  Si usa la directiva de duración del token configurable, debe estar preparado para cambiar a la nueva característica de acceso condicional cuando esté disponible. 
+> Después de la audiencia de los clientes durante la vista previa, hemos reemplazamos la característica de vigencia de tokens configurables con [capacidades de administración de sesión de autenticación](https://go.microsoft.com/fwlink/?linkid=2083106) en acceso condicional de Azure AD. Esta característica dejará de usarse el 1 de noviembre de 2019. Si usa la directiva de vigencia de tokens configurables, cambie a la nueva característica de acceso condicional. 
 
 En Azure AD, un objeto de directiva representa un conjunto de reglas que se exigen en algunas o todas las aplicaciones de una organización. Cada tipo de directiva tiene una estructura única con un conjunto de propiedades que luego se aplican a los objetos a los que están asignadas.
 
@@ -61,7 +61,7 @@ Los clientes confidenciales son aplicaciones que pueden almacenar de forma segur
 
 Los clientes públicos no pueden almacenar de forma segura una contraseña (secreto) de cliente. Por ejemplo, una aplicación de iOS o Android no puede ofuscar un secreto del propietario del recurso y, por ello, se considera a la aplicación un cliente público. Se pueden establecer directivas sobre los recursos para evitar que los tokens de actualización de clientes públicos anteriores a un período especificado obtengan un nuevo par de tokens de acceso/actualización. Para ello, utilice la propiedad de tiempo máximo de inactividad del token de actualización (`MaxInactiveTime`). También puede utilizar directivas para establecer un período más allá del cual ya no se aceptan los tokens de actualización. (Para ello, utilice la propiedad de antigüedad máxima del token de actualización). Puede ajustar la vigencia del token de actualización para controlar cuándo y con qué frecuencia es necesario que el usuario vuelva a escribir las credenciales en lugar de volver a autenticarse de forma silenciosa al usar una aplicación cliente pública.
 
-### <a name="id-tokens"></a>Tokens de identificador
+### <a name="id-tokens"></a>Tokens de id.
 Los tokens de identificador se pasan a los clientes nativos y de sitios web. Los tokens de identificador contienen información de perfil de un usuario. Un token de identificador se enlaza a una combinación específica de usuario y cliente. Los tokens de identificador se consideran válidos hasta que expiran. Normalmente, una aplicación web relaciona la vigencia de la sesión de un usuario en la aplicación con la vigencia del token de identificador emitido para el usuario. Puede ajustar la vigencia del token de identificador para controlar la frecuencia con la que la aplicación web expirará la sesión de la aplicación y requerirá que el usuario se vuelva a autenticar en Azure AD (de forma silenciosa o interactiva).
 
 ### <a name="single-sign-on-session-tokens"></a>Tokens de sesión de inicio de sesión único
@@ -77,7 +77,7 @@ Puede utilizar una directiva para establecer el período de tiempo después de l
 Una directiva de vigencia del token es un tipo de objeto de directiva que contiene reglas de vigencia del token. Use las propiedades de la directiva para controlar las vigencias de tokens especificados. Si no se establece ninguna directiva, el sistema aplica el valor de vigencia predeterminado.
 
 ### <a name="configurable-token-lifetime-properties"></a>Propiedades de vigencia de tokens configurables
-| Propiedad | Cadena de propiedad de directiva | Afecta a | Valor predeterminado | Mínima | Máxima |
+| Propiedad | Cadena de propiedad de directiva | Afecta a | Valor predeterminado | Mínima | Máximo |
 | --- | --- | --- | --- | --- | --- |
 | Vigencia del token de acceso |AccessTokenLifetime |Tokens de acceso, tokens de identificador, tokens de SAML2 |1 hora |10 minutos |1 día |
 | Tiempo máximo de inactividad del token de actualización |MaxInactiveTime |Tokens de actualización |90 días |10 minutos |90 días |
@@ -481,7 +481,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Directivas de la entidad de servicio
+### <a name="service-principal-policies"></a>Directivas de entidad de servicio
 Los cmdlets siguientes se pueden usar para las directivas de entidad de servicio.
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
