@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ffebdd5b88603113dd7624e97dcf7353ab5d1ba
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371162"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605567"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de una suscripción de Azure a otra cuenta
 
@@ -64,7 +64,7 @@ Transfiera su suscripción a otro usuario del Centro de cuentas para cambiar el 
    ![Página web de primera transferencia de suscripción](./media/billing-subscription-transfer/image4.png)
 
    ![Página web de segunda transferencia de suscripción](./media/billing-subscription-transfer/image5.png)
-1. ¡Éxito! La suscripción ya está transferida.
+1. Correcto La suscripción ya está transferida.
 
 <a id="EA"></a>
 
@@ -119,7 +119,7 @@ Todos los recursos, como las máquinas virtuales, los discos y los sitios web, s
 
 ### <a id="no-button"></a>¿Por qué no veo el botón "Transfer subscription" (Transferir suscripción)?
 
-Desafortunadamente, la transferencia de suscripción de autoservicio no está disponible para su país u oferta. Para transferir su suscripción, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Por desgracia, la transferencia de suscripción de autoservicio no está disponible para su oferta o país o región. Para transferir su suscripción, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>¿Provocan las transferencias de suscripciones un tiempo de inactividad en el servicio?
 
@@ -156,9 +156,9 @@ El remitente es el responsable del pago de cualquier uso que se notificó hasta 
 
 La oferta debe permanecer igual. Para cambiar la oferta, consulte [Cambio de la suscripción de Azure a otra oferta](billing-how-to-switch-azure-offer.md).
 
-### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>¿Puedo transferir una suscripción a una cuenta de usuario de otro país?
+### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-countryregion"></a>¿Puedo transferir una suscripción a una cuenta de usuario en otro país o región?
 
-No, si se transfiere una suscripción a una cuenta de usuario en otro país, no es compatible. La cuenta de usuario del destinatario debe estar en el mismo país.
+No, no se admite la transferencia de una suscripción a una cuenta de usuario en otro país o región. Cuenta de usuario del destinatario debe estar en el mismo país o región.
 
 ### <a name="can-the-recipient-use-a-different-payment-method"></a>¿Puede usar el destinatario un método de pago diferente?
 
@@ -172,6 +172,6 @@ Para aceptar una transferencia de suscripción, se debe proporcionar una tarjeta
 
 Si no se puede transferir la propiedad de suscripción, puede migrar manualmente los recursos. Consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+## <a name="need-help-contact-us"></a>¿Ayuda? Póngase en contacto con nosotros.
 
 Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
