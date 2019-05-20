@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d588374c0195e7da373766f93f6829ac2160269
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 7be6c9eda6d0a70d929efe4c00f661eb67105820
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471601"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606415"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 
@@ -26,7 +26,7 @@ Los únicos requisitos para el entorno de desarrollo son Python 3, Anaconda (par
 
 Este artículo se centra en los siguientes entornos y herramientas:
 
-* Su propio [servidor notebook basado en la nube](#notebookvm): Usar un recurso de proceso en su estación de trabajo para ejecutar cuadernos de Jupyter. Esta es la forma más fácil para empezar a trabajar, ya que el SDK de Azure Machine Learning ya está instalado.
+* Su propio [Bloc de notas en la nube VM](#notebookvm): Usar un recurso de proceso en su estación de trabajo para ejecutar cuadernos de Jupyter. Esta es la forma más fácil para empezar a trabajar, ya que el SDK de Azure Machine Learning ya está instalado.
 
 * [Data Science Virtual Machine (DSVM)](#dsvm): es un entorno de desarrollo o experimentación preconfigurado en Azure Cloud que está diseñado para el trabajo con ciencia de datos y se puede implementar en instancias de máquina virtual solo con CPU o en instancias basadas en GPU. Python 3, Conda, Jupyter Notebooks y el SDK de Azure Machine Learning ya están instalados. La máquina virtual incluye editores, herramientas y marcos de aprendizaje automático o de aprendizaje profundo que son muy populares para desarrollar soluciones de Machine Learning. Es probable que se trate del entorno más completo de desarrollo para Machine Learning en la plataforma de Azure.
 
@@ -42,9 +42,7 @@ Si ya tiene un entorno de Python 3, o tan solo quiere los pasos básicos para in
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [crear un área de trabajo del servicio de Azure Machine Learning](setup-create-workspace.md).
-
-Un área de trabajo es todo lo que necesita para empezar a trabajar con su propio [servidor notebook basado en la nube](#notebookvm), un [DSVM](#dsvm), [Azure Databricks](#aml-databricks), o [Azure Notebooks](#aznotebooks).
+Un área de trabajo de Azure Machine Learning. Para crear el área de trabajo, consulte [crear un área de trabajo del servicio de Azure Machine Learning](setup-create-workspace.md). Un área de trabajo es todo lo que necesita para empezar a trabajar con su propio [servidor notebook basado en la nube](#notebookvm), un [DSVM](#dsvm), [Azure Databricks](#aml-databricks), o [Azure Notebooks](#aznotebooks).
 
 Para instalar el entorno de SDK para su [ordenador](#local), [servidor Jupyter Notebook](#jupyter) o [Visual Studio Code](#vscode) también debe:
 
@@ -57,16 +55,30 @@ Para instalar el entorno de SDK para su [ordenador](#local), [servidor Jupyter N
 
 - En Windows, se necesita el símbolo del sistema o la solicitud de Anaconda (que se instala con Anaconda y Miniconda).
 
-## <a id="notebookvm"></a>Su propio servidor de Bloc de notas en la nube
+## <a id="notebookvm"></a>Su propio bloc de notas en la nube máquinas virtuales
 
-Crear un servidor de Bloc de notas en el área de trabajo de Azure Machine Learning para la manera más fácil empezar a trabajar con el desarrollo de Azure Machine Learning.
+La máquina virtual de Bloc de notas (versión preliminar) es un seguro y basado en la nube Azure estación de trabajo que proporciona a los científicos de datos con un servidor de Jupyter notebook, JupyterLab y un entorno de aprendizaje automático totalmente preparado. 
 
-* El SDK de Azure Machine Learning ya está instalado.
-* El entorno de máquina virtual del Bloc de notas se configura automáticamente para que funcione con el área de trabajo.
-* El recurso se crea en el área de trabajo y puede administrarse existe
+El equipo portátil es la máquina virtual: 
 
-Para empezar a desarrollar con el servidor de Bloc de notas en la nube, consulte [inicio rápido: Usar un servidor de Bloc de notas en la nube para empezar a trabajar con Azure Machine Learning](quickstart-run-cloud-notebook.md).
++ **Seguro**. Puesto que el acceso de máquina virtual y el Bloc de notas está protegido con HTTPS y Azure Active Directory de forma predeterminada, los profesionales de TI pueden aplicar fácilmente el inicio de sesión único y otras características de seguridad como la autenticación multifactor.
 
++ **Preconfigurada**. Este entorno de aprendizaje automático de Python totalmente preparado dibuja sus genealógicos desde la VM de ciencia de datos IaaS populares e incluye:
+  + Azure SDK de Python de Machine Learning (versión más reciente)
+  + Configuración automática para que funcione con el área de trabajo
+  + Un servidor de Jupyter notebook
+  + JupyterLab notebook IDE
+  + Controladores de GPU preconfigurados 
+  + Una selección de marcos de aprendizaje profundo
+ 
+
+  Si no está en el código, la máquina virtual incluye tutoriales y ejemplos que le ayudarán a explorar y obtener información sobre cómo usar el servicio Azure Machine Learning. Los cuadernos de ejemplo se almacenan en la cuenta de almacenamiento de blobs de Azure del área de trabajo que pueden compartirse entre máquinas virtuales. Cuando se ejecuta, también tiene acceso a los almacenes de datos y recursos del área de trabajo de proceso. 
+
++ **Instalación simple**: Crear uno en cualquier momento desde el área de trabajo de Azure Machine Learning. Proporcione un nombre y especificar un tipo de máquina virtual de Azure. Pruébelo ahora con esta [inicio rápido: Usar un servidor de Bloc de notas en la nube para empezar a trabajar con Azure Machine Learning](quickstart-run-cloud-notebook.md).
+
++ **Puede personalizar**. Mientras una VM segura y administrada que ofrece, conservar el acceso completo a las capacidades de hardware y personalícelo de acuerdo con el deseo de corazón. Por ejemplo, cree la versión más reciente con la tecnología NVidia V100 de máquina virtual para llevar a cabo la depuración paso a paso de la arquitectura de red neuronal novel rápidamente.
+
+Deje de incurrir en cargos de máquina virtual del Bloc de notas, [detener la máquina virtual del Bloc de notas](quickstart-run-cloud-notebook.md#stop-the-notebook-vm). 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -368,7 +380,7 @@ Hay tres formas de crear el archivo de configuración:
 
 * **Siga los pasos de [crear un área de trabajo del servicio de Azure Machine Learning](setup-create-workspace.md#sdk)**: Un archivo *config.json* se crea en la biblioteca de Azure Notebooks. Este archivo contiene información de configuración para el área de trabajo. Puede descargar o copiar el archivo *config.json* en otros entornos de desarrollo.
 
-* **Descargue el archivo**: En Azure Portal, seleccione [Descargar config.json](https://ms.portal.azure.com) desde la sección **Información general** del área de trabajo.
+* **Descargue el archivo**: En Azure Portal, seleccione **Descargar config.json** desde la sección **Información general** del área de trabajo.
 
      ![Azure Portal](./media/how-to-configure-environment/configure.png)
 
@@ -397,4 +409,3 @@ Hay tres formas de crear el archivo de configuración:
 - [Entrenar un modelo](tutorial-train-models-with-aml.md) en Azure Machine Learning con el conjunto de datos de MNIST
 - Consultar las referencias del [SDK de Azure Machine Learning para Python](https://aka.ms/aml-sdk)
 - Obtenga información sobre la [paquete de preparación de datos para Azure Machine Learning](https://aka.ms/data-prep-sdk)
-- 
