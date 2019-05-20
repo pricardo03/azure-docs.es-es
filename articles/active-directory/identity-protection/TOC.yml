@@ -46,6 +46,8 @@
           href: security-overview.md
         - name: Investigación sobre usuarios e inicios de sesión de riesgo
           href: howto-investigate-risky-users-signins.md
+        - name: Proporcionar comentarios sobre los eventos de riesgo
+          href: howto-provide-risk-event-feedback.md
         - name: Configuración de directivas de riesgo
           href: howto-configure-risk-policies.md
         - name: Mejora de la precisión de detección
