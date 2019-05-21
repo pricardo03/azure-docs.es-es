@@ -13,7 +13,7 @@
       items:
         - name: Creación de una cola de Service Bus
           items:
-            - name: Azure Portal
+            - name: Portal de Azure
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md

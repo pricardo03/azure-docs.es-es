@@ -5,13 +5,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/07/2019
 ms.openlocfilehash: 27c6b59a458fb79b86d7064d710a01593a1745dc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028881"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65885055"
 ---
-## <a name="use-docker-cli-to-authenticate-private-container-registry"></a>Usar la CLI de Docker para autenticar el registro de contenedor privado
+## <a name="use-docker-cli-to-authenticate-private-container-registry"></a>Uso de la CLI de Docker para autenticar un registro de contenedor privado
 
 Hay varias formas de autenticarse con el registro de contenedor privado de contenedores de Cognitive Services, pero el método recomendado de la línea de comandos es mediante el uso de la [CLI de Docker](https://docs.docker.com/engine/reference/commandline/cli/).
 

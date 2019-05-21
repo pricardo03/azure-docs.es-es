@@ -89,6 +89,8 @@
           items:
             - name: Proceso perimetral
               href: data-box-edge-manage-compute.md
+            - name: Red de procesos perimetrales
+              href: data-box-edge-extend-compute-access-modules.md
             - name: Recursos compartidos
               href: data-box-edge-manage-shares.md
             - name: Usuarios
