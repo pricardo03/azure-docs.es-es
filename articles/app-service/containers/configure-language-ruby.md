@@ -28,7 +28,7 @@ En este artículo se describe la forma en que [Azure App Service](app-service-li
 
 En esta guía se incluyen conceptos clave e instrucciones para los desarrolladores de Ruby que usan un contenedor Linux integrado en App Service. Si nunca ha usado Azure App Service, debe seguir primero el [inicio rápido de Ruby](quickstart-ruby.md) y el [tutorial de Ruby con PostgreSQL](tutorial-ruby-postgres-app.md).
 
-## <a name="show-ruby-version"></a>Visualización de la versión de Ruby
+## <a name="show-ruby-version"></a>Consulta de la versión de Ruby
 
 Para mostrar la versión actual de Ruby, ejecute el siguiente comando en [Cloud Shell](https://shell.azure.com):
 
@@ -42,7 +42,7 @@ Para mostrar todas las versiones compatibles de Ruby, ejecute el siguiente coman
 az webapp list-runtimes --linux | grep RUBY
 ```
 
-Para ejecutar una versión no compatible de Ruby, cree una imagen de su propio imagen de contenedor. Para más información, consulte [Uso de una imagen personalizada de Docker](tutorial-custom-docker-image.md).
+Para ejecutar una versión no compatible de Ruby, cree su propia imagen de contenedor. Para más información, consulte [Uso de una imagen personalizada de Docker](tutorial-custom-docker-image.md).
 
 ## <a name="set-ruby-version"></a>Establecimiento de la versión de Ruby
 
@@ -65,7 +65,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Acceso a variables de entorno
 
-En App Service, puede [establecer la configuración de la aplicación](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) fuera del código de la aplicación. Luego puede acceder a ellos mediante el patrón [ENV["<nombre-de-la-ruta-de-acceso>"]](https://ruby-doc.org/core-2.3.3/ENV.html) estándar. Por ejemplo, para acceder a una configuración de una aplicación denominada `WEBSITE_SITE_NAME`, use el código siguiente:
+En App Service, puede [establecer la configuración de la aplicación](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) fuera del código de la aplicación. Luego puede acceder a ellos mediante el patrón [ENV['<nombre-de-la-ruta-de-acceso>']](https://ruby-doc.org/core-2.3.3/ENV.html) estándar. Por ejemplo, para acceder a una configuración de una aplicación denominada `WEBSITE_SITE_NAME`, use el código siguiente:
 
 ```ruby
 ENV['WEBSITE_SITE_NAME']
@@ -106,7 +106,7 @@ De forma predeterminada, el contenedor de Ruby inicia el servidor de Rails en la
 
 1. Genere un valor de [secret_key_base](https://edgeguides.rubyonrails.org/security.html#environmental-security), si aún no existe ninguno. Este valor es necesario para que la aplicación se ejecute en modo de producción.
 1. Establezca la variable de entorno `RAILS_ENV` en `production`.
-1. Elimine cualquier archivo *.pid* del directorio *tmp/PID* que haya dejado un servidor de Rails que se ejecutara previamente.
+1. Elimine cualquier archivo *.pid* del directorio *tmp/PID* que haya dejado un servidor de Rails que se ejecutó previamente.
 1. Compruebe si están instaladas todas las dependencias. Si no, pruebe a instalar los archivos gem desde el directorio *vendor/cache*.
 1. Ejecute `rails server -e $RAILS_ENV`.
 
@@ -120,8 +120,8 @@ Puede personalizar el proceso de inicio de las siguientes maneras:
 
 El servidor de Rails en el contenedor de Ruby se ejecuta en modo de producción de forma predeterminada y [da por supuesto que los recursos están precompilados y los sirve el servidor web](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Para servir recursos estáticos desde el servidor de Rails, es preciso hacer dos cosas:
 
-- **Precompilar los recursos** - [Precompile los recursos estáticos localmente](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) e impleméntelos de forma manual. O bien, permita que el motor de implementación lo haga en su lugar (consulte [Precompilación de los recursos](#precompile-assets).
-- **Habilitar el servicio de archivos estáticos**: para servir recursos estáticos desde el contenedor de Ruby, establezca la `RAILS_SERVE_STATIC_FILES` [opción de `RAILS_SERVE_STATIC_FILES`configuración de la aplicación](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) en `true`. Por ejemplo: 
+- **Precompilar los recursos** - [precompile los recursos estáticos localmente](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) e impleméntelos de forma manual. O bien, permita que el motor de implementación lo haga en su lugar (consulte [Precompilación de los recursos](#precompile-assets).
+- **Habilitar el servicio de archivos estáticos**: para servir recursos estáticos desde el contenedor de Ruby, establezca la opción de configuración de la aplicación [`RAILS_SERVE_STATIC_FILES`](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) en `true`. Por ejemplo: 
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true
@@ -143,7 +143,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="set-secretkeybase-manually"></a>Establecimiento manual de secret_key_base
 
-Para utilizar su propio valor de `secret_key_base` en lugar de permitir que App Service genere uno automáticamente, establezca la [configuración de la aplicación](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) `SECRET_KEY_BASE` con el valor que desee. Por ejemplo: 
+Para utilizar su propio valor de `secret_key_base` en lugar de dejar que App Service genere uno automáticamente, establezca la opción de configuración de la aplicación `SECRET_KEY_BASE`[](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) en el valor que desee. Por ejemplo: 
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"
