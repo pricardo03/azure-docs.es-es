@@ -16,12 +16,12 @@ ms.lasthandoff: 03/19/2019
 ms.locfileid: "57855425"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Traslado de máquinas virtuales de Azure a zonas de disponibilidad
-Availability Zones de Azure ayuda a proteger las aplicaciones y los datos de errores del centro de datos. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de Availability Zones dentro de una región ayuda a proteger las aplicaciones y los datos frente a los errores del centro de datos. Con la incorporación de Availability Zones, ofrecemos un acuerdo de nivel de servicio (SLA) que garantiza un tiempo de actividad de las máquinas virtuales (VM) del 99,99 %. Availability Zones se admite en regiones exclusivas, tal como se indica en [¿Qué es Availability Zones en Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).
+En Azure, Availability Zones ayuda a proteger las aplicaciones y los datos de errores del centro de datos. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de Availability Zones dentro de una región ayuda a proteger las aplicaciones y los datos frente a los errores del centro de datos. Con la incorporación de Availability Zones, Azure ofrece un acuerdo de nivel de servicio (SLA) que garantiza un tiempo de actividad de las máquinas virtuales (VM) del 99,99 %. Availability Zones se admite en regiones exclusivas, tal como se indica en [¿Qué es Availability Zones en Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones)
 
-En un escenario en el que se implementan las máquinas virtuales como de *instancia única* en una región específica y desea mejorar la disponibilidad trasladándolas a una instancia de Availability Zones, puede hacerlo con Azure Site Recovery. Esta acción se puede categorizar más adelante en:
+En un escenario en el que se implementan las máquinas virtuales como de *instancia única* en una región específica y desea mejorar la disponibilidad trasladándolas a una instancia de Availability Zones, puede hacerlo con Azure Site Recovery. Esta acción se puede categorizar aún más al hacer lo siguiente:
 
-- Traslado de máquinas virtuales de instancia única a Availability Zones en una región de destino
-- Traslado de máquinas virtuales de un conjunto de disponibilidad en Availability Zones de región de destino
+- Trasladar máquinas virtuales de instancia única a Availability Zones en una región de destino
+- Trasladar máquinas virtuales de un conjunto de disponibilidad a Availability Zones en una región de destino
 
 > [!IMPORTANT]
 > Actualmente Azure Site Recovery permite trasladar máquinas virtuales de una región a otra, pero no admite el traslado dentro de una misma región.
@@ -42,17 +42,17 @@ En un escenario en el que se implementan las máquinas virtuales como de *instan
 
 ## <a name="prepare-the-source-vms"></a>Preparación de las máquinas virtuales de origen
 
-1. Las máquinas virtuales deben usar discos administrados si desea trasladarlas a una instancia de Availability Zones mediante Site Recovery. Puede convertir VM Windows existentes que usan discos no administrados para que usen discos administrados. Siga los pasos en [Conversión de una máquina virtual Windows con discos no administrados a discos administrados](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Asegúrese de que el conjunto de disponibilidad esté configurado como *administrado*.
+1. Las máquinas virtuales deben usar discos administrados si desea trasladarlas a una instancia de Availability Zones mediante Site Recovery. Puede convertir VM Windows existentes que usan discos no administrados para que usen discos administrados. Siga los pasos en [Conversión de una máquina virtual Windows con discos no administrados en discos administrados](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Asegúrese de que el conjunto de disponibilidad esté configurado como *administrado*.
 2. Asegúrese de que todos los certificados raíz más recientes estén presentes en las máquinas virtuales de Azure que quiera trasladar. Si los últimos certificados raíz no están presentes, la copia de datos en la región de destino no se puede habilitar debido a las restricciones de seguridad.
 
-3. Para las máquinas virtuales de Windows, instale las actualizaciones de Windows más recientes en la máquina virtual, de modo que todos los certificados raíz de confianza estén en ella. En un entorno desconectado, siga los procesos estándar de actualización de certificados y de Windows Update en su organización.
+3. Para las máquinas virtuales de Windows, instale las actualizaciones de Windows más recientes en la máquina virtual, de modo que todos los certificados raíz de confianza estén en ella. En un entorno desconectado, siga los procesos estándar de actualización de certificados y de Windows Update de su organización.
 
 4. En las máquinas virtuales Linux, para obtener los últimos certificados raíz de confianza y la lista de revocación de certificados en la máquina virtual, siga las instrucciones proporcionadas por su distribuidor de Linux.
-5. Asegúrese de que no utiliza un proxy de autenticación para controlar la conectividad de red de las máquinas virtuales que quiere trasladar.
+5. Asegúrese de que no utiliza ningún proxy de autenticación para controlar la conectividad de red de las máquinas virtuales que quiere trasladar.
 
-6. Si la máquina virtual que está intentando trasladar no tiene acceso a Internet y utiliza un proxy de firewall para controlar el acceso de salida, compruebe los requisitos en [ Configuración de la conectividad de red saliente](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+6. Si la máquina virtual que está intentando trasladar no tiene acceso a Internet y utiliza un proxy de firewall para controlar el acceso de salida, compruebe los requisitos en [Configuración de la conectividad de red saliente](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
 
-7. Identifique el diseño de la red de origen y los recursos que utiliza actualmente para la verificación, incluidos equilibradores de carga, grupo de seguridad de red y dirección IP pública.
+7. Identifique el diseño de la red de origen y los recursos que utiliza actualmente para la verificación, incluidos equilibradores de carga, grupos de seguridad de red y dirección IP pública.
 
 ## <a name="prepare-the-target-region"></a>Preparación de la región de destino
 
@@ -82,13 +82,13 @@ En un escenario en el que se implementan las máquinas virtuales como de *instan
 Los siguientes pasos le guiarán al usar Azure Site Recovery para permitir la replicación de datos en la región de destino, antes de que finalmente los traslade a Availability Zones.
 
 > [!NOTE]
-> Estos pasos son para una sola máquina virtual. Puede ampliar los mismos para varias máquinas virtuales. Vaya al almacén de Recovery Services, seleccione **+ Replicar** y seleccione las máquinas virtuales pertinentes de forma conjunta.
+> Estos pasos son para una sola máquina virtual. Puede ampliarlos para varias máquinas virtuales. Vaya al almacén de Recovery Services, seleccione **+ Replicar** y elija las máquinas virtuales pertinentes de forma conjunta.
 
-1. En Azure Portal, seleccione **Máquinas virtuales** y seleccione la máquina virtual que desea trasladar a Availability Zones.
+1. En Azure Portal, seleccione **Máquinas virtuales** y elija la máquina virtual que desea trasladar a Availability Zones.
 2. En **Operaciones**, seleccione **Recuperación ante desastres**.
-3. En **Configurar recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación. Asegúrese de que esta región [admita](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones) Availability Zones.
+3. En **Configurar la recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación. Asegúrese de que esta región [admita](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones) Availability Zones.
 
-    ![Selección de región de destino](media/azure-vms-to-zones/enable-rep-1.PNG)
+    ![Selección de una región de destino](media/azure-vms-to-zones/enable-rep-1.PNG)
 
 4. Seleccione **Siguiente: Configuración avanzada**.
 5. Elija los valores adecuados para la suscripción de destino, el grupo de recursos de la máquina virtual de destino y la red virtual.

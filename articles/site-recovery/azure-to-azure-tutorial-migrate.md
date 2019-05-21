@@ -102,7 +102,7 @@ Site Recovery recupera una lista de las máquinas virtuales asociadas a la suscr
 
 1. En el paso siguiente, seleccione la máquina virtual que desee mover y, después, seleccione **Aceptar**.
 1. En **Configuración**, haga clic en **Recuperación ante desastres**.
-1. En **Configurar recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación.
+1. En **Configurar la recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación.
 1. Para este tutorial, acepte los valores predeterminados.
 1. Seleccione **Habilitar replicación**. Este paso inicia un trabajo para habilitar la replicación de la máquina virtual.
 
