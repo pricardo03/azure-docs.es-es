@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866543"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954642"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Grabación de muestras de voz para crear una voz personalizada
 
@@ -53,7 +53,7 @@ Elija un actor cuya voz natural le guste. Aunque se pueden crear voces de "perso
 
 El único factor más importante para elegir el actor de voz es la uniformidad. Las grabaciones deben sonar como que si se realizaran el mismo día en la misma sala. Puede aproximarse a este ideal con unas buenas prácticas y una buena ingeniería de grabación.
 
-Su actor de voz es la otra mitad de la ecuación. Él o ella deben ser capaces de hablar a una velocidad, con un nivel de volumen y un tono uniformes. Es obligatorio una dicción clara. El actor también debe ser capaz de controlar estrictamente la variación de su tono, el efecto emocional y los manierismos del habla.
+Su actor de voz es la otra mitad de la ecuación. Deben ser capaces de hablar con frecuencia coherente, nivel de volumen, cabeceo y tono. Es obligatorio una dicción clara. También debe ser capaz de controlar su variación de tono, efecto emocional y presentación de voz de forma estricta el talento.
 
 La grabación de muestras de voz personalizada puede ser más fatigoso que otros trabajos de voz. La mayoría de los actores de voz pueden grabar durante dos o tres horas al día. Limite las sesiones a tres o cuatro a la semana, con un día de descanso entre medias si es posible.
 
@@ -117,7 +117,7 @@ Afortunadamente, es posible evitar estos problemas por completo. Hay muchas fuen
 
 Grabe el guion en un estudio de grabación profesional especializado en trabajos de voz. Dispondrá de una cabina de grabación, el equipo adecuado y las personas adecuadas correctas utilizarlo. Vale la pena no escatimar en la grabación.
 
-Revise el proyecto con el ingeniero de grabación de estudio y escuche sus consejos. La grabación debe tener poca o ninguna compresión de rango dinámico (máximo 4:1). Es esencial que el audio tenga un volumen uniforme y una elevada relación señal-ruido, y que esté libre de sonidos no deseados.
+Analizar el proyecto con el ingeniero de grabación de studio y escuchar sus consejos. La grabación debe tener poca o ninguna compresión de rango dinámico (máximo 4:1). Es esencial que el audio tenga un volumen uniforme y una elevada relación señal-ruido, y que esté libre de sonidos no deseados.
 
 ### <a name="do-it-yourself"></a>Hágalo usted mismo
 
@@ -158,12 +158,12 @@ Lo ideal es tener distintas personas en los roles de director, ingeniero y actor
 
 ### <a name="before-the-session"></a>Antes de la sesión
 
-Para evitar perder tiempo en el estudio, repase el guion con el actor antes de la sesión de grabación. Mientras el actor se familiariza con el texto, él o ella pueden resolver dudas con la pronunciación de palabras que no les resultan muy conocidas.
+Para evitar perder tiempo en el estudio, repase el guion con el actor antes de la sesión de grabación. Mientras el talento voz deja de estar familiarizado con el texto, puede aclarar la pronunciación de las palabras desconocidas.
 
 > [!NOTE]
 > La mayoría de los estudios de grabación ofrecen una pantalla electrónica de guiones en la cabina de grabación. En este caso, escriba las notas de revisión directamente en el documento del guion. También puede querer una copia en papel para tomar notas durante la sesión. La mayoría de los ingenieros también querrán una copia en papel. Y la tercera copia impresa servirá como respaldo para el actor en caso de que el equipo informático no funcione.
 
-Es posible que el actor de voz pregunte qué palabra quiere enfatizar en una expresión (la "palabra operativa"). Indíquele que quiere una lectura natural sin ningún énfasis concreto. El énfasis se puede agregar cuando se sintetice la voz; no debe formar parte de la grabación original.
+Es posible que el actor de voz pregunte qué palabra quiere enfatizar en una expresión (la "palabra operativa"). Indíqueles que desea que una lectura natural con ningún énfasis especial. El énfasis se puede agregar cuando se sintetice la voz; no debe formar parte de la grabación original.
 
 Indique el actor que pronuncie las palabras claramente. Cada palabra del guion se debe pronunciar tal y como se escribe. Los sonidos no se deben omitir ni arrastrar juntos, como es habitual en el habla informal, *a menos que se hayan escrito de esa manera en el guion*.
 
@@ -196,7 +196,7 @@ Use auriculares para escuchar con atención la representación del actor de voz.
 
 Anote en el guion el número de toma o código de tiempo de cada expresión. Pídale también al ingeniero que marque todas las expresiones en los metadatos de la grabación o en la hoja de pistas.
 
-Haga pausas cada cierto tiempo y ofrezca bebidas para ayudar a mantener la voz del actor en buen estado.
+Tome un descanso regular y proporcionar una bebida para ayudar a su talento de voz a mantener su propia voz en buen estado.
 
 ### <a name="after-the-session"></a>Después de la sesión
 

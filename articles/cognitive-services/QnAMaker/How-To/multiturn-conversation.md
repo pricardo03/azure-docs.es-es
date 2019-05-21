@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/14/2019
 ms.author: diberry
-ms.openlocfilehash: 24158d5949c0a31e5444c609cbfced970bdeca07
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: f12b55e9b00e933e13f84832b8cc36267a1da05f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471964"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954867"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Seguimiento de uso le insta a crear varios intentos de una conversación
 
@@ -52,7 +52,7 @@ Al importar el documento PDF, QnA Maker determina los mensajes de seguimiento de
 
 ![! [Al importar el documento PDF, QnA Maker determina los mensajes de seguimiento de la estructura para crear un flujo de conversación. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-## <a name="filter-questions-and-answers-by-context"></a>Preguntas y respuestas al contexto de filtro
+## <a name="show-questions-and-answers-with-context"></a>Mostrar las preguntas y respuestas con contexto
 
 1. Reduzca los pares de preguntas y respuestas muestra sólo a aquellos con las conversaciones contextuales. Seleccione **ver opciones**, a continuación, seleccione **Show contexto (versión preliminar)**. La lista estará vacía hasta que agregue el primer par de preguntas y respuestas con un símbolo del sistema de seguimiento. 
 
@@ -64,22 +64,36 @@ Al importar el documento PDF, QnA Maker determina los mensajes de seguimiento de
 1. Escriba el nuevo texto de pregunta, `Give feedback.` con una respuesta de `What kind of feedback do you have?`.
 
 1. En el **respuesta** columna para esta pregunta, seleccione **símbolo del sistema de agregar seguimiento**. 
-1. El **símbolo del sistema de seguimiento** cuadro de diálogo emergente le permite buscar una pregunta existente o escriba una pregunta nueva. En este procedimiento, escriba el texto `Feedback on an QnA Maker service`, para el **mostrar texto**. 
-1. Comprobar **solo contexto**. El **solo contexto** opción indica que el texto de este usuario se entiendan _sólo_ si dar en respuesta a la pregunta anterior. En este escenario, el texto del mensaje no tiene sentido como una pregunta independiente, solo tiene sentido desde el contexto de la pregunta anterior.
-1. En el **vínculo para responder a** texto, escriba la respuesta, `How would you rate QnA Maker?`.
-1. Seleccione **crear nuevo** , a continuación, seleccione **guardar**. 
+1. El **símbolo del sistema de seguimiento (versión preliminar)** ventana emergente le permite buscar una pregunta existente o escriba una pregunta nueva. Cree un nuevo símbolo del sistema escribiendo los siguientes valores: 
+
+    |Campo de texto|Valor|
+    |--|--|
+    |**Mostrar texto**|`Feedback on an QnA Maker service`|
+    |**Vínculo para responder a**|`How would you rate QnA Maker??`|
+    |||
 
     ![Crear nuevo QnA de símbolo del sistema](../media/conversational-context/create-child-prompt-from-parent.png)
 
-    Esto crea un nuevo par de preguntas y respuestas y había vinculado a la pregunta seleccionada como un símbolo del sistema de seguimiento. El **contexto** columna ambas preguntas, indicar una relación de símbolo del sistema de seguimiento. 
+1. Comprobar **solo contexto**. El **solo contexto** opción indica que el texto de este usuario se entiendan _sólo_ si dar en respuesta a la pregunta anterior. En este escenario, el texto del mensaje no tiene sentido como una pregunta independiente, solo tiene sentido desde el contexto de la pregunta anterior.
+1. Seleccione **crear nuevo** , a continuación, seleccione **guardar**. 
+
+    Esto crea un nuevo par de preguntas y respuestas y había vinculado a la pregunta seleccionada como un símbolo del sistema de seguimiento. El **contexto** columna ambas preguntas, indica una relación de símbolo del sistema de seguimiento. 
 
     ![! [La columna de contexto, para ambas preguntas, indica una relación de símbolo del sistema de seguimiento.] (.. / media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. Seleccione **símbolo del sistema de agregar seguimiento** para el `Give feedback` pregunta para agregar otro símbolo del sistema de seguimiento. 
-1. Crear una nueva pregunta escribiendo `Feedback on an existing feature`, con la respuesta `Which feature would you like to give feedback on?`.  
+1. Seleccione **símbolo del sistema de agregar seguimiento** para el `Give feedback` pregunta para agregar otro símbolo del sistema de seguimiento. Se abrirá el **símbolo del sistema de seguimiento (versión preliminar)** ventana emergente.
 
-1.  Comprobar **solo contexto**. El **solo contexto** opción indica que el texto de este usuario se entiendan _sólo_ si dar en respuesta a la pregunta anterior. En este escenario, el texto del mensaje no tiene sentido como una pregunta independiente, solo tiene sentido desde el contexto de la pregunta anterior.
-1.  Seleccione **Guardar**. 
+1. Cree un nuevo símbolo del sistema escribiendo los siguientes valores:
+
+    |Campo de texto|Valor|
+    |--|--|
+    |**Mostrar texto**|`Feedback on an existing feature`|
+    |**Vínculo para responder a**|`Which feature would you like to give feedback on?`|
+    |||
+
+1. Comprobar **solo contexto**. El **solo contexto** opción indica que el texto de este usuario se entiendan _sólo_ si dar en respuesta a la pregunta anterior. En este escenario, el texto del mensaje no tiene sentido como una pregunta independiente, solo tiene sentido desde el contexto de la pregunta anterior.
+
+1. Seleccione **Guardar**. 
 
     Esto crea una nueva pregunta y vincula la pregunta como una pregunta de símbolo del sistema de seguimiento para el `Give feedback` pregunta.
     
@@ -93,26 +107,34 @@ Al importar el documento PDF, QnA Maker determina los mensajes de seguimiento de
 
 1. Si desea vincular un par de QnA existente como un símbolo del sistema de seguimiento, seleccione la fila para el par de preguntas y respuestas.
 1. Seleccione **símbolo del sistema de agregar seguimiento** en esa fila.
-1. En el cuadro de diálogo emergente, escriba el texto de la pregunta en el cuadro de búsqueda. Se devuelven todas las coincidencias. Seleccione la pregunta que desee como el seguimiento y comprobar **solo contexto**, a continuación, seleccione **guardar**. 
+1. En el **símbolo del sistema de seguimiento (versión preliminar)** ventana emergente, escriba el texto de respuesta en el cuadro de búsqueda. Se devuelven todas las coincidencias. Seleccione la respuesta que desee como el seguimiento y comprobar **solo contexto**, a continuación, seleccione **guardar**. 
 
-    Una vez que la unidad organizativa ha agregado el símbolo del sistema de seguimiento, no olvide seleccionar **guardar y entrenar**.
+    ![Busque el vínculo de la solicitud seguimiento al cuadro de diálogo de respuesta para una respuesta existente, utilizando el texto de la respuesta.](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+
+    Una vez haya agregado el símbolo del sistema de seguimiento, no olvide seleccionar **guardar y entrenar**.
   
-## <a name="add-metadata-to-follow-up-prompts"></a>Agregar metadatos a los mensajes de seguimiento 
+<!--
 
-En la base de conocimiento, cuando se vincula un par de preguntas y respuestas para seguimiento solicita, se aplican los filtros de metadatos en primer lugar y se devuelven los seguimientos.
+## To find best prompt answer, add metadata to follow-up prompts 
 
-1. Para los dos pares de QnA de seguimiento, agregue los metadatos para cada uno de ellos:
+If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
 
-    |Pregunta|Agregar metadatos|
+In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
+
+1. For the two follow-up QnA pairs, add metadata to each one:
+
+    |Question|Add metadata|
     |--|--|
-    |`Feedback on an QnA Maker service`|"Característica": "all"|
-    |`Feedback on an existing feature`|"Característica": "uno"|
+    |`Feedback on an QnA Maker service`|"Feature":"all"|
+    |`Feedback on an existing feature`|"Feature":"one"|
     
-    ![Agregar metadatos al símbolo del sistema de seguimiento, por lo que se puede filtrar en la respuesta de la conversación del servicio](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
+    ![Add metadata to follow-up prompt so it can be filtered in conversation response from service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
 
-1. Guarde y entrenar. 
+1. Save and train. 
 
-    Al enviar la pregunta `Give feedback` con el filtro de metadatos `Feature` con un valor de `all`, se devolverá el par de QnA con que los metadatos. No se devuelven ambos pares QnA porque no coincide con el filtro. 
+    When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+
+-->
 
 ## <a name="test-the-qna-set-to-get-all-the-follow-up-prompts"></a>Solicita la QnA conjunto para obtener todo el seguimiento de pruebas
 
@@ -145,7 +167,7 @@ La sección anterior solicitó una respuesta y los mensajes de seguimiento a `Ac
             "questions": [
                 "Accounts and signing in"
             ],
-            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way he or she likes. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
+            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way they like. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
             "score": 86.96,
             "id": 37,
             "source": "surface-pro-4-user-guide-EN .pdf",
@@ -269,15 +291,11 @@ QnA Maker _GenerateAnswer_ respuesta JSON incluye los mensajes de seguimiento en
 
 ## <a name="displaying-prompts-and-sending-context-in-the-client-application"></a>Mostrar mensajes y el envío de contexto en la aplicación cliente 
 
-La aplicación cliente muestra todas las preguntas con una opción para el usuario mostrar los mensajes como botones o las acciones sugeridas.
-La aplicación cliente, a continuación, almacena la consulta de usuario y el par de QnA actual como contexto que se pasará con la siguiente consulta de usuario. 
+Si ha agregado indicaciones de la base de conocimiento y probado el flujo en el panel prueba, los mensajes no iniciará automáticamente que se muestran en las aplicaciones cliente. Puede mostrar los mensajes como botones o las acciones sugeridas como parte de la respuesta a la consulta del usuario en el cliente aplicaciones mediante la inclusión de este [ejemplo Bot Framework](https://aka.ms/qnamakermultiturnsample) en el código. La aplicación cliente debe almacenar el Id. de QnA actual y la consulta del usuario y pasarlos en la [objeto de contexto de la API GenerateAnswer](#json-request-to-return-non-initial-answer-and-follow-up-prompts) en la siguiente consulta de usuario.
 
-Use esta [ejemplo Bot Framework](https://aka.ms/qnamakermultiturnsample) para ver el cuadro de diálogo activar varios trabajo-to-end en un bot de QnA Maker.
+## <a name="display-order-supported-in-api"></a>Orden de visualización compatible con API
 
-
-## <a name="prompt-order-supported-in-api"></a>Orden de símbolo del sistema compatible con la API
-
-Es compatible con el orden de símbolo del sistema, devuelto en la respuesta JSON, solo la API de edición. 
+Es compatible con el orden de visualización, devuelto en la respuesta JSON, solo la API de edición. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
