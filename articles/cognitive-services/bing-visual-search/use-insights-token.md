@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 4/05/2019
+ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1860b788b9f33a6a2ec806be68a67aa2df10cbd4
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831935"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914277"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Usar un token de insights para obtener información para una imagen
 
@@ -64,7 +64,7 @@ Para ver ejemplos que usan el token de información, consulte [C#](#use-with-c) 
 
 ### <a name="c-prerequisites"></a>C#requisitos previos
 
-- Cualquier versión de [Visual Studio 2017](https://www.visualstudio.com/downloads/) para obtener este código que se ejecutan en Windows.
+- Cualquier versión de [2019 de Visual Studio](https://www.visualstudio.com/downloads/) para obtener este código que se ejecutan en Windows.
 - Una suscripción de Azure. Esta guía de inicio rápido, puede usar un [gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) clave de suscripción o una clave de suscripción de pago.
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
