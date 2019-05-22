@@ -90,12 +90,12 @@ Se admiten las siguientes propiedades en `translator`  ->  `mappings` -> objeto 
 
 | Propiedad | DESCRIPCIÓN                                                  | Obligatorio |
 | -------- | ------------------------------------------------------------ | -------- |
-| Nombre     | Nombre de la columna de origen o receptor.                           | Sí      |
+| name     | Nombre de la columna de origen o receptor.                           | Sí      |
 | ordinal  | Índice de columna. Iniciar con 1. <br>Aplicar y será necesario cuando uso delimitado por texto sin línea de encabezado. | Sin        |
 | path     | Expresión de ruta de acceso JSON para cada campo extraer o asignar. Se aplican para los datos jerárquicos, por ejemplo, MongoDB o REST.<br>Para los campos en el objeto raíz, ruta de acceso JSON se inicia por root $; para los campos dentro de la matriz elegida mediante `collectionReference` propiedad, la ruta de acceso JSON se inicia desde el elemento de matriz. | Sin        |
-| Tipo     | Tipo de datos provisionales de factoría de datos de la columna de origen o receptor. | Sin        |
+| type     | Tipo de datos provisionales de factoría de datos de la columna de origen o receptor. | Sin        |
 | culture  | Referencia cultural de la columna de origen o receptor. <br>Se aplican cuando el tipo es `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`. | Sin        |
-| formato   | Cadena de formato que se usa cuando el tipo es `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. | Sin        |
+| format   | Cadena de formato que se usa cuando el tipo es `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. | Sin        |
 
 Se admiten las siguientes propiedades en `translator`  ->  `mappings` además de objeto con `source` y `sink`:
 
@@ -203,7 +203,7 @@ Puede especificar copia -> actividad `translator`  ->  `schemaMapping` entre los
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del traductor de la actividad de copia debe establecerse en: **TabularTranslator** | Sí |
+| type | La propiedad type del traductor de la actividad de copia debe establecerse en: **TabularTranslator** | Sí |
 | schemaMapping | Una colección de pares de clave-valor, que representa la relación de asignación **desde el lado del origen al receptor del lado**.<br/>- **Clave:** origen representa. Para **origen tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para **origen jerárquica**, especifique la expresión de ruta de acceso JSON para cada campo extraer y asignar.<br>- **Valor:** representa receptor. Para **receptor tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para **receptor jerárquica**, especifique la expresión de ruta de acceso JSON para cada campo extraer y asignar. <br>En el caso de los datos jerárquicos, para los campos en el objeto raíz, la ruta de acceso JSON se inicia por root $; para los campos dentro de la matriz elegida mediante `collectionReference` propiedad, la ruta de acceso JSON se inicia desde el elemento de matriz.  | Sí |
 | collectionReference | Si desea iterar y extraer datos de los objetos **dentro de un campo de matriz** con el mismo patrón y convertir al modo por fila por objeto, especifique la ruta de acceso JSON de esa matriz para realizar la aplicación cruzada. Esta propiedad solo se admite si el origen son datos jerárquicos. | Sin  |
 
@@ -287,7 +287,7 @@ Data Factory admite los siguientes tipos de datos provisionales: Puede especific
 
 * Byte[]
 * Boolean
-* DateTime
+* Datetime
 * Datetimeoffset
 * Decimal
 * Double
@@ -296,8 +296,8 @@ Data Factory admite los siguientes tipos de datos provisionales: Puede especific
 * Int32
 * Int64
 * Single
-* string
-* TimeSpan
+* String
+* Timespan
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los otros artículos de la actividad de copia:
