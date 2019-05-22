@@ -57,7 +57,7 @@
         - name: Información general
           href: encoding-concept.md
           displayName: 'encoding, presets, jobs, adaptive, bitrate'
-        - name: API de transformaciones y trabajos
+        - name: Transformaciones y trabajos
           href: transforms-jobs-concept.md
           displayName: 'preset, schema'
         - name: Formatos de codificador estándar
@@ -74,7 +74,7 @@
         - name: Información general
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyzing, presets, jobs'
-        - name: API de transformaciones y trabajos
+        - name: Transformaciones y trabajos
           href: transforms-jobs-concept.md
         - name: Códigos de error de trabajo
           href: job-error-codes.md
@@ -85,15 +85,15 @@
           href: dynamic-packaging-overview.md
         - name: Manifiestos dinámicos
           href: filters-dynamic-manifest-overview.md
-        - name: API de filtros
+        - name: Filtros
           href: filters-concept.md
-        - name: API de puntos de conexión de streaming
+        - name: Extremos de streaming
           displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
-        - name: API de localizadores de streaming
+        - name: Localizadores de streaming
           displayName: URLs
           href: streaming-locators-concept.md
-        - name: API de directivas de streaming
+        - name: Directivas de streaming
           href: streaming-policy-concept.md
         - name: Códigos de error de punto de conexión de streaming
           href: streaming-endpoint-error-codes.md
@@ -112,15 +112,15 @@
               href: widevine-license-template-overview.md
             - name: Requisitos de licencia de FairPlay
               href: fairplay-license-overview.md
-        - name: API de directivas de streaming
+        - name: Directivas de streaming
           href: streaming-policy-concept.md
-        - name: API de directivas de claves de contenido
+        - name: Directivas de clave de contenido
           href: content-key-policy-concept.md
     - name: Streaming en directo
       items:
         - name: Información general
           href: live-streaming-overview.md
-        - name: API de objetos LiveEvent y LiveOutput
+        - name: Eventos en directo y salidas en vivo
           href: live-events-outputs-concept.md
         - name: Codificadores en directo recomendados
           href: recommended-on-premises-live-encoders.md

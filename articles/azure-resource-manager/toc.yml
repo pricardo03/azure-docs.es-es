@@ -54,7 +54,7 @@
 - name: Conceptos
   items:
     - name: Estructura de archivos de plantilla
-      displayName: 'parameters,variables,resources,outputs'
+      displayName: 'parameters,variables,resources,outputs,condition'
       href: resource-group-authoring-templates.md
     - name: Procedimientos recomendados para plantillas
       href: template-best-practices.md

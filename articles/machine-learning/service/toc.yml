@@ -138,6 +138,18 @@
         - name: Adición y registro de conjuntos de datos
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
+        - name: Exploración de los datos
+          displayName: 'data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
+          href: how-to-explore-prepare-data.md
+        - name: Control de versiones y administración de definiciones de datos
+          displayName: 'data, etl, dataset, data preparation, dataprep, version'
+          href: how-to-manage-dataset-definitions.md
+        - name: Creación de una instantánea de los datos
+          displayName: 'snapshots, profile, summary statistics, data copy'
+          href: how-to-create-dataset-snapshots.md
+        - name: Obtención de datos desde un almacén de datos
+          displayName: blob get fileshare access storage
+          href: how-to-access-data.md
         - name: Preparación con azureml.dataprep
           items:
             - name: Carga de datos
@@ -149,18 +161,6 @@
             - name: Escritura de datos
               displayName: 'data, etl, data prep, dataprep'
               href: how-to-write-data.md
-        - name: Preparación con conjuntos de datos (versión preliminar)
-          displayName: 'data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
-          href: how-to-explore-prepare-data.md
-        - name: Control de versiones y administración de definiciones de datos
-          displayName: 'data, etl, dataset, data preparation, dataprep, version'
-          href: how-to-manage-dataset-definitions.md
-        - name: Creación de una instantánea de los datos
-          displayName: 'snapshots, profile, summary statistics, data copy'
-          href: how-to-create-dataset-snapshots.md
-        - name: Obtención de datos desde un almacén de datos
-          displayName: blob get fileshare access storage
-          href: how-to-access-data.md
     - name: Entrenamiento de modelos
       items:
         - name: Configuración de entornos de entrenamiento

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdf5508475d868ccb8c271daaac7449d3c940301
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598404"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "65073152"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprender cuáles son las expresiones correctas para la aplicación de LUIS
 
@@ -74,13 +74,47 @@ LUIS compila modelos efectivos con expresiones seleccionadas cuidadosamente por 
 
 Es mejor empezar con pocas expresiones y, luego, [revisar las expresiones del punto de conexión](luis-how-to-review-endpoint-utterances.md) para que la extracción de la entidad y la predicción de intención se realicen correctamente.
 
-## <a name="punctuation-marks"></a>Signos de puntuación
+## <a name="utterance-normalization"></a>Normalización de utterance (dictado)
 
-De forma predeterminada, LUIS tiene en cuenta los signos de puntuación, ya que es posible que estos signos tengan una mayor importancia en algunas aplicaciones cliente. Asegúrese de que haya expresiones de ejemplo con y sin signos de puntuación ellos para que los dos estilos devuelvan los mismos resultados relativos. Si la puntuación no tiene un significado concreto en la aplicación cliente, considere la posibilidad de [omitir la puntuación](#ignoring-words-and-punctuation) mediante el uso de patrones. 
+Normalización de utterance (dictado) es el proceso de omitir los efectos de puntuación y los signos diacríticos durante el entrenamiento y predicción.
 
-## <a name="ignoring-words-and-punctuation"></a>Omisión de palabras y puntuación
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalización de declaración para los signos diacríticos y signos de puntuación
 
-Si quiere omitir palabras específicas o signos de puntuación en la expresión de ejemplo, use un [patrón](luis-concept-patterns.md#pattern-syntax) con la sintaxis _ignore_. 
+Normalización de utterance (dictado) se define al crear o importar la aplicación porque es una configuración en el archivo JSON de la aplicación. La configuración de la normalización utterance (dictado) está desactivada de forma predeterminada. 
+
+Los signos diacríticos son marcas o signos de dentro del texto, como: 
+
+```
+İ ı Ş Ğ ş ğ ö ü
+```
+
+Si la aplicación activa la normalización, puntuaciones en la **prueba** panel, las pruebas por lotes y consultas de punto de conexión, cambiará de todas las grabaciones de voz mediante los signos diacríticos o signos de puntuación.
+
+Activar la normalización utterance los signos diacríticos o signos de puntuación al archivo de aplicación de LUIS JSON en el `settings` parámetro.
+
+```JSON
+"settings": [
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
+La normalización **puntuación** significa que antes de que los modelos de aprendizaje y antes de su punto de conexión obtengan predecir las consultas, signos de puntuación se quitarán las grabaciones de voz. 
+
+La normalización **los signos diacríticos** reemplaza los caracteres con signos diacríticos de grabaciones de voz con caracteres normales. Por ejemplo: `Je parle français` se convierte en `Je parle francais`. 
+
+Normalización no significa que tendrá que no vea puntuación y los signos diacríticos en sus declaraciones de ejemplo o respuestas de predicción, simplemente que se omitirá durante el entrenamiento y predicción.
+
+
+### <a name="punctuation-marks"></a>Signos de puntuación
+
+Si no se normaliza la puntuación, LUIS no pasa por alto los signos de puntuación, de forma predeterminada, porque algunas aplicaciones cliente pueden colocar importancia en estas marcas. Asegúrese de que haya expresiones de ejemplo con y sin signos de puntuación ellos para que los dos estilos devuelvan los mismos resultados relativos. 
+
+Si la puntuación no tiene ningún significado específico en la aplicación cliente, considere la posibilidad de [omitiendo puntuación](#utterance-normalization) mediante la normalización de puntuación. 
+
+### <a name="ignoring-words-and-punctuation"></a>Omisión de palabras y puntuación
+
+Si desea omitir los signos de puntuación de modelos o palabras específicas, use un [patrón](luis-concept-patterns.md#pattern-syntax) con el _omitir_ sintaxis de corchetes, `[]`. 
 
 ## <a name="training-utterances"></a>Expresiones de entrenamiento
 
