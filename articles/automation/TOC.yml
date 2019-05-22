@@ -42,6 +42,8 @@
           href: automation-onboard-solutions-from-vm.md
         - name: Incorporación desde cuenta de Automation
           href: automation-onboard-solutions-from-automation-account.md
+        - name: Asignaciones de regiones
+          href: how-to/region-mappings.md
     - name: Administración de actualizaciones
       items:
         - name: Introducción a Update Management

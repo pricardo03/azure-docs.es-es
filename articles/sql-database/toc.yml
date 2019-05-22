@@ -45,7 +45,7 @@
           href: sql-database-connect-query-ssms.md
         - name: Azure Data Studio
           href: 'https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
-        - name: Azure Portal
+        - name: Portal de Azure
           href: sql-database-connect-query-portal.md
         - name: Código de VS
           href: sql-database-connect-query-vscode.md
@@ -99,6 +99,16 @@
       href: sql-database-implement-geo-distributed-database.md
     - name: Configuración de Azure SQL Data Sync
       href: sql-database-get-started-sql-data-sync.md
+    - name: Machine Learning Services
+      items:
+        - name: Creación e implementación de un modelo predictivo en R
+          items:
+            - name: 1 - Preparación de los datos
+              href: sql-database-tutorial-predictive-model-prepare-data.md
+            - name: 2 - Creación del modelo
+              href: sql-database-tutorial-predictive-model-build-compare.md
+            - name: 3 - Implementación del modelo
+              href: sql-database-tutorial-predictive-model-deploy.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código

@@ -5,12 +5,11 @@ metadata:
   title: 'Documentación sobre Azure Application Gateway: tutoriales y referencia de API'
   meta.description: 'Learn how to create application gateways. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
   services: application-gateway
-  author: davidmu1
-  manager: jeconnocfte
+  author: vhorne
   ms.service: application-gateway
   ms.topic: landing-page
-  ms.date: 02/01/2018
-  ms.author: davidmu
+  ms.date: 5/20/2019
+  ms.author: victorh
 abstract:
   description: 'Obtenga información acerca de cómo implementar Application Gateway, un controlador de entrega de aplicaciones (ADC), como servicio. Los tutoriales, las referencias de API y otra documentación muestran cómo configurar el equilibrio de carga y el enrutamiento de nivel de aplicación que permiten crear sistemas front-end web escalables y de alta disponibilidad.'
 sections:
@@ -40,12 +39,12 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/application-gateway/tutorial-manage-web-traffic-cli">Administración del tráfico web con Application Gateway</a>
-          - html: <a href="/azure/application-gateway/tutorial-restrict-web-traffic-cli">Restricción del tráfico web con un firewall de aplicaciones web en Application Gateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-ssl-cli">Habilitar la terminación de SSL en Application Gateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-multiple-sites-cli">Hospedar varios sitios web con Application Gateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-url-route-cli">Enrutamiento del tráfico según la dirección URL en Application Gateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Redireccionamiento del tráfico a servidores específicos en un grupo de instancias de Application Gateway.</a>
+          - html: <a href="/azure/application-gateway/application-gateway-web-application-firewall-portal">Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web</a>
+          - html: <a href="/azure/application-gateway/create-ssl-portal">Configuración de una puerta de enlace de aplicaciones con terminación SSL</a>
+          - html: <a href="/azure/application-gateway/create-multiple-sites-portal">Creación y configuración de una puerta de enlace de aplicaciones que hospede varios sitios web</a>
+          - html: <a href="/azure/application-gateway/create-url-route-portal">Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas</a>
+          - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Crear una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL</a>
+          - html: <a href="/azure/application-gateway/tutorial-autoscale-ps">Creación de una puerta de enlace de aplicaciones que mejora el acceso a aplicaciones web</a>
   - title: Ejemplos
     items:
       - type: paragraph
