@@ -130,7 +130,7 @@ La plantilla siguiente de una actividad de copia contiene una lista exhaustiva d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type de una actividad de copia se debe establecer en: **Copy** | Sí |
+| type | La propiedad type de una actividad de copia se debe establecer en: **Copy** | Sí |
 | inputs | Especifique el conjunto de datos que creó y que señala los datos de origen. La actividad de copia admite solo una entrada. | Sí |
 | outputs | Especifique el conjunto de datos que creó y que señala los datos de receptor. La actividad de copia admite solo una salida. | Sí |
 | typeProperties | Grupo de propiedades para configurar la actividad de copia. | Sí |
