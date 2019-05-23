@@ -76,7 +76,7 @@ Al configurar un campo en un servicio vinculado que hace referencia a un secreto
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del campo debe establecerse en: **AzureKeyVaultSecret**. | Sí |
+| type | La propiedad type del campo debe establecerse en: **AzureKeyVaultSecret**. | Sí |
 | secretName | El nombre del secreto en Azure Key Vault. | Sí |
 | secretVersion | La versión del secreto en Azure Key Vault.<br/>Si no se especifica, siempre se usa la versión más reciente del secreto.<br/>Si se especifica, se usa la versión dada.| Sin  |
 | store | Hace referencia a un servicio vinculado de Azure Key Vault que se usa para almacenar las credenciales. | Sí |
