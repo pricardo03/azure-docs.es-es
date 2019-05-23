@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 17acd4eebe53704699d3ec9a3f4f121eed79794d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b2ff67e207f8a3a2b79635b080c78021162f0ac6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310394"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519231"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -115,7 +115,11 @@ Seleccione los valores siguientes en la página **Objetivo de protección**:
 
 Cuando haya terminado, seleccione **Aceptar** para continuar con la siguiente sección.
 
-### <a name="2-prepare-source"></a>2. Preparación del origen
+### <a name="2-select-deployment-planning"></a>2. Selección de un planeamiento de implementación
+
+En **¿Completó el planeamiento de implementación?**, seleccione **Lo haré más tarde** y, a continuación, seleccione **Aceptar**.
+
+### <a name="3-prepare-source"></a>3: Preparación del origen
 
 En la página **Preparar origen**, seleccione **+Servidor de configuración**.
 
@@ -140,7 +144,7 @@ En la página **Preparar origen**, seleccione **+Servidor de configuración**.
 
 Cuando termine de configurar el servidor de configuración, vuelva al portal y seleccione el servidor que creó como **Servidor de configuración**. Seleccione **Aceptar** para ir a 3: Preparación del destino.
 
-### <a name="3-prepare-target"></a>3: Preparación del destino
+### <a name="4-prepare-target"></a>4: Preparación del destino
 
 En esta sección, debe especificar información sobre los recursos que creó en la sección [Preparar recursos de Azure](#prepare-azure-resources) anteriormente en este tutorial.
 
@@ -149,8 +153,7 @@ En esta sección, debe especificar información sobre los recursos que creó en 
 3. Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage compatibles. Estos deberían ser los recursos que creó en la sección [Preparar recursos de Azure](#prepare-azure-resources) anteriormente en este tutorial.
 4. Cuando finalice, seleccione **Aceptar**.
 
-
-### <a name="4-prepare-replication-settings"></a>4: Preparación de la configuración de replicación
+### <a name="5-prepare-replication-settings"></a>5: Preparación de la configuración de replicación
 
 Debe crear una directiva de replicación para poder habilitar la replicación.
 
@@ -158,12 +161,7 @@ Debe crear una directiva de replicación para poder habilitar la replicación.
 2. En **Nombre**, escriba **myReplicationPolicy**.
 3. Deje el resto de la configuración en los valores predeterminados y, después, seleccione **Aceptar** para crear la directiva. La nueva directiva se asocia automáticamente al servidor de configuración.
 
-### <a name="5-select-deployment-planning"></a>5: Selección de un planeamiento de implementación
-
-En **¿Completó el planeamiento de implementación?**, seleccione **Lo haré más tarde** y, a continuación, seleccione **Aceptar**.
-
 Cuando haya acabado con las cinco secciones de **Preparar infraestructura**, seleccione **Aceptar**.
-
 
 ## <a name="enable-replication"></a>Habilitar replicación
 

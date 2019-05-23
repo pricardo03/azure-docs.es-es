@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 9290609136d1314762d9f716531464ad2496fb63
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c40efca9abd418c8b48f931d327b1f81805b38fb
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005305"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520400"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Asignación de control del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001
 
@@ -24,7 +24,7 @@ Las siguientes asignaciones son para los controles de **ISO 27001:2013**. Use el
 
 Tener solo un propietario de la suscripción de Azure no permite la redundancia administrativa. Por el contrario, tener demasiados propietarios de suscripción de Azure aumenta la posibilidad de infracción de seguridad mediante una cuenta de propietario en riesgo. Este plano técnico ayuda a mantener un número adecuado de propietarios de suscripción de Azure mediante la asignación de dos definiciones de [Azure Policy](../../../policy/overview.md) que auditarán el número de estos. La administración de permisos de propietario de suscripción ayuda a implementar la separación adecuada de las tareas.
 
-- [Versión preliminar]: Audit minimum number of owners for subscription
+- [Versión preliminar]: Audit minimum number of owners for a subscription
 - [Versión preliminar]: Audit maximum number of owners for a subscription
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 Clasificación de la información
@@ -71,7 +71,7 @@ Este plano técnico asigna tres definiciones de [Azure Policy](../../../policy/o
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revisión de los derechos de acceso de los usuarios
 
-Azure implementa el [control de acceso basado en rol](../../../../role-based-access-control/overview.md) (RBAC) para ayudar a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este plano técnico asigna cuatro definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas que deberían priorizarse para la revisión, incluidas las cuentas en desuso y externas con permisos elevados.
+Azure implementa el [control de acceso basado en rol](../../../../role-based-access-control/overview.md) (RBAC) para permitirle administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este plano técnico asigna cuatro definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas que deberían priorizarse para la revisión, incluidas las cuentas en desuso y externas con permisos elevados.
 
 - [Versión preliminar]: Audit deprecated accounts on a subscription
 - [Versión preliminar]: Audit deprecated accounts with owner permissions on a subscription
@@ -80,7 +80,7 @@ Azure implementa el [control de acceso basado en rol](../../../../role-based-acc
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 Eliminación o ajuste de los derechos de acceso
 
-Azure implementa el [control de acceso basado en rol](../../../../role-based-access-control/overview.md) (RBAC) para ayudar a administrar quién tiene acceso a los recursos de Azure. Con [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) y RBAC puede actualizar los roles de usuario para reflejar los cambios en la organización. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna dos definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas en desuso cuya eliminación debería considerarse.
+Azure implementa el [control de acceso basado en rol](../../../../role-based-access-control/overview.md) (RBAC) para permitirle administrar quién tiene acceso a los recursos de Azure. Con [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) y RBAC puede actualizar los roles de usuario para reflejar los cambios en la organización. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna dos definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas en desuso cuya eliminación debería considerarse.
 
 - [Versión preliminar]: Audit deprecated accounts on a subscription
 - [Versión preliminar]: Audit deprecated accounts with owner permissions on a subscription
@@ -143,7 +143,7 @@ Los registros de diagnóstico proporcionan conclusiones detalladas sobre las ope
 
 ## <a name="a1243-administrator-and-operator-logs"></a>A.12.4.3 Registros de administrador y operador
 
-Este plano técnico ayuda a garantizar que los eventos del sistema se registran; para ello, se asignan siete definiciones de Azure Policy que auditan las configuraciones de registro de los recursos de Azure. Los registros de diagnóstico proporcionan conclusiones detalladas sobre las operaciones que se realizaron en recursos de Azure.
+Este plano técnico le permite garantizar que los eventos del sistema se registran. Para ello, se asignan siete definiciones de Azure Policy que auditan las configuraciones de registro de los recursos de Azure. Los registros de diagnóstico proporcionan conclusiones detalladas sobre las operaciones que se realizaron en recursos de Azure.
 
 - [Versión preliminar]: Auditoría de implementación de Dependency Agent: imagen de la VM (SO) no mostrada
 - [Versión preliminar]: Auditoría de implementación de Dependency Agent en VMSS: la imagen de la VM (SO) no está en la lista
@@ -155,7 +155,7 @@ Este plano técnico ayuda a garantizar que los eventos del sistema se registran;
 
 ## <a name="a1244-clock-synchronization"></a>A.12.4.4 Sincronización del reloj
 
-Este plano técnico ayuda a garantizar que los eventos del sistema se registran; para ello, se asignan siete definiciones de Azure Policy que auditan las configuraciones de registro de los recursos de Azure. Los registros de Azure se basan en relojes internos sincronizados para crear un registro con correlación de tiempo de eventos entre recursos.
+Este plano técnico le permite garantizar que los eventos del sistema se registran. Para ello, se asignan siete definiciones de Azure Policy que auditan las configuraciones de registro de los recursos de Azure. Los registros de Azure se basan en relojes internos sincronizados para crear un registro con correlación de tiempo de eventos entre recursos.
 
 - [Versión preliminar]: Auditoría de implementación de Dependency Agent: imagen de la VM (SO) no mostrada
 - [Versión preliminar]: Auditoría de implementación de Dependency Agent en VMSS: la imagen de la VM (SO) no está en la lista
@@ -167,7 +167,7 @@ Este plano técnico ayuda a garantizar que los eventos del sistema se registran;
 
 ## <a name="a1251-installation-of-software-on-operational-systems"></a>A.12.5.1 Instalación de software en sistemas operativos
 
-El control de aplicaciones adaptable es la solución de Azure Security Center que permite controlar qué aplicaciones pueden ejecutarse en sus máquinas virtuales ubicadas en Azure. Este plano técnico asigna una definición de Azure Policy que supervisa los cambios en el conjunto de aplicaciones permitidas. Esta funcionalidad le ayuda a controlar la instalación de software y aplicaciones en máquinas virtuales de Azure.
+El control de aplicaciones adaptable es la solución de Azure Security Center que permite controlar qué aplicaciones pueden ejecutarse en sus máquinas virtuales ubicadas en Azure. Este plano técnico asigna una definición de Azure Policy que supervisa los cambios en el conjunto de aplicaciones permitidas. Esta funcionalidad le permite controlar la instalación de software y aplicaciones en VM de Azure.
 
 - [Versión preliminar]: Monitor possible app Whitelisting in Azure Security Center
 

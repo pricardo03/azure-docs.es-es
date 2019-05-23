@@ -7,14 +7,14 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b885a90728df8cb15c75141b7bce81aec3968359
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791616"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779565"
 ---
-# <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints
 
 Los [bloqueos de recursos](../concepts/resource-locking.md) de Azure Blueprints impedirán la alteración de los recursos recién implementados, incluso por parte de una cuenta con el rol de _propietario_. Esta protección puede incorporarse a los recursos creados por un artefacto de plantilla de Resource Manager en la definición del plano técnico.
 
@@ -109,7 +109,7 @@ Ahora su definición del plano técnico se ha creado en su entorno. Se crea en e
 
 1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
 
-1. En la parte izquierda, seleccione la página **Definiciones del plano técnico**. Use los filtros para buscar la definición del plano técnico _locked-storageaccount_ y, a continuación, selecciónela.
+1. Seleccione la página **Definiciones del plano técnico** de la izquierda. Use los filtros para buscar la definición del plano técnico _locked-storageaccount_ y, a continuación, selecciónela.
 
 1. Seleccione **Publicar plano técnico** en la parte superior de la página. En el nuevo panel de la derecha, proporcione la **versión** _1.0_. Esta propiedad es útil si realiza una modificación posteriormente. Proporcione **Notas de cambios** como "First version published for locking blueprint deployed resources" (Primera versión publicada para bloquear los recursos implementados del plano técnico). A continuación, seleccione **Publicar** en la parte inferior de la página.
 
@@ -123,7 +123,7 @@ Una vez que se haya **publicado** correctamente la definición del plano técnic
 
 1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
 
-1. En la parte izquierda, seleccione la página **Definiciones del plano técnico**. Use los filtros para buscar la definición del plano técnico _locked-storageaccount_ y, a continuación, selecciónela.
+1. Seleccione la página **Definiciones del plano técnico** de la izquierda. Use los filtros para buscar la definición del plano técnico _locked-storageaccount_ y, a continuación, selecciónela.
 
 1. Seleccione **Asignar plano técnico** en la parte superior de la página de definición del plano técnico.
 
@@ -134,8 +134,8 @@ Una vez que se haya **publicado** correctamente la definición del plano técnic
      - **Suscripciones**: seleccione una o más de las suscripciones que están en el grupo de administración donde guardó la definición del plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
      - **Nombre de asignación**: el nombre se rellena previa y automáticamente en función del nombre de la definición del plano técnico. Queremos esta asignación para representar el bloqueo del nuevo grupo de recursos, de modo que cambie el nombre de asignación por _assignment-locked-storageaccount-TestingBPLocks_.
      - **Ubicación**: seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
-       Para este tutorial, seleccione _Este de EE. UU. 2_.
-     - **Versión de definición de Blueprint**: elija la versión **publicada** _1.0_ de la definición del plano técnico.
+       Para este tutorial, seleccione _Este de EE. UU. 2_.
+     - **Versión de definición del plano técnico**: elija la versión **publicada** _1.0_ de la definición del plano técnico.
 
    - Asignación de bloqueo
 
@@ -143,7 +143,7 @@ Una vez que se haya **publicado** correctamente la definición del plano técnic
 
    - Identidad administrada
 
-     Deje la opción _Asignado por el sistema_ predeterminada. Para más información, vea [Identidades administradas](../../../active-directory/managed-identities-azure-resources/overview.md).
+     Deje la opción _Asignado por el sistema_ predeterminada. Para más información, vea [identidades administradas](../../../active-directory/managed-identities-azure-resources/overview.md).
 
    - Parámetros de artefacto
 

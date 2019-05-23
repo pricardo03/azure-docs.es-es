@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d9f736b0b976ac6ec0da45a672d2e992405625cd
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578805"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619756"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Tutorial: Creación de una aplicación de cadena de bloques en Azure Blockchain Workbench
 
@@ -271,7 +271,7 @@ Agregue las variables de estado al contrato en el archivo de código de contrato
 
 ### <a name="constructor"></a>Constructor
 
-El constructor define parámetros de entrada para una nueva instancia de contrato inteligente de un flujo de trabajo. El constructor se declara como una función con el mismo nombre que el contrato. Los parámetros necesarios para el constructor se definen como parámetros del constructor en el archivo de configuración. El número, orden y tipo de parámetros deben coincidir en ambos archivos.
+El constructor define parámetros de entrada para una nueva instancia de contrato inteligente de un flujo de trabajo. Los parámetros necesarios para el constructor se definen como parámetros del constructor en el archivo de configuración. El número, orden y tipo de parámetros deben coincidir en ambos archivos.
 
 En la función de constructor, escriba cualquier lógica de negocios que desee realizar antes de crear el contrato. Por ejemplo, inicialice las variables de estado con valores iniciales.
 

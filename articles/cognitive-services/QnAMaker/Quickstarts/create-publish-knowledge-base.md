@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/10/2019
 ms.author: diberry
-ms.openlocfilehash: cf6b0cd99254d5b034687598c588ce5ef13dbd53
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1411576d078115921cb04b41347264bccdc390f4
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272859"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593983"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Creación, entrenamiento y publicación de la base de conocimiento de QnA Maker
 
@@ -66,7 +66,7 @@ Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido pro
 
 1. Haga clic en **Inspect** (Inspeccionar) para examinar la respuesta con más detalle. La ventana de prueba se usa para probar los cambios realizados en la base de conocimiento antes de que se publiquen.
 
-    ![Panel de prueba](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Panel de prueba](../media/qnamaker-quickstart-kb/inspect.png)
 
 1. Vuelva a hacer clic en **Test** (Prueba) para cerrar el panel **Test**.
 

@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ruby
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 05f3213383c526944a8a1cf51fb92d5186ac7434
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: d674928bbe585174db897b2a052a5fd09bcee329
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449024"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792067"
 ---
 # <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Inicio rápido: Uso de Ruby para consultar una base de datos de Azure SQL
 
@@ -101,7 +101,7 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 1. Compruebe que se devuelven las 20 primeras filas de categoría o productos de la base de datos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Diseño de su primera base de datos SQL de Azure](sql-database-design-first-database.md).
+- [Diseño de su primera base de datos de Azure SQL](sql-database-design-first-database.md).
 - [Repositorio de GitHub para TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
 - [Informe de los problemas y realización de preguntas sobre TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues).
 - [Controlador de Ruby para SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).

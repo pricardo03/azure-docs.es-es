@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236928"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523312"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell
 
@@ -38,10 +38,9 @@ Para poder crear entidades de servicio y asignaciones de roles, necesita hacer t
     Install-Module AzureAD
     ```
 
-2. Ejecutar los siguientes cmdlet con los valores entre comillas, sustituidos por los valores de su sesión. Si acaba de crear el inquilino de Windows Virtual Desktop a partir del [tutorial Creación de un inquilino en Windows Virtual Desktop](./tenant-setup-azure-active-directory.md) use "Grupo de inquilino predeterminado" como nombre del grupo del inquilino.
+2. Ejecutar los siguientes cmdlet con los valores entre comillas, sustituidos por los valores de su sesión.
 
     ```powershell
-    $myTenantGroupName = "<my-tenant-group-name>"
     $myTenantName = "<my-tenant-name>"
     ```
 
@@ -68,8 +67,7 @@ Ejecute los siguientes cmdlets de PowerShell para conectarse a Windows Virtual D
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsContext -TenantGroupName $myTenantGroupName
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantGroupName $myTenantGroupName -TenantName $myTenantName
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## <a name="sign-in-with-the-service-principal"></a>Inicio de sesión con la entidad de servicio

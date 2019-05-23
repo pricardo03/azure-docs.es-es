@@ -3,19 +3,19 @@ title: 'Inicio rápido: SDK de Bing Entity Search, Python'
 titlesuffix: Azure Cognitive Services
 description: Configuración de la aplicación de consola del SDK de Bing Entity Search.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: v-gedod
-ms.openlocfilehash: a2d901c1cec4556e4061c21548d7a695c06e8cf8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.author: aahi
+ms.openlocfilehash: 9a66df03ceb03885ba5f61b4adeb54cb1876338d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861772"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813611"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-python"></a>Inicio rápido: SDK de Bing Entity Search con Python
 

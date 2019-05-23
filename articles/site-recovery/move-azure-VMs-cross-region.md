@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 10966a7e658e02f04137b594fc12ec09cb676cf8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192929"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793733"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
 
@@ -53,7 +53,7 @@ Puede que quiera mover máquinas virtuales de infraestructura como servicio (Iaa
     - En máquinas virtuales Windows, instale las actualizaciones de Windows más recientes de modo que todos los certificados raíz de confianza estén en ella. En un entorno desconectado, siga los procesos estándar de actualización de certificados y de Windows Update en su organización.
     - En las máquinas virtuales Linux, siga las instrucciones proporcionadas por su distribuidor de Linux para obtener los certificados raíz de confianza y la lista de revocación de certificados más recientes.
 2. Asegúrese de que no usa un proxy de autenticación para controlar la conectividad de red de las máquinas virtuales que quiere mover.
-3. Si la máquina virtual que intenta mover no tiene acceso a Internet, o usa un proxy de firewall para controlar el acceso de salida, compruebe los [requisitos](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+3. Si la máquina virtual que intenta mover no tiene acceso a Internet, o usa un proxy de firewall para controlar el acceso de salida, compruebe los [requisitos](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 4. Documente el diseño de la red de origen y todos los recursos que usa actualmente, incluidos (entre otros) equilibradores de carga, grupos de seguridad de red y dirección IP pública, para comprobarlos.
 
 ## <a name="prepare-the-target-region"></a>Preparación de la región de destino
@@ -90,7 +90,7 @@ En los pasos siguientes, usará Azure Site Recovery para copiar datos en la regi
 9. Seleccione el modelo de implementación de Azure Resource Manager. A continuación, seleccione la **suscripción de origen** y el **grupo de recursos de origen**.
 10. Seleccione **Aceptar** para guardar la configuración.
 
-### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>Habilitación de la replicación de máquinas virtuales de Azure y comienzo de la copia de datos
+### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>Habilite la replicación de máquinas virtuales de Azure y comience a copiar los datos
 
 Site Recovery recupera una lista de las máquinas virtuales asociadas a la suscripción y el grupo de recursos.
 
