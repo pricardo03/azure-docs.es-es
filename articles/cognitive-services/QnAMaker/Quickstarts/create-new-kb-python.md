@@ -10,20 +10,20 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 766fe32736ae0d8ea23805ea017d93b32119636a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9aa5b85a00de495478897ec70393f6c22ee20fc5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873128"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788748"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Guía de inicio rápido: Creación de una base de conocimiento en QnA Maker mediante Python
 
 Esta guía de inicio rápido le lleva por la creación y la publicación de una base de conocimiento de QnA Maker de ejemplo mediante programación. QnA Maker extrae automáticamente preguntas y respuestas a partir de contenido semiestructurado, como las preguntas frecuentes, y de [orígenes de datos](../Concepts/data-sources-supported.md). El modelo para la base de conocimiento se define en el JSON que se envía en el cuerpo de la solicitud de API. 
 
 En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
-* [Creación de una base de conocimiento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
-* [Obtención de los detalles de la operación](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
+* [Creación de una base de conocimiento](https://go.microsoft.com/fwlink/?linkid=2092179)
+* [Obtención de los detalles de la operación](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -128,4 +128,4 @@ Una vez creada la base de conocimiento, puede verla en el portal de QnA Maker en
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Referencia de QnA Maker (V4) REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referencia de QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)

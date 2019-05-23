@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: deborahc
 ms.author: dech
-ms.date: 03/14/2019
-ms.openlocfilehash: c83cc8dce5978798d86d2fc2e314161765a2fb2d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/20/2019
+ms.openlocfilehash: 9e7342ebcbcf536b26e6cf7fb89e3cf58666d24f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205782"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953962"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Uso del emulador de Azure Cosmos para desarrollo y pruebas locales
 
@@ -21,9 +21,9 @@ Puede desarrollar mediante el emulador de Azure Cosmos con cuentas de [SQL](loca
 
 ## <a name="how-the-emulator-works"></a>Funcionamiento del emulador
 
-El emulador de Azure Cosmos proporciona una emulación de gran fidelidad del servicio Azure Cosmos DB. Admite una funcionalidad idéntica a la de Azure Cosmos DB, incluida la compatibilidad con la creación y la consulta de datos, el aprovisionamiento y el escalado de contenedores, y la ejecución de procedimientos y desencadenadores almacenados. Puede desarrollar y probar aplicaciones mediante el emulador de Azure Cosmos e implementarlas en Azure a escala global realizando simplemente un cambio de configuración en el punto de conexión de Azure Cosmos DB.
+El emulador de Azure Cosmos proporciona una emulación de gran fidelidad del servicio Azure Cosmos DB. Admite una funcionalidad idéntica a la de Azure Cosmos DB, incluida la compatibilidad con la creación y la consulta de datos, el aprovisionamiento y el escalado de contenedores y la ejecución de procedimientos y desencadenadores almacenados. Puede desarrollar y probar aplicaciones mediante el emulador de Azure Cosmos e implementarlas en Azure a escala global realizando simplemente un cambio de configuración en el punto de conexión de Azure Cosmos DB.
 
-Aunque la emulación del servicio Azure Cosmos DB es fiel, la implementación del emulador es diferente de la del servicio. Por ejemplo, el emulador utiliza componentes del sistema operativo estándar; por ejemplo, utiliza el sistema de archivos local para la persistencia y la pila del protocolo HTTPS para la conectividad. No son aplicables las funcionalidades que se basan en la infraestructura de Azure, como la replicación global, la latencia de milisegundos de un solo dígito para lectura/escritura y los niveles de coherencia ajustables.
+Aunque la emulación del servicio Azure Cosmos DB es fiel, la implementación del emulador es diferente de la del servicio. Por ejemplo, el emulador utiliza componentes del sistema operativo estándar; por ejemplo, utiliza el sistema de archivos local para la persistencia y la pila del protocolo HTTPS para la conectividad. No procede la funcionalidad que se basa en la infraestructura de Azure, como la replicación global, la latencia de milisegundos de un solo dígito para lectura/escritura y los niveles de coherencia ajustable.
 
 Puede migrar datos entre el emulador de Azure Cosmos y el servicio Azure Cosmos DB con la [herramienta de migración de datos de Azure Cosmos DB](https://github.com/azure/azure-documentdb-datamigrationtool).
 
@@ -33,7 +33,7 @@ Puede ejecutar el emulador de Azure Cosmos en el contenedor de Docker de Windows
 
 Dado que el emulador de Azure Cosmos proporciona un entorno emulado que se ejecuta en una estación de trabajo de desarrollador local, hay algunas diferencias de funcionalidad entre el emulador y una cuenta de Azure Cosmos en la nube:
 
-* En este momento, el explorador de datos del emulador admite los clientes de SQL API. La vista de explorador de datos y las operaciones de las API de Azure Cosmos DB, como MongoDB, Table, Graph y Cassandra no son totalmente compatibles.
+* En este momento, el explorador de datos del emulador admite los clientes de SQL API. La vista de explorador de datos y las operaciones de las API de Azure Cosmos DB, como MongoDB, Table, Graph y las API de Cassandra no son totalmente compatibles.
 * El emulador de Azure Cosmos es compatible con una sola cuenta fija y una clave maestra reconocida. Las claves no se pueden regenerar en el emulador de Azure Cosmos; sin embargo, la clave predeterminada se puede cambiar con la opción de la línea de comandos.
 * El emulador de Azure Cosmos no es un servicio escalable y no será compatible con un gran número de contenedores.
 * El emulador de Azure Cosmos no ofrece diferentes [niveles de coherencia de Azure Cosmos DB](consistency-levels.md).
@@ -57,7 +57,7 @@ El emulador de Azure Cosmos presenta los siguientes requisitos de hardware y sof
 Puede descargar e instalar el emulador de Azure Cosmos desde el [Centro de descarga de Microsoft](https://aka.ms/cosmosdb-emulator) o ejecutarlo en Docker para Windows. Para obtener instrucciones acerca de cómo utilizar el emulador en Docker para Windows, consulte [Ejecución en Docker para Windows](#running-on-docker).
 
 > [!NOTE]
-> Para instalar, configurar y ejecutar el emulador de Azure Cosmos, debe tener privilegios administrativos en el equipo. El emulador creará o agregará un certificado y establecerá las reglas de firewall para ejecutar sus servicios; por lo tanto, es necesario que el emulador pueda ejecutar estas operaciones.
+> Para instalar, configurar y ejecutar el emulador de Azure Cosmos, debe tener privilegios administrativos en el equipo. El emulador creará/agregará un certificado y establecerá las reglas de firewall para ejecutar sus servicios; por lo tanto, es necesario que el emulador pueda ejecutar estas operaciones.
 
 ## <a name="running-on-windows"></a>Ejecución en Windows
 
@@ -103,7 +103,7 @@ Al igual que Azure Cosmos DB, el emulador de Azure Cosmos solo admite la comunic
 
 ## <a name="running-on-a-local-network"></a>Ejecución en una red local
 
-Puede ejecutar el emulador en una red local. Para habilitar el acceso de red, especifique la opción `/AllowNetworkAccess` en la [línea de comandos](#command-line-syntax), que también requiere que especifique `/Key=key_string` o `/KeyFile=file_name`. Puede usar `/GenKeyFile=file_name` para generar un archivo con una clave aleatoria por adelantado. Después, puede pasarlo a `/KeyFile=file_name` o `/Key=contents_of_file`.
+Puede ejecutar el emulador en una red local. Para habilitar el acceso de red, especifique la opción `/AllowNetworkAccess` en la [línea de comandos](#command-line-syntax), que también requiere que especifique `/Key=key_string` o `/KeyFile=file_name`. Puede usar `/GenKeyFile=file_name` para generar un archivo con una clave aleatoria por adelantado. Después, puede pasar a `/KeyFile=file_name` o `/Key=contents_of_file`.
 
 La primera vez que se habilita el acceso de red, el usuario debe apagar el emulador y eliminar el directorio de datos del emulador (%LOCALAPPDATA%\CosmosDBEmulator).
 

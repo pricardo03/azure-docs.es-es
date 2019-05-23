@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: wolfma
-ms.openlocfilehash: 86ad938cd3d248ad907b3143342b0acf9ff15631
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 498246292b3cf591433a709139621b039ac3af33
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236846"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002183"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en C++ en macOS mediante el SDK de Voz
 
@@ -31,7 +31,7 @@ Necesita una clave de suscripción de servicios de voz para completar este inici
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versión actual del SDK de Speech de Cognitive Services es `1.5.0`.
+La versión actual del SDK de Speech de Cognitive Services es `1.5.1`.
 
 Se puede descargar el SDK de Voz para macOS como un paquete comprimido de marcos desde https://aka.ms/csspeech/macosbinary.
 

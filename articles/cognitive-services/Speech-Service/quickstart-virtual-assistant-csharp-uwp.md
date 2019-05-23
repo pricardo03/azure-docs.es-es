@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: e2b25875a0dff12bba32b033bca0c35394d407aa
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: e03cc45c5868f90dd1c2da0d7b4890fbf72c9899
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465642"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954788"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Inicio rápido: Creación de un asistente virtual de voz con el SDK de Voz, UWP
 
@@ -353,7 +353,6 @@ En este inicio rápido se describirá, paso a paso, cómo hacer que una aplicaci
     ![Captura de pantalla de la solicitud de permiso](media/sdk/qs-csharp-uwp-10-access-prompt.png "Iniciar la aplicación en depuración")
 
 1. Seleccione **Talk to your bot** (Hablar con el bot) y diga una expresión o frase en inglés en el micrófono del dispositivo. Lo que diga se transmitirá al canal Direct Line Speech y se transcribirá en texto, que aparece en la misma ventana.
-quickstart-cs-uwp-bot-successful-turn
 
     ![Captura de pantalla de un giro de bot correcto](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png "Un giro de bot correcto")
 

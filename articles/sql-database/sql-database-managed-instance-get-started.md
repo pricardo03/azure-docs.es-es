@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 09ab4cd44515d90df0e36e2775f50ac33955fe75
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: f54cea75e6f7866f1be41d3b0f82393af2235a0a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466273"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949879"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Inicio rápido: Creación de una Instancia administrada de Azure SQL Database
 
@@ -28,7 +28,9 @@ Este inicio rápido le guía por la creación de una [instancia administrada](sq
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/). 
+Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
+
+Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-managed-instance"></a>Creación de una instancia administrada
 

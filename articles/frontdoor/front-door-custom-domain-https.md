@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fc4db12f722d1330f0642e155c02a1936373e256
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050984"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520490"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Front Door
 
@@ -82,7 +82,6 @@ Puede usar su propio certificado para habilitar la característica HTTPS. Este p
 
 > [!WARNING]
 > </br> Azure Front Door Service actualmente solo admite cuentas de Key Vault en la misma suscripción que la configuración de Front Door. Si elige un almacén de claves en una suscripción diferente que la de Front Door, obtendrá un error.
-> </br> Azure Front Door Service actualmente solo admite certificados de Key Vault almacenados en la sección Secretos. Se producirá un error en la importación de certificados si se almacenan en la sección Certificados en lugar de la sección Secretos.
 > </br> Azure Front Door Service actualmente solo admite certificados cargados con un archivo PFX **sin** contraseña.
 
 #### <a name="register-azure-front-door-service"></a>Registro en Azure Front Door Service

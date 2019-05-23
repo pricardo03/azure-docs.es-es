@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 3163b58a9b325f28ab253ca090314515cf82ccb2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 56a482ae4eab4cde3cf39fcc187b703f253e0cbb
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008008"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990264"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de Ruby para llamar a Text Analytics de Cognitive Services
 <a name="HOLTop"></a>
@@ -308,7 +308,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 ```
 <a name="Entities"></a>
 
-## <a name="identify-entities"></a>Identificación de entidades
+## <a name="entity-recognition"></a>Reconocimiento de entidades
 
 Entities API extrae las entidades de un documento de texto mediante el [método Entities](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). En el ejemplo siguiente se identifican las entidades de documentos en inglés.
 
