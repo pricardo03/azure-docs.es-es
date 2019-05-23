@@ -4,7 +4,7 @@ description: Más información sobre la adquisición y el almacenamiento en cach
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d32b56b28d9ce7425e782fc10fa9ffb67047ce0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7ca011ec7185b084de6d1d346556c1c270c7aee3
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139135"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546085"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>Adquisición y almacenamiento en caché de tokens mediante MSAL
 Los [tokens de acceso](access-tokens.md) permiten a los clientes llamar a las API web protegidas por Azure de forma segura. Hay muchas maneras de adquirir un token mediante la biblioteca de autenticación de Microsoft (MSAL). Algunas de ellas requieren interacciones del usuario a través de un explorador web. Otras no. En general, la manera de adquirir un token depende de si la aplicación es una aplicación cliente pública (aplicación de escritorio o móvil) o una aplicación cliente confidencial (aplicación web, API web o aplicación de demonio como un servicio de Windows).
@@ -36,7 +36,7 @@ Los [ámbitos](v2-permissions-and-consent.md) son los permisos que expone una AP
 
 Algunos métodos de adquisición de tokens de MSAL requieren un parámetro *scopes*. Este parámetro no es más que una lista de cadenas que declaran los permisos y recursos deseados que se solicitan. Los [permisos de Microsoft Graph](/graph/permissions-reference) son ámbitos muy conocidos.
 
-In MSAL también se puede acceder a los recursos de v1.0. Para más información, lea [Ámbitos para una aplicación v1.0](msal-v1-app-scopes.md).
+En MSAL también se puede acceder a los recursos de v1.0. Para más información, lea [Ámbitos para una aplicación v1.0](msal-v1-app-scopes.md).
 
 ### <a name="request-specific-scopes-for-a-web-api"></a>Solicitud de ámbitos específicos para una API web
 Si la aplicación necesita solicitar tokens con permisos específicos para una API de recurso, tendrá que pasar los ámbitos que contiene el URI del identificador de la aplicación en el siguiente formato: *&lt;URI del identificador de la aplicación&gt;/&lt;ámbito&gt;*
@@ -58,15 +58,15 @@ Por ejemplo, puede hacer que el usuario inicie sesión inicialmente y después n
 Por ejemplo, `https://graph.microsoft.com/User.Read` y `https://graph.microsoft.com/Calendar.Read`.
 
 ## <a name="acquiring-tokens-silently-from-the-cache"></a>Adquisición de tokens de forma automática (desde la memoria caché)
-MSAL mantiene una memoria caché de tokens (o dos en el caso de las aplicaciones cliente confidenciales) y almacena en caché un token después de adquirirlo.  En muchos casos, al intentar obtener de forma automática un token adquirirá otro token con más ámbitos en función de un token de la caché. También puede actualizar un token cuando va a expirar (ya que la caché de tokens también contiene un token de actualización).
+MSAL mantiene una memoria caché de tokens, o dos en el caso de las aplicaciones cliente confidenciales, y almacena en caché un token después de adquirirlo.  En muchos casos, al intentar obtener de forma automática un token adquirirá otro token con más ámbitos en función de un token de la caché. También puede actualizar un token cuando va a expirar (ya que la caché de tokens también contiene un token de actualización).
 
 ### <a name="recommended-call-pattern-for-public-client-applications"></a>Patrón de llamada recomendado para aplicaciones cliente públicas
 En primer lugar, el código de la aplicación debe intentar obtener un token de forma automática (desde la caché).  Si la llamada al método devuelve un error o una excepción que indica que "se requiere una interfaz de usuario", intente adquirir un token por otros medios. 
 
 Sin embargo, hay dos flujos antes de los cuales **no debería** intentar adquirir un token de forma automática:
 
-- el [flujo de credenciales del cliente](msal-authentication-flows.md#client-credentials), que no usa la caché de tokens de usuario sino una caché de tokens de aplicación. Este método se encarga de comprobar esta caché de tokens de aplicación antes de enviar una solicitud al servicio de token de seguridad.
-- el [flujo de código de autorización](msal-authentication-flows.md#authorization-code) de Web Apps, ya que canjea un código que obtuvo la aplicación al iniciar sesión el usuario y dar el consentimiento a más ámbitos. Puesto que un código se pasa como un parámetro, y no como una cuenta, el método no puede buscar en la caché antes de canjear el código, lo cual requiere, en cualquier caso, una llamada al servicio.
+- El [flujo de credenciales del cliente](msal-authentication-flows.md#client-credentials), que no usa la caché de tokens de usuario sino una caché de tokens de aplicación. Este método se encarga de comprobar esta caché de tokens de aplicación antes de enviar una solicitud al servicio de token de seguridad.
+- El [flujo de código de autorización](msal-authentication-flows.md#authorization-code) de Web Apps, ya que canjea un código que obtuvo la aplicación al iniciar sesión el usuario y dar el consentimiento a más ámbitos. Puesto que un código se pasa como un parámetro, y no como una cuenta, el método no puede buscar en la caché antes de canjear el código, lo cual requiere, en cualquier caso, una llamada al servicio.
 
 ### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Patrón de llamada recomendado en Web Apps mediante el flujo de código de autorización 
 Para las aplicaciones web que usan el [flujo de código de autorización de OpenID Connect](v2-protocols-oidc.md), el patrón recomendado en los controladores consiste en:
