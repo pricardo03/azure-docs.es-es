@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
 ms.openlocfilehash: 52dee0ee60c111c56c42e0452f8f8750ea9ea4e6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436561"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167489"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios 
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de **control de cambios** desde la base de datos de Azure SQL hasta un almacenamiento de blobs de Azure.  
@@ -72,7 +72,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Azure PowerShell. Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-Az-ps).
-* **Azure SQL Database**. La base de datos se usa como almacén de datos de **origen**. Si no tiene ninguna base de datos de Azure SQL, consulte el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**. La base de datos se usa como almacén de datos de **origen**. Si no tiene ninguna base de datos de Azure SQL, consulte el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md).
 * **Cuenta de Azure Storage**. Blob Storage se usa como almacén de datos **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación. Cree un contenedor denominado **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Creación de una tabla de origen de datos en una base de datos de Azure SQL
@@ -235,7 +235,7 @@ En este paso, vincula su cuenta de Azure Storage a la factoría de datos.
 ### <a name="create-azure-sql-database-linked-service"></a>Creación de un servicio vinculado de Azure SQL Database
 En este paso, vinculará su cuenta de Azure SQL Database con la factoría de datos.
 
-1. Cree un archivo JSON llamado **AzureSQLDatabaseLinkedService.json** en la carpeta **C:\ADFTutorials\IncCopyChangeTrackingTutorial** con el siguiente contenido: Antes de guardar el archivo, reemplace **&lt;server&gt; &lt;database name **, &lt;user id&gt; y &lt;password&gt;** por su servidor Azure SQL Server, el nombre de su base de datos, su identificador de usuario y su contraseña. 
+1. Cree un archivo JSON llamado **AzureSQLDatabaseLinkedService.json** en la carpeta **C:\ADFTutorials\IncCopyChangeTrackingTutorial** con el siguiente contenido: Antes de guardar el archivo, reemplace server database name **, &lt;user id&gt; y &lt;password&gt;** por su servidor Azure SQL Server, el nombre de su base de datos, su identificador de usuario y su contraseña. 
 
     ```json
     {

@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
 ms.openlocfilehash: a947b5983f4a7d58878fc15785cfbcbcbba7f226
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733848"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156198"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Guía de inicio rápido: Creación de un equilibrador de carga para equilibrar la carga de las máquinas virtuales con la CLI de Azure
 

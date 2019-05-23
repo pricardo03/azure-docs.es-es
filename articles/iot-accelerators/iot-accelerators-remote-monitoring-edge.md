@@ -10,11 +10,11 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58166759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117544"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detección de anomalías en el perímetro con el acelerador de soluciones de supervisión remota
 
@@ -334,7 +334,7 @@ Si desea notificar a los operadores cuando se alcance el umbral, puede crear una
 En este tutorial se muestra cómo agregar y configurar un dispositivo de IoT Edge en el acelerador de soluciones de supervisión remota. Para más información sobre cómo trabajar con paquetes de IoT Edge en la solución de supervisión remota, consulte la siguiente guía de procedimientos:
 
 > [!div class="nextstepaction"]
-> [Import an IoT Edge package into your Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-import-edge-package.md) (Importación de un paquete de IoT Edge en el acelerador de soluciones de supervisión remota)
+> [Importación de un paquete de IoT Edge en el acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-import-edge-package.md)
 
 Para más información acerca de cómo instalar el entorno de ejecución de IoT Edge, consulte [Instalar el entorno de ejecución de Azure IoT Edge en Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md).
 

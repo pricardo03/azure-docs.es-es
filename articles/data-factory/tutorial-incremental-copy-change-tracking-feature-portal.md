@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
 ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66168530"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios 
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de **control de cambios** desde la base de datos de Azure SQL hasta un almacenamiento de blobs de Azure.  
@@ -68,7 +68,7 @@ En este tutorial, creará dos canalizaciones que llevan a cabo las dos operacion
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Azure SQL Database**. La base de datos se usa como almacén de datos de **origen**. Si no tiene ninguna base de datos de Azure SQL, consulte el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**. La base de datos se usa como almacén de datos de **origen**. Si no tiene ninguna base de datos de Azure SQL, consulte el artículo [Creación de una base de datos de Azure SQL](../sql-database/sql-database-get-started-portal.md).
 * **Cuenta de Azure Storage**. Blob Storage se usa como almacén de datos **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación. Cree un contenedor denominado **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Creación de una tabla de origen de datos en una base de datos de Azure SQL

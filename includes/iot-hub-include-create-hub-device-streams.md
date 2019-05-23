@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: rezas
 ms.custom: include file
-ms.openlocfilehash: d1cfe3d998c08aef2b845315a16d881dea1cd1f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ede897054a6cbef254c06bd1d810b933ec09016a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124361"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158664"
 ---
 En esta sección se describe cómo crear un centro de IoT mediante [Azure Portal](https://portal.azure.com).
 
@@ -23,7 +23,7 @@ En esta sección se describe cómo crear un centro de IoT mediante [Azure Portal
 
 3. Haga clic en **Centro de Iot** en la lista de la derecha. Verá la primera pantalla para crear un centro de IoT.
 
-   ![Captura de pantalla donde se muestra cómo crear un hub en Azure Portal](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-1.png)
+   ![Captura de pantalla donde se muestra cómo crear un hub en Azure Portal](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-01.png)
 
    Rellene los campos:
 
@@ -39,7 +39,7 @@ En esta sección se describe cómo crear un centro de IoT mediante [Azure Portal
 
 4. Haga clic en **Siguiente: Size and scale** (Siguiente: tamaño y escala) para seguir con la creación del centro de IoT.
 
-   ![Captura de pantalla que muestra la configuración de tamaño y escala de un nuevo centro de IoT mediante Azure Portal](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-2-free.png)
+   ![Captura de pantalla que muestra la configuración de tamaño y escala de un nuevo centro de IoT mediante Azure Portal](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-02.png)
 
    En esta pantalla, puede aceptar los valores predeterminados y hacer clic en **Review + create** (Revisar y crear) en la parte inferior.
 
@@ -51,6 +51,6 @@ En esta sección se describe cómo crear un centro de IoT mediante [Azure Portal
 
 5. Haga clic en **Review + create** (Revisar y crear) para revisar sus selecciones. Verá algo parecido a esta pantalla.
 
-   ![Captura de pantalla de revisión de la información para crear el centro de IoT](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-3-free.png)
+   ![Captura de pantalla de revisión de la información para crear el centro de IoT](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-03.png)
 
 6. Haga clic en **Create** (Crear) para crear el centro de IoT. Esta operación tarda unos minutos.
