@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 35fc4e855ef53bd7e667fc8de7146916b4d05acb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 72505cfc0a86c00882de37c35dff61a12a9c3fbe
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407078"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Tutorial: Integración de Azure Active Directory con DocuSign
 
@@ -178,7 +178,7 @@ Para configurar el inicio de sesión único de Azure AD con DocuSign, siga estos
 
     ![Configuración del inicio de sesión único][62]
 
-    i. Elija el campo que desea asignar con la reclamación de Azure AD. En este ejemplo, la notificación **emailaddress** está asociada con el valor de **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Este es el nombre de notificación predeterminado de Azure AD para la notificación de correo electrónico y luego haga clic en **GUARDAR**.
+    i. Elija el campo que desea asignar con la reclamación de Azure AD. En este ejemplo, la notificación **emailaddress** está asociada con el valor de **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Este es el nombre de notificación predeterminado de Azure AD para la notificación de correo electrónico y luego haga clic en **GUARDAR**.
 
     ![Configuración del inicio de sesión único][57]
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819f7d12f0554145295a0ec4f1eff7cb404d552d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c7d2920e84e0e1e61627afe1fe029e047e13ed02
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406968"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897886"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Tutorial: Integración de Azure Active Directory con LCVista
 
@@ -140,13 +140,13 @@ Para configurar el inicio de sesión único de Azure AD con LCVista, realice los
 
     c. Abra el archivo XML de metadatos que descargó de Azure Portal en el Bloc de notas, copie el valor de **X509Certificate** y péguelo en la sección **x509 Certificate** (Certificado x509).
 
-    d. En el cuadro de texto **First name attribute** (Atributo de nombre), escriba el valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. En el cuadro de texto **First name attribute** (Atributo de nombre), escriba el valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    e. En el cuadro de texto **Last name attribute** (Atributo de apellido), escriba el valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. En el cuadro de texto **Last name attribute** (Atributo de apellido), escriba el valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-    f. En el cuadro de texto **Email attribute** (Atributo de correo electrónico), escriba el valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. En el cuadro de texto **Email attribute** (Atributo de correo electrónico), escriba el valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    g. En el cuadro de texto **Username attribute** (Atributo de nombre de usuario), escriba el valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    g. En el cuadro de texto **Username attribute** (Atributo de nombre de usuario), escriba el valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     e. Haga clic en **Guardar** para guardar la configuración.
 

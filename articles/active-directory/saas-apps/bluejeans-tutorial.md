@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 2830e95f042d5c83d91d6c026d2fa2e70eb3e3b2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463518"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Tutorial: Integración de Azure Active Directory con BlueJeans
 
@@ -108,7 +108,7 @@ Para configurar el inicio de sesión único de Azure AD con BlueJeans, realice l
 
     ![Información de dominio y direcciones URL de inicio de sesión único de BlueJeans](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-   - En el cuadro de texto **Identificador**, escriba lo siguiente: `https://samlsp.bluejeans.com`
+   - En el cuadro de texto **Identificador**, escriba lo siguiente: `http://samlsp.bluejeans.com`
     
    - En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL de la página de aterrizaje suministrada por BlueJeans (para obtener este valor, puede ponerse en contacto con el [equipo de soporte técnico de BlueJeans](https://support.bluejeans.com/contact)): `https://<companyname>.bluejeans.com`
     
@@ -160,9 +160,9 @@ Para configurar el inicio de sesión único de Azure AD con BlueJeans, realice l
 
     ![Guardar cambios](./media/bluejeans-tutorial/ic785874.png "Guardar cambios")
 
-     a. En el cuadro de texto **Id. de usuario**, escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+     a. En el cuadro de texto **Id. de usuario**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. En el cuadro de texto **Correo electrónico**, escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. En el cuadro de texto **Correo electrónico**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     c. Haga clic en **GURDAR CAMBIOS**.
 
