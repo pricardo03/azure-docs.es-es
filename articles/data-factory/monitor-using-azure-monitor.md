@@ -108,11 +108,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | storageAccountId |string | El identificador de recurso de la cuenta de almacenamiento en la que le gustaría enviar los registros de diagnóstico |
 | serviceBusRuleId |string | El identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen las instancias de Event Hub creadas por los registros de diagnóstico de streaming. El identificador de regla tiene el formato: "{Identificador de recurso de Service Bus}/authorizationrules/{nombre de clave}".|
 | workspaceId | Tipo complejo | Matriz de intervalos de agregación de métricas y sus directivas de retención. Actualmente, esta propiedad está vacía. |
-|Métricas| Valores de parámetros de la ejecución de canalización que se pasan a la canalización invocada| Un objeto JSON que asigna nombres de parámetro a los valores de argumento |
+|metrics| Valores de parámetros de la ejecución de canalización que se pasan a la canalización invocada| Un objeto JSON que asigna nombres de parámetro a los valores de argumento |
 | logs| Tipo complejo| Nombre de una categoría de registro de diagnóstico para un tipo de recurso. Para obtener la lista de categorías de registro de diagnóstico para un recurso, realice primero una operación de configuración de diagnóstico GET. |
 | category| string| Matriz de las categorías de registro y sus directivas de retención |
 | timeGrain | string | La granularidad de las métricas que se capturan en formato de duración ISO 8601. Debe ser PT1M (un minuto).|
-| Enabled| Boolean | Especifica si la colección de esa categoría de métrica o registro está habilitada para este recurso.|
+| enabled| Boolean | Especifica si la colección de esa categoría de métrica o registro está habilitada para este recurso.|
 | retentionPolicy| Tipo complejo| Describe la directiva de retención para una categoría de métrica o registro. Se utiliza solamente para la opción de cuenta de almacenamiento.|
 | days| Int| Número de días para retener las métricas o registros. Con el valor cero, se retienen los registros indefinidamente. Se utiliza solamente para la opción de cuenta de almacenamiento. |
 
