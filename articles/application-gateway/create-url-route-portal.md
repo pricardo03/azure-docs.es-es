@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 4/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5307f7674635fd33241e1faba9bb0b7c0432d10b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134889"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Tutorial: Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
 
@@ -51,7 +51,7 @@ Se necesita una red virtual para la comunicación entre los recursos que se crea
      ![Creación de una nueva puerta de enlace de aplicaciones](./media/create-url-route-portal/application-gateway-create.png)
 
 4. Acepte los valores predeterminados para las demás opciones y seleccione **Aceptar**.
-5. Seleccione **Elegir una red virtual**, luego, **Crear nueva** y, después, especifique estos valores para la red virtual:
+5. Seleccione **Elegir una red virtual**, **Crear nueva** y, después, especifique estos valores para la red virtual:
 
    - *myVNet*: como nombre de la red virtual.
    - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
@@ -151,7 +151,7 @@ En este ejemplo, se crean tres máquinas virtuales que se usarán como servidore
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-1. Seleccione **Todos los recursos** y, después, seleccione **myAGPublicIPAddress**.
+1. Seleccione **Todos los recursos** y, después, **myAGPublicIPAddress**.
 
     ![Registro de la dirección IP pública de la puerta de enlace de aplicaciones](./media/create-url-route-portal/application-gateway-record-ag-address.png)
 

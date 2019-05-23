@@ -15,11 +15,11 @@ ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505824"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121799"
 ---
 ## <a name="set-up-your-project"></a>Configurar su proyecto
 
@@ -57,7 +57,7 @@ Los pasos siguientes se utilizan para crear una clase de inicio del middleware d
 > [!TIP]
 > Si el proyecto no tiene un archivo `Startup.cs` en la carpeta raíz:
 > 1. Haga clic con el botón derecho en la carpeta raíz del proyecto: > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Asígnele un nombre `Startup.cs`
+> 2. Asígnele el nombre `Startup.cs`.
 >
 >> Asegúrese de que la clase seleccionada es una clase de inicio de OWIN y no una clase estándar de C#. Para confirmarlo, compruebe si ve `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` encima del espacio de nombres.
 

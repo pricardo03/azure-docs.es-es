@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 523ab8aa242b2c5eab2d9c2aa5b61485d84185eb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a4c0e2b5cfb73613ab349b827e429062c6237681
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136502"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account"></a>Conexión de una aplicación de App Service a una cuenta de almacenamiento
 

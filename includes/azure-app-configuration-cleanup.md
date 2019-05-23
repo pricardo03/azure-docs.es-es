@@ -9,11 +9,11 @@ ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
 ms.openlocfilehash: a02144914e73ca1788976d8b01ccd95d1b9e9a1b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227157"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133048"
 ---
 Si tiene pensado seguir con el siguiente tutorial, conserve los recursos que se crearon en este inicio rápido. Puede volver a usarlos en el siguiente tutorial.
 

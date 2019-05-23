@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
 ms.openlocfilehash: 79dbee33928fbc7560d0ea27be3af25cc510e996
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641898"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132275"
 ---
 ## <a name="create-an-azure-functions-project"></a>Creación de un proyecto de Azure Functions
 
 La plantilla del proyecto de Azure Functions de Visual Studio Code crea un proyecto que se puede publicar en una aplicación de función en Azure. Una aplicación de función permite agrupar funciones como una unidad lógica para la administración, la implementación y el uso compartido de recursos.
 
-1. En Visual Studio Code, seleccione el logotipo de Azure para que se muestre el área **Azure: Functions** y, a continuación, seleccione el icono Crear nuevo proyecto.
+1. En Visual Studio Code, seleccione el logotipo de Azure para mostrar la zona **Azure: Functions** y, a continuación, seleccione el icono Crear proyecto.
 
     ![Creación de un proyecto de aplicación de función](./media/functions-create-function-app-vs-code/create-function-app-project.png)
 

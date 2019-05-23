@@ -9,11 +9,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
 ms.openlocfilehash: ef01c38dddee0a74477ef331f935bda2787866df
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171319"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>Supervisión y escalado de un servidor de Azure Database for MariaDB mediante la CLI de Azure
 Este script de la CLI de ejemplo escala un servidor individual de Azure Database for MariaDB a otro nivel de rendimiento después de consultar las métricas.

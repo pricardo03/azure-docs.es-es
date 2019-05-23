@@ -9,11 +9,11 @@ ms.date: 01/17/2019
 ms.author: jowargo
 ms.custom: include file
 ms.openlocfilehash: a5d29e77f6ba10ed3069cb3f5a3c8089f49c237d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60423408"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140581"
 ---
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** en el menú de la izquierda y seleccione **Notification Hubs** en la sección **Móvil**. Seleccione la estrella (`*`) junto al nombre del servicio para agregarlo a la sección **FAVORITOS** en el menú de la izquierda. Cuando **Notification Hubs** se agrega a **FAVORITOS**, selecciónelo en el menú de la izquierda. 

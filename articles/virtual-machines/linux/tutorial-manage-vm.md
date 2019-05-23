@@ -17,11 +17,11 @@ ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 270479061ad40fdda9db06571ad4ef24b00d6c4d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171849"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure
 
@@ -209,7 +209,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-### <a name="resize-a-vm"></a>Cambiar el tamaño de una máquina virtual
+### <a name="resize-a-vm"></a>Cambiar el tamaño de una máquina virtual.
 
 Una vez implementada una máquina virtual, se puede cambiar su tamaño para aumentar o disminuir la asignación de recursos. El tamaño actual de una máquina virtual se puede ver con [az vm show](/cli/azure/vm):
 
@@ -318,11 +318,11 @@ az group delete --name myResourceGroupVM --no-wait --yes
 En este tutorial, ha aprendido conceptos básicos sobre la creación y administración de máquinas virtuales. Por ejemplo:
 
 > [!div class="checklist"]
-> * Crear y conectar elementos a una máquina virtual
+> * Crear y conectar elementos a una máquina virtual.
 > * Seleccionar y usar imágenes de máquinas virtuales
 > * Ver y usar tamaños de una máquina virtual específicos
 > * Cambiar el tamaño de una máquina virtual
-> * Ver y entender el estado de las máquinas virtuales
+> * Ver y entender el estado de las máquinas virtuales.
 
 Prosiga con el siguiente tutorial para aprender sobre los discos en máquinas virtuales de Azure.  
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou
 ms.openlocfilehash: c7a34256bff46247ed6c97bc2931942f631bbf09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60430665"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148852"
 ---
 > [!WARNING]
 >  **Azure Container Service (ACS) está en desuso. No hay características o funcionalidades nuevas para agregar a ACS. Todas las API, la experiencia del portal, los comandos de la CLI y la documentación se marcan como en desuso.**

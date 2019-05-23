@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 10/08/2018
 ms.author: diberry
 ms.openlocfilehash: 4ada2e36f067db685944c683de8cc36d3bbf8cf6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60495847"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123570"
 ---
 En la sección **Manage** (Administrar) del menú superior derecho, en la página **Keys and endpoints** (Claves y puntos de conexión) del menú de la izquierda, seleccione la URL del **punto de conexión** al final de la página. Esta acción abre otra pestaña del explorador con la dirección URL del punto de conexión en la barra de direcciones. 
 
