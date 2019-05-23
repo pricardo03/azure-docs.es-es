@@ -59,7 +59,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | **Propiedad** | **Descripción** | **Obligatorio** |
 | --- | --- | --- |
-| Tipo |La propiedad type debe establecerse en: **DocumentDb** |Sí |
+| type |La propiedad type debe establecerse en: **DocumentDb** |Sí |
 | connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure Cosmos DB. |Sí |
 
 Ejemplo:
