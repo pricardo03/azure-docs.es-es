@@ -125,8 +125,8 @@ En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se us
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| ClusterSize |Tamaño del clúster de HDInsight. |
-| TimeToLive |Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine. |
+| clusterSize |Tamaño del clúster de HDInsight. |
+| timeToLive |Especifica el tiempo de inactividad del clúster de HDInsight, antes de que se elimine. |
 | linkedServiceName |Especifica la cuenta de almacenamiento que se usa para almacenar los registros que genera HDInsight. |
 
 Tenga en cuenta los siguientes puntos:
@@ -171,12 +171,12 @@ En la siguiente tabla se ofrecen descripciones de las propiedades JSON que se us
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Tipo |La propiedad type se establece en AzureBlob porque los datos residen en Almacenamiento de blobs de Azure. |
+| type |La propiedad type se establece en AzureBlob porque los datos residen en Almacenamiento de blobs de Azure. |
 | linkedServiceName |hace referencia a StorageLinkedService que creó anteriormente. |
 | fileName |Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este caso, se procesa solo el archivo input.log. |
-| Tipo |Los archivos de registro están en formato de texto, por lo que usaremos TextFormat. |
+| type |Los archivos de registro están en formato de texto, por lo que usaremos TextFormat. |
 | columnDelimiter |Las columnas de los archivos de registro están delimitadas por una coma (,). |
-| frecuencia/intervalo |La frecuencia está establecida en Mes y el intervalo es 1, lo que significa que los segmentos de entrada estarán disponibles cada mes. |
+| frequency/interval |La frecuencia está establecida en Mes y el intervalo es 1, lo que significa que los segmentos de entrada estarán disponibles cada mes. |
 | external |Esta propiedad se establece en true si el servicio Factoría de datos no ha generado los datos de entrada. |
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
