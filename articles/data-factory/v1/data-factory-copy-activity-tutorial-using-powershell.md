@@ -278,13 +278,13 @@ En este paso, se crea un conjunto de datos llamado InputDataset, que apunta a un
 
     | Propiedad | DESCRIPCIÓN |
     |:--- |:--- |
-    | Tipo | La propiedad type se establece en **AzureBlob** porque los datos residen en una instancia de Azure Blob Storage. |
+    | type | La propiedad type se establece en **AzureBlob** porque los datos residen en una instancia de Azure Blob Storage. |
     | linkedServiceName | Hace referencia al servicio **AzureStorageLinkedService** que creó anteriormente. |
     | folderPath | Especifica el **contenedor** de blobs y la **carpeta** que contiene los blobs de entrada. En este tutorial, adftutorial es el contenedor de blobs y folder es la carpeta raíz. | 
     | fileName | Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este tutorial, se especifica **emp.txt** en fileName, por lo que solo se selecciona ese archivo para su procesamiento. |
-    | formato -> tipo |El archivo de entrada tiene formato de texto, por lo que usamos **TextFormat**. |
+    | format -> type |El archivo de entrada tiene formato de texto, por lo que usamos **TextFormat**. |
     | columnDelimiter | Las columnas del archivo de entrada están delimitadas por **coma (`,`)**. |
-    | frecuencia/intervalo | La frecuencia está establecida en **Hour** y el intervalo es **1**, lo que significa que los segmentos de entrada estarán disponibles **cada hora**. En otras palabras, el servicio Data Factory busca los datos de entrada cada hora en la carpeta raíz del contenedor de blobs (**adftutorial**) que se ha especificado. Busca los datos entre las horas de inicio y finalización de la canalización, no antes ni después de esas horas.  |
+    | frequency/interval | La frecuencia está establecida en **Hour** y el intervalo es **1**, lo que significa que los segmentos de entrada estarán disponibles **cada hora**. En otras palabras, el servicio Data Factory busca los datos de entrada cada hora en la carpeta raíz del contenedor de blobs (**adftutorial**) que se ha especificado. Busca los datos entre las horas de inicio y finalización de la canalización, no antes ni después de esas horas.  |
     | external | Esta propiedad se establece en **true** si esta canalización no ha generado los datos. Los datos de entrada de este tutorial están en el archivo emp.txt, que no lo generó esta canalización, por lo que establecemos esta propiedad en true. |
 
     Para más información acerca de estas propiedades JSON, consulte el artículo sobre el [conector de Azure Blob](data-factory-azure-blob-connector.md#dataset-properties).
@@ -343,10 +343,10 @@ En esta parte del paso se crea un conjunto de datos de salida denominado **Outpu
 
     | Propiedad | DESCRIPCIÓN |
     |:--- |:--- |
-    | Tipo | La propiedad type se establece en **AzureSqlTable** porque los datos se copian en una tabla de una base de datos de Azure SQL Database. |
+    | type | La propiedad type se establece en **AzureSqlTable** porque los datos se copian en una tabla de una base de datos de Azure SQL Database. |
     | linkedServiceName | Hace referencia al servicio **AzureSqlLinkedService** que creó anteriormente. |
     | tableName | Especifica la **tabla** en la que se copian los datos. | 
-    | frecuencia/intervalo | La frecuencia se establece en **Hour** y el intervalo es **1**, lo que significa que los sectores de salida se producen **cada hora** entre las horas de inicio y finalización de la canalización, no antes ni después de esas horas.  |
+    | frequency/interval | La frecuencia se establece en **Hour** y el intervalo es **1**, lo que significa que los sectores de salida se producen **cada hora** entre las horas de inicio y finalización de la canalización, no antes ni después de esas horas.  |
 
     En la tabla emp de la base de datos hay tres columnas: **ID**, **FirstName** y **LastName**. ID es una columna de identidad, por lo que deberá especificar solo **FirstName** y **LastName** aquí.
 
