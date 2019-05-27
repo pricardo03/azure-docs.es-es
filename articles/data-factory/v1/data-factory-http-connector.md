@@ -53,7 +53,7 @@ En la tabla siguiente se describen los elementos JSON específicos del servicio 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo | La propiedad **type** debe establecerse en **Http**. | Sí |
+| type | La propiedad **type** debe establecerse en **Http**. | Sí |
 | url | La dirección URL base para el servidor web. | Sí |
 | authenticationType | Especifica el tipo de autenticación. Los valores permitidos son: **Anonymous**, **Basic**, **Digest**, **Windows** y **ClientCertificate**. <br><br> Consulte las secciones posteriores de este artículo para obtener más propiedades y ejemplos de JSON para estos tipos de autenticación. | Sí |
 | enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados SSL de servidor si el origen es un servidor web HTTPS. Si el servidor HTTPS usa un certificado autofirmado, establezca esta propiedad en **false**. | Sin <br /> (El valor predeterminado es: **true**) |
@@ -160,13 +160,13 @@ La sección **typeProperties** es diferente para cada tipo de conjunto de datos.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del conjunto de datos debe establecerse en **Http**. | Sí |
+| type | La propiedad **type** del conjunto de datos debe establecerse en **Http**. | Sí |
 | relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición del servicio vinculado. <br><br> Para construir la dirección URL dinámica, puede usar [funciones de Data Factory y variables del sistema](data-factory-functions-variables.md). Ejemplo: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | Sin  |
 | requestMethod | Método HTTP. Los valores permitidos son **GET** y **POST**. | Sin  <br />(el valor predeterminado es **GET**) |
 | additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin  |
 | requestBody | Cuerpo de la solicitud HTTP. | Sin  |
-| formato | Si quiere *recuperar los datos de un punto de conexión HTTP tal cual* sin analizarlos, omita la opción **format**. <br><br> Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Sin  |
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Tipos que se admiten: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Niveles que se admiten: **Optimal** y **Fastest**. Para más información, consulte el artículo sobre [formatos de compresión de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Sin  |
+| format | Si quiere *recuperar los datos de un punto de conexión HTTP tal cual* sin analizarlos, omita la opción **format**. <br><br> Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Sin  |
+| compression | Especifique el tipo y el nivel de compresión de los datos. Tipos que se admiten: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Niveles que se admiten: **Optimal** y **Fastest**. Para más información, consulte el artículo sobre [formatos de compresión de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Sin  |
 
 **Ejemplo: Uso del método GET (predeterminado)**
 
