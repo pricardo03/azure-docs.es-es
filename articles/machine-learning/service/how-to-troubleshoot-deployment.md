@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 05/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 90e85e0030a696dd024dd65d27a0f4dbdc7e3cdc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3730e4a0bfa05e6606e50b9bbd9d9152e2488954
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023669"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851716"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Solución de problemas de implementaciones de AKS y ACI de Azure Machine Learning Service
 
@@ -168,7 +168,7 @@ Para implementar localmente, modificar el código para usar `LocalWebservice.dep
 from azureml.core.model import InferenceConfig
 from azureml.core.webservice import LocalWebservice
 
-# Create inferencing configuration. This creates a docker image that contains the model.
+# Create inference configuration. This creates a docker image that contains the model.
 inference_config = InferenceConfig(runtime= "python", 
                                    execution_script="score.py",
                                    conda_file="myenv.yml")
@@ -256,7 +256,7 @@ Establecer el nivel de registro para la depuración, puede generar información 
 
 ## <a name="function-fails-runinputdata"></a>Error en la función: run(input_data)
 
-Si el servicio se implementa correctamente, pero se bloquea al publicar datos en el punto de conexión de puntuación, puede agregar una instrucción de captura de errores en la función `run(input_data)` para que devuelva un mensaje de error detallado en su lugar. Por ejemplo: 
+Si el servicio se implementa correctamente, pero se bloquea al publicar datos en el punto de conexión de puntuación, puede agregar una instrucción de captura de errores en la función `run(input_data)` para que devuelva un mensaje de error detallado en su lugar. Por ejemplo:
 
 ```python
 def run(input_data):

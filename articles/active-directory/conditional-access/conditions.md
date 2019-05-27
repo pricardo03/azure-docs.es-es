@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785377"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861541"
 ---
-# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>¿Qué son las condiciones en el acceso condicional de Azure Active Directory? 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>¿Qué son las condiciones en el acceso condicional de Azure Active Directory?
 
-Puede controlar el modo en que los usuarios acceden a las aplicaciones en la nube con el [acceso condicional de Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). En una directiva de acceso condicional, definirá la respuesta ("haga esto") al motivo para desencadenarla ("cuando esto suceda"). 
+Puede controlar el modo en que los usuarios acceden a las aplicaciones en la nube con el [acceso condicional de Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). En una directiva de acceso condicional, definirá la respuesta ("haga esto") al motivo para desencadenarla ("cuando esto suceda").
 
 ![Motivo y respuesta](./media/conditions/10.png)
 
@@ -37,7 +37,7 @@ En el contexto del acceso condicional, **Cuando esto sucede** se denomina una **
 ![Directiva de acceso condicional](./media/conditions/61.png)
 
 
-Las condiciones que no haya configurado en una directiva de acceso condicional no se aplican. Algunas condiciones son [obligatorias](best-practices.md) para poder aplicar una directiva de acceso condicional a un entorno. 
+Las condiciones que no haya configurado en una directiva de acceso condicional no se aplican. Algunas condiciones son [obligatorias](best-practices.md) para poder aplicar una directiva de acceso condicional a un entorno.
 
 En este artículo se ofrece información general de las condiciones y de cómo se utilizan en una directiva de acceso condicional. 
 
@@ -73,7 +73,7 @@ Las organizaciones pueden elegir entre las siguientes opciones:
 > [!NOTE]
 > Puede excluir aplicaciones específicas de una directiva. Sin embargo, estas aplicaciones siguen estando sujetas a las directivas aplicadas a los servicios a los que acceden.
 
-**Las acciones del usuario** son tareas que se pueden realizar por el usuario. La única acción admitida actualmente es **registrar información de seguridad (versión preliminar)**, lo que permite la directiva de acceso condicional exigir cuando un usuario registra su información de seguridad.
+**Las acciones del usuario** son tareas que se pueden realizar por el usuario. La única acción admitida actualmente es **registrar información de seguridad (versión preliminar)**, lo que permite la directiva de acceso condicional aplicar cuando los usuarios que están habilitados para el registro combinado intentan registrar su seguridad información. Se puede encontrar más información en el artículo, [permiten combina información de registro de seguridad (versión preliminar)](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ## <a name="sign-in-risk"></a>Riesgo de inicio de sesión
 

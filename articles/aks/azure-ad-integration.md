@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a6ed8ec37a3b20ccdbd2b013ba308518d8e3b97c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192120"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849891"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integración de Azure Active Directory con Azure Kubernetes Service
 
@@ -23,7 +23,6 @@ En este artículo se muestra cómo implementar los requisitos previos para AKS y
 Se aplican las siguientes limitaciones:
 
 - Azure AD solo puede habilitarse cuando se crea un clúster habilitado para RBAC nuevo. No se puede habilitar Azure AD en un clúster AKS existente.
-- *Invitado* a los usuarios en Azure AD, tal como si está utilizando un inicio de sesión federado desde un directorio diferente, no se admiten.
 
 ## <a name="authentication-details"></a>Detalles de la autenticación
 
@@ -40,7 +39,7 @@ Para proporcionar autenticación de Azure AD para un clúster de AKS, se crean d
 
 La primera aplicación de Azure AD se utiliza para obtener la pertenencia a un grupo de Azure AD de los usuarios. Crear esta aplicación en Azure portal.
 
-1. Seleccione **Azure Active Directory** > **registros de aplicaciones** > **nuevo registro**.
+1. Haga clic en **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.
 
     * Asigne un nombre, la aplicación como *AKSAzureADServer*.
     * Para **admite tipos de cuenta**, elija *cuentas en este directorio organizativa solo*.
@@ -93,7 +92,7 @@ La primera aplicación de Azure AD se utiliza para obtener la pertenencia a un g
 
 La segunda aplicación de Azure AD se utiliza al iniciar sesión con la CLI de Kubernetes (`kubectl`).
 
-1. Seleccione **Azure Active Directory** > **registros de aplicaciones** > **nuevo registro**.
+1. Haga clic en **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.
 
     * Asigne un nombre, la aplicación como *AKSAzureADClient*.
     * Para **admite tipos de cuenta**, elija *cuentas en este directorio organizativa solo*.
@@ -114,6 +113,10 @@ La segunda aplicación de Azure AD se utiliza al iniciar sesión con la CLI de K
         Cuando se han concedido los permisos correctamente, la siguiente notificación se muestra en el portal:
 
         ![Notificación de concesión de permisos correcta](media/aad-integration/permissions-granted.png)
+
+1. En el panel de navegación izquierdo de la aplicación de Azure AD, seleccione **autenticación**.
+
+    * En **tipo de cliente predeterminado**, seleccione **Sí** a *tratar el cliente como un cliente público*.
 
 1. En el panel de navegación izquierdo de la aplicación de Azure AD, tome nota de la **Id. de aplicación**. Al implementar un clúster de AKS habilitado para Azure AD, este valor se conoce como el `Client application ID`.
 
@@ -242,13 +245,14 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 Cuando haya finalizado, se almacena en caché el token de autenticación. Solo introducir de nuevo para iniciar sesión cuando el token ha expirado o vuelve a crear el archivo de configuración de Kubernetes.
 
 Si ve un mensaje de error de autorización después de iniciar sesión correctamente, compruebe que:
-1. El usuario inicia sesión como es no, un invitado en la instancia de Azure AD (este escenario es a menudo el caso si usa una cuenta federada desde un directorio diferente).
-2. El usuario no es miembro de más de 200 grupos.
-3. Secreto definido en el registro de la aplicación de servidor no coincide con el valor configurado con--aad-server-app-secret
 
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
+
+1. Define el identificador de objeto correspondiente o UPN, dependiendo de si la cuenta de usuario está en el mismo inquilino de Azure AD o no.
+2. El usuario no es miembro de más de 200 grupos.
+3. El valor configurado con coincide con el definido en el registro de aplicación de servidor de secreto `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

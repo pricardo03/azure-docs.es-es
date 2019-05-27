@@ -1,5 +1,5 @@
 ---
-title: Cambio de la información de perfil de la cuenta de Azure | Microsoft Docs
+title: Cambiar la información de perfil para la cuenta de Azure | Microsoft Docs
 description: Describe cómo cambiar el perfil de la cuenta administrativa de Azure y la dirección de correo electrónico de contacto.
 author: genlin
 manager: alherz
@@ -13,53 +13,49 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6280068303e66ca9a930f94d9a754afe1f88f4f2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604255"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850762"
 ---
-# <a name="change-your-azure-account-profile-information"></a>Cambiar la información del perfil de cuenta de Azure
+# <a name="change-the-profile-information-for-your-azure-account"></a>Cambiar la información de perfil para la cuenta de Azure
 
-La información del perfil se usa en contacto con usted acerca de su cuenta de Azure. Debe mantenerlo actualizado para que Microsoft puede avisarle sobre notificaciones importantes.
+Microsoft usa la dirección de correo electrónico en el perfil del Administrador de cuenta para enviar las notificaciones relacionadas con la recomendación sobre una cuenta de Azure, servicio y facturación importante. Se recomienda que especifique una dirección de correo electrónico que consulte periódicamente. Como administrador de cuenta, también puede actualizar su perfil para cambiar la distribución de correo dirección y número de teléfono para la cuenta.
 
-La dirección de correo electrónico en el perfil del Administrador de cuenta se usa por Microsoft para enviar las notificaciones relacionadas con la recomendación sobre la cuenta, servicio y facturación importante. Se recomienda que especifique una dirección de correo electrónico que consulte periódicamente. Como administrador de cuenta, también puede actualizar su perfil para cambiar la distribución de correo dirección y número de teléfono para la cuenta.
-
-La dirección de correo electrónico en un perfil de usuario, un usuario de la cuenta que no sea administrador de cuenta, se usa por Microsoft para enviar notificaciones relacionadas con el servicio y recomendaciones sobre cuentas. Todas las notificaciones de facturación se envían al administrador de cuenta. También puede actualizar su perfil para cambiar su dirección de correo y el número de teléfono, pero no cambia la dirección de correo de la cuenta o el número de teléfono.
+Microsoft usa la dirección de correo electrónico de un perfil de usuario, un usuario de la cuenta que no sea administrador de cuenta, se envían notificaciones relacionadas con el servicio y recomendaciones sobre cuentas. Todas las notificaciones de facturación se envían al administrador de cuenta. También puede actualizar su perfil para cambiar su dirección de correo y el número de teléfono, pero no cambia la dirección de correo de la cuenta o el número de teléfono.
 
 ## <a name="change-your-profile-information"></a>Cambiar la información del perfil
 
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.azure.com/Profile).
 1. Seleccione el botón **Editar detalles** y actualice la información de **perfil**.
 
-   ![Ejemplo que muestra la información del perfil de Azure](./media/billing-how-to-change-azure-account-profile/profile.png)
+   ![Ejemplo de información de perfil de Azure](./media/billing-how-to-change-azure-account-profile/profile.png)
 
 ### <a name="send-notifications-to-an-additional-email-address"></a>Enviar notificaciones a una dirección de correo electrónico adicionales
 
-Puede tener las notificaciones del servicio y recomendaciones sobre cuentas enviados a una dirección de correo electrónico además de la dirección de correo electrónico de administrador de la cuenta asociada con su cuenta. Dirección de correo electrónico del Administrador de cuenta obtiene notificaciones importantes acerca de todas las suscripciones en la cuenta, incluidas las actualizaciones relacionadas con la facturación.
+Puede tener las notificaciones del servicio y recomendaciones sobre cuentas enviados a una dirección de correo electrónico además de la dirección de correo electrónico del Administrador de la cuenta que está asociado con su cuenta. Dirección de correo electrónico del Administrador de cuenta obtiene notificaciones importantes acerca de todas las suscripciones en la cuenta, incluidas las actualizaciones relacionadas con la facturación.
 
-### <a name="change-the-account-administrator-email-address-in-your-profile"></a>Cambiar la dirección de correo electrónico de administrador de cuenta en su perfil
+### <a name="change-the-account-administrators-email-address-in-your-profile"></a>Cambiar la dirección de correo electrónico del Administrador de cuentas en su perfil
 
 El Administrador de cuenta es la persona que configuró la cuenta de Azure y que recibe notificaciones de correo electrónico importantes sobre todas las suscripciones de la cuenta. Se recomienda que especifique una dirección de correo electrónico de contacto que el Administrador de cuenta consulte periódicamente.
 
-### <a name="updating-your-profile-email-doesnt-update-your-sign-in-email-address"></a>Actualización de su correo electrónico del perfil no actualizar su dirección de correo electrónico de inicio de sesión
+### <a name="update-your-sign-in-email-address"></a>Actualizar su dirección de correo electrónico de inicio de sesión
 
 Actualizar la dirección de correo electrónico del perfil no actualiza su dirección de correo electrónico de inicio de sesión. Para cambiar su dirección de correo electrónico de inicio de sesión, tendrá que transferir la propiedad de la cuenta.
 
-### <a name="updating-your-profile-address-doesnt-update-your-credit-card-billing-address"></a>Actualizar la dirección del perfil no actualiza la dirección de facturación de la tarjeta de crédito
+### <a name="update-the-billing-address-for-your-credit-card"></a>Actualizar la dirección de facturación de su tarjeta de crédito
 
 Para aprender a actualizar la información de facturación, consulte [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](billing-how-to-change-credit-card.md).
 
-### <a name="you-cant-update-your-countryregion"></a>No se puede actualizar su país o región
+### <a name="update-your-countryregion"></a>Actualizar su país o región
 
-Debido a limitaciones técnicas, no podemos cambiar el país o región para una cuenta existente. Sin embargo, puede crear una cuenta en la región/país deseado y, a continuación, póngase en contacto con soporte técnico de Azure para migrar los servicios a esa cuenta.
+Debido a limitaciones técnicas, no podemos cambiar el país o región para una cuenta existente. Pero puede crear una cuenta en la región/país deseado y, a continuación, póngase en contacto con soporte técnico de Azure para migrar los servicios a esa cuenta.
 
 ## <a name="service-and-marketing-emails"></a>Correos electrónicos de marketing y servicio
 
-El equipo de Microsoft Azure envía los correos electrónicos relacionados con el servicio que le informa de las alertas críticas. El equipo también envía correos electrónicos de recomendación sobre cuentas, también conocido como correos electrónicos de marketing, que le ayudarán a optimizar y escalar sus proyectos.
-
-Se le pida en el [portal Azure](https://portal.azure.com) para comprobar o actualizar su dirección de correo electrónico cada 90 días. El propósito de notificación es asegurarse de que Microsoft ha actualizado la información de contacto en el caso de las notificaciones relacionadas con el servicio urgentes. Microsoft envía mensajes de correo electrónico a su dirección de correo electrónico del perfil con Azure información relacionada con la cuenta para:
+Se le pida en el [portal Azure](https://portal.azure.com) para comprobar o actualizar su dirección de correo electrónico cada 90 días. Microsoft envía mensajes de correo electrónico a su dirección de correo electrónico del perfil con Azure información relacionada con la cuenta para:
 
 - Notificaciones del servicio
 - Alertas de seguridad
@@ -68,35 +64,33 @@ Se le pida en el [portal Azure](https://portal.azure.com) para comprobar o actua
 - Comunicaciones de marketing
 - Prácticas recomendadas, según el uso de Azure
 
-Escriba la dirección de correo electrónico donde desea recibir las comunicaciones sobre su cuenta. Escribiendo una dirección de correo electrónico, está optando en recibir comunicaciones de Microsoft.
+Escriba la dirección de correo electrónico donde desea recibir las comunicaciones sobre su cuenta. Escribiendo una dirección de correo electrónico que te vas en recibir comunicaciones de Microsoft.
 
-![Ejemplo que muestra la actualización en el cuadro de información de contacto](./media/billing-how-to-change-azure-account-profile/update-contact-information.png)
+![Ejemplo de la solicitud para actualizar la información de contacto](./media/billing-how-to-change-azure-account-profile/update-contact-information.png)
 
 ### <a name="change-your-contact-email-address"></a>Cambiar la dirección de correo electrónico de contacto
 
-Puede cambiar su dirección de correo electrónico de contacto con los métodos siguientes:
+Puede cambiar su dirección de correo electrónico de contacto mediante uno de los métodos siguientes:
 
-**Opción 1**: Inicie sesión en el [centro de cuentas de Azure](https://account.azure.com/Profile). Seleccione el **editar detalles** y, a continuación, actualice la información de dirección de correo electrónico de perfil. Actualizar su dirección de correo electrónico del perfil no actualiza su dirección de correo electrónico de inicio de sesión.
+* Inicie sesión en el [Centro de cuentas de Azure](https://account.azure.com/Profile). Seleccione **editar detalles** y, a continuación, actualice la dirección de correo electrónico del perfil. Actualizar su dirección de correo electrónico del perfil no actualiza su dirección de correo electrónico de inicio de sesión.
 
-**Opción 2**: Vaya a la [información de contacto](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) área en el portal de Azure y escriba una dirección de correo electrónico. La dirección que especifique recibe servicio y las comunicaciones de marketing. La dirección de correo electrónico en el perfil de centro de cuentas de Azure se actualiza para hacer coincidir automáticamente. Actualizar su dirección de correo electrónico del perfil no actualiza su dirección de correo electrónico de inicio de sesión.
+* Vaya a la [información de contacto](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) área en el portal de Azure y escriba una dirección de correo electrónico. La dirección que proporcione recibe servicio y las comunicaciones de marketing. La dirección de correo electrónico en el perfil de centro de cuentas de Azure se actualiza para hacer coincidir automáticamente. Actualizar su dirección de correo electrónico del perfil no actualiza su dirección de correo electrónico de inicio de sesión.
 
-**Opción 3**: En el [portal Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), seleccione el icono con sus iniciales o una imagen. A continuación, seleccione el menú contextual (**...** ). A continuación, seleccione **mi información de contacto** en el menú y escriba una dirección de correo electrónico. La dirección que especifique recibe servicio y las comunicaciones de marketing. La dirección de correo electrónico en el perfil de su centro de la cuenta de Azure se actualiza para hacer coincidir automáticamente. Actualizar su dirección de correo electrónico del perfil no actualiza su dirección de correo electrónico de inicio de sesión.
+* En el [portal Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade), seleccione el icono con sus iniciales o una imagen. A continuación, seleccione el menú contextual (**...** ). A continuación, seleccione **mi información de contacto** en el menú y escriba una dirección de correo electrónico. La dirección que proporcione recibe servicio y las comunicaciones de marketing. La dirección de correo electrónico en el perfil de su centro de la cuenta de Azure se actualiza para hacer coincidir automáticamente. Actualizar su dirección de correo electrónico del perfil no actualiza su dirección de correo electrónico de inicio de sesión.
 
-![Ejemplo que muestra la actualización de la información de contacto en Azure](./media/billing-how-to-change-azure-account-profile/azure-contact-information.png)
+![Ejemplo de actualización de una dirección de correo electrónico en Azure](./media/billing-how-to-change-azure-account-profile/azure-contact-information.png)
 
-### <a name="opt-out-of-marketing-emails"></a>Desactivación de los correos electrónicos de marketing
+### <a name="opt-out-of-marketing-emails"></a>Dejar de participar en los correos electrónicos de marketing
 
-Para optar por no recibir correos electrónicos de marketing:
+Optar por no recibir correos electrónicos de marketing:
 
 1. Vaya a la [formulario de solicitud](https://account.microsoft.com/profile/permissions-link-request) para enviar una solicitud mediante su dirección de correo electrónico del perfil. Recibirá un vínculo por correo electrónico y actualice sus preferencias.
-2. Este vínculo muestra los tipos de comunicaciones de marketing que suscritas en la dirección de correo electrónico. Desactive los temas que desea participar en y, a continuación, haga clic en **guardar**.
+2. Seleccione el vínculo para abrir el **administrar permisos de comunicación** página. Esta página muestra los tipos de comunicaciones de marketing que está suscrito a la dirección de correo electrónico. Desactive los temas que desea rechazar out y, a continuación, seleccione **guardar**.
 
 
-![Ejemplo que muestra las opciones de permisos de administrar las comunicaciones](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
+![Ejemplo de la página de administración de permisos de comunicación](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
 
-### <a name="you-still-receive-service-notifications-if-you-opt-out-of-marketing-communications"></a>Sigue recibiendo notificaciones del servicio si participar en comunicaciones de marketing
-
-Si proporcionó una dirección de correo electrónico para las comunicaciones, recibirá notificaciones del servicio, en función de su cuenta. Cuando participar, solo participar en comunicaciones de marketing, sigue recibiendo notificaciones del servicio.
+Cuando se opta por fuera de las comunicaciones de marketing, sigue recibiendo notificaciones del servicio, en función de su cuenta.
 
 ## <a name="need-help-contact-us"></a>¿Ayuda? Póngase en contacto con nosotros.
 

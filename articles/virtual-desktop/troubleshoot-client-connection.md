@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 99295fd4581cd81751f7d64b694c853efe51a106
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: f88dee579e44a01dc1a7404ef6a670de34063552
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522940"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833565"
 ---
 # <a name="remote-desktop-client-connections"></a>Conexiones de cliente de Escritorio remoto
 
@@ -28,9 +28,9 @@ Confirme que hay conectividad a internet, abra otro sitio web. Por ejemplo, [www
 
 Use **nslookup** para confirmar que DNS pueda resolver el FQDN:
 
-    ```cmd
-    nslookup rdweb.wvd.microsoft.com
-    ```
+```cmd
+nslookup rdweb.wvd.microsoft.com
+```
 
 Intente conectarse con otro cliente, al igual que el cliente de escritorio remoto para Windows 7 o Windows 10 y comprobación ver si puede abrir el cliente web.
 
@@ -54,7 +54,7 @@ Intente conectarse con otro cliente, al igual que el cliente de escritorio remot
 
 1. Reinicie el explorador.
 2. Cookies del explorador no cifrado. Consulte [cómo eliminar archivos de cookies en Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-3. Caché del explorador no cifrado. Consulte [borrar la memoria caché del explorador para su explorador](https://binged.it/2RKyfdU).
+3. Borre la memoria caché del explorador Consulte [borrar la memoria caché del explorador para su explorador](https://binged.it/2RKyfdU).
 4. Explorador abierto en modo privado.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Cliente Web deja de responder o se desconecta
@@ -74,7 +74,7 @@ Si el cliente Web mantiene solicitar credenciales, siga estas instrucciones.
 1. Confirme la que dirección URL del cliente web es correcta.
 2. Confirme que las credenciales son para el entorno de Escritorio Virtual de Windows asociado a la dirección URL.
 3. Cookies del explorador no cifrado. Consulte [cómo eliminar archivos de cookies en Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Caché del explorador no cifrado. Consulte [borrar la memoria caché del explorador para su explorador](https://binged.it/2RKyfdU).
+4. Borre la memoria caché del explorador Consulte [borrar la memoria caché del explorador para su explorador](https://binged.it/2RKyfdU).
 5. Explorador abierto en modo privado.
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Cliente de escritorio remoto para Windows 7 o Windows 10 deja de responder o no se puede abrir
@@ -111,20 +111,20 @@ Siga estas instrucciones para solucionar problemas generales para los códigos d
 4. Uso de **Get RdsHostPool** y **Get RdsSessionHost** cmdlets, confirme que está realizando la solución de problemas en el grupo host correcto.
 5. Ejecute el comando siguiente para obtener una lista de todas las actividades con errores de conexión de tipo para el período de tiempo especificado:
 
-    ```cmd
+    ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
 6. Mediante el **ActivityId** desde la salida del cmdlet anterior, ejecute el siguiente comando:
 
-    ```
+    ```PowerShell
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
 7. El comando genera una salida similar a la salida que se muestra a continuación. Use **ErrorCodeSymbolic** y **ErrorMessage** para solucionar la causa raíz.
 
-    ```
+    ```PowerShell
     ErrorSource       : <Source>
     ErrorOperation    : <Operation>
     ErrorCode         : <Error code>
@@ -159,7 +159,7 @@ Un usuario puede iniciar a clientes de escritorio remoto y es capaz de realizar 
 
 Confirme que el usuario los problemas de informes se ha asignado a grupos de aplicaciones mediante el uso de esta línea de comandos:
 
-```cmd
+```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 

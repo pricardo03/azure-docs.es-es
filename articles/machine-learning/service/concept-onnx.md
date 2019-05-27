@@ -11,18 +11,18 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: f1eca5bdd81a384efe04f769ebd12be9d91fc78a
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442425"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849726"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX y Azure Machine Learning: Crear y acelerar los modelos de aprendizaje automático
 
-Obtenga información sobre cómo usar el [intercambio de red neuronal abierta](https://onnx.ai) (ONNX) puede ayudar a optimizar los modelos de aprendizaje automático.
+Obtenga información sobre cómo usar el [intercambio de red neuronal abierta](https://onnx.ai) (ONNX) puede ayudar a optimizar la inferencia de su modelo de aprendizaje automático. Inferencia o modelo de puntuación, es la fase donde se usa el modelo implementado para la predicción, con más frecuencia en los datos de producción. 
 
-Optimizar modelos de machine learning para la inferencia es difícil, ya que necesita optimizar el modelo y la biblioteca de inferencia para aprovechar al máximo las capacidades de hardware. El problema se vuelve extremadamente difícil si desea obtener un rendimiento óptimo en diferentes tipos de plataformas (en la nube o edge, CPU/GPU, etc.), puesto que cada uno tenga características y capacidades diferentes. La complejidad aumenta si tiene modelos desde una variedad de marcos de trabajo que se debe ejecutar en una variedad de plataformas. Es muy lento para optimizar las distintas combinaciones de marcos de trabajo y hardware. Se necesita una solución para entrenar una vez en su marco preferido y ejecutar en cualquier lugar en la nube o perimetral. Esto es donde entra en juego ONNX.
+Optimizar modelos de machine learning para inferencia (o modelo de puntuación) es difícil, ya que necesita optimizar el modelo y la biblioteca de inferencia para aprovechar al máximo las capacidades de hardware. El problema se vuelve extremadamente difícil si desea obtener un rendimiento óptimo en diferentes tipos de plataformas (en la nube o edge, CPU/GPU, etc.), puesto que cada uno tenga características y capacidades diferentes. La complejidad aumenta si tiene modelos desde una variedad de marcos de trabajo que se debe ejecutar en una variedad de plataformas. Es muy lento para optimizar las distintas combinaciones de marcos de trabajo y hardware. Se necesita una solución para entrenar una vez en su marco preferido y ejecutar en cualquier lugar en la nube o perimetral. Esto es donde entra en juego ONNX.
 
 Microsoft y una comunidad de asociados crean ONNX como un estándar abierto para representar modelos de aprendizaje automático. Modelos de [muchos marcos](https://onnx.ai/supported-tools) incluidos TensorFlow, PyTorch, SciKit-Learn, Keras, Chainer, MXNet y MATLAB pueden exportar o convertir al formato ONNX estándar. Una vez que los modelos tienen el formato ONNX, se puede ejecutar en una variedad de plataformas y dispositivos.
 

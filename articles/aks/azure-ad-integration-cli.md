@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: 0216a8c7d4e52e89098979223e9b792398e25038
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920179"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835187"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrar Azure Active Directory con Azure Kubernetes Service mediante la CLI de Azure
 
@@ -25,7 +25,6 @@ Para el script de ejemplo completo que se usa en este artículo, consulte [ejemp
 Se aplican las siguientes limitaciones:
 
 - Azure AD solo puede habilitarse cuando se crea un clúster habilitado para RBAC nuevo. No se puede habilitar Azure AD en un clúster AKS existente.
-- *Invitado* a los usuarios en Azure AD, tal como si usa un inicio de sesión federado desde un directorio diferente, no se admiten.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -79,7 +78,7 @@ serverApplicationSecret=$(az ad sp credential reset \
 Azure AD necesita permisos para realizar las siguientes acciones:
 
 * Leer datos de directorio
-* Iniciar sesión y leer el perfil de usuario
+* Iniciar sesión y leer el perfil del usuario
 
 Asigne estos permisos mediante la [agregar permiso de az ad app] [ az-ad-app-permission-add] comando:
 
@@ -237,8 +236,9 @@ Si ve un mensaje de error de autorización una vez registrado correctamente en u
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* El usuario haya iniciado sesión en como no es un *invitado* en la instancia de Azure AD (éste suele ser el caso si utiliza un inicio de sesión federada desde un directorio diferente).
+* Define el identificador de objeto correspondiente o UPN, dependiendo de si la cuenta de usuario está en el mismo inquilino de Azure AD o no.
 * El usuario no es miembro de más de 200 grupos.
+* El valor configurado con coincide con el definido en el registro de aplicación de servidor de secreto `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

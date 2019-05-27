@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 003aeadba1f4683af40f390d40dd3bbe32e02a83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 528d2fd5b26e06478078711405bd5b9ca51feeda
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721922"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859999"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal
 
@@ -40,30 +40,30 @@ Seleccione el nombre del clúster desde el [ **clústeres de HDInsight** ](#show
 
 **Menú superior:**  
 
-| item| DESCRIPCIÓN |
+| Elemento| DESCRIPCIÓN |
 |---|---|
-|Move|mueve el clúster a otro grupo de recursos o a otra suscripción.|
+|Mover|mueve el clúster a otro grupo de recursos o a otra suscripción.|
 |Eliminar|elimina el clúster. |
 |Actualizar|actualiza la vista.|
 
 **Menú de la izquierda:**  
   - **Menú de la parte superior izquierda**
 
-    | item| DESCRIPCIÓN |
+    | Elemento| DESCRIPCIÓN |
     |---|---|
     |Información general|proporciona información general del clúster.|
     |Registro de actividades|muestra y consulta los registros de actividad.|
     |Control de acceso (IAM)|usa asignaciones de roles.  Vea [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../role-based-access-control/role-assignments-portal.md).|
-    |Etiquetas|las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de Cloud Services. Por ejemplo, puede crear una clave denominada **proyecto**y luego usar un valor común para todos los servicios asociados a un proyecto específico.|
+    |`Tags`|las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de Cloud Services. Por ejemplo, puede crear una clave denominada **proyecto**y luego usar un valor común para todos los servicios asociados a un proyecto específico.|
     |Diagnosticar y solucionar problemas|muestra información de solución de problemas.|
     |Guía de inicio rápido|muestra información que lo ayuda a empezar a usar HDInsight.|
     |Herramientas|información de ayuda para herramientas relacionadas con HDInsight.|
 
   - **Menú Configuración**  
 
-    | item| DESCRIPCIÓN |
+    | Elemento| DESCRIPCIÓN |
     |---|---|
-    |Tamaño del clúster|comprueba, aumenta o reduce el número de nodos de trabajo del clúster. Consulte [Escalado de clústeres](hdinsight-administer-use-portal-linux.md#scale-clusters).|
+    |Tamaño de grupo|comprueba, aumenta o reduce el número de nodos de trabajo del clúster. Consulte [Escalado de clústeres](hdinsight-administer-use-portal-linux.md#scale-clusters).|
     |Límites de cuota|muestra los núcleos utilizados y disponibles de la suscripción.|
     |SSH e inicio de sesión del clúster|muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH). Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
     |Data Lake Storage Gen1|configura el acceso a Data Lake Storage Gen1.  Consulte [Quickstart: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
@@ -74,11 +74,11 @@ Seleccione el nombre del clúster desde el [ **clústeres de HDInsight** ](#show
     |Asociado de HDInsight|agrega o quita el asociado de HDInsight actual.|
     |Properties (Propiedades)|vea las [propiedades del clúster](#properties).|
     |Bloqueos|agrega bloqueos para evitar la modificación o eliminación del clúster.|
-    |Script de Automation|muestra y exporta la plantilla de Azure Resource Manager para el clúster. Actualmente, solo se puede exportar la cuenta de Azure Storage dependiente. Consulte [Creación de clústeres de Apache Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
+    |Script de automatización|muestra y exporta la plantilla de Azure Resource Manager para el clúster. Actualmente, solo se puede exportar la cuenta de Azure Storage dependiente. Consulte [Creación de clústeres de Apache Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).|
 
   - **Menú Supervisión**
 
-    | item| DESCRIPCIÓN |
+    | Elemento| DESCRIPCIÓN |
     |---|---|
     |Alertas|administra las alertas y acciones.|
     |Métricas|Supervisar las métricas de clúster en los registros de Azure Monitor.|
@@ -87,27 +87,27 @@ Seleccione el nombre del clúster desde el [ **clústeres de HDInsight** ](#show
 
   - **Menú Soporte y solución de problemas**
 
-    | item| DESCRIPCIÓN |
+    | Elemento| DESCRIPCIÓN |
     |---|---|
     |Estado de los recursos|consulte [Introducción a Azure Resource Health](../service-health/resource-health-overview.md).|
-    |Nueva solicitud de soporte|permite crear una incidencia de soporte técnico con el soporte técnico de Microsoft.|
+    |Nueva solicitud de soporte técnico|permite crear una incidencia de soporte técnico con el soporte técnico de Microsoft.|
 
 ## <a name="properties"></a> Propiedades del clúster
 
 En la [página principal del clúster](#homePage), en **Configuración**, seleccione **Propiedades**.
 
-|item | DESCRIPCIÓN |
+|Elemento | DESCRIPCIÓN |
 |---|---|
 |Nombre de host.|Nombre del clúster.|
 |Dirección URL del clúster|La dirección URL para la interfaz web de Ambari.|
 |Secure shell (SSH)|el nombre de usuario y el nombre de host que se usarán para acceder al clúster mediante SSH.|
 |Status|El valor es uno de los siguientes: Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued o ClusterCustomization.|
-|Region|ubicación de Azure. Para ver una lista de ubicaciones de Azure admitidas, consulte el cuadro de lista desplegable **Región** en [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).|
+|Área|ubicación de Azure. Para ver una lista de ubicaciones de Azure admitidas, consulte el cuadro de lista desplegable **Región** en [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).|
 |Fecha de creación|la fecha en que se implementó el clúster.|
 |Sistema operativo|**Windows** o **Linux**.|
 |Type|Hadoop, HBase, Storm o Spark.|
-|`Version`|Consulte [Versiones de HDInsight](hdinsight-component-versioning.md).|
-|Subscription|el nombre de la suscripción.|
+|Version|Consulte [Versiones de HDInsight](hdinsight-component-versioning.md).|
+|Subscription|Nombre de la suscripción.|
 |Origen de datos predeterminado|el sistema de archivos predeterminado del clúster.|
 |Tamaño de los nodos de trabajo|el tamaño de máquina virtual seleccionado de los nodos de trabajo.|
 |Tamaño del nodo principal|el tamaño de máquina virtual seleccionado de los nodos principales.|
@@ -204,7 +204,7 @@ Hay muchas maneras de programar el proceso:
 
 * Usar Azure Data Factory. Consulte [Creación de clústeres de Apache Hadoop basados en Linux en HDInsight a petición con Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) para crear servicios vinculados a HDInsight a petición.
 * Usar Azure PowerShell.  Vea [Análisis de datos de retrasos de vuelos](hdinsight-analyze-flight-delay-data-linux.md).
-* Use la CLI de Azure clásica. Consulte [Administración de clústeres de HDInsight con la CLI de Azure clásica](hdinsight-administer-use-command-line.md).
+* Uso de CLI de Azure. Consulte [administrar HDInsight de Azure de clústeres mediante la CLI de Azure](hdinsight-administer-use-command-line.md).
 * Usar .NET SDK de HDInsight. Consulte [Envío de trabajos de Apache Hadoop](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Para información sobre precios, vea [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Para eliminar un clúster desde el portal, vea [Eliminación de clústeres](#delete-clusters)
@@ -284,7 +284,7 @@ Los clústeres de HDInsight tienen los siguientes servicios web HTTP (todos esto
 * Oozie
 * Templeton
 
-De manera predeterminada, estos servicios se conceden para el acceso. Puede revocar o conceder el acceso mediante la [CLI de Azure clásica](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) y [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
+De manera predeterminada, estos servicios se conceden para el acceso. Puede revocar/conceder el acceso mediante [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## <a name="find-the-subscription-id"></a>Búsqueda del identificador de la suscripción
 Cada clúster está asociado a una suscripción de Azure.  El identificador de la suscripción de Azure es visible desde la [página principal del clúster](#homePage).
@@ -316,7 +316,7 @@ La sección **Uso** de la hoja del clúster de HDInsight muestra información so
 En este artículo ha aprendido algunas funciones administrativas básicas. Para obtener más información, consulte los artículos siguientes:
 
 * [Administración de HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md)
-* [Administración de HDInsight con la CLI de Azure clásica](hdinsight-administer-use-command-line.md)
+* [Administración de HDInsight con la CLI de Azure](hdinsight-administer-use-command-line.md)
 * [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Lea más sobre el uso de la interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Detalles sobre el uso de la API REST de Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)

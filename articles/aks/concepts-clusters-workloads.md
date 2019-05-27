@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230154"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850529"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceptos básicos de Kubernetes de Azure Kubernetes Service (AKS)
 
@@ -70,9 +70,9 @@ Para ejecutar las aplicaciones y los servicios de soporte técnico, necesitará 
 
 El tamaño de la máquina virtual de Azure para los nodos define el número de CPU, la cantidad de memoria y el tamaño y tipo de almacenamiento disponible (por ejemplo, SSD de alto rendimiento o HDD normal). Si prevé que las aplicaciones requerirán gran cantidad de CPU y memoria o almacenamiento de alto rendimiento, planifique el tamaño del nodo en consecuencia. También puede escalar verticalmente el número de nodos del clúster de AKS para satisfacer la demanda.
 
-En AKS, la imagen de la máquina virtual para los nodos del clúster se basa en Ubuntu Linux actualmente. Al crear un clúster de AKS o escalar verticalmente el número de nodos, la plataforma Azure crea el número solicitado de máquinas virtuales y las configura. No hay ninguna configuración manual para poder realizar.
+En AKS, la imagen de máquina virtual para los nodos del clúster actualmente se basa en Ubuntu Linux o Windows Server 2019. Al crear un clúster de AKS o escalar verticalmente el número de nodos, la plataforma Azure crea el número solicitado de máquinas virtuales y las configura. No hay ninguna configuración manual para poder realizar.
 
-Si tiene que utilizar un sistema operativo de host diferente, otro entorno de ejecución del contenedor o incluir paquetes personalizados, puede implementar su propio clúster de Kubernetes mediante [aks-engine][aks-engine]. El componente `aks-engine` ascendente incluye y ofrece opciones de configuración antes de que se admitan oficialmente en los clústeres de AKS. Por ejemplo, si desea usar contenedores de Windows o un contenedor en tiempo de ejecución que no sean Moby, puede usar `aks-engine` para configurar e implementar un clúster de Kubernetes que satisfaga sus necesidades actuales.
+Si tiene que utilizar un sistema operativo de host diferente, otro entorno de ejecución del contenedor o incluir paquetes personalizados, puede implementar su propio clúster de Kubernetes mediante [aks-engine][aks-engine]. El componente `aks-engine` ascendente incluye y ofrece opciones de configuración antes de que se admitan oficialmente en los clústeres de AKS. Por ejemplo, si desea usar un contenedor en tiempo de ejecución que no sean Moby, puede usar `aks-engine` para configurar e implementar un clúster de Kubernetes que satisfaga sus necesidades actuales.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
@@ -104,6 +104,27 @@ Los nodos de la misma configuración se agrupan en *grupos de nodos*. Un clúste
 Al escalar o actualizar un clúster de AKS, la acción se realiza en el grupo de nodos predeterminado. También puede escalar o actualizar un grupo de nodos específicos. Para las operaciones de actualización, los contenedores en ejecución se programan en otros nodos del grupo de nodos hasta que todos los nodos se actualizan correctamente.
 
 Para obtener más información sobre cómo usar varios grupos de nodos de AKS, consulte [crear y administrar varios grupos de nodos para un clúster de AKS][use-multiple-node-pools].
+
+### <a name="node-selectors"></a>Selectores de nodo
+
+En un clúster AKS que contiene varios grupos de nodos, es posible que necesite indicar que el programador de Kubernetes a qué grupo de nodos que se usará para un recurso determinado. Por ejemplo, controladores de entrada no deben ejecutar en nodos de Windows Server (actualmente en versión preliminar de AKS). Los selectores de nodo le permiten definir varios parámetros, por ejemplo, el nodo del sistema operativo, para controlar dónde se debe programar un pod.
+
+El siguiente ejemplo básico programa una instancia NGINX en un nodo de Linux mediante el selector de nodo *"beta.kubernetes.io/os": linux*:
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx:1.15.12
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
+```
+
+Para obtener más información sobre cómo controlar dónde se programan pods, consulte [procedimientos recomendados para las características avanzadas de programador en AKS][operator-best-practices-advanced-scheduler].
 
 ## <a name="pods"></a>Pods
 
@@ -248,3 +269,4 @@ En este artículo se tratan algunos de los componentes básicos de Kubernetes y 
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
