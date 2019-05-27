@@ -4,15 +4,15 @@ description: En este artículo se explica cómo entender la factura de Azure Cos
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115544"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965651"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
@@ -98,7 +98,7 @@ Supongamos que tiene un contenedor de Azure Cosmos en Oeste de EE. UU. El conten
 |---------|---------|---------|-------|
 |Factura de rendimiento por el contenedor en Oeste de EE. UU.      | 10 000  RU/s * 24 * 30    |0,008 USD por 100 RU/s por hora   |576 USD|
 |Factura de rendimiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental       | 3 * 10 000 RU/s * 24 * 30    |0,008 USD por 100 RU/s por hora  |1728 USD|
-|Factura de almacenamiento por el contenedor en Oeste de EE. UU.      | 250 GB    |0,25 USD/GB  |62,50 USD|
+|Factura de almacenamiento por el contenedor en Oeste de EE. UU.      | 250 GB    |0,25 USD/GB  |62,50 USD|
 |Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental      | 3 * 250 GB    |0,25 USD/GB  |187,50 USD|
 |**Total**     |     |  |**2554 USD**|
 
@@ -112,7 +112,7 @@ Supongamos que crea un contenedor de Azure Cosmos en Oeste de EE. UU. El contene
 |---------|---------|---------|-------|
 |Factura de rendimiento para un contenedor en Oeste de EE. UU. (se puede escribir en todas las regiones)       | 10 000  RU/s * 24 * 30    |0,016 USD por 100 RU/s por hora    |1152 USD |
 |Factura de rendimiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental (se puede escribir en todas las regiones)        | (3 + 1) * 10 000 RU/s * 24 * 30    |0,016 USD por 100 RU/s por hora   |4608 USD |
-|Factura de almacenamiento por el contenedor en Oeste de EE. UU.      | 250 GB    |0,25 USD/GB  |62,50 USD|
+|Factura de almacenamiento por el contenedor en Oeste de EE. UU.      | 250 GB    |0,25 USD/GB  |62,50 USD|
 |Factura de almacenamiento para 3 regiones adicionales: Este de EE. UU., Europa del Norte y Asia Oriental      | 3 * 250 GB    |0,25 USD/GB  |187,50 USD|
 |**Total**     |     |  |**6010 USD**|
 

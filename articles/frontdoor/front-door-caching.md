@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fb00c09680c6a80bc093c6f02ccd8d7269b8748c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306145"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962916"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Almacenamiento en caché con Azure Front Door Service
 En el documento siguiente se especifica el comportamiento de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché.
@@ -101,7 +101,7 @@ La purga de la memoria caché en Front Door distingue mayúsculas de minúsculas
 ## <a name="cache-expiration"></a>Expiración de la caché
 El siguiente orden de encabezados se usa para determinar cuánto tiempo se almacenará un elemento en la memoria caché:</br>
 1. Cache-Control: s-maxage =\<segundos >
-2. Cache-Control: maxage=\<seconds>
+2. Cache-Control: max-age=\<seconds>
 3. Expira: \<http-date >
 
 Los encabezados de respuesta Cache-Control que indican que la respuesta no se almacena en caché como Cache-Control: private, Cache-Control: no-cache y Cache-Control: no-store se respetan. Sin embargo, si hay varias solicitudes en lucha en un servidor POP por la misma dirección URL, es posible que compartan la respuesta. Si ningún Control de caché está presente el comportamiento predeterminado es que AFD almacenará en caché el recurso para X cantidad de tiempo donde X se elige aleatoriamente entre 1 y 3 días.

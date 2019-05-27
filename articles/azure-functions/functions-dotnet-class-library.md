@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107105"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872798"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Azure Functions
 
@@ -29,16 +29,16 @@ Azure Functions es compatible con C# y con los lenguajes de programación de scr
 En este artículo se supone que ya ha leído los siguientes artículos:
 
 * [Guía para desarrolladores de Azure Functions](functions-reference.md)
-* [Herramientas de Visual Studio 2017 de Azure Functions](functions-develop-vs.md)
+* [Herramientas de Visual Studio 2019 de Azure Functions](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Proyecto de biblioteca de clases de Functions
 
 En Visual Studio, la plantilla de proyecto de **Azure Functions** crea un proyecto de biblioteca de clases de C# que contiene los archivos siguientes:
 
 * [host.json](functions-host-json.md): almacena los valores de configuración que afectan a todas las funciones del proyecto cuando se ejecuta localmente o en Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file): almacena la configuración de la aplicación y las cadenas de conexión que se utilizan cuando se ejecuta localmente. Este archivo contiene información confidencial que no se publicará en la aplicación de función de Azure. En su lugar, debe [agregar opciones de configuración de la aplicación a la aplicación de función](functions-develop-vs.md#function-app-settings).
+* [local.settings.json](functions-run-local.md#local-settings-file): almacena la configuración de la aplicación y las cadenas de conexión que se utilizan cuando se ejecuta localmente. Este archivo contiene información confidencial que no se publicará en la aplicación de función de Azure. En su lugar, [Agregar configuración de la aplicación a la aplicación de función](functions-develop-vs.md#function-app-settings).
 
-Al compilar el proyecto, se genera una estructura de carpetas que se parece a la siguiente en el directorio de salida de la compilación:
+Al compilar el proyecto, una estructura de carpetas que se parezca al ejemplo siguiente se genera en el directorio de salida de compilación:
 
 ```
 <framework.version>
@@ -50,7 +50,7 @@ Al compilar el proyecto, se genera una estructura de carpetas que se parece a la
  | - host.json
 ```
 
-Este directorio es lo que se implementa en la aplicación de función en Azure. Las extensiones de enlace necesarias en la [versión 2.x](functions-versions.md) del sistema en tiempo de ejecución de Functions se [agregan al proyecto como paquetes de NuGet](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
+Este directorio es lo que se implementa en la aplicación de función en Azure. Las extensiones de enlace necesarias en la [versión 2.x](functions-versions.md) del sistema en tiempo de ejecución de Functions se [agregan al proyecto como paquetes de NuGet](./functions-bindings-register.md#c-class-library-with-visual-studio-2019).
 
 > [!IMPORTANT]
 > El proceso de compilación crea un archivo *function.json* para cada función. Este archivo no está pensado para que se pueda modificar directamente. No se puede cambiar la configuración del enlace ni deshabilitar la función mediante la edición de este archivo. Para obtener información sobre cómo deshabilitar una función, consulte [How to disable functions (Cómo deshabilitar funciones)](disable-function.md#functions-2x---c-class-libraries).
@@ -72,7 +72,7 @@ public static class SimpleExample
 } 
 ```
 
-El atributo `FunctionName` marca el método como punto de entrada de una función. El nombre debe ser único dentro de un proyecto, debe empezar por una letra y solo puede incluir letras, números, `_` y `-`, y hasta 127 caracteres. Las plantillas de proyecto suelen crear un método denominado `Run`, pero el nombre de método puede ser cualquier nombre de método de C# válido.
+El atributo `FunctionName` marca el método como punto de entrada de una función. El nombre debe ser único dentro de un proyecto, empezar por una letra y contener solo letras, números, `_`, y `-`, hasta 127 caracteres de longitud. Las plantillas de proyecto suelen crear un método denominado `Run`, pero el nombre de método puede ser cualquier nombre de método de C# válido.
 
 El atributo desencadenador especifica el tipo de desencadenador y enlaza los datos de entrada a un parámetro del método. La función de ejemplo se desencadena mediante un mensaje de cola, y este último se pasa al método en el `myQueueItem` parámetro.
 
@@ -133,7 +133,7 @@ El proceso de compilación crea un archivo *function.json* en una carpeta de la 
 
 El propósito de este archivo es proporcionar información al controlador de escala que se usará para [escalar decisiones en el plan de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work). Por esta razón, el archivo solo tiene información del desencadenador, no sobre los enlaces de entrada o salida.
 
-El archivo *function.json* generado incluye una propiedad `configurationSource` que indica el tiempo de ejecución para utilizar atributos de .NET para los enlaces, en lugar de la configuración de *function.json*. Este es un ejemplo:
+El archivo *function.json* generado incluye una propiedad `configurationSource` que indica el tiempo de ejecución para utilizar atributos de .NET para los enlaces, en lugar de la configuración de *function.json*. Por ejemplo:
 
 ```json
 {
@@ -181,7 +181,7 @@ Se usa el mismo paquete para las versiones 1.x y 2.x de Functions Runtime. La pl
 </ItemGroup>
 ```
 
-Entre las dependencias del paquete `Sdk` se encuentran los desencadenadores y los enlaces. Un proyecto 1.x hace referencia a los enlaces y desencadenadores 1.x porque tienen como destino .NET Framework, mientras que los enlaces y desencadenadores 2.x tienen como destino .NET Core.
+Entre las dependencias del paquete `Sdk` se encuentran los desencadenadores y los enlaces. Un proyecto 1.x hace referencia a los enlaces y desencadenadores 1.x porque esos enlaces y desencadenadores de destinan es .NET Framework, mientras que los enlaces y desencadenadores 2.x tienen como destino .NET Core.
 
 El `Sdk` paquete también depende de [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) e, indirectamente, de [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Estas dependencias garantizan que el proyecto utiliza las versiones de los paquetes que funcionan con la versión de Functions Runtime que el proyecto tiene como destino. Por ejemplo, `Newtonsoft.Json` tiene la versión 11 para .NET Framework 4.6.1, pero la instancia de Functions Runtime que tiene como destino .NET Framework 4.6.1 solo es compatible con `Newtonsoft.Json` 9.0.1. Por tanto, el código de función de ese proyecto también tiene que usar `Newtonsoft.Json` 9.0.1.
 
@@ -373,7 +373,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Ejemplo de varios atributos
 
-En el ejemplo anterior se obtiene el valor de la aplicación para la cadena de conexión en la cuenta de almacenamiento principal de la aplicación de función (que es `AzureWebJobsStorage`). Se puede especificar una configuración personalizada de la aplicación para utilizarla para la cuenta de almacenamiento agregando el atributo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) y pasando la matriz de atributos a `BindAsync<T>()`. Use un parámetro `Binder`, no `IBinder`.  Por ejemplo: 
+En el ejemplo anterior se obtiene el valor de la aplicación para la cadena de conexión en la cuenta de almacenamiento principal de la aplicación de función (que es `AzureWebJobsStorage`). Se puede especificar una configuración personalizada de la aplicación para utilizarla para la cuenta de almacenamiento agregando el atributo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) y pasando la matriz de atributos a `BindAsync<T>()`. Use un parámetro `Binder`, no `IBinder`.  Por ejemplo:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

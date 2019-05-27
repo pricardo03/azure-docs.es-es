@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137875"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955956"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -46,7 +46,7 @@ Para poder habilitar varias espacios de implementación, la aplicación debe eje
 
 2. En el panel de navegación izquierdo, elija la opción **Espacios de implementación (versión preliminar)** y haga clic en **Agregar espacio**.
    
-    ![Agregar una nueva ranura de implementación](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
+    ![Agregar un nueva ranura de implementación](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
    > Si la aplicación no está aún en los niveles **Estándar**, **Premium** o **Aislado**, recibirá un mensaje que indica los niveles compatibles para habilitar la publicación almacenada provisionalmente. Llegados a este punto, tiene la opción de seleccionar **Actualizar** e ir a la pestaña **Escala** de la aplicación antes de continuar.
@@ -99,7 +99,7 @@ Las características que se marcan con un * se prevé que se realizan rápidas e
 * Configuración de escala
 * Programadores de WebJobs
 * Restricciones de IP
-* Always On
+* Siempre activado
 * Configuración del protocolo (HTTP**S**, versión de TLS, certificados de cliente)
 * Configuración del registro de diagnóstico
 * CORS
@@ -217,7 +217,7 @@ Al usar [Intercambio automático](#Auto-Swap), algunas aplicaciones pueden reque
 
 Para obtener más información acerca de cómo personalizar el `applicationInitialization` elemento, vea [errores de intercambio de ranura de implementación más comunes y cómo corregirlos](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
-También puede personalizar el comportamiento de la preparación con una o más de las siguientes [opciones de configuración de la aplicación](web-sites-configure.md):
+También puede personalizar el comportamiento de la preparación con una o más de las siguientes [opciones de configuración de la aplicación](configure-common.md):
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: la ruta de acceso para hacer ping y así preparar el sitio. Agregue esta configuración de aplicación especificando una ruta de acceso personalizada que comience con una barra diagonal como valor. Por ejemplo, `/statuscheck`. El valor predeterminado es `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: códigos de respuesta HTTP válidos para la operación de preparación. Agregue esta configuración de aplicación con una lista de códigos HTTP separados por comas. Por ejemplo: `200,202`. Si el código de estado devuelto no está en la lista, las operaciones de preparación e intercambio se detienen. Por defecto, todos los códigos de respuesta son válidos.
@@ -289,7 +289,7 @@ Azure PowerShell es un módulo que proporciona cmdlets para administrar Azure me
 Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).  
 
 - - -
-### <a name="create-web-app"></a>Crear una aplicación web
+### <a name="create-web-app"></a>Crear aplicación web
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
