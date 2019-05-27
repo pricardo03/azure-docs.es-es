@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167259"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Protección de las llamadas a las API personalizadas desde Azure Logic Apps
 
@@ -193,11 +193,11 @@ Abra la definición de aplicación lógica en la vista de código, vaya a la sec
 | tenant | Sí | El GUID para el inquilino de Azure AD | 
 | audience | Sí | El GUID para el recurso de destino al que desea acceder, que es el identificador de cliente de la identidad de aplicación para su aplicación web o de API | 
 | clientId | Sí | El GUID para el cliente que solicita acceso, que es el identificador de cliente de la identidad de aplicación para la aplicación lógica | 
-| secret | Sí | La clave o contraseña de la identidad de aplicación para el cliente que solicita el token de acceso | 
+| clave | Sí | La clave o contraseña de la identidad de aplicación para el cliente que solicita el token de acceso | 
 | Tipo | Sí | El tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`. | 
 |||| 
 
-Por ejemplo: 
+Por ejemplo:
 
 ``` json
 {
@@ -226,7 +226,7 @@ Por ejemplo:
 
 <a name="certificate"></a>
 
-#### <a name="certificate-authentication"></a>Autenticación de certificados
+#### <a name="certificate-authentication"></a>Autenticación de certificado
 
 Para validar las solicitudes entrantes desde la aplicación lógica hacia la aplicación web o de API, puede usar certificados de cliente. Para configurar su código, aprenda a [configurar la autenticación mutua de TLS](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
@@ -249,12 +249,12 @@ Para validar solicitudes entrantes desde la aplicación lógica hacia la aplicac
 
 En la sección **Authorization**, incluya esta línea:
 
-`{"type": "basic", "username": "username", "password": "password"}`.
+`{"type": "basic", "username": "username", "password": "password"}` 
 
 | Elemento | Obligatorio | DESCRIPCIÓN | 
 | ------- | -------- | ----------- | 
 | Tipo | Sí | El tipo de autenticación que desea utilizar. Para la autenticación básica, el valor debe ser `Basic`. | 
-| nombre de usuario | Sí | El nombre de usuario que quiere usar en la autenticación | 
+| username | Sí | El nombre de usuario que quiere usar en la autenticación | 
 | contraseña | Sí | La contraseña que quiere usar en la autenticación | 
 |||| 
 

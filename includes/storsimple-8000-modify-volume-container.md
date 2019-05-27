@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60724788"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156106"
 ---
 > [!NOTE] 
 > No se puede modificar la configuración de cifrado ni las credenciales de la cuenta de almacenamiento asociadas a un contenedor de volúmenes después de crearlo.

@@ -8,11 +8,11 @@ ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904872"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66148761"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registro de diagnóstico de Azure Cosmos DB 
 
@@ -266,7 +266,7 @@ Los valores de fecha y hora usan UTC.
 
 Puesto que la misma cuenta de almacenamiento puede usarse para recopilar registros de varios recursos, puede usar el identificador de recurso completo en el nombre del blob para acceder o descargar solo los blobs específicos que necesita. Antes de hacerlo, primero vamos a explicar cómo descargar todos los blobs.
 
-En primer lugar, cree una carpeta para descargar los blobs. Por ejemplo: 
+En primer lugar, cree una carpeta para descargar los blobs. Por ejemplo:
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -288,7 +288,7 @@ $blobs | Get-AzStorageBlobContent `
 
 Al ejecutar este segundo comando, el delimitador **/** de los nombres de los blobs crea una estructura de carpeta completa en la carpeta de destino. Esta estructura de carpetas se usa para descargar y almacenar los blobs como archivos.
 
-Para descargar blobs de forma selectiva, utilice caracteres comodín. Por ejemplo: 
+Para descargar blobs de forma selectiva, utilice caracteres comodín. Por ejemplo:
 
 * Si tiene varias bases de datos y desea descargar los registros solo para una base de datos, denominada **CONTOSOCOSMOSDB3**, utilice el comando:
 

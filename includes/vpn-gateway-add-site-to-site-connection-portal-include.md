@@ -9,11 +9,11 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 19ad4e39ca4e402c37b2cfa69c7c306b6e5a2766
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407791"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170084"
 ---
 1. Vaya a la página de la puerta de enlace de la red virtual y ábrala. Hay varias formas de navegar. Puede ir hasta la puerta de enlace "VNet1GW" yendo a **TestVNet1 -> Introducción -> Dispositivos conectados -> VNet1GW**.
 2. En la página de VNet1GW, haga clic en **Conexiones**. En la parte superior de la página Conexiones, haga clic en **+Agregar** para abrir la página **Agregar conexión**.

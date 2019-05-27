@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 25cf9c3b7968be16dcc22f4140725efc22d785f2
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528414"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156530"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referencia de scripting JSON
 > [!NOTE]
@@ -592,7 +592,7 @@ Para definir un servicio vinculado de Azure Data Lake Store, establezca el tipo 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **AzureDataLakeStore** | Sí |
+| type | La propiedad type debe establecerse en: **AzureDataLakeStore** | Sí |
 | dataLakeStoreUri | Especifica información sobre la cuenta de Almacén de Azure Data Lake. Tiene el siguiente formato: `https://[accountname].azuredatalakestore.net/webhdfs/v1` o `adl://[accountname].azuredatalakestore.net/`. | Sí |
 | subscriptionId | Identificador de suscripción de Azure al que pertenece Data Lake Store. | Necesario para el receptor |
 | resourceGroupName | Nombre del grupo de recursos de Azure al que pertenece Data Lake Store. | Necesario para el receptor |
@@ -1400,7 +1400,7 @@ Para vincular la cuenta de Azure Storage a una instancia de Data Factory mediant
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo |La propiedad type debe establecerse en: **AzureStorage** |Sí |
+| type |La propiedad type debe establecerse en: **AzureStorage** |Sí |
 | connectionString |Especifique la información necesaria para conectarse a Almacenamiento de Azure para la propiedad connectionString. |Sí |
 
 **Ejemplo:**
@@ -1422,7 +1422,7 @@ El servicio vinculado de SAS de Azure Storage le permite vincular una cuenta de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo |La propiedad type debe establecerse en: **AzureStorageSas** |Sí |
+| type |La propiedad type debe establecerse en: **AzureStorageSas** |Sí |
 | sasUri |Especifique el URI de Firma de acceso compartido a los recursos de Azure Storage como blob, contenedor o tabla. |Sí |
 
 **Ejemplo:**
@@ -1707,7 +1707,7 @@ Para definir un servicio vinculado de IBM DB2, establezca el **tipo** de servici
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | server |Nombre del servidor DB2. |Sí |
-| Base de datos |Nombre de la base de datos DB2. |Sí |
+| database |Nombre de la base de datos DB2. |Sí |
 | schema |Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |Sin  |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos DB2. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
 | nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
@@ -2236,7 +2236,7 @@ Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | string
 systemNumber | Número del sistema de SAP BW. | Número decimal de dos dígitos que se representa en forma de cadena. | Sí
 clientId | Identificador del cliente en el sistema SAP W. | Número decimal de tres dígitos que se representa en forma de cadena. | Sí
 nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
-contraseña | Contraseña del usuario. | string | Sí
+password | Contraseña del usuario. | string | Sí
 gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP BW local. | string | Sí
 encryptedCredential | La cadena de credenciales cifrada. | string | Sin 
 
@@ -2345,7 +2345,7 @@ Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 Servidor | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | string | Sí
 authenticationType | Tipo de autenticación. | cadena. "Basic" o "Windows" | Sí
 nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
-contraseña | Contraseña del usuario. | string | Sí
+password | Contraseña del usuario. | string | Sí
 gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP HANA local. | string | Sí
 encryptedCredential | La cadena de credenciales cifrada. | string | Sin 
 
@@ -2672,7 +2672,7 @@ Para definir un servicio vinculado de Sybase, establezca el **tipo** de servicio
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | Servidor |Nombre del servidor de Sybase. |Sí |
-| Base de datos |Nombre de la base de datos Sybase. |Sí |
+| database |Nombre de la base de datos Sybase. |Sí |
 | schema |Nombre del esquema de la base de datos. |Sin  |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos Sybase. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
 | nombre de usuario |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
@@ -2906,10 +2906,10 @@ Para definir un servicio vinculado de Cassandra, establezca el **tipo** de servi
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | host |Una o varias direcciones IP o nombres de host de los servidores de Cassandra.<br/><br/>Especifica una lista de direcciones IP o nombres de host separada por comas para conectar con todos los servidores a la vez. |Sí |
-| puerto |Puerto TCP que el servidor de Cassandra utiliza para escuchar las conexiones del cliente. |No, el valor predeterminado es: 9042 |
+| port |Puerto TCP que el servidor de Cassandra utiliza para escuchar las conexiones del cliente. |No, el valor predeterminado es: 9042 |
 | authenticationType |Básica o anónima |Sí |
-| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
-| contraseña |Especifique la contraseña para la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
+| username |Especifique el nombre de usuario de la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
+| password |Especifique la contraseña para la cuenta de usuario. |Sí, si el valor de authenticationType es Basic. |
 | gatewayName |Nombre de la puerta de enlace que se va a utilizar en la conexión con la base de datos de Cassandra local. |Sí |
 | encryptedCredential |Credencial cifrada por la puerta de enlace. |Sin  |
 
@@ -3033,10 +3033,10 @@ Para definir un servicio vinculado de MongoDB, establezca el **tipo** de servici
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | Servidor |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
-| puerto |Puerto TCP que el servidor de MongoDB utiliza para escuchar las conexiones del cliente. |Valor predeterminado opcional: 27017 |
+| port |Puerto TCP que el servidor de MongoDB utiliza para escuchar las conexiones del cliente. |Valor predeterminado opcional: 27017 |
 | authenticationType |Básica o anónima. |Sí |
-| nombre de usuario |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
-| contraseña |Contraseña del usuario. |Sí (si se usa la autenticación básica). |
+| username |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
+| password |Contraseña del usuario. |Sí (si se usa la autenticación básica). |
 | authSource |Nombre de la base de datos de MongoDB que desea usar para comprobar las credenciales de autenticación. |Opcional (si se usa la autenticación básica). Valor predeterminado: se utiliza la cuenta de administrador y la base de datos especificada mediante la propiedad databaseName. |
 | databaseName |Nombre de la base de datos de MongoDB a la que desea acceder. |Sí |
 | gatewayName |Nombre de la puerta de enlace que accede al almacén de datos. |Sí |
@@ -3730,11 +3730,11 @@ Para definir un servicio vinculado de HDFS, establezca el **tipo** de servicio v
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |La propiedad type debe establecerse en: **Hdfs** |Sí |
+| type |La propiedad type debe establecerse en: **Hdfs** |Sí |
 | URL |Dirección URL a HDFS |Sí |
 | authenticationType |Anónima o Windows. <br><br> Para usar la **autenticación Kerberos** para el conector HDFS, consulte esta sección a fin de configurar el entorno local en consecuencia. |Sí |
 | userName |Nombre de usuario para la autenticación de Windows |Sí (para la autenticación de Windows) |
-| contraseña |Contraseña para la autenticación de Windows |Sí (para la autenticación de Windows) |
+| password |Contraseña para la autenticación de Windows |Sí (para la autenticación de Windows) |
 | gatewayName |Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse a HDFS. |Sí |
 | encryptedCredential |[Nuevo AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) salida de la credencial de acceso. |Sin  |
 
@@ -3867,7 +3867,7 @@ Para definir un servicio vinculado de SFTP, establezca el **tipo** de servicio v
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | host | Nombre o dirección IP del servidor SFTP. |Sí |
-| puerto |Puerto en el que escucha el servidor SFTP. El valor predeterminado es: 21 |Sin  |
+| port |Puerto en el que escucha el servidor SFTP. El valor predeterminado es: 21 |Sin  |
 | authenticationType |Especifique el tipo de autenticación. Valores permitidos: **Basic**, **SshPublicKey**. <br><br> Consulte las secciones Uso de autenticación básica y [Uso de autenticación de clave pública SSH](#using-ssh-public-key-authentication) sobre más propiedades y ejemplos JSON respectivamente. |Sí |
 | skipHostKeyValidation | Especifique si desea omitir la validación de claves de host. |  No. El valor predeterminado es false. |
 | hostKeyFingerprint | Especifique la huella dactilar de la clave de host. | Sí, si `skipHostKeyValidation` está establecido en false.  |
@@ -4351,7 +4351,7 @@ Para definir un conjunto de datos de OData , establezca el **tipo** de conjunto 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| path |Ruta de acceso al recurso de OData |Sin  |
+| path |Ruta de acceso al recurso de OData |No |
 
 #### <a name="example"></a>Ejemplo
 
@@ -4596,8 +4596,8 @@ Para definir un servicio vinculado de Salesforce, establezca el **tipo** de serv
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | environmentUrl | Especifique la URL de la instancia de Salesforce. <br><br> -Valor predeterminado es "https:\//login.salesforce.com". <br> - Para copiar datos desde el espacio aislado, especifique "https://test.salesforce.com". <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, "https://[dominio].my.salesforce.com". |Sin  |
-| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
-| contraseña |Especifique la contraseña para la cuenta de usuario. |Sí |
+| username |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
+| password |Especifique la contraseña para la cuenta de usuario. |Sí |
 | securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API). |Sí |
 
 #### <a name="example"></a>Ejemplo

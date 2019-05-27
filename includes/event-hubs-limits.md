@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 9d6b54027adcf2b12c6ca4081a11208a31f620e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 38f7dd6eb1c4965eca003e5ba337ec5912a53420
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61464834"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148232"
 ---
 En la tabla siguiente se enumeran las cuotas y los límites específicos de [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Para más información sobre los precios de Event Hubs, consulte los [precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-| Límite | Ámbito | Notas | Valor |
+| Límite | Scope | Notas | Valor |
 | --- | --- | --- | --- |
 | Número de espacios de nombres de Event Hubs por suscripción |Subscription |- |100 |
 | Número de centros de eventos por espacio de nombres |Espacio de nombres |Se rechazan las posteriores solicitudes de creación de un centro de eventos. |10 |
@@ -30,3 +30,4 @@ En la tabla siguiente se enumeran las cuotas y los límites específicos de [Azu
 | Período de retención máximo de datos de eventos |Entidad |- |1-7 días |
 | Unidades de rendimiento máximo |Espacio de nombres |Si se supera el límite de unidad de rendimiento, los datos se limitan y genera un [excepción de servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar un mayor número de unidades de rendimiento para el nivel estándar, archivo un [solicitud de soporte técnico](/azure/azure-supportability/how-to-create-azure-support-request). Las [unidades de rendimiento adicionales](../articles/event-hubs/event-hubs-auto-inflate.md) se encuentran disponibles en bloques de 20 y están sujetas a un compromiso de compra. |20 |
 | Número de reglas de autorización por espacio de nombres |Espacio de nombres|Se rechazan las posteriores solicitudes de creación de reglas de autorización.|12 |
+| Número de llamadas a GetRuntimeInformation (método) | Entidad | - | 50 por segundo | 

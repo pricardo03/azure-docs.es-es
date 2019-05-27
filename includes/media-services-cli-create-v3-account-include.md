@@ -5,15 +5,15 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 02/21/2019
+ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 79af6512e9ce3d3f897be216ee3626c5d4fbcf1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feec6a695ad867d26d32904d020648b029f9da35
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733900"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155750"
 ---
 ## <a name="create-a-media-services-account"></a>Creación de una cuenta de Media Services
 
@@ -22,6 +22,8 @@ Primero debe crear una cuenta de Media Services. En esta sección se muestra lo 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
 Cree un grupo de recursos con el siguiente comando. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran recursos como las cuentas de Azure Media Services y las cuentas de almacenamiento asociadas.
+
+Puede sustituir `amsResourceGroup` con su valor.
 
 ```azurecli
 az group create --name amsResourceGroup --location westus2
@@ -35,7 +37,7 @@ Debe tener una cuenta de almacenamiento **Principal** y puede tener cualquier n�
 
 En este ejemplo, se va a crear una cuenta LRS estándar de uso general v2. Si quiere experimentar con las cuentas de almacenamiento, use `--sku Standard_LRS`. Sin embargo, al seleccionar una SKU de producción debe considerar `--sku Standard_RAGRS`, que proporciona replicación geográfica para la continuidad empresarial. Para más información, consulte los comandos [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
-El siguiente comando crea una cuenta de almacenamiento que se asociará a la cuenta de Media Services. En el siguiente script, puede sustituir `storageaccountforams` por su valor. El nombre de la cuenta debe tener una longitud inferior a 24.
+El siguiente comando crea una cuenta de almacenamiento que se asociará a la cuenta de Media Services. En el siguiente script, puede sustituir `storageaccountforams` por su valor. `amsResourceGroup` debe coincidir con el valor que asignó para el grupo de recursos en el paso anterior. El nombre de cuenta de almacenamiento debe tener la longitud inferior a 24.
 
 ```azurecli
 az storage account create --name storageaccountforams \  

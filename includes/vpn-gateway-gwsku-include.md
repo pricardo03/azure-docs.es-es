@@ -9,11 +9,11 @@ ms.date: 03/20/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305342"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159324"
 ---
 Al crear una puerta de enlace de red virtual, debe especificar la SKU de la puerta de enlace que desea usar. Seleccione las SKU que cumplan sus requisitos en función de los tipos de cargas de trabajo, rendimientos, características y Acuerdos de Nivel de Servicio. Para la puerta de enlace de red virtual SKU en las zonas de disponibilidad de Azure, consulte [SKU de puerta de enlace de Azure disponibilidad zonas](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 

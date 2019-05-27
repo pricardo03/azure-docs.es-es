@@ -7,14 +7,14 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 6e1ac5dfd1972e406a1bd8dcd26e6aef2c4ea6d1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6ffce339fe7b1a434c8f007b417ee81a42529dfc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919864"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142466"
 ---
-# <a name="refresh-with-logic-apps"></a>Actualizar con Logic Apps
+# <a name="refresh-with-logic-apps"></a>Actualización con Logic Apps
 
 Mediante el uso de Logic Apps y llamadas de REST, puede realizar operaciones de actualización de datos automatizada en los modelos tabulares de análisis de Azure, incluida la sincronización de réplicas de solo lectura para el escalado horizontal de la consulta.
 
@@ -66,14 +66,14 @@ Configurar la actividad HTTP como sigue:
 |Propiedad  |Valor  |
 |---------|---------|
 |**Método**     |POST         |
-|**URI**     | https://*su región de servidor*/Servers /*nombre del servidor aas*/models/*su nombre de la base de datos*/ <br /> <br /> Por ejemplo: https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
-|**Encabezados**     |   Content-Type, application/json <br /> <br />  ![encabezados](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**URI**     | https://*su región de servidor*/Servers /*nombre del servidor aas*/models/*su nombre de la base de datos*/ <br /> <br /> Por ejemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/|
+|**Encabezados**     |   Content-Type, application/json <br /> <br />  ![Encabezados](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Cuerpo**     |   Para obtener más información acerca de que forman el cuerpo de solicitud, vea [asincrónico de actualización con la API de REST, / refreshes POST](analysis-services-async-refresh.md#post-refreshes). |
 |**Autenticación**     |Active Directory OAuth         |
 |**Tenant**     |Rellene el valor de TenantId de Azure Active Directory         |
 |**Audiencia**     |https://*.asazure.windows.net         |
 |**Id. de cliente**     |Especifique el ClientID de nombre de entidad de servicio         |
-|**Tipo de credencial**     |Secret         |
+|**Tipo de credencial**     |`Secret`         |
 |**Secreto**     |Escriba el secreto del nombre de entidad de servicio         |
 
 Ejemplo:

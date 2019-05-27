@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419227"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147489"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montaje de un volumen de disco confiable de Service Fabric en una aplicación de Service Fabric Mesh 
 El método habitual para conservar el estado con aplicaciones de contenedor es usar un almacenamiento remoto como Azure File Storage o una base de datos como Azure Cosmos DB. Esto supone una importante latencia de red de lectura y escritura en el almacenamiento remoto.
@@ -36,7 +36,7 @@ En este ejemplo, la aplicación Counter tiene un servicio de ASP.NET Core con un
 
 Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para completar esta tarea. Para usar la CLI de Azure con este artículo, asegúrese de que `az --version` devuelve al menos `azure-cli (2.0.43)`.  Instale (o actualice) el módulo de extensión de la CLI de Azure Service Fabric Mesh siguiendo estas [instrucciones](service-fabric-mesh-howto-setup-cli.md).
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
 
 Inicie sesión en Azure y configure la suscripción.
 
@@ -73,7 +73,7 @@ Tenga en cuenta el nombre del recurso de puerta de enlace que tiene un tipo de r
 
 Una vez que la aplicación se implementa correctamente, puede obtener la dirección IP del recurso de puerta de enlace para la aplicación. Use el nombre de la puerta de enlace que haya observado en sección anterior.
 ```azurecli-interactive
-az mesh gateway show --resource-group myResourceGroup --gateway-name counterGateway
+az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
 La salida debe tener una propiedad `ipAddress` que es la dirección IP pública del punto de conexión de servicio. Ábrala desde un explorador. Mostrará una página web con el valor del contador que se actualiza cada segundo.

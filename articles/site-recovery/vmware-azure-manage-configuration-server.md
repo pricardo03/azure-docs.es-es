@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171675"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres de la VM de VMware
 
@@ -135,7 +135,7 @@ Si lo necesita, puede volver a registrar el servidor de configuración en el mis
 
 ## <a name="upgrade-the-configuration-server"></a>Actualización del servidor de configuración
 
-Los paquetes acumulativos se ejecutan para actualizar el servidor de configuración. Las actualizaciones se pueden aplicar para hasta las versiones N-4. Por ejemplo: 
+Los paquetes acumulativos se ejecutan para actualizar el servidor de configuración. Las actualizaciones se pueden aplicar para hasta las versiones N-4. Por ejemplo:
 
 - Si ejecuta 9.7 9.8, 9,9 o 9.10, puede actualizar directamente a 9.11.
 - Si ejecuta la versión 9.6 o anterior, y desea actualizar a 9.11, primero debe actualizar a la versión 9.7 antes de hacerlo a la versión 9.11.
@@ -279,7 +279,7 @@ En lo que respecta a las implementaciones de servidores de configuración antes 
 - Aparece un banner de notificación en la página de recursos de almacén. Para más información, seleccione el banner.
 - Si ve el botón **Actualizar ahora**, quiere decir que algunos componentes en el entorno no se han actualizado a la versión 9.4.xxxx.x o superior. Actualice los componentes antes de renovar el certificado. La renovación no es posible en versiones anteriores.
 
-### <a name="renew-the-certificate"></a>Renovación del certificado
+### <a name="renew-the-certificate"></a>Renovar el certificado
 
 1. En el almacén, abra **Site Recovery Infrastructure** >  (Infraestructura de Site Recovery) **Configuration Servers** (Servidores de configuración). Seleccione el servidor de configuración necesario.
 2. La fecha de expiración aparece en **Configuration Server health** (Mantenimiento del servidor de configuración).

@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 04/19/2019
 ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146108"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Usar réplicas de solo lectura para las cargas de trabajo de consulta de solo lectura de equilibrio de carga
 
@@ -38,7 +38,7 @@ Si desea asegurarse de que la aplicación se conecta a la réplica principal sin
 > [!NOTE]
 > Consulta de datos Store, Extended Events, SQL Profiler y las características de auditoría no se admiten en las réplicas de solo lectura. 
 
-## <a name="data-consistency"></a>Coherencia de datos
+## <a name="data-consistency"></a>Coherencia de los datos
 
 Una de las ventajas de las réplicas es que siempre se encuentran en estado de coherencia transaccional, pero es posible que en diferentes momentos pueda haber una pequeña latencia entre las distintas réplicas. El escalado horizontal de lectura admite la coherencia en el nivel de sesión. Significa que, si la sesión de solo lectura se vuelve a conectar después de un error de conexión causado por falta de disponibilidad de réplica, se puede redirigir a una réplica que no esté actualizada con la réplica de lectura y escritura al 100%. Del mismo modo, si una aplicación escribe datos mediante una sesión de lectura y escritura y los lee inmediatamente mediante una sesión de solo lectura, es posible que las actualizaciones más recientes no son inmediatamente visibles en la réplica. La latencia se produce por una operación de rehacer de registro de transacción asincrónica.
 

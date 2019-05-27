@@ -2,21 +2,20 @@
 title: Clases de recursos para la administración de cargas de trabajo en Azure SQL Data Warehouse | Microsoft Docs
 description: Instrucciones para usar las clases de recursos para administrar la simultaneidad y calcular los recursos de las consultas en Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-origin.date: 03/15/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 05/22/2019
+ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 75bd6e8071717ba755b71f51afcd884539049489
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475089"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165977"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Administración de carga de trabajo con clases de recursos en Azure SQL Data Warehouse
 
@@ -80,13 +79,14 @@ Las clases de recursos dinámicos se implementan con estos roles de base de dato
 
 Al profundizar en los detalles de las clases de recursos dinámicos en Gen1, hay algunos detalles que agregan complejidad adicional a la hora de comprender su comportamiento:
 
-- La clase de recursos smallrc funciona con un modelo de memoria fija, parecido a una clase de recurso estático.  Las consultas Smallrc no obtienen dinámicamente más memoria a medida que aumenta el nivel de servicio.
+**En Gen1**
+- La clase de recursos smallrc funciona con un modelo de memoria fija, parecido a una clase de recurso estático.  Las consultas Smallrc no obtienen dinámicamente más memoria a medida que aumenta el nivel de servicio. 
 - A medida que los niveles de servicio cambian, la simultaneidad de la consulta disponible puede subir o bajar.
-- Los niveles de servicios de escala no proporcionan un cambio proporcional en la memoria asignada a las mismas clases de recursos.
+- Escalado de niveles de servicio no proporciona un cambio proporcional a la memoria asignada a las mismas clases de recursos.
 
-Solo en **Gen2**, las clases de recursos dinámicos son verdaderamente dinámicas, ya que abordan los puntos mencionados anteriormente.  La nueva regla es 3-10-22-70 para las asignaciones de porcentaje de memoria de clases de recursos pequeñas, medianas, grandes y extra grandes, **independientemente del nivel de servicio**.  En la siguiente tabla encontrará los detalles consolidados de los porcentajes de asignación de memoria y el número mínimo de consultas simultáneas que se ejecutan, independientemente del nivel de servicio.
+**En Gen2**, clases de recursos dinámicos son verdaderamente dinámicas dirige a los puntos mencionados anteriormente.  La nueva regla es 3-10-22-70 para las asignaciones de porcentaje de memoria de clases de recursos pequeñas, medianas, grandes y extra grandes, **independientemente del nivel de servicio**.  En la siguiente tabla encontrará los detalles consolidados de los porcentajes de asignación de memoria y el número mínimo de consultas simultáneas que se ejecutan, independientemente del nivel de servicio.
 
-| Clase de recursos | Porcentaje de memoria | Mínimo de consultas simultáneas |
+| Clase de recurso | Porcentaje de memoria | Mínimo de consultas simultáneas |
 |:--------------:|:-----------------:|:----------------------:|
 | smallrc        | 3 %                | 32                     |
 | mediumrc       | 10%               | 10                     |
@@ -942,7 +942,6 @@ Para obtener más información sobre cómo administrar los usuarios y la segurid
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:../sql-database/sql-database-manage-logins.md
+[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
-<!-- Update_Description: update link, wording update-->

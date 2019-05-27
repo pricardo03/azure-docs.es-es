@@ -2,19 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 03/21/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 03/21/2018
+ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b3907882df09bfae1d6453fbffbd3e7562554f7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64858997"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159328"
 ---
 * **PolicyBased:** VPN basadas en directivas se llamaban puertas de enlace de enrutamientos estáticos en el modelo de implementación clásica. Las VPN basadas en directivas cifran y dirigen los paquetes a través de túneles de IPsec basados en las directivas de IPsec configuradas con las combinaciones de prefijos de dirección entre su red local y la red virtual de Azure. La directiva (o el selector de tráfico) se define normalmente como una lista de acceso en la configuración del dispositivo VPN. El valor de un tipo de VPN basada en directivas es *PolicyBased*. Cuando use una VPN basada en directivas, tenga en cuenta las siguientes limitaciones:
   

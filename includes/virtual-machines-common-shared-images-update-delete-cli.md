@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b34d37fa79ccb8344fdacd99877403d61ba5f5c2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8d0f9866864ca4b02ca6238be2ac44537a586c2d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138894"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157947"
 ---
 ## <a name="update-resources"></a>Actualización de recursos
 
@@ -33,6 +33,8 @@ Versión de la imagen:
 - Regiones de destino
 - Exclusión de la versión más reciente
 - Fecha final del ciclo de vida
+
+Si planea agregar regiones de réplica, no elimine la imagen administrada de origen. La imagen administrada de origen es necesario para la replicación de la versión de la imagen a más regiones. 
 
 Actualizar la descripción de una galería con ([actualización de az sig](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-update). 
 

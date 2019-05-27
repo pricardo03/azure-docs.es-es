@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320219"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157252"
 ---
 Cada equipo cliente que se conecta a una red virtual con una conexión de punto a sitio debe tener instalado un certificado de cliente. Se genera desde el certificado raíz y se instala en cada equipo cliente. Si no instala ningún certificado de cliente válido, la autenticación no podrá realizarse cuando el cliente trate de conectarse a la red virtual.
 

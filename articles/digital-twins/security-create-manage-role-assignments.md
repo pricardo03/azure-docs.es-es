@@ -10,11 +10,11 @@ ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
 ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162108"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Crear y administrar las asignaciones de roles en Azure Digital Twins
 
@@ -41,11 +41,11 @@ En la tabla siguiente se describe cada atributo.
 
 | Atributo | NOMBRE | Obligatorio | Type | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
-| roleId | Identificador de definición de rol | Sí | string | El identificador único de la asignación de roles deseada. Busque las definiciones de roles y su identificador consultando la API de sistema o revisando la siguiente tabla. |
-| objectId | Identificador de objeto | Sí | string | Un identificador de Azure Active Directory, el identificador de objeto de la entidad de servicio o el nombre de dominio. ¿A qué o a quién se asignan los roles? La asignación de roles debe tener el formato en función del tipo asociado. Para el objectIdType `DomainName`, objectId debe comenzar con el carácter `“@”`. |
-| objectIdType | Tipo de identificador de objeto | Sí | string | El tipo del identificador de objeto utilizado. Consulte **ObjectIdTypes admitidos** a continuación. |
-| path | Ruta de acceso al espacio | Sí | string | Ruta de acceso completa al objeto `Space`. Un ejemplo es `/{Guid}/{Guid}`. Si un identificador necesita la asignación de roles para todo el grafo, especifique `"/"`. Este carácter designa la raíz, pero se desaconseja su uso. Siga siempre el principio de privilegio mínimo. |
-| tenantId | Identificador de inquilino | Varía | string | En la mayoría de los casos, un identificador de inquilino de Azure Active Directory. No se permite para los ObjectIdType `DeviceId` y `TenantId`. Obligatorio para los ObjectIdType `UserId` y `ServicePrincipalId`. Opcional para el ObjectIdType DomainName. |
+| roleId | Identificador de definición de rol | Sí | String | El identificador único de la asignación de roles deseada. Busque las definiciones de roles y su identificador consultando la API de sistema o revisando la siguiente tabla. |
+| objectId | Identificador de objeto | Sí | String | Un identificador de Azure Active Directory, el identificador de objeto de la entidad de servicio o el nombre de dominio. ¿A qué o a quién se asignan los roles? La asignación de roles debe tener el formato en función del tipo asociado. Para el objectIdType `DomainName`, objectId debe comenzar con el carácter `“@”`. |
+| objectIdType | Tipo de identificador de objeto | Sí | String | El tipo del identificador de objeto utilizado. Consulte **ObjectIdTypes admitidos** a continuación. |
+| path | Ruta de acceso al espacio | Sí | String | Ruta de acceso completa al objeto `Space`. Un ejemplo es `/{Guid}/{Guid}`. Si un identificador necesita la asignación de roles para todo el grafo, especifique `"/"`. Este carácter designa la raíz, pero se desaconseja su uso. Siga siempre el principio de privilegio mínimo. |
+| tenantId | Identificador de inquilino | Varía | String | En la mayoría de los casos, un identificador de inquilino de Azure Active Directory. No se permite para los ObjectIdType `DeviceId` y `TenantId`. Obligatorio para los ObjectIdType `UserId` y `ServicePrincipalId`. Opcional para el ObjectIdType DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificadores de definición de roles admitidos
 
@@ -165,10 +165,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **Valor del parámetro** | **Obligatorio** |  **Tipo** |  **Descripción** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | string |   El valor de objectId para el objectIdType UserId. |
-| YOUR_PATH | True | string |   La ruta de acceso elegida cuyo acceso se comprobará. |
-| YOUR_ACCESS_TYPE |  True | string |   El tipo de acceso que se comprobará. |
-| YOUR_RESOURCE_TYPE | True | string |  El recurso que se comprobará. |
+| YOUR_USER_ID |  True  | String |   El valor de objectId para el objectIdType UserId. |
+| YOUR_PATH | True  | String |   La ruta de acceso elegida cuyo acceso se comprobará. |
+| YOUR_ACCESS_TYPE |  True  | String |   El tipo de acceso que se comprobará. |
+| YOUR_RESOURCE_TYPE | True  | String |  El recurso que se comprobará. |
 
 Una solicitud correcta devolverá un valor booleano `true` o `false` para indicar si se ha asignado el tipo de acceso al usuario para el recurso y la ruta de acceso específica.
 

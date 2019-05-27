@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
 ms.openlocfilehash: 8e705a4430f6ccee847dc7d41ef80456a6dc4ea5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155128"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Cifrado de credenciales de almacenes de datos locales en Azure Data Factory
 Puede cifrar y almacenar las credenciales de los almacenes de datos locales (servicios vinculados con información confidencial) en una máquina con Integration Runtime autohospedado. 
@@ -50,7 +50,7 @@ Reemplace `<servername>`, `<databasename>`, `<username>` y `<password>` por los 
 }
 ```
 
-## <a name="encrypt-credentials"></a>Cifrado de las credenciales
+## <a name="encrypt-credentials"></a>Cifrar credenciales
 Para cifrar los datos confidenciales de la carga JSON en un tiempo de ejecución de integración autohospedado en el entorno local, ejecute **New AzDataFactoryV2LinkedServiceEncryptedCredential**y pase dicha carga. Este cmdlet garantiza que las credenciales se cifran utilizando DPAPI y se almacenan en el nodo de Integration Runtime autohospedado de manera local. La carga de salida que contiene la referencia a la credencial cifrada se puede redirigir a otro archivo JSON (en este caso, "encryptedLinkedService.json").
 
 ```powershell

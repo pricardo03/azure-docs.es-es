@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66166208"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Supervisión del mantenimiento de Azure IoT Hub y diagnóstico de problemas rápidamente
 
@@ -345,7 +345,7 @@ En este caso, no se calcula `durationMs` dado que es posible que el reloj de IoT
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | Entero | Tamaño del mensaje de dispositivo a nube en bytes. |
+| **messageSize** | Integer | Tamaño del mensaje de dispositivo a nube en bytes. |
 | **deviceId** | Cadena de caracteres alfanuméricos ASCII de 7 bits. | Identidad del dispositivo |
 | **callerLocalTimeUtc** | Marca de tiempo UTC | Hora de creación del mensaje según el reloj local del dispositivo. |
 | **calleeLocalTimeUtc** | Marca de tiempo UTC | Hora de llegada del mensaje a la puerta de enlace de IoT Hub según el reloj del lado de servicio de IoT Hub. |
@@ -379,8 +379,8 @@ En la `properties` sección, este registro contiene información adicional sobre
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | string | Verdadero o falso, indica si está habilitado el enrutamiento de mensajes en IoT Hub. |
-| **parentSpanId** | string | El valor de [span-id](https://w3c.github.io/trace-context/#parent-id) del mensaje principal, que, en este caso, sería el seguimiento de mensajes D2C. |
+| **isRoutingEnabled** | String | Verdadero o falso, indica si está habilitado el enrutamiento de mensajes en IoT Hub. |
+| **parentSpanId** | String | El valor de [span-id](https://w3c.github.io/trace-context/#parent-id) del mensaje principal, que, en este caso, sería el seguimiento de mensajes D2C. |
 
 ##### <a name="iot-hub-egress-logs"></a>Registros de salida de IoT Hub
 
@@ -411,9 +411,9 @@ En la `properties` sección, este registro contiene información adicional sobre
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | string | Nombre del punto de conexión de enrutamiento. |
-| **endpointType** | string | Tipo del punto de conexión de enrutamiento. |
-| **parentSpanId** | string | El valor de [span-id](https://w3c.github.io/trace-context/#parent-id) del mensaje principal, que, en este caso, sería el seguimiento de mensajes de entrada de IoT Hub. |
+| **endpointName** | String | Nombre del punto de conexión de enrutamiento. |
+| **endpointType** | String | Tipo del punto de conexión de enrutamiento. |
+| **parentSpanId** | String | El valor de [span-id](https://w3c.github.io/trace-context/#parent-id) del mensaje principal, que, en este caso, sería el seguimiento de mensajes de entrada de IoT Hub. |
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Lectura de registros de Azure Event Hubs
 

@@ -1,7 +1,7 @@
 ---
 title: Crear, ejecutar y realizar un seguimiento de las canalizaciones de ML
 titleSuffix: Azure Machine Learning service
-description: Cree y ejecute una canalización de aprendizaje automático con el SDK de Azure Machine Learning para Python. Las canalizaciones se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático (ML). Estas fases incluyen preparación de los datos, entrenamiento del modelo, implementación de modelo e inferencia.
+description: Cree y ejecute una canalización de aprendizaje automático con el SDK de Azure Machine Learning para Python. Las canalizaciones se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático (ML). Estas fases incluyen la preparación de datos, entrenamiento del modelo, implementación de modelos y puntuación de inferencia /.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914890"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165871"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Crear y ejecutar una canalización de aprendizaje automático con el SDK de Azure Machine Learning
 
@@ -251,6 +251,8 @@ trainStep = PythonScriptStep(
 )
 ```
 
+Reutilización de los resultados anteriores (`allow_reuse`) es clave al usar canalizaciones en un entorno de colaboración, puesto que eliminar ejecuciones repetidas innecesarios ofrece agilidad. Este es el comportamiento predeterminado cuando el comando $script_name, entradas y los parámetros de un paso que siguen siendo los mismos. Cuando se reutiliza la salida del paso, no se envía el trabajo para el proceso, en su lugar, los resultados de la ejecución anterior están inmediatamente disponibles para la ejecución del paso siguiente. Si se establece en false, una nueva ejecución siempre se generará para este paso durante la ejecución de la canalización. 
+
 Después de definir sus pasos, debe compilar la canalización mediante algunos o todos ellos.
 
 > [!NOTE]
@@ -315,6 +317,10 @@ Cuando se ejecuta por primera vez una canalización, Azure Machine Learning:
 
 Para obtener más información, consulte el [experimentar clase](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) referencia.
 
+## <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
+
+Cuando se inicia un entrenamiento que se ejecute, donde el directorio de origen es un repositorio Git local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial.
+
 ## <a name="publish-a-pipeline"></a>Publicar una canalización
 
 Puede publicar una canalización para ejecutarla con diferentes entradas más adelante. Para que el punto de conexión REST de una canalización ya publicada acepte los parámetros, debe parametrizar la canalización antes de publicarla. 
@@ -360,7 +366,7 @@ response = requests.post(published_pipeline1.endpoint,
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-## <a name="view-results"></a>Visualización de los resultados
+## <a name="view-results"></a>Ver resultados
 
 Ver la lista de todas las canalizaciones y sus detalles de ejecución:
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).  
@@ -373,11 +379,11 @@ Ver la lista de todas las canalizaciones y sus detalles de ejecución:
 ## <a name="caching--reuse"></a>Almacenamiento en caché y reutilización  
 
 Con el fin de optimizar y personalizar el comportamiento de las canalizaciones pueden hacer algunas cosas en torno a almacenamiento en caché y reutilizar. Por ejemplo, puede elegir para:
-+ **Desactivar la reutilización de predeterminada del paso de la salida de la serie** estableciendo `allow_reuse=False` durante [paso definición](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **Desactivar la reutilización de predeterminada del paso de la salida de la serie** estableciendo `allow_reuse=False` durante [paso definición](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). La reutilización es clave al utilizar canalizaciones en un entorno de colaboración, ya que eliminar ejecuciones innecesarios ofrece agilidad. Sin embargo, pueden rechazar este.
 + **Extender más allá de la secuencia de comandos de hash**, para incluir también una ruta de acceso absoluta o rutas de acceso relativas a la directorioDeOrigen a otros archivos y directorios mediante la `hash_paths=['<file or directory']` 
 + **Para forzar la regeneración de la salida de todos los pasos en una ejecución** con `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-De forma predeterminada, volver a usar el paso está habilitado y se aplica un algoritmo hash únicamente el archivo de script principal. Por lo tanto, si la secuencia de comandos para un paso determinado sigue siendo el mismo (`script_name`, las entradas y los parámetros), se reutiliza el resultado de un paso anterior que se ejecute, el proceso no se enviará el trabajo y los resultados de la ejecución anterior están inmediatamente disponibles para el paso siguiente en su lugar .  
+De forma predeterminada, `allow-reuse` para pasos está habilitada y se aplica un algoritmo hash únicamente el archivo de script principal. Por lo tanto, si la secuencia de comandos para un paso determinado sigue siendo el mismo (`script_name`, las entradas y los parámetros), se reutiliza el resultado de un paso anterior que se ejecute, el proceso no se enviará el trabajo y los resultados de la ejecución anterior están inmediatamente disponibles para el paso siguiente en su lugar .  
 
 ```python
 step = PythonScriptStep(name="Hello World", 

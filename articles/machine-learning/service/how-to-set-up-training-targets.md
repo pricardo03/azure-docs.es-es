@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: c49b9d5fdc0c17f16f1c80471a00dd53625dc6e8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236953"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160481"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>Configuración de destinos de proceso del entrenamiento del modelo
+# <a name="set-up-compute-targets-for-model-training"></a>Configuración de destinos de proceso del entrenamiento del modelo 
 
 Con el servicio Azure Machine Learning, puede entrenar el modelo en una variedad de recursos o entornos, denominados colectivamente [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-target). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de Azure Machine Learning Compute, Azure HDInsight o una máquina virtual remota.  También puede crear destinos de proceso para la implementación de modelos tal como se describe en ["Cómo y dónde implementar los modelos"](how-to-deploy-and-where.md).
 
@@ -38,7 +38,7 @@ En este artículo, aprenderá a usar diversos destinos de proceso para el entren
 Azure Machine Learning Service tiene distintas modalidades de soporte técnico en los diferentes destinos de proceso. Un ciclo de vida de desarrollo de modelos típico comienza con el desarrollo y la experimentación en una pequeña cantidad de datos. En esta fase, se recomienda usar un entorno local. Por ejemplo, un equipo local o una máquina virtual basada en la nube. Si escala verticalmente su entrenamiento a conjuntos de datos grandes o realiza el entrenamiento distribuido, se recomienda usar Proceso de Azure Machine Learning para crear un clúster con uno o varios nodos que se escala automáticamente cada vez que se envía una ejecución. También puede adjuntar su propio recurso de proceso, aunque el soporte técnico para varios escenarios puede variar como se detalla a continuación:
 
 
-|Destinos de proceso para entrenamiento| Aceleración de GPU | Automatizado<br/> ajuste de hiperparámetros | Automatizado</br> aprendizaje automático | Canalizaciones de Azure Machine Learning |
+|Destinos de proceso para entrenamiento| Aceleración de GPU | Automatizado<br/> ajuste de hiperparámetros | Automatizado<br/> aprendizaje automático | Canalizaciones de Azure Machine Learning |
 |----|:----:|:----:|:----:|:----:|
 |[Equipo local](#local)| Es posible | &nbsp; | ✓ | &nbsp; |
 |[Proceso de Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -418,6 +418,10 @@ También puede:
 
 * Enviar el experimento con un objeto `Estimator`, tal como se muestra en [Entrenamiento de modelos de aprendizaje automático con estimadores](how-to-train-ml-models.md). 
 * Envíe un experimento [mediante la extensión de la CLI](reference-azure-machine-learning-cli.md#experiments).
+
+## <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
+
+Cuando se inicia un entrenamiento que se ejecute, donde el directorio de origen es un repositorio Git local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial.
 
 ## <a name="notebook-examples"></a>Ejemplos de cuadernos
 

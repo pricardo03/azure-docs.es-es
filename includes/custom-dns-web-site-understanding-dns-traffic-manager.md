@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
 ms.openlocfilehash: f42a97cdd74d360bc047ef561cbe626d526f9e4a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124500"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66136227"
 ---
 El Sistema de nombres de dominio (DNS) se utiliza para realizar búsquedas en Internet. Por ejemplo, cuando escribe una dirección en el explorador o hace clic en un vínculo de una página web, utiliza DNS para traducir el dominio en una dirección IP. La dirección IP es algo parecido a la dirección de una calle, pero su sistema es algo complejo. Por ejemplo, es mucho más fácil recordar un nombre DNS como **contoso.com** que recordar una dirección IP como 192.168.1.88 o 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 

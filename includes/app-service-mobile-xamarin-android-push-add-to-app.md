@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 3ced8c9fdadf547ec234c6d1bd5f3ddb8af7bc05
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42816259"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140214"
 ---
 1. Cree una nueva clase en el proyecto denominado `ToDoBroadcastReceiver`.
 2. Agregue las siguientes instrucciones using a **ToDoBroadcastReceiver** :
@@ -109,7 +109,7 @@ ms.locfileid: "42816259"
     }
     ```
 
-    Este método usa el identificador de registro GCM devuelto para registrarse con Azure para las notificaciones de inserción. Las etiquetas solo pueden agregarse al registro después de haberlo creado. Para obtener más información, consulte [Procedimientos: Incorporación de etiquetas a la instalación de un dispositivo para habilitar la inserción de etiquetas](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+    Este método usa el identificador de registro GCM devuelto para registrarse con Azure para las notificaciones de inserción. Las etiquetas solo pueden agregarse al registro después de haberlo creado. Para obtener más información, consulte [Cómo Agregar etiquetas a la instalación de un dispositivo para habilitar la inserción de etiquetas](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
 
 7. Reemplace el método **OnMessage** en **PushHandlerService** por el código siguiente:
 

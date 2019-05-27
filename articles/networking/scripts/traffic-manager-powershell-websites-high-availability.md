@@ -16,11 +16,11 @@ ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: gwallace
 ms.openlocfilehash: 1086fe6d656db9450d84fd6971a271775f54687d
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202833"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156921"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>Enrutamiento del tráfico para la alta disponibilidad de las aplicaciones
 
@@ -52,7 +52,7 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una apl
 | Get-Help | Notas |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Crea un plan de App Service, que es como una granja de servidores para una aplicación web de Azure. |
+| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Crea un plan del servicio de aplicaciones. que es como una granja de servidores para una aplicación web de Azure. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Crea una aplicación web de Azure en el plan de App Service. |
 | [Set-AzResource](/powershell/module/az.resources/new-azresource) | Crea una aplicación web de Azure en el plan de App Service. |
 | [New-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Crea un perfil de Azure Traffic Manager. |

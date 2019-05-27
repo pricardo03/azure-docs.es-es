@@ -7,17 +7,18 @@ ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: WenJason
+ms.author: v-jay
 ms.reviewer: genemi,ayolubek, jrasnick
-manager: craigg
-ms.date: 03/12/2019
+manager: digimobile
+origin.date: 03/12/2019
+ms.date: 04/08/2019
 ms.openlocfilehash: 9704acee2ca8bad7437ae22ff5041e2253916dce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880439"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160803"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS en Azure SQL Database
 
@@ -77,11 +78,11 @@ Comment as of:  2018-01-26
 
 La documentación de las API de REST está disponible cerca de la ubicación web siguiente:
 
-- [API de REST de Azure SQL Database](https://docs.microsoft.com/rest/api/sql/)
+- [API REST de Azure SQL Database](https://docs.microsoft.com/rest/api/sql/)
 
 Además, las API de REST puede verse en GitHub en:
 
-- [Servidor de Azure SQL Database, API de REST de alias DNS](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/sql/resource-manager/Microsoft.Sql/preview/2017-03-01-preview/serverDnsAliases.json)
+- [Servidor de Azure SQL Database, API REST de alias DNS](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/sql/resource-manager/Microsoft.Sql/preview/2017-03-01-preview/serverDnsAliases.json)
 
 <a name="anchor-powershell-code-62x"/>
 

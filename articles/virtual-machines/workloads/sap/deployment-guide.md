@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
 ms.openlocfilehash: c93bca14d9385eaf9f79f69d76e9e704796da7a9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66154078"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementación de Azure Virtual Machines para SAP NetWeaver
 
@@ -693,7 +693,7 @@ El siguiente diagrama de flujo muestra la secuencia de pasos para trasladar una 
 
 Si el disco ya está cargado y definido en Azure (consulte [Planeación e implementación de Azure Virtual Machines para SAP en NetWeaver][planning-guide]), realice las tareas que se describen en las próximas secciones.
 
-#### <a name="create-a-virtual-machine"></a>de una máquina virtual
+#### <a name="create-a-virtual-machine"></a>Crear una máquina virtual
 
 Para crear una implementación con un disco de sistema operativo privado mediante Azure Portal, use la plantilla de SAP que está publicada en el [repositorio azure-quickstart-templates de GitHub][azure-quickstart-templates-github]. También puede crear una máquina virtual manualmente con PowerShell.
 

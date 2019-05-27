@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 4/8/2019
 ms.author: mjbrown
 ms.openlocfilehash: 1d19e58b2d1381725de490b68d9e4d00a2ca4cb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495488"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66151210"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Administración de recursos de Azure Cosmos mediante la CLI de Azure
 
@@ -21,7 +21,7 @@ En la guía siguiente se describe los comandos comunes para automatizar la admin
 
 Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-an-azure-cosmos-db-account"></a>Creación de una cuenta de Azure Cosmos DB
+## <a name="create-an-azure-cosmos-db-account"></a>Crear una cuenta de Azure Cosmos DB
 
 Para crear una cuenta de Azure Cosmos DB con SQL API, la coherencia de sesión en las regiones este de EE.UU. y oeste de Estados Unidos, ejecute el siguiente comando:
 

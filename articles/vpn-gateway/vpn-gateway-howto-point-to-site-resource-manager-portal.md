@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa406ac2f1e0b89a1161660a49f2a4cb6f6d6c32
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105922"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157347"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa: Azure Portal
 
@@ -35,9 +35,9 @@ Las conexiones con autenticación mediante certificado de Azure nativas de punto
 
 Puede usar los siguientes valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo:
 
-* **Nombre de la red virtual:** VNet1
+* **Nombre de la red virtual:** VNET1
 * **Espacio de direcciones**: 192.168.0.0/16<br>En este ejemplo, se utiliza solo un espacio de direcciones. Puede tener más de un espacio de direcciones para la red virtual.
-* **Nombre de subred:** FrontEnd
+* **Nombre de subred:** Front-end
 * **Intervalo de direcciones de subred:** 192.168.1.0/24
 * **Subscription** (Suscripción): si tiene más de una suscripción, compruebe que usa la correcta.
 * **Grupos de recursos:** TestRG
@@ -46,7 +46,7 @@ Puede usar los siguientes valores para crear un entorno de prueba o hacer refere
 * **Servidor DNS:** (opcional) dirección IP del servidor DNS que desea usar para la resolución de nombres.
 * **Nombre de la puerta de enlace de red virtual:** VNet1GW
 * **Tipo de puerta de enlace:** VPN
-* **Tipo de VPN:** basada en rutas
+* **Tipo de VPN:** Basada en rutas
 * **Nombre de dirección IP pública:** VNet1GWpip
 * **Tipo de conexión**: De punto a sitio
 * **Grupo de direcciones de clientes:** 172.16.201.0/24<br>Los clientes de VPN que se conectan a la red virtual mediante esta conexión de punto a sitio reciben una dirección IP del grupo de clientes.
@@ -108,7 +108,7 @@ El grupo de direcciones de cliente es un intervalo de direcciones IP privadas qu
 
 ## <a name="tunneltype"></a>7. Configuración del tipo de túnel
 
-Puede seleccionar el tipo de túnel. Las dos opciones son SSTP e IKEv2. El cliente Strongswan de Linux y Android, y el cliente VPN IKEv2 nativo de iOS y OSX solo utilizarán el túnel IKEv2 para conectarse. Los clientes Windows prueban primero el túnel IKEv2 y, si no se conecta, recurren a SSTP. Puede habilitar una de ellas o ambas. Seleccione las casillas que necesita la solución.
+Puede seleccionar el tipo de túnel. Las opciones de túnel son OpenVPN, SSTP e IKEv2. El cliente Strongswan de Linux y Android, y el cliente VPN IKEv2 nativo de iOS y OSX solo utilizarán el túnel IKEv2 para conectarse. Los clientes Windows prueban primero el túnel IKEv2 y, si no se conecta, recurren a SSTP. Puede usar al cliente OpenVPN para conectar con el tipo de túnel OpenVPN.
 
 ![Tipo de túnel](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 
@@ -146,7 +146,7 @@ Para obtener los pasos de instalación, consulte [Instalación de un certificado
 
 Los archivos de configuración del cliente VPN contienen opciones para configurar los dispositivos para conectarse a una red virtual a través de una conexión de punto a sitio. Para obtener instrucciones para generar e instalar archivos de configuración de cliente VPN, consulte [Creación e instalación de archivos de configuración de cliente VPN para configuraciones de punto a sitio con autenticación con certificados nativos de Azure](point-to-site-vpn-client-configuration-azure-cert.md).
 
-## <a name="connect"></a>12. Conexión a Azure
+## <a name="connect"></a>12. Conéctese a Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Para conectarse desde un cliente VPN en Windows
 
