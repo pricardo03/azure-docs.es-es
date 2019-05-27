@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 78d2392e32465b3091c49032dc5df5f3a5b6061a
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: acfd5230d1bd572ea5179651558e3f736a8570af
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416030"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833132"
 ---
 # <a name="what-is-ip-address-1686312916"></a>¿Qué es la dirección IP 168.63.129.16?
 
@@ -38,7 +38,7 @@ La dirección IP 168.63.129.16 se utiliza en todas las regiones y todas las nube
 
 [Sondeos de estado de equilibrador de carga Azure](../load-balancer/load-balancer-custom-probe-overview.md) se origina desde esta dirección IP. Si bloquea esta dirección IP, se producirá un error en los sondeos.
 
-En un escenario de red que no es virtual, el sondeo de estado se origina en una dirección IP privada y no se utiliza 168.63.129.16.
+En un escenario de red que no sea virtual (clásica), el sondeo de estado se origina en una dirección IP privada y no se utiliza 168.63.129.16.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
