@@ -12,52 +12,52 @@ ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 9b8e12220f220bd8183675d13e25bdcab02707fd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "65020855"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Compatibilidad de idioma y región para los servicios de voz
 
 Se admiten diferentes idiomas para distintas funciones de los servicios de voz. En las tablas siguientes se resumen los idiomas admitidos.
 
-## <a name="speech-to-text"></a>Voz a texto
+## <a name="speech-to-text"></a>Conversión de voz en texto
 
 Speech Recognition API de Microsoft admite los siguientes idiomas. Para cada idioma hay diferentes niveles de personalización disponibles.
 
   Código | Idioma | [Adaptación acústica](how-to-customize-acoustic-models.md) | [Adaptación de idioma](how-to-customize-language-model.md) | [Adaptación de pronunciación](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
- ar-EG | Árabe (Egipto), estándar moderno | Sin  | Sí | Sin 
- ca-ES | Catalán | Sin  | No | Sin 
- da-DK | Danés (Dinamarca) | Sin  | No | Sin 
- de-DE | Alemán (Alemania) | Sí | Sí | Sin 
- en-AU | Inglés (Australia) | Sin  | Sí | Sí
- en-CA | Inglés (Canadá) | Sin  | Sí | Sí
- en-GB | Inglés (Reino Unido) | Sin  | Sí | Sí
+ ar-EG | Árabe (Egipto), estándar moderno | No | Sí | No
+ ca-ES | Catalán | No | No | No
+ da-DK | Danés (Dinamarca) | No | No | No
+ de-DE | Alemán (Alemania) | Sí | Sí | No
+ en-AU | Inglés (Australia) | No | Sí | Sí
+ en-CA | Inglés (Canadá) | No | Sí | Sí
+ en-GB | Inglés (Reino Unido) | No | Sí | Sí
  en-IN | Inglés (India) | Sí | Sí | Sí
- en-NZ | Inglés (Nueva Zelanda) | Sin  | Sí | Sí  
- en-US | Inglés (Estados Unidos) | Sí | Sí | Sí
- es-ES | Español (España) | Sí | Sí | Sin 
- es-MX | Español (México) | Sin  | Sí | Sin 
- fi-FI | Finés (Finlandia) | Sin  | No | Sin 
- fr-CA | Francés (Canadá) | Sin  | Sí | Sin 
- fr-FR | Francés (Francia) | Sí | Sí | Sin 
- hi-IN | Hindi (India) | Sin  | Sí | Sin 
- it-IT | Italiano (Italia) | Sí | Sí | Sin 
- ja-JP | Japonés (Japón) | Sin  | Sí | Sin 
- ko-KR | Coreano (Corea) | Sin  | Sí | Sin 
- nb-NO | Noruego, Bokmål (Noruego) | Sin  | No | Sin 
- nl-NL | Neerlandés (Países Bajos) | Sin  | Sí | Sin 
- pl-PL | Polaco (Polonia) | Sin  | No | Sin 
- pt-BR | Portugués (Brasil) | Sí | Sí | Sin 
- pt-PT | Portugués (Portugal) | Sin  | Sí | Sin 
- ru-RU | Ruso (Rusia) | Sí | Sí | Sin 
- sv-SE | Sueco (Suecia) | Sin  | No | Sin 
- zh-CN | Chino (mandarín, simplificado) | Sí | Sí | Sin 
- zh-HK | Chino (cantonés, tradicional) | Sin  | Sí | Sin 
- zh-TW | Chino (mandarín, Taiwán) | Sin  | Sí | Sin 
- th-TH | Tailandés (Tailandia) | Sin  | No | Sin 
+ en-NZ | Inglés (Nueva Zelanda) | No | Sí | Sí  
+ es-ES | Inglés (Estados Unidos) | Sí | Sí | Sí
+ es-ES | Español (España) | Sí | Sí | No
+ es-MX | Español (México) | No | Sí | No
+ fi-FI | Finés (Finlandia) | No | No | No
+ fr-CA | Francés (Canadá) | No | Sí | No
+ fr-FR | Francés (Francia) | Sí | Sí | No
+ hi-IN | Hindi (India) | No | Sí | No
+ it-IT | Italiano (Italia) | Sí | Sí | No
+ ja-JP | Japonés (Japón) | No | Sí | No
+ ko-KR | Coreano (Corea) | No | Sí | No
+ nb-NO | Noruego, Bokmål (Noruego) | No | No | No
+ nl-NL | Neerlandés (Países Bajos) | No | Sí | No
+ pl-PL | Polaco (Polonia) | No | No | No
+ pt-BR | Portugués (Brasil) | Sí | Sí | No
+ pt-PT | Portugués (Portugal) | No | Sí | No
+ ru-RU | Ruso (Rusia) | Sí | Sí | No
+ sv-SE | Sueco (Suecia) | No | No | No
+ zh-CN | Chino (mandarín, simplificado) | Sí | Sí | No
+ zh-HK | Chino (cantonés, tradicional) | No | Sí | No
+ zh-TW | Chino (mandarín, Taiwán) | No | Sí | No
+ th-TH | Tailandés (Tailandia) | No | No | No
 
 
 ## <a name="text-to-speech"></a>Texto a voz
@@ -78,8 +78,8 @@ Para obtener una lista completa de las voces neuronales y la disponibilidad regi
 Configuración regional | Idioma | Sexo | Asignación de nombres de servicio completo | Nombre corto de voz
 --------|----------|--------|---------|------------
 de-DE | Alemán (Alemania) | Mujer | "Microsoft Server voz texto a voz (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
-en-US | Inglés (EE. UU.) | Hombre | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
-en-US | Inglés (EE. UU.) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
+es-ES | Inglés (EU) | Hombre | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
+es-ES | Inglés (EU) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
 it-IT | Italiano (Italia) | Mujer |"Microsoft Server voz texto a voz (it-IT, ElsaNeural)" | "it-IT-ElsaNeural"
 zh-CN | Chino (continental) | Mujer | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
 
@@ -95,7 +95,7 @@ Configuración regional | Idioma | Sexo | Asignación de nombres de servicio com
 ar-EG\* | Árabe (Egipto) | Mujer | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-Hoda"
 ar-SA | Árabe (Arabia Saudí) | Hombre | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"
 bg-BG | Búlgaro | Hombre | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)" | "bg-BG-Ivan"
-ca-ES | Catalán (España) | Mujer | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)" | "ES-ca-HerenaRUS"
+ca-ES | Catalán (catalán) | Mujer | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)" | "ES-ca-HerenaRUS"
 cs-CZ | Checo | Hombre | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)" | "cs-CZ-Jakub"
 da-DK | Danés | Mujer | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)" | "da-DK-HelleRUS"
 de-AT | Alemán (Austria) | Hombre | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)" | "de-AT-Michael"
@@ -108,14 +108,14 @@ en-AU | Inglés (Australia) | Mujer | "Microsoft Server Speech Text to Speech Vo
 | | | Mujer | "Microsoft Server Speech Text to Speech Voice (en-AU, HayleyRUS)" | "en-AU-HayleyRUS"
 en-CA | Inglés (Canadá) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-CA, Linda)" | "en-CA-Linda"
 | | | Mujer | "Microsoft Server Speech Text to Speech Voice (en-CA, HeatherRUS)" | "en-CA-HeatherRUS"
-en-GB | English (Reino Unido) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-GB, Susan, Apollo)" | "en-GB-Susan-Apollo"
+en-GB | Inglés (GB) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-GB, Susan, Apollo)" | "en-GB-Susan-Apollo"
 | | | Mujer | "Microsoft Server Speech Text to Speech Voice (en-GB, HazelRUS)" | "en-GB-HazelRUS"
 | | | Hombre | "Microsoft Server Speech Text to Speech Voice (en-GB, George, Apollo)" | "en-GB-Apollo de George"
 en-IE | Inglés (Irlanda) | Hombre | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)" | "en-IE-Juan"
 en-IN | Inglés (India) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)" | "en-IN-Heera-Apollo"
 | | | Mujer | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)" | "en-IN-PriyaRUS"
 | | | Hombre | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)" | "en-IN-Ravi-Apollo"
-en-US | Inglés (EE. UU.) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)" | "en-US-ZiraRUS"
+es-ES | Inglés (EU) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)" | "en-US-ZiraRUS"
 | | | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)" | "en-US-JessaRUS"
 | | | Hombre | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)" | "en-US-BenjaminRUS"
 | | | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" | "en-US-Jessa24kRUS"
@@ -125,7 +125,7 @@ es-ES | Español (España) |Mujer | "Microsoft Server Speech Text to Speech Voic
 | | | Hombre | "Microsoft Server Speech Text to Speech Voice (es-ES, Pablo, Apollo)" | "es-ES-Pablo-Apollo"
 es-MX | Español (México) | Mujer | "Microsoft Server Speech Text to Speech Voice (es-MX, HildaRUS)" | "es-MX-HildaRUS"
 | | | Hombre | "Microsoft Server Speech Text to Speech Voice (es-MX, Raul, Apollo)" | "es-MX-Raúl-Apollo"
-fi-FI | Finés | Mujer | "Microsoft Server Speech Text to Speech Voice (fi-FI, HeidiRUS)" | "fi-FI-HeidiRUS"
+fi-FI | Finlandés | Mujer | "Microsoft Server Speech Text to Speech Voice (fi-FI, HeidiRUS)" | "fi-FI-HeidiRUS"
 fr-CA | Francés (Canadá) |Mujer | "Microsoft Server Speech Text to Speech Voice (fr-CA, Caroline)" | "fr-CA-Caroline"
 | | | Mujer | "Microsoft Server Speech Text to Speech Voice (fr-CA, HarmonieRUS)" | "fr-CA-HarmonieRUS"
 fr-CH | Francés (Suiza)| Hombre | "Microsoft Server Speech Text to Speech Voice (fr-CH, Guillaume)" | "fr-CH-Guillaume"
@@ -146,8 +146,8 @@ ja-JP | Japonés | Mujer | "Microsoft Server Speech Text to Speech Voice (ja-JP,
 | | | Mujer | "Microsoft Server Speech Text to Speech Voice (ja-JP, HarukaRUS)" | "ja-JP-HarukaRUS"
 ko-KR | Coreano | Mujer | "Microsoft Server Speech Text to Speech Voice (ko-KR, HeamiRUS)" | "ko-KR-HeamiRUS"
 ms-MY | Malayo | Hombre | "Microsoft Server Speech Text to Speech Voice (ms-MY, Rizwan)" | "ms-MY-Rizwan"
-nb-NO | Noruego | Mujer | "Microsoft Server Speech Text to Speech Voice (nb-NO, HuldaRUS)" | "nb-NO-HuldaRUS"
-nl-NL | Neerlandés | Mujer | "Microsoft Server Speech Text to Speech Voice (nl-NL, HannaRUS)" | "nl-NL-HannaRUS"
+nb-NO | Noruego (Bokmal) | Mujer | "Microsoft Server Speech Text to Speech Voice (nb-NO, HuldaRUS)" | "nb-NO-HuldaRUS"
+nl-NL | Holandés | Mujer | "Microsoft Server Speech Text to Speech Voice (nl-NL, HannaRUS)" | "nl-NL-HannaRUS"
 pl-PL | Polaco | Mujer | "Microsoft Server Speech Text to Speech Voice (pl-PL, PaulinaRUS)" | "pl-PL-PaulinaRUS"
 pt-BR | Portugués (Brasil) | Mujer | "Microsoft Server Speech Text to Speech Voice (pt-BR, HeloisaRUS)" | "pt-BR-HeloisaRUS"
 | | | Hombre |"Microsoft Server Speech Text to Speech Voice (pt-BR, Daniel, Apollo)" | "pt-BR-Daniel-Apollo"
@@ -206,12 +206,12 @@ Personalización de voz está disponible para de-DE, en-GB, en India, en-US, es-
 | Croata      | `hr`          |
 | Checo      | `cs`          |
 | Danés      | `da`          |
-| Neerlandés      | `nl`          |
-| English      | `en`          |
+| Holandés      | `nl`          |
+| Inglés      | `en`          |
 | Estonio      | `et`          |
 | Fiyiano      | `fj`          |
 | Filipino      | `fil`          |
-| Finés      | `fi`          |
+| Finlandés      | `fi`          |
 | Francés      | `fr`          |
 | Alemán      | `de`          |
 | Griego      | `el`          |
@@ -232,7 +232,7 @@ Personalización de voz está disponible para de-DE, en-GB, en India, en-US, es-
 | Malgache      | `mg`          |
 | Malayo      | `ms`          |
 | Maltés      | `mt`          |
-| Noruego      | `nb`          |
+| Noruego (Bokmal)      | `nb`          |
 | Persa      | `fa`          |
 | Polaco      | `pl`          |
 | Portugués      | `pt`          |

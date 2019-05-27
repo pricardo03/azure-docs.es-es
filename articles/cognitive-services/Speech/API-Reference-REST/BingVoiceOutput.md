@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: priyar
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "60515419"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing text to speech API
@@ -32,7 +32,7 @@ Con Bing text to speech API, su aplicación puede enviar solicitudes HTTP a un s
 
 Cada solicitud de síntesis de voz requiere un token de acceso JSON Web Token (JWT). El token de acceso JWT se pasa en el encabezado de la solicitud de voz. El token tiene un tiempo de expiración de 10 minutos. Para obtener información sobre cómo suscribirse y obtener claves de API que se usan para recuperar los tokens de acceso JWT válidos, consulte la página de [suscripción a Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
 
-La clave de API se pasa al servicio de token. Por ejemplo: 
+La clave de API se pasa al servicio de token. Por ejemplo:
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -41,11 +41,11 @@ Content-Length: 0
 
 La información de encabezados requerida para el acceso del token es la siguiente.
 
-Name| Formato | DESCRIPCIÓN
+NOMBRE| Formato | DESCRIPCIÓN
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | Su clave de suscripción
 
-El servicio de token devuelve el token de acceso JWT como `text/plain`. A continuación, el JWT se pasa como `Base64 access_token` al punto de conexión de voz como un encabezado de autorización prefijado con la cadena `Bearer`. Por ejemplo: 
+El servicio de token devuelve el token de acceso JWT como `text/plain`. A continuación, el JWT se pasa como `Base64 access_token` al punto de conexión de voz como un encabezado de autorización prefijado con la cadena `Bearer`. Por ejemplo:
 
 `Authorization: Bearer [Base64 access_token]`
 
@@ -60,7 +60,7 @@ Los clientes deben utilizar el siguiente punto de conexión para tener acceso al
 
 En la tabla siguiente se muestran los encabezados HTTP que se utilizan para las solicitudes de síntesis de voz.
 
-Encabezado |Value |Comentarios
+Encabezado |Valor |Comentarios
 ----|----|----
 Content-Type | application/ssml+xml | El tipo de contenido de entrada.
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | El formato de audio de salida.
@@ -215,9 +215,9 @@ en-IE | Hombre | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)"
 en-IN | Mujer | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 en-IN | Mujer | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 en-IN | Hombre | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
-en-US | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
-en-US | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
-en-US | Hombre | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
+es-ES | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
+es-ES | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
+es-ES | Hombre | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
 es-ES | Mujer | "Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)"
 es-ES | Mujer | "Microsoft Server Speech Text to Speech Voice (es-ES, HelenaRUS)"
 es-ES | Hombre | "Microsoft Server Speech Text to Speech Voice (es-ES, Pablo, Apollo)"

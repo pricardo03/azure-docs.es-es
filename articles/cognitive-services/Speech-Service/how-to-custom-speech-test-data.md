@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: af801600eebed7c0d4ff01dd1edf01fa595840eb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: de2f1009c574d9768330d4e6a38a219ba1f81daa
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785773"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237950"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar los datos de voz personalizado
 
@@ -66,8 +66,8 @@ Si el audio no satisfaga estas propiedades o desea comprobar si lo hace, se reco
 
 | Actividad | DESCRIPCIÓN | Comando de la ley SOX |
 |----------|-------------|-------------|
-| Compruebe el formato de audio | Utilice este comando para comprobar el formato de archivo de audio. | `soxi <filename>.wav` |
-| Convertir el formato de audio | Use este comando para convertir el archivo de audio para el canal único, 16 bits, 48 KHz. | `sox <filename>.wav -b 16 -3 signed-integer -c l -r 48k -t wav <filename>.wav` |
+| Compruebe el formato de audio | Utilice este comando para comprobar el formato de archivo de audio. | `sox --i <filename>` |
+| Convertir el formato de audio | Use este comando para convertir el archivo de audio para el canal único, 16 bits, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
 
 ## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Datos de transcripción de audio + etiqueta humanos para las pruebas y aprendizaje
 

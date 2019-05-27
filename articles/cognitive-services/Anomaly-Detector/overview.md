@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es la API del Detector de anomalías? | Microsoft Docs
+title: ¿Qué es Anomaly Detector API? | Microsoft Docs
 titleSuffix: Azure Cognitive Services
 description: Use algoritmos avanzados de la API Detector de anomalías para identificar anomalías en datos de series temporales.
 services: cognitive-services
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 48dffb8853d3def590e434c1683ecf038e2a194e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473279"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "64415824"
 ---
-# <a name="what-is-the-anomaly-detector-api"></a>¿Qué es la API del Detector de anomalías?
+# <a name="what-is-the-anomaly-detector-api"></a>¿Qué es Anomaly Detector API?
 
 La API del Detector de anomalías permite supervisar y detectar anomalías en datos de series temporales con machine learning. La API del Detector de anomalías se adapta al identificar y aplicar los modelos de algoritmos a los datos, independientemente del sector, el escenario o volumen de datos automáticamente. Usar datos de series temporales, la API determina los límites para la detección de anomalías, los valores esperados, y qué puntos de datos son las anomalías.
 
@@ -56,7 +56,7 @@ La API del Detector de anomalías es un servicio web RESTful, facilitando el pro
 
 [!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
-Después de registrarse:
+Después del registro:
 
 1. Tomar datos de series temporales y convertirlo en un formato JSON válido. Use [procedimientos recomendados](concepts/anomaly-detection-best-practices.md) al preparar los datos para obtener los mejores resultados.
 1. Enviar una solicitud a la API del Detector de anomalías con sus datos.

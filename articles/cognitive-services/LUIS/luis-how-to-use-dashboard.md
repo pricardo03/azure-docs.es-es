@@ -1,7 +1,7 @@
 ---
 title: Panel - Language Understanding
 titleSuffix: Azure Cognitive Services
-description: Corregir las intenciones con el panel de resumen de análisis, una herramienta de informes visualizado.
+description: Corregir las intenciones con el panel de análisis, una herramienta de informes visualizado.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072458"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236957"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Cómo usar el panel para mejorar la aplicación
 
-Buscar y corregir problemas con las intenciones de la aplicación entrenado cuando usas grabaciones de voz de ejemplo. El panel de resumen muestra información general de la aplicación, con los aspectos destacados de intenciones que deben solucionarse. 
+Buscar y corregir problemas con las intenciones de la aplicación entrenado cuando usas grabaciones de voz de ejemplo. El panel muestra información general de la aplicación, con los aspectos destacados de intenciones que deben solucionarse. 
 
 Revise el panel de análisis es un proceso iterativo, puede repetido cambiar y mejorar el modelo.
 
@@ -34,15 +34,15 @@ Los tres problemas solucionados en el panel son:
 |--|--|--|
 |Desequilibrio de datos|-|Esto ocurre cuando la cantidad de grabaciones de voz de ejemplo varía significativamente. Deben tener todos los intentos _aproximadamente_ el mismo número de grabaciones de voz de ejemplo - excepto la intención None. Solo debe tener 10 al 15% de la cantidad total de grabaciones de voz en la aplicación.<br><br> Si los datos están desequilibrados, pero la intención precisión está por encima de umbral determinado, este desequilibrio no se notifica como un problema.<br><br>**Iniciar con este problema: puede ser la causa raíz de los otros problemas.**|
 |Predicciones claras|Naranja|Esto sucede si son lo suficientemente que puede voltear el aprendizaje de la siguiente, debido a la intención superior y las puntuaciones de la intención siguiente [muestreo negativo](luis-how-to-train.md#train-with-all-data) o más declaraciones de ejemplo se agrega a la intención. |
-|Predicciones incorrectas|Rojo|Esto se produce cuando no se prevé una declaración de ejemplo para la intención etiquetada (la intención es en).|
+|Predicciones incorrectas|Red|Esto se produce cuando no se prevé una declaración de ejemplo para la intención etiquetada (la intención es en).|
 
 Predicciones correctas se representan con el color azul.
 
-El panel de resumen muestra estos problemas y le indica qué intentos se ven afectados y sugiere lo que debe hacer para mejorar la aplicación. 
+El panel muestra estos problemas y le indica qué intentos se ven afectados y sugiere lo que debe hacer para mejorar la aplicación. 
 
 ## <a name="before-app-is-trained"></a>Antes de que se entrena la aplicación 
 
-Antes de entrenar la aplicación, el panel de resumen no contiene alguna sugerencia para correcciones. Entrenar su aplicación para ver estas sugerencias.  
+Antes de entrenar la aplicación, el panel no contiene alguna sugerencia para correcciones. Entrenar su aplicación para ver estas sugerencias.  
 
 ## <a name="check-your-publishing-status"></a>Comprobar el estado de publicación
 
@@ -50,7 +50,7 @@ El **estado de publicación** tarjeta contiene información sobre el activo de p
 
 Compruebe que la versión activa es la versión que desea corregir. 
 
-![Servicios externos de la aplicación de panel de resumen muestra, publica las regiones y agregan visitas de punto de conexión.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Servicios externos de la aplicación de panel muestra, publica las regiones y agregan visitas de punto de conexión.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
 Esto también muestra los servicios externos, regiones publicadas y agrega visitas de punto de conexión. 
 
@@ -96,7 +96,7 @@ El **desequilibrio datos** intención lista muestra las intenciones que necesita
 
 * A continuación, agregar más declaraciones a la intención de volver a entrenar. 
 
-No agregue grabaciones de voz en intención None, a menos se sugiere en el panel de resumen.
+No agregue grabaciones de voz en intención None, a menos se sugiere en el panel.
 
 > [!Tip]
 > Utilice la tercera sección de la página, **grabaciones de voz por intención** con el **grabaciones de voz (número)** establecer como una guía visual rápida de las cuales las intenciones necesitan más declaraciones.  
@@ -154,7 +154,7 @@ Determinar los porcentajes del umbral que se son cómodo con para su negocio.
 
 El filtro le permite buscar las intenciones con problema concreto:
 
-|Filtrar|Porcentaje sugerido|Propósito|
+|Filtro|Porcentaje sugerido|Propósito|
 |--|--|--|
 |Intenciones más problemáticas|-|**Comience aquí** -corregir las palabras pronunciadas en esta intención mejorará la aplicación más que otras correcciones de errores.|
 |A continuación de predicciones correctas|60%|Este es el porcentaje de grabaciones de voz en la intención seleccionada que son correctos pero tienen una puntuación de confianza por debajo del umbral. |

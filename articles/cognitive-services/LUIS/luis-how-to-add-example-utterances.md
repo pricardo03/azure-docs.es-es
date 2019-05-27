@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60198016"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072852"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Incorporación de una entidad a expresiones de ejemplo 
 
@@ -89,25 +89,6 @@ Suponiendo que la declaración, `Does John Smith work in Seattle?`, una declarac
 
     ![Captura de pantalla de la página de detalles de Intents (Intenciones) con la entidad compuesta](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## <a name="add-hierarchical-entity"></a>Incorporación de entidad jerárquica
-
-**Entidades jerárquicas quedará obsoleto finalmente. Use [roles entidad](luis-concept-roles.md) para determinar los subtipos de entidad, en lugar de entidades jerárquicas.**
-
-Una entidad jerárquica es una categoría de entidades relacionadas conceptualmente y aprendidas contextualmente. En el ejemplo siguiente, la entidad contiene ubicaciones de origen y destino. 
-
-En la expresión `Move John Smith from Seattle to Cairo`, Seattle es la ubicación de origen y el Cairo es la ubicación de destino. Cada ubicación es contextualmente diferente y se aprende a partir del orden de palabras y elección de palabras en la expresión.
-
-1. En la página de la intención, en la expresión, seleccione `Seattle`, escriba el nombre de entidad `Location` y seleccione Entrar en el teclado.
-
-1. En el cuadro de diálogo emergente **What type of entity do you want to create?** (¿Qué tipo de entidad desea crear?), seleccione _Hierarchical_ (Jerárquico) como **tipo de entidad** y agregue `Origin` y `Destination` como elementos secundarios, después, seleccione **Done** (Listo).
-
-    ![Captura de pantalla de la página de detalles de intención, con la entidad ToLocation resaltada](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
-
-1. La palabra en la expresión se etiqueta con la entidad jerárquica primaria. Debe asignar la palabra a una entidad secundaria. Volver a la declaración en la página de detalles de intención. Seleccione la palabra, a continuación, en la lista desplegable, elija el nombre de la entidad que ha creado y siga el menú a la derecha para elegir la entidad secundaria correcta.
-
-    >[!CAUTION]
-    >Los nombres de entidad secundaria deben ser únicos en todas las entidades en una sola aplicación. Dos entidades jerárquicas diferentes no pueden contener entidades secundarias con el mismo nombre. 
-
 ## <a name="add-entitys-role-to-utterance"></a>Agregar rol de la entidad a utterance (dictado)
 
 Un rol es un subtipo de una entidad, determinado por el contexto de la declaración con nombre. Puede marcar una entidad dentro de una declaración como la entidad, o seleccione un rol dentro de esa entidad. Cualquier entidad puede tener funciones incluidas entidades personalizadas que se ha aprendido la máquina (entidades simples y compuestas entidades), no ha aprendido la máquina (entidades creadas previamente, las entidades de la expresión regular, las entidades de la lista). 
@@ -143,9 +124,6 @@ Las siguientes soluciones ayudan a resolver la discrepancia de predicción de la
 |Texto sin etiquetar|subrayado rojo|Predicción incorrecta|Las expresiones actuales con esta entidad incorrecta tienen que revisarse en todas las intenciones. Las expresiones actuales han enseñado mal a LUIS que este texto es la entidad predicha.
 |Texto etiquetado correctamente|resaltado azul de la entidad, subrayado rojo|Predicción incorrecta|Proporcione más expresiones con la entidad etiquetada correctamente en una variedad de lugares y usos. Las expresiones actuales no son suficientes para enseñar a LUIS que se trata de la entidad o aparecen entidades similares en el mismo contexto. La entidad similar debe combinarse en una única entidad de modo que LUIS no se confunda. Otra solución es agregar una lista de frases para aumentar la significación de las palabras. |
 |Texto etiquetado incorrectamente|resaltado azul de la entidad, subrayado rojo|Predicción correcta| Proporcione más expresiones con la entidad etiquetada correctamente en una variedad de lugares y usos. 
-
-> [!Note]
-> Cuando es un cuadro rojo alrededor de la intención con la etiqueta en la fila de la declaración de ejemplo, un [error de predicción intención](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) se ha producido. Necesario corregirlo. 
 
 ## <a name="other-actions"></a>Otras acciones
 
