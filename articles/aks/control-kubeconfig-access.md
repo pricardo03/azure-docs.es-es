@@ -2,18 +2,17 @@
 title: Limitación del acceso a kubeconfig en Azure Kubernetes Service (AKS)
 description: Aprenda a controlar el acceso al archivo de configuración de Kubernetes (kubeconfig) de los administradores y los usuarios de los clústeres
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 01/03/2019
-ms.date: 03/04/2019
-ms.author: v-yeche
-ms.openlocfilehash: 141aacc71d129bb45dc53774af876d5b07b7fc86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 01/03/2019
+ms.author: iainfou
+ms.openlocfilehash: d4d3d9a3ff57a7a388e9703d0d145d8ce6eafd12
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466466"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143020"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Uso de los controles de acceso basados en roles de Azure para definir el acceso al archivo de configuración de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -42,17 +41,19 @@ Los dos roles integrados son:
     * Permite el acceso a la llamada API *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action*. Esta llamada API [enumera las credenciales de usuario de clúster][api-cluster-user].
     * Descarga *kubeconfig* para el rol *clusterUser*.
 
-## <a name="assign-role-permissions-to-a-user"></a>Asignación de permisos de rol a un usuario
+Estos roles RBAC pueden aplicarse a un grupo o usuario de Azure Active Directory (AD).
 
-Para asignar uno de los roles de Azure a un usuario, debe obtener el identificador de recurso del clúster de AKS y el de la cuenta de usuario. Los siguientes comandos de ejemplo realizan los siguientes pasos:
+## <a name="assign-role-permissions-to-a-user-or-group"></a>Asignar permisos de rol a un usuario o grupo
+
+Para asignar uno de los roles disponibles, deberá obtener el identificador de recurso del clúster AKS y el identificador de la cuenta de usuario de Azure AD o grupo. Los siguientes comandos de ejemplo realizan los siguientes pasos:
 
 * Obtienen el identificador de recurso del clúster mediante el comando [az aks show][az-aks-show] para el clúster denominado *myAKSCluster* del grupo de recursos *myResourceGroup*. Proporcione los nombres de su propio clúster y grupo de recursos según proceda.
-* Usan los comandos [az account show][az-account-show] y [az ad user show][az-ad-user-show] para obtener el identificador de usuario.
+* Usa el [mostrar de la cuenta de az] [ az-account-show] y [show de usuario de ad az] [ az-ad-user-show] comandos para obtener el identificador de usuario.
 * Por último, asignan un rol mediante el comando [az role assignment create][az-role-assignment-create].
 
-En el ejemplo siguiente se asigna el *rol de administrador de clústeres de Azure Kubernetes Service*:
+En el ejemplo siguiente se asigna el *rol de administrador de clúster de Azure Kubernetes Service* a una cuenta de usuario individual:
 
-```azurecli
+```azurecli-interactive
 # Get the resource ID of your AKS cluster
 AKS_CLUSTER=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query id -o tsv)
 
@@ -66,6 +67,9 @@ az role assignment create \
     --scope $AKS_CLUSTER \
     --role "Azure Kubernetes Service Cluster Admin Role"
 ```
+
+> [!TIP]
+> Si desea asignar permisos a un grupo de Azure AD, actualice el `--assignee` parámetro con el identificador de objeto para el grupo en lugar de un usuario, como se muestra en el ejemplo anterior. Para obtener el identificador de objeto para un grupo, use la [mostrar grupo de az ad] [ az-ad-group-show] comando. En el ejemplo siguiente se obtiene el identificador de objeto para el grupo de Azure AD denominado *appdev*: `az ad group show --group appdev --query objectId -o tsv`
 
 Puede cambiar la asignación anterior al *rol Cluster User* cuando proceda.
 
@@ -88,7 +92,7 @@ La siguiente salida de ejemplo muestra que la asignación de roles se realizó c
 
 Con los roles RBAC asignados, use el comando [az aks get-credentials][az-aks-get-credentials] para obtener la definición de *kubeconfig* para el clúster de AKS. En el ejemplo siguiente se obtienen las credenciales *--admin*, que funcionan correctamente si se ha concedido al usuario el *rol Cluster Admin*:
 
-```azurecli
+```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
@@ -101,7 +105,7 @@ apiVersion: v1
 clusters:
 - cluster:
     certificate-authority-data: DATA+OMITTED
-    server: https://myaksclust-myresourcegroup-19da35-4839be06.hcp.chinaeast.azmk8s.io:443
+    server: https://myaksclust-myresourcegroup-19da35-4839be06.hcp.eastus.azmk8s.io:443
   name: myAKSCluster
 contexts:
 - context:
@@ -121,9 +125,9 @@ users:
 
 ## <a name="remove-role-permissions"></a>Eliminación de permisos de rol
 
-Para eliminar asignaciones de rol, use el comando [az role assignment delete][az-role-assignment-delete]. Especifique el identificador de la cuenta y del recurso de clúster como los obtuvo con los comandos anteriores:
+Para eliminar asignaciones de rol, use el comando [az role assignment delete][az-role-assignment-delete]. Especifique la cuenta de identificador y el identificador de recurso de clúster, que se obtienen en los comandos anteriores. Si ha asignado el rol a un grupo en lugar de un usuario, especifique el objeto de grupo adecuado identificador en lugar de Id. de objeto de cuenta para el `--assignee` parámetro:
 
-```azurecli
+```azurecli-interactive
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 ```
 
@@ -138,14 +142,15 @@ Para mejorar la seguridad en el acceso a los clústeres de AKS, [integre la aute
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az-aks-get-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-credentials
+[azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[api-cluster-admin]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusteradmincredentials
-[api-cluster-user]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusterusercredentials
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
-[az-account-show]: https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show
-[az-ad-user-show]: https://docs.azure.cn/zh-cn/cli/ad/user?view=azure-cli-latest#az-ad-user-show
-[az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
-[az-role-assignment-delete]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-delete
-[aad-integration]: aad-integration.md
+[api-cluster-admin]: /rest/api/aks/managedclusters/listclusteradmincredentials
+[api-cluster-user]: /rest/api/aks/managedclusters/listclusterusercredentials
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-account-show]: /cli/azure/account#az-account-show
+[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
+[aad-integration]: azure-ad-integration.md
+[az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show

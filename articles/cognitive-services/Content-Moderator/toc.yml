@@ -139,3 +139,5 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Cumplimiento normativo
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

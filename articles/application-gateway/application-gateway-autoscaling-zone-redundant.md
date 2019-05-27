@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/16/2019
+ms.date: 5/22/2019
 ms.author: victorh
-ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827434"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986870"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>El escalado automático y la puerta de enlace de aplicaciones con redundancia de zona 
 
@@ -93,8 +93,6 @@ Precio unitario de capacidad = 744(hours) * Max (proceso unidad Max(25/50 for co
 
 Precio total = $267.84 + $85.71 = $353.55
 
-El [página de precios](https://azure.microsoft.com/pricing/details/application-gateway/) se actualizará para reflejar los precios regionales en 14 de mayo de 2019. La facturación está programada para que comience el 1 de junio de 2019.
-
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Escalado v2 Application Gateway y WAF
 
 WAF y Application Gateway pueden configurarse a escala en dos modos:
@@ -138,7 +136,7 @@ En la tabla siguiente se compara las características disponibles con cada SKU.
 |Ruta definida por el usuario (UDR) en la subred de Application Gateway|No compatible|
 |NSG para el intervalo de puertos de entrada| - 65200 a 65535 para la SKU Standard_v2<br>- 65503 a 65534 para la SKU Standard.<br>Para más información, consulte las [preguntas más frecuentes](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Registros de rendimiento en Azure Diagnostics|No compatible.<br>Se deben usar las métricas de Azure.|
-|Facturación|Facturación programada para iniciarse en el 1 de junio de 2019.|
+|Facturación|Facturación programada para iniciarse en el 1 de julio de 2019.|
 |Modo FIPS|Actualmente no se admiten.|
 |Solo modo ILB|Actualmente no se admite. Se admiten los modos público e ILB juntos.|
 |Integración de Netwatcher|No compatible.|

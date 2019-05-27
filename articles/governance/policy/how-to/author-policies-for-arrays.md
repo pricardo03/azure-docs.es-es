@@ -7,12 +7,12 @@ ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 38cf6decb8e61768faa9680058f6366e1550ba40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479f77791a0b035f2d1de6085dfb12f5196288ee
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498770"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979323"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Directivas de autor para las propiedades de la matriz en los recursos de Azure
 
@@ -207,9 +207,9 @@ Para obtener más información, consulte el [anexar ejemplos](../concepts/effect
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md)
-- Consulte la [Estructura de definición de directivas](../concepts/definition-structure.md)
-- Consulte [Descripción de los efectos de directivas](../concepts/effects.md)
-- Entender cómo se pueden [crear directivas mediante programación](programmatically-create.md)
-- Más información sobre cómo [corregir recursos no compatibles](remediate-resources.md)
-- En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.
+- Revise los ejemplos en [ejemplos de Azure Policy](../samples/index.md).
+- Revise la [estructura de definición de Azure Policy](../concepts/definition-structure.md).
+- Vea la [Descripción de los efectos de directivas](../concepts/effects.md).
+- Comprender cómo [crear mediante programación las directivas](programmatically-create.md).
+- Obtenga información sobre cómo [corregir recursos no compatibles](remediate-resources.md).
+- Compruebe que un grupo de administración con [organizar los recursos con grupos de administración de Azure](../../management-groups/overview.md).

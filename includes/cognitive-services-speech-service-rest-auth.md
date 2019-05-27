@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
 ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480541"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145365"
 ---
 ## <a name="authentication"></a>Authentication
 
 Cada solicitud requiere un encabezado de autorización. Esta tabla muestra qué encabezados son compatibles con cada servicio:
 
-| Encabezados de autorización compatibles | Voz a texto | Texto a voz |
+| Encabezados de autorización compatibles | Conversión de voz en texto | Texto a voz |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Sí | Sin  |
+| Ocp-Apim-Subscription-Key | Sí | No |
 | Autorización: Portador | Sí | Sí |
 
-Cuando se usa el encabezado `Ocp-Apim-Subscription-Key`, solo se le pide que proporcione la clave de suscripción. Por ejemplo: 
+Cuando se usa el encabezado `Ocp-Apim-Subscription-Key`, solo se le pide que proporcione la clave de suscripción. Por ejemplo:
 
 ```
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'

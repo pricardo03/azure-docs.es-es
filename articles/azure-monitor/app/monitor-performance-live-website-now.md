@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0587782cbfa31f7b397b950a752040cc678cf7d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576669"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131000"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentación de aplicaciones web en tiempo de ejecución con Monitor de estado de Application Insights
 
@@ -48,10 +48,10 @@ A continuación hay un resumen de lo que se obtiene por cada vía:
 | [Excepciones más detalladas](../../azure-monitor/app/asp-net-exceptions.md) | |Sí |
 | [Diagnósticos de dependencia](../../azure-monitor/app/asp-net-dependencies.md) |En .NET 4.6 +, pero con menos detalle |Sí, detalles completos: códigos de resultado, texto de comandos SQL, verbo HTTP|
 | [Contadores de rendimiento del sistema](../../azure-monitor/app/performance-counters.md) |Sí |Sí |
-| [API para la telemetría personalizada][api] |Sí |Sin  |
-| [Integración del registro de seguimiento](../../azure-monitor/app/asp-net-trace-logs.md) |Sí |Sin  |
-| [Datos de usuario y página](../../azure-monitor/app/javascript.md) |Sí |Sin  |
-| Es necesario volver a compilar el código |Sí | Sin  |
+| [API para la telemetría personalizada][api] |Sí |No |
+| [Integración del registro de seguimiento](../../azure-monitor/app/asp-net-trace-logs.md) |Sí |No |
+| [Datos de usuario y página](../../azure-monitor/app/javascript.md) |Sí |No |
+| Es necesario volver a compilar el código |Sí | No |
 
 
 
@@ -149,7 +149,9 @@ Hacemos un seguimiento de este problema [aquí](https://github.com/Microsoft/App
 * Para generar registros detallados, modifique el archivo de configuración: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` y agregue `<add key="TraceLevel" value="All" />` en `appsettings`.
 Luego, reinicie el monitor de estado.
 
-### <a name="insufficient-permissions"></a>Permisos insuficientes
+* Como Monitor de estado es una aplicación .NET también es posible habilitar [seguimiento de .net mediante la adición de los diagnósticos adecuados para el archivo de configuración](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Por ejemplo, en algunos escenarios puede ser útil ver lo que sucede en el nivel de red por [configuración del seguimiento de red](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+
+### <a name="insufficient-permissions"></a>No hay permisos suficientes
   
 * En el servidor, si ve en un mensaje acerca de "permisos insuficientes", intente lo siguiente:
   * En el Administrador de IIS, seleccione el grupo de aplicaciones, abra **Configuración avanzada** y en **Modelo de proceso**, anote la identidad.
@@ -175,7 +177,7 @@ Elimine cualquiera de estos archivos encontrados en el directorio de la aplicaci
 
 * Consulte Más [soluciones de problemas][qna].
 
-## <a name="system-requirements"></a>Requisitos del sistema
+## <a name="system-requirements"></a>Requisitos de sistema
 Compatibilidad de sistema operativo para el Monitor de estado de Application Insights en servidor:
 
 * Windows Server 2008
@@ -184,7 +186,7 @@ Compatibilidad de sistema operativo para el Monitor de estado de Application Ins
 * Windows Server 2012 R2
 * Windows Server 2016
 
-con el último Service Pack y .NET Framework 4.5
+con .NET Framework 4.5 y SP más recientes (Monitor de estado se basa en esta versión de framework)
 
 En el lado cliente: Windows 7, 8, 8.1 y 10, nuevamente con .NET Framework 4.5
 
@@ -276,7 +278,9 @@ Cuando selecciona una aplicación web para instrumentarla con el Monitor de esta
 
 ### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>¿Qué versión del SDK de Application Insights realiza la instalación de Monitor de estado?
 
-A partir de ahora, Monitor de estado solo puede instalar las versiones 2.3 o 2.4 del SDK de Application Insights.
+A partir de ahora, Monitor de estado solo puede instalar las versiones 2.3 o 2.4 del SDK de Application Insights. 
+
+El SDK de Application Insights versión 2.4 es el [última versión compatible con .NET 4.0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) que era [EOL enero de 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Por lo tanto, a partir de ahora se puede usar Monitor de estado para instrumentar una aplicación .NET 4.0. 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>¿Tengo que actualizar el Monitor de estado siempre que actualice la aplicación?
 
@@ -291,7 +295,7 @@ En el caso de las aplicaciones que instrumenta solo en tiempo de ejecución medi
 * Solicitudes HTTP
 * Llamadas a dependencias
 * Excepciones
-* contadores de rendimiento
+* Contadores de rendimiento
 
 En el caso de las aplicaciones ya instrumentadas en el momento de la compilación:
 

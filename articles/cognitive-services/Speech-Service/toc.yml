@@ -170,7 +170,7 @@
               href: how-to-custom-speech-train-model.md
             - name: Implementación de un modelo personalizado
               href: how-to-custom-speech-deploy-model.md
-            - name: 'Guía: Creación de transcripciones con la etiqueta humana'
+            - name: Guía de creación de transcripciones con la etiqueta humana
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Texto a voz
           items:
@@ -195,14 +195,14 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: Desde Translator Speech API
           href: how-to-migrate-from-translator-speech-api.md
-    - name: Uso de contenedores locales
+    - name: Uso de contenedores
       items:
-        - name: Instalación y ejecución de contenedores locales
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+        - name: Instalación y ejecución de contenedores
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
           href: speech-container-howto.md
         - name: Configuración de contenedores
           href: speech-container-configuration.md
-          displayName: 'docker, container, billing, apikey, pull, logging'
+          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
 - name: Ejemplos
   items:
     - name: SDK de voz
@@ -314,6 +314,8 @@
       href: support.md
     - name: Precios y límites
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Cumplimiento normativo
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Privacidad y cookies

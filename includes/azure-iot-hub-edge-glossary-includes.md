@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: dobett
 ms.openlocfilehash: c95bca125ea70cf32acad0d5ea67c3ad195ed704
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445082"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146573"
 ---
 ## <a name="automatic-device-management"></a>Administración automática de dispositivos
 La administración automática de dispositivos de Azure IoT Hub automatiza muchas de las tareas repetitivas y complejas de administración de grandes flotas de dispositivos durante su ciclo de vida completo. Con la administración automática de dispositivos, puede tener como destino un conjunto de dispositivos según sus propiedades, definir una configuración deseada y permitir que IoT Hub actualice los dispositivos en cuanto estén dentro del alcance.  Consta de [configuraciones automáticas de dispositivos](../articles/iot-hub/iot-hub-auto-device-config.md) e [implementaciones automáticas de IoT Edge](../articles/iot-edge/how-to-deploy-monitor.md).
@@ -20,7 +20,7 @@ Azure IoT Edge permite una implementación controlada por la nube de los servici
 ## <a name="iot-edge-agent"></a>Agente de IoT Edge
 La parte del sistema de tiempo de ejecución de IoT Edge responsable de implementar y supervisar los módulos.
 
-## <a name="iot-edge-device"></a>Dispositivo de IoT Edge
+## <a name="iot-edge-device"></a>Dispositivo IoT Edge
 Los dispositivos de IoT Edge tienen instalado el sistema de tiempo de ejecución de IoT Edge y se marcan como **Dispositivo de IoT Edge** en los detalles del dispositivo. Aprenda sobre la [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux).
 
 ## <a name="iot-edge-automatic-deployment"></a>Implementación automática de IoT Edge

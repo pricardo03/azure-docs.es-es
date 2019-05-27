@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
 ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797541"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66150703"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solución de recuperación ante desastres automatizada con Azure Site Recovery para recursos compartidos de archivos alojados en StorSimple
 
@@ -323,7 +323,7 @@ Durante una conmutación por recuperación, los contenedores de volúmenes de St
 
 ## <a name="best-practices"></a>Prácticas recomendadas
 ### <a name="capacity-planning-and-readiness-assessment"></a>Evaluación de disponibilidad y planeamiento de capacidad
-#### <a name="hyper-v-site"></a>Sitio de Hyper-V
+#### <a name="hyper-v-site"></a>Sitio Hyper-V
 Utilice la [herramienta de planeamiento de capacidad de usuario](https://www.microsoft.com/download/details.aspx?id=39057) para diseñar el servidor, el almacenamiento y la infraestructura de red de su entorno de réplica de Hyper-V.
 
 #### <a name="azure"></a>Azure

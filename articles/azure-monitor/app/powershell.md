@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
 ms.openlocfilehash: 1c360d60a429f137c4b74ad4afe8ae9bba895b7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130950"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Creación de recursos de Application Insights mediante PowerShell
 
@@ -201,7 +201,7 @@ Para crear un recurso de aplicación con el plan de precios de Enterprise, use l
 |priceCode|plan|
 |---|---|
 |1|Básica|
-|2|Enterprise|
+|2|Empresa|
 
 * Si solo desea usar el plan de precios básico predeterminado, puede omitir el recurso CurrentBillingFeatures de la plantilla.
 * Si desea cambiar el plan de precios una vez creado el recurso de componente, puede usar una plantilla que omita el recurso "microsoft.insights/components". Además, omita el nodo `dependsOn` del recurso de facturación. 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162048"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicación en un tema personalizado de Azure Event Grid
 
@@ -94,16 +94,16 @@ Por ejemplo, un esquema de datos de evento válido es:
 }]
 ```
 
-## <a name="response"></a>Response
+## <a name="response"></a>Respuesta
 
 Después de publicar en el punto de conexión del tema, recibirá una respuesta. La respuesta es un código de respuesta HTTP estándar. Algunas respuestas comunes son:
 
-|Resultado  |Response  |
+|Resultado  |Respuesta  |
 |---------|---------|
 |Correcto  | 200 OK  |
 |Los datos del evento tienen un formato incorrecto | 400 - Solicitud incorrecta |
 |Clave de acceso no válida | 401 No autorizado |
-|Punto de conexión incorrecto | 404 No encontrado |
+|Punto de conexión incorrecto | 405 No encontrado |
 |La matriz o el evento superan los límites de tamaño | 413 Carga demasiado grande |
 
 Si hay errores, el cuerpo del mensaje tiene el formato siguiente:

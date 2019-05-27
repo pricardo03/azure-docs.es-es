@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 3/28/2019
 ms.author: amitsriva
 ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620883"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135460"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
 
@@ -61,7 +61,7 @@ Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupNa
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
 ```
 
-### <a name="results"></a>Results
+### <a name="results"></a>Resultados
 
 El siguiente fragmento de código muestra un ejemplo de la respuesta:
 
@@ -208,7 +208,7 @@ El registro de rendimiento solo se genera si lo habilitó para cada instancia de
 |healthyHostCount     | Número de hosts con un mantenimiento correcto en el grupo de back-end.        |
 |unHealthyHostCount     | Número de hosts con un mantenimiento incorrecto en el grupo de back-end.        |
 |requestCount     | Número de solicitudes atendidas.        |
-|latency | Latencia media (en milisegundos) de las solicitudes desde la instancia hasta el back-end que atiende las solicitudes. |
+|latencia | Latencia media (en milisegundos) de las solicitudes desde la instancia hasta el back-end que atiende las solicitudes. |
 |failedRequestCount| Número de solicitudes con error.|
 |throughput| Rendimiento medio desde el último registro, medido en bytes por segundo.|
 
@@ -248,8 +248,8 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 |ruleSetType     | Tipo de conjunto de reglas. El valor disponible es OWASP.        |
 |ruleSetVersion     | Versión utilizada del conjunto de reglas. Los valores disponibles son 2.2.9 y 3.0.     |
 |ruleId     | Identificador de regla del evento desencadenador.        |
-|Mensaje     | Mensaje descriptivo para el evento desencadenador. En la sección de detalles se proporciona más información.        |
-|action     |  Acción realizada en la solicitud. Los valores disponibles son Blocked y Allowed.      |
+|message     | Mensaje descriptivo para el evento desencadenador. En la sección de detalles se proporciona más información.        |
+|acción     |  Acción realizada en la solicitud. Los valores disponibles son Blocked y Allowed.      |
 |site     | Sitio para el que se generó el registro. Actualmente, solo se incluye Global porque las reglas son globales.|
 |details     | Detalles del evento desencadenador.        |
 |details.message     | Descripción de la regla.        |
@@ -336,7 +336,7 @@ En la siguiente imagen, verá un ejemplo con tres métricas que se muestran para
 
 Para ver una lista de métricas actuales, consulte el artículo de [métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
-### <a name="alert-rules"></a>Reglas de alertas
+### <a name="alert-rules"></a>Reglas de alerta
 
 Puede iniciar las reglas de alerta en función de las métricas de un recurso. Por ejemplo, una alerta puede llamar a un webhook o enviar un correo electrónico a un administrador si el rendimiento de la puerta de enlace de aplicaciones es superior, igual o inferior a un umbral durante un período especificado.
 

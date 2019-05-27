@@ -1,10 +1,15 @@
 ---
+author: wesmc7777
+ms.author: wesmc
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
 ms.openlocfilehash: 72ccad94301e053d8103ca949d41202e58d9f5bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60780527"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146532"
 ---
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
@@ -19,8 +24,11 @@ Los dispositivos gemelos son documentos JSON que almacenan información sobre el
 Use los dispositivos gemelos para:
 
 * Almacenar metadatos del dispositivo desde el back-end de la solución.
+
 * Notificar la información sobre el estado actual, como las funcionalidades y las condiciones disponibles (por ejemplo, el método de conectividad usado) de la aplicación del dispositivo.
+
 * Sincronizar el estado de flujos de trabajo de larga duración (como las actualizaciones del firmware y de la configuración) entre la aplicación del dispositivo y la del back-end.
+
 * Consultar los metadatos, la configuración o el estado del dispositivo.
 
 Los dispositivos gemelos están diseñados para la sincronización y para consultar las condiciones y configuraciones del dispositivo. Para más información sobre cuándo usar dispositivos gemelos, consulte [Introducción a los dispositivos gemelos](../articles/iot-hub/iot-hub-devguide-device-twins.md).
@@ -28,7 +36,9 @@ Los dispositivos gemelos están diseñados para la sincronización y para consul
 Los dispositivos gemelos se almacenan en un IoT Hub y contienen:
 
 * *etiquetas*, metadatos de dispositivo a los que solo puede acceder el back-end de la solución;
+
 * *propiedades deseadas*, objetos JSON que puede modificar el back-end de la solución y puede observar la aplicación del dispositivo; y
+
 * *propiedades indicadas*, objetos JSON que puede modificar la aplicación del dispositivo y que puede leer el back-end de la solución. Las etiquetas y propiedades no pueden contener matrices, pero se pueden anidar objetos.
 
 ![Imagen de dispositivo gemelo mostrando la funcionalidad](./media/iot-hub-selector-twin-get-started/twin.png)
@@ -40,14 +50,5 @@ Consulte [Introducción a los dispositivos gemelos](../articles/iot-hub/iot-hub-
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
 * Crear una aplicación de back-end que agrega *etiquetas* a un dispositivo gemelo y una aplicación de dispositivo simulado que notifica su canal de conectividad como *propiedad notificada* en el dispositivo gemelo.
+
 * Consultar dispositivos desde la aplicación de back-end mediante filtros en las etiquetas y propiedades que se han creado anteriormente.
-
-<!-- images -->
-[img-twin]: media/iot-hub-selector-twin-get-started/twin.png
-
-<!-- links -->
-[lnk-query]: ../articles/iot-hub/iot-hub-devguide-query-language.md
-[lnk-twins]: ../articles/iot-hub/iot-hub-devguide-device-twins.md
-[lnk-d2c]: ../articles/iot-hub/iot-hub-devguide-messaging.md#device-to-cloud-messages
-[lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md

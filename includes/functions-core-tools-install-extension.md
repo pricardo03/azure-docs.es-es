@@ -9,11 +9,11 @@ ms.date: 09/25/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733265"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131446"
 ---
 Paquetes de extensión realizar todos los enlaces publicados por el equipo de Azure Functions disponible a través de una configuración en el *host.json* archivo. Para el desarrollo local, asegúrese de que tiene la versión más reciente de [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
 
@@ -36,7 +36,7 @@ Incremento de las versiones de agrupación como paquetes en los cambios del lote
 
 Una vez que se hace referencia a los paquetes de extensión en el proyecto, a continuación, todos los enlaces predeterminados están disponibles para las funciones. Los enlaces disponibles en el [conjunto de extensiones](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) son:
 
-|Paquete  |`Version`  |
+|Paquete  |Version  |
 |---------|---------|
 |Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
 |Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|

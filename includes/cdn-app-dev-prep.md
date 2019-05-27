@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564238"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66126312"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de escribir el código de administración de la red CDN, tiene que realizar algunos preparativos para habilitar el código para que interactúe con Azure Resource Manager. Para hacer esta preparación, deberá:

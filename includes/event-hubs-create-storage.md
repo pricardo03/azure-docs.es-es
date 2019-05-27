@@ -9,11 +9,11 @@ ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b84b0a8e09bf739ce62dee167ff751b491765c66
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684674"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154565"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Creación de una cuenta de almacenamiento para el host de procesador de eventos
 El host de procesador de eventos es un agente inteligente que simplifica la recepción de eventos desde Event Hubs mediante la administración de puntos de control persistentes y recepciones paralelas. Para los puntos de comprobación, el host de procesador de eventos requiere una cuenta de almacenamiento. El ejemplo siguiente muestra cómo crear una cuenta de almacenamiento y cómo obtener sus claves para el acceso:
@@ -22,7 +22,7 @@ El host de procesador de eventos es un agente inteligente que simplifica la rece
 
 2. Seleccione **Storage** y, a continuación, seleccione **Storage account - blob, file, table, queue** (Cuenta de almacenamiento: blob, archivo, tabla, cola).
    
-    ![Seleccionar Cuenta de almacenamiento](./media/event-hubs-create-storage/create-storage1.png)
+    ![Seleccionar una cuenta de almacenamiento](./media/event-hubs-create-storage/create-storage1.png)
 
 3. En la página **Crear cuenta de almacenamiento**, realice los pasos siguientes: 
 

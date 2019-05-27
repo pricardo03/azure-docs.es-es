@@ -1,5 +1,5 @@
 ---
-title: Control de versiones y la definición del conjunto de datos
+title: Definición de conjunto de datos y control de versiones con los conjuntos de datos de aprendizaje automático de Azure
 titleSuffix: Azure Machine Learning service
 description: Obtenga información sobre cómo actualizar las definiciones de conjunto de datos y administrar el ciclo de vida de las definiciones
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 7c861c8cdc9985caa42bd2beb5236a4f4e93e4c7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028686"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146215"
 ---
 # <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>Actualizar y administrar el ciclo de vida de las definiciones de conjunto de datos
 
@@ -173,7 +173,7 @@ ds_def_old.head(5)
       <th>ID</th>
       <th>Case Number</th>
       <th>Date</th>
-      <th>Block</th>
+      <th>Bloquear</th>
       <th>IUCR</th>
       <th>Primary Type</th>
       <th>DESCRIPCIÓN</th>
@@ -190,7 +190,7 @@ ds_def_old.head(5)
       <th>Updated On</th>
       <th>Latitud</th>
       <th>Longitud</th>
-      <th>Location</th>
+      <th>Ubicación</th>
     </tr>
   </thead>
   <tbody>
@@ -344,7 +344,7 @@ Una vez que haya recuperado una definición, puede usar con los modelos de apren
 
 Puede administrar el ciclo de vida de cada definición de conjunto de datos de forma independiente. Hay tres fases del ciclo de vida: activo, en desuso o archivado.
 
-### <a name="active"></a>Active
+### <a name="active"></a>Activas
 
 Cuando se crea una nueva definición de conjunto de datos, está activo de forma predeterminada. 
 

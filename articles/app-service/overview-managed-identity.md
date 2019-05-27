@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136969"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -287,9 +287,9 @@ La variable **MSI_ENDPOINT** es una dirección URL local desde la que la aplicac
 
 > |Nombre de parámetro|En|DESCRIPCIÓN|
 > |-----|-----|-----|
-> |resource|Consultar|El URI del recurso del recurso AAD para el que se debe obtener un token. Este podría ser uno de los [servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o cualquier otro URI de recurso.|
+> |Recurso|Consultar|El URI del recurso del recurso AAD para el que se debe obtener un token. Este podría ser uno de los [servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o cualquier otro URI de recurso.|
 > |api-version|Consultar|La versión de la API de token que se usará. Actualmente, la única versión admitida es "2017-09-01".|
-> |secret|Encabezado|El valor de la variable de entorno MSI_SECRET. Este encabezado se utiliza para ayudar a mitigar los ataques de falsificación de solicitudes del servidor (SSRF).|
+> |clave|Encabezado|El valor de la variable de entorno MSI_SECRET. Este encabezado se utiliza para ayudar a mitigar los ataques de falsificación de solicitudes del servidor (SSRF).|
 > |clientid|Consultar|(Opcional) El identificador de la identidad asignada por el usuario que se usará. Si se omite, se usa la identidad asignada por el sistema.|
 
 Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
@@ -298,7 +298,7 @@ Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 > |-------------|----------|
 > |access_token|El token de acceso solicitado. El servicio web de llamada puede usar este token para autenticarse en el servicio web de recepción.|
 > |expires_on|La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. Este valor se utiliza para determinar la duración de los tokens almacenados en caché.|
-> |resource|El URI del identificador de la aplicación del servicio web de recepción.|
+> |Recurso|El URI del identificador de la aplicación del servicio web de recepción.|
 > |token_type|Indica el valor de tipo de token. El único tipo que admite Azure AD es portador. Para más información sobre los tokens de portador, consulte [The OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]).|
 
 Esta respuesta es la misma que la [respuesta para la solicitud de token de acceso de servicio a servicio de AAD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: 3b9108e08e1b1ad13fac75d00816755043d84672
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 70b350e228785e47a41cb83ce0d80b93c8a601c1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308727"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135236"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)
 
@@ -83,7 +83,7 @@ Elección de la suscripción de Azure que se va a usar.
 Select-AzSubscription -Subscriptionid "GUID of subscription"
 ```
 
-### <a name="step-4"></a>Paso 4
+### <a name="step-4"></a>Paso 4
 
 Cree un grupo de recursos nuevo (omita este paso si usa uno existente).
 
@@ -149,7 +149,7 @@ $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -
 
 Este paso configura la opción de la puerta de enlace de aplicaciones "poolsetting01" para el tráfico de red con carga equilibrada del grupo de back-end.
 
-### <a name="step-4"></a>Paso 4
+### <a name="step-4"></a>Paso 4
 
 ```powershell
 $fp = New-AzApplicationGatewayFrontendPort -Name frontendport01  -Port 80

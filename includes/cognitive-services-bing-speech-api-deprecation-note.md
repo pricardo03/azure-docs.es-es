@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/13/2018
 ms.author: nitinme
 ms.openlocfilehash: eedfd4e3b46a104fdfeed84034536e98b4c6ddaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513970"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145630"
 ---
 > [!NOTE] 
 > El nuevo servicio y SDK de Voz va a sustituir a Bing Speech, que dejará de funcionar a partir del 15 de octubre de 2019. Para más información acerca de cómo cambiar al servicio Voz, consulte [Migrating from Bing Speech to the Speech Service](../articles/cognitive-services/Speech-Service/how-to-migrate-from-bing-speech.md) (Migración de Bing Speech al servicio Voz).

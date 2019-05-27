@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: bdba294e1ee776d90b93f715e930ec26765abb7f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129168"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
 
@@ -211,9 +211,9 @@ En el ejemplo siguiente se crea un grupo de recursos y se implementa una cuenta 
 }
 ```
 
-## <a name="create-policies"></a>Creación de directivas
+## <a name="create-policies"></a>Crear directivas
 
-### <a name="assign-policy"></a>Asignación de directiva
+### <a name="assign-policy"></a>Asignar directiva
 
 En el ejemplo siguiente se asigna una definición de directiva existente a la suscripción. Si la directiva toma parámetros, proporciónelos como un objeto. Si la directiva no toma parámetros, use el objeto vacío predeterminado.
 

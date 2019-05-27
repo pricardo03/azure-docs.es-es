@@ -9,13 +9,13 @@ ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468426"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145920"
 ---
-Discos de SO efímeros se crean en el almacenamiento local de la máquina Virtual (VM) y no se conservan en el almacenamiento remoto de Azure. Discos de SO efímeros funcionan bien para las cargas de trabajo sin estado, donde las aplicaciones son tolerantes a errores de máquina virtual individuales, pero preocupan más el tiempo necesario para las implementaciones a gran escala o la hora a la imagen inicial de las instancias de máquina virtual individuales. También es adecuado para las aplicaciones implementadas con el modelo de implementación clásica, para mover al modelo de implementación de Resource Manager. Con el disco de SO efímero, podría observar una menor latencia de lectura/escritura para el disco del sistema operativo y más rápido crear una nueva imagen de máquina virtual. Además, el disco de SO efímero es gratuito, se incurre en ningún costo de almacenamiento de disco del sistema operativo. 
+Discos de SO efímeros se crean en el almacenamiento local de la máquina Virtual (VM) y no se conservan en el almacenamiento remoto de Azure. Discos de SO efímeros funcionan bien para las cargas de trabajo sin estado, donde las aplicaciones son tolerantes a errores de máquina virtual individuales, pero preocupan más el tiempo necesario para las implementaciones a gran escala o la hora a la imagen inicial de las instancias de máquina virtual individuales. También es adecuado para las aplicaciones implementadas con el modelo de implementación clásica, para mover al modelo de implementación de Resource Manager. Con los discos de sistema operativo efímeros, notará una latencia de lectura y escritura inferior en el disco del sistema operativo y un restablecimiento más rápido de la imagen inicial de la máquina virtual. Además, el disco de SO efímero es gratuito, se incurre en ningún costo de almacenamiento de disco del sistema operativo. 
  
 Las características clave de discos efímeros son: 
 - Se puede usar con las imágenes de Marketplace e imágenes personalizadas.

@@ -4,14 +4,14 @@ description: En este artículo se explica cómo optimizar los costos de rendimie
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929028"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967307"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
 
@@ -56,9 +56,9 @@ Como se muestra en la tabla siguiente, según la elección de la API, puede apro
 |API|Para rendimiento **compartido**, configure |Para rendimiento **dedicado**, configure |
 |----|----|----|
 |API DE SQL|Base de datos|Contenedor|
-|API de Azure Cosmos DB para MongoDB|Base de datos|Colección|
-|Cassandra API|Espacio de claves|Tabla|
-|API de Gremlin|Cuenta de base de datos|Grafo|
+|API de Azure Cosmos DB para MongoDB|Base de datos|Recolección|
+|Cassandra API|Keyspace|Tabla|
+|API de Gremlin|Cuenta de base de datos|Gráfico|
 |Table API|Cuenta de base de datos|Tabla|
 
 Al aprovisionar el rendimiento en diferentes niveles, puede optimizar los costos en función de las características de la carga de trabajo. Como se mencionó anteriormente, puede aumentar o disminuir mediante programación y en cualquier momento el rendimiento aprovisionado para contenedores individuales o de a varios en un conjunto de contenedores. Al escalar elásticamente el rendimiento a medida que cambia la carga de trabajo, solo paga por el rendimiento que haya configurado. Si el contenedor o el conjunto de contenedores se distribuyen entre varias regiones, se garantiza que el rendimiento que configura en el contenedor o el conjunto de contenedores está disponible en todas las regiones.

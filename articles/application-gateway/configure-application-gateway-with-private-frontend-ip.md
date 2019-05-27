@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
 ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905547"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134620"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurar una puerta de enlace de la aplicación con un extremo (ILB) de equilibrador de carga interno
 
@@ -55,7 +55,7 @@ Para que Azure se comunique entre los recursos que se crean, se necesita una red
     ![private-frontendip-2](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-2.png)
 10. Revise la configuración en la página de resumen y, a continuación, haga clic en **Aceptar** para crear los recursos de red y la puerta de enlace de aplicaciones. La creación de la puerta de enlace de aplicaciones puede tardar varios minutos, espere a que finalice correctamente la implementación antes de pasar a la sección siguiente.
 
-## <a name="add-backend-pool"></a>Agregar grupo de back-end
+## <a name="add-backend-pool"></a>Agregar grupo back-end
 
 El grupo de back-end se usa para enrutar las solicitudes a los servidores back-end que atenderán la solicitud. Los servidores back-end pueden constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, nombres de dominio completos (FQDN) y servidores back-end multiinquilino como Azure App Service. En este ejemplo, se usan máquinas virtuales como back-end de destino. Pueden usarse máquinas virtuales existentes o crear otras nuevas. En este ejemplo, se crean dos máquinas virtuales que Azure usa como servidores back-end para la puerta de enlace de aplicaciones. Para ello, se hará lo siguiente:
 
@@ -63,7 +63,7 @@ El grupo de back-end se usa para enrutar las solicitudes a los servidores back-e
 2. Instalar IIS en las máquinas virtuales para comprobar que la puerta de enlace de aplicaciones se ha creado correctamente.
 3. Agregar los servidores back-end al grupo de back-end.
 
-### <a name="create-a-virtual-machine"></a>de una máquina virtual
+### <a name="create-a-virtual-machine"></a>Crear una máquina virtual
 
 1. Haga clic en **Nuevo**.
 2. Haga clic en **Compute** y, después, seleccione **Windows Server 2016 Datacenter** en la lista de destacados.

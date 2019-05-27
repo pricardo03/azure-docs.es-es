@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766872"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988577"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar la administración de la sesión de autenticación con el acceso condicional
 
@@ -50,7 +50,7 @@ Una sesión de explorador persistente permite a los usuarios permanecer con la s
 
 ## <a name="configuring-authentication-session-controls"></a>Configuración de controles de sesión de autenticación
 
-Acceso condicional es una funcionalidad de Azure AD Premium y requiere una licencia premium. Para más información sobre el acceso condicional, consulte [Acceso condicional de Azure Active Directory](overview.md#license-requirements-for-using-conditional-access).
+Acceso condicional es una funcionalidad de Azure AD Premium y requiere una licencia premium. Para más información sobre el acceso condicional, consulte [Acceso condicional de Azure Active Directory](overview.md#license-requirements).
 
 > [!WARNING]
 > Si usas el [vigencia de tokens configurables](../develop/active-directory-configurable-token-lifetimes.md) características actualmente en versión preliminar pública, tenga en cuenta que no se admite crear dos directivas diferentes para la misma combinación de la aplicación o un usuario: uno con esta característica y otra con característica de vigencia de tokens configurables. Microsoft tiene planeado retirar la característica de vigencia de tokens configurables del 15 de octubre y reemplácela con la característica de administración de sesión de autenticación de acceso condicional.  
@@ -66,7 +66,7 @@ Acceso condicional es una funcionalidad de Azure AD Premium y requiere una licen
 1. Vaya a **controles de acceso** > **sesión** y haga clic en **frecuencia de inicio de sesión**
 1. Escriba el valor requerido de los días y horas en el primer cuadro de texto
 1. Seleccione un valor de **horas** o **días** desde la lista desplegable
-1. Guardar directiva
+1. Guardar la directiva
 
 ![Directiva de acceso condicional configurada para inicio de sesión en frecuencia](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 

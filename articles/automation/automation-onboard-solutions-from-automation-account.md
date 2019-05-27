@@ -9,18 +9,18 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1bb5534d2f98a4e5143038ab1d5fbbcc76184fe
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739256"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133183"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
 Azure Automation proporciona soluciones para administrar las actualizaciones de seguridad del sistema operativo, el seguimiento de cambios y el inventario de los componentes instalados en los equipos. Hay varias maneras de incorporar máquinas; puede incorporar la solución [desde una máquina virtual](automation-onboard-solutions-from-vm.md), [explorando varias máquinas](automation-onboard-solutions-from-browse.md), desde su cuenta de Automation o mediante un [runbook](automation-onboard-solutions.md). Este artículo trata la incorporación de estas soluciones desde la cuenta de Automation.
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
 
 Inicie sesión en Azure en https://portal.azure.com
 
@@ -32,27 +32,10 @@ Elija el área de trabajo de Log Analytics y cuenta de Automation y haga clic en
 
 ![Incorporación de la solución Inventory](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
-
-En la tabla siguiente se muestran las asignaciones admitidas:
-
-|**Región del área de trabajo de Log Analytics**|**Región de Azure Automation**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> asignaciones EastUS2EUAP y EastUS para áreas de trabajo de Log Analytics para las cuentas de Automation no son una asignación exacta de una región a otra, pero es la asignación correcta.
-
-<sup>2</sup> debido a restricciones de capacidad la región no está disponible al crear nuevos recursos. Esto incluye las cuentas de Automation y Log Analytics de áreas de trabajo. Sin embargo, recursos vinculados que ya existían en la región deben continuar funcionando.
+> [!NOTE]
+> Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
+>
+> Para obtener una lista de los pares de asignaciones admitidas, consulte [asignación de región para la cuenta de Automation y Log Analytics workspace](how-to/region-mappings.md).
 
 La solución Change Tracking e Inventario permite realizar un [control de cambios](automation-vm-change-tracking.md) e [inventario](automation-vm-inventory.md) en sus máquinas virtuales. En este paso, se habilita la solución en una máquina virtual.
 
@@ -82,7 +65,7 @@ Cuando un equipo se agrega a las soluciones Update Management o Change Tracking 
 
 Vaya a la cuenta de Automation y seleccione **Búsquedas guardadas** en **General**. Las dos búsquedas guardadas utilizadas por estas soluciones se pueden ver en la tabla siguiente:
 
-|NOMBRE     |Category  |Alias  |
+|NOMBRE     |Categoría  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Actualizaciones        | Updates__MicrosoftDefaultComputerGroup         |
@@ -161,6 +144,8 @@ Si ha usado la solución Start and Stop VMs during off-hours, también puede qui
 * Programaciones de runbook de inicio y detención de máquinas virtuales
 * Runbooks de inicio y detención de máquinas virtuales
 * variables
+
+Como alternativa también puede desvincular el área de trabajo desde su cuenta de Automation desde el área de trabajo de Log Analytics. En el área de trabajo, seleccione **cuenta de Automation** en **recursos relacionados**. En la página cuenta de Automation, seleccione **desvincular la cuenta**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
