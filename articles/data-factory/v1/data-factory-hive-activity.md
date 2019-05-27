@@ -75,15 +75,15 @@ La actividad de Hive de HDInsight en una [canalización](data-factory-create-pip
 ## <a name="syntax-details"></a>Detalles de la sintaxis
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Nombre |Nombre de la actividad |Sí |
+| name |Nombre de la actividad |Sí |
 | description |Texto que describe para qué se usa la actividad. |Sin  |
-| Tipo |HDinsightHive |Sí |
+| type |HDinsightHive |Sí |
 | inputs |Entradas consumidas por la actividad de Hive |Sin  |
 | outputs |Salidas producidas por la actividad de Hive |Sí |
 | linkedServiceName |Referencia al clúster de HDInsight registrado como un servicio vinculado en la factoría de datos |Sí |
 | script |Especifica el script de Hive en línea |Sin  |
-| script path |Almacena el script de Hive en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |Sin  |
-| define los campos |Especifique parámetros como pares de clave y valor para referencia en el script de Hive con 'hiveconf' |Sin  |
+| scriptPath |Almacena el script de Hive en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |Sin  |
+| defines |Especifique parámetros como pares de clave y valor para referencia en el script de Hive con 'hiveconf' |Sin  |
 
 ## <a name="example"></a>Ejemplo
 Veamos un ejemplo de análisis de registros de juegos en el que desea identificar el tiempo dedicado por los usuarios a los juegos de su empresa. 
