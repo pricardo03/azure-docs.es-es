@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
 ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523416"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123547"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar Microsoft Azure Traffic Manager para administrar la cuota de punto de conexión en las claves
 Language Understanding (LUIS) ofrece la posibilidad de aumentar la cuota de solicitud de punto de conexión más allá de la cuota de una clave única. Esto se hace al crear más claves para LUIS y agregarlas a la aplicación de LUIS en la página **Publicar**, en la sección **Resources and Keys** (Recursos y claves). 
@@ -104,7 +104,7 @@ Para crear el perfil de Traffic Manager Este de EE. UU., es necesario llevar a c
     |-Type|ExternalEndpoints|Para obtener más información, vea [Puntos de conexión de Traffic Manager][traffic-manager-endpoints]. |
     |-Target|eastus.api.cognitive.microsoft.com|Este es el dominio del punto de conexión de LUIS.|
     |-EndpointLocation|"eastus"|Región del punto de conexión|
-    |-EndpointStatus|habilitado|Habilitar el punto de conexión cuando se crea|
+    |-EndpointStatus|Enabled|Habilitar el punto de conexión cuando se crea|
 
     Una respuesta correcta tiene el siguiente aspecto:
 
@@ -173,7 +173,7 @@ Para crear el perfil de Traffic Manager Oeste de EE. UU., siga los mismos pasos:
     |-Type|ExternalEndpoints|Para obtener más información, vea [Puntos de conexión de Traffic Manager][traffic-manager-endpoints]. |
     |-Target|westus.api.cognitive.microsoft.com|Este es el dominio del punto de conexión de LUIS.|
     |-EndpointLocation|"westus"|Región del punto de conexión|
-    |-EndpointStatus|habilitado|Habilitar el punto de conexión cuando se crea|
+    |-EndpointStatus|Enabled|Habilitar el punto de conexión cuando se crea|
 
     Una respuesta correcta tiene el siguiente aspecto:
 
@@ -239,7 +239,7 @@ Cree el perfil primario de Traffic Manager y vincule dos perfiles secundarios de
     |-TrafficManagerProfile|$parentprofile|Perfil que se asignará a este punto de conexión|
     |-Type|NestedEndpoints|Para obtener más información, consulte [agregar AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |-TargetResourceId|$eastprofile.Id|Identificador del perfil secundario|
-    |-EndpointStatus|habilitado|Estado del punto de conexión después de agregarlo al perfil primario|
+    |-EndpointStatus|Enabled|Estado del punto de conexión después de agregarlo al perfil primario|
     |-EndpointLocation|"eastus"|[Nombre de la región de Azure](https://azure.microsoft.com/global-infrastructure/regions/) del recurso|
     |-MinChildEndpoints|1|Número mínimo para los puntos de conexión secundarios|
 
@@ -276,7 +276,7 @@ Cree el perfil primario de Traffic Manager y vincule dos perfiles secundarios de
     |-TrafficManagerProfile|$parentprofile|Perfil que se asignará a este punto de conexión|
     |-Type|NestedEndpoints|Para obtener más información, consulte [agregar AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |-TargetResourceId|$westprofile.Id|Identificador del perfil secundario|
-    |-EndpointStatus|habilitado|Estado del punto de conexión después de agregarlo al perfil primario|
+    |-EndpointStatus|Enabled|Estado del punto de conexión después de agregarlo al perfil primario|
     |-EndpointLocation|"westus"|[Nombre de la región de Azure](https://azure.microsoft.com/global-infrastructure/regions/) del recurso|
     |-MinChildEndpoints|1|Número mínimo para los puntos de conexión secundarios|
 

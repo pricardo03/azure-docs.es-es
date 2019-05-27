@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0cae2befad1b0cd2d6a093387c41aac8ccdfff7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719213"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991431"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Escenarios y disponibilidad de características de Media Services en centros de datos
 
@@ -111,7 +111,7 @@ Para obtener información acerca de la disponibilidad en los centros de datos, c
 3. Obtenga una vista previa del flujo de datos en vivo.
 4. Entregue el contenido mediante protocolos de streaming comunes (por ejemplo, MPEG DASH, Smooth o HLS) directamente a sus clientes o a una red Content Delivery Network (CDN) para ampliar la distribución.
 
-    O bien
+    -o bien-
 
     Registre y almacene el contenido recibido para transmitirlo posteriormente (vídeo bajo demanda).
 
@@ -196,8 +196,8 @@ AMS ofrece dos codificadores a petición **Media Encoder Standard** y **Flujo de
 
 |Nombre de procesador de multimedia|Status|Centros de datos
 |---|---|---|
-|Media Encoder Estándar|GA|Todo|
-|Flujo de trabajo del Codificador multimedia|GA|Todos excepto China|
+|Estándar de codificador multimedia|GA|Todo|
+|Media Encoder Premium Workflow|GA|Todos excepto China|
 
 ### <a name="analytics-media-processors"></a>Procesadores de multimedia de Analytics
 
@@ -207,15 +207,14 @@ Análisis multimedia es una colección de componentes de voz y visión que facil
 
 |Nombre de procesador de multimedia|Status|Centros de datos
 |---|---|---|
-|Azure Media Face Detector|Vista previa|Todo|
-|Azure Media Hyperlapse|Vista previa|Todo|
+|Azure Media Face Detector|Preview|Todo|
 |Azure Media Indexer|GA|Todo|
-|Azure Media Motion Detector|Vista previa|Todo|
-|Azure Media OCR|Vista previa|Todo|
-|Azure Media Redactor|Vista previa|Todo|
-|Estabilizador de Azure Media|Vista previa|Todo|
-|Azure Media Video Thumbnails|Vista previa|Todo|
-|Azure Media Indexer 2|Vista previa|Todos excepto China y la región Gobierno Federal|
+|Azure Media Motion Detector|Preview|Todo|
+|Azure Media OCR|Preview|Todo|
+|Azure Media Redactor|Preview|Todo|
+|Estabilizador de Azure Media|Preview|Todo|
+|Azure Media Video Thumbnails|Preview|Todo|
+|Azure Media Indexer 2|Preview|Todos excepto China y la región Gobierno Federal|
 
 ### <a name="protection"></a>Protección
 
@@ -261,6 +260,6 @@ Consulte las rutas de aprendizaje de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="provide-feedback"></a>Proporcionar comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

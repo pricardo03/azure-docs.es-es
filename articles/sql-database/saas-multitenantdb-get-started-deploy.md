@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486209"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978521"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementación y exploración de una aplicación multiinquilino con particiones
 
@@ -58,7 +58,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 ### <a name="plan-the-names"></a>Planeamiento de los nombres
 
 En los pasos de esta sección, proporciona un valor de *usuario* que se utiliza para garantizar que los nombres de recursos sean globalmente únicos, y un nombre para el *grupo de recursos* que contiene todos los recursos creados mediante una implementación de la aplicación. Para una persona llamada *Ann Finley*, sugerimos:
-- *Usuario:* **af1**  *(sus iniciales más un dígito. Use un valor diferente (por ejemplo, af2) si implementa la aplicación una segunda vez).*
+- *Usuario:* **af1***(sus iniciales más un dígito.   Use un valor diferente (por ejemplo, af2) si implementa la aplicación una segunda vez).*
 - *Grupo de recursos:* **wingtip-mt-af1**  *(wingtip-mt indica que esta es la aplicación multiinquilino con particiones. Anexar el nombre de usuario af1 correlaciona el nombre del grupo de recursos con los nombres del recurso que contiene).*
 
 Elija los nombres ahora y escríbalos. 
@@ -210,7 +210,7 @@ Veamos ahora algunos de los recursos que se implementaron:
 
 1. En [Azure portal](https://portal.azure.com), navegue a la lista de los grupos de recursos. Abra el grupo de recursos que creó cuando implementó la aplicación.
 
-   ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
+   ![grupo de recursos](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
 2. Haga clic en el servidor **catalog-mt&lt;usuario&gt;**. El servidor del catálogo contiene dos bases de datos denominadas *tenantcatalog* y *basetenantdb*. La base de datos *basetenantdb* es una base de datos de plantilla vacía. Se copia para crear una base de datos de inquilino nueva, ya sea para que la usen muchos inquilinos o solo uno.
 
@@ -250,7 +250,7 @@ Las cargas de trabajo generadas por el script generador de carga solo tienen fin
 
 - Para más información sobre los grupos elásticos, consulte:
 
-  - [Los grupos elásticos pueden ayudarle a administrar y escalar varias instancias de Azure SQL Database](sql-database-elastic-pool.md)
+  - [Los grupos elásticos pueden ayudarle a administrar y escalar varias bases de datos de Azure SQL](sql-database-elastic-pool.md)
   - [Escalado horizontal con Azure SQL Database](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>Pasos siguientes

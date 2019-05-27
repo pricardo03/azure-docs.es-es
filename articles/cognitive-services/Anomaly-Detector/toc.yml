@@ -60,6 +60,8 @@
       href: 'https://aka.ms/adregion'
     - name: Arquitectura de referencia de la solución
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
+    - name: Cumplimiento normativo
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
 - name: Soporte técnico
   items:
     - name: Obtención de soporte técnico

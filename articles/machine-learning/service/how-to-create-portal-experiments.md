@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035434"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990141"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Crear y exploración automatizada experimentos de aprendizaje automático en Azure portal (versión preliminar)
 
@@ -40,7 +40,7 @@ Navegue hasta el panel izquierdo del área de trabajo. Seleccione automatizada d
 
 ![Página de aterrizaje de experimento de portal de Azure](media/how-to-create-portal-experiments/landing-page.png)
 
-En caso contrario, verá el panel de aprendizaje de máquina automatizada con una visión general de todos sus automatizadas experimentos de aprendizaje automático, las que se ejecutan con el SDK incluidas. Aquí puede filtrar y explorar las ejecuciones por fecha, experimentar el nombre y estado de ejecución.
+En caso contrario, verá el panel de aprendizaje de máquina automatizada con una visión general de todos sus automatizadas experimentos de aprendizaje automático, incluidas aquellas creadas con el SDK. Aquí puede filtrar y explorar las ejecuciones por fecha, experimentar el nombre y estado de ejecución.
 
 ![Panel de experimento de portal de Azure](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -61,7 +61,7 @@ Seleccione el botón Crear experimento para rellenar el formulario siguiente.
     Campo|DESCRIPCIÓN
     ---|---
     Nombre del proceso| Escriba un nombre único que identifica el contexto de proceso.
-    Tamaño de la máquina virtual| Seleccione el tamaño de máquina virtual para la capacidad de proceso.
+    Tamaño de máquina virtual| Seleccione el tamaño de máquina virtual para la capacidad de proceso.
     Configuración adicional| *Nodo min*: Escriba el número mínimo de nodos de la capacidad de proceso. El número mínimo de nodos de proceso de Azure Machine Learning es 0. Para habilitar la generación de perfiles de datos, debe tener 1 o más nodos. <br> *Nodo max*: Escriba el número máximo de nodos para la capacidad de proceso. El valor predeterminado es 6 nodos para un proceso de Azure Machine Learning.
 
       Para iniciar la creación de la capacidad de proceso nuevo, seleccione **crear**. Esto puede tardar unos minutos.
@@ -184,6 +184,63 @@ Explorar en profundidad en cualquiera de los modelos de salida para ver los deta
 
 ![Detalles de iteración](media/how-to-create-portal-experiments/iteration-details.png)
 
+## <a name="deploy-model"></a>Implementación del modelo
+
+Una vez que tenga a mano el mejor modelo, es el momento de implementarlo como un servicio web para predecir datos nuevos.
+
+ML automatizada le ayuda con la implementación del modelo sin escribir código:
+
+1. Tiene varias opciones para la implementación. 
+    1. Si desea implementar el mejor modelo según los criterios de las métricas establezca para el experimento, seleccione **implementar mejor modelo** desde el **detalles de ejecución** página.
+
+        ![Botón modelo de implementación](media/how-to-create-portal-experiments/deploy-model-button.png)
+
+    1. Si desea implementar una iteración de modelo específico, explorar en profundidad en el modelo para abrir su página de detalles específicos de la ejecución y seleccione **implementar modelo**.
+
+        ![Botón modelo de implementación](media/how-to-create-portal-experiments/deploy-model-button2.png)
+
+1. Primer paso es registrar el modelo en el servicio. Seleccione "Registrar el modelo" y espere a que el proceso de registro se complete.
+
+    ![Hoja de modelo de implementación](media/how-to-create-portal-experiments/deploy-model-blade.png)
+
+1. Una vez que se registra el modelo, podrá descargar el script de puntuación (scoring.py) y el entorno de secuencia de comandos (condaEnv.yml) que se usará durante la implementación.
+
+1. Cuando se descargan el script de puntuación y la secuencia de comandos del entorno, vaya a la **activos** hoja del panel de navegación izquierdo y seleccione **modelos**.
+
+    ![Modelos del panel de navegación](media/how-to-create-portal-experiments/nav-pane-models.png)
+
+1. Seleccione el modelo que se ha registrado y seleccione "Crear imagen".
+
+    Puede identificar el modelo por su descripción, que incluirá el identificador de ejecución, el número de iteración, en el siguiente formato: *< Run_ID > _ < Iteration_number > _modelo*
+
+    ![Modelos: Crear imagen](media/how-to-create-portal-experiments/model-create-image.png)
+
+1. Escriba un nombre para la imagen. 
+1. Seleccione el **examinar** situado junto al cuadro "Archivo de puntuación" para cargar el archivo de puntuación (scoring.py) que descargó anteriormente.
+
+1. Seleccione el **examinar** situado junto al cuadro "Archivo Conda" para cargar el archivo de entorno (condaEnv.yml) que descargó anteriormente.
+
+    Puede usar su propio script de puntuación y el archivo conda, así como cargar archivos adicionales. [Más información sobre el script de puntuación](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+
+      >[!Important]
+      > Los nombres de archivo deben tener menos de 32 caracteres y debe comenzar y terminar por caracteres alfanuméricos. Puede incluir guiones, caracteres de subrayado, puntos y caracteres alfanuméricos entre. No se permiten espacios.
+
+    ![Crear imagen](media/how-to-create-portal-experiments/create-image.png)
+
+1. Seleccione el botón "Crear" para iniciar la creación de imagen. Esto tardará unos minutos en completarse, una vez hecho esto, verá un mensaje en la barra superior.
+1. Vaya a la pestaña "Imágenes", active la casilla situada junto a la imagen que desea implementar y seleccione "Crear implementación". [Más información acerca de las implementaciones](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+
+    Hay 2 opciones para la implementación.
+     + Instancia de Azure Container Instances (ACI) - se usa más para realizar pruebas a propósito, en lugar de una implementación operativa a escala. Asegúrese de rellenar los valores para al menos un núcleo para _capacidad de reserva de CPU_y al menos un gigabyte (GB) para _capacidad de reserva de memoria_
+     + Azure Kubernetes Service (AKS)): esta opción es para la implementación a escala. Debe tener un proceso en función de AKS preparado.
+
+     ![Imágenes: Creación de una implementación](media/how-to-create-portal-experiments/images-create-deployment.png)
+
+1. Cuando haya terminado, seleccione **Crear**. Implementar el modelo puede tardar varios minutos para cada canalización terminen de ejecutarse.
+
+1. Eso es todo. Tiene un servicio web operational para generar predicciones.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Más información sobre aprendizaje automático automatizadas](concept-automated-ml.md) y Azure Machine Learning.
+* [Obtenga información sobre cómo consumir un servicio web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

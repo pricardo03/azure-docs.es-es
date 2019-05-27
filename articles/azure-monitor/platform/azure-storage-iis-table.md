@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.openlocfilehash: a4e0432260cfb9ee11ed318305fb967d160de835
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652565"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129692"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Uso de Azure blob storage para IIS y Azure table storage para eventos con Azure Monitor
 
@@ -38,8 +38,8 @@ Monitor de Azure recopilar estos registros de diagnósticos de Azure, los regist
 
 | Tipo de registro | Tipo de recurso | Ubicación |
 | --- | --- | --- |
-| Registros IIS |Virtual Machines <br> Roles web <br> Roles de trabajo |wad-iis-logfiles (Blob Storage) |
-| syslog |Virtual Machines |LinuxsyslogVer2v0 (Table Storage) |
+| Registros de IIS |Virtual Machines <br> Roles web <br> Roles de trabajo |wad-iis-logfiles (Blob Storage) |
+| Syslog |Virtual Machines |LinuxsyslogVer2v0 (Table Storage) |
 | Eventos operativos de Service Fabric |Nodos de Service Fabric |WADServiceFabricSystemEventTable |
 | Service Fabric Reliable Actor Events |Nodos de Service Fabric |WADServiceFabricReliableActorEventTable |
 | Service Fabric Reliable Service Events |Nodos de Service Fabric |WADServiceFabricReliableServiceEventTable |

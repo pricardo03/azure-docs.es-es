@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769505"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955967"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Escalado automático y App Service Environment v1
 
@@ -63,7 +63,7 @@ La mejor manera de ilustrar el escalado automático de un entorno de App Service
 Este artículo explica todas las consideraciones necesarias para configurar el escalado automático. En este artículo veremos todas las interacciones que entran en juego cuando se aplica el escalado automático en los App Service Environment que se hospedan en un App Service Environment.
 
 ### <a name="scenario-introduction"></a>Introducción al escenario
-Frank es administrador de sistemas de una empresa y ha migrado parte de las cargas de trabajo que administra a un entorno de App Service.
+Frank es un administrador del sistema para una empresa que ha migrado parte de las cargas de trabajo que administran en un entorno de App Service.
 
 El entorno de App Service está configurado a escala manual de la siguiente manera:
 
@@ -76,7 +76,7 @@ El grupo de trabajo 1 se usa para las cargas de trabajo de producción, en tanto
 
 Los planes de App Service de QA y desarrollo están configurados para la escala manual. El plan de App Service de producción se establece en escalado automático para tratar con las variaciones de carga y el tráfico.
 
-Frank está muy familiarizado con la aplicación. Sabe que las horas pico de carga están entre las 9:00 y 6:00 porque se trata de una aplicación de línea de negocio (LOB) que los empleados usan mientras están en la oficina. El uso cae después, una vez que los usuarios han terminado la jornada. Fuera de las horas punta, sigue habiendo cierta carga porque los usuarios pueden acceder de forma remota a la aplicación mediante sus dispositivos móviles o equipos domésticos. El plan de App Service de producción ya está configurado para el escalado automático en función del uso de CPU con las reglas siguientes:
+Frank está muy familiarizado con la aplicación. Saben que las horas pico de carga están entre las 9:00 A.M. y 6:00 P.M., porque se trata de una aplicación de línea de negocio (LOB) que los empleados usan mientras están en la oficina. El uso cae después, una vez que los usuarios han terminado la jornada. Fuera de las horas punta, sigue habiendo cierta carga porque los usuarios pueden acceder de forma remota a la aplicación mediante sus dispositivos móviles o equipos domésticos. El plan de App Service de producción ya está configurado para el escalado automático en función del uso de CPU con las reglas siguientes:
 
 ![Configuración específica para las aplicaciones LOB.][asp-scale]
 
@@ -84,8 +84,8 @@ Frank está muy familiarizado con la aplicación. Sabe que las horas pico de car
 | --- | --- |
 | **Nombre:** perfil Día laborable |**Nombre:** perfil Fin de semana |
 | **Escalar por:** reglas de rendimiento y programación |**Escalar por:** reglas de rendimiento y programación |
-| **Perfil:** Días laborables |**Perfil:** Fin de semana |
-| **Tipo:** Periodicidad |**Tipo:** Periodicidad |
+| **Perfil:** Días de la semana |**Perfil:** Fin de semana |
+| **Tipo:** Repetición |**Tipo:** Repetición |
 | **Rango objetivo:** de 5 a 20 instancias |**Rango objetivo:** de 3 a 10 instancias |
 | **Días:** lunes, martes, miércoles, jueves, viernes |**Días:** sábado, domingo |
 | **Hora de inicio:** 9:00 a. m. |**Hora de inicio:** 9:00 a. m. |
@@ -96,7 +96,7 @@ Frank está muy familiarizado con la aplicación. Sabe que las horas pico de car
 | **Métrica:** % de CPU |**Métrica:** % de CPU |
 | **Operación:** mayor que el 60 % |**Operación:** mayor que el 80 % |
 | **Duración:** 5 minutos |**Duración:** 10 minutos |
-| **Agregación de tiempo:** Media |**Agregación de tiempo:** Media |
+| **Agregación de tiempo:** Promedio |**Agregación de tiempo:** Promedio |
 | **Acción:** aumentar recuento en 2 |**Acción:** aumentar recuento en 1 |
 | **Tiempo de finalización (minutos):** 15 |**Tiempo de finalización (minutos):** 20 |
 |  | |
@@ -105,7 +105,7 @@ Frank está muy familiarizado con la aplicación. Sabe que las horas pico de car
 | **Métrica:** % de CPU |**Métrica:** % de CPU |
 | **Operación:** menor que el 30 % |**Operación:** menor que el 20 % |
 | **Duración:** 10 minutos |**Duración:** 15 minutos |
-| **Agregación de tiempo:** Media |**Agregación de tiempo:** Media |
+| **Agregación de tiempo:** Promedio |**Agregación de tiempo:** Promedio |
 | **Acción:** reducir el recuento en 1 |**Acción:** reducir el recuento en 1 |
 | **Tiempo de finalización (minutos):** 20 |**Tiempo de finalización (minutos):** 10 |
 
@@ -155,8 +155,8 @@ Con esta información, Frank puede definir el siguiente perfil y las siguientes 
 | --- | --- |
 | **Nombre:** perfil Día laborable |**Nombre:** perfil Fin de semana |
 | **Escalar por:** reglas de rendimiento y programación |**Escalar por:** reglas de rendimiento y programación |
-| **Perfil:** Días laborables |**Perfil:** Fin de semana |
-| **Tipo:** Periodicidad |**Tipo:** Periodicidad |
+| **Perfil:** Días de la semana |**Perfil:** Fin de semana |
+| **Tipo:** Repetición |**Tipo:** Repetición |
 | **Rango objetivo:** de 13 a 25 instancias |**Rango objetivo:** de 6 a 15 instancias |
 | **Días:** lunes, martes, miércoles, jueves, viernes |**Días:** sábado, domingo |
 | **Hora de inicio:** 7:00 a. m. |**Hora de inicio:** 9:00 a. m. |
@@ -167,7 +167,7 @@ Con esta información, Frank puede definir el siguiente perfil y las siguientes 
 | **Métrica:** WorkersAvailable |**Métrica:** WorkersAvailable |
 | **Operación:** menor que 8 |**Operación:** menor que 3 |
 | **Duración:** 20 minutos |**Duración:** 30 minutos |
-| **Agregación de tiempo:** Media |**Agregación de tiempo:** Media |
+| **Agregación de tiempo:** Promedio |**Agregación de tiempo:** Promedio |
 | **Acción:** aumentar recuento en 8 |**Acción:** aumentar recuento en 3 |
 | **Tiempo de finalización (minutos):** 180 |**Tiempo de finalización (minutos):** 180 |
 |  | |
@@ -176,7 +176,7 @@ Con esta información, Frank puede definir el siguiente perfil y las siguientes 
 | **Métrica:** WorkersAvailable |**Métrica:** WorkersAvailable |
 | **Operación:** mayor que 8 |**Operación:** mayor que 3 |
 | **Duración:** 20 minutos |**Duración:** 15 minutos |
-| **Agregación de tiempo:** Media |**Agregación de tiempo:** Media |
+| **Agregación de tiempo:** Promedio |**Agregación de tiempo:** Promedio |
 | **Acción:** reducir el recuento en 2 |**Acción:** reducir el recuento en 3 |
 | **Tiempo de finalización (minutos):** 120 |**Tiempo de finalización (minutos):** 120 |
 
@@ -201,7 +201,7 @@ En este escenario, Frank sabe que la tasa de errores aumenta una vez que los ser
 | **Nombre:** escalabilidad automática: Servidores front-end |
 | **Escalar por:** reglas de rendimiento y programación |
 | **Perfil:** todos los días |
-| **Tipo:** Periodicidad |
+| **Tipo:** Repetición |
 | **Rango objetivo:** de 3 a 10 instancias |
 | **Días:** todos los días |
 | **Hora de inicio:** 9:00 a. m. |
@@ -212,7 +212,7 @@ En este escenario, Frank sabe que la tasa de errores aumenta una vez que los ser
 | **Métrica:** % de CPU |
 | **Operación:** mayor que el 60 % |
 | **Duración:** 20 minutos |
-| **Agregación de tiempo:** Media |
+| **Agregación de tiempo:** Promedio |
 | **Acción:** aumentar recuento en 3 |
 | **Tiempo de finalización (minutos):** 120 |
 |  |
@@ -221,7 +221,7 @@ En este escenario, Frank sabe que la tasa de errores aumenta una vez que los ser
 | **Métrica:** % de CPU |
 | **Operación:** menor que el 30 % |
 | **Duración:** 20 minutos |
-| **Agregación de tiempo:** Media |
+| **Agregación de tiempo:** Promedio |
 | **Acción:** reducir el recuento en 3 |
 | **Tiempo de finalización (minutos):** 120 |
 

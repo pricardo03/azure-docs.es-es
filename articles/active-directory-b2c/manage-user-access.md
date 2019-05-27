@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 88123cc24359daaf1c6fc7e3ceeed8f77f717c9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f4f2b93316c87a5e8ba572ca2b584dbd13f6536c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228023"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956953"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Administración del acceso de usuario en Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Si se identifica a un usuario como un menor, puede establecer el flujo de usuari
 
 - **Enviar un token JSON sin firmar a la aplicación**: Azure AD B2C notifica a la aplicación que el usuario es un menor y proporciona el estado del consentimiento parental del usuario. A continuación, la aplicación empieza a aplicar reglas de negocio. Un token JSON no completa una autenticación correcta con la aplicación. La aplicación debe procesar al usuario no autenticado según las notificaciones incluidas en el token JSON, entre las cuales puede que se incluyan **name**, **email**, **ageGroup** y **consentProvidedForMinor**.
 
-- **Bloquear al usuario**: si un usuario es menor de edad y no se ha proporcionado el consentimiento parental, Azure AD B2C puede notificar al usuario que está bloqueado. No se emite ningún token, el acceso está bloqueado y no se crea la cuenta de usuario durante una operación de registro. Para implementar esta notificación, puede proporcionar una página de contenido HTML/CSS adecuada para informar al usuario y ofrecer las opciones apropiadas. La aplicación no necesita ninguna otra acción adicional para los nuevos registros.
+- **Bloquear al usuario**: Si un usuario es menor y no se ha proporcionado el consentimiento parental, Azure AD B2C puede notificar al usuario que se bloquean. No se emite ningún token, el acceso está bloqueado y no se crea la cuenta de usuario durante una operación de registro. Para implementar esta notificación, puede proporcionar una página de contenido HTML/CSS adecuada para informar al usuario y ofrecer las opciones apropiadas. La aplicación no necesita ninguna otra acción adicional para los nuevos registros.
 
 ## <a name="get-parental-consent"></a>Obtención del consentimiento de los padres
 
@@ -48,7 +48,7 @@ El siguiente es un ejemplo de flujo de usuario para recopilar el consentimiento 
 
 1. Una operación de [Graph API de Azure Active Directory](/previous-versions/azure/ad/graph/api/api-catalog) identifica al usuario como un menor y devuelve los datos del usuario a la aplicación como un token JSON sin firmar.
 
-2. La aplicación procesa el token JSON y muestra una pantalla al menor que le notifica que necesita consentimiento parental y le solicita el consentimiento de uno de los padres en línea. 
+2. La aplicación procesa el token JSON y muestra una pantalla a la secundaria, que le notifica que se requiere el consentimiento parental y solicitar el consentimiento de un elemento primario en línea. 
 
 3. Azure AD B2C muestra una operación de inicio de sesión para que el usuario inicie sesión normalmente y emite un token a la aplicación que se establece para incluir **legalAgeGroupClassification = "minorWithParentalConsent"**. La aplicación recopila la dirección de correo electrónico del padre o la madre y verifica que sea una persona adulta. Para ello, usa una fuente de confianza, como un carnet de identidad, una verificación de la licencia o una prueba de la tarjeta de crédito. Si la verificación se realiza correctamente, la aplicación solicita al menor que inicie sesión mediante el uso del flujo de usuario de Azure AD B2C. Si se ha rechazado el consentimiento (por ejemplo, si **legalAgeGroupClassification = "minorWithoutParentalConsent"**), Azure AD B2C devuelve un token JSON (no un inicio de sesión) a la aplicación para que vuelva a iniciar el proceso de consentimiento. También se puede personalizar el flujo de usuario, de modo que un menor o un adulto pueda recuperar el acceso a la cuenta del menor enviando un código de registro a la dirección de correo electrónico del menor o a la dirección de correo electrónico registrada del adulto.
 

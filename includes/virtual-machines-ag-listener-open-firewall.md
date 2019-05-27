@@ -1,16 +1,15 @@
 ---
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 11/26/2018
-ms.author: v-yeche
+ms.date: 10/26/2018
+ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097700"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165477"
 ---
 En este paso, se creará una regla de firewall para abrir el puerto de sondeo para el punto de conexión de carga equilibrada (59999, como se especificó anteriormente) y otra regla para abrir el puerto de escucha del grupo de disponibilidad. Como se creó el punto de conexión de carga equilibrada en las máquinas virtuales que contienen réplicas del grupo de disponibilidad, será necesario abrir el puerto de sondeo y el puerto de escucha en las respectivas máquinas virtuales.
 
@@ -30,4 +29,3 @@ En este paso, se creará una regla de firewall para abrir el puerto de sondeo pa
 
 8. Repita los pasos anteriores para el puerto de escucha del grupo de disponibilidad (como se especificó anteriormente en el parámetro $EndpointPort del script) y especifique un nombre de regla adecuado, como **Puerto de escucha Always On**.
 
-<!-- Update_Description: update meta properties -->

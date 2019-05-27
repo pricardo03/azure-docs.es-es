@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
 ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481798"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130974"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Uso de PowerShell para configurar alertas en Application Insights
 
@@ -38,7 +38,7 @@ Instale el módulo de Azure Powershell en el equipo donde desea ejecutar los scr
 * Instale el [Instalador de plataforma web de Microsoft (v5 o superior)](https://www.microsoft.com/web/downloads/platform.aspx).
 * Úselo para instalar Microsoft Azure Powershell.
 
-## <a name="connect-to-azure"></a>Conexión a Azure
+## <a name="connect-to-azure"></a>Conéctese a Azure
 Inicie Azure PowerShell y [conéctese a su suscripción](/powershell/azure/overview):
 
 ```powershell
@@ -98,7 +98,7 @@ Tengo una aplicación en la que uso [TrackMetric()](../../azure-monitor/app/api-
 La misma regla puede usarse con la métrica notificada mediante el [parámetro de medida](../../azure-monitor/app/api-custom-events-metrics.md#properties) de otra llamada de seguimiento, como TrackEvent o trackPageView.
 
 ## <a name="metric-names"></a>Nombres de métrica
-| Nombre de métrica | Nombre de pantalla | DESCRIPCIÓN |
+| Nombre de la métrica | Nombre de pantalla | DESCRIPCIÓN |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Excepciones de explorador |Recuento de excepciones no detectadas en el explorador. |
 | `basicExceptionServer.count` |Excepciones de servidor |Número de excepciones no controladas producidas por la aplicación |
@@ -119,7 +119,7 @@ La misma regla puede usarse con la métrica notificada mediante el [parámetro d
 | `remoteDependencyFailed.durationMetric.count` |Errores de dependencia |Recuento de llamadas erróneas realizadas por la aplicación de servidor a recursos externos. |
 | `request.duration` |Tiempo de respuesta del servidor |Tiempo entre que se recibe una solicitud HTTP y se termina de enviar la respuesta. |
 | `request.rate` |Velocidad de solicitudes |Velocidad de todas las solicitudes a la aplicación por segundo. |
-| `requestFailed.count` |Error en las solicitudes |Recuento de solicitudes HTTP que dieron lugar a un código de respuesta >= 400 |
+| `requestFailed.count` |Solicitudes con errores |Recuento de solicitudes HTTP que dieron lugar a un código de respuesta >= 400 |
 | `view.count` |Vistas de página |Recuento de solicitudes de usuario de cliente de una página web. Se filtra el tráfico sintético. |
 | {el nombre de métrica personalizado} |{El nombre de métrica} |El valor de métrica que notifica [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) o en el [parámetro de medidas de una llamada de seguimiento](../../azure-monitor/app/api-custom-events-metrics.md#properties). |
 
@@ -127,7 +127,7 @@ Las métricas se envían por módulos de telemetría diferentes:
 
 | Grupo de métricas | Módulo de recopilador |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[JavaScript de explorador](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>ver |[JavaScript de explorador](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[Rendimiento](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Dependencia](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[Solicitud de servidor](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |

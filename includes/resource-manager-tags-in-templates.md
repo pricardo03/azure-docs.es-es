@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: 104bd13a0cf97a8605670adde479c2a2eeb29c15
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57786335"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66128990"
 ---
 Para etiquetar un recurso durante la implementación, agregue el `tags` elemento para el recurso que se va a implementar. Proporcione el nombre y el valor de la etiqueta.
 

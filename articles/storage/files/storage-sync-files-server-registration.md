@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6b9996716621137945b5aeb2f0699bf1bddba4a6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ef6def9f03a880d9fc8d649fe226caf597ba0ad5
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65189979"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991825"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Administración de servidores registrados con Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -102,9 +102,7 @@ Antes de usar un servidor como *punto de conexión del servidor* en un *grupo de
 También puede realizar el registro del servidor a través de PowerShell. Esta es la única forma admitida de registrar el servidor para las suscripciones del proveedor de soluciones en la nube (CSP):
 
 ```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-Login-AzStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
-Register-AzStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
 ```
 
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Cancelación del registro del servidor del servicio de sincronización de almacenamiento
@@ -154,7 +152,7 @@ Ahora que todos los datos se han recuperado y que el servidor se ha quitado de t
 1. En Azure Portal, vaya a la sección *Servidores registrados* del servicio de sincronización de almacenamiento.
 2. Haga clic con el botón derecho en el servidor cuyo registro desea anular y haga clic en "Cancelar registro de servidor".
 
-    ![Anulación del registro del servidor](media/storage-sync-files-server-registration/unregister-server-1.png)
+    ![Cancelar registro de servidor](media/storage-sync-files-server-registration/unregister-server-1.png)
 
 ## <a name="ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter"></a>Configuración de Azure File Sync para que sea un buen vecino en el centro de datos 
 Puesto que Azure File Sync rara vez será el único servicio en ejecución en el centro de datos, es posible que le interese limitar el uso de red y de almacenamiento de Azure File Sync.

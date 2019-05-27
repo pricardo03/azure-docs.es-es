@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747819"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953018"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Instalación y operación con Azure Data Box de forma segura
 ![Icono Advertencia](./media/data-box-safety/warning_icon.png)
@@ -116,7 +116,7 @@ Las modificaciones o cambios realizados en el dispositivo que no hayan sido apro
 
 ![Icono Aviso](./media/data-box-safety/notice_icon.png)**AVISO:** 
 
-Este equipo ha sido probado y cumple con límites de un dispositivo digital de Clase A, en virtud de la sección 15 de las Normas de FCC. Estos límites están diseñados para proporcionar una protección razonable contra interferencias perjudiciales cuando el equipo se hace funcionar en un entorno comercial. Este equipo genera, utiliza y puede irradiar energía de radiofrecuencia y, si no se instala y se usa de acuerdo con el manual de instrucciones, puede causar interferencias perjudiciales para las comunicaciones de radio. La utilización de este equipo en una zona residencial puede provocar interferencias perjudiciales, en cuyo caso, se requerirá que el usuario corrija la interferencia a su costa.
+Este equipo ha sido probado y cumple con límites de un dispositivo digital de Clase A, en virtud de la sección 15 de las Normas de FCC. Estos límites están diseñados para proporcionar una protección razonable contra interferencias perjudiciales cuando el equipo se hace funcionar en un entorno comercial. Este equipo genera, utiliza y puede irradiar energía de radiofrecuencia y, si no se instala y se usa de acuerdo con el manual de instrucciones, puede causar interferencias perjudiciales para las comunicaciones de radio. Utilización de este equipo en una zona residencial es puede provocar interferencias en el que será necesario para corregir la interferencia en sus propios gastos caso el usuario.
 
 Este dispositivo cumple con la sección 15 de las Normas de FCC y los estándares RSS exentos de licencia de Industry Canada. Operación está sujeto a las dos condiciones siguientes: (1) este dispositivo no puede causar interferencias perjudiciales y (2) este dispositivo debe aceptar cualquier interferencia recibida, incluida una interferencia que pueda ocasionar mal funcionamiento del dispositivo.
 

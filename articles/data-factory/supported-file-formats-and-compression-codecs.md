@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 6af5c8cdad00802052f08be844f77d36420da3c9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142365"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165942"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory
 
@@ -29,7 +29,7 @@ Si desea **copiar los archivos tal cual** entre los almacenes basados en archivo
 * [Formato Avro](#avro-format)
 
 > [!TIP]
-> Obtenga información acerca de cómo la actividad de copia asigna los datos de origen al receptor en [Asignación de esquemas en la actividad de copia](copy-activity-schema-and-type-mapping.md), incluido cómo los metadatos se determinan según la configuración del formato del archivo y sugerencias acerca de cuándo se debe especificar la sección del [conjunto de datos`structure`](concepts-datasets-linked-services.md#dataset-structure-or-schema).
+> Obtenga información sobre cómo la actividad de copia asigna los datos de origen al receptor de [asignación de esquema en la actividad de copia](copy-activity-schema-and-type-mapping.md).
 
 ## <a name="text-format"></a>Formato de texto
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c11d6519986cf7a0e70d1fe004ef527c3df247d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277740"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979507"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -63,7 +63,7 @@ En la tabla siguiente se muestra una lista herramienta locales usada en cada sis
 
 ### <a name="validation-frequency"></a>Frecuencia de validación
 
-El cliente de Guest Configuration busca contenido nuevo cada 5 minutos. Una vez que se recibe una asignación de invitado, se comprueban los valores en un intervalo de 15 minutos. Los resultados se envían al proveedor de recursos de Guest Configuration tan pronto como finaliza la auditoría. Cuando se produce una directiva del tipo [desencadenador evaluación](../how-to/get-compliance-data.md#evaluation-triggers), el estado de la máquina se escribe en el proveedor de recursos de Guest Configuration. Esto hace que Azure Policy evalúe las propiedades de Azure Resource Manager. Una evaluación de Policy a petición recupera el valor más reciente del proveedor de recursos de Guest Configuration. Sin embargo, no desencadena una nueva auditoría de la configuración en la máquina virtual.
+El cliente de Guest Configuration busca contenido nuevo cada 5 minutos. Una vez que se recibe una asignación de invitado, se comprueban los valores en un intervalo de 15 minutos. Los resultados se envían al proveedor de recursos de Guest Configuration tan pronto como finaliza la auditoría. Cuando se produce una directiva del tipo [desencadenador evaluación](../how-to/get-compliance-data.md#evaluation-triggers), el estado de la máquina se escribe en el proveedor de recursos de Guest Configuration. Esto hace que Azure Policy evalúe las propiedades de Azure Resource Manager. Una evaluación de directiva de Azure y a petición, recupera el valor más reciente del proveedor de recursos de configuración de invitado. Sin embargo, no desencadena una nueva auditoría de la configuración en la máquina virtual.
 
 ### <a name="supported-client-types"></a>Tipos de cliente admitidos
 
@@ -71,16 +71,16 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles en
 
 |Publicador|NOMBRE|Versiones|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04, 16.04, 18.04|
+|Canónico|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|Centro de datos de 2012, 2012 R2 Datacenter, Datacenter 2016, centro de datos de 2019|
-|Microsoft|Cliente Windows|Windows 10|
+|Microsoft|Cliente de Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
 |Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
 |Suse|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Configuración de invitado puede auditar los nodos que ejecutan un sistema operativo compatible.  Si desea auditar máquinas virtuales que usan una imagen personalizada, debe duplicar el **DeployIfNotExists** definición y modificar el **si** sección para incluir las propiedades de imagen.
+> Configuración de invitado puede auditar los nodos que ejecutan un sistema operativo compatible. Si desea auditar máquinas virtuales que usan una imagen personalizada, debe duplicar el **DeployIfNotExists** definición y modificar el **si** sección para incluir las propiedades de imagen.
 
 ### <a name="unsupported-client-types"></a>Tipos de cliente no admitidos
 
@@ -93,9 +93,7 @@ Para comunicarse con el proveedor de recursos de configuración de invitado en A
 Para las listas de direcciones IP, se puede descargar [intervalos de IP de centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Este archivo se actualiza semanalmente y tiene los intervalos implementados en ese momento y los próximos cambios en los intervalos de direcciones IP. Solo debe permitir el acceso saliente a las direcciones IP en las regiones donde se implementan las máquinas virtuales.
 
 > [!NOTE]
-> El archivo XML de direcciones IP de los centros de datos de Azure enumera los intervalos de direcciones IP que se usan en los centros de datos de Microsoft Azure. El archivo incluye el proceso, SQL y los intervalos de almacenamiento.
-> Semanalmente, se publica un archivo actualizado. El archivo refleja los intervalos implementados actualmente y los próximos cambios en los intervalos IP. Los nuevos intervalos que aparecen en el archivo no se utilizan en los centros de datos durante al menos una semana.
-> Descargar el archivo XML nuevo cada semana es una buena idea. A continuación, actualice el sitio para identificar correctamente los servicios que se ejecutan en Azure. Los usuarios de Azure ExpressRoute deberían observar que este archivo se usa para actualizar la publicidad del Protocolo de puerta de enlace de borde (BGP) del espacio de Azure la primera semana de cada mes.
+> El archivo XML de direcciones IP de los centros de datos de Azure enumera los intervalos de direcciones IP que se usan en los centros de datos de Microsoft Azure. El archivo incluye el proceso, SQL y los intervalos de almacenamiento. Semanalmente, se publica un archivo actualizado. El archivo refleja los intervalos implementados actualmente y los próximos cambios en los intervalos IP. Los nuevos intervalos que aparecen en el archivo no se utilizan en los centros de datos durante al menos una semana. Descargar el archivo XML nuevo cada semana es una buena idea. A continuación, actualice el sitio para identificar correctamente los servicios que se ejecutan en Azure. Los usuarios de Azure ExpressRoute deberían observar que este archivo se usa para actualizar la publicidad del Protocolo de puerta de enlace de borde (BGP) del espacio de Azure la primera semana de cada mes.
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definición de Guest Configuration
 
@@ -140,7 +138,7 @@ Ejemplos de configuración de directiva de invitado están disponibles en las si
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Revise los ejemplos en [ejemplos de Azure Policy](../samples/index.md).
-- Vea la [Estructura de definición de Azure Policy](definition-structure.md).
+- Revise la [estructura de definición de Azure Policy](definition-structure.md).
 - Vea la [Descripción de los efectos de directivas](effects.md).
 - Comprender cómo [crear mediante programación las directivas](../how-to/programmatically-create.md).
 - Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md).

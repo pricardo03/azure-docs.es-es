@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38b5b233d21c0c5d79d7bcb6a145e6232b238b0e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738930"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133119"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory desde una máquina virtual de Azure
 
 Azure Automation proporciona soluciones para administrar las actualizaciones de seguridad del sistema operativo, el seguimiento de cambios y el inventario de los componentes instalados en los equipos. Hay varias maneras de incorporar las soluciones. Puede incorporar la solución desde una máquina virtual, [desde la cuenta de Automation](automation-onboard-solutions-from-automation-account.md), [mediante la exploración de varias máquinas](automation-onboard-solutions-from-browse.md) o usando un [runbook](automation-onboard-solutions.md). En este artículo se describe la incorporación de estas soluciones desde una máquina virtual de Azure.
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
 
 Inicie sesión en Azure Portal en https://portal.azure.com.
 
@@ -59,7 +59,7 @@ Cuando un equipo se agrega a las soluciones Update Management, Change Tracking o
 
 Vaya a su área de trabajo. En **General**, seleccione **Búsquedas guardadas**. Las dos búsquedas guardadas que usan estas soluciones se muestran en la tabla siguiente:
 
-|NOMBRE     |Category  |Alias  |
+|NOMBRE     |Categoría  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Actualizaciones        | Updates__MicrosoftDefaultComputerGroup         |
@@ -104,6 +104,8 @@ Si ha usado la solución de inicio y detención de máquinas virtuales durante l
 * Programaciones de runbook de inicio y detención de máquinas virtuales
 * Runbooks de inicio y detención de máquinas virtuales
 * variables
+
+Como alternativa también puede desvincular el área de trabajo desde su cuenta de Automation desde el área de trabajo de Log Analytics. En el área de trabajo, seleccione **cuenta de Automation** en **recursos relacionados**. En la página cuenta de Automation, seleccione **desvincular la cuenta**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

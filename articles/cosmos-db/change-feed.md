@@ -5,15 +5,15 @@ author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/20/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60898393"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954399"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Fuente de cambios en Azure Cosmos DB: introducción
 
@@ -35,10 +35,10 @@ La característica actualmente es compatible con los siguientes SDK de cliente y
 
 | **Controladores cliente** | **CLI de Azure** | **SQL API** | **Cassandra API** | **API de Azure Cosmos DB para MongoDB** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | N/D | Sí | No | No | Sí | Sin  |
-|Java|N/D|Sí|No|No|Sí|Sin |
-|Python|N/D|Sí|No|No|Sí|Sin |
-|Node/JS|N/D|Sí|No|No|Sí|Sin |
+| .NET | N/D | Sí | No | No | Sí | No |
+|Java|N/D|Sí|No|No|Sí|No|
+|Python|N/D|Sí|No|No|Sí|No|
+|Node/JS|N/D|Sí|No|No|Sí|No|
 
 ## <a name="change-feed-and-different-operations"></a>Fuente de cambios y operaciones diferentes
 

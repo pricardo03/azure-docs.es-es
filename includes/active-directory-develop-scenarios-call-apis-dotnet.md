@@ -15,11 +15,11 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 0196d39f5b131bc54e00412beb7fdf10b7352336
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075151"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121857"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>Propiedades de AuthenticationResult en MSAL.NET
 
@@ -27,7 +27,7 @@ Los métodos para adquirir tokens devuelven un `AuthenticationResult` (o, para l
 
 En MSAL.NET, `AuthenticationResult` expone:
 
-- `AccessToken` para la API Web para acceder a los recursos. Este parámetro es una cadena, normalmente un base64 codificado JWT pero nunca debe ser el cliente dentro del token de acceso. No se garantiza que el formato permanecen estables y se puede cifrar para el recurso. Escribir código de las personas según el contenido del token de acceso en el cliente es uno de los principales orígenes de errores y los saltos de lógica de cliente. Vea también [tokens de acceso](../articles/active-directory/develop/access-tokens.md)
+- `AccessToken` para la API Web para acceder a los recursos. Este parámetro es una cadena, normalmente un base64 codificado JWT pero nunca debe ser el cliente dentro del token de acceso. No se garantiza que el formato permanezca estable y se pueda cifrar para el recurso. Los usuarios que escriben código según el contenido de un token de acceso del cliente constituyen una de las fuentes de errores y de interrupciones de la lógica de cliente más habituales. Vea también [tokens de acceso](../articles/active-directory/develop/access-tokens.md)
 - `IdToken` para el usuario (este parámetro es un JWT codificado). Consulte [los Tokens de identificador](../articles/active-directory/develop/id-tokens.md)
 - `ExpiresOn` indica la fecha y hora cuando expira el token
 - `TenantId` contiene al inquilino en el que se encontró el usuario. Para los usuarios invitados (escenarios de B2B de Azure AD), el identificador del inquilino es el inquilino de invitado, no el inquilino único.
@@ -37,7 +37,7 @@ Cuando se envía el token para un usuario, `AuthenticationResult` también conti
 
 ### <a name="iaccount"></a>IAccount
 
-MSAL.NET define la noción de cuenta (a través de la `IAccount` interfaz). Este cambio proporciona la semántica de la derecha: el hecho de que el mismo usuario puede tener varias cuentas de Azure diferentes directorios de AD. También MSAL.NET proporciona una mejor información en el caso de escenarios de invitado, tal como se proporciona información de la cuenta principal.
+MSAL.NET define la noción de cuenta (a través de la `IAccount` interfaz). Este cambio importante proporciona la semántica correcta: el hecho de que el mismo usuario pueda tener varias cuentas en diferentes directorios de Azure AD. También MSAL.NET proporciona una mejor información en el caso de escenarios de invitado, tal como se proporciona información de la cuenta principal.
 El siguiente diagrama muestra la estructura de la `IAccount` interfaz:
 
 ![image](https://user-images.githubusercontent.com/13203188/44657759-4f2df780-a9fe-11e8-97d1-1abbffade340.png)

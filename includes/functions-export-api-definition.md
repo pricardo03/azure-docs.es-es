@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 49ac1a7585ddf2a6500c7e9382880109c3f7f431
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025995"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131722"
 ---
 ## <a name="export-an-api-definition"></a>Exportar una definición de API
 Ya tiene la definición de OpenAPI para su función; la creó siguiendo las instrucciones de [Create an OpenAPI definition for a function](../articles/azure-functions/functions-openapi-definition.md) (Creación de una definición de OpenAPI para una función). El siguiente paso de este proceso es exportar la definición de la API para que PowerApps y Microsoft Flow puedan usarla en una API personalizada.
@@ -19,11 +19,11 @@ Ya tiene la definición de OpenAPI para su función; la creó siguiendo las inst
 
 1. En [Azure Portal](https://portal.azure.com), haga clic en el nombre de aplicación de función (como **function-demo-energy**) > **Características de la plataforma** > **Definición de API**.
 
-    ![Definición de API](media/functions-export-api-definition/api-definition.png)
+    ![Definición de la API](media/functions-export-api-definition/api-definition.png)
 
 1. Haga clic en **Exportar a PowerApps + Flow**.
 
-    ![Origen de definición de la API](media/functions-export-api-definition/export-api-1.png)
+    ![Origen de definición de API](media/functions-export-api-definition/export-api-1.png)
 
 1. En el panel derecho, use la configuración que se especifica en la tabla.
 

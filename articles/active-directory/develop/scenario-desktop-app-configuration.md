@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/o7/2019
+ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eadcae393128d9721f2c988f713af07913c5fd1d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: bc0042d6392891e8282c563afea2212031a0f49a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545499"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121879"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Aplicación de escritorio que llama a web API: configuración de código
 
@@ -38,7 +38,7 @@ Desde un punto de vista de código, las aplicaciones de escritorio son aplicacio
 
 ### <a name="exclusively-by-code"></a>Exclusivamente mediante código
 
-El código siguiente crea una instancia de una aplicación de cliente público, los usuarios iniciar sesión en la nube pública de Microsoft Azure, con su trabajo y cuentas educativas o sus cuentas personales de Microsoft.
+El código siguiente crea una instancia de una aplicación de cliente público, los usuarios iniciar sesión en la nube pública de Microsoft Azure, con un trabajo y cuenta educativa o una cuenta Microsoft personal.
 
 ```CSharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
@@ -50,8 +50,8 @@ Si piensa utilizar la autenticación interactiva, tal como se muestra anteriorme
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithRedirectUri(PublicClientApplicationBuilder.DefaultInteractiveDesktopRedirectUri)
-         .Build();
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .Build();
 ```
 
 ### <a name="using-configuration-files"></a>Uso de archivos de configuración
@@ -61,7 +61,8 @@ El código siguiente crea una instancia de una aplicación cliente pública desd
 ```CSharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
-    .Build();
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .Build();
 ```
 
 ### <a name="more-elaborated-configuration"></a>Configuración más elaborado
@@ -71,6 +72,7 @@ Puede proporcionar la información de la aplicación creando mediante la adició
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
+        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
         .WithAadAuthority(AzureCloudInstance.AzureUsGovernment,
                          AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
@@ -167,6 +169,7 @@ Ahora, para crear la aplicación, simplemente necesita escribir el código sigui
 ```CSharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
+           .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
            .Build();
 ```
 

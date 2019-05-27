@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003686"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128291"
 ---
 # <a name="azure-signalr-service-authentication"></a>Autenticación de Azure SignalR Service
 
@@ -58,7 +58,7 @@ Para realizar este tutorial, debe disponer de los siguientes requisitos previos:
 
 3. Utilice la siguiente configuración para la nueva aplicación de OAuth y, a continuación, haga clic en **Register application** (Registrar aplicación):
 
-    | Nombre del valor | Valor sugerido | DESCRIPCIÓN |
+    | Nombre de configuración | Valor sugerido | DESCRIPCIÓN |
     | ------------ | --------------- | ----------- |
     | Nombre de la aplicación | *Azure SignalR Chat* | El usuario de GitHub debe ser capaz de reconocer y confiar en la aplicación con la que se autentica.   |
     | Dirección URL de la página principal | `http://localhost:5000/home` | |
