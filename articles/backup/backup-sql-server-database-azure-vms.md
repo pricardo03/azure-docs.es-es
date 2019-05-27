@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: ae1f5f9148fa516c98d78afdd57887d4279f92dc
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827679"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952938"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -51,7 +51,7 @@ Establecer la conectividad con una de las siguientes opciones:
 
 - **Permitir que los intervalos IP de centro de datos Azure**. Esta opción permite [intervalos IP](https://www.microsoft.com/download/details.aspx?id=41653) en la descarga. Para obtener acceso a un grupo de seguridad de red (NSG), use el cmdlet Set-AzureNetworkSecurityRule. Si le específicas de región única lista blanca de direcciones IP, se deberá también necesita a la lista blanca de Azure Active Directory (Azure AD) etiqueta de servicio para habilitar la autenticación.
 
-- **Permitir el acceso mediante etiquetas NSG**. Si usa los NSG para restringir la conectividad, esta opción agrega una regla para el NSG que permita el acceso saliente a Azure Backup mediante el uso de la etiqueta de AzureBackup. Además de esta etiqueta, también necesitará correspondiente [reglas](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags) para Azure AD y el almacenamiento de Azure para permitir la conectividad de transferencia de datos y autenticación. La etiqueta de AzureBackup sólo está actualmente disponible en PowerShell. Para crear una regla mediante el uso de la etiqueta de AzureBackup:
+- **Permitir el acceso mediante etiquetas NSG**. Si usa los NSG para restringir la conectividad, esta opción agrega una regla para el NSG que permita el acceso saliente a Azure Backup mediante el uso de la etiqueta de AzureBackup. Además de esta etiqueta, también necesitará correspondiente [reglas](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para Azure AD y el almacenamiento de Azure para permitir la conectividad de transferencia de datos y autenticación. La etiqueta de AzureBackup sólo está actualmente disponible en PowerShell. Para crear una regla mediante el uso de la etiqueta de AzureBackup:
 
     - Agregue las credenciales de cuenta de Azure y actualice las nubes nacionales<br/>
     `Add-AzureRmAccount`
@@ -67,7 +67,7 @@ Establecer la conectividad con una de las siguientes opciones:
 
   - Guardar el NSG<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
-- **Permitir el acceso mediante el uso de etiquetas de Firewall de Azure**. Si usa Firewall de Azure, crear una regla de aplicación mediante el AzureBackup [etiqueta FQDN](https://docs.microsoft.com/en-us/azure/firewall/fqdn-tags). Esto permite el acceso saliente a Azure Backup.
+- **Permitir el acceso mediante el uso de etiquetas de Firewall de Azure**. Si usa Firewall de Azure, crear una regla de aplicación mediante el AzureBackup [etiqueta FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags). Esto permite el acceso saliente a Azure Backup.
 - **Implementar un servidor proxy HTTP para enrutar el tráfico**. Cuando hace una copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure, la extensión de copia de seguridad en la máquina virtual usa las API de HTTPS para enviar comandos de administración para Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Las extensiones son el único componente que está configurado para tener acceso a la red internet pública.
 
 Las opciones de conectividad incluyen las siguientes ventajas y desventajas:

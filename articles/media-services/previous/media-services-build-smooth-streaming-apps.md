@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466075"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949631"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Generación de una aplicación de la Tienda Windows de Smooth Streaming  
 
@@ -71,7 +71,7 @@ Para obtener más información acerca del desarrollo de la aplicación de la Tie
     | Grupo de plantillas |Instalado/Plantillas/Visual C#/Tienda Windows |
     | Plantilla |Aplicación vacía (XAML) |
     | NOMBRE |SSPlayer |
-    | Location |C:\SSTutorials |
+    | Ubicación |C:\SSTutorials |
     | Nombre de la solución |SSPlayer |
     | Crear directorio para la solución |(seleccionado) |
 
@@ -507,7 +507,7 @@ También están disponibles los mismos eventos en el nivel de administrador de o
    ```
 
    > [!NOTE]
-   > Se usa CoreDispatcher para realizar cambios en el subproceso de interfaz de usuario desde un subproceso no perteneciente a la interfaz de usuario. En caso de cuello de botella en el subproceso de distribuidor, el desarrollador puede optar por usar el distribuidor proporcionado por el elemento de interfaz de usuario que pretende actualizar.  Por ejemplo: 
+   > Se usa CoreDispatcher para realizar cambios en el subproceso de interfaz de usuario desde un subproceso no perteneciente a la interfaz de usuario. En el caso de cuello de botella en el subproceso de distribuidor, el desarrollador puede decidir usar distribuidor proporcionado por el elemento de interfaz de usuario que se va a actualizar.  Por ejemplo:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -847,7 +847,7 @@ Una presentación de Smooth Streaming puede contener varios archivos de vídeo c
          </ListBox>
          </StackPanel>
    ```
-3. Presione **CTRL+S** para guardar los cambios.
+3. Presione **CTRL+S** para guardar los cambios
 
 ### <a name="to-modify-the-code-behind-file"></a>Para modificar el archivo de código subyacente
 
@@ -1027,7 +1027,7 @@ Ha completado la lección 4.  En esta lección ha agregado la funcionalidad para
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="provide-feedback"></a>Proporcionar comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Otros recursos:
