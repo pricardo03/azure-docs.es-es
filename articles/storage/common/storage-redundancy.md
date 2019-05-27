@@ -9,18 +9,20 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789995"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002823"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
 Los datos de su cuenta de almacenamiento de Microsoft Azure se replican siempre para garantizar la durabilidad y la alta disponibilidad. Azure Storage copia los datos para protegerlos de eventos previstos e imprevistos, como errores transitorios del hardware, interrupciones del suministro eléctrico o de la red y desastres naturales masivos. Puede optar por replicar los datos en el mismo centro de datos, en centros de datos zonales que estén en la misma región o en regiones geográficamente separadas.
 
 La replicación garantiza que la cuenta de almacenamiento cumpla el [contrato de nivel de servicio (SLA) para Storage](https://azure.microsoft.com/support/legal/sla/storage/), incluso en caso de errores. Consulte en el SLA información acerca de las garantías de durabilidad y disponibilidad de Azure Storage.
+
+Almacenamiento de Azure con regularidad comprueba la integridad de los datos almacenados mediante comprobaciones de redundancia cíclica (CRC). Si se han detectado datos dañados, se repare con datos redundantes. Almacenamiento de Azure también calcula las sumas de comprobación en todo el tráfico de red para detectar daños en los paquetes de datos al almacenar o recuperar datos.
 
 ## <a name="choosing-a-redundancy-option"></a>Selección de una opción de redundancia
 

@@ -13,12 +13,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4832055bffa72732991cb766ce88cc48c07530e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e277f31dcf2627959b88d58f325fb4dad024a00
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301423"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001184"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Instrucciones: Planee la implementación del acceso condicional a Azure Active Directory
 
@@ -81,7 +81,7 @@ Ahora es un buen momento para decidir sobre la pauta de nomenclatura de las dire
  
 ![Pauta de nomenclatura](./media/plan-conditional-access/11.png)
 
-Mientras que un nombre descriptivo le ayuda a mantener una visión general de la implementación de acceso condicional, el número de secuencia es útil si tiene que hacer referencia a una directiva en una conversación. Por ejemplo, si habla con un compañero administrador por teléfono, puede pedirle que abra la directiva EM063 para resolver un problema.
+Mientras que un nombre descriptivo le ayuda a mantener una visión general de la implementación de acceso condicional, el número de secuencia es útil si tiene que hacer referencia a una directiva en una conversación. Por ejemplo, si se hable con un compañero administrador en el teléfono, pueden pedirles que abrir Directiva EM063 para resolver un problema.
 
 
 
@@ -131,7 +131,7 @@ Para simplificar la experiencia de inicio de sesión de los usuarios, puede perm
 
 Casos de uso comunes para exigir la autenticación multifactor para el acceso:
 
-- [De los administradores](baseline-protection.md#require-mfa-for-admins)
+- [De los administradores](howto-baseline-protect-administrators.md)
 - [A aplicaciones específicas](app-based-mfa.md) 
 - [Desde ubicaciones de red en las que no se confía](untrusted-networks.md).
 

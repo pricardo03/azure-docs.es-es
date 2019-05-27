@@ -10,18 +10,18 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9c26bca66b0f82ea58d01d0eb8358f521168a799
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 92990b68969e754ee126b6cd5a22ecfa700c0494
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154135"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002883"
 ---
 # <a name="sql-data-warehouse-workload-importance"></a>Importancia de la carga de trabajo de SQL Data Warehouse
 
 En este artículo se explica cómo importancia de la carga de trabajo puede influir en el orden de ejecución para las solicitudes de SQL Data Warehouse.
 
-## <a name="importance"></a>importancia
+## <a name="importance"></a>Importancia
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
@@ -39,7 +39,7 @@ Más allá del escenario básico de importancia que se ha descrito anteriormente
 
 El acceso a los bloqueos de lectura y escritura de actividad es un área de contención natural.  Algunas actividades, como [conmutación de particiones](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) o [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) requieren bloqueos con privilegios elevados.  Sin la importancia de la carga de trabajo, SQL Data Warehouse se optimiza para el rendimiento.  Optimización de rendimiento significa que cuando se ejecuta y solicitudes en cola tienen las mismas necesidades de bloqueos y los recursos están disponibles, las solicitudes en cola pueden omitir las solicitudes con mayores necesidades de bloqueo que ha llegado en la cola de solicitudes anteriormente.  Una vez importancia de la carga de trabajo se aplica a las solicitudes con mayor bloqueo necesario. Solicitud con mayor importancia se ejecutará antes de la solicitud con una importancia menor.
 
-Considere el siguiente ejemplo:
+Considere el ejemplo siguiente:
 
 Q1 ejecuta activamente y seleccionar datos de SalesFact.
 P2 se pone en cola esperando Q1 en completarse.  Se envió a las 9 a.m. y está intentando datos nuevos del conmutador de partición en SalesFact.
@@ -61,4 +61,8 @@ Dado que P5 es mediumrc, requiere dos espacios de simultaneidad.  P5 debe espera
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para empezar a trabajar con la creación de un clasificador, consulte el [crear CLASIFICADOR de carga de trabajo (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Para obtener más información acerca de la clasificación de la carga de trabajo de SQL Data Warehouse, consulte [clasificación de carga de trabajo de almacenamiento de datos de SQL](sql-data-warehouse-workload-classification.md).  Consulte la Guía de inicio rápido sobre cómo crear un clasificador de carga de trabajo [crear un clasificador de carga de trabajo](quickstart-create-a-workload-classifier-tsql.md). Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para ver las consultas y la importancia asignada.
+- Para obtener más información sobre cómo crear un clasificador, consulte el [crear CLASIFICADOR de carga de trabajo (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Para obtener más información acerca de la clasificación de la carga de trabajo de SQL Data Warehouse, consulte [clasificación de la carga de trabajo](sql-data-warehouse-workload-classification.md).  
+- Consulte la Guía de inicio rápido [crear clasificador de carga de trabajo](quickstart-create-a-workload-classifier-tsql.md) acerca de cómo crear un clasificador de carga de trabajo.
+- Consulte los artículos de procedimientos para [configurar cargas de trabajo importancia](sql-data-warehouse-how-to-configure-workload-importance.md) y cómo [administración y supervisión de administración de cargas de trabajo](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para ver las consultas y la importancia asignada.

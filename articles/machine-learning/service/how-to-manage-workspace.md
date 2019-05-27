@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
-ms.date: 09/24/2018
+ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e65f739a9641181381205c7255d0472325e8055c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f0806a1d68cd2cede1ae51f0a50a8125c1e7c8b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819637"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "66016531"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Creación y administración de áreas de trabajo del servicio Azure Machine Learning
 
-En este artículo creará, verá y eliminará [**áreas de trabajo del servicio Azure Machine Learning**](concept-azure-machine-learning-architecture.md#workspace) en Azure Portal para el [servicio Azure Machine Learning](overview-what-is-azure-ml.md).  También puede crear y eliminar áreas de trabajo [mediante la CLI](reference-azure-machine-learning-cli.md) o [con código de Python](https://aka.ms/aml-sdk).
+En este artículo creará, verá y eliminará [**áreas de trabajo del servicio Azure Machine Learning**](concept-workspace.md) en Azure Portal para el [servicio Azure Machine Learning](overview-what-is-azure-ml.md).  También puede crear y eliminar áreas de trabajo [mediante la CLI](reference-azure-machine-learning-cli.md), [con código de Python](https://aka.ms/aml-sdk) o [a través de la extensión de VS Code](how-to-vscode-tools.md#get-started-with-azure-machine-learning).
 
-## <a name="create-a-workspace"></a>Crear un área de trabajo 
+## <a name="create-a-workspace"></a>Crear un área de trabajo
 
 Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
@@ -30,7 +30,7 @@ Para crear un área de trabajo, necesita una suscripción de Azure. Si no tiene 
 
 ## <a name="view"></a>Ver un área de trabajo
 
-1. En la esquina superior izquierda del portal, seleccione **Todos los servicios**. 
+1. En la esquina superior izquierda del portal, seleccione **Todos los servicios**.
 
 1. En el **todos los servicios** campo de filtro, escriba **service de aprendizaje automático**.  
 
@@ -49,8 +49,7 @@ Use el botón Eliminar en la parte superior del área de trabajo que desea elimi
 
   ![Botón Eliminar](media/how-to-manage-workspace/delete-workspace.png)
 
-
-## <a name="clean-up-resources"></a>Limpieza de recursos 
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 

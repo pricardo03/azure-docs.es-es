@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: 89df3a981ba3710e848f834c303772e94e10b139
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947178"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000966"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Vuelva a escribir los encabezados HTTP con Application Gateway
 
@@ -157,9 +157,7 @@ Puede evaluar un encabezado de solicitud o respuesta HTTP para la presencia de u
 
 - Los nombres de encabezado pueden contener los caracteres alfanuméricos y símbolos específicos, tal como se define en [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Actualmente no se admite el carácter de subrayado (\_) caracteres especiales en nombres de encabezado.
 
-## <a name="need-help"></a>¿Necesita ayuda?
-
-Póngase en contacto con nosotros en [ AGHeaderRewriteHelp@microsoft.com ](mailto:AGHeaderRewriteHelp@microsoft.com) si necesita ayuda con esta característica.
+- Si una respuesta tiene varios encabezados con el mismo nombre, a continuación, volver a escribir el valor de uno de esos encabezados dará como resultado la eliminación de los demás encabezados en la respuesta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

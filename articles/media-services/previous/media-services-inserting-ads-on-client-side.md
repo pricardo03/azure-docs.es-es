@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8f5cdc33e48d647dba8caeb09b57e233d64712f6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 49c836f5e9189104ba77e8f3d865f4db199c4060
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687743"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002972"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserción de anuncios en el lado cliente
 Este tema contiene información sobre cómo insertar varios tipos de anuncios en el lado cliente.
@@ -160,7 +160,7 @@ Los anuncios no lineales se especifican también en un elemento `<Creative>`. El
     </Creative>
 ```
 
-El elemento <**NonLinearAds**> puede contener uno o varios elementos <**NonLinear**>, y cada uno de ellos puede describir un anuncio no lineal. El elemento <**NonLinear**> especifica el recurso para el anuncio no lineal. El recurso puede ser <**StaticResource**>, <**IFrameResource**> o <**HTMLResource**>. <**StaticResource**&gt; describe un recurso no HTML y define un atributo creativeType que especifica cómo se muestra el recurso:
+El elemento <**NonLinearAds**> puede contener uno o varios elementos <**NonLinear**>, y cada uno de ellos puede describir un anuncio no lineal. El elemento <**NonLinear**> especifica el recurso para el anuncio no lineal. El recurso puede ser <**StaticResource**>, <**IFrameResource**> o <**HTMLResource**>. \<**StaticResource**&gt; describe un recurso no HTML y define un atributo creativeType que especifica cómo se muestra el recurso:
 
 Image/gif, image/jpeg, image/png: el recurso se muestra en una etiqueta HTML <**img**>.
 
@@ -846,7 +846,7 @@ El ejemplo siguiente muestra cómo programar un anuncio superpuesto de cuña int
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="provide-feedback"></a>Proporcionar comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vea también

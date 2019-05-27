@@ -111,8 +111,6 @@
           href: application-proxy-remove-personal-data.md
         - name: Configuración de un dominio personalizado
           href: application-proxy-configure-custom-domain.md
-        - name: Errores de configuración
-          href: application-proxy-troubleshoot.md
         - name: Tutoriales de publicación
           items:
             - name: Integración con Cloud App Security
@@ -129,6 +127,12 @@
               href: application-proxy-qlik.md
         - name: Solución de problemas del proxy de aplicación
           items:
+            - name: Diagrama de flujo de solución de problemas del conector
+              href: application-proxy-debug-connectors.md
+            - name: Diagrama de flujo de solución de problemas de la aplicación
+              href: application-proxy-debug-apps.md
+            - name: Errores de configuración
+              href: application-proxy-troubleshoot.md
             - name: Problema al mostrar la página de aplicaciones
               href: application-proxy-page-appearance-broken-problem.md
             - name: La carga de la aplicación tarda demasiado

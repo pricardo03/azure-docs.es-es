@@ -10,18 +10,18 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 19873256f8253fff75cfd42df7b876106a9e98e5
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 70f9c34957b977aff9fc6211bf79415ed9abe255
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464784"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016523"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Introducción a Azure Machine Learning para Visual Studio Code
 
-En este artículo, obtendrá información sobre cómo usar la extensión de Azure Machine Learning para Visual Studio Code para entrenar e implementar el aprendizaje automático y modelos de aprendizaje con el servicio Azure Machine Learning en Visual Studio Code profundo.
+En este artículo, obtendrá información sobre cómo usar la extensión de Azure Machine Learning para Visual Studio Code para entrenar e implementar el aprendizaje automático y modelos de aprendizaje profundo.
 
-El servicio de Azure Machine Learning proporciona compatibilidad para los experimentos que se ejecutan localmente y en los destinos de proceso remoto. Para cada experimento, puede realizar el seguimiento de varias ejecuciones con la frecuencia que necesite para probar de forma iterativa técnicas diferentes, hiperparámetros y mucho más. Puede usar Azure Machine Learning para realizar un seguimiento de las métricas personalizadas y las ejecuciones de los experimentos, habilitando la capacidad de auditoría y reproducción de la ciencia de datos.
+El [servicio Azure Machine Learning](overview-what-is-azure-ml.md) proporciona compatibilidad para los destinos de proceso de experimentos que se ejecución de forma local y remoto. Para cada experimento, puede realizar el seguimiento de varias ejecuciones con la frecuencia que necesite para probar de forma iterativa técnicas diferentes, hiperparámetros y mucho más. Puede usar Azure Machine Learning para realizar un seguimiento de las métricas personalizadas y las ejecuciones de los experimentos, habilitando la capacidad de auditoría y reproducción de la ciencia de datos.
 
 También puede implementar estos modelos para sus necesidades de pruebas y producción.
 
@@ -69,13 +69,13 @@ Para instalar la extensión de Azure Machine Learning:
 
    ![Elección del intérprete](./media/vscode-tools-for-ai/python.png)
 
-1. En la esquina inferior derecha de la ventana, aparecerá una notificación que indica que el SDK de Azure Machine Learning se está instalando automáticamente. El entorno de Python recién creado es local y privada, y tiene los requisitos previos de Visual Studio Code para trabajar con el servicio de Azure Machine Learning.
+1. En la esquina inferior derecha de la ventana, aparece una notificación que indica que el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) se instala automáticamente. El entorno de Python recién creado es local y privada, y tiene los requisitos previos de Visual Studio Code para trabajar con el servicio de Azure Machine Learning.
 
    ![Instalar el SDK de Azure Machine Learning para Python](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>Introducción a Azure Machine Learning
 
-Antes de iniciar el aprendizaje y la implementación de modelos de aprendizaje automático en Visual Studio Code, debe crear un [área de trabajo de servicio de Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace) en la nube. Esta área de trabajo contiene los modelos y los recursos. 
+Antes de iniciar el aprendizaje y la implementación de modelos de aprendizaje automático en Visual Studio Code, debe crear un [área de trabajo de servicio de Azure Machine Learning](concept-workspace.md) en la nube. Esta área de trabajo contiene los modelos y los recursos. 
 
 Para crear un área de trabajo y agregar su primer experimento:
 
