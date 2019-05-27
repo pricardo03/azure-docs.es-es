@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 08/25/2017
+ms.date: 05/17/2019
 ms.author: yizhon
-ms.openlocfilehash: a0099fa085e21c381b74dc2690ffcf0870345f21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d758d761e560642de76e149c83fc6898aa78bafb
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401310"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910326"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK de dispositivo IoT de Azure para C
 
@@ -126,7 +126,7 @@ La versión de Windows de la **iothub_client\_ejemplos\_iothub_convenience_sampl
   ![Explorador de soluciones de Visual Studio](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
 > [!NOTE]
-> Si abre este proyecto en Visual Studio de 2017, acepte las indicaciones para redestinar el proyecto a la versión más reciente.
+> Si Visual Studio le pide que redestinar el proyecto a la última versión, acepte el mensaje.
 
 Esta solución contiene un proyecto. En esta solución hay cuatro paquetes de NuGet instalados:
 
@@ -339,7 +339,7 @@ Dentro de la carpeta **serializer**, en el repositorio [azure-iot-sdks](https://
   ![Solución de Visual Studio para ejemplo de mqtt](./media/iot-hub-device-sdk-c-intro/simplesample_mqtt.png)
 
 > [!NOTE]
-> Si abre este proyecto en Visual Studio de 2017, acepte las indicaciones para redestinar el proyecto a la versión más reciente.
+> Si Visual Studio le pide que redestinar el proyecto a la última versión, acepte el mensaje.
 
 Al igual que con el ejemplo anterior, esta incluye varios paquetes de NuGet:
 
@@ -414,7 +414,7 @@ En este ejemplo, hay un único modelo denominado **ContosoAnemometer**. Este mod
 
 Los datos y las acciones definidos en el modelo definen una superficie de API que se puede usar para enviar mensajes a IoT Hub y para responder a los mensajes que se envían al dispositivo. El uso de este modelo se entiende mejor con un ejemplo.
 
-### <a name="send-messages"></a>Envío de mensajes
+### <a name="send-messages"></a>Enviar mensajes
 
 El modelo define los datos que puede enviar a IoT Hub. En este ejemplo, eso significa que uno de los dos elementos de datos se define mediante la macro **WITH_DATA**. Para enviar los valores **DeviceId** y **WindSpeed** a IoT Hub, es preciso seguir varios pasos. El primero es establecer los datos que se desean enviar:
 
@@ -483,7 +483,7 @@ El segundo parámetro es un puntero que lleva al contexto de usuario, el mismo p
 
 Eso es todo lo necesario para enviar mensajes del dispositivo a la nube. Lo único que queda describir es cómo recibir mensajes.
 
-### <a name="receive-messages"></a>Recepción de mensajes
+### <a name="receive-messages"></a>Recibir mensajes
 
 La recepción de un mensaje es similar a cómo funcionan los mensajes en la biblioteca **IoTHubClient** . En primer lugar, se registra una función de devolución de llamada de mensaje:
 

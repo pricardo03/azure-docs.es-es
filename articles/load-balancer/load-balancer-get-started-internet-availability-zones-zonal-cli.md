@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
 ms.openlocfilehash: 3b89c11c11276781ec63367247601fccfd2fa858
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699659"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122202"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Creación de un equilibrador Standard Load Balancer con el front-end de zona mediante la CLI de Azure
 

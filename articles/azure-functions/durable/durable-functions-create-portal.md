@@ -8,15 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 10/23/2018
-ms.date: 03/25/2019
-ms.author: v-junlch
-ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/23/2018
+ms.author: azfuncdf, glenga
+ms.openlocfilehash: 705a43f1ef35f953d1b87c7c44bbc45fcb4334be
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710955"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872860"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Creación de Durable Functions mediante Azure Portal
 
@@ -24,7 +23,7 @@ La extensión [Durable Functions](durable-functions-overview.md) para Azure Func
 
 > [!NOTE]
 > 
-> * Si está desarrollando Durable Functions en C#, debería tener en cuenta el [desarrollo de Visual Studio 2017](durable-functions-create-first-csharp.md).
+> * Si está desarrollando durable functions en C#, debería considerar [desarrollo de Visual Studio de 2019](durable-functions-create-first-csharp.md).
 > * Si está desarrollando Durable Functions en JavaScript, debería tener en cuenta el [desarrollo de Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función
@@ -92,7 +91,7 @@ Si va a crear Durable Functions de JavaScript, deberá instalar el [`durable-fun
 1. Use una herramienta HTTP como Postman o cURL para enviar una solicitud POST a la dirección URL que copió. El ejemplo siguiente es un comando de cURL que envía una solicitud POST a la función duradera:
 
     ```bash
-    curl -X POST https://{your-function-app-name}.chinacloudsites.cn/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
     ```
 
     En este ejemplo, `{your-function-app-name}` es el dominio que es el nombre de la aplicación de función. El mensaje de respuesta contiene un conjunto de puntos de conexión URI que puede usar para supervisar y administrar la ejecución, que es similar al ejemplo siguiente:
@@ -141,5 +140,3 @@ La primera función duradera ahora está en funcionamiento en Azure.
 
 > [!div class="nextstepaction"]
 > [Más información sobre los patrones comunes de funciones durables](durable-functions-concepts.md)
-
-<!-- Update_Description: wording update -->

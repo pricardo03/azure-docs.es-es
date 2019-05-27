@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: magoedte
-ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 531e51fbddb99ebba11284d5291b4cca26559bc1
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148842"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906776"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores 
 Con Azure Monitor para contenedores, puede usar los gráficos de rendimiento y el estado de mantenimiento para supervisar la carga de trabajo de los clústeres de Azure Kubernetes Service (AKS) desde dos perspectivas: directamente desde un clúster de AKS o en todos los clústeres de AKS de una suscripción desde Azure Monitor. La visualización de Azure Container Instances (ACI) también es posible cuando se supervisa un clúster de AKS concreto.
@@ -26,10 +26,6 @@ Con Azure Monitor para contenedores, puede usar los gráficos de rendimiento y e
 En este artículo le ayudamos a comprender la experiencia entre las dos perspectivas y el modo de evaluar, investigar y resolver rápidamente los problemas detectados.
 
 Para obtener información acerca de cómo habilitar Azure Monitor para contenedores, consulte el artículo [How to onboard Azure Monitor for containers](container-insights-onboard.md) (Cómo incorporar Azure Monitor para contenedores).
-
-> [!IMPORTANT]
-> Azure Monitor para la compatibilidad con contenedores para supervisar un clúster AKS que ejecuta Windows Server 2019 está actualmente en versión preliminar pública.
-> Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Monitor proporciona una vista de varios clúster que muestra el estado de mantenimiento de todos los clústeres AKS supervisados que ejecutan Linux y Windows Server 2019 implementado a través de grupos de recursos en las suscripciones.  Muestra los clústeres de AKS detectados que la solución no supervisa. De forma inmediata, puede comprender el estado del clúster y desde aquí puede explorar en profundidad la página de rendimiento del controlador y del nodo, o explorar para ver los gráficos de rendimiento del clúster.  En el caso de los clústeres de AKS detectados e identificados como no supervisados, puede optar por habilitar la supervisión de ese clúster en cualquier momento.  
 
@@ -41,7 +37,7 @@ Las principales diferencias supervisando un clúster de Windows Server con Azure
 - Sólo se supervisan los entornos de pod, entornos de Docker no.
 - Con la versión preliminar, se admiten un máximo de 30 contenedores de Windows Server. Esta limitación no se aplica a los contenedores Linux.  
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Vista de varios clústeres desde Azure Monitor 
@@ -75,20 +71,20 @@ En la tabla siguiente se proporciona un desglose del cálculo que controla los e
 | |Status |Disponibilidad |  
 |-------|-------|-----------------|  
 |**Pod de usuario**| | |  
-| |Healthy |100% |  
+| |Estado correcto |100% |  
 | |Advertencia |90 - 99 % |  
-| |Crítico |<90 % |  
-| |Desconocido |Si no se notifica en los últimos 30 minutos |  
+| |Fundamental |<90 % |  
+| |Desconocida |Si no se notifica en los últimos 30 minutos |  
 |**Pod del sistema**| | |  
-| |Healthy |100% |
+| |Estado correcto |100% |
 | |Advertencia |N/D |
-| |Crítico |<100 % |
-| |Desconocido |Si no se notifica en los últimos 30 minutos |
+| |Fundamental |<100 % |
+| |Desconocida |Si no se notifica en los últimos 30 minutos |
 |**Node** | | |
-| |Healthy |>85 % |
+| |Estado correcto |>85 % |
 | |Advertencia |60 - 84 % |
-| |Crítico |<60 % |
-| |Desconocido |Si no se notifica en los últimos 30 minutos |
+| |Fundamental |<60 % |
+| |Desconocida |Si no se notifica en los últimos 30 minutos |
 
 En la lista de clústeres, puede explorar en profundidad la página **Clúster** (para ello, haga clic en el nombre del clúster), la página de rendimiento **Nodos** (para ello, haga clic en la acumulación de nodos en la columna **Nodos** de ese clúster específico) o bien la página de rendimiento **Controladores** (para ello, haga clic en la acumulación de la columna **User pods** [Pods de usuario] o **System pods** [Pods del sistema]).   
 
@@ -133,7 +129,7 @@ En el Explorador de métricas, puede ver el nodo agregado y pod métricas de uti
 
 Puede aplicar [dividir](../platform/metrics-charts.md#apply-splitting-to-a-chart) de una métrica para verlo por dimensión y visualizar diferentes segmentos de la comparar entre sí. Para un nodo, también puede segmentar el gráfico por la *host* dimensión, y desde un pod se puede segmentar por las dimensiones siguientes:
 
-* Controller
+* Controlador
 * Kubernetes namespace
 * Nodo
 * Fase
@@ -187,7 +183,7 @@ Este resumen puede ayudarle a identificar rápidamente si tiene el equilibrio ad
 
 La información que se presenta al ver los nodos se describe en la siguiente tabla:
 
-| Columna | DESCRIPCIÓN | 
+| columna | DESCRIPCIÓN | 
 |--------|-------------|
 | NOMBRE | El nombre del host. |
 | Status | Vista de Kubernetes del estado del nodo. |
@@ -216,7 +212,7 @@ Haga clic en el valor de la columna de **nodos** del nodo específico.
 
 La información que se muestra al ver los controladores se describe en la siguiente tabla:
 
-| Columna | DESCRIPCIÓN | 
+| columna | DESCRIPCIÓN | 
 |--------|-------------|
 | NOMBRE | El nombre del controlador.|
 | Status | Estado de la acumulación de los contenedores cuando ha terminado de ejecutarse con un estado, como *OK (Correcto)*, *Terminated (Finalizado)*, *Failed (Error)* *Stopped (Detenido)* o *Paused (En pausa)*. Si el contenedor se está ejecutando, pero el estado no se mostró correctamente o el agente no lo seleccionó, y no ha respondido durante más de 30 minutos, el estado es *Unknown* (Desconocido). En la tabla siguiente se proporcionan detalles adicionales del icono de estado.|
@@ -253,7 +249,7 @@ En un contenedor, puede explorar en profundidad un pod o un nodo para ver los da
 
 La información que se muestra al ver los contenedores se describe en la siguiente tabla:
 
-| Columna | DESCRIPCIÓN | 
+| columna | DESCRIPCIÓN | 
 |--------|-------------|
 | NOMBRE | El nombre del controlador.|
 | Status | Estado de los contenedores, si lo hay. En la tabla siguiente se proporcionan detalles adicionales del icono de estado.|

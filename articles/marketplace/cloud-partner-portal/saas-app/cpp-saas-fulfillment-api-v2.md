@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 551f3be2ca23bc18224d28faeea6a6df80eba1db
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 4efd9556e255709204654cf0acbf1b08fa2c1fc0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823532"
+ms.locfileid: "65872154"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>Versión de API de SaaS realización 2 
 
-Este artículo se describe la API que permite a los proveedores de software independientes (ISV) para vender sus aplicaciones SaaS en Azure Marketplace y AppSource. Esta API es un requisito para enumerar SaaS se ofrece en AppSource y en Azure Marketplace.
+Este artículo se describe la API que permite a los proveedores de software independientes (ISV) para vender sus aplicaciones SaaS en Azure Marketplace y AppSource. Esta API es que un requisito para SaaS permiten transacciones ofertas en AppSource y el Azure Marketplace.
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>Administrar el ciclo de vida de suscripción de SaaS
 
@@ -528,7 +528,7 @@ Internal Server Error
 }
 ```
 
-#### <a name="delete-a-subscription"></a>Eliminar una suscripción
+#### <a name="delete-a-subscription"></a>Eliminación de una suscripción
 
 Cancelar la suscripción y eliminar la suscripción especificada.
 

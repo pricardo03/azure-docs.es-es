@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 319ec5d09a6daddb5c1fc36f680ee6d0d856e337
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6cb40f8c9f1ee85848b5e3db311d0fb652ec1bc3
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205425"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921815"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Tutorial: Detecte amenazas con vista previa de Centinela de Azure
 
@@ -59,6 +59,10 @@ Reglas de detección se basan en los tipos de amenazas y anomalías que podrían
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
         | where ActivityStatus == "Succeeded"
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+
+   > [!NOTE]
+   > La longitud de la consulta debe tener entre 1 a 10000 caracteres y no puede contener "search *" y "union *".
+
 
 5. En el **asignación de entidad** sección, utilice los campos de **tipo de entidad** para asignar las columnas de la consulta a los campos de entidad reconocidos por Azure Sentinel. Para cada campo, asigne la columna correspondiente en la consulta que creó en Log Analytics, en el campo de entidad correspondiente. Seleccione el nombre de columna correspondiente en el **propiedad**. Cada entidad incluye varios campos, por ejemplo, SID, GUID, etcetera. Puede asignar la entidad de acuerdo con los de los campos, no solo la entidad de nivel superior.
 

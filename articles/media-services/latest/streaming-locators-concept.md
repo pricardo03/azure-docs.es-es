@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: 24ee700e326ef61aa6a93aae725e85e7b4780edf
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 9a14399117971807c1d18f8eb5fab7d6e6cef2d5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465040"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120350"
 ---
 # <a name="streaming-locators"></a>Localizadores de streaming
 
@@ -24,17 +24,19 @@ Para que los vídeos en el recurso de salida estén disponibles para los cliente
 
 El proceso de creación de un objeto **StreamingLocator** se denomina publicación. De forma predeterminada, el objeto **StreamingLocator** es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, salvo que configure las horas de inicio y de finalización opcionales. 
 
-Al crear un objeto **StreamingLocator**, debe especificar el nombre del [Recurso](https://docs.microsoft.com/rest/api/media/assets) y el nombre de la [Directiva de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies). Puede usar una de las directivas de streaming predefinidas o crear una directiva personalizada. Las directivas predefinidas que están disponibles actualmente son: "Predefined_DownloadOnly", "Predefined_ClearStreamingOnly", "Predefined_DownloadAndClearStreaming", "Predefined_ClearKey", "Predefined_MultiDrmCencStreaming" y "Predefined_ MultiDrmStreaming". Al usar una directiva de streaming personalizada, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus objetos StreamingLocator siempre que se necesiten las mismas opciones y protocolos. 
+Al crear un **localizador de Streaming**, debe especificar un **activos** nombre y un **directiva Streaming** nombre. Para obtener más información, vea los temas siguientes:
 
-Si quiere especificar las opciones de cifrado en la secuencia, cree la [directiva de clave de contenido](https://docs.microsoft.com/rest/api/media/contentkeypolicies) configura cómo se entrega la clave de contenido a los clientes finales mediante el componente de entrega de claves de Media Services. Asocie el objeto StreamingLocator con la **directiva de clave de contenido** y la clave de contenido. Puede permitir que Media Services genere automáticamente la clave. El siguiente ejemplo de .NET muestra cómo configurar el cifrado de AES con una restricción de token en Media Services v3: [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted). Las **directivas de clave de contenido** se pueden actualizar, por ejemplo, puede que quiera actualizar la directiva si necesita hacer una rotación de claves. Puede tardar hasta 15 minutos para que las memorias caché de entrega de claves se actualicen y recojan la directiva actualizada. Se recomienda no crear una nueva directiva de clave de contenido para cada objeto StreamingLocator. Debe intentar volver a usar las directivas existentes siempre que se necesiten las mismas opciones.
+* [Recursos](assets-concept.md)
+* [Directivas de streaming](streaming-policy-concept.md)
+* [Directivas de claves de contenido](content-key-policy-concept.md)
 
 > [!IMPORTANT]
 > * Las propiedades de objetos **StreamingLocator** que son del tipo Datetime siempre están en formato UTC.
-> * Debería diseñar un conjunto limitado de directivas para su cuenta de Media Service y reutilizarlas con los objetos StreamingLocator siempre que se necesiten las mismas opciones. 
+> * Debería diseñar un conjunto limitado de directivas para su cuenta de Media Service y reutilizarlas con los objetos StreamingLocator siempre que se necesiten las mismas opciones. Para más información, consulte [Cuotas y limitaciones](limits-quotas-constraints.md).
 
 ## <a name="associate-filters-with-streaming-locators"></a>Asociar filtros a los localizadores de Streaming
 
-Puede especificar una lista de [filtros activos o cuenta](filters-concept.md), que se aplicará a su [localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). El [empaquetador dinámico](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente se especifica en la dirección URL. Esta combinación se genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros en la dirección URL y los filtros que especifique en el localizador de Streaming. Se recomienda usar esta característica si desea aplicar filtros pero no desea exponer los nombres de filtro en la dirección URL.
+Consulte [filtros: asociar con localizadores de Streaming](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="filter-order-page-streaming-locator-entities"></a>Filtro, por orden, las entidades de localizador de Streaming de página
 
@@ -42,5 +44,4 @@ Consulte [Filtrado, ordenación y paginación de entidades de Media Services](en
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Tutorial: Carga, codificación y transmisión en secuencias de videos mediante .NET](stream-files-tutorial-with-api.md)
-* [Uso del cifrado dinámico de DRM y el servicio de entrega de licencias](protect-with-drm.md)
+[Tutorial: Carga, codificación y transmisión en secuencias de videos mediante .NET](stream-files-tutorial-with-api.md)

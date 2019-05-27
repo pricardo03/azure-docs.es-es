@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 9696f3c32f8b903257e337191a5ce32645bfd198
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142446"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834010"
 ---
-# <a name="connect-from-a-web-browser"></a>Conectarse desde un explorador web
+# <a name="connect-from-a-web-browser"></a>Conexión desde un explorador web
 
 El cliente web le permite acceder a los recursos de la vista previa de Escritorio Virtual Windows desde un explorador web sin el proceso de instalación largas.
 
@@ -38,6 +38,6 @@ Aunque debería funcionar cualquier explorador compatible con HTML5, admitimos o
 En un explorador, vaya a la [cliente web de Escritorio Virtual de Windows](https://rdweb.wvd.microsoft.com/webclient) e inicie sesión con su cuenta de usuario.
 
 >[!NOTE]
->Si ya ha iniciado sesión con una cuenta de Azure AD que sea diferente a la que le gustaría usar para el escritorio Virtual de Windows, es posible que deba cerrar sesión o utilizar una ventana privada del explorador.
+>Si ya ha iniciado sesión con una cuenta de Azure Active Directory diferente a la que desea usar para el escritorio Virtual de Windows, debe cerrar la sesión o utilizar una ventana privada del explorador.
 
 Después de iniciar sesión, ahora debería ver una lista de recursos. Puede iniciar los recursos seleccionando como lo haría con una aplicación normal en el **todos los recursos** ficha.

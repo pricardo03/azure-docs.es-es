@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458904"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019770"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integración continua de Azure DevOps Services con proyectos del grupo de recursos de Azure
 Para implementar una plantilla de Azure, realizar tareas en varias fases: Compilación, prueba, copia en Azure (también denominado "Ensayo") y plantilla de implementación. Hay dos maneras distintas de implementar plantillas en Azure DevOps Services. Ambos métodos proporcionan los mismos resultados, así que puede elegir el que mejor se adapte a su flujo de trabajo.
@@ -78,8 +78,8 @@ Los procedimientos siguientes le guiarán a través de los pasos necesarios para
       ![Opción de entidad de servicio][5]
    5. Agregue la información de suscripción de Azure en el cuadro de diálogo **Agregar suscripción de Azure** . Debe proporcionar los siguientes elementos:
       
-      * Id. de suscripción
-      * Subscription Name
+      * Identificador de suscripción
+      * Nombre de suscripción
       * Id. de entidad del servicio
       * Clave de entidad del servicio 
       * Identificador de inquilino
@@ -93,7 +93,7 @@ Los procedimientos siguientes le guiarán a través de los pasos necesarios para
       
       Para la CLI de Azure, utilice:
       
-      `azure account show`
+      `az account show`
    8. Para obtener un id. de entidad de servicio, una clave de entidad de servicio y un id. de inquilino, siga el procedimiento de [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](active-directory/develop/howto-create-service-principal-portal.md) o [Autenticación de una entidad de servicio con Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Agregue los valores del identificador de entidad de servicio, de la clave de entidad de servicio y del identificador de inquilino en el cuadro de diálogo **Agregar suscripción de Azure** y, después, elija el botón **Aceptar**.
       

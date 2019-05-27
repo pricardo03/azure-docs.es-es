@@ -11,22 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384684"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113243"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Revisar el acceso a los grupos o las revisiones de acceso de las aplicaciones de Azure AD
 
 Azure Active Directory (Azure AD) simplifica el modo en que las empresas administran el acceso a grupos y aplicaciones de Azure AD y revisiones de otros servicios en línea de Microsoft con una característica denominada acceso de Azure AD.
 
 En este artículo se describe cómo un revisor designado lleva a cabo una revisión de acceso para los miembros de un grupo o los usuarios con acceso a una aplicación.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+- Azure AD Premium P2
+
+Para obtener más información, consulte [qué usuarios deben tener licencias?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="open-the-access-review"></a>Abra la revisión de acceso
 
@@ -64,16 +70,16 @@ Si la solicitud es para revisar su propio acceso, la página tendrá un aspecto 
 
 Hay dos formas que puede aprobar o denegar el acceso:
 
-- Puede aprobar o denegar individualmente, cada solicitud o
+- Puede aprobar o denegar el acceso para uno o más usuarios, o
 - Puede aceptar las recomendaciones del sistema, que es la manera más fácil y rápida.
 
-### <a name="approve-or-deny-access-for-each-request"></a>Aprobar o denegar el acceso para cada solicitud
+### <a name="approve-or-deny-access-for-one-or-more-users"></a>Aprobar o denegar el acceso para uno o varios usuarios
 
 1. Revise la lista de los usuarios decidan si aprobar o denegar un acceso continuo.
 
-1. Para aprobar o denegar cada solicitud, haga clic en la fila para abrir una ventana para especificar la acción que se realizará.
+1. Para aprobar o denegar el acceso para un solo usuario, haga clic en la fila para abrir una ventana para especificar la acción que se realizará. Para aprobar o denegar el acceso de varios usuarios, agregue marcas de verificación junto a los usuarios y, a continuación, haga clic en el **revisión X usuarios** botón para abrir una ventana para especificar la acción que se realizará.
 
-1. Haga clic en **aprobar** o **denegar**. Si no está seguro, haga clic en **desconoce**. Si lo hace, se producirá en el usuario mantiene su acceso, pero la selección se reflejarán en los registros de auditoría.
+1. Haga clic en **aprobar** o **denegar**. Si no está seguro, haga clic en **desconoce**. Si lo hace, se producirá en el usuario mantiene el acceso, pero la selección se reflejarán en los registros de auditoría.
 
     ![Realizar la revisión de acceso](./media/perform-access-review/approve-deny.png)
 

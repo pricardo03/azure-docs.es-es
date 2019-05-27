@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 2a7af59495966c76a47ea84311ab073eb594f82e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c52574485a62b081224a36ca5deb0fdae114f9bc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707569"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859657"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Información sobre el uso de HDInsight en Linux
 
@@ -87,7 +87,7 @@ Este comando devuelve un documento JSON que describe el servicio y, a continuaci
 
 Para más información, consulte el documento [Puertos utilizados por los servicios Apache Hadoop en HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-## <a name="file-locations"></a>Ubicaciones de archivo
+## <a name="file-locations"></a>Ubicaciones de los archivos
 
 Puede encontrar los archivos relacionados con Hadoop en los nodos de clúster en `/usr/hdp`. Este directorio raíz contiene los siguientes subdirectorios:
 
@@ -251,7 +251,7 @@ Los diferentes tipos de clúster se ven afectados por la escala de esta manera:
 Para obtener información específica sobre cómo ampliar tu clúster de HDInsight, consulta:
 
 * [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure Portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
+* [Administrar clústeres de Apache Hadoop en HDInsight mediante la CLI de Azure](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>¿Cómo puedo instalar Hue (u otro componente de Hadoop)?
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80faf1899da0f16d25b9b7c68cb0edcbc1276632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294247"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113117"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detectadas por Azure Active Directory Identity Protection
 
@@ -30,20 +30,18 @@ En las siguientes secciones se ofrece información general de las vulnerabilidad
 
 Este punto vulnerable ayuda a evaluar la implementación de Azure Multi-factor Authentication en su organización.
 
-Para ver el recuento de usuarios que no están registrados en MFA, haga clic en la vulnerabilidad y se redirigen las estadísticas de puntuación segura de identidad.
-
 Azure Multi-factor Authentication proporciona una segunda capa de seguridad para la autenticación de usuario. Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y las aplicaciones, al tiempo que satisface la demanda de los usuarios de un proceso de inicio de sesión simple. Azure Multi-factor Authentication proporciona opciones de comprobación sencillas, como:
 
 * llamada de teléfono
 * mensaje de texto
-* Notificación en aplicación móvil
+* Notificación de la aplicación móvil
 * Código de verificación de OTP
 
 Se recomienda pedir Azure Multi-Factor Authentication para los inicios de sesión de usuario. La autenticación multifactor desempeña un papel clave en las directivas de acceso condicional basadas en riesgos disponibles mediante Identity Protection.
 
 Para más información, consulte [¿Qué es Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
 
-## <a name="unmanaged-cloud-apps"></a>Aplicaciones en la nube no administradas
+## <a name="unmanaged-cloud-apps"></a>Aplicaciones de nube no administradas
 
 Este punto vulnerable ayuda a identificar aplicaciones en la nube no administradas en su organización.
 
@@ -53,7 +51,7 @@ Se recomienda implementar Cloud Discovery para detectar las aplicaciones de nube
 
 Para más información, consulte [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
-## <a name="security-alerts-from-privileged-identity-management"></a>Alertas de seguridad de administración de identidades con privilegios
+## <a name="security-alerts-from-privileged-identity-management"></a>Alertas de seguridad de Privileged Identity Management
 
 Este punto vulnerable ayuda a detectar y resolver alertas acerca de las identidades con privilegios en su organización.  
 

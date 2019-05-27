@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60877438"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900881"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operaciones de administración de cuentas en Azure Data Lake Storage Gen1 mediante el SDK de .NET.
 > [!div class="op_single_selector"]
-> * [SDK de .NET](data-lake-store-get-started-net-sdk.md)
+> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [API DE REST](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -32,22 +32,16 @@ En este artículo aprenderá a realizar operaciones de administración de cuenta
 Para obtener instrucciones sobre cómo realizar operaciones de administración de datos en Data Lake Storage Gen1 con el SDK de .NET, consulte [Filesystem operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-data-operations-net-sdk.md) (Operaciones de sistema de archivos en Azure Data Lake Storage Gen1 con el SDK de .NET).
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Visual Studio 2013, 2015 o 2017**. En las instrucciones siguientes se usa Visual Studio 2017.
+* **Visual Studio 2013 o versiones posteriores**. Las instrucciones siguientes usan Visual Studio de 2019.
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-net-application"></a>Creación de una aplicación .NET
-1. Abra Visual Studio y cree una aplicación de consola.
-2. En el menú **Archivo**, haga clic en **Nuevo** y en **Proyecto**.
-3. En **Nuevo proyecto**, escriba o seleccione los siguientes valores:
+1. En Visual Studio, seleccione el **archivo** menú, **New**y, a continuación, **proyecto**.
+2. Elija **aplicación de consola (.NET Framework)** y, a continuación, seleccione **siguiente**.
+3. En **nombre del proyecto**, escriba `CreateADLApplication`y, a continuación, seleccione **crear**.
 
-   | Propiedad | Valor |
-   | --- | --- |
-   | Category |Plantillas/Visual C#/Windows |
-   | Plantilla |Aplicación de consola |
-   | NOMBRE |CreateADLApplication |
-4. Haga clic en **Aceptar** para crear el proyecto.
-5. Agregue los paquetes NuGet al proyecto.
+4. Agregue los paquetes NuGet al proyecto.
 
    1. Haga clic con el botón derecho en el Explorador de soluciones y haga clic en **Administrar paquetes de NuGet**.
    2. En la pestaña **Administrador de paquetes NuGet**, asegúrese de que la opción **Origen del paquete** esté establecida en **nuget.org** y que esté activada la casilla **Incluir versión preliminar**.
@@ -58,7 +52,7 @@ Para obtener instrucciones sobre cómo realizar operaciones de administración d
 
         ![Incorporación de un origen de NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Creación de una cuenta de Azure Data Lake")
    4. Cierre el **Administrador de paquetes NuGet**.
-6. Abra **Program.cs**, elimine el código existente e incluya las siguientes instrucciones para agregar referencias a espacios de nombres.
+5. Abra **Program.cs**, elimine el código existente e incluya las siguientes instrucciones para agregar referencias a espacios de nombres.
 
         using System;
         using System.IO;
@@ -74,7 +68,7 @@ Para obtener instrucciones sobre cómo realizar operaciones de administración d
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-7. Declare las variables y proporcione los valores de los marcadores de posición. Además, asegúrese de que la ruta de acceso local y el nombre de archivo que proporcione existen en el equipo.
+6. Declare las variables y proporcione los valores de los marcadores de posición. Además, asegúrese de que la ruta de acceso local y el nombre de archivo que proporcione existen en el equipo.
 
         namespace SdkSample
         {

@@ -3,19 +3,19 @@ title: 'Inicio rápido: Obtención de información sobre imágenes con el SDK de
 titleSuffix: Azure Cognitive Services
 description: Aprenda a cargar una imagen con el SDK de Bing Visual Search y a obtener conclusiones sobre ella.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/16/2018
+ms.date: 05/15/2019
 ms.author: v-gedod
-ms.openlocfilehash: a7fc4686ec31b4c3a23d3e0ff72e5e2a270015b0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9fd693207b429ddc0a2bfdd772f4822f188ac3f7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532106"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65884932"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Inicio rápido: Obtención de información sobre imágenes con el SDK de Bing Visual Search para C#
 
@@ -23,7 +23,7 @@ Use este artículo de inicio rápido para empezar a obtener información sobre l
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Cualquier edición de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
 * El paquete NuGet para Visual Search. 
     - En el Explorador de soluciones en Visual Studio, haga clic con el botón derecho en el proyecto y seleccione `Manage NuGet Packages` en el menú. Instale el paquete `Microsoft.Azure.CognitiveServices.Search.VisualSearch`. La instalación de los paquetes NuGet también instala lo siguiente:

@@ -5,16 +5,16 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 26ff592ea0d0a57049ae11a981fe8d8e77ca876f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606951"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001758"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administrar el ciclo de vida de almacenamiento de blobs de Azure
 
@@ -393,8 +393,12 @@ En el caso de los datos que se modifican y a los que se accede con regularidad a
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-**He creado una nueva directiva, ¿por qué las acciones no se ejecutan inmediatamente?**  
+**He creado una nueva directiva, ¿por qué no las acciones se ejecutan inmediatamente?**  
 La plataforma ejecuta la directiva del ciclo de vida una vez al día. Una vez que configure una directiva, puede tardar hasta 24 horas para algunas acciones ejecutar por primera vez.  
+
+**Rehidratadas manualmente un blob archivado, ¿Cómo evito que, desde que se desplaza en el nivel de archivo temporalmente?**  
+Cuando se mueve un blob desde el nivel de acceso de uno a otro nivel de acceso, no cambia su hora de última modificación. Si manualmente rehidratar un blob archivado a nivel de acceso frecuente, se podría devolverse a nivel de archivo por el motor de administración del ciclo de vida. Puede evitar que al deshabilitar la regla que afecta a este blob temporalmente. Puede copiar el blob en otra ubicación si necesita mantener el nivel de acceso frecuente permanentemente. Puede volver a habilitar la regla cuando el blob puede con seguridad devolverse a nivel de archivo. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b8c564ef2de22555930f998ccd9918b252d35f17
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8947637a42adfca12268c3f84e208079768870e0
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541692"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921219"
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 
@@ -315,8 +315,6 @@ Esta directiva puede usarse en las siguientes [secciones](https://azure.microsof
 La directiva `quota-by-key` aplica un volumen de llamadas o una cuota de ancho de banda por clave renovables o permanentes. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva. Puede agregarse una condición de incremento opcional para especificar qué solicitudes se cuentan para esta cuota. Si varias directivas incrementan el mismo valor de clave, se incrementa solo una vez por solicitud. Cuando se alcanza el límite de llamadas, el autor de la llamada recibe un código de estado de respuesta `403 Forbidden`.
 
 Para obtener más información y ver ejemplos de esta directiva, consulte [Limitación avanzada de solicitudes con Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
-
-> Las [expresiones de directiva](api-management-policy-expressions.md) no se pueden usar en ninguno de los atributos de esta directiva.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 

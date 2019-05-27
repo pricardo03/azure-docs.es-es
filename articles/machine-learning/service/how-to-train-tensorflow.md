@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d5751ab96dc6b44229e2b18b832a570930058ca
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 82c9aa961221b582bb16438f30a0584232164393
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442349"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65915103"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Entrenar modelos de TensorFlow y Keras con el servicio Azure Machine Learning
 
@@ -28,7 +28,7 @@ El `TensorFlow` Estimador también proporciona una capa de abstracción sobre la
 
 Puesto que la `TensorFlow` Estimador clase es similar a la base de [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), se recomienda leer primero el [base artículo de procedimientos de Estimador](how-to-train-ml-models.md) entender los conceptos exhaustiva.
 
-Para empezar a trabajar con el servicio de Azure Machine Learning, [completar el tutorial rápido](quickstart-run-cloud-notebook.md). Una vez finalizado, tendrá una [área de trabajo de Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace) y todos nuestros [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) los de entrenamiento Dnn con TensorFlow y Keras incluidos.
+Para empezar a trabajar con el servicio de Azure Machine Learning, [completar el tutorial rápido](quickstart-run-cloud-notebook.md). Una vez finalizado, tendrá una [área de trabajo de Azure Machine Learning](concept-workspace.md) y todos nuestros [cuadernos de ejemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) los de entrenamiento Dnn con TensorFlow y Keras incluidos.
 
 ## <a name="single-node-training"></a>Entrenamiento de nodo único
 

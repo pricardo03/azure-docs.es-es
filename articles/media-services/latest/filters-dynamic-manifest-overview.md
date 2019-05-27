@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 21fb2b84fd58fb7cca7551ee1cef0c79179cfa40
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467140"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002441"
 ---
 # <a name="dynamic-manifests"></a>Manifiestos dinámicos
 
@@ -31,7 +31,7 @@ En la tabla siguiente se muestran algunos ejemplos de direcciones URL con filtro
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
+ 
 > [!NOTE]
 > Los manifiestos dinámicos no cambian el recurso y el manifiesto predeterminado para ese recurso. Su cliente puede elegir solicitar una secuencia con o sin filtros. 
 > 
@@ -124,7 +124,7 @@ Para más información, consulte [este blog](https://azure.microsoft.com/blog/az
 
 ## <a name="associate-filters-with-streaming-locator"></a>Asociar filtros de localizador de Streaming
 
-Puede especificar una lista de filtros de activo o una cuenta que se aplicaría a su localizador de Streaming. El [empaquetador dinámico](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente se especifica en la dirección URL. Esta combinación se genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros en la dirección URL y los filtros que especifique en el localizador de Streaming. Se recomienda usar esta característica si desea aplicar filtros pero no desea exponer los nombres de filtro en la dirección URL.
+Consulte [filtros: asociar con localizadores de Streaming](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="considerations-and-limitations"></a>Consideraciones y limitaciones
 
@@ -136,7 +136,6 @@ Puede especificar una lista de filtros de activo o una cuenta que se aplicaría 
     
     - Para determinar las propiedades de las pistas de un recurso, [obtenga y examine el archivo de manifiesto](#get-and-examine-manifest-files).
     - La fórmula para establecer las propiedades de la marca de tiempo del filtro de recursos: <br/>startTimestamp = &lt;hora de inicio del manifiesto&gt; +  &lt;hora de inicio del filtro esperado en segundos&gt;*escala temporal
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

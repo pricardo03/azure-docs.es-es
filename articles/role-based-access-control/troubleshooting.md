@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: c6f947ad6f2f8dba2df17132243eb6d918539c14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dda2eafe86d037faab6284c2af0d8026c194d11
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344434"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921145"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Solución de problemas del control de acceso basado en rol para recursos de Azure
 
@@ -36,7 +36,7 @@ En este artículo se responden preguntas comunes acerca del control de acceso ba
 - Si desea conocer los pasos para crear un rol personalizado, consulte los tutoriales de rol personalizado mediante [Azure PowerShell](tutorial-custom-role-powershell.md) o [CLI de Azure](tutorial-custom-role-cli.md).
 - Si no se puede actualizar un rol personalizado existente, compruebe que ha iniciado sesión con un usuario que tiene asignado un rol que tiene el `Microsoft.Authorization/roleDefinition/write` permiso como [propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
 - Si no puede eliminar un rol personalizado y obtiene el mensaje de error "Hay asignaciones de roles existentes que hacen referencia al rol (código: RoleDefinitionHasAssignments)", significa que hay asignaciones de roles que siguen usando el rol personalizado. Quite las asignaciones de roles y vuelva a intentar eliminarlo.
-- Si recibe el mensaje de error "Se ha superado el límite de definiciones de roles. No hay más definiciones de roles se pueden crear (código: RoleDefinitionLimitExceeded) "al intentar crear un nuevo rol personalizado, eliminar los roles personalizados que no se usan. Azure admite hasta **2000** roles personalizados en un inquilino.
+- Si recibe el mensaje de error "Se ha superado el límite de definiciones de roles. No hay más definiciones de roles se pueden crear (código: RoleDefinitionLimitExceeded) "al intentar crear un nuevo rol personalizado, eliminar los roles personalizados que no se usan. Azure admite hasta **5000** roles personalizados en un inquilino. (Para nubes especializadas, como Azure Government, Azure Alemania y Azure China 21Vianet, el límite es 2000 de roles personalizados).
 - Si se produce un error similar a "el cliente tiene permiso para realizar la acción 'Microsoft.Authorization/roleDefinitions/write' en el ámbito '/ subscriptions / {subscriptionid}', pero no se encontró la suscripción vinculada" al intentar actualizar un rol personalizado, consulte Si uno o más [ámbitos asignables](role-definitions.md#assignablescopes) se han eliminado en el inquilino. Si el ámbito se ha eliminado, cree una incidencia de soporte técnico porque no hay ninguna solución de autoservicio disponible en este momento.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Recuperación de RBAC cuando las suscripciones se trasladan de un inquilino a otro
@@ -92,7 +92,7 @@ Estos elementos requieren acceso de **escritura** al **plan de App Service** que
 Estos elementos requieren acceso de **escritura** a todo el **grupo de recursos** que contiene su sitio web:  
 
 * Enlaces y certificados SSL (los certificados SSL se pueden compartir entre sitios en el mismo grupo de recursos y la misma ubicación geográfica)  
-* Reglas de alertas  
+* Reglas de alerta  
 * Opciones de escala automática  
 * Componentes de Application Insights  
 * Pruebas web  
@@ -114,7 +114,7 @@ Estos requieren acceso de **escritura** a la **máquina virtual** y al **grupo d
 
 * Conjunto de disponibilidad  
 * El conjunto de carga equilibrada  
-* Reglas de alertas  
+* Reglas de alerta  
 
 Si no puede acceder a ninguno de estos iconos, debe pedirle al administrador el acceso de colaborador al grupo de recursos.
 

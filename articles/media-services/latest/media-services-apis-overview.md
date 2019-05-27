@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3ce20b56fc2cbebbed4b525eeccc2c12d14cccc3
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.openlocfilehash: ca4e343ea4774bbe4ff992ad671575b150b3c045
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556246"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65890966"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desarrollo con Media Services API v3
 
@@ -133,6 +133,10 @@ Consulte [filtrado, ordenación, paginación de entidades de Azure Media Service
 ## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
+
+## <a name="see-also"></a>Vea también
+
+[CLI de Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

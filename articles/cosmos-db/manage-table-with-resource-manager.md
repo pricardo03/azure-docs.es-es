@@ -4,24 +4,24 @@ description: Usar plantillas de Azure Resource Manager para crear y configurar A
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 33e47d67365e76142d5b584d49d8e7265445bf03
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 82e2a436bf6b25b6164d845d234896390a262292
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077611"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968825"
 ---
-# <a name="create-azure-cosmos-db-table-api-resources-from-a-resource-manager-template"></a>Crear recursos de Azure Cosmos DB Table API desde una plantilla de Resource Manager
+# <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Administrar los recursos de Azure Cosmos DB Table API con plantillas de Azure Resource Manager
 
-Obtenga información sobre cómo crear un recurso de Azure Cosmos DB Table API mediante una plantilla de Azure Resource Manager. En el ejemplo siguiente se crea una API de tabla de Azure Cosmos DB desde un [plantilla de inicio rápido de Azure](https://aka.ms/table-arm-qs). Esta plantilla creará una cuenta de Azure Cosmos para Table API con una tabla con un rendimiento de 400 RU/s.
+## Crear tabla y la cuenta de Azure Cosmos <a id="create-resource"></a>
 
-Esta es una copia de la plantilla:
+Crear recursos de Azure Cosmos DB mediante una plantilla de Azure Resource Manager. Esta plantilla creará una cuenta de Azure Cosmos para Table API con una tabla con un rendimiento de 400 RU/s. Copie la plantilla e implementar tal y como se muestra a continuación o visite [Galería de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-table/) e implementar desde el portal de Azure. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el `--template-file` parámetro.
 
 [!code-json[create-cosmos-table](~/quickstart-templates/101-cosmosdb-table/azuredeploy.json)]
 
-## <a name="deploy-via-powershell"></a>Implementar a través de PowerShell
+### <a name="deploy-via-powershell"></a>Implementar a través de PowerShell
 
 Para implementar la plantilla de Resource Manager mediante PowerShell, **copia** el script y seleccione **Pruébelo** para abrir Azure Cloud shell. Para pegar el script, haga clic en el shell y, a continuación, seleccione **pegar**:
 
@@ -45,12 +45,9 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2015-04-08" --ResourceGroupName $resourceGroupName).name
 ```
 
-Si decide usar una versión instalada localmente de PowerShell en lugar de desde Azure Cloud shell, deberá [instalar](/powershell/azure/install-az-ps) el módulo Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. 
+Si decide usar una versión instalada localmente de PowerShell en lugar de desde Azure Cloud shell, deberá [instalar](/powershell/azure/install-az-ps) el módulo Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión.
 
-En el ejemplo anterior, ha hecho referencia a una plantilla que se almacena en GitHub. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el `--template-file` parámetro.
-
-
-## <a name="deploy-via-azure-cli"></a>Implementación a través de la CLI de Azure
+### <a name="deploy-via-azure-cli"></a>Implementación a través de la CLI de Azure
 
 Para implementar la plantilla de Resource Manager mediante la CLI de Azure, **copia** el script y seleccione **Pruébelo** para abrir Azure Cloud shell. Para pegar el script, haga clic en el shell y, a continuación, seleccione **pegar**:
 
@@ -72,8 +69,44 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 El `az cosmosdb show` comando muestra la cuenta de Azure Cosmos recién creada después de que se haya aprovisionado. Si decide usar una versión de CLI de Azure instalada localmente en lugar de usar CloudShell, consulte [interfaz de línea de comandos (CLI) de Azure](/cli/azure/) artículo.
 
-En el ejemplo anterior, ha hecho referencia a una plantilla que se almacena en GitHub. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el `--template-file` parámetro.
+## Actualización de procesamiento (RU/s) en una tabla <a id="table-ru-update"></a>
 
+La siguiente plantilla actualizará el rendimiento de una tabla. Copie la plantilla e implementar tal y como se muestra a continuación o visite [Galería de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-table-ru-update/) e implementar desde el portal de Azure. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el `--template-file` parámetro.
+
+[!code-json[cosmosdb-table-ru-update](~/quickstart-templates/101-cosmosdb-table-ru-update/azuredeploy.json)]
+
+### <a name="deploy-table-throughput-via-powershell"></a>Implementar el rendimiento de la tabla a través de PowerShell
+
+Para implementar la plantilla de Resource Manager mediante PowerShell, **copia** el script y seleccione **Pruébelo** para abrir Azure Cloud shell. Para pegar el script, haga clic en el shell y, a continuación, seleccione **pegar**:
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$accountName = Read-Host -Prompt "Enter the account name"
+$tableName = Read-Host -Prompt "Enter the table name"
+$throughput = Read-Host -Prompt "Enter new throughput for table"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-table-ru-update/azuredeploy.json" `
+    -accountName $accountName `
+    -tableName $tableName `
+    -throughput $throughput
+```
+
+### <a name="deploy-table-template-via-azure-cli"></a>Implementar la plantilla de tabla mediante la CLI de Azure
+
+Para implementar la plantilla de Resource Manager mediante la CLI de Azure, seleccione **Pruébelo** para abrir Azure Cloud shell. Para pegar el script, haga clic en el shell y, a continuación, seleccione **pegar**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the table name: ' tableName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-table-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName tableName=$tableName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

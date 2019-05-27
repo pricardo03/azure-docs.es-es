@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca4084fb271320eb4cdfdeb6cb9026367761be0a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a8ca3b52d181578e6b35090489b7133a94b55cbd
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143654"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852082"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos de taxis de Nueva York en Azure SQL Data Warehouse
 
@@ -151,8 +151,8 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
     | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
     | Nombre de servidor | Nombre completo del servidor | Este nombre debería parecerse al siguiente: **mynewserver-20180430.database.windows.net**. |
     | Authentication | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que hemos configurado en este tutorial. |
-    | Inicio de sesión | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
-    | Contraseña | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
+    | Iniciar sesión | La cuenta de administrador del servidor | Se trata de la cuenta que especificó cuando creó el servidor. |
+    | Contraseña | Contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
 
     ![conectar con el servidor](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 

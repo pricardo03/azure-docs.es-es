@@ -9,28 +9,40 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 10600d8f3ff4e08b8d90f28ec15d3cb0c56bcae0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 510899e44e4ea4a90e21473ee6af546744c2be2a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61230903"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120233"
 ---
 # <a name="streaming-policies"></a>Directivas de streaming
 
-En Azure Media Services v3, las [directivas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) permiten definir los protocolos de streaming y las opciones de cifrado de los [localizadores de streaming](streaming-locators-concept.md). Puede usar una de las directivas de streaming predefinidas o crear una directiva personalizada. Las directivas de streaming predefinidas que están disponibles actualmente son: "Predefined_DownloadOnly", "Predefined_ClearStreamingOnly", "Predefined_DownloadAndClearStreaming", "Predefined_ClearKey", "Predefined_MultiDrmCencStreaming" y "Predefined_ MultiDrmStreaming".
+En Azure Media Services v3, las [directivas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) permiten definir los protocolos de streaming y las opciones de cifrado de los [localizadores de streaming](streaming-locators-concept.md). Media Services v3 proporciona que algunas directivas de transmisión por secuencias de predefinidas para que se pueden usar directamente para la versión de prueba o producción. 
 
+Directivas de transmisión por secuencias predefinidas disponibles actualmente:<br/>"Predefined_DownloadOnly", "Predefined_ClearStreamingOnly", "Predefined_DownloadAndClearStreaming", "Predefined_ClearKey", "Predefined_MultiDrmCencStreaming" y "Predefined_ MultiDrmStreaming".
+
+Si tiene requisitos especiales (por ejemplo, si desea especificar diferentes protocolos, debe usar un servicio de entrega de claves personalizados, o debe usar una pista de audio claro), puede crear una directiva personalizada de transmisión por secuencias. 
+
+ 
 > [!IMPORTANT]
 > * Las propiedades de **directivas de streaming** que son del tipo Datetime siempre están en formato UTC.
-> * Debería diseñar un conjunto limitado de directivas para su cuenta de Media Service y reutilizarlas con sus localizadores de streaming siempre que se necesiten las mismas opciones. 
+> * Debería diseñar un conjunto limitado de directivas para su cuenta de Media Service y reutilizarlas con los objetos StreamingLocator siempre que se necesiten las mismas opciones. Para más información, consulte [Cuotas y limitaciones](limits-quotas-constraints.md).
+
+## <a name="decision-tree"></a>Árbol de decisión
+
+El árbol de decisión siguiente le ayudará a elegir una directiva predefinida de transmisión por secuencias para su escenario.
+
+Haga clic en la imagen para verla a tamaño completo.  <br/>
+<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/small.png"></a> 
 
 ## <a name="examples"></a>Ejemplos
 
 ### <a name="not-encrypted"></a>No cifrado
 
-Si quiere transmitir el archivo sin cifrar, establezca la directiva de streaming sin cifrar predefinida en "Predefined_ClearStreamingOnly" (en. NET, puede usar PredefinedStreamingPolicy.ClearStreamingOnly).
+Si va a transmitir el archivo en-the-clear (sin cifrar), establecer la directiva de transmisión por secuencias clara predefinida: a 'Predefined_ClearStreamingOnly' (en. NET, puede usar la enumeración PredefinedStreamingPolicy.ClearStreamingOnly).
 
 ```csharp
 StreamingLocator locator = await client.StreamingLocators.CreateAsync(
@@ -44,7 +56,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
 
-### <a name="encrypted"></a>Cifrados 
+### <a name="encrypted"></a>Cifrada 
 
 Si necesita cifrar el contenido con cifrado de sobre y cifrado común, establezca la directiva en "Predefined_MultiDrmCencStreaming". Esta directiva indica que desea que se generen y establezcan dos claves de contenido (sobre y CENC) en el localizador. De esta forma, se aplican los cifrados de sobre, PlayReady y Widevine (la clave se entrega al cliente de reproducción en función de las licencias DRM configuradas).
 

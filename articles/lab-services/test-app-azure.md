@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f8c57b9e1fabbd04a7d9c92484b0f52f074c2577
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730416"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872344"
 ---
 # <a name="test-your-app-in-azure"></a>Prueba de las aplicaciones en Azure 
-En este artículo se proporciona los pasos para probar la aplicación en Azure con DevTest Labs. En primer lugar, configurará un recurso compartido de archivos en un laboratorio y lo montará como una unidad en la máquina de desarrollo local y en una máquina virtual de un laboratorio. A continuación, usará Visual Studio 2017 para implementar la aplicación en el recurso compartido de archivos de forma que pueda ejecutar la aplicación en la máquina virtual del laboratorio.  
+En este artículo se proporciona los pasos para probar la aplicación en Azure con DevTest Labs. En primer lugar, configurará un recurso compartido de archivos en un laboratorio y lo montará como una unidad en la máquina de desarrollo local y en una máquina virtual de un laboratorio. A continuación, utilice 2019 de Visual Studio para implementar la aplicación en el recurso compartido de archivos para que pueda ejecutar la aplicación en la máquina virtual en el laboratorio.  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ En este artículo se proporciona los pasos para probar la aplicación en Azure c
 ## <a name="publish-your-app-from-visual-studio"></a>Publicación de la aplicación desde Visual Studio
 En esta sección, publicará la aplicación desde Visual Studio en una máquina virtual de prueba en la nube.
 
-1. Cree una aplicación web o de escritorio mediante Visual Studio 2017.
+1. Cree una aplicación de escritorio o web mediante el uso de Visual Studio de 2019.
 2. Compile la aplicación.
 3. Para publicar la aplicación, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y seleccione **Publicar**. 
 4. En el **Asistente para publicación**, escriba la **unidad** asignada al recurso compartido de archivos.

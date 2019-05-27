@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: tamram
 ms.openlocfilehash: 4f59f68c1598f737ea7cb3a0e8046fc0779ed9d3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118877"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113803"
 ---
 El agente de Azure File Sync se actualiza periódicamente con el fin de agregar nueva funcionalidad y solucionar los problemas. Se recomienda configurar Microsoft Update para obtener todas las actualizaciones del agente de Azure File Sync a medida que están disponibles.
 
 #### <a name="major-vs-minor-agent-versions"></a>Versiones de agente principales y secundarias
-* Con frecuencia, las versiones de agente principales contienen nuevas características y en la primera parte del número de versión tienen un número creciente. Por ejemplo:  \*2.\*.\*\*
+* Con frecuencia, las versiones de agente principales contienen nuevas características y en la primera parte del número de versión tienen un número creciente. Por ejemplo: \*2.\*.\*\*
 * Las versiones de agente secundarias se llaman también "revisiones" y se lanzan con más frecuencia que las principales. Suelen contener correcciones de errores y mejoras más pequeñas, pero no características nuevas. Por ejemplo: \*\*.3.\*\*
 
 #### <a name="upgrade-paths"></a>Rutas de actualización

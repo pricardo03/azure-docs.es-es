@@ -8,13 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/17/2019
+ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761682"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65916044"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
@@ -51,7 +51,7 @@ En general, el procedimiento recomendado es comenzar con 6 SU para consultas que
 Para más información sobre la elección del número correcto de unidades de streaming, consulte esta página: [Escalar los trabajos de Azure Stream Analytics para incrementar el rendimiento](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> La elección del número de unidades de streaming que se necesitan para un trabajo en concreto depende de la configuración de particiones para las entradas y de la consulta definida para el trabajo. Puede seleccionar como máximo su cuota en unidades de streaming para un trabajo. De manera predeterminada, cada suscripción de Azure tiene una cuota máxima de 200 SU en todos los trabajos de análisis de una región específica. Para aumentar las unidades de streaming de sus suscripciones, contacte con [Soporte técnico de Microsoft](https://support.microsoft.com). Los valores válidos para unidades de streaming por trabajo son 1, 3, 6 y más en incrementos de 6.
+> La elección del número de unidades de streaming que se necesitan para un trabajo en concreto depende de la configuración de particiones para las entradas y de la consulta definida para el trabajo. Puede seleccionar como máximo su cuota en unidades de streaming para un trabajo. De forma predeterminada, cada suscripción de Azure tiene una cuota de hasta 500 unidades de streaming en todos los trabajos de análisis en una región específica. Para aumentar las unidades de streaming de sus suscripciones, contacte con [Soporte técnico de Microsoft](https://support.microsoft.com). Los valores válidos para unidades de streaming por trabajo son 1, 3, 6 y más en incrementos de 6.
 
 ## <a name="factors-that-increase-su-utilization"></a>Factores que aumentar el uso de porcentaje de SU 
 

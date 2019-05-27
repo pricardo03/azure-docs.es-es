@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 71ac525e2af7473ca9ce0a8f60268e76eccd1a9a
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530389"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833519"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guía del desarrollador de Azure PowerShell de funciones
 
@@ -23,9 +23,9 @@ En este artículo proporciona detalles sobre cómo escribir funciones de Azure c
 
 [!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
-Una función de PowerShell se representa como un script de PowerShell que se ejecuta cuando se desencadena. Cada secuencia de comandos de función tiene un relacionados function.json que define cómo se comporta la función, por ejemplo, cómo se activa y los parámetros de entrada y salidos. Para obtener más información, consulte el [desencadenadores y artículo enlace](functions-triggers-bindings.md). 
+Una función de PowerShell Azure (función) se representa como un script de PowerShell que se ejecuta cuando se desencadena. Cada secuencia de comandos de función tiene un relacionados `function.json` archivo que define cómo se comporta la función, por ejemplo, cómo se activa y sus parámetros de entrada y salidos. Para obtener más información, consulte el [desencadenadores y artículo enlace](functions-triggers-bindings.md). 
 
-Al igual que otros tipos de funciones, el script de PowerShell toma parámetros que coinciden con los nombres de todos los enlaces de entrada definidos en function.json. Un `TriggerMetadata` también se pasa parámetro que contiene información adicional sobre el desencadenador que inicia la función.
+Al igual que otros tipos de funciones, funciones de script de PowerShell toman parámetros que coinciden con los nombres de todos los enlaces de entrada definidos en el `function.json` archivo. Un `TriggerMetadata` también se pasa parámetro que contiene información adicional sobre el desencadenador que inicia la función.
 
 En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md). Debe haber completado también el [inicio rápido de Functions para PowerShell](functions-create-first-function-powershell.md) para crear su primera función de PowerShell.
 
@@ -56,9 +56,9 @@ PSFunctionApp
  | - bin
 ```
 
-En la raíz del proyecto, hay un archivo [host.json](functions-host-json.md) compartido que se puede usar para configurar la aplicación de función. Cada función tiene una carpeta con su propio archivo de código (. ps1) y el archivo de configuración de enlace (function.json). El nombre del directorio primario de `function.json` siempre es el nombre de la función.
+En la raíz del proyecto, hay un compartido [ `host.json` ](functions-host-json.md) archivo que se puede usar para configurar la aplicación de función. Cada función tiene una carpeta con su propio archivo de código (. ps1) y el archivo de configuración de enlace (`function.json`). El nombre del directorio principal del archivo de function.json siempre es el nombre de la función.
 
-Determinados enlaces requieren la presencia de un `extensions.csproj`. Enlace las extensiones necesarias en [versión 2.x](functions-versions.md) del tiempo de ejecución de funciones, se definen en el `extensions.csproj` archivo, con los archivos de biblioteca real en el `bin` carpeta. Al desarrollar de forma local, debe [registrar las extensiones de enlace](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Al desarrollar funciones en Azure Portal, este registro se realiza automáticamente.
+Determinados enlaces requieren la presencia de un `extensions.csproj` archivo. Enlace las extensiones necesarias en [versión 2.x](functions-versions.md) del tiempo de ejecución de funciones, se definen en el `extensions.csproj` archivo, con los archivos de biblioteca real en el `bin` carpeta. Al desarrollar de forma local, debe [registrar las extensiones de enlace](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Al desarrollar funciones en Azure Portal, este registro se realiza automáticamente.
 
 En las aplicaciones de función de PowerShell, podría tener opcionalmente un `profile.ps1` que se ejecuta cuando se inicia una aplicación de función para ejecutarse (en caso contrario, se conoce como un  *[frío](#cold-start)*. Para obtener más información, consulte [perfil PowerShell](#powershell-profile).
 
@@ -81,7 +81,7 @@ El `TriggerMetadata` parámetro se usa para proporcionar información adicional 
 $TriggerMetadata.sys
 ```
 
-| Propiedad   | DESCRIPCIÓN                                     | Type     |
+| Propiedad   | Descripción                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Cuando, en UTC, se desencadenó la función        | DateTime |
 | MethodName | El nombre de la función que se desencadenó     | string   |
@@ -133,9 +133,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Los siguientes son parámetros válidos para llamar a `Push-OutputBinding`:
 
-| NOMBRE | Type | Posición | DESCRIPCIÓN |
+| NOMBRE | Type | posición | DESCRIPCIÓN |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | string | 1 | El nombre del enlace de salida que desea establecer. |
+| **`-Name`** | String | 1 | El nombre del enlace de salida que desea establecer. |
 | **`-Value`** | Object | 2 | El valor del enlace de salida que desea establecer, que se acepta desde la canalización ByValue. |
 | **`-Clobber`** | SwitchParameter | con nombre | (Opcional) Cuando se especifica, se fuerza el valor debe establecerse para un enlace de salida especificado. | 
 
@@ -302,7 +302,7 @@ Los desencadenadores HTTP y de webhook trigger y los enlaces de salida HTTP usan
 
 El objeto de solicitud que se pasa a la secuencia de comandos es del tipo `HttpRequestContext`, que tiene las siguientes propiedades:
 
-| Propiedad  | DESCRIPCIÓN                                                    | Type                      |
+| Propiedad  | Descripción                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Objeto que contiene el cuerpo de la solicitud. `Body` se serializa en el mejor tipo basándose en los datos. Por ejemplo, si los datos JSON, se pasa en como una tabla hash. Si los datos están una cadena, se pasa en forma de cadena. | objeto |
 | **`Headers`** | Un diccionario que contiene los encabezados de solicitud.                | Diccionario < cadena, cadena ><sup>*</sup> |
@@ -317,7 +317,7 @@ El objeto de solicitud que se pasa a la secuencia de comandos es del tipo `HttpR
 
 El objeto de respuesta que debe enviar atrás es del tipo `HttpResponseContext`, que tiene las siguientes propiedades:
 
-| Propiedad      | DESCRIPCIÓN                                                 | Type                      |
+| Propiedad      | Descripción                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Objeto que contiene el cuerpo de la respuesta.           | objeto                    |
 | **`ContentType`** | Una mano corto para establecer el tipo de contenido para la respuesta. | string                    |

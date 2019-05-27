@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7317b634ee4c8886ce5c99bb2b3395d7d1f646d5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499858"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65913862"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Administrar scripts previos y posteriores
 
@@ -30,9 +30,7 @@ Para usar un script previo o posterior en una implementación de actualización,
 
 ![Selección de scripts](./media/pre-post-scripts/select-scripts.png)
 
-Seleccione el script que desea usar; en este ejemplo, ha usado el runbook **UpdateManagement TurnOnVms**. Cuando seleccione el runbook, se abre la página **Configurar script**, proporcione los valores de los parámetros y seleccione **Script previo**. Pulse **OK** (Aceptar) cuando haya terminado.
-
-![Configuración de script](./media/pre-post-scripts/configure-script.png)
+Seleccione el script que desea usar; en este ejemplo, ha usado el runbook **UpdateManagement TurnOnVms**. Al seleccionar el runbook el **Configurar secuencia de comandos** abre la página, elija **Script anterior**. Pulse **OK** (Aceptar) cuando haya terminado.
 
 Repita este proceso para el script **UpdateManagement TurnOffVms**. Pero al elegir el **tipo de script**, elija **Script posterior**.
 

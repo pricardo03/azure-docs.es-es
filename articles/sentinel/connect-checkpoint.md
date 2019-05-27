@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: cfdc6bd0fab1a9156e8b161536b6eae37769e2f2
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: c487856c7fb959f684700dee1d463783954b1a53
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228347"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921964"
 ---
 # <a name="connect-your-check-point-appliance"></a>Conecte el dispositivo de punto de comprobación
 
@@ -117,9 +117,43 @@ Configurar el dispositivo de punto de comprobación para reenviar los mensajes d
 
 Puede tardar más de 20 minutos hasta que los registros se empiecen a aparecer en Log Analytics. 
 
-1. Asegúrese de que obtengan los registros para el puerto correcto en el agente de Syslog. Ejecute este comando en el equipo de agente de Syslog: `tcpdump -A -ni any  port 514 -vv` Este comando muestra los registros que se transmiten desde el dispositivo a la máquina de Syslog. Asegúrese de que se reciben los registros desde el dispositivo de origen en el puerto adecuado y la instalación correcta.
-2. Compruebe que hay comunicación entre el demonio de Syslog y el agente. Ejecute este comando en el equipo de agente de Syslog: `tcpdump -A -ni any  port 25226 -vv` Este comando muestra los registros que se transmiten desde el dispositivo a la máquina de Syslog. Asegúrese de que los registros también se reciben en el agente.
-3. Si ambos de esos comandos proporcionan resultados correctos, compruebe si Log Analytics para ver si llegan los registros. Todos los eventos que se transmite por secuencias desde estos dispositivos aparecen en formato sin procesar en Log Analytics en `CommonSecurityLog` tipo.
+1. Asegúrese de que utilizar la función de la derecha. La función debe ser el mismo en el dispositivo y en Azure Sentinel. Puede comprobar qué archivo de instalación que se usa en Azure Sentinel y modificarla en el archivo `security-config-omsagent.conf`. 
+
+2. Asegúrese de que obtengan los registros para el puerto correcto en el agente de Syslog. Ejecute este comando en el equipo de agente de Syslog: `tcpdump -A -ni any  port 514 -vv` Este comando muestra los registros que se transmiten desde el dispositivo a la máquina de Syslog. Asegúrese de que se reciben los registros desde el dispositivo de origen en el puerto adecuado y la instalación correcta.
+
+3. Asegúrese de que los registros de envío que cumplen con [RFC 5424](https://tools.ietf.org/html/rfc542).
+
+4. En el equipo que ejecuta el agente de Syslog, asegúrese de que estos puertos 514, 25226 están abiertos y escucha, utilizando el comando `netstat -a -n:`. Para obtener más información sobre el uso de este comando, consulte [netstat(8) - página man de Linux](https://linux.die.netman/8/netstat). Si está escuchando correctamente, verá esto:
+
+   ![Puertos de Centinela de Azure](./media/connect-cef/ports.png) 
+
+5. Asegúrese de que el demonio de está configurado para escuchar en el puerto 514, en el que va a enviar los registros.
+    - Para rsyslog:<br>Asegúrese de que el archivo `/etc/rsyslog.conf` incluye esta configuración:
+
+           # provides UDP syslog reception
+           module(load="imudp")
+           input(type="imudp" port="514")
+        
+           # provides TCP syslog reception
+           module(load="imtcp")
+           input(type="imtcp" port="514")
+
+      Para obtener más información, consulte [imudp: Módulo de entrada de UDP Syslog](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) y [imtcp: Módulo de entrada de Syslog TCP](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
+
+   - Para syslog-ng:<br>Asegúrese de que el archivo `/etc/syslog-ng/syslog-ng.conf` incluye esta configuración:
+
+           # source s_network {
+            network( transport(UDP) port(514));
+             };
+     Para obtener más información, consulte [imudp: Módulo de entrada UDP Syslog] (para obtener más información, consulte el [syslog-ng Abrir origen Edition 3.16 - Guía de administración de](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
+
+1. Compruebe que hay comunicación entre el demonio de Syslog y el agente. Ejecute este comando en el equipo de agente de Syslog: `tcpdump -A -ni any  port 25226 -vv` Este comando muestra los registros que se transmiten desde el dispositivo a la máquina de Syslog. Asegúrese de que los registros también se reciben en el agente.
+
+6. Si ambos de esos comandos proporcionan resultados correctos, compruebe si Log Analytics para ver si llegan los registros. Todos los eventos que se transmite por secuencias desde estos dispositivos aparecen en formato sin procesar en Log Analytics en `CommonSecurityLog` tipo.
+
+7. Para comprobar si hay errores o si no que llegan los registros, busque en `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`. Si indica que hay errores de coincidencia de formato de registro, vaya a `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` y examine el archivo `security_events.conf`y asegúrese de que los registros coinciden con el formato de expresión regular vea en este archivo.
+
+8. Asegúrese de que el tamaño predeterminado de mensaje de Syslog se limita a 2048 bytes (2KB). Si los registros son demasiado largos, actualice el security_events.conf con este comando: `message_length_limit 4096`
 
 4. Asegúrese de ejecutar estos comandos:
   
@@ -133,8 +167,6 @@ Puede tardar más de 20 minutos hasta que los registros se empiecen a aparecer e
          sudo bash -c "printf 'local4.debug @127.0.0.1:25226\n\n:msg, contains, "Check Point" @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"
      Reiniciar el demonio Syslog: `sudo service rsyslog restart`
 
-1. Para comprobar si hay errores o si no que llegan los registros, buscar `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
-4. Asegúrese de que el tamaño predeterminado de mensaje de Syslog se limita a 2048 bytes (2KB). Si los registros son demasiado largos, actualice el security_events.conf con este comando: `message_length_limit 4096`
 
 
 

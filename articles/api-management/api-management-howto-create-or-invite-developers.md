@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 362df8cee163bcd2d1dac73c650e42ee4f0f7751
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3d50746324ddac21f222d4c743f4b7bf6ee9b773
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920099"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864802"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Administración de cuentas de usuario en Azure API Management
 
@@ -69,7 +69,7 @@ Para bloquear a un usuario, siga los siguientes pasos.
 
 ## <a name="reset-a-user-password"></a>Restablecimiento de la contraseña del usuario
 
-Para trabajar con cuentas de usuario mediante programación, consulte la documentación de [Entidad de usuario](https://docs.microsoft.com/rest/api/apimanagement/user) en la referencia sobre [REST de API Management](/rest/api/apimanagement/). Para restablecer la contraseña de una cuenta de usuario a un valor específico, puede utilizar la operación [Actualizar un usuario](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) y especificar la contraseña que desea utilizar.
+Para trabajar con cuentas de usuario mediante programación, vea la documentación de la entidad de usuario en el [API de REST de administración](/rest/api/apimanagement/) referencia. Para restablecer la contraseña de una cuenta de usuario a un valor específico, puede utilizar la operación [Actualizar un usuario](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) y especificar la contraseña que desea utilizar.
 
 ## <a name="next-steps"> </a>Pasos siguientes
 Una vez creada una cuenta de desarrollador, se puede asociar a roles y suscribirse a productos y API. Para obtener más información, consulte [Creación y uso de grupos][How to create and use groups].

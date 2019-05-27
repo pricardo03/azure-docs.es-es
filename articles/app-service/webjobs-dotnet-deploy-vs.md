@@ -14,12 +14,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ede7e2fe3a2ab4c0dfd4efaea5ec789924968194
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d375b559019529bdc170ce6bab535481e0569e0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832408"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873022"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desarrollo e implementación de WebJobs mediante Visual Studio - Azure App Service
 
@@ -92,7 +92,7 @@ Puede implementar un proyecto como un WebJob por sí mismo o vincularlo a un pro
 
 Si usa Visual Studio 2015, instale el [Azure SDK para .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
-Si usa Visual Studio 2017, instale la [carga de trabajo de desarrollo de Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
+Si usa Visual Studio de 2019, instale el [carga de trabajo de desarrollo de Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
 
 ### <a id="convert"></a> Habilitación de la implementación de WebJobs para un proyecto de aplicación de consola existente
 
@@ -240,7 +240,7 @@ WebJobs admite las siguientes opciones:
 | ----------- | --------- | --------------- |
 | `is_in_place` | Todo | Permite que el trabajo se ejecute en su lugar sin que se copian primero a una carpeta temporal. Para obtener más información, consulte [directorio de trabajo de WebJobs](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Continuo | Solo puede ejecutar los trabajos Web en una sola instancia al escalar horizontalmente. Para obtener más información, consulte [establecer un trabajo continuo como singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Desencadenado | Ejecutar el trabajo Web en una programación de CRON. Para obtener más información, consulte el [artículo de referencia del desencadenador de temporizador](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `schedule` | Desencadenados | Ejecutar el trabajo Web en una programación de CRON. Para obtener más información, consulte el [artículo de referencia del desencadenador de temporizador](../azure-functions/functions-bindings-timer.md#cron-expressions). |
 | `stopping_wait_time`| Todo | Permite controlar el comportamiento de apagado. Para obtener más información, consulte [cierre estable](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Pasos siguientes

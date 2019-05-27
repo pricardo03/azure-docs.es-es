@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120677"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908113"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
 
-En este artículo se indica cómo usar Azure Functions para crear un trabajo programado que se conecte a una base de datos de Azure SQL. El código de función limpia las filas de una tabla de la base de datos. La nueva función de C# se crea a partir de una plantilla de desencadenador de temporizador predefinida de Visual Studio 2017. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. 
+En este artículo se indica cómo usar Azure Functions para crear un trabajo programado que se conecte a una base de datos de Azure SQL. El código de función limpia las filas de una tabla de la base de datos. El nuevo C# función se crea a partir de una plantilla de desencadenador de temporizador predefinida de 2019 de Visual Studio. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. 
 
 Si es la primera vez que trabaja con funciones de C#, debe leer la [referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md).
 
@@ -64,7 +64,7 @@ Anteriormente debe haber publicado la aplicación en Azure. Si todavía no lo ha
 
 Necesita agregar el paquete NuGet que contiene la biblioteca de SqlClient. Esta biblioteca de acceso de datos es necesaria para conectarse a una base de datos SQL.
 
-1. Abra el proyecto de aplicación de función local en Visual Studio 2017.
+1. Abra el proyecto de aplicación de función local en Visual Studio de 2019.
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en proyecto de la aplicación de función y elija **Administrar paquetes NuGet**.
 

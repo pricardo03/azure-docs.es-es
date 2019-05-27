@@ -2,20 +2,20 @@
 title: 'Tutorial: Carga de datos en Azure SQL Data Warehouse | Microsoft Docs'
 description: En este tutorial se utilizan Azure Portal y SQL Server Management Studio para cargar el almacenamiento de datos WideWorldImportersDW de un blob de Azure público en Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load data
 ms.date: 04/17/2018
-ms.author: cakarst
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6bc1431ace55538c489d73e0a62d18f274c06d57
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61081551"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873755"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos en Azure SQL Data Warehouse
 
@@ -152,8 +152,8 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
     | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
     | Nombre de servidor | Nombre completo del servidor | Por ejemplo, **sample-svr.database.windows.net** es el nombre completo de un servidor. |
     | Authentication | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que se ha configurado en este tutorial. |
-    | Inicio de sesión | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
-    | Contraseña | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
+    | Iniciar sesión | La cuenta de administrador del servidor | Se trata de la cuenta que especificó cuando creó el servidor. |
+    | Contraseña | Contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
 
     ![conectar con el servidor](media/load-data-wideworldimportersdw/connect-to-server.png)
 
