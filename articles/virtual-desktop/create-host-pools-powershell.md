@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 8e6783bb56f55949824e4ce94c85145f53dd9f4b
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: a58e059e800b13d01ba8e50880bd75077d4418ae
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523956"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833967"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creación de un grupo host con PowerShell
 
@@ -78,6 +78,9 @@ Para correctamente unión a dominio, realice lo siguiente en cada máquina virtu
 3. Seleccione **nombre_equipo**, seleccione **cambiar la configuración de**y, a continuación, seleccione **cambios...**
 4. Seleccione **dominio** y, a continuación, escriba el dominio de Active Directory en la red virtual.
 5. Autenticar con una cuenta de dominio que tenga privilegios para unir máquinas mediante dominio.
+
+    >[!NOTE]
+    > Si va a unir a las máquinas virtuales en un entorno de Azure AD Domain Services, asegúrese de que su usuario de unión de dominio también es un miembro de la [grupo AAD DC Administrators](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registrar las máquinas virtuales al grupo host de vista previa de Escritorio Virtual de Windows
 

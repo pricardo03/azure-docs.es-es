@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: 0ee40c3ad692deccbc185fa7f8e51dd25eeaf95d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613774"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164520"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Número de dominios de error por región
 
-| Region              | Número máximo de dominios de error  |
+| Área              | Número máximo de dominios de error  |
 |---------------------|-------------------------|
 | Este de EE. UU             | 3                       |
 | Este de EE. UU. 2           | 3                       |
@@ -46,8 +46,8 @@ ms.locfileid: "60613774"
 |                     |                         |
 | Sur de Brasil        | 2                       |
 |                     |                         |
-| Gobierno de EE. UU. - Virginia     | 2                       |
-| Gobierno de EE. UU.: Texas        | 2                       |
-| Gobierno de EE. UU.: Arizona      | 2                       |
-| Departamento de Defensa de EE. UU. Centro      | 2                       |
-| Departamento de Defensa de EE. UU. Este         | 2                       |
+| US Gov Virginia     | 2                       |
+| US Gov de Texas        | 2                       |
+| US Gov de Arizona      | 2                       |
+| US DoD central      | 2                       |
+| US DoD oriental         | 2                       |

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: b426399f73375618a2084eff82abba5d4934b914
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 1702d9558e27452006a2f015fd3312ac19362871
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074204"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849868"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicar actualizaciones de kernel y de seguridad a los nodos de Linux en Azure Kubernetes Service (AKS)
 
@@ -57,14 +57,13 @@ No puede permanecer en la misma versión de Kubernetes durante un evento de actu
 Para implementar el DaemonSet de `kured`, aplique el siguiente manifiesto YAML de ejemplo desde su página de proyecto de GitHub. Este manifiesto crea un rol y un rol de clúster, enlaces y una cuenta de servicio y, después, implementa el DaemonSet mediante `kured` versión 1.1.0, que es compatible con clústeres AKS 1.9 o posteriores.
 
 ```console
-kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.1.0/kured-1.1.0.yaml
-```
+kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.2.0/kured-1.2.0-dockerhub.yaml
 
-También puede configurar parámetros adicionales para `kured`, como la integración con Prometheus o Slack. Para más información acerca de los parámetros de configuración adicionales, consulte los [documentos de instalación de Kured][kured-install].
+You can also configure additional parameters for `kured`, such as integration with Prometheus or Slack. For more information about additional configuration parameters, see the [kured installation docs][kured-install].
 
-## <a name="update-cluster-nodes"></a>Actualización de nodos de clúster
+## Update cluster nodes
 
-De forma predeterminada, los nodos de Linux en AKS buscar actualizaciones cada noche. Si no desea esperar, puede realizar manualmente una actualización para comprobar que `kured` se ejecuta correctamente. En primer lugar, siga los pasos para [conectar con SSH a uno de los nodos AKS][aks-ssh]. Una vez que tenga una conexión SSH al nodo de Linux, comprobar si hay actualizaciones y aplicarlas como sigue:
+By default, Linux nodes in AKS check for updates every evening. If you don't want to wait, you can manually perform an update to check that `kured` runs correctly. First, follow the steps to [SSH to one of your AKS nodes][aks-ssh]. Once you have an SSH connection to the Linux node, check for updates and apply them as follows:
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y

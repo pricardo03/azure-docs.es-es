@@ -2,21 +2,21 @@
 title: Indexación de tablas en Azure SQL Data Warehouse | Microsoft Azure
 description: Recomendaciones y ejemplos para indexar tablas en Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/18/2019
-ms.author: rortloff
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: eab64d9494ef2d2838e16c55eed6ecf0db9736e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 158b229c2c45a14ed0fd5433d1903eca92f32401
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309810"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851648"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexación de tablas en SQL Data Warehouse
 
@@ -154,7 +154,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 Una vez ejecutada la consulta, puede empezar a examinar los datos y analizar los resultados. En esta tabla se explica lo que hay que buscar en el análisis de los grupos de filas.
 
-| Columna | Uso de estos datos |
+| columna | Uso de estos datos |
 | --- | --- |
 | [table_partition_count] |Si la tabla tiene particiones, puede que vea mayores recuentos de grupos de filas abiertos. En teoría, cada una de las particiones de la distribución puede tener asociado un grupo de filas abierto. Incluir esto en el análisis. Una tabla pequeña con particiones se puede optimizar eliminando por completo todas las particiones, ya que esto mejoraría la compresión. |
 | [row_count_total] |Número total de filas de la tabla. Por ejemplo, puede usar este valor para calcular el porcentaje de filas en estado comprimido. |

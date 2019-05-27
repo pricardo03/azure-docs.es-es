@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: ec2e53624ad48650f922439c5f16d1cf1f25c280
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0acac29ee49bc94c195d0e13e55fff3a735ad36b
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706375"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859807"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalación de aplicaciones de Apache Hadoop propias en Azure HDInsight
 
@@ -116,8 +116,8 @@ Desde el portal, también puede eliminar el clúster o eliminar el grupo de recu
 ### <a name="use-azure-powershell"></a>Uso de Azure PowerShell
 Con Azure PowerShell, puede eliminar el clúster o eliminar el grupo de recursos. Consulte [Eliminación de clústeres mediante Azure PowerShell](hdinsight-administer-use-powershell.md#delete-clusters).
 
-### <a name="use-azure-classic-cli"></a>Uso de la CLI de Azure clásica
-Mediante la CLI de Azure clásica, puede eliminar el clúster o el grupo de recursos. Consulte [Eliminación de clústeres mediante la CLI de Azure clásica](hdinsight-administer-use-command-line.md#delete-clusters).
+### <a name="use-azure-cli"></a>Uso de CLI de Azure
+Mediante la CLI de Azure, puede eliminar el clúster o el grupo de recursos. Consulte la sección [Eliminación de clústeres mediante la CLI de Azure](hdinsight-administer-use-command-line.md#delete-clusters).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [MSDN: instalación de una aplicación de HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): aprenda a desarrollar plantillas de Resource Manager para implementar aplicaciones de HDInsight.

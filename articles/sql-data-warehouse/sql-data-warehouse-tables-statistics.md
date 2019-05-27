@@ -2,21 +2,21 @@
 title: 'Creación y actualización de estadísticas: SQL Data Warehouse | Microsoft Docs'
 description: Recomendaciones y ejemplos para crear y actualizar las estadísticas de optimización de consultas en las tablas de Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 05/09/2018
-ms.author: kevin
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937268"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851537"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Estadísticas de tabla en Azure SQL Data Warehouse
 
@@ -46,7 +46,7 @@ SET AUTO_CREATE_STATISTICS ON
 
 Estas instrucciones desencadenarán la creación automática de estadísticas:
 
-- SELECT
+- SELECCIONAR
 - INSERT-SELECT
 - CTAS
 - UPDATE
@@ -77,7 +77,7 @@ Las siguientes son recomendaciones para actualizar las estadísticas:
 
 |||
 |-|-|
-| **Frecuencia de actualizaciones de estadísticas**  | Conservadora: Diario </br> Después de cargar o transformar los datos |
+| **Frecuencia de actualizaciones de estadísticas**  | Conservadora: Diariamente </br> Después de cargar o transformar los datos |
 | **Muestreo** |  Menor que 1 millones de filas, use el muestreo predeterminado (20 por ciento). </br> Con más de 1 millones de filas, use el muestreo de dos por ciento. |
 
 Una de las primeras preguntas que se deben formular para la solución de problemas de una consulta es **"¿Están actualizadas las estadísticas?"**
@@ -148,7 +148,7 @@ Esta sintaxis utiliza todas las opciones predeterminadas. De forma predeterminad
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-Por ejemplo: 
+Por ejemplo:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -164,7 +164,7 @@ Para probar la tabla completa, utilice esta sintaxis:
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-Por ejemplo: 
+Por ejemplo:
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -367,7 +367,7 @@ Para actualizar un objeto de estadísticas específico, use la siguiente sintaxi
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Por ejemplo: 
+Por ejemplo:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -383,7 +383,7 @@ Es un método sencillo para actualizar todos los objetos de estadísticas en una
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Por ejemplo: 
+Por ejemplo:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -483,7 +483,7 @@ Este ejemplo muestra las tres partes de un objeto de estadísticas:
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Por ejemplo: 
+Por ejemplo:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -497,7 +497,7 @@ Si solo está interesado en ver partes específicas, use la cláusula `WITH` y e
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-Por ejemplo: 
+Por ejemplo:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector

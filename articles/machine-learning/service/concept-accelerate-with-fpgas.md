@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 648dc462477570a692eff588c558a18a3121e4e7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025248"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851021"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>¿Cuáles son matrices de puertas programable de campo (FPGA)
 
@@ -39,7 +39,7 @@ El diagrama y la tabla siguientes muestran cómo se comparan las FPGA con otros 
 
 FPGA en Azure se basan en los dispositivos de Intel FPGA, los científicos de datos y los desarrolladores usan para acelerar los cálculos de inteligencia artificial en tiempo real. Esta arquitectura habilitada para FPGA ofrece rendimiento, flexibilidad y escalado, y está disponible en Azure.
 
-Las FPGA permiten alcanzar una latencia baja para las solicitudes de inferencia en tiempo real. Las solicitudes asincrónicas (procesamiento por lotes) no son necesarias. El procesamiento por lotes puede causar latencia porque se deben procesar más datos. Las implementaciones de unidades de procesamiento neuronal no requieren procesamiento por lotes; por lo tanto, la latencia puede ser inferior a muchas veces, en comparación con procesadores de CPU y GPU.
+Las FPGA permiten lograr solicitudes de baja latencia para inferencia en tiempo real (o modelo de puntuación). Las solicitudes asincrónicas (procesamiento por lotes) no son necesarias. El procesamiento por lotes puede causar latencia porque se deben procesar más datos. Las implementaciones de unidades de procesamiento neuronal no requieren procesamiento por lotes; por lo tanto, la latencia puede ser inferior a muchas veces, en comparación con procesadores de CPU y GPU.
 
 ### <a name="reconfigurable-power"></a>Capacidad reconfigurable
 Puede volver a configurar las FPGA para distintos tipos de modelos de aprendizaje automático. Esta flexibilidad facilita la aceleración de las aplicaciones en función del modelo de memoria y la precisión numérica más óptima que se usa. Como las FPGA se pueden volver a configurar, puede mantenerse al día con los requisitos de los algoritmos de inteligencia artificial que están en constante evolución.

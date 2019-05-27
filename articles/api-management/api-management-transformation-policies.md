@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 565bcfa6c2f8a3da2ac16df0016b5adc54e27380
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b3f86147eb91e874d5317204ca05fb45628414d3
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407609"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833409"
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -375,7 +375,7 @@ La directiva `set-body` se puede configurar para usar el lenguaje de plantillas 
 #### <a name="convert-json-to-soap-using-a-liquid-template"></a>Conversión de JSON en SOAP mediante una plantilla Liquid
 ```xml
 <set-body template="liquid">
-    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <GetOpenOrders>
                 <cust>{{body.getOpenOrders.cust}}</cust>
@@ -405,7 +405,7 @@ La directiva `set-body` se puede configurar para usar el lenguaje de plantillas 
 
 |NOMBRE|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|plantilla|Se utiliza para cambiar el modo de creación de plantillas que ejecutará la directiva de establecer cuerpo. Actualmente, el único valor admitido es:<br /><br />- liquid: la directiva de establecer cuerpo usará el motor de plantillas Liquid |No|Liquid|
+|plantilla|Se utiliza para cambiar el modo de creación de plantillas que ejecutará la directiva de establecer cuerpo. Actualmente, el único valor admitido es:<br /><br />- liquid: la directiva de establecer cuerpo usará el motor de plantillas Liquid |No||
 
 Para acceder a información sobre solicitud y respuesta, la plantilla Liquid puede enlazar a un objeto de contexto con las siguientes propiedades: <br />
 <pre>context.

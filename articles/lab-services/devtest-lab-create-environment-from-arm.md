@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 96e3a24b0c9f9ab21652ffcd1b29deeb512581e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 144fd11e9c1ee3e00412320840e864a3190ccdb0
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202711"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833978"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
 
@@ -54,7 +54,7 @@ Hay un par de reglas que seguir para organizar las plantillas de Azure Resource 
     ![Archivos de plantilla principal de Azure Resource Manager](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - Si desea usar valores de parámetro definidos en un archivo de parámetros, este debe llamarse `azuredeploy.parameters.json`.
-- Puede usar los parámetros `_artifactsLocation` y `_artifactsLocationSasToken` para construir el valor de identificador URI parametersLink y permitir a DevTest Labs administrar automáticamente las plantillas anidadas. Para más información, consulte [How Azure DevTest Labs makes nested Resource Manager template deployments easier for testing environments](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/) (Procedimiento por el que Azure DevTest Labs facilita las implementaciones de plantillas de Resource Manager para entornos de prueba).
+- Puede usar los parámetros `_artifactsLocation` y `_artifactsLocationSasToken` para construir el valor de identificador URI parametersLink y permitir a DevTest Labs administrar automáticamente las plantillas anidadas. Para obtener más información, consulte [implementar plantillas de Azure Resource Manager anidadas para entornos de prueba](deploy-nested-template-environments.md).
 - Los metadatos pueden definirse para especificar el nombre para mostrar y la descripción de la plantilla. Estos metadatos deben estar en un archivo denominado `metadata.json`. El archivo de metadatos de ejemplo siguiente muestra cómo especificar el nombre para mostrar y la descripción: 
 
     ```json

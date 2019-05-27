@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288089"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864466"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -131,21 +131,28 @@ Los valores posibles son:
 
 Cuando se selecciona un intervalo de tiempo personalizado, puede configurar una hora de inicio y una hora de finalización.
 
-Si agrega campos adicionales a la vista de inicios de sesión, estos campos se agregarán automáticamente a la lista de filtros. Por ejemplo, si agrega el campo **Aplicación cliente** a la lista, también obtendrá otra opción de filtro que le permitirá establecer los siguientes filtros:
-
-- Browser      
-- Exchange ActiveSync (compatible)               
-- Exchange ActiveSync (no compatible)
-- Otros clientes               
-    - IMAP
-    - MAPI
-    - Clientes antiguos de Office
-    - POP
-    - SMTP
-
-
+Si agrega campos adicionales a la vista de inicios de sesión, estos campos se agregarán automáticamente a la lista de filtros. Por ejemplo, si agrega el campo **Aplicación cliente** a la lista, también obtendrá otra opción de filtro que le permitirá establecer los siguientes filtros:  
 ![Actividad de inicio de sesión](./media/concept-sign-ins/12.png "Actividad de inicio de sesión")
 
+- **Browser**  
+    Este filtro muestra todos los eventos donde inicio de sesión de intentos se realizaron con flujos del explorador.
+- **Exchange ActiveSync (compatible)**  
+    Este filtro muestra todos los intentos de inicio de sesión donde se ha intentado el protocolo Exchange ActiveSync (EAS) desde las plataformas compatibles, como iOS, Android y Windows Phone.
+- **Exchange ActiveSync (incompatible)**  
+    Este filtro muestra todos los intentos de inicio de sesión donde se ha intentado el protocolo EAS de plataformas no compatibles, como las distribuciones de Linux.
+- **Clientes de escritorio y Mobile Apps** este filtro muestra todos los intentos de inicio de sesión que no estaban usando flujos del explorador. Puede tratarse de aplicaciones móviles desde cualquier plataforma mediante cualquier protocolo o desde las aplicaciones de cliente de escritorio como Office en Windows o MacOS.
+  
+- **Otros clientes**
+    - **IMAP**  
+        Un cliente de correo antiguos mediante IMAP para recuperar el correo electrónico.
+    - **MAPI**  
+        Office 2013, donde ADAL está habilitada y se usa MAPI.
+    - **Clientes antiguos de Office**  
+        Office 2013 en su configuración predeterminada que ADAL no está habilitado y se usa MAPI, u Office 2016 que se han deshabilitado ADAL.
+    - **POP**  
+        Un cliente de correo antiguos mediante POP3 para recuperar el correo electrónico.
+    - **SMTP**  
+        Un cliente heredado de correo electrónico mediante SMTP para enviar correo electrónico.
 
 ## <a name="download-sign-in-activities"></a>Descarga de actividades de inicio de sesión
 
@@ -189,7 +196,7 @@ Si hace clic en un elemento, obtendrá más detalles sobre la operación de inic
 - Identificador de aplicación
 - Application
 - Cliente
-- Location
+- Ubicación
 - Dirección IP
 - Date
 - Se requiere MFA

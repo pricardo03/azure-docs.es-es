@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/22/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0cc00b4f2075ba77490d310080b9968bedb8dc1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cc3307a4f32d77b9b8d259ac846c4db1c1ae4a99
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701773"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002515"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Windows
 
@@ -60,8 +60,10 @@ Realice los pasos siguientes para automatizar la instalación y configuración d
    * *SubscriptionID* (obligatorio): el identificador de la suscripción de Azure en el que se encuentra su cuenta de Automation.
    * *WorkspaceName* (opcional): Nombre del área de trabajo de Log Analytics. Si no tiene un área de trabajo de Log Analytics, el script creará y configurará una.
 
-     > [!NOTE]
-     > Actualmente, son las únicas regiones Automation admitidas la integración con los registros de Azure Monitor **sudeste de Australia**, **East US 2**, **sudeste asiático**y **Europa occidental**. Si su cuenta de Automation no está en una de esas regiones, el script crea un área de trabajo de Log Analytics, pero le advierte que no se puede vincular.
+   > [!NOTE]
+   > Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
+   >
+   > Para obtener una lista de los pares de asignaciones admitidas, consulte [asignación de región para la cuenta de Automation y Log Analytics workspace](how-to/region-mappings.md).
 
 2. En el equipo, inicie **Windows PowerShell** desde la pantalla **Inicio** en modo de administrador.
 3. Desde el shell de línea de comandos de PowerShell, vaya a la carpeta que contiene el script que ha descargado. Cambie los valores de los parámetros *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* y *-WorkspaceName*. Después, ejecute el script.

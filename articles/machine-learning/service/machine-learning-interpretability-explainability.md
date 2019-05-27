@@ -1,7 +1,7 @@
 ---
 title: Interoperabilidad del modelo
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo explicar por qué el modelo realiza predicciones mediante el SDK de Azure Machine Learning. Se puede usar durante el entrenamiento e inferencia para comprender cómo el modelo realiza predicciones.
+description: Obtenga información sobre cómo explicar por qué el modelo realiza predicciones mediante el SDK de Azure Machine Learning. Se puede usar durante el entrenamiento y la inferencia para comprender cómo el modelo realiza predicciones.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,25 +10,25 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/29/2019
-ms.openlocfilehash: 62d51a0075d8b6864e4b10fa6c1eb423a440d6d0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4261e869fe17283886d7d8ea8101e03110d6dad4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926467"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851994"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Interoperabilidad de modelo con el servicio de Azure Machine Learning
 
 En este artículo, aprenderá a explicar por qué el modelo realiza las predicciones hizo con el paquete de interoperabilidad de SDK de Python de Azure Machine Learning.
 
 Mediante las clases y métodos de este paquete, puede obtener:
-+ Interoperabilidad en los conjuntos de datos del mundo real a escala, durante el tiempo de entrenamiento e inferencia. 
++ Interoperabilidad en los conjuntos de datos del mundo real a escala, durante el aprendizaje e inferencia. 
 + Visualizaciones interactivas que le ayudarán a la detección de patrones en los datos y obtener una explicación en tiempo de entrenamiento
 + Los valores de la importancia de características: características sin procesar y de ingeniería
 
 Durante la fase de aprendizaje del ciclo de desarrollo, evaluadores y los diseñadores de modelos pueden usar para explicar el resultado de un modelo a las partes interesadas para crear relaciones de confianza.  También usan la información sobre el modelo para la depuración, validar el comportamiento del modelo coincida con sus objetivos y para comprobar si el sesgo.
 
-Durante la fase de inferencia, los científicos de datos pueden usar interoperabilidad para explicar las predicciones a las personas que utilizan el modelo. Por ejemplo, ¿por qué el modelo denegar un préstamo hipotecario o predecir una cartera de inversiones que lleva a un riesgo más alto?
+Inferencia o modelo de puntuación, es la fase donde se usa el modelo implementado para la predicción, con más frecuencia en los datos de producción. Durante esta fase, los científicos de datos pueden explicar las predicciones a las personas que utilizan el modelo resultantes. Por ejemplo, ¿por qué el modelo denegar un préstamo hipotecario o predecir una cartera de inversiones que lleva a un riesgo más alto?
 
 Con estas ofertas, puede explicar los modelos de aprendizaje automático **globalmente en todos los datos**, o **localmente en un punto de datos específico** mediante las tecnologías de última generación de forma escalable y fácil de usar.
 
@@ -287,7 +287,7 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
 
-## <a name="interpretability-in-inferencing"></a>Interoperabilidad de inferencia
+## <a name="interpretability-in-inference"></a>Interoperabilidad de inferencia
 
 La explicación se puede implementar junto con el modelo original y puede utilizarse para proporcionar la información local explicación en tiempo de puntuación. El proceso de implementación de una explicación de la puntuación es similar a la implementación de un modelo e incluye los siguientes pasos:
 

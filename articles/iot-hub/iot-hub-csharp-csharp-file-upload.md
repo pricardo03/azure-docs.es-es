@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: afa8a77a1c2eabce11af5730ffc5e7b768983589
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cdc0f189daebcda592338b463954efab4fc2db96
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741039"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864429"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carga de archivos de un dispositivo a la nube con IoT Hub mediante .NET
 
@@ -26,7 +26,7 @@ Este tutorial se basa en el código de [Tutorial: cómo envío mensajes de nube 
 
 - Usar las notificaciones de carga de archivo de IoT Hub para desencadenar el procesamiento del archivo en el back-end de aplicación.
 
-En los artículos de [Envío de telemetría de un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md) y [Envío de mensajes de la nube al dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) se muestra cómo usar la funcionalidad básica de mensajería del dispositivo a la nube y de la nube al dispositivo de IoT Hub. En el tutorial [Configuración del enrutamiento de mensajes con IoT Hub](tutorial-routing.md) se describe una forma de almacenar de manera confiable los mensajes enviados del dispositivo a la nube en Azure Blob Storage. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Por ejemplo: 
+En los artículos de [Envío de telemetría de un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md) y [Envío de mensajes de la nube al dispositivo con IoT Hub](iot-hub-csharp-csharp-c2d.md) se muestra cómo usar la funcionalidad básica de mensajería del dispositivo a la nube y de la nube al dispositivo de IoT Hub. En el tutorial [Configuración del enrutamiento de mensajes con IoT Hub](tutorial-routing.md) se describe una forma de almacenar de manera confiable los mensajes enviados del dispositivo a la nube en Azure Blob Storage. Sin embargo, en algunos casos no se pueden asignar fácilmente los datos de que los dispositivos envían en los mensajes de dispositivo a nube con un tamaño relativamente reducido que acepta Azure IoT Hub. Por ejemplo:
 
 * Archivos grandes con imágenes
 * Vídeos
@@ -46,7 +46,7 @@ Al final de este tutorial, ejecutará dos aplicaciones de consola de .NET:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Visual Studio 2017
+* Visual Studio
 * Una cuenta de Azure activa. (En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos).
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]

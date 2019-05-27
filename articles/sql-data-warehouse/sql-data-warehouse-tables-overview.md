@@ -2,20 +2,20 @@
 title: 'Diseño de tablas: Azure SQL Data Warehouse | Microsoft Docs'
 description: Introducción al diseño de tablas en Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/15/2019
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1073e1b4ad38c4b05c9195cf4ea16ade7416fbce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474984"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851589"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Diseño de tablas en Azure SQL Data Warehouse
 
@@ -42,7 +42,7 @@ Para mostrar la organización de las tablas en SQL Data Warehouse, puede utiliza
 
 | Tabla WideWorldImportersDW  | Tipo de tabla | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| City | Dimension Data | wwi.DimCity |
+| Ciudad | Dimensión | wwi.DimCity |
 | Orden | Hechos | wwi.FactOrder |
 
 
@@ -91,7 +91,7 @@ La categoría de tabla a menudo determina qué opción elegir para distribuir la
 | Categoría de tabla | Opción de distribución recomendada |
 |:---------------|:--------------------|
 | Hechos           | Utilice la distribución por hash con el índice de almacén de columnas agrupado. El rendimiento mejora cuando se combinan dos tablas hash en la misma columna de distribución. |
-| Dimension Data      | Use la distribución replicada para tablas más pequeñas. Si las tablas son demasiado grandes para almacenar en cada nodo de proceso, utilice la distribución por hash. |
+| Dimensión      | Use la distribución replicada para tablas más pequeñas. Si las tablas son demasiado grandes para almacenar en cada nodo de proceso, utilice la distribución por hash. |
 | Ensayo        | Use round robin para la tabla de almacenamiento provisional. La carga con CTAS es rápida. Una vez que los datos están en la tabla de ensayo, utilice INSERT... Seleccione esta opción para mover los datos a tablas de producción. |
 
 ## <a name="table-partitions"></a>Particiones de tabla

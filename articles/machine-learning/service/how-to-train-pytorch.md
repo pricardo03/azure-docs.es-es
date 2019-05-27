@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 02463ba47a48f5e86055b9ecb4e0edbdf9608769
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 11819730e05e425066e1f060769e14d5290f877d
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024564"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851975"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Entrenamiento de modelos de PyTorch con Azure Machine Learning Service
 
@@ -105,7 +105,7 @@ run = exp.submit(pt_est)
 
 ## <a name="export-to-onnx"></a>Exportar a ONNX
 
-Para obtener una inferencia optimizada con el [en tiempo de ejecución ONNX](concept-onnx.md), puede convertir el modelo entrenado de PyTorch al formato ONNX. Consulte la [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) para obtener un ejemplo.
+Para optimizar la inferencia con el [en tiempo de ejecución ONNX](concept-onnx.md), convertir el modelo entrenado de PyTorch al formato ONNX. Inferencia o modelo de puntuación, es la fase donde se usa el modelo implementado para la predicción, con más frecuencia en los datos de producción. Consulte la [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) para obtener un ejemplo.
 
 ## <a name="examples"></a>Ejemplos
 

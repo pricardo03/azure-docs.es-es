@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0487fe0331bfce3d0302fe997562cb124ac317d6
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 527f16e34e0f21d435fbd166328235566687bc88
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561079"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852005"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Uso de SSL para proteger servicios web con Azure Machine Learning Service
 
@@ -154,5 +154,5 @@ Después, debe actualizar el DNS para que apunte al servicio web.
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información sobre cómo:
 + [Consumir un modelo de Machine Learning implementado como un servicio web](how-to-consume-web-service.md)
-+ [Ejecución segura de experimentos e inferencias dentro de una instancia de Azure Virtual Network](how-to-enable-virtual-network.md)
++ [Ejecutar de forma segura experimentos e inferencia dentro de una red Virtual de Azure](how-to-enable-virtual-network.md)
 

@@ -1,6 +1,6 @@
 ---
 title: Desarrollo de Azure Functions con Visual Studio | Microsoft Docs
-description: Obtenga información sobre cómo desarrollar y probar Azure Functions mediante Herramientas de Azure Functions para Visual Studio 2017.
+description: Obtenga información sobre cómo desarrollar y probar Azure Functions mediante herramientas de Azure Functions para Visual Studio de 2019.
 services: functions
 documentationcenter: .net
 author: ggailey777
@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403894"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864528"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desarrollo de Azure Functions con Visual Studio  
 
-Herramientas de Azure Functions para Visual Studio 2017 es una extensión para Visual Studio que le permite desarrollar, probar e implementar funciones de C# en Azure. Si esta es su primera experiencia con Azure Functions, puede obtener más información en [Introducción a Azure Functions](functions-overview.md).
+Herramientas de Azure Functions para Visual Studio de 2019 es una extensión de Visual Studio que le permite desarrollar, probar e implementar C# funciones en Azure. Si esta es su primera experiencia con Azure Functions, puede obtener más información en [Introducción a Azure Functions](functions-overview.md).
 
 Herramientas de Azure Functions proporciona los siguientes beneficios: 
 
@@ -29,16 +29,16 @@ Herramientas de Azure Functions proporciona los siguientes beneficios:
 * Desarrollar e implementar funciones de C# compiladas previamente. Las funciones compiladas previamente proporcionan un mejor rendimiento de arranque en frío que las funciones basadas en scripts de C#. 
 * Programar las funciones en C# a la vez que se tienen todos los beneficios del desarrollo de Visual Studio. 
 
-En este artículo se dan detalles sobre cómo usar las herramientas de Azure Functions para Visual Studio 2017 para desarrollar funciones de C# y publicarlas en Azure. Antes de leer este artículo, debe completar la [guía de inicio rápido de Functions para Visual Studio](functions-create-your-first-function-visual-studio.md). 
+Este artículo proporcionan detalles sobre cómo usar las herramientas de Azure Functions para Visual Studio de 2019 para desarrollar C# funciones y publicarlos en Azure. Antes de leer este artículo, debe completar la [guía de inicio rápido de Functions para Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > No mezcle el desarrollo local con el desarrollo del portal en la misma aplicación de función. Al publicar desde un proyecto local en una aplicación de la función, el proceso de implementación sobrescribe todas las funciones que ha desarrollado en el portal.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Las herramientas de Azure Functions forman parte de la carga de trabajo de desarrollo de Azure de la [versión 15.5 de Visual Studio 2017](https://www.visualstudio.com/vs/) y las posteriores. Asegúrese de incluir la carga de trabajo de **desarrollo de Azure** en la instalación de la versión 15.3 de Visual Studio 2017:
+Herramientas de Azure Functions se incluye en la carga de trabajo de desarrollo de Azure de [Visual Studio 2017](https://www.visualstudio.com/vs/), o una versión posterior. Asegúrese de incluir el **desarrollo de Azure** carga de trabajo en la instalación de Visual Studio de 2019:
 
-![Instalar Visual Studio 2017 con la cargas de trabajo Desarrollo de Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+![Instalar Visual Studio de 2019 con la carga de trabajo de desarrollo de Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 Asegúrese de que su versión de Visual Studio está actualizada y de que está usando la [versión más reciente](#check-your-tools-version) de las herramientas de Azure Functions.
 
@@ -181,7 +181,7 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 Para más información sobre cómo usar Azure Functions Core Tools, consulte [Codificación y comprobación de las funciones de Azure en un entorno local](functions-run-local.md).
 
-## <a name="publish-to-azure"></a>Publicación en Azure
+## <a name="publish-to-azure"></a>Publicar en Azure
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 

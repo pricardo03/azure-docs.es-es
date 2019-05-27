@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 08920a25fc7213a773ef0d76a5daddbab3f765c2
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866862"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852144"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database
 
@@ -192,7 +192,7 @@ Una instancia administrada no puede tener acceso a archivos, por lo que no se pu
 - [Extensión del grupo de búferes](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) no se admite.
 - `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` no se admite. Consulte [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
-### <a name="collation"></a>Collation
+### <a name="collation"></a>Intercalación
 
 La intercalación de la instancia predeterminada es `SQL_Latin1_General_CP1_CI_AS` y puede especificarse como un parámetro de creación. Consulte [Intercalaciones](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
@@ -276,12 +276,12 @@ Para más información, consulte [ALTER DATABASE](https://docs.microsoft.com/sql
 ### <a name="sql-server-agent"></a>Agente SQL Server
 
 - Configuración del Agente SQL Server es de solo lectura. El procedimiento `sp_set_agent_properties` no se admite en instancia administrada. 
-- Trabajos
+- Trabajos (jobs)
   - Se admiten los pasos de trabajo de T-SQL.
   - Se admiten los siguientes trabajos de replicación:
     - Lector del registro de transacciones
     - Instantánea
-    - Distribuidor.
+    - Distribuidor
   - Los pasos de trabajo SSIS se admiten.
   - Actualmente no se admiten otros tipos de pasos de trabajo:
     - No se admite el paso de trabajo de replicación de mezcla. 
@@ -299,7 +299,7 @@ Para más información, consulte [ALTER DATABASE](https://docs.microsoft.com/sql
 
 Las siguientes características actualmente no se admiten, pero se habilitarán en el futuro:
 
-- Servidores proxy
+- Proxies
 - Programación de trabajos en una CPU inactiva
 - Habilitar o deshabilitar un agente
 - Alertas
@@ -471,7 +471,7 @@ Las siguientes variables, funciones y vistas devuelven resultados diferentes:
 
 ### <a name="tempdb-size"></a>Tamaño de TEMPDB
 
-El tamaño máximo del archivo de `tempdb` no puede ser mayor que 24 GB por núcleo en un nivel de uso General. El máximo `tempdb` tamaño en un nivel crítico para la empresa es limitado con el tamaño de almacenamiento de instancia. El `tempdb` base de datos siempre se divide en archivos de 12 datos. No se puede cambiar este tamaño máximo por archivo, y se pueden agregar nuevos archivos a `tempdb`. Algunas consultas podrían devolver un error si necesitan más de 24 GB por núcleo en `tempdb`.
+El tamaño máximo del archivo de `tempdb` no puede ser mayor que 24 GB por núcleo en un nivel de uso General. El máximo `tempdb` tamaño en un nivel crítico para la empresa es limitado con el tamaño de almacenamiento de instancia. El `tempdb` base de datos siempre se divide en archivos de 12 datos. No se puede cambiar este tamaño máximo por archivo, y no se puede agregar nuevos archivos a `tempdb`. Algunas consultas podrían devolver un error si necesitan más de 24 GB por núcleo en `tempdb`. `tempdb` es siempre vuelve a crear como base de datos vacía cuando el inicio de instancia o conmutación por error y cualquier cambio realizado en `tempdb` no se conservará. 
 
 ### <a name="cant-restore-contained-database"></a>No se puede restaurar la base de datos independiente
 

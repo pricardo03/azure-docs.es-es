@@ -19,8 +19,8 @@
 - name: Conceptos
   expanded: false
   items:
-    - name: Protección básica
-      href: baseline-protection.md
+    - name: Directivas de protección básicas
+      href: concept-baseline-protection.md
     - name: Condiciones
       href: conditions.md
     - name: Condiciones de ubicación
@@ -38,6 +38,16 @@
       href: plan-conditional-access.md
     - name: Procedimientos recomendados
       href: best-practices.md
+    - name: Directivas de base de referencia
+      items:
+        - name: Requerir MFA para administradores
+          href: howto-baseline-protect-administrators.md
+        - name: Protección del usuario final
+          href: howto-baseline-protect-end-users.md
+        - name: Bloquear la autenticación heredada
+          href: howto-baseline-protect-legacy-auth.md
+        - name: Requerir MFA para la administración de servicios
+          href: howto-baseline-protect-azure.md
     - name: Bloquear la autenticación heredada
       href: block-legacy-authentication.md
     - name: Migración de directivas clásicas

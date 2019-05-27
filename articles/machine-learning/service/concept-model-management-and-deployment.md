@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d02318db4deae6f0a6acdae9382ce47116c95110
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 416bebc070cfcad52c6180e65f0066c46c826cbe
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800870"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849641"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Administración, implementación y supervisión de modelos Azure Machine Learning Services
 
@@ -72,7 +72,7 @@ Para obtener más información, consulte [implementar modelos](how-to-deploy-and
 
 ### <a name="iot-edge-devices"></a>Dispositivos IoT Edge
 
-Puede usar modelos con dispositivos IoT a través de **módulos de Azure IoT Edge**. Módulos de IoT Edge se implementan en dispositivos de hardware, lo que permite la inferencia en el dispositivo.
+Puede usar modelos con dispositivos IoT a través de **módulos de Azure IoT Edge**. Módulos de IoT Edge se implementan en dispositivos de hardware, lo que permite la inferencia o modelo de puntuación en el dispositivo.
 
 Para obtener más información, consulte [implementar modelos](how-to-deploy-and-where.md).
 

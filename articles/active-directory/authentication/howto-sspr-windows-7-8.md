@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08794a7605ffbd3cd5d4b021b783f32afb190727
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414721"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861578"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Procedimientos para: Procedimiento para habilitar el restablecimiento de contraseña desde Windows 7, 8, and 8.1
 
@@ -35,7 +35,7 @@ A diferencia de los equipos con Windows 10, los equipos con Windows 7, 8 y 8.1 n
 > [!WARNING]
 > Se debe habilitar TLS 1.2, no hay solo que establecerla en negociación automática.
 
-## <a name="install"></a>Instalación
+## <a name="install"></a>Instalar
 
 1. Descargue el instalador adecuado para la versión de Windows que desea habilitar.
 
@@ -60,6 +60,8 @@ Debe registrarse en SSPR para poder usar el vínculo "¿Olvidó la contraseña?"
 ![Se necesita información de seguridad adicional para restablecer la contraseña.](media/howto-sspr-windows-7-8/windows-7-sspr-need-security-info.png)
 
 El uso de la aplicación Microsoft Authenticator para notificaciones y códigos para restablecer la contraseña no funciona en esta versión inicial. Los usuarios deben tener métodos alternativos registrados que cumplan los requisitos de la directiva.
+
+Si está habilitado el proveedor de credenciales de más de 3 º de una entidad en el equipo, los usuarios verán más de un perfil de usuario en la pantalla de inicio de sesión.
 
 ## <a name="troubleshooting"></a>solución de problemas
 

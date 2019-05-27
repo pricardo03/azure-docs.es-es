@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 90b2dfdbec0d6dc81a05b845832fda92fe36d98c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8bd6e7c77faa54a8ebf0842cf140ef8aa73e953
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656598"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834546"
 ---
 # <a name="api-management-policy-expressions"></a>Expresiones de las directivas de API Management
 Este artículo describe la sintaxis de expresiones de directiva C# 7. Cada expresión tiene acceso a la variable de [contexto](api-management-policy-expressions.md#ContextVariables) proporcionada de forma implícita y a un [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.
@@ -192,7 +192,7 @@ En la tabla siguiente se enumeran los tipos de .NET Framework que se permiten en
 |System.Xml.Linq.XComment|Todo|
 |System.Xml.Linq.XContainer|Todo|
 |System.Xml.Linq.XDeclaration|Todo|
-|System.Xml.Linq.XDocument|Todos, excepto de: Carga|
+|System.Xml.Linq.XDocument|Todos, excepto de: Cargar|
 |System.Xml.Linq.XDocumentType|Todo|
 |System.Xml.Linq.XElement|Todo|
 |System.Xml.Linq.XName|Todo|
@@ -210,7 +210,7 @@ Una variable denominada `context` está disponible implícitamente en todas las 
 
 |Variable de contexto|Métodos, propiedades y valores de parámetro admitidos|
 |----------------------|-------------------------------------------------------|
-|contexto|Api: IApi<br /><br /> Implementación<br /><br /> Transcurrido: TimeSpan: intervalo de tiempo entre el valor de marca de tiempo y la hora actual<br /><br /> lastError<br /><br /> Operación<br /><br /> Producto<br /><br /> Solicitud<br /><br /> RequestId: Guid: identificador único de la solicitud<br /><br /> Response<br /><br /> Subscription<br /><br /> Marca de tiempo: DateTime: punto en el tiempo en que se recibió la solicitud<br /><br /> Tracing: bool - indica si el seguimiento está activado o desactivado <br /><br /> Usuario<br /><br /> Variables: IReadOnlyDictionary<cadena, objeto><br /><br /> void Trace(message: cadena)|
+|contexto|Api: IApi<br /><br /> Implementación<br /><br /> Transcurrido: TimeSpan: intervalo de tiempo entre el valor de marca de tiempo y la hora actual<br /><br /> lastError<br /><br /> Operación<br /><br /> Producto<br /><br /> Solicitar<br /><br /> RequestId: Guid: identificador único de la solicitud<br /><br /> Respuesta<br /><br /> Subscription<br /><br /> Marca de tiempo: DateTime: punto en el tiempo en que se recibió la solicitud<br /><br /> Tracing: bool - indica si el seguimiento está activado o desactivado <br /><br /> Usuario<br /><br /> Variables: IReadOnlyDictionary<cadena, objeto><br /><br /> void Trace(message: cadena)|
 |context.Api|Id: cadena<br /><br /> IsCurrentRevision: bool<br /><br />  Name: cadena<br /><br /> Path: cadena<br /><br /> Revision: cadena<br /><br /> ServiceUrl: IUrl<br /><br /> Version: cadena |
 |context.Deployment|Region: cadena<br /><br /> ServiceName: cadena<br /><br /> Certificates: IReadOnlyDictionary<cadena, X509Certificate2>|
 |context.LastError|Source: cadena<br /><br /> Reason: cadena<br /><br /> Message: cadena<br /><br /> Scope: cadena<br /><br /> Section: cadena<br /><br /> Path: cadena<br /><br /> PolicyId: cadena<br /><br /> Para obtener más información sobre context.LastError, consulte [Error handling in API Management policies](api-management-error-handling-policies.md) (Control de errores en directivas de API Management).|
@@ -242,7 +242,8 @@ Una variable denominada `context` está disponible implícitamente en todas las 
 |byte[] Encrypt(entrada: este byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input: texto no cifrado que se va a cifrar<br /><br />alg: algoritmo de cifrado<br /><br />key: clave de cifrado<br /><br />iv: vector de inicialización<br /><br />Devuelve cifrado el texto no cifrado.|
 |byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input: texto cifrado que se va a descifrar<br /><br />alg: nombre de un algoritmo de cifrado simétrico<br /><br />key: clave de cifrado<br /><br />iv: vector de inicialización<br /><br />Devuelve texto no cifrado.|
 |byte[] Decrypt(entrada: este byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input: texto cifrado que se va a descifrar<br /><br />alg: algoritmo de cifrado<br /><br />Devuelve texto no cifrado.|
-|byte[] Decrypt(entrada: este byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - input: texto cifrado que se va a descifrar<br /><br />alg: algoritmo de cifrado<br /><br />key: clave de cifrado<br /><br />iv: vector de inicialización<br /><br />Devuelve texto no cifrado.|
+|byte[] Decrypt(entrada: este byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input: texto cifrado que se va a descifrar<br /><br />alg: algoritmo de cifrado<br /><br />key: clave de cifrado<br /><br />iv: vector de inicialización<br /><br />Devuelve texto no cifrado.|
+|BOOL VerifyNoRevocation (input: esta System.Security.Cryptography.X509Certificates.X509Certificate2)|Realiza una validación de la cadena X.509 sin comprobar el estado de revocación de certificados.<br /><br />entrada: objeto de certificado<br /><br />Devuelve `true` si la validación es correcta; `false` si falla la validación.|
 
 
 ## <a name="next-steps"></a>Pasos siguientes

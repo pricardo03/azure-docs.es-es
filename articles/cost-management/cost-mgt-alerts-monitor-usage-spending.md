@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1bf62596b6edcc6fff6572e431f3a777be93f05
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576584"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002092"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Uso de alertas de costes para supervisar el uso y el gasto
 
@@ -42,7 +42,7 @@ Compatibilidad con tipos de alerta depende del tipo de cuenta de Azure que tiene
 | Tipo de alerta | Contrato Enterprise | Contrato de cliente de Microsoft | Web direct/pago por uso-As-You-implementación |
 |---|---|---|---|
 | Presupuesto | ✔ | ✔ | ✔ |
-| Créditos | ✔ |✘ | ✘ |
+| Crédito | ✔ |✘ | ✘ |
 | Cuota de gasto de departamento | ✔ | ✘ | ✘ |
 
 

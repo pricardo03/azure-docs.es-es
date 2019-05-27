@@ -13,14 +13,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 3a562f98635d581aa320fdbd59d05a0382f09606
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bfe4bbae7953479f9b5b5ce9653fb3b8d4b2d092
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465543"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002381"
 ---
-# <a name="define-account-filters-and-asset-filters"></a>Definición de filtros de cuenta y de recurso  
+# <a name="filters"></a>Filtros
 
 Al entregar su contenido a los clientes (eventos de Streaming en directo o vídeo bajo demanda) el cliente que necesite más flexibilidad que lo que se describe en el archivo de manifiesto del activo predeterminado. Azure Media Services le permite definir filtros de cuenta y filtros de recurso para su contenido. 
 
@@ -88,11 +88,9 @@ Las condiciones de la propiedad de la pista del filtro describen tipos de pista,
 |**Nombre**|Utilice el nombre de la pista para filtrar.|
 |**Tipo**|Utilice el tipo de la pista para filtrar.<br/><br/>Se permiten los siguientes valores: "video", "audio" o "text".|
 
-## <a name="associate-filters-with-streaming-locator"></a>Asociar filtros de localizador de Streaming
+### <a name="example"></a>Ejemplo
 
-Puede especificar una lista de filtros de activo o una cuenta que se aplicaría a su localizador de Streaming. El [empaquetador dinámico](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente se especifica en la dirección URL. Esta combinación se genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros en la dirección URL y los filtros que especifique en el localizador de Streaming. Se recomienda usar esta característica si desea aplicar filtros pero no desea exponer los nombres de filtro en la dirección URL.
-
-## <a name="definition-example"></a>Ejemplo de definición
+El ejemplo siguiente define un filtro de Streaming en vivo: 
 
 ```json
 {
@@ -146,6 +144,15 @@ Puede especificar una lista de filtros de activo o una cuenta que se aplicaría 
   }
 }
 ```
+
+## <a name="associate-filters-with-streaming-locator"></a>Asociar filtros de localizador de Streaming
+
+Puede especificar una lista de [filtros activos o cuenta](filters-concept.md), que se aplicará a su [localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). El [empaquetador dinámico](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente se especifica en la dirección URL. Esta combinación se genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros en la dirección URL y los filtros que especifique en el localizador de Streaming. Se recomienda usar esta característica si desea aplicar filtros pero no desea exponer los nombres de filtro en la dirección URL.
+
+Consulte los siguientes ejemplos:
+
+* [Asociar filtros de localizador de Streaming - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
+* [Asociar filtros de localizador de Streaming - CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

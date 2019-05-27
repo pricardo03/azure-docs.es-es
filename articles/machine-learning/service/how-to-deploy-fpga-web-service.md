@@ -1,7 +1,7 @@
 ---
 title: Implementación de modelos en FPGA
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo implementar un servicio web con un modelo que se ejecuta en una FPGA con Azure Machine Learning Service para obtener una inferencia de latencia ultrabaja.
+description: Obtenga información sobre cómo implementar un servicio web con un modelo que se ejecuta en una FPGA con el servicio de Azure Machine Learning para la inferencia de latencia muy baja.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 249a21bf9eeb3913826971fd1aae136197d264c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8d667d45e1831e0fcc939d302a16f63d4a282963
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149606"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852046"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Implementación de un modelo como servicio web en una FPGA con Azure Machine Learning Service
 
-Puede implementar un modelo como un servicio web en [(FPGA) de matrices de puertas programables por campos](concept-accelerate-with-fpgas.md) con modelos de acelerados de Hardware de Azure Machine Learning. El uso de las FPGA brinda una inferencia de latencia muy baja, incluso con un tamaño de lote único.
+Puede implementar un modelo como un servicio web en [(FPGA) de matrices de puertas programables por campos](concept-accelerate-with-fpgas.md) con modelos de acelerados de Hardware de Azure Machine Learning. Uso de las FPGA ofrece inferencia de latencia muy baja, incluso con un tamaño de lote único. Inferencia o modelo de puntuación, es la fase donde se usa el modelo implementado para la predicción, con más frecuencia en los datos de producción.
 
 Actualmente están disponibles los siguientes modelos:
   - ResNet 50
@@ -162,7 +162,7 @@ print(output_tensors)
 > [!IMPORTANT]
 > Guardar la entrada y salida tensors porque necesitará para las solicitudes de conversión e inferencia de modelo.
 
-Salida de los modelos disponibles y el clasificador predeterminado correspondiente tensors están por debajo, que es lo que desea usar durante la inferencia si ha usado el clasificador de forma predeterminada.
+Salida de los modelos disponibles y el clasificador predeterminado correspondiente tensors están por debajo, que es lo que usaría para la inferencia de si ha usado el clasificador de forma predeterminada.
 
 + Resnet50, QuantizedResnet50 ``
 output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"

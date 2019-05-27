@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 7cdd185cddbd2403b72ff0e06530913af0b031de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233126"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833911"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Usar servicios de plataforma como-servicio (PaaS) en Azure DevTest Labs
 PaaS se admite en DevTest Labs a través de la característica de entornos. Se admiten los entornos en DevTest Labs mediante plantillas preconfiguradas de Azure Resource Manager en un repositorio Git. Los entornos pueden contener recursos de IaaS y PaaS. Le permiten crear sistemas complejos que pueden incluir recursos de Azure como máquinas virtuales, bases de datos, las redes virtuales y aplicaciones Web, que se personalizan para que trabajen juntos. Estas plantillas permiten una implementación coherente y mejor administración de entornos con control de código fuente. 
@@ -53,7 +53,7 @@ Hay cierta información de laboratorio personalizado que está fuera del grupo d
 El [conectar entornos a red virtual del laboratorio](connect-environment-lab-virtual-network.md) artículo describe cómo modificar la plantilla de Resource Manager para usar el `$(LabSubnetId)` token. Cuando se crea un entorno, el `$(LabSubnetId)` símbolo (token) se reemplaza por la primera marca de la subred donde la **utilizar en la máquina virtual para crear** opción está establecida en **true**. Permite que nuestro entorno de redes ha creado anteriormente. Si desea utilizar las mismas plantillas de Resource Manager en entornos de prueba como ensayo y producción, use `$(LabSubnetId)` como valor predeterminado en un parámetro de plantilla de Resource Manager. 
 
 #### <a name="environment-storage-account"></a>Cuenta de almacenamiento del entorno
-DevTest Labs admite el uso de [plantillas de Resource Manager anidadas](../azure-resource-manager/resource-group-linked-templates.md). El [cómo Azure DevTest Labs facilita el Administrador de recursos anidados las implementaciones de plantilla para entornos de prueba](https://azure.microsoft.com/updates/azure-devtest-labs-streamlined-nested-arm-template-deployment-support-for-arm-template-based-environments) artículo explica cómo usar `_artifactsLocation` y `_artifactsLocationSasToken` muestras para crear un URI a una plantilla de Resource Manager en la misma carpeta, como o en una carpeta anidada de la plantilla principal. Para obtener más información acerca de estos dos tokens, consulte el **artefactos de implementación** sección de [Azure Resource Manager: Guía de mejores prácticas](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
+DevTest Labs admite el uso de [plantillas de Resource Manager anidadas](../azure-resource-manager/resource-group-linked-templates.md). El [[implementar plantillas de Azure Resource Manager anidadas para entornos de prueba](deploy-nested-template-environments.md) artículo explica cómo usar `_artifactsLocation` y `_artifactsLocationSasToken` muestras para crear un URI a una plantilla de Resource Manager en la misma carpeta que o en un anidados carpeta de la plantilla principal. Para obtener más información acerca de estos dos tokens, consulte el **artefactos de implementación** sección de [Azure Resource Manager: Guía de mejores prácticas](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
 
 ## <a name="user-experience"></a>Experiencia del usuario
 
