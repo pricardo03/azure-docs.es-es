@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791495"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949908"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de las bases de datos únicas o agrupadas en Azure SQL Database
 
@@ -160,7 +160,7 @@ Para proteger los datos confidenciales en curso y en reposo, SQL Database propor
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>Cómo se limita el acceso a la información confidencial en mi base de datos
 
-Cada aplicación tiene cierta información confidencial en la base de datos debe protegerse para que no sea visible para todos los usuarios. Determinados empleados de la organización necesitan ver estos datos, pero otros no deberían poder verlos. Un ejemplo es el salario de los empleados. Aunque un administrador debe poder acceder a la información de salario de sus subordinados directos, los miembros del equipo individuales no deben tener acceso a la información de salario de sus compañeros. Otro escenario es el de los desarrolladores de datos, que pueden interactuar con datos confidenciales durante las fases de desarrollo o pruebas, por ejemplo, los números de la seguridad social de los clientes. Una vez más, no es necesario exponer esta información a los desarrolladores. En estos casos, los datos confidenciales deben enmascararse o no exponerse en absoluto. SQL Database ofrece dos enfoques para impedir que usuarios no autorizados puedan ver datos confidenciales:
+Cada aplicación tiene cierta información confidencial en la base de datos debe protegerse para que no sea visible para todos los usuarios. Determinados empleados de la organización necesitan ver estos datos, pero otros no deberían poder verlos. Un ejemplo es el salario de los empleados. Un administrador debe poder acceder a la información de salario para sus informes directos sin embargo, los miembros del equipo individuales no deben tener acceso a la información de salario de sus compañeros. Otro escenario es el de los desarrolladores de datos, que pueden interactuar con datos confidenciales durante las fases de desarrollo o pruebas, por ejemplo, los números de la seguridad social de los clientes. Una vez más, no es necesario exponer esta información a los desarrolladores. En estos casos, los datos confidenciales deben enmascararse o no exponerse en absoluto. SQL Database ofrece dos enfoques para impedir que usuarios no autorizados puedan ver datos confidenciales:
 
 [Enmascaramiento dinámico de datos](sql-database-dynamic-data-masking-get-started.md) es una característica de enmascaramiento de datos que permite limitar la exposición de información confidencial ocultándola a los usuarios sin privilegios en el nivel de aplicación. Debe definir una regla de enmascaramiento que pueda crear un patrón de enmascaramiento (por ejemplo, mostrar solo los cuatro últimos dígitos de un número del seguro social de identificación nacional: XXX-XX-0000 y marcar la mayoría como Xs) e identificar qué usuarios se excluirán de la regla de enmascaramiento. El enmascaramiento ocurre sobre la marcha y hay varias funciones de enmascaramiento disponibles para las distintas categorías de datos. El enmascaramiento dinámico de datos permite detectar datos confidenciales en la base de datos y aplicarles el enmascaramiento automáticamente.
 

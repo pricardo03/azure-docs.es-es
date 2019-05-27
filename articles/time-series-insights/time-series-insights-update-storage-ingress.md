@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405714"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951108"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Almacenamiento y entrada de datos en la versión preliminar de Azure Time Series Insights
 
@@ -28,7 +28,7 @@ Al crear un entorno de SKU de pago por uso para la versión preliminar de Time S
 * Un entorno de Time Series Insights.
 * Una cuenta de uso general V1 de Azure Storage donde se almacenarán los datos.
 
-La versión preliminar de Time Series Insights usa Azure Blob Storage con el tipo de archivo Parquet. Time Series Insights administra todas las operaciones con datos, incluida la creación de blobs, la indexación y la creación de particiones de los datos en la cuenta de almacenamiento de Azure. Cree estos blobs con una cuenta de almacenamiento de Azure.
+La versión preliminar de tiempo Series Insights usa Azure Blob storage con el tipo de archivo Parquet. Time Series Insights administra todas las operaciones con datos, incluida la creación de blobs, la indexación y la creación de particiones de los datos en la cuenta de almacenamiento de Azure. Cree estos blobs con una cuenta de almacenamiento de Azure.
 
 Al igual que otros blobs de Azure Storage, los que crea Time Series Insights le permiten leer y escribir en ellos para admitir diversos escenarios de integración.
 
@@ -101,12 +101,12 @@ Una partición física es un blob en bloques que se almacena en la cuenta de alm
 
 ### <a name="logical-partitions"></a>Particiones lógicas
 
-Una partición lógica es aquella dentro de una partición física que almacena todos los datos asociados a un valor de clave de partición única. La versión preliminar de Time Series Insights divide lógicamente cada blob en función de dos propiedades:
+Una partición lógica es aquella dentro de una partición física que almacena todos los datos asociados a un valor de clave de partición única. La versión preliminar de tiempo Series Insights lógicamente divide cada blob en función de dos propiedades:
 
 * **Time Series ID**: Clave de partición para todos los datos de Time Series Insights del flujo de eventos y del modelo.
 * **Timestamp**: Tiempo a partir de la entrada inicial.
 
-La versión preliminar de Time Series Insights ofrece consultas eficientes basadas en estas dos propiedades. Estas dos propiedades también proporcionan el método más eficaz para entregar rápidamente datos de Time Series Insights.
+La versión preliminar de tiempo Series Insights proporciona consultas de alto rendimiento que se basan en estas dos propiedades. Estas dos propiedades también proporcionan el método más eficaz para entregar rápidamente datos de Time Series Insights.
 
 Es importante seleccionar una propiedad Time Series ID adecuada, porque es una propiedad inmutable. Para más información, consulte el artículo sobre la [elección de Time Series ID](./time-series-insights-update-how-to-id.md).
 
@@ -120,7 +120,7 @@ Time Series Insights publica hasta dos copias de cada evento en la cuenta de alm
 
 Además, Time Series Insights vuelve a dividir los archivos Parquet para optimizarlos para sus API. También se guarda el archivo que se ha dividido más recientemente.
 
-Durante la versión preliminar pública, los datos se almacenan indefinidamente en la cuenta de almacenamiento de Azure.
+Durante la versión preliminar pública, los datos se almacenan indefinidamente en su cuenta de almacenamiento de Azure.
 
 ### <a name="writing-and-editing-time-series-insights-blobs"></a>Escritura y edición de blobs de Time Series Insights
 
@@ -146,13 +146,13 @@ En general, se puede acceder a los datos de tres maneras:
 
 ### <a name="data-deletion"></a>Eliminación de datos
 
-No elimine los blobs, ya que la versión preliminar de Time Series Insights conserva metadatos de ellos.
+No elimine los blobs. ¿No sólo son útiles para la auditoría y mantener un registro de los datos, la versión preliminar de tiempo Series Insights mantiene los metadatos de blob dentro de cada blob.
 
 ## <a name="time-series-insights-data-ingress"></a>Entrada de datos de tiempo Series Insights
 
 ### <a name="ingress-policies"></a>Directivas de entrada
 
-La versión preliminar admite los mismos orígenes de eventos y tipos de archivos que los que Time Series Insights admite actualmente.
+La versión preliminar de tiempo Series Insights admite los mismos orígenes de eventos y tipos de archivo que Time Series Insights admite actualmente.
 
 Orígenes de eventos admitidos:
 
@@ -168,7 +168,7 @@ Tipos de archivo admitidos:
 
 ### <a name="data-availability"></a>Disponibilidad de los datos
 
-En la versión preliminar de Time Series Insights se indexan los datos mediante una estrategia de optimización basada en el tamaño de los blobs. Los datos estarán disponibles para consulta tras la indexación, que se basa en la cantidad de datos entrantes y su velocidad.
+Datos de índices de la vista previa en tiempo Series Insights mediante una estrategia de optimización de tamaño del blob. Los datos estarán disponibles para consulta tras la indexación, que se basa en la cantidad de datos entrantes y su velocidad.
 
 > [!IMPORTANT]
 > * La versión de disponibilidad general (GA) de Time Series Insights hará que los datos estén disponibles en un plazo de 60 segundos tras alcanzarse un origen de eventos. 
@@ -177,7 +177,7 @@ En la versión preliminar de Time Series Insights se indexan los datos mediante 
 
 ### <a name="scale"></a>Escala
 
-La versión preliminar de Time Series Insights permite realizar un escalado de entrada de hasta 6 megabits por segundo (Mbps) en cada entorno. La compatibilidad con el escalado se está mejorando actualmente. Tenemos previsto actualizar la documentación para reflejar esas mejoras.
+La versión preliminar de tiempo Series Insights es compatible con una escala de entrada inicial de hasta 1 Byte Mega por segundo (Mbps) por cada entorno. La compatibilidad con el escalado se está mejorando actualmente. Tenemos previsto actualizar nuestra documentación para reflejar esas mejoras.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

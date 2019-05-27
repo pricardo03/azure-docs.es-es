@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2842a365cdf25a6b19f655f6397d62ecb9a723b0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 48524020940149f6c67f4859f23c03eea140454b
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406832"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991491"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos a un entorno de Time Series Insights mediante un centro de eventos
 
@@ -28,31 +28,31 @@ En este artículo se explica cómo crear y configurar un centro de eventos en Az
 1. Para saber cómo crear un centro de eventos, consulte la [documentación de Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
 1. En el cuadro de búsqueda, busque **Event Hubs**. Haga clic en **Event Hubs** en la lista devuelta.
 1. Seleccione su centro de eventos.
-1. Cuando se crea un centro de eventos, en realidad está creando un espacio de nombres del centro de eventos. Si todavía no ha creado un centro de eventos en el espacio de nombres, vaya al menú y, en **Entities** (Entidades), cree un centro de eventos.  
+1. Cuando se crea un centro de eventos, se crea un espacio de nombres del centro de eventos. Si todavía no ha creado un centro de eventos dentro del espacio de nombres en el menú, en **entidades**, crear un centro de eventos.  
 
     [![Lista de event hubs](media/send-events/updated.png)](media/send-events/updated.png#lightbox)
 
 1. Después de crear un centro de eventos, selecciónelo en la lista de centros de eventos.
-1. En el menú, en **Entities** (Entidades), seleccione **Event Hubs**.
+1. En el menú, bajo **entidades**, seleccione **Event Hubs**.
 1. Seleccione el nombre del centro de eventos para configurarlo.
 1. En **Entidades** seleccione **Grupos de consumidores** y, a continuación **Grupo de consumidores**.
 
     [![Crear un grupo de consumidores](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
-1. Asegúrese de crear un grupo de consumidores que sea utilizado exclusivamente por el origen de eventos de Time Series Insights.
+1. Asegúrese de que crear un grupo de consumidores que sea utilizado exclusivamente por el origen de eventos de Time Series Insights.
 
     > [!IMPORTANT]
-    > Asegúrese de que ningún otro servicio usa el grupo de consumidores (como un trabajo de Azure Stream Analytics u otro entorno de Time Series Insights). Si otros servicios usan el grupo de consumidores, las operaciones de lectura se ven afectadas negativamente en este entorno y en los otros servicios. Si usa **$Default** como grupo de consumidores, otros lectores podrían volver a usar el grupo de consumidores.
+    > Asegúrese de que no se usa este grupo de consumidores por cualquier otro servicio, como un trabajo de Azure Stream Analytics u otro entorno de Time Series Insights. Si otros servicios usan el grupo de consumidores, las operaciones de lectura se ven afectadas negativamente en este entorno y en los otros servicios. Si usa **$Default** como grupo de consumidores, otros lectores podrían volver a usar el grupo de consumidores.
 
-1. En el menú, en **Settings** (Configuración), seleccione **Shared access policies** (Directivas de acceso compartido) y, a continuación, seleccione **Add** (Agregar).
+1. En el menú, bajo **configuración**, seleccione **directivas de acceso compartido**y, a continuación, seleccione **agregar**.
 
     [![Seleccione las directivas de acceso compartido y, a continuación, seleccione el botón Agregar](media/send-events/shared-access-policy.png)](media/send-events/shared-access-policy.png#lightbox)
 
-1. En el panel **Add new shared access policy** (Agregar nueva directiva de acceso compartido), cree un acceso compartido denominado **MySendPolicy**. Usará esta directiva de acceso compartido para enviar eventos en los ejemplos de C# más adelante en este artículo.
+1. En el panel **Add new shared access policy** (Agregar nueva directiva de acceso compartido), cree un acceso compartido denominado **MySendPolicy**. Use esta directiva de acceso compartido para enviar eventos en el C# ejemplos más adelante en este artículo.
 
     [![En el cuadro Nombre de directiva, escriba MySendPolicy](media/send-events/shared-access-policy-2.png)](media/send-events/shared-access-policy-2.png#lightbox)
 
-1. En **Claim** (Reclamar), seleccione la casilla **Send** (Enviar).
+1. En **notificación**, seleccione el **enviar** casilla de verificación.
 
 ## <a name="add-a-time-series-insights-instance"></a>Agregar una instancia de Time Series Insights
 
@@ -70,7 +70,7 @@ La actualización de Time Series Insights usa instancias para agregar datos cont
 
 1. Seleccione su centro de eventos.
 
-1. Vaya a **Shared Access Policies (Directivas de acceso compartido)** > **RootManageSharedAccessKey**. Copie el valor de la **clave principal de la cadena de conexión** y guárdelo.
+1. Vaya a **Shared Access Policies (Directivas de acceso compartido)** > **RootManageSharedAccessKey**. Copie el valor de **clave principal de la cadena de conexión**.
 
     [![Copie el valor de la cadena de conexión de clave principal](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 
@@ -81,7 +81,7 @@ La actualización de Time Series Insights usa instancias para agregar datos cont
 
 1. Seleccione **Click to start** (Haga clic para iniciar). El simulador genera la instancia JSON que puede usar directamente.
 
-1. Vuelva a su centro de eventos en Azure Portal. En el **Introducción** página, debería ver los nuevos eventos que es recibidos por el centro de eventos.
+1. Vuelva a su centro de eventos en Azure Portal. En el **Introducción** página, verá los nuevos eventos que reciben el centro de eventos.
 
     [![Una página de introducción del centro de eventos que se muestra las métricas para el centro de eventos](media/send-events/telemetry.png)](media/send-events/telemetry.png#lightbox)
 

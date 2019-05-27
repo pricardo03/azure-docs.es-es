@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9878939a461f3ba35d2b6c270de2a965f66204cc
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: db754adbe60acfa155400910c47de556db793eef
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077551"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968900"
 ---
-# <a name="create-azure-cosmos-db-cassandra-api-resources-from-a-resource-manager-template"></a>Crear recursos de la API Cassandra de Azure Cosmos DB desde una plantilla de Resource Manager
+# <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Administrar los recursos de la API Cassandra de Azure Cosmos DB mediante plantillas de Azure Resource Manager
 
-Obtenga información sobre cómo crear una cuenta de Azure Cosmos para API de Cassandra mediante una plantilla de Azure Resource Manager. En el ejemplo siguiente se crea una cuenta de API de Cassandra de Azure Cosmos DB desde el [plantilla de inicio rápido de Azure](https://aka.ms/cassandra-arm-qs). Esta plantilla creará una cuenta de Azure Cosmos para API de Cassandra con dos tablas que compartan el rendimiento de 400 RU/s en el nivel de espacio de claves. 
+## Crear cuenta de Azure Cosmos, espacio de claves y tabla <a id="create-resource"></a>
 
-Esta es una copia de la plantilla:
+Crear recursos de Azure Cosmos DB mediante una plantilla de Azure Resource Manager. Esta plantilla creará una cuenta de Azure Cosmos para API de Cassandra con dos tablas que compartan el rendimiento de 400 RU/s en el nivel de espacio de claves. Copie la plantilla e implementar tal y como se muestra a continuación o visite [Galería de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/) e implementar desde el portal de Azure. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el `--template-file` parámetro.
 
 [!code-json[create-cosmos-Cassandra](~/quickstart-templates/101-cosmosdb-cassandra/azuredeploy.json)]
 
@@ -47,7 +47,48 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 El `az cosmosdb show` comando muestra la cuenta de Azure Cosmos recién creada después de que se haya aprovisionado. Si decide usar una versión de CLI de Azure instalada localmente en lugar de usar CloudShell, consulte [interfaz de línea de comandos (CLI) de Azure](/cli/azure/) artículo.
 
-En el ejemplo anterior, ha hecho referencia a una plantilla que se almacena en GitHub. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el `--template-file` parámetro.
+## Actualización de procesamiento (RU/s) en un espacio de claves <a id="keyspace-ru-update"></a>
+
+La siguiente plantilla actualizará el rendimiento de un espacio de claves. Copie la plantilla e implementar tal y como se muestra a continuación o visite [Galería de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-keyspace-ru-update/) e implementar desde el portal de Azure. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el `--template-file` parámetro.
+
+[!code-json[cosmosdb-cassandra-keyspace-ru-update](~/quickstart-templates/101-cosmosdb-cassandra-keyspace-ru-update/azuredeploy.json)]
+
+### <a name="deploy-keyspace-template-via-azure-cli"></a>Implementar plantilla de espacio de claves mediante la CLI de Azure
+
+Para implementar la plantilla de Resource Manager mediante la CLI de Azure, seleccione **Pruébelo** para abrir Azure Cloud shell. Para pegar el script, haga clic en el shell y, a continuación, seleccione **pegar**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the keyspace name: ' keyspaceName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-cassandra-keyspace-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName keyspaceName=$keyspaceName throughput=$throughput
+```
+
+## Actualización de procesamiento (RU/s) en una tabla <a id="table-ru-update"></a>
+
+La siguiente plantilla actualizará el rendimiento de una tabla. Copie la plantilla e implementar tal y como se muestra a continuación o visite [Galería de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra-table-ru-update/) e implementar desde el portal de Azure. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el `--template-file` parámetro.
+
+[!code-json[cosmosdb-cassandra-table-ru-update](~/quickstart-templates/101-cosmosdb-cassandra-table-ru-update/azuredeploy.json)]
+
+### <a name="deploy-table-template-via-azure-cli"></a>Implementar la plantilla de tabla mediante la CLI de Azure
+
+Para implementar la plantilla de Resource Manager mediante la CLI de Azure, seleccione **Pruébelo** para abrir Azure Cloud shell. Para pegar el script, haga clic en el shell y, a continuación, seleccione **pegar**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the keyspace name: ' keyspaceName
+read -p 'Enter the table name: ' tableName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-cassandra-table-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName keyspaceName=$keyspaceName tableName=$tableName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

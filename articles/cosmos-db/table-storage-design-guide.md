@@ -4,16 +4,16 @@ description: 'Guía de diseño de tablas de Azure Storage: Diseño de tablas esc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 84749332c5b7ab5fec2905c0fc36d89863adc3d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60579650"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966099"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Storage: Diseño de tablas escalables y eficaces
 
@@ -47,8 +47,8 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 <td>
 <table>
 <tr>
-<th>Nombre</th>
-<th>Apellidos</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -67,8 +67,8 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 <td>
 <table>
 <tr>
-<th>Nombre</th>
-<th>Apellidos</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -82,7 +82,7 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 </tr>
 <tr>
 <td>Marketing</td>
-<td>department</td>
+<td>Departamento</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
@@ -104,8 +104,8 @@ En el ejemplo siguiente se muestra el diseño de una tabla sencilla para almacen
 <td>
 <table>
 <tr>
-<th>Nombre</th>
-<th>Apellidos</th>
+<th>FirstName</th>
+<th>LastName</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -204,7 +204,7 @@ Los ejemplos siguientes asumen que Table service almacena las entidades employee
 | **RowKey** (Identificación de empleado) |String |
 | **Nombre** |String |
 | **Apellidos** |String |
-| **Edad** |Entero |
+| **Edad** |Integer |
 | **EmailAddress** |String |
 
 En la sección anterior Descripción general de Table service se describen algunas de las características clave de Azure Table service que tienen influencia directa en el diseño de la consulta. Estos dan como resultado las siguientes directrices generales para diseñar consultas de Table service. La sintaxis de filtro utilizada en los ejemplos siguientes es de la API de REST de Table service. Para más información, consulte [Entidades de consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
@@ -653,7 +653,7 @@ En una base de datos relacional, normalmente normaliza datos para eliminar datos
 ![Entidad de departamento y empleado][16]
 
 #### <a name="solution"></a>Solución
-En lugar de almacenar los datos en dos entidades independientes, desnormalice los datos y conserve una copia de los detalles del administrador en la entidad department. Por ejemplo:   
+En lugar de almacenar los datos en dos entidades independientes, desnormalice los datos y conserve una copia de los detalles del administrador en la entidad department. Por ejemplo:  
 
 ![Entidad de departamento combinada y sin normalizar][17]
 
@@ -1123,7 +1123,7 @@ Table service es un almacenamiento de tablas *sin esquema*, lo que significa que
 <table>
 <tr>
 <th>Nombre</th>
-<th>Apellidos</th>
+<th>LastName</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -1143,7 +1143,7 @@ Table service es un almacenamiento de tablas *sin esquema*, lo que significa que
 <table>
 <tr>
 <th>Nombre</th>
-<th>Apellidos</th>
+<th>LastName</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -1180,7 +1180,7 @@ Table service es un almacenamiento de tablas *sin esquema*, lo que significa que
 <table>
 <tr>
 <th>Nombre</th>
-<th>Apellidos</th>
+<th>LastName</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -1216,7 +1216,7 @@ Cada entidad aún debe tener valores **PartitionKey**, **RowKey** y **Timestamp*
 <tr>
 <th>EntityType</th>
 <th>Nombre</th>
-<th>Apellidos</th>
+<th>LastName</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -1238,7 +1238,7 @@ Cada entidad aún debe tener valores **PartitionKey**, **RowKey** y **Timestamp*
 <tr>
 <th>EntityType</th>
 <th>Nombre</th>
-<th>Apellidos</th>
+<th>LastName</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>
@@ -1279,7 +1279,7 @@ Cada entidad aún debe tener valores **PartitionKey**, **RowKey** y **Timestamp*
 <tr>
 <th>EntityType</th>
 <th>Nombre</th>
-<th>Apellidos</th>
+<th>LastName</th>
 <th>Edad</th>
 <th>Email</th>
 </tr>

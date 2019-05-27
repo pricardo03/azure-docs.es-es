@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003018"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991381"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -60,14 +60,14 @@ Administración de costos es compatible con los siguientes roles integrados para
 - [**Propietario** ](../role-based-access-control/built-in-roles.md#owner) : puede ver los costos y administrar todo, incluida la configuración de costo.
 - [**Colaborador** ](../role-based-access-control/built-in-roles.md#contributor) : puede ver los costos y administrar todo, incluida la configuración de costo, pero sin incluir el control de acceso.
 - [**Lector** ](../role-based-access-control/built-in-roles.md#reader) : puede ver todo, incluidos los datos de costo y la configuración, pero no realizar cambios.
-- [**Colaborador de la administración de costos** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) : puede ver los costos y administrar la configuración de costo.
-- [**Lector de administración de costos** ](../role-based-access-control/built-in-roles.md#cost-management-reader) : puede ver datos de costos y la configuración.
+- [**Colaborador de la administración de costos** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) : puede ver los costos, administrar la configuración de costo y ver las recomendaciones.
+- [**Lector de administración de costos** ](../role-based-access-control/built-in-roles.md#cost-management-reader) : puede ver los datos de costo, configuración de costo y ver las recomendaciones.
 
 Colaborador de administración de costos es el rol con privilegios mínimos recomendado. Permite a los usuarios acceso para crear y administrar presupuestos y exporta más eficaz de supervisar y notificar sobre los costos. Colaboradores de la administración de costos también pueden requerir funciones adicionales para admitir escenarios de administración de costos to-end. Considere los siguientes escenarios:
 
 - **Actuar cuando se superan los presupuestos** – colaboradores de la administración de costos también necesitan tener acceso a crear o administrar grupos de acciones para responder automáticamente a un uso excesivo. Considere la posibilidad de conceder [colaborador de supervisión](../role-based-access-control/built-in-roles.md#monitoring-contributor) a un grupo de recursos que contiene el grupo de acciones para usar cuando se superan los umbrales de presupuesto. Automatización de acciones específicas requiere roles adicionales para los servicios específicos que se usa como Automation y Azure Functions.
 - **Exportación de datos de costo de programación** – colaboradores de la administración de costos también necesiten acceder para administrar las cuentas de almacenamiento para programar una exportación para copiar datos en una cuenta de almacenamiento. Considere la posibilidad de conceder [colaborador de la cuenta de almacenamiento](../role-based-access-control/built-in-roles.md#storage-account-contributor) a un grupo de recursos que contiene el almacenamiento se exporta la cuenta donde los datos de costo.
-- **Visualización de recomendaciones de ahorro de costos** : costo de administración de lectores y colaboradores no tienen acceso a las recomendaciones de forma predeterminada. Acceso a recomendaciones requiere acceso de lectura a los recursos individuales. Considere la posibilidad de conceder [lector](../role-based-access-control/built-in-roles.md#reader) o un [rol específicos del servicio](../role-based-access-control/built-in-roles.md#built-in-role-descriptions).
+- **Visualización de recomendaciones de ahorro de costos** : costo de administración de lectores y colaboradores de la administración de costos tienen acceso a *vista* recomendaciones sobre el costo de forma predeterminada. Sin embargo, el acceso para actuar sobre las recomendaciones de costo requiere acceso a los recursos individuales. Considere la posibilidad de conceder un [rol específico de servicio](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) si desea actuar en una recomendación basada en costos.
 
 ## <a name="enterprise-agreement-scopes"></a>Ámbitos del contrato Enterprise
 

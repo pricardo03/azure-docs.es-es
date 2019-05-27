@@ -7,14 +7,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: adgera
+ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b77960961a7c032faad7000f7a2ce297802a1497
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926507"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967047"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Incorporación de blobs a objetos en Azure Digital Twins
 
@@ -53,14 +53,14 @@ Los metadatos del blob JSON se ajustan al modelo siguiente:
 
 | Atributo | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| **parentId** | string | Entidad primaria con la que se asocia el blob (espacios, dispositivos o usuarios) |
-| **name** |string | Nombre fácil de usar para el blob |
-| **type** | string | Tipo de blob, no se puede usar *type* ni *typeId*  |
-| **typeId** | Entero | Id. de tipo de blob, no se puede usar *type* ni *typeId* |
-| **subtype** | string | Subtipo de blob, no se puede usar *subtype* ni *subtypeId* |
-| **subtypeId** | Entero | Id. de subtipo del blob, no se puede usar *subtype* ni *subtypeId* |
-| **descripción** | string | Descripción personalizada del blob |
-| **sharing** | string | Si el blob se puede compartir, enum [`None`, `Tree`, `Global`] |
+| **parentId** | String | Entidad primaria con la que se asocia el blob (espacios, dispositivos o usuarios) |
+| **name** |String | Nombre fácil de usar para el blob |
+| **type** | String | Tipo de blob, no se puede usar *type* ni *typeId*  |
+| **typeId** | Integer | Id. de tipo de blob, no se puede usar *type* ni *typeId* |
+| **subtype** | String | Subtipo de blob, no se puede usar *subtype* ni *subtypeId* |
+| **subtypeId** | Integer | Id. de subtipo del blob, no se puede usar *subtype* ni *subtypeId* |
+| **descripción** | String | Descripción personalizada del blob |
+| **sharing** | String | Si el blob se puede compartir, enum [`None`, `Tree`, `Global`] |
 
 Los metadatos del blob siempre se proporcionan como el primer fragmento con **Content-Type** `application/json` o como archivo `.json`. Los datos de archivos se proporcionan en el segundo fragmento y pueden ser de cualquier tipo MIME admitido.
 
@@ -110,18 +110,18 @@ Los blobs devueltos individualmente cumplen con el esquema JSON siguiente:
 
 | Atributo | Type | DESCRIPCIÓN |
 | --- | --- | --- |
-| **id** | string | Identificador único para el blob |
-| **name** |string | Nombre fácil de usar para el blob |
-| **parentId** | string | Entidad primaria con la que se asocia el blob (espacios, dispositivos o usuarios) |
-| **type** | string | Tipo de blob, no se puede usar *type* ni *typeId*  |
-| **typeId** | Entero | Id. de tipo de blob, no se puede usar *type* ni *typeId* |
-| **subtype** | string | Subtipo de blob, no se puede usar *subtype* ni *subtypeId* |
-| **subtypeId** | Entero | Id. de subtipo del blob, no se puede usar *subtype* ni *subtypeId* |
-| **sharing** | string | Si el blob se puede compartir, enum [`None`, `Tree`, `Global`] |
-| **descripción** | string | Descripción personalizada del blob |
+| **id** | String | Identificador único para el blob |
+| **name** |String | Nombre fácil de usar para el blob |
+| **parentId** | String | Entidad primaria con la que se asocia el blob (espacios, dispositivos o usuarios) |
+| **type** | String | Tipo de blob, no se puede usar *type* ni *typeId*  |
+| **typeId** | Integer | Id. de tipo de blob, no se puede usar *type* ni *typeId* |
+| **subtype** | String | Subtipo de blob, no se puede usar *subtype* ni *subtypeId* |
+| **subtypeId** | Integer | Id. de subtipo del blob, no se puede usar *subtype* ni *subtypeId* |
+| **sharing** | String | Si el blob se puede compartir, enum [`None`, `Tree`, `Global`] |
+| **descripción** | String | Descripción personalizada del blob |
 | **contentInfos** | Matriz | Especifica la información de metadatos sin estructurar, incluida la versión |
-| **fullName** | string | Nombre completo del blob |
-| **spacePaths** | string | Ruta de acceso al espacio |
+| **fullName** | String | Nombre completo del blob |
+| **spacePaths** | String | Ruta de acceso al espacio |
 
 Los metadatos del blob siempre se proporcionan como el primer fragmento con **Content-Type** `application/json` o como archivo `.json`. Los datos de archivos se proporcionan en el segundo fragmento y pueden ser de cualquier tipo MIME admitido.
 

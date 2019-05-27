@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
 ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266983"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128655"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funciones numéricas para las plantillas de Azure Resource Manager
 
@@ -120,8 +120,8 @@ Devuelve el índice actual de un bucle de iteración.
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| loopName | Sin  | string | El nombre del bucle para obtener la iteración. |
-| Offset |Sin  |int |El número que se agregará al valor de iteración basado en cero. |
+| loopName | No | string | El nombre del bucle para obtener la iteración. |
+| Offset |No |int |El número que se agregará al valor de iteración basado en cero. |
 
 ### <a name="remarks"></a>Comentarios
 
@@ -322,7 +322,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="max" />
 
-## <a name="max"></a>max
+## <a name="max"></a>máx
 `max (arg1)`
 
 Devuelve el valor máximo de una matriz de enteros o una lista separada por comas de enteros.
@@ -386,7 +386,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>Min
+## <a name="min"></a>min
 `min (arg1)`
 
 Devuelve el valor mínimo de una matriz de enteros o una lista separada por comas de enteros.

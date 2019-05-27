@@ -2,18 +2,17 @@
 title: Creación de un equilibrador de carga interno de Azure Kubernetes Service (AKS)
 description: Aprenda a crear y usar un equilibrador de carga interno para exponer los servicios con Azure Kubernetes Service (AKS).
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 03/04/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: a26eab83f567a46f613e3bfda95fd99aba2b79c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/04/2019
+ms.author: iainfou
+ms.openlocfilehash: 1b5d18a3dfd1181fd06b58fd58f496457e24b58e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465553"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956376"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Uso de un equilibrador de carga interno con Azure Kubernetes Service (AKS)
 
@@ -27,6 +26,8 @@ Para restringir el acceso a las aplicaciones en Azure Kubernetes Service (AKS), 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
 También necesita la CLI de Azure versión 2.0.59 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+
+La entidad de servicio de clúster AKS necesita permiso para administrar los recursos de red, si usa una subred existente o un grupo de recursos. En general, asigne el *colaborador de la red* rol a la entidad de servicio en los recursos delegados. Para obtener más información sobre los permisos, consulte [AKS delegado acceso a otros recursos de Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Creación de un conjunto de equilibrador de carga interno
 
@@ -64,7 +65,7 @@ NAME           TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
 internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 ```
 
-## <a name="specify-an-ip-address"></a>Especificación de una dirección IP
+## <a name="specify-an-ip-address"></a>Especifique una dirección IP
 
 Si quiere usar una dirección IP específica con el equilibrador de carga interno, agregue la propiedad *loadBalancerIP* al manifiesto YAML del equilibrador de carga. La dirección IP especificada debe encontrarse en la misma subred que el clúster de AKS y no se debe haber asignado ya a un recurso.
 
@@ -145,10 +146,11 @@ Más información sobre los servicios de Kubernetes en la [documentación de ser
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
-[az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
 [use-kubenet]: configure-kubenet.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]: /cli/azure/install-azure-cli
+[aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources

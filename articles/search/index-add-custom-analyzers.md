@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9daebf46093e38858feff87ca5c4ba89638aa74
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021658"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951909"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Incorporación de analizadores personalizados a un índice de Azure Search
 
@@ -223,7 +223,7 @@ Para los analizadores, los atributos de índice varían dependiendo de si usa an
 |-|-|  
 |NOMBRE|Solo puede contener letras, dígitos, espacios, guiones o guiones bajos, debe empezar y acabar con caracteres alfanuméricos y no puede superar los 128 caracteres.|  
 |Type|Debe ser "#Microsoft.Azure.Search.CustomAnalyzer".|  
-|CharFilters|Establézcalo en uno de los filtros de caracteres predefinidos enumerados en la tabla [Filtros de caracteres](#CharFilter) o en un filtro de caracteres personalizado especificado en la definición del índice.|  
+|CharFilters|Establézcalo en uno de los filtros de caracteres predefinidos enumerados en la tabla [Filtros de caracteres](#char-filters-reference) o en un filtro de caracteres personalizado especificado en la definición del índice.|  
 |Tokenizador|Necesario. Establézcalo en uno de los tokenizadores predefinidos enumerados en la tabla [Tokenizadores](#Tokenizers) siguiente o en un tokenizador personalizado especificado en la definición del índice.|  
 |TokenFilters|Establézcalo en uno de los filtros de token predefinidos enumerados en la tabla [Filtros de token](#TokenFilters) o en un filtro de token personalizado especificado en la definición del índice.|  
 
@@ -236,8 +236,8 @@ Para los analizadores, los atributos de índice varían dependiendo de si usa an
 |||  
 |-|-|  
 |NOMBRE|Solo puede contener letras, dígitos, espacios, guiones o guiones bajos, debe empezar y acabar con caracteres alfanuméricos y no puede superar los 128 caracteres.|  
-|Type|Tipo de filtro de caracteres de la lista de filtros de caracteres admitidos. Consulte la columna **char_filter_type** de la tabla [Filtros de caracteres](#CharFilter) siguiente.|  
-|Opciones|Deben ser opciones válidas de un tipo [Filtros de caracteres](#CharFilter) dado.|  
+|Type|Tipo de filtro de caracteres de la lista de filtros de caracteres admitidos. Consulte la columna **char_filter_type** de la tabla [Filtros de caracteres](#char-filters-reference) siguiente.|  
+|Opciones|Deben ser opciones válidas de un tipo [Filtros de caracteres](#char-filters-reference) dado.|  
 
 ### <a name="tokenizers"></a>Tokenizer
 

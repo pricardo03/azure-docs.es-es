@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d345645337d070be15346b245bfaecd1cabc7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45ff198f55ff769667cfaef2dd8665d2c34314e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415506"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987758"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configuración de Servidor Azure Multi-Factor Authentication para trabajar con AD FS 2.0
 
@@ -85,7 +85,7 @@ Ya habilitó la autenticación de IIS, pero debe configurar la conexión LDAP co
 3. Si los usuarios escriben su nombre de usuario en formato "dominio\nombreDeUsuario", el servidor debe ser capaz de eliminar el dominio del nombre de usuario cuando crea la consulta LDAP. Esto puede hacerse mediante un valor del Registro.
 4. Abra el editor del Registro y vaya a HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor en un servidor de 64 bits. Si está en un servidor de 32 bits, saque "Wow6432Node" fuera de la ruta de acceso. Cree una clave de Registro DWORD denominada "UsernameCxz_stripPrefixDomain" y establezca el valor en 1. Azure Multi-Factor Authentication protege ahora el proxy AD FS.
 
-Asegúrese de que se han importado los usuarios de Active Directory al Servidor. Consulte la sección [IP de confianza](#trusted-ips) si desea agregar a la lista blanca direcciones IP internas, con lo que ya no sería necesaria la verificación en dos pasos al iniciar sesión en el sitio web desde esas ubicaciones.
+Asegúrese de que se han importado los usuarios de Active Directory al Servidor. Consulte la [sección IP de confianza](#trusted-ips) si desea permitir interna de direcciones IP para que no se requiere la verificación en dos pasos al iniciar sesión en el sitio Web desde esas ubicaciones.
 
 ![Editor del registro para configurar la configuración de la empresa](./media/howto-mfaserver-adfs-2/reg.png)
 
@@ -109,15 +109,17 @@ Puede proteger AD FS cuando no se utiliza el proxy de AD FS. Instale el servidor
 
 Azure Multi-Factor Authentication protege ahora AD FS.
 
-Asegúrese de que se han importado los usuarios de Active Directory al Servidor. Consulte la sección IP de confianza si desea agregar a la lista blanca direcciones IP internas, con lo que ya no sería necesaria la verificación en dos pasos al iniciar sesión en el sitio web desde esas ubicaciones.
+Asegúrese de que se han importado los usuarios de Active Directory al Servidor. Consulte la sección de direcciones IP de confianza si desea permitir las direcciones IP internas para que no se requiere la verificación en dos pasos al iniciar sesión en el sitio Web desde esas ubicaciones.
 
 ## <a name="trusted-ips"></a>IP de confianza
+
 Las IP de confianza permiten a los usuarios omitir Azure Multi-Factor Authentication para las solicitudes de sitio web procedentes de determinadas direcciones IP o subredes. Por ejemplo, puede que desee excluir a determinados usuarios de la verificación en dos pasos cuando inician sesión desde la oficina. Para ello, debe especificar la subred de la oficina como entrada de IP de confianza.
 
 ### <a name="to-configure-trusted-ips"></a>Configuración de IP de confianza
+
 1. En la sección Autenticación de IIS, haga clic en la pestaña **IP de confianza**.
 2. Haga clic en **Agregar…** .
 3. Cuando aparezca el cuadro de diálogo Agregar IP de confianza, seleccione el botón de radio **IP única**, **Intervalo IP** o **Subred**.
-4. Escriba la dirección IP, el intervalo IP o la subred que debe estar en la lista blanca. Si especifica una subred, seleccione la máscara de red adecuada y haga clic en el botón **Aceptar**. Se ha agregado la dirección IP de confianza.
+4. Escriba la dirección IP, intervalo de direcciones IP o subred que se debe permitir. Si especifica una subred, seleccione la máscara de red adecuada y haga clic en el botón **Aceptar**.
 
 ![Configurar IP de confianza al servidor de MFA](./media/howto-mfaserver-adfs-2/trusted.png)

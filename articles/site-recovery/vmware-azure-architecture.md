@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: raynew
-ms.openlocfilehash: c91629d24267d280edefdb7530e2614eb7be89fd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4500f4c53ed2731e9f96add97018b16d83f9d304
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704885"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955121"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de VMware a Azure
 
@@ -45,7 +45,7 @@ En la tabla y el gráfico siguientes se proporciona una visión general de los c
         - **Retención de punto de recuperación**. Esta configuración especifica cuánto tiempo atrás quiere ir cuando se produce una interrupción. La retención máxima en almacenamiento premium es de 24 horas. En el almacenamiento estándar es de 72 horas. 
         - **Instantáneas coherentes con la aplicación**. Las instantáneas coherentes con la aplicación pueden tomarse cada 1 a 12 horas, según las necesidades de su aplicación. Son instantáneas de blob de Azure estándar. El agente de movilidad que se ejecuta en una VM solicita una instantánea de VSS de acuerdo con esta configuración, y marca ese momento como punto coherente con la aplicación en el flujo de replicación.
 
-2. El tráfico se replica en los puntos de conexión públicos de Azure Storage a través de Internet. Como alternativa, puede usar Azure ExpressRoute con [emparejamiento público](../expressroute/expressroute-circuit-peerings.md#publicpeering). No se admite la replicación del tráfico entre un sitio local y Azure a través de una red privada virtual (VPN) de sitio a sitio.
+2. El tráfico se replica en los puntos de conexión públicos de Azure Storage a través de Internet. Como alternativa, puede usar Azure ExpressRoute con [emparejamiento de Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). No se admite la replicación del tráfico entre un sitio local y Azure a través de una red privada virtual (VPN) de sitio a sitio.
 3. Una vez terminada la replicación inicial, comienza la de los cambios incrementales en Azure. Los cambios marcados para una máquina se envían al servidor de procesos.
 4. Comunicación se realiza como se indica a continuación:
 

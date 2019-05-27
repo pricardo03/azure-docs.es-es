@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/20/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b3500ce1f1f80d975555edef56d95f2f1d27ca7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5524576ef21830ae13526dad2d8ac8a1d0864cf1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783766"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956878"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>Inicio de sesión único en SAML para aplicaciones locales con el Proxy de aplicación (versión preliminar)
 
@@ -50,8 +50,9 @@ Tenga en cuenta lo siguiente cuando vas a través del tutorial:
 1. Seleccione **SAML** como el método de inicio de sesión único.
 1. En el **establecer seguridad de sesión único con SAML** página, edite el **configuración básica de SAML** datos y siga los pasos descritos en [configuración básica de SAML de ENTRAR](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) configurar basado en SAML autenticación para la aplicación.
 
-   * Asegúrese de que el **dirección URL de respuesta** coincide o es una ruta de acceso bajo la **dirección URL externa** para la aplicación en el entorno local que publica a través del Proxy de aplicación. Si la aplicación requiere otra **dirección URL de respuesta** para la configuración de SAML, agregue este elemento como el **primera** dirección URL en la lista y mantener la **dirección URL externa** como una dirección URL adicional, se ordenan después del primero.
-   * Asegúrese de que la aplicación también especifica el valor correcto **dirección URL de respuesta** o dirección URL del servicio de consumidor de aserción que se utilizará para recibir el token de autenticación.
+   * Asegúrese de que el **dirección URL de respuesta** coincide o es una ruta de acceso bajo la **dirección URL externa** para la aplicación en el entorno local que publica a través del Proxy de aplicación. 
+   * Si la aplicación requiere otra **dirección URL de respuesta** para la configuración de SAML, agregue este elemento como un **adicionales** dirección URL en la lista y marcar la casilla de verificación situada junto a ella para designarlo como la principal  **Dirección URL de respuesta** para enviar las respuestas SAML iniciado por IDP.
+   * Para un flujo iniciado por SP, asegúrese de que la aplicación también especifica el valor correcto **dirección URL de respuesta** o dirección URL del servicio de consumidor de aserción que se utilizará para recibir el token de autenticación.
 
      ![Escriba los datos de configuración básicas de SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 

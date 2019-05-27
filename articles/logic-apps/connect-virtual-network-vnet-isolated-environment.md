@@ -7,14 +7,14 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544536"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961452"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps mediante un entorno del servicio de integración (ISE)
 
@@ -24,7 +24,7 @@ Para escenarios donde sus cuentas de integración y las aplicaciones lógicas ne
 
 En este artículo se muestra cómo completar estas tareas:
 
-* Configurar los puertos en la red virtual de Azure para que el tráfico pueda transcurrir a través de su entorno de servicio de integración (ISE) entre las subredes de la red virtual.
+* Asegúrese de que estén abiertos los puertos necesarios en una red virtual para que el tráfico puede desplazarse a través de su entorno de servicio de integración (ISE) a través de las subredes en la red virtual.
 
 * Crear el entorno de servicio de integración (ISE)
 
@@ -60,11 +60,13 @@ Para más información sobre los entornos de servicio de integración, consulte 
 
 <a name="ports"></a>
 
-## <a name="set-up-network-ports"></a>Configuración de los puertos de red
+## <a name="check-network-ports"></a>Compruebe los puertos de red
 
-Para que funcione correctamente y permanezca accesible, el entorno del servicio de integración (ISE) debe tener puertos específicos disponibles en la red virtual. En caso contrario, si alguno de estos puertos no está disponible, puede perder el acceso al ISE, el cual podría dejar de funcionar. Cuando se usa un ISE en una red virtual, un problema de configuración habitual es tener uno o varios puertos bloqueados. Para las conexiones entre el ISE y el sistema de destino, el conector que utilice también podría tener sus propios requisitos de puertos. Por ejemplo, si se comunica con un sistema FTP mediante el conector FTP, asegúrese de que el puerto que usa en ese sistema FTP como, por ejemplo, el puerto 21 para enviar comandos, está disponible.
+Cuando se usa un entorno de servicio de integración (ISE) con una red virtual, un problema común del programa de instalación es tener una o más puertos bloqueados. Los conectores que usan para crear conexiones entre el ISE y el sistema de destino también podrían tener sus propios requisitos de puerto. Por ejemplo, si se comunica con un sistema FTP mediante el conector FTP, asegúrese de que el puerto que usa en ese sistema FTP como, por ejemplo, el puerto 21 para enviar comandos, está disponible.
 
-Para controlar el tráfico entre subredes de la red virtual en el que implementar el ISE, puede configurar [grupos de seguridad de red](../virtual-network/security-overview.md) para estas subredes por [filtrado del tráfico de red entre subredes](../virtual-network/tutorial-filter-network-traffic.md). En estas tablas se describen los puertos de la red virtual que usa el ISE y dónde se usan. El [etiquetas de servicio de administrador de recursos](../virtual-network/security-overview.md#service-tags) representa un grupo de prefijos de direcciones IP que ayudan a minimizar la complejidad al crear reglas de seguridad.
+Para controlar el tráfico entre subredes de la red virtual en el que implementar ISE, puede configurar [grupos de seguridad de red](../virtual-network/security-overview.md) por [filtrado del tráfico de red entre subredes](../virtual-network/tutorial-filter-network-traffic.md). Sin embargo, el ISE debe tener puertos específicos abierto en la red virtual que usa grupos de seguridad de red. De este modo, el ISE permanece accesible y pueda funcionar correctamente para que no pierda el acceso a su ISE. En caso contrario, si los puertos necesarios están disponibles, el ISE deja de funcionar.
+
+En estas tablas se describen los puertos de la red virtual que usa el ISE y dónde se usan. El [etiquetas de servicio de administrador de recursos](../virtual-network/security-overview.md#service-tags) representa un grupo de prefijos de direcciones IP que ayudan a minimizar la complejidad al crear reglas de seguridad.
 
 > [!IMPORTANT]
 > Para la comunicación interna dentro de las subredes, ISE requiere que abra todos los puertos dentro de esas subredes.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 735be71faecb9882b13f6f536d43715139d0f4db
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 334e56db97213206d9ab7ed5ef4d1d96ab9325d6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071978"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956476"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con discos de Azure en Azure Kubernetes Service (AKS)
 
@@ -39,6 +39,8 @@ Cada clúster de AKS incluye dos clases de almacenamiento creadas previamente y 
     * Standard Storage está respaldado por unidades de disco duro y ofrece un almacenamiento rentable, al tiempo que mantiene un rendimiento superior. Los discos estándar son ideales para cargas de trabajo de desarrollo y prueba rentables.
 * La clase de almacenamiento *Premium administrada* aprovisiona un disco de Azure premium.
     * Los discos Premium están respaldados por un disco de latencia reducida y alto rendimiento basado en SSD. Es perfecto para máquinas virtuales que ejecutan cargas de trabajo de producción. Si los nodos de AKS del clúster usan almacenamiento Premium, seleccione la clase *administrada Premium*.
+    
+Estas clases de almacenamiento predeterminado no permiten actualizar el tamaño del volumen una vez creado. Para habilitar esta capacidad, agregue el *allowVolumeExpansion: true* línea a una de las clases de almacenamiento predeterminada o crear clase de almacenamiento personalizada propia. Puede editar una clase de almacenamiento existente mediante el `kubectl edit sc` comando. Para obtener más información sobre las clases de almacenamiento y crear youor propio, consulte [opciones de almacenamiento para las aplicaciones en AKS][storage-class-concepts].
 
 Use el comando [kubectl get sc][kubectl-get] para ver las clases de almacenamiento que se crearon previamente. El ejemplo siguiente muestra las clases de almacenamiento creadas previamente disponibles dentro de un clúster de AKS:
 
@@ -86,7 +88,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Uso del volumen persistente
 
-Una vez que se haya creado la notificación de volumen persistente y tras el aprovisionamiento correcto del disco, se puede crear un pod con acceso al disco. El siguiente manifiesto crea un pod NGINX básico que utiliza la notificación de volumen persistente *azure-managed-disk* para montar el disco de Azure en la ruta de acceso `/mnt/azure`.
+Una vez que se haya creado la notificación de volumen persistente y tras el aprovisionamiento correcto del disco, se puede crear un pod con acceso al disco. El siguiente manifiesto crea un pod NGINX básico que utiliza la notificación de volumen persistente *azure-managed-disk* para montar el disco de Azure en la ruta de acceso `/mnt/azure`. Para Windows Server containers (actualmente en versión preliminar de AKS), especifique un *mountPath* con la convención de ruta de acceso de Windows, como *'D:'*.
 
 Cree un archivo denominado `azure-pvc-disk.yaml` y cópielo en el siguiente código manifiesto.
 
@@ -279,3 +281,4 @@ Obtenga más información sobre los volúmenes persistentes de Kubernetes con di
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[storage-class-concepts]: concepts-storage.md#storage-classes

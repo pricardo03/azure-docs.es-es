@@ -8,21 +8,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413691"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000100"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Escalado automático de clústeres de HDInsight de Azure (versión preliminar)
+
+> [!Important]
+> La característica de escalado automático solo funciona para los clústeres de Spark, Hive y MapReduce creados después del 8 de mayo de 2019. 
 
 Característica de escalado automático del Azure HDInsight clúster escala automáticamente el número de nodos de trabajo en un clúster hacia arriba y abajo. No se puede escalar otros tipos de nodos del clúster actualmente.  Durante la creación de un nuevo clúster de HDInsight, se puede establecer un número mínimo y máximo de nodos de trabajo. Escalado automático, a continuación, supervisa los requisitos de recursos de la carga de análisis y se puede escalar el número de nodos de trabajo hacia arriba o hacia abajo. No hay ningún cargo adicional por esta característica.
 
 ## <a name="cluster-compatibility"></a>Compatibilidad de clúster
-
-> [!Important]
-> La característica de escalado automático solo funciona para los clústeres creados después de la disponibilidad pública de la característica en mayo de 2019. No funcionará para los clústeres existentes previamente.
 
 La tabla siguiente describen los tipos de clúster y las versiones son compatibles con la característica de escalado automático.
 
@@ -189,6 +189,25 @@ Puede crear un clúster de HDInsight con el escalado automático basado en la pr
 Para habilitar el escalado automático en un clúster en ejecución, seleccione **tamaño del clúster** en **configuración**. A continuación, haga clic en **habilitar escalado automático**. Seleccione el tipo de escalado automático que desee y especifique las opciones de escalado basado en la carga o programación. Finalmente, haga clic en **Guardar**.
 
 ![Habilitar la opción de escalado automático basado en programación de nodo de trabajo](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+
+## <a name="best-practices"></a>Procedimientos recomendados
+
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>Elegir la escala en función de carga o basadas en programación
+
+Tenga en cuenta los siguientes factores antes de tomar una decisión sobre qué modo para elegir:
+
+* Varianza de carga: la carga del clúster sigue un patrón consistente en momentos específicos, en días específicos. Si no es así, basado en la carga de programación es una opción mejor.
+* Requisitos del SLA: Escalado automático escala es reactiva en lugar de predicción. ¿Habrá un retraso entre suficiente cuando la carga comienza a aumentar y cuando el clúster debe estar en su tamaño de destino? Si hay requisitos estrictos de SLA y la carga es un patrón fijo conocido, 'programación según' es una opción mejor.
+
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Tenga en cuenta la latencia de la escala de seguridad o reducir verticalmente las operaciones
+
+Puede tardar 10 a 20 minutos para completar una operación de escalado. Al configurar una programación personalizada, planee este retraso. Por ejemplo, si necesita el tamaño del clúster de 20 a las 9:00 A.M., establezca el desencadenador de programación a un momento anterior, como 8:30 A.M. para que se ha completado la operación de escalado por 9:00 AM.
+
+### <a name="preparation-for-scaling-down"></a>Preparación para reducir verticalmente
+
+Durante el proceso de escalado de clústeres, escalado automático de baja los nodos para cumplir con el tamaño de destino. Si se están ejecutando tareas en esos nodos, escalado automático esperará hasta que se completen las tareas. Puesto que cada nodo de trabajo también sirve para una función en HDFS, se desplazarán los datos temporales a los nodos restantes. Por lo que debe asegurarse de que hay suficiente espacio en los nodos restantes para hospedar todos los datos temporales. 
+
+Los trabajos en ejecución seguirá ejecutan y completan. Los trabajos pendientes esperará que programarse como normal con menos nodos de trabajo disponibles.
 
 ## <a name="monitoring"></a>Supervisión
 

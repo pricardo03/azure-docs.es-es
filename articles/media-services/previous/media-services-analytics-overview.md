@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ceaf4d3db71d99c3e87157f9847312fdf4000026
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61245272"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991787"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Análisis multimedia en la plataforma Media Services 
 
@@ -58,7 +58,6 @@ Análisis multimedia puede ayudar a las organizaciones y empresas a recopilar nu
 
 * **Centros de atención al cliente**. Incluso con la aparición de las redes sociales, los centros de atención al cliente todavía gestionan un gran porcentaje de transacciones de servicios de clientes. En estos datos de audio hay una gran cantidad de información del cliente codificada que se puede analizar para lograr una mayor satisfacción de este. Con Media Indexer, las organizaciones pueden extraer texto y crear índices y paneles de búsqueda. Luego pueden extraer inteligencia de las quejas habituales, los orígenes de las quejas y otros datos relevantes.
 * **Moderación de contenido generado por el usuario**. Desde medios de comunicación a departamentos de policía, muchas organizaciones cuentan con portales orientados al público que aceptan elementos multimedia generados por el usuario, como imágenes y vídeos. El volumen de contenido puede tener picos debido a sucesos inesperados. En estos casos, es difícil llevar a cabo revisiones manuales eficaces del contenido para garantizar su idoneidad. Los clientes pueden basarse en el servicio de moderación de contenido para centrarse en el contenido adecuado.
-* **Vigilancia**. El aumento del uso de cámaras IP supone un inventario creciente de vídeos de vigilancia. La revisión manual de vídeos de vigilancia exige mucho tiempo y es propensa a errores humanos. Análisis multimedia proporciona servicios como la detección de movimiento, la detección de caras e Hyperlapse para facilitar el proceso de revisión, administración y creación de derivados.
 
 ## <a name="media-analytics-media-processors"></a>Procesadores de multimedia de Análisis multimedia
 En esta sección se enumeran los procesadores de multimedia de Análisis multimedia y se muestra cómo usar .NET o REST para obtener un objeto de procesador de multimedia (MP).
@@ -66,7 +65,6 @@ En esta sección se enumeran los procesadores de multimedia de Análisis multime
 ### <a name="mp-names"></a>Nombres de MP
 * Azure Media Indexer 2 Preview
 * Azure Media Indexer
-* Azure Media Hyperlapse
 * Azure Media Face Detector
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails
@@ -126,7 +124,7 @@ Respuesta:
 ## <a name="demos"></a>Demostraciones
 Vea [Demostraciones de Análisis multimedia de Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="provide-feedback"></a>Proporcionar comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Artículos relacionados

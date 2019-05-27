@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 46891a60e6fd36ec0bc19d4b52de87d18e2b6793
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 578fd0caa8986c48b3fd50a7890bb66b14bee2f4
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510295"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991720"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Uso de temas y suscripciones de Service Bus con Java
 
@@ -30,7 +30,7 @@ En este tutorial, escribir código de Java para enviar mensajes a un tema de Ser
 ## <a name="prerequisites"></a>Requisitos previos
 
 1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar su [las ventajas de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o regístrese para obtener un [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga los pasos de la [inicio rápido: Usar el portal de Azure para crear un tema de Service Bus y las suscripciones al tema](service-bus-quickstart-topics-subscriptions-portal.md) para realizar las tareas siguientes:
+2. Siga los pasos de la [inicio rápido: Use Azure Portal para crear un tema de Service Bus y suscripciones al tema ](service-bus-quickstart-topics-subscriptions-portal.md) para realizar las siguientes tareas:
     1. Creación de un Bus de servicio **espacio de nombres**.
     2. Obtener el **cadena de conexión**.
     3. Crear un **tema** en el espacio de nombres.
@@ -454,6 +454,8 @@ Message sending: Id = 9
                         Content: [ firstName = Werner, name = Heisenberg ]
 ```
 
+> [!NOTE]
+> Puede administrar los recursos de Service Bus con [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta ofrece características avanzadas, como la funcionalidad de importación/exportación o la capacidad de probar el tema, colas, suscripciones, servicios de retransmisión, notification hubs y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información, consulte [Colas, temas y suscripciones de Service Bus][Service Bus queues, topics, and subscriptions].

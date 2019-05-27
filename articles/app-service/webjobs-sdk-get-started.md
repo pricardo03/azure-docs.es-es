@@ -13,32 +13,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a9e902a13071abefff71dc4db089380979c8d459
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198612"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864862"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
-Este artículo muestra cómo usar Visual Studio 2017 para crear un proyecto de SDK de Azure WebJobs, ejecutarlo localmente y, a continuación, implementarla en [Azure App Service](overview.md). El proyecto creado es una aplicación de consola .NET Core, que usa la versión 3.x del SDK de WebJobs. Si está interesado en la versión 2.x, que usa .NET Framework, consulte [desarrollar e implementar WebJobs con Visual Studio: Azure App Service](webjobs-dotnet-deploy-vs.md).
+En este artículo se muestra cómo usar Visual Studio de 2019 para crear un proyecto de SDK de Azure WebJobs, ejecutarlo localmente y, a continuación, implementarla en [Azure App Service](overview.md). El proyecto creado es una aplicación de consola .NET Core, que usa la versión 3.x del SDK de WebJobs. Si está interesado en la versión 2.x, que usa .NET Framework, consulte [desarrollar e implementar WebJobs con Visual Studio: Azure App Service](webjobs-dotnet-deploy-vs.md).
 
 Para más información sobre cómo trabajar con el SDK de WebJobs, consulte [cómo usar el SDK de WebJobs de Azure para el procesamiento en segundo plano basado en eventos](webjobs-sdk-how-to.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Instale Visual Studio 2017](/visualstudio/install/) con la carga de trabajo de **desarrollo de Azure**. Si ya tiene Visual Studio pero no tiene esa carga de trabajo, agréguela mediante la selección de **Herramientas > Obtener herramientas y características**.
+* [Instalar Visual Studio de 2019](/visualstudio/install/) con el **desarrollo de Azure** carga de trabajo. Si ya tiene Visual Studio pero no tiene esa carga de trabajo, agréguela mediante la selección de **Herramientas > Obtener herramientas y características**.
 
 * Debe tener [una cuenta de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) para publicar el proyecto de SDK de WebJobs en Azure.
 
 ## <a name="create-a-project"></a>Crear un proyecto
 
-1. En Visual Studio, seleccione **Archivo -> Nuevo > Proyecto**.
+1. En Visual Studio, seleccione **crear un nuevo proyecto**.
 
-2. Seleccione **.NET Core > (.NET Core) de la aplicación de consola**.
+2. Seleccione **(.NET Core) de la aplicación de consola**.
 
-3. Llame al proyecto *WebJobsSDKSample* y seleccione **Aceptar**.
+3. Denomine el proyecto *WebJobsSDKSample*y, a continuación, seleccione **crear**.
 
    ![Cuadro de diálogo Nuevo proyecto](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -171,7 +171,7 @@ Comenzando con la versión 3.x, explícitamente debe instalar la extensión de e
                     });
     ```
 
-## <a name="create-a-function"></a>Creación de una función
+## <a name="create-a-function"></a>Crear una función
 
 1. Haga clic en el proyecto, seleccione **agregar** > **nuevo elemento...** , elija **clase**, el nombre del nuevo C# archivo de clase *Functions.cs*y seleccione **agregar**.
 
@@ -203,7 +203,7 @@ El emulador de Azure Storage que se ejecuta localmente no tiene todas las caract
 
 1. Abra el **Explorador de servidores** en Visual Studio e inicie sesión en Azure. Haga clic con el botón derecho en el nodo **Azure** y, después, seleccione **Conectar a la suscripción de Microsoft Azure**.
 
-   ![Inicio de sesión en Azure](./media/webjobs-sdk-get-started/sign-in.png)
+   ![Iniciar sesión en Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
 1. En el nodo **Azure**, en el **Explorador de servidores**, haga clic con el botón derecho en **Almacenamiento** y seleccione luego **Crear cuenta de almacenamiento**.
 
@@ -340,11 +340,11 @@ En esta sección, realiza las tareas siguientes para configurar el registro de A
 
    |NOMBRE  |Cadena de conexión  |Tipo de base de datos|
    |---------|---------|------|
-   |AzureWebJobsStorage | {cadena de conexión de almacenamiento copiada anteriormente}|Personalizado|
+   |AzureWebJobsStorage | {cadena de conexión de almacenamiento copiada anteriormente}|Personalizar|
 
 1. Si el cuadro de diálogo **Configuración de la aplicación** no tiene una clave de instrumentación de Application Insights, agregue la que ha copiado anteriormente. (Es posible que la clave de instrumentación ya esté allí, en función de cómo haya creado la aplicación de App Service).
 
-   |NOMBRE  |`Value`  |
+   |NOMBRE  |Valor  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {clave de instrumentación} |
 

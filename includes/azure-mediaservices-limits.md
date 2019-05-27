@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150334"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116333"
 ---
 >[!NOTE]
 >Para obtener recursos que no son fijos, abra una incidencia de soporte técnico para solicitar un aumento en las cuotas. No cree cuentas adicionales de Azure Media Services en un intento de obtener límites mayores.

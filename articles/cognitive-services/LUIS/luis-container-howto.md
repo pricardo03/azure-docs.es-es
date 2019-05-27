@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073001"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124360"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
  
@@ -53,12 +53,12 @@ Creación de API para aplicaciones empaquetadas:
 
 Este contenedor admite los siguientes valores mínimos y recomendados:
 
-|Contenedor| Mínima | Recomendado | TPS<br>(Mínimo, máximo)|
+|Contenedor| Mínimo | Recomendada | TPS<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
 |LUIS|1 núcleo, 2 GB de memoria|1 núcleo, 4 GB de memoria|20,40|
 
 * Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
-* TP - transacciones por segundo
+* TPS: transacciones por segundo
 
 El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory` que se usan como parte del comando `docker run`.
 
@@ -108,7 +108,7 @@ El directorio de montaje de entrada puede contener la versión de **producción*
 
 |Tipo de paquete|API de punto de conexión de consulta|Disponibilidad de consultas|Formato del nombre de archivo del paquete|
 |--|--|--|--|
-|Entrenada|Get, Post|Solo el contenedor|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
+|Entrenado|Get, Post|Solo el contenedor|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
 |Ensayo|Get, Post|Azure y el contenedor|`{APPLICATION_ID}_STAGING.gz`|
 |Producción|Get, Post|Azure y el contenedor|`{APPLICATION_ID}_PRODUCTION.gz`|
 
@@ -168,7 +168,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Marcador de posición | `Value` |
+| Marcador de posición | Valor |
 |-------------|-------|
 |{APPLICATION_ID} | Identificador de la aplicación de LUIS publicada. |
 |{APPLICATION_ENVIRONMENT} | Entorno de la aplicación de LUIS publicada. Utilice uno de los valores siguientes:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -196,7 +196,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Marcador de posición | `Value` |
+| Marcador de posición | Valor |
 |-------------|-------|
 |{APPLICATION_ID} | Identificador de la aplicación de LUIS entrenada. |
 |{APPLICATION_VERSION} | Versión de la aplicación de LUIS entrenada. |
@@ -218,7 +218,7 @@ Si el proceso se realiza correctamente, la respuesta será un archivo de paquete
 
 Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar el contenedor. El comando usa los parámetros siguientes:
 
-| Marcador de posición | `Value` |
+| Marcador de posición | Valor |
 |-------------|-------|
 |{ENDPOINT_KEY} | Esta clave se usa para iniciar el contenedor. No utilice la clave de inicio. |
 |{BILLING_ENDPOINT} | El valor de punto de conexión de facturación está disponible en el portal de Azure `Cognitive Services` página de información general. Deberá agregar el `luis/v2.0` enrutamiento para el URI del extremo, tal como se muestra en el ejemplo siguiente: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
@@ -256,23 +256,27 @@ Hay más [ejemplos](luis-container-configuration.md#example-docker-run-commands)
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
+## <a name="endpoint-apis-supported-by-the-container"></a>Punto de conexión de API compatibles con el contenedor
+
+Ambos V2 y [V3 (versión preliminar)](luis-migration-api-v3.md) versiones de la API están disponibles con el contenedor. 
+
 ## <a name="query-the-containers-prediction-endpoint"></a>Consulta del punto de conexión de predicción del contenedor
 
 El contenedor proporciona varias API de puntos de conexión de predicción de consultas basadas en REST. Los puntos de conexión de las aplicaciones publicadas (en ensayo o producción), tienen una ruta _diferente_ a la de los puntos de conexión de las aplicaciones entrenadas. 
 
 Utilice el host, `https://localhost:5000`, con las API de contenedor. 
 
-|Tipo de paquete|Método|Enrutar|Parámetros de consulta|
+|Tipo de paquete|Método|Ruta|Parámetros de consulta|
 |--|--|--|--|
 |Publicado|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>&staging<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>|
-|Entrenada|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
+|Entrenado|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
 
 Los parámetros de consulta determinan cómo y qué se devuelve en la respuesta de la consulta:
 
 |Parámetro de consulta|Type|Propósito|
 |--|--|--|
 |`q`|string|Expresión del usuario.|
-|`timezoneOffset`|número|timezoneOffset le permite [cambiar la zona horaria](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) que se utiliza en la entidad datetimeV2 pregenerada.|
+|`timezoneOffset`|de serie|timezoneOffset le permite [cambiar la zona horaria](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) que se utiliza en la entidad datetimeV2 pregenerada.|
 |`verbose`|boolean|Si está establecido en true, devuelve todas las intenciones y sus puntuaciones. El valor predeterminado es false, donde solo se devuelve la intención principal.|
 |`staging`|boolean|Si está establecido en true, devuelve la consulta a partir de los resultados del entorno de ensayo. |
 |`log`|boolean|Registra las consultas, lo que puede utilizarse después para el [aprendizaje activo](luis-how-to-review-endpoint-utterances.md). El valor predeterminado es true.|
@@ -358,7 +362,7 @@ Configuraciones de aplicaciones no admitidas|Detalles|
 |Entidades no compatibles con ninguna referencia cultural|Entidad [KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) pregenerada para todas las referencias culturales|
 |Entidades no compatibles con la referencia cultural Inglés (en-US)|Entidades [GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) pregeneradas|
 |Preparación para la voz|El contenedor no admite dependencias externas.|
-|análisis de opiniones|El contenedor no admite dependencias externas.|
+|Análisis de sentimiento|El contenedor no admite dependencias externas.|
 
 ## <a name="summary"></a>Resumen
 

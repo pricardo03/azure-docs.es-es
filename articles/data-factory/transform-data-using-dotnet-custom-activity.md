@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165964"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 
@@ -109,9 +109,9 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 | command               | Comando de la aplicación personalizada que se va a ejecutar. Si la aplicación ya está disponible en el nodo del grupo de Azure Batch, se pueden omitir las propiedades resourceLinkedService y folderPath. Por ejemplo, puede especificar que el comando sea `cmd /c dir`, que el nodo del grupo de lotes de Windows admite de forma nativa. | Sí      |
 | resourceLinkedService | Servicio de Azure Storage vinculado a la cuenta de almacenamiento en la que está almacenada la aplicación personalizada | No &#42;       |
 | folderPath            | Ruta de acceso a la carpeta de la aplicación personalizada y todas sus dependencias<br/><br/>Si tiene dependencias que se almacenan en subcarpetas (es decir, en una estructura jerárquica de carpetas bajo *folderPath*) la estructura de carpetas se elimina cuando los archivos se copian en Azure Batch. Es decir, todos los archivos se copian en una sola carpeta sin subcarpetas. Para evitar este comportamiento, considere la posibilidad de comprimir los archivos, copiar el archivo comprimido y, a continuación, descomprimirlo con código personalizado en la ubicación deseada. | No &#42;       |
-| referenceObjects      | Matriz de servicios vinculados y conjuntos de datos existentes. Los servicios vinculados y los conjuntos de datos a los que se hace referencia se pasan a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a recursos de Data Factory | Sin        |
-| extendedProperties    | Propiedades definidas por el usuario que se pueden pasar a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a propiedades adicionales | Sin        |
-| retentionTimeInDays | El tiempo de retención para los archivos que se envía para la actividad personalizada. Valor predeterminado es 30 días. | Sin  |
+| referenceObjects      | Matriz de servicios vinculados y conjuntos de datos existentes. Los servicios vinculados y los conjuntos de datos a los que se hace referencia se pasan a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a recursos de Data Factory | No       |
+| extendedProperties    | Propiedades definidas por el usuario que se pueden pasar a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a propiedades adicionales | No       |
+| retentionTimeInDays | El tiempo de retención para los archivos que se envía para la actividad personalizada. Valor predeterminado es 30 días. | No |
 
 &#42;Las propiedades `resourceLinkedService` y `folderPath` deben especificarse ambas u omitirse ambas.
 
@@ -310,7 +310,7 @@ Puede enviar los valores personalizados desde el código de una actividad person
 
 ## <a name="retrieve-securestring-outputs"></a>Recuperación de salidas de SecureString
 
-Los valores de propiedades confidenciales designados como de tipo *SecureString*, tal y como se muestra en algunos de los ejemplos de este artículo, se enmascaran en la pestaña Supervisión de la interfaz de usuario de Data Factory.  Sin embargo, en la ejecución de la canalización real, una propiedad *SecureString* se serializa como JSON dentro del archivo `activity.json` como texto sin formato. Por ejemplo: 
+Los valores de propiedades confidenciales designados como de tipo *SecureString*, tal y como se muestra en algunos de los ejemplos de este artículo, se enmascaran en la pestaña Supervisión de la interfaz de usuario de Data Factory.  Sin embargo, en la ejecución de la canalización real, una propiedad *SecureString* se serializa como JSON dentro del archivo `activity.json` como texto sin formato. Por ejemplo:
 
 ```json
 "extendedProperties": {

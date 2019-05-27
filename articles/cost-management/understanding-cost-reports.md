@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91dc386641c758c42f64afff387d0463d1445f1d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003807"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969081"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Descripción de los informes de administración de costos de Cloudyn
 
@@ -66,14 +66,14 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
     ![Segundo ejemplo de lista de etiquetas por las que puede agrupar](./media/understanding-cost-reports/groups-tags02.png)
 
     En los informes de asignación de costos, los grupos en las categorías de grupos basados en etiquetas podrían incluir:
-      - Etiquetas
+      - `Tags`
       - etiquetas de grupos de recursos
       - Etiquetas de entidad de costo de Cloudyn
       - Categorías de etiquetas de suscripción para la asignación de costos
 
    Algunos ejemplos pueden incluir:
-   - Centro de costos
-   - department
+   - Centro de costo
+   - Departamento
    - Application
    - Entorno
    - Código de costo
@@ -144,8 +144,8 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
 8. **Resolución**
 
     Utilice Resolution (Resolución) para seleccionar la resolución de tiempo dentro del intervalo de fechas seleccionado. La resolución de tiempo determina cómo se muestran las unidades en el informe y pueden ser:
-    - Diario
-    - Semanal
+    - Diariamente
+    - Semanalmente
     - Mensual
     - Trimestral
     - Anual

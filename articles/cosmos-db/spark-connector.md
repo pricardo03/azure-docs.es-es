@@ -4,14 +4,14 @@ description: Aprenda sobre el conector de Azure Cosmos DB Spark que le permite c
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: 60afd8128224050d456699e798d814a259e106ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc0f2044f70c674177f9c9786f56f0441db2e282
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61330253"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978901"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Aceleración de análisis de macrodatos mediante el conector de Apache Spark a Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Puede ejecutar [Spark](https://spark.apache.org/) trabajos con los datos almacen
 
 Puede usar el conector con [Azure Databricks](https://azure.microsoft.com/services/databricks) o [HDInsight de Azure](https://azure.microsoft.com/services/hdinsight/), que proporcionan los clústeres de Spark administrados en Azure. La siguiente tabla muestra las versiones de Spark compatible.
 
-| Componente | `Version` |
+| Componente | Version |
 |---------|-------|
 | Spark de Apache | 2.4. x, 2.3. x, 2.1 y 2.2. x |
 | Scala | 2.11 |

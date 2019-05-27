@@ -5,22 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 1/15/2019
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: d1e57e623e3e95f3d71e895c49c928f00aa0ad46
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274679"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989104"
 ---
-# <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Configuración de los clientes OpenVPN de Azure VPN Gateway (versión preliminar)
+# <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurar a clientes de OpenVPN para la puerta de enlace de VPN de Azure
 
 En este artículo le ayuda a configurar **OpenVPN® protocolo** los clientes.
-
-> [!IMPORTANT]
-> Esta versión preliminar pública se proporciona sin un contrato de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -138,6 +134,6 @@ Compruebe que ha completado los pasos para configurar OpenVPN para VPN Gateway. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si desea que los clientes de VPN para tener acceso a recursos en otra red virtual (producción), a continuación, siga las instrucciones de la [VNet a](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artículo para configurar una conexión de red virtual a red virtual. Asegúrese de habilitar BGP en las puertas de enlace y las conexiones; en caso contrario, el tráfico no fluirá.
+Si desea que los clientes de VPN para tener acceso a recursos en otra red virtual, a continuación, siga las instrucciones de la [VNet a](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artículo para configurar una conexión de red virtual a red virtual. Asegúrese de habilitar BGP en las puertas de enlace y las conexiones; en caso contrario, el tráfico no fluirá.
 
 **"OpenVPN" es una marca de OpenVPN Inc.**

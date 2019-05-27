@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: f3c02e80016e43bdd83218851de5ceb72be7f268
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 822cbc7401de90d63f9079561ced0dfbb911fa2c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320267"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989436"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configure una conexión de punto a sitio a una red virtual mediante la autenticación de certificados de Azure nativa: PowerShell
 
@@ -55,7 +55,7 @@ Puede usar los valores del ejemplo para crear un entorno de prueba o hacer refer
 * **Suscripción:** si tiene más de una suscripción, compruebe que usa la correcta.
 * **Grupo de recursos: TestRG**
 * **Ubicación: Este de EE. UU.**
-* **Servidor DNS: dirección IP** del servidor DNS que desea usar para la resolución de nombres. (opcional).
+* **Servidor DNS: dirección IP** del servidor DNS que desea usar para la resolución de nombres. (opcional)
 * **Nombre de GW: Vnet1GW**
 * **Nombre de dirección IP pública: VNet1GWPIP**
 * **VpnType: RouteBased** 
@@ -131,8 +131,8 @@ Declare las variables que desea utilizar. Use el ejemplo siguiente y sustituya l
 Configure y cree la puerta de enlace de red virtual para la red virtual.
 
 * El valor de -GatewayType debe ser **Vpn** y el valor de -VpnType debe ser **RouteBased**.
-* -VpnClientProtocol se utiliza para especificar los tipos de túneles que desea habilitar. Las dos opciones de túneles son **SSTP** e **IKEv2**. Puede habilitar una de ellas o ambas. Si desea habilitar ambas, especifique los dos nombres separados por una coma. El cliente strongSwan de Linux y Android y el cliente VPN IKEv2 nativo de iOS y OSX solo utilizarán el túnel IKEv2 para conectarse. Los clientes Windows prueban primero el túnel IKEv2 y, si no se conecta, recurren a SSTP.
-* La SKU "básica" de la puerta de enlace de red virtual no admite la autenticación de IKEv2 o RADIUS. Si planea que clientes Mac se conecten a su red virtual, no use la SKU de nivel Básico.
+* -VpnClientProtocol se utiliza para especificar los tipos de túneles que desea habilitar. Las opciones de túnel son **OpenVPN, SSTP** y **IKEv2**. Puede elegir habilitar uno de ellos o cualquier combinación admitida. Si desea habilitar a varios tipos, a continuación, especifique los nombres separados por punto y coma. No se puede habilitar juntos OpenVPN y SSTP. El cliente strongSwan de Linux y Android y el cliente VPN IKEv2 nativo de iOS y OSX solo utilizarán el túnel IKEv2 para conectarse. Los clientes Windows prueban primero el túnel IKEv2 y, si no se conecta, recurren a SSTP. Puede usar al cliente OpenVPN para conectar con el tipo de túnel OpenVPN.
+* La SKU 'Basic' de la puerta de enlace de red virtual no admite la autenticación de IKEv2, OpenVPN o RADIUS. Si planea que clientes Mac se conecten a su red virtual, no use la SKU de nivel Básico.
 * Una puerta de enlace de VPN puede tardar hasta 45 minutos en completarse, según la [SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md) que seleccione. Este ejemplo utiliza IKEv2.
 
 ```azurepowershell-interactive
@@ -202,7 +202,7 @@ Para obtener los pasos de instalación, consulte [Instalación de un certificado
 
 Los archivos de configuración del cliente VPN contienen opciones para configurar los dispositivos para conectarse a una red virtual a través de una conexión de punto a sitio. Para obtener instrucciones para generar e instalar archivos de configuración de cliente VPN, consulte [Creación e instalación de archivos de configuración de cliente VPN para configuraciones de punto a sitio con autenticación con certificados nativos de Azure](point-to-site-vpn-client-configuration-azure-cert.md).
 
-## <a name="connect"></a>9. Conexión a Azure
+## <a name="connect"></a>9. Conéctese a Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Para conectarse desde un cliente VPN en Windows
 

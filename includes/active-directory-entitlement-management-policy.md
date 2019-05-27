@@ -5,15 +5,15 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: ef8155cda6c31a63204af80ca091a13bb16a687d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866436"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113402"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Directiva: Para los usuarios del directorio
 
@@ -34,6 +34,9 @@ Siga estos pasos si desea que la directiva para los usuarios y grupos en el dire
 ### <a name="policy-for-users-not-in-your-directory"></a>Directiva: Para los usuarios no en el directorio
 
 Siga estos pasos si desea que la directiva para los usuarios no en el directorio que pueden solicitar este paquete de acceso. Los directorios deben configurarse para que se permiten en el **restricciones de colaboración de relaciones de organización** configuración.
+
+> [!NOTE]
+> Se creará una cuenta de usuario invitado para un usuario todavía no estén en el directorio cuya solicitud está aprobada o aprobado automáticamente. El invitado recibirán una invitación, pero no recibirá un correo electrónico de invitación. En su lugar, recibirán un correo electrónico cuando se entrega su asignación de paquetes de acceso. De forma predeterminada, más adelante cuando ese usuario invitado ya no tiene las asignaciones de paquete de acceso, porque su última asignación ha expirado o se han cancelado y que se impide el inicio de sesión y se eliminará la cuenta de usuario de invitado. Si desea tener los usuarios invitados permanecen en el directorio de manera indefinida, incluso si tienen que no tiene asignaciones de paquete de acceso, puede cambiar la configuración para la configuración de administración de derechos.
 
 1. En el **a los usuarios pueden solicitar acceso** sección, seleccione **para los usuarios no en el directorio**.
 
@@ -66,7 +69,7 @@ Siga estos pasos si desea que la directiva para omitir las solicitudes de acceso
 
 1. Pasar a la [directiva: Expiración](#policy-expiration) sección.
 
-### <a name="policy-request"></a>Directiva: Solicitud
+### <a name="policy-request"></a>Directiva: Solicitar
 
 En la sección de la solicitud, especifique la configuración de aprobación cuando los usuarios solicitan el paquete de acceso.
 
@@ -92,7 +95,7 @@ En la sección de la solicitud, especifique la configuración de aprobación cua
 
 1. En el **tiempo de espera de solicitud de aprobación (días)** , especifique la cantidad de tiempo que los aprobadores deben revisar una solicitud. Si no hay aprobadores revisión en este número de días, caduca la solicitud y el usuario deberá enviar otra solicitud para el paquete de acceso.
 
-### <a name="policy-expiration"></a>Directiva: Expiration
+### <a name="policy-expiration"></a>Directiva: Expiración
 
 En la sección de expiración, especifique cuándo expira la asignación de un usuario para el paquete de acceso.
 

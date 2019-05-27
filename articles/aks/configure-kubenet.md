@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 4d2ab19fafc265d70028d5ee192efc60a5a8eaff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073982"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956393"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -22,6 +22,9 @@ De forma predeterminada, los clústeres de AKS usan [kubenet][kubenet], y una re
 Con [Azure Container Networking Interface (CNI)][cni-networking], cada pod obtiene una dirección IP de la subred, y se puede acceder directamente. Estas direcciones IP deben ser únicas en el espacio de red y deben planearse de antemano. Cada nodo tiene un parámetro de configuración para el número máximo de pods que admite. Luego, el número equivalente de direcciones IP por nodo se reserva por adelantado para ese nodo. Este enfoque requiere más planificación y a menudo lleva al agotamiento de direcciones IP o a la necesidad de volver a generar los clústeres en una subred mayor, a medida que crecen las exigencias de la aplicación.
 
 En este artículo se muestra cómo usar las redes *kubenet* para crear y usar la subred de una red virtual con un clúster de AKS. Para más información sobre las opciones y consideraciones de red, consulte el artículo sobre los [conceptos de red para Kubernetes y AKS][aks-network-concepts].
+
+> [!WARNING]
+> Para usar grupos de nodos de Windows Server (actualmente en versión preliminar de AKS), debe usar Azure CNI. El uso de kubenet como el modelo de red no está disponible para los contenedores de Windows Server.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -149,6 +152,8 @@ Los siguientes intervalos de direcciones IP también se definen como parte del p
     * Este intervalo de direcciones debe ser lo suficientemente grande como para alojar el número de nodos hasta el que pretende escalar verticalmente. No puede cambiar este intervalo de direcciones una vez que el clúster se haya implementado, en caso de que necesite más direcciones para nodos adicionales.
     * El intervalo de direcciones IP para pods se usa para asignar un espacio de direcciones de */24* a cada nodo del clúster. En el ejemplo siguiente, *--pod-cidr* de *192.168.0.0/16* asigna el primer nodo *192.168.0.0/24*, el segundo nodo *192.168.1.0/24* y el tercer nodo *192.168.2.0/24*.
     * A medida que el clúster se escala o actualiza, la plataforma de Azure continúa asignando un intervalo de direcciones IP para pods a cada nuevo nodo.
+    
+* El *--dirección del puente de docker* permite que los nodos de AKS se comuniquen con la plataforma de administración subyacente. Esta dirección IP no debe estar dentro del rango de direcciones IP de red virtual del clúster, y no debe superponerse con otros rangos de direcciones en uso en la red.
 
 ```azurecli-interactive
 az aks create \

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: v-mohabe
+ms.openlocfilehash: 8fed3ce98b23c5ac1cc97b88a278c5946f06af8e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006741"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968739"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de sus máquinas virtuales (VM), conjuntos de escalado de máquinas virtuales, contenedores de IaaS y los equipos que no son de Azure (incluido local) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. El agente de Microsoft Monitoring Agent también copia los archivos de volcado en el área de trabajo.

@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: c2862c3521c05ba81f7a567f7951d22a9ab95c44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa3e50374c47f863923252a47b4b54fc1e18f87d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472342"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991861"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Uso de temas y suscripciones de Service Bus con Ruby
  
@@ -43,7 +43,7 @@ En este artículo se describe cómo usar los temas y las suscripciones de Servic
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
-## <a name="create-a-topic"></a>de un tema
+## <a name="create-a-topic"></a>Crear un tema
 El objeto **Azure::ServiceBusService** le permite trabajar con temas. El siguiente código crea un objeto **Azure::ServiceBusService**. Para crear un tema, use el método `create_topic()`. En el siguiente ejemplo se crea un tema o se imprime un error.
 
 ```ruby
@@ -167,6 +167,9 @@ Al eliminar un tema también se eliminan todas las suscripciones que estén regi
 ```ruby
 azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
+
+> [!NOTE]
+> Puede administrar los recursos de Service Bus con [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta ofrece características avanzadas, como la funcionalidad de importación/exportación o la capacidad de probar el tema, colas, suscripciones, servicios de retransmisión, notification hubs y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que conoce los fundamentos de los temas de Service Bus, siga estos vínculos para obtener más información.

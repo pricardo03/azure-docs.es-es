@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868722"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979343"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
@@ -85,7 +85,7 @@ Estos detalles explican por qué un recurso actualmente no es compatible, pero n
 
 La siguiente matriz asigna cada posible _motivo_ a los responsables [condición](../concepts/definition-structure.md#conditions) en la definición de directiva:
 
-|Motivo | Condición |
+|Reason | Condición |
 |-|-|
 |El valor actual debe contener el valor de destino como clave. |containsKey o **no** notContainsKey |
 |El valor actual debe contener el valor de destino. |contiene o **no** notContains |
@@ -215,11 +215,11 @@ Como parte de un nuevo **versión preliminar pública**, los últimos 14 días d
 
 1. Seleccione la pestaña **Historial de cambios (versión preliminar)** en la página **Compatibilidad de recursos**. Se muestra una lista de cambios detectados, si existe alguna.
 
-   ![Ficha Historial de cambios de directiva en la página de compatibilidad de recursos](../media/determine-non-compliance/change-history-tab.png)
+   ![Pestaña de historial de cambios de directiva de Azure en la página de compatibilidad de recursos](../media/determine-non-compliance/change-history-tab.png)
 
 1. Seleccione uno de los cambios detectados. El _diff visual_ para el recurso se presenta en el **historial de cambios** página.
 
-   ![Cambio de directiva historial Diff Visual en la página del historial de cambios](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Azure directiva cambio historial Visual diferencias en la página del historial de cambios](../media/determine-non-compliance/change-history-visual-diff.png)
 
 Las _diferencias visuales_ ayudan a identificar los cambios de un recurso. Los cambios detectados no pueden estar relacionadas con el estado de compatibilidad actual del recurso.
 
@@ -228,7 +228,7 @@ Proporcionan datos del historial de cambios [recursos de Azure Graph](../../reso
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Revise los ejemplos en [ejemplos de Azure Policy](../samples/index.md).
-- Vea la [Estructura de definición de Azure Policy](../concepts/definition-structure.md).
+- Revise la [estructura de definición de Azure Policy](../concepts/definition-structure.md).
 - Vea la [Descripción de los efectos de directivas](../concepts/effects.md).
 - Comprender cómo [crear mediante programación las directivas](programmatically-create.md).
 - Obtenga información sobre cómo [obtener datos de cumplimiento](getting-compliance-data.md).

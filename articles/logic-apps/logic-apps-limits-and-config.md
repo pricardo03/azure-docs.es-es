@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a320f584ff82f2b8a2b3d784e1995aa043004587
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 53f9f67397e1484559ee8243a52ad8339df930bc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597492"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990214"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -166,7 +166,7 @@ Estos son los límites para los conectores personalizados que puede crear a part
 
 | NOMBRE | Límite |
 | ---- | ----- |
-| Número de aplicaciones lógicas con identidades administradas asignadas por el sistema por suscripción de Azure | 10 |
+| Número de aplicaciones lógicas con identidades administradas asignadas por el sistema por suscripción de Azure | 100 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -241,7 +241,7 @@ Todas las aplicaciones lógicas de una misma región usan los mismos intervalos 
 
 Para admitir las llamadas que realizan los [conectores administrados de Microsoft](../connectors/apis-list.md), configure el firewall con *todas* las direcciones IP [salientes](#outbound) que usan dichos conectores en función de las regiones en las que estén las aplicaciones lógicas. Estas direcciones aparecen bajo el encabezado **Saliente** de esta sección y están ordenadas por región.
 
-Para [Azure Government](../azure-government/documentation-government-overview.md) y [Azure China 21Vianet](/azure/china/china-welcome), las direcciones IP reservadas para los conectores no están disponibles actualmente.
+Para [Azure Government](../azure-government/documentation-government-overview.md) y [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), las direcciones IP reservadas para los conectores no están disponibles actualmente.
 
 > [!IMPORTANT]
 >

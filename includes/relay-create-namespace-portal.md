@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420204"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111539"
 ---
 1. Inicie sesión en [Azure Portal][Azure portal].
 2. En el menú de la izquierda, seleccione **+ Crear un recurso**. Seleccione **Integración** > **Retransmisión**. Si no ve **Retransmisión** en la lista, seleccione **Ver todo** en la esquina superior derecha. 
@@ -18,7 +18,7 @@ ms.locfileid: "60420204"
 5. En el cuadro [Grupo de recursos](../articles/azure-resource-manager/manage-resource-groups-portal.md), seleccione un grupo de recursos existente en el que se colocará el espacio de nombres o cree uno nuevo.  
 6. En **Ubicación**, seleccione el país o región donde se debe hospedar el espacio de nombres.
    
-    ![Crear un espacio de nombres][create-namespace]
+    ![Crear espacio de nombres][create-namespace]
 7. Seleccione **Crear**. El sistema crea el espacio de nombres y lo habilita. Tras unos minutos, el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
 ### <a name="get-management-credentials"></a>Obtención de las credenciales de administración

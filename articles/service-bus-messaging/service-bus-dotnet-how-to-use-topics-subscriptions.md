@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ca8f0e34b63802453c8876f878b531e78e66d76
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714264"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991769"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introducción a las colas de Service Bus
 
@@ -33,7 +33,7 @@ En este tutorial se describen los pasos siguientes:
 ## <a name="prerequisites"></a>Requisitos previos
 
 1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar su [las ventajas de suscriptor de Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) o regístrese para obtener un [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga los pasos de la [inicio rápido: Usar el portal de Azure para crear un tema de Service Bus y las suscripciones al tema](service-bus-quickstart-topics-subscriptions-portal.md) para realizar las tareas siguientes:
+2. Siga los pasos de la [inicio rápido: Use Azure Portal para crear un tema de Service Bus y suscripciones al tema ](service-bus-quickstart-topics-subscriptions-portal.md) para realizar las siguientes tareas:
     1. Creación de un Bus de servicio **espacio de nombres**.
     2. Obtener el **cadena de conexión**.
     3. Crear un **tema** en el espacio de nombres.
@@ -390,9 +390,12 @@ Para recibir los mensajes que enviar, cree otra aplicación de consola .NET Core
     ```
 9. Ejecute el programa y vuelva a comprobar el portal. Tenga en cuenta que los valores de **Recuento de mensajes** y **Actual** ahora son **0**.
    
-    ![Longitud del tema][topic-message-receive]
+    ![Longitud de tema][topic-message-receive]
 
 Felicidades. Con la biblioteca estándar. NET, ahora ha creado un tema y una suscripción, y enviado y recibido diez mensajes.
+
+> [!NOTE]
+> Puede administrar los recursos de Service Bus con [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta ofrece características avanzadas, como la funcionalidad de importación/exportación o la capacidad de probar el tema, colas, suscripciones, servicios de retransmisión, notification hubs y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

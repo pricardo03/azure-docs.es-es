@@ -1,5 +1,5 @@
 ---
-title: Uso de colas de Service Bus en Node.js | Microsoft Docs
+title: Cómo usar las colas de Azure Service Bus en Node.js | Microsoft Docs
 description: Obtenga información sobre cómo usar las colas de Service Bus en Azure desde una aplicación Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,22 +14,25 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 6159609f894f967e8ee372a0ee316eb900537aba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1426b3d31159280ad9aac2dd240a5f083c40752d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60590012"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988305"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs"></a>Uso de colas de Service Bus con Node.js
+# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>Uso de colas de Service Bus con Node.js y el paquete azure-sb
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+En este tutorial, obtendrá información sobre cómo crear aplicaciones de Node.js para enviar y recibir mensajes de una cola de Service Bus utilizando el [azure sb](https://www.npmjs.com/package/azure-sb) paquete. Los ejemplos están escritos en JavaScript y usar el Node.js [módulo Azure](https://www.npmjs.com/package/azure) que usa internamente el `azure-sb` paquete.
 
-En este tutorial, aprenderá a crear aplicaciones de Node.js para enviar y recibir mensajes de una cola de Service Bus. Los ejemplos están escritos en JavaScript y usan el módulo Node.js de Azure. 
+El [azure sb](https://www.npmjs.com/package/azure-sb) paquete usa [API de REST de Service Bus tiempo de ejecución](/rest/api/servicebus/service-bus-runtime-rest). Puede obtener una experiencia más rápida con el nuevo [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) paquete que usa el más rápido [protocolo AMQP 1.0](service-bus-amqp-overview.md). Para obtener más información sobre el nuevo paquete, consulte [cómo usar las colas de Service Bus con Node.js y @azure/service-bus paquete](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), en caso contrario, siga leyendo para ver cómo se usa el [azure](https://www.npmjs.com/package/azure) paquete.
 
 ## <a name="prerequisites"></a>Requisitos previos
-1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar su [ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener un [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Si no tiene una cola para que funcione con, siga los pasos de la [uso de Azure portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) artículo para crear una cola.
+- Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar su [ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener un [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Si no tiene una cola para que funcione con, siga los pasos de la [uso de Azure portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) artículo para crear una cola.
     1. Leer el breve **Introducción** de Service Bus **colas**. 
     2. Creación de un Bus de servicio **espacio de nombres**. 
     3. Obtener el **cadena de conexión**. 
@@ -46,7 +49,7 @@ Para utilizar Azure Service Bus, descargue y use el paquete Azure para Node.js. 
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Uso del Administrador de paquetes para Node (NPM) para obtener el paquete
 1. Use la ventana de comandos de **Windows PowerShell for Node.js** para navegar a la carpeta **c:\\node\\sbqueues\\WebRole1** en la que ha creado la aplicación de ejemplo.
-2. Escriba **npm install azure** en la ventana de comandos, cuyo resultado debe ser similar al siguiente:
+2. Tipo **npm instalar azure** en la ventana de comandos que resultado debe ser similar al ejemplo siguiente:
 
     ```
     azure@0.7.5 node_modules\azure
@@ -61,7 +64,7 @@ Para utilizar Azure Service Bus, descargue y use el paquete Azure para Node.js. 
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
     ```
-3. Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado una carpeta **node_modules**. Dentro de esa carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para obtener acceso a las colas de Service Bus.
+3. Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado una carpeta **node_modules**. Dentro de esa carpeta, busque la **azure** paquete, que contiene las bibliotecas necesarias para tener acceso a las colas de Service Bus.
 
 ### <a name="import-the-module"></a>Importación del módulo
 Utilizando el Bloc de notas u otro editor de texto, agregue el código siguiente en la parte superior del archivo **server.js** de la aplicación:
@@ -71,11 +74,11 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Configuración de una conexión de Azure Service Bus
-El módulo de Azure lee las variables de entorno `AZURE_SERVICEBUS_CONNECTION_STRING` para obtener la información necesaria para conectarse a Service Bus. Si no se configura esta variable de entorno, debe especificar la información de la cuenta al llamar a `createServiceBusService`.
+El módulo de Azure lee las variables de entorno `AZURE_SERVICEBUS_CONNECTION_STRING` para obtener la información necesaria para conectarse a Service Bus. Si no se establece esta variable de entorno, debe especificar la información de cuenta al llamar a `createServiceBusService`.
 
 Para ver un ejemplo de configuración de las variables de entorno en [Azure Portal][Azure portal] para un sitio web de Azure, consulte [Aplicación web Node.js con Storage][Node.js Web Application with Storage].
 
-## <a name="create-a-queue"></a>Creación de una cola
+## <a name="create-a-queue"></a>Crear una cola
 El objeto **ServiceBusService** le permite trabajar con colas de Service Bus. El siguiente código crea un objeto **ServiceBusService**. Agréguelo cerca de la parte superior del archivo **server.js** , tras la instrucción para importar el módulo azure:
 
 ```javascript
@@ -147,14 +150,14 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para obtener más información sobre las cuotas, vea [Cuotas de Service Bus][Service Bus quotas].
+El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay ningún límite en el número de mensajes contenidos en una cola, pero hay un límite en el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para obtener más información sobre las cuotas, vea [Cuotas de Service Bus][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>mensajes de una cola
 Los mensajes se reciben de una cola utilizando el método `receiveQueueMessage` del objeto **ServiceBusService**. De manera predeterminada, los mensajes se eliminan de la cola una vez que se leen; sin embargo, puede leer (echar un vistazo) y bloquear los mensajes sin eliminarlos de la cola estableciendo el parámetro opcional `isPeekLock` en **true**.
 
-El funcionamiento predeterminado por el que los mensajes se eliminan tras leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como Service Bus habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
+El comportamiento predeterminado de lectura y eliminación del mensaje como parte de la operación de recepción es el modelo más sencillo y funciona mejor para escenarios en los que una aplicación puede tolerar no procesar un mensaje cuando se produce un error. Para entender este comportamiento, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Dado que Service Bus habrá marcado el mensaje como consumido, a continuación, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
-Si el parámetro `isPeekLock` está establecido en **true**, el proceso de recepción se convierte en una operación en dos fases que permite admitir aplicaciones que no toleran la pérdida de mensajes. Cuando Service Bus recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método `deleteMessage` y facilitando el mensaje que se va a eliminar a modo de parámetro. El método `deleteMessage` marca el mensaje como consumido y lo elimina de la cola.
+Si el `isPeekLock` parámetro está establecido en **true**, la recepción se convierte en una operación en dos fases que hace posible admitir aplicaciones que no pueden tolerar mensajes perdidos. Cuando Service Bus recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método `deleteMessage` y facilitando el mensaje que se va a eliminar a modo de parámetro. El método `deleteMessage` marca el mensaje como consumido y lo elimina de la cola.
 
 En el ejemplo siguiente se muestra cómo recibir y procesar mensajes mediante `receiveQueueMessage`. En primer lugar, el ejemplo recibe y elimina un mensaje, después recibe un mensaje con `isPeekLock` establecido en **true** y luego lo elimina mediante `deleteMessage`:
 
@@ -177,11 +180,14 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Actuación ante errores de la aplicación y mensajes que no se pueden leer
-Service Bus proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción es incapaz de procesar el mensaje, entonces puede llamar al método `unlockMessage` del objeto **ServiceBusService**. Esto hará que Service Bus desbloquee el mensaje de la cola y esté disponible para que pueda volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
+Service Bus proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción es incapaz de procesar el mensaje, entonces puede llamar al método `unlockMessage` del objeto **ServiceBusService**. lo hará que Service Bus desbloquee el mensaje de la cola y esté disponible para volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
 
-También hay un tiempo de espera asociado con un mensaje bloqueado en la cola y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación sufre un error), entonces Service Bus desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
+También hay un tiempo de espera asociado con un mensaje bloqueado en la cola y si se produce un error en la aplicación procesar el mensaje antes que el tiempo de espera de bloqueo expire (por ejemplo, si la aplicación se bloquea), Service Bus desbloquea el mensaje automáticamente y que sea disponible para recibirse de nuevo.
 
-En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método `deleteMessage`, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina *Al menos un procesamiento*, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad **MessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
+En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método `deleteMessage`, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Este enfoque se suele denominar *al menos un procesamiento*, es decir, cada mensaje se procesará al menos una vez, aunque en determinadas situaciones entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de aplicaciones deberían agregar lógica adicional a su aplicación para controlar la entrega de mensajes duplicados. A menudo, se consigue mediante la **MessageId** propiedad del mensaje, que permanecerá constante en todos los intentos de entrega.
+
+> [!NOTE]
+> Puede administrar los recursos de Service Bus con [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta ofrece características avanzadas, como la funcionalidad de importación/exportación o la capacidad de probar el tema, colas, suscripciones, servicios de retransmisión, notification hubs y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las colas, consulte los siguientes recursos:

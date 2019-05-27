@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785808"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953125"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Administración de proceso en una instancia de Azure Data Box Edge
 
@@ -129,24 +129,6 @@ Para sincronizar las claves de acceso del dispositivo, siga estos pasos en Azure
 
 3. Salga del cuadro de diálogo cuando haya finalizado la sincronización.
 
-## <a name="enable-a-network-interface-for-compute"></a>Habilitación de una interfaz de red para proceso
-
-Es posible que en algún momento necesite acceder a cualquiera de los módulos que se ejecuta en el dispositivo de Data Box Edge. Para acceder al módulo externamente, deberá asignar una dirección IP a una interfaz de red en el dispositivo. Esta configuración del proceso se puede administrar desde la interfaz de usuario web local.
-
-Realice los pasos siguientes en la interfaz de usuario web local para configurar el proceso.
-
-1. En la interfaz de usuario web local, vaya a **Configuración > Configuración del proceso**.  
-
-2. **Habilite** la interfaz de red que desea usar para conectarse a los módulos del proceso en el dispositivo. 
-
-    - Si usa direcciones IP estáticas, escriba una dirección IP para la interfaz de red.
-    - Si usa DHCP, las direcciones IP se asignarán automáticamente.
-
-3. Seleccione **Aplicar** para aplicar la configuración.
-
-    ![Habilitación de la configuración del proceso](media/data-box-edge-manage-compute/compute-settings-1.png)
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Aprenda a [administrar usuarios desde Azure Portal](data-box-edge-manage-users.md).
+- Obtenga información sobre cómo [Edge administrar red a través del portal de Azure de proceso](data-box-edge-extend-compute-access-modules.md).

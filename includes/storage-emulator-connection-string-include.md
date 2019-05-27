@@ -1,16 +1,15 @@
 ---
-author: WenJason
+author: tamram
 ms.service: storage
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 01/14/2019
-ms.author: v-jay
+ms.date: 10/26/2018
+ms.author: tamram
 ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125522"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114671"
 ---
 El emulador de almacenamiento es compatible con una sola cuenta fija y una clave de autenticación ya conocida para autenticación de clave compartida. Esta cuenta y clave son las únicas credenciales de clave compartida que se admiten para su uso con el emulador de almacenamiento. Son las siguientes:
 

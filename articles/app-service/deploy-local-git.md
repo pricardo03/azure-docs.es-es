@@ -15,11 +15,11 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65956073"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local a Azure App Service
 
@@ -172,7 +172,7 @@ Estos son los errores o problemas comunes al usar Git para publicar en una aplic
 
 **Causa**: este error puede producirse si no se especifica una rama durante `git push` o si no ha establecido el valor `push.default` en `.gitconfig`.
 
-**Resolución**: vuelva a ejecutar `git push` y especifique la rama principal. Por ejemplo: 
+**Resolución**: vuelva a ejecutar `git push` y especifique la rama principal. Por ejemplo:
 
 ```bash
 git push azure master
@@ -183,7 +183,7 @@ git push azure master
 
 **Causa**: este error puede producirse si intenta insertar una rama que no es la principal en el repositorio remoto "azure".
 
-**Resolución**: vuelva a ejecutar `git push` y especifique la rama principal. Por ejemplo: 
+**Resolución**: vuelva a ejecutar `git push` y especifique la rama principal. Por ejemplo:
 
 ```bash
 git push azure master

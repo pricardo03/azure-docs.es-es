@@ -4,15 +4,15 @@ description: Compromisos entre rendimiento y disponibilidad en los distintos niv
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09777a9980e4576a5d00123516e33696e845dcac
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894035"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990224"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Inconvenientes de la coherencia, disponibilidad y rendimiento 
 
@@ -54,10 +54,10 @@ En la tabla siguiente se define la relación entre la durabilidad de datos y el 
 |---------|---------|---------|---------|---------|
 |1|Arquitectura única o multimaestro|Cualquier nivel de coherencia|< 240 minutos|<1 semana|
 |>1|Maestro único|Sesión, prefijo coherente, eventual|< 15 minutos|< 15 minutos|
-|>1|Maestro único|De obsolescencia entrelazada|*K* & *T*|< 15 minutos|
+|>1|Maestro único|Obsolescencia limitada|*K* & *T*|< 15 minutos|
+|>1|Maestro único|Alta|0|< 15 minutos|
 |>1|Arquitectura multimaestro|Sesión, prefijo coherente, eventual|< 15 minutos|0|
-|>1|Arquitectura multimaestro|De obsolescencia entrelazada|*K* & *T*|0|
-|>1|Arquitectura única o multimaestro|Alta|0|< 15 minutos|
+|>1|Arquitectura multimaestro|Obsolescencia limitada|*K* & *T*|0|
 
 *K* = número de *"K"* versiones (es decir, las actualizaciones) de un elemento.
 

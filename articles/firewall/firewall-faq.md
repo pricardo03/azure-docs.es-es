@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 5/3/2019
 ms.author: victorh
-ms.openlocfilehash: 4c4a6776e3bb56026a48963ec83fe582380c68d0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 84b42654ec472ea2c7c81bed545f56b647158c95
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145951"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016019"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -25,7 +25,7 @@ Azure Firewall es un servicio de seguridad de red administrado y basado en la nu
 * Firewall con estado como servicio
 * Alta disponibilidad integrada con escalabilidad en la nube sin restricciones
 * Filtrado de FQDN
-* Etiquetas FQDN
+* Etiquetas de FQDN
 * Reglas de filtrado de tráfico de red
 * Compatibilidad con SNAT saliente
 * Compatibilidad con DNAT entrante
@@ -84,10 +84,10 @@ Consulte [Firewall de Azure precios](https://azure.microsoft.com/pricing/details
 
 Puede usar los métodos *deallocate* y *allocate* de Azure PowerShell.
 
-Por ejemplo: 
+Por ejemplo:
 
 ```azurepowershell
-# Stop an exisitng firewall
+# Stop an existing firewall
 
 $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
@@ -123,9 +123,9 @@ Sí. Sin embargo, al configurar el Udr para redirigir el tráfico entre subredes
 
 No se admite la tunelización forzada de forma predeterminada, pero se puede habilitar con la Ayuda de soporte técnico.
 
-Firewall de Azure debe tener conectividad directa a Internet. Si su AzureFirewallSubnet aprende una ruta predeterminada a la red local a través de BGP, debe reemplazar con una UDR 0.0.0.0/0 con el **NextHopType** establece valor como **Internet** mantener directa Conectividad a Internet. De forma predeterminada, Firewall de Azure no admite la tunelización forzada a una red local.
+Azure Firewall debe tener conectividad directa a Internet. Si AzureFirewallSubnet aprende una ruta predeterminada a la red local mediante BGP, debe reemplazarla por una UDR 0.0.0.0/0 con el valor **NextHopType** establecido como **Internet** para mantener la conectividad directa a Internet. De forma predeterminada, Azure Firewall no admite la tunelización forzada a una red local.
 
-Sin embargo, si la configuración requiere la tunelización forzada a una red local, Microsoft proporcionará soporte en el caso por caso. Póngase en contacto con soporte técnico para que podamos revisar su caso. Si acepta, se obtendrá la lista blanca su suscripción y asegúrese de que se mantiene la conectividad de Internet de firewall necesarias.
+Sin embargo, si la configuración requiere la tunelización forzada a una red local, Microsoft proporcionará soporte según el caso. Póngase en contacto con soporte técnico para que podamos revisar su caso. Si acepta, incluiremos su suscripción en una lista blanca y nos aseguraremos de que se mantenga la conectividad del firewall a Internet requerida.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>¿Existe alguna restricción de grupo de recursos de firewall?
 
@@ -133,7 +133,7 @@ Sí. El firewall, la subred, la red virtual y la dirección IP pública deben es
 
 ## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Al configurar DNAT para el tráfico de red entrante, ¿es necesario que también configure una regla de red correspondiente para permitir ese tráfico?
 
- No. Las reglas NAT agregan de forma implícita una regla de red correspondiente implícita para permitir el tráfico traducido. Para invalidar este comportamiento, agregue explícitamente una colección de reglas de red con reglas de denegación que coinciden con el tráfico traducido. Para más información acerca de la lógica de procesamiento de reglas Azure Firewall, consulte [Lógica de procesamiento de reglas de Azure Firewall](rule-processing.md).
+No. Las reglas NAT agregan de forma implícita una regla de red correspondiente implícita para permitir el tráfico traducido. Para invalidar este comportamiento, agregue explícitamente una colección de reglas de red con reglas de denegación que coinciden con el tráfico traducido. Para más información acerca de la lógica de procesamiento de reglas Azure Firewall, consulte [Lógica de procesamiento de reglas de Azure Firewall](rule-processing.md).
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>¿Cómo funcionan los caracteres comodín en un FQDN de destino de la regla de aplicación?
 

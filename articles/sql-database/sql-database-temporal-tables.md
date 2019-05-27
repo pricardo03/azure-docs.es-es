@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb2458e73330a09124c00cebe3eb7bcaba5408d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614061"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951504"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introducción a las tablas temporales de Azure SQL Database
 
@@ -109,7 +109,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>Paso 2: Ejecutar la carga de trabajo regularmente
 La principal ventaja de las tablas temporales es que no es necesario cambiar o ajustar el sitio web de ninguna forma para realizar el seguimiento de cambios. Una vez creadas, las tablas temporales conservan las versiones de fila anteriores cada vez que realiza modificaciones en los datos. 
 
-Para poder aprovechar el seguimiento de cambios automático para este escenario en particular, simplemente vamos a actualizar la columna **PagesVisited** cada vez que el usuario finaliza la sesión en el sitio web:
+Para poder aprovechar cambie automáticamente el seguimiento para este escenario en particular, simplemente vamos a actualizar columna **PagesVisited** cada vez que un usuario finaliza su sesión en el sitio Web:
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 

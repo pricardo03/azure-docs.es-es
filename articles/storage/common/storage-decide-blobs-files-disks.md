@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f66a2699b6d29f10633b4853801240f0590ff918
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 30c7c1c50e59162817d7cfab0d852d8e034457d0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147636"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969411"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks
+
 Microsoft Azure proporciona varias características en Azure Storage para almacenar los datos en la nube y tener acceso a ellos. En este artículo se describen Azure Files, Azure Blobs y Azure Disks, y está diseñado para ayudarle a elegir entre estas características.
 
 ## <a name="scenarios"></a>Escenarios
+
 En la tabla siguiente se compara Azure Files, Azure Blobs y Azure Disks y se muestran los escenarios de ejemplo adecuados para cada uno.
 
 | Característica | DESCRIPCIÓN | Cuándo se deben usar |
@@ -28,6 +30,7 @@ En la tabla siguiente se compara Azure Files, Azure Blobs y Azure Disks y se mue
 | **Azure Disks** | Proporciona bibliotecas de cliente y una [interfaz de REST](/rest/api/compute/manageddisks/disks/disks-rest-api) que permite que los datos se almacenen persistentemente y se acceda a ellos desde un disco duro virtual conectado. | Cuando desea migrar mediante lift-and-shift aplicaciones que usan las API del sistema de archivos nativo para leer y escribir datos en discos persistentes.<br/><br/>Cuando desea almacenar datos a los que no se necesita acceder desde fuera de la máquina virtual a la que está conectado el disco. |
 
 ## <a name="comparison-files-and-blobs"></a>Comparación: Files y Blobs
+
 En la tabla siguiente se compara Azure Files con Azure Blobs.  
   
 ||||  
@@ -43,26 +46,28 @@ En la tabla siguiente se compara Azure Files con Azure Blobs.
 |Throughput|Hasta 60 MiB/s por blob en bloques|Hasta 60 MiB/s por recurso compartido|  
 |Tamaño de objeto|Hasta aproximadamente 4,75 TiB por blob en bloques|Hasta 1 TiB por archivo|  
 |Capacidad facturada|En función de los bytes escritos|Según el tamaño de archivo|  
-|Bibliotecas de clientes|Varios idiomas|Varios idiomas|  
+|Bibliotecas de cliente|Lenguajes múltiples|Lenguajes múltiples|  
   
 ## <a name="comparison-files-and-disks"></a>Comparación: Files y Disks
+
 Azure Files complementa a Azure Disks. Solo se pueden conectar un disco a una máquina virtual de Azure en cada momento. Los discos son VHD de formato fijo almacenados como blobs en páginas en Azure Storage y los utiliza la máquina virtual para almacenar datos duraderos. Se puede acceder a los recursos compartidos de archivos de Azure Files de la misma manera que se accede al disco local (mediante API del sistema de archivos nativo) y se pueden compartir entre muchas máquinas virtuales.  
- 
+
 En la tabla siguiente se compara Azure Files con Azure Disks.  
- 
+
 ||||  
 |-|-|-|  
 |**Atributo**|**Azure Disks**|**Archivos de Azure**|  
 |Scope|Exclusivo para una máquina virtual individual|Acceso compartido entre varias máquinas virtuales|  
 |Instantáneas y copia|Sí|Sí|  
 |Configuración|Se conecta al iniciarse la máquina virtual|Se conecta una vez iniciada la máquina virtual|  
-|Authentication|Característica integrada|Configurar con el uso de la red|  
+|Authentication|Integrado|Configurar con el uso de la red|  
 |Acceso con REST|No se puede acceder a archivos dentro del VHD|Se puede acceder a archivos almacenados en un recurso compartido|  
-|Tamaño máximo|Disco de 4 TiB|Recurso compartido de archivos de 5 TiB y archivo de 1 TiB dentro del recurso compartido|  
-|IOPS máx.|500 IOPS|1000 IOPS|  
-|Throughput|Hasta 60 MiB/s por disco|El objetivo es 60 MiB/s por recurso compartido de archivos (puede ser mayor para tamaños de IO superiores)|  
+|Tamaño máximo|32 discos TiB|Recurso compartido de archivos de 5 TiB y archivo de 1 TiB dentro del recurso compartido|  
+|IOPS máx.|20 000 e/s por segundo|1000 IOPS|  
+|Throughput|Hasta 900 MiB/s por disco|El objetivo es 60 MiB/s por recurso compartido de archivos (puede ser mayor para tamaños de IO superiores)|  
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Al tomar decisiones sobre cómo se almacenan los datos y cómo se accede a ellos, también debe tener en cuenta los costos implicados. Para más información, consulte [Precios de Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/).
   
 Algunas características SMB no son aplicables a la nube. Para más información, consulte [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service) (Características que no admite el servicio Azure File).

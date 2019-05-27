@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4715ec92c4ee45733cc0eb2839c533f9ee8968fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 35d494702673d59290a0073c55135138f533b8bf
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694126"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956698"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guía de solución de problemas de Azure Disk Encryption
 
@@ -64,7 +64,7 @@ En algunos casos, parece que el cifrado del disco de Linux se atasca en el mensa
 
 La secuencia de cifrado del disco del sistema operativo Linux desmonta la unidad del sistema operativo temporalmente. A continuación, realiza el cifrado de bloque a bloque de todo el disco del sistema operativo, antes de que vuelva a montarse en su estado cifrado. A diferencia de Azure Disk Encryption en Windows, el cifrado del disco de Linux no permite el uso simultáneo de la máquina virtual mientras el cifrado está en curso. Las características de rendimiento de la máquina virtual pueden suponer una diferencia significativa en el tiempo necesario para el cifrado completo. Estas características incluyen el tamaño del disco y si la cuenta de almacenamiento es almacenamiento premium (SSD) o estándar.
 
-Para comprobar el estado de cifrado, sondee el **ProgressMessage** los campos devueltos desde el [Get AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) comando. Mientras se cifra la unidad del sistema operativo, la máquina virtual entra en estado de mantenimiento y deshabilita SSH para evitar cualquier interrupción en el proceso en curso. El mensaje **EncryptionInProgress** aparece la mayoría del tiempo mientras el cifrado está en curso. Varias horas después, se muestra un mensaje **VMRestartPending** que le pide que reinicie la máquina virtual. Por ejemplo: 
+Para comprobar el estado de cifrado, sondee el **ProgressMessage** los campos devueltos desde el [Get AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) comando. Mientras se cifra la unidad del sistema operativo, la máquina virtual entra en estado de mantenimiento y deshabilita SSH para evitar cualquier interrupción en el proceso en curso. El mensaje **EncryptionInProgress** aparece la mayoría del tiempo mientras el cifrado está en curso. Varias horas después, se muestra un mensaje **VMRestartPending** que le pide que reinicie la máquina virtual. Por ejemplo:
 
 
 ```azurepowershell
@@ -130,7 +130,7 @@ Para solucionar este problema, copie los cuatro archivos siguientes de una máqu
 
 1. Use DiskPart para comprobar los volúmenes y, a continuación, siga.  
 
-Por ejemplo: 
+Por ejemplo:
 
 ```
 DISKPART> list vol
@@ -150,7 +150,9 @@ If the expected encryption state does not match what is being reported in the po
 
 El portal es posible que muestre un disco cifrado incluso después de haber sido sin cifrar en la máquina virtual.  Esto puede ocurrir cuando se usan comandos de bajo nivel para descifrar directamente el disco de la máquina virtual, en lugar de usar los comandos de administración de Azure Disk Encryption de nivel superior.  Los comandos del nivel superior no solo descifrar el disco de la máquina virtual, pero fuera de la máquina virtual también actualizan configuración de cifrado de nivel de plataforma importante y configuración de la extensión asociada con la máquina virtual.  Si estos no se mantienen en la alineación, la plataforma no podrá informar del estado de cifrado ni aprovisionar la máquina virtual correctamente.   
 
-Para deshabilitar correctamente Azure Disk Encryption, iniciar desde un estado válido conocido con el cifrado habilitado y, a continuación, utilice el [Disable AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) y [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) Powershell comandos, o la [deshabilitar el cifrado de máquinas virtuales de az](/cli/azure/vm/encryption) comando de CLI. 
+Para deshabilitar el cifrado de disco de Azure con PowerShell, use [Disable AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) seguido [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Ejecute Remove-AzVMDiskEncryptionExtension antes de deshabilita el cifrado se producirá un error.
+
+Para deshabilitar Azure Disk Encryption con la CLI, utilice [deshabilitar el cifrado de máquinas virtuales de az](/cli/azure/vm/encryption). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

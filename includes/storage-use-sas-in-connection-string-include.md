@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166274"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66115498"
 ---
 Si posee una dirección URL de firma de acceso compartido (SAS) que le concede acceso a los recursos de una cuenta de almacenamiento, puede utilizar la SAS en una cadena de conexión. Dado que SAS incluye la información necesaria para autenticar la solicitud, una cadena de conexión con un SAS proporciona el protocolo, el punto de conexión de servicio y las credenciales necesarias para acceder al recurso.
 

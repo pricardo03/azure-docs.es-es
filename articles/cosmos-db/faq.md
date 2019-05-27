@@ -4,27 +4,17 @@ description: Obtenga respuestas a las preguntas más frecuentes sobre Azure Cosm
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/20/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8e4ae9b7c96677ce494bea31a49b8db83d6bcb3c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4935e06389266f049b8f7f79ca6fb9380f33c864
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793803"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954153"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre diferentes API en Azure Cosmos DB
-
-### <a name="what-happened-to-the-documentdb-api"></a>¿Qué ha ocurrido en la API de DocumentDB?
-
-La API de DocumentDB o la API de SQL (DocumentDB) de Azure Cosmos DB ahora se conocen como API de SQL de Azure Cosmos DB. No es preciso cambiar nada para seguir ejecutando las aplicaciones compiladas con la API de DocumentDB. La funcionalidad no cambia.
-
-Si ya tenía una cuenta de API de DocumentDB, ahora tiene una cuenta de SQL API, sin cambios en la facturación.
-
-### <a name="what-happened-to-azure-documentdb-as-a-service"></a>¿Qué ha ocurrido en Azure DocumentDB como servicio?
-
-El servicio Azure DocumentDB forma ahora parte del servicio Azure Cosmos DB y se manifiesta en forma de SQL API. Las aplicaciones compiladas en Azure DocumentDB se ejecutarán sin realizar ningún cambio en SQL API de Azure Cosmos DB. Cosmos DB también implementa los protocolos de transferencia de [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) y [Azure Table Storage](table-introduction.md) directamente en el servicio. Esto le permite seleccionar controladores de cliente (y herramientas) para las API de NoSQL que se usan con frecuencia directamente en su base de datos de Cosmos.
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>¿Cuáles son los casos de uso típicos de Azure Cosmos DB?
 
@@ -32,9 +22,9 @@ Azure Cosmos DB es una buena elección para las nuevas aplicaciones web, móvile
 
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>¿Cómo ofrece Azure Cosmos DB un rendimiento predecible?
 
-Una [unidad de solicitud](request-units.md) (RU) es la medida de procesamiento de Azure Cosmos DB. 1 RU corresponde al rendimiento de una solicitud GET de un documento de 1 KB. Todas las operaciones de Azure Cosmos DB, incluidas las lecturas, escrituras, consultas SQL y ejecuciones de procedimiento almacenado, tienen un valor de unidad de solicitud determinista en función del rendimiento necesario para completar la operación. En lugar de pensar en la CPU, las E/S y la memoria, y en cómo cada uno de estos aspectos afecta al rendimiento de la aplicación, es mejor que se centre en una unidad única de unidad de solicitud.
+Una [unidad de solicitud](request-units.md) (RU) es la medida de procesamiento de Azure Cosmos DB. Un rendimiento 1RU corresponde al rendimiento de la operación GET de un documento de 1 KB. Todas las operaciones de Azure Cosmos DB, incluidas las lecturas, escrituras, consultas SQL y ejecuciones de procedimiento almacenado, tienen un valor de unidad de solicitud determinista en función del rendimiento necesario para completar la operación. En lugar de pensar en la CPU, las E/S y la memoria, y en cómo cada uno de estos aspectos afecta al rendimiento de la aplicación, es mejor que se centre en una unidad única de unidad de solicitud.
 
-Cada contenedor de Azure Cosmos DB puede configurarse con rendimiento aprovisionado en términos de unidades de solicitud del rendimiento por segundo. Para las aplicaciones de cualquier escala, puede realizar pruebas comparativas de las solicitudes individuales para medir los valores de unidad de solicitud y aprovisionar un contenedor para administrar el total de unidades de solicitud en todas las solicitudes. También puede escalar o reducir verticalmente el rendimiento del contenedor a medida que evolucionen las necesidades de la aplicación. Para obtener más información acerca de las unidades de solicitud y ayuda a determinar sus necesidades de contenedor, pruebe el [Calculadora de rendimiento](https://www.documentdb.com/capacityplanner).
+Puede configurar cada contenedor de Azure Cosmos con rendimiento aprovisionado en términos de unidades de solicitud del rendimiento por segundo. Para las aplicaciones de cualquier escala, puede realizar pruebas comparativas de las solicitudes individuales para medir los valores de unidad de solicitud y aprovisionar un contenedor para administrar el total de unidades de solicitud en todas las solicitudes. También puede escalar o reducir verticalmente el rendimiento del contenedor a medida que evolucionen las necesidades de la aplicación. Para obtener más información acerca de las unidades de solicitud y ayuda a determinar sus necesidades de contenedor, pruebe el [Calculadora de rendimiento](https://www.documentdb.com/capacityplanner).
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>¿Por qué Azure Cosmos DB admite varios modelos de datos, como pares clave-valor, columnas, documentos y gráficos?
 
@@ -91,8 +81,9 @@ Las suscripciones de prueba de Azure Cosmos DB aparecen en Azure Portal junto co
 
 Las condiciones siguientes se aplican a las suscripciones de prueba de Azure Cosmos DB:
 
-* Un contenedor por cada suscripción para las cuentas de SQL, la Gremlin API y Table.
-* Hasta 3 colecciones por suscripción para las cuentas de MongoDB.
+* Una [contenedor aprovisionado rendimiento](./set-throughput.md#set-throughput-on-a-container) por suscripción para las cuentas SQL, API de Gremlin y Table.
+* Hasta tres [rendimiento aprovisiona colecciones](./set-throughput.md#set-throughput-on-a-container) por suscripción para las cuentas de MongoDB.
+* Una [base de datos de rendimiento aprovisionado](./set-throughput.md#set-throughput-on-a-database) por suscripción. Las bases de datos de rendimiento aprovisionado pueden contener cualquier número de contenedores dentro.
 * 10 GB de capacidad de almacenamiento.
 * La replicación global está disponible en las [regiones de Azure](https://azure.microsoft.com/regions/) siguientes: Centro de EE. UU., Europa del Norte y Sudeste Asiático
 * Rendimiento máximo de 5 K RU/s cuando se aprovisionan en el nivel de contenedor.
@@ -530,7 +521,7 @@ Azure Cosmos DB usa [particiones horizontales](partition-data.md) para abordar a
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>¿Cómo me puedo proteger frente a ataques de inyección de código con los controladores Gremlin?
 
-La mayoría de los controladores Gremlin de Tinkerpop nativos ofrecen la opción de proporcionar un diccionario de parámetros para la ejecución de consultas. Este es un ejemplo de cómo hacerlo en [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) y en [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Controladores de Apache Tinkerpop Gremlin nativos más que la opción proporcionar un diccionario de parámetros de ejecución de la consulta. Este es un ejemplo de cómo hacerlo en [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) y en [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>¿Por qué recibo el mensaje "Gremlin Query Compilation Error: Unable to find any method" (Error de compilación de consultas de Gremlin: no se encuentra ningún método)?
 
@@ -755,7 +746,7 @@ Sí, puede usar la sintaxis normal para crear una clave de partición compuesta.
 
 No, en la versión preliminar, no se admite el cargador sstable.
 
-### <a name="can-an-on-premises-cassandra-cluster-be-paired-with-azure-cosmos-dbs-apache-cassandra-api"></a>¿Un clúster de Cassandra local se puede emparejar con la API de Apache Cassandra de Azure Cosmos DB?
+### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>¿Un clúster de Apache Cassandra local se puede emparejar con la API Cassandra de Azure Cosmos DB?
 
 En la actualidad, Azure Cosmos DB tiene una experiencia optimizada para el entorno en la nube sin sobrecarga de operaciones. Si requiere del emparejamiento, envíe un correo electrónico a [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) con una descripción de su escenario.
 

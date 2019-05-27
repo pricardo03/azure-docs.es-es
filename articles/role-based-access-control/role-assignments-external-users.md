@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345385"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952206"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Administración del acceso a recursos de Azure de usuarios externos mediante RBAC
 
@@ -57,7 +57,7 @@ Después de seleccionar la suscripción, el usuario administrador debe hacer cli
 
 El siguiente paso es seleccionar el rol que se va a asignar y el usuario al que se va a asignar el rol de RBAC. En el menú desplegable **Rol**, el usuario administrador ve únicamente los roles RBAC integrados que están disponibles en Azure. Para ver una explicación más detallada de cada rol y de sus ámbitos que se pueden asignar, consulte [Roles integrados en los recursos de Azure](built-in-roles.md).
 
-El usuario administrador, a continuación, debe agregar la dirección de correo electrónico del usuario externo. El comportamiento esperado para el usuario externo es que no aparezca en el inquilino existente. Cuando el usuario externo haya sido invitado, será visible en **Suscripciones > Control de acceso (IAM)** con todos los usuarios que están asignados actualmente a un rol de RBAC en el ámbito de la suscripción.
+El usuario administrador, a continuación, debe agregar la dirección de correo electrónico del usuario externo. El comportamiento esperado para el usuario externo es que no aparezca en el inquilino existente. Cuando el usuario externo haya sido invitado, que serán visibles en **suscripciones > Control de acceso (IAM)** con todos los usuarios que actualmente están asignados a un rol de RBAC en el ámbito de la suscripción.
 
 ![Agregar permisos al nuevo rol de RBAC](./media/role-assignments-external-users/3.png)
 
@@ -66,7 +66,7 @@ El usuario administrador, a continuación, debe agregar la dirección de correo 
 El usuario "chessercarlton@gmail.com" ha sido invitado como **Propietario** de la suscripción "Free Trial". Después de enviar la invitación, el usuario externo recibirá una confirmación por correo electrónico con un enlace de activación.
 ![invitación por correo electrónico para el rol de RBAC](./media/role-assignments-external-users/5.png)
 
-Al ser un usuario externo a la organización, el nuevo usuario no tiene ningún atributo en el directorio "Default tenant Azure". Estos se crearán después de que el usuario externo haya dado su consentimiento para ser registrado en el directorio asociado con la suscripción para la que se le ha asignado el rol.
+Al ser un usuario externo a la organización, el nuevo usuario no tiene ningún atributo en el directorio "Default tenant Azure". Se crearán después de que el usuario externo haya dado su consentimiento para ser registrado en el directorio que está asociado con la suscripción se les ha asignado un rol.
 
 ![Mensaje de invitación por correo electrónico para el rol de RBAC](./media/role-assignments-external-users/6.png)
 

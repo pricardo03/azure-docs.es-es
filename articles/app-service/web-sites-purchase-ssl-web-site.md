@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 15441f70052950748f07b96ff234557462f268cd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786320"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955718"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
@@ -166,4 +166,4 @@ Una vez completada la operación de renovación, haga clic en **sincronización*
 * [Aplicación de HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Aplicación de TLS 1.1 y 1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Uso de un certificado SSL en el código de aplicación de Azure App Service](app-service-web-ssl-cert-load.md)
-* [Preguntas más frecuentes: Certificados de App Service](https://docs.microsoft.com/en-us/azure/app-service/faq-configuration-and-management/)
+* [Preguntas más frecuentes: Certificados de App Service](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

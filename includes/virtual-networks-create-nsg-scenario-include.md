@@ -2,19 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: virtual-network
-author: rockboyfor
+author: genlin
 ms.service: virtual-network
 ms.topic: include
-origin.date: 04/13/2018
-ms.date: 06/11/2018
-ms.author: v-yeche
+ms.date: 04/13/2018
+ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 588aa260f2ece543445bfd4da7ef4682dab8334c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309970"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170281"
 ---
 ## <a name="scenario"></a>Escenario
 Para ilustrar mejor cómo crear grupos de seguridad de red, en este documento se usará el siguiente escenario:
@@ -31,3 +30,4 @@ En este escenario, creará un grupo de seguridad de red para cada subred de la r
   * **web-rule**. Deniega todo el tráfico ligado a Internet de la subred *BackEnd*.
 
 La combinación de estas reglas crea un escenario similar a DMZ, donde la subred de back-end solo puede recibir tráfico entrante para SQL de la subred de front-end y no tiene acceso a Internet, mientras que la subred de front-end puede comunicarse con Internet y recibir solicitudes HTTP entrantes solamente.
+

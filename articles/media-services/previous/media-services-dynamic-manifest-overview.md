@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 229f89a8803f089c24981f56e00e36efe96de3aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68eeb40e905d089601208d9fc181042c7b434843
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465227"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956801"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros y manifiestos dinámicos
 
@@ -73,14 +73,14 @@ Este es un ejemplo de un archivo de manifiesto:
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>Manifiestos dinámicos
-Hay [escenarios](media-services-dynamic-manifest-overview.md#scenarios) cuando el cliente necesita mayor flexibilidad que lo que se describe en el archivo de manifiesto del activo predeterminado. Por ejemplo: 
+Hay [escenarios](media-services-dynamic-manifest-overview.md#scenarios) cuando el cliente necesita mayor flexibilidad que lo que se describe en el archivo de manifiesto del activo predeterminado. Por ejemplo:
 
 * Específico de dispositivo: entregue únicamente las representaciones y pistas de idioma especificadas que admite el dispositivo que se usa para la reproducción del contenido ("filtrado de representaciones"). 
 * Reduzca el manifiesto para mostrar un clip secundario de un evento en directo ("filtrado de vídeos secundarios").
 * Recorte el inicio de un vídeo ("recorte de un vídeo").
 * Ajuste la ventana de presentación (DVR) para ofrecer una longitud limitada de la ventana de DVR en el reproductor ("ventana de presentación de ajuste").
 
-Para lograr esta flexibilidad, los Media Services ofrecen **manifiestos dinámicos** basados en [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Cuando defina los filtros, los clientes podrían usarlos para transmitir una representación específica o clips secundarios del vídeo. Especificarían filtros en la URL de streaming. Se podrían aplicar filtros a protocolos de streaming con velocidad de bits adaptable compatibles con [empaquetado dinámico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH y Smooth Streaming. Por ejemplo: 
+Para lograr esta flexibilidad, los Media Services ofrecen **manifiestos dinámicos** basados en [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Cuando defina los filtros, los clientes podrían usarlos para transmitir una representación específica o clips secundarios del vídeo. Especificarían filtros en la URL de streaming. Se podrían aplicar filtros a protocolos de streaming con velocidad de bits adaptable compatibles con [empaquetado dinámico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH y Smooth Streaming. Por ejemplo:
 
 URL de MPEG DASH con filtro
 
@@ -192,7 +192,7 @@ Para más información, consulte [este blog](https://azure.microsoft.com/blog/az
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="provide-feedback"></a>Proporcionar comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vea también
