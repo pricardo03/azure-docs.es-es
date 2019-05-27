@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60400582"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015267"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenación de eventos de conexión de dispositivos de Azure IoT Hub mediante Azure Cosmos DB
 
@@ -154,7 +154,7 @@ En primer lugar, cree una aplicación lógica y agregue un desencadenador de la 
 
 4. En el Diseñador de aplicaciones lógicas, desplácese a la derecha hasta que vea desencadenadores comunes. En **plantillas**, elija **aplicación lógica en blanco** para que pueda crear la aplicación lógica desde cero.
 
-### <a name="select-a-trigger"></a>Selección de un desencadenador
+### <a name="select-a-trigger"></a>Seleccione un desencadenador
 
 Un desencadenador es un evento específico que inicia la aplicación lógica. Para este tutorial, el desencadenador que activa el flujo de trabajo recibe una solicitud a través de HTTP.
 

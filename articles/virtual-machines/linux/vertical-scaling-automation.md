@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2019
-ms.author: singhkay
+ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c959b42086df2df816583ea9d2f8f2fc7a9243fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d9bf155f24c947f8a27a38af01aedcf0b041b94
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743588"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966049"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Escalado vertical de máquinas virtuales Linux de Azure con Azure Automation
 El escalado vertical es el proceso de aumentar o disminuir los recursos de una máquina como respuesta a la carga de trabajo. Para lograrlo en Azure, cambie el tamaño de la máquina virtual. Esto puede ser útil en los siguientes escenarios:
@@ -45,14 +45,14 @@ Los pasos para lograr esto se describen a continuación:
 > | Standard_A0 |Standard_A4 |
 > | Standard_A5 |Standard_A7 |
 > | Standard_A8 |Standard_A9 |
-> | Standard_A10 |Standard_A11 |
+> | Estándar_A10 |Estándar_A11 |
 > | Standard_A1_v2 |Standard_A8_v2 |
 > | Standard_A2m_v2 |Standard_A8m_v2  |
 > | Standard_B1s |Standard_B2s |
 > | Standard_B1ms |Standard_B8ms |
 > | Standard_D1 |Standard_D4 |
 > | Standard_D11 |Standard_D14 |
-> | Standard_DS1 |Standard_DS4 |
+> | Standard_DS1 |Estándar_DS4 |
 > | Standard_DS11 |Standard_DS14 |
 > | Standard_D1_v2 |Standard_D5_v2 |
 > | Standard_D11_v2 |Standard_D14_v2 |

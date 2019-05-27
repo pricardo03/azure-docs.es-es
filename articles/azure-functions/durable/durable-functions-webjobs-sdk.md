@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39a757900b4307d702a0ce0ce1c20694418aa8dd
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648659"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872833"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Cómo ejecutar Durable Functions como WebJobs
 
@@ -37,7 +37,7 @@ En este artículo se supone que está familiarizado con los conceptos básicos d
 
 Para completar los pasos de este artículo:
 
-* Instale [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/) versión 15.6 o posterior con la carga de trabajo **Desarrollo de Azure**.
+* [Instalar Visual Studio de 2019](https://docs.microsoft.com/visualstudio/install/) con el **desarrollo de Azure** carga de trabajo.
 
   Si ya tiene Visual Studio, pero no tiene esa carga de trabajo, agregue la carga de trabajo seleccionando **herramientas** > **obtener herramientas y características**.
 
@@ -125,7 +125,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funciones
 
 Durable Functions en el contexto de WebJobs difiere ligeramente de Durable Functions en el contexto de Azure Functions. Es importante tener en cuenta las diferencias al escribir el código.
 
@@ -230,7 +230,7 @@ El cambio principal que presenta es el uso de .NET Core en lugar de .NET Framewo
     * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. Establecer la cadena de conexión de almacenamiento y la clave de instrumentación de Application Insights en un *appsettings.json* archivo utilizando el marco de trabajo de configuración de .NET Core. Este es un ejemplo:
+1. Establecer la cadena de conexión de almacenamiento y la clave de instrumentación de Application Insights en un *appsettings.json* archivo utilizando el marco de trabajo de configuración de .NET Core. Por ejemplo:
 
     ```json
         {
@@ -239,7 +239,7 @@ El cambio principal que presenta es el uso de .NET Core en lugar de .NET Framewo
         }
     ```
 
-1. Cambiar el `Main` código del método para hacerlo. Este es un ejemplo:
+1. Cambiar el `Main` código del método para hacerlo. Por ejemplo:
 
    ```cs
    static void Main(string[] args)

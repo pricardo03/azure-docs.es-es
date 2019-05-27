@@ -2,21 +2,21 @@
 title: Solución de errores de copia de seguridad con máquinas virtuales de Azure
 description: Solución de problemas de copia de seguridad y restauración de máquinas virtuales de Azure
 services: backup
-author: srinathv
+author: srinathvasireddy
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: srinathv
-ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/22/2019
+ms.author: srinathvasireddy
+ms.openlocfilehash: 179f806fcff5ce0e384455fdc9db3b2253449eb0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550029"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002311"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solución de problemas de copia de seguridad de máquinas virtuales de Azure
-Puede solucionar los errores detectados al usar Azure Backup Server con la información incluida en la tabla siguiente:
+Puede solucionar los errores detectados al usar Azure Backup con la información que aparece a continuación:
 
 ## <a name="backup"></a>Copia de seguridad
 
@@ -161,7 +161,7 @@ Esto garantizará que las instantáneas se realizan con permisos de host en luga
 
 | Detalles del error | Solución alternativa |
 | ------ | --- |
-| Código de error: 320001<br/> Mensaje de error: No se pudo realizar la operación porque la máquina virtual ya no existe. <br/> <br/> Código de error: 400094 <br/> Mensaje de error: No existe la máquina virtual <br/> <br/>  No se encontró una máquina virtual de Azure.  |Este error sucede cuando se elimina la máquina virtual principal, pero la directiva de copia de seguridad continúa buscando una máquina virtual para realizar la copia de seguridad. Para corregir este error, siga estos pasos: <ol><li> Vuelva a crear la máquina virtual con el mismo nombre y el mismo nombre de grupo de recursos, **nombre del servicio en la nube**,<br>**or**</li><li> Deje de proteger la máquina virtual eliminando o sin eliminar los datos de la copia de seguridad. Para más información, consulte [Detener la protección de máquinas virtuales](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
+| Código de error: 320001<br/> Mensaje de error: No se pudo realizar la operación porque la VM ya no existe. <br/> <br/> Código de error: 400094 <br/> Mensaje de error: No existe la máquina virtual <br/> <br/>  No se encontró una máquina virtual de Azure.  |Este error sucede cuando se elimina la máquina virtual principal, pero la directiva de copia de seguridad continúa buscando una máquina virtual para realizar la copia de seguridad. Para corregir este error, siga estos pasos: <ol><li> Vuelva a crear la máquina virtual con el mismo nombre y el mismo nombre de grupo de recursos, **nombre del servicio en la nube**,<br>**or**</li><li> Deje de proteger la máquina virtual eliminando o sin eliminar los datos de la copia de seguridad. Para más información, consulte [Detener la protección de máquinas virtuales](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
 | La máquina virtual está en un estado de aprovisionamiento incorrecto: <br>Reinicie la máquina y asegúrese de que se esté ejecutando o esté apagada. | Este error ocurre cuando uno de los errores de extensión pone a la máquina virtual en un estado de aprovisionamiento erróneo. Vaya a la lista de extensiones y compruebe si hay una extensión errónea, quítela e intente reiniciar la máquina virtual. Si todas las extensiones están en estado de ejecución, compruebe si el servicio del agente de VM está en ejecución. Si no es así, reinicie el servicio del agente de VM. |
 |Código de error: UserErrorBCMPremiumStorageQuotaError<br/> Mensaje de error: No se pudo copiar la instantánea de la máquina virtual porque no hay suficiente espacio en la cuenta de almacenamiento | En el caso de máquinas virtuales Prémium de la versión 1 de la pila de copia de seguridad de máquinas virtuales, la instantánea se copia a la cuenta de almacenamiento. Este pase sirve para garantizar que el tráfico de administración de copias de seguridad, que trabaja en la instantánea, no limite el número de IOPS disponibles para la aplicación con discos Prémium. <br><br>Se recomienda asignar solo un 50 por ciento, 17,5 TB, del espacio total de la cuenta de almacenamiento. El servicio de Azure Backup puede copiar la instantánea a la cuenta de almacenamiento y transferir datos desde la ubicación copiada en la cuenta de almacenamiento al almacén. |
 | No se pudo instalar la extensión de Microsoft Recovery Services como máquina virtual no se está ejecutando <br>Se requiere tener el agente de VM para instalar la extensión de Azure Recovery Services. Instale el agente de máquina virtual de Azure y reinicie la operación de registro. |<ol> <li>Compruebe si el agente de máquina virtual se ha instalado correctamente. <li>Asegúrese de que la marca de la configuración de la máquina virtual se haya establecido correctamente.</ol> Obtenga más información acerca de la instalación del agente de máquina virtual y de cómo validar dicha instalación. |
@@ -173,7 +173,7 @@ Esto garantizará que las instantáneas se realizan con permisos de host en luga
 | Error en la operación de instantánea debido a un error en la instalación de Visual C++ Redistributable para Visual Studio 2012. | Vaya a C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instale vcredist2012_x64.<br/>Asegúrese de que el valor de clave del registro que permite la instalación del servicio se establece en el valor correcto. Es decir, establecer el **iniciar** valor en **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** a **3** y no **4**. <br><br>Si todavía experimenta problemas con la instalación, reinicie el servicio de instalación; para ello, ejecute **MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** desde un símbolo del sistema con privilegios elevados.  |
 
 
-## <a name="jobs"></a>Trabajos
+## <a name="jobs"></a>Trabajos (jobs)
 
 | Detalles del error | Solución alternativa |
 | --- | --- |
@@ -182,7 +182,7 @@ Esto garantizará que las instantáneas se realizan con permisos de host en luga
 | La copia de seguridad no puede cancelar el trabajo porque no está en curso: <br>solo se admite la cancelación en los trabajos en curso. Intente cancelar un trabajo en curso. |Este error se produce debido a un estado transitorio. Espere un momento y reintente la operación de cancelación. |
 | La copia de seguridad no pudo cancelar el trabajo: <br>espere hasta que el trabajo finalice. |None |
 
-## <a name="restore"></a>Restauración
+## <a name="restore"></a>Restaurar
 
 | Detalles del error | Solución alternativa |
 | --- | --- |
@@ -205,22 +205,22 @@ Si la copia de seguridad tarda más de 12 horas o la restauración tarda más de
 ### <a name="set-up-the-vm-agent"></a>Configuración del agente de la máquina virtual
 Normalmente, el agente de la máquina virtual ya está presente en las máquinas virtuales que se crean desde la Galería de Azure. Sin embargo, las máquinas virtuales que se migran desde los centros de datos locales no tendrán instalado el agente de máquina virtual. Para dichas máquinas virtuales, el agente de máquina virtual debe instalarse explícitamente.
 
-#### <a name="windows-vms"></a>Máquinas virtuales Windows
+#### <a name="windows-vms"></a>VM Windows
 
 * Descargue e instale el [MSI del agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para completar la instalación, necesita privilegios de administrador.
 * En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, [actualice la propiedad de la máquina virtual](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que el agente está instalado. Este paso no es necesario para las máquinas virtuales de Azure Resource Manager.
 
-#### <a name="linux-vms"></a>Máquinas virtuales con Linux
+#### <a name="linux-vms"></a>VM Linux
 
 * Instale la versión más reciente del agente desde el repositorio de distribución. Para obtener más información sobre el nombre del paquete, consulte el [repositorio del agente de Linux](https://github.com/Azure/WALinuxAgent).
 * En el caso de las máquinas virtuales creadas con el modelo de implementación clásica, [use este blog](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para actualizar la propiedad de la máquina virtual y comprobar que el agente está instalado. Este paso no es necesario para las máquinas virtuales de Resource Manager.
 
 ### <a name="update-the-vm-agent"></a>Actualización del agente de máquina virtual
-#### <a name="windows-vms"></a>Máquinas virtuales Windows
+#### <a name="windows-vms"></a>VM Windows
 
 * Para actualizar el agente de VM, vuelva a instalar los [archivos binarios del agente de VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Antes de actualizar al agente, asegúrese de que no ocurra ninguna operación de copia de seguridad durante la actualización del agente de VM.
 
-#### <a name="linux-vms"></a>Máquinas virtuales con Linux
+#### <a name="linux-vms"></a>VM Linux
 
 * Para actualizar el agente de máquina virtual Linux, siga las instrucciones del artículo [Actualización del agente Linux de Azure en una máquina virtual](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

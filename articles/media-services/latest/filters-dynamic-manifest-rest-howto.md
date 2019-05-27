@@ -11,20 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: 32b9664d12d6fe3a44329665c730dbc8709430f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69399513291a47f7109003e825052314f447125a
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322726"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002322"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Creación de filtros con la API REST de Media Services
 
-Al entregar su contenido a los clientes (streaming de eventos en vivo o vídeo bajo demanda), es posible que el cliente necesite más flexibilidad que la descrita en el archivo de manifiesto del recurso predeterminado. Azure Media Services le permite definir filtros de cuenta y filtros de recurso para su contenido. Para obtener más información, consulte [Filtros y manifiestos dinámicos](filters-dynamic-manifest-overview.md).
+Al entregar su contenido a los clientes (streaming de eventos en vivo o vídeo bajo demanda), es posible que el cliente necesite más flexibilidad que la descrita en el archivo de manifiesto del recurso predeterminado. Azure Media Services le permite definir filtros de cuenta y filtros de recurso para su contenido. Para obtener más información, consulte [filtros](filters-concept.md) y [los manifiestos dinámicos](filters-dynamic-manifest-overview.md).
 
 En este tema se muestra cómo definir un filtro para un recurso Vídeo bajo demanda y usar las API REST para crear [Filtros de cuenta](https://docs.microsoft.com/rest/api/media/accountfilters) y [Filtros de recurso](https://docs.microsoft.com/rest/api/media/assetfilters). 
+
+> [!NOTE]
+> No olvide revisar [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## <a name="prerequisites"></a>Requisitos previos 
 

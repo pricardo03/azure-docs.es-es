@@ -6,11 +6,11 @@ ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416361"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111452"
 ---
 Las imágenes estandarizadas virtual machine (VM) permiten a las organizaciones migrar a la nube y garantizar la coherencia de las implementaciones. Normalmente, las imágenes incluyen configuraciones predefinidas de seguridad y la configuración y el software necesario. La configuración de su propia canalización de procesamiento de imágenes requiere tiempo, infraestructura y el programa de instalación, pero con el generador de imágenes de máquina virtual de Azure, basta con que proporcione una configuración simple que describe la imagen, enviarlo al servicio, y la imagen se crea y distribuye.
  

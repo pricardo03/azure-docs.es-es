@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: df1ffa07c9b813ee3da4952bbcc394f43c69b7ac
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6c495456a5a3295abe5460ff6b5586e41fab2d95
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204234"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001036"
 ---
 # <a name="security-attributes-for-azure-sql-database"></a>Atributos de seguridad de base de datos de SQL Azure
 
@@ -28,8 +28,8 @@ Azure SQL Database incluye tanto [base de datos única](sql-database-single-inde
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí | Conoce como "cifrado en uso", como se describe en el artículo [Always Encrypted](sql-database-always-encrypted.md). Cifrado del lado del servicio usa [cifrado de datos transparente](transparent-data-encryption-azure-sql.md) (TDE).|
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | Se usa HTTPS. |
-| Control de clave de cifrado (CMK, BYOK, etc.)| Sí | Se ofrecen control de claves administradas del servicio tanto administradas por el cliente (a través de este último [Azure Key Vault](../key-vault/index.yml). |
+| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>En el cifrado de red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | Se usa HTTPS. |
+| Control de claves de cifrado (CMK, BYOK, etcetera.)| Sí | Se ofrecen control de claves administradas del servicio tanto administradas por el cliente (a través de este último [Azure Key Vault](../key-vault/index.yml). |
 | Cifrado de nivel de columna (Azure Data Services)| Sí | A través de [Always Encrypted](sql-database-always-encrypted.md). |
 | Llamadas a API cifradas| Sí | Uso de HTTPS/SSL. |
 
@@ -37,10 +37,10 @@ Azure SQL Database incluye tanto [base de datos única](sql-database-single-inde
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con punto de conexión de servicio| Sí | Se aplica a [base de datos única](sql-database-single-index.yml) solo. |
-| Compatibilidad con inserción de red virtual| Sí | Se aplica a [instancia administrada](sql-database-managed-instance.md) solo. |
-| Compatibilidad con aislamiento de red y firewalls| Sí | En ambas bases de datos - y nivel de servidor; de Firewall aislamiento de red [instancia administrada](sql-database-managed-instance.md) solo |
-| Compatibilidad con tunelización forzada | Sí | [instancia administrada](sql-database-managed-instance.md) a través de [Azure ExpressRoute](../expressroute/index.yml) VPN |
+| Compatibilidad de punto de conexión de servicio| Sí | Se aplica a [base de datos única](sql-database-single-index.yml) solo. |
+| Compatibilidad con inserción de redes virtuales| Sí | Se aplica a [instancia administrada](sql-database-managed-instance.md) solo. |
+| Aislamiento de red y la compatibilidad con Firewall| Sí | En ambas bases de datos - y nivel de servidor; de Firewall aislamiento de red [instancia administrada](sql-database-managed-instance.md) solo |
+| Fuerza la tunelización de soporte técnico| Sí | [instancia administrada](sql-database-managed-instance.md) a través de [Azure ExpressRoute](../expressroute/index.yml) VPN |
 
 ## <a name="detection"></a>Detección
 
@@ -52,22 +52,22 @@ Azure SQL Database incluye tanto [base de datos única](sql-database-single-inde
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Administración del acceso: autenticación| Sí | Azure Active Directory. |
-| Administración del acceso: autorización| Sí |  |
+| Authentication| Sí | Azure Active Directory. |
+| Autorización| Sí |  |
 
 
 ## <a name="audit-trail"></a>Pista de auditoría
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Registro y auditoría de planificación de control/administración| Sí | Sí, solo algunos eventos. |
-| Registro y auditoría del plano de datos | Sí | A través de [auditoría SQL](sql-database-auditing.md). |
+| Auditoría y registro del plano de control y administración| Sí | Sí, solo algunos eventos. |
+| Auditoría y registro del plano de datos | Sí | A través de [auditoría SQL](sql-database-auditing.md). |
 
 ## <a name="configuration-management"></a>Administración de configuración
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con la administración de configuración (control de versiones de configuración, etcetera.)| Sin   | | 
+| Compatibilidad con la administración de configuración (control de versiones de configuración, etcetera.)| No  | | 
 
 ## <a name="additional-security-attributes-for-sql-database"></a>Atributos de seguridad adicionales para la base de datos de SQL
 

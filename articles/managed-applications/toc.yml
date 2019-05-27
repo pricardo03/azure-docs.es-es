@@ -45,6 +45,8 @@
           href: publish-portal.md
         - name: Uso de un secreto de Key Vault
           href: key-vault-access.md
+        - name: Implementación con identidad administrada
+          href: publish-managed-identity.md
     - name: Consumidores
       items:
         - name: Supervisión de una aplicación administrada

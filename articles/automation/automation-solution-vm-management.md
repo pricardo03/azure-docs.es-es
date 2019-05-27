@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501970"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002490"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
 
@@ -49,7 +49,7 @@ Se recomienda usar una cuenta de Automation independiente para la solución de m
 
 ### <a name="permissions-needed-to-deploy"></a>Permisos necesarios para implementar
 
-Hay determinados permisos que un usuario debe tener para implementar las máquinas virtuales de inicios y paradas durante fuera de la solución de horas. Estos permisos son diferentes si usa un área de trabajo de cuenta de Automation y Log Analytics creada previamente o crear nuevos durante la implementación.
+Hay determinados permisos que un usuario debe tener para implementar las máquinas virtuales de inicios y paradas durante fuera de la solución de horas. Estos permisos son diferentes si usa un área de trabajo de cuenta de Automation y Log Analytics creada previamente o crear nuevos durante la implementación. Si es un colaborador de la suscripción y un administrador Global del inquilino de Azure Active Directory, no es necesario configurar los permisos siguientes. Si no tiene esos derechos o necesita configurar un rol personalizado, vea los permisos necesarios a continuación.
 
 #### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Cuenta existente cuenta de Automation y Log Analytics
 
@@ -79,41 +79,21 @@ Para implementar Start/Stop VMs durante fuera de la solución de horas en una cu
 
 Para implementar las máquinas virtuales de inicios y paradas durante horas de inactividad solución a una nueva cuenta de Automation y Log Analytics workspace el usuario que implementa la solución necesita los permisos definidos en la sección anterior, así como los permisos siguientes:
 
-- Coadministrador de suscripción: Esto es necesario para crear la cuenta de ejecución clásica
-- Formar parte de la **desarrollador de aplicaciones** rol. Para obtener más información sobre cómo configurar cuentas de ejecución, consulte [permisos para configurar las cuentas de ejecución](manage-runas-account.md#permissions).
+- Coadministrador de suscripción: solo es necesario para crear la cuenta de ejecución clásica
+- Formar parte de la [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **desarrollador de aplicaciones** rol. Para obtener más información sobre cómo configurar cuentas de ejecución, consulte [permisos para configurar las cuentas de ejecución](manage-runas-account.md#permissions).
+- Colaborador de la suscripción o los permisos siguientes.
 
 | Permiso |Scope|
 | --- | --- |
+| Microsoft.Authorization/Operations/read | Subscription|
+| Microsoft.Authorization/permissions/read |Subscription|
 | Microsoft.Authorization/roleAssignments/read | Subscription |
 | Microsoft.Authorization/roleAssignments/write | Subscription |
+| Microsoft.Authorization/roleAssignments/delete | Subscription |
 | Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/certificates/read | Grupo de recursos |
 | Microsoft.Automation/automationAccounts/write | Grupo de recursos |
 | Microsoft.OperationalInsights/workspaces/write | Grupo de recursos |
-
-### <a name="region-mappings"></a>Asignaciones de regiones
-
-Al habilitar Start/Stop VMs during OFF, solo en determinadas regiones se admiten para vincular un área de trabajo de Log Analytics y una cuenta de Automation.
-
-En la tabla siguiente se muestran las asignaciones admitidas:
-
-|**Región del área de trabajo de Log Analytics**|**Región de Azure Automation**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> asignaciones EastUS2EUAP y EastUS para áreas de trabajo de Log Analytics para las cuentas de Automation no son una asignación exacta de una región a otra, pero es la asignación correcta.
-
-<sup>2</sup> debido a restricciones de capacidad la región no está disponible al crear nuevos recursos. Esto incluye las cuentas de Automation y Log Analytics de áreas de trabajo. Sin embargo, recursos vinculados que ya existían en la región deben continuar funcionando.
 
 ## <a name="deploy-the-solution"></a>Implementación de la solución
 
@@ -140,6 +120,11 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
    - En **Grupo de recursos**, puede crear un grupo de recursos nuevo o seleccionar uno existente.
    - Seleccione una **ubicación**. Actualmente, las únicas ubicaciones disponibles son: **Sudeste de Australia**, **Centro de Canadá**, **Centro de la India**, **Este de EE. UU.**, **Japón Oriental**, **Sudeste Asiático**, **Sur de Reino Unido**, **Europa Occidental** y **Oeste de EE. UU. 2**.
    - Seleccione un **plan de tarifa**. Elija la opción **Por GB (independiente)**. Se ha actualizado los registros de Azure Monitor [precios](https://azure.microsoft.com/pricing/details/log-analytics/) y el nivel por GB es la única opción.
+
+   > [!NOTE]
+   > Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
+   >
+   > Para obtener una lista de los pares de asignaciones admitidas, consulte [asignación de región para la cuenta de Automation y Log Analytics workspace](how-to/region-mappings.md).
 
 5. Después de proporcionar la información necesaria en la página **Área de trabajo de Log Analytics**, haga clic en **Crear**. Se puede realizar un seguimiento de su progreso en la opción **Notificaciones** del menú, que le devuelve a la página **Agregar solución** cuando haya finalizado.
 6. En la página **Agregar solución**, seleccione **Cuenta de Automation**. Si va a crear una nueva área de trabajo de Log Analytics, puede crear una cuenta de Automation para asociarla, o seleccionar una cuenta de Automation existente que no esté ya vinculada a un área de trabajo de Log Analytics. Seleccione una cuenta de Automation existente o haga clic en **Crear una cuenta de Automation** y, en la página **Agregar cuenta de Automation**, especifique la siguiente información:
@@ -433,7 +418,9 @@ Si decide que ya no necesita usar la solución, puede eliminarla de la cuenta de
 
 Para eliminar la solución, realice los siguientes pasos.
 
-1. En su cuenta de Automation, seleccione **Área de trabajo** en la página izquierda.
+1. En su cuenta de Automation en **recursos relacionados**, seleccione **área de trabajo vinculado**.
+1. Seleccione **vaya al área de trabajo**.
+1. En **General**, seleccione **soluciones**. 
 1. En la página **Soluciones**, seleccione la solución **Start-Stop-VM[Workspace]**. En la página **VMManagementSolution[Workspace]**, en el menú, seleccione **Eliminar**.<br><br> ![Eliminación de la solución de administración de máquinas virtuales](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. En la ventana **Eliminar solución**, confirme que desea eliminar la solución.
 1. Mientras se comprueba la información y se elimina la solución, puede realizar un seguimiento de su progreso en **Notificaciones** en el menú. Cuando comience el proceso para eliminar la solución, se le devuelve a la página **Soluciones**.

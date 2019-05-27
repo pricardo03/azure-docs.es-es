@@ -16,11 +16,11 @@ ms.date: 11/27/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f76fef3d5e6515e9d546c709ace0a4a533c0a45
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66112692"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configuración de identidades administradas de recursos de Azure en una VM de Azure mediante PowerShell
 
@@ -147,7 +147,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
 
 1. Hacer referencia a uno de los siguientes tutoriales de máquina virtual Azure, completar sólo las secciones necesarias ("iniciar sesión en Azure", "Crear grupo de recursos", "Crear red group", "creación de la máquina virtual"). 
   
-    Cuando llegue a la sección "Creación de la máquina virtual", realice una pequeña modificación en la sintaxis del cmdlet [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm). Agregue los parámetros `-IdentityType UserAssigned` y `-IdentityID` para aprovisionar la máquina virtual con una identidad asignada por el usuario.  Reemplace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` con sus propios valores.  Por ejemplo: 
+    Cuando llegue a la sección "Creación de la máquina virtual", realice una pequeña modificación en la sintaxis del cmdlet [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm). Agregue los parámetros `-IdentityType UserAssigned` y `-IdentityID` para aprovisionar la máquina virtual con una identidad asignada por el usuario.  Reemplace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` y `<USER ASSIGNED IDENTITY NAME>` con sus propios valores.  Por ejemplo:
     
     ```powershell 
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."

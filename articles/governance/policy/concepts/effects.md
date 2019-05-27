@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 67a195932ad1afc3c93a94dfcbda8ab8a47760b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498823"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116200"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprender los efectos de Azure Policy
 
@@ -30,7 +30,7 @@ Actualmente, se admiten seis efectos en una definición de directiva:
 
 ## <a name="order-of-evaluation"></a>Orden de evaluación
 
-En primer lugar, Policy evalúa las solicitudes para crear o actualizar un recurso a través de Azure Resource Manager. Policy crea una lista de todas las asignaciones que se aplican al recurso y, a continuación, evalúa el recurso de acuerdo con cada definición. Policy procesa algunos de los efectos antes de entregar la solicitud al proveedor de recursos adecuado. De este modo, se evita que un proveedor de recursos realice un procesamiento innecesario cuando un recurso no cumple con los controles de gobernanza diseñados de Policy.
+Las solicitudes para crear o actualizar un recurso a través de Azure Resource Manager se evalúan primero por la directiva de Azure. Directiva de Azure crea una lista de todas las asignaciones que se aplican a los recursos y, a continuación, se evalúa como el recurso en cada definición. Directiva de Azure procesa algunos de los efectos antes de entregar la solicitud al proveedor de recursos adecuado. Si lo hace, impide el procesamiento innecesario por un proveedor de recursos cuando un recurso no cumple con los controles diseñados de directiva de Azure.
 
 - Primero se selecciona **Deshabilitado** para determinar si se debe evaluar la regla de directivas.
 - Luego se evalúa **Append**. Dado que append ya podría alterar la solicitud, un cambio realizado por append podría evitar la activación de un efecto audit o deny.
@@ -88,8 +88,7 @@ Ejemplo 2: varios pares **campo/valor** para anexar un conjunto de etiquetas.
 }
 ```
 
-Ejemplo 3: un único par **campo/valor** que usa un 
-[alias](definition-structure.md#aliases) distinto de-**[\*]** con un **valor** de matriz para establecer reglas de IP en una cuenta de almacenamiento. Cuando el alias que no es **[\*]** es una matriz, el efecto anexa el **valor** como toda la matriz. Si la matriz ya existe, el conflicto ocasiona un evento de rechazo.
+Ejemplo 3: Solo **campo-valor** emparejar con una que no sean de **[\*]** [alias](definition-structure.md#aliases) con una matriz **valor** para establecer las reglas IP en una cuenta de almacenamiento. Cuando el alias que no es **[\*]** es una matriz, el efecto anexa el **valor** como toda la matriz. Si la matriz ya existe, el conflicto ocasiona un evento de rechazo.
 
 ```json
 "then": {
@@ -149,7 +148,7 @@ Audit se utiliza para crear un evento de advertencia en el registro de actividad
 
 ### <a name="audit-evaluation"></a>Evaluación de audit
 
-Audit es el último efecto que Policy comprueba durante la creación o actualización de un recurso. A continuación, Policy envía el recurso al proveedor de recursos. Audit funciona igual para una solicitud de recurso y un ciclo de evaluación. Policy agrega una operación `Microsoft.Authorization/policies/audit/action` al registro de actividad y marca el recurso como no compatible.
+Auditoría es el último efecto activado por la directiva de Azure durante la creación o actualización de un recurso. Directiva de Azure, a continuación, envía el recurso para el proveedor de recursos. Audit funciona igual para una solicitud de recurso y un ciclo de evaluación. Directiva de Azure agrega un `Microsoft.Authorization/policies/audit/action` operación en el registro de actividad y se marca como no conforme.
 
 ### <a name="audit-properties"></a>Propiedades de audit
 
@@ -171,7 +170,7 @@ AuditIfNotExists habilita la auditoría en recursos que coinciden con la condici
 
 ### <a name="auditifnotexists-evaluation"></a>Evaluación de AuditIfNotExists
 
-AuditIfNotExists se ejecuta después de que un proveedor de recursos haya operado con una solicitud de creación o actualización de recursos y haya devuelto un código de estado correcto. La auditoría se produce si no hay recursos relacionados o si los recursos definidos por **ExistenceCondition** no se evalúan como true. Policy agrega una operación `Microsoft.Authorization/policies/audit/action` al registro de actividad del mismo modo que el efecto audit. Cuando se desencadena, el recurso que cumple la condición **if** es el recurso que está marcado como no conforme.
+AuditIfNotExists se ejecuta después de que un proveedor de recursos haya operado con una solicitud de creación o actualización de recursos y haya devuelto un código de estado correcto. La auditoría se produce si no hay recursos relacionados o si los recursos definidos por **ExistenceCondition** no se evalúan como true. Directiva de Azure agrega un `Microsoft.Authorization/policies/audit/action` operación a la actividad de registro del mismo modo que el efecto de auditoría. Cuando se desencadena, el recurso que cumple la condición **if** es el recurso que está marcado como no conforme.
 
 ### <a name="auditifnotexists-properties"></a>Propiedades de AuditIfNotExists
 
@@ -300,7 +299,7 @@ Ejemplo: evalúa las bases de datos de SQL Server para determinar si está habil
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
         "roleDefinitionIds": [
-            "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
         ],
         "existenceCondition": {
@@ -369,9 +368,9 @@ Cada asignación se evalúa individualmente. Por lo tanto, no hay ninguna oportu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md)
-- Consulte la [Estructura de definición de directivas](definition-structure.md)
-- Entender cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md)
-- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md)
-- Más información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md)
-- En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.
+- Revise los ejemplos en [ejemplos de Azure Policy](../samples/index.md).
+- Revise la [estructura de definición de Azure Policy](definition-structure.md).
+- Comprender cómo [crear mediante programación las directivas](../how-to/programmatically-create.md).
+- Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md).
+- Obtenga información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md).
+- Compruebe que un grupo de administración con [organizar los recursos con grupos de administración de Azure](../../management-groups/overview.md).

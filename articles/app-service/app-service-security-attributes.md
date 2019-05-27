@@ -9,12 +9,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d22fca27943be7ac7db8b8edd5882b9fa4ab3ab9
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 1d7ab8008e8fbdb5f851f158d14f62bdea803f11
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65607264"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001699"
 ---
 # <a name="security-attributes-for-azure-app-service"></a>Atributos de seguridad para Azure App Service
 
@@ -28,7 +28,7 @@ Este artículo documenta los atributos comunes de seguridad integrados en Azure 
 |---|---|--|
 | Cifrado en reposo (por ejemplo, el cifrado del lado servidor, el cifrado del lado servidor con claves administradas por el cliente y otras características de cifrado) | Sí | Contenido del archivo de sitio Web se almacena en Azure Storage, que cifra automáticamente el contenido en reposo. Consulte [cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md).<br><br>Los secretos de la proporcionada por el usuario se cifran en reposo. Los secretos se cifran en reposo mientras se almacenan en bases de datos de configuración de App Service.<br><br>Los discos conectados localmente, opcionalmente, pueden utilizarse como almacenamiento temporal por los sitios Web (D:\local y % TMP %). Los discos conectados localmente no se cifran en reposo. |
 | Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, en el cifrado de red virtual y redes)| Sí | Los clientes pueden configurar los sitios web para requerir y usar HTTPS para el tráfico entrante. Consulte el blog [cómo hacer que Azure App Service HTTPS solo](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
-| Control de clave de cifrado (CMK, BYOK, etc.)| Sí | Los clientes pueden elegir almacenar secretos de aplicación en Key Vault y recuperarlos en tiempo de ejecución. Consulte [hace referencia un uso de Key Vault para App Service y Azure Functions (versión preliminar)](app-service-key-vault-references.md).|
+| Control de claves de cifrado (CMK, BYOK, etcetera.)| Sí | Los clientes pueden elegir almacenar secretos de aplicación en Key Vault y recuperarlos en tiempo de ejecución. Consulte [hace referencia un uso de Key Vault para App Service y Azure Functions (versión preliminar)](app-service-key-vault-references.md).|
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí | Se realizan llamadas de administración para configurar App Service a través de [Azure Resource Manager](../azure-resource-manager/index.yml) llamadas a través de HTTPS. |
 
@@ -36,10 +36,10 @@ Este artículo documenta los atributos comunes de seguridad integrados en Azure 
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad con punto de conexión de servicio| Sí | Disponible actualmente en versión preliminar de App Service. Consulte [restricciones de acceso de Azure App Service](app-service-ip-restrictions.md). |
-| Compatibilidad con inserción de red virtual| Sí | Entornos de App Service son implementaciones privadas de App Service dedicado a un solo cliente insertado en una red virtual de cliente. Consulte [Introducción a App Service Environment](environment/intro.md). |
+| Compatibilidad de punto de conexión de servicio| Sí | Disponible actualmente en versión preliminar de App Service. Consulte [restricciones de acceso de Azure App Service](app-service-ip-restrictions.md). |
+| Compatibilidad con inserción de redes virtuales| Sí | Entornos de App Service son implementaciones privadas de App Service dedicado a un solo cliente insertado en una red virtual de cliente. Consulte [Introducción a App Service Environment](environment/intro.md). |
 | Compatibilidad con aislamiento de red y Firewalling| Sí | La variación pública de varios inquilinos de App Service, los clientes pueden configurar las ACL (restricciones de IP) para bloquear el tráfico entrante permitido de red.  Consulte [restricciones de acceso de Azure App Service](app-service-ip-restrictions.md).  App Service Environment se implementa directamente en redes virtuales y, por tanto, se puede proteger con NSG. |
-| Compatibilidad con tunelización forzada | Sí | Entornos de App Service se pueden implementar en una red virtual de cliente donde se configura la tunelización forzada. Los clientes tienen que seguir las instrucciones de [configurar App Service Environment con tunelización forzada](environment/forced-tunnel-support.md). |
+| Fuerza la tunelización de soporte técnico| Sí | Entornos de App Service se pueden implementar en una red virtual de cliente donde se configura la tunelización forzada. Los clientes tienen que seguir las instrucciones de [configurar App Service Environment con tunelización forzada](environment/forced-tunnel-support.md). |
 
 ## <a name="detection"></a>Detección
 
@@ -59,8 +59,8 @@ Este artículo documenta los atributos comunes de seguridad integrados en Azure 
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Registro y auditoría de planificación de control/administración| Sí | Todas las operaciones de administración realizadas en objetos de App Service se producen a través de [Azure Resource Manager](../azure-resource-manager/index.yml). Los registros históricos de estas operaciones están disponibles tanto en el portal a través de la CLI; consulte [operaciones del proveedor de recursos de Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftweb) y [registro de actividad de monitor az](/cli/azure/monitor/activity-log). |
-| Registro y auditoría del plano de datos | No | El plano de datos de App Service es un recurso compartido de archivos remoto que contiene el contenido del sitio web implementado de un cliente.  No hay ninguna auditoría del recurso compartido de archivos remoto. |
+| Auditoría y registro del plano de control y administración| Sí | Todas las operaciones de administración realizadas en objetos de App Service se producen a través de [Azure Resource Manager](../azure-resource-manager/index.yml). Los registros históricos de estas operaciones están disponibles tanto en el portal a través de la CLI; consulte [operaciones del proveedor de recursos de Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftweb) y [registro de actividad de monitor az](/cli/azure/monitor/activity-log). |
+| Auditoría y registro del plano de datos | No | El plano de datos de App Service es un recurso compartido de archivos remoto que contiene el contenido del sitio web implementado de un cliente.  No hay ninguna auditoría del recurso compartido de archivos remoto. |
 
 ## <a name="configuration-management"></a>Administración de configuración
 

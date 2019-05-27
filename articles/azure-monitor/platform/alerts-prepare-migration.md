@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 347c89991cbb4d28b46eafff0a783148793ad2f7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727493"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015607"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar sus aplicaciones lógicas y los runbooks para la migración de las reglas de alerta clásicas
 
-Como [anunciaron](monitoring-classic-retirement.md), las alertas clásicas en Azure Monitor se retirará en julio de 2019. Una herramienta de migración está disponible en el portal de Azure a los clientes que utilizan las reglas de alerta clásicas y que desean desencadenar la migración.
+Como [anunciaron](monitoring-classic-retirement.md), las alertas clásicas en Azure Monitor se retirará en septiembre de 2019 (era originalmente de 2019 de julio). Una herramienta de migración está disponible en el portal de Azure a los clientes que utilizan las reglas de alerta clásicas y que desean desencadenar la migración.
+
+> [!NOTE]
+> Debido a un retraso en la puesta en servicio de herramienta de migración, la fecha de retirada para la migración de las alertas clásicas se ha ampliado a 31 de agosto de 2019 desde la fecha anunciada originalmente del 30 de junio de 2019.
 
 Si opta por migrar voluntariamente las reglas de alertas clásicas para nuevas reglas de alerta, tenga en cuenta que existen algunas diferencias entre los dos sistemas. En este artículo se explica esas diferencias y cómo puede prepararse para el cambio.
 
@@ -30,7 +33,7 @@ En la tabla siguiente es una referencia a las interfaces de programación para l
 |---------|---------|---------|
 |API DE REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [alerta de monitor AZ](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerta de métricas de monitor AZ](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [Referencia](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |      |
+|PowerShell      | [Referencia](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referencia](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Plantilla del Administrador de recursos de Azure | [Para las alertas clásicas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Nuevas alertas de métrica](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
 ## <a name="notification-payload-changes"></a>Cambios de carga de notificación
@@ -42,13 +45,13 @@ Utilice la tabla siguiente para asignar los campos de carga de webhook desde el 
 |  |Alertas clásicas  |Nuevas alertas de métrica |
 |---------|---------|---------|
 |¿Fue la alerta activa o resueltos?    | **estado**       | **data.status** |
-|Información contextual sobre la alerta     | **contextoo**        | **data.context**        |
+|Información contextual sobre la alerta     | **context**        | **data.context**        |
 |Marca de tiempo en el que se activó o resolver la alerta     | **context.timestamp**       | **data.context.timestamp**        |
 | Id. de regla de alerta | **context.id** | **data.context.id** |
 | Nombre de la regla de alertas | **context.name** | **data.context.name** |
 | Descripción de la regla de alerta | **context.description** | **data.context.description** |
 | Condición de regla de alerta | **context.condition** | **data.context.condition** |
-| Nombre de métrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| Nombre de la métrica | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
 | Agregación de tiempo (cómo se agrega la métrica en la ventana de evaluación)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
 | Período de evaluación | **context.condition.windowSize** | **data.context.condition.windowSize** |
 | Operador (cómo se compara el valor de métrica agregado con el umbral) | **context.condition.operator** | **data.context.condition.operator** |

@@ -3,21 +3,21 @@ title: 'Transformación de datos con Python en Databricks: Azure | Microsoft Doc
 description: Obtenga información sobre cómo procesar o transformar datos mediante la ejecución de una instancia de Python en Databricks.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: douglasl
-ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+author: gauravmalhot
+ms.author: gamal
+ms.reviewer: maghan
+manager: craigg
+ms.openlocfilehash: 3ab3ec5380fbc90dffd4f258073ad8b477e2318a
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589211"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002844"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformación de datos mediante la ejecución de una actividad de Python en Azure Databricks
 
@@ -69,8 +69,8 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 |Tipo|En el caso de la actividad de Python en Databricks, el tipo de actividad es DatabricksSparkPython.|Sí|
 |linkedServiceName|Nombre del servicio vinculado de Databricks en el que se ejecuta la actividad de Python. Para más información sobre este servicio vinculado, consulte el artículo  [Compute linked services](compute-linked-services.md)  (Servicios vinculados de procesos).|Sí|
 |pythonFile|El URI del archivo Python que se va a ejecutar. Solo se admiten rutas de acceso de DBFS.|Sí|
-|parameters|Parámetros de la línea de comandos que se pasarán al archivo Python. Se trata de una matriz de cadenas.|Sin |
-|libraries|Lista de bibliotecas para instalar en el clúster que ejecutará el trabajo. Puede ser una cadena de <cadena, objeto>|Sin |
+|parameters|Parámetros de la línea de comandos que se pasarán al archivo Python. Se trata de una matriz de cadenas.|No|
+|libraries|Lista de bibliotecas para instalar en el clúster que ejecutará el trabajo. Puede ser una cadena de <cadena, objeto>|No|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas compatibles con las actividades de Databricks
 

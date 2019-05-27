@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 7ea7cbf4526528eb481b6125b006d0c29d86deb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60577722"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002063"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Vista de las métricas clave de costos con paneles
 
@@ -233,7 +233,7 @@ Este panel muestra las recomendaciones de reducción de tamaños, los recursos s
 Este widget muestra el número de recomendaciones de compra de RI e indica el ahorro anual potencial.
 - Haga clic en el widget para abrir Reserved Instance Calculator (Calculadora de instancias reservadas), donde puede determinar cuándo se deben utilizar planes de precios a petición frente a reservados.
 
-### <a name="sizing"></a>Ajuste de tamaño
+### <a name="sizing"></a>Tamaño
 Este widget indica los tamaños recomendados y los ahorros potenciales, si se implementan.
 - Haga clic en el widget para abrir el informe EC2 Cost Effective Sizing Recommendations (Recomendaciones de ajuste de tamaño de EC2 rentable).
 

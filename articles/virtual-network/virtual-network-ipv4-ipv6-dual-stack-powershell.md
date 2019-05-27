@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: f26391e36e3208996160fffad01e39ec2f182318
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a9f8066896134072665c3f5b325e033b638bf094
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130969"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001008"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Implementar una aplicación de pila doble de IPv6 en Azure: PowerShell (versión preliminar)
 
@@ -149,9 +149,9 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendPort 80
 ```
 
-### <a name="create-load-balancer"></a>Creación de un equilibrador de carga
+### <a name="create-load-balancer"></a>Crear equilibrador de carga
 
-Cree un equilibrador de carga básico con [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). En el ejemplo siguiente se crea un público básico equilibrador de carga denominado *myLoadBalancer* mediante las configuraciones de IP de front-end de IPv4 e IPv6, grupos back-end, los sondeos de estado, equilibrio de carga reglas y NAT reglas que creó en el pasos anteriores:
+Cree un equilibrador de carga básico con [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). En el ejemplo siguiente se crea un público básico equilibrador de carga denominado *myLoadBalancer* con la dirección IP de front-end IPv4 e IPv6 configuraciones, grupos de back-end y reglas de equilibrio de carga que creó en los pasos anteriores:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
@@ -182,7 +182,7 @@ $avset = New-AzAvailabilitySet `
   -Sku aligned
 ```
 
-### <a name="create-network-security-group"></a>Creación de un grupo de seguridad de red
+### <a name="create-network-security-group"></a>Crear grupo de seguridad de red
 
 Cree un grupo de seguridad de red para las reglas que rige la comunicación entrante y saliente de la red virtual.
 

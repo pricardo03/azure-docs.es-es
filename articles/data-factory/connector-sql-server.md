@@ -517,7 +517,7 @@ Al copiar datos con SQL Server como origen o destino, se usan las siguientes asi
 | bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
-| Datetime |DateTime |
+| DateTime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
@@ -538,12 +538,12 @@ Al copiar datos con SQL Server como origen o destino, se usan las siguientes asi
 | sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| xml |xml |
 
 >[!NOTE]
 > En la actualidad, ADF admite una precisión máxima de 28 en los tipos de datos que se asignan a tipos provisionales decimales. Si tiene datos con una precisión mayor de 28, considere la posibilidad de convertirlos en una cadena de consulta SQL.

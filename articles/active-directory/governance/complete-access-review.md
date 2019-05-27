@@ -12,55 +12,83 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/02/2018
+ms.date: 05/22/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4265a7e08eab079e55ce91b27142ec3e55b3f3e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bae204ec1789f227150adc560d4a292404d23b7e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60246467"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113287"
 ---
 # <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Revisión de acceso de los grupos o las revisiones de acceso de las aplicaciones de Azure AD
 
-Los administradores pueden usar Azure Active Directory (Azure AD) para [crear una revisión de acceso](create-access-review.md) para miembros de grupo o usuarios asignados en una aplicación. Azure AD envía automáticamente a los revisores un correo electrónico en el que se les solicita que revisen el acceso. Si un usuario no recibió un correo electrónico, puede enviarle las instrucciones en [revisen el acceso a grupos o aplicaciones](perform-access-review.md). (Tenga en cuenta que los invitados que están asignados como revisores pero no han aceptado la invitación no recibirán un correo electrónico de las revisiones de acceso, ya que primero deben aceptar una invitación antes de la revisión). Una vez finalizado el período de revisión de acceso o si el administrador detiene la revisión de acceso, siga los pasos de este artículo para ver los resultados y aplicarlos.
+Como administrador, [crear una revisión de acceso de grupos o aplicaciones](create-access-review.md) y revisores [realizar la revisión de acceso](perform-access-review.md). En este artículo se describe cómo ver los resultados de la revisión de acceso y se aplican los resultados.
 
-## <a name="view-an-access-review-in-the-azure-portal"></a>Visualización de una revisión de acceso en Azure Portal
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-1. Vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), seleccione **Programas** y seleccione el programa que contenga el control de revisión de acceso.
+## <a name="prerequisites"></a>Requisitos previos
 
-2. Seleccione **Administrar** y seleccione el control de revisión de acceso. Si hay muchos controles en el programa, puede filtrar para los controles de un tipo específico y ordenar por estado. También puede buscar por el nombre del control de revisión de acceso o el nombre para mostrar del propietario que lo creó. 
+- Azure AD Premium P2
+- Administrador global, Administrador de usuarios, Administrador de seguridad o lector de seguridad
 
-## <a name="stop-a-review-that-hasnt-finished"></a>Detención de una revisión que aún no ha finalizado
+Para obtener más información, consulte [qué usuarios deben tener licencias?](access-reviews-overview.md#which-users-must-have-licenses).
 
-Si la revisión no ha alcanzado la fecha final programada, un administrador puede seleccionar **Detener** para finalizar antes la revisión. Después de detener la revisión, no se podrán revisar más los usuarios. No puede reiniciar una revisión una vez detenida.
+## <a name="view-an-access-review"></a>Ver una revisión de acceso
 
-## <a name="apply-the-changes"></a>Aplicación de cambios 
+Puede seguir el progreso como los revisores las realizan.
 
-Una vez finalizada una revisión de acceso, ya sea porque ha alcanzado la fecha de finalización o un administrador la detuvo manualmente y la aplicación automática no se configuró para la revisión, puede seleccionar **Aplicar** para aplicar los cambios manualmente. El resultado de la revisión se implementa actualizando el grupo o la aplicación. Si el acceso de un usuario se denegó en la revisión, cuando un administrador seleccione esta opción, Azure AD quitará la asignación de pertenencia o de la aplicación. 
+1. Inicie sesión en Azure portal y abra el [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-Después de que haya finalizado una revisión de acceso y se haya configurado la aplicación automática, el estado de la revisión cambiará de Completado a los diferentes estados intermedios y, por último, pasará al estado Aplicada. Debería esperar ver a los usuarios denegados, si es que los hay, eliminados de la pertenencia al grupo de recursos o la asignación de aplicaciones en unos minutos.
+1. En el menú izquierdo, haga clic en **las revisiones de acceso**.
+
+1. En la lista, haga clic en una revisión de acceso.
+
+    Para ver una serie de acceso revisiones, vaya a la revisión de acceso y encontrará futuras repeticiones en las revisiones programada.
+
+    En el **Introducción** página, puede ver el progreso. Derechos de acceso no se cambian en el directorio hasta que se complete la revisión.
+
+    ![Progreso de revisiones de acceso](./media/complete-access-review/overview-progress.png)
+
+1. Si desea detener una revisión de acceso antes ha alcanzado la fecha de finalización programada, haga clic en el **detener** botón.
+
+    Al detener una revisión, los revisores ya no podrán proporcionar respuestas. No puede reiniciar una revisión una vez detenida.
+
+1. Si ya no está interesado en la revisión de acceso, puede eliminarlo haciendo clic en el **eliminar** botón.
+
+## <a name="apply-the-changes"></a>Aplicación de cambios
+
+Si **aplicar automáticamente los resultados al recurso** estuviera habilitado y según las selecciones realizadas en **configuración de finalización**, auto-aplicar will se ejecutará después de la fecha de finalización de la revisión o al detener manualmente la revisión.
+
+Si **aplicar automáticamente los resultados al recurso** no estaba habilitado para la revisión, haga clic en **aplicar** para aplicar los cambios manualmente. Si se denegó el acceso de un usuario en la revisión, al hacer clic en **aplicar**, Azure AD quitará la asignación de pertenencia o aplicación.
+
+![Aplicar cambios de la revisión de acceso](./media/complete-access-review/apply-changes.png)
+
+El estado de la revisión cambiará de **completado** a través de los estados intermedios como **Applying** y, finalmente, al estado **resultado aplicado**. Debería esperar ver a los usuarios denegados, si es que los hay, eliminados de la pertenencia al grupo o la asignación de aplicaciones en unos minutos.
 
 Una revisión de aplicación automática configurada o la selección de **Aplicar** no tiene ningún efecto en un grupo que se origina en un directorio local o en un grupo dinámico. Si desea cambiar un grupo que se origina en un directorio local, descargue los resultados y aplique esos cambios a la representación del grupo en ese directorio.
 
-## <a name="download-the-results-of-the-review"></a>Descarga de los resultados de la revisión
+## <a name="retrieve-the-results"></a>Recuperación de los resultados
 
-Para recuperar los resultados de la revisión, seleccione **Aprobaciones** y, luego, seleccione **Descargar**. El archivo CSV resultante puede verse en Excel o en otros programas que abren archivos CSV codificados en UTF-8.
+Para ver los resultados de una revisión de acceso de un solo uso, haga clic en el **resultados** página. Para ver solo acceso de un usuario, en el cuadro de búsqueda, escriba el nombre para mostrar o nombre principal de usuario de un usuario cuyo acceso se ha revisado.
 
-## <a name="optional-delete-a-review"></a>Opcional: eliminación de una revisión
-Si ya no está interesado en la revisión, puede eliminarla. Seleccione **Eliminar** para quitar la revisión de Azure AD.
+![Recuperar los resultados de una revisión de acceso](./media/complete-access-review/retrieve-results.png)
 
-> [!IMPORTANT]
-> No se produce ninguna advertencia antes de la eliminación, así que asegúrese de que realmente quiere eliminar esa revisión.
-> 
-> 
+Para ver el progreso de una revisión de acceso activa que se repite, haga clic en el **resultados** página.
+
+Para ver los resultados de una instancia completada de una revisión de acceso que se repite, haga clic en **revisar el historial**, a continuación, seleccione la instancia específica de la lista de instancias de revisiones de acceso completa, en función de inicio de la instancia y la fecha de finalización. Los resultados de esta instancia pueden obtenerse a partir del **resultados** página.
+
+Para recuperar todos los resultados de una revisión de acceso, haga clic en el **descargar** botón. El archivo CSV resultante puede verse en Excel o en otros programas que abren archivos CSV codificados en UTF-8.
+
+## <a name="remove-users-from-an-access-review"></a>Quitar usuarios de una revisión de acceso
+
+ De forma predeterminada, un usuario eliminado permanecerá eliminado en Azure AD durante 30 días, tiempo durante el cual un administrador puede restaurarlo si es necesario.  Después de 30 días, ese usuario se eliminará definitivamente.  Además, mediante el portal de Azure Active Directory, un administrador global puede [eliminar permanentemente un usuario eliminado recientemente](../fundamentals/active-directory-users-restore.md) explícitamente antes de que se alcance ese período de tiempo.  Una vez que un usuario se ha eliminado permanentemente, los datos posteriores sobre ese usuario se eliminarán de las revisiones de acceso activas.  La información de auditoría de los usuarios eliminados se conserva en el registro de auditoría.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Administración del acceso de los usuarios con las revisiones de acceso de Azure AD](manage-user-access-with-access-reviews.md)
 - [Administración del acceso de los invitados con las revisiones de acceso de Azure AD](manage-guest-access-with-access-reviews.md)
-- [Administración de los programas y los controles para las revisiones de acceso de Azure AD](manage-programs-controls.md)
 - [Creación de una revisión de acceso de grupos o aplicaciones](create-access-review.md)
 - [Creación de una revisión de acceso de los usuarios en un rol administrativo de Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
