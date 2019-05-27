@@ -9,18 +9,18 @@ ms.date: 10/20/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d8ef24bfec541ec65c74f77a90aa9476a8b298b2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 93386bd1fa3be88cbcdfab3d59ae07d3eb2b046d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153281"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911931"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Información general
-La [Biblioteca de cliente de Azure Storage para el paquete NuGet de .NET](https://www.nuget.org/packages/WindowsAzure.Storage) admite el cifrado de datos dentro de las aplicaciones de cliente antes de cargarlos en Azure Storagey el descifrado de los datos mientras se descargan al cliente. Asimismo, la biblioteca también admite la integración con [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
+El [biblioteca de cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage/client) admite el cifrado de datos dentro de las aplicaciones cliente antes de cargarlos en Azure Storage y descifrar los datos mientras se descargan al cliente. Asimismo, la biblioteca también admite la integración con [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves de la cuenta de almacenamiento.
 
 Para ver un tutorial paso a paso que le guíe por el proceso de cifrado de blobs mediante el cifrado de cliente y Azure Key Vault, consulte [Cifrado y descifrado de blobs en Microsoft Azure Storage con Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 

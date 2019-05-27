@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938309"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964117"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servicios de consultoría de Azure Marketplace y AppSource
 Los servicios de consultoría de Azure Marketplace y AppSource brindan a los asociados de Microsoft el objetivo de conectar a los clientes con servicios que les permitan mejorar y extender el uso que hacen de Azure y de sus objetivos empresariales. 
@@ -72,7 +72,7 @@ Los asociados deben tener una **competencia Silver o Gold** en el área pertinen
 |Países o regiones aptas |   |   |   |
 |---------|----------|----------|----------|
 |Australia |Francia  |     México          |España       |
-|Bélgica   |Alemania |     Países Bajos     |Suecia       |
+|Bélgica   |Alemania |     Países bajos     |Suecia       |
 |Canadá    |India   |     Nueva Zelanda     |Reino Unido  |
 |Dinamarca   |Italia   |     Noruega          |Estados Unidos |
 |Finlandia   |Japón   |     Polonia          
@@ -80,7 +80,7 @@ Los asociados deben tener una **competencia Silver o Gold** en el área pertinen
 El lanzamiento de los servicios de consultoría se realizará en la región geográfica específica. El primer lanzamiento se realizará en: Estados Unidos, Canadá, Reino Unido y Australia. Los catálogos para otros países empezarán a funcionar después de un número significativo y atractiva selección, de ofertas de servicio se han enviado por los asociados y aprobados por Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Procedimientos para registrar los servicios de consultoría en Azure Marketplace y AppSource
-Empiece por [registrar](https://azuremarketplace.microsoft.com/sell/signup) la información de su empresa en Marketplace. Los anunciantes pueden hacer referencia a [Conviértase en anunciante en los escaparates de Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) para obtener una lista de comprobación completa de los requisitos del registro. 
+Empiece por [registrar](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) la información de su empresa en Marketplace. Los anunciantes pueden hacer referencia a [Conviértase en anunciante en los escaparates de Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) para obtener una lista de comprobación completa de los requisitos del registro. 
 
 **¿Qué se puede esperar después del registro?** El equipo de incorporación tardará entre uno y tres días hábiles en enviarle un correo electrónico de bienvenida que incluirá la información de inicio de sesión de Cloud Partner Portal (CPP). [Cloud Partner Portal](https://cloudpartner.azure.com) es el portal de anuncios de ofertas donde los anunciantes envían la información de las ofertas y los envíos. 
 
@@ -92,7 +92,7 @@ Antes del registro, puede empezar a recopilar y preparar el contenido que ayudar
 
 |Configuración para nuevos anunciantes  |
 |---------|
-|Identificador de MPN     |
+|Id. de MPN     |
 |Logotipos de compañía (48 x 48, 216 x 216)     |
 |Destino de clientes potenciales     |
 
@@ -149,7 +149,7 @@ Ejemplos:
 
 Al revisar las descripciones y los resúmenes de las ofertas, el equipo seguirá los siguientes criterios:
 
-|Tipo de oferta  |Obligatorio |Recomendado  |
+|Tipo de oferta  |Obligatorio |Recomendada  |
 |---------|---------|---------|
 |**Valoración**    |   Incluir una agenda detallada para las evaluaciones de varios días o varias semanas y explicar lo que el cliente puede esperar      |    Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda     |
 |**Sesión informativa**    |   Explicar lo que el cliente puede esperar. Recuerde: La sesión informativa se debe ofrecer en persona. Si va a proporcionar un servicio virtual, elija un tipo de oferta diferente    |  Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda       |

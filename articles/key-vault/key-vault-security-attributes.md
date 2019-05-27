@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 652e6ecb9ef9506fd306942eae45b13b52ae1c24
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1c2265ff5f4c444121bf70c35145703f1b9fe981
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691826"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000191"
 ---
-# <a name="common-security-attributes-for-azure-key-vault"></a>Atributos comunes de seguridad para Azure Key Vault
+# <a name="security-attributes-for-azure-key-vault"></a>Atributos de seguridad para Azure Key Vault
 
-La seguridad está integrada en todos los aspectos de los servicios de Azure. Este artículo documenta los atributos comunes de seguridad integrados en Azure Key Vault. 
+En este artículo describe los atributos de seguridad integrados en Azure Key Vault. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -36,9 +36,9 @@ La seguridad está integrada en todos los aspectos de los servicios de Azure. Es
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Compatibilidad de punto de conexión de servicio| Sí | Uso de puntos de conexión de servicio de red Virtual (VNet). |
-| Compatibilidad con inserción de redes virtuales| Sin  |  |
+| Compatibilidad con inserción de redes virtuales| No |  |
 | Aislamiento de red y la compatibilidad con Firewall| Sí | Usar reglas de firewall de red virtual. |
-| Fuerza la tunelización de soporte técnico| Sin  |  |
+| Fuerza la tunelización de soporte técnico| No |  |
 
 ## <a name="detection"></a>Detección
 

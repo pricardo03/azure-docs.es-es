@@ -9,12 +9,12 @@ ms.date: 04/18/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154429"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65907197"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Uso de firmas de acceso compartido (SAS)
 
@@ -132,7 +132,7 @@ https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015
 | NOMBRE | Parte de SAS | DESCRIPCIÓN |
 | --- | --- | --- |
 | URI de recurso |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Extremo de Blob service, con parámetros para obtener propiedades de servicio (cuando se llama con GET) o para establecer propiedades de servicio (cuando se llama con SET). |
-| Services |`ss=bf` |La SAS se aplica a los servicios Blob y Archivo |
+| Servicios |`ss=bf` |La SAS se aplica a los servicios Blob y Archivo |
 | Tipos de recursos |`srt=s` |La SAS se aplica a las operaciones de nivel de servicio. |
 | Permisos |`sp=rw` |Los permisos conceden acceso para operaciones de lectura y escritura. |
 
@@ -232,7 +232,7 @@ A continuación figuran algunos ejemplos de ambos tipos de firmas de acceso comp
 Para ejecutar estos ejemplos de C#, debe hacer referencia a los siguientes paquetes de NuGet en el proyecto:
 
 * Versión 6.x o posterior de la [Biblioteca de cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage) (para usar la cuenta SAS).
-* [Administrador de configuración Azure](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Administrador de configuración Azure](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager)
 
 Para obtener ejemplos adicionales que muestran cómo crear y probar SAS, vea [Ejemplos de código de Azure para Storage](https://azure.microsoft.com/documentation/samples/?service=storage).
 
@@ -422,7 +422,6 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su cuenta de almacenamiento a clientes que no deben tener la clave de cuenta. Por ese motivo, son una parte fundamental del modelo de seguridad para cualquier aplicación que use Azure Storage. Si sigue las prácticas recomendadas descritas aquí, puede usar la SAS para ofrecer una mayor flexibilidad de acceso a los recursos en la cuenta de almacenamiento sin que se ponga en riesgo la seguridad de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/storage-manage-access-to-resources.md)
 * [Delegación de acceso con una firma de acceso compartido](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Introducción a las firmas de acceso compartido de tabla y cola](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

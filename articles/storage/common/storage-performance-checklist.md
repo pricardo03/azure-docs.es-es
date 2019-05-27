@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904b9b8ba98be5e14b1d769a0e1d8c2d6084e24d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477304"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951178"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage
 ## <a name="overview"></a>Información general
 Desde el lanzamiento de los servicios de Microsoft Azure Storage, Microsoft ha desarrollado numerosos procedimientos para usar estos servicios de una manera eficiente. Este artículo pretende consolidar lo más importante de ellos en una lista de tipo “lista de comprobación”. El objetivo de este artículo es ayudar a los desarrolladores de aplicaciones a comprobar que están usando prácticas probadas con Azure Storage y ayudarles a identificar otras prácticas probadas cuya adopción deben plantearse. Este artículo no pretende cubrir todas las posibilidades de rendimiento y escalabilidad posibles y excluye aquellas cuyo impacto es pequeño o tienen poco margen de aplicación. En la medida en que el comportamiento de la aplicación se puede predecir durante el diseño, es útil recordar esto en las primeras etapas para evitar diseños que tengan problemas de rendimiento.  
 
-Todos los desarrolladores de aplicaciones que usen Azure Storage deben invertir tiempo en leer este artículo y comprobar que su aplicación sigue todas las prácticas probadas que se enumeran a continuación.  
+Cada desarrollador de aplicaciones con Azure Storage debe dedicar tiempo a leer este artículo y compruebe que su aplicación sigue cada una de las prácticas probadas que se enumeran a continuación.  
 
 ## <a name="checklist"></a>Lista de comprobación
 Este artículo organiza las prácticas probadas en los siguientes grupos. Prácticas probadas aplicables a:  
@@ -29,7 +29,7 @@ Este artículo organiza las prácticas probadas en los siguientes grupos. Práct
 * Tablas
 * Colas  
 
-| ¡Listo! | Ámbito | Categoría | Pregunta |
+| Listo | Área | Categoría | Pregunta |
 | --- | --- | --- | --- |
 | &nbsp; | Todos los servicios |Objetivos de escalabilidad |[¿Está su aplicación diseñada para evitar aproximarse a los objetivos de escalabilidad?](#subheading1) |
 | &nbsp; | Todos los servicios |Objetivos de escalabilidad |[Is your naming convention designed to enable better load-balancing? (¿Está su convención de nomenclatura diseñada para habilitar un mejor equilibrio de carga?)](#subheading47) |

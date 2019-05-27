@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: 3294eda4d9330332bf23c3a8f1804f067373bf7a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: cf414cf08771090990775d124e27222e51f786e2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122018"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Crear un emparejamiento de redes virtuales: Resource Manager, suscripciones diferentes
 
@@ -29,7 +29,7 @@ Los pasos para crear un emparejamiento de redes virtuales cambian en función de
 |--------- |---------|
 |[Ambas mediante Resource Manager](tutorial-connect-virtual-networks-portal.md) |Iguales|
 |[Una mediante Resource Manager y la otra clásica](create-peering-different-deployment-models.md) |Iguales|
-|[Una mediante Resource Manager y la otra, clásico](create-peering-different-deployment-models-subscriptions.md) |Diferentes|
+|[Una mediante Resource Manager y la otra, clásico](create-peering-different-deployment-models-subscriptions.md) |Diferente|
 
 No se puede crear un emparejamiento de redes virtuales entre dos redes virtuales implementadas mediante el modelo de implementación clásico. Si necesita conectar redes virtuales que se crearon a través del modelo de implementación clásica, puede usar una instancia de [Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para conectar las redes virtuales.
 
@@ -314,7 +314,7 @@ Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos
    ```
 
 2. Cierre sesión en Azure como UserA e inicie sesión como UserB.
-3. Ejecute el comando siguiente:
+3. Ejecute el siguiente comando:
 
    ```azurecli-interactive
    az group delete --name myResourceGroupB --yes
@@ -329,7 +329,7 @@ Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos
    ```
 
 2. Cierre sesión en Azure como UserA e inicie sesión como UserB.
-3. Ejecute el comando siguiente:
+3. Ejecute el siguiente comando:
 
    ```powershell
    Remove-AzResourceGroup -Name myResourceGroupB -force

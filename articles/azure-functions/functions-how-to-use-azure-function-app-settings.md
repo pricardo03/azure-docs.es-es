@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 188c17b4e8ef84f3907b63fd62bf110ee94b4d7f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511223"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957395"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Administración de una Function App en Azure Portal 
 
@@ -61,7 +61,7 @@ El resto de este tema se centra en las siguientes características de App Servic
 + [Autenticación](#auth)
 + [Definición de la API](#swagger)
 
-Para más información sobre cómo trabajar con la configuración de App Service, vea [Configuración de Azure App Service](../app-service/web-sites-configure.md).
+Para más información sobre cómo trabajar con la configuración de App Service, vea [Configuración de Azure App Service](../app-service/configure-common.md).
 
 ### <a name="editor"></a>Editor de App Service
 
@@ -124,7 +124,7 @@ Para más información sobre cómo trabajar con la configuración de App Service
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-+ [Configuración de Azure App Service](../app-service/web-sites-configure.md)
++ [Configuración de Azure App Service](../app-service/configure-common.md)
 + [Implementación continua para Azure Functions](functions-continuous-deployment.md)
 
 

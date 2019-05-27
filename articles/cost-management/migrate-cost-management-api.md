@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/20/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3fb1f430076b26f7b5dd83e167371ac6d957ac4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311953"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967240"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrar de contrato Enterprise a las API de acuerdo al cliente de Microsoft
 
@@ -176,20 +176,20 @@ Cambiar el nombre de propiedad que contiene la matriz de registros de uso de dat
 | AccountNameAccountOwnerId y AccountOwnerEmail | N/D | El creador de la suscripción no está registrado. Utilice invoiceSectionName (igual que departmentName). |
 | Información adicional | additionalInfo | &nbsp;  |
 | ChargesBilledSeparately | isAzureCreditEligible | Tenga en cuenta que estas propiedades son opuestos. Si es true isAzureCreditEnabled, ChargesBilledSeparately sería false. |
-| ConsumedQuantity | quantity | &nbsp; |
+| Cantidad consumida | quantity | &nbsp; |
 | Servicio consumido | consumedService | Pueden diferir los valores de cadena exacto. |
 | Id. del servicio consumido | None | &nbsp; |
 | CostCenter | costCenter | &nbsp; |
 | Fecha y usageStartDate | date | &nbsp;  |
 | Día | None | Analiza el día de la fecha. |
 | Id. de departamento | invoiceSectionId | Difieren de los valores exactos. |
-| DepartmentName | invoiceSectionName | Pueden diferir los valores de cadena exacto. Configure las secciones de la factura para que coincida con los departamentos de TI, si es necesario. |
+| Nombre de departamento | invoiceSectionName | Pueden diferir los valores de cadena exacto. Configure las secciones de la factura para que coincida con los departamentos de TI, si es necesario. |
 | ExtendedCost y costo | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
 | Es un cargo periódico | None | &nbsp;  |
-| Location | location | &nbsp;  |
+| Ubicación | ubicación | &nbsp;  |
 | Categoría del medidor | meterCategory | Pueden diferir los valores de cadena exacto. |
-| Id. del medidor | meterId | Difieren de los valores de cadena exacto. |
+| Id. de medidor | meterId | Difieren de los valores de cadena exacto. |
 | Nombre del medidor | meterName | Pueden diferir los valores de cadena exacto. |
 | Región del medidor | meterRegion | Pueden diferir los valores de cadena exacto. |
 | Subcategoría del medidor | meterSubCategory | Pueden diferir los valores de cadena exacto. |
@@ -200,8 +200,8 @@ Cambiar el nombre de propiedad que contiene la matriz de registros de uso de dat
 | PartNumber | None | Use meterId y productOrderName para identificar de forma exclusiva los precios. |
 | Nombre del plan | productOrderName | &nbsp;  |
 | Producto | Producto |   |
-| ProductId | productId | Difieren de los valores de cadena exacto. |
-| Nombre de publicador | publisherName | &nbsp;  |
+| Id. de producto | productId | Difieren de los valores de cadena exacto. |
+| Nombre del editor | Nombre del publicador | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
 | ResourceGuid | meterId | Difieren de los valores de cadena exacto. |
 | Ubicación de los recursos | resourceLocation | &nbsp;  |
@@ -215,8 +215,8 @@ Cambiar el nombre de propiedad que contiene la matriz de registros de uso de dat
 | Identificador del servicio del almacén | N/D | &nbsp;  |
 | Ubicación de los recursos | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
-| SubscriptionName | subscriptionName | &nbsp;  |
-| Etiquetas | etiquetas | La propiedad tags se aplica al objeto raíz, no a la propiedad de las propiedades anidadas. |
+| Nombre de la suscripción | subscriptionName | &nbsp;  |
+| `Tags` | tags | La propiedad tags se aplica al objeto raíz, no a la propiedad de las propiedades anidadas. |
 | Unidad de medida | unitOfMeasure | Difieren de los valores de cadena exacto. |
 | usageEndDate | date | &nbsp;  |
 | Year | None | Analiza el año de fecha. |
@@ -347,7 +347,7 @@ OData-EntityId: {operationId}
 
 ```
 
-Llamar a otro GET a la ubicación. La respuesta a la llamada GET es la misma hasta que la operación llega a un estado de finalización o el error. Cuando haya completado, la respuesta a la ubicación de la llamada GET devuelve la dirección URL de descarga. Como si la operación se ha ejecutado al mismo tiempo. Este es un ejemplo:
+Llamar a otro GET a la ubicación. La respuesta a la llamada GET es la misma hasta que la operación llega a un estado de finalización o el error. Cuando haya completado, la respuesta a la ubicación de la llamada GET devuelve la dirección URL de descarga. Como si la operación se ha ejecutado al mismo tiempo. Por ejemplo:
 
 ```
 HTTP Status 200
@@ -430,9 +430,9 @@ Las propiedades anteriores para [API de hoja de Azure Resource Manager precio](/
 
 | Antigua propiedad Azure Resource Manager precio hoja API  | Nueva propiedad de la API de hoja de precios de Microsoft al cliente acuerdo   | DESCRIPCIÓN |
 | --- | --- | --- |
-| Id. de medidor | _meterId_ | Identificador único para el medidor. Igual que meterId. |
+| Id. del medidor | _meterId_ | Identificador único para el medidor. Igual que meterId. |
 | Nombre del medidor | meterName | Nombre del medidor. Medidor representa el recurso que se puede implementar servicios de Azure. |
-| Categoría del medidor  | service | Nombre de la categoría de clasificación para el medidor. Igual que el servicio en la hoja de precios de contrato de cliente de Microsoft. Difieren de los valores de cadena exacto. |
+| Categoría del medidor  | servicio | Nombre de la categoría de clasificación para el medidor. Igual que el servicio en la hoja de precios de contrato de cliente de Microsoft. Difieren de los valores de cadena exacto. |
 | Subcategoría del medidor | meterSubCategory | Nombre de la categoría de medidor subclasificación. Según la clasificación de diferenciación de conjunto de características de alto nivel en el servicio. Por ejemplo, básica SQL DB frente a la base de datos de SQL Standard. |
 | Región del medidor | meterRegion | &nbsp;  |
 | Unidad | _No aplicable_ | Se puede analizar desde la unidad de medida. |
@@ -462,7 +462,7 @@ Los campos siguientes no están disponibles en las API de hoja de Microsoft al c
 | billingPeriodId | No es aplicable. Corresponde a InvoiceId MCA. |
 | offerId | No aplicable. Corresponde a productOrderName en MCA. |
 | meterCategory  | No aplicable. Corresponde al servicio de MCA. |
-| unit | No aplicable. Se puede analizar desde la unidad de medida. |
+| unidad | No aplicable. Se puede analizar desde la unidad de medida. |
 | currencyCode | Igual que el pricingCurrency en MCA. |
 | meterLocation | Igual que el meterRegion en MCA. |
 | número de artículo del número de artículo | No es aplicable porque el número de pieza no aparece en las facturas MCA. En lugar del número de artículo, use la combinación de meterId y productOrderName para identificar de forma exclusiva los precios. |

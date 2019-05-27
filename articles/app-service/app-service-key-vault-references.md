@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 662260c3cf37f8f8a675c522f3d3dea41153e485
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f086850ecc2f15c41ab89db34b16d6d2e4a229cb
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853152"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956226"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Uso de referencias de Key Vault para App Service y Azure Functions (versión preliminar)
 
@@ -67,7 +67,7 @@ O bien:
 
 ## <a name="source-application-settings-from-key-vault"></a>Configuración de la aplicación de origen desde Key Vault
 
-Las referencias de Key Vault pueden usarse como valores en [Configuración de la aplicación](web-sites-configure.md#app-settings), lo que le permite conservar los secretos en Key Vault en lugar de en la configuración del sitio. La configuración de la aplicación se cifra de forma segura en reposo, pero si necesita funcionalidades de administración de secretos, debe incluirse en Key Vault.
+Las referencias de Key Vault pueden usarse como valores en [Configuración de la aplicación](configure-common.md#configure-app-settings), lo que le permite conservar los secretos en Key Vault en lugar de en la configuración del sitio. La configuración de la aplicación se cifra de forma segura en reposo, pero si necesita funcionalidades de administración de secretos, debe incluirse en Key Vault.
 
 Para usar una referencia de Key Vault para la configuración de la aplicación, establezca la referencia como el valor de la configuración. La aplicación puede hacer referencia al secreto mediante su clave de la forma habitual. No se requiere ningún cambio de código.
 

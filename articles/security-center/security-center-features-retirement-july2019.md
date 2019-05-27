@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 5ac6603be087e887e3304f6a7e14aa063863e1dd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796468"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952137"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Retirada de las características de Security Center (julio de 2019)
 
@@ -162,7 +162,7 @@ Si tiene soluciones conectadas existentes, le animamos a mover a Azure Sentinel.
 
 Azure Security Center supervisa las configuraciones de seguridad mediante la aplicación de un conjunto de [más de 150 reglas recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). para proteger el sistema operativo. Estas reglas se aplican a los firewalls, auditoría, las directivas de contraseñas y mucho más. Si se detecta que la configuración de una maquina es vulnerable, Security Center genera una recomendación de seguridad. El [pantalla de configuración de seguridad de edición](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) permite a los clientes personalizar la configuración de seguridad predeterminada del sistema operativo en Security Center.
 
-Estamos retirando esta característica de vista previa.
+Estamos retirando esta característica de vista previa. Si, después de la fecha de retirada, que le gustaría restablecer las configuraciones de seguridad en sus valores predeterminados, puede hacerlo a través de API o Powershell mediante el [siguiendo las instrucciones](https://aka.ms/ascresetsecurityconfigurations)
 
 ![Edición de las opciones de configuración de seguridad][17]
 

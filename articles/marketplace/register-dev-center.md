@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1caa523b2bc43b7b3690e01f589aecf18fd3da9e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937599"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965098"
 ---
 # <a name="register-in-dev-center"></a>Registro en el Centro para desarrolladores  
 Para ayudar a asegurarse de que no está registrado en una cuenta de explorador personal, abra una nueva sesión de exploración de incógnito de Chrome o de InPrivate en Internet Explorer.  
@@ -71,7 +71,7 @@ Para ayudar a asegurarse de que no está registrado en una cuenta de explorador 
 
     | Modelo de facturación | Pasos siguientes |  
     |:--- |:--- |  
-    | Gratuito | Vaya a Cloud Partner Portal.<ul> <li>Para publicar en Azure Marketplace, visite la página de Cloud Partner Portal en [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
+    | Gratis | Vaya a Cloud Partner Portal.<ul> <li>Para publicar en Azure Marketplace, visite la página de Cloud Partner Portal en [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
     | Comercial (transacción) | Actualice la información de la cuenta.<ul> <li>Para más información sobre la adición de información de la cuenta, visite la sección [Adición de información bancaria y fiscal](#add-bank-information).</li> </ul> |  
 
     *   Un ejemplo de una oferta comercial es una oferta de máquina virtual con el modelo de facturación por horas.  
@@ -156,7 +156,7 @@ La información bancaria y fiscal es obligatoria para todas las ofertas comercia
   > Compruebe que el código postal especificado también sea correcto. Se realiza una validación de ciudad, código postal.
 
 * **¿Cómo se puede obtener un código de promoción?**
-  > Complete el formulario de [Registro de Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) para recibir un código promocional del Centro de desarrollo.
+  > Complete el formulario de [Registro de Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) para recibir un código promocional del Centro de desarrollo. Vea cómo [crear una cuenta de centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obtener más información.
  
 * **¿Qué debo esperar cuando después de completar el registro?**
   > Busque un correo electrónico en verify@microsoft.com con la línea de asunto "Action needed: Verify your email account with Microsoft" (Se requiere una acción: compruebe la cuenta de correo electrónico con Microsoft). Haga clic en el vínculo de comprobación sujeto a limitación temporal para completar el registro. *Si no ha recibido ningún correo electrónico en 24 horas, compruebe la carpeta de correo no deseado.*

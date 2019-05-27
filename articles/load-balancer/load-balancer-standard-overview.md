@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734529"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957470"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Introducción a Azure Standard Load Balancer
 
-Azure Load Balancer permite escalar las aplicaciones y crear alta disponibilidad para sus servicios. Load Balancer se puede usar para escenarios de entrada y de salida, proporciona baja latencia y alta capacidad de proceso, y puede escalar hasta millones de flujos para todas las aplicaciones TCP y UDP. 
+Azure Load Balancer permite escalar las aplicaciones y ofrecer una alta disponibilidad de los servicios. Load Balancer se puede usar para escenarios de entrada y de salida, proporciona baja latencia y alta capacidad de proceso, y puede escalar hasta millones de flujos para todas las aplicaciones TCP y UDP. 
 
 Este artículo se centra en Load Balancer Estándar.  Para obtener información más general acerca de Azure Load Balancer, consulte también [Información general de Load Balancer](load-balancer-overview.md).
 
@@ -204,11 +204,11 @@ Las SKU no son mutables. Siga los pasos de esta sección para cambiar de una SKU
 >
 >En los recursos Load Balancer e IP pública se deben usar SKU coincidentes. No puede tener una combinación de recursos de SKU básica y recursos de SKU estándar. No se pueden asociar máquinas virtuales independientes, máquinas virtuales en un recurso de conjunto de disponibilidad o conjuntos de escalado de máquinas virtuales a ambas SKU simultáneamente.
 
-## <a name="region-availability"></a>Disponibilidad en regiones
+## <a name="region-availability"></a>Disponibilidad por región
 
 Standard Load Balancer está disponible actualmente en todas las regiones de la nube pública.
 
-## <a name="sla"></a>Contrato de nivel de servicio
+## <a name="sla"></a>Acuerdo de Nivel de Servicio
 
 Load Balancer Estándar está disponible con un SLA del 99,99 %.  Consulte el [SLA de Load Balancer Estándar](https://aka.ms/lbsla) para obtener más información.
 
@@ -226,7 +226,6 @@ Para más información sobre los precios de Load Balancer Estándar, vaya la pá
 - Las SKU no son mutables. No se puede cambiar la SKU de un recurso existente.
 - Un recurso de máquina virtual independiente, un recurso de conjunto de disponibilidad o un recurso de conjunto de escalado de máquinas virtuales puede hacer referencia únicamente a una SKU, nunca a ambas.
 - Una regla de equilibrador de carga no puede abarcar dos redes virtuales.  Los front-ends y sus instancias de back-end relacionadas deben estar ubicados en la misma red virtual.  
-- Los front-ends de equilibrador de carga no son accesibles a través del emparejamiento global de redes virtuales.
 - [Mover las operaciones de suscripción](../azure-resource-manager/resource-group-move-resources.md) no se admite para los recursos estándar PIP y LB de SKU.
 - Solo se puede acceder a los roles de trabajo web sin una red virtual y otros servicios de plataforma de Microsoft si se usa un equilibrador de carga estándar debido a un efecto secundario del funcionamiento de los servicios previos a la red virtual y otros servicios de plataforma. No debe depender de esto, porque el servicio mismo o la plataforma subyacente puede cambiar sin previo aviso. Siempre debe pensar que necesita crear [conectividad de salida](load-balancer-outbound-connections.md) de manera explícita si lo desea al usar solo un equilibrador de carga estándar interno.
 - Load Balancer es un producto TCP o UDP de equilibrio de carga y enrutamiento de puerto para estos protocolos IP específicos.  Las reglas de equilibrio de carga y las reglas de traducción de direcciones de red de entrada son compatibles con TCP y UDP y no con otros protocolos IP, como ICMP. Load Balancer no termina la carga ni responde a ella, ni interactúa con la carga de los flujos UDP o TCP. No es un servidor proxy. La validación correcta de la conectividad con un front-end debe realizarse en banda con el mismo protocolo de equilibrado de carga o la misma regla de traducción de direcciones de red de entrada (TCP o UDP) _y_, para ver una respuesta desde el front-end, al menos una de las máquinas virtuales debe generar una respuesta para un cliente.  Si no se recibe una respuesta en banda desde el front-end de Load Balancer, significa que ninguna máquina virtual puede responder.  No es posible interactuar con el front-end de Load Balancer sin una máquina virtual que pueda responder.  Esto también se aplica a las conexiones salientes donde el [enmascaramiento del puerto SNAT](load-balancer-outbound-connections.md#snat) es solo es compatible con TCP y UDP; los demás protocolos IP (como ICMP) también producirán errores.  Asigne una dirección IP pública en el nivel de instancia para la mitigación.

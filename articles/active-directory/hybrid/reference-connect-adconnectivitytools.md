@@ -5,18 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-origin.date: 10/19/2018
-ms.date: 04/09/2019
+ms.date: 10/19/2018
 ms.subservice: hybrid
-ms.author: v-junlch
+ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40b4be9aca5243b80151afac0ae221f0d44509c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1084a3e546a234739fbede46612dce96537c7d4a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454649"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950647"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Referencia de PowerShell ADConnectivityTools
 
@@ -28,16 +27,16 @@ En la siguiente documentación se proporciona información de referencia para el
 
 Detecta problemas de DNS locales.
 
-### <a name="syntax"></a>SINTAXIS
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObject] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPCIÓN
 
 Ejecuta pruebas de conectividad de DNS locales.
-Para configurar el conector de Active Directory, el usuario debe tener tanto la resolución de nombres del bosque al que intenta conectarse, así como en los controladores de dominio asociados a este bosque.
+Para configurar el conector de Active Directory, el usuario debe tener ambos resolución de nombres para el bosque que están intentando conectarse a, así como en los controladores de dominio asociados a este bosque.
 
 ### <a name="examples"></a>EJEMPLOS
 
@@ -115,13 +114,13 @@ Para más información, consulte about_CommonParameters (https://go.microsoft.co
 
 Determina si existe un bosque especificado.
 
-### <a name="syntax"></a>SINTAXIS
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ForestExists [-Forest] <String> [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPCIÓN
 
 Consulta un servidor DNS para obtener las direcciones IP asociadas con un bosque.
 
@@ -162,7 +161,7 @@ Para más información, consulte about_CommonParameters (https://go.microsoft.co
 
 Comprueba el nivel funcional del bosque de AD.
 
-### <a name="syntax"></a>SINTAXIS
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="samaccount"></a>SamAccount
 
@@ -176,7 +175,7 @@ Confirm-FunctionalLevel -Forest <String> [-RunWithCurrentlyLoggedInUserCredentia
 Confirm-FunctionalLevel -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPCIÓN
 
 Comprueba que el nivel funcional del bosque de AD es igual o mayor que una versión MinAdForestVersion determinada (WindowsServer2003).
 Se pueden solicitar la cuenta (dominio\nombre de usuario) y la contraseña.
@@ -263,13 +262,13 @@ Para más información, consulte about_CommonParameters (https://go.microsoft.co
 
 Detecta problemas de conectividad de la red local.
 
-### <a name="syntax"></a>SINTAXIS
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-NetworkConnectivity [-DCs] <Array> [-SkipDnsPort] [-ReturnResultAsPSObject] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPCIÓN
 
 Ejecuta pruebas de conectividad de la red local.
 
@@ -310,7 +309,7 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Si el usuario no usa los servicios DNS proporcionados por el controlador de dominio de inicio de sesión o el sitio de AD, es posible que prefiera omitir la comprobación del puerto 53.
+Si el usuario no está utilizando servicios DNS proporcionados por el sitio de AD o el controlador de dominio de inicio de sesión, entonces es posible que desea omitir la comprobación de puerto 53.
 El usuario debe poder resolver _.ldap._tcp.\<forestfqdn\> para que la configuración del conector de Active Directory se realice correctamente.
 
 ```yml
@@ -353,13 +352,13 @@ Para más información, consulte about_CommonParameters (https://go.microsoft.co
 
 Determina si un bosque especificado y sus controladores de dominio asociados son accesibles.
 
-### <a name="syntax"></a>SINTAXIS
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-TargetsAreReachable [-Forest] <String> [-DCs] <Array> [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPCIÓN
 
 Ejecuta pruebas de "ping" (si un equipo puede comunicarse con un equipo de destino a través de la red o de Internet)
 
@@ -422,7 +421,7 @@ Para más información, consulte about_CommonParameters (https://go.microsoft.co
 
 Validar que los dominios del FQDN del bosque obtenido sean accesibles
 
-### <a name="syntax"></a>SINTAXIS
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="samaccount"></a>SamAccount
 
@@ -436,7 +435,7 @@ Confirm-ValidDomains [-Forest <String>] [-RunWithCurrentlyLoggedInUserCredential
 Confirm-ValidDomains -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPCIÓN
 
 Validar que todos los dominios del FQDN del bosque obtenido sean accesibles mediante un intento de recuperación de DomainGuid y DomainDN.
 Se pueden solicitar la cuenta (dominio\nombre de usuario) y la contraseña.
@@ -522,13 +521,13 @@ Para más información, consulte about_CommonParameters (https://go.microsoft.co
 
 Validar si un usuario tiene credenciales de administrador de empresa.
 
-### <a name="syntax"></a>SINTAXIS
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ValidEnterpriseAdminCredentials [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPCIÓN
 
 Busca si el usuario proporcionado tiene credenciales de administrador de empresa.
 Se pueden solicitar la cuenta (dominio\nombre de usuario) y la contraseña.
@@ -576,14 +575,14 @@ Para más información, consulte about_CommonParameters (https://go.microsoft.co
 
 Recupera un objeto DomainFQDN de una combinación de cuenta y contraseña.
 
-### <a name="syntax"></a>SINTAXIS
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-DomainFQDNData [[-DomainFQDNDataType] <String>] [-RunWithCurrentlyLoggedInUserCredentials]
  [-ReturnExceptionOnError] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPCIÓN
 
 Intenta obtener un objeto domainFQDN de las credenciales proporcionadas.
 Si el objeto domainFQDN es válido, se devolverá DomainFQDNName RootDomainName, según la elección del usuario.
@@ -665,13 +664,13 @@ Para más información, consulte about_CommonParameters (https://go.microsoft.co
 
 Recupera un objeto ForestFQDN de una combinación de cuenta y contraseña.
 
-### <a name="syntax"></a>SINTAXIS
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ForestFQDN [-Forest] <String> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPCIÓN
 
 Intenta obtener un objeto ForestFQDN de las credenciales proporcionadas.
 Se pueden solicitar la cuenta (dominio\nombre de usuario) y la contraseña.
@@ -735,14 +734,14 @@ Para más información, consulte about_CommonParameters (https://go.microsoft.co
 
 Función principal.
 
-### <a name="syntax"></a>SINTAXIS
+### <a name="syntax"></a>SYNTAX
 
 ```
 Start-ConnectivityValidation [-Forest] <String> [-AutoCreateConnectorAccount] <Boolean> [[-UserName] <String>]
  [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPCIÓN
 
 Ejecuta todos los mecanismos disponibles que comprueban que las credenciales de AD sean válidas.
 
@@ -817,7 +816,7 @@ Para más información, consulte about_CommonParameters (https://go.microsoft.co
 
 Función principal para las pruebas de conectividad de red.
 
-### <a name="syntax"></a>SINTAXIS
+### <a name="syntax"></a>SYNTAX
 
 ```
 Start-NetworkConnectivityDiagnosisTools [[-Forest] <String>] [-Credentials] <PSCredential>
@@ -825,7 +824,7 @@ Start-NetworkConnectivityDiagnosisTools [[-Forest] <String>] [-Credentials] <PSC
  [-ValidCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>DESCRIPCIÓN
 
 Ejecuta pruebas de conectividad de la red local.
 
@@ -964,5 +963,3 @@ Accept wildcard characters: False
 
 Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
 Para más información, consulte about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<!-- Update_Description: wording update -->

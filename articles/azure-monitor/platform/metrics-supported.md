@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/13/2019
+ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: dae280f86abce47bfcc029f4d81e4ca3a7b696f4
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f3907cbc46bd226ef8e90d2061f2d36b2afabf8a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595436"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957157"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -70,7 +70,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |ShortParsingBusyThreads|Subprocesos: subprocesos ocupados en análisis cortos|Count|Promedio|Número de subprocesos ocupados del grupo de subprocesos de análisis cortos.|ServerResourceType|
 |ShortParsingIdleThreads|Subprocesos: subprocesos inactivos en análisis cortos|Count|Promedio|Número de subprocesos inactivos del grupo de subprocesos de análisis cortos.|ServerResourceType|
 |ShortParsingJobQueueLength|Subprocesos: longitud de cola de trabajos en análisis cortos|Count|Promedio|Número de trabajos en la cola del grupo de subprocesos en análisis cortos.|ServerResourceType|
-|memory_thrashing_metric|Paginación excesiva de memoria|Porcentaje|Promedio|Paginación excesiva media de memoria.|ServerResourceType|
+|memory_thrashing_metric|Paginación excesiva de memoria|Percent|Promedio|Paginación excesiva media de memoria.|ServerResourceType|
 |mashup_engine_qpu_metric|QPU de motor M|Count|Promedio|Uso de QPU por los procesos del motor de mashup|ServerResourceType|
 |mashup_engine_memory_metric|Memoria del motor M|Bytes|Promedio|Uso de memoria por los procesos del motor de mashup|ServerResourceType|
 
@@ -84,7 +84,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |FailedRequests|Solicitudes de puerta de enlace con error|Count|Total|Número de errores en solicitudes de puerta de enlace|Ubicación, Nombre de host|
 |OtherRequests|Otras solicitudes de puerta de enlace|Count|Total|Número de otras solicitudes de puerta de enlace|Ubicación, Nombre de host|
 |Duration|Duración total de las solicitudes de puerta de enlace|Milisegundos|Promedio|Duración total de las solicitudes de puerta de enlace en milisegundos|Ubicación, Nombre de host|
-|Capacity|Capacity|Porcentaje|Promedio|Métrica de uso para el servicio ApiManagement|Ubicación|
+|Capacity|Capacity|Percent|Promedio|Métrica de uso para el servicio ApiManagement|Ubicación|
 |EventHubTotalEvents|Eventos totales de EventHub|Count|Total|Número de eventos enviados al centro de eventos|Ubicación|
 |EventHubSuccessfulEvents|Eventos de centro de eventos correcta|Count|Total|Número de eventos correctos de EventHub|Ubicación|
 |EventHubTotalFailedEvents|Eventos de centro de eventos con error|Count|Total|Número de eventos de centro de eventos con errores|Ubicación|
@@ -154,12 +154,12 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |totalkeys|Total de claves|Count|Máximo||ShardId|
 |expiredkeys|Claves expiradas|Count|Total||ShardId|
 |usedmemory|Memoria usada|Bytes|Máximo||ShardId|
-|usedmemorypercentage|Porcentaje de memoria usado|Porcentaje|Máximo||ShardId|
+|usedmemorypercentage|Porcentaje de memoria usado|Percent|Máximo||ShardId|
 |usedmemoryRss|Memoria RSS usada|Bytes|Máximo||ShardId|
-|serverLoad|Carga del servidor|Porcentaje|Máximo||ShardId|
+|serverLoad|Carga del servidor|Percent|Máximo||ShardId|
 |cacheWrite|Escritura de caché|BytesPerSecond|Máximo||ShardId|
 |cacheRead|Lectura de caché|BytesPerSecond|Máximo||ShardId|
-|percentProcessorTime|CPU|Porcentaje|Máximo||ShardId|
+|percentProcessorTime|CPU|Percent|Máximo||ShardId|
 |cacheLatency|Microsegundos de latencia de la memoria caché (versión preliminar)|Count|Promedio||ShardId, SampleType|
 |errores|Errors|Count|Máximo||ShardId, ErrorType|
 |connectedclients0|Clientes conectados (partición 0)|Count|Máximo||Sin dimensiones|
@@ -174,10 +174,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |expiredkeys0|Claves expiradas (partición 0)|Count|Total||Sin dimensiones|
 |usedmemory0|Memoria usada (partición 0)|Bytes|Máximo||Sin dimensiones|
 |usedmemoryRss0|Memoria RSS usada (partición 0)|Bytes|Máximo||Sin dimensiones|
-|serverLoad0|Carga de servidor (partición 0)|Porcentaje|Máximo||Sin dimensiones|
+|serverLoad0|Carga de servidor (partición 0)|Percent|Máximo||Sin dimensiones|
 |cacheWrite0|Escritura de caché (partición 0)|BytesPerSecond|Máximo||Sin dimensiones|
 |cacheRead0|Lectura de caché (partición 0)|BytesPerSecond|Máximo||Sin dimensiones|
-|percentProcessorTime0|CPU (partición 0)|Porcentaje|Máximo||Sin dimensiones|
+|percentProcessorTime0|CPU (partición 0)|Percent|Máximo||Sin dimensiones|
 |connectedclients1|Clientes conectados (partición 1)|Count|Máximo||Sin dimensiones|
 |totalcommandsprocessed1|Total de operaciones (partición 1)|Count|Total||Sin dimensiones|
 |cachehits1|Aciertos de caché (partición 1)|Count|Total||Sin dimensiones|
@@ -190,10 +190,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |expiredkeys1|Claves expiradas (partición 1)|Count|Total||Sin dimensiones|
 |usedmemory1|Memoria usada (partición 1)|Bytes|Máximo||Sin dimensiones|
 |usedmemoryRss1|Memoria RSS usada (partición 1)|Bytes|Máximo||Sin dimensiones|
-|serverLoad1|Carga de servidor (partición 1)|Porcentaje|Máximo||Sin dimensiones|
+|serverLoad1|Carga de servidor (partición 1)|Percent|Máximo||Sin dimensiones|
 |cacheWrite1|Escritura de caché (partición 1)|BytesPerSecond|Máximo||Sin dimensiones|
 |cacheRead1|Lectura de caché (partición 1)|BytesPerSecond|Máximo||Sin dimensiones|
-|percentProcessorTime1|CPU (partición 1)|Porcentaje|Máximo||Sin dimensiones|
+|percentProcessorTime1|CPU (partición 1)|Percent|Máximo||Sin dimensiones|
 |connectedclients2|Clientes conectados (partición 2)|Count|Máximo||Sin dimensiones|
 |totalcommandsprocessed2|Total de operaciones (partición 2)|Count|Total||Sin dimensiones|
 |cachehits2|Aciertos de caché (partición 2)|Count|Total||Sin dimensiones|
@@ -206,10 +206,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |expiredkeys2|Claves expiradas (partición 2)|Count|Total||Sin dimensiones|
 |usedmemory2|Memoria usada (partición 2)|Bytes|Máximo||Sin dimensiones|
 |usedmemoryRss2|Memoria RSS usada (partición 2)|Bytes|Máximo||Sin dimensiones|
-|serverLoad2|Carga de servidor (partición 2)|Porcentaje|Máximo||Sin dimensiones|
+|serverLoad2|Carga de servidor (partición 2)|Percent|Máximo||Sin dimensiones|
 |cacheWrite2|Escritura de caché (partición 2)|BytesPerSecond|Máximo||Sin dimensiones|
 |cacheRead2|Lectura de caché (partición 2)|BytesPerSecond|Máximo||Sin dimensiones|
-|percentProcessorTime2|CPU (partición 2)|Porcentaje|Máximo||Sin dimensiones|
+|percentProcessorTime2|CPU (partición 2)|Percent|Máximo||Sin dimensiones|
 |connectedclients3|Clientes conectados (partición 3)|Count|Máximo||Sin dimensiones|
 |totalcommandsprocessed3|Total de operaciones (partición 3)|Count|Total||Sin dimensiones|
 |cachehits3|Aciertos de caché (partición 3)|Count|Total||Sin dimensiones|
@@ -222,10 +222,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |expiredkeys3|Claves expiradas (partición 3)|Count|Total||Sin dimensiones|
 |usedmemory3|Memoria usada (partición 3)|Bytes|Máximo||Sin dimensiones|
 |usedmemoryRss3|Memoria RSS usada (partición 3)|Bytes|Máximo||Sin dimensiones|
-|serverLoad3|Carga de servidor (partición 3)|Porcentaje|Máximo||Sin dimensiones|
+|serverLoad3|Carga de servidor (partición 3)|Percent|Máximo||Sin dimensiones|
 |cacheWrite3|Escritura de caché (partición 3)|BytesPerSecond|Máximo||Sin dimensiones|
 |cacheRead3|Lectura de caché (partición 3)|BytesPerSecond|Máximo||Sin dimensiones|
-|percentProcessorTime3|CPU (partición 3)|Porcentaje|Máximo||Sin dimensiones|
+|percentProcessorTime3|CPU (partición 3)|Percent|Máximo||Sin dimensiones|
 |connectedclients4|Clientes conectados (partición 4)|Count|Máximo||Sin dimensiones|
 |totalcommandsprocessed4|Total de operaciones (partición 4)|Count|Total||Sin dimensiones|
 |cachehits4|Aciertos de caché (partición 4)|Count|Total||Sin dimensiones|
@@ -238,10 +238,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |expiredkeys4|Claves expiradas (partición 4)|Count|Total||Sin dimensiones|
 |usedmemory4|Memoria usada (partición 4)|Bytes|Máximo||Sin dimensiones|
 |usedmemoryRss4|Memoria RSS usada (partición 4)|Bytes|Máximo||Sin dimensiones|
-|serverLoad4|Carga de servidor (partición 4)|Porcentaje|Máximo||Sin dimensiones|
+|serverLoad4|Carga de servidor (partición 4)|Percent|Máximo||Sin dimensiones|
 |cacheWrite4|Escritura de caché (partición 4)|BytesPerSecond|Máximo||Sin dimensiones|
 |cacheRead4|Lectura de caché (partición 4)|BytesPerSecond|Máximo||Sin dimensiones|
-|percentProcessorTime4|CPU (partición 4)|Porcentaje|Máximo||Sin dimensiones|
+|percentProcessorTime4|CPU (partición 4)|Percent|Máximo||Sin dimensiones|
 |connectedclients5|Clientes conectados (partición 5)|Count|Máximo||Sin dimensiones|
 |totalcommandsprocessed5|Total de operaciones (partición 5)|Count|Total||Sin dimensiones|
 |cachehits5|Aciertos de caché (partición 5)|Count|Total||Sin dimensiones|
@@ -254,10 +254,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |expiredkeys5|Claves expiradas (partición 5)|Count|Total||Sin dimensiones|
 |usedmemory5|Memoria usada (partición 5)|Bytes|Máximo||Sin dimensiones|
 |usedmemoryRss5|Memoria RSS usada (partición 5)|Bytes|Máximo||Sin dimensiones|
-|serverLoad5|Carga de servidor (partición 5)|Porcentaje|Máximo||Sin dimensiones|
+|serverLoad5|Carga de servidor (partición 5)|Percent|Máximo||Sin dimensiones|
 |cacheWrite5|Escritura de caché (partición 5)|BytesPerSecond|Máximo||Sin dimensiones|
 |cacheRead5|Lectura de caché (partición 5)|BytesPerSecond|Máximo||Sin dimensiones|
-|percentProcessorTime5|CPU (partición 5)|Porcentaje|Máximo||Sin dimensiones|
+|percentProcessorTime5|CPU (partición 5)|Percent|Máximo||Sin dimensiones|
 |connectedclients6|Clientes conectados (partición 6)|Count|Máximo||Sin dimensiones|
 |totalcommandsprocessed6|Total de operaciones (partición 6)|Count|Total||Sin dimensiones|
 |cachehits6|Aciertos de caché (partición 6)|Count|Total||Sin dimensiones|
@@ -270,10 +270,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |expiredkeys6|Claves expiradas (partición 6)|Count|Total||Sin dimensiones|
 |usedmemory6|Memoria usada (partición 6)|Bytes|Máximo||Sin dimensiones|
 |usedmemoryRss6|Memoria RSS usada (partición 6)|Bytes|Máximo||Sin dimensiones|
-|serverLoad6|Carga de servidor (partición 6)|Porcentaje|Máximo||Sin dimensiones|
+|serverLoad6|Carga de servidor (partición 6)|Percent|Máximo||Sin dimensiones|
 |cacheWrite6|Escritura de caché (partición 6)|BytesPerSecond|Máximo||Sin dimensiones|
 |cacheRead6|Lectura de caché (partición 6)|BytesPerSecond|Máximo||Sin dimensiones|
-|percentProcessorTime6|CPU (partición 6)|Porcentaje|Máximo||Sin dimensiones|
+|percentProcessorTime6|CPU (partición 6)|Percent|Máximo||Sin dimensiones|
 |connectedclients7|Clientes conectados (partición 7)|Count|Máximo||Sin dimensiones|
 |totalcommandsprocessed7|Total de operaciones (partición 7)|Count|Total||Sin dimensiones|
 |cachehits7|Aciertos de caché (partición 7)|Count|Total||Sin dimensiones|
@@ -286,10 +286,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |expiredkeys7|Claves expiradas (partición 7)|Count|Total||Sin dimensiones|
 |usedmemory7|Memoria usada (partición 7)|Bytes|Máximo||Sin dimensiones|
 |usedmemoryRss7|Memoria RSS usada (partición 7)|Bytes|Máximo||Sin dimensiones|
-|serverLoad7|Carga de servidor (partición 7)|Porcentaje|Máximo||Sin dimensiones|
+|serverLoad7|Carga de servidor (partición 7)|Percent|Máximo||Sin dimensiones|
 |cacheWrite7|Escritura de caché (partición 7)|BytesPerSecond|Máximo||Sin dimensiones|
 |cacheRead7|Lectura de caché (partición 7)|BytesPerSecond|Máximo||Sin dimensiones|
-|percentProcessorTime7|CPU (partición 7)|Porcentaje|Máximo||Sin dimensiones|
+|percentProcessorTime7|CPU (partición 7)|Percent|Máximo||Sin dimensiones|
 |connectedclients8|Clientes conectados (partición 8)|Count|Máximo||Sin dimensiones|
 |totalcommandsprocessed8|Total de operaciones (partición 8)|Count|Total||Sin dimensiones|
 |cachehits8|Aciertos de caché (partición 8)|Count|Total||Sin dimensiones|
@@ -302,10 +302,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |expiredkeys8|Claves expiradas (partición 8)|Count|Total||Sin dimensiones|
 |usedmemory8|Memoria usada (partición 8)|Bytes|Máximo||Sin dimensiones|
 |usedmemoryRss8|Memoria RSS usada (partición 8)|Bytes|Máximo||Sin dimensiones|
-|serverLoad8|Carga de servidor (partición 8)|Porcentaje|Máximo||Sin dimensiones|
+|serverLoad8|Carga de servidor (partición 8)|Percent|Máximo||Sin dimensiones|
 |cacheWrite8|Escritura de caché (partición 8)|BytesPerSecond|Máximo||Sin dimensiones|
 |cacheRead8|Lectura de caché (partición 8)|BytesPerSecond|Máximo||Sin dimensiones|
-|percentProcessorTime8|CPU (partición 8)|Porcentaje|Máximo||Sin dimensiones|
+|percentProcessorTime8|CPU (partición 8)|Percent|Máximo||Sin dimensiones|
 |connectedclients9|Clientes conectados (partición 9)|Count|Máximo||Sin dimensiones|
 |totalcommandsprocessed9|Total de operaciones (partición 9)|Count|Total||Sin dimensiones|
 |cachehits9|Aciertos de caché (partición 9)|Count|Total||Sin dimensiones|
@@ -318,16 +318,16 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |expiredkeys9|Claves expiradas (partición 9)|Count|Total||Sin dimensiones|
 |usedmemory9|Memoria usada (partición 9)|Bytes|Máximo||Sin dimensiones|
 |usedmemoryRss9|Memoria RSS usada (partición 9)|Bytes|Máximo||Sin dimensiones|
-|serverLoad9|Carga de servidor (partición 9)|Porcentaje|Máximo||Sin dimensiones|
+|serverLoad9|Carga de servidor (partición 9)|Percent|Máximo||Sin dimensiones|
 |cacheWrite9|Escritura de caché (partición 9)|BytesPerSecond|Máximo||Sin dimensiones|
 |cacheRead9|Lectura de caché (partición 9)|BytesPerSecond|Máximo||Sin dimensiones|
-|percentProcessorTime9|CPU (partición 9)|Porcentaje|Máximo||Sin dimensiones|
+|percentProcessorTime9|CPU (partición 9)|Percent|Máximo||Sin dimensiones|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|Porcentaje de CPU|Porcentaje de CPU|Porcentaje|Promedio|Porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente.|Sin dimensiones|
+|Porcentaje de CPU|Porcentaje de CPU|Percent|Promedio|Porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente.|Sin dimensiones|
 |Entrada de red|Red interna|Bytes|Total|Número de bytes que las máquinas virtuales recibieron en todas las interfaces de red (tráfico entrante).|Sin dimensiones|
 |Salida de red|Red interna|Bytes|Total|Número de bytes que las máquinas virtuales enviaron en todas las interfaces de red (tráfico saliente).|Sin dimensiones|
 |Bytes de lectura de disco/segundo|Lectura de disco|BytesPerSecond|Promedio|Promedio de bytes leídos del disco durante el período de supervisión.|Sin dimensiones|
@@ -339,7 +339,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|Porcentaje de CPU|Porcentaje de CPU|Porcentaje|Promedio|Porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente.|RoleInstanceId|
+|Porcentaje de CPU|Porcentaje de CPU|Percent|Promedio|Porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente.|RoleInstanceId|
 |Entrada de red|Red interna|Bytes|Total|Número de bytes que las máquinas virtuales recibieron en todas las interfaces de red (tráfico entrante).|RoleInstanceId|
 |Salida de red|Red interna|Bytes|Total|Número de bytes que las máquinas virtuales enviaron en todas las interfaces de red (tráfico saliente).|RoleInstanceId|
 |Bytes de lectura de disco/segundo|Lectura de disco|BytesPerSecond|Promedio|Promedio de bytes leídos del disco durante el período de supervisión.|RoleInstanceId|
@@ -370,7 +370,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|Porcentaje de CPU|Porcentaje de CPU|Porcentaje|Promedio|Porcentaje de unidades de proceso asignadas que las máquinas virtuales está usando actualmente|Sin dimensiones|
+|Porcentaje de CPU|Porcentaje de CPU|Percent|Promedio|Porcentaje de unidades de proceso asignadas que las máquinas virtuales está usando actualmente|Sin dimensiones|
 |Entrada de red|Entrada de red facturable|Bytes|Total|Número de bytes facturables que las máquinas virtuales recibieron en todas las interfaces de red (tráfico entrante)|Sin dimensiones|
 |Salida de red|Salida de red facturable|Bytes|Total|Número de bytes facturables que las máquinas virtuales enviaron en todas las interfaces de red (tráfico saliente)|Sin dimensiones|
 |Bytes de lectura en disco|Bytes de lectura en disco|Bytes|Total|Bytes leídos del disco durante el período de supervisión|Sin dimensiones|
@@ -403,10 +403,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Flujos salientes|Flujos salientes (versión preliminar)|Count|Promedio|Los flujos salientes son los flujos actuales en dirección de salida (tráfico que sale de la VM).|Sin dimensiones|
 |Velocidad máxima de creación de flujos entrantes|Velocidad máxima de creación de flujos entrantes (versión preliminar)|CountPerSecond|Promedio|Velocidad máxima de creación de flujos entrantes (tráfico dirigido a la VM)|Sin dimensiones|
 |Velocidad máxima de creación de flujos salientes|Velocidad máxima de creación de flujos salientes (versión preliminar)|CountPerSecond|Promedio|Velocidad máxima de creación de flujos salientes (tráfico dirigido fuera de la VM)|Sin dimensiones|
-|Aciertos de lectura de la caché de discos de datos prémium|Aciertos de lectura de la caché de discos de datos prémium (versión preliminar)|Porcentaje|Promedio|Aciertos de lectura de la caché de discos de datos prémium|LUN|
-|Error de lectura de la caché de discos de datos prémium|Error de lectura de la caché de discos de datos prémium (versión preliminar)|Porcentaje|Promedio|Error de lectura de la caché de discos de datos prémium|LUN|
-|Aciertos de lectura de la caché de discos del SO prémium|Aciertos de lectura de la caché de discos del SO prémium (versión preliminar)|Porcentaje|Promedio|Aciertos de lectura de la caché de discos del SO prémium|Sin dimensiones|
-|Error de lectura de la caché de discos prémium del SO|Error de lectura de la caché de discos del SO prémium (versión preliminar)|Porcentaje|Promedio|Error de lectura de la caché de discos prémium del SO|Sin dimensiones|
+|Aciertos de lectura de la caché de discos de datos prémium|Aciertos de lectura de la caché de discos de datos prémium (versión preliminar)|Percent|Promedio|Aciertos de lectura de la caché de discos de datos prémium|LUN|
+|Error de lectura de la caché de discos de datos prémium|Error de lectura de la caché de discos de datos prémium (versión preliminar)|Percent|Promedio|Error de lectura de la caché de discos de datos prémium|LUN|
+|Aciertos de lectura de la caché de discos del SO prémium|Aciertos de lectura de la caché de discos del SO prémium (versión preliminar)|Percent|Promedio|Aciertos de lectura de la caché de discos del SO prémium|Sin dimensiones|
+|Error de lectura de la caché de discos prémium del SO|Error de lectura de la caché de discos del SO prémium (versión preliminar)|Percent|Promedio|Error de lectura de la caché de discos prémium del SO|Sin dimensiones|
 |Entrada de red total|Entrada de red total|Bytes|Total|Número de bytes que las máquinas virtuales recibieron en todas las interfaces de red (tráfico entrante)|Sin dimensiones|
 |Salida de red total|Salida de red total|Bytes|Total|Número de bytes que las máquinas virtuales enviaron en todas las interfaces de red (tráfico saliente)|Sin dimensiones|
 
@@ -414,7 +414,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|Porcentaje de CPU|Porcentaje de CPU|Porcentaje|Promedio|Porcentaje de unidades de proceso asignadas que las máquinas virtuales está usando actualmente|VMName|
+|Porcentaje de CPU|Porcentaje de CPU|Percent|Promedio|Porcentaje de unidades de proceso asignadas que las máquinas virtuales está usando actualmente|VMName|
 |Entrada de red|Entrada de red facturable|Bytes|Total|Número de bytes facturables que las máquinas virtuales recibieron en todas las interfaces de red (tráfico entrante)|VMName|
 |Salida de red|Salida de red facturable|Bytes|Total|Número de bytes facturables que las máquinas virtuales enviaron en todas las interfaces de red (tráfico saliente)|VMName|
 |Bytes de lectura en disco|Bytes de lectura en disco|Bytes|Total|Bytes leídos del disco durante el período de supervisión|VMName|
@@ -447,10 +447,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Flujos salientes|Flujos salientes (versión preliminar)|Count|Promedio|Los flujos salientes son los flujos actuales en dirección de salida (tráfico que sale de la VM).|VMName|
 |Velocidad máxima de creación de flujos entrantes|Velocidad máxima de creación de flujos entrantes (versión preliminar)|CountPerSecond|Promedio|Velocidad máxima de creación de flujos entrantes (tráfico dirigido a la VM)|VMName|
 |Velocidad máxima de creación de flujos salientes|Velocidad máxima de creación de flujos salientes (versión preliminar)|CountPerSecond|Promedio|Velocidad máxima de creación de flujos salientes (tráfico dirigido fuera de la VM)|VMName|
-|Aciertos de lectura de la caché de discos de datos prémium|Aciertos de lectura de la caché de discos de datos prémium (versión preliminar)|Porcentaje|Promedio|Aciertos de lectura de la caché de discos de datos prémium|LUN, VMName|
-|Error de lectura de la caché de discos de datos prémium|Error de lectura de la caché de discos de datos prémium (versión preliminar)|Porcentaje|Promedio|Error de lectura de la caché de discos de datos prémium|LUN, VMName|
-|Aciertos de lectura de la caché de discos del SO prémium|Aciertos de lectura de la caché de discos del SO prémium (versión preliminar)|Porcentaje|Promedio|Aciertos de lectura de la caché de discos del SO prémium|VMName|
-|Error de lectura de la caché de discos prémium del SO|Error de lectura de la caché de discos del SO prémium (versión preliminar)|Porcentaje|Promedio|Error de lectura de la caché de discos prémium del SO|VMName|
+|Aciertos de lectura de la caché de discos de datos prémium|Aciertos de lectura de la caché de discos de datos prémium (versión preliminar)|Percent|Promedio|Aciertos de lectura de la caché de discos de datos prémium|LUN, VMName|
+|Error de lectura de la caché de discos de datos prémium|Error de lectura de la caché de discos de datos prémium (versión preliminar)|Percent|Promedio|Error de lectura de la caché de discos de datos prémium|LUN, VMName|
+|Aciertos de lectura de la caché de discos del SO prémium|Aciertos de lectura de la caché de discos del SO prémium (versión preliminar)|Percent|Promedio|Aciertos de lectura de la caché de discos del SO prémium|VMName|
+|Error de lectura de la caché de discos prémium del SO|Error de lectura de la caché de discos del SO prémium (versión preliminar)|Percent|Promedio|Error de lectura de la caché de discos prémium del SO|VMName|
 |Entrada de red total|Entrada de red total|Bytes|Total|Número de bytes que las máquinas virtuales recibieron en todas las interfaces de red (tráfico entrante)|VMName|
 |Salida de red total|Salida de red total|Bytes|Total|Número de bytes que las máquinas virtuales enviaron en todas las interfaces de red (tráfico saliente)|VMName|
 
@@ -532,8 +532,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |CloudUploadThroughput|Rendimiento de la carga en la nube|BytesPerSecond|Promedio|El rendimiento de carga en la nube en Azure durante el período de notificación.|Sin dimensiones|
 |CloudReadThroughput|Rendimiento de descarga en la nube|BytesPerSecond|Promedio|El rendimiento de descarga en la nube en Azure durante el período de notificación.|Sin dimensiones|
 |BytesUploadedToCloud|En la nube de Bytes cargados (dispositivo)|Bytes|Promedio|El número total de bytes que se carga en Azure desde un dispositivo durante el período de notificación.|Sin dimensiones|
-|HyperVVirtualProcessorUtilization|Calcular uso de CPU|Porcentaje|Promedio|Porcentaje de uso de CPU|InstanceName|
-|HyperVMemoryUtilization|Calcular uso de memoria|Porcentaje|Promedio|Cantidad de memoria RAM en uso|InstanceName|
+|HyperVVirtualProcessorUtilization|Calcular uso de CPU|Percent|Promedio|Porcentaje de uso de CPU|InstanceName|
+|HyperVMemoryUtilization|Calcular uso de memoria|Percent|Promedio|Cantidad de memoria RAM en uso|InstanceName|
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
@@ -552,7 +552,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |ActivitySucceededRuns|Métricas de ejecución de actividad realizadas correctamente|Count|Total||ActivityType, PipelineName, FailureType, Name|
 |TriggerFailedRuns|Métricas de ejecuciones de desencadenador erróneas|Count|Total||Name, FailureType|
 |TriggerSucceededRuns|Métricas de ejecuciones de desencadenador realizadas correctamente|Count|Total||Name, FailureType|
-|IntegrationRuntimeCpuPercentage|Uso de la CPU de entorno de ejecución de integración|Porcentaje|Promedio||IntegrationRuntimeName, NodeName|
+|IntegrationRuntimeCpuPercentage|Uso de la CPU de entorno de ejecución de integración|Percent|Promedio||IntegrationRuntimeName, NodeName|
 |IntegrationRuntimeAvailableMemory|Memoria disponible de entorno de ejecución de integración|Bytes|Promedio||IntegrationRuntimeName, NodeName|
 |MaxAllowedResourceCount|Número máximo de entidades permitidas|Count|Máximo||Sin dimensiones|
 |MaxAllowedFactorySizeInGbUnits|Máximo permitido de tamaño de fábrica (unidad de GB)|Count|Máximo||Sin dimensiones|
@@ -584,13 +584,13 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|cpu_percent|Porcentaje de CPU|Porcentaje|Promedio|Porcentaje de CPU|Sin dimensiones|
-|memory_percent|Porcentaje de memoria|Porcentaje|Promedio|Porcentaje de memoria|Sin dimensiones|
-|io_consumption_percent|Porcentaje de E/S|Porcentaje|Promedio|Porcentaje de E/S|Sin dimensiones|
-|storage_percent|Porcentaje de almacenamiento|Porcentaje|Promedio|Porcentaje de almacenamiento|Sin dimensiones|
+|cpu_percent|Porcentaje de CPU|Percent|Promedio|Porcentaje de CPU|Sin dimensiones|
+|memory_percent|Porcentaje de memoria|Percent|Promedio|Porcentaje de memoria|Sin dimensiones|
+|io_consumption_percent|Porcentaje de E/S|Percent|Promedio|Porcentaje de E/S|Sin dimensiones|
+|storage_percent|Porcentaje de almacenamiento|Percent|Promedio|Porcentaje de almacenamiento|Sin dimensiones|
 |storage_used|Almacenamiento usado|Bytes|Promedio|Almacenamiento usado|Sin dimensiones|
 |storage_limit|Límite de almacenamiento|Bytes|Promedio|Límite de almacenamiento|Sin dimensiones|
-|serverlog_storage_percent|Porcentaje de almacenamiento del registro del servidor|Porcentaje|Promedio|Porcentaje de almacenamiento del registro del servidor|Sin dimensiones|
+|serverlog_storage_percent|Porcentaje de almacenamiento del registro del servidor|Percent|Promedio|Porcentaje de almacenamiento del registro del servidor|Sin dimensiones|
 |serverlog_storage_usage|Almacenamiento del registro del servidor usado|Bytes|Promedio|Almacenamiento del registro del servidor usado|Sin dimensiones|
 |serverlog_storage_limit|Límite de almacenamiento del registro del servidor|Bytes|Promedio|Límite de almacenamiento del registro del servidor|Sin dimensiones|
 |active_connections|Conexiones activas|Count|Promedio|Conexiones activas|Sin dimensiones|
@@ -604,13 +604,13 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|cpu_percent|Porcentaje de CPU|Porcentaje|Promedio|Porcentaje de CPU|Sin dimensiones|
-|memory_percent|Porcentaje de memoria|Porcentaje|Promedio|Porcentaje de memoria|Sin dimensiones|
-|io_consumption_percent|Porcentaje de E/S|Porcentaje|Promedio|Porcentaje de E/S|Sin dimensiones|
-|storage_percent|Porcentaje de almacenamiento|Porcentaje|Promedio|Porcentaje de almacenamiento|Sin dimensiones|
+|cpu_percent|Porcentaje de CPU|Percent|Promedio|Porcentaje de CPU|Sin dimensiones|
+|memory_percent|Porcentaje de memoria|Percent|Promedio|Porcentaje de memoria|Sin dimensiones|
+|io_consumption_percent|Porcentaje de E/S|Percent|Promedio|Porcentaje de E/S|Sin dimensiones|
+|storage_percent|Porcentaje de almacenamiento|Percent|Promedio|Porcentaje de almacenamiento|Sin dimensiones|
 |storage_used|Almacenamiento usado|Bytes|Promedio|Almacenamiento usado|Sin dimensiones|
 |storage_limit|Límite de almacenamiento|Bytes|Promedio|Límite de almacenamiento|Sin dimensiones|
-|serverlog_storage_percent|Porcentaje de almacenamiento del registro del servidor|Porcentaje|Promedio|Porcentaje de almacenamiento del registro del servidor|Sin dimensiones|
+|serverlog_storage_percent|Porcentaje de almacenamiento del registro del servidor|Percent|Promedio|Porcentaje de almacenamiento del registro del servidor|Sin dimensiones|
 |serverlog_storage_usage|Almacenamiento del registro del servidor usado|Bytes|Promedio|Almacenamiento del registro del servidor usado|Sin dimensiones|
 |serverlog_storage_limit|Límite de almacenamiento del registro del servidor|Bytes|Promedio|Límite de almacenamiento del registro del servidor|Sin dimensiones|
 |active_connections|Conexiones activas|Count|Promedio|Conexiones activas|Sin dimensiones|
@@ -624,13 +624,13 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|cpu_percent|Porcentaje de CPU|Porcentaje|Promedio|Porcentaje de CPU|Sin dimensiones|
-|memory_percent|Porcentaje de memoria|Porcentaje|Promedio|Porcentaje de memoria|Sin dimensiones|
-|io_consumption_percent|Porcentaje de E/S|Porcentaje|Promedio|Porcentaje de E/S|Sin dimensiones|
-|storage_percent|Porcentaje de almacenamiento|Porcentaje|Promedio|Porcentaje de almacenamiento|Sin dimensiones|
+|cpu_percent|Porcentaje de CPU|Percent|Promedio|Porcentaje de CPU|Sin dimensiones|
+|memory_percent|Porcentaje de memoria|Percent|Promedio|Porcentaje de memoria|Sin dimensiones|
+|io_consumption_percent|Porcentaje de E/S|Percent|Promedio|Porcentaje de E/S|Sin dimensiones|
+|storage_percent|Porcentaje de almacenamiento|Percent|Promedio|Porcentaje de almacenamiento|Sin dimensiones|
 |storage_used|Almacenamiento usado|Bytes|Promedio|Almacenamiento usado|Sin dimensiones|
 |storage_limit|Límite de almacenamiento|Bytes|Promedio|Límite de almacenamiento|Sin dimensiones|
-|serverlog_storage_percent|Porcentaje de almacenamiento del registro del servidor|Porcentaje|Promedio|Porcentaje de almacenamiento del registro del servidor|Sin dimensiones|
+|serverlog_storage_percent|Porcentaje de almacenamiento del registro del servidor|Percent|Promedio|Porcentaje de almacenamiento del registro del servidor|Sin dimensiones|
 |serverlog_storage_usage|Almacenamiento del registro del servidor usado|Bytes|Promedio|Almacenamiento del registro del servidor usado|Sin dimensiones|
 |serverlog_storage_limit|Límite de almacenamiento del registro del servidor|Bytes|Promedio|Límite de almacenamiento del registro del servidor|Sin dimensiones|
 |active_connections|Conexiones activas|Count|Promedio|Conexiones activas|Sin dimensiones|
@@ -645,10 +645,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|cpu_percent|Porcentaje de CPU|Porcentaje|Promedio|Porcentaje de CPU|Sin dimensiones|
-|memory_percent|Porcentaje de memoria|Porcentaje|Promedio|Porcentaje de memoria|Sin dimensiones|
+|cpu_percent|Porcentaje de CPU|Percent|Promedio|Porcentaje de CPU|Sin dimensiones|
+|memory_percent|Porcentaje de memoria|Percent|Promedio|Porcentaje de memoria|Sin dimensiones|
 |e/s por segundo|E/S|Count|Promedio|Operaciones de E/S por segundo|Sin dimensiones|
-|storage_percent|Porcentaje de almacenamiento|Porcentaje|Promedio|Porcentaje de almacenamiento|Sin dimensiones|
+|storage_percent|Porcentaje de almacenamiento|Percent|Promedio|Porcentaje de almacenamiento|Sin dimensiones|
 |storage_used|Almacenamiento usado|Bytes|Promedio|Almacenamiento usado|Sin dimensiones|
 |active_connections|Conexiones activas|Count|Promedio|Conexiones activas|Sin dimensiones|
 |network_bytes_egress|Salida de red|Bytes|Total|Red externa a través de conexiones activas|Sin dimensiones|
@@ -747,7 +747,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |MongoRequests|Solicitudes de Mongo|Count|Count|Número de solicitudes de Mongo realizadas|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
 |ProvisionedThroughput|Rendimiento aprovisionado|Count|Máximo|Rendimiento aprovisionado|DatabaseName, CollectionName|
 |ReplicationLatency|P99 Latencia de replicación|MilliSeconds|Promedio|Latencia de replicación P99 entre regiones de origen y destino para la cuenta habilitada geográficamente|SourceRegion, TargetRegion|
-|ServiceAvailability|Disponibilidad del servicio|Porcentaje|Promedio|Disponibilidad de las solicitudes de cuenta una granularidad de una hora, día o mes|Sin dimensiones|
+|ServiceAvailability|Disponibilidad del servicio|Percent|Promedio|Disponibilidad de las solicitudes de cuenta una granularidad de una hora, día o mes|Sin dimensiones|
 |TotalRequestUnits|Unidades de solicitud totales|Count|Total|Unidades de solicitud consumidas|DatabaseName, CollectionName, región, StatusCode, OperationType|
 |TotalRequests|Total de solicitudes|Count|Count|Número de solicitudes realizadas|DatabaseName, CollectionName, región, StatusCode, OperationType|
 
@@ -839,7 +839,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |CaptureBacklog|Permite capturar el trabajo pendiente. (Versión preliminar)|Count|Total|Permite capturar el trabajo pendiente para Microsoft.EventHub. (Versión preliminar)|Sin dimensiones|
 |CapturedMessages|Mensajes capturados. (Versión preliminar)|Count|Total|Mensajes capturados para Microsoft.EventHub. (Versión preliminar)|Sin dimensiones|
 |CapturedBytes|Bytes capturados. (Versión preliminar)|Bytes|Total|Bytes capturados para Microsoft.EventHub. (Versión preliminar)|Sin dimensiones|
-|CPU|CPU (versión preliminar)|Porcentaje|Máximo|Uso de la CPU para el clúster del centro de eventos como porcentaje|Rol|
+|CPU|CPU (versión preliminar)|Percent|Máximo|Uso de la CPU para el clúster del centro de eventos como porcentaje|Rol|
 |AvailableMemory|Memoria disponible (versión preliminar)|Count|Máximo|Memoria disponible para el clúster del centro de eventos en bytes|Rol|
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
@@ -848,12 +848,6 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|---|
 |GatewayRequests|Solicitudes de puerta de enlace|Count|Total|Número de solicitudes de puerta de enlace|ClusterDnsName, HttpStatus|
 |CategorizedGatewayRequests|Solicitudes de puerta de enlace categorizadas|Count|Total|Número de solicitudes de puerta de enlace por categorías (1xx/2xx/3xx/4xx/5xx)|ClusterDnsName, HttpStatus|
-|Escalado automático|Métricas de escalado automático|Count|Máximo|Métricas de escalado automático|ClusterDnsName, MetricName|
-|AllocatedMB|MB asignados|Count|Máximo|MB asignados|ClusterDnsName, MetricName|
-|AvailableMB|MB disponibles|Count|Máximo|MB disponibles|ClusterDnsName, MetricName|
-|AppsPending|Aplicaciones pendientes|Count|Máximo|Aplicaciones pendientes|ClusterDnsName, MetricName|
-|AppsRunning|Aplicaciones que se ejecutan|Count|Máximo|Aplicaciones que se ejecutan|ClusterDnsName, MetricName|
-|AppsSubmitted|Aplicaciones enviadas|Count|Máximo|Aplicaciones enviadas|ClusterDnsName, MetricName|
 |NumActiveWorkers|Número de trabajadores activos|Count|Máximo|Número de trabajadores activos|ClusterDnsName, MetricName|
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
@@ -871,7 +865,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|availabilityResults/availabilityPercentage|Disponibilidad|Porcentaje|Promedio|Porcentaje de pruebas de disponibilidad se completó correctamente|availabilityResult/name, availabilityResult/ubicación|
+|availabilityResults/availabilityPercentage|Disponibilidad|Percent|Promedio|Porcentaje de pruebas de disponibilidad se completó correctamente|availabilityResult/name, availabilityResult/ubicación|
 |availabilityResults/count|Pruebas de disponibilidad|Count|Count|Recuento de pruebas de disponibilidad|availabilityResult/name, availabilityResult/location, availabilityResult/success|
 |availabilityResults/duration|Duración de la prueba de disponibilidad|MilliSeconds|Promedio|Duración de la prueba de disponibilidad|availabilityResult/name, availabilityResult/location, availabilityResult/success|
 |browserTimings/networkDuration|Tiempo de conexión de red para carga de páginas|MilliSeconds|Promedio|Tiempo transcurrido entre la solicitud del usuario y la conexión de red. Incluye la búsqueda de DNS y la conexión de transporte.|Sin dimensiones|
@@ -889,8 +883,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |performanceCounters/requestsPerSecond|Tasa de solicitudes HTTP|CountPerSecond|Promedio|Tasa de todas las solicitudes de la aplicación por segundo desde ASP.NET.|cloud/roleInstance|
 |performanceCounters/exceptionsPerSecond|Tasa de excepciones|CountPerSecond|Promedio|Recuento de excepciones controladas y no controladas de las cuales se informó a Windows, incluidas las excepciones de .NET y las excepciones no administradas que se convierten en excepciones de .NET.|cloud/roleInstance|
 |performanceCounters/processIOBytesPerSecond|Tasa de E/S del proceso|BytesPerSecond|Promedio|Bytes totales por segundo leídos y escritos en archivos, red o dispositivos.|cloud/roleInstance|
-|performanceCounters/processCpuPercentage|CPU del proceso|Porcentaje|Promedio|Porcentaje de tiempo transcurrido que todos los subprocesos del proceso han usado el procesador para ejecutar instrucciones. Puede variar entre 0 y 100. Esta métrica indica el rendimiento solo del proceso w3wp.|cloud/roleInstance|
-|performanceCounters/processorCpuPercentage|Tiempo del procesador|Porcentaje|Promedio|Porcentaje de tiempo que el procesador dedica a subprocesos no inactivos.|cloud/roleInstance|
+|performanceCounters/processCpuPercentage|CPU del proceso|Percent|Promedio|Porcentaje de tiempo transcurrido que todos los subprocesos del proceso han usado el procesador para ejecutar instrucciones. Puede variar entre 0 y 100. Esta métrica indica el rendimiento solo del proceso w3wp.|cloud/roleInstance|
+|performanceCounters/processorCpuPercentage|Tiempo del procesador|Percent|Promedio|Porcentaje de tiempo que el procesador dedica a subprocesos no inactivos.|cloud/roleInstance|
 |performanceCounters/memoryAvailableBytes|Memoria disponible|Bytes|Promedio|Memoria física disponible de inmediato para su asignación a un proceso o para uso del sistema.|cloud/roleInstance|
 |performanceCounters/processPrivateBytes|Bytes privados del proceso|Bytes|Promedio|Memoria asignada exclusivamente a los procesos supervisados de la aplicación.|cloud/roleInstance|
 |requests/duration|Tiempo de respuesta del servidor|MilliSeconds|Promedio|Tiempo transcurrido entre la recepción de la solicitud HTTP y la finalización del envío de la respuesta.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
@@ -914,15 +908,15 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|ClusterDataCapacityFactor|Uso de la caché|Porcentaje|Promedio|Nivel de uso en el ámbito de clúster|Sin dimensiones|
+|ClusterDataCapacityFactor|Uso de la caché|Percent|Promedio|Nivel de uso en el ámbito de clúster|Sin dimensiones|
 |QueryDuration|Duración de la consulta|Milisegundos|Promedio|Duración de las consultas en segundos|QueryStatus|
-|IngestionsLoadFactor|Uso de la ingesta|Porcentaje|Promedio|Proporción de ranuras de ingesta usadas en el clúster|Sin dimensiones|
+|IngestionsLoadFactor|Uso de la ingesta|Percent|Promedio|Proporción de ranuras de ingesta usadas en el clúster|Sin dimensiones|
 |IsEngineAnsweringQuery|Mantener conexión|Count|Promedio|La comprobación de integridad indica las respuestas del clúster a las consultas|Sin dimensiones|
 |IngestCommandOriginalSizeInMb|Volumen de ingesta (en MB)|Count|Total|Volumen global de la ingesta de datos del clúster (en MB)|Sin dimensiones|
 |IngestedEventAgeSeconds|Latencia de la ingesta (en segundos)|Segundos|Promedio|Tiempo de ingesta del origen (p. ej., el mensaje está en el centro de eventos) al clúster en segundos|Sin dimensiones|
 |EventRecievedFromEventHub|Eventos procesados (para Event Hubs)|Count|Total|Número de eventos que ha procesado el clúster en la ingesta desde el centro de eventos|Sin dimensiones|
 |IngestionResult|Resultado de la ingesta|Count|Count|Número de operaciones de ingesta|IngestionResultDetails|
-|EngineCPU|CPU|Porcentaje|Promedio|Nivel de uso de CPU|Sin dimensiones|
+|EngineCPU|CPU|Percent|Promedio|Nivel de uso de CPU|Sin dimensiones|
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
@@ -942,7 +936,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |RunLatency|Latencia de ejecución|Segundos|Promedio|Latencia de las ejecuciones de flujo de trabajo que se han completado.|Sin dimensiones|
 |RunSuccessLatency|Latencia de ejecuciones correctas|Segundos|Promedio|Latencia de las ejecuciones de flujo de trabajo que se han realizado correctamente.|Sin dimensiones|
 |RunThrottledEvents|Ejecución de eventos limitados|Count|Total|Número de eventos limitados del desencadenador o de la acción de flujo de trabajo.|Sin dimensiones|
-|RunFailurePercentage|Porcentaje de errores de ejecución|Porcentaje|Total|Porcentaje de ejecuciones del flujo de trabajo erróneas.|Sin dimensiones|
+|RunFailurePercentage|Porcentaje de errores de ejecución|Percent|Total|Porcentaje de ejecuciones del flujo de trabajo erróneas.|Sin dimensiones|
 |ActionsStarted|Acciones iniciadas |Count|Total|Número de acciones de flujo de trabajo que se han iniciado.|Sin dimensiones|
 |ActionsCompleted|Acciones completadas |Count|Total|Número de acciones de flujo de trabajo que se han completado.|Sin dimensiones|
 |ActionsSucceeded|Acciones correctas |Count|Total|Número de acciones de flujo de trabajo que se han realizado correctamente.|Sin dimensiones|
@@ -984,7 +978,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |RunSuccessLatency|Latencia de ejecuciones correctas|Segundos|Promedio|Latencia de las ejecuciones de flujo de trabajo que se han realizado correctamente.|Sin dimensiones|
 |RunThrottledEvents|Ejecución de eventos limitados|Count|Total|Número de eventos limitados del desencadenador o de la acción de flujo de trabajo.|Sin dimensiones|
 |RunStartThrottledEvents|Eventos limitados del inicio de ejecución|Count|Total|Número de eventos limitados del inicio de ejecución del flujo de trabajo.|Sin dimensiones|
-|RunFailurePercentage|Porcentaje de errores de ejecución|Porcentaje|Total|Porcentaje de ejecuciones del flujo de trabajo erróneas.|Sin dimensiones|
+|RunFailurePercentage|Porcentaje de errores de ejecución|Percent|Total|Porcentaje de ejecuciones del flujo de trabajo erróneas.|Sin dimensiones|
 |ActionsStarted|Acciones iniciadas |Count|Total|Número de acciones de flujo de trabajo que se han iniciado.|Sin dimensiones|
 |ActionsCompleted|Acciones completadas |Count|Total|Número de acciones de flujo de trabajo que se han completado.|Sin dimensiones|
 |ActionsSucceeded|Acciones correctas |Count|Total|Número de acciones de flujo de trabajo que se han realizado correctamente.|Sin dimensiones|
@@ -1003,10 +997,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |TriggerFireLatency|Latencia de desencadenador activado |Segundos|Promedio|Latencia de los desencadenadores de flujo de trabajo que se han activado.|Sin dimensiones|
 |TriggerSuccessLatency|Latencia de desencadenadores correctos |Segundos|Promedio|Latencia de los desencadenadores de flujo de trabajo que se han realizado correctamente.|Sin dimensiones|
 |TriggerThrottledEvents|Eventos limitados de desencadenadores|Count|Total|Número de eventos limitados del desencadenador de flujo de trabajo.|Sin dimensiones|
-|IntegrationServiceEnvironmentWorkflowProcessorUsage|Uso de procesador del flujo de trabajo para el entorno del servicio de integración.|Porcentaje|Promedio|Uso de procesador del flujo de trabajo para el entorno del servicio de integración.|Sin dimensiones|
-|IntegrationServiceEnvironmentWorkflowMemoryUsage|Uso de memoria del flujo de trabajo para el entorno del servicio de integración|Porcentaje|Promedio|Uso de memoria del flujo de trabajo para el entorno del servicio de integración.|Sin dimensiones|
-|IntegrationServiceEnvironmentConnectorProcessorUsage|Uso de procesador del conector para el entorno del servicio de integración|Porcentaje|Promedio|Uso de procesador del conector para el entorno del servicio de integración.|Sin dimensiones|
-|IntegrationServiceEnvironmentConnectorMemoryUsage|Uso de memoria del conector para el entorno del servicio de integración|Porcentaje|Promedio|Uso de memoria del conector para el entorno del servicio de integración.|Sin dimensiones|
+|IntegrationServiceEnvironmentWorkflowProcessorUsage|Uso de procesador del flujo de trabajo para el entorno del servicio de integración.|Percent|Promedio|Uso de procesador del flujo de trabajo para el entorno del servicio de integración.|Sin dimensiones|
+|IntegrationServiceEnvironmentWorkflowMemoryUsage|Uso de memoria del flujo de trabajo para el entorno del servicio de integración|Percent|Promedio|Uso de memoria del flujo de trabajo para el entorno del servicio de integración.|Sin dimensiones|
+|IntegrationServiceEnvironmentConnectorProcessorUsage|Uso de procesador del conector para el entorno del servicio de integración|Percent|Promedio|Uso de procesador del conector para el entorno del servicio de integración.|Sin dimensiones|
+|IntegrationServiceEnvironmentConnectorMemoryUsage|Uso de memoria del conector para el entorno del servicio de integración|Percent|Promedio|Uso de memoria del conector para el entorno del servicio de integración.|Sin dimensiones|
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
@@ -1021,7 +1015,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
 |Uso|Uso|Count|Count|Recuento de llamadas a la API|ApiCategory, ApiName, ResultType, ResponseCode|
-|Disponibilidad|Disponibilidad|Porcentaje|Promedio|Disponibilidad de las API|ApiCategory, ApiName|
+|Disponibilidad|Disponibilidad|Percent|Promedio|Disponibilidad de las API|ApiCategory, ApiName|
 
 ## <a name="microsoftnetappnetappaccountscapacitypoolsvolumes"></a>Microsoft.NetApp/netAppAccounts/capacityPools/Volumes
 
@@ -1088,7 +1082,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|---|
 |QueryVolume|Volumen de consulta|Count|Total|Número de consultas que se sirven para una zona DNS|Sin dimensiones|
 |RecordSetCount|Recuento de conjunto de registros|Count|Máximo|Número de conjuntos de registros de una zona DNS|Sin dimensiones|
-|RecordSetCapacityUtilization|Uso de capacidad de conjunto de registros|Porcentaje|Máximo|Porcentaje de capacidad de conjunto de registros que usa una zona DNS|Sin dimensiones|
+|RecordSetCapacityUtilization|Uso de capacidad de conjunto de registros|Percent|Máximo|Porcentaje de capacidad de conjunto de registros que usa una zona DNS|Sin dimensiones|
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
@@ -1188,7 +1182,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|ProbesFailedPercent|% de sondeos con error|Porcentaje|Promedio|% de sondeos de supervisión de conectividad con error|Sin dimensiones|
+|ProbesFailedPercent|% de sondeos con error|Percent|Promedio|% de sondeos de supervisión de conectividad con error|Sin dimensiones|
 |AverageRoundtripMs|Prom. Tiempo de ida y vuelta (ms)|MilliSeconds|Promedio|Promedio de tiempo de ida y vuelta de red (ms) para los sondeos de supervisión de conectividad que se envían entre el origen y el destino|Sin dimensiones|
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
@@ -1201,7 +1195,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |BackendRequestCount|Recuento de solicitudes de back-end|Count|Total|Número de solicitudes enviadas del proxy HTTP/S a los back-end|HttpStatus, HttpStatusGroup, Backend|
 |BackendRequestLatency|Latencia de las solicitudes de back-end|MilliSeconds|Promedio|Tiempo calculado desde que el proxy HTTP/S ha enviado la solicitud al back-end hasta que el proxy HTTP/S ha recibido el último byte de respuesta del back-end|Back-end|
 |TotalLatency|Latencia total|MilliSeconds|Promedio|Tiempo calculado desde que el proxy HTTP/S ha recibido la solicitud de cliente hasta que el cliente ha reconocido el último byte de respuesta del proxy HTTP/S|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
-|BackendHealthPercentage|Porcentaje de estado del back-end|Porcentaje|Promedio|El porcentaje de sondeos de estado correctos del proxy HTTP/S a los back-ends|Backend, BackendPool|
+|BackendHealthPercentage|Porcentaje de estado del back-end|Percent|Promedio|El porcentaje de sondeos de estado correctos del proxy HTTP/S a los back-ends|Backend, BackendPool|
 |WebApplicationFirewallRequestCount|Recuento de solicitudes del firewall de aplicaciones web|Count|Total|Número de solicitudes de cliente procesadas por el firewall de aplicaciones web|PolicyName, RuleName, Action|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
@@ -1355,7 +1349,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |QueryPoolJobQueueLength|Subprocesos: longitud de cola de trabajos del grupo de consultas|Count|Promedio|Número de trabajos en la cola del grupo de subprocesos de consultas.|Sin dimensiones|
 |qpu_high_utilization_metric|Uso intensivo de QPU|Count|Total|Uso intensivo de QPU en el último minuto: 1 para un uso intensivo de QPU y 0 en caso contrario.|Sin dimensiones|
 |memory_metric|Memoria|Bytes|Promedio|Memoria. Intervalo de 0-3 GB para A1, 0-5 GB para A2, 0-10 GB para A3, 0-25 GB para A4, 0-50 GB para A5 y 0-100 GB para A6|Sin dimensiones|
-|memory_thrashing_metric|Paginación excesiva de memoria|Porcentaje|Promedio|Paginación excesiva media de memoria.|Sin dimensiones|
+|memory_thrashing_metric|Paginación excesiva de memoria|Percent|Promedio|Paginación excesiva media de memoria.|Sin dimensiones|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
@@ -1381,7 +1375,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|---|
 |SearchLatency|Latencia de búsqueda|Segundos|Promedio|Promedio de latencia de búsqueda para el servicio de búsqueda|Sin dimensiones|
 |SearchQueriesPerSecond|Consultas de búsqueda por segundo|CountPerSecond|Promedio|Consultas de búsqueda por segundo para el servicio de búsqueda|Sin dimensiones|
-|ThrottledSearchQueriesPercentage|Porcentaje de consultas de búsqueda limitadas|Porcentaje|Promedio|Porcentaje de consultas de búsqueda limitadas para el servicio de búsqueda|Sin dimensiones|
+|ThrottledSearchQueriesPercentage|Porcentaje de consultas de búsqueda limitadas|Percent|Promedio|Porcentaje de consultas de búsqueda limitadas para el servicio de búsqueda|Sin dimensiones|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
@@ -1400,8 +1394,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |ActiveMessages|Número de mensajes activos en un tema o una cola. (Versión preliminar)|Count|Promedio|Número de mensajes activos en un tema o una cola. (Versión preliminar)|EntityName|
 |DeadletteredMessages|Número de mensajes fallidos en una cola o un tema. (Versión preliminar)|Count|Promedio|Número de mensajes fallidos en una cola o un tema. (Versión preliminar)|EntityName|
 |ScheduledMessages|Número de mensajes programados en una cola o un tema. (Versión preliminar)|Count|Promedio|Número de mensajes programados en una cola o un tema. (Versión preliminar)|EntityName|
-|CPUXNS|Uso de CPU por espacio de nombres|Porcentaje|Máximo|Métrica del uso de CPU del espacio de nombres de Service Bus Premium|Sin dimensiones|
-|WSXNS|Uso de tamaño de memoria por espacio de nombres|Porcentaje|Máximo|Métrica de uso de memoria del espacio de nombres de Service Bus Premium|Sin dimensiones|
+|CPUXNS|Uso de CPU por espacio de nombres|Percent|Máximo|Métrica del uso de CPU del espacio de nombres de Service Bus Premium|Sin dimensiones|
+|WSXNS|Uso de tamaño de memoria por espacio de nombres|Percent|Máximo|Métrica de uso de memoria del espacio de nombres de Service Bus Premium|Sin dimensiones|
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
 
@@ -1411,8 +1405,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |AllocatedMemory|AllocatedMemory|Bytes|Promedio|Memoria asignada a este contenedor en MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ActualCpu|ActualCpu|Count|Promedio|Uso de CPU real en millares de núcleos|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ActualMemory|ActualMemory|Bytes|Promedio|Uso de memoria real en MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|Gráfico|Gráfico|Porcentaje|Promedio|Uso de CPU para este contenedor como un porcentaje de AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|MemoryUtilization|MemoryUtilization|Porcentaje|Promedio|Uso de CPU para este contenedor como un porcentaje de AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|Gráfico|Gráfico|Percent|Promedio|Uso de CPU para este contenedor como un porcentaje de AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|MemoryUtilization|MemoryUtilization|Percent|Promedio|Uso de CPU para este contenedor como un porcentaje de AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ApplicationStatus|ApplicationStatus|Count|Promedio|Estado de aplicación de Service Fabric de malla|ApplicationName, estado|
 |ServiceStatus|ServiceStatus|Count|Promedio|Estado de mantenimiento de un servicio en la aplicación de Service Fabric de malla|ServiceName ApplicationName, estado,|
 |ServiceReplicaStatus|ServiceReplicaStatus|Count|Promedio|Estado de mantenimiento de una réplica de servicio en la aplicación de Service Fabric de malla|ApplicationName, estado, ServiceName, ServiceReplicaName|
@@ -1427,70 +1421,70 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |MessageCount|Recuento de mensajes|Count|Total|Cantidad total de mensajes.|Sin dimensiones|
 |InboundTraffic|Tráfico entrante|Bytes|Total|Tráfico entrante del servicio|Sin dimensiones|
 |OutboundTraffic|Tráfico saliente|Bytes|Total|Tráfico saliente del servicio|Sin dimensiones|
-|UserErrors|Errores de usuario|Porcentaje|Máximo|Porcentaje de errores de usuario|Sin dimensiones|
-|SystemErrors|Errores de sistema|Porcentaje|Máximo|Porcentaje de errores del sistema|Sin dimensiones|
+|UserErrors|Errores de usuario|Percent|Máximo|Porcentaje de errores de usuario|Sin dimensiones|
+|SystemErrors|Errores de sistema|Percent|Máximo|Porcentaje de errores del sistema|Sin dimensiones|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|cpu_percent|Porcentaje de CPU|Porcentaje|Promedio|Porcentaje de CPU|Sin dimensiones|
-|physical_data_read_percent|Media de porcentaje de E/S de datos|Porcentaje|Promedio|Media de porcentaje de E/S de datos|Sin dimensiones|
-|log_write_percent|Porcentaje de E/S de registro|Porcentaje|Promedio|Porcentaje de E/S de registro|Sin dimensiones|
-|dtu_consumption_percent|Porcentaje de DTU|Porcentaje|Promedio|Porcentaje de DTU|Sin dimensiones|
+|cpu_percent|Porcentaje de CPU|Percent|Promedio|Porcentaje de CPU|Sin dimensiones|
+|physical_data_read_percent|Media de porcentaje de E/S de datos|Percent|Promedio|Media de porcentaje de E/S de datos|Sin dimensiones|
+|log_write_percent|Porcentaje de E/S de registro|Percent|Promedio|Porcentaje de E/S de registro|Sin dimensiones|
+|dtu_consumption_percent|Porcentaje de DTU|Percent|Promedio|Porcentaje de DTU|Sin dimensiones|
 |almacenamiento|Espacio de datos usado|Bytes|Máximo|Tamaño total de base de datos|Sin dimensiones|
 |connection_successful|Conexiones correctas|Count|Total|Conexiones correctas|Sin dimensiones|
 |connection_failed|Conexiones con error|Count|Total|Conexiones con error|Sin dimensiones|
 |blocked_by_firewall|Bloqueado por el firewall|Count|Total|Bloqueado por el firewall|Sin dimensiones|
 |deadlock|Interbloqueos|Count|Total|Interbloqueos|Sin dimensiones|
-|storage_percent|Porcentaje de espacio utilizado de datos|Porcentaje|Máximo|Porcentaje de tamaño de base de datos|Sin dimensiones|
-|xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Porcentaje|Promedio|Porcentaje de almacenamiento de OLTP en memoria|Sin dimensiones|
-|workers_percent|Porcentaje de trabajos|Porcentaje|Promedio|Porcentaje de trabajos|Sin dimensiones|
-|sessions_percent|Porcentaje de sesiones|Porcentaje|Promedio|Porcentaje de sesiones|Sin dimensiones|
+|storage_percent|Porcentaje de espacio utilizado de datos|Percent|Máximo|Porcentaje de tamaño de base de datos|Sin dimensiones|
+|xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Percent|Promedio|Porcentaje de almacenamiento de OLTP en memoria|Sin dimensiones|
+|workers_percent|Porcentaje de trabajos|Percent|Promedio|Porcentaje de trabajos|Sin dimensiones|
+|sessions_percent|Porcentaje de sesiones|Percent|Promedio|Porcentaje de sesiones|Sin dimensiones|
 |dtu_limit|Límite de DTU|Count|Promedio|Límite de DTU|Sin dimensiones|
 |dtu_used|DTU utilizada|Count|Promedio|DTU utilizada|Sin dimensiones|
 |cpu_limit|Límite de CPU|Count|Promedio|Límite de CPU|Sin dimensiones|
 |cpu_used|Uso de CPU|Count|Promedio|Uso de CPU|Sin dimensiones|
 |dwu_limit|Límite de DWU|Count|Máximo|Límite de DWU|Sin dimensiones|
-|dwu_consumption_percent|Porcentaje de DWU|Porcentaje|Máximo|Porcentaje de DWU|Sin dimensiones|
+|dwu_consumption_percent|Porcentaje de DWU|Percent|Máximo|Porcentaje de DWU|Sin dimensiones|
 |dwu_used|DWU utilizada|Count|Máximo|DWU utilizada|Sin dimensiones|
-|dw_cpu_percent|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|Porcentaje|Promedio|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|DwLogicalNodeId|
-|dw_physical_data_read_percent|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|Porcentaje|Promedio|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|DwLogicalNodeId|
-    |cache_hit_percent|Porcentaje de aciertos de caché|Porcentaje|Máximo|Porcentaje de aciertos de caché|Sin dimensiones|
-|cache_used_percent|Porcentaje de caché usada|Porcentaje|Máximo|Porcentaje de caché usada|Sin dimensiones|
-|local_tempdb_usage_percent|Porcentaje de tempdb local|Porcentaje|Promedio|Porcentaje de tempdb local|Sin dimensiones|
+|dw_cpu_percent|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|Percent|Promedio|Porcentaje de CPU de nivel de nodo de almacenamiento de datos|DwLogicalNodeId|
+|dw_physical_data_read_percent|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|Percent|Promedio|Porcentaje de E/S de datos de nivel de nodo de almacenamiento de datos|DwLogicalNodeId|
+    |cache_hit_percent|Porcentaje de aciertos de caché|Percent|Máximo|Porcentaje de aciertos de caché|Sin dimensiones|
+|cache_used_percent|Porcentaje de caché usada|Percent|Máximo|Porcentaje de caché usada|Sin dimensiones|
+|local_tempdb_usage_percent|Porcentaje de tempdb local|Percent|Promedio|Porcentaje de tempdb local|Sin dimensiones|
 |app_cpu_billed|CPU de aplicación facturada|Count|Total|CPU de aplicación facturada|Sin dimensiones|
-|app_cpu_percent|Porcentaje de CPU de aplicación|Porcentaje|Promedio|Porcentaje de CPU de aplicación|Sin dimensiones|
-|app_memory_percent|Porcentaje de memoria usada de aplicación|Porcentaje|Promedio|Porcentaje de memoria usada de aplicación|Sin dimensiones|
+|app_cpu_percent|Porcentaje de CPU de aplicación|Percent|Promedio|Porcentaje de CPU de aplicación|Sin dimensiones|
+|app_memory_percent|Porcentaje de memoria usada de aplicación|Percent|Promedio|Porcentaje de memoria usada de aplicación|Sin dimensiones|
 |allocated_data_storage|Espacio de datos asignado|Bytes|Promedio|Espacio de datos asignado|Sin dimensiones|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|cpu_percent|Porcentaje de CPU|Porcentaje|Promedio|Porcentaje de CPU|Sin dimensiones|
-|physical_data_read_percent|Media de porcentaje de E/S de datos|Porcentaje|Promedio|Media de porcentaje de E/S de datos|Sin dimensiones|
-|log_write_percent|Porcentaje de E/S de registro|Porcentaje|Promedio|Porcentaje de E/S de registro|Sin dimensiones|
-|dtu_consumption_percent|Porcentaje de DTU|Porcentaje|Promedio|Porcentaje de DTU|Sin dimensiones|
-|storage_percent|Porcentaje de espacio utilizado de datos||Porcentaje|Promedio|Porcentaje de almacenamiento|Sin dimensiones|
-|workers_percent|Porcentaje de trabajos|Porcentaje|Promedio|Porcentaje de trabajos|Sin dimensiones|
-|sessions_percent|Porcentaje de sesiones|Porcentaje|Promedio|Porcentaje de sesiones|Sin dimensiones|
+|cpu_percent|Porcentaje de CPU|Percent|Promedio|Porcentaje de CPU|Sin dimensiones|
+|physical_data_read_percent|Media de porcentaje de E/S de datos|Percent|Promedio|Media de porcentaje de E/S de datos|Sin dimensiones|
+|log_write_percent|Porcentaje de E/S de registro|Percent|Promedio|Porcentaje de E/S de registro|Sin dimensiones|
+|dtu_consumption_percent|Porcentaje de DTU|Percent|Promedio|Porcentaje de DTU|Sin dimensiones|
+|storage_percent|Porcentaje de espacio utilizado de datos||Percent|Promedio|Porcentaje de almacenamiento|Sin dimensiones|
+|workers_percent|Porcentaje de trabajos|Percent|Promedio|Porcentaje de trabajos|Sin dimensiones|
+|sessions_percent|Porcentaje de sesiones|Percent|Promedio|Porcentaje de sesiones|Sin dimensiones|
 |eDTU_limit|Límite de eDTU|Count|Promedio|Límite de eDTU|Sin dimensiones|
 |storage_limit|Tamaño máximo de datos|Bytes|Promedio|Límite de almacenamiento|Sin dimensiones|
 |eDTU_used|eDTU utilizada|Count|Promedio|eDTU utilizada|Sin dimensiones|
 |storage_used|Espacio de datos usado|Bytes|Promedio|Almacenamiento usado|Sin dimensiones|
-|xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Porcentaje|Promedio|Porcentaje de almacenamiento de OLTP en memoria|Sin dimensiones|
+|xtp_storage_percent|Porcentaje de almacenamiento de OLTP en memoria|Percent|Promedio|Porcentaje de almacenamiento de OLTP en memoria|Sin dimensiones|
 |cpu_limit|Límite de CPU|Count|Promedio|Límite de CPU|Sin dimensiones|
 |cpu_used|Uso de CPU|Count|Promedio|Uso de CPU|Sin dimensiones|
 |allocated_data_storage|Espacio de datos asignado|Bytes|Promedio|Espacio de datos asignado|Sin dimensiones|
-|allocated_data_storage_percent|Porcentaje de espacio asignado de datos|Porcentaje|Máximo|Porcentaje de espacio asignado de datos|Sin dimensiones|
+|allocated_data_storage_percent|Porcentaje de espacio asignado de datos|Percent|Máximo|Porcentaje de espacio asignado de datos|Sin dimensiones|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
 |virtual_core_count|Recuento de núcleos virtuales|Count|Promedio|Recuento de núcleos virtuales|Sin dimensiones|
-|avg_cpu_percent|Porcentaje de CPU medio|Porcentaje|Promedio|Porcentaje de CPU medio|Sin dimensiones|
+|avg_cpu_percent|Porcentaje de CPU medio|Percent|Promedio|Porcentaje de CPU medio|Sin dimensiones|
 |reserved_storage_mb|Espacio de almacenamiento reservado|Count|Promedio|Espacio de almacenamiento reservado|Sin dimensiones|
 |storage_space_used_mb|Espacio de almacenamiento usado|Count|Promedio|Espacio de almacenamiento usado|Sin dimensiones|
 |io_requests|Recuento de solicitudes de E/S|Count|Promedio|Recuento de solicitudes de E/S|Sin dimensiones|
@@ -1507,7 +1501,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Salida|Salida|Bytes|Total|La cantidad de datos de salida, en bytes. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Latencia del servidor correcta|Milisegundos|Promedio|La latencia media utilizada por Azure Storage para procesar una solicitud correcta, en milisegundos. Este valor no incluye la latencia de red especificada en AverageE2ELatency.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|Latencia de E2E correcta|Milisegundos|Promedio|La latencia media de un extremo a otro de las solicitudes correctas realizadas a un servicio de almacenamiento o a la operación de API especificada, en milisegundos. Este valor incluye el tiempo de procesamiento requerido dentro de Azure Storage para leer la solicitud, enviar la respuesta y recibir la confirmación de la respuesta.|GeoType, ApiName, Authentication|
-|Disponibilidad|Disponibilidad|Porcentaje|Promedio|El porcentaje de disponibilidad para el servicio de almacenamiento o la operación de API especificada. Para calcular la disponibilidad hay que tomar el valor deTotalBillableRequests y dividirlo por el número de solicitudes aplicables, incluidas aquellas que generaron errores inesperados. Todos los errores inesperados reducen la disponibilidad del servicio de almacenamiento o de la operación de API especificada.|GeoType, ApiName, Authentication|
+|Disponibilidad|Disponibilidad|Percent|Promedio|El porcentaje de disponibilidad para el servicio de almacenamiento o la operación de API especificada. Para calcular la disponibilidad hay que tomar el valor deTotalBillableRequests y dividirlo por el número de solicitudes aplicables, incluidas aquellas que generaron errores inesperados. Todos los errores inesperados reducen la disponibilidad del servicio de almacenamiento o de la operación de API especificada.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
@@ -1522,7 +1516,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Salida|Salida|Bytes|Total|La cantidad de datos de salida, en bytes. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Latencia del servidor correcta|Milisegundos|Promedio|La latencia media utilizada por Azure Storage para procesar una solicitud correcta, en milisegundos. Este valor no incluye la latencia de red especificada en AverageE2ELatency.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|Latencia de E2E correcta|Milisegundos|Promedio|La latencia media de un extremo a otro de las solicitudes correctas realizadas a un servicio de almacenamiento o a la operación de API especificada, en milisegundos. Este valor incluye el tiempo de procesamiento requerido dentro de Azure Storage para leer la solicitud, enviar la respuesta y recibir la confirmación de la respuesta.|GeoType, ApiName, Authentication|
-|Disponibilidad|Disponibilidad|Porcentaje|Promedio|El porcentaje de disponibilidad para el servicio de almacenamiento o la operación de API especificada. Para calcular la disponibilidad hay que tomar el valor deTotalBillableRequests y dividirlo por el número de solicitudes aplicables, incluidas aquellas que generaron errores inesperados. Todos los errores inesperados reducen la disponibilidad del servicio de almacenamiento o de la operación de API especificada.|GeoType, ApiName, Authentication|
+|Disponibilidad|Disponibilidad|Percent|Promedio|El porcentaje de disponibilidad para el servicio de almacenamiento o la operación de API especificada. Para calcular la disponibilidad hay que tomar el valor deTotalBillableRequests y dividirlo por el número de solicitudes aplicables, incluidas aquellas que generaron errores inesperados. Todos los errores inesperados reducen la disponibilidad del servicio de almacenamiento o de la operación de API especificada.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
@@ -1536,7 +1530,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Salida|Salida|Bytes|Total|La cantidad de datos de salida, en bytes. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Latencia del servidor correcta|Milisegundos|Promedio|La latencia media utilizada por Azure Storage para procesar una solicitud correcta, en milisegundos. Este valor no incluye la latencia de red especificada en AverageE2ELatency.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|Latencia de E2E correcta|Milisegundos|Promedio|La latencia media de un extremo a otro de las solicitudes correctas realizadas a un servicio de almacenamiento o a la operación de API especificada, en milisegundos. Este valor incluye el tiempo de procesamiento requerido dentro de Azure Storage para leer la solicitud, enviar la respuesta y recibir la confirmación de la respuesta.|GeoType, ApiName, Authentication|
-|Disponibilidad|Disponibilidad|Porcentaje|Promedio|El porcentaje de disponibilidad para el servicio de almacenamiento o la operación de API especificada. Para calcular la disponibilidad hay que tomar el valor deTotalBillableRequests y dividirlo por el número de solicitudes aplicables, incluidas aquellas que generaron errores inesperados. Todos los errores inesperados reducen la disponibilidad del servicio de almacenamiento o de la operación de API especificada.|GeoType, ApiName, Authentication|
+|Disponibilidad|Disponibilidad|Percent|Promedio|El porcentaje de disponibilidad para el servicio de almacenamiento o la operación de API especificada. Para calcular la disponibilidad hay que tomar el valor deTotalBillableRequests y dividirlo por el número de solicitudes aplicables, incluidas aquellas que generaron errores inesperados. Todos los errores inesperados reducen la disponibilidad del servicio de almacenamiento o de la operación de API especificada.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
@@ -1550,7 +1544,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Salida|Salida|Bytes|Total|La cantidad de datos de salida, en bytes. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Latencia del servidor correcta|Milisegundos|Promedio|La latencia media utilizada por Azure Storage para procesar una solicitud correcta, en milisegundos. Este valor no incluye la latencia de red especificada en AverageE2ELatency.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|Latencia de E2E correcta|Milisegundos|Promedio|La latencia media de un extremo a otro de las solicitudes correctas realizadas a un servicio de almacenamiento o a la operación de API especificada, en milisegundos. Este valor incluye el tiempo de procesamiento requerido dentro de Azure Storage para leer la solicitud, enviar la respuesta y recibir la confirmación de la respuesta.|GeoType, ApiName, Authentication|
-|Disponibilidad|Disponibilidad|Porcentaje|Promedio|El porcentaje de disponibilidad para el servicio de almacenamiento o la operación de API especificada. Para calcular la disponibilidad hay que tomar el valor deTotalBillableRequests y dividirlo por el número de solicitudes aplicables, incluidas aquellas que generaron errores inesperados. Todos los errores inesperados reducen la disponibilidad del servicio de almacenamiento o de la operación de API especificada.|GeoType, ApiName, Authentication|
+|Disponibilidad|Disponibilidad|Percent|Promedio|El porcentaje de disponibilidad para el servicio de almacenamiento o la operación de API especificada. Para calcular la disponibilidad hay que tomar el valor deTotalBillableRequests y dividirlo por el número de solicitudes aplicables, incluidas aquellas que generaron errores inesperados. Todos los errores inesperados reducen la disponibilidad del servicio de almacenamiento o de la operación de API especificada.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
@@ -1564,7 +1558,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Salida|Salida|Bytes|Total|La cantidad de datos de salida, en bytes. Este número incluye la salida de un cliente externo en Azure Storage, así como la salida dentro de Azure. En consecuencia, este número no refleja las salidas facturables.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Latencia del servidor correcta|Milisegundos|Promedio|La latencia media utilizada por Azure Storage para procesar una solicitud correcta, en milisegundos. Este valor no incluye la latencia de red especificada en AverageE2ELatency.|GeoType, ApiName, Authentication|
 |SuccessE2ELatency|Latencia de E2E correcta|Milisegundos|Promedio|La latencia media de un extremo a otro de las solicitudes correctas realizadas a un servicio de almacenamiento o a la operación de API especificada, en milisegundos. Este valor incluye el tiempo de procesamiento requerido dentro de Azure Storage para leer la solicitud, enviar la respuesta y recibir la confirmación de la respuesta.|GeoType, ApiName, Authentication|
-|Disponibilidad|Disponibilidad|Porcentaje|Promedio|El porcentaje de disponibilidad para el servicio de almacenamiento o la operación de API especificada. Para calcular la disponibilidad hay que tomar el valor deTotalBillableRequests y dividirlo por el número de solicitudes aplicables, incluidas aquellas que generaron errores inesperados. Todos los errores inesperados reducen la disponibilidad del servicio de almacenamiento o de la operación de API especificada.|GeoType, ApiName, Authentication|
+|Disponibilidad|Disponibilidad|Percent|Promedio|El porcentaje de disponibilidad para el servicio de almacenamiento o la operación de API especificada. Para calcular la disponibilidad hay que tomar el valor deTotalBillableRequests y dividirlo por el número de solicitudes aplicables, incluidas aquellas que generaron errores inesperados. Todos los errores inesperados reducen la disponibilidad del servicio de almacenamiento o de la operación de API especificada.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragesyncstoragesyncservices"></a>microsoft.storagesync/storageSyncServices
 
@@ -1581,7 +1575,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|ResourceUtilization|SU % uso|Porcentaje|Máximo|% de utilización de la unidad de streaming|LogicalName, PartitionId|
+|ResourceUtilization|SU % uso|Percent|Máximo|% de utilización de la unidad de streaming|LogicalName, PartitionId|
 |InputEvents|Eventos de entrada|Count|Total|Eventos de entrada|LogicalName, PartitionId|
 |InputEventBytes|Bytes del evento de entrada|Bytes|Total|Bytes del evento de entrada|LogicalName, PartitionId|
 |LateInputEvents|Eventos de entrada retrasada|Count|Total|Eventos de entrada retrasada|LogicalName, PartitionId|
@@ -1647,15 +1641,15 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |MemoryUsed|Memoria usada|Bytes|Promedio|La cantidad de memoria de la máquina que está usando la máquina virtual.|Sin dimensiones|
 |MemoryGranted|Memoria concedida|Bytes|Promedio|La cantidad de memoria que le ha concedido a la máquina virtual del host. Memoria no se concede al host hasta que se toca una vez concedido memoria pueden intercambiar o y crecido rápidamente hasta alcanzar ausente si VMkernel necesita la memoria.|Sin dimensiones|
 |MemoryActive|Memoria activo|Bytes|Promedio|La cantidad de memoria utilizada por la máquina virtual en la últimos pequeña ventana de tiempo. Este es el número de "true" de la cantidad de memoria la máquina virtual actualmente tiene necesidad de. Memoria adicional y sin usar se puede intercambiar o crecido rápidamente hasta alcanzar sin que ello afecte al rendimiento del invitado.|Sin dimensiones|
-|Porcentaje de CPU|Porcentaje de CPU|Porcentaje|Promedio|El uso de CPU. Este valor se notifica con 100%, que representa todos los núcleos de procesador en el sistema. Por ejemplo, una máquina virtual de 2 vías con el 50% de un sistema de cuatro núcleos completamente usa dos núcleos.|Sin dimensiones|
+|Porcentaje de CPU|Porcentaje de CPU|Percent|Promedio|El uso de CPU. Este valor se notifica con 100%, que representa todos los núcleos de procesador en el sistema. Por ejemplo, una máquina virtual de 2 vías con el 50% de un sistema de cuatro núcleos completamente usa dos núcleos.|Sin dimensiones|
 |PercentageCpuReady|Uso de CPU de porcentaje|Milisegundos|Total|Ready time está el tiempo transcurrido esperando CPU esté disponible en el último intervalo de actualización.|Sin dimensiones|
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 
 |Métrica|Nombre de métrica para mostrar|Unidad|Tipo de agregación|DESCRIPCIÓN|Dimensiones|
 |---|---|---|---|---|---|
-|CpuPercentage|Porcentaje de CPU|Porcentaje|Promedio|Porcentaje de CPU|Instancia|
-|MemoryPercentage|Porcentaje de memoria|Porcentaje|Promedio|Porcentaje de memoria|Instancia|
+|CpuPercentage|Porcentaje de CPU|Percent|Promedio|Porcentaje de CPU|Instancia|
+|MemoryPercentage|Porcentaje de memoria|Percent|Promedio|Porcentaje de memoria|Instancia|
 |DiskQueueLength|Longitud de la cola del disco|Count|Promedio|Longitud de la cola del disco|Instancia|
 |HttpQueueLength|Longitud de la cola HTTP|Count|Promedio|Longitud de la cola HTTP|Instancia|
 |BytesReceived|Entrada de datos|Bytes|Total|Datos entrantes|Instancia|
@@ -1782,8 +1776,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Http4xx|Http 4xx|Count|Total|Http 4xx|Instancia|
 |Http5xx|Errores del servidor Http|Count|Total|Errores del servidor Http|Instancia|
 |AverageResponseTime|Tiempo de respuesta promedio|Segundos|Promedio|Tiempo medio de respuesta|Instancia|
-|CpuPercentage|Porcentaje de CPU|Porcentaje|Promedio|Porcentaje de CPU|Instancia|
-|MemoryPercentage|Porcentaje de memoria|Porcentaje|Promedio|Porcentaje de memoria|Instancia|
+|CpuPercentage|Porcentaje de CPU|Percent|Promedio|Porcentaje de CPU|Instancia|
+|MemoryPercentage|Porcentaje de memoria|Percent|Promedio|Porcentaje de memoria|Instancia|
 |DiskQueueLength|Longitud de la cola del disco|Count|Promedio|Longitud de la cola del disco|Instancia|
 |HttpQueueLength|Longitud de la cola HTTP|Count|Promedio|Longitud de la cola HTTP|Instancia|
 |ActiveRequests|Solicitudes activas|Count|Total|Solicitudes activas|Instancia|
@@ -1799,8 +1793,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |WorkersTotal|Trabajos totales|Count|Promedio|Trabajos totales|Sin dimensiones|
 |WorkersAvailable|Trabajos disponibles|Count|Promedio|Trabajos disponibles|Sin dimensiones|
 |WorkersUsed|Trabajos usados|Count|Promedio|Trabajos usados|Sin dimensiones|
-|CpuPercentage|Porcentaje de CPU|Porcentaje|Promedio|Porcentaje de CPU|Instancia|
-|MemoryPercentage|Porcentaje de memoria|Porcentaje|Promedio|Porcentaje de memoria|Instancia|
+|CpuPercentage|Porcentaje de CPU|Percent|Promedio|Porcentaje de CPU|Instancia|
+|MemoryPercentage|Porcentaje de memoria|Percent|Promedio|Porcentaje de memoria|Instancia|
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Lea información sobre las métricas en Azure Monitor](data-platform.md)

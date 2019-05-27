@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e958aa82eb1e2fbf21a44df333533c6da058a966
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1a6797c7bd0c6bd8ce8d3f51b42cb4c2b1338fd6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448492"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950481"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Preguntas frecuentes y problemas conocidos con identidades administradas para recursos de Azure
 
@@ -74,13 +74,18 @@ Para obtener más información sobre Azure Instance Metadata Service, vea la [do
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>¿Se van a volver a crear automáticamente las identidades administradas si muevo una suscripción a otro directorio?
 
- No. Si mueve una suscripción a otro directorio, tendrá que volver a crearlas manualmente y volver a asignar los roles de RBAC de Azure.
+No. Si mueve una suscripción a otro directorio, tendrá que volver a crearlas manualmente y volver a asignar los roles de RBAC de Azure.
 - Para las identidades administradas asignadas por el sistema, tiene que desactivarlas y volver a activarlas. 
 - Para las identidades administradas asignadas por el usuario, tiene que eliminarlas, volver a crearlas y adjuntarlas de nuevo a los recursos necesarios (por ejemplo, máquinas virtuales).
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>¿Puedo usar una identidad administrada para acceder a un recurso en un directorio o inquilino diferente?
 
- No. Las identidades administradas no admiten actualmente escenarios entre directorios. 
+No. Las identidades administradas no admiten actualmente escenarios entre directorios. 
+
+### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>¿Qué permisos RBAC de Azure son necesarios para una identidad administrada en un recurso? 
+
+- Asignado por el sistema de identidad administrada: Se necesita permisos de escritura sobre el recurso. Por ejemplo: Microsoft.Compute/virtualMachines/write o esta acción se incluye en los roles integrados específicos, como el recurso [colaborador de máquina Virtual](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Identidad administrada asignada por el usuario: Se necesita permisos de escritura sobre el recurso. Por ejemplo: Microsoft.Compute/virtualMachines/write. Además [operador de identidad administrada](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) asignación de roles a través de la identidad administrada. 
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>¿Cómo se reinicia la extensión de identidades administradas para recursos de Azure?
 Tanto en Windows como en algunas versiones de Linux, si la extensión se detiene, se puede utilizar el siguiente cmdlet para reiniciarla manualmente:

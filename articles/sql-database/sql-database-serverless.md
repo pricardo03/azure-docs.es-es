@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/11/2019
-ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.date: 05/20/2019
+ms.openlocfilehash: 57f2c38ce0479f43d7f24de8d1feb554517bcc69
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823312"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951485"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database sin servidor (versión preliminar)
 
@@ -81,7 +81,22 @@ En general, las bases de datos se ejecutan en una máquina con capacidad suficie
 
 ### <a name="memory-management"></a>Administración de memoria
 
-La memoria para bases de datos sin servidor se reclama con mayor frecuencia que la de las bases de datos aprovisionadas. Este comportamiento es importante para controlar costos en el nivel de proceso sin servidor. A diferencia del proceso aprovisionado, la memoria de la caché de SQL se reclama desde una base de datos sin servidor cuando el uso de CPU o de la memoria caché es bajo.
+Se reclame la memoria para bases de datos sin servidor con mayor frecuencia que las bases de datos de proceso aprovisionada. Este comportamiento es importante para controlar los costos en sin servidor y puede afectar al rendimiento.
+
+#### <a name="cache-reclaiming"></a>Almacenar en caché reclamar
+
+A diferencia de las bases de datos de proceso aprovisionada, se reclama memoria desde la caché SQL desde una base de datos sin servidor cuando el uso de CPU o memoria caché es baja.
+
+- Utilización de la caché se considera baja cuando el tamaño total de las más usados recientemente caché entradas cae por debajo del umbral durante un período de tiempo.
+- Cuando se desencadena la recuperación de la memoria caché, el tamaño de caché de destino se reduce gradualmente a una fracción del tamaño anterior y reclamar solo continúa si uso sigue siendo bajo.
+- Cuando se produce la recuperación de caché, la directiva para seleccionar las entradas de caché se va a expulsar es la misma directiva de selección en cuanto a las bases de datos de proceso aprovisionada cuando la presión de memoria es alta.
+- El tamaño de caché nunca se reduce por debajo de la memoria mínima como se define en núcleos virtuales mínimos, que se pueden configurar.
+
+Sin servidor y aprovisionado proceso bases de datos, caché entradas pueden expulsarse si se usa toda la memoria disponible.
+
+#### <a name="cache-hydration"></a>Hidratación de caché
+
+La caché de SQL crece a medida que se capturan datos desde el disco de la misma manera y con la misma velocidad que las bases de datos aprovisionados. Cuando la base de datos está ocupado, la memoria caché puede crecer sin restricciones hasta el límite máximo de memoria.
 
 ## <a name="autopause-and-autoresume"></a>Pausa y reanudación automáticas
 
@@ -115,7 +130,7 @@ La reanudación automática se desencadena si se cumple cualquiera de las siguie
 
 ### <a name="connectivity"></a>Conectividad
 
-Si una base de datos sin servidor está en pausa, la primera vez que se inicie sesión se reanudará la base de datos y se devolverá un error con el código 40613 que indica que la base de datos no está disponible. Una vez que se reanude la base de datos, será necesario intentar iniciar sesión de nuevo para establecer la conectividad. No es necesario modificar los clientes de la base de datos con lógica de reintento de conexión.
+Si está en pausa una base de datos sin servidor, el primer inicio de sesión se reanude la base de datos y devolver un error que indica que la base de datos no está disponible con el código de error 40613. Una vez que se reanude la base de datos, será necesario intentar iniciar sesión de nuevo para establecer la conectividad. No es necesario modificar los clientes de la base de datos con lógica de reintento de conexión.
 
 ### <a name="latency"></a>Latencia
 
@@ -267,7 +282,7 @@ La cantidad de proceso que se factura es el máximo de CPU y memoria usado en ca
 - **Importe facturado ($)**: precio de la unidad de núcleo virtual * máx. (mínimo de núcleos virtuales, núcleos virtuales usados, GB de memoria mínima * 1/3, GB de memoria usada * 1/3) 
 - **Frecuencia de facturación**: Por segundo
 
-El precio de la unidad de núcleo virtual es el costo por núcleo virtual por segundo. Consulte la [página de precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) para conocer los precios de unidad específicos de una región determinada.
+El precio de unidad de memoria con núcleo virtual en el costo por núcleo virtual por segundo. Consulte la [página de precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) para conocer los precios de unidad específicos de una región determinada.
 
 La cantidad de proceso facturada se expone mediante la métrica siguiente:
 
@@ -279,7 +294,7 @@ Esta cantidad se calcula cada segundo y se agrega en un intervalo de 1 minuto.
 
 Considere la posibilidad de una base de datos sin servidor configurado con núcleo virtual de 1 minuto y número de 4 núcleos virtuales.  Esto corresponde a aproximadamente 3 GB de memoria de mínimo y máximo de 12 GB de memoria.  Supongamos que el retraso de pausa automática se establece en 6 horas y la carga de trabajo de la base de datos está activa durante las primeras horas 2 de un período de 24 horas e inactiva en caso contrario.    
 
-En este caso, la base de datos se factura por proceso y almacenamiento durante las primeras 8 horas.  Aunque la base de datos está iniciando inactiva después de la hora de 2, todavía se factura para el cálculo en las subsiguientes 6 horas, según el proceso mínimos aprovisionado mientras la base de datos está en línea.  Sólo almacenamiento se factura durante el resto del período de 24 horas mientras está en pausa la base de datos.
+En este caso, la base de datos se factura por proceso y almacenamiento durante las primeras 8 horas.  Aunque la base de datos está iniciando inactiva después de la segunda hora, todavía se factura para el cálculo en las subsiguientes 6 horas, según el proceso mínimos aprovisionado mientras la base de datos está en línea.  Sólo almacenamiento se factura durante el resto del período de 24 horas mientras está en pausa la base de datos.
 
 Más concretamente, la factura de proceso en este ejemplo se calcula como sigue:
 

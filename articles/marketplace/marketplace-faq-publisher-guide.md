@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3e1bad5902bb35ce0c037835359c267582cc8bc7
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 152be044b5696a0d9017729d731e080ed9163828
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938653"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964054"
 ---
 # <a name="marketplace-faqs"></a>Preguntas más frecuentes de Marketplace
 
@@ -36,7 +36,7 @@ Azure Marketplace ofrece soluciones técnicas y servicios de Microsoft y de asoc
 
 * sistemas operativos base
 * bases de datos
-* security
+* seguridad
 * identidad
 * networking
 * cadena de bloques
@@ -216,7 +216,7 @@ Sí. Puede usar los créditos de una suscripción de Azure o fondos de compromis
 
 Puede encontrar una información de uso estimado en el [Portal de administración de Microsoft Azure](https://portal.azure.com/). Es posible que esta información no incluya las actividades recientes y esté basada en pronósticos derivados del consumo anterior. Durante la versión preliminar pública, es posible que esta funcionalidad no esté disponible para todas las compras y varíe según el tipo de producto.
 
-### <a name="customer-support"></a>Servicio al cliente
+### <a name="customer-support"></a>Soporte al cliente
 
 **¿Con quién debo ponerme en contacto para cuestiones generales de soporte técnico para Azure Marketplace?**
 
@@ -310,7 +310,7 @@ Consulte la [guía del anunciante](https://docs.microsoft.com/azure/marketplace/
 
 **¿Cómo puedo comenzar a publicar una solución en Azure Marketplace?**
 
-Como punto de partida para publicar una solución en Azure Marketplace, consulte la [guía del anunciante de Azure Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide), especialmente la sección donde se especifica [cómo convertirse en anunciante](https://docs.microsoft.com/azure/marketplace/become-publisher). A continuación, rellene el [formulario de nominación de Azure Marketplace](https://azuremarketplace.microsoft.com/sell/signup) para enviar su aplicación.
+Como punto de partida para publicar una solución en Azure Marketplace, consulte la [guía del anunciante de Azure Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide), especialmente la sección donde se especifica [cómo convertirse en anunciante](https://docs.microsoft.com/azure/marketplace/become-publisher). A continuación, enviar su aplicación por [enviar la oferta](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Vea cómo [crear una cuenta de centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obtener más información.
 
 **¿Debo ser miembro de Microsoft Partner Network (MPN) para poder publicar aplicaciones y servicios en Azure Marketplace?**
 
@@ -400,7 +400,7 @@ Aplicaciones de Office 365
 1.  Inicie sesión en [https://sellerdashboard.microsoft.com](https://sellerdashboard.microsoft.com) con una cuenta de desarrollador.
 1.  Quite el complemento.
 
-NOTA:  La aplicación desaparecerá para una oferta existente después de 90 días.
+NOTA: La aplicación desaparecerá para una oferta existente después de 90 días.
 
 Aplicaciones de Power BI
 * Contacto: [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).

@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205495"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951300"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Diseño de aplicaciones de alta disponibilidad mediante RA-GRS
 
@@ -54,7 +54,7 @@ El propósito de este artículo es mostrar cómo diseñar una aplicación que si
 
 En la solución propuesta se da por supuesto que es aceptable devolver datos potencialmente obsoletos a la aplicación que realiza la llamada. Debido a que, en última instancia, los datos de la región secundaria son coherentes, puede que no sea posible acceder a la región primaria antes de que una actualización en la región secundaria haya terminado de replicarse.
 
-Por ejemplo, imagine que el cliente envía correctamente una actualización, pero se produce un error en la región primaria antes de que la actualización se propague a la región secundaria. Cuando el cliente pide leer de nuevo los datos, recibe los datos obsoletos de la región secundaria en lugar de los datos actualizados. Cuando diseña la aplicación, debe decidir si esto es aceptable y, en tal caso, cómo enviará mensajes al cliente. 
+Por ejemplo, imagine que el cliente envía correctamente una actualización, pero se produce un error en la región primaria antes de que la actualización se propague a la región secundaria. Cuando el cliente pide leer los datos de nuevo, que reciben los datos obsoletos de la región secundaria en lugar de los datos actualizados. Cuando diseña la aplicación, debe decidir si esto es aceptable y, en tal caso, cómo enviará mensajes al cliente. 
 
 Más adelante en este artículo, le mostraremos cómo comprobar la hora de la última sincronización de los datos secundarios para ver si la región secundaria está actualizada.
 
@@ -74,7 +74,7 @@ En el resto del artículo, también se tratarán estas consideraciones.
 
 *   Datos de coherencia final y la hora de la última sincronización
 
-*   Prueba
+*   Pruebas
 
 ## <a name="running-your-application-in-read-only-mode"></a>Ejecución de la aplicación en modo de solo lectura
 
@@ -197,17 +197,17 @@ Para el tercer escenario, cuando vuelva a hacer ping correctamente al punto de c
 
 RA-GRS funciona mediante la replicación de transacciones de la región primaria en la región secundaria. Este proceso de replicación garantiza que los datos de la región secundaria tengan *coherencia final*. Esto significa que todas las transacciones en la región primaria terminarán por aparecer en la región secundaria, aunque puede darse un retraso antes de que aparezcan y no hay ninguna garantía de que las transacciones lleguen a la región secundaria en el mismo orden en que se aplicaron originalmente en la región primaria. Si las transacciones llegan desordenadas a la región secundaria, *podría* considerar que los datos en la región secundaria se encuentran en un estado incoherente hasta que el servicio se ponga al día.
 
-En la tabla siguiente, se muestra un ejemplo de lo que podría suceder al actualizar los detalles de una empleada para convertirla en miembro del rol de *administrador*. Para este ejemplo, esto requiere actualizar la entidad **empleado** y actualizar una entidad **rol de administrador** con un recuento del número total de administradores. Observe cómo se aplican las actualizaciones desordenadas en la región secundaria.
+En la tabla siguiente se muestra un ejemplo de lo que podría suceder al actualizar los detalles de un empleado para que sean miembro de la *administradores* rol. Para este ejemplo, esto requiere actualizar la entidad **empleado** y actualizar una entidad **rol de administrador** con un recuento del número total de administradores. Observe cómo se aplican las actualizaciones desordenadas en la región secundaria.
 
 | **Hora** | **Transacción**                                            | **Replicación**                       | **Hora de última sincronización** | **Resultado** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transacción A: <br> Insertar entidad <br> empleado en región primaria |                                   |                    | Transacción A insertada en región primaria,<br> aún sin replicar. |
 | T1       |                                                            | Transacción A <br> replicada en<br> región secundaria | T1 | Transacción A replicada en región secundaria. <br>Hora de última sincronización actualizada.    |
 | T2       | Transacción B:<br>Actualizar<br> entidad empleado<br> en región primaria  |                                | T1                 | Transacción B escrita en región primaria,<br> aún sin replicar.  |
-| T3       | Transacción C:<br> Actualizar <br>administrator<br>entidad rol administrador en región<br>primary |                    | T1                 | Transacción C escrita en región primaria,<br> aún sin replicar.  |
+| T3       | Transacción C:<br> Actualizar <br>administrador<br>entidad rol administrador en región<br>primary |                    | T1                 | Transacción C escrita en región primaria,<br> aún sin replicar.  |
 | *T4*     |                                                       | Transacción C <br>replicada en<br> región secundaria | T1         | Transacción C replicada en región secundaria.<br>LastSyncTime no actualizado porque <br>la transacción B está aún sin replicar.|
 | *T5*     | Leer entidades <br>desde región secundaria                           |                                  | T1                 | Obtiene el valor obsoleto de la entidad <br> empleado porque la transacción B aún <br> no se ha replicado. Obtiene el valor nuevo para la<br> entidad rol de administrador porque C<br> se ha replicado. La hora de la última sincronización aún no se ha<br> actualizado porque la transacción B<br> no se ha replicado. Puede ver que la<br>entidad rol de administrador es incoherente <br>porque la fecha y hora de la entidad son posteriores a <br>Hora de última sincronización. |
-| *T6*     |                                                      | Transacción B<br> replicada en<br> región secundaria | T6                 | *T6*: todas las transacciones hasta la C <br>se han replicado, Hora de última sincronización<br> se ha actualizado. |
+| *T6*     |                                                      | Transacción B<br> replicada en<br> secundario | T6                 | *T6*: todas las transacciones hasta la C <br>se han replicado, Hora de última sincronización<br> se ha actualizado. |
 
 En este ejemplo, suponga que el cliente pasa a leer desde la región secundaria en T5. Puede leer correctamente la entidad **rol administrador** en este momento, pero la entidad contiene un valor para el recuento de administradores que no es coherente con el número de entidades **empleado** que están marcadas como administradores en la región secundaria en este momento. El cliente podría mostrar simplemente este valor y correr el riesgo de que sea información incoherente. O bien, el cliente podría intentar determinar que el **rol administrador** se encuentra en un estado potencialmente incoherente porque las actualizaciones se han producido desordenadas y después informar al usuario sobre este hecho.
 

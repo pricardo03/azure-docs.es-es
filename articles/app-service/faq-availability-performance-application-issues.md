@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3dd61ae9298a03ce0cbb9e9a5b143229c15ea9bb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f455985d2a7d05f45100d4a88b43c688fe1a7767
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786375"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955756"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre el rendimiento de aplicaciones para Web Apps de Azure
 
@@ -161,7 +161,7 @@ Considere la posibilidad de cambiar a procesos de 64 bits, por lo que podrá apr
 
 Tenga en cuenta que un entorno de 64 bits requiere un plan de servicio Básico o Estándar. Los planes Gratis y Compartido siempre se ejecutan en un entorno de 32 bits.
 
-Para más información, consulte [Configuración de aplicaciones web en Azure App Service](web-sites-configure.md).
+Para más información, consulte [Configuración de aplicaciones web en Azure App Service](configure-common.md).
 
 ## <a name="why-does-my-request-time-out-after-230-seconds"></a>¿Por qué se agota el tiempo de espera de la solicitud después de 230 segundos?
 

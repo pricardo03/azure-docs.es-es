@@ -4,20 +4,20 @@ description: Usar plantillas de Azure Resource Manager para crear y configurar l
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: d1928606a22eba180ebd3f1e979362e75edaf2d7
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f62399e3a1ef2a4ceaa8bdf64196bdb634fb4b6
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077791"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968888"
 ---
-# <a name="create-azure-cosmos-db-gremlin-api-resources-from-a-resource-manager-template"></a>Crear recursos de la API de Gremlin de Azure Cosmos DB desde una plantilla de Resource Manager
+# <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Administrar los recursos de la API de Gremlin de Azure Cosmos DB mediante plantillas de Azure Resource Manager
 
-Obtenga información sobre cómo crear un recurso de API de Gremlin de Azure Cosmos DB mediante una plantilla de Azure Resource Manager. En el ejemplo siguiente se crea una API de Gremlin de Azure Cosmos DB desde un [plantilla de inicio rápido de Azure](https://aka.ms/gremlin-arm-qs). Esta plantilla creará una cuenta de Azure Cosmos para API de Gremlin con dos gráficos que compartan el rendimiento de 400 RU/s en el nivel de base de datos.
+## Creación de API de Azure Cosmos DB para MongoDB cuenta, base de datos y colección <a id="create-resource"></a>
 
-Esta es una copia de la plantilla:
+Crear recursos de Azure Cosmos DB mediante una plantilla de Azure Resource Manager. Esta plantilla creará una cuenta de Azure Cosmos para API de Gremlin con dos gráficos que compartan el rendimiento de 400 RU/s en el nivel de base de datos. Copie la plantilla e implementar tal y como se muestra a continuación o visite [Galería de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin/) e implementar desde el portal de Azure. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el `--template-file` parámetro.
 
 [!code-json[create-cosmos-gremlin](~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json)]
 
@@ -47,7 +47,48 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 El `az cosmosdb show` comando muestra la cuenta de Azure Cosmos recién creada después de que se haya aprovisionado. Si decide usar una versión de CLI de Azure instalada localmente en lugar de usar CloudShell, consulte [interfaz de línea de comandos (CLI) de Azure](/cli/azure/) artículo.
 
-En el ejemplo anterior, ha hecho referencia a una plantilla que se almacena en GitHub. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el `--template-file` parámetro.
+## Actualización de procesamiento (RU/s) en una base de datos <a id="database-ru-update"></a>
+
+La siguiente plantilla actualizará el rendimiento de una base de datos. Copie la plantilla e implementar tal y como se muestra a continuación o visite [Galería de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-database-ru-update/) e implementar desde el portal de Azure. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el `--template-file` parámetro.
+
+[!code-json[cosmosdb-gremlin-database-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-database-ru-update/azuredeploy.json)]
+
+### <a name="deploy-database-template-via-azure-cli"></a>Implementar la plantilla de base de datos mediante la CLI de Azure
+
+Para implementar la plantilla de Resource Manager mediante la CLI de Azure, seleccione **Pruébelo** para abrir Azure Cloud shell. Para pegar el script, haga clic en el shell y, a continuación, seleccione **pegar**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-gremlin-database-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
+```
+
+## Actualización de procesamiento (RU/s) en un gráfico <a id="graph-ru-update"></a>
+
+La siguiente plantilla actualizará el rendimiento de un gráfico. Copie la plantilla e implementar tal y como se muestra a continuación o visite [Galería de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-graph-ru-update/) e implementar desde el portal de Azure. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el `--template-file` parámetro.
+
+[!code-json[cosmosdb-gremlin-graph-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-graph-ru-update/azuredeploy.json)]
+
+### <a name="deploy-graph-template-via-azure-cli"></a>Implementar la plantilla de gráfico mediante la CLI de Azure
+
+Para implementar la plantilla de Resource Manager mediante la CLI de Azure, seleccione **Pruébelo** para abrir Azure Cloud shell. Para pegar el script, haga clic en el shell y, a continuación, seleccione **pegar**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the graph name: ' graphName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-gremlin-graph-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName graphName=$graphName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

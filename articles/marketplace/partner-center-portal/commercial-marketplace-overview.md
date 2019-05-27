@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 85e162773f95272ac2af36469480f1786b260e26
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ebf371c45868d8e620413f8f54b3531b1a17f817
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806257"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949596"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Información general del portal en el centro de partners comerciales Marketplace
 
@@ -36,7 +36,7 @@ Los anunciantes de marketplace existente encontrarán una experiencia de usuario
 
 ### <a name="improvements-on-user-experience-and-billing"></a>Mejoras en la experiencia del usuario y la facturación
 
-Con la transición al centro de partners, nueva funcionalidad está disponible para los publicadores, además de mejoras en la experiencia del usuario. Ofertas de SaaS que pueden factura mensual o anualmente, admiten licencias (basadas en puestos) además de por sitio (tarifa plana) por usuario. Este nuevo modelo de monetización es ideal para software empresarial. La introducción de las licencias por usuario de SaaS se alinea con la nueva funcionalidad permitiendo a los clientes a completar las compras en AppSource, catálogo de soluciones comercial de Microsoft para empresas y soluciones del sector. 
+Con la transición al centro de partners, nueva funcionalidad está disponible para los publicadores, además de mejoras en la experiencia del usuario. Ofertas de SaaS, que pueden factura mensual o anualmente, admiten licencias (basadas en puestos) además de por sitio licencias (global) por usuario. Este nuevo modelo de monetización es ideal para software empresarial. La introducción de las licencias por usuario de SaaS se alinea con la nueva funcionalidad que permite a los clientes a las compras de completadas en AppSource, Microsoft marketplace comercial para soluciones empresariales y del sector. 
 
 ### <a name="account-and-user-management-updates"></a>Actualizaciones de administración de cuenta y el usuario
 
@@ -58,3 +58,4 @@ Más información sobre las versiones futuras y recientes visitando el [guía b�
 
 - Para asociados de Microsoft nuevos interesados en publicar una SaaS ofrecen a los catálogos de soluciones, consulte [crear una cuenta de Marketplace comercial en el centro de partners](./create-account.md).
 - Para los asociados existentes que previamente han publicado ofertas en Cloud Partner Portal [administrar su cuenta de Marketplace comercial en el centro de partners](./manage-account.md). 
+- Más información sobre la administración de marketplace en la nube mover al centro de partners en este [entrada de blog de la Comunidad de asociados](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293), incluido un vídeo de demostración.

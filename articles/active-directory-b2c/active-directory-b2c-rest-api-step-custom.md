@@ -1,41 +1,36 @@
 ---
-title: Intercambios de notificaciones de API REST como paso de orquestación en Azure Active Directory B2C | Microsoft Docs
-description: Un tema acerca de las directivas personalizadas de Azure Active Directory B2C que se integran con una API.
+title: 'Azure Active Directory B2C: intercambios de notificaciones de API de REST | Microsoft Docs'
+description: Agregue los intercambios de notificaciones de API de REST para las directivas personalizadas de B2C de Active Directory.
 services: active-directory-b2c
 author: davidmu1
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/24/2017
+ms.date: 05/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c0a29bcbd3142be577d4cf1f64ff8c9921010bba
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e705c12782310597ea14d5253aba8b6a1a004e6d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688011"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952779"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Tutorial: Integración de intercambios de notificaciones de API REST en los recorridos de usuario de Azure AD B2C como un paso de orquestación
+# <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Agregue los intercambios de notificaciones de API de REST para las directivas personalizadas en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-El marco de experiencia de identidad (IEF) subyacente a Azure Active Directory B2C (Azure AD B2C) permite al desarrollador de identidades integrar una interacción con una API de RESTful en un recorrido del usuario.  
+Puede agregar la interacción con una API RESTful en su [directivas personalizadas](active-directory-b2c-overview-custom.md) en Azure Active Directory (Azure AD) B2C. Este artículo muestra cómo crear un recorrido del usuario de Azure AD B2C que interactúe con servicios RESTful.
 
-Al final de este tutorial podrá crear un recorrido del usuario de Azure AD B2C que interactúe con servicios RESTful.
-
-El IEF envía datos en notificaciones y recibe los datos en notificaciones. El intercambio de notificaciones de la API de REST:
+La interacción incluye un intercambio de notificaciones de información entre las notificaciones de API de REST y Azure AD B2C. Intercambios de notificaciones tienen las siguientes características:
 
 - Puede diseñarse como un paso de orquestación.
 - Puede desencadenar una acción externa. Por ejemplo, puede registrar un evento en una base de datos externa.
 - Puede usarse para capturar un valor y almacenarlo en la base de datos de usuario.
+- Puede cambiar el flujo de ejecución. 
 
-Puede usar las notificaciones recibidas posteriormente para cambiar el flujo de ejecución.
-
-También puede diseñar la interacción como un perfil de validación. Para más información, consulte [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-rest-api-validation-custom.md).
-
-La situación es que cuando un usuario realiza una edición de perfil, nos gustaría:
+El escenario que se representa en este artículo incluye las siguientes acciones:
 
 1. Buscar al usuario en un sistema externo.
 2. Obtener la ciudad donde está registrado.
@@ -43,180 +38,170 @@ La situación es que cuando un usuario realiza una edición de perfil, nos gusta
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Configuración de un inquilino de Azure AD B2C para completar el registro o inicio de sesión de una cuenta local como se describe en [Introducción](active-directory-b2c-get-started-custom.md).
-- Un punto de conexión de API de REST con el que interactuar. Este tutorial usa como ejemplo un webhook simple de la aplicación de función de Azure.
-- *Recomendaciones*: siga el [Tutorial sobre el intercambio de notificaciones de API REST como paso de validación](active-directory-b2c-rest-api-validation-custom.md).
+- Realice los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
+- Un punto de conexión de API de REST con el que interactuar. Este artículo se utiliza un simple Azure función como ejemplo. Para crear la función de Azure, consulte [crear su primera función en Azure portal](../azure-functions/functions-create-first-azure-function.md).
 
-## <a name="step-1-prepare-the-rest-api-function"></a>Paso 1: Preparación de la función de API REST
+## <a name="prepare-the-api"></a>Preparación de la API
 
-> [!NOTE]
-> La configuración de funciones de la API de REST está fuera del ámbito de este artículo. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) proporciona un excelente conjunto de herramientas para crear servicios de RESTful en la nube.
+En esta sección, prepare la función de Azure para recibir un valor para `email`y, a continuación, devolver el valor de `city` que puede utilizarse por Azure AD B2C como una notificación.
 
-Hemos configurado una función de Azure que recibe una notificación denominada `email` y devuelve la notificación `city` con el valor asignado de `Redmond`. La función de Azure de ejemplo está en [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+Cambie el archivo run.csx para la función de Azure que ha creado para usar el código siguiente: 
 
-La notificación `userMessage` que devuelve la función de Azure es opcional en este contexto y el IEF la ignorará. Se podría usar posiblemente como un mensaje transmitido a la aplicación y presentado al usuario posteriormente.
-
-```csharp
-if (requestContentAsJObject.email == null)
+```
+public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
-    return request.CreateResponse(HttpStatusCode.BadRequest);
-}
+  log.LogInformation("C# HTTP trigger function processed a request.");
+  string email = req.Query["email"];
+  string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+  dynamic data = JsonConvert.DeserializeObject(requestBody);
+  email = email ?? data?.email;
 
-var email = ((string) requestContentAsJObject.email).ToLower();
-
-return request.CreateResponse<ResponseContent>(
-    HttpStatusCode.OK,
-    new ResponseContent
-    {
+  return email != null
+    ? (ActionResult)new OkObjectResult(
+      new ResponseContent
+      {
         version = "1.0.0",
         status = (int) HttpStatusCode.OK,
-        userMessage = "User Found",
         city = "Redmond"
-    },
-    new JsonMediaTypeFormatter(),
-    "application/json");
+      })
+      : new BadRequestObjectResult("Please pass an email on the query string or in the request body");
+}
+
+public class ResponseContent
+{
+    public string version { get; set; }
+    public int status { get; set; }
+    public string city {get; set; }
+}
 ```
 
-Una aplicación de función de Azure facilita la obtención de la dirección URL de la función, lo que incluye el identificador de la función específica. En este caso, la dirección URL es: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Puede usarla para realizar pruebas.
+## <a name="configure-the-claims-exchange"></a>Configurar el intercambio de notificaciones
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Paso 2: Configuración del intercambio de notificaciones de API RESTful como perfil técnico en el archivo TrustFrameworkExtensions.xml
+Un perfil técnico proporciona la configuración para el intercambio de notificaciones. 
 
-Un perfil técnico es la configuración completa del intercambio deseado con el servicio RESTful. Abra el archivo TrustFrameworkExtensions.xml y agregue el siguiente fragmento de código XML dentro del elemento `<ClaimsProvider>`.
-
-> [!NOTE]
-> En el siguiente código XML, el proveedor de RESTful `Version=1.0.0.0` se describe como el protocolo. Considérelo como la función que interactuará con el servicio externo. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
+Abra el *TrustFrameworkExtensions.xml* archivo y agregue los siguientes elementos XML dentro de la **ClaimsProvider** elemento.
 
 ```XML
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
-        <TechnicalProfile Id="AzureFunctions-LookUpLoyaltyWebHook">
-            <DisplayName>Check LookUpLoyalty Web Hook Azure Function</DisplayName>
-            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-            <Metadata>
-                <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
-                <Item Key="AuthenticationType">None</Item>
-                <Item Key="SendClaimsIn">Body</Item>
-                <Item Key="AllowInsecureAuthInProduction">true</Item>
-            </Metadata>
-            <InputClaims>
-                <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
-            </InputClaims>
-            <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="city" PartnerClaimType="city" />
-            </OutputClaims>
-            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
-        </TechnicalProfile>
-    </TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="AzureFunctions-WebHook">
+      <DisplayName>Azure Function Web Hook</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="ServiceUrl">https://myfunction.azurewebsites.net/api/HttpTrigger1?code=bAZ4lLy//ZHZxmncM8rI7AgjQsrMKmVXBpP0vd9smOzdXDDUIaLljA==</Item>
+        <Item Key="AuthenticationType">None</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="city" PartnerClaimType="city" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+    </TechnicalProfile>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
-El elemento `<InputClaims>` define las notificaciones que se enviarán desde el IEF al servicio REST. En este ejemplo, el contenido de la notificación `givenName` se enviará al servicio REST como la notificación `email`.  
+El **InputClaims** elemento define las notificaciones que se envían al servicio REST. En este ejemplo, el valor de la notificación `givenName` se envía al servicio REST como la notificación `email`. El **OutputClaims** elemento define las notificaciones que esperan obtenerse desde el servicio REST.
 
-El elemento `<OutputClaims>` define las notificaciones que esperará el IEF del servicio REST. Independientemente del número de notificaciones que se reciban, el IEF solo usa las identificadas aquí. En este ejemplo, una notificación recibida como `city` se asignará a una notificación del IEF denominada `city`.
+## <a name="add-the-claim-definition"></a>Agregue la definición de notificación
 
-## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Paso 3: Incorporación de la nueva notificación `city` al esquema del archivo TrustFrameworkExtensions.xml
-
-La notificación `city` todavía no se ha definido en ninguna parte de nuestro esquema. Por lo tanto, debe agregar una definición dentro del elemento `<BuildingBlocks>`. Encontrará dicho elemento al principio del archivo TrustFrameworkExtensions.xml.
+Agregue una definición para `city` dentro de la **BuildingBlocks** elemento. Encontrará dicho elemento al principio del archivo TrustFrameworkExtensions.xml.
 
 ```XML
 <BuildingBlocks>
-    <!--The claimtype city must be added to the TrustFrameworkPolicy-->
-    <!-- You can add new claims in the BASE file Section III, or in the extensions file-->
-    <ClaimsSchema>
-        <ClaimType Id="city">
-            <DisplayName>City</DisplayName>
-            <DataType>string</DataType>
-            <UserHelpText>Your city</UserHelpText>
-            <UserInputType>TextBox</UserInputType>
-        </ClaimType>
-    </ClaimsSchema>
+  <ClaimsSchema>
+    <ClaimType Id="city">
+      <DisplayName>City</DisplayName>
+      <DataType>string</DataType>
+      <UserHelpText>Your city</UserHelpText>
+      <UserInputType>TextBox</UserInputType>
+    </ClaimType>
+  </ClaimsSchema>
 </BuildingBlocks>
 ```
 
-## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Paso 4: Inclusión del intercambio de notificaciones del servicio REST como paso de orquestación en el recorrido del usuario de edición de perfil del archivo TrustFrameworkExtensions.xml
+## <a name="add-an-orchestration-step"></a>Agregar un paso de orquestación
 
-Agregue un paso al recorrido del usuario de edición de perfil después de que el usuario se haya autenticado (pasos de orquestación del 1 al 4 en el siguiente código XML) y haya proporcionado la información de perfil actualizada (paso 5).
+Hay muchos casos donde la llamada de API de REST puede usarse como paso de orquestación. Como tal, se puede usar como actualización a un sistema externo una vez que un usuario haya realizado correctamente una tarea, por ejemplo, el registro por primera vez, o como actualización de perfil para mantener la información sincronizada. En este caso, se usa para aumentar la información proporcionada a la aplicación después de la edición del perfil.
 
-> [!NOTE]
-> Hay muchos casos donde la llamada de API de REST puede usarse como paso de orquestación. Como tal, se puede usar como actualización a un sistema externo una vez que un usuario haya realizado correctamente una tarea, por ejemplo, el registro por primera vez, o como actualización de perfil para mantener la información sincronizada. En este caso, se usa para aumentar la información proporcionada a la aplicación después de la edición del perfil.
-
-Copie el código XML del recorrido del usuario de edición de perfil del archivo TrustFrameworkBase.xml en el archivo TrustFrameworkExtensions.xml dentro del elemento `<UserJourneys>`. Después, realice la modificación en el paso 6.
+Agregar un paso al recorrido de usuario de edición de perfil. Después de que el usuario está autenticado (pasos 1 a 4 de orquestación en el siguiente código XML) y el usuario ha proporcionado la información de perfil actualizada (paso 5). Copie el perfil de edición de código XML del recorrido de usuario desde el *TrustFrameworkBase.xml* del archivo a su *TrustFrameworkExtensions.xml* archivo dentro de la **UserJourneys** elemento. A continuación, realizar la modificación como paso 6.
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
-    <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
-    </ClaimsExchanges>
+  <ClaimsExchanges>
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+  </ClaimsExchanges>
 </OrchestrationStep>
 ```
 
-> [!IMPORTANT]
-> Si el orden no coincide con su versión, asegúrese de insertar el código como paso antes del tipo `SendClaims` de `ClaimsExchange`.
-
-El código XML final del recorrido del usuario debe tener este aspecto:
+El XML del recorrido del usuario final debe parecerse a este ejemplo:
 
 ```XML
 <UserJourney Id="ProfileEdit">
-    <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.idpselections">
-            <ClaimsProviderSelections>
-                <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
-                <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
-            </ClaimsProviderSelections>
-        </OrchestrationStep>
-        <OrchestrationStep Order="2" Type="ClaimsExchange">
-            <ClaimsExchanges>
-                <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
-                <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="3" Type="ClaimsExchange">
-            <Preconditions>
-                <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-                    <Value>authenticationSource</Value>
-                    <Value>localAccountAuthentication</Value>
-                    <Action>SkipThisOrchestrationStep</Action>
-                </Precondition>
-            </Preconditions>
-            <ClaimsExchanges>
-                <ClaimsExchange Id="AADUserRead" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="4" Type="ClaimsExchange">
-            <Preconditions>
-                <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-                    <Value>authenticationSource</Value>
-                    <Value>socialIdpAuthentication</Value>
-                    <Action>SkipThisOrchestrationStep</Action>
-                </Precondition>
-            </Preconditions>
-            <ClaimsExchanges>
-                <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="5" Type="ClaimsExchange">
-            <ClaimsExchanges>
-                <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <!-- Add a step 6 to the user journey before the JWT token is created-->
-        <OrchestrationStep Order="6" Type="ClaimsExchange">
-            <ClaimsExchanges>
-                <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-    </OrchestrationSteps>
-    <ClientDefinition ReferenceId="DefaultWeb" />
+  <OrchestrationSteps>
+    <OrchestrationStep Order="1" Type="ClaimsProviderSelection" ContentDefinitionReferenceId="api.idpselections">
+      <ClaimsProviderSelections>
+        <ClaimsProviderSelection TargetClaimsExchangeId="FacebookExchange" />
+        <ClaimsProviderSelection TargetClaimsExchangeId="LocalAccountSigninEmailExchange" />
+      </ClaimsProviderSelections>
+    </OrchestrationStep>
+    <OrchestrationStep Order="2" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
+        <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <OrchestrationStep Order="3" Type="ClaimsExchange">
+      <Preconditions>
+        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+          <Value>authenticationSource</Value>
+          <Value>localAccountAuthentication</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <ClaimsExchanges>
+        <ClaimsExchange Id="AADUserRead" TechnicalProfileReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <OrchestrationStep Order="4" Type="ClaimsExchange">
+      <Preconditions>
+        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+          <Value>authenticationSource</Value>
+          <Value>socialIdpAuthentication</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <ClaimsExchanges>
+        <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <OrchestrationStep Order="5" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <!-- Add a step 6 to the user journey before the JWT token is created-->
+    <OrchestrationStep Order="6" Type="ClaimsExchange">
+      <ClaimsExchanges>
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+      </ClaimsExchanges>
+    </OrchestrationStep>
+    <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+  </OrchestrationSteps>
+  <ClientDefinition ReferenceId="DefaultWeb" />
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Paso 5: Adición de la notificación `city` al archivo de directiva de usuario de confianza para que la notificación se envíe a la aplicación
+## <a name="add-the-claim"></a>Agregue la notificación
 
-Edite el archivo de usuario de confianza (RP) ProfileEdit.xml y modifique el elemento `<TechnicalProfile Id="PolicyProfile">` para agregar lo siguiente: `<OutputClaim ClaimTypeReferenceId="city" />`.
+Editar el *ProfileEdit.xml* archivo y agregue `<OutputClaim ClaimTypeReferenceId="city" />` a la **OutputClaims** elemento.
 
-Después de agregar la nueva notificación, el perfil técnico tendrá el siguiente aspecto:
+Después de agregar la nueva notificación, el perfil técnico se parecerá a este ejemplo:
 
 ```XML
 <DisplayName>PolicyProfile</DisplayName>
@@ -229,17 +214,15 @@ Después de agregar la nueva notificación, el perfil técnico tendrá el siguie
 </TechnicalProfile>
 ```
 
-## <a name="step-6-upload-your-changes-and-test"></a>Paso 6: Carga de los cambios y prueba
+## <a name="upload-your-changes-and-test"></a>Carga de los cambios y prueba
 
-Sobrescriba las versiones existentes de la directiva.
+1. (Opcional): Guarde la versión existente (mediante descarga) de los archivos antes de continuar.
+2. Cargar el *TrustFrameworkExtensions.xml* y *ProfileEdit.xml* y seleccione esta opción para sobrescribir el archivo existente.
+3. Seleccione **B2C_1A_ProfileEdit**.
+4. Para **seleccione aplicación** en la página información general de la directiva personalizada, seleccione la aplicación web denominada *webapp1* que registró anteriormente. Asegúrese de que el **dirección URL de respuesta** es `https://jwt.ms`.
+4. Seleccione **ejecutar ahora**. Inicie sesión con sus credenciales de cuenta y haga clic en **continuar**.
 
-1.  (Opcional): guarde la versión existente (mediante descarga) del archivo de extensiones antes de continuar. Para mantener baja la complejidad inicial, se recomienda no cargar varias versiones del archivo de extensiones.
-2.  (Opcional): cambie el nombre de la nueva versión del identificador de directiva del archivo de edición de directiva; para ello, cambie `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
-3.  Cargue el archivo de extensiones.
-4.  Cargue el archivo de RP de edición de directiva.
-5.  Use **Ejecutar ahora** para probar la directiva. Revise el token devuelto por el IEF a la aplicación.
-
-Si todo está configurado correctamente, el token incluirá la nueva notificación `city`, con el valor `Redmond`.
+Si todo está configurado correctamente, el token incluye la nueva notificación `city`, con el valor `Redmond`.
 
 ```JSON
 {
@@ -249,7 +232,7 @@ Si todo está configurado correctamente, el token incluirá la nueva notificaci�
   "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "sub": "a58e7c6c-7535-4074-93da-b0023fbaf3ac",
   "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
-  "acr": "b2c_1a_trustframeworkprofileedit",
+  "acr": "b2c_1a_profileedit",
   "nonce": "defaultNonce",
   "iat": 1493049692,
   "auth_time": 1493049692,
@@ -259,6 +242,5 @@ Si todo está configurado correctamente, el token incluirá la nueva notificaci�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Uso de una API de REST como paso de validación](active-directory-b2c-rest-api-validation-custom.md)
-
-[Modificación de la edición de perfil para recopilar información adicional de sus usuarios](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+- También puede diseñar la interacción como un perfil de validación. Para más información, consulte [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-rest-api-validation-custom.md).
+- [Modificación de la edición de perfil para recopilar información adicional de sus usuarios](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)

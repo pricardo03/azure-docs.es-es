@@ -5,21 +5,21 @@ services: cdn
 documentationcenter: ''
 author: mdgattuso
 manager: danielgi
-editor: ''
+editor: sohamnchatterjee
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94d9fb0878458f3de0a64fac57af4a70e1875112
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324918"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909688"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purgar un punto de conexión de Azure CDN
 ## <a name="overview"></a>Información general
@@ -69,7 +69,7 @@ Este tutorial le guiará a través de purga de los recursos de todos los nodos p
     ![Botón Purgar](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Las solicitudes de purga tardan aproximadamente de 2 a 3 minutos en procesarse con **Azure CDN de Verizon** (estándar y premium) y unos 7 minutos con **Azure CDN de Akamai**.  Azure CDN tiene un límite de 50 solicitudes de purga simultáneas en un momento dado en el nivel de perfil. 
+> Las solicitudes de purga tardan aproximadamente 2 minutos en procesarse con **Azure CDN de Microsoft** y **Azure CDN de Verizon** (estándar y premium) y unos 10 segundos con **CDN de Azure de Akamai**.  Azure CDN tiene un límite de 50 solicitudes de purga simultáneas en un momento dado en el nivel de perfil. 
 > 
 > 
 

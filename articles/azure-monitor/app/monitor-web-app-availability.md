@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76bbcd6fa400111514ec3496005a28ec28ae6ab7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205370"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977900"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
@@ -175,7 +175,7 @@ Seleccione **Ver detalles de la prueba** en una prueba específica para ver el g
 
 Tal vez le interese deshabilitar las pruebas de disponibilidad o las reglas de alerta asociadas a ellas mientras esté realizando el mantenimiento del servicio.
 
-![Deshabilitar una prueba web](./media/monitor-web-app-availability/6disable.png)
+![Deshabilitación de una prueba web](./media/monitor-web-app-availability/6disable.png)  
 ![Editar prueba](./media/monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>Si ve errores
@@ -247,7 +247,7 @@ Grabe una prueba web de la forma habitual. Elimine las cookies en primer lugar.
 ### <a name="saml-authentication"></a>Autenticación SAML
 Utilice el complemento SAML que está disponible para las pruebas web.
 
-### <a name="client-secret"></a>Secreto del cliente
+### <a name="client-secret"></a>Secreto de cliente
 Si la aplicación tiene una ruta de inicio de sesión que implica un secreto de cliente, utilícela. Azure Active Directory (AAD) es un ejemplo de un servicio que proporciona inicio de sesión del secreto de cliente. En AAD, el secreto de cliente es la clave de la aplicación.
 
 Esta es una prueba web de ejemplo de una aplicación web de Azure que usa una clave de aplicación:

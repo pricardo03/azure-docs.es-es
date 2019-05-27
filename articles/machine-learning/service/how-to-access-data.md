@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ab01187b03b3d658b171029003667588382bd7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15118535578419f9e1230c5b2fcfd0d7c42257ea
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820286"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909008"
 ---
 # <a name="access-data-from-your-datastores"></a>Acceder a los datos de los almacenes de datos
 
@@ -30,7 +30,7 @@ Este tema de procedimientos muestra ejemplos de las tareas siguientes:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar almacenes de datos, antes se necesita un [área de trabajo](concept-azure-machine-learning-architecture.md#workspace).
+Para usar almacenes de datos, antes se necesita un [área de trabajo](concept-workspace.md).
 
 Para empezar puede [crear una nueva área de trabajo](setup-create-workspace.md#sdk), o bien puede recuperar una existente:
 
@@ -74,7 +74,7 @@ Los ejemplos siguientes muestran registrar un contenedor de blobs de Azure o un 
                                                create_if_not_exists=True)
   ```
 
-+ Para un **almacén de datos del recurso compartido de archivos de Azure**, utilice [ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). Por ejemplo:  
++ Para un **almacén de datos del recurso compartido de archivos de Azure**, utilice [ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). Por ejemplo: 
   ```Python
   ds = Datastore.register_azure_file_share(workspace=ws, 
                                            datastore_name='your datastore name', 
@@ -155,7 +155,7 @@ La siguiente tabla se enumeran los [ `DataReference` ](https://docs.microsoft.co
 
 forma|Método|DESCRIPCIÓN|
 ----|-----|--------
-Montaje| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Usar para montar el almacén de datos en el destino de proceso.
+Montar| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Usar para montar el almacén de datos en el destino de proceso.
 Descargar|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Usar para descargar el contenido de su almacén de datos en la ubicación especificada por `path_on_compute`. <br> Contexto de ejecución de aprendizaje, esta descarga se produce antes de la ejecución.
 Cargar|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Usar para cargar un archivo desde la ubicación especificada por `path_on_compute` en su almacén de datos. <br> Contexto de ejecución de aprendizaje, esta carga se produce después de su ejecución.
 
@@ -182,7 +182,7 @@ ds.path('./bar').as_download()
 
 La matriz siguiente muestra las funcionalidades de acceso de datos disponibles para los escenarios de contexto y el almacén de datos de proceso diferentes. El término "Canalización" en esta matriz se refiere a la capacidad para utilizar almacenes de datos como una entrada o salida en [canalizaciones de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines).
 
-||Proceso local|Proceso de Azure Machine Learning|Transferencias de datos|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
+||Proceso local|Proceso de Azure Machine Learning|Transferencia de datos|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
 -|--|-----------|----------|---------|-----|--------------|---------|---------|
 |AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> Canalización|Canalización|Canalización|[`as_download()`] <br> [`as_upload()`]|Canalización||[`as_download()`] <br> [`as_upload()`]|
 |AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] Canalización |||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: aca34ee40bfe10c55c478d9aaeb01a65d139e1e2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: ccc0399b6ac886ec8d9ef7d207c3539f1d078070
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522376"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951916"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -141,9 +141,7 @@ Es posible que las actualizaciones automáticas de Windows provoquen la pérdida
 
 ## <a name="download-the-app-package"></a>Descargar el paquete de la aplicación
 
-Se puede descargar la aplicación junto con los scripts de instalación desde el [vínculo de archivo](https://go.microsoft.com/fwlink/?linkid=869566).
-
-Se puede descargar la aplicación en formato de sfpkg desde el [vínculo sfpkg](https://aka.ms/POA/POA.sfpkg). Esto resulta útil para [la implementación de aplicaciones basada en Azure Resource Manager](service-fabric-application-arm-resource.md).
+Para descargar el paquete de aplicación, visite la versión de GitHub [página](https://github.com/microsoft/Service-Fabric-POA/releases/latest/) de aplicación de orquestación de revisiones.
 
 ## <a name="configure-the-app"></a>Configuración de la aplicación
 
@@ -205,13 +203,15 @@ La aplicación de orquestación de revisiones expone API de REST para mostrar lo
       {
         "OperationResult": 0,
         "NodeName": "_stg1vm_1",
-        "OperationTime": "2017-05-21T11:46:52.1953713Z",
+        "OperationTime": "2019-05-13T08:44:56.4836889Z",
+        "OperationStartTime": "2019-05-13T08:44:33.5285601Z",
         "UpdateDetails": [
           {
             "UpdateId": "7392acaf-6a85-427c-8a8d-058c25beb0d6",
             "Title": "Cumulative Security Update for Internet Explorer 11 for Windows Server 2012 R2 (KB3185319)",
             "Description": "A security issue has been identified in a Microsoft software product that could affect your system. You can help protect your system by installing this update from Microsoft. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article. After you install this update, you may have to restart your system.",
-            "ResultCode": 0
+            "ResultCode": 0,
+            "HResult": 0
           }
         ],
         "OperationType": 1,
@@ -234,6 +234,9 @@ ResultCode | Igual que OperationResult | Este campo indica el resultado de la op
 OperationType | 1: instalación<br> 0: buscar y descargar.| La instalación es el único valor de OperationType que se muestra en los resultados de forma predeterminada.
 WindowsUpdateQuery | El valor predeterminado es "IsInstalled=0" |La consulta de Windows Update que se utilizó para buscar actualizaciones. Para más información, vea [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 RebootRequired | true: se requiere reinicio<br> false: no se requiere reinicio | Indica si se requiere reiniciar para completar la instalación de actualizaciones.
+OperationStartTime | DateTime | Indica la hora en que operation(Download/Installation) iniciado.
+OperationTime | DateTime | Indica la hora en que operation(Download/Installation) completado.
+HResult | 0 - correcto<br> otro - error| Indica el motivo del error de windows update con updateID "7392acaf-6a85-427c-8a8d-058c25beb0d6".
 
 Si todavía no hay ninguna actualización programada, el resultado JSON está vacío.
 
@@ -255,6 +258,58 @@ Para habilitar el proxy inverso en el clúster, siga los pasos descritos en [Pro
 
 ## <a name="diagnosticshealth-events"></a>Eventos de diagnóstico y mantenimiento
 
+La siguiente sección se explica cómo depurar y diagnosticar problemas con las actualizaciones de revisión a través de la aplicación de orquestación de revisiones en clústeres de Service Fabric.
+
+> [!NOTE]
+> Debe tener la versión v1.4.0 de POA instalado para obtener muchas de las mejoras en los propios diagnósticos menciona a continuación.
+
+Crea el NodeAgentNTService [reparar tareas](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) para instalar actualizaciones en los nodos. Cada tarea, a continuación, se prepara mediante CoordinatorService según la directiva de aprobación de la tarea. Las tareas preparadas, por último, se aprueban mediante el Administrador de reparaciones que no apruebe cualquier tarea si el clúster está en estado incorrecto. Permite ir paso a paso para comprender cómo proceder las actualizaciones en un nodo.
+
+1. NodeAgentNTService, que se ejecuta en cada nodo, busca la actualización de Windows disponible en el momento programado. Si hay actualizaciones disponibles, continúa y descarga en el nodo.
+2. Una vez descargadas las actualizaciones, NodeAgentNTService, crea la tarea de reparación correspondiente para el nodo con el nombre POS___ < unique_id >. Se pueden ver estos reparar tareas mediante el cmdlet [Get ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) o de SFX en la sección de detalles del nodo. Una vez que se crea la tarea de reparación, rápidamente se mueve a [reclamado estado](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+3. El servicio de coordinador, periódicamente busca las tareas de reparación en estado de asignación y va más allá y actualiza en la preparación de estado según el TaskApprovalPolicy. Si el TaskApprovalPolicy está configurada para ser NodeWise, una tarea de reparación correspondiente a un nodo está preparada, solo si actualmente no hay ninguna otra tarea de reparación en estado de preparación/aprobado/ejecución/restauración. De forma similar, en el caso de UpgradeWise TaskApprovalPolicy, se garantiza en cualquier momento hay tareas en los estados anteriores solo para los nodos que pertenecen al mismo dominio de actualización. Una vez que una tarea de reparación se mueve hasta la preparación de estado, el nodo de Service Fabric correspondiente es [deshabilitado](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) con intención como "Reinicio".
+
+   Poa(v1.4.0 and ABOVE) registra eventos con la propiedad "ClusterPatchingStatus" de CoordinaterService para mostrar los nodos que se debe haber revisado. Por debajo de la imagen muestra que las actualizaciones se vaya a instalar _poanode_0:
+
+    [![Imagen del estado de la aplicación de revisiones de clúster](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
+
+4. Una vez que el nodo está deshabilitado, la tarea de reparación se mueve al estado en ejecución. Tenga en cuenta que una tarea de reparación atascada en la preparación de estado, una vez porque un nodo está atascado en estado deshabilitado puede dar lugar a nueva tarea de reparación de bloqueo y, por tanto, detener la aplicación de revisiones de clúster.
+5. Una vez que la tarea de reparación se encuentra en estado en ejecución, comienza la instalación de la revisión en ese nodo. Aquí en adelante, una vez instalada la revisión, el nodo puede o no se puede reiniciar dependiendo de la revisión. POST que la tarea de reparación se mueve a la restauración de estado, lo que permite volver el nodo nuevo y, a continuación, se marca como completada.
+
+   En v1.4.0 y versiones posteriores de las versiones de la aplicación, el estado de la actualización puede encontrarse examinando los eventos de estado en NodeAgentService con la propiedad "WUOperationStatus-[nombreDeNodo]". En las secciones resaltadas en las siguientes imágenes muestran el estado de actualización de windows en el nodo 'poanode_0' y 'poanode_2':
+
+   [![Imagen del estado de operación de actualización de Windows](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+
+   [![Imagen del estado de operación de actualización de Windows](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+
+   Uno también puede obtener los detalles de uso de powershell, mediante la conexión al clúster y capturar el estado de la tarea de reparación mediante [Get ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). Al igual que a continuación se muestra ese "POS__poanode_2_125f2969-933c-4774-85 d 1-ebdf85e79f15" ejemplo tarea está en estado de DownloadComplete. Significa que se han descargado las actualizaciones en el nodo "poanode_2" y se intentará la instalación una vez que la tarea pasa al estado en ejecución.
+
+   ``` powershell
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k = Get-ServiceFabricRepairTask -TaskId "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15"
+
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k.ExecutorData
+    {"ExecutorSubState":2,"ExecutorTimeoutInMinutes":90,"RestartRequestedTime":"0001-01-01T00:00:00"}
+    ```
+
+   Si no hay todavía más encontrarse a continuación, inicie sesión en máquinas virtuales o máquinas virtuales específicas para obtener más información sobre el problema con los registros de eventos de Windows. Los pasos anteriores mencionado la tarea de reparación sólo puede tener estos subestados ejecutor:
+
+      ExecutorSubState | Detalle
+    -- | -- 
+      None = 1 |  Implica que no se ha producido una operación en curso en el nodo. Transiciones de estado posibles.
+      DownloadCompleted=2 | Implica la operación de descarga se ha completado con éxito, parcial error o un error.
+      InstallationApproved=3 | Implica la operación de descarga se completó anteriormente y el Administrador de reparaciones ha aprobado la instalación.
+      InstallationInProgress=4 | Corresponde al estado de ejecución de la tarea de reparación.
+      InstallationCompleted=5 | Implica la instalación se completó con éxito, parcialmente correcto o error.
+      RestartRequested=6 | Implica la instalación completa de las revisiones y hay una acción de reinicio pendiente en el nodo.
+      RestartNotNeeded = 7 |  Implica que el reinicio no era necesario tras la finalización de la instalación de la revisión.
+      RestartCompleted=8 | Implica que el reinicio se completó correctamente.
+      OperationCompleted = 9 | Se completó correctamente la operación de actualización de Windows.
+      OperationAborted=10 | Implica que se anula la operación de actualización de windows.
+
+6. En v1.4.0 y por encima de la aplicación, cuando se completa el intento de actualización en un nodo, un evento con la propiedad "WUOperationStatus-[nombreDeNodo]" está registrado en NodeAgentService para notificar cuando tratará de la siguiente, para descargar e instalar la actualización, inicie. Consulte la imagen siguiente:
+
+     [![Imagen del estado de operación de actualización de Windows](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+
 ### <a name="diagnostic-logs"></a>Registros de diagnóstico
 
 Los registros de aplicación de orquestación de revisiones se recopilan como parte de los registros en tiempo de ejecución de Service Fabric.
@@ -269,12 +324,6 @@ En caso de que desee capturar los registros a través de la canalización o herr
 ### <a name="health-reports"></a>Informes de mantenimiento
 
 La aplicación de orquestación de revisiones también publica los informes de estado en el servicio Coordinator Service o el servicio Node Agent Service en los siguientes casos:
-
-#### <a name="a-windows-update-operation-failed"></a>Error en la operación de Windows Update
-
-Si se produce un error en la operación de Windows Update en un nodo, se generará un informe de estado en el servicio Node Agent Service. Los detalles del informe de estado contienen el nombre del nodo problemático.
-
-Después de aplicar correctamente la revisión en el nodo problemático, el informe se borra automáticamente.
 
 #### <a name="the-node-agent-ntservice-is-down"></a>El servicio Node Agent Service está inactivo
 
@@ -347,6 +396,14 @@ P: **¿Cómo se pueden revisar nodos del clúster en Linux?**
 
 A. Consulte [actualizaciones automáticas de la imagen de sistema operativo del conjunto de escalado de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para orquestar actualizaciones en linux.
 
+P. ¿**¿por qué el ciclo de actualización tarda tan largo?**
+
+A. Consultar el resultado json, a continuación, vaya a través de la entrada del ciclo de actualización de todos los nodos y, a continuación, puede intentar averiguar el tiempo empleado por la instalación de la actualización en cada nodo mediante OperationStartTime y OperationTime(OperationCompletionTime). Si se ha producido la ventana de tiempo grande en ninguna actualización que está sucediendo, podría deberse a que el clúster estaba en estado de error y debido a que la reparación, el administrador no ha aprobado cualquier otra tarea de reparación POA. Si la instalación de actualización tardó largo en cualquier nodo, a continuación, podría ser posible que no se ha actualizado el nodo de mucho tiempo y eran una gran cantidad de actualizaciones pendientes de instalación, lo que llevó a tiempo. También podría haber un caso en el que la aplicación de revisiones en un nodo está bloqueada debido a nodo se quede en deshabilitar el estado de lo que suele sucede porque deshabilitar el nodo puede dar lugar a situaciones de pérdida de datos del quórum.
+
+P: **¿Por qué es necesario deshabilitar el nodo al POA es aplicar el parche?**
+
+A. Aplicación de orquestación de revisiones deshabilita el nodo con la intención de 'Reiniciar', que se detiene o reasigna todos los servicios de Service fabric que se ejecuta en el nodo. Esto se hace para asegurarse de que las aplicaciones no terminan con una mezcla de los archivos DLL nuevo y antiguo, por lo que no se recomienda aplicar revisiones en un nodo sin deshabilitarlo.
+
 ## <a name="disclaimers"></a>Declinación de responsabilidades
 
 - La aplicación de orquestación de revisiones acepta el acuerdo de licencia del usuario final de Windows Update en nombre del usuario. Opcionalmente se puede desactivar la configuración en la configuración de la aplicación.
@@ -386,6 +443,9 @@ Una actualización de Windows fallida puede desactivar el estado de una aplicaci
 Un administrador debe intervenir y determinar por qué la aplicación o el clúster pasó a ser incorrecto debido a Windows Update.
 
 ## <a name="release-notes"></a>Notas de la versión
+
+>[!NOTE]
+> A partir de la versión 1.4.0, notas de la versión y las versiones pueden encontrarse en la versión de GitHub [página](https://github.com/microsoft/Service-Fabric-POA/releases/).
 
 ### <a name="version-110"></a>Versión 1.1.0
 - Versión pública

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: a3d75f09ac21fcdb4862cf8eefff0b5c05fd3369
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 58591302280c67dbd0f69ebe0bc47cf95c8bfc18
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937607"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956749"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guía de publicación de Azure Marketplace y AppSource
 
@@ -62,7 +62,7 @@ Los nuevos anuncios de Marketplace pueden optar a un conjunto variado de ventaja
 
 *   Venta conjunta: inicie o impulse el camino hacia las ventas junto con Microsoft mediante Marketplace. Acceda a programas y soporte técnico para impulsar las ventas conjuntas con los equipos de Microsoft.
 
-Una vez que [envíe su solución](https://azuremarketplace.microsoft.com/sell/signup) a Marketplace, nuestro equipo de incorporación se pondrá en contacto con usted para ayudarle en su experiencia de publicación.
+Una vez que [envíe su solución](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) a Marketplace, nuestro equipo de incorporación se pondrá en contacto con usted para ayudarle en su experiencia de publicación.  Consulte [cómo crear una cuenta de centro de partners](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obtener más información.
 
 Para más información sobre las ventajas de comercialización de Microsoft y las maneras en que puede hacer crecer su negocio en Marketplace, visite la página [Servicios de comercialización de Microsoft](https://partner.microsoft.com/reach-customers/gtm).
 

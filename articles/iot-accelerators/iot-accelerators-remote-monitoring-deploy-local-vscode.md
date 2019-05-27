@@ -3,17 +3,17 @@ title: Implementación local de la solución de supervisión remota (Visual Stud
 description: En esta guía paso a paso se muestra cómo implementar el acelerador de soluciones de supervisión remota en la máquina local mediante Visual Studio Code para pruebas y desarrollo.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 946f815cecea4cc172fac35c0b260d795317e6e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfe28f3ff994d518cb744233e88a6f04b5771a83
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61446175"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967517"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Implementación local del acelerador de soluciones de supervisión remota con Visual Studio Code
 
@@ -59,7 +59,7 @@ dotnet build -c Release
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Implementación de los demás microservicios en la máquina local
 
-En los pasos siguientes se muestra cómo ejecutar los microservicios de Supervisión remota en Visual Studio 2017:
+Los pasos siguientes muestran cómo ejecutar los microservicios de supervisión remota en Visual Studio Code:
 
 1. Inicie Visual Studio Code.
 1. Abra el módulo **azure-iot-pcs-remote-monitoring-dotnet** en su copia local de VS Code.

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84ed1632a61ae097bd2e187de4766dfc50f2503f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 050f301b55c718e80c1b4157639bd9dce506f6ba
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263787"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979429"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtener datos de cumplimiento de los recursos de Azure
 
-Una de las ventajas más grandes de Azure Policy es la información y los controles que proporciona sobre los recursos de una suscripción o [grupo de administración](../../management-groups/overview.md) de suscripciones. Este control puede ejercerse de muchas maneras diferentes, por ejemplo: evitar que los recursos se creen en una ubicación incorrecta, forzar un uso común y coherente de las etiquetas, o auditar los recursos existentes para las opciones y configuraciones apropiadas. En todos los casos, Policy genera los datos para que pueda conocer el estado de cumplimiento de su entorno.
+Una de las ventajas más grandes de Azure Policy es la información y los controles que proporciona sobre los recursos de una suscripción o [grupo de administración](../../management-groups/overview.md) de suscripciones. Este control puede ejercerse de muchas maneras diferentes, por ejemplo: evitar que los recursos se creen en una ubicación incorrecta, forzar un uso común y coherente de las etiquetas, o auditar los recursos existentes para las opciones y configuraciones apropiadas. En todos los casos, los datos se generan mediante la directiva de Azure para que pueda entender el estado de cumplimiento de su entorno.
 
 Hay varias maneras de acceder a la información de cumplimiento generada por la directiva y las asignaciones de iniciativa:
 
@@ -33,7 +33,7 @@ Antes de pasar a los métodos que informan sobre el cumplimiento, veamos cuándo
 
 ## <a name="evaluation-triggers"></a>Desencadenadores de evaluación
 
-Los resultados de un ciclo de evaluación completo están disponibles en el proveedor de recursos `Microsoft.PolicyInsights` por medio de las operaciones `PolicyStates` y `PolicyEvents`. Para más información sobre las operaciones de la API REST de Policy Insights, consulte [Policy Insights](/rest/api/policy-insights/).
+Los resultados de un ciclo de evaluación completo están disponibles en el proveedor de recursos `Microsoft.PolicyInsights` por medio de las operaciones `PolicyStates` y `PolicyEvents`. Para obtener más información acerca de las operaciones de la API de REST de Insights de directiva de Azure, consulte [Azure Policy Insights](/rest/api/policy-insights/).
 
 Las evaluaciones de directivas asignadas e iniciativas se producen como resultado de varios eventos:
 
@@ -88,14 +88,15 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ## <a name="how-compliance-works"></a>Cómo funciona el cumplimiento
 
-En una asignación, un recurso es **No compatible** si no cumple las reglas de iniciativa o directiva. En la tabla siguiente se muestra cómo funcionan los distintos efectos de directiva con la evaluación de condición para el estado de cumplimiento resultante:
+En una asignación, un recurso es **No compatible** si no cumple las reglas de iniciativa o directiva.
+En la tabla siguiente se muestra cómo funcionan los distintos efectos de directiva con la evaluación de condición para el estado de cumplimiento resultante:
 
-| Estado del recurso | Efecto | Evaluación de directiva | Estado de cumplimiento |
+| Estado del recurso | Efecto | Evaluación de directiva | Estado de compatibilidad |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Incompatible |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compatible |
-| Nuevo | Audit, AuditIfNotExist\* | True | Incompatible |
-| Nuevo | Audit, AuditIfNotExist\* | False | Compatible |
+| Existe | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | No compatible |
+| Existe | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
+| Nuevo | Audit, AuditIfNotExist\* | True  | No compatible |
+| Nuevo | Audit, AuditIfNotExist\* | False | Conforme |
 
 \* Los efectos Append, DeployIfNotExist y AuditIfNotExist requieren que la instrucción IF sea TRUE.
 Los efectos requieren también que la condición de existencia sea FALSE para ser no compatibles. Si es TRUE, la condición IF desencadena la evaluación de la condición de existencia de los recursos relacionados.
@@ -114,7 +115,7 @@ Además de **Compatible** y **No compatible**, las directivas y los recursos tie
 - **No iniciado**: no se ha iniciado el ciclo de evaluación de la directiva o del recurso.
 - **No registrado**: no se ha registrado el proveedor de recursos de Azure Policy o la cuenta con que se ha iniciado sesión no tiene permiso para leer datos de cumplimiento.
 
-La directiva utiliza los campos **Tipo** y **Nombre** en la definición para determinar si un recurso coincide. Si coincide, se considera aplicable y tendría un estado de **Compatible** o **No compatible**. Si **Tipo** o **Nombre** son las únicas propiedades en la definición, todos los recursos se consideran aplicables y se evaluarán.
+La directiva de Azure usa el **tipo** y **nombre** campos en la definición para determinar si un recurso es una coincidencia. Si coincide, se considera aplicable y tendría un estado de **Compatible** o **No compatible**. Si **Tipo** o **Nombre** son las únicas propiedades en la definición, todos los recursos se consideran aplicables y se evaluarán.
 
 El porcentaje de cumplimiento se determina al dividir los recursos **Conforme** por el _total de recursos_.
 El _total de recursos_ se define como la suma de los recursos **Conforme**, **No compatible** y **En conflicto**. La cifra de cumplimiento general es la suma de los distintos recursos que son **Conforme** dividida por la suma de todos los recursos distintos. En la imagen siguiente, hay 20 recursos diferentes que son aplicables y solo uno es **No compatible**. Por tanto, el cumplimiento general de los recursos es del 95 % (19 de 20).
@@ -123,23 +124,22 @@ El _total de recursos_ se define como la suma de los recursos **Conforme**, **No
 
 ## <a name="portal"></a>Portal
 
-Azure Portal presenta de forma gráfica la visualización y el reconocimiento del estado de cumplimiento de normas en su entorno. En la página **Directiva**, la opción **Información general** proporciona detalles sobre el cumplimiento de directivas e iniciativas por parte de los ámbitos disponibles. Junto con el recuento y el estado de cumplimiento por asignación, contiene un gráfico que muestra el cumplimiento durante los últimos siete días.
-La página **Cumplimiento** contiene gran parte de esta misma información (excepto el gráfico), pero ofrece más opciones de filtrado y ordenación.
+Azure Portal presenta de forma gráfica la visualización y el reconocimiento del estado de cumplimiento de normas en su entorno. En la página **Directiva**, la opción **Información general** proporciona detalles sobre el cumplimiento de directivas e iniciativas por parte de los ámbitos disponibles. Junto con el recuento y el estado de cumplimiento por asignación, contiene un gráfico que muestra el cumplimiento durante los últimos siete días. La página **Cumplimiento** contiene gran parte de esta misma información (excepto el gráfico), pero ofrece más opciones de filtrado y ordenación.
 
-![Ejemplo de página de cumplimiento de directivas](../media/getting-compliance-data/compliance-page.png)
+![Ejemplo de página de cumplimiento de directivas de Azure](../media/getting-compliance-data/compliance-page.png)
 
 Dado que una directiva o iniciativa se puede asignar a distintos ámbitos, la tabla incluye el ámbito de cada asignación y el tipo de definición que se asignó. También se proporciona el número de directivas y recursos no compatibles para cada asignación. Al hacer clic en una directiva o iniciativa de la tabla, se proporciona más información sobre el cumplimiento de esa asignación en particular.
 
-![Ejemplo de página de detalles de cumplimiento de directiva](../media/getting-compliance-data/compliance-details.png)
+![Ejemplo de página de detalles de cumplimiento de directiva de Azure](../media/getting-compliance-data/compliance-details.png)
 
 La lista de recursos de la pestaña **Compatibilidad de recursos** muestra el estado de evaluación de los recursos existentes para la asignación actual. El valor predeterminado de la pestaña es **No compatible**, pero se puede filtrar.
 Los eventos (anexar, auditar, denegar, implementar) que desencadena la solicitud para crear un recurso se muestran en la pestaña **Eventos**.
 
-![Ejemplo de eventos de cumplimiento de directivas](../media/getting-compliance-data/compliance-events.png)
+![Ejemplo de eventos de cumplimiento de directivas de Azure](../media/getting-compliance-data/compliance-events.png)
 
 Haga clic con el botón derecho en la fila del evento sobre el que quiere recopilar información más detallada y seleccione **Mostrar los registros de actividad**. Se abre la página de registro de actividad y se filtra previamente para mostrar detalles de la asignación y los eventos. El registro de actividad proporciona contexto e información adicionales sobre esos eventos.
 
-![Ejemplo de registro de actividad de directiva de cumplimiento](../media/getting-compliance-data/compliance-activitylog.png)
+![Ejemplo de registro de actividad de cumplimiento de directiva de Azure](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>Comprender el no cumplimiento
 
@@ -149,7 +149,7 @@ Cuando se determina un recursos como **incumplimiento**, hay muchas razones posi
 
 ## <a name="command-line"></a>Línea de comandos
 
-La misma información que está disponible en el portal se puede recuperar mediante la API REST (incluso con [ARMClient](https://github.com/projectkudu/ARMClient)) o Azure PowerShell. Para obtener detalles completos sobre la API de REST, consulte la referencia de [Policy Insights](/rest/api/policy-insights/). Las páginas de referencia de la API de REST tienen un botón verde en cada operación para realizar una prueba en el explorador.
+La misma información que está disponible en el portal se puede recuperar mediante la API REST (incluso con [ARMClient](https://github.com/projectkudu/ARMClient)) o Azure PowerShell. Para obtener detalles sobre la API de REST, consulte el [Azure Policy Insights](/rest/api/policy-insights/) referencia. Las páginas de referencia de la API de REST tienen un botón verde en cada operación para realizar una prueba en el explorador.
 
 Para usar los siguientes ejemplos en Azure PowerShell, cree un token de autenticación con este código de ejemplo. A continuación, reemplace el $restUri por la cadena en los ejemplos para recuperar un objeto JSON que, a continuación, se puede analizar.
 
@@ -178,7 +178,7 @@ $response
 
 ### <a name="summarize-results"></a>Resumen de resultados
 
-Con la API REST, el resumen se puede realizar por contenedor, definición o asignación. A continuación se muestra un ejemplo de resumen en el nivel de suscripción con [Resumen de la suscripción](/rest/api/policy-insights/policystates/summarizeforsubscription) de Policy Insights:
+Con la API REST, el resumen se puede realizar por contenedor, definición o asignación. Este es un ejemplo de resumen en el nivel de suscripción mediante Azure directiva Insight [resumen de suscripción](/rest/api/policy-insights/policystates/summarizeforsubscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
@@ -288,11 +288,12 @@ Los resultados deben tener una apariencia similar al ejemplo siguiente:
 }
 ```
 
-Para más información sobre cómo consultar los eventos de directiva, consulte el artículo de referencia de [estados de directiva](/rest/api/policy-insights/policyevents).
+Para obtener más información sobre cómo consultar los eventos de directiva, consulte el [eventos de directiva de Azure](/rest/api/policy-insights/policyevents) artículo de referencia.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-El módulo Azure PowerShell para Policy está disponible en la Galería de PowerShell como [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights). Con el uso de PowerShellGet, puede instalar el módulo con `Install-Module -Name Az.PolicyInsights` (asegúrese de tener instalada la última versión de [Azure PowerShell](/powershell/azure/install-az-ps)):
+El módulo Azure PowerShell para Azure Policy está disponible en la Galería de PowerShell como [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
+Con el uso de PowerShellGet, puede instalar el módulo con `Install-Module -Name Az.PolicyInsights` (asegúrese de tener instalada la última versión de [Azure PowerShell](/powershell/azure/install-az-ps)):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
@@ -417,13 +418,13 @@ Trent Baker
 
 Si tiene un [área de trabajo de Log Analytics](../../../log-analytics/log-analytics-overview.md) con `AzureActivity` desde el [solución Activity Log Analytics](../../../azure-monitor/platform/collect-activity-logs.md) asociadas a su suscripción, también puede ver los resultados de incumplimiento del ciclo de evaluación mediante consultas sencillas de Kusto y `AzureActivity` tabla. Con los detalles de los registros de Azure Monitor, se pueden configurar alertas para comprobar la opción de no compatibilidad.
 
-![Cumplimiento de directivas mediante los registros de Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
+![Cumplimiento de directiva de Azure mediante registros de Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Puede consultar ejemplos en [Ejemplos de Azure Policy](../samples/index.md)
-- Consulte la [Estructura de definición de directivas](../concepts/definition-structure.md)
-- Consulte [Descripción de los efectos de directivas](../concepts/effects.md)
-- Entender cómo se pueden [crear directivas mediante programación](programmatically-create.md)
-- Más información sobre cómo [corregir recursos no compatibles](remediate-resources.md)
-- En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.
+- Revise los ejemplos en [ejemplos de Azure Policy](../samples/index.md).
+- Revise la [estructura de definición de Azure Policy](../concepts/definition-structure.md).
+- Vea la [Descripción de los efectos de directivas](../concepts/effects.md).
+- Comprender cómo [crear mediante programación las directivas](programmatically-create.md).
+- Obtenga información sobre cómo [corregir recursos no compatibles](remediate-resources.md).
+- Compruebe que un grupo de administración con [organizar los recursos con grupos de administración de Azure](../../management-groups/overview.md).

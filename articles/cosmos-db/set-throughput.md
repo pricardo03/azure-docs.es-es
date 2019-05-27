@@ -4,14 +4,14 @@ description: Aprenda cómo establecer el rendimiento aprovisionado para las base
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/20/2019
 ms.author: rimman
-ms.openlocfilehash: ed3a171e60c078975de7003cdf599f0bac62c402
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 598a1562127a67c78f67cdd02b00d83d4a606739
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61330320"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953544"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar rendimiento en contenedores y bases de datos
 
@@ -101,7 +101,7 @@ Puede escalar el rendimiento aprovisionado de un contenedor o una base de datos 
 |RU asignadas o disponibles para un contenedor específico|Sin garantías. Las RU asignadas a un contenedor determinado dependen de las propiedades. Las propiedades pueden ser la elección de las claves de partición de contenedores que comparten el rendimiento, la distribución de la carga de trabajo y el número de contenedores. |Todas las RU configuradas en el contenedor se reservan exclusivamente para el contenedor.|
 |Almacenamiento máximo de un contenedor|Sin límite.|Sin límite.|
 |Rendimiento máximo por partición lógica de un contenedor|10 000 RU|10 000 RU|
-|Almacenamiento máximo (datos + índice) por partición lógica de un contenedor|10 GB|10 GB|
+|Almacenamiento máximo (datos + índice) por partición lógica de un contenedor|10 GB|10 GB|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

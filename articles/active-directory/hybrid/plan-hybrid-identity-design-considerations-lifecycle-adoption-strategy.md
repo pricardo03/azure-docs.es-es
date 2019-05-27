@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b312f284d557c2c1344b82b9fcd570d3392077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aff695307fc97e9f2acfd44f7434d5cbb26ef53e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381286"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950830"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinación de la estrategia de adopción de ciclo de vida de identidad híbrida
 En esta tarea, va a definir la estrategia de administración de identidades para que su solución de identidad híbrida cumpla los requisitos empresariales que definió en [Determinación de las tareas de administración de identidad híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -42,7 +42,7 @@ Las cuentas en empresas de TI sofisticadas incluyen cientos de parámetros que d
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 El control de acceso basado en rol (RBAC) usa roles y directivas de aprovisionamiento para evaluar, probar y aplicar las reglas y los procesos de negocio para conceder acceso a los usuarios. Los administradores clave crean directivas de aprovisionamiento, asignan usuarios a roles y definen conjuntos de derechos a recursos para estos roles. RBAC amplía la solución de administración de identidades para usar los procesos basados en software y reducir la interacción manual del usuario en el proceso de aprovisionamiento.
-RBAC de Azure AD permite que la empresa restrinja la cantidad de operaciones que una persona puede hacer una vez que accede a Azure Portal. Si se usa RBAC para controlar el acceso al portal, los administradores de TI pueden delegar el acceso con los siguientes enfoques de administración de acceso:
+RBAC de Azure AD permite a la empresa restringir el número de operaciones que una persona puede hacer una vez que tengan acceso al portal de Azure. Si se usa RBAC para controlar el acceso al portal, los administradores de TI pueden delegar el acceso con los siguientes enfoques de administración de acceso:
 
 * **Asignación de roles basada en grupo**: puede asignar acceso a los grupos de Azure AD que se pueden sincronizar desde su Active Directory local. Esto le permite aprovechar las inversiones que su organización realizó en herramientas y procesos para administrar grupos. También puede usar la característica de administración de grupos delegados de Azure AD Premium.
 * **Aprovechar los roles integrados de Azure**: puede usar tres roles (Propietario, Colaborador y Lector) para asegurarse de que los usuarios y los grupos tienen permiso para realizar únicamente las tareas necesarias para sus respectivos trabajos.

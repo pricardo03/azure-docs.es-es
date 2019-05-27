@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d267ff3a43438d9fe6e4e21f0ac023cfa6675f19
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723648"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956308"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
@@ -61,21 +61,22 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
 14.  Una vez registrada la aplicación, copie el **Id. de aplicación (cliente)** desde el **Introducción** página. 
 15. Vuelva a la instancia de API Management. En el **Agregar proveedor de identidades** ventana, pegue el **Id. de aplicación (cliente)** valor en el **Id. de cliente** cuadro.
 16. Volver a la configuración de Azure AD, seleccione **certificados y secretos** en **administrar**. Seleccione el **nuevo secreto de cliente** botón. Escriba un valor en **descripción**, seleccione cualquier opción de **Expires** y elija **agregar**. Copie el valor de secreto de cliente antes de salir de la página. Esta información la necesitará en el siguiente paso. 
-17. Vuelva a la instancia de API Management, pegue el secreto en el **secreto de cliente** cuadro.
+17. En **administrar**, seleccione **autenticación** y, a continuación, seleccione **los tokens de identificador** en **concesión implícita**
+18. Vuelva a la instancia de API Management, pegue el secreto en el **secreto de cliente** cuadro.
 
     > [!IMPORTANT]
     > Asegúrese de actualizar el **secreto de cliente** antes de que expire la clave. 
     >  
     >
 
-18. La ventana **Add identity provider** (Agregar proveedor de identidades) también contiene el cuadro de texto **Allowed Tenants** (Inquilinos permitidos). Ahí, especifique los dominios de las instancias de Azure AD a las que quiere conceder acceso a las API de la instancia de servicio API Management. Puede separar varios dominios mediante nuevas líneas, espacios o comas.
+19. La ventana **Add identity provider** (Agregar proveedor de identidades) también contiene el cuadro de texto **Allowed Tenants** (Inquilinos permitidos). Ahí, especifique los dominios de las instancias de Azure AD a las que quiere conceder acceso a las API de la instancia de servicio API Management. Puede separar varios dominios mediante nuevas líneas, espacios o comas.
 
 > [!NOTE]
 > Puede especificar varios dominios en la sección **Allowed Tenants** (Inquilinos permitidos). Para que un usuario pueda iniciar sesión desde otro dominio distinto al dominio original donde se registró la aplicación, un administrador global de ese otro dominio debe conceder antes a la aplicación permiso de acceso a los datos del directorio. Para conceder permiso, el administrador global debe: una. Ir a `https://<URL of your developer portal>/aadadminconsent` (por ejemplo, https://contoso.portal.azure-api.net/aadadminconsent)).
 > b. Escribir el nombre de dominio del inquilino de Azure AD al que desea dar acceso.
 > c. Seleccione **Submit** (Enviar). 
 
-19.  Después de especificar la configuración deseada, seleccione **Agregar**.
+20.  Después de especificar la configuración deseada, seleccione **Agregar**.
 
 Después de guardar los cambios, los usuarios de la instancia de Azure AD especificada pueden iniciar sesión en el portal para desarrolladores siguiendo los pasos de [Inicio de sesión en el portal para desarrolladores con una cuenta de Azure AD](#log_in_to_dev_portal).
 

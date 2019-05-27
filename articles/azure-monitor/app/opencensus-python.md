@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 22e58f31e2f891eb09c3d42a01763c68cdcd11a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae9db483e15197e6cdaaaa5981410630184cc6ca
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60577708"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957247"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Recopilación de seguimientos distribuidos en Python (versión preliminar)
 
@@ -28,11 +28,11 @@ Ahora, Application Insights permite realizar seguimientos distribuidos de las ap
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
 Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-application-insights-resource"></a>Creación de un recurso de Application Insights
+## <a name="create-application-insights-resource"></a>Crear recurso de Application Insights
 
 En primer lugar, tiene que crear un recurso de Application Insights. Este recurso generará una clave de instrumentación (ikey). La ikey se usa para configurar el reenviador local de forma que envíe seguimientos distribuidos desde la aplicación instrumentada de OpenCensus a Application Insights.   
 
@@ -78,10 +78,12 @@ En primer lugar, tiene que crear un recurso de Application Insights. Este recurs
 
 ## <a name="opencensus-python-package"></a>Paquete para Python de OpenCensus
 
-1. Instale el paquete para Python de OpenCensus con pip o pipenv desde la línea de comandos:
+1. Instale el paquete del censo abierto para Python y exportador con pip o pipenv desde la línea de comandos:
 
-    ```python
+    ```console
     python -m pip install opencensus
+    python -m pip install opencensus-ext-ocagent
+
     # pip env install opencensus
     ```
 
@@ -92,20 +94,20 @@ En primer lugar, tiene que crear un recurso de Application Insights. Este recurs
 
     ```python
     from opencensus.trace.tracer import Tracer
-    
+
     def main():
         while True:
             valuePrompt()
-    
+
     def valuePrompt():
         tracer = Tracer()
         with tracer.span(name="test") as span:
             line = input("Enter a value: ")
             print(line)
-    
+
     if __name__ == "__main__":
         main()
-    
+
     ```
 
 3. Al ejecutar el código, se le solicitará varias veces que escriba un valor. Con cada entrada, el valor se imprimirá en el shell y se generará un fragmento correspondiente de **SpanData** en el módulo para Python de OpenCensus. El proyecto OpenCensus define un [ _seguimiento como un árbol de intervalos_](https://opencensus.io/core-concepts/tracing/).
@@ -127,32 +129,33 @@ En primer lugar, tiene que crear un recurso de Application Insights. Este recurs
     ```python
     from opencensus.trace.tracer import Tracer
     from opencensus.trace import config_integration
-    from opencensus.trace.exporters.ocagent import trace_exporter
+    from opencensus.ext.ocagent.trace_exporter import TraceExporter
     from opencensus.trace import tracer as tracer_module
-    
+
     import os
-    
-    def main():        
+
+    def main():
         while True:
             valuePrompt()
-    
+
     def valuePrompt():
-        export_LocalForwarder = trace_exporter.TraceExporter(
+        export_LocalForwarder = TraceExporter(
         service_name=os.getenv('SERVICE_NAME', 'python-service'),
         endpoint=os.getenv('OCAGENT_TRACE_EXPORTER_ENDPOINT'))
-        
+
         tracer = Tracer(exporter=export_LocalForwarder)
         with tracer.span(name="test") as span:
             line = input("Enter a value: ")
             print(line)
-    
+
     if __name__ == "__main__":
         main()
+
     ```
 
 5. Si guarda el módulo anterior e intenta a ejecutarlo, puede recibir un `ModuleNotFoundError` para `grpc`. Si esto ocurre, ejecute lo siguiente para instalar el [paquete grpcio](https://pypi.org/project/grpcio/) con:
 
-    ```
+    ```console
     python -m pip install grpcio
     ```
 

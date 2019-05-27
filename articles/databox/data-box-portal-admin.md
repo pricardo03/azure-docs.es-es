@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: bf1d810733df4eaae17d092caba42888a63cc59f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 31909e1f13d211aa87f13547218a6967d8e195ac
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919234"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950518"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box"></a>Usar el portal de Azure para administrar Azure Data Box
 
@@ -53,7 +53,7 @@ Realice los pasos siguientes para clonar un pedido.
 El clon se crea en unos minutos y el portal se actualiza para mostrar el nuevo pedido.
 
 
-## <a name="delete-order"></a>Eliminación del pedido
+## <a name="delete-order"></a>Eliminar el pedido
 
 Es posible que desee eliminar un pedido cuando se complete. El pedido contiene información personal, como su nombre, dirección e información de contacto. Esta información personal se elimina cuando se elimina el pedido.
 
@@ -65,9 +65,9 @@ Solo se pueden eliminar pedidos completados o cancelados. Realice los siguientes
 
     ![Eliminación del pedido de Data Box 1](media/data-box-portal-admin/delete-order1.png)
 
-3. Escriba el nombre del pedido cuando se le pida que confirme su eliminación. Hacer clic en **Eliminar**.
+3. Escriba el nombre del pedido cuando se le pida que confirme su eliminación. Haga clic en **Eliminar**.
 
-## <a name="download-shipping-label"></a>Descarga de la etiqueta de envío
+## <a name="download-shipping-label"></a>Descargar la etiqueta de envío
 
 Deberá descargar la etiqueta de envío si no funciona la pantalla de tinta electrónica de su Data Box y no muestra la etiqueta de envío de devolución. 
 
@@ -75,7 +75,7 @@ Siga estos pasos para descargar una etiqueta de envío.
 
 1.  Vaya a **Overview > Download shipping label** (Información general > Descargar etiqueta de envío). Esta opción está disponible solo una vez enviado el dispositivo. 
 
-    ![Descarga de la etiqueta de envío](media/data-box-portal-admin/download-shipping-label.png)
+    ![Descargar la etiqueta de envío](media/data-box-portal-admin/download-shipping-label.png)
 
 2.  Se descargará la siguiente etiqueta de envío devuelto. Guarde la etiqueta e imprímala. Doble e inserte la etiqueta en la funda transparente del dispositivo. Asegúrese de que la etiqueta está visible. Quite cualquier etiqueta del envío anterior que aún se encuentre en el dispositivo.
 
@@ -95,9 +95,9 @@ Realice los pasos siguientes para editar el pedido.
 
     ![Edición de la dirección de envío 2](media/data-box-portal-admin/edit-shipping-address2.png)
 
-## <a name="edit-notification-details"></a>Edición de los detalles de la notificación
+## <a name="edit-notification-details"></a>Editar detalles de la notificación
 
-Es posible que deba cambiar los usuarios que desea que reciban los mensajes de estado del pedido. Por ejemplo, hay que informar a un usuario cuando se entrega o recoge el dispositivo. Otro usuario deba ser informado cuando se completa la copia de datos para que pueda comprobar que están en la cuenta de almacenamiento de Azure antes de eliminarlos del origen. En estos casos, puede editar los detalles de notificación.
+Es posible que deba cambiar los usuarios que desea que reciban los mensajes de estado del pedido. Por ejemplo, hay que informar a un usuario cuando se entrega o recoge el dispositivo. Otro usuario deba mantenerse informado cuando se completa la copia de datos para que pueden comprobar que los datos están en la cuenta de almacenamiento de Azure antes de eliminarlos del origen. En estos casos, puede editar los detalles de notificación.
 
 Realice los siguientes pasos para editar una plantilla de notificación.
 
@@ -110,7 +110,7 @@ Realice los siguientes pasos para editar una plantilla de notificación.
     ![Edición de los detalles de la notificación 2](media/data-box-portal-admin/edit-notification-details2.png)
 
 
-## <a name="download-order-history"></a>Descarga del historial de pedidos
+## <a name="download-order-history"></a>Descargar el historial de pedidos
 
 Una vez completado el pedido a Data Box, se eliminan los datos de los discos del dispositivo. Una vez limpio el dispositivo, puede descargar el historial de pedidos de Azure Portal.
 
@@ -199,16 +199,16 @@ Cuando cambie el estado del dispositivo en el portal, se le notificará por corr
 
 |Estado del pedido |DESCRIPCIÓN |
 |---------|---------|
-|Ordered (Realizado)     | Se ha realizado correctamente un pedido. <br>Si el dispositivo está disponible, Microsoft identifica uno para el envío y lo prepara. <br> Si el dispositivo no está disponible inmediatamente, el pedido se procesará cuando el dispositivo esté disponible. El pedido puede tardar varios días o un par de meses en procesarse. Si el pedido no se puede completar en 90 días, se cancela el pedido y se le notifica.         |
-|Processed (Procesado)     | El procesamiento del pedido está completado. Según su pedido, el dispositivo se prepara para su envío en el centro de datos.         |
-|Dispatched (Enviado)     | Ha enviado el pedido. Use el identificador de seguimiento que se muestra en el pedido del portal para realizar un seguimiento del envío.        |
-|Delivered (Entregado)     | El envío se entregó a la dirección especificada.        |
-|Picked up (Recogido)     |El transportista recogió y analizó el envío de devolución.         |
-|Received     | El dispositivo se recibió y examinó en el centro de datos de Azure. <br> Una vez que se inspecciona el envío, se iniciará la carga del dispositivo.      |
+|Solicitado     | Se ha realizado correctamente un pedido. <br>Si el dispositivo está disponible, Microsoft identifica uno para el envío y lo prepara. <br> Si el dispositivo no está disponible inmediatamente, el pedido se procesará cuando el dispositivo esté disponible. El pedido puede tardar varios días o un par de meses en procesarse. Si el pedido no se puede completar en 90 días, se cancela el pedido y se le notifica.         |
+|Procesado     | El procesamiento del pedido está completado. Según su pedido, el dispositivo se prepara para su envío en el centro de datos.         |
+|Enviado     | Ha enviado el pedido. Use el identificador de seguimiento que se muestra en el pedido del portal para realizar un seguimiento del envío.        |
+|Entregados     | El envío se entregó a la dirección especificada.        |
+|Recogido     |El transportista recogió y analizó el envío de devolución.         |
+|Recibido     | El dispositivo se recibió y examinó en el centro de datos de Azure. <br> Una vez que se inspecciona el envío, se iniciará la carga del dispositivo.      |
 |Copia de datos     | La copia de datos está en curso. Realice un seguimiento del progreso de la copia del pedido en Azure Portal. <br> Espere hasta que se complete. |
-|Completed       |El pedido se realizó correctamente.<br> Compruebe que los datos están en Azure antes de eliminarlos en el entorno local de los servidores.         |
-|Completed with errors (Completado con errores)| Se completó la copia de datos pero se produjeron errores durante la copia. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal.   |
-|Canceled            |El pedido se ha cancelado. <br> Se canceló el pedido o se produjo un error y el servicio lo canceló. Si el pedido no se puede completar en 90 días, también se cancela el pedido y se le notifica.     |
+|Completadas       |El pedido se realizó correctamente.<br> Compruebe que los datos están en Azure antes de eliminarlos en el entorno local de los servidores.         |
+|Completado con errores| Se completó la copia de datos pero se produjeron errores durante la copia. <br> Revise los registros de copia con la ruta de acceso proporcionada en Azure Portal.   |
+|Cancelado            |El pedido se ha cancelado. <br> Se canceló el pedido o se produjo un error y el servicio lo canceló. Si el pedido no se puede completar en 90 días, también se cancela el pedido y se le notifica.     |
 |Limpieza | Se borran los datos en los discos del dispositivo. La limpieza del dispositivo se considera completa cuando el historial de pedidos está disponible para su descarga en Azure Portal.|
 
 

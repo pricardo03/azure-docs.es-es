@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/20/2019
 ms.author: danlep
-ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582421"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977199"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatización de la aplicación de revisiones de sistema operativo y plataforma con ACR Tasks
 
@@ -94,6 +94,16 @@ Por ejemplo, puede crear una tarea de varios pasos que automatice lo siguiente:
 Las tareas de varios pasos permiten dividir la compilación, la ejecución y la prueba de una imagen en más pasos que admiten composición, con compatibilidad con dependencias entre pasos. Con las tareas de varios pasos de ACR Tasks, tiene control más pormenorizado sobre los flujos de trabajo de compilación, prueba y aplicación de revisiones para imágenes de sistema operativo y plataforma.
 
 Aprenda más sobre las tareas de varios pasos en [Ejecución de tareas de varios pasos de compilación, prueba y aplicación de revisiones en ACR Tasks](container-registry-tasks-multi-step.md).
+
+## <a name="view-task-logs"></a>Ver registros de tarea
+
+Cada ejecución de la tarea genera el resultado de registro que se puede examinar para determinar si los pasos de la tarea se ejecutaban correctamente. Si usas el [compilación de az acr](/cli/azure/acr#az-acr-build), [acr az ejecutar](/cli/azure/acr#az-acr-run), o [ejecución de la tarea de az acr](/cli/azure/acr/task#az-acr-task-run) comando para desencadenar la tarea, salida de registro para la ejecución de la tarea se transmite a la consola y también se almacenan para su uso posterior recuperación. Ver los registros de una tarea ejecutan en el portal de Azure, o usar el [registros de tareas de az acr](/cli/azure/acr/task#az-acr-task-logs) comando.
+
+A partir de julio de 2019, datos y registros para la tarea se ejecuta en un registro se conservan de forma predeterminada durante 30 días y, a continuación, se purgan automáticamente. Si desea archivar los datos para una ejecución de la tarea, habilitar el archivado con el [az acr tarea de ejecución de la actualización](/cli/azure/acr/task#az-acr-task-update-run) comando. El ejemplo siguiente habilita el archivado de la tarea ejecutar *cf11* en registro *myregistry*.
+
+```azurecli
+az acr task update-run --registry myregistry --run-id cf11 --no-archive false
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

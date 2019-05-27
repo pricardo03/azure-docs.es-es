@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: e47ce094cd690cba4ef398bc5d5d443f7ed647e9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b3798ec7578530e04ec9e00086fffaec9a58a7cd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272485"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950268"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -281,7 +281,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## <a name="move-management-groups-in-the-hierarchy"></a>Movimiento de grupos de administración en la jerarquía  
 
-Al mover un grupo de administración principal, la jerarquía de ese grupo se mueve con él.
+Al mover un grupo de administración principal, la jerarquía de ese grupo se mueve con él. Para el acceso necesita mover grupos de administración, consulte [acceso al grupo de administración](index.md#management-group-access).
 
 ### <a name="move-management-groups-in-the-portal"></a>Mover grupos de administración en el portal
 

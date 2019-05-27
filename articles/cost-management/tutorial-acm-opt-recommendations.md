@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 8471ae8ed0b391df11d81569b5660a2b098f5793
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67cf15b00e597131afe421bf8306a5df4511af9a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021501"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965521"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Optimización de los costos a partir de las recomendaciones
 
@@ -36,7 +36,7 @@ Las recomendaciones están disponibles para una variedad de ámbitos y tipos de 
 
 Debe tener máquinas virtuales activas con al menos 14 días de actividad.
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com/).
 
 ## <a name="view-cost-optimization-recommendations"></a>Visualización de las recomendaciones de optimización de costos

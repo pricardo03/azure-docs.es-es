@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32efe76ac2fce4c4541287e96c3a495f3eb9031b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08bf7950ada5db90d2b8bfea751b39ffc21f3ee9
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455812"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950854"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de respuesta a incidentes para su solución de identidad híbrida
 La mayoría de las organizaciones grandes y medianas contarán probablemente con una [respuesta a los incidentes de seguridad](https://technet.microsoft.com/library/cc700825.aspx) para ayudar al responsable de TI a emprender acciones en función del nivel de incidente. El sistema de administración de identidades es un componente importante en el proceso de respuesta a incidentes, ya que se puede usar para ayudar a identificar quién ha realizado una acción específica en el destino. La solución de identidad híbrida debe ser capaz de proporcionar funcionalidades de supervisión e informes que TI puede aprovechar para realizar acciones con el fin de identificar y mitigar las posibles amenazas. En un plan de respuesta a incidentes típico tendrá las siguientes fases:
@@ -52,7 +52,7 @@ El sistema de administración de identidades debe ayudar a los administradores d
 * ¿Necesita su empresa auditar el acceso y la acción del usuario?
 * ¿Necesita su empresa saber cuándo un usuario restablece su contraseña?
 
-## <a name="policy-enforcement"></a>Aplicación de directivas
+## <a name="policy-enforcement"></a>Cumplimiento de directivas
 Durante la fase de control de daños y reducción de riesgos, es importante reducir rápidamente los efectos reales y posibles de un ataque. Esa acción que realice en este punto puede marcar la diferencia entre un daño menor o uno mayor. La respuesta exacta dependerá de su organización y de la naturaleza del ataque al que se enfrenta. Si la evaluación inicial concluye que se ha puesto en peligro una cuenta, deberá aplicar la directiva para bloquear esta cuenta. Este es solo un ejemplo de dónde se puede aprovechar el sistema de administración de identidades. Las siguientes preguntas le ayudarán a diseñar la solución de identidad híbrida y a tener en cuenta el modo en que se aplicarán las directivas para reaccionar a un incidente en curso:
 
 * ¿Dispone su empresa de directivas que impidan a los usuarios el acceso a la red si es necesario?

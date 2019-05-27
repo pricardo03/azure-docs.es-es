@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60510551"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148828"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(EN DESUDO) Preguntas más frecuentes sobre Azure Container Service
 
@@ -99,7 +99,7 @@ Puede encontrar la cadena de conexión en Azure Portal o mediante las herramient
 
 4. En la página **Resumen**, en **Salidas**, se proporcionan varios vínculos de clúster. **SSHMaster0** proporciona una cadena de conexión de SSH para el primer patrón del clúster de servicio de contenedor. 
 
-Como se indicó anteriormente, también puede utilizar las herramientas de Azure para buscar el FQDN del patrón. Realice una conexión de SSH con el patrón mediante el FQDN de este y el nombre de usuario que especificó al crear el clúster. Por ejemplo: 
+Como se indicó anteriormente, también puede utilizar las herramientas de Azure para buscar el FQDN del patrón. Realice una conexión de SSH con el patrón mediante el FQDN de este y el nombre de usuario que especificó al crear el clúster. Por ejemplo:
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
