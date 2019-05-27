@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: aed63e332375be4f8ed939cf162545c9f366f329
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317602"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66143495"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalización del acelerador de la solución de supervisión remota
 
@@ -31,7 +31,7 @@ Los siguientes pasos describen el proceso para configurar un entorno local para 
 
 1. Implemente una instancia **básica** del acelerador de la solución con la CLI **pcs**. Tome nota del nombre de la implementación y las credenciales proporcionadas para la máquina virtual. Para más información, vea [Implementación mediante la CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Para habilitar el acceso SSH a la máquina virtual que hospeda los microservicios de la solución, use Azure Portal o Azure Cloud Shell. Por ejemplo: 
+1. Para habilitar el acceso SSH a la máquina virtual que hospeda los microservicios de la solución, use Azure Portal o Azure Cloud Shell. Por ejemplo:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
@@ -39,7 +39,7 @@ Los siguientes pasos describen el proceso para configurar un entorno local para 
 
     Solo se debe habilitar el acceso de SSH durante el desarrollo y las pruebas. Si habilita SSH, [debe deshabilitarlo tan pronto como haya terminado de usarlo](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Use Azure Portal o Azure Cloud Shell para encontrar el nombre y la dirección IP pública de la máquina virtual. Por ejemplo: 
+1. Use Azure Portal o Azure Cloud Shell para encontrar el nombre y la dirección IP pública de la máquina virtual. Por ejemplo:
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table
@@ -496,9 +496,9 @@ Para modificar aún más la capa de presentación y visualizaciones en la soluci
 
 En este artículo, aprendió sobre los recursos que tiene a su disposición para ayudarlo a personalizar la interfaz de usuario web en el acelerador de la solución de supervisión remota. Para más información acerca de la personalización de la IU, consulte los siguientes artículos:
 
-* [Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-page.md)
-* [Adición de un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-service.md)
-* [Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-grid.md)
+* [Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-page.md)
+* [Adición de un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-service.md)
+* [Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-grid.md)
 * [Adición de un control flotante personalizado a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-flyout.md)
 * [Adición de un panel personalizado al panel de la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-panel.md)
 

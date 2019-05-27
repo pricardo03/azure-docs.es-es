@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
 ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259268"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135305"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
 
@@ -61,7 +61,7 @@ Se necesita una red virtual para la comunicación entre los recursos que se crea
    - *myAGSubnet*: como nombre de subred.
    - *10.0.0.0/24*: como espacio de direcciones de la subred.
 
-     ![Creación de una red virtual](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
+     ![Crear Virtual Network](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. Haga clic en **Aceptar** para crear la red virtual y la subred.
 7. Haga clic en **Elegir una dirección IP pública** y en **Crear nueva** y, a continuación, escriba el nombre de la dirección IP pública. En este ejemplo, la dirección IP pública se llama *myAGPublicIPAddress*. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
@@ -73,7 +73,7 @@ Se necesita una red virtual para la comunicación entre los recursos que se crea
 1. Haga clic en **Todos los recursos** en el menú izquierdo y, después, haga clic en **myVNet** en la lista de recursos.
 2. Haga clic en **Subredes** y en **Subred**.
 
-    ![Creación de una subred](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
+    ![Crear subred](./media/application-gateway-create-url-route-portal/application-gateway-subnet.png)
 
 3. Escriba *myBackendSubnet* como nombre de la subred y, a continuación, haga clic en **Aceptar**.
 

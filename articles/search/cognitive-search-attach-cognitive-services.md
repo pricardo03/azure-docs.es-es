@@ -7,28 +7,30 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 69b03bd24abcdf502bf80cfce4221f4958058932
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.openlocfilehash: f9a1e82cb60bf0ec32165294e7f4af3e93d042b0
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541706"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158536"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Search 
 
-Unidad de algoritmos de inteligencia artificial el [cognitivas canalizaciones indexación](cognitive-search-concept-intro.md) utiliza para procesar los datos no estructurados en Azure Search. Estos algoritmos se basan en [recursos de Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), incluidos [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análisis de imágenes y reconocimiento óptico de caracteres (OCR) y [deTextAnalytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para reconocimiento de entidades, extracción de frases clave y enriquecimientos de otros.
+Unidad de algoritmos de inteligencia artificial el [cognitivas canalizaciones indexación](cognitive-search-concept-intro.md) utilizado con este fin del documento en Azure Search. Estos algoritmos se basan en recursos de Azure Cognitive Services, incluidos [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análisis de imágenes y reconocimiento óptico de caracteres (OCR) y [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para reconocimiento de entidades extracción de frases clave y enriquecimientos de otros. Ya que usa Azure Search para fines de enriquecimiento del documento, los algoritmos se encapsulan dentro de un *aptitud*, colocados en un *aptitudes*y que se hace referencia por un *indizador* durante la indización.
 
-Puede enriquecer un número limitado de documentos de manera gratuita, o bien puede asociar un recurso de Cognitive Services facturable para cargas de trabajo más grandes y más frecuentes. En este artículo, obtendrá información sobre cómo asociar un recurso de Cognitive Services a tus aptitudes cognitivas para enriquecer los datos durante [indexación de Azure Search](search-what-is-an-index.md).
-
-Incluso si la canalización consta de las habilidades que no estén relacionados con Cognitive Services APIs, todavía se debe asociar un recurso de Cognitive Services. Si lo hace, reemplaza el recurso gratuito que le limita a un número reducido de enriquecimientos al día. No se le cobrará las aptitudes que no están obligados a Cognitive Services APIs. Estos conocimientos son [habilidades personalizadas](cognitive-search-create-custom-skill-example.md), [combinación de texto](cognitive-search-skill-textmerger.md), [divisor texto](cognitive-search-skill-textsplit.md), y [conformador](cognitive-search-skill-shaper.md).
+Puede enriquecer un número limitado de documentos de manera gratuita, o bien puede asociar un recurso de Cognitive Services facturable para cargas de trabajo más grandes y más frecuentes. En este artículo, obtendrá información sobre cómo conectar un recurso de Cognitive Services facturable con tus aptitudes cognitivas para enriquecer documentos durante [indexación de Azure Search](search-what-is-an-index.md).
 
 > [!NOTE]
-> A medida que amplía el ámbito mediante el aumento de la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de inteligencia artificial, deberá asociar un recurso de Cognitive Services facturable. Se le cobrará para llamar a las API en Cognitive Services y para la extracción de la imagen como parte de la fase de averiguación de documentos en Azure Search. No se le cobrará para la extracción de texto de documentos.
+> Eventos facturables incluyen las llamadas a API de Cognitive Services y la imagen de extracción como parte de la fase de averiguación de documentos en Azure Search. No hay ningún cargo para la extracción de texto en documentos o las aptitudes que no llame a Cognitive Services.
 >
-> Ejecución de habilidades integrados se factura a la [Cognitive Services paga a medida que vaya precio](https://azure.microsoft.com/pricing/details/cognitive-services/). Para obtener información sobre los precios de extracción de imagen, consulte el [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Ejecución de habilidades facturables será el [Cognitive Services paga a medida que vaya precio](https://azure.microsoft.com/pricing/details/cognitive-services/). Para imagen extracción precios, consulte el [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+
+## <a name="same-region-requirement"></a>Requisito de la misma región
+
+Necesitamos que Azure Search y Azure Cognitive Services existen en la misma región. De lo contrario, obtendrá este mensaje en tiempo de ejecución: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` No hay ninguna manera de mover servicios entre regiones. Si recibe este error, debe crear un nuevo servicio en la misma región y volver a publicar los índices en consecuencia.
 
 ## <a name="use-free-resources"></a>Uso de recursos gratis
 
@@ -50,7 +52,7 @@ Recursos gratuitos (enriquecimientos limitado) están restringidos a 20 document
 
 ## <a name="use-billable-resources"></a>Uso de recursos facturables
 
-Para cargas de trabajo que creación más de 20 enriquecimientos al día, deberá asociar un recurso de Cognitive Services facturable.
+Para cargas de trabajo que creación más de 20 enriquecimientos al día, asegúrese de asociar un recurso de Cognitive Services facturable. Se recomienda que siempre adjuntar un recurso de Cognitive Services facturable, incluso si no se pretende llamar a Cognitive Services APIs. Asociar un recurso, invalida el límite diario.
 
 Se le cobrará solo para las habilidades que llamar a Cognitive Services APIs. No se le cobra para [habilidades personalizadas](cognitive-search-create-custom-skill-example.md), o como habilidades [combinación de texto](cognitive-search-skill-textmerger.md), [divisor de texto](cognitive-search-skill-textsplit.md), y [conformador](cognitive-search-skill-shaper.md), que no están basadas en API.
 
@@ -60,7 +62,7 @@ Se le cobrará solo para las habilidades que llamar a Cognitive Services APIs. N
 
    ![Crear un recurso de Cognitive Services](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "crear un recurso de Cognitive Services")
 
-1. En el **ubicación** lista, seleccione la región donde se encuentra el servicio Azure Search. Deberá usar esta región por motivos de rendimiento. Uso de esta región también anula cargos de ancho de banda saliente entre regiones.
+1. En el **ubicación** lista, seleccione la región donde se encuentra el servicio Azure Search. Asegúrese de usar esta región por motivos de rendimiento. Uso de esta región también anula cargos de ancho de banda saliente entre regiones.
 
 1. En el **tarifa** lista, seleccione **S0** para obtener la colección all-in-one de características de Cognitive Services, incluidas las funciones de visión y el idioma que respaldan las habilidades predefinidas usadas por Azure Search.
 

@@ -9,14 +9,14 @@ ms.reviewer: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 9a123ed45b5857aa40fc9853a95c528833ba8aa9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4cd61db3ec0e8d88c9b1c6d6ba427b120b3f1af1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60549245"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66152415"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar datos desde SAP Business Warehouse mediante Azure Data Factory
 
@@ -162,7 +162,7 @@ En la factoría de datos **Comencemos** página, seleccione **creación de una c
 
    - **HighWatermarkBlobName**: Especifique el nombre del blob para almacenar el valor de límite máximo, tales como `requestIdCache.txt`. En el almacenamiento de blobs, vaya a la ruta de acceso correspondiente de HighWatermarkBlobPath + HighWatermarkBlobName, como *container/path/requestIdCache.txt*. Creación de un blob con contenido 0.
 
-      ![Blob content (Contenido del blob)](media/load-sap-bw-data/blob.png)
+      ![Contenido del blob](media/load-sap-bw-data/blob.png)
 
    - **LogicAppURL**: En esta plantilla, usamos WebActivity para llamar a Azure Logic Apps para establecer el valor de límite máximo de Blob storage. O bien, puede usar Azure SQL Database para almacenarla. Usar una actividad de procedimiento almacenado para actualizar el valor.
 
@@ -179,9 +179,9 @@ En la factoría de datos **Comencemos** página, seleccione **creación de una c
             "properties": {
                "sapOpenHubMaxRequestId": {
                   "type": "string"
-               },
-               "type": "object"
-            }
+               }
+            },
+            "type": "object"
          }
          ```
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc4ff596cdafd348288187b0cd9b32f7b4c2d275
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823389"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119375"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Información de seguridad permiten combinar del registro (versión preliminar)
 
@@ -43,7 +43,7 @@ Siga estos pasos para habilitar el registro combinado:
 > A partir de marzo de 2019, las opciones de llamada de teléfono no estarán disponibles para la autenticación multifactor y los usuarios SSPR en inquilinos de Azure AD gratuito de prueba. Mensajes SMS no se ven afectados por este cambio. Las opciones de llamada de teléfono aún estará disponibles para los usuarios de inquilinos de Azure AD de pago.
 
 > [!NOTE]
-> Después de habilitar el registro combinado, los usuarios que registran o confirme el número de teléfono o aplicación móvil a través de la nueva experiencia puede usarlas para autenticación multifactor y SSPR, si estos métodos están habilitados en la autenticación multifactor y SSPR directivas. Si, a continuación, se deshabilita esta experiencia, los usuarios que vaya al registro SSPR anterior página en `https:/aka.ms/ssprsetup` le pedirá que realicen autenticación multifactor para poder tener acceso a la página.
+> Después de habilitar el registro combinado, los usuarios que registran o confirme el número de teléfono o aplicación móvil a través de la nueva experiencia puede usarlas para autenticación multifactor y SSPR, si estos métodos están habilitados en la autenticación multifactor y SSPR directivas. Si, a continuación, se deshabilita esta experiencia, los usuarios que vaya al registro SSPR anterior página en `https://aka.ms/ssprsetup` le pedirá que realicen autenticación multifactor para poder tener acceso a la página.
 
 Si ha configurado el sitio de la lista de asignación de zona de Internet Explorer, visite los sitios siguientes deben estar en la misma zona:
 

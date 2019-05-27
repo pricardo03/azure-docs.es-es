@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c24bbb9433e4164d4b2f6ce1ac7bd726cc36356
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506906"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142641"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Obtener una vista previa: crear y administrar varios grupos de nodos para un clúster en Azure Kubernetes Service (AKS)
 
@@ -332,7 +332,7 @@ Solo los pods que tienen este su sabor aplicado pueden programarse en nodos *gpu
 
 En este artículo, ha creado un clúster de AKS que incluya los nodos basados en GPU. Para reducir los costos innecesarios, es posible que desee eliminar el *gpunodepool*, o todo el clúster AKS.
 
-Para eliminar el grupo de nodos basado en GPU, use el [eliminar grupo de nodos de az aks] [ az-aks-nodepool-delete] comando tal como se muestra en el ejemplo siguiente:
+Para eliminar el grupo de nodos basado en GPU, use el [eliminar az aks nodepool] [ az-aks-nodepool-delete] comando tal como se muestra en el ejemplo siguiente:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
@@ -348,8 +348,10 @@ az group delete --name myResourceGroup --yes --no-wait
 
 En este artículo ha aprendido a crear y administrar varios grupos de nodos en un clúster de AKS. Para obtener más información acerca de cómo controlar los pods a través de grupos de nodos, vea [procedimientos recomendados para las características avanzadas de programador en AKS][operator-best-practices-advanced-scheduler].
 
+Para crear y usar grupos de nodos de contenedor de Windows Server, vea [crear un contenedor de Windows Server en AKS][aks-windows].
+
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -376,3 +378,4 @@ En este artículo ha aprendido a crear y administrar varios grupos de nodos en u
 [install-azure-cli]: /cli/azure/install-azure-cli
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-windows]: windows-container-cli.md

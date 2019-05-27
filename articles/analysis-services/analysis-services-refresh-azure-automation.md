@@ -7,14 +7,14 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 1897193f0ae781029a7303c42ca8eeaa51389892
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: abbad97e29f60e5f135017cd43f9d30eba1805ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920589"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142683"
 ---
-# <a name="refresh-with-azure-automation"></a>Actualizar con Azure Automation
+# <a name="refresh-with-azure-automation"></a>Actualización con Azure Automation
 
 Mediante el uso de Azure Automation y Runbooks de PowerShell, puede realizar operaciones de actualización de datos automatizada en los modelos tabulares de análisis de Azure.  
 
@@ -67,11 +67,11 @@ La entidad de servicio que cree debe tener permisos de administrador del servido
 
 3. Importar el Runbook de Automation
 
-    ![Importación del runbook](./media/analysis-services-refresh-azure-automation/8.png)
+    ![Importar runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
 4. Busque el **actualización Model.ps1** de archivos, proporcione un **nombre** y **descripción**y, a continuación, haga clic en **crear**.
 
-    ![Importación del runbook](./media/analysis-services-refresh-azure-automation/9.png)
+    ![Importar runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
 5. Cuando se ha creado el Runbook, pasará automáticamente al modo de edición.  Seleccione **Publicar**.
 
@@ -148,7 +148,7 @@ El **cuerpo** es un documento JSON que debe contener las siguientes propiedades:
 |Propiedad  |Valor  |
 |---------|---------|
 |**AnalysisServicesDatabase**     |El nombre de la base de datos de Azure Analysis Services <br/> Ejemplo: AdventureWorksDB         |
-|**AnalysisServicesServer**     |El nombre del servidor de Azure Analysis Services. <br/> Ejemplo: https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
+|**AnalysisServicesServer**     |El nombre del servidor de Azure Analysis Services. <br/> Ejemplo: https:\//westus.asazure.windows.net/servers/myserver/models/AdventureWorks/         |
 |**DatabaseRefreshType**     |El tipo de actualización para realizar. <br/> Ejemplo: Completo         |
 
 Cuerpo de JSON de ejemplo:

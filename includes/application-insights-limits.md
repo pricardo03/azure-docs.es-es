@@ -9,15 +9,15 @@ ms.date: 06/21/2018
 ms.author: mbullwin
 ms.custom: include file
 ms.openlocfilehash: 31ff6ae66b13eb5e5abcde94e8d3df7f6e32f63c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794432"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130803"
 ---
 Hay algunos límites en el número de métricas y eventos por aplicación, es decir, cada clave de instrumentación. Los límites dependen del [plan de precios](https://azure.microsoft.com/pricing/details/application-insights/) que elija.
 
-| Recurso | Límite predeterminado | Nota:
+| Recurso | Límite predeterminado | NOTA
 | --- | --- | --- |
 | Total de datos por día | 100 GB | Se pueden reducir los datos si se establece un límite. Si necesita más datos, puede aumentar el límite en el portal, hasta 1000 GB. Capacidades mayores de 1000 GB, envíe un correo electrónico a AIDataCap@microsoft.com.
 | Limitaciones | 32 000 eventos por segundo | El límite se mide por minuto.
@@ -29,6 +29,6 @@ Hay algunos límites en el número de métricas y eventos por aplicación, es de
 | Longitud del mensaje de seguimiento y excepción | 32 768  | Consulte [esquemas de tipos](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
 | Número de [pruebas de disponibilidad](../articles/azure-monitor/app/monitor-web-app-availability.md) por aplicación | 100 |
 | Retención de datos del [generador de perfiles](../articles/azure-monitor/app/profiler.md) | 5 días |
-| Datos enviados por día del [generador de perfiles](../articles/azure-monitor/app/profiler.md) | 10 GB |
+| Datos enviados por día del [generador de perfiles](../articles/azure-monitor/app/profiler.md) | 10 GB |
 
 Para más información, consulte [Administración de precios y cuotas para Application Insights](../articles/azure-monitor/app/pricing.md).

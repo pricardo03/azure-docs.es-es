@@ -2,19 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines-windows
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-origin.date: 09/12/2018
-ms.date: 11/12/2018
-ms.author: v-yeche
+ms.date: 09/12/2018
+ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405395"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154777"
 ---
 En Azure, para abrir un puerto o crear un punto de conexión a una máquina virtual, debe crear un filtro de red en una subred o una interfaz de red de máquina virtual. Estos filtros, que controlan el tráfico entrante y saliente, se colocan en un grupo de seguridad de red asociado al recurso que va a recibir dicho tráfico.
 
@@ -34,4 +33,8 @@ Después de crear una máquina virtual configurada para atender las solicitudes 
 
 3. Asociar el grupo de seguridad de red con la subred o la interfaz de red de máquina virtual.
 
-    Aunque este ejemplo usa una regla sencilla para permitir el tráfico HTTP, también puede usar reglas y grupos de seguridad de red para crear configuraciones de red más complejas.
+Aunque este ejemplo usa una regla sencilla para permitir el tráfico HTTP, también puede usar reglas y grupos de seguridad de red para crear configuraciones de red más complejas. 
+
+
+
+

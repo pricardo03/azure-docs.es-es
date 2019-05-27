@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
 ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521931"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66141657"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
 
@@ -147,7 +147,7 @@ Cree una red virtual llamada **appgwvnet** en el grupo de recursos **apim-appGw-
 $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
 ```
 
-### <a name="step-4"></a>Paso 4
+### <a name="step-4"></a>Paso 4
 
 Asigne una variable de subred para los pasos siguientes.
 
@@ -251,7 +251,7 @@ Configuración de la dirección IP de front-end con el punto de conexión de IP 
 $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
 ```
 
-### <a name="step-4"></a>Paso 4
+### <a name="step-4"></a>Paso 4
 
 Configure el certificado para Application Gateway, que se usará para descifrar y volver a cifrar el tráfico que pasa por ella.
 

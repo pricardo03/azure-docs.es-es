@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: d2df7388018c463ba58b57be46945915210b84b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116162"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171151"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Instalar una actualización desde el Portal de Azure
 
 1. En la página de servicio de StorSimple, seleccione el dispositivo.
 
-    ![Selección del dispositivo](./media/storsimple-8000-install-update5-via-portal/update1.png)
+    ![Seleccionar dispositivo](./media/storsimple-8000-install-update5-via-portal/update1.png)
 
 2. Vaya a **Configuración del dispositivo** > **Actualizaciones del dispositivo**.
 

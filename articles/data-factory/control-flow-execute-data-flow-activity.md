@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236679"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153484"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Ejecutar la actividad de flujo de datos en Azure Data Factory
 Utilice la actividad de flujo de datos de execute para ejecutar el flujo de datos ADF en ejecuciones de canalización depuración (sandbox) y en las ejecuciones de canalización desencadenada.
@@ -64,6 +64,10 @@ Utilizar la depuración de flujo de datos para utilizar un clúster calienten pa
 Este es un campo obligatorio que define qué tiempo de ejecución de integración que se usará para la ejecución de la actividad de flujo de datos. De forma predeterminada, la factoría de datos usará el tiempo de ejecución de integración de Azure de resolución automática de forma predeterminada. Sin embargo, puede crear sus propios tiempos de ejecución de integración de Azure que definir regiones específicas, TTL, recuentos básicos y tipo de proceso para la ejecución de actividad de flujo de datos.
 
 La configuración predeterminada para las ejecuciones de flujo de datos es de 8 núcleos de proceso general con un TTL de 60 minutos.
+
+Tiene control sobre el entorno de ejecución de Spark para sus actividades de flujo de datos. En el [en tiempo de ejecución de integración de Azure](concepts-integration-runtime.md) es la configuración para establecer el tipo de proceso (uso general, con optimización para memoria y proceso optimizado), número de núcleos de trabajo y tiempo de vida para que coincida con el motor de ejecución con el proceso de flujo de datos requisitos. Además, establecer el TTL, podrá mantener un clúster activo que está inmediatamente disponible para las ejecuciones de trabajos.
+
+![En tiempo de ejecución de integración de Azure](media/data-flow/ir-new.png "en tiempo de ejecución de integración de Azure")
 
 ### <a name="staging-area"></a>Área de ensayo
 

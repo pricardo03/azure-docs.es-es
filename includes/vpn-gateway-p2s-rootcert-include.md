@@ -2,19 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 12/11/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 12/11/2018
+ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c8e7e5272f180c482ca7fdd44302f49eb888b25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320238"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157237"
 ---
 Use un certificado raíz generado mediante una solución empresarial (opción recomendada) o genere un certificado autofirmado. Después de crear el certificado raíz, exporte los datos (no la clave privada) del certificado público como un archivo .cer con codificación Base64 X.509. A continuación, cargue los datos del certificado público en el servidor de Azure.
 

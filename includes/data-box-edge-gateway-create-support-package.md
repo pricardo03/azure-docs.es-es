@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556797"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161137"
 ---
 Si experimenta los problemas del dispositivo, puede crear un paquete de soporte técnico de los registros del sistema. Microsoft Support usa este paquete para solucionar los problemas. Siga estos pasos para crear un paquete de soporte:
 
@@ -31,7 +31,7 @@ Si experimenta los problemas del dispositivo, puede crear un paquete de soporte 
 
     Los parámetros utilizados son como sigue:
 
-    - `-Path` -Especifique la red o la ruta de acceso local para copiar el paquete de soporte. (requerido)
+    - `-Path` -Especifique la red o la ruta de acceso local para copiar el paquete de soporte. (obligatorio)
     - `-Credential` -Especifique las credenciales para tener acceso a la ruta de acceso protegido.
     - `-Zip` -Especifique para generar un archivo zip.
     - `-Include` -Especificar para incluir los componentes que se incluirán en el paquete de soporte técnico. Si no se especifica, `Default` se da por hecho.

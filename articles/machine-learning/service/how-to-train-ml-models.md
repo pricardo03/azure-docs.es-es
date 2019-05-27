@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818486"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153611"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator
 
@@ -26,7 +26,7 @@ Para facilitar el entrenamiento del modelo de aprendizaje profundo, el SDK de Az
 
 ## <a name="train-with-an-estimator"></a>Entrenamiento con un estimador
 
-Una vez que ha creado el [área de trabajo](concept-azure-machine-learning-architecture.md#workspace) y ha configurado el [entorno de desarrollo](how-to-configure-environment.md), el entrenamiento de un modelo en Azure Machine Learning implica los siguientes pasos:  
+Una vez que ha creado el [área de trabajo](concept-workspace.md) y ha configurado el [entorno de desarrollo](how-to-configure-environment.md), el entrenamiento de un modelo en Azure Machine Learning implica los siguientes pasos:  
 1. Creación de un [destino de proceso remoto](how-to-set-up-training-targets.md) (tenga en cuenta que también puede usar el equipo local como destino de proceso)
 2. Carga de los [datos de aprendizaje](how-to-access-data.md) para el almacén de datos (opcional)
 3. Creación del [script de aprendizaje](tutorial-train-models-with-aml.md#create-a-training-script)
@@ -119,6 +119,10 @@ Por último, envíe el trabajo de aprendizaje:
 run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
+
+## <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
+
+Cuando se inicia un entrenamiento que se ejecute, donde el directorio de origen es un repositorio Git local, se almacena información sobre el repositorio en el historial de ejecución. Por ejemplo, el identificador de confirmación actual para el repositorio se registra como parte del historial.
 
 ## <a name="examples"></a>Ejemplos
 Para obtener un notebook que muestre los aspectos básicos del patrón del objeto Estimator, consulte:

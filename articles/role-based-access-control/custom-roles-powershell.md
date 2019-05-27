@@ -15,11 +15,11 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ad1185cab2b2bd2d0fea10f21b7859fd9ab1339f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66158453"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Creación de roles personalizados para los recursos de Azure con Azure PowerShell
 
@@ -128,7 +128,7 @@ PS C:\> (Get-AzRoleDefinition "Virtual Machine Operator").Actions
 "Microsoft.Support/*"
 ```
 
-## <a name="create-a-custom-role"></a>Crear un rol personalizado
+## <a name="create-a-custom-role"></a>Creación de un rol personalizado
 
 Para crear un rol personalizado, use el comando [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition). Existen dos métodos para estructurar el rol: por medio de `PSRoleDefinition` o una plantilla JSON. 
 

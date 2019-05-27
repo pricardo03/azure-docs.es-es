@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541390"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159768"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
@@ -70,7 +70,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 Este comando devuelve un valor similar a la siguiente tabla:
 
-| userid | nombre de usuario | partición | clave de fila |
+| userid | username | partición | clave de fila |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -85,7 +85,7 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 El resultado es similar a la siguiente tabla:
 
-| userid | nombre de usuario | partición | clave de fila |
+| userid | username | partición | clave de fila |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -104,7 +104,7 @@ Con esta consulta se recupera un único registro.
 |campo|value|
 |----|----|
 | userid | 1 |
-| nombre de usuario | Chris |
+| username | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -121,7 +121,7 @@ Con esta consulta se recupera un único registro.
 |campo|value|
 |----|----|
 | userid | 1 |
-| nombre de usuario | Chris |
+| username | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
 
@@ -156,7 +156,7 @@ En los resultados aparece el registro Jessie2.
 |campo|value|
 |----|----|
 | userid | 2 |
-| nombre de usuario | Jessie2 |
+| username | Jessie2 |
 | PartitionKey | partition2 |
 | RowKey      | NM |
 

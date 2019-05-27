@@ -16,11 +16,11 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165666"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automated Backup v2 para Azure Virtual Machines (Resource Manager)
 
@@ -108,7 +108,7 @@ Tiene una VM con SQL Server que contiene varias bases de datos de gran tamaño.
 El lunes, se habilita Automated Backup v2 con las siguientes opciones:
 
 - Programación de copia de seguridad: Manual
-- Frecuencia de copia de seguridad completa: Diario
+- Frecuencia de copia de seguridad completa: Diariamente
 - Hora de inicio de copia de seguridad completa: 22:00
 - Período de tiempo de copia de seguridad completa: 6 horas
 

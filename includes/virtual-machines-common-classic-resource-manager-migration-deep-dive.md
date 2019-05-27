@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125369"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66167082"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migración de recursos IaaS del modelo de implementación clásica a Azure Resource Manager
 En primer lugar, es importante conocer la diferencia entre operaciones del plano de datos y del plano de administración en los recursos de infraestructura como servicio (IaaS).
@@ -45,7 +45,7 @@ El flujo de trabajo de la migración es el siguiente:
 >
 >
 
-### <a name="validate"></a>Validación
+### <a name="validate"></a>Validar
 La operación de validación es el primer paso del proceso de migración. El objetivo de este paso es analizar el estado de los recursos que desea migrar en el modelo de implementación clásica. La operación evalúa si los recursos son capaces de realizar la migración (éxito o error).
 
 Se seleccionará la red virtual o el servicio en la nube (si no está en una red virtual) que se quiere validar para la migración. Si el recurso no es capaz de realizar la migración, Azure enumera los motivos.
@@ -107,7 +107,7 @@ No hay ninguna ventana de tiempo establecida antes del cual deba confirmar la mi
 
 Si ve algún problema, siempre puede anular la migración y volver al modelo de implementación clásica. Si lo hace, Azure abrirá las operaciones del plano de administración en los recursos para que pueda reanudar las operaciones normales en esas máquinas virtuales en el modelo de implementación clásica.
 
-### <a name="abort"></a>Anulación
+### <a name="abort"></a>Anular
 Este paso es opcional si desea revertir los cambios realizados en el modelo de implementación clásica y detener la migración. Esta operación elimina los metadatos de Resource Manager (creados en el paso de preparación) en los recursos. 
 
 ![Diagrama de paso de anulación](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
@@ -153,7 +153,7 @@ Puede encontrar las representaciones del modelo de implementación clásica y de
 | Virtual network |Virtual network |La red virtual se migra con todas sus propiedades al modelo de implementación de Resource Manager. Se crea un nuevo grupo de recursos con el nombre `-migrated`. |
 | Direcciones IP reservadas |Dirección IP pública con método de asignación estático |Las direcciones IP reservadas asociadas con el equilibrador de carga se migran junto con la migración del servicio en la nube o de la máquina virtual. Actualmente, no se admite la migración de direcciones IP reservadas no asociadas. |
 | Dirección IP pública por máquina virtual |Dirección IP pública con método de asignación dinámico |La dirección IP pública asociada a la máquina virtual se convierte como un recurso de dirección IP público con el método de asignación establecido en estático. |
-| Grupos de seguridad de red |Grupos de seguridad de red |Los grupos de seguridad de red asociados a una subred se clonan como parte de la migración al modelo de implementación de Resource Manager. El grupo de seguridad de red no se quita en el modelo de implementación clásica durante la migración. Sin embargo, las operaciones de plano de administración para el grupo de seguridad de red se bloquean cuando la migración está en curso. |
+| Grupos de seguridad de red |NSG |Los grupos de seguridad de red asociados a una subred se clonan como parte de la migración al modelo de implementación de Resource Manager. El grupo de seguridad de red no se quita en el modelo de implementación clásica durante la migración. Sin embargo, las operaciones de plano de administración para el grupo de seguridad de red se bloquean cuando la migración está en curso. |
 | Servidores DNS |Servidores DNS |Los servidores DNS asociados con la máquina virtual o una red virtual se migran como parte de la migración de recursos correspondiente junto con todas las propiedades. |
 | Rutas definidas por el usuario |Rutas definidas por el usuario |Las rutas definidas por el usuario asociadas a una subred se clonan como parte de la migración al modelo de implementación de Resource Manager. Las rutas definidas por el usuario no se quitan en el modelo de implementación clásica durante la migración. Las operaciones de plano de administración para las rutas definidas por el usuario se bloquean cuando la migración está en curso. |
 | Propiedad de reenvío de IP en una configuración de red de máquina virtual |Propiedad de reenvío de IP en la NIC |La propiedad de reenvío de IP en una máquina virtual se convierte en una propiedad en la interfaz de red durante la migración. |

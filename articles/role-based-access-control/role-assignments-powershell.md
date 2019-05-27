@@ -15,11 +15,11 @@ ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 002ebcbe8ba14b9f15ddea6deb21f0f2bc201ab0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160317"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Administración del acceso a los recursos de Azure mediante RBAC y Azure PowerShell
 

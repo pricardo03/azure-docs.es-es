@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e02c0b86cd542b3ea12914e35a6577cf4e9b43d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60755088"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161347"
 ---
 También puede ver las métricas para supervisar el rendimiento del dispositivo y, en algunos casos, para solucionar problemas del dispositivo.
 
@@ -17,7 +17,7 @@ Para crear un gráfico para las métricas del dispositivo seleccionadas, siga es
 
 1. Para el recurso en Azure Portal, vaya a **Supervisión > Métricas** y seleccione **Agregar métrica**.
 
-    ![Adición de métrica](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
+    ![Agregar métrica](media/data-box-edge-gateway-view-metrics/view-metrics-1.png)
 
 2. El nombre del recurso se rellena automáticamente.  
 

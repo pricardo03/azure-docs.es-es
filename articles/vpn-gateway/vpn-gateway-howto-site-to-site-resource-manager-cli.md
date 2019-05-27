@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
 ms.openlocfilehash: 6cf427ee1dbd47d3b762035abc2236bda65db116
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773187"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66161521"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Creación de una red virtual con una conexión VPN de sitio a sitio mediante la CLI
 
@@ -113,7 +113,7 @@ az network vnet subnet create --address-prefix 10.11.255.0/27 --name GatewaySubn
 
 La puerta de enlace de red local suele hacer referencia a la ubicación local. Asigne al sitio un nombre al que Azure pueda hacer referencia y, luego, especifique la dirección IP del dispositivo VPN local con la que creará una conexión. Especifique también los prefijos de dirección IP que se enrutarán a través de la puerta de enlace VPN al dispositivo VPN. Los prefijos de dirección que especifique son los prefijos que se encuentran en la red local. Puede actualizar fácilmente estos prefijos si cambia su red local.
 
-Use los valores siguientes:
+Use los siguientes valores:
 
 * *--gateway-ip-address* es la dirección IP del dispositivo VPN local.
 * *--local-address-prefixes* son los espacios de direcciones locales.
@@ -138,7 +138,7 @@ az network public-ip create --name VNet1GWIP --resource-group TestRG1 --allocati
 
 Cree la puerta de enlace VPN de la red virtual. Crear una puerta de enlace VPN puede tardar 45 minutos o más en completarse.
 
-Use los valores siguientes:
+Use los siguientes valores:
 
 * El valor *---gateway-type* para una configuración de sitio a sitio es *Vpn*. El tipo de puerta de enlace siempre es específico de la configuración que se va a implementar. Para más información, consulte [Tipos de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwtype).
 * El valor de *--vpn-type* puede ser *RouteBased* (denominada puerta de enlace dinámica en algunos documentos) o *PolicyBased* (denominada puerta de enlace estática en algunos documentos). La configuración es específica según los requisitos del dispositivo al que se va a conectar. Para más información sobre los tipos de puertas de enlace de VPN, consulte [Acerca de la información de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype).

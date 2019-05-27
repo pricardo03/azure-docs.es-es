@@ -5,16 +5,15 @@ services: app-service
 author: ggailey777
 ms.service: app-service
 ms.topic: include
-origin.date: 02/19/2019
-ms.date: 03/18/2019
-ms.author: v-biyu
+ms.date: 02/19/2019
+ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 97387e24d5b55c1438a69da1a1fd0a9bc1720e47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832403"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66136156"
 ---
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
 
@@ -31,6 +30,6 @@ ms.locfileid: "60832403"
     | **Nombre de aplicación** | Nombre único globalmente | Nombre que identifica de forma única la nueva aplicación de función. |
     | **Suscripción** | Elija una suscripción | La suscripción de Azure que se va a usar. |
     | **[Grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Nombre del grupo de recursos en el que se va a crear la aplicación de función. Elija **Nuevo** para crear un grupo de recursos nuevo.|
-    | **[Plan de hospedaje](../articles/app-service/overview-hosting-plans.md)** | Plan de App Service | Un [plan de App Service](../articles/app-service/overview-hosting-plans.md) especifica la ubicación, el tamaño y las características de la granja de servidores web que hospeda la aplicación. Para ahorrar dinero cuando hospede varias aplicaciones, configure las aplicaciones web para que compartan un único plan de App Service. Los planes de App Service definen la región, tamaño de la instancia, recuento de escala y SKU (gratis, compartido, básico, estándar o Premium). Elija **New** para crear un nuevo plan de App Service. |
+    | **[Plan de hospedaje](../articles/app-service/overview-hosting-plans.md)** | Plan del servicio de aplicaciones | Un [plan de App Service](../articles/app-service/overview-hosting-plans.md) especifica la ubicación, el tamaño y las características de la granja de servidores web que hospeda la aplicación. Para ahorrar dinero cuando hospede varias aplicaciones, configure las aplicaciones web para que compartan un único plan de App Service. Los planes de App Service definen la región, tamaño de la instancia, recuento de escala y SKU (gratis, compartido, básico, estándar o Premium). Elija **New** para crear un nuevo plan de App Service. |
 
 1. Haga clic en **crear** para crear un trabajo Web y los recursos relacionados en Azure con esta configuración e implementar el código del proyecto.

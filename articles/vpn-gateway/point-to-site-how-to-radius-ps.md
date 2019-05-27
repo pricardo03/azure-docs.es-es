@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: cherylmc
 ms.openlocfilehash: 1096c120b4e7731fabd574c4096e70fe02b6272d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081090"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66147000"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configuración de una conexión de punto a sitio a una red virtual con autenticación RADIUS: PowerShell
 
@@ -80,7 +80,7 @@ Puede usar los valores del ejemplo para crear un entorno de prueba o hacer refer
 * **Suscripción:** si tiene más de una suscripción, compruebe que usa la correcta.
 * **Grupo de recursos: TestRG**
 * **Ubicación: Este de EE. UU.**
-* **Servidor DNS: dirección IP** del servidor DNS que desea usar para la resolución de nombres en la red virtual. (opcional).
+* **Servidor DNS: dirección IP** del servidor DNS que desea usar para la resolución de nombres en la red virtual. (opcional)
 * **Nombre de GW: Vnet1GW**
 * **Nombre de dirección IP pública: VNet1GWPIP**
 * **VpnType: RouteBased**
@@ -219,7 +219,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 La configuración del cliente VPN permite que los dispositivos se conecten a una red virtual mediante una conexión de punto a sitio. Para generar un paquete de configuración de cliente VPN y configurar el cliente de VPN, consulte [Create a VPN Client Configuration for RADIUS authentication](point-to-site-vpn-client-configuration-radius.md) (Creación de la configuración de cliente de VPN para la autenticación RADIUS).
 
-## <a name="connect"></a>6. Conexión a Azure
+## <a name="connect"></a>6. Conéctese a Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Para conectarse desde un cliente VPN en Windows
 

@@ -9,11 +9,11 @@ ms.date: 04/26/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: f3c1a946afb7f51a1c7543dabae7f2f42ff466be
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199481"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145816"
 ---
 Serie H máquinas virtuales (VM) están diseñadas para proporcionar un rendimiento de clase de liderazgo, escalabilidad MPI y mayor rentabilidad para una variedad de cargas de trabajo HPC reales.
 
@@ -25,7 +25,7 @@ Máquinas virtuales de serie HC están optimizadas para aplicaciones orientadas 
 
 Las máquinas virtuales de serie H están optimizadas para aplicaciones orientadas a las frecuencias de CPU elevadas o gran cantidad de memoria por los requisitos principales. Intel Xeon E5 2667 v3 procesador de serie H máquinas virtuales característica 8 o 16 núcleos, 7 o 14 GB de RAM por núcleo de CPU y no hyperthreading. Características de la serie H 56 Gb/s Mellanox FDR InfiniBand en fat sin bloqueo de árbol configuración para un rendimiento coherente RDMA. Las máquinas virtuales de serie H compatible con Intel MPI 5.x y MS-MPI.
 
-## <a name="hb-series"></a>HB-series
+## <a name="hb-series"></a>Serie Hb
 
 Premium Storage: Admite Premium Storage de almacenamiento en caché: Compatible
 
@@ -35,7 +35,7 @@ Premium Storage: Admite Premium Storage de almacenamiento en caché: Compatible
 
 <br>
 
-## <a name="hc-series"></a>HC-series
+## <a name="hc-series"></a>Serie HC
 
 Premium Storage: Admite Premium Storage de almacenamiento en caché: Compatible
 
@@ -51,9 +51,9 @@ Premium Storage: Admite Premium Storage de almacenamiento en caché: Compatible
 
 ACU: 290-300
 
-Premium Storage:  No compatible
+Premium Storage:  No admitido
 
-Almacenamiento en caché de Premium Storage:  No compatible
+Almacenamiento en caché de Premium Storage:  No admitido
 
 | Tamaño | vCPU | Procesador | Memoria (GB) | Ancho de banda de memoria GB/s | Frecuencia de CPU base (GHz) | Frecuencia de todos los núcleos (GHz, pico) | Frecuencia de núcleo (GHz, pico) | Rendimiento de RDMA (GB/s) | Compatibilidad con MPI | Almacenamiento temporal (GB) | Discos de datos máx. | Ethernet máx. NIC |
 | --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

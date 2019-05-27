@@ -1,5 +1,5 @@
 ---
-title: Cree y registre los conjuntos de datos con el área de trabajo
+title: Crear conjuntos de datos para tener acceso a datos con conjuntos de datos de aprendizaje automático de Azure
 titleSuffix: Azure Machine Learning service
 description: Obtenga información sobre cómo crear conjuntos de datos desde diversos orígenes y registre los conjuntos de datos con el área de trabajo
 services: machine-learning
@@ -10,34 +10,59 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
-ms.openlocfilehash: d3502219f03d4ad076a693ab990f2fadb0b5d558
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/21/2019
+ms.openlocfilehash: 949468dfe26b076b5c5cf5cab8bbdc2038c7bd2a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800829"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165895"
 ---
-# <a name="create-and-register-azure-machine-learning-datasets-preview"></a>Crear y registrar los conjuntos de datos de Azure Machine Learning (versión preliminar)
+# <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Crear y acceder a conjuntos de datos (versión preliminar) en Azure Machine Learning
 
-En este artículo, obtendrá información sobre los flujos de trabajo de Azure Machine Learning para crear y registrar los conjuntos de datos y cómo tener acceso a ellos para su reutilización entre experimentos locales y remotos.
+En este artículo, obtendrá información sobre cómo crear conjuntos de datos de Azure Machine Learning (versión preliminar) y cómo tener acceso a los datos de los experimentos locales y remotos.
 
-Azure Machine Learning conjuntos de datos (versión preliminar) facilitan el acceso y trabajar con los datos. Los conjuntos de datos administración datos en diversos escenarios, como el entrenamiento del modelo y crear la canalización. Mediante el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), puede trabajar con datos en formatos populares, tener acceso al almacenamiento subyacente, explorar y preparar datos, administrar el ciclo de vida de las definiciones de conjunto de datos diferente y comparar entre conjuntos de datos usados en entrenamiento y de producción.
+Con los conjuntos de datos administrado, puede: 
+* **Tener acceso fácilmente a los datos durante el entrenamiento del modelo** sin volver a conectarse a almacenes subyacentes
+
+* **Garantizar la coherencia de los datos y reproducibilidad** con el mismo puntero a través de los experimentos: blocs de notas, ml automatizada, canalizaciones, interfaz visual
+
+* **Compartir datos y colaborar** con otros usuarios
+
+* **Explorar datos** & Administrar el ciclo de vida de las instantáneas de datos y de versiones
+
+* **Comparar datos** en formación para producción
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para crear y registrar los conjuntos de datos, es preciso:
+Para crear y trabajar con conjuntos de datos, necesita:
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
-* Un área de trabajo de Azure Machine Learning. Consulte [crear un área de trabajo del servicio de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* Un [área de trabajo de Azure Machine Learning servicio del área de trabajo Azure Machine Learning servicio](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
 
-* Azure Machine Learning SDK para Python. Para instalar o actualizar a la versión más reciente del SDK, consulte [instalar o actualizar el SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* El [SDK de Azure Machine Learning de Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), que incluye el paquete de conjuntos de datos de aprendizaje automático de Azure.
 
 > [!Note]
 > Algunas clases de conjunto de datos (versión preliminar) tienen dependencias en el [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) (GA) del paquete. Los usuarios de Linux, estas clases solo se admiten en las siguientes distribuciones:  Red Hat Enterprise Linux, Ubuntu, Fedora y CentOS.
 
-## <a name="create-datasets-from-local-files"></a>Crear conjuntos de datos desde archivos locales
+## <a name="data-formats"></a>Formatos de datos
+
+Puede crear un conjunto de datos de Azure Machine Learning desde los siguientes datos:
++ [delimited](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-allfileshavesameheaders--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-norows--0---comment-none--include-path-false--archive-options-none-)
++ [binary](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-)
++ [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-)
++ [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-)
++ [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-)
++ [Azure SQL Database](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
++ [Uso de Azure Data Lake. 1](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
+
+## <a name="create-datasets"></a>Creación de conjuntos de datos 
+
+Puede interactuar con los conjuntos de datos con el paquete de conjuntos de datos de aprendizaje automático de Azure en el [SDK de Python de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) y específicamente [el `Dataset` clase](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py).
+
+### <a name="create-from-local-files"></a>Crear a partir de archivos locales
 
 Cargar archivos desde el equipo local mediante la especificación de la ruta de acceso de archivo o carpeta con el [ `auto_read_files()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false-) método desde el `Dataset` clase.  Este método lleva a cabo los siguientes pasos sin necesidad de especificar el tipo de archivo o analizar los argumentos:
 
@@ -52,13 +77,14 @@ from azureml.core.dataset import Dataset
 dataset = Dataset.auto_read_files('./data/crime.csv')
 ```
 
-Como alternativa, puede usar las funciones específicas del archivo para controlar explícitamente el análisis del archivo. Actualmente, el SDK de Datasets admite [delimitados](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-allfileshavesameheaders--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-norows--0---comment-none--include-path-false--archive-options-none-), [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-), [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-), [binario](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-), y [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-) formatos de archivo.
+Como alternativa, puede usar las funciones específicas del archivo para controlar explícitamente el análisis del archivo. 
 
-## <a name="create-datasets-from-azure-datastores"></a>Crear conjuntos de datos desde almacenes de datos de Azure
 
-Para crear conjuntos de datos desde un almacén de datos de Azure, no olvide:
+### <a name="create-from-azure-datastores"></a>Crear a partir de almacenes de datos de Azure
 
-* Compruebe que dispone de colaborador o propietario de tener acceso al almacén de datos de Azure registrados.
+Para crear conjuntos de datos desde un almacén de datos de Azure:
+
+* Compruebe que dispone de `contributor` o `owner` acceso para el almacén de datos registrados de Azure.
 
 * Importar el [ `Workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) y [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) y `Dataset` paquetes desde el SDK.
 
@@ -90,17 +116,11 @@ dataset = Dataset.from_delimited_files(datapath)
 dataset.head(5)
 ```
 
-||ID|Case Number|Date|Bloquear|IUCR|Primary Type|DESCRIPCIÓN|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitud|Longitud|Ubicación|
-|--|--|---|---|---|---|----|------|-------|------|-----|---|----|----|-----|-----|------|----|-----|----|----|-----
-|0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|PRÁCTICA ENGAÑOSA|ROBO DE IDENTIDAD FINANCIERA A TRAVÉS DE 300 USD|OTHER|FALSE|FALSE|...|9|50|11|1183356|1831503|2016|5/11/2016 15:48|41.69283384|-87.60431945|(41.692833841, -87.60431945)|
-1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT| DESDE LA CREACIÓN|RESIDENCIA|FALSE|FALSE|...|21|71|6|1166776|1850053|2016|5/12/2016 15:48|41.74410697|-87.66449429|(41.744106973, -87.664494285)
-2|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|PRÁCTICA ENGAÑOSA|ROBO DE IDENTIDAD FINANCIERA 300 DÓLARES Y EN|RESIDENCIA|FALSE|FALSE|...|19|74|11|||2016|5/12/2016 15:50
-3|10519591|HZ261534|4/15/2016 9:00|113XX UARDAR ASUSTADOS|1120|PRÁCTICA ENGAÑOSA|FALSIFICACIÓN|RESIDENCIA|FALSE|FALSE|...|9|49|10|||2016|5/13/2016 15:51
-4|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|DESDE LA CREACIÓN|SCHOOL, PÚBLICO, CREAR|FALSE|FALSE|...|40|13|6|||2016|5/25/2016 15:59|
+## <a name="register-datasets"></a>Registrar los conjuntos de datos
 
-## <a name="register-your-datasets-with-workspace"></a>Registrar los conjuntos de datos con el área de trabajo
+Para completar el proceso de creación, registre los conjuntos de datos con el área de trabajo:
 
-Use la [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) método para registrar los conjuntos de datos al área de trabajo para compartir y reutilizar dentro de su organización y entre varios experimentos.
+Use la [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) método para registrar los conjuntos de datos al área de trabajo para que puedan compartir con otros usuarios y reutilizar en varios experimentos.
 
 ```Python
 dataset = dataset.register(workspace = workspace,
@@ -111,38 +131,19 @@ dataset = dataset.register(workspace = workspace,
 ```
 
 >[!NOTE]
-> El valor de parámetro predeterminado para `register()` es `exist_ok = False`. Si se intenta registrar un conjunto de datos con el mismo nombre sin cambiar esta configuración que se producirá un error.
+> Si `exist_ok = False` (valor predeterminado), e intenta registrar un conjunto de datos con el mismo nombre que otro, se produce un error. Establecido en `True` para sobrescribir la existente.
 
-El `register()` método devuelve el conjunto de datos ya registrado con el valor del parámetro, `exist_ok = True`.
-
-```Python
-dataset = dataset.register(workspace = workspace,
-                           name = 'dataset_crime',
-                           description = 'Training data',
-                           exist_ok = True
-                           )
-```
-
-Use `list()` para ver todos los conjuntos de datos registrados en el área de trabajo.
-
-```Python
-Dataset.list(workspace_name)
-```
-
-El código anterior genera lo siguiente:
-
-```Python
-[Dataset(Name: dataset_crime,
-         Workspace: workspace_name)]
-```
-
-## <a name="access-datasets-in-workspace"></a>Conjuntos de datos de acceso de área de trabajo
+## <a name="access-data-in-datasets"></a>Acceder a los datos en conjuntos de datos
 
 Los conjuntos de datos registrados sean accesibles y consumibles localmente, remotamente y en clústeres de cálculo, como el proceso de Azure Machine Learning. Para reutilizar el conjunto de datos registrado en experimentos y entornos de proceso, utilice el código siguiente para obtener el área de trabajo y el conjunto de datos registrado por el nombre.
 
 ```Python
 workspace = Workspace.from_config()
 
+# See list of datasets registered in workspace.
+Dataset.list(workspace)
+
+# Get dataset by name
 dataset = workspace.datasets['dataset_crime']
 ```
 
