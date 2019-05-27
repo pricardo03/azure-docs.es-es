@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: afadef8b29927f909af5be1e1204180724258b74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 956df17c821b86d95b1d87c3c8d8197bab7a95be
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324017"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955266"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar la conmutación por error entre varios puntos de conexión de Azure CDN con Azure Traffic Manager
 
@@ -80,6 +80,10 @@ Después de configurar los perfiles de CDN y Traffic Manager, siga estos pasos p
 2.  En el perfil de Azure CDN, seleccione el primer punto de conexión de CDN (Akamai). Seleccione **Agregar dominio personalizado** y entrada *cdndemo101.dustydogpetcare.online*. Compruebe que la marca de verificación para validar el dominio personalizado sea de color verde. 
 
     Azure CDN usa el subdominio *cdnverify* para validar la asignación de DNS para completar este proceso de registro. Para más información, consulte [Creación de un registro DNS de CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). En este paso se habilita a Azure CDN para que reconozca el dominio personalizado de modo que pueda responder a sus solicitudes.
+    
+ > [!NOTE]
+    > Para habilitar SSL en un **Azure CDN de Akamai** perfiles, debe directamente cname del dominio personalizado al punto de conexión. aún no se admite cdnverify para habilitar SSL. 
+    >
 
 3.  Vuelva al sitio web para el proveedor del dominio personalizado y actualice la primera asignación de DNS que creó para que el dominio personalizado se asigne al segundo punto de conexión de CDN.
                              

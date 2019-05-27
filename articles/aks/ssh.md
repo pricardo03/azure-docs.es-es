@@ -5,18 +5,18 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: d421fad5f574b0d10b24453aca01adf574f493e8
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: a85c39fbfbf629e6ba9e668d55dd905c1ce0800c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407706"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956354"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Conexión con SSH a los nodos de clúster de Azure Kubernetes Service (AKS) para mantenimiento o solución de problemas
 
-Durante el ciclo de vida del clúster de Azure Kubernetes Service (AKS), es posible que necesite acceder a un nodo de AKS. Este acceso podría ser para mantenimiento, recopilación de registros u otras operaciones de solución de problemas. Los nodos de AKS son máquinas virtuales Linux, por lo que puede acceder a ellos mediante SSH. Por motivos de seguridad, los nodos de AKS no están expuestos a Internet.
+Durante el ciclo de vida del clúster de Azure Kubernetes Service (AKS), es posible que necesite acceder a un nodo de AKS. Este acceso podría ser para mantenimiento, recopilación de registros u otras operaciones de solución de problemas. Puede tener acceso a los nodos AKS mediante SSH, incluidos los nodos de Windows Server (actualmente en versión preliminar de AKS). También puede [conectarse a los nodos de Windows Server mediante conexiones de protocolo de escritorio remoto (RDP)][aks-windows-rdp]. Por motivos de seguridad, los nodos de AKS no están expuestos a Internet.
 
 En este artículo se muestra cómo crear una conexión SSH con un nodo de AKS mediante sus direcciones IP privadas.
 
@@ -24,13 +24,16 @@ En este artículo se muestra cómo crear una conexión SSH con un nodo de AKS me
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También necesita la CLI de Azure versión 2.0.59 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+También necesita la CLI de Azure versión 2.0.64 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="add-your-public-ssh-key"></a>Adición de la clave SSH pública
 
-Por defecto, las claves SSH se generan cuando se crea un clúster de AKS. Si no especificó sus propias claves SSH cuando creó el clúster de AKS, agregue las claves SSH públicas a los nodos de AKS.
+De forma predeterminada, las claves SSH son obtenidas, o generadas, entonces agrega a los nodos cuando se crea un clúster de AKS. Si necesita especificar diferentes claves SSH a los empleados al crear el clúster de AKS, agregue la clave pública de SSH a los nodos de Linux AKS. Si es necesario, puede crear una clave SSH con [macOS o Linux] [ ssh-nix] o [Windows][ssh-windows]. Si usas el uso de PuTTY para crear el par de claves, guarde el par de claves en un OpenSSH en formato en lugar de forma predeterminada el formato de clave privada PuTTy (archivo .ppk).
 
-Para agregar la clave SSH a un nodo de AKS, complete los pasos siguientes:
+> [!NOTE]
+> Puede de claves SSH actualmente sólo pueden agregarse a los nodos de Linux mediante la CLI de Azure. Si utiliza los nodos de Windows Server, use las claves SSH que proporcionó al crear el clúster de AKS y vaya al paso en [cómo obtener la dirección de nodo AKS](#get-the-aks-node-address). O bien, [conectarse a los nodos de Windows Server mediante conexiones de protocolo de escritorio remoto (RDP)][aks-windows-rdp].
+
+Para agregar la clave SSH a un nodo de Linux AKS, complete los pasos siguientes:
 
 1. Obtenga el nombre del grupo de recursos para los recursos del clúster de AKS mediante [az aks show][az-aks-show]. Proporcione su propio grupo de recursos básicos y el nombre del grupo de AKS:
 
@@ -64,7 +67,12 @@ Para agregar la clave SSH a un nodo de AKS, complete los pasos siguientes:
 
 ## <a name="get-the-aks-node-address"></a>Obtención de la dirección del nodo de AKS
 
-Los nodos de AKS no están expuestos públicamente a Internet. Para conectarse mediante SSH a los nodos de AKS, use la dirección IP privada. En el paso siguiente, creará un pod de aplicación auxiliar en el clúster de AKS que le permita SSH a esta dirección IP privada del nodo.
+Los nodos de AKS no están expuestos públicamente a Internet. Para conectarse mediante SSH a los nodos de AKS, use la dirección IP privada. En el paso siguiente, creará un pod de aplicación auxiliar en el clúster de AKS que le permita SSH a esta dirección IP privada del nodo. Los pasos necesarios para obtener la dirección IP privada de los nodos AKS es diferente según el tipo de clúster AKS ejecute:
+
+* La mayoría de los clústeres de AKS, siga los pasos para [obtener la dirección IP para los clústeres AKS regulares](#regular-aks-clusters).
+* Si usa las características de vista previa en AKS que usan conjuntos de escalado de máquinas virtuales, como varios grupos de nodos o compatibilidad con contenedores de Windows Server, [siga los pasos de escalado de máquina virtual basada en el conjunto de clústeres AKS](#virtual-machine-scale-set-based-aks-clusters).
+
+### <a name="regular-aks-clusters"></a>Clústeres AKS normales
 
 Vea la dirección IP privada de un nodo de clúster de AKS con el comando [az vm list-ip-addresses][az-vm-list-ip-addresses]. Proporcione su propio nombre de grupo de recursos de clúster de AKS obtenido en un paso anterior [az-aks-show][az-aks-show]:
 
@@ -80,6 +88,26 @@ VirtualMachine            PrivateIPAddresses
 aks-nodepool1-79590246-0  10.240.0.4
 ```
 
+### <a name="virtual-machine-scale-set-based-aks-clusters"></a>Escalado de máquina virtual basada en el conjunto de clústeres AKS
+
+Lista de la dirección IP interna de los nodos mediante el [kubectl get comando][kubectl-get]:
+
+```console
+kubectl get nodes -o wide
+```
+
+La salida del ejemplo siguiente muestra las direcciones IP internas de todos los nodos del clúster, incluido un nodo de Windows Server.
+
+```console
+$ kubectl get nodes -o wide
+
+NAME                                STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                    KERNEL-VERSION      CONTAINER-RUNTIME
+aks-nodepool1-42485177-vmss000000   Ready    agent   18h   v1.12.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS          4.15.0-1040-azure   docker://3.0.4
+aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67   <none>        Windows Server Datacenter   10.0.17763.437
+```
+
+La dirección IP interna del nodo que desea solucionar problemas de registro. Usará esta dirección en un paso posterior.
+
 ## <a name="create-the-ssh-connection"></a>Creación de la conexión SSH
 
 Para crear una conexión SSH a un nodo AKS, ejecute un pod asistente en el clúster de AKS. Este pod asistente proporciona acceso SSH al clúster y después acceso adicional al nodo SSH. Para crear y utilizar este pod asistente, siga estos pasos:
@@ -89,6 +117,11 @@ Para crear una conexión SSH a un nodo AKS, ejecute un pod asistente en el clús
     ```console
     kubectl run -it --rm aks-ssh --image=debian
     ```
+
+    > [!TIP]
+    > Si usa nodos de Windows Server (actualmente en versión preliminar de AKS), agregue un selector de nodo para el comando para programar el contenedor en un nodo de Linux Debian como sigue:
+    >
+    > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
 
 1. La imagen base de Debian no incluye componentes SSH. Una vez que la sesión de terminal esté conectada al contenedor, instale un cliente SSH mediante `apt-get` de la siguiente manera:
 
@@ -163,3 +196,6 @@ Si necesita datos adicionales para la solución de problemas, puede [ver los reg
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-windows-rdp]: rdp.md
+[ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
+[ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md

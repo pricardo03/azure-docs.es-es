@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 102fe85916194648501be3d2cb39d8bcda9e9f5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47cd0621a601e3f1ef53572bc7bb8bc1c7ea76ab
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60811080"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991993"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Uso de temas y suscripciones de Service Bus con Python
 
@@ -41,7 +41,7 @@ En este artículo se describe cómo usar los temas y las suscripciones de Servic
     > Creará un **tema** y un **suscripción** al tema mediante el uso de **Python** en este inicio rápido. 
 3. Instalar [paquete Python Azure][Azure Python package]. Consulte la [Guía de instalación de Python](../python-how-to-install.md).
 
-## <a name="create-a-topic"></a>de un tema
+## <a name="create-a-topic"></a>Crear un tema
 
 El objeto **ServiceBusService** le permite trabajar con temas. Agregue el siguiente código cerca de la parte superior de todo archivo Python en el que desee obtener acceso a Service Bus mediante programación:
 
@@ -189,6 +189,9 @@ Al eliminar un tema también se eliminan todas las suscripciones que estén regi
 ```python
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
+
+> [!NOTE]
+> Puede administrar los recursos de Service Bus con [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta ofrece características avanzadas, como la funcionalidad de importación/exportación o la capacidad de probar el tema, colas, suscripciones, servicios de retransmisión, notification hubs y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

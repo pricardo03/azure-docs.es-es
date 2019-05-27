@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9be062ec42f054832225c17a65b06e47dbcbe990
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123491"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977433"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Escenario de supervisión en Durable Functions: ejemplo de supervisión meteorológica
 
@@ -89,7 +89,8 @@ Para ejecutar simultáneamente varias instancias del orquestador, envíe varias 
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>Transferencia de datos fuertemente tipados (solo .NET)
 
-El orquestador requiere varios fragmentos de datos, por lo que se usan [objetos POCO compartidos](../functions-reference-csharp.md#reusing-csx-code) para la transferencia de datos fuertemente tipados en C# y scripts de C#: [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+El orquestador requiere varios fragmentos de datos, por lo que [objetos POCO compartidos](../functions-reference-csharp.md#reusing-csx-code) se usan para la transferencia de datos fuertemente tipados en C# y C# secuencia de comandos:  
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
 

@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f8827ac290393c9f394c3b13149555a1a2aa6df9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d8ce3c995e8e0f20ed6d694f481cc5fc9fde4fa7
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927498"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000146"
 ---
-# <a name="common-security-attributes-for-azure-service-bus-relay"></a>Atributos comunes de seguridad de Azure Service Bus Relay
+# <a name="security-attributes-for-azure-service-bus-relay"></a>Atributos de seguridad para Azure Service Bus Relay
 
-La seguridad está integrada en todos los aspectos de los servicios de Azure. Este artículo documenta los atributos comunes de seguridad integrados en Azure Service Bus Relay.
+En este artículo describe los atributos de seguridad integrados en Azure Service Bus Relay.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -27,8 +27,8 @@ La seguridad está integrada en todos los aspectos de los servicios de Azure. Es
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>|  N/D | Retransmisión es un socket web y no conserva los datos. |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | El servicio requiere TLS. |
-| Control de claves de cifrado (CMK, BYOK, etcetera.)| Sin  | Usa solo los certificados de Microsoft TLS.  |
+| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>En el cifrado de red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | El servicio requiere TLS. |
+| Control de claves de cifrado (CMK, BYOK, etcetera.)| No | Usa solo los certificados de Microsoft TLS.  |
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí | HTTPS. |
 
@@ -36,8 +36,8 @@ La seguridad está integrada en todos los aspectos de los servicios de Azure. Es
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
-| Compatibilidad de punto de conexión de servicio| Sin  |  |
-| Aislamiento de red y la compatibilidad con Firewall| Sin  |  |
+| Compatibilidad de punto de conexión de servicio| No |  |
+| Aislamiento de red y la compatibilidad con Firewall| No |  |
 | Fuerza la tunelización de soporte técnico| N/D | Retransmisión es el túnel TLS  |
 
 ## <a name="detection"></a>Detección

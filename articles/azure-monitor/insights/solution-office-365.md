@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58794026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130800"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -47,7 +47,7 @@ Se requiere lo siguiente antes de la instalación y configuración de esta soluc
 Esta solución no instala ningún módulo de administración en [grupos de administración conectados](../platform/om-agents.md).
   
 
-## <a name="install-and-configure"></a>Instalación y configuración
+## <a name="install-and-configure"></a>Instalar y configurar
 
 Empiece por agregar la [solución Office 365 a su suscripción](solutions.md#install-a-monitoring-solution). Una vez agregada, debe realizar los pasos de configuración de esta sección para proporcionar acceso a la suscripción a Office 365.
 
@@ -79,7 +79,7 @@ El primer paso es crear una aplicación en Azure Active Directory que la soluci�
     ![Adición de un registro de aplicaciones](media/solution-office-365/add-app-registration.png)
 1. Escriba valores de **Nombre** y **Dirección URL de inicio de sesión** de la aplicación.  El nombre debe ser descriptivo.  Use `http://localhost` para la dirección URL y mantener _aplicación Web / API_ para el **tipo de aplicación**
     
-    ![Creación de la aplicación](media/solution-office-365/create-application.png)
+    ![Crear aplicación](media/solution-office-365/create-application.png)
 1. Haga clic en **Crear** y valide la información de la aplicación.
 
     ![Aplicación registrada](media/solution-office-365/registered-app.png)
@@ -106,7 +106,7 @@ El primer paso es crear una aplicación en Azure Active Directory que la soluci�
 1. Haga clic en **Seleccionar** y en **Listo**.
 1. Haga clic en **Conceder permisos** y, a continuación, haga clic en **Sí** cuando se le solicite la comprobación.
 
-    ![Concesión de permisos](media/solution-office-365/grant-permissions.png)
+    ![Conceder permisos](media/solution-office-365/grant-permissions.png)
 
 ### <a name="add-a-key-for-the-application"></a>Adición de una clave para la aplicación
 
@@ -181,7 +181,7 @@ Para habilitar la cuenta administrativa por primera vez, debe proporcionar el co
 
 1. Aparecerá una ventana similar a la siguiente. Haga clic en **Aceptar**.
     
-    ![Consentimiento de administrador](media/solution-office-365/admin-consent.png)
+    ![Consentimiento del administrador](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Suscripción al área de trabajo de Log Analytics
 
@@ -388,7 +388,7 @@ At line:12 char:18
 
 ```
 
-## <a name="uninstall"></a>Desinstalación
+## <a name="uninstall"></a>Desinstalar
 
 Puede quitar la solución de administración de Office 365 mediante el proceso de [Quitar una solución de administración](solutions.md#remove-a-monitoring-solution). Esta acción no detendrá la recopilación de datos de Office 365 en Azure Monitor. Realice el procedimiento siguiente para cancelar la suscripción a Office 365 y detener la recopilación de datos.
 
@@ -512,7 +512,7 @@ Haga clic en el icono de **Office 365** para abrir el panel de **Office 365**.
 
 El panel incluye las columnas de la tabla siguiente. Cada columna muestra las diez principales alertas por recuento que coinciden con los criterios de esa columna para el ámbito e intervalo de tiempo especificados. Puede ejecutar una búsqueda de registros que proporcione toda la lista haciendo clic en Ver todo en la parte inferior de la columna o haciendo clic en el encabezado de columna.
 
-| Columna | DESCRIPCIÓN |
+| columna | DESCRIPCIÓN |
 |:--|:--|
 | Operaciones | Proporciona información acerca de los usuarios activos de todas las suscripciones de Office 365 supervisadas. También podrá ver el número de actividades que se producen con el tiempo.
 | Exchange | Muestra el desglose de las actividades del servidor de Exchange, como Add-Mailbox Permission o Set-Mailbox. |
@@ -530,7 +530,7 @@ El valor de **Tipo** es **OfficeActivity** para todos los registros creados en e
 
 Las siguientes propiedades son comunes a todos los registros de Office 365.
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | Type | *OfficeActivity* |
 | ClientIP | La dirección IP del dispositivo que se usó cuando se registró la actividad. La dirección IP se muestra en formato de dirección IPv4 o IPv6. |
@@ -541,7 +541,7 @@ Las siguientes propiedades son comunes a todos los registros de Office 365.
 | ResultStatus | Indica si la acción (especificada en la propiedad Operation) se realizó correctamente o no. Los valores posibles son Succeeded (correcta), PartiallySucceeded (parcialmente correcta) o Failed (con errores). Para la actividad de administración de Exchange, el valor es True o False. |
 | UserId | El UPN (nombre principal de usuario) del usuario que realizó la acción que generó el registro, por ejemplo, my_name@my_domain_name. Tenga en cuenta que también se incluyen los registros de actividad realizada por cuentas del sistema (como SHAREPOINT\system o NTAUTHORITY\SYSTEM). | 
 | UserKey | Un identificador alternativo para el usuario identificado en la propiedad UserId.  Por ejemplo, esta propiedad se rellena con el identificador único de Passport (PUID) para los eventos producidos por los usuarios de SharePoint, OneDrive para la empresa y Exchange. Esta propiedad también puede especificar el mismo valor que la propiedad UserID para los eventos que se producen en otros servicios y los eventos producidos por las cuentas del sistema|
-| UserType | El tipo de usuario que realizó la operación.<br><br>Administración<br>Application<br>DcAdmin<br>Normal<br>Reserved<br>ServicePrincipal<br>Sistema |
+| UserType | El tipo de usuario que realizó la operación.<br><br>Admin.<br>Application<br>DcAdmin<br>Normal<br>Reserved<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory
@@ -650,7 +650,7 @@ Estos registros se crean cuando se crea una entrada de auditoría de buzones de 
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
-| item | Representa el elemento en el que se realizó la operación | 
+| Elemento | Representa el elemento en el que se realizó la operación | 
 | SendAsUserMailboxGuid | El identificador GUID de Exchange del buzón de correo al que se obtuvo acceso para enviar correo. |
 | SendAsUserSmtp | Dirección SMTP del usuario que se está suplantando. |
 | SendonBehalfOfUserMailboxGuid | El identificador GUID de Exchange del buzón de correo al que se obtuvo acceso para enviar correo en su nombre. |

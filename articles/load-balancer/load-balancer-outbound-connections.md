@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: kumud
-ms.openlocfilehash: d5f52829f5895b30afd160cc8ded755332aca5c5
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190169"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967739"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -34,7 +34,7 @@ Azure usa la traducción de direcciones de red de origen (SNAT) para realizar es
 Son varios los [escenarios de salida](#scenarios). Puede combinar estos escenarios según sea necesario. Revíselos cuidadosamente para comprender las funcionalidades, las restricciones y los patrones que se aplican a su modelo de implementación y escenario de aplicación. Revise las instrucciones para [administrar estos escenarios](#snatexhaust).
 
 >[!IMPORTANT] 
->Standard Load Balancer y la IP pública estándar presentan capacidades nuevas y comportamientos diferentes en la conectividad saliente.  No son lo mismo que las SKU de nivel Básico.  Si quiere conectividad saliente al trabajar con las SKU de nivel Estándar, debe definirlas con las direcciones IP públicas estándar o con la instancia pública de Load Balancer estándar.  Esto incluye establecer conectividad saliente cuando se usa una instancia interna de Standard Load Balancer.  Se recomienda que use siempre las reglas de salida en una instancia pública de Load Balancer estándar.  El [escenario 3](#defaultsnat) no está disponible con la SKU de nivel Estándar.  Esto significa que cuando se usa una instancia interna de Standard Load Balancer, es necesario seguir los pasos para establecer la conectividad saliente para las máquinas virtuales en el grupo de back-end si se quiere contar con conectividad saliente.  En el contexto de la conectividad saliente, una máquina virtual independiente, todas las máquinas virtuales en un conjunto de disponibilidad y todas las instancias de VMSS se comportan como un grupo. Es decir que, si una máquina virtual en un conjunto de disponibilidad está asociada con una SKU de nivel Estándar, todas las instancias de máquina virtual dentro de dicho conjunto de disponibilidad ahora siguen las mismas reglas que están asociadas con la SKU de nivel Estándar, incluso si una instancia individual no está directamente asociada con ella.  Revise cuidadosamente todo el documento para entender los conceptos generales, consulte [Standard Load Balancer](load-balancer-standard-overview.md) para conocer las diferencias entre las SKU y consulte las [reglas de salida](load-balancer-outbound-rules-overview.md).  Al usar las reglas de salida, obtiene un control avanzado de todos los aspectos de la conectividad saliente.
+>Standard Load Balancer y la IP pública estándar presentan capacidades nuevas y comportamientos diferentes en la conectividad saliente.  No son lo mismo que las SKU de nivel Básico.  Si quiere conectividad saliente al trabajar con las SKU de nivel Estándar, debe definirlas con las direcciones IP públicas estándar o con la instancia pública de Load Balancer estándar.  Esto incluye la creación de conectividad de salida cuando se usa un equilibrador de carga estándar interno.  Se recomienda que use siempre las reglas de salida en una instancia pública de Load Balancer estándar.  El [escenario 3](#defaultsnat) no está disponible con la SKU de nivel Estándar.  Esto significa que cuando se usa una instancia interna de Standard Load Balancer, es necesario seguir los pasos para establecer la conectividad saliente para las máquinas virtuales en el grupo de back-end si se quiere contar con conectividad saliente.  En el contexto de la conectividad saliente, una máquina virtual independiente, todas las máquinas virtuales en un conjunto de disponibilidad y todas las instancias de VMSS se comportan como un grupo. Es decir que, si una máquina virtual en un conjunto de disponibilidad está asociada con una SKU de nivel Estándar, todas las instancias de máquina virtual dentro de dicho conjunto de disponibilidad ahora siguen las mismas reglas que están asociadas con la SKU de nivel Estándar, incluso si una instancia individual no está directamente asociada con ella.  Revise cuidadosamente todo el documento para entender los conceptos generales, consulte [Standard Load Balancer](load-balancer-standard-overview.md) para conocer las diferencias entre las SKU y consulte las [reglas de salida](load-balancer-outbound-rules-overview.md).  Al usar las reglas de salida, obtiene un control avanzado de todos los aspectos de la conectividad saliente.
 
 ## <a name="scenarios"></a>Información general de los escenarios
 

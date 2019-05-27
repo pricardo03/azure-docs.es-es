@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6404356edca606d78656011b9dec654e9f29edd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a019aaec270fe1beb3914e7ab388fce9a701bcc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415043"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988604"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configuración de Servidor Azure Multi-Factor Authentication para aplicaciones web de IIS
 
@@ -76,4 +76,4 @@ Las IP de confianza permiten a los usuarios omitir Azure Multi-Factor Authentica
 1. En la sección Autenticación de IIS, haga clic en la pestaña **IP de confianza**.
 2. Haga clic en **Agregar**.
 3. Cuando aparezca el cuadro de diálogo Agregar IP de confianza, seleccione el botón de radio **IP única**, **Intervalo IP** o **Subred**.
-4. Escriba la dirección IP, el intervalo IP o la subred que debe estar en la lista blanca. Si especifica una subred, seleccione la máscara de red adecuada y haga clic en **Aceptar**. Se ha agregado a la lista blanca.
+4. Escriba la dirección IP, intervalo de direcciones IP o subred que se debe permitir. Si especifica una subred, seleccione la máscara de red adecuada y haga clic en **Aceptar**.

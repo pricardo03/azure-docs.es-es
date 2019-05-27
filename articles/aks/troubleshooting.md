@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192289"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966383"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -118,3 +118,15 @@ Las restricciones de nomenclatura se implementan mediante la plataforma Windows 
 
 * El AKS *MC_* nombre del grupo de recursos combina el nombre del grupo de recursos y el nombre del recurso. La sintaxis generado automáticamente de `MC_resourceGroupName_resourceName_AzureRegion` debe ser no supere los 80 caracteres. Si es necesario, reduzca la longitud del nombre del grupo de recursos o el nombre del clúster AKS.
 * El *dnsPrefix* debe empezar y terminar por valores alfanuméricos. Caracteres válidos son valores alfanuméricos y guiones (-). El *dnsPrefix* no puede incluir caracteres especiales, como un punto (.).
+
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Recibo errores al intentar crear, actualizar, escalar, eliminar o actualizar el clúster, la operación no se permite porque otra operación está en curso.
+
+*Se dirige esta asistencia para solucionar problemas de aka.ms/aks-pendientes-operación*
+
+Las operaciones del clúster están limitadas cuando una operación anterior aún está en curso. Para recuperar un estado detallado del clúster, use el `az aks show -g myResourceGroup -n myAKSCluster -o table` comando. Use su propio grupo de recursos y el nombre del clúster de AKS según sea necesario.
+
+En función de la salida del estado del clúster:
+
+* Si el clúster está en cualquier estado de aprovisionamiento distinto *Succeeded* o *Failed*, espere hasta que la operación (*actualizar / actualizar / crear / escalado / eliminar / migración*) finaliza. Cuando haya finalizado la operación anterior, vuelva a intentar la operación de clúster más reciente.
+
+* Si el clúster tiene un error de actualización, siga los pasos descritos [estoy recibiendo errores que el clúster está en estado de error y actualización o escalado no funcionará hasta que se solucione](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

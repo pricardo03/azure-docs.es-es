@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 8cda617ca60a17fceaaa818480ff9bbaef46c3fd
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414063"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965971"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitectura de red de tránsito global y la red WAN Virtual
 
@@ -48,7 +48,7 @@ Figura 2 muestra la vista lógica de la red global donde usuarios geográficamen
 
 ## <a name="crossregion"></a>Conectividad entre regiones
 
-Para una empresa, una superficie en la nube normalmente sigue a la superficie física. La mayoría de las empresas tener acceso a la nube desde una región más cercana a su sitio físico y los usuarios. Uno de los principios claves de la arquitectura de red global es habilitar la conectividad entre regiones entre entidades de red y los puntos de conexión. Una superficie en la nube puede abarcar varias regiones. Esto significa que el tráfico de una bifurcación que está conectado a la nube en una región puede llegar a otra rama o una red virtual en una región distinta.
+Para una empresa, una superficie en la nube normalmente sigue a la superficie física. La mayoría de las empresas tener acceso a la nube desde una región más cercana a su sitio físico y los usuarios. Uno de los principios claves de la arquitectura de red global es habilitar la conectividad entre regiones entre entidades de red y los puntos de conexión. Una superficie en la nube puede abarcar varias regiones. Esto significa que el tráfico de una bifurcación que está conectado a la nube en una región puede llegar a otra rama o una red virtual en una región distinta con conectividad de centro de concentrador que se encuentra actualmente en versión preliminar.
 
 ## <a name="any"></a>Conectividad y a cualquier
 
@@ -89,7 +89,7 @@ La ruta de acceso de usuario rama remota permite a los usuarios remotos que usan
 
 ### <a name="vnetvnet"></a>Tránsito de la red virtual a red virtual mediante emparejamiento de VNet
 
-Para conectar redes virtuales entre sí con el fin de admitir aplicaciones de niveles múltiples que se implementan a través de varias redes virtuales, utilice el emparejamiento de VNet. No se admite actualmente un escenario de tránsito de red virtual a red virtual a través de WAN Virtual de Azure, pero está en el plan de Azure. Conexión de redes virtuales a través del emparejamiento de red virtual es la solución recomendada para las redes virtuales que deben estar conectados entre sí. Para obtener más información sobre el emparejamiento de red virtual, consulte [información general sobre el emparejamiento de red virtual](../virtual-network/virtual-network-peering-overview.md).
+Para conectar redes virtuales entre sí con el fin de admitir aplicaciones de niveles múltiples que se implementan a través de varias redes virtuales, utilice el emparejamiento de VNet. No se admite actualmente un escenario de tránsito de red virtual a red virtual a través de WAN Virtual de Azure, pero está en el plan de Azure. Conexión de redes virtuales a través del emparejamiento de red virtual es la solución recomendada para las redes virtuales que deben estar conectados entre sí. [Tránsito de puerta de enlace](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (en el contexto de emparejamiento de VNet) no es necesario para la red WAN Virtual porque la red WAN Virtual habilita automáticamente el tránsito de puerta de enlace.
 
 ### <a name="globalreach"></a>Alcance Global de ExpressRoute
 

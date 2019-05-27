@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
 ms.openlocfilehash: ec43b79109181457f8ef8e214e296969db5dcb26
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593410"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122335"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configuración de los puertos de alta disponibilidad para un equilibrador de carga interno
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415723"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977301"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Elimine las contraseñas incorrectas de su organización
 
@@ -54,7 +54,7 @@ La normalización consta de dos partes.  En primer lugar, todas las letras mayú
 | --- | --- |
 | "0"  | "o" |
 | '1'  | "l" |
-| "$"  | "s" |
+| "$"  | 's' |
 | "\@"  | "a" |
 
 Ejemplo: suponga que está prohibida la contraseña "blank" y que un usuario intenta cambiar su contraseña a "Bl@nK". Aunque "Bl@nk" no está expresamente prohibida, el proceso de normalización convierte esta contraseña a "blank", que es una contraseña no permitida.
@@ -75,7 +75,7 @@ Ninguna de las contraseñas anteriores coincide específicamente con la contrase
 
 La coincidencia de subcadenas se utiliza en la contraseña normalizada para comprobar el nombre y apellido del usuario, así como el nombre del inquilino (tenga en cuenta que no se realiza la coincidencia de nombres de inquilino cuando se validan contraseñas en un controlador de dominio de Active Directory).
 
-Ejemplo: suponga que tenemos un usuario llamado John Doe que desea restablecer su contraseña a "J0hn123fb". Después de la normalización, esta contraseña convertiría en "john123fb". La coincidencia de subcadenas detecta que la contraseña contiene el nombre del usuario "John". Aunque "J0hn123fb" no se encontraba específicamente en ninguna lista de contraseñas prohibidas, la coincidencia de subcadenas encontró "John" en la contraseña. Por lo tanto, esta contraseña se rechazaría.
+Ejemplo: suponga que tenemos que un usuario, Pol, que desea restablecer su contraseña para "P0l123fb". Después de la normalización, esta contraseña convertiría en "pol123fb". Coincidencia de subcadena busca que la contraseña contiene el nombre del usuario "Pol". Aunque no era "P0l123fb" específicamente en cualquiera de las listas de contraseñas prohibidas, coincidencia de subcadena encuentra "Pol" en la contraseña. Por lo tanto, esta contraseña se rechazaría.
 
 #### <a name="score-calculation"></a>Cálculo de puntuación
 
@@ -106,7 +106,7 @@ Después de la normalización, esta contraseña se convierte en "contosoblankf9!
 
 |   | Protección con contraseña de Azure AD con la lista global de contraseñas prohibidas | Protección con contraseña de Azure AD con la lista personalizada de contraseñas prohibidas|
 | --- | --- | --- |
-| Usuarios solo en la nube | Azure AD Free | Azure AD Premium (P1 o P2) |
+| Usuarios solo en la nube | Azure AD Gratis | Azure AD Premium (P1 o P2) |
 | Usuarios sincronizados desde un entorno local de Windows Server Active Directory | Azure AD Premium (P1 o P2) | Azure AD Premium (P1 o P2) |
 
 > [!NOTE]

@@ -7,13 +7,13 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: adgera
-ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-adgera
+ms.openlocfilehash: 797dfc44b9897920f9fd74346ee01e4b157a4ce8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926201"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967788"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Configuración de Postman para Azure Digital Twins
 
@@ -73,10 +73,10 @@ A continuación, instale y configure Postman para obtener un token de Azure Acti
     | Tipo de concesión | `Implicit` |
     | Dirección URL de devolución de llamadas | `https://www.getpostman.com/oauth2/callback` |
     | Dirección URL de autenticación | Use la **Dirección URL de autorización** del paso 2 |
-    | Id. de cliente | Use el valor de **Id. de aplicación** para la aplicación de Azure Active Directory que se creó o se reutilizó en la sección anterior |
-    | Ámbito | Déjelo en blanco |
+    | Identificador de cliente | Use el valor de **Id. de aplicación** para la aplicación de Azure Active Directory que se creó o se reutilizó en la sección anterior |
+    | Scope | Déjelo en blanco |
     | Estado | Déjelo en blanco |
-    | Autenticación de clientes | `Send as Basic Auth header` |
+    | Autenticación de cliente | `Send as Basic Auth header` |
 
 1. Ahora, el cliente debe aparecer como:
 

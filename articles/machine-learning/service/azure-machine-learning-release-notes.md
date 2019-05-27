@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 892b9bc63f9f2d9abc7108587a7bf929473e4648
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779429"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989844"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de la versión del servicio Azure Machine Learning
 
@@ -30,6 +30,24 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
 ### <a name="azure-machine-learning-sdk-for-python-v1039"></a>Azure Machine Learning SDK for Python v1.0.39
 + **Cambios**
   + Opción de configuración de ejecución auto_prepare_environment está en desuso, con automático preparar convertirse en el valor predeterminado.
+
+## <a name="2019-05-08"></a>2019-05-08
+
+### <a name="azure-machine-learning-data-prep-sdk-v113"></a>SDK v1.1.3 de preparación de datos de Azure Machine Learning
+
++ **Nuevas características:**
+  + Se agregó compatibilidad para leer desde una base de datos de PostgresSQL, ya sea mediante una llamada a read_postgresql o utilizando un almacén de datos.
+    + Vea ejemplos en guías de procedimientos:
+      + [Notebook de ingesta de datos](https://aka.ms/aml-data-prep-ingestion-nb)
+      + [Cuaderno de almacén de datos](https://aka.ms/aml-data-prep-datastore-nb)
+
++ **Mejoras y correcciones de errores**
+  + Se han corregido los problemas con la conversión de tipos de columna:
+  + Ahora una columna numérica o booleana correctamente se convierte en una columna booleana.
+  + Ahora no producirá un error al intentar establecer una columna de fecha para que sea el tipo de fecha.
+  + Tipos de JoinType mejorada y documentación de referencia adjunta. Al combinar dos flujos de datos, ahora puede especificar uno de estos tipos de combinación:
+    + NINGUNO, COINCIDE CON, INNER, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI RIGHTOUTER, FULLANTI, COMPLETA.
+  + Inferencia para reconocer más formatos de fecha de tipo de datos mejorados.
 
 ## <a name="2019-05-06"></a>2019-05-06
 
@@ -367,7 +385,7 @@ Azure Machine Learning Service está disponible con carácter general.
 Con esta versión, anunciamos una nueva experiencia de proceso administrado a través del [Proceso de Machine Learning](how-to-set-up-training-targets.md#amlcompute). Este destino de proceso reemplaza el proceso de Azure Batch AI para Azure Machine Learning. 
 
 Este destino de proceso:
-+ Se usa para las inferencias de lotes y el entrenamiento del modelo
++ Se usa para el entrenamiento y batch inferencia/puntuación de los modelos
 + Es un proceso de uno a varios nodos
 + Realiza la administración del clúster y la programación de trabajos para el usuario
 + Se escala automáticamente de forma predeterminada

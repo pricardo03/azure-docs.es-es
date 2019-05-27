@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513575"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124718"
 ---
 Algunas respuestas de Bing incluyen direcciones URL de las imágenes en miniatura servidas por Bing. Puede cambiar el tamaño y recortar las imágenes en miniatura. 
 
@@ -17,7 +17,7 @@ Algunas respuestas de Bing incluyen direcciones URL de las imágenes en miniatur
 > Asegúrese de que el tamaño y el recorte de la miniatura proporcionan un escenario de búsqueda y respetan los derechos de terceros, según lo especificado en los requisitos de uso y visualización de Bing Search API.
 
 
-Para cambiar el tamaño de una imagen, incluya la consulta w (ancho) parámetro h (alto) consultar parámetro, o ambos en la dirección URL de la miniatura. Especifique el ancho y alto en píxeles. Por ejemplo:   
+Para cambiar el tamaño de una imagen, incluya la consulta w (ancho) parámetro h (alto) consultar parámetro, o ambos en la dirección URL de la miniatura. Especifique el ancho y alto en píxeles. Por ejemplo:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   

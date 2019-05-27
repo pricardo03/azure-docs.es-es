@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: anzaman,cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5ddcfe14873d13384b043f7a977dc4f069dbe8dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a6f16df4b827538c1f8bdb9b7382ed06d543b62
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883086"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991512"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Conexión de una red virtual a un circuito ExpressRoute mediante la CLI
 
@@ -139,6 +139,32 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 **Liberación de una autorización de conexión**
 
 Puede liberar una autorización eliminando la conexión que vincula el circuito ExpressRoute a la red virtual.
+
+## <a name="modify-a-virtual-network-connection"></a>Modificación de una conexión de red virtual
+Puede actualizar ciertas propiedades de una conexión de red virtual. 
+
+**Actualización del peso de la conexión**
+
+La red virtual puede estar conectada a varios circuitos ExpressRoute. Es posible que reciba el mismo prefijo de más de un circuito ExpressRoute. Para elegir la conexión por la que enviar el tráfico destinado a este prefijo, puede cambiar el valor de *RoutingWeight* de una conexión. El tráfico se enviará por la conexión con el valor más alto de *RoutingWeight*.
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --routing-weight 100
+```
+
+El intervalo de *RoutingWeight* abarca de 0 a 32 000. El valor predeterminado es 0.
+
+## <a name="configure-expressroute-fastpath"></a>Configurar ExpressRoute FastPath 
+Puede habilitar [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) si el circuito de ExpressRoute se encuentra en [ExpressRoute Direct](expressroute-erdirect-about.md) y la puerta de enlace virtual newtork es Ultrarrendimiento o ErGw3AZ. FastPath mejora el rendimiento de la ruta de acceso de datos como las conexiones por segundo entre la red local y la red virtual y los paquetes por segundo. 
+
+> [!NOTE] 
+> Si ya tiene una conexión de red virtual pero no ha habilitado FastPath deberá eliminar la conexión de red virtual y crear uno nuevo. 
+> 
+>  
+
+```azurecli
+az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
+```
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

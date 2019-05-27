@@ -6,18 +6,38 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: e36e0813b7a50c659a2c3ae61350381e83a1823f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 122f0884469a4901b02a1c86dd5ec98ef4fb24b0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686191"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000251"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
 A continuación, se indica cómo resolver los errores que pueden aparecer durante la configuración, el registro, la copia de seguridad y la restauración.
+
+## <a name="basic-troubleshooting"></a>Pasos básicos para solucionar problemas
+
+Se recomienda realizar la siguiente validación, antes de empezar a solucionar problemas del agente de Microsoft Azure Recovery Services (MARS):
+
+- [Asegúrese de que el agente de Microsoft Azure Recovery Services (MARS) está actualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Asegúrese de que haya conectividad de red entre el agente de MARS y Azure](https://aka.ms/AB-A4dp50)
+- Asegúrese de que se ejecuta Microsoft Azure Recovery Services (en la consola del servicio). Si es necesario, reinicie y vuelva a intentar la operación.
+- [Asegúrese de que haya disponible entre un 5 % y un 10 % en la ubicación de la carpeta temporal](https://aka.ms/AB-AA4dwtt)
+- [Compruebe si otro proceso o software antivirus interfiere con Azure Backup](https://aka.ms/AB-AA4dwtk)
+- [Se produce un error en las copias de seguridad programadas pero no en las copias de seguridad manuales](https://aka.ms/ScheduledBackupFailManualWorks)
+- Asegúrese de que su sistema operativo tiene las actualizaciones más recientes.
+- [Asegúrese de que las unidades no compatibles y los archivos con atributos no compatibles se excluyen de la copia de seguridad](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- Asegúrese de que el **reloj del sistema** del sistema protegido está configurado con la zona horaria correcta <br>
+- [Asegúrese de que el servidor tiene como mínimo .NET Framework 4.5.2 o versiones posteriores](https://www.microsoft.com/download/details.aspx?id=30653).<br>
+- Si está intentando **volver a registrar el servidor** en un almacén: <br>
+  - Asegúrese de que el agente no está instalado en el servidor y de que se ha eliminado del portal. <br>
+  - Utilice la misma frase de contraseña que se usó inicialmente para registrar el servidor. <br>
+- En el caso de copia de seguridad sin conexión, asegúrese de que Azure PowerShell versión 3.7.0 está instalado en el equipo de origen y copia antes de comenzar la operación de copia de seguridad sin conexión
+- [Consideración al agente de copia de seguridad se ejecuta en una máquina virtual de Azure](https://aka.ms/AB-AA4dwtr)
 
 ## <a name="invalid-vault-credentials-provided"></a>Se han proporcionado credenciales de almacén no válidas
 
@@ -48,7 +68,7 @@ A continuación, se indica cómo resolver los errores que pueden aparecer durant
 
 | Detalles del error | Causas posibles | Acciones recomendadas |
 |---------|---------|---------|
-|**Error** <br /><ol>*La activación no se completó correctamente. No se pudo realizar la operación actual debido a un error de servicio interno [0x1FC07]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft*     | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se movió de manera incorrecta a otra ubicación. <li> Falta el archivo OnlineBackup.KEK.         | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre equivalente al 5 % o 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, consulte los pasos de las [preguntas sobre el Agente de Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la ubicación de caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|**Error** <br /><ol>*La activación no se completó correctamente. No se pudo realizar la operación actual debido a un error de servicio interno [0x1FC07]. Intente de nuevo la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft*     | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se movió de manera incorrecta a otra ubicación. <li> Falta el archivo OnlineBackup.KEK.         | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre equivalente al 5 % o 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, consulte los pasos de las [preguntas sobre el Agente de Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la ubicación de caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>La frase de contraseña de cifrado no está configurada correctamente.
 
@@ -109,7 +129,7 @@ Es posible que Azure Backup no monte correctamente el volumen de recuperación, 
 
 Si la recuperación sigue sin funcionar, reinicie el cliente o el servidor. Si no quiere reiniciar o la recuperación sigue sin funcionar incluso después del reinicio del servidor, intente recuperar desde una máquina alternativa. Siga los pasos de [este artículo](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
-## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
+## <a name="need-help-contact-support"></a>¿Ayuda? Ponerse en contacto con soporte técnico
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
 ## <a name="next-steps"></a>Pasos siguientes

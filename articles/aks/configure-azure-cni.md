@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 9006590583f0ef52bbce716529534f8bce6f47c5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6516b11bf5d4d4c4e5406a3e6e0cce3189796d33
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780364"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956402"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configuración de redes de Azure CNI en Azure Kubernetes Service (AKS)
 
@@ -41,6 +41,7 @@ Se asignan direcciones IP para los pods y los nodos del clúster desde la subred
 > El número de direcciones IP necesarias debe incluir consideraciones sobre las operaciones de actualización y escalabilidad. Si establece el intervalo de direcciones IP para que solo se admita un número fijo de nodos, no se podrá actualizar o escalar el clúster.
 >
 > - Al **actualizar** el clúster de AKS, se implementa un nuevo nodo en el clúster. Los servicios y las cargas de trabajo comienzan a ejecutarse en el nuevo nodo y el nodo antiguo se quita del clúster. Para realizar este proceso de actualización gradual es necesario que haya disponible un bloque adicional de direcciones IP. El recuento de nodos es entonces `n + 1`.
+>   - Esta consideración es especialmente importante al utilizar grupos de nodos de Windows Server (actualmente en versión preliminar de AKS). Nodos de Windows Server en AKS no aplicar automáticamente las actualizaciones de Windows, en su lugar realizar una actualización en el grupo de nodos. Esta actualización implementa nuevos nodos con las últimas revisiones de seguridad y la imagen de la base del nodo ventana Server 2019. Para obtener más información sobre cómo actualizar un grupo de nodos de Windows Server, vea [actualizar un grupo de nodos de AKS][nodepool-upgrade].
 >
 > - Al **escalar** un clúster de AKS, se implementa un nuevo nodo en el clúster. Los servicios y las cargas de trabajo comienzan a ejecutarse en el nuevo nodo. El intervalo de direcciones IP debe tener en cuenta cómo podría escalar verticalmente el número de nodos y los pods que el clúster puede admitir. También se debe incluir un nodo adicional para las operaciones de actualización. El recuento de nodos es entonces `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 
@@ -68,7 +69,7 @@ El número máximo de pods por nodo en un clúster de AKS es 250. El número má
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar máximo: nuevos clústeres
 
-Puede configurar el número máximo de pods por nodo *solo en tiempo de implementación del clúster*. Si implementa con la CLI de Azure o con una plantilla de Resource Manager, puede establecer los pods máximos por cada valor de nodo que se necesiten en la siguiente `maxPods` directrices:
+Puede configurar el número máximo de pods por nodo *solo en tiempo de implementación del clúster*. Si implementa con la CLI de Azure o con una plantilla de Resource Manager, puede establecer los pods máximos por cada valor de nodo de hasta 250.
 
 | Redes | Mínimo | Máximo |
 | -- | :--: | :--: |
@@ -76,8 +77,7 @@ Puede configurar el número máximo de pods por nodo *solo en tiempo de implemen
 | Kubenet | 30 | 110 |
 
 > [!NOTE]
-> El valor mínimo en la tabla anterior se aplica estrictamente por el servicio AKS.
-No se puede establecer un valor maxPods inferior al valor mínimo que se muestra como si lo hace puede impedir que el clúster de inicio.
+> El valor mínimo en la tabla anterior se aplica estrictamente por el servicio AKS. No se puede establecer un valor maxPods inferior al valor mínimo que se muestra como si lo hace puede impedir que el clúster de inicio.
 
 * **CLI de Azure**: especifique el argumento `--max-pods` cuando implemente un clúster con el comando [az aks create][az-aks-create]. El valor máximo es 250.
 * **Plantilla de Resource Manager**: especifique la propiedad `maxPods` del objeto [ManagedClusterAgentPoolProfile] cuando implemente un clúster con una plantilla de Resource Manager. El valor máximo es 250.
@@ -114,7 +114,7 @@ Al crear un clúster de AKS con la CLI de Azure, también puede configurar redes
 
 En primer lugar, obtenga el identificador de recursos de subred para la subred existente a la que se unirá el clúster de AKS:
 
-```console
+```azurecli-interactive
 $ az network vnet subnet list \
     --resource-group myVnet \
     --vnet-name myVnet \
@@ -125,7 +125,7 @@ $ az network vnet subnet list \
 
 Use el comando [crear az aks][az-aks-create] con el argumento `--network-plugin azure` para crear un clúster con redes avanzadas. Actualice el valor `--vnet-subnet-id` con el identificador de subred recopilado en el paso anterior:
 
-```azurecli
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -133,7 +133,8 @@ az aks create \
     --vnet-subnet-id <subnet-id> \
     --docker-bridge-address 172.17.0.1/16 \
     --dns-service-ip 10.2.0.10 \
-    --service-cidr 10.2.0.0/24
+    --service-cidr 10.2.0.0/24 \
+    --generate-ssh-keys
 ```
 
 ## <a name="configure-networking---portal"></a>Configuración de redes: portal
@@ -211,3 +212,4 @@ Los clústeres de Kubernetes creados con AKS Engine admiten los complementos [ku
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

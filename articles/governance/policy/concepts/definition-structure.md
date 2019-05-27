@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b9fe723ca13cbee0e31b14e60a6bd740d2a282df
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779287"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979548"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -100,7 +100,8 @@ Un parámetro tiene las siguientes propiedades que se usan en la definición de 
   - `displayName`: El nombre descriptivo que se muestra en el portal para el parámetro.
   - `strongType`: (Opcional) Se usa al asignar la definición de directiva mediante el portal. Proporciona una lista que tiene en cuenta el contexto. Para más información, consulte [strongType](#strongtype).
   - `assignPermissions`: (Opcional) Establecer como _true_ para que Azure portal cree asignaciones de roles durante la asignación de directiva. Esta propiedad es útil en caso de que desea asignar permisos fuera del ámbito de asignación. Hay una asignación de roles por cada definición de rol en la directiva (o por la definición de roles en todas las directivas en la iniciativa). El valor del parámetro debe ser un recurso válido o un ámbito.
-- `defaultValue`: (Opcional) Establece el valor del parámetro en una asignación, si no se especifica ningún valor. Requerido cuando se actualiza una definición de directiva existente que está asignada.
+- `defaultValue`: (Opcional) Establece el valor del parámetro en una asignación, si no se especifica ningún valor.
+  Requerido cuando se actualiza una definición de directiva existente que está asignada.
 - `allowedValues`: (Opcional) Proporciona una matriz de valores que acepta el parámetro durante la asignación.
 
 Por ejemplo, podría definir una definición de directiva para limitar las ubicaciones en las que se pueden implementar los recursos. Un parámetro para esa definición de directiva podría ser **allowedLocations**. Este parámetro podría utilizarse por cada asignación de la definición de directiva para limitar los valores aceptados. El uso de **strongType** proporciona una experiencia mejorada al completar la asignación mediante el portal:
@@ -268,8 +269,7 @@ Se admiten los siguientes campos:
 - alias de propiedad: para obtener una lista, vea [Alias](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]` y `tags[tag.with.dots]` son todavía formas aceptables de declarar un campo de etiquetas.
-> Sin embargo, las expresiones preferidas son las mencionadas anteriormente.
+> `tags.<tagName>`, `tags[tagName]` y `tags[tag.with.dots]` son todavía formas aceptables de declarar un campo de etiquetas. Sin embargo, las expresiones preferidas son las mencionadas anteriormente.
 
 #### <a name="use-tags-with-parameters"></a>Uso de etiquetas con parámetros
 

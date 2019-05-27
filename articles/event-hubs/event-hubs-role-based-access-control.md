@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: 549cfb84ff247295e01c800aa41ba265bb8921c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343467"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978309"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Control de acceso basado en rol de Active Directory (versión preliminar)
 
@@ -27,8 +27,13 @@ Para Azure Event Hubs, la administración de los espacios de nombres y de todos 
 Una aplicación que use el control de acceso basado en rol de Azure AD no necesita controlar las reglas y claves de SAS ni ningún otro token de acceso específico a Event Hubs. La aplicación cliente permite interactuar con Azure AD para establecer un contexto de autenticación y adquiere un token de acceso para Event Hubs. Con respecto a las cuentas de usuario de dominio que requieren un inicio de sesión interactivo, la aplicación no controla nunca ninguna credencial directamente.
 
 ## <a name="event-hubs-roles-and-permissions"></a>Roles y permisos de Event Hubs
+Azure proporciona los siguientes roles RBAC integrados para autorizar el acceso a un espacio de nombres de Event Hubs:
 
-Para la versión preliminar pública inicial, solo puede agregar cuentas de Azure AD y entidades de servicio a los roles de "Propietario" o "Colaborador" de un espacio de nombres de Event Hubs. Esta operación concede el control total de identidades sobre todas las entidades del espacio de nombres. Las operaciones de administración que cambian la topología del espacio de nombres se admiten inicialmente solo mediante la administración de recursos de Azure y no mediante la interfaz de administración de REST para Event Hubs. Esto significa también que no se puede utilizar el objeto [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) del cliente de .NET Framework con una cuenta de Azure AD.  
+El [propietario de los datos de Event Hubs (versión preliminar)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) rol permite el acceso de datos a un espacio de nombres de Event Hubs y sus entidades (colas, temas, suscripciones y filtros)
+
+>[!IMPORTANT]
+> Anteriormente, se admite agregar una identidad administrada para el **propietario** o **colaborador** rol. Sin embargo, los datos de acceso privilegios para **propietario** y **colaborador** rol ya no se respetan. Si usas el **propietario** o **colaborador** rol, el conmutador a utilizar el **propietario de los datos de Event Hubs** rol.
+
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Uso de Event Hubs con una cuenta de usuario de dominio de Azure AD
 
@@ -44,7 +49,7 @@ Si desea crear una cuenta específica para este escenario, [siga estos pasos](..
 
 ### <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
 
-A continuación, [cree un espacio de nombres de Event Hubs](event-hubs-create.md) en una de las regiones de Azure compatibles con la versión preliminar de Event Hubs para RBAC: **Este de EE. UU.**, **Este de EE. UU. 2** o **Europa Occidental**. 
+A continuación, [crear un espacio de nombres de Event Hubs](event-hubs-create.md). 
 
 Una vez creado el espacio de nombres, vaya a su página de **Control de acceso (IAM)** en Azure Portal y, a continuación, haga clic en **Agregar asignación de roles** para agregar la cuenta de usuario de Azure AD al rol de propietario. Si usa su propia cuenta de usuario y ha creado el espacio de nombres, ya está en el rol de propietario. Para agregar una cuenta diferente al rol, busque el nombre de la aplicación web en el campo **Seleccionar** del panel **Agregar permisos** y, a continuación, haga clic en la entrada. A continuación, haga clic en **Guardar**. Ahora, la cuenta de usuario ya tiene acceso al espacio de nombres de Event Hubs y a la cola que creó anteriormente.
  

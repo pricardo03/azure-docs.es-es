@@ -9,18 +9,18 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739040"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133137"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitación de las soluciones Update Management, Change Tracking e Inventory en varias máquinas virtuales
 
 Azure Automation proporciona soluciones para administrar las actualizaciones de seguridad del sistema operativo, el seguimiento de cambios y el inventario de los componentes instalados en los equipos. Hay varias formas de incorporar máquinas, puede incorporar la solución desde una máquina virtual, [desde la cuenta de Automation](automation-onboard-solutions-from-vm.md), [al explorar máquinas virtuales](automation-onboard-solutions-from-automation-account.md) o mediante un [runbook](automation-onboard-solutions.md). Este artículo trata la incorporación de estas soluciones al examinar máquinas virtuales en Azure.
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
 
 Inicie sesión en Azure en https://portal.azure.com
 
@@ -59,27 +59,10 @@ Si el área de trabajo seleccionada no está vinculada a una cuenta de Automatio
 
 ![No hay área de trabajo](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
-
-En la tabla siguiente se muestran las asignaciones admitidas:
-
-|**Región del área de trabajo de Log Analytics**|**Región de Azure Automation**|
-|---|---|
-|AustraliaSoutheast|AustraliaSoutheast|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> asignaciones EastUS2EUAP y EastUS para áreas de trabajo de Log Analytics para las cuentas de Automation no son una asignación exacta de una región a otra, pero es la asignación correcta.
-
-<sup>2</sup> debido a restricciones de capacidad la región no está disponible al crear nuevos recursos. Esto incluye las cuentas de Automation y Log Analytics de áreas de trabajo. Sin embargo, recursos vinculados que ya existían en la región deben continuar funcionando.
+> [!NOTE]
+> Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
+>
+> Para obtener una lista de los pares de asignaciones admitidas, consulte [asignación de región para la cuenta de Automation y Log Analytics workspace](how-to/region-mappings.md).
 
 Anule la selección de las casillas que haya junto a las máquinas virtuales que no desee habilitar. Ya se ha anulado la selección de las máquinas virtuales que no se puedan habilitar.
 
@@ -122,6 +105,8 @@ Si ha usado la solución de inicio y detención de máquinas virtuales durante l
 * Runbooks de inicio y detención de máquinas virtuales
 * variables
 
+Como alternativa también puede desvincular el área de trabajo desde su cuenta de Automation desde el área de trabajo de Log Analytics. En el área de trabajo, seleccione **cuenta de Automation** en **recursos relacionados**. En la página cuenta de Automation, seleccione **desvincular la cuenta**.
+
 ## <a name="troubleshooting"></a>solución de problemas
 
 Al incorporar varias máquinas, puede haber algunas en las que aparezca **No se puede habilitar**. Hay diferentes motivos por los que algunas máquinas no se pueden habilitar. Las secciones siguientes muestran las posibles razones para que aparezca el estado **No se puede habilitar** en una máquina virtual al intentar incorporarla.
@@ -152,7 +137,7 @@ Al incorporar varias máquinas, puede haber algunas en las que aparezca **No se 
 
 **Causa**: no se admiten las máquinas virtuales que usan el modelo de implementación clásica.
 
-**Solución**: migre la máquina virtual al modelo de implementación de Resource Manager. Para aprender a hacerlo, consulte [Migración de los recursos del modelo de implementación clásica](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Solución**: Migrar la máquina virtual para el modelo de implementación de Resource Manager. Para aprender a hacerlo, consulte [Migración de los recursos del modelo de implementación clásica](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>La máquina virtual está detenida. (desasignada)
 

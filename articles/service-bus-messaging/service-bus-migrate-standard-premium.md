@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687082"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991416"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar existente espacios de nombres estándar de Azure Service Bus para el nivel premium
 Anteriormente, Azure Service Bus ofrece los espacios de nombres solo en el nivel estándar. Espacios de nombres son configuraciones de varios inquilinos que se optimizan para entornos de desarrollo y un rendimiento bajo. El nivel premium ofrece recursos dedicados por espacio de nombres para una latencia predecible y aumento del rendimiento a un precio fijo. El nivel premium está optimizado para entornos de producción que requieren características empresariales adicionales y de alto rendimiento.
 
-En este artículo se describe cómo migrar espacios de nombres de nivel estándar existente al nivel premium.
+En este artículo se describe cómo migrar espacios de nombres de nivel estándar existente al nivel premium.  
 
 >[!WARNING]
 > Migración está diseñada para que espacios de nombres estándar de Service Bus para actualizarse al nivel premium. La herramienta de migración no admite la degradación.
@@ -33,6 +33,7 @@ Algunos de los puntos a tener en cuenta:
 - El **premium** debe tener el espacio de nombres **ninguna entidad** en él para la migración se realice correctamente. 
 - Todos los **entidades** en el espacio de nombres estándar son **copian** al espacio de nombres premium durante el proceso de migración. 
 - Admite la migración **1.000 entidades por unidad de mensajería** en el nivel premium. Para identificar el número de unidades de mensajería que necesita, comience con el número de entidades que existen en el espacio de nombres estándar actual. 
+- No se puede migrar directamente desde **básico** a **nivel premier**, pero puede hacerlo indirectamente mediante la migración de básico a estándar primero y, a continuación, en el estándar a premium en el paso siguiente.
 
 ## <a name="migration-steps"></a>Pasos de migración
 Algunas condiciones asociadas con el proceso de migración. Familiarícese con los pasos siguientes para reducir la posibilidad de errores. Estos pasos describen el proceso de migración y se muestran los detalles de paso a paso en las secciones siguientes.

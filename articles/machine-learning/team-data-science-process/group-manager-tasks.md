@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fb0482be1670a96befdd69a5356c9e21476d9f9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60305409"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950104"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Tareas de un administrador de grupo en un proyecto en equipo de ciencia de datos
 
-En este tema se describen las tareas que se espera que un administrador de grupo realice para la organización de ciencia de datos. El objetivo es establecer un entorno de colaboración en grupo que normalice el [proceso de ciencia de datos en equipos](overview.md) (TDSP). Para obtener un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso, consulte [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md).
+Este tema se describen las tareas que un administrador de grupo es lo esperado en completarse para su organización de ciencia de datos. El objetivo es establecer un entorno de colaboración en grupo que normalice el [proceso de ciencia de datos en equipos](overview.md) (TDSP). Para obtener un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso, consulte [Roles y tareas del proceso de ciencia de datos en equipo](roles-tasks.md).
 
 El **Administrador de grupo** es el administrador de la unidad de ciencia de datos completa en una empresa. Una unidad de ciencia de datos puede tener varios equipos, cada uno de ellos trabajando en varios proyectos de ciencia de datos en segmentos verticales de negocio distintos. Un Administrador de grupo puede delegar sus tareas en un suplente, pero las tareas asociadas al rol no cambian. En el siguiente diagrama se muestran las seis tareas principales:
 

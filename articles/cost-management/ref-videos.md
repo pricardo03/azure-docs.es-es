@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/18/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: f531bdb80be34cb3228042588ecd4c338b003ed0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f96c78e636b873a0238f6e34d9b80d1036e5ba4f
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020239"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969106"
 ---
 # <a name="cloudyn-walk-through-training-videos"></a>Vídeos de aprendizaje paso a paso de Cloudyn
 
 Los siguientes vídeos proporcionan demostraciones que lo ayudan a iniciarse en el uso de las características de Cloudyn. Cloudyn admite el seguimiento y la optimización de los costos de varias nubes, lo que incluye Microsoft Azure, Amazon Web Services y Google Cloud Platform.
 
-## <a name="overview-video"></a>Vídeo de información general
+## <a name="overview-video"></a>Vídeo de introducción
 
 [Introducción a Cloudyn](https://youtu.be/NWIRny6Wpsk)
 

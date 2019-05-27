@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.subservice: autoscale
+ms.component: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129743"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comunes de escalado automático de Azure Monitor
 
@@ -51,15 +51,15 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 Puede crear una alerta para las siguientes métricas:
 
-| Nombre de métrica | Unidad |
+| Nombre de la métrica | Unidad |
 | --- | --- |
 | Procesador(_Total)\% Hora del procesador |Percent |
 | \Procesador(_Total)\% de tiempo con privilegios |Percent |
 | \Procesador(_Total)\% de tiempo de usuario |Percent |
-| \Información del procesador(_Total)\Frecuencia del procesador |Número |
-| \Sistema\Procesos |Número |
-| \Proceso(_Total)\Número de subprocesos |Número |
-| \Proceso(_Total)\Número de identificadores |Número |
+| \Información del procesador(_Total)\Frecuencia del procesador |Count |
+| \Sistema\Procesos |Count |
+| \Proceso(_Total)\Número de subprocesos |Count |
+| \Proceso(_Total)\Número de identificadores |Count |
 | \Memoria\% de bytes confirmados en uso |Percent |
 | \Memoria\Bytes disponibles |Bytes |
 | \Memoria\Bytes confirmados |Bytes |
@@ -75,11 +75,11 @@ Puede crear una alerta para las siguientes métricas:
 | \Disco físico(_Total)\Bytes de disco/s |BytesPerSecond |
 | \Disco físico(_Total)\Bytes de lectura de disco/s |BytesPerSecond |
 | \Disco físico(_Total)\Bytes de escritura de disco/s |BytesPerSecond |
-| \Disco físico(_Total)\Promedio Longitud de la cola de disco |Número |
-| \Disco físico(_Total)\Promedio Longitud de la cola de lectura de disco |Número |
-| \Disco físico(_Total)\Promedio Longitud de la cola de escritura de disco |Número |
+| \Disco físico(_Total)\Promedio Longitud de la cola del disco |Count |
+| \Disco físico(_Total)\Promedio Longitud de la cola de lectura de disco |Count |
+| \Disco físico(_Total)\Promedio Longitud de la cola de escritura de disco |Count |
 | \Disco lógico(_Total)\% de espacio disponible |Percent |
-| \Disco lógico(_Total)\Megabytes disponibles |Número |
+| \Disco lógico(_Total)\Megabytes disponibles |Count |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Métricas de SO invitado para máquinas virtuales Linux
 Cuando crea una máquina virtual en Azure, los diagnósticos se habilitan de forma predeterminada mediante la extensión Diagnósticos.
@@ -92,7 +92,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
  Puede crear una alerta para las siguientes métricas:
 
-| Nombre de métrica | Unidad |
+| Nombre de la métrica | Unidad |
 | --- | --- |
 | \Memory\AvailableMemory |Bytes |
 | \Memory\PercentAvailableMemory |Percent |
@@ -123,15 +123,15 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk\AverageReadTime |Segundos |
 | \PhysicalDisk\AverageWriteTime |Segundos |
 | \PhysicalDisk\AverageTransferTime |Segundos |
-| \PhysicalDisk\AverageDiskQueueLength |Número |
+| \PhysicalDisk\AverageDiskQueueLength |Count |
 | \NetworkInterface\BytesTransmitted |Bytes |
 | \NetworkInterface\BytesReceived |Bytes |
-| \NetworkInterface\PacketsTransmitted |Número |
-| \NetworkInterface\PacketsReceived |Número |
+| \NetworkInterface\PacketsTransmitted |Count |
+| \NetworkInterface\PacketsReceived |Count |
 | \NetworkInterface\BytesTotal |Bytes |
-| \NetworkInterface\TotalRxErrors |Número |
-| \NetworkInterface\TotalTxErrors |Número |
-| \NetworkInterface\TotalCollisions |Número |
+| \NetworkInterface\TotalRxErrors |Count |
+| \NetworkInterface\TotalTxErrors |Count |
+| \NetworkInterface\TotalCollisions |Count |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>Métricas web comúnmente usadas (granja de servidores)
 También puede realizar el escalado automático basándose en métricas de servidor web comunes, como la longitud de cola Http. El nombre de la métrica es **HttpQueueLength**.  En la siguiente sección se muestran las métricas de granja de servidores (Web Apps) disponibles.
@@ -145,12 +145,12 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 Puede alertar sobre estas métricas o escalar por las mismas.
 
-| Nombre de métrica | Unidad |
+| Nombre de la métrica | Unidad |
 | --- | --- |
 | CpuPercentage |Percent |
 | MemoryPercentage |Percent |
-| DiskQueueLength |Número |
-| HttpQueueLength |Número |
+| DiskQueueLength |Count |
+| HttpQueueLength |Count |
 | BytesReceived |Bytes |
 | BytesSent |Bytes |
 
@@ -190,4 +190,3 @@ Para los conjuntos de escalado de máquinas virtuales, puede actualizar la confi
 > Para Service Bus, el concepto de grupo de recursos no existe pero Azure Resource Manager crea un grupo de recursos predeterminado por región. El grupo de recursos suele tener el formato 'Default-ServiceBus-[región]'. Por ejemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast', etc.
 >
 >
-

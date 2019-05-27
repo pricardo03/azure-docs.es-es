@@ -4,15 +4,15 @@ description: Este artículo proporciona una introducción al firewall de aplicac
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
+ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 830513a03bd65ca14cb0938ae599a676f1bb3bca
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518191"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991398"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Firewall de aplicaciones Web de Azure Application Gateway
 
@@ -38,7 +38,7 @@ Esta sección describen las ventajas principales que proporcionan Application Ga
 
 * Proteja sus aplicaciones web frente a vulnerabilidades web y ataques sin modificación del código de back-end.
 
-* Proteger varias aplicaciones web al mismo tiempo. Puede hospedar una instancia de Application Gateway de hasta 20 sitios Web que están protegidos por un firewall de aplicaciones web.
+* Proteger varias aplicaciones web al mismo tiempo. Puede hospedar una instancia de Application Gateway de hasta 100 sitios Web que están protegidos por un firewall de aplicaciones web.
 
 ### <a name="monitoring"></a>Supervisión
 
@@ -121,12 +121,19 @@ El WAF de Application Gateway puede configurarse para ejecutarse en los dos modo
 * **Modo de prevención**: Las intrusiones de bloques y los ataques que las reglas de detección. El atacante recibe una excepción "acceso no autorizado 403", y se termina la conexión. Modo de prevención registra estos ataques en los registros de WAF.
 
 ### <a name="anomaly-scoring-mode"></a>Modo de puntuación de anomalías
- 
+
 OWASP tiene dos modos para decidir si va a bloquear el tráfico: Modo tradicional y modo de puntuación de anomalías.
 
 En el modo tradicional, el tráfico que coincide con ninguna regla se considera independientemente de las otras coincidencias de regla. Este modo es fácil de entender. Pero la falta de información sobre cuántas reglas coinciden con una solicitud específica es una limitación. Por lo tanto, se introdujo el modo de puntuación de anomalías. Es el valor predeterminado de 3 OWASP. *x*.
 
 En el modo de puntuación de anomalías, el tráfico que coincide con cualquier regla no se bloquea inmediatamente cuando el firewall está en modo de prevención. Las reglas tienen una gravedad determinada: *Crítica*, *Error*, *advertencia*, o *aviso*. Que la gravedad afecta a un valor numérico para la solicitud, que se llama a la puntuación de anomalías. Por ejemplo, una *advertencia* regla de coincidencia contribuye 3 a la puntuación. Una *crítico* regla de coincidencia contribuye a 5.
+
+|Severity  |Valor  |
+|---------|---------|
+|Fundamental     |5|
+|Error        |4|
+|Advertencia      |3|
+|Aviso       |2|
 
 Hay un umbral de 5 para la puntuación de anomalías para bloquear el tráfico. Por lo tanto, una sola *crítico* coincidencia de regla es suficiente para la puerta de enlace de aplicaciones WAF bloquear una solicitud, incluso en modo de prevención. Pero una *advertencia* regla de coincidencia solo aumenta la anomalía puntuación por 3, que no es suficiente por sí solo para bloquear el tráfico.
 

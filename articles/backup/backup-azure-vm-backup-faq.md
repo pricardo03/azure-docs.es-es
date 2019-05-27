@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848187"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966325"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes-Back de máquinas virtuales de Azure
 
@@ -24,25 +24,25 @@ En este artículo se responde preguntas comunes sobre la copia de seguridad de m
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>¿Cuando crean, qué imágenes de máquina virtual pueden habilitarse para copia de seguridad?
 Cuando se crea una máquina virtual, puede habilitar la copia de seguridad para máquinas virtuales que ejecutan [sistemas operativos compatibles](backup-support-matrix-iaas.md#supported-backup-actions)
- 
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>¿Es el costo de copia de seguridad incluido en el costo de máquina virtual? 
+
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>¿Es el costo de copia de seguridad incluido en el costo de máquina virtual?
 
 No. Los costos de copia de seguridad son independientes de los costos de la máquina virtual. Obtenga más información sobre [precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
- 
-### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>¿Qué permisos son necesarios para habilitar la copia de seguridad para una máquina virtual? 
 
-Si es un colaborador de máquina virtual, puede habilitar la copia de seguridad en la máquina virtual. Si usa un rol personalizado, necesita los siguientes permisos para habilitar la copia de seguridad en la máquina virtual: 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>¿Qué permisos son necesarios para habilitar la copia de seguridad para una máquina virtual?
 
-- Microsoft.RecoveryServices/Vaults/write 
-- Microsoft.RecoveryServices/Vaults/read 
-- Microsoft.RecoveryServices/locations/* 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
- 
+Si es un colaborador de máquina virtual, puede habilitar la copia de seguridad en la máquina virtual. Si usa un rol personalizado, necesita los siguientes permisos para habilitar la copia de seguridad en la máquina virtual:
+
+- Microsoft.RecoveryServices/Vaults/write
+- Microsoft.RecoveryServices/Vaults/read
+- Microsoft.RecoveryServices/locations/*
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write
+
 Si el almacén de Recovery Services y la máquina virtual tienen distintos grupos de recursos, asegúrese de que tiene permisos de escritura en el grupo de recursos para el almacén de Recovery Services.  
 
 
@@ -91,7 +91,7 @@ Azure Backup no puede realizar la copia de seguridad de un disco habilitado para
 Estamos ejecutando versión preliminar privada para una copia de seguridad de SAP HANA con un RPO de 15 minutos. Se ha creado de modo similar a la copia de seguridad de bases de datos SQL y usa la interfaz backInt para soluciones de terceros certificadas por SAP HANA. Si le interesa, envíenos un correo electrónico en `AskAzureBackupTeam@microsoft.com` con el asunto **suscribirse a una versión preliminar privada para la copia de seguridad de SAP HANA en Azure Virtual Machines**.
 
 
-## <a name="restore"></a>Restauración
+## <a name="restore"></a>Restaurar
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>¿Cómo decidir si es necesario restaurar solo los discos o una máquina virtual completa?
 Considere la restauración de máquinas virtuales como una opción de creación rápida para una máquina virtual de Azure. Esta opción cambia los nombres de disco, contenedores usados por los discos, las direcciones IP públicas y los nombres de interfaz de red. El cambio conserva recursos exclusivos cuando se crea una máquina virtual. La máquina virtual no se agrega a un conjunto de disponibilidad.
@@ -140,3 +140,6 @@ Se realiza la configuración de la máquina virtual con los valores de programac
 3. Volver a habilitar la copia de seguridad en el mismo o nuevo almacén.
 
 Puede restaurar la máquina virtual desde los puntos de restauración disponibles creados antes de la operación de traslado.
+
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>¿Hay un límite en el número de máquinas virtuales que se pueden asociar con la misma directiva de copia de seguridad?
+Sí, hay un límite de 100 máquinas virtuales que se pueden asociar a la misma directiva de copia de seguridad desde el portal. Se recomienda para más de 100 máquinas virtuales, crear varias directivas de copia de seguridad con la misma programación o programación diferente.

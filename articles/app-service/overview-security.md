@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838967"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955747"
 ---
 # <a name="security-in-azure-app-service"></a>Seguridad en Azure App Service
 
@@ -105,7 +105,7 @@ Hay tres maneras de acceder de forma segura a los recursos locales, por ejemplo,
 
 ## <a name="application-secrets"></a>Secretos de aplicación
 
-No almacene los secretos de la aplicación, como las credenciales de la base de datos, los tokens de API y las claves privadas en el código o en archivos de configuración. El enfoque aceptado es acceder a ellos como [variables de entorno](https://wikipedia.org/wiki/Environment_variable), usando el patrón estándar en el lenguaje que prefiera. En App Service, las variables de entorno se definen mediante la [configuración de la aplicación](web-sites-configure.md#app-settings) y, especialmente para las aplicaciones .NET, [cadenas de conexión](web-sites-configure.md#connection-strings). La configuración de la aplicación y las cadenas de conexión se almacenan cifradas en Azure y se descifran solo antes de insertarlas en la memoria de proceso de la aplicación cuando se inicia la aplicación. Las claves de cifrado rotan con regularidad.
+No almacene los secretos de la aplicación, como las credenciales de la base de datos, los tokens de API y las claves privadas en el código o en archivos de configuración. El enfoque aceptado es acceder a ellos como [variables de entorno](https://wikipedia.org/wiki/Environment_variable), usando el patrón estándar en el lenguaje que prefiera. En App Service, las variables de entorno se definen mediante la [configuración de la aplicación](configure-common.md#configure-app-settings) y, especialmente para las aplicaciones .NET, [cadenas de conexión](configure-common.md#configure-connection-strings). La configuración de la aplicación y las cadenas de conexión se almacenan cifradas en Azure y se descifran solo antes de insertarlas en la memoria de proceso de la aplicación cuando se inicia la aplicación. Las claves de cifrado rotan con regularidad.
 
 También puede integrar la aplicación de App Service con [Azure Key Vault](/azure/key-vault/) para la administración avanzada de secretos. Al [acceder a Key Vault con una identidad administrada](../key-vault/tutorial-web-application-keyvault.md), la aplicación App Service puede acceder de forma segura a los secretos que necesita.
 

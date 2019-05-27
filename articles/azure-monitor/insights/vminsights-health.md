@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 9fa76c9637a6dcdca48bf45e8ee2aa9305a4f64f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522186"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130450"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Conocer el estado de las máquinas virtuales de Azure
 
@@ -85,7 +85,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 Antes de profundizar en cómo usar la característica de estado para una sola máquina virtual o un grupo de VM, es importante que brindemos una breve introducción para que pueda comprender cómo se presenta la información y qué representan las visualizaciones.  
 
-## <a name="view-health-directly-from-a-virtual-machine"></a>Visualización del estado directamente desde una máquina virtual 
+### <a name="view-health-directly-from-a-virtual-machine"></a>Visualización del estado directamente desde una máquina virtual 
 
 Para ver el estado de una máquina virtual de Azure, seleccione **Conclusiones (versión preliminar)** desde el panel izquierdo de la máquina virtual. En la página de conclusiones de la VM, el **estado** se abre de forma predeterminada y se muestra la vista de estado de la máquina virtual.  
 
@@ -96,11 +96,21 @@ En la pestaña **Estado** de la sección **Estado de la VM invitada**, la tabla 
 En la tabla siguiente se describen los estados de mantenimiento definidos para una VM: 
 
 |Icono |Estado de mantenimiento |Significado |
-|-----|-------------|------------|
+|-----|-------------|---------------|
 | |Estado correcto |El estado de mantenimiento es correcto si se encuentra dentro de las condiciones de mantenimiento definidas, lo cual indica que no se detectó ningún problema en la VM y que funciona según lo esperado. Con un monitor de acumulación primario, acumula mantenimiento y se refleja el estado de la mejor o peor del elemento secundario.|
 | |Fundamental |El estado de mantenimiento es crítico si no está dentro de la condición de mantenimiento definida, lo cual indica que se han detectado uno o más problemas críticos que deben solucionarse para poder restaurar el funcionamiento normal. Con un monitor de acumulación primario, acumula mantenimiento y se refleja el estado de la mejor o peor del elemento secundario.|
 | |Advertencia |El estado de mantenimiento de advertencia se activa si está entre dos umbrales de la condición de mantenimiento definida; uno de ellos indica un estado de *Advertencia* y el otro indica un estado *Crítico* (pueden configurarse tres umbrales de estado de mantenimiento). También puede activarse cuando se detecta un problema no crítico, pero que puede ocasionar problemas graves si no se resuelve. Con una acumulación primario monitor, si uno o varios de los elementos secundarios están en un estado de advertencia y, después, reflejará el elemento primario *advertencia* estado. Si hay un elemento secundario que se encuentra en estado *Crítico* y otro en estado *Advertencia*, la acumulación primaria mostrará un estado de mantenimiento *Crítico*.|
-| |Desconocida |El estado de mantenimiento es *Desconocido* cuando no se puede calcular por varios motivos; por ejemplo, cuando no se pueden recopilar los datos, si no se inicializó el servicio, etc. Este estado de mantenimiento no se puede configurar.| 
+| |Desconocida |Estado de mantenimiento es *desconocido* cuando no se puede calcular por varias razones. Consulte la nota siguiente <sup>1</sup> para obtener más detalles y posibles soluciones para resolverlos. |
+
+<sup>1</sup> desconoce el estado de mantenimiento se debe a lo siguiente:
+
+- Agente que se haya reconfigurado y ya no los informes en el área de trabajo especificada cuando se habilitó Azure Monitor para las máquinas virtuales. Para configurar el agente para informar a del área de trabajo, consulte [agregando o quitando un área de trabajo](../platform/agent-manage.md#adding-or-removing-a-workspace).
+- Se ha eliminado la máquina virtual.
+- Se elimina el área de trabajo asociado con Azure Monitor para las máquinas virtuales. Para recuperar el área de trabajo, si tiene ventajas que se puede abrir una solicitud de soporte técnico de soporte técnico Premier [Premier](https://premier.microsoft.com/).
+- Se han eliminado las dependencias de solución. Para volver a habilitar las soluciones de Service Map y InfrastructureInsights en el área de trabajo de Log Analytics, puede volver a instalar mediante una [plantilla de Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions) que ha proporcionado o mediante la opción de configuración de área de trabajo se encuentra en el Get Started ficha.
+- Máquina virtual ha estado apagado.
+- Servicio de máquina virtual de Azure está disponible o se está realizando el mantenimiento.
+- Área de trabajo [datos diarios o límite de retención](../platform/manage-cost-storage.md) se cumple.
 
 Si selecciona **Ver el diagnóstico de estado**, se abre una página que muestra todos los componentes de la VM, los criterios de estado asociados, los cambios de estado y otros temas importantes detectados mediante la supervisión de componentes relacionados con la máquina virtual. Para más información, consulte [Diagnóstico de mantenimiento](#health-diagnostics). 
 
@@ -108,7 +118,7 @@ En la sección **Estado del componente**, la tabla muestra un estado acumulativo
 
 Al obtener acceso al estado de una máquina virtual de Azure que ejecutan el sistema operativo de Windows, el estado de mantenimiento de los principales cinco principales de Windows services se muestran en la sección **estado de los servicios básicos**.  Cuando selecciona cualquiera de los servicios, se abre una página que enumera los criterios de estado que supervisan dicho componente y su estado de mantenimiento.  Al hacer clic en el nombre de los criterios de mantenimiento, se abrirá el panel de propiedades y, desde aquí, puede revisar los detalles de configuración, por ejemplo, si los criterios de estado tienen definida una alerta de Azure Monitor correspondiente. Para más información, consulte [Health Diagnostics and working with health criteria](#health-diagnostics) (Diagnóstico de mantenimiento y trabajo con los criterios de mantenimiento).  
 
-## <a name="aggregate-virtual-machine-perspective"></a>Perspectiva de la máquina virtual agregada
+### <a name="aggregate-virtual-machine-perspective"></a>Perspectiva de la máquina virtual agregada
 
 Para ver la colección de mantenimiento de todas las máquinas virtuales de un grupo de recursos, vaya a la lista de navegación del portal, seleccione **Azure Monitor** y, a continuación, seleccione **Máquinas virtuales (versión preliminar)**.  
 
@@ -154,7 +164,7 @@ Puede explorar en profundidad para ver las instancias que tienen un estado incor
 
 ## <a name="health-diagnostics"></a>Diagnóstico de mantenimiento
 
-La página **Diagnóstico de mantenimiento** le permite ver el modelo de mantenimiento de una máquina virtual y enumerar todos los componentes de la máquina virtual, los criterios de mantenimiento asociados, los cambios de estado y otros problemas importantes detectados mediante la supervisión de componentes relacionados con la máquina virtual.
+El **diagnósticos de estado** página permite visualizar el modelo de estado de una máquina virtual, la lista de todos los componentes de la máquina virtual, asociado con los criterios de estado, los cambios de estado, y otros temas importantes identificados por supervisan los componentes relacionados con en la máquina virtual.
 
 ![Ejemplo de la página Diagnóstico de mantenimiento para una VM](./media/vminsights-health/health-diagnostics-page-01.png)
 
@@ -343,7 +353,7 @@ Para habilitar o deshabilitar una alerta para un criterio de mantenimiento espec
 Azure Monitor de estado de las máquinas virtuales es compatible con notificaciones de SMS y correo electrónico cuando se generan alertas cuando los criterios de estado pasa a ser incorrecto. Para configurar las notificaciones, debe tener en cuenta el nombre del grupo de acción que está configurado para enviar notificaciones de correo electrónico o SMS. 
 
 >[!NOTE]
->Esta acción debe realizarse en cada máquina virtual que se supervisan que desea recibir una notificación.
+>Esta acción debe realizarse en cada máquina virtual que supervisan que desea recibir una notificación, no se aplica a todas las máquinas virtuales en el grupo de recursos.  
 
 1. En una ventana de terminal, escriba **inicio de sesión de armclient.exe**. Si lo hace, le pedirá que inicie sesión en Azure.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619725"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978894"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar un nombre de dominio personalizado para Azure App Service
 
@@ -201,7 +201,9 @@ Vaya a los nombres de host enumerados en el explorador. En el ejemplo de la capt
 
 ## <a name="renew-the-domain"></a>Renovación del dominio
 
-El dominio de App Service que compró es válido durante un año a partir del momento de la compra. De forma predeterminada, el dominio está configurado para renovarse automáticamente, y el cargo se realizará el próximo año según el método de pago especificado. Si desea desactivar la renovación automática, o si desea renovar manualmente su dominio, siga estos pasos.
+El dominio de App Service que compró es válido durante un año a partir del momento de la compra. De forma predeterminada, el dominio está configurado para renovarse automáticamente, y el cargo se realizará el próximo año según el método de pago especificado. Puede renovar manualmente el nombre de dominio.
+
+Si desea desactivar la renovación automática, o si desea renovar manualmente su dominio, siga estos pasos.
 
 En la pestaña **App Service**, haga clic en el nombre de la aplicación, seleccione **Configuración** y elija **Dominios personalizados**.
 
@@ -211,11 +213,25 @@ En la sección **Dominios de App Service**, seleccione el dominio que desea conf
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
-En el panel de navegación izquierdo del dominio, seleccione **Renovación de dominios**. Para detener la renovación automática del dominio, seleccione **Desactivar** y, después, **Guardar**. 
+En el panel de navegación izquierdo del dominio, seleccione **Renovación de dominios**. Para detener la renovación automática del dominio, seleccione **Desactivar** y, después, **Guardar**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-Para renovar el dominio manualmente, seleccione **Renovar dominio**. Sin embargo, este botón no está activo hasta noventa días antes de la expiración del dominio.
+Para renovar el dominio manualmente, seleccione **Renovar dominio**. Sin embargo, este botón no está activo hasta que [90 días antes de la expiración del dominio](#when-domain-expires).
+
+Si la renovación del dominio se realiza correctamente, recibirá una notificación por correo electrónico en 24 horas.
+
+## <a name="when-domain-expires"></a>Cuando expira el dominio
+
+Azure se ocupa de que expire o caducado dominios de App Service como sigue:
+
+* Si se deshabilita la renovación automática: 90 días antes de la expiración del dominio, se envía un correo electrónico de notificación de renovación para usted y el **renovar dominio** botón está activado en el portal.
+* Si se habilita la renovación automática: El día después de la fecha de expiración del dominio, Azure intenta cobrarle por la renovación de nombre de dominio.
+* Si se produce un error durante la renovación automática (por ejemplo, ha caducado la tarjeta en el archivo), o si la renovación automática está deshabilitada y permitir el dominio expire, Azure le avisa de la expiración del dominio y parques su nombre de dominio. También puede [renovar manualmente](#renew-the-domain) su dominio.
+* El día 4 y 12 días tras la expiración, Azure envía correos electrónicos de notificación adicional. También puede [renovar manualmente](#renew-the-domain) su dominio.
+* El 19 de día tras la expiración, el dominio permanece en espera pero quede sujeta a un precio de canje. Puede llamar a soporte al cliente para renovar su nombre de dominio, sujetos a cuotas de canje y cualquier renovación aplicable.
+* El día 25 tras la expiración, Azure pone a su dominio en subasta con un servicio de subasta del sector de nombres de dominio. Puede llamar a soporte al cliente para renovar su nombre de dominio, sujetos a cuotas de canje y cualquier renovación aplicable.
+* En el día 30 tras la expiración, ya no pueden canjear su dominio.
 
 <a name="custom"></a>
 
