@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821318"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151184"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Seguridad de la empresa para el servicio Azure Machine Learning
 
@@ -154,7 +154,7 @@ El siguiente diagrama muestra el flujo de trabajo de creación del área de trab
 Usuario inicia sesión en Azure AD desde cualquiera de los clientes del servicio de Azure Machine Learning compatibles (portal de Azure CLI, SDK de Python) y solicita el token de Azure Resource Manager adecuado.  Usuario, a continuación, llama a Azure Resource Manager para crear el área de trabajo.  Proveedor de recursos para aprovisionar el área de trabajo de servicio de Azure Resource Manager contactos Azure Machine Learning.  Recursos adicionales se crean en la suscripción del cliente durante la creación del área de trabajo:
 * Almacén de claves (para almacenar secretos)
 * Una cuenta de almacenamiento de Azure (incluido Blob & recurso compartido de archivos)
-* Azure Container Registry (para almacenar imágenes de docker para inferencia y experimentación)
+* Azure Container Registry (para almacenar imágenes de docker para la inferencia/puntuación y experimentación)
 * Application Insights (para almacenar datos de telemetría)
 
 Otros procesos que se adjunta a un área de trabajo (servicio de Kubernetes de Azure, etc. de la máquina virtual) también se pueden aprovisionar por los clientes según sea necesario. 
@@ -167,12 +167,12 @@ Asociado a un Azure Machine Learning área de trabajo de servicio son directorio
 
 ![Captura de pantalla muestra crea flujo de trabajo del área de trabajo](./media/enterprise-readiness/code-snapshot.png)
 
-### <a name="training"></a>Cursos
+### <a name="training"></a>Aprendizaje
 El siguiente diagrama muestra el flujo de trabajo de aprendizaje.
 * Servicio Azure Machine Learning se denomina con el identificador de la instantánea para la instantánea de código que guardó anteriormente
 * Crea el servicio de Azure Machine Learning ejecuta ID (opcional) y el token de servicio de Azure Machine Learning, que se utiliza posteriormente en los destinos de proceso, como Machine Learning Compute o de máquinas virtuales para responder a los servicios de Azure Machine Learning
 * Puede elegir un proceso administrado (p. ej. Machine Learning Compute) o el proceso no administrado (p. ej. Máquina virtual) para ejecutar los trabajos de entrenamiento. Se explica el flujo de datos para ambos escenarios siguientes:
-* (Máquina virtual/HDInsight/Local; que se accede mediante credenciales SSH en Key Vault en la suscripción de Microsoft) Servicio Azure Machine Learning ejecuta código de administración de destino de proceso que:
+* (VM/HDInsight, que se accede mediante credenciales SSH en Key Vault en la suscripción de Microsoft) Servicio Azure Machine Learning ejecuta código de administración de destino de proceso que:
     1.  Prepara el entorno (tenga en cuenta: Docker es una opción para la máquina virtual o Local. Consulte los pasos para que Machine Learning Compute siguientes entender cómo ejecución experimento en funcionamiento de contenedor de docker)
     2.  Descarga del código
     3.  Configura las variables de entorno y configuraciones
@@ -189,7 +189,7 @@ Este paso se muestra en el flujo de escrituras de proceso de entrenamiento de do
 ![Captura de pantalla muestra crea flujo de trabajo del área de trabajo](./media/enterprise-readiness/training-and-metrics.png)
 
 ### <a name="creating-web-services"></a>Creación de servicios web
-El siguiente diagrama muestra el flujo de trabajo de inferencia en el que el modelo se implementa como un servicio web.
+El siguiente diagrama muestra el flujo de trabajo de inferencia. Inferencia o modelo de puntuación, es la fase donde se usa el modelo implementado para la predicción, con más frecuencia en los datos de producción.
 Consulte los detalles a continuación:
 * Usuario registra un modelo con un cliente como el SDK de Azure ML
 * Usuario crea la imagen mediante el modelo, el archivo de puntuación y otras dependencias de modelo

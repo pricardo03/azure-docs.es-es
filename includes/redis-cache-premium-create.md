@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
 ms.openlocfilehash: 2627554647c6c20cbdedfec53c1028b3edfa9c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541380"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132982"
 ---
 Para crear una memoria caché premium, inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Crear un recurso** > **Bases de datos** > **Azure Cache for Redis**.
 
@@ -22,5 +22,5 @@ Para crear una memoria caché premium, inicie sesión en [Azure Portal](https://
 
 Para configurar las características premium, primero seleccione uno de los planes de tarifa Premium en la lista desplegable **Plan de tarifa**. Para más información acerca de cada plan de tarifa, haga clic en **Ver todos los detalles de los precios** y seleccione un plan de tarifa en la hoja **Elegir el plan de tarifa**.
 
-![Elija su plan de tarifa](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
+![Elección de un plan de tarifa](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153470"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Actividad de la condición IF en Azure Data Factory
 La actividad de la condición IF proporciona la misma funcionalidad que proporciona una instrucción If en lenguajes de programación. Evalúa un conjunto de actividades cuando la condición se evalúa como `true` y otro conjunto de actividades cuando la condición se evalúa como `false`. 
@@ -66,8 +66,8 @@ La actividad de la condición IF proporciona la misma funcionalidad que proporci
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad de la condición IF. | string | Sí
-Tipo | Debe establecerse en **IfCondition** | string | Sí
+Nombre | Nombre de la actividad de la condición IF. | String | Sí
+Tipo | Debe establecerse en **IfCondition** | String | Sí
 expresión | Expresión que debe evaluarse como "true" o "false" | Expresión con resultado de tipo booleano | Sí
 ifTrueActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `true`. | Matriz | Sí
 ifFalseActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `false`. | Matriz | Sí

@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546714"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145897"
 ---
 Galerías de imágenes compartidas le permiten compartir las imágenes mediante RBAC. Puede utilizar RBAC para compartir imágenes dentro de su inquilino e incluso personas fuera de su inquilino. Sin embargo, si desea compartir las imágenes fuera de su inquilino de Azure a escala, debe crear un registro de aplicación para facilitar el uso compartido.  Uso de un registro de aplicación puede habilitar escenarios de uso compartidos más complejos, como: 
 
