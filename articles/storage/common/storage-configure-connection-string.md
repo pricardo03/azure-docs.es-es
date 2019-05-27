@@ -9,12 +9,12 @@ ms.date: 04/12/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7029f07b494630cc1ebe4a2dbfb297e73d85ec5e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ef01cf194ea7a0afea033d2888df946208073e41
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153186"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65874116"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuración de las cadenas de conexión de Azure Storage
 
@@ -35,7 +35,7 @@ La aplicación necesita acceder a la cadena de conexión en tiempo de ejecución
 
 El almacenamiento de la cadena de conexión en un archivo de configuración facilita la actualización de la cadena de conexión para que alterne entre el emulador de Storage y una cuenta de Azure Storage en la nube. Solo necesitará editar la cadena de conexión para apuntar al entorno de destino.
 
-Puede usar el [Administrador de configuración de Microsoft Azure](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) para acceder a la cadena de conexión en tiempo de ejecución independientemente de dónde se ejecute la aplicación.
+Puede usar el [Administrador de configuración de Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) para acceder a la cadena de conexión en tiempo de ejecución independientemente de dónde se ejecute la aplicación.
 
 ## <a name="create-a-connection-string-for-the-storage-emulator"></a>Creación de una cadena de conexión para el emulador de Storage
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
@@ -107,7 +107,7 @@ Si ha asignado un punto de conexión de Storage a un dominio personalizado y omi
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Creación de una cadena de conexión con el sufijo de un punto de conexión
-Para crear una cadena de conexión para un servicio de Storage en regiones o instancias con sufijos de punto de conexión diferentes, como Azure China o Azure Government, utilice el siguiente formato de cadena de conexión. Indique si desea conectarse a la cuenta de almacenamiento a través de HTTP (recomendado) o HTTPS, reemplace `myAccountName` por el nombre de la cuenta de almacenamiento, reemplace `myAccountKey` por la clave de acceso a la cuenta y reemplace `mySuffix` por el sufijo del identificador URI:
+Para crear una cadena de conexión para un servicio de almacenamiento en regiones o instancias con sufijos de punto de conexión diferente, como para Azure China 21Vianet o Azure Government, use el siguiente formato de cadena de conexión. Indique si desea conectarse a la cuenta de almacenamiento a través de HTTP (recomendado) o HTTPS, reemplace `myAccountName` por el nombre de la cuenta de almacenamiento, reemplace `myAccountKey` por la clave de acceso a la cuenta y reemplace `mySuffix` por el sufijo del identificador URI:
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -116,7 +116,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-Este es un ejemplo de cadena de conexión para los servicios de Storage en Azure China:
+Este es un ejemplo de cadena de conexión de servicios de almacenamiento de Azure China 21Vianet:
 
 ```
 DefaultEndpointsProtocol=https;
@@ -131,5 +131,5 @@ EndpointSuffix=core.chinacloudapi.cn;
 ## <a name="next-steps"></a>Pasos siguientes
 * [Uso del emulador de Azure Storage para desarrollo y pruebas](storage-use-emulator.md)
 * [Exploradores de Azure Storage](storage-explorers.md)
-* [Uso de Firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md)
+* [Uso de firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 

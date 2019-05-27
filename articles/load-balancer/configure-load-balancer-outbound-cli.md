@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: kumud
 ms.openlocfilehash: f28088a1a0586964092a0b5f86ce8bf0f95402cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122439"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurar el equilibrio de carga y las reglas de salida en Standard Load Balancer mediante la CLI de Azure
 
@@ -30,7 +30,7 @@ Al terminar, el recurso de Load Balancer contiene dos servidores front-end y las
 
 Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.28 o versiones posteriores. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
 
-## <a name="create-resource-group"></a>Creación de un grupo de recursos
+## <a name="create-resource-group"></a>Crear grupo de recursos
 
 Cree un grupo de recursos con [az group create](https://docs.microsoft.com/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
@@ -41,7 +41,7 @@ En el ejemplo siguiente se crea un grupo de recursos denominado *myresourcegroup
     --name myresourcegroupoutbound \
     --location eastus2
 ```
-## <a name="create-virtual-network"></a>Creación de una red virtual
+## <a name="create-virtual-network"></a>Crear Virtual Network
 Cree una red virtual denominada *myvnetoutbound* con una subred llamada *mysubnetoutbound* en *myresourcegroupoutbound* con el comando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive

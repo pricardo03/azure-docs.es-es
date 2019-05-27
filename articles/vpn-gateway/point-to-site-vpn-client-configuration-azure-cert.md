@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
 ms.openlocfilehash: b590dabbe4b2c6526f2c602aeed64667348eefa9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525174"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66113990"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creación e instalación de archivos de configuración de cliente VPN para configuraciones de punto a sitio con autenticación con certificados nativos de Azure
 
@@ -109,7 +109,7 @@ Siga los pasos siguientes para configurar el cliente de VPN nativo en equipos Ma
    ![identidad](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. En el campo **Id. local**, especifique el nombre del certificado (del paso 6). En este ejemplo, es "ikev2Client.com". A continuación, haga clic en el botón **Aplicar** para guardar los cambios.
 
-   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![aplicar](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. En el cuadro de diálogo **Red**, haga clic en **Aplicar** para guardar los cambios. A continuación, haga clic en **Conectar** para iniciar la conexión de punto a sitio a la red virtual de Azure.
 
 ## <a name="linuxgui"></a>Linux (GUI de StrongSwan)
@@ -168,7 +168,7 @@ Puede usar los siguientes comandos de la CLI o los pasos de strongSwan en la [GU
 1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
 2. `apt-get install libstrongswan-standard-plugins`
 
-### <a name="install-and-configure"></a>Instalación y configuración
+### <a name="install-and-configure"></a>Instalar y configurar
 
 1. Descargue el paquete de VPNClient desde Azure Portal.
 2. Extraiga el archivo.

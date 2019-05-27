@@ -10,12 +10,12 @@ ms.date: 01/11/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: b827894c633c425220bf94be1f51c52d464bd79b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 4ff54f9ca20c101de55bec2c7acf914c17bd7709
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410465"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951198"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Uso del almacenamiento de colas de PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -87,7 +87,7 @@ UseDevelopmentStorage=true
 Para crear un cliente del servicio Azure Queue, debe usar la clase **QueueRestProxy**. Puede usar cualquiera de las técnicas siguientes:
 
 * pasarle directamente la cadena de conexión, o bien
-* usar variables de entorno en la aplicación web para almacenar la cadena de conexión. Consulte el documento sobre la [configuración de aplicaciones web en Azure](../../app-service/web-sites-configure.md) para configurar cadenas de conexión.
+* usar variables de entorno en la aplicación web para almacenar la cadena de conexión. Consulte el documento sobre la [configuración de aplicaciones web en Azure](../../app-service/configure-common.md) para configurar cadenas de conexión.
 En los ejemplos descritos aquí, la cadena de conexión se pasa directamente.
 
 ```php

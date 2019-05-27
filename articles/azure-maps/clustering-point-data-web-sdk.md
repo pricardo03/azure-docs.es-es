@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: d4dc6f0c8fd2dff74a1997c9dca5a31abc70c03a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795933"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957318"
 ---
 # <a name="clustering-point-data"></a>Agrupación en clústeres punto de datos
 
@@ -33,7 +33,7 @@ var datasource = new atlas.source.DataSource(null, {
     //The radius in pixels to cluster points together.
     clusterRadius: 45,
 
-    //The maximium zoom level in which clustering occurs.
+    //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
     clusterMaxZoom: 15 
 });
@@ -46,9 +46,9 @@ La `DataSource` clase también tiene los siguientes métodos relacionados con la
 
 | Método | Tipo de valor devuelto | DESCRIPCIÓN |
 |--------|-------------|-------------|
-| getClusterChildren(clusterId: number) | Promesa&lt;característica&lt;Geometry, cualquier&gt; \| forma&gt; | Recupera a los elementos secundarios del clúster especificado en el siguiente nivel de zoom. Estos elementos secundarios pueden ser una combinación de formas y subclusters. El subclusters será características cuyas propiedades coincidan con ClusteredProperties. |
+| getClusterChildren(clusterId: number) | Promesa&lt;matriz&lt;característica&lt;Geometry, cualquier&gt; \| forma&gt;&gt; | Recupera a los elementos secundarios del clúster especificado en el siguiente nivel de zoom. Estos elementos secundarios pueden ser una combinación de formas y subclusters. El subclusters será características cuyas propiedades coincidan con ClusteredProperties. |
 | getClusterExpansionZoom(clusterId: number) | Promesa&lt;número&gt; | Calcula un nivel de zoom en el que se iniciará expandir el clúster o se divida. |
-| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promesa&lt;característica&lt;Geometry, cualquier&gt; \| forma&gt; | Recupera todos los puntos en un clúster. Establecer el `limit` para devolver un subconjunto de los puntos y utilice la `offset` página a través de los puntos. |
+| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promesa&lt;matriz&lt;característica&lt;Geometry, cualquier&gt; \| forma&gt;&gt; | Recupera todos los puntos en un clúster. Establecer el `limit` para devolver un subconjunto de los puntos y utilice la `offset` página a través de los puntos. |
 
 ## <a name="display-clusters-using-a-bubble-layer"></a>Mostrar clústeres con una capa de burbuja
 
@@ -86,10 +86,10 @@ Cuando se producen los eventos del mouse en una capa que contienen puntos de dat
 
 | Nombre de propiedad | Type | DESCRIPCIÓN |
 |---------------|------|-------------|
-| cluster | boolean | Indica si la característica representa un clúster. |
+| clúster | boolean | Indica si la característica representa un clúster. |
 | cluster_id | string | Un identificador único para el clúster que se puede usar con el origen de datos `getClusterExpansionZoom`, `getClusterChildren`, y `getClusterLeaves` métodos. |
-| point_count | número | El número de puntos que contiene el clúster. |
-| point_count_abbreviated | string | Cadena que abrevia el valor point_count si es largo. (por ejemplo, 4.000 se convierte en 4K) |
+| point_count | de serie | El número de puntos que contiene el clúster. |
+| point_count_abbreviated | string | Una cadena que abrevia la `point_count` valor si es larga. (por ejemplo, 4.000 se convierte en 4K) |
 
 Este ejemplo toma una capa de burbuja que representa los puntos de clúster y agrega un evento de clic que cuando se desencadena, calcular, y la asignación de zoom al siguiente nivel de zoom en el que el clúster se interrumpirá una distancia con la `getClusterExpansionZoom` método de la `DataSource` clase y el `cluster_id` propiedad de la ha hecho clic en clúster de punto de datos. 
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 12565d2b8004a5119add25473e5b088c9162035f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 33d86ab8c88b45c7787620773f0df6e7fe888cf3
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780500"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850410"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Instalación y uso de Istio en Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ En este artículo, aprenderá a:
 
 Los pasos detallados en este artículo se suponen que ha creado un clúster de AKS (Kubernetes `1.11` y versiones posteriores, con RBAC habilitado) y que ha establecido un `kubectl` conexión con el clúster. Si necesita ayuda con cualquiera de estos elementos, vea el [inicio rápido de AKS][aks-quickstart].
 
-Necesitará [Helm] [ helm] siga estas instrucciones e instale Istio. Se recomienda que tiene la versión `2.12.2` o posterior correctamente instalado y configurado en el clúster. Si necesita ayuda con la instalación de Helm, consulte el [instrucciones de instalación de Helm AKS][helm-install].
+Necesitará [Helm] [ helm] siga estas instrucciones e instale Istio. Se recomienda que tiene la versión `2.12.2` o posterior correctamente instalado y configurado en el clúster. Si necesita ayuda con la instalación de Helm, consulte el [instrucciones de instalación de Helm AKS][helm-install]. Todos los pods Istio también deben programarse para ejecutarse en nodos de Linux.
 
 En este artículo, las instrucciones de instalación de Istio se dividen en varios pasos discretos. El resultado final presenta la misma estructura que las [instrucciones][istio-install-helm] de instalación oficiales de Istio.
 
@@ -336,6 +336,9 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 ```
 
 El `istio` gráfico de Helm implementa un gran número de objetos. Puede ver la lista de la salida de su `helm install` comando anterior. La implementación de los componentes de Istio puede tardar 4 y 5 minutos en completarse, según el entorno de clúster.
+
+> [!NOTE]
+> Todos los pods Istio deben programarse para ejecutarse en nodos de Linux. Si tiene grupos de nodos de Windows Server además de los grupos de nodos de Linux en el clúster, compruebe que todos los pods Istio se han programado para ejecutarse en nodos de Linux.
 
 En este momento, ha implementado Istio a su clúster AKS. Para asegurarse de que tenemos una implementación correcta de Istio, pasemos a la siguiente sección para [validar la instalación de Istio](#validate-the-istio-installation).
 

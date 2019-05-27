@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/29/2098
+ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925713"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922099"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Actualización automática de Mobility service en la replicación en Azure
 
@@ -535,3 +535,14 @@ Si no se pudo habilitar las actualizaciones automáticas, consulte los siguiente
 - **Error**: no se encuentra la cuenta de ejecución. Es posible que la huella digital del certificado y la conexión no sea idéntica, o que alguno de los elementos siguientes se haya eliminado o no se haya creado: la aplicación Azure Active Directory, la entidad de servicio, el rol, el recurso de certificado de Automation o el recurso de conexión de Automation. 
 
     **Acción recomendada**: Eliminar y, a continuación, [volver a crear la cuenta de ejecución](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+
+-  **Error**: La ejecución de Azure como el certificado utilizado por la cuenta de automation está a punto de expirar. 
+
+    El certificado autofirmado que se crea para la cuenta de ejecución expira un año a partir de la fecha de creación. Se puede renovar en cualquier momento antes de que expire. Si se ha registrado para las notificaciones de correo electrónico, también recibirá correos electrónicos cuando falta una acción por su parte. Este error se mostrará 2 meses antes de la fecha de expiración y cambiará a un error crítico si el certificado ha expirado. Una vez que el certificado ha expirado, la actualización automática no será funcional hasta que renueve el mismo.
+
+   **Acción recomendada**: Haga clic en 'Reparar' y 'Renovar el certificado' para resolver este problema.
+    
+   ![renew-cert](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+
+> [!NOTE]
+> Una vez que se renueva el certificado, actualice la página para que se actualice el estado actual.

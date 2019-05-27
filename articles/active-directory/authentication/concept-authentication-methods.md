@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359286"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119363"
 ---
 # <a name="what-are-authentication-methods"></a>¿Qué son los métodos de autenticación?
 
@@ -33,9 +33,9 @@ Microsoft recomienda encarecidamente a los administradores que permitan a los us
 | Dirección de correo electrónico | Solo SSPR |
 | Aplicación Microsoft Authenticator | MFA y versión preliminar pública de SSPR |
 | Token de hardware OATH | Versión preliminar pública de MFA y SSPR |
-| sms | MFA y SSPR |
+| SMS | MFA y SSPR |
 | Llamada de voz | MFA y SSPR |
-| Contraseñas de aplicación | MFA solo en determinados casos |
+| Contraseñas de aplicaciones | MFA solo en determinados casos |
 
 ![Métodos de autenticación en uso en la pantalla de inicio de sesión](media/concept-authentication-methods/overview-login.png)
 
@@ -144,7 +144,7 @@ Si habilita el uso de la notificación a través de aplicación móvil y del có
 > [!NOTE]
 > Si su organización tiene personal trabajar o de viaje en China, el **notificación a través de la aplicación móvil** método **dispositivos Android** no funciona en ese país. Métodos alternativos deben estar disponibles para esos usuarios.
 
-### <a name="verification-code-from-mobile-app"></a>Código de verificación desde aplicación móvil
+### <a name="verification-code-from-mobile-app"></a>Código de verificación de aplicación móvil
 
 La aplicación Microsoft Authenticator u otras aplicaciones de terceros pueden utilizarse como un token de software para generar un código de verificación de OATH. Después de escribir el nombre de usuario y la contraseña, especifique el código que facilita la aplicación en la pantalla de inicio de sesión. El código de verificación es una forma adicional de autenticación.
 
@@ -165,7 +165,7 @@ Los tokens de hardware OATH se admiten como parte de una versión preliminar pú
 Una vez que se adquieren los tokens, se deben cargar en un formato de archivo de valores separados por comas (CSV), incluidos los valores de UPN, número de serie, clave secreta, intervalo de tiempo, fabricante y modelo, como se muestra en el ejemplo siguiente.
 
 ```csv
-upn,serial number,secret key,timeinterval,manufacturer,model
+upn,serial number,secret key,time interval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```
 
@@ -204,7 +204,7 @@ Se realiza una llamada de voz automática al número de teléfono que proporcion
 > [!IMPORTANT]
 > A partir de marzo de 2019 las opciones de llamada de teléfono no estará disponible para los usuarios MFA y SSPR en inquilinos de Azure AD gratuito de prueba. Mensajes SMS no se ven afectados por este cambio. Llamada de teléfono seguirá estando disponible para los usuarios de inquilinos de Azure AD de pago. Este cambio solo afecta a los inquilinos de Azure AD gratuito de prueba.
 
-## <a name="office-phone"></a>Teléfono del trabajo
+## <a name="office-phone"></a>Teléfono de la oficina
 
 Se realiza una llamada de voz automática al número de teléfono que proporcione. El usuario responde a la llamada y pulsa # en el teclado del teléfono para autenticarse.
 

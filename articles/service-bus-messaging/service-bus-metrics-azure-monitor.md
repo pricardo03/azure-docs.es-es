@@ -1,6 +1,6 @@
 ---
 title: Métricas de Azure Service Bus en Azure Monitor (versión preliminar) | Microsoft Docs
-description: Use Azure Monitor para supervisar las entidades de Service Bus.
+description: Use Azure Monitor para supervisar las entidades de Service Bus
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: d5f5c1d9b1884c6e9975ceb0ce28ecd5f25e89b2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fdb0152ef398dbd53a8a2a99a10d90254252908b
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716104"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921233"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas de Azure Service Bus en Azure Monitor (versión preliminar)
 
@@ -59,13 +59,13 @@ Los valores de las métricas se envían a Azure Monitor cada minuto. La granular
 
 Cuenta el número de solicitudes de operaciones de datos y administración.
 
-| Nombre de métrica | DESCRIPCIÓN |
+| Nombre de la métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-| Solicitudes entrantes (versión preliminar) | Número de solicitudes realizadas al servicio de Service Bus durante un período determinado. <br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Solicitudes correctas (versión preliminar)|Número de solicitudes correctas realizadas al servicio de Service Bus durante un período determinado.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Errores del servidor (versión preliminar)|Número de solicitudes no procesadas debido a un error en el servicio de Service Bus durante un período determinado.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Errores de usuario (versión preliminar: vea la subsección siguiente)|Número de solicitudes no procesadas debido a errores de usuario durante un período determinado.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Solicitudes limitadas (versión preliminar)|Número de solicitudes que se han limitado porque se superó el uso.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+| Solicitudes entrantes (versión preliminar) | Número de solicitudes realizadas al servicio de Service Bus durante un período determinado. <br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Solicitudes correctas (versión preliminar)|Número de solicitudes correctas realizadas al servicio de Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Errores del servidor (versión preliminar)|Número de solicitudes no procesadas debido a un error en el servicio de Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Errores de usuario (versión preliminar: vea la subsección siguiente)|Número de solicitudes no procesadas debido a errores de usuario durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Solicitudes limitadas (versión preliminar)|Número de solicitudes que se han limitado porque se superó el uso.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 
 ### <a name="user-errors"></a>Errores de usuario
 
@@ -77,30 +77,30 @@ Los dos tipos de errores siguientes se clasifican como errores de usuario:
 
 ## <a name="message-metrics"></a>Métricas de mensaje
 
-| Nombre de métrica | DESCRIPCIÓN |
+| Nombre de la métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-|Mensajes entrantes (versión preliminar)|Número de eventos o mensajes enviados a Service Bus durante un período determinado.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-|Mensajes salientes (versión preliminar)|Número de eventos o mensajes recibidos de Service Bus durante un período determinado.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
-| Mensajes (versión preliminar) | Recuento de mensajes de una cola/tema. <br/><br/> Unidad: Número <br/> Tipo de agregación: Media <br/> Dimensión: EntityName |
-| Mensajes activos (versión preliminar) | Recuento de mensajes activos de una cola/tema. <br/><br/> Unidad: Número <br/> Tipo de agregación: Media <br/> Dimensión: EntityName |
-| Mensajes fallidos (versión preliminar) | Recuento de mensajes fallidos en una cola o tema. <br/><br/> Unidad: Número <br/> Tipo de agregación: Media <br/>Dimensión: EntityName |
-| Mensajes programados (versión preliminar) | Recuento de mensajes programados en una cola o tema. <br/><br/> Unidad: Número <br/> Tipo de agregación: Media  <br/> Dimensión: EntityName |
+|Mensajes entrantes (versión preliminar)|Número de eventos o mensajes enviados a Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|Mensajes salientes (versión preliminar)|Número de eventos o mensajes recibidos de Service Bus durante un período determinado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+| Mensajes (versión preliminar) | Recuento de mensajes de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Promedio <br/> Dimensión: EntityName |
+| Mensajes activos (versión preliminar) | Recuento de mensajes activos de una cola/tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Promedio <br/> Dimensión: EntityName |
+| Mensajes fallidos (versión preliminar) | Recuento de mensajes fallidos en una cola o tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Promedio <br/>Dimensión: EntityName |
+| Mensajes programados (versión preliminar) | Recuento de mensajes programados en una cola o tema. <br/><br/> Unidad: Count <br/> Tipo de agregación: Promedio  <br/> Dimensión: EntityName |
 
 ## <a name="connection-metrics"></a>Métricas de conexión
 
-| Nombre de métrica | DESCRIPCIÓN |
+| Nombre de la métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-|ActiveConnections (versión preliminar)|Número de conexiones activas en un espacio de nombres, así como en una entidad.<br/><br/> Unidad: Número <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|ActiveConnections (versión preliminar)|Número de conexiones activas en un espacio de nombres, así como en una entidad.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 
 ## <a name="resource-usage-metrics"></a>Métricas de uso de recursos
 
 > [!NOTE] 
 > Estas métricas están disponibles solo con el nivel **Premium**. 
 
-| Nombre de métrica | DESCRIPCIÓN |
+| Nombre de la métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-|Uso de CPU por espacio de nombres (versión preliminar)|Porcentaje de uso de CPU del espacio de nombres.<br/><br/> Unidad: Percent <br/> Tipo de agregación: Máxima <br/> Dimensión: EntityName|
-|Uso de tamaño de memoria por espacio de nombres (versión preliminar)|Porcentaje de uso de memoria del espacio de nombres.<br/><br/> Unidad: Percent <br/> Tipo de agregación: Máxima <br/> Dimensión: EntityName|
+|Uso de CPU por espacio de nombres (versión preliminar)|Porcentaje de uso de CPU del espacio de nombres.<br/><br/> Unidad: Percent <br/> Tipo de agregación: Máximo <br/> Dimensión: EntityName|
+|Uso de tamaño de memoria por espacio de nombres (versión preliminar)|Porcentaje de uso de memoria del espacio de nombres.<br/><br/> Unidad: Percent <br/> Tipo de agregación: Máximo <br/> Dimensión: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensiones de métricas
 
@@ -124,7 +124,7 @@ Azure Service Bus admite las siguientes dimensiones para las métricas de Azure 
         ![Seleccionar espacio de nombres](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Seleccione **Agregar criterios** y realice las acciones siguientes en la página **Configurar lógica de señal**:
     1. Seleccione **Métricas** para **Tipo de señal**. 
-    2. Seleccione una señal. Por ejemplo:  **Errores del servidor (versión preliminar)**. 
+    2. Seleccione una señal. Por ejemplo: **Errores del servidor (versión preliminar)**. 
 
         ![Seleccionar errores del servidor](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Seleccione **Mayor que** en **Condición**.
@@ -160,7 +160,7 @@ Azure Service Bus admite las siguientes dimensiones para las métricas de Azure 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vea [Información general sobre la supervisión en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+Consulte la [información general de Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png

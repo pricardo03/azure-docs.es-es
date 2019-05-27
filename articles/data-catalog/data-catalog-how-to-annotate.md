@@ -8,12 +8,12 @@ ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 3a66c8c5963972828723dd74ffe560a0e2240165
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001943"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953171"
 ---
 # <a name="how-to-annotate-data-sources"></a>Anotación de orígenes de datos
 ## <a name="introduction"></a>Introducción
@@ -27,9 +27,9 @@ Data Catalog reconoce que distintos usuarios tienen diferentes perspectivas sobr
 * El administrador de base de datos conoce la programación de copia de seguridad de cada base de datos y las ventanas de procesamiento de ETL permitidas.
 * El propietario del sistema conoce el proceso para que los usuarios soliciten acceso al origen de datos.
 * El administrador de datos conoce cómo se asignan los recursos y atributos del origen de datos al modelo de datos empresarial.
-* El analista conoce cómo se usan los datos en el contexto de los procesos empresariales con los que trabaja.
+* El analista conoce cómo se usan los datos en el contexto de los procesos empresariales que admiten.
 
-Cada una de estas perspectivas es importante, y Data Catalog aplica un enfoque de micromecenazgo a los metadatos que permite que cada una se capture y utilice para ofrecer una visión completa de los orígenes de datos registrados. Mediante el portal de Data Catalog, cada usuario puede agregar y modificar sus propias anotaciones, a la vez que puede ver las anotaciones que otros usuarios han proporcionado.
+Cada una de estas perspectivas es importante, y Data Catalog aplica un enfoque de micromecenazgo a los metadatos que permite que cada una se capture y utilice para ofrecer una visión completa de los orígenes de datos registrados. Mediante el portal de Data Catalog, cada usuario puede agregar y editar sus propias anotaciones, mientras que se puedan ver las anotaciones proporcionadas por otros usuarios.
 
 ## <a name="different-types-of-annotations"></a>Distintos tipos de anotaciones
 La búsqueda de Data Catalog admite los siguientes tipos de anotaciones:

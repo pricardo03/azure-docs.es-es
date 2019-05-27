@@ -16,14 +16,14 @@ ms.date: 04/27/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abe2f7deef2a1dbe82f4702fd3477303891ab2e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873559"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921059"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>¿Qué es la administración de derechos de Azure AD?  (versión preliminar)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>¿Qué es la administración de derechos de Azure AD? (Versión preliminar)
 
 > [!IMPORTANT]
 > Administración de derechos de Azure Active Directory (Azure AD) está actualmente en versión preliminar pública.
@@ -42,7 +42,7 @@ Las organizaciones empresariales suelen enfrentan desafíos al administrar el ac
 - Los usuarios pueden tener dificultades para encontrar las personas adecuadas o los recursos adecuados
 - Una vez que los usuarios buscar y obtener acceso a un recurso, puede mantener para tener acceso a más de lo que es necesario para fines empresariales
 
-Estos problemas se agravan para los usuarios que necesitan tener acceso desde otro directorio, por ejemplo, los usuarios externos que provienen de las organizaciones de cadena de suministro o de otro socio comercial. Por ejemplo: 
+Estos problemas se agravan para los usuarios que necesitan tener acceso desde otro directorio, por ejemplo, los usuarios externos que provienen de las organizaciones de cadena de suministro o de otro socio comercial. Por ejemplo:
 
 - Las organizaciones no pueden conocer todos los individuos específicos en otros directorios que puedan invitarlos
 - Incluso si las organizaciones pueden invitar a estos usuarios, las organizaciones no es posible que recuerde a administrar todo el acceso del usuario coherente
@@ -114,7 +114,7 @@ El siguiente diagrama muestra un ejemplo de los distintos elementos en la admini
 
 Cuando se usa el [Azure AD negocio a negocio (B2B)](../b2b/what-is-b2b.md) invitar experiencia, ya debe conocer las direcciones de correo electrónico de los usuarios invitados externos que desea incorporar a su directorio de recursos y trabajar con. Esto funciona muy bien cuando está trabajando en un proyecto más pequeño o a corto plazo y que ya conoce a todos los participantes, pero esto es más difícil de administrar si tiene una gran cantidad de usuarios que desea trabajar con o si los participantes cambian con el tiempo.  Por ejemplo, puede trabajar con otra organización y tener un punto de contacto con dicha organización, pero con el tiempo adicional a los usuarios de dicha organización también necesitará acceso.
 
-Con la administración de derechos, puede definir una directiva que permite a los usuarios de organizaciones que especifique, que también usan Azure AD, para poder solicitar un paquete de acceso. Puede especificar una fecha de expiración para el acceso y si es necesaria la aprobación. Si se requiere aprobación, también puede designar como un aprobador de uno o varios usuarios de organizaciones externas que anteriormente invitado - dado que es probables que saber qué usuarios externos de su organización necesitan tener acceso. Una vez haya configurado el paquete de acceso, puede enviar un vínculo al paquete acceso a la persona de contacto en la organización externa. Dicho contacto puede compartir con otros usuarios de la organización externa, y puede usar este vínculo para solicitar el paquete de acceso.  A los usuarios que ya han sido invitados a su directorio de la organización que también pueden usar ese vínculo.
+Con la administración de derechos, puede definir una directiva que permite a los usuarios de organizaciones que especifique, que también usan Azure AD, para poder solicitar un paquete de acceso. Puede especificar una fecha de expiración para el acceso y si es necesaria la aprobación. Si se requiere aprobación, también puede designar como un aprobador de uno o varios usuarios de organizaciones externas que anteriormente invitado - dado que es probables que saber qué usuarios externos de su organización necesitan tener acceso. Una vez haya configurado el paquete de acceso, puede enviar un vínculo al paquete acceso a la persona de contacto en la organización externa. Dicho contacto puede compartir con otros usuarios de la organización externa, y puede usar este vínculo para solicitar el paquete de acceso.  Los usuarios de dicha organización que ya han sido invitados a su directorio también pueden usar ese vínculo.
 
 Cuando se aprueba una solicitud, administración de derechos proporcionará al usuario con el acceso necesario, que puede incluir a invitar al usuario si no están ya en el directorio. Azure AD creará automáticamente una cuenta de B2B para ellos.  Tenga en cuenta que un administrador puede haber limitado antes que las organizaciones se permiten para la colaboración, estableciendo una [B2B permitir o denegar lista](../b2b/allow-deny-list.md) permitir o bloquear invitaciones a otras organizaciones.  Si el usuario no está autorizado por la lista de permitidos o bloqueados, a continuación, no se les invitará.
 
@@ -130,14 +130,14 @@ Para entender mejor la administración de derechos y su documentación, debe rev
 | paquete de acceso | Una colección de permisos y directivas a los recursos que los usuarios pueden solicitar. Un paquete de acceso siempre se encuentra en un catálogo. |
 | solicitud de acceso | Una solicitud para obtener acceso a un paquete de acceso. Normalmente, una solicitud pasa por un flujo de trabajo. |
 | policy | Un conjunto de reglas que define el ciclo de vida de acceso, como cómo los usuarios obtienen acceso, quién puede aprobar y cuánto tiempo los usuarios tienen acceso. Las directivas de ejemplo incluyen el acceso de los empleados y el acceso externo. |
-| catálogo | Un contenedor de paquetes de acceso y recursos relacionados. |
+| catalog | Un contenedor de paquetes de acceso y recursos relacionados. |
 | Catálogo general | Un catálogo integrado que siempre está disponible. Para agregar recursos al catálogo General, requiere determinados permisos. |
-| resource | Un recurso o servicio (por ejemplo, un grupo, aplicación o sitio) que se puede conceder permisos para un usuario. |
+| Recurso | Un recurso o servicio (por ejemplo, un grupo, aplicación o sitio) que se puede conceder permisos para un usuario. |
 | tipo de recurso | El tipo de recurso, que incluye grupos, aplicaciones y sitios de SharePoint Online. |
 | roles de recursos | Una colección de permisos asociados a un recurso. |
 | directorio de recursos | Un directorio que tiene uno o más recursos para compartirla. |
 | usuarios asignados | Asignación de un paquete de acceso a un usuario o grupo. |
-| enable | El proceso de poner a disposición de los usuarios solicitar un paquete de acceso. |
+| habilitar | El proceso de poner a disposición de los usuarios solicitar un paquete de acceso. |
 
 ## <a name="roles-and-permissions"></a>Roles y permisos
 

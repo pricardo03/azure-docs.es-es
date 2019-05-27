@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -17,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24b2281e09da0bdcff0abec8be0091dcbb32cc51
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: ea1e47939913435b5b7040c0e6d01b1208d709d3
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544786"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962887"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de plataforma de identidad de Microsoft
 
@@ -78,8 +77,8 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 |Notificación | Formato | DESCRIPCIÓN |
 |--------|--------|-------------|
 | `typ` | Cadena: siempre "JWT" | Indica que el token es un token JWT.|
-| `nonce` | string | Un identificador único utilizado para proteger contra ataques de repetición de token. El recurso puede registrar este valor para protegerse contra las repeticiones. |
-| `alg` | string | Indica el algoritmo que se usó para firmar el token, por ejemplo, "RS256". |
+| `nonce` | String | Un identificador único utilizado para proteger contra ataques de repetición de token. El recurso puede registrar este valor para protegerse contra las repeticiones. |
+| `alg` | String | Indica el algoritmo que se usó para firmar el token, por ejemplo, "RS256". |
 | `kid` | String | Especifica la huella digital de la clave pública que se utiliza para firmar este token. Se emite en ambos tokens de acceso de las versiones 1.0 y 2.0. |
 | `x5t` | String | Funciona igual (en uso y valor) que `kid`. `x5t` es una notificación heredada emitida solo en los tokens de acceso de la versión 1.0 para fines de compatibilidad. |
 
@@ -100,7 +99,7 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `appidacr` | 0, 1 o 2 | Solo está presente en los tokens de la versión 1.0. Indica cómo se autenticó el cliente. Para un cliente público, el valor es 0. Si se usan el identificador y el secreto de cliente, el valor es 1. Si se usa un certificado de cliente para la autenticación, el valor es 2. |
 | `azp` | Cadena, un identificador GUID | Símbolos (token) sólo está presente en la versión 2.0, un reemplazo para `appid`. El identificador de aplicación del cliente mediante el token. La aplicación puede actuar por sí misma o en nombre de un usuario. Normalmente, el id. de aplicación representa un objeto de aplicación, pero también puede representar un objeto de entidad de servicio en Azure AD. |
 | `azpacr` | 0, 1 o 2 | Símbolos (token) sólo está presente en la versión 2.0, un reemplazo para `appidacr`. Indica cómo se autenticó el cliente. Para un cliente público, el valor es 0. Si se usan el identificador y el secreto de cliente, el valor es 1. Si se usa un certificado de cliente para la autenticación, el valor es 2. |
-| `preferred_username` | string | El nombre de usuario principal que representa al usuario. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y podría cambiar en el tiempo. Puesto que es mutable, este valor no debe usarse para tomar decisiones de autorización.  También se puede usar para las sugerencias de nombre de usuario. El ámbito `profile` es necesario para recibir esta notificación. |
+| `preferred_username` | String | El nombre de usuario principal que representa al usuario. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y podría cambiar en el tiempo. Puesto que es mutable, este valor no debe usarse para tomar decisiones de autorización.  También se puede usar para las sugerencias de nombre de usuario. El ámbito `profile` es necesario para recibir esta notificación. |
 | `name` | String | Proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que el valor sea único, es mutable y está diseñado para usarse solo con fines de visualización. El ámbito `profile` es necesario para recibir esta notificación. |
 | `scp` | Cadena, una lista de ámbitos separada por espacios. | El conjunto de ámbitos expuestos por la aplicación para los cuales la aplicación cliente ha solicitado (y recibido) consentimiento. Su aplicación debe comprobar que estos ámbitos son válidos y están expuestos por la aplicación, y tomar decisiones de autorización basadas en el valor de estos ámbitos. Solo se incluye para los [tokens de usuario](#user-and-application-tokens). |
 | `roles` | Matriz de cadenas, una lista de permisos | El conjunto de permisos expuestos por la aplicación que la aplicación o el usuario solicitante se ha dado permiso para llamar a. Para [tokens de aplicación](#user-and-application-tokens), se utiliza durante la [credenciales de cliente](v1-oauth2-client-creds-grant-flow.md) flujo en lugar de ámbitos de usuario.  Para [los tokens de usuario](#user-and-application-tokens) se rellena con los roles que se ha asignado el usuario en la aplicación de destino. |
@@ -111,7 +110,7 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `sub` | Cadena, un identificador GUID | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso, y se puede usar como clave en tablas de base de datos. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general. El asunto es, sin embargo, un identificador en pares (es único para un id. de aplicación determinado). Por lo tanto, si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferente, esas aplicaciones recibirán dos valores diferentes para la notificación de asunto. Esto puede ser o no deseable dependiendo de los requisitos de arquitectura y privacidad. Vea también el `oid` notificación (que siguen siendo los mismos entre aplicaciones dentro de un inquilino). |
 | `oid` | Cadena, un identificador GUID | El identificador inmutable de un objeto en la plataforma de identidades Microsoft, en este caso, una cuenta de usuario. También se puede usar para realizar comprobaciones de autorización de forma segura y como clave en tablas de base de datos. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`. Por tanto, `oid` puede usarse al realizar consultas en Microsoft Online Services, como Microsoft Graph. Microsoft Graph devuelve este identificador como la propiedad `id` para una cuenta de usuario determinada. Dado que la notificación `oid` permite que varias aplicaciones pongan en correlación a los usuarios, se requiere el ámbito `profile` para recibir esta notificación. Tenga en cuenta que si un usuario existe en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino, se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
 | `tid` | Cadena, un identificador GUID | Representa el inquilino de Azure AD de donde proviene el usuario. En el caso de las cuentas profesionales y educativas, el GUID es el identificador del inquilino inmutable de la organización a la que pertenece el usuario. En el caso de las cuentas personales, el valor es `9188040d-6c67-4c5b-b112-36a304b66dad`. El ámbito `profile` es necesario para recibir esta notificación. |
-| `unique_name` | string | Solo está presente en los tokens de la versión 1.0. Proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que este valor sea único en un inquilino y se debe usar solo con fines de visualización. |
+| `unique_name` | String | Solo está presente en los tokens de la versión 1.0. Proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que este valor sea único en un inquilino y se debe usar solo con fines de visualización. |
 | `uti` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Los recursos no deben usar esta notificación. |
 | `rh` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Los recursos no deben usar esta notificación. |
 | `ver` | Cadena, ya sea `1.0` o `2.0` | Indica la versión del token de acceso. |
@@ -122,13 +121,13 @@ Las siguientes notificaciones se incluirán en los tokens de v1.0, si procede, p
 
 | Notificación | Formato | DESCRIPCIÓN |
 |-----|--------|-------------|
-| `ipaddr`| string | La dirección IP desde la que el usuario se autenticó. |
+| `ipaddr`| String | La dirección IP desde la que el usuario se autenticó. |
 | `onprem_sid`| Cadena, [en formato de GUID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | En los casos en los que el usuario tiene una autenticación local, esta notificación proporciona el SID. Puede utilizar `onprem_sid` para la autorización en aplicaciones heredadas.|
 | `pwd_exp`| entero, una marca de tiempo de UNIX | Indica cuándo expira la contraseña del usuario. |
-| `pwd_url`| string | Una dirección URL a donde se envían los usuarios para restablecer la contraseña. |
+| `pwd_url`| String | Una dirección URL a donde se envían los usuarios para restablecer la contraseña. |
 | `in_corp`| boolean | Indica si el cliente ha iniciado sesión desde la red corporativa. Si no, no se incluye la notificación. |
 | `nickname`| String | Nombre adicional del usuario, aparte del nombre y del apellido.|
-| `family_name` | string | Proporciona el apellido del usuario según está definido en el objeto de usuario. |
+| `family_name` | String | Proporciona el apellido del usuario según está definido en el objeto de usuario. |
 | `given_name` | String | Proporciona el nombre de pila o "dado" del usuario, tal como se establece en el objeto de usuario. |
 | `upn` | String | Nombre de usuario del usuario. Puede ser un número de teléfono, una dirección de correo electrónico o una cadena sin formato. Solo debe utilizarse para fines de visualización y para proporcionar sugerencias de nombre de usuario en escenarios de reautenticación. |
 

@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b924746c00a438ec4ac81dacc02905565adf30e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cffef4028a684e27c0941c234df551d844f13420
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682125"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896869"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registra actividades de Azure AD en Azure Monitor
 
@@ -107,6 +107,23 @@ La siguiente tabla contiene los costos aproximados al mes para un centro de even
 | Inicios de sesión | 1000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3 611 520 | 11,06 USD |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Consideraciones acerca del costo de registros de Azure Monitor
+
+
+
+| Categoría del registro       | Número de usuarios | Eventos por día | Eventos por mes (30 días) | Costo por mes en dólares estadounidenses (est). |
+| :--                | ---             | ---            | ---                        | --:                          |
+| Auditoría e inicios de sesión | 100 000         | 16,500,000     | 495,000,000                |  $1093.00                       |
+| Auditoría              | 100 000         | 1,500,000      | 45 000 000                 |  $246.66                     |
+| Inicios de sesión           | 100 000         | 15 000 000     | 450,000,000                |  $847.28                     |
+
+
+
+
+
+
+
+
+
 
 Para revisar los costos relacionados con la administración de registros de Azure Monitor, consulte [Administración de los costos mediante el control del volumen de datos y la retención en registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 

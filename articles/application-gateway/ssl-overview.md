@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 92799019d13de71d911767d8e400598513587667
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1259e755642563a7baad5496bc84ed736d5499f8
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715236"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849824"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Información general de la terminación SSL y SSL de extremo a extremo con Application Gateway
 
@@ -36,7 +36,7 @@ Para configurar la terminación SSL, se requiere un certificado SSL que se agreg
 Para que la conexión SSL para que funcione, deberá asegurarse de que el certificado SSL cumple las condiciones siguientes:
 
 - Que la fecha y hora actual está dentro de la "Válido desde" y "Válido para" intervalo de fechas en el certificado.
-- Que el nombre del certificado"común" (CN) coincide con el encabezado de host en la solicitud. Por ejemplo, si el cliente realiza una solicitud a `https://www.contoso.com/`, a continuación, debe ser el CN `www.contoso.com`.
+- El "nombre común" del certificado coincide con el encabezado de host en la solicitud. Por ejemplo, si el cliente realiza una solicitud a `https://www.contoso.com/`, el certificado común debe ser `www.contoso.com`.
 
 ### <a name="certificates-supported-for-ssl-termination"></a>Certificados que se admiten para la terminación SSL
 
@@ -48,6 +48,9 @@ Application gateway admite los siguientes tipos de certificados:
 - Los certificados autofirmados: Los exploradores de cliente no confían en estos certificados y avisará al usuario que el certificado del servicio virtual no forma parte de una cadena de confianza. Los certificados autofirmados son buenos para pruebas o en entornos donde los administradores controlan a los clientes y pueden omitir con seguridad las alertas de seguridad del explorador. Las cargas de trabajo de producción nunca deben usar certificados autofirmados.
 
 Para obtener más información, consulte [configure la terminación SSL con application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+
+### <a name="size-of-the-certificate"></a>Tamaño del certificado
+El archivo de intercambio de información Personal (PFX) con la información del certificado SSL no debe ser más de 10 KB de tamaño.
 
 ## <a name="end-to-end-ssl-encryption"></a>El cifrado SSL de extremo a otro
 

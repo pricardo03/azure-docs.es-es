@@ -2,20 +2,20 @@
 title: Guía de inicio rápido de Fivetran para Azure SQL Data Warehouse | Microsoft Docs
 description: Empiece a trabajar rápidamente con Fivetran y Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: hirokib
-manager: jrj
+author: mlee3gsd
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: integration
 ms.date: 10/12/2018
-ms.author: elbutter
-ms.reviewer: craigg
-ms.openlocfilehash: 1d8b6d2df21fe0aabe85754e061db4deb129b32e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: martinle
+ms.reviewer: igorstan
+ms.openlocfilehash: d829ee67d516892283fa31d9180336d768170ac1
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61082518"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65857013"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Empiece a trabajar rápidamente con Fivetran y SQL Data Warehouse
 

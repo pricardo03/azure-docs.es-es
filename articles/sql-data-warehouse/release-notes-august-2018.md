@@ -2,20 +2,20 @@
 title: Notas de la versión de Azure SQL Data Warehouse de agosto de 2018 | Microsoft Docs
 description: Notas de la versión de Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 08/13/2018
-ms.author: twounder
-ms.reviewer: twounder
-ms.openlocfilehash: 9547380d4636c1a72add9dab7a9eed850abd0307
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: f0840e9b91c81b8a99e8c736c3c5db082c92fe76
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475004"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912213"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>¿Cuáles son las novedades de Azure SQL Data Warehouse? Agosto de 2018
 Continuamente se aplican mejoras a Azure SQL Data Warehouse. En este artículo se describen las nuevas características y los cambios que se han incluido en agosto de 2018.
@@ -30,7 +30,7 @@ Puede profundizar en cada categoría para ver las recomendaciones para la alerta
 
 ## <a name="bug-fixes"></a>Corrección de errores
 
-| Título | DESCRIPCIÓN |
+| Puesto | DESCRIPCIÓN |
 |:---|:---|
 | **Potential Query failures when the split count exceeds max limit (Posibles errores de consulta cuando el recuento dividido supera el límite máximo)** |Cuando se supera el límite de división del archivo superior de 1 millón, una excepción no atendida provocó el volcado del motor de SQL y el error de todas las consultas. Esta corrección abordó el problema al controlar la excepción correctamente y devolver un error sin provocar el error en las consultas. |
 | **Increased ExternalMoveReadersPerNode default value to improve load perfomance** (Valor predeterminado ExternalMoveReadersPerNode aumentado para mejorar el rendimiento de carga) |Este problema se debía a que la configuración de la propiedad ExternalMoveReadersPerNode no estaba sincronizada con la configuración de Service Fabric. Esta regresión provocaba una disminución del rendimiento de carga de Gen2. La corrección devuelve el rendimiento de carga de Gen2 a los parámetros de diseño optimizados.|

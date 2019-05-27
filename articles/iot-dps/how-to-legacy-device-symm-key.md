@@ -2,19 +2,18 @@
 title: Uso de claves simétricas para aprovisionar dispositivos antiguos con Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: Uso de claves simétricas para aprovisionar dispositivos antiguos con su instancia de servicio de aprovisionamiento de dispositivos
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 248c7977752eaec86121a0dd197e5bff2621ead5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: philmea
+ms.openlocfilehash: 00161f8158ad73591687764528258e1081f81ce2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775192"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914302"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Aprovisionamiento de dispositivos antiguos mediante claves simétricas
 
@@ -44,7 +43,7 @@ El código de dispositivo que se muestra en este artículo seguirá el mismo pat
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Finalización de la guía de inicio rápido [Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal](./quick-setup-auto-provision.md).
-* Visual Studio 2015 o [Visual Studio 2017](https://www.visualstudio.com/vs/) con la carga de trabajo de [desarrollo de escritorio con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o posterior con el ["desarrollo de escritorio con C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) carga de trabajo habilitado.
 * Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 
 
@@ -173,7 +172,7 @@ Reemplace el valor de **KEY** por el de la **clave principal** que ha apuntado a
 
 Reemplace el valor de **REG_ID** por el identificador del registro.
 
-```PowerShell
+```powershell
 $KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
 $REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
 
@@ -184,7 +183,7 @@ $derivedkey = [Convert]::ToBase64String($sig)
 echo "`n$derivedkey`n"
 ```
 
-```PowerShell
+```powershell
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 

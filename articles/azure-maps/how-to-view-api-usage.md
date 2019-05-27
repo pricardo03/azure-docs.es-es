@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d14088ed940ab83be29756a26f8612704bb9aebd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31522436de97062432af2afe101f85d376243a38
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770149"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957258"
 ---
 # <a name="view-azure-maps-api-usage"></a>Vista del uso de la API de Azure Maps
 
@@ -59,6 +59,11 @@ Si necesita personalizar estos gráficos para su análisis en particular, contin
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre las API de Azure Maps de las que quiere realizar un seguimiento de uso:
+> [!div class="nextstepaction"] 
+> [Procedimientos SDK Web de Azure Maps](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"] 
+> [Procedimientos de Android SDK de Azure Maps](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
 > [Documentación de la API REST de Azure Maps](https://docs.microsoft.com/rest/api/maps)

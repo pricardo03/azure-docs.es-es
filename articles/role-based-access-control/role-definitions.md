@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121833"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949996"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Descripción de definiciones de roles para los recursos de Azure
 
@@ -147,9 +147,9 @@ Colaborador de datos de Storage Blob
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Puesto que Alicia tiene una acción de carácter comodín (`*`) en un ámbito de suscripción, sus permisos se heredan para poder realizar todas las acciones de administración. Alice puede leer, escribir y eliminar contenedores. Sin embargo, Alice no puede realizar operaciones de datos sin pasos adicionales. Por ejemplo, de forma predeterminada, Alice no puede leer los blobs de un contenedor. Para leer los blobs, Alice tendría que recuperar las claves de acceso de almacenamiento y usarlas para acceder a los blobs.
+Puesto que Alice tiene un carácter comodín (`*`) la acción en un ámbito de suscripción, sus permisos se heredan para que puedan realizar todas las acciones de administración. Alice puede leer, escribir y eliminar contenedores. Sin embargo, Alice no puede realizar operaciones de datos sin pasos adicionales. Por ejemplo, de forma predeterminada, Alice no puede leer los blobs de un contenedor. Para leer los blobs, Alice tendría que recuperar las claves de acceso de almacenamiento y usarlas para acceder a los blobs.
 
-Permisos de Bob están restringidos a solamente el `Actions` y `DataActions` especificado en el [colaborador de datos de almacenamiento Blob](built-in-roles.md#storage-blob-data-contributor) rol. Según el rol, Bob puede realizar operaciones de datos y de administración. Por ejemplo, Bob puede leer, escribir y eliminar los contenedores de la cuenta de almacenamiento especificada y también puede leer, escribir y eliminar los blobs.
+Permisos de Bob están restringidos a solamente el `Actions` y `DataActions` especificado en el [colaborador de datos de almacenamiento Blob](built-in-roles.md#storage-blob-data-contributor) rol. Según el rol, Bob puede realizar operaciones de datos y de administración. Por ejemplo, Bob puede leer, escribir y eliminar contenedores de la cuenta de almacenamiento especificada y puede también leer, escribir y eliminar los blobs.
 
 Para más información acerca de la administración y la seguridad en el plano de datos, consulte la [guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md).
 
@@ -157,7 +157,7 @@ Para más información acerca de la administración y la seguridad en el plano d
 
 Para visualizar y trabajar con operaciones de datos, debe tener las versiones correctas de las herramientas o SDK:
 
-| Herramienta  | `Version`  |
+| Tool  | Version  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 o posterior |
 | [CLI de Azure](/cli/azure/install-azure-cli) | 2.0.30 o posterior |

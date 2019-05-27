@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba4643118c5d90b91c3e51d569e9a628c84159fc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 70d1f54aed5e83801b1d1e249d7a412dd6d9a49a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780030"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964029"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: Evaluación de prioridades de las aplicaciones distribuidas
 
@@ -94,7 +94,9 @@ Para ver las alertas activas y las reglas subyacentes que provocan el desencaden
 
 Mapa de aplicación usa el **nombre de rol en la nube** propiedad para identificar los componentes en el mapa. El SDK de Application Insights agrega automáticamente la propiedad de nombre de rol en la nube a la telemetría que se generen los componentes. Por ejemplo, el SDK agregará un nombre de rol de servicio o sitio web a la propiedad de nombre de rol en la nube. Pero hay casos en los que le interesará reemplazar el valor predeterminado. Para invalidar el nombre de rol en la nube y cambiar lo que se muestra en el mapa de aplicación:
 
-### <a name="net"></a>.NET
+### <a name="netnet-core"></a>.NET/.NET Core
+
+**Escribir TelemetryInitializer personalizada como sigue.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -117,7 +119,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**Cargue su inicializador**
+**Inicializador de carga para el valor de TelemetryConfiguration activo**
 
 En ApplicationInsights.config:
 
@@ -131,7 +133,10 @@ En ApplicationInsights.config:
     </ApplicationInsights>
 ```
 
-Un método alternativo consiste en crear una instancia del inicializador en el código, por ejemplo en Global.aspx.cs:
+> [!NOTE]
+> Agregar inicializador mediante `ApplicationInsights.config` no es válida para las aplicaciones de ASP.NET Core.
+
+Es un método alternativo para las aplicaciones Web de ASP.NET crear instancias del inicializador en el código, por ejemplo en Global.aspx.cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -141,6 +146,17 @@ Un método alternativo consiste en crear una instancia del inicializador en el c
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+Para [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) aplicaciones, agregar un nuevo `TelemetryInitializer` se realiza agregando al contenedor de inserción de dependencias, como se muestra a continuación. Esto se hace en `ConfigureServices` método de su `Startup.cs` clase.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
     }
 ```
 

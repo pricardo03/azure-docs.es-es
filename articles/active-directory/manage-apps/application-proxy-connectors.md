@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f337ea9d55a119c3aec6e94649cdbf049f99e9d6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783679"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113082"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -87,7 +87,9 @@ Para más información acerca de los grupos de conectores, consulte [Publicació
 
 ## <a name="capacity-planning"></a>Planeamiento de capacidad 
 
-Es importante asegurarse de que la capacidad prevista entre los conectores es suficiente para administrar el volumen de tráfico esperado. En general, cuantos más usuarios tenga, mayor será la máquina que necesitará. A continuación se muestra una tabla que proporciona un esquema del volumen que pueden controlar distintas máquinas. Tenga en cuenta que todo se basa en las transacciones por segundo (TPS) que se esperan en len lugar de en las transacciones por usuario, ya que los patrones de uso varían y no se pueden utilizar para predecir la carga. Tenga en cuenta también que habrá algunas diferencias en función del tamaño de las respuestas y el tiempo de respuesta de la aplicación de back-end: cuanto mayor sea el tamaño de respuesta y menor el tiempo de respuesta, menor será el TPS máximo. Le recomendamos que tenga máquinas adicionales para que la carga distribuida entre las máquinas sea de en torno al 50 %. La capacidad adicional garantizará que tanto la resistencia como la disponibilidad son elevadas.
+Es importante asegurarse de que la capacidad prevista entre los conectores es suficiente para administrar el volumen de tráfico esperado. Se recomienda que cada grupo de conectores tiene al menos dos conectores para proporcionar escalabilidad y alta disponibilidad. Tener tres conectores es óptimo en caso de que necesite una máquina en cualquier punto de servicio. 
+
+En general, cuantos más usuarios tenga, mayor será la máquina que necesitará. A continuación es una tabla que proporciona un esquema del volumen y latencia esperada pueden controlar distintas máquinas. Tenga en cuenta que todo se basa en las transacciones por segundo (TPS) que se esperan en len lugar de en las transacciones por usuario, ya que los patrones de uso varían y no se pueden utilizar para predecir la carga. Tenga en cuenta también que habrá algunas diferencias en función del tamaño de las respuestas y el tiempo de respuesta de la aplicación de back-end: cuanto mayor sea el tamaño de respuesta y menor el tiempo de respuesta, menor será el TPS máximo. También se recomienda tener máquinas adicionales para que la carga distribuida entre las máquinas siempre proporciona suficiente búfer. La capacidad adicional garantizará que tanto la resistencia como la disponibilidad son elevadas.
 
 |Núcleos|RAM|Latencia esperada (MS)-P99|TPS Máximo|
 | ----- | ----- | ----- | ----- |

@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9fd594fb264ff0467cc315f59927cd157068d522
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146197"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961427"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -32,10 +32,10 @@ ZRS está disponible con carácter general en las regiones siguientes:
 - Centro de Francia
 - Este de Japón
 - Sur de Reino Unido 2
-- Este de EE. UU.
-- Este de EE. UU. - 2
-- Oeste de EE. UU. 2
 - Centro de EE. UU.
+- Este de EE. UU.
+- Este de EE. UU. 2
+- Oeste de EE. UU. 2
 
 Microsoft sigue habilitando ZRS en otras regiones de Azure. Revise periódicamente la página [Actualizaciones de servicios Azure](https://azure.microsoft.com/updates/) para información sobre las regiones nuevas.
 
@@ -75,6 +75,7 @@ Tenga en cuenta las siguientes restricciones en la migración en vivo:
 - Solo puede migrar datos en la misma región. Si quiere migrar los datos a una cuenta de ZRS ubicada en una región distinta de la región de la cuenta de origen, debe hacer una migración manual.
 - Solo los tipos de cuenta de almacenamiento estándar admiten la migración en vivo. Las cuentas de Premium Storage deben migrarse manualmente.
 - No se admite la migración en vivo de ZRS a LRS, GRS o RA-GRS. Deberá mover manualmente los datos a una nueva o una cuenta de almacenamiento existente.
+- Discos administrados solo están disponibles para LRS y no se pueden migrar a ZRS. Para ver conjuntos de integración con disponibilidad [de introducción a Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets). Puede almacenar instantáneas e imágenes de Managed Disks de estándar SSD en el almacenamiento de disco duro estándar y [elegir entre las opciones de LRS y ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 Puede solicitar la migración en vivo mediante el [Portal de soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). En el portal, seleccione la cuenta de almacenamiento que quiere convertir a ZRS.
 1. Seleccione **Nueva solicitud de soporte técnico**.
@@ -96,7 +97,7 @@ Un responsable de soporte técnico se pondrá en contacto con usted para proporc
 
 **¿Debo pensado para ningún tiempo de inactividad durante la migración?**
 
-No hay ningún tiempo de inactividad causado por la migración. Durante una migración en vivo, puede continuar con su cuenta de almacenamiento mientras se migran los datos entre las marcas de almacenamiento de origen y destino. Durante el proceso de migración, tienen el mismo nivel de durabilidad y SLA de disponibilidad como se haría normalmente.
+No hay ningún tiempo de inactividad causado por la migración. Durante una migración en vivo, puede continuar con la cuenta de almacenamiento mientras se migran los datos entre las marcas de almacenamiento de origen y destino. Durante el proceso de migración, tienen el mismo nivel de durabilidad y SLA de disponibilidad como se haría normalmente.
 
 **¿Hay pérdida de datos asociado con la migración?**
 

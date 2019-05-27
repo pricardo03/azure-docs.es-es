@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562005"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952887"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid
 
@@ -24,16 +24,18 @@ Actualmente, Event Grid envía cada evento individualmente a los suscriptores. E
 
 ## <a name="retry-schedule-and-duration"></a>Programación y duración de los reintentos
 
-Event Grid usa una directiva de reintentos de retroceso exponencial para la entrega de eventos. Si un punto de conexión no responde o devuelve un código de error, Event Grid reintenta la entrega en la siguiente programación en base al mejor esfuerzo:
+Event Grid espera 30 segundos para una respuesta después de entregar un mensaje. Después de 30 segundos, el punto de conexión no ha respondido, el mensaje se pone en cola de reintento. Event Grid usa una directiva de reintentos de retroceso exponencial para la entrega de eventos. Event Grid reintenta la entrega en la siguiente programación en base al mejor esfuerzo:
 
-1. 10 segundos
-1. 30 segundos
-1. 1 minuto
-1. 5 minutos
-1. 10 minutos
-1. 30 minutos
-1. 1 hora
-1. Cada hora de hasta 24 horas
+- 10 segundos
+- 30 segundos
+- 1 minuto
+- 5 minutos
+- 10 minutos
+- 30 minutos
+- 1 hora
+- Cada hora de hasta 24 horas
+
+Si el punto de conexión responde a los 3 minutos, Event Grid intentará quitar el evento de la cola de reintento en base al mejor esfuerzo, pero todavía es posible que reciba los duplicados.
 
 Event Grid agrega una pequeña selección aleatoria a todos los pasos de reintento y según la ocasión puede omitir ciertas reintentos si un punto de conexión está constantemente en mal estado, inactivo durante un largo período, o aparece verse desbordados.
 
@@ -72,7 +74,7 @@ Los siguientes códigos de respuesta HTTP indican que el intento de entrega de u
 
 - 400 - Solicitud incorrecta
 - 401 No autorizado
-- 404 No encontrado
+- 405 No encontrado
 - 408 - Tiempo de espera de solicitud
 - 413 Entidad de solicitud demasiado larga
 - 414 - URI de solicitud demasiado largo

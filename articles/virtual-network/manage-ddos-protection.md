@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203527"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911253"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Administración de Protección contra DDoS de Azure estándar mediante Azure Portal
 
@@ -31,7 +31,7 @@ Antes de completar los pasos de este tutorial, inicie sesión en Azure Portal en
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="create-a-ddos-protection-plan"></a>Creación de un plan de protección contra DDoS
+## <a name="create-a-ddos-protection-plan"></a>Crear un plan de DDoS Protection
 
 Un plan de protección contra DDoS define un conjunto de redes virtuales que tiene habilitada la protección contra DDoS estándar en distintas suscripciones. Puede configurar un plan de protección contra DDoS para la organización y vincular redes virtuales de distintas suscripciones al mismo plan. El propio plan de protección contra DDoS también está asociado a una suscripción, la que selecciona durante la creación del plan. El Plan de DDoS Protection funciona entre regiones y suscripciones. Ejemplo: puede crear el plan en la región East-US y vínculo a la suscripción #1 en el inquilino. El mismo plan se puede vincular a las redes virtuales de otras suscripciones en distintas regiones, en todo el inquilino. La suscripción a la que está asociado el plan incurre en la factura mensual recurrente del plan, además de cargos de uso por encima del límite, en caso de que la cantidad de direcciones IP públicas protegidas supere las 100. Para más información sobre los precios de DDoS, consulte los [detalles de precios](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
@@ -188,7 +188,7 @@ Los registros de flujo de mitigación de ataques le permiten revisar casi en tie
 Los registros de flujo tienen los siguientes campos: 
 - IP de origen
 - IP de destino
-- Puerto de origen 
+- puerto de origen 
 - Puerto de destino 
 - Tipo de protocolo 
 - Acción realizada durante la mitigación
@@ -203,6 +203,19 @@ Microsoft se ha asociado con [BreakingPoint Cloud](https://www.ixiacom.com/produ
 - Optimizar el proceso de respuesta a incidentes durante el ataque de DDoS.
 - Documentar el cumplimiento normativo de DDoS.
 - Enseñar a los equipos de seguridad de red.
+
+## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Ver las alertas de protección de DDoS en Azure Security Center
+
+Azure Security Center proporciona una lista de [las alertas de seguridad](/azure/security-center/security-center-managing-and-responding-alerts), con información para ayudar a investigar y solucionar los problemas. Con esta característica, obtenga una vista unificada de las alertas, incluidas las alertas relacionadas con el ataque de DDoS y las acciones realizadas para mitigar el ataque casi en tiempo.
+Hay dos alertas específicas que aparece para cualquier DDoS detección y mitigación de ataque:
+
+- **Ataque de DDoS detecta direcciones IP públicas de**: Esta alerta se genera cuando el servicio DDoS protection detecta que una de las direcciones IP públicas es el destino de un ataque DDoS.
+- **Mitigar el ataque de DDoS de dirección IP pública**: Esta alerta se genera cuando se ha mitigado un ataque contra la dirección IP pública.
+Para ver las alertas, abrir **Security Center** en Azure portal. En **protección contra amenazas**, seleccione **las alertas de seguridad**. Captura de pantalla siguiente muestra un ejemplo de las alertas de ataque DDoS.
+
+![Alerta de DDoS en Azure Security Center](./media/manage-ddos-protection/ddos-alert-asc.png)
+
+Las alertas incluyen información general acerca de la dirección IP pública que está por debajo del ataque, geográfica e información sobre amenazas y pasos de correcciones.
 
 ## <a name="permissions"></a>Permisos
 

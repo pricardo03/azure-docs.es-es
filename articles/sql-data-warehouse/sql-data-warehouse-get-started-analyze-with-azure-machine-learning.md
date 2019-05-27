@@ -2,20 +2,20 @@
 title: Análisis de datos con Azure Machine Learning | Microsoft Docs
 description: Use Azure Machine Learning para crear un modelo de aprendizaje automático predictivo con los datos almacenados en Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: anumjs
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: integration
 ms.date: 03/22/2019
-ms.author: anjangsh
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f9500adc6871c4c9f81c32bf456bc36cf91db4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61440036"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860844"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Análisis de datos con Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Cuando el experimento haya terminado de ejecutarse correctamente, haga clic en e
 ![Ver los datos importados][3]
 
 ## <a name="2-clean-the-data"></a>2. Limpiar los datos
-Para limpiar los datos, se quitarán algunas columnas que no son relevantes para el modelo. Para ello, siga estos pasos:
+Para limpiar los datos, se quitarán algunas columnas que no son relevantes para el modelo. Para ello:
 
 1. Arrastre el **Select Columns in Dataset** módulo en **transformación de datos < manipulación** al lienzo. Conecte este módulo para el **importar datos** módulo.
 2. Haga clic en **Iniciar selector de columnas** en el panel Propiedades para especificar las columnas que desea quitar.

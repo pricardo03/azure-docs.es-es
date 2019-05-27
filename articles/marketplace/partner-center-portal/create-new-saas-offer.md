@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 32537426b7b9b1a7015610fc0c3e2dd7c3efa49b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 30e547759cbafabf5f762f671b09b0cbeea3a44c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806212"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851214"
 ---
 # <a name="create-a-new-saas-offer"></a>Cree una nueva oferta de SaaS
 
@@ -386,7 +386,7 @@ Microsoft puede eliminar la complejidad de configurar una versión de prueba al 
 
 - **Máximo de unidades de pruebas simultáneas** (obligatorio): Establecer el número máximo de clientes que puede usar la versión de prueba al mismo tiempo. Cada usuario simultáneo consumirá una licencia de Dynamics 365, mientras que la versión de prueba está activa, por lo que deberá asegurarse de que tiene suficientes licencias disponibles para admitir el límite máximo establecido. Se recomienda un valor entre 3 y 5.
 
-- **Duración de la versión de prueba** (obligatorio): Especifique el período de tiempo que permanecerá activa la versión de prueba mediante la definición de la cantidad de horas. Después de este número de horas, la sesión finalizará y ya no adopta una de las licencias. Se recomienda un valor de 2 a 24 horas según la complejidad de la oferta. Esta duración es posible que sólo apostar conjunto por un número entero de horas (p. ej. horas de "2", "1.5" no es válido).  El usuario puede solicitar una nueva sesión si ejecutan fuera del tiempo y desean volver a acceder a la versión de prueba.
+- **Duración de la versión de prueba** (obligatorio): Especifique el período de tiempo que permanecerá activa la versión de prueba al definir el número de horas. Después de este número de horas, la sesión finalizará y ya no adopta una de las licencias. Se recomienda un valor de 2 a 24 horas según la complejidad de la oferta. Esta duración es posible que sólo apostar conjunto por un número entero de horas (p. ej. horas de "2", "1.5" no es válido).  El usuario puede solicitar una nueva sesión si ejecutan fuera del tiempo y desean volver a acceder a la versión de prueba.
 
 - **Dirección URL de la instancia** (obligatorio): La dirección URL donde el cliente comenzará su versión de prueba. Normalmente, la dirección URL de la instancia de Dynamics 365 que ejecutan la aplicación con datos de ejemplo instalados (por ejemplo, https://testdrive.crm.dynamics.com).
 

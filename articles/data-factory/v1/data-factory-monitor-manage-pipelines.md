@@ -14,11 +14,11 @@ ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445150"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122745"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
 > [!div class="op_single_selector"]
@@ -117,16 +117,16 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 </tr>
 <tr>
 <tr>
-<td rowspan="2">InProgress</td><td>Validating</td><td>Validación en curso.</td>
+<td rowspan="2">En curso</td><td>Validating</td><td>Validación en curso.</td>
 </tr>
 <td>-</td>
 <td>El segmento se está procesando.</td>
 </tr>
 <tr>
-<td rowspan="4">Con error</td><td>TimedOut</td><td>La ejecución de la actividad tardó más tiempo del permitido por la actividad.</td>
+<td rowspan="4">Incorrecto</td><td>TimedOut</td><td>La ejecución de la actividad tardó más tiempo del permitido por la actividad.</td>
 </tr>
 <tr>
-<td>Canceled</td><td>El segmento se ha cancelado por una acción del usuario.</td>
+<td>Cancelado</td><td>El segmento se ha cancelado por una acción del usuario.</td>
 </tr>
 <tr>
 <td>Validación</td><td>Error de validación.</td>
@@ -134,10 +134,10 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 <tr>
 <td>-</td><td>No se pudo puede generar o validar el segmento.</td>
 </tr>
-<td>Ready</td><td>-</td><td>El segmento está listo para su uso.</td>
+<td>Listo</td><td>-</td><td>El segmento está listo para su uso.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>None</td><td>El segmento se está procesando.</td>
+<td>Omitido</td><td>None</td><td>El segmento se está procesando.</td>
 </tr>
 <tr>
 <td>None</td><td>-</td><td>Un segmento existía con un estado distinto, pero se ha restablecido.</td>
@@ -152,7 +152,7 @@ Puede ver los detalles sobre un segmento haciendo clic en la hoja **Segmentos ac
 
 Si el segmento se ejecutó varias veces, aparecen varias filas en la lista **Ejecuciones de actividad** . Para ver detalles sobre una ejecución de actividad, haga clic en la entrada de la ejecución en la lista **Ejecuciones de actividades** . La lista muestra todos los archivos de registro junto con un mensaje de error, si hubiera alguno. Esta característica resulta muy útil para ver y depurar registros sin tener que salir de la factoría de datos.
 
-![Detalles de ejecución de actividad](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
+![Detalles de la ejecución de actividad](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
 Si el segmento no está en el estado **Listo**, puede ver los segmentos ascendentes que no están en estado Listo y bloquean la ejecución del segmento actual en la lista **Segmentos ascendentes que no están listos**. Esta característica resulta muy útil cuando el segmento tiene el estado **En espera** y se quiere saber cuáles son las dependencias ascendentes por las que el segmento está esperando.
 
@@ -180,7 +180,7 @@ Se pueden pausar o suspender canalizaciones mediante el uso de la **Suspend AzDa
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Por ejemplo: 
+Por ejemplo:
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -191,7 +191,7 @@ Tras solucionar el problema con la canalización, se puede reanudar la canalizac
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Por ejemplo: 
+Por ejemplo:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -224,7 +224,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Por ejemplo: 
+   Por ejemplo:
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -238,7 +238,7 @@ Si falla la ejecución de actividad en una canalización, el conjunto de datos g
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Por ejemplo: 
+    Por ejemplo:
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"

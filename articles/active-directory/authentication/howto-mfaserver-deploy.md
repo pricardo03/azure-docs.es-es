@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 05/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae1db992984e8bb1dca71afed9fadd6b411b3dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa3d7d22ed032379f452eb4648c9a1cf87293df9
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415226"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956583"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introducción a Servidor Azure Multi-Factor Authentication
 
@@ -27,6 +27,9 @@ ms.locfileid: "60415226"
 Ahora que hemos determinado que se usa una instancia local del Servidor Multi-Factor Authentication, vayamos al paso siguiente. Esta página describe una nueva instalación del servidor y su configuración con una instancia loal de Active Directory. Si ya tiene instalado el servidor MFA y desea actualizarlo, consulte [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md) (Actualización a la versión más reciente del Servidor Microsoft Azure Multi-Factor Authentication). Para más información sobre cómo instalar solo el servicio web, consulte [Implementación del servicio web móvil de la aplicación móvil del Servidor Azure Multi-Factor Authentication](howto-mfaserver-deploy-mobileapp.md).
 
 ## <a name="plan-your-deployment"></a>Planeamiento de la implementación
+
+> [!WARNING]
+> A partir de marzo de 2019 MFA Server descargas sólo estará disponibles para los inquilinos de pago. Los inquilinos de gratis o de evaluación ya no podrán descargar o generar y usar las credenciales de activación.
 
 Antes de descargar el servidor Azure Multi-Factor Authentication, piense cuáles son sus requisitos de alta disponibilidad y carga. Use esta información para decidir cómo y dónde realizar la implementación.
 
@@ -74,7 +77,7 @@ Cada servidor MFA debe ser capaz de comunicarse en el puerto 443 de salida a las
 
 Si los firewalls de salida están restringidos en el puerto 443, deberán abrirse los siguientes intervalos de direcciones IP:
 
-| Subred IP | Máscara de red | Rango de direcciones IP |
+| Subred IP | Máscara de red | Intervalo de IP |
 |:---: |:---: |:---: |
 | 134.170.116.0/25 |255.255.255.128 |134.170.116.1 – 134.170.116.126 |
 | 134.170.165.0/25 |255.255.255.128 |134.170.165.1 – 134.170.165.126 |
@@ -90,6 +93,9 @@ Si no está usando la característica de confirmación de eventos y los usuarios
 
 ## <a name="download-the-mfa-server"></a>Descarga del servidor MFA
 
+> [!WARNING]
+> A partir de marzo de 2019 MFA Server descargas sólo estará disponibles para los inquilinos de pago. Los inquilinos de gratis o de evaluación ya no podrán descargar o generar y usar las credenciales de activación.
+
 Para descargar el Servidor Azure Multi-Factor Authentication desde Azure Portal, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
@@ -102,9 +108,6 @@ Para descargar el Servidor Azure Multi-Factor Authentication desde Azure Portal,
 5. Mantenga esta página abierta ya que habrá que consultarla después de ejecutar el programa de instalación.
 
 ## <a name="install-and-configure-the-mfa-server"></a>Instalación y configuración del servidor MFA
-
-> [!WARNING]
-> A partir de marzo de 2019 MFA Server descargas sólo estará disponibles para los inquilinos de pago. Los inquilinos de gratis o de evaluación ya no podrán descargar o generar y usar las credenciales de activación.
 
 Una vez descargado el servidor, ya se puede instalar y configurar. Asegúrese de que el servidor en el que va a instalarlo cumple los requisitos que se enumeran en la sección de planificación.
 

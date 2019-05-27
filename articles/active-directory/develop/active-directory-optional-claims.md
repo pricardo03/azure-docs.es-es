@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 593289e64c0f9cd13251a0f7b47b860158100b36
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544577"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119718"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedimientos para: Proporcionar notificaciones opcionales para la aplicación de Azure AD
 
@@ -125,6 +125,9 @@ Este objeto OptionalClaims hace que el token de identificador devuelto al client
 ## <a name="configuring-optional-claims"></a>Configuración de notificaciones opcionales
 
 Puede configurar notificaciones opcionales para la aplicación al modificar el manifiesto de esta (consulte el ejemplo siguiente). Para obtener más información, consulte el [descripción del artículo de manifiesto de aplicación de Azure AD](reference-app-manifest.md).
+
+> [!IMPORTANT]
+> Los tokens de acceso **siempre** generado mediante el manifiesto del recurso, no en el cliente.  Por lo tanto en la solicitud `...scope=https://graph.microsoft.com/user.read...` el recurso es el gráfico.  Por lo tanto, el token de acceso se crea mediante el manifiesto del gráfico, no los manifiesto del cliente.  Cambiar el manifiesto de la aplicación nunca hará que los tokens para Graph para tener un aspecto diferente.  Para validar que su `accessToken` cambios entran en vigor, solicitar un token para la aplicación, no en otra aplicación.  
 
 **Esquema de ejemplo:**
 

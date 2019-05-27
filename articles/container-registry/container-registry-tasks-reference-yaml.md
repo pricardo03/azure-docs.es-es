@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: d50d5bc91fbb86e5c0c3d2acc3b55c7d02c71723
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: bdf88657c11bdb5ab5bcde97c155780328065c7e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192265"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954474"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
 
@@ -81,21 +81,21 @@ Propiedades de la tarea suelen aparecerán en la parte superior de un `acr-task.
 
 | Propiedad | Type | Opcional | DESCRIPCIÓN | Invalidación admitida | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | string | Sí | La versión del archivo `acr-task.yaml` analizada por el servicio ACR Tasks. Si bien ACR Tasks se esfuerza por mantener la compatibilidad con versiones anteriores, este valor permite que ACR Tasks mantenga la compatibilidad dentro de una versión definida. Si no se especifica, el valor predeterminado es la versión más reciente. | Sin  | None |
+| `version` | string | Sí | La versión del archivo `acr-task.yaml` analizada por el servicio ACR Tasks. Si bien ACR Tasks se esfuerza por mantener la compatibilidad con versiones anteriores, este valor permite que ACR Tasks mantenga la compatibilidad dentro de una versión definida. Si no se especifica, el valor predeterminado es la versión más reciente. | No | None |
 | `stepTimeout` | int (segundos) | Sí | El número máximo de segundos que se puede ejecutar un paso. Si se especifica la propiedad en una tarea, Establece el valor predeterminado `timeout` propiedad de todos los pasos. Si el `timeout` propiedad se especifica en un paso, invalida la propiedad proporcionada por la tarea. | Sí | 600 (10 minutos) |
 | `workingDirectory` | string | Sí | El directorio de trabajo del contenedor en tiempo de ejecución. Si se especifica la propiedad en una tarea, Establece el valor predeterminado `workingDirectory` propiedad de todos los pasos. Si se especifica en un paso, invalida la propiedad proporcionada por la tarea. | Sí | `$HOME` |
 | `env` | [string, string, ...] | Sí |  Matriz de cadenas en `key=value` formato que definen las variables de entorno para la tarea. Si se especifica la propiedad en una tarea, Establece el valor predeterminado `env` propiedad de todos los pasos. Si se especifica en un paso, reemplaza las variables de entorno heredadas de la tarea. | None |
 | `secrets` | [secreta, secreta,...] | Sí | Matriz de [secreto](#secret) objetos. | None |
 | `networks` | [red, red,...] | Sí | Matriz de [red](#network) objetos. | None |
 
-### <a name="secret"></a>secret
+### <a name="secret"></a>clave
 
 El objeto secreto tiene las siguientes propiedades.
 
 | Propiedad | Type | Opcional | DESCRIPCIÓN | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------- |
-| `id` | string | Sin  | El identificador del secreto. | None |
-| `akv` | string | Sí | La dirección de URL de secreto de Azure Key Vault (AKV). | None |
+| `id` | string | No | El identificador del secreto. | None |
+| `keyvault` | string | Sí | La URL de secreto de Azure Key Vault. | None |
 | `clientID` | string | Sí | El identificador de cliente de la asignada por el usuario administra identidades para los recursos de Azure. | None |
 
 ### <a name="network"></a>red
@@ -104,7 +104,7 @@ El objeto de red tiene las siguientes propiedades.
 
 | Propiedad | Type | Opcional | DESCRIPCIÓN | Valor predeterminado |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | string | Sin  | El nombre de la red. | None |
+| `name` | string | No | El nombre de la red. | None |
 | `driver` | string | Sí | El controlador para administrar la red. | None |
 | `ipv6` | booleano | Sí | Si está habilitada redes IPv6. | `false` |
 | `skipCreation` | booleano | Sí | Si se omite la creación de la red. | `false` |
@@ -139,7 +139,7 @@ El tipo de paso `build` admite los parámetros de la tabla siguiente. El tipo de
 | --------- | ----------- | :-------: |
 | `-t` &#124; `--image` | Define el elemento completo `image:tag` de la imagen compilada.<br /><br />Como se pueden usar imágenes para las validaciones de tareas internas, no todas las imágenes requieren la acción `push` en un registro. Sin embargo, para crear una instancia de una imagen dentro de una ejecución de tareas, la imagen necesita un nombre al que hacer referencia.<br /><br />A diferencia de `az acr build`, ejecutar tareas de ACR no proporciona comportamiento predeterminado de inserción. Con ACR Tasks, en el escenario predeterminado se da por hecho la posibilidad de compilar, validar y luego insertar una imagen. Consulte [push](#push) para ver como insertar opcionalmente imágenes compiladas. | Sí |
 | `-f` &#124; `--file` | Especifica el archivo Dockerfile que se pasa a `docker build`. Si no se especifica, se da por hecho el archivo Dockerfile predeterminado en la raíz del contexto. Para especificar un archivo Dockerfile, pase el nombre de archivo relativa a la raíz del contexto. | Sí |
-| `context` | El directorio raíz pasado a `docker build`. El directorio raíz de cada tarea se establece en un directorio [workingDirectory](#task-step-properties) compartido, e incluye la raíz del directorio clonado de Git asociado. | Sin  |
+| `context` | El directorio raíz pasado a `docker build`. El directorio raíz de cada tarea se establece en un directorio [workingDirectory](#task-step-properties) compartido, e incluye la raíz del directorio clonado de Git asociado. | No |
 
 ### <a name="properties-build"></a>Propiedades: build
 

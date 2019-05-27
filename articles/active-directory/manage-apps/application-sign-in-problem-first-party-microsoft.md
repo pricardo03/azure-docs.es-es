@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825211"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956849"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas de inicio de sesión en una aplicación de Microsoft
 
@@ -87,7 +87,7 @@ Estos son algunos problemas comunes que pueden surgir cuando los usuarios no pue
 
 - Para aplicaciones de **Microsoft** **que no necesitan licencia**, estos son algunos otros puntos para comprobar:
 
-  * Si la aplicación solicita **permisos de nivel de usuario** (por ejemplo, acceso al buzón de este usuario), asegúrese de que el usuario ha iniciado sesión en la aplicación y ha realizado una **operación de consentimiento de nivel de usuario** para permitir que la aplicación acceda a sus datos.
+  * Si la aplicación solicita **permisos de usuario** (por ejemplo "acceso a este buzón de usuario"), asegúrese de que el usuario ha iniciado sesión en la aplicación y se ha realizado una **deoperacióndeconsentimientodeniveldeusuario** para permitir que la aplicación acceder a sus datos.
 
   * Si la aplicación solicita **permisos de nivel de administrador** (por ejemplo, acceso a los buzones de todos los usuarios), asegúrese de que un administrador global haya realizado una **operación de consentimiento de nivel de administrador en nombre de todos los usuarios** de la organización.
 

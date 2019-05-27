@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713743"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873415"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creación de una máquina virtual Linux con Accelerated Networking
 
 En este tutorial, obtendrá información sobre cómo crear una máquina virtual Linux con Accelerated Networking. Para crear una máquina virtual Windows con Accelerated Networking, consulte [Creación de una máquina virtual Windows con Accelerated Networking](create-vm-accelerated-networking-powershell.md). Accelerated Networking habilita la virtualización de E/S de raíz única (SR-IOV) en una máquina virtual (VM), lo que mejora significativamente su rendimiento en la red. Este método de alto rendimiento omite el host de la ruta de acceso de datos, lo que reduce la latencia, la inestabilidad y la utilización de la CPU para usarse con las cargas de trabajo de red más exigentes en los tipos de máquina virtual admitidos. En la siguiente imagen, se muestra la comunicación entre dos máquinas virtuales (VM) con y sin Accelerated Networking:
 
-![De comparación](./media/create-vm-accelerated-networking/accelerated-networking.png)
+![Comparación](./media/create-vm-accelerated-networking/accelerated-networking.png)
 
 Sin Accelerated Networking, todo el tráfico de red de entrada y salida de la máquina virtual tiene que atravesar el host y el conmutador virtual. El conmutador virtual se encarga de toda la aplicación de directivas, como grupos de seguridad de red, listas de control de acceso, aislamiento y otros servicios virtualizados de red, al tráfico de red. Para más información sobre los conmutadores virtuales, lea el artículo sobre [virtualización de red y conmutador virtual de Hyper-V](https://technet.microsoft.com/library/jj945275.aspx).
 
@@ -224,6 +224,10 @@ vf_tx_bytes: 1099443970
 vf_tx_dropped: 0
 ```
 Las redes aceleradas ya están habilitadas para su máquina virtual.
+
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Controlar el enlace dinámico y la revocación de la función virtual 
+Las aplicaciones deben ejecutarse a través de la NIC sintética que se expone en la máquina virtual. Si la aplicación se ejecuta directamente a través de la NIC de VF, no recibe **todas** paquetes que están destinadas a la máquina virtual, ya que algunos paquetes aparecen en la interfaz sintética.
+Si ejecuta una aplicación a través de la NIC sintética, garantiza que la aplicación recibe **todas** paquetes destinados a él. También se asegura que la aplicación sigue ejecutándose, incluso si se revoca el VF cuando el host está en mantenimiento. Las aplicaciones de enlace a la NIC sintética es un **obligatorio** requisito para todas las aplicaciones aprovechar **Accelerated Networking**.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>Habilitación de Accelerated Networking en máquinas virtuales existentes
 Si ha creado una VM sin Accelerated Networking, es posible habilitar esta característica en una VM existente.  Para admitir Accelerated Networking, la VM debe cumplir los siguientes requisitos previos que también se han descrito anteriormente:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
-ms.openlocfilehash: a48ce5319616e86bf4ad6f9bfa24fda5b98d62f4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9cee3b68273fe98e70d558b5d01232bedf113224
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080886"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122135"
 ---
 #  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Creación de un equilibrador Standard Load Balancer con redundancia de zona en el front-end mediante Azure PowerShell
 
@@ -40,7 +40,7 @@ Inicie sesión en la suscripción de Azure con el comando `Connect-AzAccount` y 
 Connect-AzAccount
 ```
 
-## <a name="create-resource-group"></a>Creación de un grupo de recursos
+## <a name="create-resource-group"></a>Crear grupo de recursos
 
 Cree un grupo de recursos con el siguiente comando:
 

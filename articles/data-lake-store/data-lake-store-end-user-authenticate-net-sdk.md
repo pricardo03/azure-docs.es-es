@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 78a290d8136f8804e853d36a9bc95571625ed89c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c80e9953a24504c4ad324ce077b741e60a52b1fb
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880297"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908017"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticación de usuario final con Azure Data Lake Storage Gen1 mediante el SDK de .NET.
 > [!div class="op_single_selector"]
@@ -30,26 +30,18 @@ ms.locfileid: "60880297"
 En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticación de usuario final con Azure Data Lake Storage Gen1. Para la autenticación entre servicios con Data Lake Storage Gen1. mediante el SDK de .NET, consulte [Service-to-service authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md) (Autenticación entre servicios con Data Lake Storage Gen1 mediante el SDK de .NET).
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Visual Studio 2013, 2015 o 2017**. En las instrucciones siguientes se usa Visual Studio 2017.
+* **Visual Studio 2013 o versiones posteriores**. Las instrucciones siguientes usan Visual Studio de 2019.
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Cree una aplicación "nativa" de Azure Active Directory**. Debe completar los pasos descritos en [Autenticación de usuario final con Data Lake Storage Gen1 mediante Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Creación de una aplicación .NET
-1. Abra Visual Studio y cree una aplicación de consola.
-2. En el menú **Archivo**, haga clic en **Nuevo** y en **Proyecto**.
-3. En **Nuevo proyecto**, escriba o seleccione los siguientes valores:
+1. En Visual Studio, seleccione el **archivo** menú, **New**y, a continuación, **proyecto**.
+2. Elija **aplicación de consola (.NET Framework)** y, a continuación, seleccione **siguiente**.
+3. En **nombre del proyecto**, escriba `CreateADLApplication`y, a continuación, seleccione **crear**.
 
-   | Propiedad | Valor |
-   | --- | --- |
-   | Category |Plantillas/Visual C#/Windows |
-   | Plantilla |Aplicación de consola |
-   | NOMBRE |CreateADLApplication |
-
-4. Haga clic en **Aceptar** para crear el proyecto.
-
-5. Agregue los paquetes NuGet al proyecto.
+4. Agregue los paquetes NuGet al proyecto.
 
    1. Haga clic con el botón derecho en el Explorador de soluciones y haga clic en **Administrar paquetes de NuGet**.
    2. En la pestaña **Administrador de paquetes NuGet**, asegúrese de que la opción **Origen del paquete** esté establecida en **nuget.org** y que esté activada la casilla **Incluir versión preliminar**.
@@ -61,8 +53,8 @@ En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticaci
         ![Incorporación de un origen de NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Creación de una cuenta de Azure Data Lake")
    4. Cierre el **Administrador de paquetes NuGet**.
 
-6. Abrir **Program.cs**
-7. Reemplace las instrucciones Using por las siguientes líneas:
+5. Abrir **Program.cs**
+6. Reemplace las instrucciones Using por las siguientes líneas:
 
     ```csharp
     using System;

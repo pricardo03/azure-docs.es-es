@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f7d24a1e14cfbb1163ab78b94dd36ec288dce50
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e8bd9a86d5ec0d39a7f1c26adac52f41e6420283
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544049"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121982"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Los usuarios obtienen su consentimiento para varios recursos mediante MSAL.NET
 El punto de conexión de plataforma de identidad de Microsoft no podrá obtener un token para varios recursos a la vez. Cuando se usa la biblioteca de autenticación de Microsoft para .NET (MSAL.NET), el parámetro de ámbitos en el método de token de adquisición solo debe contener ámbitos para un único recurso. Sin embargo, puede previamente da su consentimiento a varios recursos por adelantado mediante la especificación de ámbitos adicionales mediante el `.WithExtraScopeToConsent` método del generador.
@@ -32,8 +32,8 @@ El punto de conexión de plataforma de identidad de Microsoft no podrá obtener 
 
 Por ejemplo, si tiene dos recursos que tienen 2 establece el ámbito de cada uno:
 
-- https://mytenant.onmicrosoft.com/customerapi (con 2 ámbitos `customer.read` y `customer.write`)
-- https://mytenant.onmicrosoft.com/vendorapi (con 2 ámbitos `vendor.read` y `vendor.write`)
+- https:\//mytenant.onmicrosoft.com/customerapi (con 2 ámbitos `customer.read` y `customer.write`)
+- https:\//mytenant.onmicrosoft.com/vendorapi (con 2 ámbitos `vendor.read` y `vendor.write`)
 
 Debe usar el `.WithExtraScopeToConsent` modificador que tiene el *extraScopesToConsent* parámetro tal como se muestra en el ejemplo siguiente:
 

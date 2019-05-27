@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 355f61d6282c822e18cf4752044c1e1a5cbbc6a0
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: c0591a7850516a419cb59045754cc4eb02979dfd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560777"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122590"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen2 como origen o destino mediante Azure Data Factory
 
@@ -167,6 +167,9 @@ Para usar identidades administradas para la autenticación de recursos de Azure,
 >- **Herramienta Copy Data** para crear la canalización de la copia.
 >- **Interfaz de usuario de Data Factory** para probar la conexión y el desplazamiento por las carpetas durante la creación. 
 >Si dispone de preocupación acerca de cómo conceder permiso a nivel de cuenta, puede omitir ruta de acceso de entrada y de conexión de prueba manualmente durante la creación. Actividad de copia seguirá funcionando siempre y cuando se concede la identidad administrada con los permisos adecuados en los archivos que se va a copiar.
+
+>[!IMPORTANT]
+>Si usa PolyBase para cargar los datos de ADLS Gen2 en SQL DW, cuando mediante ADLS Gen2 administrado la autenticación de la identidad, asegúrese de que también configurar SQL Data Warehouse correctamente para usar MSI para almacenamiento ADLS Gen2, siga los pasos #1 para #3.b en [esta guía](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Si su Gen2 ADLS se configura con el punto de conexión de servicio de red virtual, para usar PolyBase para cargar datos de él, debe usar autenticación de identidad administrada.
 
 Estas propiedades son compatibles en el servicio vinculado:
 
