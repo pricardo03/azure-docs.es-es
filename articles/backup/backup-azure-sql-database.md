@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f69c2ea334109a42d63b85cb71de0deb7174beab
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847300"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701668"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure
 
@@ -23,7 +23,7 @@ Las bases de datos SQL Server son cargas de trabajo críticas que requieren un b
 
 Esta solución aprovecha las API nativas de SQL para realizar copias de seguridad de las bases de datos SQL.
 
-* Una vez que especifique la VM con SQL Server que desea proteger y que consulte las bases de datos que hay en ella, el servicio Azure Backup instalará una extensión de copia de seguridad de cargas de trabajo en la máquina virtual con el nombre `AzureBackupWindowsWorkload` .
+* Una vez que especifique la máquina virtual con SQL Server que desea proteger y que consulte las bases de datos que hay en ella, el servicio Azure Backup instalará una extensión de copia de seguridad de cargas de trabajo en la máquina virtual con la extensión `AzureBackupWindowsWorkload`  del nombre.
 * Esta extensión consta de un coordinador y un complemento SQL. Mientras que el coordinador es el responsable de desencadenar los flujos de trabajo de varias operaciones como la configuración de las copias de seguridad o la copia de seguridad y restauración, el complemento es responsable de flujo de datos real.
 * Para poder detectar bases de datos en esta máquina virtual, Azure Backup crea la cuenta `NT SERVICE\AzureWLBackupPluginSvc`. Dicha cuenta se usa para realizar operaciones de copia de seguridad y restauración, y requiere permisos de administrador del sistema de SQL. Azure Backup aprovecha la cuenta  `NT AUTHORITY\SYSTEM`  para la detección y consulta de bases de datos, por lo que debe tener un inicio de sesión público en SQL. Si la VM con SQL Server no se ha creado en Azure Marketplace, es posible que reciba el error  **UserErrorSQLNoSysadminMembership**. Si esto sucede,  [siga estas instrucciones](backup-azure-sql-database.md).
 * Una vez que desencadene la protección de la configuración en las bases de datos seleccionados, el servicio de copia de seguridad configura el coordinador con las programaciones de las copias de seguridad y otros detalles de la directiva, que la extensión almacena en caché localmente en la máquina virtual 
@@ -54,20 +54,27 @@ Antes de empezar, compruebe lo siguiente:
 ## <a name="feature-consideration-and-limitations"></a>Consideraciones y limitaciones de las características
 
 - La copia de seguridad de SQL Server se puede configurar en Azure Portal o **PowerShell**. No se admite la CLI.
+- La solución es compatible con ambos tipos de [implementaciones](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model): las máquinas virtuales de Azure Resource Manager y las máquinas virtuales clásicas.
 - La máquina virtual que ejecuta SQL Server requiere conectividad a Internet para acceder a las direcciones IP públicas de Azure.
 - La **instancia del clúster de conmutación por error (FCI)** de SQL Server y la instancia del clúster de conmutación por error de SQL Server AlwaysOn no se admiten.
 - No se admiten operaciones de copia de seguridad y restauración de bases de datos reflejadas ni de instantáneas de bases de datos.
-- Si se usa más de una solución para realizar copias de seguridad de una instancia de SQL Server independiente o de un grupo de disponibilidad Always On de SQL, se pueden producir errores en la copia de seguridad, por lo que es aconsejable evitar hacerlo.
-- La realización de una copia de seguridad de dos nodos de un grupo de disponibilidad individualmente con las mismas soluciones o soluciones diferentes, también puede dar lugar a errores en la copia de seguridad. Azure Backup puede detectar todos los nodos que se encuentran en la misma región que el almacén y protegerlos. Si su grupo de disponibilidad Always On de SQL Server abarca varias regiones de Azure, configure la copia de seguridad de la región que tenga el nodo principal. Azure Backup puede detectar todas las bases de datos del grupo de disponibilidad en función de sus preferencias con respecto a la copia de seguridad y protegerlas.  
+- Si se usa más de una solución para realizar copias de seguridad de una instancia de SQL Server independiente o de un grupo de disponibilidad Always On de SQL, se pueden producir errores en la copia de seguridad, por lo que es aconsejable evitarlo.
+- La realización de una copia de seguridad de dos nodos de un grupo de disponibilidad individualmente con las mismas soluciones o soluciones diferentes, también puede dar lugar a errores en la copia de seguridad.
 - Azure Backup admite solo los tipos de copia de seguridad Completa y Solo copia completa en las bases de datos **de solo lectura**
 - Las bases de datos con un gran número de archivos no se pueden proteger. El número máximo de archivos admitidos es **aproximadamente 1000**.  
 - Puede hacer una copia de seguridad de hasta **aproximadamente 2000** bases de datos de SQL Server en un almacén. Si tiene un número mayor de bases de datos, puede crear varios almacenes.
 - Puede configurar la copia de seguridad de hasta **50** bases de datos a la vez; esta restricción ayuda a optimizar la carga de copias de seguridad.
 - Se admiten bases de datos de hasta **2 TB** de tamaño; si su tamaño es mayor pueden surgir problemas de rendimiento.
-- Para saber el número aproximado de bases de datos que se pueden proteger por servidor, es preciso tener en cuenta factores tales como el ancho de banda, el tamaño de la máquina virtual, la frecuencia de copia de seguridad, el tamaño de la base de datos, etc. Estamos trabajando en una herramienta de planeación que le ayudaría a calcular estas cifras por su cuenta. La publicaremos en breve.
+- Para saber el número aproximado de bases de datos que se pueden proteger por servidor, es preciso tener en cuenta factores tales como el ancho de banda, el tamaño de la máquina virtual, la frecuencia de copia de seguridad, el tamaño de la base de datos, etc. Estamos trabajando en una herramienta de planeación que le ayudaría a calcular estas cifras. La publicaremos en breve.
 - En el caso de los grupos de disponibilidad, las copias de seguridad se realizan de los distintos nodos en función de una serie de factores. A continuación, se resume el comportamiento del proceso de copia de seguridad en un grupo de disponibilidad.
 
-### <a name="backup-behavior-in-case-of-always-on-availability-groups"></a>Comportamiento del proceso de copia de seguridad en el caso de los grupos de disponibilidad Always On
+### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Comportamiento del proceso de copia de seguridad en el caso de los grupos de disponibilidad Always On
+
+Se recomienda que la copia de seguridad se configure en un único nodo de un grupo de disponibilidad. La copia de seguridad siempre debe configurarse en la misma región que el nodo principal. En otras palabras, siempre es necesario que el nodo principal esté presente en la región en la que va a configurar la copia de seguridad. Si todos los nodos del grupo de disponibilidad están en la misma región en la que se configura la copia de seguridad, no hay ningún problema.
+
+**Grupo de disponibilidad con varias regiones**
+- Independientemente de la preferencia de copia de seguridad, las copias de seguridad no se harán en los nodos que no estén en la misma región donde se configure la copia de seguridad. Esto se debe a que no se admiten las copias de seguridad entre regiones. Si tiene solo dos nodos y el secundario está en la otra región; en este caso, las copias de seguridad seguirán produciéndose desde el nodo principal (a menos que su preferencia de copia de seguridad sea "solo secundaria").
+- Si se produce una conmutación por error a una región diferente de aquella en la que se configura la copia de seguridad, las copias de seguridad producirían un error en los nodos de la región conmutada por error.
 
 En función de las preferencias relativas a la copia de seguridad y de los tipos de copia de seguridad (completa, diferencial, de registros, y solo copia completa), se toman las copias de seguridad de un nodo concreto (principal o secundario).
 
@@ -109,7 +116,7 @@ Solo copia completa |  Secundario
 
 ## <a name="fix-sql-sysadmin-permissions"></a>Corrección de permisos de administrador del sistema de SQL
 
-  Si necesita corregir los permisos debido un error **UserErrorSQLNoSysadminMembership**, haga lo siguiente:
+  Si tiene que corregir los permisos debido a un error **UserErrorSQLNoSysadminMembership**, haga lo siguiente:
 
   1. Use una cuenta con permisos sysadmin de SQL Server para iniciar sesión en SQL Server Management Studio (SSMS). A menos que necesite permisos especiales, debería funcionar la autenticación de Windows.
   2. En el servidor SQL Server, abra la carpeta **Seguridad/Inicios de sesión**.
