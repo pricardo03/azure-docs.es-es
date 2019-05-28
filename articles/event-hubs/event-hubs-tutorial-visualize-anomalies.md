@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
-ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6786e4e3382c7c4d7a6a6a28c3cd3621df221c1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123052"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867131"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualización de anomalías de datos de eventos en tiempo real enviados a Azure Event Hubs
 
-Con Azure Event Hubs, puede usar Azure Stream Analytics para comprobar los datos entrantes y extraer las anomalías, que luego puede visualizar en Power BI. Supongamos que tiene miles de dispositivos que envían constantemente datos en tiempo real a un centro de eventos, lo que suma millones de eventos por segundo. ¿Cómo comprueba errores y anomalías en tantos datos? Por ejemplo, ¿y si los dispositivos envían transacciones de tarjeta de crédito y necesita capturarlas en cualquier lugar donde tenga varias transacciones en varios países dentro de un intervalo de tiempo de 5 segundos? Esto podría ocurrir si alguien roba tarjetas de crédito y luego las usa para comprar artículos en todo el mundo a la misma hora. 
+Con Azure Event Hubs, puede usar Azure Stream Analytics para comprobar los datos entrantes y extraer las anomalías, que luego puede visualizar en Power BI. Supongamos que tiene miles de dispositivos que envían constantemente datos en tiempo real a un centro de eventos, lo que suma millones de eventos por segundo. ¿Cómo comprueba errores y anomalías en tantos datos? Por ejemplo, ¿y si los dispositivos envían transacciones de tarjeta de crédito y necesita capturarlas en cualquier lugar donde tenga varias transacciones en varios países o regiones dentro de un intervalo de tiempo de 5 segundos? Esto podría ocurrir si alguien roba tarjetas de crédito y luego las usa para comprar artículos en todo el mundo a la misma hora. 
 
 En este tutorial, se simula este ejemplo. Ejecutará una aplicación que crea y envía transacciones de tarjeta de crédito a un centro de eventos. A continuación, leerá el flujo de datos en tiempo real con Azure Stream Analytics, que separa las transacciones válidas de las que no lo son y, luego, usará Power BI para identificar visualmente las transacciones etiquetadas como no válidas.
 
@@ -54,7 +54,7 @@ En las secciones siguientes se describe cómo realizar estos pasos necesarios. S
 3. Cree un centro de eventos.
 
 > [!NOTE]
-> Hay variables establecidas en cada script que necesitará más adelante en este tutorial. Estas incluyen el nombre del grupo de recursos ($resourceGroup), el espacio de nombres del centro de eventos (**$eventHubNamespace**) y el nombre del centro de eventos (**$eventHubName**). Más adelante en este artículo se hace referencia a ellas con su prefijo de signo del dólar ($), para que sepa que se establecieron en el script.
+> Hay variables establecidas en cada script que necesitará más adelante en este tutorial. Estas incluyen el nombre del grupo de recursos ($resourceGroup), el espacio de nombres del centro de eventos ( **$eventHubNamespace**) y el nombre del centro de eventos ( **$eventHubName**). Más adelante en este artículo se hace referencia a ellas con su prefijo de signo del dólar ($), para que sepa que se establecieron en el script.
 
 <!-- some day they will approve the tab control; 
   When that happens, put CLI and PSH in tabs. -->
@@ -182,7 +182,7 @@ Ahora puede transmitir los datos al centro de eventos. Para usar esos datos en u
 
    **Grupos de recursos**: use el mismo grupo de recursos utilizado por el centro de eventos (**ContosoResourcesEH**).
 
-   **Ubicación**: use la misma ubicación que en el script de instalación (**Oeste de EE. UU.**).
+   **Ubicación**: use la misma ubicación que en el script de instalación (**Oeste de EE. UU.** ).
 
    ![Captura de pantalla que muestra cómo crear un trabajo de Azure Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 

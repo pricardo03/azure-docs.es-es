@@ -1,20 +1,19 @@
 ---
 title: ¿Qué es Azure Backup?
-description: Proporciona información general del servicio Azure Backup, y cómo implementarlo como parte de la estrategia de continuidad empresarial y recuperación ante desastres (BCDR).
-services: backup
+description: Proporciona información general del servicio Azure Backup, y cómo contribuye a la estrategia de continuidad empresarial y recuperación ante desastres (BCDR).
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 04/05/2019
+ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361807"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714284"
 ---
 # <a name="what-is-azure-backup"></a>¿Qué es Azure Backup?
 
@@ -31,11 +30,7 @@ Azure Backup proporciona las siguientes ventajas principales:
 - **Obtención de una transferencia de datos ilimitada**: Azure Backup no limita la cantidad de datos de entrada y salida que se transfieren ni cobra por ellos.
     - Datos de salida hacen referencia a los datos transferidos desde un almacén de Recovery Services durante una operación de restauración.
     - Si realiza una copia de seguridad inicial sin conexión mediante el servicio Azure Import/Export para importar grandes cantidades de datos, hay un costo asociado con los datos de entrada.  [Más información](backup-azure-backup-import-export.md).
-- **Protección de los datos**:
-    - En el entorno local, los datos en tránsito se cifran en la máquina local mediante AES256. Los datos transmitidos se protegen con HTTPS entre el almacenamiento y la copia de seguridad. El protocolo iSCSI protege los datos transmitidos entre el servicio de recuperación y la máquina del usuario. Se usa la tunelización segura para proteger el canal iSCSI.
-    - En el entorno local para una copia de seguridad de Azure, los datos de Azure se cifran en reposo con la frase de contraseña que proporcione al configurar las copias de seguridad. La frase de contraseña o la clave nunca se transmiten ni se almacenan en Azure. Si es necesario restaurar algunos de los datos, solo cuenta con la frase de contraseña o clave de cifrado.
-    - Para las máquinas virtuales de Azure, los datos se cifran en reposo con Storage Service Encryption (SSE). Backup cifra automáticamente los datos antes de almacenarlos. Azure Storage descifra los datos antes de recuperarlos.
-    - Backup también admite máquinas virtuales de Azure cifradas mediante Azure Disk Encryption (ADE). [Más información](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
+- **Protección de los datos**: Azure Backup proporciona soluciones para proteger los datos en tránsito y en reposo.
 - **Obtención de copias de seguridad coherentes de la aplicación**: una copia de seguridad coherente con la aplicación significa un punto de recuperación que tiene todos los datos necesarios para restaurar la copia de seguridad. Azure Backup proporciona copias de seguridad coherentes con la aplicación, lo que garantiza que no se necesitarán correcciones adicionales para restaurar los datos. La restauración de datos coherentes con la aplicación reduce el tiempo de restauración, lo que permite volver rápidamente a un estado de ejecución.
 - **Retención de los datos a corto y largo plazo**: puede usar los almacenes de Recovery Services para la retención de datos tanto a corto como a largo plazo. Azure no limita el tiempo que los datos pueden permanecer en un almacén de Recovery Services. Puede conservarlos el tiempo que desee. Azure Backup tiene un límite de 9999 puntos de recuperación por instancia protegida. [Más información](backup-introduction-to-azure-backup.md#backup-and-retention) sobre cómo afecta este límite a sus necesidades de copia de seguridad.
 - **Administración de almacenamiento automática**: los entornos híbridos requieren con frecuencia almacenamiento heterogéneo, unos local y otros en la nube. Con Azure Backup, no hay ningún costo por el uso de dispositivos de almacenamiento local. Azure Backup asigna y administra automáticamente almacenamiento de copia de seguridad y usa un modelo de pago por uso para que solo pague por el almacenamiento que consume. [Más información](https://azure.microsoft.com/pricing/details/backup) sobre precios.
@@ -99,7 +94,7 @@ Más información sobre [cómo funciona la copia de seguridad](backup-architectu
 **Escenario** | **Agent**
 --- | ---
 **Copia de seguridad de máquinas virtuales de Azure** | No se necesita ningún agente. La extensión de máquina virtual de Azure para copia de seguridad se instala en la máquina virtual de Azure al ejecutar la primera copia de seguridad de máquina virtual de Azure.<br/><br/> Compatibilidad con Windows y Linux.
-**Copia de seguridad de máquinas virtuales Windows locales** | Descargue, instale y ejecute al agente de MARS directamente en la máquina.
+**Copia de seguridad de máquinas virtuales Windows locales** | Descargue, instale y ejecute el agente de MARS directamente en la máquina.
 **Copia de seguridad de máquinas virtuales de Azure con el agente de MARS** | Descargue, instale y ejecute el agente de MARS directamente en la máquina. El agente de MARS se puede ejecutar junto con la extensión de copia de seguridad.
 **Copia de seguridad de máquinas locales y máquinas virtuales de Azure en DPM o MABS** | El agente de protección de DPM o MABS se ejecuta en las máquinas que quiera proteger. El agente de MARS se ejecuta en el servidor DPM o MABS para realizar una copia de seguridad en Azure.
 
@@ -114,6 +109,12 @@ Más información sobre [cómo funciona la copia de seguridad](backup-architectu
 **Quiero hacer una copia de seguridad de las aplicaciones que se ejecutan en el entorno local** | En el caso de copias de seguridad compatibles con aplicaciones, las máquinas deben estar protegidas con DPM o MABS.
 **Quiero una configuración de copia de seguridad y recuperación pormenorizada y flexible para máquinas virtuales de Azure** | Proteja las máquinas virtuales de Azure con MABS o DPM que se ejecutan en Azure para mayor flexibilidad en la programación de copias de seguridad, y total flexibilidad para proteger y restaurar archivos, carpetas, volúmenes, aplicaciones y estado del sistema.
 
+## <a name="how-does-azure-backup-work-with-encryption"></a>¿Cómo funciona Azure Backup con el cifrado?
+
+**Cifrado** | **Copia de seguridad local** | **Copia de seguridad de máquinas virtuales de Azure** | **Copia de seguridad de SQL en máquinas virtuales de Azure**
+--- | --- | --- | ---
+Cifrado en reposo<br/> (Cifrado de datos donde persisten o están almacenados) | La frase de contraseña especificada por el cliente se usa para cifrar los datos | Azure [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) se usa para cifrar los datos que se encuentran en el almacén.<br/><br/> Backup cifra automáticamente los datos antes de almacenarlos. Azure Storage descifra los datos antes de recuperarlos. No se admite actualmente el uso de claves administradas por el cliente para SSE.<br/><br/> Puede realizar copias de seguridad de máquinas virtuales que usan [Azure Disk Encryption (ADE)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) para cifrar discos de datos y del sistema operativo. Azure Backup admite máquinas virtuales cifradas con BEK únicamente y con BEK y [KEK](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/). Revise las [limitaciones](backup-azure-vms-encryption.md#encryption-support). | Azure Backup admite la copia de seguridad de bases de datos o servidores SQL Server con [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) habilitado. Backup admite TDE con claves administradas por Azure o con claves administradas por el cliente (BYOK).<br/><br/> Backup no realiza ningún cifrado de SQL como parte del proceso de copia de seguridad.
+Cifrado en tránsito<br/> (Cifrado de los datos que se transfieren desde una ubicación a otra) | Los datos se cifran con AES256 y se envían al almacén de Azure a través de HTTPS | Dentro de Azure, los datos entre Azure Storage y el almacén se protegen mediante HTTPS. Estos datos permanecen en la red troncal de Azure.<br/><br/> Para la recuperación de archivos, iSCSI protege los datos transmitidos entre el almacén y la máquina virtual de Azure. La tunelización segura protege el canal iSCSI. | Dentro de Azure, los datos entre Azure Storage y el almacén se protegen mediante HTTPS.<br/><br/> La recuperación de archivos no es pertinente para SQL.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

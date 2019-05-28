@@ -1,21 +1,22 @@
 ---
 title: Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Aprenda rápidamente a crear una nueva cuenta de almacenamiento con acceso a Data Lake Storage Gen2 en Azure Portal, Azure PowerShell o la CLI de Azure.
+description: Aprenda rápidamente a crear una cuenta de almacenamiento con acceso a Data Lake Storage Gen2 en Azure Portal, Azure PowerShell o la CLI de Azure.
 services: storage
-author: jamesbak
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
-ms.author: jamesbak
-ms.openlocfilehash: 50cd039395b477a93d050458c2a014e768fc5f0a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.author: normesta
+ms.reviewer: jamesbak
+ms.openlocfilehash: 18132ac4c218c766efdc9a9afae2cc3508c4f732
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995683"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939420"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Guía de inicio rápido: Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2
+# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Inicio rápido: Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 [admite un espacio de nombres jerárquico](data-lake-storage-introduction.md) que proporciona un sistema de archivos nativo basado en directorios que se ha diseñado para trabajar con el sistema de archivos distribuido de Hadoop (HDFS). El acceso a los datos de Data Lake Storage Gen2 desde HDFS está disponible en el [controlador ABFS](data-lake-storage-abfs-driver.md).
 
@@ -105,7 +106,7 @@ De este modo, ya ha creado la cuenta de almacenamiento en el portal.
 Para quitar un grupo de recursos desde Azure Portal:
 
 1. En Azure Portal, expanda el menú de la izquierda para abrir el menú de servicios y elija **Grupos de recursos** para ver una lista con sus grupos de recursos.
-2. Busque el grupo de recursos que desea eliminar y haga clic con el botón derecho en el botón **Más** (**...** ) situado en la parte derecha de la lista.
+2. Busque el grupo de recursos que desea eliminar y haga clic con el botón derecho en el botón **Más** ( **...** ) situado en la parte derecha de la lista.
 3. Seleccione **Eliminar grupo de recursos** y confirme.
 
 ## <a name="create-an-account-using-powershell"></a>Creación de una cuenta con PowerShell

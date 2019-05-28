@@ -3,18 +3,18 @@ title: Introducción a Azure IoT Central | Microsoft Docs
 description: Azure IoT Central es una solución SaaS de un extremo a otro que puede usar para crear y administrar soluciones IoT personalizadas. En este artículo se proporciona información general sobre las características de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/30/2017
+ms.date: 04/24/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 9fc565996797c90a6d2ac9b3851ac3408f1842c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 84fa7aa006a6bc5365527dbf8043797617543590
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183278"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704535"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,16 +25,16 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>¿Qué es Azure IoT Central?
 
-Microsoft Azure IoT Central es una solución de Software como servicio para IoT completamente administrada que facilita la creación de productos que conectan los mundos físico y digital. Dé vida a los productos conectados que tiene en mente y consiga lo siguiente:
+Azure IoT Central es una solución de software como servicio para IoT completamente administrada que facilita la creación de productos que conectan los mundos físico y digital. Dé vida a los productos conectados que tiene en mente y consiga lo siguiente:
 
 - Obtener nuevas conclusiones a partir de los dispositivos conectados para ofrecer mejores productos y experiencias a los clientes.
 - Crear nuevas oportunidades de negocio para su organización.
 
-Azure IoT Central, en comparación con un proyecto típico de IoT, se hace cargo de la administración de las soluciones de IoT, lo que le permite:
+Azure IoT Central, en comparación con un proyecto de IoT típico:
 
-- Reducir la carga de administración.
-- Reducir los costos operativos y las sobrecargas.
-- Esto facilita la personalización de las aplicaciones y permite aprovechar:
+- Reduce la carga de administración.
+- Reduce los costos operativos y las sobrecargas.
+- Facilita la personalización de la aplicación, al mismo tiempo que trabaja con:
   - Tecnologías líderes del sector, tales como [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) y [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).
   - Características de seguridad de nivel empresarial, como el cifrado de extremo a extremo.
 
@@ -42,7 +42,7 @@ El siguiente vídeo ofrece una introducción a Azure IoT Central:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Microsoft-IoT-Central-intro-walkthrough/Player]
 
-El resto de este artículo describe Azure IoT Central:
+Para Azure IoT Central, en este artículo se describe lo siguiente:
 
 - Los roles típicos asociados a un proyecto.
 - Cómo crear una aplicación.
@@ -51,7 +51,7 @@ El resto de este artículo describe Azure IoT Central:
 
 ## <a name="personas"></a>Personas
 
-La documentación de Azure IoT Central hace referencia a los cuatro roles típicos que interactúan con una aplicación de Azure IoT Central:
+La documentación de Azure IoT Central hace referencia a los cuatro roles que interactúan con una aplicación de Azure IoT Central:
 
 - Un _compilador_, que es responsable de definir los tipos de dispositivos que se conectan a la aplicación y de personalizar la aplicación para el operador.
 - Un _operador_, que administra los dispositivos conectados a la aplicación.
@@ -65,7 +65,7 @@ Como compilador, usará Azure IoT Central para crear una solución de IoT person
 - Una aplicación basada en la nube que recibe los datos de telemetría de los dispositivos y le permite administrar los dispositivos.
 - Varios dispositivos que ejecutan código personalizado y que están conectados a la aplicación en la nube.
 
-Puede implementar rápidamente una nueva aplicación de Azure IoT Central y, después, ajustarla a sus requisitos específicos directamente en el explorador. Como compilador de Azure IoT Central, puede usar herramientas web para crear una _plantilla de dispositivo_ para los dispositivos que se conectan a la aplicación. Una plantilla de dispositivo es el plano técnico de un modelo de dispositivo. Todos los dispositivos que se crean a partir de la misma plantilla de dispositivo comparten la plantilla. Una plantilla de dispositivo define las características y el comportamiento de un tipo de dispositivo, por ejemplo:
+Puede implementar rápidamente una nueva aplicación de Azure IoT Central y, después, ajustarla a sus requisitos específicos en el explorador. Como compilador, use herramientas web para crear una _plantilla de dispositivo_ para los dispositivos que se conectan a la aplicación. Una plantilla de dispositivo es el plano técnico que define las características y el comportamiento de un tipo de dispositivo, por ejemplo:
 
 - La telemetría que envía.
 - Las propiedades empresariales que un operador puede modificar.
@@ -83,7 +83,7 @@ Como compilador, también puede personalizar la interfaz de usuario de la aplica
 
 ## <a name="connect-your-devices"></a>Conectar dispositivos
 
-Después de que el compilador define los tipos de dispositivos que pueden conectarse a la aplicación, un desarrollador de dispositivo crea el código que se ejecuta en los dispositivos. Como desarrollador de dispositivo, usará los [SDK de Azure IoT](https://github.com/Azure/azure-iot-sdks) de Microsoft, de código abierto, para crear el código del dispositivo. Estos SDK admiten numerosos lenguajes, plataformas y protocolos para satisfacer cualquier necesidad de conexión de dispositivos a una aplicación de Azure IoT Central. Los SDK ayudan a realizar las siguientes tareas en el dispositivo conectado a Azure IoT Central:
+Después de que el compilador define los tipos de dispositivos que pueden conectarse a la aplicación, un desarrollador de dispositivo crea el código que se ejecuta en los dispositivos. Como desarrollador de dispositivo, usará los [SDK de Azure IoT](https://github.com/Azure/azure-iot-sdks) de Microsoft, de código abierto, para crear el código del dispositivo. Estos SDK admiten numerosos lenguajes, plataformas y protocolos para satisfacer cualquier necesidad de conexión de dispositivos a una aplicación de Azure IoT Central. Los SDK le ayudan a implementar las siguientes funcionalidades de los dispositivos:
 
 - Crear una conexión segura.
 - Enviar datos de telemetría.
@@ -96,15 +96,15 @@ Para más información, consulte la entrada de blog [Benefits of using the Azure
 
 Microsoft hospeda completamente las aplicaciones de Azure IoT Central, lo que reduce la sobrecarga de administración de las aplicaciones.
 
-Como operador, la aplicación de Azure IoT Central se utiliza para administrar los dispositivos de su solución de Azure IoT Central. Los operadores pueden realizar tareas tales como:
+Como operador, la aplicación de Azure IoT Central se utiliza para administrar los dispositivos de su solución de Azure IoT Central. Los operadores realizan tareas como:
 
 - Supervisar los dispositivos conectados a la aplicación.
 - Solucionar problemas y errores de los dispositivos.
 - Aprovisionar dispositivos nuevos.
 
-Un compilador puede definir reglas personalizadas y las acciones que se aplican a los datos de streaming en el nivel de plantilla de dispositivo. Un operador puede habilitar o deshabilitar estas reglas en el nivel de dispositivo para controlar y automatizar las tareas dentro de la aplicación.
+Como compilador, puede definir reglas personalizadas y acciones que se aplican a la transmisión de datos desde los dispositivos conectados. Un operador puede habilitar o deshabilitar estas reglas en el nivel de dispositivo para controlar y automatizar las tareas dentro de la aplicación.
 
-Los administradores pueden administrar el acceso a la aplicación con [permisos y roles de usuario](howto-administer.md).
+Los administradores administran el acceso a la aplicación con [permisos y roles de usuario](howto-administer.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

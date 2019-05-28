@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9650cdb6935fb45f0c59e8a114a9ce1c8e2d809
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620094"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686530"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Preparación de la implementación de Azure Data Box Gateway
 
@@ -51,6 +51,8 @@ Aquí encontrará los requisitos previos para configurar su recurso de Data Box 
 Antes de comenzar, asegúrese de que:
 
 - El recurso de Data Box Gateway debe admitir su suscripción de Microsoft Azure. No se admiten suscripciones de pago por uso.
+- Debe tener acceso de colaborador o propietario a la suscripción.
+- Debe tener acceso de administrador o usuario a Graph API de Azure Active Directory. Para más información, vea [Graph API de Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
 
 ### <a name="for-the-data-box-gateway-device"></a>Para el dispositivo de Data Box Gateway
@@ -85,7 +87,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Data Box Gateway.
 
 1. Use sus credenciales de Microsoft Azure para iniciar sesión en:
 
-    - Azure Portal en esta dirección URL: [https://portal.azure.com](http://portal.azure.com).
+    - Azure Portal en esta dirección URL: [https://portal.azure.com](https://portal.azure.com).
     - O bien, el portal de Azure Government en esta dirección URL: [https://portal.azure.us](https://portal.azure.us). Para más información, vaya a [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal) (Conexión a Azure Government mediante el portal).
 
 2. En el menú izquierdo, seleccione **+ Crear un recurso**. Busque **Data Box Edge/Data Box Gateway**. Seleccione Data Box Edge/Data Box Gateway. Seleccione **Crear**.

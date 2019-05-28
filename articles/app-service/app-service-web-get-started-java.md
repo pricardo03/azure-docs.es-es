@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 04/23/2019
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007362"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706140"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Creación de su primera aplicación web de Java en Azure
 
-[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. Esta guía de inicio rápido muestra cómo implementar una aplicación web de Java en App Service mediante [Eclipse IDE for Java EE Developers](https://www.eclipse.org/).
+Azure App Service proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. Esta guía de inicio rápido muestra cómo implementar una aplicación web de Java en App Service mediante Eclipse IDE for Java EE Developers (IDE de Eclipse para desarrolladores de Java EE).
 
 > [!IMPORTANT]
 > Azure App Service en Linux es también una opción para hospedar aplicaciones web de Java de forma nativa en Linux mediante ofertas de Tomcat, Java SE y WildFly administradas. Si está interesado en empezar a usar App Service en Linux, consulte [Inicio rápido: Creación de una aplicación de Java en App Service en Linux](containers/quickstart-java.md).
@@ -54,7 +54,7 @@ Para completar esta guía de inicio rápido necesita instalar:
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Creación de un proyecto web dinámico en Eclipse
 
-En Eclipse, seleccione **File (Archivo)** > **New (Nuevo)** > **Dynamic Web Project (Proyecto web dinámico)**.
+En Eclipse, seleccione **File (Archivo)**  > **New (Nuevo)**  > **Dynamic Web Project (Proyecto web dinámico)** .
 
 En el cuadro de diálogo **New Dynamic Web Project** (Nuevo proyecto web dinámico), asigne al proyecto el nombre **MyFirstJavaOnAzureWebApp** y seleccione **Finish** (Finalizar).
    

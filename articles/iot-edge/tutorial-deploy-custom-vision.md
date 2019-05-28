@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7a5a92635114be87e59fe8f779c36d4c401a1427
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 194ebcc1f1779c927503e09e9c42a96afddb12c9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087166"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575805"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Clasificación de imágenes en el perímetro con Custom Vision Service
 
@@ -25,7 +25,6 @@ Por ejemplo, Custom Vision en un dispositivo IoT Edge podría determinar si una 
 En este tutorial, aprenderá a: 
 
 > [!div class="checklist"]
->
 > * Crear un clasificador de imágenes con Custom Vision.
 > * Desarrollar un módulo de IoT Edge que realiza consultas al servidor web de Custom Vision en el dispositivo.
 > * Enviar los resultados del clasificador de imágenes a IoT Hub.
@@ -39,25 +38,19 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Un dispositivo de Azure IoT Edge:
+Antes de comenzar este tutorial, debe haber realizado el anterior para configurar el entorno de desarrollo de contenedores de Linux. [Desarrolle módulos de IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Al completar ese tutorial, se deben cumplir los siguientes requisitos previos: 
 
-* Puede usar la máquina de desarrollo o una máquina virtual como dispositivo de Edge siguiendo los pasos que se indican en la [guía de inicio rápido para Linux](quickstart-linux.md).
-* Actualmente, el módulo de Custom Vision solo está disponible como un contenedor Linux para arquitecturas x64. 
+* Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) de nivel estándar o gratis en Azure.
+* Un [dispositivo Linux que ejecute Azure IoT Edge](quickstart-linux.md).
+* Un registro de contenedor, como [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio Code](https://code.visualstudio.com/) configurado con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [CE de Docker](https://docs.docker.com/install/) configurado para ejecutar contenedores de Linux.
 
-Recursos en la nube:
-
-* Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) de nivel estándar en Azure. 
-* Un registro de contenedor. En este tutorial, utilizaremos [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/). 
-* Conocer las credenciales de la [cuenta de administrador](../container-registry/container-registry-authentication.md#admin-account) del registro de contenedor.
-
-Recursos de desarrollo:
+Para desarrollar un módulo de IoT Edge con el servicio Custom Vision, instale los siguientes requisitos previos adicionales en la máquina de desarrollo: 
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* Extensión de [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code
 * Extensión de [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para Visual Studio Code
-* [Docker CE](https://docs.docker.com/install/)
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>Creación de un clasificador de imágenes con Custom Vision
 
@@ -169,6 +162,22 @@ Una solución es una manera lógica de desarrollar y organizar varios módulos p
    ![Especificación del repositorio de imágenes de Docker](./media/tutorial-deploy-custom-vision/repository.png)
 
 El área de trabajo de la solución de IoT Edge se carga en la ventana de Visual Studio Code.
+
+### <a name="add-your-registry-credentials"></a>Adición de las credenciales del Registro
+
+El archivo del entorno almacena las credenciales del registro de contenedor y las comparte con el runtime de IoT Edge. El entorno de ejecución necesita estas credenciales para extraer las imágenes privadas e insertarlas en el dispositivo IoT Edge.
+
+1. En el explorador de VS Code, abra el archivo .env.
+2. Actualice los campos con los valores de **nombre de usuario** y **contraseña** que ha copiado del Registro de contenedor de Azure.
+3. Guarde este archivo.
+
+### <a name="select-your-target-architecture"></a>Selección de la arquitectura de destino
+
+Actualmente, Visual Studio Code puede desarrollar módulos para dispositivos Linux AMD64 y Linux ARM32v7. Debe seleccionar qué arquitectura tiene como destino con cada solución, dado que el contenedor se crea y ejecuta de manera diferente para cada tipo de arquitectura. La opción predeterminada es Linux AMD64. 
+
+1. Abra la paleta de comandos y busque **Azure IoT Edge: Set Default Target Platform for Edge Solution** (Establecer la plataforma de destino predeterminada para la solución perimetral), o bien seleccione el icono de acceso directo en la barra lateral en la parte inferior de la ventana. 
+
+2. En la paleta de comandos, seleccione la arquitectura de destino en la lista de opciones. Para este tutorial, usamos una máquina virtual Ubuntu como dispositivo IoT Edge, por lo que mantendrá el valor predeterminado **amd64**. 
 
 ### <a name="add-your-image-classifier"></a>Adición del clasificador de imágenes
 
@@ -392,28 +401,6 @@ La extensión de IoT Edge para Visual Studio Code proporciona una plantilla en c
 
 7. Guarde el archivo **deployment.template.json**.
 
-### <a name="add-your-registry-credentials"></a>Adición de las credenciales del Registro
-
-Los requisitos previos para este tutorial muestran un registro de contenedor, que es necesario para almacenar las imágenes de contenedor de los módulos que ha creado. Deberá proporcionar las credenciales de acceso del registro en dos lugares: en Visual Studio Code para que pueda compilar e insertar las imágenes en el registro y en el manifiesto de implementación para que el dispositivo IoT Edge pueda extraer e implementar las imágenes. 
-
-Si usa Azure Container Registry, asegúrese de que conoce el nombre de usuario, el servidor de inicio de sesión y la contraseña de la [cuenta de administrador](../container-registry/container-registry-authentication.md#admin-account). 
-
-1. En Visual Studio Code, abra el terminal integrado; para ello, seleccione **Ver** > **Terminal**. 
-
-2. En el terminal integrado, escriba el siguiente comando: 
-
-    ```csh/sh
-    docker login -u <registry username> <registry login server>
-    ```
-
-3. Cuando se le solicite, proporcione la contraseña del registro y pulse **ENTRAR**.
-
-4. Abra el archivo **.env** de la carpeta de la solución. Este archivo es ignorado por Git y almacena las credenciales del registro, con el fin de que no tenga que codificarlas en el archivo de la plantilla de implementación. 
-
-5. Proporcione el nombre de usuario y la contraseña del registro de contenedor, sin las comillas alrededor de los valores. 
-
-6. Guarde el archivo **.env**.
-
 ## <a name="build-and-deploy-your-iot-edge-solution"></a>Compilación e implementación de la solución de IoT Edge
 
 Con ambos módulos creados y la plantilla del manifiesto de implementación configurada, está listo para crear las imágenes de contenedor e insertarlas en el registro de contenedor. 
@@ -426,13 +413,7 @@ En primer lugar, compile e inserte la solución en el registro de contenedor.
 2. Observe que se ha agregado una nueva carpeta a la solución, **config**. Expanda esta carpeta y abra el archivo **deployment.json** que hay dentro.
 3. Revise la información del archivo deployment.json. El archivo deployment.json se crea (o actualiza) automáticamente en función del archivo de la plantilla de implementación que ha configurado y la información de la solución, incluidos el archivo .env y los archivos module.json. 
 
-A continuación, configure el acceso a IoT Hub desde Visual Studio Code. 
-
-1. En la paleta de comandos de VS Code, seleccione **Azure IoT Hub: Select IoT Hub** (Seleccionar IoT Hub).
-2. Siga las indicaciones para iniciar sesión en su cuenta de Azure. 
-3. En la paleta de comandos, seleccione la suscripción de Azure y, a continuación, seleccione IoT Hub. 
-
-Por último, seleccione el dispositivo e implemente la solución.
+A continuación, seleccione el dispositivo e implemente la solución.
 
 1. En el explorador de VS Code, expanda la sección **Azure IoT Hub Devices** (Dispositivos de Azure IoT Hub). 
 2. Haga clic con el botón derecho en el dispositivo que quiere como destino para la implementación y seleccione **Create deployment for single device** (Crear implementación para dispositivo individual). 
@@ -469,9 +450,6 @@ En caso contrario, para evitar gastos, puede eliminar las configuraciones locale
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -482,4 +460,4 @@ Si desea probar una versión más detallada de este escenario con una fuente de 
 Puede continuar con los siguientes tutoriales para aprender otras formas en las que Azure IoT Edge puede ayudarle a convertir los datos en información empresarial en el perímetro.
 
 > [!div class="nextstepaction"]
-> [Búsqueda de promedios mediante una ventana flotante en Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Almacenamiento de datos en el perímetro con bases de datos de SQL Server](tutorial-store-data-sql-server.md)

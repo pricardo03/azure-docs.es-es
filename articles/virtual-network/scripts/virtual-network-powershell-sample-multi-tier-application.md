@@ -3,8 +3,8 @@ title: 'Ejemplo de script de Azure PowerShell: crear una red para aplicaciones d
 description: 'Ejemplo de script de Azure PowerShell: crear una red virtual para aplicaciones de niveles múltiples.'
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 12/13/2018
-ms.author: jdial
-ms.openlocfilehash: efd496f2f69f243b958f4e780b9f3455d2ffece3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: 2fad78db4fdc92f3dc9c0f320c36d12dea554a61
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648701"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725388"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Creación de una red para aplicaciones de niveles múltiples: script de ejemplo
 
@@ -34,7 +34,8 @@ Puede ejecutar el script desde Azure [Cloud Shell](https://shell.azure.com/power
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> Una vez que se crea una red virtual, se asigna un identificador de subred, específicamente mediante el cmdlet New-AzVirtualNetwork con la opción -Subnet. Si configura la subred mediante el cmdlet New-AzVirtualNetworkSubnetConfig antes de llamar a New-AzVirtualNetwork, no verá el identificador de subred hasta después de llamar a New-AzVirtualNetwork.
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 -->
+Una vez que se crea una red virtual, se asigna un identificador de subred, específicamente mediante el cmdlet New-AzVirtualNetwork con la opción -Subnet. Si configura la subred mediante el cmdlet New-AzVirtualNetworkSubnetConfig antes de llamar a New-AzVirtualNetwork, no verá el identificador de subred hasta después de llamar a New-AzVirtualNetwork.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 

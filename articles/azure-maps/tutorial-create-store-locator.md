@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1d3099da3d449e29d378e2f350fdc87ce5166f2e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545304"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574404"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Creación de un localizador de almacén mediante Azure Maps
 
@@ -71,7 +71,7 @@ Los contornos reticulares muestran una aplicación bastante sencilla. La aplicac
 
 ## <a name="create-the-store-location-dataset"></a>Creación del conjunto de datos de la ubicación de almacén
 
-Antes de desarrollar una aplicación de localizador de almacén, se debe crear un conjunto de datos de las tiendas que quiere mostrar en el mapa. En este tutorial, se usará un conjunto de datos de una cafetería ficticia llamada Contoso Coffee. El conjunto de datos de este localizador de almacén sencillo se administra en un libro de Excel. El conjunto de datos contiene 10 213 ubicaciones de cafetería de Contoso Coffee repartidas alrededor de nueve países: Estados Unidos, Canadá, Reino Unido, Francia, Alemania, Italia, Países Bajos, Dinamarca y España. Esta es una captura de pantalla del aspecto de los datos:
+Antes de desarrollar una aplicación de localizador de almacén, se debe crear un conjunto de datos de las tiendas que quiere mostrar en el mapa. En este tutorial, se usará un conjunto de datos de una cafetería ficticia llamada Contoso Coffee. El conjunto de datos de este localizador de almacén sencillo se administra en un libro de Excel. El conjunto de datos contiene 10 213 ubicaciones de cafetería de Contoso Coffee repartidas alrededor de nueve países y regiones: Estados Unidos, Canadá, Reino Unido, Francia, Alemania, Italia, Países Bajos, Dinamarca y España. Esta es una captura de pantalla del aspecto de los datos:
 
 <br/>
 <center>
@@ -403,7 +403,7 @@ Llegados a este punto, todo está configurado en la interfaz de usuario. Ahora, 
 
 1. Agregue código a *index.js*. El siguiente código inicializa el mapa, agrega un [agente de escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) que espera hasta que la página termina de cargarse, conecta los eventos para supervisar la carga del mapa y activa el botón de búsqueda y el botón My Location (Mi ubicación).
 
-   Cuando el usuario selecciona el botón de búsqueda, o cuando el usuario presiona Entrar después de escribir una ubicación en el cuadro de búsqueda, se inicia una búsqueda aproximada con la consulta del usuario. Pase una matriz de valores de país ISO 2 a la opción `countrySet` para limitar los resultados de búsqueda a esos países. Limitar los países de búsqueda ayuda a aumentar la precisión de los resultados que se devuelven. 
+   Cuando el usuario selecciona el botón de búsqueda, o cuando el usuario presiona Entrar después de escribir una ubicación en el cuadro de búsqueda, se inicia una búsqueda aproximada con la consulta del usuario. Pase una matriz de valores de país ISO 2 a la opción `countrySet` para limitar los resultados de la búsqueda a esos países y regiones. Limitar los países y regiones de búsqueda ayuda a aumentar la precisión de los resultados que se devuelven. 
   
    Cuando haya finalizado la búsqueda, tome el primer resultado y establezca la cámara del mapa sobre esa zona. Cuando el usuario seleccione el botón My Location (Mi ubicación), use la API de geolocalización HTML5 que está integrada en el explorador para recuperar la ubicación del usuario y centrar el mapa sobre esta.  
 

@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 97309a24c0ab12720f968409856a16cab4ff7ac7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013112"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714895"
 ---
 # <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Crear y entrenar un modelo predictivo en R con Machine Learning Services (versión preliminar) de Azure SQL Database
 
@@ -106,7 +106,7 @@ En los siguientes pasos, configurará los datos de entrenamiento, creará un mod
 
 1. A continuación, cree una tabla para almacenar el modelo y así poder volver a entrenarlo o usarlo en la predicción. 
 
-   La salida de un paquete de R que crea un modelo es normalmente un **objeto binario**, por lo que la tabla debe tener una columna de tipo **VARBINARY(max)**.
+   La salida de un paquete de R que crea un modelo es normalmente un **objeto binario**, por lo que la tabla debe tener una columna de tipo **VARBINARY(max)** .
 
     ```sql
     CREATE TABLE dbo.stopping_distance_models (
@@ -171,7 +171,7 @@ VALUES (
 
 **Resultados**
 
-![Modelo entrenado con salida adicional](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
+![Modelo entrenado con salida adicional](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
 ## <a name="score-new-data-using-the-trained-model"></a>Puntuar los datos nuevos mediante el modelo entrenado
 
@@ -239,7 +239,7 @@ VALUES (
 
    **Resultados**
 
-   ![Resultado establecido para predecir la distancia de frenado](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+   ![Resultado establecido para predecir la distancia de frenado](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
 > En este script de ejemplo, la función `str` se agrega durante la fase de prueba, para comprobar el esquema de los datos que se devuelven desde R. Puede eliminar la instrucción más tarde.
@@ -248,10 +248,9 @@ VALUES (
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Machine Learning Services, consulte los siguientes artículos. Aunque algunos de estos artículos son para SQL Server, la mayor parte de la información también se aplica a Machine Learning Services (con R) en Azure SQL Database.
+Para más información acerca de Azure SQL Database Machine Learning Services con R (versión preliminar), consulte los siguientes artículos.
 
-- [Machine Learning Services (con R) en Azure SQL Database](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Tutorial: Información de los análisis en bases de datos con R en SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [Tutorial completo de ciencia de datos para R y SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Tutorial: Uso de funciones RevoScaleR R con datos de SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Azure SQL Database Machine Learning Services con R (versión preliminar)](sql-database-machine-learning-services-overview.md)
+- [Crear y ejecutar scripts de R sencillos en Azure SQL Database Machine Learning Services (versión preliminar)](sql-database-quickstart-r-create-script.md)
+- [Escribir funciones de R avanzadas en Azure SQL Database Machine Learning Services (versión preliminar)](sql-database-machine-learning-services-functions.md)
+- [Trabajar con datos SQL y R en Machine Learning Services (versión preliminar) de Azure SQL Database](sql-database-machine-learning-services-data-issues.md)

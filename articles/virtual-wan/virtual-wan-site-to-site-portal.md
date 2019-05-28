@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 04/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 4b44eec5557d2083c38fe2714d93800f79b21b0f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: e8e251aa5031a8eadd2d567bff2830449c7decc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338452"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689507"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Creación de una conexión de sitio a sitio mediante Azure Virtual WAN
 
-Este tutorial muestra cómo usar Virtual WAN para conectarse a los recursos de Azure a través de una conexión VPN de IPsec/IKE (IKEv1 e IKEv2). Este tipo de conexión requiere un dispositivo VPN local que tenga una dirección IP pública asignada. Para más información sobre Virtual WAN, consulte la [Introducción a Virtual WAN](virtual-wan-about.md)
+Este tutorial muestra cómo usar Virtual WAN para conectarse a los recursos de Azure a través de una conexión VPN de IPsec/IKE (IKEv1 e IKEv2). Este tipo de conexión requiere un dispositivo VPN local que tenga una dirección IP pública asignada. Para más información sobre Virtual WAN, consulte la [Introducción a Virtual WAN](virtual-wan-about.md).
 
 > [!NOTE]
 > Si tiene muchos sitios, normalmente usará un [asociado de Virtual WAN](https://aka.ms/virtualwan) para crear esta configuración. De todas formas, puede crear esta configuración usted mismo si está familiarizado con las redes y tiene experiencia en la configuración de su propio dispositivo VPN.
@@ -32,6 +32,7 @@ En este tutorial, aprenderá a:
 > * Crear un sitio
 > * Crear un concentrador
 > * Conectar un concentrador con un sitio
+> * Crear una red virtual compatible (si aún no tiene una)
 > * Conectar una red virtual a un concentrador
 > * Descargar y aplicar la configuración de dispositivo VPN
 > * Visualizar la instancia de Virtual WAN
@@ -40,21 +41,15 @@ En este tutorial, aprenderá a:
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## <a name="vnet"></a>1. Creación de una red virtual
-
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
-
-## <a name="openvwan"></a>2. Creación de una instancia de Virtual WAN
+## <a name="openvwan"></a>1. Creación de una instancia de Virtual WAN
 
 Desde un explorador, navegue al [Portal de Azure](https://aka.ms/azurevirtualwanpreviewfeatures) e inicie sesión con su cuenta de Azure.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-## <a name="site"></a>3. Crear un sitio
+## <a name="site"></a>2. Crear un sitio
 
 Cree tantos sitios como necesite que se correspondan con sus ubicaciones físicas. Por ejemplo, si tiene una sucursal en Nueva York, otra en Londres y otra en Los Ángeles, crearía tres sitios independientes. Estos sitios contienen los puntos de conexión de dispositivo VPN local. Ahora puede especificar solo un espacio de direcciones privadas para su sitio.
 
@@ -62,21 +57,21 @@ Cree tantos sitios como necesite que se correspondan con sus ubicaciones física
 2. En la página **Sitios de VPN**, haga clic en **+Crear sitio**.
 3. En la página **Crear sitio** rellene los campos siguientes:
 
-   * **Nombre**: éste es el nombre que desee usar para hacer referencia a su sitio local.
-   * **Dirección IP pública**: es la dirección IP pública del dispositivo VPN que reside en su sitio local.
+   * **Nombre**: el nombre que desee usar para hacer referencia a su sitio local.
+   * **Dirección IP pública**: la dirección IP pública del dispositivo VPN que reside en su sitio local.
    * **Espacio de direcciones privadas**: es el espacio de direcciones IP que se encuentra en el sitio local. El tráfico destinado a este espacio de direcciones se enruta al sitio local.
    * **Suscripción**: compruebe la suscripción.
-   * **Grupo de recursos:**: el grupo de recursos que desea utilizar.
-   * **Ubicación**.
-4. Haga clic en **Mostrar opciones avanzadas** para ver opciones adicionales. Puede seleccionar **BGP** para habilitar BGP,. que habilitará esta funcionalidad en todas las conexiones creadas para este sitio en Azure. También puede incluir **Información del dispositivo** (campos opcionales). Esto puede ayudar al equipo de Azure a comprender mejor su entorno para agregar las posibilidades de optimización adicionales en el futuro, así como para ayudarle a solucionar problemas.
+   * **Grupo de recursos:** : el grupo de recursos que desea utilizar.
+   * **Ubicación**
+4. Haga clic en **Mostrar opciones avanzadas** para ver opciones adicionales. Puede seleccionar **BGP** para habilitar BGP, que habilitará la funcionalidad de BGP en todas las conexiones creadas para este sitio en Azure. También puede incluir **Información del dispositivo** (campos opcionales). Esto puede ayudar al equipo de Azure a comprender mejor su entorno para agregar las posibilidades de optimización adicionales en el futuro, así como para ayudarle a solucionar problemas.
 5. Haga clic en **Confirmar**.
 6. Tras hacer clic en **Confirmar**, vea el estado en la página de sitios de VPN. El sitio pasará de **Aprovisionando** a **Aprovisionado**.
 
-## <a name="hub"></a>4. Crear un concentrador
+## <a name="hub"></a>3. Crear un concentrador
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="associate"></a>5. Asociar los sitios con el concentrador
+## <a name="associate"></a>4. Asociar los sitios con el concentrador
 
 Por lo general, los concentradores se deben asociar a sitios que estén en la misma región que en que reside la red virtual.
 
@@ -85,6 +80,12 @@ Por lo general, los concentradores se deben asociar a sitios que estén en la mi
 3. También puede agregar un **PSK** concreto aquí, o bien usar el predeterminado.
 4. Haga clic en **Confirmar**.
 5. Puede ver el estado de la conexión en la pestaña **Sitios de VPN**.
+
+## <a name="vnet"></a>5. Creación de una red virtual
+
+Si no dispone de una red virtual, puede crear rápidamente una mediante PowerShell o en Azure Portal. Si ya tiene una red virtual, verifique que cumple los criterios necesarios y no tiene una puerta de enlace de red virtual.
+
+[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 
 ## <a name="vnet"></a>6. Conexión de la red virtual a un concentrador
 
@@ -114,7 +115,7 @@ Use la configuración del dispositivo VPN para configurar el dispositivo VPN loc
 El archivo de configuración de dispositivo contiene la configuración que se debe usar al configurar el dispositivo VPN local. Cuando visualice este archivo, tenga en cuenta la siguiente información:
 
 * **vpnSiteConfiguration**: en esta sección se indica la configuración de los detalles del dispositivo como un sitio de conexión a la red virtual WAN. Incluye el nombre y la dirección IP pública del dispositivo de rama.
-* **vpnSiteConnections**: en esta sección se proporciona información acerca de lo siguiente:
+* **vpnSiteConnections**: en esta sección se proporciona información sobre la siguiente configuración:
 
     * **Espacio de direcciones** de la red virtual de concentradores virtuales<br>Ejemplo:
  
@@ -126,7 +127,7 @@ El archivo de configuración de dispositivo contiene la configuración que se de
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **Direcciones IP** de vpngateway del concentrador virtual. Dado que en el elemento vpngateway cada conexión consta de dos túneles con una configuración activo-activo, verá ambas direcciones IP en este archivo. En este ejemplo puede ver "Instance0" e "Instance1" para cada sitio.<br>Ejemplo:
+    * **Direcciones IP** de vpngateway del concentrador virtual. Dado que cada conexión del elemento vpngateway consta de dos túneles con una configuración activo-activo, verá ambas direcciones IP en este archivo. En este ejemplo puede ver "Instance0" e "Instance1" para cada sitio.<br>Ejemplo:
 
         ``` 
         "Instance0":"104.45.18.186"

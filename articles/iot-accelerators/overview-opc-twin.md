@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 15deadad3b53b64c619933db76d28f012c85d6d1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496819"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730270"
 ---
-# <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>¿Qué es la administración de dispositivos de comunicaciones de plataforma abierta (OPC) de Azure IoT?
+# <a name="what-is-opc-twin"></a>¿Qué es OPC Twin?
 
 OPC Twin consta de microservicios que usan Azure IoT Edge e IoT Hub para conectar la nube y la red de la fábrica. OPC Twin proporciona la detección, el registro y el control remoto de dispositivos industriales mediante las API REST. OPC Twin no necesita un SDK de arquitectura unificada de OPC (OPC UA), es independiente del lenguaje de programación y puede incluirse en un flujo de trabajo sin servidor. En este artículo se describen varios casos de uso de OPC Twin.
 

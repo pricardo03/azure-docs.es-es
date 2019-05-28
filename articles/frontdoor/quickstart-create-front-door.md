@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 39e7626e6b4c545649e39ff2120d1f1fd105d764
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461993"
 ---
-# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Guía de inicio rápido: Creación de una instancia de Front Door para una aplicación web global de alta disponibilidad
+# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Inicio rápido: Cree una instancia de Front Door para una aplicación web global de alta disponibilidad.
 
 En esta guía de inicio rápido se describe cómo crear un perfil de Front Door que ofrece alta disponibilidad y alto rendimiento para una aplicación web global. 
 
@@ -73,7 +73,7 @@ A continuación, debe configurar los back-ends de su aplicación en un grupo de 
 1. Haga clic en el icono "+" para agregar un grupo de back-end y, después, especifique el **nombre** del grupo de back-end, como por ejemplo `myBackendPool`.
 2. A continuación, haga clic en Agregar back-ends para agregar los sitios web que creó anteriormente.
 3. En **Tipo de host de destino**, seleccione "App Service", seleccione la suscripción en la que creó el sitio web y, a continuación, elija el primer sitio web en **Nombre de host de destino**, es decir,  *myAppServicePlanEastUS.azurewebsites.net*.
-4. Por ahora deje los restantes campos tal cual y haga clic en **Agregar'**.
+4. Por ahora deje los restantes campos tal cual y haga clic en **Agregar'** .
 5. Repita los pasos 2 a 4 para agregar el otro sitio web, es decir, *myAppServicePlanWestEurope.azurewebsites.net*
 6. Opcionalmente, puede elegir actualizar la configuración de Sondeos de estado Equilibrio de carga para el grupo de back-end, pero también deberían funcionar los valores predeterminados. Haga clic en **Agregar**.
 

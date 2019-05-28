@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Copia de datos en el dispositivo Microsoft Azure Data Box mediante el servicio de copia de datos | Microsoft Docs'
+title: Tutorial sobre cómo copiar datos en el dispositivo Microsoft Azure Data Box mediante el servicio de copia de datos | Microsoft Docs
 description: En este tutorial aprenderá a copiar datos en el dispositivo Azure Data Box mediante el servicio de copia de datos
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f76721129906b57a05e597aade9f2febb609968
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343534"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925317"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutorial: Uso del servicio de copia de datos para copiar datos en Azure Data Box (versión preliminar)
 

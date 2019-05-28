@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 61cac49c34eb193d641a94c9a7839282289dd9c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892921"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572583"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicaciones administradas de Azure en Marketplace
 
@@ -29,7 +29,7 @@ Para completar este artículo, ya debe tener el archivo .zip de la definición d
 
 Además, hay varios requisitos previos de tipo empresarial. Son las siguientes:
 
-* Su empresa o sus subsidiarias deben encontrarse en uno de los países donde las ventas se permiten en Marketplace.
+* Su empresa o sus subsidiarias deben encontrarse en uno de los países o las regiones donde las ventas se permiten en Marketplace.
 * El producto debe contar con una licencia que sea compatible con los modelos de facturación admitidos por Marketplace.
 * Ponga el soporte técnico a disposición de los clientes de forma comercialmente razonable. Puede ser gratuito, de pago o a través del soporte técnico de la comunidad.
 * Debe tener licencias para el software y las dependencias de software de terceros.
@@ -43,7 +43,7 @@ Para convertirse en publicador en Azure Marketplace, debe:
 
 1. Crear un identificador de Microsoft: cree su cuenta Microsoft con una dirección de correo electrónico que corresponda al dominio de su empresa, no a un solo individuo. Esta dirección de correo electrónico se usa tanto para el Centro de desarrolladores de Microsoft como para Cloud Partner Portal. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
 1. Enviar el [formulario de nominación para Azure Marketplace](https://aka.ms/ampnomination): en **Solution that you intend to publish?** (Solución que intenta publicar), seleccione **Managed Application** (Aplicación administrada). Una vez que se envía el formulario, el equipo de incorporación de Marketplace revisa la aplicación y valida la solicitud. El proceso de aprobación puede tardar entre uno y tres días. Una vez que se aprueba la nominación, recibe un código promocional para eximirse de la tarifa de registro del centro para desarrolladores. Si **no** completa el formulario de nominación de Marketplace, se le pedirá pagar un honorario de registro de 99 USD.
-1. Registrarse en el [Centro para desarrolladores](https://dev.windows.com/registration?accountprogram=azure): Microsoft valida que la organización es una entidad legal válida con un número de identificación fiscal correspondiente al país en que está registrada. El proceso de aprobación puede tardar entre cinco y diez días. Para evitar la tarifa de registro, use el código promocional que recibió por correo electrónico del proceso de nominación. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
+1. Registrarse en el [Centro para desarrolladores](https://dev.windows.com/registration?accountprogram=azure): Microsoft valida que la organización es una entidad legal válida con un número de identificación fiscal correspondiente al país o la región en que está registrada. El proceso de aprobación puede tardar entre cinco y diez días. Para evitar la tarifa de registro, use el código promocional que recibió por correo electrónico del proceso de nominación. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
 1. Iniciar sesión en [Cloud Partner Portal](https://cloudpartner.azure.com): en el perfil del publicador, asocie la cuenta del Centro para desarrolladores con el perfil del publicador de Marketplace. Para más información, consulte la [guía para publicadores de Azure Marketplace](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Creación de una nueva oferta de aplicación de Azure
@@ -94,8 +94,8 @@ La SKU aparece debajo de la oferta principal en Marketplace. como una entidad de
    * **Resumen**: proporcione un breve resumen de esta SKU. Este texto aparece debajo del título.
    * **Descripción**: escriba una descripción detallada de la SKU.
    * **Tipo de SKU**: los valores permitidos son *Aplicación administrada* y *Plantillas de solución*. En este caso, seleccione *Aplicación administrada*.
-   * **Country/Region availability** (Disponibilidad de país o región): seleccione los países donde la aplicación administrada está disponible.
-   * **Precios**: proporcione un precio para la administración de la aplicación. Seleccione los países disponibles antes de establecer el precio.
+   * **Country/Region availability** (Disponibilidad de país o región): seleccione los países o las regiones donde la aplicación administrada está disponible.
+   * **Precios**: proporcione un precio para la administración de la aplicación. Seleccione los países o las regiones disponibles antes de establecer el precio.
 
 1. Agregue un nuevo paquete. Rellene la sección de **detalles del paquete** en el formulario siguiente:
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial sobre la instalación de un dispositivo físico de Azure Data Box Edge | Microsoft Docs
+title: Tutorial sobre la instalación del dispositivo físico de Azure Data Box Edge, cómo desempaquetarlo, montarlo en el bastidor y cablearlo | Microsoft Docs
 description: El segundo tutorial sobre la instalación de Azure Data Box Edge incluye cómo desempaquetar el dispositivo físico, montarlo en el bastidor y cablearlo.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7062e9d829242a62dfa4f661c21ce6c56b0db69c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278486"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924535"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: Instalación de Azure Data Box Edge
 
@@ -145,7 +145,8 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 
 ### <a name="engage-and-release-the-slam-latch"></a>Bloqueo y desbloqueo del pestillo de golpe
 
-NOTA:  Si su sistema no dispone de pestillo de golpe, fíjelo con tornillos tal y como se describe en el paso 3 de este procedimiento.
+> [!NOTE]
+> Si su sistema no dispone de pestillo de golpe, fíjelo con tornillos tal y como se describe en el paso 3 de este procedimiento.
 
 1. De cara a la parte anterior, ubique el pestillo de golpe de alguno de los laterales del sistema.
 2. Los pestillos se encajan automáticamente al insertar el sistema en el bastidor y se desbloquean al tirar de ellos.

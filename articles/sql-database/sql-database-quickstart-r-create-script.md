@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: ada09959391c551a9eff4d96b186be29c1e3b7a8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: cfc70b3d8e364c25ccf9fd221699695641a66ef0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013116"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708589"
 ---
 # <a name="create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Crear y ejecutar scripts de R sencillos en Azure SQL Database Machine Learning Services (versión preliminar)
 
@@ -73,7 +73,7 @@ print(c(c, d))
 
    > [!NOTE]
    > Si es un administrador, puede ejecutar código externo automáticamente. Puede conceder permiso a otros usuarios mediante el comando:
-   <br>**GRANT EXECUTE ANY EXTERNAL SCRIPT TO** *\<username\>*.
+   <br>**GRANT EXECUTE ANY EXTERNAL SCRIPT TO** *\<username\>* .
 
 2. Asimismo, se calcula el resultado correcto y la función de R `print` devuelve ese resultado a la ventana de **mensajes**.
 
@@ -102,9 +102,9 @@ Las entradas a este procedimiento almacenado incluyen:
 
 | | |
 |-|-|
-|*@language* | define la extensión de lenguaje que se va a llamar, en este caso, R. |
-|*@script* | define los comandos que se pasan al runtime de R. Su script de R completo debe estar incluido en este argumento, como texto Unicode. También puede agregar el texto a una variable de tipo **nvarchar** y, luego, llamar a la variable. |
-|*@input_data_1* | los datos que devuelve la consulta se pasan al runtime de R, que a su vez devuelve los datos a SQL Server como una trama de datos. |
+| @language | define la extensión de lenguaje que se va a llamar, en este caso, R. |
+| @script | define los comandos que se pasan al runtime de R. Su script de R completo debe estar incluido en este argumento, como texto Unicode. También puede agregar el texto a una variable de tipo **nvarchar** y, luego, llamar a la variable. |
+| @input_data_1 | los datos que devuelve la consulta se pasan al runtime de R, que a su vez devuelve los datos a SQL Server como una trama de datos. |
 |La cláusula WITH RESULT SETS | define el esquema de la tabla de datos devuelta para SQL Server, agregando "Hello world" como nombre de columna e **int** para el tipo de datos. |
 
 El comando da como resultado el siguiente texto:
@@ -146,7 +146,7 @@ Por ahora, usaremos las variables de entrada y salida predeterminadas de [sp_exe
 
     **Resultados**
 
-    ![Contenido de la tabla RTestData](./media/sql-database-connect-query-r/select-rtestdata.png)
+    ![Contenido de la tabla RTestData](./media/sql-database-quickstart-r-create-script/select-rtestdata.png)
 
 1. Ejecute el siguiente script de R. Recupera los datos de la tabla mediante la instrucción `SELECT`, los pasa a través del runtime de R y los devuelve como un marco de datos. La cláusula `WITH RESULT SETS` define el esquema de la tabla de datos devuelta para SQL Database y agrega el nombre de columna *NewColName*.
 
@@ -159,7 +159,7 @@ Por ahora, usaremos las variables de entrada y salida predeterminadas de [sp_exe
 
     **Resultados**
 
-    ![Salida del script de R que devuelve datos de una tabla](./media/sql-database-connect-query-r/r-output-rtestdata.png)
+    ![Salida del script de R que devuelve datos de una tabla](./media/sql-database-quickstart-r-create-script/r-output-rtestdata.png)
 
 1. A continuación, cambiaremos el nombre de las variables de entrada y salida. Los nombres predeterminados de las variables de entrada y salida son **InputDataSet** y **OutputDataSet**. Este script cambia esos nombres a **SQL_in** y **SQL_out**:
 
@@ -193,7 +193,7 @@ Por ahora, usaremos las variables de entrada y salida predeterminadas de [sp_exe
 
     **Resultados**
 
-    ![Resultados de la consulta con @script como entrada](./media/sql-database-connect-query-r/r-data-generated-output.png)
+    ![Resultados de la consulta con @script como entrada](./media/sql-database-quickstart-r-create-script/r-data-generated-output.png)
 
 ## <a name="check-r-version"></a>Comprobación de la versión de R
 
@@ -251,7 +251,7 @@ La salida es de `installed.packages()` en R y se devuelve como un conjunto de re
 
 **Resultados**
 
-![Paquetes instalados de R](./media/sql-database-connect-query-r/r-installed-packages.png)
+![Paquetes instalados de R](./media/sql-database-quickstart-r-create-script/r-installed-packages.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -260,10 +260,8 @@ Para crear un modelo de Machine Learning mediante R en SQL Database, siga esta g
 > [!div class="nextstepaction"]
 > [Crear y entrenar un modelo predictivo en R con Machine Learning Services (versión preliminar) de Azure SQL Database](sql-database-quickstart-r-train-score-model.md)
 
-Para más información sobre Machine Learning Services, consulte los siguientes artículos. Aunque algunos de estos artículos son para SQL Server, la mayor parte de la información también se aplica a Machine Learning Services (con R) en Azure SQL Database.
+Para más información acerca de Azure SQL Database Machine Learning Services con R (versión preliminar), consulte los siguientes artículos.
 
-- [Machine Learning Services (con R) en Azure SQL Database](sql-database-machine-learning-services-overview.md)
-- [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Tutorial: Información de los análisis en bases de datos con R en SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [Tutorial completo de ciencia de datos para R y SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Tutorial: Uso de funciones RevoScaleR R con datos de SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Azure SQL Database Machine Learning Services con R (versión preliminar)](sql-database-machine-learning-services-overview.md)
+- [Escribir funciones de R avanzadas en Azure SQL Database Machine Learning Services (versión preliminar)](sql-database-machine-learning-services-functions.md)
+- [Trabajar con datos SQL y R en Machine Learning Services (versión preliminar) de Azure SQL Database](sql-database-machine-learning-services-data-issues.md)

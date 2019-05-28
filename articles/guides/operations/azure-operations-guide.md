@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1f8972c89ecb0fc7d8cc7ceb9bfdeab9e905e862
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051177"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570611"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
@@ -145,7 +145,7 @@ Para obtener documentación detallada sobre los servicios de Azure, consulte la 
 
 Azure es una plataforma en la nube global que está disponible con carácter general en muchas regiones de todo el mundo. Al aprovisionar un servicio, una aplicación o una máquina virtual de Azure, deberá seleccionar una región. La región seleccionada representa un centro de datos específico en el que se ejecuta la aplicación. Para más información, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).
 
-Una de las ventajas del uso de Azure es que puede implementar aplicaciones en distintos centros de datos de todo el mundo. La región que elija puede afectar al rendimiento de la aplicación. Resulta óptimo elegir la región más cercana a la mayoría de sus clientes, para reducir la latencia de las solicitudes de red. También puede seleccionar una región para cumplir los requisitos legales para distribuir la aplicación en determinados países.
+Una de las ventajas del uso de Azure es que puede implementar aplicaciones en distintos centros de datos de todo el mundo. La región que elija puede afectar al rendimiento de la aplicación. Resulta óptimo elegir la región más cercana a la mayoría de sus clientes, para reducir la latencia de las solicitudes de red. También puede seleccionar una región para cumplir los requisitos legales para distribuir la aplicación en determinados países y regiones.
 
 ### <a name="azure-portal"></a>Azure Portal
 
