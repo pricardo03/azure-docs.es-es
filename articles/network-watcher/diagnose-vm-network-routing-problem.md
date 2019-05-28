@@ -3,8 +3,8 @@ title: 'Tutorial para diagnosticar un problema de enrutamiento de red de máquin
 description: En este tutorial, aprenderá a diagnosticar un problema de enrutamiento de red de máquina virtual mediante la funcionalidad de próximo salto de Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: ea64c93726c3bc5c5d60f35790bb337333d4d47a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 3ad9cd8b620b55aaa17e84343a82ac361081de44
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312202"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684514"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutorial: Diagnosticar un problema de enrutamiento de red de máquina virtual con Azure Portal
 
@@ -45,7 +45,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 ## <a name="create-a-vm"></a>Crear una VM
 
 1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter** o **Ubuntu Server 17.10 VM**.
+2. Seleccione **Compute** y **Windows Server 2016 Datacenter** o **Ubuntu Server 17.10 VM**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
     |Configuración|Valor|
@@ -53,7 +53,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     |NOMBRE|myVm|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |La suscripción| Seleccione su suscripción.|
+    |Subscription| Seleccione su suscripción.|
     |Grupos de recursos| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
     |Ubicación| Seleccione **Este de EE. UU**.|
 
@@ -70,11 +70,11 @@ Para probar la comunicación de red con Network Watcher, primero debe habilitar 
 Si ya dispone de un monitor de red habilitado en al menos una región, vaya a la sección [Usar próximo salto](#use-next-hop).
 
 1. En el portal, seleccione **Todos los servicios**. En el **cuadro Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados, selecciónela.
-2. Seleccione **Regiones**, para expandirla y, a continuación, seleccione **...**  a la derecha del **Este de EE. UU.**, tal y como se muestra en la siguiente imagen:
+2. Seleccione **Regiones** para expandirla y, a continuación, seleccione **...**  a la derecha de la opción **Este de EE. UU.** , tal y como se muestra en la siguiente imagen:
 
     ![Habilitación de Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
-3. Seleccione **Habilitación de Network Watcher**.
+3. Seleccione **Habilitar Network Watcher**.
 
 ### <a name="use-next-hop"></a>Use el próximo salto
 
@@ -89,7 +89,7 @@ Azure crea rutas automáticamente a los destinos predeterminados. Es posible cre
     | Máquina virtual         | Seleccione myVm                                            |
     | interfaz de red       | myvm: el nombre de la interfaz de red puede ser diferente.   |
     | Dirección IP de origen       | 10.0.0.4                                               |
-    | Dirección IP de destino  | 13.107.21.200: una de las direcciones para www.bing.com. |
+    | Dirección IP de destino  | 13.107.21.200: una de las direcciones para <www.bing.com>. |
 
     ![Próximo salto](./media/diagnose-vm-network-routing-problem/next-hop.png)
 

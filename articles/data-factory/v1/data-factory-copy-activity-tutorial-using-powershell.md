@@ -282,8 +282,8 @@ En este paso, se crea un conjunto de datos llamado InputDataset, que apunta a un
     | linkedServiceName | Hace referencia al servicio **AzureStorageLinkedService** que creó anteriormente. |
     | folderPath | Especifica el **contenedor** de blobs y la **carpeta** que contiene los blobs de entrada. En este tutorial, adftutorial es el contenedor de blobs y folder es la carpeta raíz. | 
     | fileName | Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este tutorial, se especifica **emp.txt** en fileName, por lo que solo se selecciona ese archivo para su procesamiento. |
-    | formato -> tipo |El archivo de entrada tiene formato de texto, por lo que usamos **TextFormat**. |
-    | columnDelimiter | Las columnas del archivo de entrada están delimitadas por **coma (`,`)**. |
+    | format -> type |El archivo de entrada tiene formato de texto, por lo que usamos **TextFormat**. |
+    | columnDelimiter | Las columnas del archivo de entrada están delimitadas por **coma (`,`)** . |
     | frequency/interval | La frecuencia está establecida en **Hour** y el intervalo es **1**, lo que significa que los segmentos de entrada estarán disponibles **cada hora**. En otras palabras, el servicio Data Factory busca los datos de entrada cada hora en la carpeta raíz del contenedor de blobs (**adftutorial**) que se ha especificado. Busca los datos entre las horas de inicio y finalización de la canalización, no antes ni después de esas horas.  |
     | external | Esta propiedad se establece en **true** si esta canalización no ha generado los datos. Los datos de entrada de este tutorial están en el archivo emp.txt, que no lo generó esta canalización, por lo que establecemos esta propiedad en true. |
 

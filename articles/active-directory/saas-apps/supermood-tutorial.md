@@ -4,155 +4,160 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: afc04efa-2eba-4e47-8ce4-b71eb293cd09
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/12/2018
+ms.topic: tutorial
+ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60efdd5b509045ce2398720d650894983c2cfc23
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 177b393b475250e5e019a5829ea17279e1b0f44c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60639892"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922100"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>Tutorial: Integración de Azure Active Directory con Supermood
 
 En este tutorial, aprenderá a integrar Supermood con Azure Active Directory (Azure AD).
-
 La integración de Supermood con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Supermood.
-- Puede habilitar que los usuarios inicien sesión automáticamente en Supermood (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a Supermood.
+* Puede permitir que los usuarios inicien sesión automáticamente en Supermood (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Supermood, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único de Supermood
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
+* Suscripción habilitada para el inicio de sesión único de Supermood
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de Supermood desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* Supermood admite el inicio de sesión único iniciado por **SP e IDP**.
+* Supermood admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 ## <a name="adding-supermood-from-the-gallery"></a>Adición de Supermood desde la galería
+
 Para configurar la integración de Supermood en Azure AD, será preciso agregar Supermood desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Supermood desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Botón Nueva aplicación][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **Supermood**, seleccione **Supermood** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Supermood en la lista de resultados](./media/supermood-tutorial/tutorial_supermood_addfromgallery.png)
+4. En el cuadro de búsqueda, escriba **Supermood**, seleccione **Supermood** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![Supermood en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Supermood con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Supermood para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Supermood.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Supermood con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Supermood.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Supermood, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de Supermood](#create-a-supermood-test-user)**: para tener un homólogo de Britta Simon en Supermood que esté vinculado a la representación del usuario en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Supermood](#configure-supermood-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Supermood](#create-supermood-test-user)** : para tener un homólogo de Britta Simon en Supermood que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Supermood.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con Supermood, siga estos pasos:**
+Para configurar el inicio de sesión único de Azure AD con Supermood, siga estos pasos:
 
-1. En Azure Portal, en la página de integración de la aplicación **Supermood**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Supermood**, seleccione **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/supermood-tutorial/tutorial_supermood_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Supermood Domain and URLs** (Dominio y direcciones URL de Supermood), lleve a cabo los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Supermood](./media/supermood-tutorial/tutorial_supermood_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-     a. Active **Mostrar configuración avanzada de URL**.
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+
+4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de Supermood](common/idp-preintegrated-relay.png)
+
+     a. Seleccione **Establecer direcciones URL adicionales**.
 
     b. Si quiere configurar la aplicación en modo iniciado por **IDP**, en el cuadro de texto **Estado de la retransmisión**, escriba una dirección URL: `https://supermood.co/auth/sso/saml20`
 
-    c. Si quiere configurar la aplicación en modo iniciado por **IDP**, en el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://supermood.co/app/#!/loginv2`
+5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-1. La aplicación Supermood espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
-    
-    ![Configurar inicio de sesión único](./media/supermood-tutorial/tutorial_supermood_attribute.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de Supermood](common/metadata-upload-additional-signon.png)
 
-1. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
-    
-    | Nombre del atributo | Valor de atributo |
-    | ---------------| --------------- |    
+    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://supermood.co/app/#!/loginv2`
+
+6. La aplicación Supermood espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
+
+    ![imagen](common/edit-attribute.png)
+
+7. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, edite las notificaciones mediante el **icono Editar** o agregue notificaciones mediante **Agregar nueva notificación** para configurar el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
+
+    | NOMBRE | Atributo de origen|
+    | ---------------| ------|
     | firstName | user.givenname |
     | lastName | user.surname |
 
-     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![Configurar inicio de sesión único](./media/supermood-tutorial/tutorial_attribute_04.png)
+    ![imagen](common/new-save-attribute.png)
 
-    ![Configurar inicio de sesión único](./media/supermood-tutorial/tutorial_attribute_05.png)
-    
+    ![imagen](common/new-attribute-details.png)
+
     b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
-    
-    c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
 
-    d. Deje **Espacio de nombres** en blanco.
-    
-    d. Haga clic en **Aceptar**.
+    c. Deje **Espacio de nombres** en blanco.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+    d. Seleccione **Atributo** como origen.
 
-    ![Vínculo de descarga del certificado](./media/supermood-tutorial/tutorial_supermood_certificate.png) 
+    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
 
-1. Haga clic en el botón **Guardar** .
+    f. Haga clic en **Aceptar**.
 
-    ![Botón Configurar inicio de sesión único](./media/supermood-tutorial/tutorial_general_400.png)
+    g. Haga clic en **Save**(Guardar).
+
+8. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
+
+    ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
+
+### <a name="configure-supermood-single-sign-on"></a>Configuración del inicio de sesión único de Supermood
 
 1. Vaya a su panel de administración de Supermood.co como Administrador de seguridad.
 
 1. Haga clic en **My account** (Mi cuenta) (abajo a la izquierda) y **Single Sign On (SSO)** (Inicio de sesión único [SSO]).
 
     ![Sencillo del certificado](./media/supermood-tutorial/tutorial_supermood_single.png)
+
 1. En **Your SAML 2.0 configurations** (Sus configuraciones SAML 2.0), haga clic en **Add an SAML 2.0 configuration for an email domain** (Agregar una configuración de SAML 2.0 para un dominio de correo electrónico).
 
     ![Agregar del certificado](./media/supermood-tutorial/tutorial_supermood_add.png)
@@ -171,97 +176,66 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/supermood-tutorial/create_aaduser_01.png)
+    ![Botón Nuevo usuario](common/new-user.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/supermood-tutorial/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/supermood-tutorial/create_aaduser_03.png)
-
-1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/supermood-tutorial/create_aaduser_04.png)
-
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="create-a-supermood-test-user"></a>Creación de un usuario de prueba de Supermood
-
-En esta sección, creará un usuario llamado Britta Simon en Supermood. Supermood admite el aprovisionamiento Just-In-Time, que está habilitado de manera predeterminada para los usuarios cuyos mensajes de correo electrónico pertenecen a los dominios que se agregan durante la configuración final de Supermood. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Supermood, se crea un nuevo usuario, en caso de que no exista.
-
->[!Note]
->Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de Supermood](mailto:hello@supermood.fr).
-
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Supermood.
 
-![Asignación de rol de usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Supermood**.
 
-**Para asignar Britta Simon a Supermood, realice los pasos siguientes:**
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+2. En la lista de aplicaciones, seleccione **Supermood**.
 
-    ![Asignar usuario][201] 
+    ![Enlace a Supermood en la lista de aplicaciones](common/all-applications.png)
 
-1. En la lista de aplicaciones, seleccione **Supermood**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Enlace a Supermood en la lista de aplicaciones](./media/supermood-tutorial/tutorial_supermood_app.png)  
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Vínculo "Usuarios y grupos"][202]
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-    ![Panel Agregar asignación][203]
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+### <a name="create-supermood-test-user"></a>Creación de un usuario de prueba de Supermood
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
+En esta sección, se crea un usuario llamado Britta Simon en Supermood. Supermood admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en Supermood, se crea otro después de la autenticación. Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de Supermood](mailto:hello@supermood.fr).
+
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Supermood del panel de acceso, debería iniciar sesión automáticamente en su aplicación Showpad.
-Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de Supermood en el panel de acceso, debería iniciar sesión automáticamente en la versión de Supermood para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/supermood-tutorial/tutorial_general_01.png
-[2]: ./media/supermood-tutorial/tutorial_general_02.png
-[3]: ./media/supermood-tutorial/tutorial_general_03.png
-[4]: ./media/supermood-tutorial/tutorial_general_04.png
-
-[100]: ./media/supermood-tutorial/tutorial_general_100.png
-
-[200]: ./media/supermood-tutorial/tutorial_general_200.png
-[201]: ./media/supermood-tutorial/tutorial_general_201.png
-[202]: ./media/supermood-tutorial/tutorial_general_202.png
-[203]: ./media/supermood-tutorial/tutorial_general_203.png
-
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

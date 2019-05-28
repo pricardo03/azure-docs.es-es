@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a7ddc6b9f4a8638d18262e458d61108c00b618d
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: e2729a47771f2c3073d91cb5b0de4684b51badbd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564560"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Tutorial: Integración de Azure Active Directory con Zscaler Three
 
@@ -38,7 +38,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para configurar la integración de Azure AD con Zscaler Three, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
 * Una suscripción habilitada para el inicio de sesión único en Zscaler Three
 
 ## <a name="scenario-description"></a>Descripción del escenario
@@ -55,7 +55,7 @@ Para configurar la integración de Zscaler Three en Azure AD, deberá agregar Zs
 
 **Para agregar Zscaler Three desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -78,12 +78,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Zscaler Three, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Zscaler Three](#configure-zscaler-three-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación del usuario de prueba en Zscaler Three](#create-zscaler-three-test-user)**: para tener un homólogo de Britta Simon en Zscaler Three vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Zscaler Three](#configure-zscaler-three-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación del usuario de prueba en Zscaler Three](#create-zscaler-three-test-user)** : para tener un homólogo de Britta Simon en Zscaler Three vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -154,9 +154,17 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler Three, siga 
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>Configurar el inicio de sesión único en Zscaler Three
 
-1. En otra ventana del explorador web, inicie sesión en el sitio de la compañía Zscaler Three como administrador.
+1. Para automatizar la configuración en Zscaler Three, debe instalar la **extensión de explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión** .
 
-2. Vaya a **Administración > Autenticación > Configuración de autenticación** y realice los siguientes pasos:
+    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+
+2. Después de agregar la extensión al explorador, haga clic en **Configurar Zscaler Three** para ir a la aplicación Zscaler Three. Desde allí, proporcione las credenciales del administrador para iniciar sesión en Zscaler Three. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 6.
+
+    ![Configuración del inicio de sesión único](common/setup-sso.png)
+
+3. Si quiere configurar Zscaler Three manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de Zscaler Three como administrador y realice los pasos siguientes:
+
+4. Vaya a **Administración > Autenticación > Configuración de autenticación** y realice los siguientes pasos:
    
     ![Administración](./media/zscaler-three-tutorial/ic800206.png "Administración")
 
@@ -164,7 +172,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler Three, siga 
 
     b. Haga clic en **Configurar SAML**.
 
-3. En la ventana **Editar SAML**, realice los pasos siguientes y haga clic en Guardar.  
+5. En la ventana **Editar SAML**, realice los pasos siguientes y haga clic en Guardar.  
             
     ![Administración de usuarios y autenticación](./media/zscaler-three-tutorial/ic800208.png "Administración de usuarios y autenticación")
     
@@ -184,7 +192,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler Three, siga 
 
     h. Haga clic en **Save**(Guardar).
 
-4. En la página del cuadro de diálogo **Configurar autenticación de usuario** , realice los pasos siguientes:
+6. En la página del cuadro de diálogo **Configurar autenticación de usuario** , realice los pasos siguientes:
 
     ![Administración](./media/zscaler-three-tutorial/ic800207.png)
 
@@ -219,7 +227,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler Three, siga 
 
     d. Seleccione **No usar servidor proxy para direcciones locales**.
 
-    e. Haga clic en **Aceptar** para cerrar el diálogo **Configuración de red de área local (LAN)**.
+    e. Haga clic en **Aceptar** para cerrar el diálogo **Configuración de red de área local (LAN)** .
 
 6. Haga clic en **Aceptar** para cerrar el diálogo **Opciones de Internet**.
 
@@ -241,7 +249,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 

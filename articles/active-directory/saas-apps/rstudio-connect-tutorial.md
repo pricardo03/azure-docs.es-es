@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4bda20d9ce06f756913e6dfb3e980399ac7e0a6
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 32aa7a531de2e236e3941bbe8afd84d845f80f99
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565456"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutorial: Integración de Azure Active Directory con RStudio Connect
 
@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para configurar la integración de Azure AD con RStudio Connect, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
-* Una suscripción habilitada para el inicio de sesión único en RStudio Connect
+* RStudio Connect. Hay una [evaluación gratuita de 45 días](https://www.rstudio.com/products/connect/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -56,7 +56,7 @@ Para configurar la integración de RStudio Connect en Azure AD, será preciso qu
 
 **Para agregar RStudio Connect desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -79,12 +79,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con RStudio Connect, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de RStudio Connect](#configure-rstudio-connect-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de RStudio Connect](#create-rstudio-connect-test-user)**: para tener un homólogo de Britta Simon en RStudio Connect que esté vinculado a su representación en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de RStudio Connect](#configure-rstudio-connect-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de RStudio Connect](#create-rstudio-connect-test-user)** : para tener un homólogo de Britta Simon en RStudio Connect que esté vinculado a su representación en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,22 +104,22 @@ Para configurar el inicio de sesión único de Azure AD con RStudio Connect, sig
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
+4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos, y sustituya `<example.com>` por el puerto y la dirección del servidor de RStudio Connect:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de RStudio Connect](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://connect.<example>.com/__login__/saml`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<example.com>/__login__/saml`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://connect.<example>.com/__login__/saml/acs`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<example.com>/__login__/saml/acs`
 
 5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de RStudio Connect](common/metadata-upload-additional-signon.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://connect.<example>.com/`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<example.com>/`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico para clientes de RStudio Connect](mailto:support@rstudio.com). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Se determinan a partir de la dirección del servidor de RStudio Connect (`https://example.com` en los ejemplos anteriores). Póngase en contacto con el [equipo de soporte técnico de RStudio Connect](mailto:support@rstudio.com) si tiene algún problema. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 6. La aplicación RStudio Connect espera las aserciones de SAML en un formato específico, lo cual requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de pantalla muestra la lista de atributos predeterminados, donde **nameidentifier** se asigna con **user.userprincipalname**. La aplicación RStudio Connect espera que **nameidentifier** se corresponda con **user.mail**, por lo que debe editar la asignación de atributos haciendo clic en el icono **Editar** y cambiar dicha asignación.
 
@@ -131,7 +131,36 @@ Para configurar el inicio de sesión único de Azure AD con RStudio Connect, sig
 
 ### <a name="configure-rstudio-connect-single-sign-on"></a>Configuración del inicio de sesión único en RStudio Connect
 
-Para configurar el inicio de sesión único en **RStudio Connect**, hay que enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de RStudio Connect](mailto:support@rstudio.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **RStudio Connect**, necesita usar la **Dirección URL de metadatos de federación de aplicación** y la **Dirección del servidor** utilizadas anteriormente. Esto se hace en el archivo de configuración de RStudio Connect, en `/etc/rstudio-connect.rstudio-connect.gcfg`.
+
+Este es un archivo de configuración de ejemplo:
+
+```
+[Server]
+SenderEmail =
+
+; Important! The user-facing URL of your RStudio Connect server.
+Address = 
+
+[Http]
+Listen = :3939
+
+[Authentication]
+Provider = saml
+
+[SAML]
+Logging = true
+
+; Important! The URL where your IdP hosts the SAML metadata or the path to a local copy of it placed in the RStudio Connect server.
+IdPMetaData = 
+
+IdPAttributeProfile = azure
+SSOInitiated = IdPAndSP
+```
+
+Almacene la **Dirección del servidor** en el valor `Server.Address`, y la **Dirección URL de metadatos de federación de aplicación** en el valor `SAML.IdPMetaData`.
+
+Si tiene problemas con la configuración, puede leer la [guía del administrador de RStudio Connect](https://docs.rstudio.com/connect/admin/authentication.html#authentication-saml) o enviar un correo electrónico al [equipo de soporte técnico de RStudio](mailto:support@rstudio.com) para obtener ayuda.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 

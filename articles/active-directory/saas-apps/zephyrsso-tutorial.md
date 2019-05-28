@@ -4,57 +4,48 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 4d75e26b-c0fa-420b-93c1-e40b68562be8
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/28/2018
+ms.topic: tutorial
+ms.date: 03/29/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3be3008367f5c405f65dfd37b4384726ab2456c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8340c409e6aa5b2bc98a5ac418b14908c21bd7a7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60797248"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920412"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Tutorial: integración de Azure Active Directory con ZephyrSSO
 
 En este tutorial, aprenderá a integrar ZephyrSSO con Azure Active Directory (Azure AD).
-
 La integración de ZephyrSSO con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a ZephyrSSO.
-- Puede permitir que los usuarios inicien sesión automáticamente en ZephyrSSO (inicio de sesión único) con sus cuentas de Azure AD
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a ZephyrSSO.
+* Puede permitir que los usuarios inicien sesión automáticamente en ZephyrSSO (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con ZephyrSSO, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único de ZephyrSSO.
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
+* Suscripción de ZephyrSSO con el inicio de sesión único habilitado
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-1. Adición de ZephyrSSO desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+* ZephyrSSO admite el inicio de sesión único iniciado por **IDP**.
 
 ## <a name="adding-zephyrsso-from-the-gallery"></a>Adición de ZephyrSSO desde la galería
 
@@ -62,159 +53,148 @@ Para configurar la integración de ZephyrSSO en Azure AD, deberá agregar Zephyr
 
 **Para agregar ZephyrSSO desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
-    
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Botón Nueva aplicación][3]
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
 4. En el cuadro de búsqueda, escriba **ZephyrSSO**, seleccione **ZephyrSSO** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![ZephyrSSO en la lista de resultados](./media/zephyrsso-tutorial/tutorial_zephyrsso_addfromgallery.png)
+     ![ZephyrSSO en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con ZephyrSSO con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de ZephyrSSO para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de ZephyrSSO.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con ZephyrSSO con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de ZephyrSSO.
 
 Para configurar y probar el inicio de sesión único de Azure AD con ZephyrSSO, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de ZephyrSSO](#create-a-zephyrsso-test-user)** : para tener un homólogo de Britta Simon en ZephyrSSO que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de ZephyrSSO](#configure-zephyrsso-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de ZephyrSSO](#create-zephyrsso-test-user)** : para tener un homólogo de Britta Simon en ZephyrSSO que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación ZephyrSSO.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con ZephyrSSO, siga estos pasos:**
+Para configurar el inicio de sesión único de Azure AD con ZephyrSSO, siga estos pasos:
 
-1. En Azure Portal, en la página de integración de la aplicación **ZephyrSSO**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **ZephyrSSO**, seleccione **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-    ![Cuadro de diálogo Inicio de sesión único](./media/zephyrsso-tutorial/tutorial_zephyrsso_samlbase.png)
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la sección **ZephyrSSO Domain and URLs** (Dominio y direcciones URL de ZephyrSSO), lleve a cabo los pasos siguientes:
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de ZephyrSSO](./media/zephyrsso-tutorial/tutorial_zephyrsso_url.png)
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.yourzephyr.com/Zephyrsso`
+4. En la página **Configurar inicio de sesión único con SAML** realice los siguientes pasos:
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.yourzephyr.com/flex/saml/sso`.
+    ![Información de dominio y direcciones URL de inicio de sesión único de ZephyrSSO](common/idp-intiated.png)
+
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<SUBDOMAIN>.yourzephyr.com/Zephyrsso`
+
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.yourzephyr.com/flex/saml/sso`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de ZephyrSSO](https://support.getzephyr.com) para obtener estos valores.
+    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte al cliente de ZephyrSSO](https://support.getzephyr.com/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-    ![Vínculo de descarga del certificado](./media/zephyrsso-tutorial/tutorial_zephyrsso_certificate.png)
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-5. Haga clic en el botón **Guardar** .
+6. En la sección **Set up ZephyrSSO** (Configurar ZephyrSSO), copie las direcciones URL adecuadas según sus necesidades.
 
-    ![Botón Configurar inicio de sesión único](./media/zephyrsso-tutorial/tutorial_general_400.png)
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-6. Para configurar el inicio de sesión único en el lado de **ZephyrSSO**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de ZephyrSSO](https://support.getzephyr.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+    a. URL de inicio de sesión
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-zephyrsso-single-sign-on"></a>Configuración del inicio de sesión único de ZephyrSSO
+
+Para configurar el inicio de sesión único en **ZephyrSSO**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de ZephyrSSO](https://support.getzephyr.com/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/zephyrsso-tutorial/create_aaduser_01.png)
+    ![Botón Nuevo usuario](common/new-user.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/zephyrsso-tutorial/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/zephyrsso-tutorial/create_aaduser_03.png)
-
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/zephyrsso-tutorial/create_aaduser_04.png)
-
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
-  
-### <a name="create-a-zephyrsso-test-user"></a>Crear un usuario de prueba de ZephyrSSO
-
-En esta sección, creará un usuario llamado Britta Simon en ZephyrSSO. Trabaje con el  [equipo de soporte técnico de ZephyrSSO](https://support.getzephyr.com)  para agregar usuarios a la plataforma de ZephyrSSO. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a ZephyrSSO.
 
-![Asignación de rol de usuario][200]
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **ZephyrSSO**.
 
-**Para asignar a Britta Simon a ZephyrSSO, siga estos pasos:**
-
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
-
-    ![Asignar usuario][201]
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
 2. En la lista de aplicaciones, seleccione **ZephyrSSO**.
 
-    ![Vínculo a ZephyrSSO en la lista de aplicaciones](./media/zephyrsso-tutorial/tutorial_zephyrsso_app.png)  
+    ![Vínculo a ZephyrSSO en la lista de aplicaciones](common/all-applications.png)
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Vínculo "Usuarios y grupos"][202]
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Panel Agregar asignación][203]
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+### <a name="create-zephyrsso-test-user"></a>Creación de un usuario de prueba de ZephyrSSO
+
+En esta sección, creará un usuario llamado Britta Simon en ZephyrSSO. Trabaje con el  [equipo de soporte técnico de ZephyrSSO](https://support.getzephyr.com/) para agregar usuarios a la plataforma de ZephyrSSO. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de ZephyrSSO en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación ZephyrSSO.
-Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Al hacer clic en el icono de ZephyrSSO en el panel de acceso, debería iniciar sesión automáticamente en la versión de ZephyrSSO para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/zephyrsso-tutorial/tutorial_general_01.png
-[2]: ./media/zephyrsso-tutorial/tutorial_general_02.png
-[3]: ./media/zephyrsso-tutorial/tutorial_general_03.png
-[4]: ./media/zephyrsso-tutorial/tutorial_general_04.png
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/zephyrsso-tutorial/tutorial_general_100.png
-
-[200]: ./media/zephyrsso-tutorial/tutorial_general_200.png
-[201]: ./media/zephyrsso-tutorial/tutorial_general_201.png
-[202]: ./media/zephyrsso-tutorial/tutorial_general_202.png
-[203]: ./media/zephyrsso-tutorial/tutorial_general_203.png

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47adab265978b4b760450ab1176cf28c55bc0548
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 1d58ef2716e2a432e1123d6b215b33fb2b688a32
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563689"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724464"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certent-equity-management"></a>Tutorial: Integración de Azure Active Directory con Certent Equity Management
 
@@ -54,7 +54,7 @@ Para configurar la integración de Certent Equity Management en Azure AD, es pre
 
 **Para agregar Certent Equity Management desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Certent Equity Management, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Certent Equity Management](#configure-certent-equity-management-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Certent Equity Management](#create-certent-equity-management-test-user)**: para tener un homólogo de Britta Simon en Certent Equity Management que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Certent Equity Management](#configure-certent-equity-management-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Certent Equity Management](#create-certent-equity-management-test-user)** : para tener un homólogo de Britta Simon en Certent Equity Management que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -113,7 +113,7 @@ Para configurar el inicio de sesión único de Azure AD con Certent Equity Manag
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Para obtener estos valores, póngase en contacto con el analista de integración de Certent asignado por el Customer Success Manager. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. La aplicación Certent Equity Management espera las aserciones de SAML en un formato concreto, lo que requiere la agregación de asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo  **Atributos de usuario** .
+5. La aplicación Certent Equity Management espera las aserciones de SAML en un formato concreto, lo que requiere la agregación de asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
     ![imagen](common/edit-attribute.png)
 
@@ -214,7 +214,7 @@ En esta sección, se habilita a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-certent-equity-management-test-user"></a>Creación de un usuario de prueba de Certent Equity Management
 
-En esta sección, se crea el usuario Britta Simon en Certent Equity Management. Trabaje con el analista de integración de Certent asignado por el Customer Success Manager para agregar los usuarios a la plataforma de Certent Equity Management. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, se crea el usuario Britta Simon en Certent Equity Management. Trabaje con el analista de integración de Certent asignado por Customer Success Manager para agregar los usuarios a la plataforma de Certent Equity Management. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

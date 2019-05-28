@@ -4,23 +4,24 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 1eaeef9b-4479-4a9f-b1b2-bc13b857c75c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395d3887e35d6e9c043d4d947b605e71eb58bd6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aa5b66b3cf2ec038107293da7a821fcb75273fc9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897340"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718340"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Tutorial: Integración de Azure Active Directory con iProva
 
@@ -28,61 +29,61 @@ En este tutorial, obtendrá información sobre cómo integrar iProva con Azure A
 Integrar iProva con Azure AD le proporciona las siguientes ventajas:
 
 * Puede controlar en Azure AD quién tiene acceso a iProva.
-* Puede permitir que los usuarios inicien sesión automáticamente en iProva (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede permitir que los usuarios inicien sesión automáticamente en iProva (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con iProva, necesita los siguientes elementos:
 
-* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes en el sitio web de [Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Una suscripción habilitada para el inicio de sesión único de iProva.
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
+* Suscripción habilitada para el inicio de sesión único de iProva
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba:
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* iProva admite el inicio de sesión único iniciado por SP.
+* iProva admite el inicio de sesión único iniciado por **SP**
 
-## <a name="add-iprova-from-the-gallery"></a>Incorporación de iProva desde la galería
+## <a name="adding-iprova-from-the-gallery"></a>Incorporación de iProva desde la galería
 
-Para configurar la integración de iProva en Azure AD, agregue iProva desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de iProva en Azure AD, tendrá que agregar iProva desde la galería a la lista de aplicaciones SaaS administradas.
 
-Para agregar iProva desde la galería, siga estos pasos:
+**Para agregar iProva desde la galería, siga estos pasos:**
 
-1. En el panel izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-3. Para agregar una aplicación nueva, en la parte superior del cuadro de diálogo, seleccione **Nueva aplicación**.
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **iProva**. Seleccione **iProva** desde el panel de resultados y, a continuación, seleccione **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **iProva**, seleccione **iProva** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![iProva en la lista de resultados](common/search-new-app.png)
+    ![iProva en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con iProva con un usuario de prueba llamado Britta Simon.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de iProva.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con iProva con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de iProva.
 
-Para configurar y probar el inicio de sesión único de Azure AD con iProva, complete los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con iProva, es preciso completar los siguientes bloques de creación:
 
-- [Recuperación de la información de configuración desde iProva](#retrieve-configuration-information-from-iprova) como preparación para los pasos siguientes.
-- [Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on), para permitir que los usuarios utilicen esta característica.
-- [Configuración del inicio de sesión único de iProva](#configure-iprova-single-sign-on) para configurar los valores de Inicio de sesión único en la aplicación.
-- [Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user), para probar el inicio de sesión único de Azure AD con Britta Simon.
-- [Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user), para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-- [Creación de un usuario de prueba de iProva](#create-an-iprova-test-user) para tener un homólogo de Britta Simon en iProva que esté vinculado a la representación del usuario en Azure AD.
-- [Prueba del inicio de sesión único](#test-single-sign-on), para comprobar si funciona la configuración.
+1. **[Recuperación de la información de configuración desde iProva](#retrieve-configuration-information-from-iprova)** como preparación para los pasos siguientes.
+2. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+3. **[Configuración del inicio de sesión único de iProva](#configure-iprova-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+4. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+5. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+6. **[Creación de un usuario de prueba de iProva](#create-iprova-test-user)** : para tener un homólogo de Britta Simon en iProva que esté vinculado a la representación del usuario en Azure AD.
+7. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="retrieve-configuration-information-from-iprova"></a>Recuperación de la información de configuración desde iProva
 
@@ -96,7 +97,7 @@ En esta sección, va a recuperar información de iProva para configurar el inici
     | `https://SUBDOMAIN.iprova.be/saml2info`|
     | | |
 
-     ![Visualización de la página de información de SAML2 de iProva](media/iprova-tutorial/iprova-saml2-info.png)
+    ![Visualización de la página de información de SAML2 de iProva](media/iprova-tutorial/iprova-saml2-info.png)
 
 2. Deje abierta la pestaña del explorador mientras continúa con los pasos siguientes en otra pestaña.
 
@@ -104,7 +105,7 @@ En esta sección, va a recuperar información de iProva para configurar el inici
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con iProva, realice los pasos siguientes.
+Para configurar el inicio de sesión único de Azure AD con iProva, realice los pasos siguientes:
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones **iProva**, seleccione **Inicio de sesión único**.
 
@@ -114,11 +115,13 @@ Para configurar el inicio de sesión único de Azure AD con iProva, realice los
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Set-up Single Sign-On with SAML** (Configurar inicio de sesión único con SAML), seleccione el icono **Edit** (Editar) para abrir el cuadro de diálogo **Basic SAML Configuration** (Configuración básica de SAML).
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    ![Icono Editar de la configuración básica de SAML](common/edit-urls.png)
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, siga estos pasos.
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de iProva](common/sp-identifier-reply.png)
 
      a. Rellene el campo **Identifier** (Identificador) con el valor que se muestra detrás de la etiqueta **EntityID** (Identificador de la entidad) de la **página de información de SAML2 de iProva**. Esta página sigue abierta en la otra pestaña del explorador.
 
@@ -126,38 +129,35 @@ Para configurar el inicio de sesión único de Azure AD con iProva, realice los
 
     c. Rellene el campo **URL de inicio de sesión** con el valor que se muestra detrás de la etiqueta **URL de inicio de sesión** de la página de **información de SAML2 de iProva**. Esta página sigue abierta en la otra pestaña del explorador.
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de iProva](common/sp-identifier-reply.png)
+5. La aplicación iProva espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-5. La aplicación iProva espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Set-up Single Sign-On with SAML** (Configurar inicio de sesión único con SAML), seleccione el icono **Edit** (Editar) para abrir el cuadro de diálogo **Atributos de usuario**.
+    ![imagen](common/edit-attribute.png)
 
-    ![Cuadro de diálogo Atributos de usuario](common/edit-attribute.png)
+6. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, edite las notificaciones mediante el **icono Editar** o agregue notificaciones mediante **Agregar nueva notificación** para configurar el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
 
-6. En la sección **Notificaciones de usuario** del cuadro de diálogo **Atributos de usuario**, configure el atributo token SAML como muestra la imagen anterior. Siga estos pasos.
-
-    | NOMBRE | Atributo de origen| Espacio de nombres |
+    | NOMBRE | Atributo de origen| Espacio de nombres  |
     | ---------------| -------- | -----|
     | `samaccountname` | `user.onpremisessamaccountname`| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | | |
 
-     a. Seleccione **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![Notificaciones de usuario](common/new-save-attribute.png)
+    ![imagen](common/new-save-attribute.png)
 
-    ![Cuadro de diálogo Administrar las notificaciones del usuario](common/new-attribute-details.png)
+    ![imagen](common/new-attribute-details.png)
 
-    b. En el cuadro **Nombre**, escriba el nombre de atributo que se muestra para la fila.
+    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 
-    c. En la lista **Espacio de nombres**, escriba el valor del espacio de nombres que se muestra para esa fila.
+    c. En el cuadro de texto **Espacio de nombres**, escriba el valor del espacio de nombres que se muestra para esa fila.
 
-    d. Seleccione la opción **Origen** como **Atributo**.
+    d. Seleccione **Atributo** como origen.
 
     e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
 
-    f. Seleccione **Aceptar**.
+    f. Haga clic en **Aceptar**.
 
-    g. Seleccione **Guardar**.
+    g. Haga clic en **Save**(Guardar).
 
-7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el icono **Copiar** para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
+7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
@@ -203,36 +203,35 @@ Para configurar el inicio de sesión único de Azure AD con iProva, realice los
 
 18. Ahora vuelva a la pantalla **Edit general settings** (Editar la configuración general). Desplácese hasta el final de la página y seleccione **Aceptar** para guardar la configuración.
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
-En esta sección, creará un usuario de prueba en Azure Portal llamado Britta Simon.
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-    ![Vínculos Usuarios, grupos y Todos los usuarios](common/users.png)
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
 2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
     ![Botón Nuevo usuario](common/new-user.png)
 
-3. En el cuadro de diálogo **Usuario**, siga estos pasos.
+3. En las propiedades Usuario, siga estos pasos.
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba un nombre como **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el cuadro **Nombre de usuario**, escriba *sunombre\@dominiodesuempresa.extensión*. 
-    Un ejemplo es BrittaSimon@contoso.com.
+    b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo: BrittaSimon@contoso.com
 
-    c. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Seleccione **Crear**.
+    d. Haga clic en **Create**(Crear).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a iProva.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **iProva**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**,  **iProva**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -242,19 +241,19 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Vínculo Usuarios y grupos](common/users-groups-blade.png)
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![El cuadro de diálogo Agregar asignación](common/add-assign-user.png)
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista  **Usuarios** y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. Elija **Seleccionar** en la parte inferior de la pantalla.
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-an-iprova-test-user"></a>Creación de un usuario de prueba para iProva
+### <a name="create-iprova-test-user"></a>Creación de un usuario de prueba para iProva
 
 1. Inicie sesión en iProva con la cuenta de **Administrador**.
 
@@ -266,15 +265,13 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 5. Seleccione **Agregar**.
 
-6. En el cuadro **Nombre de usuario**, escriba *brittasimon\@yourcompanydomain.extension*. 
-    Un ejemplo es BrittaSimon@contoso.com.
+6. En el cuadro **Nombre de usuario**, escriba el nombre de un usuario; por ejemplo, `BrittaSimon@contoso.com`.
 
-7. En el cuadro **Nombre completo**, escriba el nombre completo, como **BrittaSimon**.
+7. En el cuadro **Nombre completo**, escriba el nombre completo del usuario, como **BrittaSimon**.
 
 8. Seleccione la opción **No password (use single sign-on)** (Sin contraseña [ usar inicio de sesión único]).
 
-9. En el cuadro **Dirección de correo electrónico**, elija *sunombre\@dominiodesuempresa.extensión*. 
-   Un ejemplo es BrittaSimon@contoso.com.
+9. En el cuadro **Email address** (Dirección de correo electrónico), escriba la dirección de correo electrónico del usuario, como `BrittaSimon@contoso.com`.
 
 10. Desplácese al final de la página y seleccione **Finalizar**.
 
@@ -282,11 +279,12 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al seleccionar el icono de iProva en el panel de acceso, debería iniciar sesión automáticamente en la versión de iProva para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de iProva en el panel de acceso y debería iniciar sesión automáticamente en la versión de iProva para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 - [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+
 - [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-- [iProva: cómo configurar el inicio de sesión único de SAML2](https://webshare.iprova.nl/0wqwm45yn09f5poh/Document.aspx)
