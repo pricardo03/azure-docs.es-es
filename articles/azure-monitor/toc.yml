@@ -63,28 +63,24 @@
       href: azure-management.md
     - name: Supervisión continua
       href: continuous-monitoring.md
+    - name: Orígenes de datos
+      href: platform/data-sources.md
     - name: Plataforma de datos
       items:
         - name: Información general
           href: platform/data-platform.md
+        - name: Ubicaciones de datos
+          href: platform/data-locations.md
         - name: Métricas
           href: platform/data-platform-metrics.md
         - name: Registros
           href: platform/data-platform-logs.md
-    - name: Orígenes de datos
-      items:
-        - name: Resumen de orígenes de datos
-          href: platform/data-sources.md
-        - name: Orígenes de datos de Azure
-          href: platform/data-sources-reference.md
-        - name: Registro de actividades
-          href: platform/activity-logs-overview.md
-        - name: Registros de diagnóstico
-          href: platform/diagnostic-logs-overview.md
         - name: Tiempo de ingesta de datos de registro
           href: platform/data-ingestion-time.md
-        - name: Métricas personalizadas a almacén de métricas
-          href: platform/metrics-custom-overview.md
+    - name: Información detallada
+      href: insights/insights-overview.md
+    - name: Soluciones de supervisión
+      href: insights/solutions-inventory.md
     - name: Seguridad de los datos
       items:
         - name: Datos de registro
@@ -93,24 +89,6 @@
           href: platform/personal-data-mgmt.md
         - name: 'Recopilación, retención y almacenamiento de datos de aplicaciones'
           href: app/data-retention-privacy.md
-    - name: Información detallada
-      items:
-        - name: Application Insights
-          items:
-            - name: Información general
-              href: app/app-insights-overview.md
-            - name: DevOps
-              href: app/detect-triage-diagnose.md
-            - name: Seguimiento distribuido
-              href: app/distributed-tracing.md
-            - name: Métricas basadas en registros y agregadas previamente
-              href: app/pre-aggregated-metrics-log-metrics.md
-        - name: Contenedores
-          href: insights/container-insights-overview.md
-        - name: Virtual Machines
-          href: insights/vminsights-overview.md
-        - name: Soluciones de supervisión
-          href: insights/solutions-inventory.md
     - name: Respuesta a incidentes
       items:
         - name: Alertas
@@ -189,6 +167,42 @@
               href: platform/service-providers.md
     - name: Recopilación de datos
       items:
+        - name: Recursos de Azure
+          items:
+            - name: Registro de actividades
+              items:
+                - name: Información general
+                  href: platform/activity-logs-overview.md
+                - name: Visualización y recuperación
+                  href: platform/activity-log-view.md
+                - name: Recopilación y análisis
+                  href: platform/activity-log-collect.md
+                - name: Recopilación entre inquilinos
+                  href: platform/activity-log-collect-tenants.md
+                - name: Exportación
+                  href: platform/activity-log-export.md
+                - name: Esquema
+                  href: platform/activity-log-schema.md
+            - name: Registros de diagnóstico
+              items:
+                - name: Información general
+                  href: platform/diagnostic-logs-overview.md
+                - name: Recopilación en registros
+                  href: platform/diagnostic-logs-stream-log-store.md
+                - name: Recopilación desde Azure Storage
+                  href: platform/collect-azure-metrics-logs.md
+                - name: Archivar en Storage
+                  href: platform/archive-diagnostic-logs.md
+                - name: Transmisión de datos a Event Hubs
+                  href: platform/diagnostic-logs-stream-event-hubs.md
+                - name: Habilitar con plantillas de Resource Manager
+                  href: platform/diagnostic-logs-stream-template.md
+                - name: Registros y métricas de servicio
+                  href: platform/azure-storage-iis-table.md
+            - name: Transmisión a Event Hubs
+              href: platform/stream-monitoring-data-event-hubs.md
+            - name: Poner en correlación orígenes de datos personalizados
+              href: app/custom-data-correlation.md
         - name: Instalación y configuración de agentes
           items:
             - name: Introducción a los agentes de supervisión
@@ -221,17 +235,15 @@
                   href: platform/diagnostics-extension-stream-event-hubs.md
                 - name: solución de problemas
                   href: platform/diagnostics-extension-troubleshooting.md
-                - name: Habilitación de la configuración de diagnóstico con plantillas de Resource Manager
-                  href: platform/diagnostic-logs-stream-template.md
                 - name: Preparación para el formato de registros de diagnóstico en líneas de JSON
                   href: platform/diagnostic-logs-append-blobs.md
-                - name: Invitado de máquina virtual a almacén de métricas
+                - name: Invitado de máquina virtual a métricas
                   href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                - name: Invitado de un conjunto de escalado de máquinas virtuales a almacén de métricas
+                - name: Invitado de un conjunto de escalado de máquinas virtuales a métricas
                   href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                - name: Invitado de máquina virtual clásica a almacén de métricas
+                - name: Invitado de máquina virtual clásica a métricas
                   href: platform/collect-custom-metrics-guestos-vm-classic.md
-                - name: Invitado de servicio en la nube a almacén de métricas
+                - name: Invitado de servicio en la nube a métricas
                   href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
             - name: Solución de problemas
               items:
@@ -341,8 +353,6 @@
                       href: app/status-monitor-v2-api-get-status.md
                     - name: API Set-ApplicationInsightsMonitoringConfig
                       href: app/status-monitor-v2-api-set-config.md
-                - name: Servicios de Windows
-                  href: app/windows-services.md
                 - name: Escritorio de Windows
                   href: app/windows-desktop.md
                 - name: Consola
@@ -432,83 +442,46 @@
                   href: app/proactive-email-notification.md
             - name: Creación de un recurso
               href: app/create-new-resource.md
-            - name: Solución de problemas
+            - name: Datos de aplicación a Log Analytics
+              href: platform/app-insights-connector.md
+            - name: Exportación de datos de aplicación
               items:
                 - name: No hay datos para .NET
                   href: app/asp-net-troubleshoot-no-data.md
                 - name: Depurador de instantáneas
                   href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
-                - name: Análisis
-                  href: app/analytics-troubleshooting.md
                 - name: Java
                   href: app/java-troubleshoot.md
                 - name: Análisis de uso
                   href: app/usage-troubleshoot.md
-        - name: Recursos de Azure
-          items:
-            - name: Registros de actividad de Azure
-              items:
-                - name: Análisis
-                  href: platform/collect-activity-logs.md
-                - name: Recopilación entre suscripciones
-                  href: platform/collect-activity-logs-subscriptions.md
-            - name: Registros y métricas de servicio
-              href: platform/collect-azure-metrics-logs.md
-            - name: Datos de diagnóstico o registro de Azure Storage
-              href: platform/azure-storage-iis-table.md
-            - name: Recursos de PaaS de Azure
-              href: platform/collect-azurepass-posh.md
-            - name: Poner en correlación orígenes de datos personalizados
-              href: app/custom-data-correlation.md
         - name: Recopilación de datos personalizados
           items:
+            - name: Métricas personalizadas
+              href: platform/metrics-custom-overview.md
             - name: Data Collector API de Log Analytics
               href: platform/data-collector-api.md
             - name: Ejemplo de canalización de Data Collector API de Log Analytics
               href: platform/create-pipeline-datacollector-api.md
-            - name: REST API de almacén de métricas
+            - name: API REST de métricas
               href: platform/metrics-store-custom-rest-api.md
-            - name: GuestOS a máquina virtual Linux del almacén de métricas (Telegraf)
+            - name: GuestOS a máquina virtual Linux de métricas (Telegraf)
               href: platform/collect-custom-metrics-linux-telegraf.md
         - name: System Center
           items:
             - name: Administrador de configuración
               href: platform/collect-sccm.md
-            - name: Supervisión del rendimiento de la aplicación mediante SCOM
-              href: app/scom.md
-        - name: Enrutamiento de datos
-          items:
-            - name: Archivo del registro de actividad
-              href: platform/archive-activity-log.md
-            - name: Archivo de registros de diagnóstico
-              href: platform/archive-diagnostic-logs.md
-            - name: Almacenamiento de registros de diagnóstico
-              href: platform/diagnostic-logs-stream-log-store.md
-            - name: Transmisión de registros de actividad a Event Hubs
-              href: platform/activity-logs-stream-event-hubs.md
-            - name: Registros y métricas a Event Hubs
-              href: platform/stream-monitoring-data-event-hubs.md
-            - name: Registros de diagnóstico a Event Hubs
-              href: platform/diagnostic-logs-stream-event-hubs.md
-            - name: Datos de aplicación a Log Analytics
-              href: platform/app-insights-connector.md
-            - name: Exportación de datos de aplicación
-              items:
-                - name: Exportación continua
-                  href: app/export-telemetry.md
-                  items:
-                    - name: Ejemplos de código
-                      items:
-                        - name: Exportación a SQL con Stream Analytics
-                          href: app/code-sample-export-sql-stream-analytics.md
-                        - name: Exportación a Stream Analytics
-                          href: app/export-stream-analytics.md
-                - name: Modelo de exportación de datos
-                  href: app/export-data-model.md
     - name: Obtención de información
       items:
         - name: Supervisión de aplicaciones
           items:
+            - name: Introducción sobre Application Insights
+              items:
+                - name: Información general
+                  href: app/app-insights-overview.md
+                - name: Seguimiento distribuido
+                  href: app/distributed-tracing.md
+                - name: Métricas basadas en registros y agregadas previamente
+                  href: app/pre-aggregated-metrics-log-metrics.md
             - name: Portal de Application Insights
               items:
                 - name: Search
@@ -982,6 +955,8 @@
               href: app/api-filtering-sampling.md
             - name: muestreo
               href: app/sampling.md
+            - name: TelemetryChannels
+              href: app/telemetry-channels.md
         - name: Soluciones de supervisión
           items:
             - name: Diseño y compilación
@@ -1060,8 +1035,6 @@
       items:
         - name: 'Servicios, categorías y esquemas de registros de diagnóstico'
           href: platform/diagnostic-logs-schema.md
-        - name: Esquema de evento del registro de actividad
-          href: platform/activity-log-schema.md
         - name: Esquema de extensión de Azure Diagnostics
           href: platform/diagnostics-extension-schema.md
           items:

@@ -15,7 +15,7 @@
   items:
     - name: Creación de un centro de eventos
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: event-hubs-create.md
         - name: Azure CLI
           href: event-hubs-quickstart-cli.md
@@ -51,8 +51,6 @@
           href: event-hubs-capture-python.md
     - name: Streaming en Event Hubs para Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-    - name: Creación de un clúster dedicado de Event Hubs
-      href: event-hubs-dedicated-cluster-create-portal.md
 - name: Tutoriales
   items:
     - name: Visualización de anomalías de datos en flujos de datos de Event Hubs
@@ -86,14 +84,18 @@
       href: event-hubs-event-processor-host.md
     - name: Guía de programación
       href: event-hubs-programming-guide.md
-    - name: Identidad administrada para recursos de Azure
-      href: event-hubs-managed-service-identity.md
-    - name: Control de acceso basado en rol (versión preliminar)
-      href: event-hubs-role-based-access-control.md
-    - name: Recuperación ante desastres geográfica y replicación geográfica
-      href: event-hubs-geo-dr.md
-    - name: Introducción al modelo de autenticación y seguridad
-      href: event-hubs-authentication-and-security-model-overview.md
+    - name: Seguridad
+      items:
+        - name: Identidad administrada para recursos de Azure
+          href: event-hubs-managed-service-identity.md
+        - name: Control de acceso basado en rol (versión preliminar)
+          href: event-hubs-role-based-access-control.md
+        - name: Recuperación ante desastres geográfica y replicación geográfica
+          href: event-hubs-geo-dr.md
+        - name: Introducción al modelo de autenticación y seguridad
+          href: event-hubs-authentication-and-security-model-overview.md
+        - name: Atributos de seguridad
+          href: event-hubs-security-attributes.md
     - name: Disponibilidad y coherencia
       href: event-hubs-availability-and-consistency.md
     - name: Guía del protocolo AMQP 1.0

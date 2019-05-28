@@ -6,6 +6,8 @@
       href: security-center-intro.md
     - name: Plataformas y características compatibles con Security Center
       href: security-center-os-coverage.md
+    - name: Valoración y recomendaciones sobre la protección de puntos de conexión
+      href: security-center-endpoint-protection.md
 - name: Guías de inicio rápido
   expanded: true
   items:

@@ -8,6 +8,8 @@
   items:
     - name: Plan para los clústeres de ESP
       href: apache-domain-joined-architecture.md
+    - name: Creación de clústeres de ESP y sincronización con un entorno local
+      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Configuración de clústeres de ESP mediante Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Sincronización de usuarios de Azure AD con un clúster de HDInsight
