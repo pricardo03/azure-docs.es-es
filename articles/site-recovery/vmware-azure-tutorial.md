@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 4/08/2019
+ms.date: 05/10/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e3c645ea748834340a2e6cfb8d3e7e1b1e876dcf
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357878"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540845"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure
 
@@ -51,9 +51,9 @@ Complete los tutoriales anteriores:
 
 1. En **Almacenes de Recovery Services**, seleccione el nombre del almacén. En este escenario se usa **ContosoVMVault**.
 2. En **Introducción**, seleccione Site Recovery. Luego, seleccione **Preparar infraestructura**.
-3. En **Objetivo de protección** > **¿Dónde están ubicadas las máquinas?**, seleccione **Local**.
-4. En **¿A dónde quiere replicar las máquinas?**, seleccione **En Azure**.
-5. En **¿Las máquinas están virtualizadas?**, seleccione **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor). Después seleccione **Aceptar**.
+3. En **Objetivo de protección** >  **¿Dónde están ubicadas las máquinas?** , seleccione **Local**.
+4. En **¿A dónde quiere replicar las máquinas?** , seleccione **En Azure**.
+5. En **¿Las máquinas están virtualizadas?** , seleccione **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor). Después seleccione **Aceptar**.
 
 
 
@@ -161,7 +161,7 @@ Seleccione y compruebe los recursos de destino.
 
 1. Abra [Azure Portal](https://portal.azure.com) y seleccione **Todos los recursos**.
 2. Seleccione el almacén de Recovery Services (**ContosoVMVault** en este tutorial).
-3. Para crear una directiva de replicación, seleccione **Site Recovery Infrastructure (Infraestructura de Site Recovery)** > **Directivas de replicación** > **+Directiva de replicación**.
+3. Para crear una directiva de replicación, seleccione **Site Recovery Infrastructure (Infraestructura de Site Recovery)**  > **Directivas de replicación** >  **+Directiva de replicación**.
 4. En **Crear la directiva de replicación**, especifique el nombre de directiva. Usamos **VMwareRepPolicy**.
 5. En **Umbral de RPO**, use el valor predeterminado de 60 minutos. Este valor define la frecuencia de creación de puntos de recuperación. Se genera una alerta cuando la replicación continua supera este límite.
 6. En **Retención de punto de recuperación**, especifique cuánto tiempo se conserva cada punto de recuperación. En este tutorial se selecciona 72 horas. Las máquinas virtuales replicadas se pueden recuperar a cualquier momento de una ventana de retención.
@@ -180,7 +180,7 @@ Habilite la replicación para máquinas virtuales como sigue:
 1. En **Origen**, seleccione **Local** y seleccione el servidor de configuración en **Ubicación de origen**.
 1. En **Tipo de máquina**, seleccione **Máquinas virtuales**.
 1. En **vCenter/vSphere Hypervisor**, seleccione el host de vSphere o servidor vCenter que administra el host.
-1. Seleccione el servidor de proceso (que se instala de forma predeterminada en la máquina virtual del servidor de configuración). Después seleccione **Aceptar**.
+1. Seleccione el servidor de proceso (que se instala de forma predeterminada en la máquina virtual del servidor de configuración). Después seleccione **Aceptar**. El estado de mantenimiento de cada servidor de procesos se indica según los límites recomendados y otros parámetros. Elija un servidor de procesos correcto. No se puede elegir un servidor de procesos [crítico](vmware-physical-azure-monitor-process-server.md#process-server-alerts). Puede [localizar y solucionar](vmware-physical-azure-troubleshoot-process-server.md) los errores **o** configurar un [servidor de procesos de escalabilidad horizontal](vmware-azure-set-up-process-server-scale.md).
 1. En **Destino**, seleccione la suscripción y el grupo de recursos donde desee crear las máquinas virtuales conmutadas por error. Usamos el modelo de implementación de Resource Manager. 
 1. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se creen después de la conmutación por error.
 1. Seleccione **Configurar ahora para las máquinas seleccionadas** para aplicar la configuración de red a todas las máquinas habilitadas para replicación. Seleccione **Configurar más tarde** para seleccionar la red de Azure por máquina.

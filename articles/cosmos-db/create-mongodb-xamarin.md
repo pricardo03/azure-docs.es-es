@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: c7a80ae704d13934a5d51bc5538bc28693b49e5b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a0612ea06c71b2a93e6fb76f5d82516cfbad8657
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588099"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860336"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Creación de una aplicación Xamarin.Forms con .NET SDK y la API de Azure Cosmos DB para MongoDB
 
@@ -34,7 +34,7 @@ En este artículo de inicio rápido se muestra cómo crear una [cuenta de Cosmos
 
 Para ejecutar el ejemplo, necesitará [Visual Studio](https://www.visualstudio.com/downloads/) o [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/) y una cuenta de Azure CosmosDB válida.
 
-Si no tiene Visual Studio, descargue [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) con la carga de trabajo **desarrollo móvil con .NET** instalada con el programa de instalación.
+Si no tiene Visual Studio, descargue [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) con la carga de trabajo **desarrollo móvil con .NET** instalada con el programa de instalación.
 
 Si prefiere trabajar en un equipo Mac, descargue [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/) y ejecute el programa de instalación.
 
@@ -164,7 +164,7 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 
 ## <a name="run-the-app"></a>Ejecución de la aplicación
 
-### <a name="visual-studio-2017"></a>Visual Studio 2017
+### <a name="visual-studio-2019"></a>Visual Studio 2019
 
 1. En Visual Studio, haga clic con el botón derecho en cada proyecto en el **Explorador de soluciones** y, después, haga clic en **Administrar paquetes NuGet**.
 2. Haga clic en **Restore all NuGet packages** (Restaurar todos los paquetes NuGet).

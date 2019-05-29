@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: ac9a748742bda6b1e7a321a427090662542f1032
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f20cc1107476f8d65323d277a53086b8bd035a1b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486918"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518902"
 ---
 # <a name="back-up-azure-file-shares"></a>Copia de seguridad de recursos compartidos de archivos de Azure
 En este artículo se explica cómo usar Azure Portal para realizar una copia de seguridad de los [recursos compartidos de archivos de Azure](../storage/files/storage-files-introduction.md) y restaurarla.
@@ -52,11 +52,11 @@ En este tutorial se da por supuesto que ya ha establecido un recurso compartido 
 
     ![Elija Azure Fileshare como objetivo de copia de seguridad.](./media/backup-file-shares/overview-backup-page.png)
 
-2. En el menú **Objetivo de Backup**, en **¿De qué quiere realizar una copia de seguridad?**, elija Recurso compartido de archivos de Azure.
+2. En el menú **Objetivo de Backup**, en **¿De qué quiere realizar una copia de seguridad?** , elija Recurso compartido de archivos de Azure.
 
     ![Elija Azure Fileshare como objetivo de copia de seguridad.](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
-3. Haga clic en **Backup** (Copia de seguridad) para configurar el recurso compartido de archivos de Azure en su almacén de Recovery Services. 
+3. Haga clic en **Backup** (Copia de seguridad) para configurar el recurso compartido de archivos de Azure en su almacén de Recovery Services.
 
    ![Haga clic en Backup (Copia de seguridad) para asociar el recurso compartido de archivos de Azure con el almacén](./media/backup-file-shares/set-backup-goal.png)
 
@@ -85,7 +85,7 @@ En ocasiones, puede que quiera generar una instantánea de copia de seguridad, o
 
    ![Haga clic en Backup (Copia de seguridad) para asociar el recurso compartido de archivos de Azure con el almacén](./media/backup-file-shares/list-of-backup-items.png)
 
-2. En la lista, seleccione **Azure Storage (Azure Files)**. Aparece la lista de recursos compartidos de archivos de Azure.
+2. En la lista, seleccione **Azure Storage (Azure Files)** . Aparece la lista de recursos compartidos de archivos de Azure.
 
    ![Haga clic en Backup (Copia de seguridad) para asociar el recurso compartido de archivos de Azure con el almacén](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
@@ -123,10 +123,12 @@ Puede supervisar el progreso de todos los trabajos en la página **Backup Jobs**
 Para abrir la página **Backup Jobs** (Trabajos de copia de seguridad), siga estos pasos:
 
 - Haga clic en el almacén de Recovery Services que quiere supervisar y, en su menú, haga clic en **Jobs** (Trabajos) y luego en **Backup Jobs** (Trabajos de copia de seguridad).
+
    ![Selección del trabajo para supervisar](./media/backup-file-shares/open-backup-jobs.png)
 
     Aparece la lista de trabajos de copia de seguridad y el estado de esos trabajos.
-   ![Selección del trabajo para supervisar](./media/backup-file-shares/backup-jobs-progress-list.png)
+
+    ![Selección del trabajo para supervisar](./media/backup-file-shares/backup-jobs-progress-list.png)
 
 ### <a name="create-a-new-policy"></a>Creación de una nueva directiva
 
@@ -164,7 +166,7 @@ Para dejar de proteger recursos compartidos de archivos de Azure, siga estos pas
 
    ![Haga clic en Backup (Copia de seguridad) para asociar el recurso compartido de archivos de Azure con el almacén](./media/backup-file-shares/list-of-backup-items.png)
 
-2. En la lista **Backup Management Type** (Tipo de administración de copia de seguridad), seleccione **Azure Storage (Azure Files)**. Aparece la lista de elementos de copia de seguridad para (Azure Storage [Azure Files]).
+2. En la lista **Backup Management Type** (Tipo de administración de copia de seguridad), seleccione **Azure Storage (Azure Files)** . Aparece la lista de elementos de copia de seguridad para (Azure Storage [Azure Files]).
 
    ![Hacer clic en un elemento para abrir el menú adicional](./media/backup-file-shares/azure-file-share-backup-items.png)
 

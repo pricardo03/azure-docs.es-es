@@ -5,21 +5,25 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 69f91949347eadcffb3c0d3ff833a40b5e483e24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6615c6d8912195dbecda727bbdb31dcf04898ea2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003178"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792811"
 ---
 # <a name="what-is-azure-cost-management"></a>¿Qué es Administración de costos de Azure?
 
 La administración de costos es el proceso en el que se planifican y controlan eficazmente los costos implicados en su negocio. Normalmente, los equipos de finanzas, administración y aplicación realizan las tareas de administración de costos. Azure Cost Management ayuda a las organizaciones a planear teniendo en cuenta los costos. También ayuda a analizar eficazmente los costos y a tomar medidas para optimizar el gasto en la nube. Para obtener más información sobre cómo abordar la administración de costos como organización, eche un vistazo al artículo [Azure Cost Management best practices](cost-mgt-best-practices.md) (Procedimientos recomendados de Azure Cost Management).
+
+Vea el [vídeo de información general de Azure Cost Management](https://www.youtube.com/watch?v=el4yN5cHsJ0) para consultar una breve introducción sobre cómo Azure Cost Management puede ayudarle a ahorrar dinero en Azure.
+
+>[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 Aunque están relacionados, la facturación difiere de administración de costos. La facturación es el proceso de facturar a los clientes por bienes o servicios y administrar la relación comercial.  Los equipos de adquisiciones y finanzas son los que normalmente realizan las tareas de facturación.
 
@@ -42,6 +46,10 @@ Si usa los sistemas externos para acceder o revisar los datos de administración
 ## <a name="consider-cloudyn"></a>Considere la posibilidad de Cloudyn
 
 [Cloudyn](overview.md) es un servicio de Azure relacionado con Cost Management. Con Cloudyn, puede realizar un seguimiento de los gastos y el uso de la nube para los recursos de Azure. También admite otros proveedores de nube, como AWS y Google. Los sencillos informes del panel proporcionan ayuda con la asignación de costos, los contracargos y la visibilidad de los gastos. Actualmente, Cost Management no es compatible con la visualización ni los contracargos, ni con otros proveedores de servicios en la nube. No obstante, Cloudyn es una opción que _sí_ es compatible. Actualmente, Cost Management no admite las cuentas del Proveedor de servicios en la nube (CSP) de Microsoft, pero Cloudyn sí lo hace. Si tiene las cuentas de CSP o si quiere usar visualización y contracargo de costos, puede usar Cloudyn para administrar los costos.
+
+Vea el [vídeo de Azure Cost Management y Cloudyn](https://www.youtube.com/watch?v=PmwFWwSluh8) para obtener recomendaciones de cuándo debe usar Azure Cost Management o Cloudyn, según sus necesidades empresariales.
+
+>[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
 ## <a name="additional-azure-tools"></a>Herramientas de Azure adicionales
 

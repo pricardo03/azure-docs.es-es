@@ -7,84 +7,19 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/06/2019
-ms.openlocfilehash: 4271d94f07125a870cc4aa859b01db819d583f40
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.date: 05/14/2019
+ms.openlocfilehash: efc3801ab03f739761a41bec754f975fe43dcd8e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406446"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792019"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure Database for PostgreSQL Hiperescala (Citus) (versión preliminar) en Azure Portal
 
 Azure Database for PostgreSQL es un servicio administrado que usa para ejecutar, administrar y escalar bases de datos de PostgreSQL de alta disponibilidad en la nube. Este inicio rápido muestra cómo crear un servidor de Azure Database for PostgreSQL Hiperescala (Citus) (versión preliminar) utilizando Azure Portal. Explorará los datos distribuidos: tablas de particionamiento entre nodos, ingesta de datos de ejemplo y ejecución de consultas que se ejecutan en varios nodos.
 
-Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
-
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
-
-## <a name="create-an-azure-database-for-postgresql"></a>Creación de una instancia de Azure Database for PostgreSQL
-
-Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
-1. Haga clic en **Crear un recurso** de la esquina superior izquierda de Azure Portal.
-2. En la página **Nuevo**, seleccione **Bases de datos** y, en la página **Bases de datos**, seleccione **Azure Database for PostgreSQL**.
-3. Para la opción de implementación, haga clic en el botón **Crear** en **Hyperscale (Citus) server group - PREVIEW** (Grupo de servidores Hiperescala (Citus): VERSIÓN PRELIMINAR).
-4. Rellene el formulario del nuevo servidor con la siguiente información:
-   - Grupo de recursos: haga clic en el vínculo **Crear nuevo** que está debajo de este cuadro de texto para este campo. Escriba un nombre como **myresourcegroup**.
-   - Nombre del grupo de servidores: escriba un nombre exclusivo para el nuevo grupo de servidores, que también se usará para un subdominio de servidor.
-   - Nombre de usuario administrador: escriba un nombre de usuario exclusivo, que se usará más adelante para conectarse con la base de datos.
-   - Contraseña: tiene que tener al menos ocho caracteres de las tres categorías siguientes: letras mayúsculas del alfabeto inglés, letras minúsculas del alfabeto inglés, números (0-9) y caracteres no alfanuméricos (!, $, #, %, etc.)
-   - Ubicación: use la ubicación más cercana a los usuarios para que puedan acceder de la forma más rápida posible a los datos.
-
-   > [!IMPORTANT]
-   > Se requiere el inicio de sesión y la contraseña de administrador de servidor que especifique aquí para iniciar sesión en el servidor y a sus bases de datos más adelante en esta guía de inicio rápido. Recuerde o grabe esta información para su uso posterior.
-
-5. Haga clic en **Configurar grupo de servidores**. No modifique los valores de esa sección y haga clic en **Guardar**.
-6. Haga clic en **Revisar y crear**  y luego en **Crear** para aprovisionar el servidor. El aprovisionamiento tarda unos minutos.
-7. La página irá a la supervisión de la implementación. Cuando el estado activo cambia de **La implementación está en curso** a **Se completó la implementación**, haga clic en el elemento de menú **Salidas** que se encuentra a la izquierda de la página.
-8. La página de resultados incluirá un nombre de host de coordinación junto a un botón para copiar el valor en el Portapapeles. Anote esta información para usarla más adelante.
-
-## <a name="configure-a-server-level-firewall-rule"></a>Configuración de una regla de firewall de nivel de servidor
-
-El servicio Azure Database for PostgreSQL Hiperescala (Citus) (versión preliminar) usa un firewall en el nivel de servidor. De manera predeterminada, el firewall impide que todas las herramientas y aplicaciones externas se conecten al nodo de coordinación y a cualquier base de datos interna. Tenemos que agregar una regla para abrir el firewall en un intervalo específico de direcciones IP.
-
-1. Desde la sección **Salidas** donde anteriormente copió el nombre de host del nodo de coordinación, haga clic en Atrás para volver al elemento de menú **Información general**.
-
-2. El nombre del grupo de escalado de la implementación tendrá el prefijo "sg-". Lo encontrará en la lista de recursos, haga clic en él.
-
-3. Haga clic en **Firewall** en **Seguridad** del menú de la izquierda.
-
-4. Haga clic en el vínculo **+ Agregar regla de firewall para la dirección IP del cliente actual**. Por último, haga clic en el botón **Guardar**.
-
-5. Haga clic en **Save**(Guardar).
-
-   > [!NOTE]
-   > El servidor Azure PostgreSQL se comunica a través de puerto 5432. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 5432. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 5432.
-   >
-
-## <a name="connect-to-the-database-using-psql-in-cloud-shell"></a>Conexión a la base de datos mediante psql en Cloud Shell
-
-Ahora vamos a usar la utilidad de línea de comandos [psql](https://www.postgresql.org/docs/current/app-psql.html) para conectarnos al servidor de Azure Database for PostgreSQL.
-1. Inicie Azure Cloud Shell desde el icono del terminal en el panel de navegación superior.
-
-   ![Azure Database for PostgreSQL: icono del terminal de Azure Cloud Shell](./media/quickstart-create-hyperscale-portal/psql-cloud-shell.png)
-
-2. Azure Cloud Shell se abrirá en el explorador y podrá escribir comandos de Bash.
-
-   ![Azure Database for PostgreSQL: indicador de Bash de Azure Shell](./media/quickstart-create-hyperscale-portal/psql-bash.png)
-
-3. En el símbolo de sistema de Cloud Shell, conéctese al servidor de Azure Database for PostgreSQL con los comandos psql. El formato siguiente sirve para conectarse a un servidor de Azure Database for PostgreSQL con la utilidad [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
-   ```bash
-   psql --host=<myserver> --username=myadmin --dbname=citus
-   ```
-
-   Por ejemplo, el siguiente comando se conecta a la base de datos predeterminada llamada **citus** en el servidor PostgreSQL **mydemoserver.postgres.database.azure.com** con las credenciales de acceso. Escriba la contraseña de administrador del servidor cuando se le solicite.
-
-   ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
-   ```
+[!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="create-and-distribute-tables"></a>Creación y distribución de tablas
 
@@ -127,7 +62,7 @@ CREATE TABLE github_users
 );
 ```
 
-El campo `payload` de `github_events` tiene un tipo de datos JSONB. JSONB es el tipo de datos JSON en formato binario en Postgres. Esto facilita el almacenamiento de un esquema más flexible en una sola columna.
+El campo `payload` de `github_events` tiene un tipo de datos JSONB. JSONB es el tipo de datos JSON en formato binario en Postgres. Este tipo de datos facilita el almacenamiento de un esquema flexible en una sola columna.
 
 Postgres puede crear un índice `GIN` en este tipo que indexará cada clave y valor dentro de él. Con un índice, consultar la carga con varias condiciones pasa a ser una tarea rápida y fácil. Sigamos adelante, ahora vamos a crear un par de índices antes de cargar los datos. En psql:
 
@@ -143,7 +78,14 @@ SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
 ```
 
-Ya estamos preparados para cargar los datos. Descargar los dos archivos de ejemplo [users.csv](https://examples.citusdata.com/users.csv) y [events.csv](https://examples.citusdata.com/events.csv). Después de descargar los archivos, conéctese a la base de datos mediante psql, teniendo cuidado de ejecutar psql desde el directorio que contiene los archivos que descargó. Cargue los datos con el comando `\copy`:
+Ya estamos preparados para cargar los datos. En psql todavía, aplique un shell para descargar los archivos:
+
+```sql
+\! curl -O https://examples.citusdata.com/users.csv
+\! curl -O https://examples.citusdata.com/events.csv
+```
+
+A continuación, cargue los datos de los archivos en las tablas distribuidas:
 
 ```sql
 \copy github_events from 'events.csv' WITH CSV

@@ -1,5 +1,5 @@
 ---
-title: Inicio rápido de los flujos de dispositivos de Azure IoT Hub (versión preliminar) en Node.js | Microsoft Docs
+title: Comunicación con una aplicación de dispositivo en Node.js mediante flujos de dispositivo de IoT Hub (versión preliminar) | Microsoft Docs
 description: En este inicio rápido, ejecutará una aplicación del lado del servicio de Node.js que se comunica con un dispositivo IoT mediante un flujo de dispositivo.
 author: rezasherafat
 manager: briz
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 4b546b91634e153fa0074adfb863596a1bf36242
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9a123c35620cd82059eb08d370939761f7c2fe69
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006439"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834036"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con una aplicación de dispositivo en Node.js mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
@@ -23,7 +23,11 @@ ms.locfileid: "59006439"
 
 Microsoft Azure IoT Hub actualmente admite flujos de dispositivos como [Característica en vista previa (GB)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[Los flujos de dispositivo de IoT Hub](./iot-hub-device-streams-overview.md) permiten que las aplicaciones de servicio y de dispositivo se comuniquen de forma segura y apta para el firewall. Durante la versión preliminar pública, el SDK para Node.js solo admite flujos de dispositivo en el lado del servicio. Por consiguiente, este artículo de inicio rápido solo abarca las instrucciones para ejecutar la aplicación del lado del servicio. Debe ejecutar una aplicación complementaria del lado del dispositivo que esté disponible en las guías de [inicio rápido de C#](./quickstart-device-streams-echo-c.md) o de [inicio rápido de C](./quickstart-device-streams-echo-csharp.md).
+[Los flujos de dispositivo de IoT Hub](./iot-hub-device-streams-overview.md) permiten que las aplicaciones de servicio y de dispositivo se comuniquen de forma segura y apta para el firewall. Durante la versión preliminar pública, el SDK para Node.js solo admite flujos de dispositivo en el lado del servicio. Por consiguiente, este artículo de inicio rápido solo abarca las instrucciones para ejecutar la aplicación del lado del servicio. Hay que ejecutar una aplicación complementaria del lado del dispositivo, disponible en los inicios rápidos siguientes:
+
+* [Comunicación con una aplicación de dispositivo en C mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-c.md)
+
+* [Comunicación con aplicaciones de dispositivo en C# mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-csharp.md)
 
 La aplicación Node.js del lado del servidor de este inicio rápido tiene las siguientes funcionalidades:
 
@@ -41,12 +45,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La versión preliminar de los flujos de dispositivos solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
 
-  - **Centro de EE. UU.**
-  - **EUAP de centro de EE. UU.**
+*  **Centro de EE. UU.**
 
-Para ejecutar la aplicación del lado del servicio en este inicio rápido se necesita la versión 4.x.x de Node.js o posterior en la máquina de desarrollo.
+*  **EUAP de centro de EE. UU.**
 
-Puede descargar Node.js para varias plataformas de [Node.js.org](https://nodejs.org).
+Para ejecutar la aplicación del lado del servicio en este inicio rápido se necesita la versión 10.x.x de Node.js o posterior en la máquina de desarrollo.
+
+Puede descargar Node.js para varias plataformas desde [nodejs.org](https://nodejs.org).
 
 Puede verificar la versión actual de Node.js en el equipo de desarrollo con el comando siguiente:
 
@@ -62,13 +67,11 @@ az extension add --name azure-cli-iot-ext
 
 Si aún no lo ha hecho, descargue el proyecto de Node.js de muestra desde https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip y extraiga el archivo ZIP.
 
-
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
 Si ha completado la anterior [Guía de inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-node.md) puede omitir este paso.
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
-
+[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>Registrar un dispositivo
 
@@ -86,7 +89,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. También necesita una _cadena de conexión de servicio_ para permitir que la aplicación back-end se conecte a IoT Hub y recupere los mensajes. El comando siguiente recupera la cadena de conexión del servicio de su instancia de IoT Hub:
+2. También necesita una *cadena de conexión de servicio* para permitir que la aplicación back-end se conecte a IoT Hub y recupere los mensajes. El comando siguiente recupera la cadena de conexión del servicio de su instancia de IoT Hub:
 
     **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
@@ -98,53 +101,59 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
-
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>Comunicación entre un dispositivo y un servicio mediante flujos de dispositivo
+
+En esta sección, ejecuta la aplicación del lado del dispositivo y la aplicación del lado del servicio y se comunica entre las dos.
 
 ### <a name="run-the-device-side-application"></a>Ejecución de la aplicación del lado del dispositivo
 
-Como ya se ha mencionado, el SDK de IoT Hub para Node.js solo admite flujos de dispositivo en el lado del servicio. Para la aplicación del lado del dispositivo, use los programas de dispositivo complementarios disponibles en las guías de [inicio rápido de C](./quickstart-device-streams-echo-c.md) o de [inicio rápido de C#](./quickstart-device-streams-echo-csharp.md). Asegúrese de que la aplicación del lado del dispositivo se está ejecutando antes de continuar con el paso siguiente.
+Como ya se ha mencionado, el SDK de IoT Hub para Node.js solo admite flujos de dispositivo en el lado del servicio. Para la aplicación del lado del dispositivo, use los programas de dispositivo complementarios disponibles en uno de estos inicios rápidos:
 
+   * [Comunicación con una aplicación de dispositivo en C mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-c.md)
+
+   * [Comunicación con aplicaciones de dispositivo en C# mediante flujos de dispositivo de IoT Hub](./quickstart-device-streams-echo-csharp.md)
+
+Asegúrese de que la aplicación del lado del dispositivo se está ejecutando antes de continuar con el paso siguiente.
 
 ### <a name="run-the-service-side-application"></a>Ejecución de la aplicación del lado del servicio
 
 Si se da por hecho que la aplicación del lado del dispositivo está en ejecución, realice los siguientes pasos para ejecutar la aplicación del lado del servicio escrito en Node.js:
 
-- Especifique las credenciales del servicio y el identificador del dispositivo como variables de entorno.
-  ```
-  # In Linux
-  export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
-  export STREAMING_TARGET_DEVICE="MyDevice"
+* Especifique las credenciales del servicio y el identificador del dispositivo como variables de entorno.
+ 
+   ```
+   # In Linux
+   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export STREAMING_TARGET_DEVICE="MyDevice"
 
-  # In Windows
-  SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
-  SET STREAMING_TARGET_DEVICE=MyDevice
-  ```
-  Cambie `MyDevice` por el identificador que haya elegido para el dispositivo.
-
-- Vaya a `Quickstarts/device-streams-service` en la carpeta del proyecto descomprimida y ejecute el ejemplo que usa el nodo.
-  ```
-  cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
+   # In Windows
+   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET STREAMING_TARGET_DEVICE=MyDevice
+   ```
   
-  # Install the preview service SDK, and other dependencies
-  npm install azure-iothub@streams-preview
-  npm install
+   Cambie `MyDevice` por el identificador que haya elegido para el dispositivo.
 
-  node echo.js
-  ```
+* Vaya a `Quickstarts/device-streams-service` en la carpeta del proyecto descomprimida y ejecute el ejemplo que usa el nodo.
 
-Al final del último paso, el programa del lado del servicio iniciará un flujo hacia el dispositivo y, una vez que establecido, enviará un búfer de cadena al servicio a través de dicho flujo. En este ejemplo, el programa del lado del servicio simplemente lee stdin del terminal y lo envía al dispositivo, que lo devuelve. Aquí se muestra una comunicación bidireccional correcta entre las dos aplicaciones.
+   ```
+   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
+    
+   # Install the preview service SDK, and other dependencies
+   npm install azure-iothub@streams-preview
+   npm install
 
-Salida de la consola en el lado del servicio: ![alt text](./media/quickstart-device-streams-echo-nodejs/service-console-output.PNG "Salida de la consola en el lado del servicio")
+   node echo.js
+   ```
 
+Al final del último paso, el programa del lado del servicio iniciará un flujo hacia el dispositivo y, una vez que establecido, enviará un búfer de cadena al servicio a través de dicho flujo. En este ejemplo, el programa del lado del servicio simplemente lee `stdin` del terminal y lo envía al dispositivo, que lo devuelve. Aquí se muestra una comunicación bidireccional correcta entre las dos aplicaciones.
+
+![Salida de la consola del servicio](./media/quickstart-device-streams-echo-nodejs/service-console-output.png)
 
 Luego, para terminar el programa vuelva a presionar Entrar.
 
-
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
-
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

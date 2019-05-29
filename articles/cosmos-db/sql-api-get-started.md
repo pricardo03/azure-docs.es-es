@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: sngun
-ms.openlocfilehash: 64aef17663fdc28a467172bbe8954fc06fdb7ff0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7574985dbcc502d03bc886c7651c859b22968c5f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680406"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596095"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Compilación de una aplicación de consola .NET para administrar datos de la cuenta de API de SQL de Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Siga estas instrucciones para crear una cuenta de Azure Cosmos DB en Azure Porta
 
 1. Abra Visual Studio 2017, seleccione **Archivo** > **Nuevo** > **Proyecto**.
    
-1. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Visual C#** > **Aplicación de consola (.NET Framework)**, asigne un nombre al proyecto *AzureCosmosDBApp* y, luego, haga clic en **Aceptar**.
+1. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Visual C#**  > **Aplicación de consola (.NET Framework)** , asigne un nombre al proyecto *AzureCosmosDBApp* y, luego, haga clic en **Aceptar**.
    
    ![Captura de pantalla de la ventana de nuevo proyecto](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
    
@@ -145,6 +145,20 @@ Ahora, comience a escribir código. Encontrará el archivo *Project.cs* completo
       {
         client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
       }
+   ```
+
+   Si va a usar un objeto de proxy para conectarse a Azure Cosmos DB, debería utilizar en su lugar el siguiente bloque de código para crear el objeto DocumentClient. En el ejemplo de este documento no se usa un objeto de proxy, por lo que el ejemplo siguiente es solo como referencia:
+
+   ```csharp
+   HttpClientHandler handler = new HttpClientHandler()
+   {
+     Proxy = proxyObject
+     UseProxy = true,
+   };
+
+   //Pass handler to the constructor of DocumentClient.
+   DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
+   
    ```
    
 1. Agregue el siguiente código al método `Main` para ejecutar la tarea `GetStartedDemo`. El método `Main` detecta las excepciones y las escribe en la consola.

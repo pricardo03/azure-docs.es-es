@@ -3,33 +3,23 @@ title: 'Habilitar firewall de aplicaciones web: CLI de Azure'
 description: Aprenda a restringir el tráfico web con un firewall de aplicaciones web en una puerta de enlace de aplicaciones mediante la CLI de Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1387dc5bb2cabf9a3078474564aadc81b28fd9a7
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1822fe032a7c7a6382dbae2cb9f7095d1d076008
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443627"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955497"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Habilitar el firewall de aplicaciones web mediante la CLI de Azure
 
-> [!div class="op_single_selector"]
->
-> - [Azure Portal](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [CLI de Azure](tutorial-restrict-web-traffic-cli.md)
->
-> 
+Puede restringir el tráfico en una [puerta de enlace de aplicaciones](overview.md) con un [firewall de aplicaciones web](waf-overview.md) (WAF). WAF usa reglas de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger la aplicación. Estas reglas incluyen protección frente a ataques, como la inyección de SQL, ataques de scripts entre sitios y apropiaciones de sesión.
 
-Puede restringir el tráfico en una [puerta de enlace de aplicaciones](overview.md) con un [firewall de aplicaciones web](waf-overview.md) (WAF). WAF usa reglas de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger la aplicación. Estas reglas incluyen protección frente a ataques, como la inyección de SQL, ataques de scripts entre sitios y apropiaciones de sesión. 
-
-En este tutorial, aprenderá a:
+En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de la red
@@ -39,13 +29,13 @@ En este tutorial, aprenderá a:
 
 ![Ejemplo de firewall de aplicaciones web](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
-Si lo prefiere, puede seguir los pasos de este tutorial mediante [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
+Si lo prefiere, puede realizar los pasos de este procedimiento mediante [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0.4 o posterior de la CLI de Azure. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -148,7 +138,7 @@ az vmss extension set \
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Crear una cuenta de almacenamiento y configurar los diagnósticos
 
-En este tutorial, la puerta de enlace de aplicaciones usa una cuenta de almacenamiento para almacenar datos con fines de detección y prevención. También puede usar los registros de Azure Monitor o una instancia de Event Hubs para registrar los datos. 
+En este artículo, la puerta de enlace de aplicaciones usa una cuenta de almacenamiento para almacenar datos con fines de detección y prevención. También puede usar los registros de Azure Monitor o una instancia de Event Hubs para registrar los datos. 
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
@@ -196,18 +186,9 @@ az network public-ip show \
 Cuando ya no los necesite, quite el grupo de recursos, la puerta de enlace de aplicaciones y todos los recursos relacionados.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
-
-> [!div class="checklist"]
-> * Configuración de la red
-> * Crear una puerta de enlace de aplicaciones con WAF habilitado
-> * Crear un conjunto de escalado de máquinas virtuales
-> * Crear una cuenta de almacenamiento y configurar los diagnósticos
-
-> [!div class="nextstepaction"]
-> [Crear una puerta de enlace de aplicaciones con terminación SSL](./tutorial-ssl-cli.md)
+* [Crear una puerta de enlace de aplicaciones con terminación SSL](./tutorial-ssl-cli.md)

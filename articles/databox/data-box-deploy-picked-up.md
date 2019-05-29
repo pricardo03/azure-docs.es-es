@@ -1,5 +1,5 @@
 ---
-title: Devolución de Microsoft Azure Data Box | Microsoft Docs
+title: Tutorial sobre la devolución de Azure Data Box | Microsoft Docs
 description: Aprenda a enviar un dispositivo Data Box a Microsoft
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 72d6ce58a986ddd0d0976d99de5ca3426d78f0b9
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 5b43241be4e161cd6051dce02a3574fbdb580f28
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287169"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606231"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolución de Azure Data Box y comprobación de la carga de datos en Azure
 
@@ -45,7 +45,7 @@ Antes de comenzar, asegúrese de que:
 2. Asegúrese de que la etiqueta de envío aparece en la pantalla de tinta electrónica y programe una recogida con su transportista. Si la etiqueta está dañada, se ha perdido o no aparece en la pantalla de tinta electrónica, póngase en contacto con el servicio de soporte técnico de Microsoft. Si el soporte técnico lo sugiere, puede ir a **Información general > Descargar la etiqueta de envío** en Azure Portal. Descargue la etiqueta de envío y péguela en el dispositivo. 
 3. Programe una recogida con UPS si está devolviendo el dispositivo. Para programar una recogida:
 
-    - Llame a la oficina local de UPS (número gratuito específico del país).
+    - Llame a la oficina local de UPS (número gratuito específico del país o región).
     - En la llamada, indique el número de seguimiento del envío inverso, que se muestra en la pantalla E-ink (Tinta electrónica) o la etiqueta impresa.
     - Si no se indica el número de seguimiento, UPS solicitará que el abono de una cantidad adicional en la recogida.
 
@@ -69,7 +69,7 @@ Compruebe que los datos se han cargado en Azure antes de eliminarlos del origen.
 
     Como alternativa, puede ir a su cuenta de almacenamiento de Azure en Azure Portal e ir desde allí.
 
-- Sus grupos de recursos de disco administrados. Al crear discos administrados, los discos duros virtuales se cargan como blobs en páginas y, después, se convierten en discos administrados. Los discos administrados se conectan a los grupos de recursos especificados en el momento de creación del pedido. 
+- Sus grupos de recursos de disco administrados. Al crear discos administrados, los discos duros virtuales se cargan como blobs en páginas y se convierten en discos administrados. Los discos administrados se conectan a los grupos de recursos especificados en el momento de creación del pedido. 
 
     - Si la copia en los discos administrados de Azure se realizó correctamente, puede ir a **Detalles del pedido** en Azure Portal y tomar nota de los grupos de recursos especificados para los discos administrados.
 

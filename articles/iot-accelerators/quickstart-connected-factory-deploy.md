@@ -80,7 +80,7 @@ OEE evalúa la eficiencia del proceso de fabricación mediante parámetros de op
 
 Puede analizar más a fondo los valores de OEE de cualquier nivel de datos de la jerarquía. Haga clic en la esfera de OEE, disponibilidad, rendimiento o porcentaje de calidad. Aparece un panel contextual con visualizaciones que muestran datos a lo largo de diferentes escalas de tiempo:
 
-[Detalle de la eficiencia general del equipo![](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
+[![Detalle de la eficiencia general del equipo](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
 
 Puede hacer clic en un gráfico para analizar los datos más a fondo.
 
@@ -100,7 +100,7 @@ Puede hacer clic en un gráfico para analizar los datos más a fondo.
 
 Un panel **Ubicaciones de factoría** que muestra el estado, la ubicación y la configuración actual de producción de la solución. La primera vez que se ejecuta el acelerador de soluciones, el panel muestra un conjunto simulado de fábricas. Cada simulación de una línea de producción consta de tres servidores OPC UA reales que ejecutan tareas simuladas y comparten datos. Para más información sobre OPC UA, consulte las [preguntas frecuentes sobre Connected Factory](iot-accelerators-faq-cf.md):
 
-[Ubicaciones de factoría![](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
+[![Ubicaciones de factoría](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
 
 Puede navegar por la jerarquía de soluciones y ver los valores de OEE y KPI en cada nivel:
 

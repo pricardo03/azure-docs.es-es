@@ -10,23 +10,23 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4e1c03085d6b1d0099ac66dd3d1dadd981a561aa
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004268"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860472"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Tutorial: Conexión al servicio Text Analytics con Servicios conectados en Visual Studio
 
 Al usar el servicio Text Analytics, puede extraer información muy completa para clasificar y procesar datos visuales y llevar a cabo una moderación automática de las imágenes con el fin de facilitar el mantenimiento de los servicios.
 
-En este artículo y sus artículos complementarios se proporcionan detalles acerca del uso de la característica de servicios conectados de Visual Studio para el servicio Text Analytics. La funcionalidad está disponible en Visual Studio 2017 15.7 o posterior, con la extensión Cognitive Services instalada.
+En este artículo y sus artículos complementarios se proporcionan detalles acerca del uso de la característica de servicios conectados de Visual Studio para el servicio Text Analytics. La funcionalidad está disponible en Visual Studio 2019 o posterior, con la extensión Cognitive Services instalada.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción de Azure. Si no tiene, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 15.7 con la carga de trabajo de Desarrollo web instalada. [Descárguelo ahora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019 con la carga de trabajo Desarrollo web instalada. [Descárguelo ahora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 

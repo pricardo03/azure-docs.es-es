@@ -3,19 +3,19 @@ title: 'Inicio rápido: Revisión ortográfica con el SDK de Bing Spell Check pa
 titlesuffix: Azure Cognitive Services
 description: Introducción al uso de la API REST de Bing Spell Check para la revisión ortográfica y gramatical.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: v-gedod
-ms.openlocfilehash: 3487656f72f315aa15ce003a8dfd279c45d1f992
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aahi
+ms.openlocfilehash: adbb60c7ddbc72b8b7e5cb31c6909117ce3a10cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105750"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798357"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Inicio rápido: Revisión ortográfica con el SDK de Bing Spell Check para C#
 
@@ -23,10 +23,10 @@ Use este inicio rápido para empezar la revisión ortográfica con el SDK de Bin
 
 ## <a name="application-dependencies"></a>Dependencias de aplicaciones
 
-* Cualquier edición de [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* Cualquier edición de [Visual Studio 2017 o posterior](https://visualstudio.microsoft.com/downloads/).
 * El [paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck) de Bing Spell Check
 
-Para agregar el SDK de Bing Spell Check al proyecto, haga clic en `Manage NuGet Packages` desde el Explorador de soluciones de Visual Studio. Agregue el paquete `Microsoft.Azure.CognitiveServices.Language.SpellCheck`. El paquete también instala las siguientes dependencias:
+Para agregar el SDK de Bing Spell Check, seleccione **Administración de paquetes de NuGet** en el **Explorador de soluciones** en Visual Studio. Agregue el paquete `Microsoft.Azure.CognitiveServices.Language.SpellCheck`. El paquete también instala las siguientes dependencias:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure

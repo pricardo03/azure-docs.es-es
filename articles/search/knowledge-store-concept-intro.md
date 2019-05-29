@@ -1,5 +1,5 @@
 ---
-title: 'Introducción e información general de Knowledge Store: Azure Search'
+title: 'Introducción a Knowledge Store (versión preliminar): Azure Search'
 description: Envíe documentos enriquecidos a Azure Storage, donde puede ver, cambiar la forma y consumir documentos enriquecidos en Azure Search y en otras aplicaciones.
 manager: cgronlun
 author: HeidiSteen
@@ -9,22 +9,26 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 3000016de934aaa3faab96821f9747ea4b571ef7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030093"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540751"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>¿Qué es Knowledge Store en Azure Search?
 
-Knowledge Store es una característica opcional de Azure Search, actualmente en versión preliminar pública, que guarda documentos enriquecidos y metadatos creados por una canalización de indexación basada en IA [(búsqueda cognitiva)](cognitive-search-concept-intro.md). Knowledge Store tiene el respaldo de una cuenta de Azure Storage que se configura como parte de la canalización. Cuando se habilita, el servicio de búsqueda usa esta cuenta de almacenamiento para guardar en caché una representación de cada documento enriquecido. 
+> [!Note]
+> Knowledge Store se encuentra en versión preliminar y no está pensado para su uso en producción. En la [API REST, versión 2019-05-06-Preview](search-api-preview.md) se proporciona esta característica. Por el momento, no hay compatibilidad con .NET SDK.
+>
+
+Knowledge Store es una característica opcional de Azure Search que guarda documentos enriquecidos y metadatos creados por una canalización de indexación basada en IA [(búsqueda cognitiva)](cognitive-search-concept-intro.md). Knowledge Store tiene el respaldo de una cuenta de Azure Storage que se configura como parte de la canalización. Cuando se habilita, el servicio de búsqueda usa esta cuenta de almacenamiento para guardar en caché una representación de cada documento enriquecido. 
 
 Si ha usado la búsqueda cognitiva anteriormente, ya sabe que los conjuntos de aptitudes pueden usarse para mover un documento a través de una secuencia de enriquecimientos. El resultado puede ser un índice de Azure Search o (algo nuevo en esta versión preliminar) proyecciones en un almacén de conocimientos.
 
 Las proyecciones son el mecanismo para estructurar los datos para su consumo en una aplicación de nivel inferior. Puede usar el [Explorador de Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) creado para Azure Storage, o cualquier aplicación que se conecte a Azure Storage, lo que abre nuevas posibilidades para consumir documentos enriquecidos. Algunos ejemplos son canalizaciones de ciencia de datos y análisis personalizados.
 
-![Diagrama de Knowledge Store en una canalización](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Diagrama de Knowledge Store en una canalización")
+![Diagrama de Knowledge Store en una canalización](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge store in pipeline diagram")
 
 Para usar Knowledge Store, agregue un elemento `knowledgeStore` a un conjunto de aptitudes que defina las operaciones escalonadas en una canalización de indexación. Durante la ejecución, Azure Search crea un espacio en la cuenta de Azure Storage y lo llena con las definiciones y el contenido creados por la canalización.
 
@@ -32,7 +36,7 @@ Para usar Knowledge Store, agregue un elemento `knowledgeStore` a un conjunto de
 
 Un almacén de conocimientos le brinda estructura, contexto y contenido real, recopilados a partir de archivos de datos no estructurados y semiestructurados, como blobs, archivos de imagen que se han sometido a análisis o, incluso, datos estructurados cuya forma ha cambiado. En una [guía paso a paso](knowledge-store-howto.md) escrita para esta versión preliminar, puede ver de primera mano cómo un documento JSON denso se particiona en subestructuras, se reconstituye en nuevas estructuras y, además, se pone a disposición para procesos de nivel inferior, como cargas de trabajo de ciencia de datos y aprendizaje automático.
 
-Aunque resulta útil ver lo que puede producir una canalización de indexación basada en IA, el verdadero poder de Knowledge Store está en la capacidad de cambiar la forma de los datos. Puede comenzar con un conjunto de aptitudes básico y, luego, iterarlo para agregar niveles crecientes de estructura que luego se pueden combinar en nuevas estructuras, y que pueden consumirse en otras aplicaciones, además de Azure Search.
+Aunque es útil ver lo que puede producir una canalización de indexación basada en IA, el verdadero poder de Knowledge Store está en la capacidad de remodelar los datos. Puede comenzar con un conjunto de aptitudes básico y, luego, iterarlo para agregar niveles crecientes de estructura que luego se pueden combinar en nuevas estructuras, y que pueden consumirse en otras aplicaciones, además de Azure Search.
 
 Entre las ventajas de Knowledge Store, se incluyen las siguientes:
 
@@ -239,7 +243,7 @@ Puede usar REST `api-version=2019-05-06-Preview` para construir una canalizació
 
 ## <a name="takeaways"></a>Puntos clave
 
-Knowledge Store ofrece una variedad de ventajas, incluidas, entre otras, habilitar el uso de los documentos enriquecidos en escenarios distintos de búsquedas, controles de costos y administración del desfase en el proceso de enriquecimiento. Todas estas características están disponibles para usarse, simplemente, al agregar una cuenta de almacenamiento al conjunto de aptitudes y usar el lenguaje de expresiones actualizado, como se describe en [Introducción a Knowledge Store](knowledge-store-howto.md). 
+Knowledge Store ofrece diversas ventajas, entre ellas, permite el uso de los documentos enriquecidos en escenarios distintos de búsquedas, el control de los costos y la administración del desfase en el proceso de enriquecimiento. Todas estas características están disponibles para usarse con solo agregar una cuenta de almacenamiento al conjunto de aptitudes y usar el lenguaje de expresiones actualizado, como se describe en [Introducción a Knowledge Store](knowledge-store-howto.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

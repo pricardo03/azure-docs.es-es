@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 80e5feeccc4acc3e1f3dab6b815c8605332c7c71
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143256"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834309"
 ---
 # <a name="personalizer-settings"></a>Configuración de Personalizer
 
@@ -35,7 +35,7 @@ Crear un recurso de Personalizer para cada bucle de comentarios.
 1. Busque el recurso Personalizer. 
 1. En la sección **Administración de recursos**, seleccione **Configuración**.
 
-    Antes de salir de Azure Portal, copie una de las claves de recurso de la página **Claves**. La necesitará para usar [Personalizer SDK](https://aka.ms/personalizer-dotnet-sdk-docs).
+    Antes de salir de Azure Portal, copie una de las claves de recurso de la página **Claves**. La necesitará para usar [Personalizer SDK](https://go.microsoft.com/fwlink/?linkid=2092353).
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Configure las opciones de recompensas para el bucle de comentarios según cada caso de uso
 
@@ -87,4 +87,7 @@ En la sección de administración de recursos para **Modelo y directiva**, impor
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Procedimientos para usar el contenedor Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+<!--
+[How to use the Personalizer container](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+-->
+[Obtenga información sobre la disponibilidad de la región](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

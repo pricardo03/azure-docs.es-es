@@ -8,16 +8,20 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: e7be2dfc811caa087726339846a1de2516f1e2b2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471756"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540726"
 ---
-# <a name="how-to-get-started-with-knowledge-store"></a>Introducción a Knowledge Store
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Introducción a Knowledge Store (versión preliminar) en Azure Search
 
-[Knowledge Store](knowledge-store-concept-intro.md) es una nueva característica en vista previa de Azure Search que guarda enriquecimientos de IA creados en una canalización de indexación para minería de datos de conocimientos en otras aplicaciones. También puede usar enriquecimientos guardados para comprender y refinar una canalización de indexación de Azure Search.
+> [!Note]
+> Knowledge Store se encuentra en versión preliminar y no está pensado para su uso en producción. En la [API REST, versión 2019-05-06-Preview](search-api-preview.md) se proporciona esta característica. Por el momento, no hay compatibilidad con .NET SDK.
+>
+
+[Knowledge Store](knowledge-store-concept-intro.md) guarda todos los enriquecimientos de IA creados durante la indexación en la cuenta de almacenamiento de Azure con el fin de aprovechar el conocimiento de bajada en otras aplicaciones. También puede usar enriquecimientos guardados para comprender y refinar una canalización de indexación de Azure Search.
 
 Un almacén de conocimientos se define mediante un conjunto de aptitudes. Para escenarios normales de búsqueda de texto completo de Azure Search, el propósito de un conjunto de aptitudes es ofrecer enriquecimientos de IA para facilitar la búsqueda de contenido. En el caso de los escenarios de minería, el rol de un conjunto de aptitudes es crear,rellenar y almacenar varias estructuras de datos para realizar análisis y crear modelos en otras aplicaciones y procesos.
 
@@ -78,7 +82,7 @@ Usamos Postman para realizar cuatro llamadas API al servicio de búsqueda, para 
 
 [Crear un conjunto de aptitudes](#create-skillset) es el objetivo de esta guía: especifica los pasos de enriquecimiento y cómo persisten los datos en un almacén de conocimientos.
 
-El punto de conexión de dirección URL debe especificar api-version. Además, cada llamada debe devolver el mensaje **"201 - Creado"**. La versión de API preliminar para crear un conjunto de habilidades que sea compatible con Knowledge Store es `2019-05-06-Preview` (distingue mayúsculas de minúsculas).
+El punto de conexión de dirección URL debe especificar api-version. Además, cada llamada debe devolver el mensaje **"201 - Creado"** . La versión de API preliminar para crear un conjunto de habilidades que sea compatible con Knowledge Store es `2019-05-06-Preview` (distingue mayúsculas de minúsculas).
 
 Ejecute las siguientes llamadas API desde el cliente de REST.
 

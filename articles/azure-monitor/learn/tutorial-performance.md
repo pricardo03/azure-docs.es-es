@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7eae71411a1a3772dbdbaa289a32cbc69fca0e5a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: f906ab5db35ce8b239eceac9cdc8244f230f5a77
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108756"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596029"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Búsqueda y diagnóstico de problemas de rendimiento con Azure Application Insights
 
@@ -32,7 +32,7 @@ Azure Application Insights recopila datos de telemetría de cualquier aplicació
 
 Para completar este tutorial:
 
-- Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
+- Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
     - ASP.NET y desarrollo web
     - Desarrollo de Azure
 - Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](../../azure-monitor/app/asp-net.md).
@@ -97,7 +97,7 @@ Además de identificar los procesos del servidor que se deben optimizar, Applica
 
     ![Resumen de explorador](media/tutorial-performance/browser-summary.png)
 
-2.  Desplácese hacia abajo hasta **Cuáles son mis páginas más lentas?**.  Así se muestra una lista de las páginas de la aplicación que más han tardado en cargar los clientes.  Esta información se puede usar para dar mayor prioridad a las páginas que más afectan al usuario.
+2.  Desplácese hacia abajo hasta **Cuáles son mis páginas más lentas?** .  Así se muestra una lista de las páginas de la aplicación que más han tardado en cargar los clientes.  Esta información se puede usar para dar mayor prioridad a las páginas que más afectan al usuario.
 3.  Haga clic en una de las páginas para abrir el panel **Vista de página**.  En el ejemplo, la página **/FabrikamProd** muestra una duración media excesiva.  El panel **Vista de página** proporciona detalles acerca de esta página, entre los que se incluye un desglose de los distintos intervalos de duración.
 
     ![Vista de página](media/tutorial-performance/page-view.png)

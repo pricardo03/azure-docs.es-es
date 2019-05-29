@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d48977c60fb4a13e1fc0dbd294fa4e7708f1cd5d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a7462536443b2be23eef0f8b4c6f6b6412fb7032
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878975"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integración de Azure Active Directory con G Suite
 
@@ -87,7 +87,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * G Suite admite el inicio de sesión único iniciado por **SP**.
-* G Suite admite el **[aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)**.
+* G Suite admite el **[aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)** .
 
 ## <a name="adding-g-suite-from-the-gallery"></a>Incorporación de G Suite desde la Galería
 
@@ -95,7 +95,7 @@ Para configurar la integración de G Suite en Azure AD, deberá agregarlo desde 
 
 **Para agregar G Suite desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -118,12 +118,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con G Suite, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de G Suite](#configure-g-suite-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de G Suite](#create-g-suite-test-user)**: para tener un homólogo de Britta Simon en G Suite vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de G Suite](#configure-g-suite-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de G Suite](#create-g-suite-test-user)** : para tener un homólogo de Britta Simon en G Suite vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -229,7 +229,7 @@ Para configurar el inicio de sesión único de Azure AD con G Suite, realice lo
 
     ![Haga clic en Seguridad.][10]
 
-3. En la página **Seguridad**, haga clic en **Configurar inicio de sesión único (SSO)**.
+3. En la página **Seguridad**, haga clic en **Configurar inicio de sesión único (SSO)** .
 
     ![Haga clic en SSO.][11]
 
@@ -239,11 +239,11 @@ Para configurar el inicio de sesión único de Azure AD con G Suite, realice lo
 
      a. Seleccione **Configurar SSO con un proveedor de identidades de terceros**.
 
-    b. En el campo **Dirección URL de la página de inicio de sesión** de G Suite, pegue el valor de la  **URL de inicio de sesión**  que copió de Azure Portal.
+    b. En el campo **Dirección URL de la página de inicio de sesión** de G Suite, pegue el valor de la **URL de inicio de sesión** que copió de Azure Portal.
 
-    c. En el campo **Dirección URL de la página de cierre de sesión** de G Suite, pegue el valor de la  **URL de cierre de sesión**  que copió de Azure Portal.
+    c. En el campo **Dirección URL de la página de cierre de sesión** de G Suite, pegue el valor de la **URL de cierre de sesión** que copió de Azure Portal.
 
-    d. En el campo **Cambiar dirección URL de contraseña** de G Suite, pegue el valor de la  **URL de cambio de contraseña**  que copió de Azure Portal.
+    d. En el campo **Change password URL** (Dirección URL de cambio de contraseña) de G Suite, pegue el valor de la **URL de cambio de contraseña** que copió de Azure Portal.
 
     e. En G Suite, para el **certificado de verificación** y cargue el certificado que descargó de Azure Portal.
 

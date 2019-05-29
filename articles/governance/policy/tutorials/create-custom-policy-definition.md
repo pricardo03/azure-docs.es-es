@@ -3,18 +3,18 @@ title: Creación de una definición de directiva personalizada
 description: Creación de una definición de directiva personalizada para Azure Policy para aplicar reglas de negocio personalizadas.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/12/2019
+ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bf3582036a28603c3b6ef33a2af28cb61926d91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e38eb1315cde3400b70925059d4dd50475a47835
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267759"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979666"
 ---
-# <a name="create-a-custom-policy-definition"></a>Creación de una definición de directiva personalizada
+# <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Creación de una definición de directiva personalizada
 
 Una definición de directiva personalizada permite a los clientes definir sus propias reglas para usar Azure. Estas reglas exigen a menudo:
 
@@ -46,12 +46,11 @@ Antes de crear la definición de directiva, es importante entender su intención
 
 Los requisitos deben identificar claramente los estados de los recursos "será" y "no será".
 
-Aunque se ha definido el estado esperado del recurso, no se ha definido aún lo que se quiere hacer con los recursos no compatibles. La directiva admite una serie de [efectos](../concepts/effects.md). En este tutorial, el requisito empresarial se define de este modo: impedir la creación de recursos si no son compatibles con las reglas de negocio. Para alcanzar este objetivo, se usará el efecto [Denegar](../concepts/effects.md#deny). También se desea la opción para suspender la directiva en el caso de asignaciones específicas. Por lo tanto, se usará el efecto [Deshabilitado](../concepts/effects.md#disabled) y el efecto se convertirá en un [parámetro](../concepts/definition-structure.md#parameters) en la definición de directiva.
+Aunque se ha definido el estado esperado del recurso, no se ha definido aún lo que se quiere hacer con los recursos no compatibles. Azure Policy admite una serie de [efectos](../concepts/effects.md). En este tutorial, el requisito empresarial se define de este modo: impedir la creación de recursos si no son compatibles con las reglas de negocio. Para alcanzar este objetivo, se usará el efecto [Denegar](../concepts/effects.md#deny). También se desea la opción para suspender la directiva en el caso de asignaciones específicas. Por lo tanto, se usará el efecto [Deshabilitado](../concepts/effects.md#disabled) y el efecto se convertirá en un [parámetro](../concepts/definition-structure.md#parameters) en la definición de directiva.
 
 ## <a name="determine-resource-properties"></a>Determinación de las propiedades de recursos
 
-Según el requisito empresarial, el recurso de Azure para auditarse con la directiva es una cuenta de almacenamiento.
-Sin embargo, se desconocen las propiedades que se usarán en la definición de directiva. La directiva se evalúa con respecto a la representación JSON del recurso, por lo que es necesario conocer las propiedades disponibles en ese recurso.
+En función de las necesidades de la organización, el recurso de Azure que se va a auditar con Azure Policy puede ser una cuenta de almacenamiento. Sin embargo, se desconocen las propiedades que se usarán en la definición de directiva. Para realizar la evaluación, Azure Policy utiliza la representación JSON del recurso, por lo que es necesario conocer las propiedades disponibles en dicho recurso.
 
 Hay muchas maneras de determinar las propiedades de un recurso de Azure. Se analizará cada una de ellas en este tutorial:
 
@@ -69,9 +68,9 @@ Hay varias maneras de examinar una [plantilla de Resource Manager](../../../azur
 #### <a name="existing-resource-in-the-portal"></a>Recurso existente en el portal
 
 La manera más sencilla de buscar propiedades es examinar un recurso existente del mismo tipo. Los recursos que ya haya configurado con el valor que quiere aplicar también proporcionan el valor con el que comparar.
-Examine la página **Script de automatización** (en **Configuración**) en Azure Portal para ese recurso concreto.
+Examine ese recurso concreto en la página **Exportar plantilla** (en **Configuración**) de Azure Portal.
 
-![Exportación de la página de plantilla en el recurso existente](../media/create-custom-policy-definition/automation-script.png)
+![Exportación de la página de plantilla en el recurso existente](../media/create-custom-policy-definition/export-template.png)
 
 Al hacer esto mismo con una cuenta de almacenamiento se revela una plantilla similar a la de este ejemplo:
 
@@ -121,8 +120,7 @@ En **propiedades** hay un valor llamado **supportsHttpsTrafficOnly** establecido
 
 #### <a name="create-a-resource-in-the-portal"></a>Creación de un recurso en el portal
 
-Otra manera mediante el portal es la experiencia de creación de recursos. Al crear una cuenta de almacenamiento mediante el portal, una opción en la pestaña **Avanzadas** es **Security transfer required** (Transferencia de seguridad necesaria).
-Esta propiedad tiene las opciones _Disabled_ (Deshabilitado) y _Enabled_ (Habilitado). El icono de información tiene texto adicional que confirma que esta opción es probablemente la propiedad que busca. Sin embargo, el portal no dice el nombre de la propiedad en esta pantalla.
+Otra manera mediante el portal es la experiencia de creación de recursos. Al crear una cuenta de almacenamiento mediante el portal, una opción en la pestaña **Avanzadas** es **Security transfer required** (Transferencia de seguridad necesaria). Esta propiedad tiene las opciones _Disabled_ (Deshabilitado) y _Enabled_ (Habilitado). El icono de información tiene texto adicional que confirma que esta opción es probablemente la propiedad que busca. Sin embargo, el portal no dice el nombre de la propiedad en esta pantalla.
 
 En la pestaña **Revisar y crear**, hay un vínculo en la parte inferior de la página a **Descargar una plantilla para la automatización**. Al seleccionar el vínculo se abre la plantilla que crea el recurso que se ha configurado. En este caso, se pueden ver dos trozos principales de información:
 
@@ -181,8 +179,7 @@ En los resultados, se puede ver un alias compatible con las cuentas de almacenam
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-En Azure PowerShell, el cmdlet `Get-AzPolicyAlias` se usa para buscar los alias de recurso.
-Se va a filtrar por el espacio de nombres **Microsoft.Storage** según los detalles que se tienen anteriormente sobre el recurso de Azure.
+En Azure PowerShell, el cmdlet `Get-AzPolicyAlias` se usa para buscar los alias de recurso. Se va a filtrar por el espacio de nombres **Microsoft.Storage** según los detalles que se tienen anteriormente sobre el recurso de Azure.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -197,8 +194,9 @@ Al igual que con la CLI de Azure, los resultados muestran un alias compatible co
 
 [Azure Resource Graph](../../resource-graph/overview.md) es un nuevo servicio en versión preliminar. Este servicio proporciona otro método para buscar propiedades de recursos de Azure. A continuación se describe una consulta sencilla para buscar una única cuenta de almacenamiento con Resource Graph:
 
-```Query
-where type=~'microsoft.storage/storageaccounts' | limit 1
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
 ```
 
 ```azurecli-interactive
@@ -209,7 +207,23 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Los resultados son similares a lo que se puede ver en las plantillas de Resource Manager y mediante Azure Resource Explorer. Sin embargo, los resultados de Azure Resource Graph también incluyen detalles de [alias](../concepts/definition-structure.md#aliases). Esta es una salida de ejemplo de una cuenta de almacenamiento de alias:
+Los resultados son similares a lo que se puede ver en las plantillas de Resource Manager y mediante Azure Resource Explorer. Sin embargo, los resultados de Azure Resource Graph también pueden incluir información del [alias](../concepts/definition-structure.md#aliases) _proyectando_ la matriz _aliases_:
+
+```kusto
+where type=~'microsoft.storage/storageaccounts'
+| limit 1
+| project aliases
+```
+
+```azurecli-interactive
+az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+```
+
+Esta es una salida de ejemplo de una cuenta de almacenamiento de alias:
 
 ```json
 "aliases": {
@@ -295,7 +309,8 @@ Azure Resource Graph (versión preliminar) se usa mediante [Cloud Shell](https:/
 
 ## <a name="determine-the-effect-to-use"></a>Determinación del efecto para usar
 
-Decidir qué hacer con los recursos no compatibles es casi tan importante como decidir qué se debe evaluar en primer lugar. Cada posible respuesta a un recurso no compatible se conoce como [efecto](../concepts/effects.md). Los efectos controlan si se registra o bloquea el recurso no compatible, si tiene datos anexados o si tiene una implementación asociada para devolver el recurso a un estado de compatibilidad.
+Decidir qué hacer con los recursos no compatibles es casi tan importante como decidir qué se debe evaluar en primer lugar. Cada posible respuesta a un recurso no compatible se conoce como [efecto](../concepts/effects.md).
+Los efectos controlan si se registra o bloquea el recurso no compatible, si tiene datos anexados o si tiene una implementación asociada para devolver el recurso a un estado de compatibilidad.
 
 En nuestro ejemplo, Denegar es el efecto que se desea ya que no queremos tener recursos no compatibles creados en el entorno de Azure. Auditar es una buena primera opción de efecto de directiva para determinar de qué modo afecta una directiva antes de establecerla en Denegar. Una manera de facilitar el cambio del efecto por asignación es parametriza el efecto. Consulte a continuación los [parámetros](#parameters) para saber cómo hacerlo.
 

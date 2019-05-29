@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f07a760153c4ec15cec5c5bc1348e23152c59cb8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2ff34911dea19b83731b46077bd60c7b085763a4
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258341"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979581"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Creación de una asignación de directiva para identificar recursos no compatibles mediante Azure PowerShell
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante Azure PowerShell
 
 El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos. En esta guía de inicio rápido, se crea una asignación de directiva para identificar máquinas virtuales que no usan discos administrados. Cuando haya finalizado, podrá identificar máquinas virtuales que *no estén conformes*.
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Antes de comenzar, asegúrese de tener instalada la versión más reciente de Azure PowerShell. Consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps) para más información.
-- Registre el proveedor de recursos de Policy Insights mediante Azure PowerShell. El registro del proveedor de recursos garantiza que la suscripción funcionará con él. Para registrar un proveedor de recursos, debe tener permiso para registrar la operación del proveedor de recursos. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar el proveedor de recursos, ejecute el siguiente comando:
+- Registre el proveedor de recursos de Azure Policy Insights mediante Azure PowerShell. El registro del proveedor de recursos garantiza que la suscripción funcionará con él. Para registrar un proveedor de recursos, debe tener permiso para registrar la operación del proveedor de recursos. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar el proveedor de recursos, ejecute el siguiente comando:
 
   ```azurepowershell-interactive
   # Register the resource provider if it's not already registered

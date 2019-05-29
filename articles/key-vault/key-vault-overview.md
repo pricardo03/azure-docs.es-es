@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 4169a288ba85a7a7d83f77a8de8f6a4ef9bf0eac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 456f828f09a710009d30e1c0a669cde658318ae0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700414"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789366"
 ---
 # <a name="what-is-azure-key-vault"></a>¿Qué es Azure Key Vault?
 
@@ -42,7 +42,7 @@ El acceso a un almacén de claves requiere una autorización y autenticación co
 
 La autenticación se realiza a través de Azure Active Directory. La autorización puede realizarse mediante el control de acceso basado en rol (RBAC) o la directiva de acceso de Key Vault. Se usa el control de acceso basado en rol cuando se trata de la administración de los almacenes y la directiva de acceso de Key Vault cuando se intenta acceder a los datos almacenados en un almacén.
 
-Las instancias de Azure Key Vault se pueden proteger mediante software o con módulos de seguridad de hardware (HSM). En aquellos casos en los que necesita obtener seguridad adicional, puede importar o generar claves en módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Microsoft utiliza los módulos de seguridad de hardware de Thales. Puede usar las herramientas de Thales para mover una clave desde el módulo de seguridad de hardware a Azure Key Vault.
+Las instancias de Azure Key Vault se pueden proteger mediante software o con módulos de seguridad de hardware (HSM). En aquellos casos en los que necesita obtener seguridad adicional, puede importar o generar claves en módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Microsoft utiliza los módulos de seguridad de hardware de nCipher. Puede usar las herramientas de nCipher para mover una clave desde el módulo de seguridad de hardware a Azure Key Vault.
 
 Además, Azure Key Vault está diseñado de modo que Microsoft no pueda ver ni extraer sus datos.
 

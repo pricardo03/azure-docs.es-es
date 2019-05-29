@@ -8,12 +8,12 @@ ms.date: 11/15/2017
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 1570417cb1c3aa9ec32d12d9209d4c712b50511d
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c7c9caad6c454b90a6d50932450922a03bbc1944
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522305"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604157"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Implementación con Table API de Azure Cosmos DB y Azure Table Storage
 
@@ -25,7 +25,7 @@ Table API de Azure Cosmos DB y Azure Table Storage comparten el mismo modelo de 
 
 En este momento, [Table API de Azure Cosmos DB](table-introduction.md) tiene cuatro SDK disponibles para el desarrollo: 
 
-* [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table): .NET SDK. Esta biblioteca va destinada a .NET Standard y tiene las mismas clases y firmas de método que el [SDK de Azure Storage de Windows](https://www.nuget.org/packages/WindowsAzure.Storage) público, pero también se puede conectar a cuentas de Azure Cosmos DB mediante Table API. Como alternativa, hay una versión anterior de este SDK disponible como [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table/) que solo funciona en .NET Framework.
+* [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table): .NET SDK. Esta biblioteca va destinada a .NET Standard y tiene las mismas clases y firmas de método que el [SDK de Azure Storage de Windows](https://www.nuget.org/packages/WindowsAzure.Storage) público, pero también se puede conectar a cuentas de Azure Cosmos DB mediante Table API. Se recomienda que los usuarios de la biblioteca de .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table/) actualicen a [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), ya que está en modo de mantenimiento y pronto quedará en desuso.
 
 * [SDK de Python](table-sdk-python.md): El nuevo SDK de Python de Azure Cosmos DB es el único SDK que admite Azure Table Storage en Python. Este SDK se conecta con Azure Table Storage y Table API de Azure Cosmos DB.
 

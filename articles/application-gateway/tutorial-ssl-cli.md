@@ -7,21 +7,21 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8689918bf33b0efdd9bbfabc6d3751672959c6bb
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d9007b3f1d4eee436452a3fa75b2880b9e5be461
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753085"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955685"
 ---
-# <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Tutorial: Creación de una puerta de enlace de aplicaciones con terminación SSL mediante la CLI de Azure
+# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con terminación SSL mediante la CLI de Azure
 
 Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para [terminación SSL](ssl-overview.md) que use un [conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para los servidores back-end. En este ejemplo, el conjunto de escalado contiene dos instancias de máquina virtual que se agregan al grupo de servidores back-end predeterminado de la puerta de enlace de aplicaciones.
 
-En este tutorial, aprenderá a:
+En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Creación de un certificado autofirmado
@@ -29,17 +29,17 @@ En este tutorial, aprenderá a:
 > * Crear una puerta de enlace de aplicaciones con el certificado
 > * Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
 
-Si lo prefiere, puede seguir los pasos de este tutorial mediante [Azure PowerShell](tutorial-ssl-powershell.md).
+Si lo prefiere, puede realizar los pasos de este procedimiento mediante [Azure PowerShell](tutorial-ssl-powershell.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI de forma local, en este tutorial necesitará la CLI de Azure versión 2.0.4 o posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI de forma local, en este artículo necesitará la CLI de Azure versión 2.0.4 o posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Creación de un certificado autofirmado
 
-Para su uso en producción, debe importar un certificado válido firmado por un proveedor de confianza. En este tutorial, creará un certificado autofirmado y un archivo pfx con el comando openssl.
+Para su uso en producción, debe importar un certificado válido firmado por un proveedor de confianza. En este artículo, creará un certificado autofirmado y un archivo pfx con el comando openssl.
 
 ```azurecli-interactive
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
@@ -165,7 +165,7 @@ az network public-ip show \
   --output tsv
 ```
 
-Copie la dirección IP pública y péguela en la barra de direcciones del explorador. En este ejemplo, la dirección URL es **https://52.170.203.149**.
+Copie la dirección IP pública y péguela en la barra de direcciones del explorador. En este ejemplo, la dirección URL es **https://52.170.203.149** .
 
 ![Advertencia de seguridad](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
@@ -183,5 +183,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Crear una puerta de enlace de aplicaciones que hospede varios sitios web](./tutorial-multiple-sites-cli.md)
+* [Crear una puerta de enlace de aplicaciones que hospede varios sitios web](./tutorial-multiple-sites-cli.md)

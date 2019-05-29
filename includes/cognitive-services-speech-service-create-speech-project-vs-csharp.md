@@ -4,26 +4,26 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 7a028f65467c517be59be6f0c6d2c45ef9a7685e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: afe6f1493c7fa8272c67f23d6708ad6e4eea9381
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285779"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145497"
 ---
 1. Inicie Visual Studio 2017.
 
-1. En la barra de menús de Visual Studio, seleccione **Herramientas > Obtener herramientas** y asegúrese de que la carga de trabajo **Desarrollo de escritorio de .NET** está disponible. Si aún no se ha instalado la carga de trabajo, active la casilla y haga clic en **Modificar** para iniciar la instalación. La descarga e instalación pueden tardar unos minutos.
+1. En la barra de menús de Visual Studio, seleccione **Herramientas > Obtener herramientas** y asegúrese de que la carga de trabajo **Desarrollo de escritorio de .NET** está disponible. Si aún no se ha instalado la carga de trabajo, active la casilla y haga clic en **Modificar** para iniciar la instalación. La descarga e instalación pueden tardar unos minutos.
 
    Si la casilla que está junto a **Desarrollo de escritorio de .NET** está seleccionada, puede cerrar el cuadro de diálogo ahora.
 
    ![Habilitación del desarrollo de escritorio .NET](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
-1. A continuación, vamos a crear un proyecto. En la barra de menús, seleccione **Archivo > Nuevo > Proyecto**. Cuando aparezca el cuadro de diálogo, en el panel izquierdo expanda las secciones **Instalado > Visual C# > Escritorio de Windows** y seleccione **Aplicación de consola (.NET Framework)**. Asigne el nombre *helloworld* a este proyecto.
+1. A continuación, vamos a crear un proyecto. En la barra de menús, seleccione **Archivo > Nuevo > Proyecto**. Cuando aparezca el cuadro de diálogo, en el panel izquierdo expanda las secciones **Instalado > Visual C# > Escritorio de Windows** y seleccione **Aplicación de consola (.NET Framework)** . Asigne el nombre *helloworld* a este proyecto.
 
     ![Creación de aplicación de consola de Visual C# (.NET Framework)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-01-new-console-app.png "Creación de aplicación de consola de Visual C# (.NET Framework)")
 
-1. Ahora que el proyecto está configurado, es necesario instalar el [paquete NuGet de Speech SDK](https://aka.ms/csspeech/nuget) y hacer referencia a él en nuestro código. Busque el Explorador de soluciones y haga clic con el botón derecho en helloworld. En el menú, seleccione **Administrar paquetes de NuGet...**.
+1. Ahora que el proyecto está configurado, es necesario instalar el [paquete NuGet de Speech SDK](https://aka.ms/csspeech/nuget) y hacer referencia a él en nuestro código. Busque el Explorador de soluciones y haga clic con el botón derecho en helloworld. En el menú, seleccione **Administrar paquetes de NuGet...** .
 
    ![Hacer clic con el botón derecho en Manage NuGet Packages for Solution (Administrar paquetes NuGet para la solución)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-02-manage-nuget-packages.png "Manage NuGet Packages for Solution")
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 9/14/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 567a220ce9adcb3cca9c70cef6a7058a85789eb7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 995ccc8ffeb436526608803362cc361c74a75316
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861765"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790037"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutorial: Extracción de detalles de imágenes con Bing Image Search API y C#
 
@@ -36,7 +36,7 @@ El código fuente del ejemplo está disponible en [GitHub](https://github.com/Az
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Cualquier edición de [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* Cualquier edición de [Visual Studio 2017 o posterior](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

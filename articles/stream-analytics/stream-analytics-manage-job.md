@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: 261b55f722fdc3c1e8f4b45debc664f49db3f898
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 056e5a0f56e1a8998288e6a78f448f0f91777e1d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523552"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969302"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analizar los datos de llamadas de teléfono con Stream Analytics y visualizar los resultados en un panel de Power BI
 
@@ -99,7 +99,7 @@ Antes de iniciar la aplicación TelcoGenerator, debe configurarla para enviar da
 3. Actualice el elemento `<appSettings>` en el archivo de configuración con los detalles siguientes:
 
    * Como valor de la clave *EventHubName* use el valor de EntityPath en la cadena de conexión.
-   * Como valor de la clave *Microsoft.ServiceBus.ConnectionString* use la cadena de conexión sin el valor de EntityPath.
+   * Establezca el valor de la clave *Microsoft.ServiceBus.ConnectionString* en la cadena de conexión sin el valor de EntityPath (no olvide quitar el punto y coma que lo precede).
 
 4. Guarde el archivo.
 5. A continuación abra una ventana de comandos y cambie a la carpeta en la que ha descomprimido la aplicación TelcoGenerator. Después, escriba el comando siguiente:
@@ -118,7 +118,7 @@ Antes de iniciar la aplicación TelcoGenerator, debe configurarla para enviar da
    |**Registro**  |**Definición**  |
    |---------|---------|
    |CallrecTime    |  Marca de tiempo para la hora de inicio de la llamada.       |
-   |SwitchNum     |  Conmutador de teléfono que se usa para conectar la llamada. En este ejemplo, los conmutadores son cadenas que representan el país de origen (Estados Unidos, China, Reino Unido, Alemania o Australia).       |
+   |SwitchNum     |  Conmutador de teléfono que se usa para conectar la llamada. En este ejemplo, los conmutadores son cadenas que representan el país o la región de origen (Estados Unidos, China, Reino Unido, Alemania o Australia).       |
    |CallingNum     |  Número de teléfono del autor de la llamada.       |
    |CallingIMSI     |  Identidad del suscriptor móvil internacional (IMSI). Identificador único del autor de la llamada.       |
    |CalledNum     |   Número de teléfono del destinatario de la llamada.      |
@@ -212,7 +212,7 @@ En este ejemplo, se realizan llamadas fraudulentas desde el mismo usuario en un 
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Para comprobar si hay llamadas fraudulentas, puede realizar una autocombinación de los datos de streaming según el valor de `CallRecTime`. Luego, puede buscar registros de llamada en los que el valor `CallingIMSI` (el número donde se origina) sea el mismo, pero el valor `SwitchNum` (país de origen) sea distinto. Cuando use una operación JOIN con datos de streaming, la combinación debe proporcionar algunos límites en la diferencia de tiempo que puede haber entre filas coincidentes. Dado que los datos de streaming no tienen final, los límites de tiempo de la relación se especifican dentro de la cláusula **ON** de la combinación mediante la función [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
+   Para comprobar si hay llamadas fraudulentas, puede realizar una autocombinación de los datos de streaming según el valor de `CallRecTime`. Luego, puede buscar registros de llamada en los que el valor `CallingIMSI` (el número donde se origina) sea el mismo, pero el valor `SwitchNum` (país o región de origen) sea distinto. Cuando use una operación JOIN con datos de streaming, la combinación debe proporcionar algunos límites en la diferencia de tiempo que puede haber entre filas coincidentes. Dado que los datos de streaming no tienen final, los límites de tiempo de la relación se especifican dentro de la cláusula **ON** de la combinación mediante la función [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
 
    Esta consulta es como una combinación SQL normal, salvo por la función **DATEDIFF**. La función **DATEDIFF** que se usa en esta consulta es específica de Stream Analytics y debe aparecer dentro de la cláusula `ON...BETWEEN`.
 

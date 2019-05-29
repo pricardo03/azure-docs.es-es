@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0870983fe9f0ae64090652f02c526a370064b8ab
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100741"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595895"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Creación de una página web de Custom Search
 
@@ -35,7 +35,7 @@ Las tareas que se tratan son:
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Para seguir con el tutorial, necesita una clave de suscripción para Bing Custom Search API.  Para obtener una clave, consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
+- Si aún no tiene instalado Visual Studio 2017 o versiones posteriores, puede descargar y usar la edición **gratuita** de [Visual Studio 2019 Community](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Creación de una instancia de búsqueda personalizada
 

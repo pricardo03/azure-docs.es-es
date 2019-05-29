@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a80a815d4a1a892b5258aef1c1fc7ef4ab881fe7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149926"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594150"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Tutorial: Creación de una base de conocimiento desde el portal de QnA Maker
 
@@ -68,7 +68,7 @@ Este tutorial requiere que exista un [servicio QnA Maker](../How-To/set-up-qnama
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |El formato del contenido de las preguntas frecuentes de esa dirección URL es una pregunta seguida de una respuesta. QnA Maker puede interpretar este formato para extraer las preguntas y las respuestas asociadas.|
     |Archivo |_no se usa en este tutorial_|Carga los archivos para las preguntas y respuestas. |
-    |Personalidad de charla|Descriptiva|Proporciona una personalidad descriptiva y desenfadada a las preguntas y respuestas frecuentes. Dichas preguntas y respuestas de pueden editar más adelante. |
+    |Personalidad de charla|Descriptiva|Proporciona una [personalidad](../Concepts/best-practices.md#chit-chat) descriptiva y desenfadada a las preguntas y respuestas frecuentes. Dichas preguntas y respuestas de pueden editar más adelante. |
 
     ![Paso 4 del proceso de creación de KB](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 

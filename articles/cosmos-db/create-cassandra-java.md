@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7f6108a5d1e8ee386641c6d1f7c09ea96e12458c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: c3bfcffacee7df8a5abf59676a1c47fa283dee7b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587607"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519035"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Cassandra con el SDK Java y Azure Cosmos DB
 
@@ -34,8 +34,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 Además, necesita:
 
-* [Kit de desarrollo de Java (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * En Ubuntu, ejecute `apt-get install default-jdk` para instalar el JDK.
+* [Kit de desarrollo de Java (JDK), versión 8](https://aka.ms/azure-jdks)
     * Asegúrese de establecer la variable de entorno JAVA_HOME para que apunte a la carpeta donde está instalado el JDK.
 * [Descargar](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) un archivo binario de [Maven](https://maven.apache.org/)
     * En Ubuntu, puede ejecutar `apt-get install maven` para instalar Maven.

@@ -1,25 +1,25 @@
 ---
 title: Configuración de la arquitectura multimaestro en Azure Cosmos DB
-description: Aprenda a configurar la arquitectura multimaestro en las aplicaciones de Azure Cosmos DB
+description: Aprenda a configurar la arquitectura multimaestro en las aplicaciones de Azure Cosmos DB.
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: rimman
-ms.openlocfilehash: b862c59002369662d37b6d6a9de28370b0000497
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 86f5d64391dd5312d8c51a5b639b790e62b6710d
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682277"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560257"
 ---
-# <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configuración de la arquitectura multimaestro en las aplicaciones que usan Azure Cosmos DB
+# <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configuración de la arquitectura multimaestro en las aplicaciones que usan Azure Cosmos DB
 
-Para usar la característica de la arquitectura multimaestro en la aplicación, deberá habilitar la escritura en varias regiones y configurar la funcionalidad de hospedaje múltiple en Azure Cosmos DB. El hospedaje múltiple se configura mediante el establecimiento de la región donde se implementa la aplicación.
+Para usar la característica de la arquitectura multimaestro en la aplicación, deberá habilitar la escritura en varias regiones y configurar la funcionalidad de hospedaje múltiple en Azure Cosmos DB. Para configurar el hospedaje múltiple, establezca la región donde se implementa la aplicación.
 
 ## <a id="netv2"></a>.NET SDK v2
 
-Para habilitar la arquitectura multimaestro en las aplicaciones, establezca `UseMultipleWriteLocations` en true y configure `SetCurrentLocation` para la región en la que se va a implementar la aplicación y se replica Azure Cosmos DB.
+Para habilitar la arquitectura multimaestro en la aplicación, establezca `UseMultipleWriteLocations` en `true`. Además, establezca `SetCurrentLocation` en la región en que se va a implementar la aplicación y donde se va a replicar Azure Cosmos DB:
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -33,7 +33,7 @@ policy.SetCurrentLocation("West US 2");
 
 ## <a id="netv3"></a>.NET SDK v3 (versión preliminar)
 
-Para habilitar la arquitectura multimaestro en las aplicaciones, configure `UseCurrentRegion` en la región en la que se va a implementar la aplicación y se replica Cosmos DB.
+Para habilitar la arquitectura multimaestro en la aplicación, establezca `UseCurrentRegion` en la región en la que se va a implementar la aplicación y donde se va a replicar Cosmos DB.
 
 ```csharp
 CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
@@ -43,7 +43,7 @@ CosmosClient client = new CosmosClient(config);
 
 ## <a id="java"></a>SDK asincrónico para Java
 
-Para habilitar la arquitectura multimaestro en las aplicaciones, establezca `policy.setUsingMultipleWriteLocations(true)` y configure `policy.setPreferredLocations` para la región en la que se va a implementar la aplicación y se replica Cosmos DB.
+Para habilitar la arquitectura multimaestro en la aplicación, establezca `policy.setUsingMultipleWriteLocations(true)` y establezca `policy.setPreferredLocations` en la región en la que se va a implementar la aplicación y donde se va a replicar Cosmos DB:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -58,9 +58,9 @@ AsyncDocumentClient client =
         .withConnectionPolicy(policy).build();
 ```
 
-## <a id="javascript"></a>SDK de Node.js, JavaScript, TypeScript
+## <a id="javascript"></a>SDK de Node.js, JavaScript y TypeScript
 
-Para habilitar la arquitectura multimaestro en las aplicaciones, establezca `connectionPolicy.UseMultipleWriteLocations` en true y configure `connectionPolicy.PreferredLocations` para la región en la que se va a implementar la aplicación y se replica Cosmos DB.
+Para habilitar la arquitectura multimaestro en la aplicación, establezca `connectionPolicy.UseMultipleWriteLocations` en `true`. Además, establezca `connectionPolicy.PreferredLocations` en la región en que se va a implementar la aplicación y donde se va a replicar Cosmos DB:
 
 ```javascript
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
@@ -77,7 +77,7 @@ const client = new CosmosClient({
 
 ## <a id="python"></a>SDK para Python
 
-Para habilitar la arquitectura multimaestro en las aplicaciones, establezca `connection_policy.UseMultipleWriteLocations` en true y configure `connection_policy.PreferredLocations` para la región en la que se va a implementar la aplicación y se replica Cosmos DB.
+Para habilitar la arquitectura multimaestro, establezca `connection_policy.UseMultipleWriteLocations` en `true`. Además, establezca `connection_policy.PreferredLocations` en la región en que se va a implementar la aplicación y donde se va a replicar Cosmos DB.
 
 ```python
 connection_policy = documents.ConnectionPolicy()
@@ -89,9 +89,9 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora puede pasar a la lectura de los artículos siguientes:
+Lea los siguientes artículos:
 
-* [Usar tokens de sesión para administrar la coherencia en Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
+* [Uso de tokens de sesión para administrar la coherencia en Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
 * [Tipos de conflicto y directivas de resolución de conflictos en Azure Cosmos DB](conflict-resolution-policies.md)
 * [Alta disponibilidad en Azure Cosmos DB](high-availability.md)
 * [Niveles de coherencia en Azure Cosmos DB](consistency-levels.md)
@@ -99,4 +99,4 @@ Ahora puede pasar a la lectura de los artículos siguientes:
 * [Inconvenientes de la coherencia, disponibilidad y rendimiento en Azure Cosmos DB](consistency-levels-tradeoffs.md)
 * [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromisos entre rendimiento y disponibilidad en los distintos niveles de coherencia)
 * [Escalado del rendimiento aprovisionado globalmente](scaling-throughput.md)
-* [Distribución global en segundo plano](global-dist-under-the-hood.md)
+* [Distribución global: En segundo plano](global-dist-under-the-hood.md)

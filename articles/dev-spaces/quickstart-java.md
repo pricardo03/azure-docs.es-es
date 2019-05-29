@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores, microservicios y Java en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Java, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: c1c039ba8696baff11abed3930998983647f4356
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 26efa17ee699aed87ecfbbd21e7880e7538de4ea
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425753"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979124"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Inicio rápido: Desarrollo con Java en Kubernetes con Azure Dev Spaces
 
@@ -41,7 +41,7 @@ Debe crear un clúster de AKS en una [región admitida](https://docs.microsoft.c
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces en el clúster de AKS
@@ -113,7 +113,7 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-Para ver el servicio que se está ejecutando, abra la dirección URL pública que aparece en la salida del comando `azds up`. En este ejemplo, la dirección URL pública es *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
+Para ver el servicio que se está ejecutando, abra la dirección URL pública que aparece en la salida del comando `azds up`. En este ejemplo, la dirección URL pública es *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
 
 Si detiene el comando `azds up` mediante *Ctrl + c*, el servicio continuará ejecutándose en AKS y la dirección URL pública seguirá estando disponible.
 
@@ -122,7 +122,7 @@ Si detiene el comando `azds up` mediante *Ctrl + c*, el servicio continuará e
 Para implementar una versión actualizada del servicio, puede actualizar cualquier archivo del proyecto y volver a ejecutar el comando `azds up`. Por ejemplo: 
 
 1. Si `azds up` se está todavía ejecutando, presione *Ctrl + c*.
-1. Actualice la [línea 16 de `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L16) a:
+1. Actualice la [línea 19 en `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) a:
     
     ```java
     return "Hello from webfrontend in Azure!";
@@ -178,17 +178,17 @@ Haga clic en *Depurar* y en *Detener depuración* para detener el depurador.
 
 Inicie el servicio en el modo de depuración mediante *Launch Java Program (AZDS)* [Iniciar programa Java (AZDS)].
 
-Vaya a la vista *Explorer*. Para ello haga clic en *Ver* y en *Explorer*. Abra `src/main/java/com/ms/sample/webfrontend/Application.java` y haga clic en algún lugar de la línea 16 para colocar el cursor allí. Para establecer un punto de interrupción, pulse *F9* o haga clic en *Depurar* y en *Alternar punto de interrupción*.
+Vaya a la vista *Explorer*. Para ello haga clic en *Ver* y en *Explorer*. Abra `src/main/java/com/ms/sample/webfrontend/Application.java` y haga clic en algún lugar de la línea 19 para colocar ahí el cursor. Para establecer un punto de interrupción, pulse *F9* o haga clic en *Depurar* y en *Alternar punto de interrupción*.
 
-Abra el servicio en un explorador y observe que no se muestra ningún mensaje. Vuelva a Visual Studio Code y observe que la línea 16 está resaltada. El punto de interrupción que estableció ha detenido el servicio en la línea 16. Para reanudar el servicio, pulse *F5* o haga clic en *Depurar* y en *Continuar*. Regrese al explorador y observe que ahora se muestra el mensaje.
+Abra el servicio en un explorador y observe que no se muestra ningún mensaje. Vuelva a Visual Studio Code y observe que la línea 19 está resaltada. El punto de interrupción que estableció pausó el servicio en la línea 19. Para reanudar el servicio, pulse *F5* o haga clic en *Depurar* y en *Continuar*. Regrese al explorador y observe que ahora se muestra el mensaje.
 
 Mientras se ejecuta el servicio en Kubernetes con un depurador asociado, tiene acceso completo a la información de depuración como, por ejemplo, la de la pila de llamadas, las variables locales y la información de excepciones.
 
-Quite el punto de interrupción colocando el cursor en la línea 16 en `src/main/java/com/ms/sample/webfrontend/Application.java` y pulsando *F9*.
+Quite el punto de interrupción colocando el cursor en la línea 19 en `src/main/java/com/ms/sample/webfrontend/Application.java` y pulsando *F9*.
 
 ## <a name="update-code-from-visual-studio-code"></a>Actualización del código de Visual Studio Code
 
-Mientras el servicio se ejecuta en modo de depuración, actualice la línea 16 en `src/main/java/com/ms/sample/webfrontend/Application.java`. Por ejemplo: 
+Mientras el servicio se ejecuta en modo de depuración, actualice la línea 19 en `src/main/java/com/ms/sample/webfrontend/Application.java`. Por ejemplo: 
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```

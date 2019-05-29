@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 442551424fea353aa7eddef6e7eba6e934f95691
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ca7cccb1d4f17ff9f80ca006da0ef7ce77109227
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905858"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595527"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creación e implementación de grupos de recursos de Azure mediante Visual Studio
 
 Con Visual Studio, puede crear un proyecto que implementa su infraestructura y código en Azure. Por ejemplo, puede definir el host de web, el sitio web y la base de datos para una aplicación, e implementar esa infraestructura junto con el código. Visual Studio proporciona muchas plantillas de inicio diferentes para la implementación de escenarios comunes. En este artículo se implementa una aplicación web y SQL Database.  
 
-En este artículo se muestra cómo usar [Visual Studio 2017 con el desarrollo de Azure y las cargas de trabajo de ASP.NET instalados](/dotnet/azure/dotnet-tools). Si usa Visual Studio 2015 Update 2 y Microsoft Azure SDK para .NET 2.9 o Visual Studio 2013 con Azure SDK 2.9, los procedimientos son prácticamente los mismos.
+En este artículo se muestra cómo usar [Visual Studio 2017 o posterior con el desarrollo de Azure y las cargas de trabajo de ASP.NET instalados](/dotnet/azure/dotnet-tools). Si usa Visual Studio 2015 Update 2 y Microsoft Azure SDK para .NET 2.9 o Visual Studio 2013 con Azure SDK 2.9, los procedimientos son prácticamente los mismos.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

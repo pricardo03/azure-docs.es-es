@@ -4,18 +4,18 @@ description: Aprenda a definir procedimientos almacenados, desencadenadores y fu
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 12/11/2018
+ms.date: 05/21/2019
 ms.author: mjbrown
-ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 66e0a7e13df9eddcd722492c9c894721517af5f9
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268431"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968924"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Escritura de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) en Azure Cosmos DB
 
-Azure Cosmos DB ofrece una ejecución transaccional integrada del lenguaje de JavaScript que le permite escribir **procedimientos almacenados**, **desencadenadores** y **funciones definidas por el usuario (UDF)**. Cuando se usa la API de SQL en Azure Cosmos DB, puede definir los procedimientos almacenados, desencadenadores y UDF en el lenguaje JavaScript. Puede escribir su lógica en JavaScript y ejecutarla dentro del motor de base de datos. Puede crear y ejecutar desencadenadores, procedimientos almacenados y UDF mediante [Azure Portal](https://portal.azure.com/), la [API de consulta integrada del lenguaje JavaScript en Azure Cosmos DB](javascript-query-api.md) y los [SDK del cliente de la API de SQL de Cosmos DB](sql-api-dotnet-samples.md). 
+Azure Cosmos DB ofrece una ejecución transaccional integrada del lenguaje de JavaScript que le permite escribir **procedimientos almacenados**, **desencadenadores** y **funciones definidas por el usuario (UDF)** . Cuando se usa la API de SQL en Azure Cosmos DB, puede definir los procedimientos almacenados, desencadenadores y UDF en el lenguaje JavaScript. Puede escribir su lógica en JavaScript y ejecutarla dentro del motor de base de datos. Puede crear y ejecutar desencadenadores, procedimientos almacenados y UDF mediante [Azure Portal](https://portal.azure.com/), la [API de consulta integrada del lenguaje JavaScript en Azure Cosmos DB](javascript-query-api.md) y los [SDK del cliente de la API de SQL de Cosmos DB](sql-api-dotnet-samples.md). 
 
 Para llamar a un procedimiento almacenado, desencadenador o función definida por el usuario, deberá registrarlo. Para obtener más información, consulte [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md) (Trabajo con procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB).
 

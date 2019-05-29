@@ -17,16 +17,14 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d263014638329c454149af8ca922c1c5c6393a5
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: aa400d678fb1e0793ea1a0cfd53bdfb715a5bc77
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413831"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785020"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 En esta guía de inicio rápido aprenderá cómo escribir una aplicación .NET de escritorio de Windows (WPF) que puede iniciar sesión en cuentas personales, profesionales y educativas, obtener un token de acceso y llamar a Microsoft Graph API.
 
@@ -54,7 +52,7 @@ En esta guía de inicio rápido aprenderá cómo escribir una aplicación .NET d
 > 1. Vaya a la página [Registros de aplicaciones](https://aka.ms/MobileAppReg) de la plataforma de identidad de Microsoft para desarrolladores.
 > 1. Seleccione **Nuevo registro**.
 >      - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, `Win-App-calling-MsGraph`.
->      - En **Tipos de cuenta admitidos**, seleccione **Cuentas en cualquier directorio de organización y cuentas personales de Microsoft (por ejemplo, Skype, Xbox o Outlook.com)**.
+>      - En **Tipos de cuenta admitidos**, seleccione **Cuentas en cualquier directorio de organización y cuentas personales de Microsoft (por ejemplo, Skype, Xbox o Outlook.com)** .
 >      - Seleccione **Registrar** para crear la aplicación.
 > 1. En la lista de páginas de la aplicación, seleccione **Autenticación**.
 > 1. Expanda la sección **Escritorio + dispositivos**.  (Si la sección **Escritorio + dispositivos** no está visible, haga clic primero en el banner superior para ver la experiencia de autenticación en versión preliminar).
@@ -72,7 +70,7 @@ En esta guía de inicio rápido aprenderá cómo escribir una aplicación .NET d
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Paso 2: Descarga del proyecto de Visual Studio
 
-[Descargue el proyecto de Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+[Descargue el proyecto de Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip) ([vea el proyecto en Github](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/))
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Paso 3: Configuración del proyecto de Visual Studio
 
@@ -94,7 +92,7 @@ En esta guía de inicio rápido aprenderá cómo escribir una aplicación .NET d
 >   - Si la aplicación admite **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio organizativo y cuentas Microsoft personales), reemplace este valor por `common`
 >
 > > [!TIP]
-> > Para buscar los valores de **Identificador de aplicación (cliente)**, **Identificador de directorio (inquilino)** y **Tipos de cuenta admitidos**, vaya a la página **Información general** en Azure Portal.
+> > Para buscar los valores de **Identificador de aplicación (cliente)** , **Identificador de directorio (inquilino)** y **Tipos de cuenta admitidos**, vaya a la página **Información general** en Azure Portal.
 
 ## <a name="more-information"></a>Más información
 

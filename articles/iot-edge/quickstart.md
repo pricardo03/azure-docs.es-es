@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 7b4fcf34831d17d35e9f4d8b38455ea22293076f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ce6703c507e955ffe98e71f26feca08f9f37dfe5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148083"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146754"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>Inicio rápido: Implementación del primer módulo de IoT Edge desde Azure Portal a un dispositivo Windows
 
@@ -138,6 +138,13 @@ Use PowerShell para descargar e instalar el entorno de ejecución de IoT Edge. U
 1. Si aún no la tiene, siga los pasos de [Registro de un nuevo dispositivo Azure IoT Edge desde Azure Portal](how-to-register-device-portal.md) para registrar el dispositivo y recuperar la cadena de conexión de dicho dispositivo. 
 
 2. Ejecute PowerShell como administrador.
+
+   >[!NOTE]
+   >Use una sesión de AMD64 de PowerShell para instalar IoT Edge, no PowerShell (x86). Si no está seguro de qué tipo de sesión usa, ejecute el comando siguiente:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. El comando **Deploy-IoTEdge** comprueba si el equipo Windows tiene una versión compatible, activa la característica de contenedores, descarga Moby en tiempo de ejecución y, a continuación, descarga el entorno de ejecución de IoT Edge.
 

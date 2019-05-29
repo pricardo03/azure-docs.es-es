@@ -11,19 +11,19 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 8a6a46708b78b3f92087ace02173f9f081fa85b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3460424a8d80baef92eb8b29a3be4de5686027c6
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170520"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827588"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Inicio rápido: Publicación de una base de conocimiento en QnA Maker con C#
 
 En esta guía de inicio rápido basada en REST se describe la publicación mediante programación de una base de conocimiento (KB). La publicación inserta la versión más reciente de la base de conocimiento en un índice de Azure Search dedicado y crea un punto de conexión que se puede llamar en su aplicación o bot de chat.
 
 En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
-* [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe): esta API no requiere ninguna información en el cuerpo de la solicitud.
+* [Publicar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish): esta API no requiere ninguna información en el cuerpo de la solicitud.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -40,7 +40,7 @@ En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 
 ## <a name="create-knowledge-base-project"></a>Creación del proyecto de base de conocimiento
 
-1. Abra Visual Studio 2017 Community Edition.
+1. Abra Visual Studio 2019 Community Edition.
 1. Cree un proyecto de **aplicación de consola (.Net Core)** y asígnele el nombre `QnaMakerQuickstart`. Acepte los valores predeterminados del resto de la configuración.
 
 ## <a name="add-required-dependencies"></a>Incorporación de las dependencias necesarias
@@ -76,4 +76,4 @@ Una vez publicada la base de conocimiento, puede realizar consultas en ella desd
 Después de publicar la base de conocimiento, es preciso que la dirección URL del punto de conexión [ genere una respuesta](../Tutorials/create-publish-answer.md#generating-an-answer). 
 
 > [!div class="nextstepaction"]
-> [Referencia de QnA Maker (V4) REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referencia de QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)

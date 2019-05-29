@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: af849fa6790dfdb57d8073b17f6d31a3f59a532d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 19c2ccab6685f53ba714298f66bc8e8821b4aa02
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999764"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988024"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutorial: Integración de Azure Active Directory con ForeSee CX Suite
 
@@ -55,7 +55,7 @@ Para configurar la integración de ForeSee CX Suite en Azure AD, deberá agregar
 
 **Para agregar ForeSee CX Suite desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -78,12 +78,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con ForeSee CX Suite, es preciso completar los siguientes bloques de compilación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de ForeSee CX Suite](#configure-foresee-cx-suite-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de ForeSee CX Suite](#create-foresee-cx-suite-test-user)**: para tener un homólogo de Britta Simon en ForeSee CX Suite vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de ForeSee CX Suite](#configure-foresee-cx-suite-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de ForeSee CX Suite](#create-foresee-cx-suite-test-user)** : para tener un homólogo de Britta Simon en ForeSee CX Suite vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -194,7 +194,7 @@ En esta sección, podrá permitir que Britta Simon utilice el inicio de sesión 
 
 ### <a name="create-foresee-cx-suite-test-user"></a>Creación de un usuario de prueba de ForeSee CX Suite
 
-En esta sección, creará un usuario llamado Britta Simon en ForeSee CX Suite. Colabore con el [equipo de soporte técnico de ForeSee CX Suite](mailto:support@foresee.com) para agregar los usuarios o el dominio que deben incluirse en la lista blanca en la plataforma de ForeSee CX Suite. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de ForeSee CX Suite. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en ForeSee CX Suite. Colabore con el [equipo de soporte técnico de ForeSee CX Suite](mailto:support@foresee.com) para agregar el dominio o los usuarios necesarios a la lista blanca de la plataforma de ForeSee CX Suite. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de ForeSee CX Suite. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

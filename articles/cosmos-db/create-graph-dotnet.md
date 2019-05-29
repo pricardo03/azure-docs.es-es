@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 05/21/2019
 ms.author: lbosq
-ms.openlocfilehash: 3f10c8d38d37682e2a949397d9747ec094bdb9af
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 24d5c11eb32350b2c11584ca5fc75ed4b619b6cf
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170112"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978747"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Inicio rápido: Compilación de una aplicación .NET Framework o Core mediante la cuenta de Gremlin API de Azure Cosmos DB
 
@@ -32,9 +32,7 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta de [Gremlin AP
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si todavía no tiene instalado Visual Studio 2017, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
-
-Si ya tiene instalado Visual Studio 2017, asegúrese de tener aplicado [Visual Studio 2017 Update 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
+Si aún no tiene instalado Visual Studio 2019, puede descargar y usar la versión **gratuita** de [Visual Studio 2019 Community](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

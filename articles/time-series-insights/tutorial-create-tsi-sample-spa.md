@@ -1,206 +1,210 @@
 ---
 title: 'Tutorial: Creación de una aplicación web de página única de Azure Time Series Insights | Microsoft Docs'
-description: Aprenda a crear una aplicación web de página única que consulta y representa los datos de un entorno de TSI.
+description: Aprenda a crear una aplicación web de página única que consulta y representa los datos de un entorno de Azure Time Series Insights.
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/14/2018
+ms.date: 04/25/2019
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: fe8b6113646589e30ff839c8bd47968138d98b03
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 3c2de4bd1f9d487cbb58be9581a0395bf1caa3f9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521443"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991889"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Tutorial: Creación de una aplicación web de página única de Azure Time Series Insights
 
-Este tutorial le guía por el proceso de creación de su propia aplicación web de página única (SPA) para acceder a los datos de TSI, modelados a partir de la [aplicación de ejemplo de Time Series Insights (TSI)](https://insights.timeseries.azure.com/clientsample). En este tutorial, aprenderá:
+Este tutorial lo guía por el proceso de creación de su propia aplicación web de página única (SPA) para acceder a los datos de Azure Time Series Insights. 
+
+En este tutorial, aprenderá:
 
 > [!div class="checklist"]
 > * El diseño de la aplicación
-> * Cómo registrar la aplicación en Azure Active Directory (AD)
-> * Cómo crear, publicar y probar la aplicación web 
+> * Cómo registrar la aplicación con Azure Active Directory (Azure AD)
+> * Cómo crear, publicar y probar la aplicación web
+
+> [!NOTE]
+> * El código fuente de este tutorial se encuentra en [GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
+> * La [aplicación cliente de ejemplo](https://insights.timeseries.azure.com/clientsample) de Time Series Insights se hospeda para mostrar la aplicación completa que se usa en este tutorial.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Regístrese para obtener [suscripción gratuita a Azure:](https://azure.microsoft.com/free/), en caso de no tenga ninguna. 
+* Regístrese para obtener [suscripción gratuita a Azure](https://azure.microsoft.com/free/), en caso de que no tenga ninguna.
 
-Si aún no lo ha hecho, tendrá que instalar Visual Studio. Para este tutorial, puede [descargar o instalar la versión gratuita de comunidad o una evaluación gratuita](https://www.visualstudio.com/downloads/).
+* Una copia gratuita de Visual Studio. Descargue las [versiones 2017 o 2019 Community](https://www.visualstudio.com/downloads/) para empezar.
 
-## <a name="application-design-overview"></a>Introducción al diseño de aplicaciones
+* Los componentes de las herramientas principales de IIS Express, Web Deploy y Azure Cloud Services para Visual Studio. Agregue los componentes mediante la modificación de la instalación de Visual Studio.
 
-Como ya se ha indicado, al aplicación de ejemplo de TSI proporciona la base para el diseño y el código que se usan en este tutorial. El código incluye el uso de la biblioteca de JavaScript del cliente de TSI. La biblioteca del cliente de TSI proporciona una abstracción de dos categorías principales de API:
+## <a name="application-design"></a>Diseño de aplicación
 
-- **Métodos de contenedor para llamar a las API de consulta de TSI**: API de REST que permiten consultar datos de TSI mediante expresiones basadas en JSON. Los métodos se organizan en el espacio de nombres `TsiClient.server` de la biblioteca.
-- **Métodos para crear y rellenar varios tipos de controles de gráficos**: métodos que se usan para visualizar los datos de TSI en una página web. Los métodos se organizan en el espacio de nombres `TsiClient.ux` de la biblioteca.
+La SPA de ejemplo de Time Series Insights es la base del diseño y del código que se usan en este tutorial. El código usa la biblioteca cliente JavaScript de Time Series Insights. La biblioteca cliente de Time Series Insights ofrece una abstracción de dos categorías principales de API:
 
-Este tutorial también utilizará los datos del entorno de TSI de la aplicación de ejemplo. Para más información acerca de la estructura de la aplicación de ejemplo de TSI y su uso de la biblioteca cliente de TSI, consulte el tutorial [Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights](tutorial-explore-js-client-lib.md).
+- **Métodos de contenedor para llamar a las API de consulta Time Series Insights**: API REST que puede usar para consultar los datos de Time Series Insights mediante el uso de expresiones basadas en JSON. Los métodos se organizan en el espacio de nombres TsiClient.Server de la biblioteca.
 
-## <a name="register-the-application-with-azure-ad"></a>Registre la aplicación en Azure AD 
+- **Métodos para crear y rellenar varios tipos de controles de gráficos**: Métodos que puede usar para visualizar los datos de Time Series Insights en una página web. Los métodos se organizan en el espacio de nombres TsiClient.UX de la biblioteca.
 
-Antes de compilar la aplicación, es preciso registrarla en Azure AD. El registro proporciona la configuración de la identidad de una aplicación, lo que le permite usar la compatibilidad con OAuth para el inicio de sesión único. OAuth requiere varias aplicaciones de página única para usar la concesión de autorización "implícita", que actualizará en el manifiesto de la aplicación. Un manifiesto de aplicación es una representación de JSON de la configuración de la identidad de la aplicación. 
+En este tutorial también se usan datos del entorno de Time Series Insights de la aplicación de ejemplo. Para detalles sobre la estructura de la aplicación de ejemplo de Time Series Insights y cómo usa la biblioteca cliente de Time Series Insights, consulte el tutorial [Exploración de la biblioteca cliente JavaScript de Azure Time Series Insights](tutorial-explore-js-client-lib.md).
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) mediante la cuenta de suscripción de Azure.  
-1. Seleccione el recurso **Azure Active Directory** en el panel izquierdo, luego **Registros de aplicaciones** y, después, **+ Nuevo registro de aplicaciones**:  
-   
-   ![Registro de aplicaciones de Azure AD en Azure Portal](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)
+## <a name="register-the-application-with-azure-ad"></a>Registre la aplicación en Azure AD
 
-1. En la página **Crear**, rellene los parámetros obligatorios:
-   
+Antes de compilar la aplicación, debe registrarla con Azure AD. El registro proporciona la configuración de identidad para que la aplicación pueda usar la compatibilidad con OAuth para el inicio de sesión único. OAuth requiere SPA para usar el tipo de concesión de autorización implícita. Puede actualizar la autorización en el manifiesto de aplicación. Un manifiesto de aplicación es una representación de JSON de la configuración de la identidad de la aplicación.
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de suscripción de Azure.  
+1. Seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro de aplicaciones**.
+
+   [![Azure Portal: inicio del registro de aplicación de Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png#lightbox)
+
+1. En el panel **Crear**, rellene los parámetros obligatorios.
+
    Parámetro|DESCRIPCIÓN
    ---|---
-   **Nombre** | Especifique un nombre de registro descriptivo.  
-   **Tipo de aplicación** | Dado que va a compilar una aplicación web de página única, déjelo como "Aplicación web/API".
-   **URL de inicio de sesión** | Escriba la dirección URL de la página principal o inicio de sesión de la aplicación. Dado que la aplicación se hospedará en Azure App Service (más adelante), debe usar una dirección URL dentro del dominio "https:\//azurewebsites.net". En este ejemplo, el nombre se basa en el nombre de registro.
+   **Nombre** | Escriba un nombre de registro descriptivo.  
+   **Tipo de aplicación** | Deje **Aplicación web/API**.
+   **URL de inicio de sesión** | Escriba la dirección URL de la página de inicio de sesión (principal) de la aplicación. Como la aplicación se hospedará más adelante en Azure App Service, debe usar una dirección URL del dominio https:\//azurewebsites.net. En este ejemplo, el nombre se basa en el nombre de registro.
 
-   Cuando termine, haga clic en **Crear** para crear el nuevo registro de aplicación.
+   Seleccione **Crear** para crear el nuevo registro de aplicación.
 
-   ![Registro de aplicaciones de Azure AD en Azure Portal (creación)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)
+   [![Azure Portal: la opción Crear en el panel del registro de aplicación de Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png#lightbox)
 
-1. Las aplicaciones de recursos proporcionan API REST que usan otras aplicaciones y también se registran en Azure AD. Las API proporcionan acceso pormenorizado y protegido a las aplicaciones cliente mediante la exposición de "ámbitos". Dado que la aplicación va a llamar a la API "Azure Time Series Insights", debe especificar la API y el ámbito, para el que se solicitara o concederá en tiempo de ejecución. Seleccione **Configuración**, luego **Permisos necesarios** y después **+Agregar**:
+1. Las aplicaciones de recursos proporcionan API REST que las demás aplicaciones pueden usar. Las API también se registran con Azure AD. Las API proporcionan acceso pormenorizado y protegido a las aplicaciones cliente mediante la exposición de *ámbitos*. Como la aplicación llama a la API Azure Time Series Insights, se deben especificar la API y el ámbito. El permiso para la API y el ámbito s concede en tiempo de ejecución. Seleccione **Configuración** > **Permisos requeridos** > **Agregar**.
 
-   ![Azure Portal, Azure AD, agregar permisos](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)
+   [![Azure Portal: la opción Agregar para agregar permisos de Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png#lightbox)
 
-1. En la página **Agregar acceso de API**, haga clic en **1 Seleccionar una API** para especificar la API de TSI. En la página **Seleccionar una API**, escriba "azure time" en el campo de búsqueda. A continuación, seleccione la API "Azure Time Series Insights" en la lista de resultados y haga clic en **Seleccionar**: 
+1. En el panel **Agregar acceso de API**, seleccione **1 Seleccionar una API** para especificar la API Azure Time Series Insights. En el panel **Seleccionar una API**, escriba **azure time** en el cuadro de búsqueda. Luego, seleccione **Azure Time Series Insights** en la lista de resultados. Elija **Seleccionar**.
 
-   ![Azure Portal, Azure AD, agregar permisos: API](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)
+   [![Azure Portal: la opción Buscar para agregar permisos de Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png#lightbox)
 
-1. Ahora, especifique un ámbito en la API. Vuelva a la página **Agregar acceso de API**, haga clic en **2 Seleccionar permisos**. En la página **Habilitar acceso**, seleccione el ámbito "Access Azure Time Series Insights service" (Acceder al servicio Azure Time Series Insights). Haga clic en **Seleccionar**, con lo que volverá a la página **Agregar acceso de API**, donde debe hacer clic en **Listo**:
+1. Para seleccionar un ámbito para la API, en el panel **Agregar acceso de API**, seleccione **2 Seleccionar permisos**. En el panel **Habilitar acceso**, seleccione el ámbito **Access Azure Time Series Insights service** (Acceder al servicio Azure Time Series Insights). Elija **Seleccionar**. Volverá al panel **Agregar acceso de API**. Seleccione **Listo**.
 
-   ![Azure Portal, Azure AD, agregar permisos: ámbito](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)
+   [![Azure Portal: establecer un ámbito para agregar permisos de Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png#lightbox)
 
-1. Cuando vuelva a la página **Permisos necesarios**, observe que ahora aparece la API "Azure Time Series Insights". También necesita permiso previo al consentimiento para que la aplicación acceda a la API y el ámbito, para todos los usuarios. Haga clic en el botón **Conceder permisos** de la parte superior y seleccione **Sí**:
+1. En el panel **Permisos requeridos**, ahora se muestra la API Azure Time Series Insights. También necesita brindar permiso previo al consentimiento para que la aplicación acceda a la API y al ámbito, para todos los usuarios. Haga clic en **Conceder permisos** y, a continuación, haga clic en **Sí**.
 
-   ![Azure Portal, Azure AD, permisos obligatorios: consentimiento](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)
+   [![Azure Portal: la opción Conceder permisos para agregar permisos requeridos de Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png#lightbox)
 
-1. Como ya se ha indicado, también es preciso actualizar el manifiesto de aplicación. Haga clic en el nombre de la aplicación en la ruta de navegación para volver a la página **Aplicación registrada**. Seleccione **Manifiesto**, cambie la propiedad `oauth2AllowImplicitFlow` a `true` y haga clic en **Guardar**:
+1. Tal como se explicó anteriormente, también debe actualizar el manifiesto de aplicación. En el menú horizontal que se encuentra en la parte superior del panel (la "ruta de navegación"), seleccione el nombre de la aplicación para volver al panel **Aplicación registrada**. Seleccione **Manifiesto**, cambie la propiedad `oauth2AllowImplicitFlow` a `true` y, luego, seleccione **Guardar**.
 
-   ![Manifiesto de actualización de Azure AD en Azure Portal](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)
+   [![Azure Portal: actualizar el manifiesto de Azure AD](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png#lightbox)
 
-1. Por último, haga clic en la ruta de navegación para volver atrás a la página **Aplicación registrada** y copie la dirección URL de la **página principal** y las propiedades de **Id. de aplicación**. Estas propiedades las usará en un paso posterior:
+1. En la ruta de navegación, seleccione el nombre de la aplicación para volver al panel **Aplicación registrada**. Copie los valores de la **página principal** y el **id. de la aplicación** correspondientes a la aplicación. Usará estas propiedades más adelante en el tutorial.
 
-   ![Propiedades de Azure AD en Azure Portal](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)
+   [![Azure Portal: copie los valores de la dirección URL de la página principal y el identificador de la aplicación correspondientes a la aplicación](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png#lightbox)
 
 ## <a name="build-and-publish-the-web-application"></a>Creación y publicación de la aplicación
 
-1. Cree un directorio para almacenar los archivos de proyecto de la aplicación. A continuación, vaya a las siguientes direcciones URL, haga clic con el botón derecho en el vínculo "Raw"(Sin formato) en la parte superior derecha de la página y en "Guardar como" seleccione el directorio del proyecto:
+1. Cree un directorio para almacenar los archivos de proyecto de la aplicación. Luego, vaya a cada una de las direcciones URL siguientes. Haga clic con el botón derecho del vínculo **Raw** (Sin formato) en la esquina superior derecha de la página y, luego, seleccione **Guardar como** para guardar los archivos en el directorio del proyecto.
+
+   - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): HTML y JavaScript para la página
+   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): hoja de estilo CSS
 
    > [!NOTE]
-   > En función del explorador, es posible que tenga que cambiar la extensión de archivo (a HTML o CSS), antes de guardar el archivo.
+   > Según el explorador, es posible que tenga que cambiar las extensiones de archivo a .html o .css antes de guardarlo.
 
-   - **index.html** HTML y JavaScript de la página https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
-   - **sampleStyles.css:** Hoja de estilos CSS: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
-    
-1. Inicie en Visual Studio e inicie sesión en él para crear un proyecto para la aplicación web. En el menú **Archivo**, seleccione la opción **Abrir**, **Sitio web**. En el cuadro de diálogo **Abrir sitio web**, seleccione el directorio de trabajo en el que haya almacenado los archivos HTML y CSS, y haga clic en **Abrir**:
+1. Compruebe que los componentes requeridos estén instalados en Visual Studio. Los componentes de las herramientas principales de IIS Express, Web Deploy y Azure Cloud Services para Visual Studio deben estar instalados.
 
-   ![VS: File open web site](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)
+    [![Visual Studio: modificar los componentes instalados](media/tutorial-create-tsi-sample-spa/vs-installation.png)](media/tutorial-create-tsi-sample-spa/vs-installation.png#lightbox)
 
-1. Abra el **Explorador de soluciones** en el menú **Vista** de Visual Studio. Debería ver la nueva solución, que contiene un proyecto de sitio web (icono de globo), que contiene los archivos HTML y CSS:
+    > [!NOTE]
+    > Su experiencia con Visual Studio puede variar levemente de los ejemplos ilustrados según la versión y los ajustes de configuración.
 
-   ![VS: Explorador de soluciones, nueva solución](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)
+1. Abra Visual Studio e inicie sesión. Para crear un proyecto para la aplicación web, en el menú **Archivo**, seleccione **Abrir** > **Sitio web**.
 
-1. Para poder publicar la aplicación, es preciso actualizar partes del código JavaScript en **index.html**: 
+    [![Visual Studio: crear una solución nueva](media/tutorial-create-tsi-sample-spa/vs-solution-create.png)](media/tutorial-create-tsi-sample-spa/vs-solution-create.png#lightbox)
 
-    a. En primer lugar, cambie las rutas de acceso de los archivos de JavaScript y de las hojas de estilo a las que se hacen referencia en el elemento `<head>`. Abra el archivo **index.html** en la solución de Visual Studio y busque las siguientes líneas del código de JavaScript. Quite el comentario de las tres líneas de "PROD RESOURCE LINKS" y convierta en comentarios las tres líneas de "DEV RESOURCE LINKS":
-   
+1. En el panel **Abrir sitio web**, seleccione el directorio de trabajo donde almacenó los archivos HTML y CSS y, luego, seleccione **Abrir**.
+
+   [![Visual Studio: el menú Archivo, con las opciones Abrir y Sitio web](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png#lightbox)
+
+1. En el menú **Ver** de Visual Studio, seleccione **Explorador de soluciones**. Se abre la solución nueva. Contiene un proyecto de sitio web (icono de globo terráqueo), el que incluye los archivos HTML y CSS.
+
+   [![Visual Studio: la solución nueva en el Explorador de soluciones](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png#lightbox)
+
+1. Antes de publicar la aplicación, deberá modificar los ajustes de configuración en *index.html*.
+
+   1. Quite el comentario de las tres líneas debajo del comentario `"PROD RESOURCE LINKS"` para cambiar las dependencias de DEVELOPMENT a PRODUCTION. Quite el comentario de las tres líneas debajo del comentario `"DEV RESOURCE LINKS"`.
+
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=2-20&highlight=10-13,15-18)]
 
-      Una vez que realice estos cambios el código debería ser similar al siguiente:
+      Las dependencias deben tener comentarios como en el ejemplo siguiente:
 
-      ```javascript
+      ```HTML
       <!-- PROD RESOURCE LINKS -->
-      <link rel="stylesheet" type="text/css" href="sampleStyles.css"></link>
+      <link rel="stylesheet" type="text/css" href="./sampleStyles.css">
       <script src="https://unpkg.com/tsiclient@1.1.4/tsiclient.js"></script>
-      <link rel="stylesheet" type="text/css" href="https://unpkg.com/tsiclient@1.1.4/tsiclient.css"></link>
+      <link rel="stylesheet" type="text/css" href="https://unpkg.com/tsiclient@1.1.4/tsiclient.css">
 
       <!-- DEV RESOURCE LINKS -->
-      <!-- <link rel="stylesheet" type="text/css" href="pages/samples/sampleStyles.css"></link>
-      <script src="dist/tsiclient.js"></script>
-      <link rel="stylesheet" type="text/css" href="dist/tsiclient.css"></link> -->
+      <!-- <link rel="stylesheet" type="text/css" href="./sampleStyles.css">
+      <script src="../../dist/tsiclient.js"></script>
+      <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   b. A continuación, cambie la lógica del token de acceso para que use el nuevo registro de la aplicación de Azure AD. Cambie las siguientes variables `clientID` y `postLogoutRedirectUri` respectivamente para usar el identificador de la aplicación y la dirección URL de la página principal que copió en el paso 9 de la sección [Registro de la aplicación en Azure AD](#register-the-application-with-azure-ad):
+   1. Para configurar la aplicación y usar el identificador de registro de la aplicación de Azure AD, cambie los valores `clientID` y `postLogoutRedirectUri` para usar los valores de **Identificador de aplicación** y **Página principal** que copió en el paso 9 de [Registro de la aplicación en Azure AD](#register-the-application-with-azure-ad).
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
-      Una vez que realice estos cambios el código debería ser similar al siguiente:
+      Por ejemplo: 
 
       ```javascript
       clientId: '8884d4ca-b9e7-403a-bd8a-366d0ce0d460',
       postLogoutRedirectUri: 'https://tsispaapp.azurewebsites.net',
-      ``` 
+      ```
 
-   c. Haga clic en **index.htm** cuando haya terminado la modificación.
+   1. Cuando termine de realizar modificaciones, guarde *index.html*.
 
-1. A continuación, publique la aplicación web en una suscripción de Azure como instancia de Azure App Service:  
+1. Publique la aplicación web en una suscripción de Azure como Azure App Service.  
 
    > [!NOTE]
-   > Varios de los campos de los siguientes cuadros de diálogo se rellenan con datos de la suscripción de Azure. Por lo tanto, los cuadros de diálogo pueden tardar unos segundos en cargarse antes de que pueda continuar.  
+   > Varias de las opciones que aparecen en las capturas de pantalla y que se muestran en los pasos siguientes se completar de manera automática con datos de su suscripción de Azure. Cada panel puede tardar unos segundos en cargarse por completo.  
 
-    a. Haga clic con el botón derecho en el nodo del proyecto del sitio web en el **Explorador de soluciones** y seleccione **Publicar aplicación web**:  
+   1. En el Explorador de soluciones, haga clic con el botón derecho en el nodo del proyecto de sitio web y, luego, seleccione **Publicar aplicación web**.  
 
-      ![VS: Explorador de soluciones, publicar aplicación web](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png)
+      [![Visual Studio: seleccione la opción Publicar aplicación web del Explorador de soluciones](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png)](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png#lightbox)
 
-   b. Seleccione **Microsoft Azure App Service** para crear un destino de publicación:  
+   1. Seleccione **Iniciar** para empezar a publicar la aplicación.
 
-      ![VS: perfil de publicación](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)  
+      [![Visual Studio: el panel Perfil de publicación](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png#lightbox)
 
-   c. Seleccione la suscripción que desee usar para publicar la aplicación y luego haga clic en "Nuevo": 
+   1. Seleccione la suscripción que quiere usar para publicar la aplicación. Seleccione el proyecto **TsiSpaApp**. Después, seleccione **Aceptar**.
 
-      ![VS: perfil de publicación: app service](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)  
+      [![Visual Studio: el panel App Service del Perfil de publicación](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service.png#lightbox)
 
-   d. Los campos del cuadro de diálogo **Crear servicio de aplicaciones** tardan unos segundos en cargarse. Deje que se carguen y, después, modifíquelos:
-   
-      Campo | DESCRIPCIÓN
-      ---|---
-      **Nombre de aplicación** | Cambie al nombre del registro de la aplicación de Azure AD que utilizó en el paso 3, en [Registro de la aplicación en Azure AD](#register-the-application-with-azure-ad). 
-      **Grupo de recursos** | Mediante el botón **Nuevo...**  cámbielo para que coincida con el valor del campo **Nombre de la aplicación**.
-      **Plan de App Service** | Mediante el botón **Nuevo...**  cámbielo para que coincida con el valor del campo **Nombre de la aplicación**.
+   1. Seleccione **Publicar** para implementar la aplicación web.
 
-      Cuando haya terminado, haga clic en **Crear**. El botón **Exportar** de la esquina inferior izquierda se sustituye por "Implementando:" durante varios segundos, mientras se crean los recursos de Azure. Una vez que se creen los recursos, volverá al cuadro de diálogo anterior. 
+      [![Visual Studio: la opción Publicar y la salida de registro de publicación](media/tutorial-create-tsi-sample-spa/vs-publish-profile-output.png)](media/tutorial-create-tsi-sample-spa/vs-publish-profile-output.png#lightbox)
 
-      ![VS: perfil de publicación: agregar servicio de aplicaciones nuevo](media/tutorial-create-tsi-sample-spa/vs-publish-profile-app-service-create.png)  
+   1. Aparece un registro de publicación satisfactorio en el panel **Salida** de Visual Studio. Una vez finalizada la implementación, Visual Studio abre la aplicación web en una pestaña del explorador y pide iniciar sesión. Al iniciar sesión correctamente, los controles de Time Series Insights se rellenan con datos.
 
-   e. Al volver al cuadro de diálogo **Publicar**, asegúrese de que en **Método de publicación** se ha seleccionado "Web Deploy". Cambiar el valor de **Dirección URL de destino** para que use `https`, en lugar de `http`, con el fin de que coincida con el registro de la aplicación de Azure AD. A continuación, haga clic en "Publicar" para implementar la aplicación web:  
-
-      ![VS: publicar aplicación web: publicar el servicio de aplicaciones](media/tutorial-create-tsi-sample-spa/vs-publish-publish.png)  
-
-   f. Debería ver un registro de publicación correcto en la ventana **Salida** de Visual Studio. Después de que se realice la implementación, Visual Studio también abrirá la aplicación web en una pestaña del explorador y se le solicitará que inicie sesión. Después de haber iniciado sesión correctamente, verá todos los controles de TSI rellenos de datos:  
-
-      [![VS: publicar aplicación web: publicar salida de registro](media/tutorial-create-tsi-sample-spa/vs-publish-output.png)](media/tutorial-create-tsi-sample-spa/vs-publish-output.png#lightbox)
-
-      ![Aplicación SPA de TSI: inicio de sesión](media/tutorial-create-tsi-sample-spa/tsispaapp-azurewebsites-net.png)  
-
-## <a name="troubleshooting"></a>solución de problemas  
+## <a name="troubleshoot"></a>Solución de problemas  
 
 Código o condición de error | DESCRIPCIÓN
 ---------------------| -----------
-*AADSTS50011: no hay direcciones de respuesta registradas para la aplicación.* | Al registro de Azure AD le falta la propiedad "Dirección URL de respuesta". Vaya a la página **Configuración** / **Direcciones URL de respuesta** para el registro de la aplicación de Azure AD. Compruebe que la dirección URL de **inicio de sesión** especificada en el paso 3 de [Registro de la aplicación en Azure AD](#register-the-application-with-azure-ad) está presente. 
-*AADSTS50011: la dirección URL de respuesta especificada en la solicitud no coincide con las direcciones URL de respuesta configuradas para la aplicación: "\<Identificador único global de la aplicación>".* | El valor `postLogoutRedirectUri` especificado en el paso 4.b de [Creación y publicación de la aplicación](#build-and-publish-the-web-application), debe coincidir con el valor especificado en la propiedad **Configuración** / **Direcciones URL de respuesta**del registro de la aplicación de Azure AD. Asegúrese de cambiar también el valor de **Dirección URL de destino** para usar `https`, como en el paso #5.e de [Creación y publicación de la aplicación web](#build-and-publish-the-web-application).
-Se carga la aplicación web, pero tiene una página de inicio de sesión de solo texto sin estilo, con un fondo blanco. | Compruebe que las rutas de acceso que se describen en el paso 4.a de [Creación y publicación de la aplicación web](#build-and-publish-the-web-application) son correctos. Si la aplicación web no encuentra los archivos .css, no se aplicará el estilo correcto a la página.
+*AADSTS50011: no hay direcciones de respuesta registradas para la aplicación.* | Al registro de Azure AD le falta la propiedad **Dirección URL de respuesta**. Vaya a **Configuración** > **Direcciones URL** para el registro de aplicación de Azure AD. Compruebe que existe la dirección URL de **cierre de sesión** que se especificó en el paso 3 de [Registro de aplicación en Azure AD](#register-the-application-with-azure-ad).
+*AADSTS50011: la dirección URL de respuesta especificada en la solicitud no coincide con las direcciones URL de respuesta configuradas para la aplicación: "\<Identificador único global de la aplicación>".* | El valor `postLogoutRedirectUri` especificado en el paso 6 de [Creación y publicación de la aplicación web](#build-and-publish-the-web-application) debe coincidir con el valor especificado en **Configuración** > **Direcciones de respuesta** en el registro de aplicación de Azure AD. No olvide cambiar también el valor de **Dirección URL de destino** para usar *https* según lo indicado en el paso 5 de [Creación y publicación de la aplicación web](#build-and-publish-the-web-application).
+Se carga la aplicación web, pero tiene una página de inicio de sesión de solo texto sin estilo con un fondo blanco. | Compruebe que las rutas de acceso que se describen en el paso 4 de [Creación y publicación de la aplicación web](#build-and-publish-the-web-application) son correctas. Si la aplicación web no encuentra los archivos .css, no se aplicará el estilo correcto a la página.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-En este tutorial se crean varios servicios de Azure en ejecución. Si no planea completar esta serie de tutoriales, es aconsejable que elimine todos los recursos para no incurrir en costos innecesarios. 
+En este tutorial se crean varios servicios de Azure en ejecución. Si no planea finalizar esta serie de tutoriales, se recomienda eliminar todos los recursos para no incurrir en costos innecesarios.
 
-En el menú izquierdo de Azure Portal:
+En el menú de la izquierda de Azure Portal:
 
-1. Haga clic en el icono **Grupos de recursos** y, después, seleccione el grupo de recursos que ha creado para el entorno de TSI. En la parte superior de la página, haga clic en **Eliminar grupo de recursos**, escriba el nombre del grupo de recursos y haga clic en **Eliminar**. 
-1. Haga clic en el icono **Grupos de recursos** y, a continuación, seleccione el grupo de recursos que creó el acelerador de la solución Simulación de dispositivo. En la parte superior de la página, haga clic en **Eliminar grupo de recursos**, escriba el nombre del grupo de recursos y haga clic en **Eliminar**. 
+1. Seleccione **Grupos de recursos** y, después, seleccione el grupo de recursos que ha creado para el entorno de Time Series Insights. En la parte superior de la página, seleccione **Eliminar grupo de recursos**, escriba el nombre del grupo de recursos y seleccione **Eliminar**.
+1. Seleccione **Grupos de recursos** y, a continuación, seleccione el grupo de recursos que creó el acelerador de la solución Simulación de dispositivo. En la parte superior de la página, seleccione **Eliminar grupo de recursos**, escriba el nombre del grupo de recursos y seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
+En este tutorial, aprendió sobre lo siguiente:
 
 > [!div class="checklist"]
 > * El diseño de la aplicación
-> * Cómo registrar la aplicación en Azure Active Directory (AD)
-> * Cómo crear, publicar y probar la aplicación web 
+> * Cómo registrar la aplicación con Azure AD
+> * Cómo crear, publicar y probar la aplicación web
 
-Este tutorial se integra con Azure AD y utiliza la identidad del usuario que inició sesión para adquirir un token de acceso. Para aprender a acceder a la API TSI mediante la identidad de un servicio o una aplicación demonio, consulte:
+Este tutorial se integra con Azure AD y usa la identidad del usuario que inició sesión para adquirir un token de acceso. Para información sobre cómo acceder a la API Time Series Insights a través de la identidad de un servicio o una aplicación de demonio, consulte este artículo:
 
 > [!div class="nextstepaction"]
 > [Autenticación y autorización de la API Azure Time Series Insights](time-series-insights-authentication-and-authorization.md)

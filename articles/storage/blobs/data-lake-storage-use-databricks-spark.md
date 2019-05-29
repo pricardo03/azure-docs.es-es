@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 02cff1be85f4489a9529383d90694581f2599cba
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: b332c11e76ad335772cc607edcf569f896acb873
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939176"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951397"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Acceso a los datos de Azure Data Lake Storage Gen2 con Azure Databricks mediante Spark
 
@@ -48,7 +48,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
   > [!IMPORTANT]
   > Asegúrese de asignar el rol en el ámbito de la cuenta de almacenamiento de Data Lake Storage Gen2. Puede asignar un rol al grupo de recursos o suscripción primario, pero recibirá errores relacionados con los permisos hasta que esas asignaciones de roles se propaguen a la cuenta de almacenamiento.
 
-  :heavy_check_mark: Al realizar los pasos que se describen en la sección [Obtención de valores para el inicio de sesión](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) del artículo, pegue el identificador del inquilino, el identificador de la aplicación y los valores de la clave de autenticación en una clave de texto, ya que los necesitará pronto.
+  :heavy_check_mark: Al realizar los pasos de la sección [Obtención de valores para iniciar sesión](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) del artículo, pegue los valores de identificador de inquilino, identificador de aplicación y contraseña en un archivo de texto, ya que los necesitará pronto.
 
 ### <a name="download-the-flight-data"></a>Descarga de los datos de vuelo
 
@@ -82,11 +82,9 @@ En esta sección, va a crear un servicio de Azure Databricks con Azure Portal.
 
     ![Creación de un área de trabajo de Azure Databricks](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Create an Azure Databricks service")
 
-3. Seleccione **Anclar al panel** y, después, seleccione **Crear**.
+3. La cuenta tarda unos minutos en crearse. Para supervisar el estado de la operación, consulte la barra de progreso en la parte superior.
 
-4. La cuenta tarda unos minutos en crearse. Durante la creación de la cuenta, el portal muestra el icono **Enviando implementación para Azure Databricks** a la derecha. Para supervisar el estado de la operación, consulte la barra de progreso en la parte superior.
-
-    ![Icono de implementación de Databricks](./media/data-lake-storage-use-databricks-spark/databricks-deployment-tile.png "Databricks deployment tile")
+4. Seleccione **Anclar al panel** y, después, seleccione **Crear**.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Creación de un clúster de Spark en Azure Databricks
 
@@ -110,51 +108,6 @@ En esta sección, va a crear un servicio de Azure Databricks con Azure Portal.
 
     * Seleccione **Create cluster** (Crear clúster). Después de ejecutar el clúster, puede asociarle cuadernos y ejecutar trabajos de Spark.
 
-## <a name="create-a-file-system-and-mount-it"></a>Creación de un sistema de archivos y su montaje
-
-En esta sección, va a crear un sistema de archivos y una carpeta en la cuenta de almacenamiento.
-
-1. En [Azure Portal](https://portal.azure.com), vaya al servicio de Azure Databricks que ha creado y, después, seleccione **Launch Workspace** (Iniciar área de trabajo).
-
-2. A la izquierda, seleccione **Workspace** (Área de trabajo). En la lista desplegable **Workspace** (Área de trabajo), seleccione **Create** > **Notebook** (Crear > Cuaderno).
-
-    ![Creación de un cuaderno en Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Create notebook in Databricks")
-
-3. En el cuadro de diálogo **Create Notebook** (Crear cuaderno), escriba un nombre para el cuaderno. Seleccione **Python** como lenguaje y, a continuación, seleccione el clúster de Spark que creó anteriormente.
-
-4. Seleccione **Crear**.
-
-5. Copie y pegue el siguiente bloque de código en la primera celda, pero no ejecute el código aún.
-
-    ```Python
-    configs = {"fs.azure.account.auth.type": "OAuth",
-           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-           "fs.azure.account.oauth2.client.id": "<application-id>",
-           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
-           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
-           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
-
-    dbutils.fs.mount(
-    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
-    mount_point = "/mnt/flightdata",
-    extra_configs = configs)
-    ```
-
-18. En este bloque de código, reemplace los valores de marcador de posición `application-id`, `authentication-id`, `tenant-id` y `storage-account-name` por los valores que recopiló al completar los requisitos previos de este tutorial. Reemplace el valor del marcador de posición `file-system-name` por el nombre que desea dar al sistema de archivos.
-
-   * `application-id` y `authentication-id` proceden de la aplicación que registró con Active Directory como parte de la creación de una entidad de servicio.
-
-   * `tenant-id` procede de su suscripción.
-
-   * `storage-account-name` es el nombre de la cuenta de almacenamiento de Azure Data Lake Storage Gen2.
-
-   > [!NOTE]
-   > En una configuración de producción, considere la posibilidad de almacenar su clave de autenticación en Azure Databricks. A continuación, agregue una clave de búsqueda a su bloque de código en lugar de la clave de autenticación. Una vez completado este inicio rápido, consulte el artículo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) en el sitio Web de Azure Databricks para ver ejemplos de este enfoque.
-
-19. Presione las teclas **MAYÚS + ENTRAR** para ejecutar el código de este bloque.
-
-   Mantenga este cuaderno abierto ya que le agregará comandos más tarde.
-
 ## <a name="ingest-data"></a>Introducción de datos
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Copia de los datos de origen en la cuenta de almacenamiento
@@ -177,9 +130,58 @@ Use AzCopy para copiar datos del archivo *.csv* en su cuenta de Data Lake Storag
 
    * Reemplace el valor de marcador de posición `<csv-folder-path>` por la ruta de acceso al archivo *csv*.
 
-   * Reemplace el valor de marcador de posición `storage-account-name` por el nombre de la cuenta de almacenamiento.
+   * Reemplace el valor de marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
+
+   * Reemplace el marcador de posición `<file-system-name>` por cualquier nombre que desee asignar al sistema de archivos.
+
+## <a name="create-a-file-system-and-mount-it"></a>Creación de un sistema de archivos y su montaje
+
+En esta sección, va a crear un sistema de archivos y una carpeta en la cuenta de almacenamiento.
+
+1. En [Azure Portal](https://portal.azure.com), vaya al servicio de Azure Databricks que ha creado y, después, seleccione **Launch Workspace** (Iniciar área de trabajo).
+
+2. A la izquierda, seleccione **Workspace** (Área de trabajo). En la lista desplegable **Workspace** (Área de trabajo), seleccione **Create** > **Notebook** (Crear > Cuaderno).
+
+    ![Creación de un cuaderno en Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Create notebook in Databricks")
+
+3. En el cuadro de diálogo **Create Notebook** (Crear cuaderno), escriba un nombre para el cuaderno. Seleccione **Python** como lenguaje y, a continuación, seleccione el clúster de Spark que creó anteriormente.
+
+4. Seleccione **Crear**.
+
+5. Copie y pegue el siguiente bloque de código en la primera celda, pero no ejecute el código aún.
+
+    ```Python
+    configs = {"fs.azure.account.auth.type": "OAuth",
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": "<appId>",
+           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
+           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+
+    dbutils.fs.mount(
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    mount_point = "/mnt/flightdata",
+    extra_configs = configs)
+    ```
+
+18. En este bloque de código, reemplace los valores de marcador de posición `appId`, `password`, `tenant` y `storage-account-name` por los valores que recopiló al completar los requisitos previos de este tutorial. Reemplace el valor de marcador de posición `file-system-name` por el nombre que asignó a su sistema de archivos Azure Data Lake Storage en el paso anterior.
+
+Utilice estos valores para reemplazar los marcadores de posición mencionados.
+
+   * `appId` y `password` proceden de la aplicación que registró con Active Directory como parte de la creación de una entidad de servicio.
+
+   * `tenant-id` procede de su suscripción.
+
+   * `storage-account-name` es el nombre de la cuenta de almacenamiento de Azure Data Lake Storage Gen2.
 
    * Reemplace el marcador de posición `file-system-name` por cualquier nombre que desee asignar al sistema de archivos.
+
+   > [!NOTE]
+   > En un entorno de producción, considere la posibilidad de almacenar su contraseña en Azure Databricks. A continuación, agregue una clave de búsqueda a su bloque de código en lugar de la contraseña. Una vez completado este inicio rápido, consulte el artículo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) en el sitio Web de Azure Databricks para ver ejemplos de este enfoque.
+
+19. Presione las teclas **MAYÚS + ENTRAR** para ejecutar el código de este bloque.
+
+   Mantenga este cuaderno abierto ya que le agregará comandos más tarde.
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Uso de Databricks Notebook para convertir CSV en Parquet
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 2fc4f26f187301ea7a7a1e3051038f75da728547
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 39c016e7b4b70368eb1ca2bd517ed7f48d223e24
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58125145"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140561"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generación del archivo de solicitud de firma de certificado
 
@@ -39,7 +39,7 @@ A continuación, se registrará la aplicación en Apple, se habilitarán las not
 
 ## <a name="register-your-app-for-push-notifications"></a>Registro de la aplicación para notificaciones push
 
-Para poder enviar notificaciones push a una aplicación iOS, debe registrar su aplicación con Apple y también registrar las notificaciones push.  
+Para insertar notificaciones en una aplicación iOS, es preciso no solo registrar la aplicación en Apple, sino también las notificaciones push.  
 
 1. Si aún no ha registrado la aplicación, vaya al [portal de aprovisionamiento de iOS](https://go.microsoft.com/fwlink/p/?LinkId=272456) del Centro para desarrolladores de Apple, inicie sesión con su identificador de Apple, haga clic en **Identifiers** (Identificadores) y, a continuación, en **App IDs** (Identificadores de aplicación). Para finalizar, haga clic en el signo **+** para registrar una nueva aplicación.
 
@@ -47,9 +47,9 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
 
 2. Actualice los tres campos siguientes para la nueva aplicación y, a continuación, haga clic en **Continue**(Continuar):
 
-   * **Nombre**: Escriba un nombre descriptivo para la aplicación en el **nombre** campo el **descripción de Id. de la aplicación** sección.
-   * **Identificador de lote**: En el **identificador de aplicación explícito** sección, especifique un **identificador de paquete** en el formulario `<Organization Identifier>.<Product Name>` como se mencionó en el [Guía de distribución de la aplicación](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). El *identificador de organización* y el *nombre del producto* que use deben coincidir con el identificador de la organización y con el nombre del producto que use al crear el proyecto XCode. En la captura de pantalla que aparece a continuación, *NotificationHubs* se usa como identificador de una organización y *GetStarted* se usa como el nombre del producto. Asegúrese de que estos valores coinciden con los valores que utilizará en el proyecto XCode, ya que así podrá usar el perfil de publicación correcto con XCode.
-   * **Notificaciones de inserción**: Compruebe el **las notificaciones de inserción** opción el **App Services** sección.
+   * **Nombre**: escriba un nombre descriptivo para la aplicación en el campo **Name** (Nombre) de la sección **App ID Description** (Descripción del identificador de la aplicación).
+   * **Bundle Identifier** (Identificador de agrupación): en la sección **Explicit App ID** (Identificador de aplicación explícita), escriba un **identificador de paquete** con el formato `<Organization Identifier>.<Product Name>`, tal como se menciona en la [Guía de distribución de aplicaciones](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). El *identificador de organización* y el *nombre del producto* que use deben coincidir con el identificador de la organización y con el nombre del producto que use al crear el proyecto XCode. En la captura de pantalla que aparece a continuación, el valor de *NotificationHubs* se usa como identificador de una organización, mientras que *GetStarted* se usa como el nombre del producto. Asegúrese de que estos valores coinciden con los valores que utilizará en el proyecto XCode, ya que así podrá usar el perfil de publicación correcto con XCode.
+   * **Notificaciones push**: Seleccione la opción **Notificaciones push** en la sección **App Services**.
 
      ![Formulario para registrar un nuevo identificador de aplicación](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
@@ -98,13 +98,13 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
     ![Lista de certificados de Acceso a llaves en la que aparece el nuevo certificado](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
 
     > [!NOTE]
-    > El nombre del certificado puede ser diferente, pero tendrá el prefijo de **Apple Development iOS Push Services (Servicios inserción de desarrollo de Apple iOS)**.
+    > El nombre del certificado puede ser diferente, pero tendrá el prefijo de **Apple Development iOS Push Services (Servicios inserción de desarrollo de Apple iOS)** .
 
 8. En Acceso a llaves, haga clic en el nuevo certificado de inserción que creó, en la categoría **Certificados** . Haga clic en **Exportar**, asigne un nombre al archivo, seleccione el formato **.p12** y, luego, haga clic en **Guardar**.
 
     ![Exportación del certificado en formato p12](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
 
-    Anote el nombre de archivo y la ubicación del certificado p12 exportado. Se usará para habilitar la autenticación con APNS.
+    Anote el nombre de archivo y la ubicación del certificado p12 exportado. Se usa para habilitar la autenticación con APNS.
 
     > [!NOTE]
     > Con este tutorial se crea un archivo QuickStart.p12. El nombre del archivo y la ubicación pueden ser diferentes.
@@ -136,3 +136,21 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
 7. Cuando se crea el nuevo perfil de aprovisionamiento, haga clic aquí para descargarlo e instalarlo en el equipo de desarrollo de Xcode. A continuación, haga clic en **Hecho**.
 
     ![Descargar el perfil de aprovisionamiento](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
+
+## <a name="create-a-notification-hub"></a>Creación de un centro de notificaciones
+En esta sección se crea un Centro de notificaciones y se configura la autenticación con APNS mediante el certificado push **.p12** que creó anteriormente. Si desea usar un centro de notificaciones ya creado, puede omitir los pasos hasta el paso 5.
+
+[!INCLUDE [notification-hubs-portal-create-new-hub](notification-hubs-portal-create-new-hub.md)]
+
+## <a name="configure-your-notification-hub-with-apns-information"></a>Configuración de un Centro de notificaciones con información de APNS
+
+1. En **Notification Services** (Servicios de notificación), seleccione **Apple (APNS)** .
+2. Seleccione **Certificado**.
+3. Seleccione el **icono del archivo**.
+4. Seleccione el archivo **.p12** que exportó antes.
+5. Especifique la **contraseña** correcta.
+6. Seleccione el modo **Espacio aislado**. Use el modo **Producción** solo si desea enviar notificaciones push a los usuarios que compraron la aplicación en la tienda.
+
+    ![Configuración del certificado de APNS en Azure Portal][7]
+
+Su centro de notificaciones ya está configurado con APNs, y tiene las cadenas de conexión para registrar su aplicación y enviar notificaciones push.

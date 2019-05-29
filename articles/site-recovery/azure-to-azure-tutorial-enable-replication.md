@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 13c86a38e0d894feed0d9c24dd802a09ff1d1d2d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 588fe452473ddc2434d92f90afbf8a0e1bc8c275
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678852"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795765"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -25,7 +25,7 @@ Este tutorial muestra cómo configurar la recuperación ante desastres en máqui
 > [!div class="checklist"]
 > * Creación de un almacén de Recovery Services
 > * Comprobación de la configuración de los recursos de destino
-> * Configuración del acceso de salida para las máquinas virtuales
+> * Configuración de la conectividad de red saliente para máquinas virtuales
 > * Habilitación de la replicación para una máquina virtual
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Para completar este tutorial:
 - Asegúrese de entender la [arquitectura y los componentes del escenario](concepts-azure-to-azure-architecture.md).
 - Revise los [requisitos de compatibilidad](site-recovery-support-matrix-azure-to-azure.md) antes de empezar.
 
-## <a name="create-a-vault"></a>Creación de un almacén
+## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
 Cree el almacén en cualquier región, excepto en la de origen.
 
@@ -52,12 +52,12 @@ Cree el almacén en cualquier región, excepto en la de origen.
 
    El nuevo almacén se agrega al **Panel**, en **Todos los recursos**, y en la página principal **Almacenes de Recovery Services**.
 
-## <a name="verify-target-resources"></a>Comprobación de los recursos de destino
+## <a name="verify-target-resource-settings"></a>Comprobación de la configuración de los recursos de destino
 
 1. Compruebe que su suscripción de Azure permite crear máquinas virtuales en la región de destino. Para habilitar la cuota necesaria, póngase en contacto con el soporte técnico.
 2. Asegúrese de que su suscripción tiene suficientes recursos para admitir tamaños de máquinas virtuales que se correspondan con las máquinas virtuales de origen. Site Recovery elige el mismo tamaño para la máquina virtual de destino o el más cercano posible.
 
-## <a name="configure-outbound-network-connectivity"></a>Configuración de la conectividad de red saliente
+## <a name="set-up-outbound-network-connectivity-for-vms"></a>Configuración de la conectividad de red saliente para máquinas virtuales
 
 Para que Site Recovery funcione de la forma esperada, debe modificar la conectividad de red de salida de las máquinas virtuales que desee replicar.
 
@@ -107,7 +107,7 @@ Azure Site Recovery proporciona tres roles integrados para controlar las operaci
 
 Obtenga más información sobre los [roles integrados de Azure RBAC](../role-based-access-control/built-in-roles.md).
 
-## <a name="enable-replication"></a>Habilitar replicación
+## <a name="enable-replication-for-a-vm"></a>Habilitación de la replicación para una máquina virtual
 
 ### <a name="select-the-source"></a>Seleccione el origen
 
@@ -146,7 +146,7 @@ Site Recovery crea la configuración predeterminada y la directiva de replicaci�
     **Red virtual de destino** | la red en la región de destino en la que las máquinas virtuales se encuentran después de la conmutación por error.<br/><br/> De forma predeterminada, Site Recovery crea una nueva red (y subredes) virtual en la región de destino con un sufijo "asr".
     **Cuentas de almacenamiento en caché** | Site Recovery utiliza una cuenta de almacenamiento en la región de origen. Los cambios en las máquinas virtuales de origen se envían a esta cuenta, antes de la replicación en la ubicación de destino.<br/><br/> Si usa la cuenta de almacenamiento en caché con firewall habilitado, asegúrese de habilitar **Permitir servicios de Microsoft de confianza**. [Más información.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
     **Cuentas de almacenamiento de destino (si la máquina virtual de origen no usa discos administrados)** | de forma predeterminada, Site Recovery crea una nueva cuenta de almacenamiento en la región de destino para reflejar la cuenta de almacenamiento de la máquina virtual de origen.<br/><br/> Si usa la cuenta de almacenamiento en caché con firewall habilitado, habilite **Permitir servicios de Microsoft de confianza**.
-    **Discos administrados de réplica (si la máquina virtual de origen usa discos administrados)** | de forma predeterminada, Site Recovery crea discos administrados de réplica en la región de destino para reflejar los discos administrados de la máquina virtual de origen con el mismo tipo de almacenamiento (Standard o Premium) que el disco administrado de la máquina virtual de origen.
+    **Discos administrados de réplica (si la máquina virtual de origen usa discos administrados)** | de forma predeterminada, Site Recovery crea discos administrados de réplica en la región de destino para reflejar los discos administrados de la máquina virtual de origen con el mismo tipo de almacenamiento (Standard o Premium) que el disco administrado de la máquina virtual de origen. Solo se puede personalizar el tipo de disco 
     **Conjuntos de disponibilidad de destino** | de forma predeterminada, Azure Site Recovery crea un conjunto de disponibilidad en la región de destino con un nombre con el sufijo "asr" para la parte de máquina virtual de un conjunto de disponibilidad de la región de origen. En caso de que el conjunto de disponibilidad que cree Azure Site Recovery ya exista, se vuelve a usar.
     **Zonas de disponibilidad de destino** | de forma predeterminada, Site Recovery asigna el mismo número de zona que la región de origen en la región de destino si esta admite zonas de disponibilidad.<br/><br/> Si la región de destino no admite zonas de disponibilidad, las máquinas virtuales de destino se configurarán como instancias únicas de forma predeterminada.<br/><br/> Haga clic en **Personalizar** para configurar las máquinas virtuales como parte de un conjunto de disponibilidad en la región de destino.<br/><br/> No puede cambiar el tipo de disponibilidad (instancia única, zona de disponibilidad o conjunto de disponibilidad) después de habilitar la replicación. Tendrá que deshabilitar y habilitar la replicación para cambiar el tipo de disponibilidad.
 

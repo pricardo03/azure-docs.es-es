@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: f86949c196507080b32771a1b5470e9911e3e5b7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 069bc213695de813ad6b878db54f38a909efd1df
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545791"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956038"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>Tutorial: Compilación de una aplicación web de Java con Spring y Azure Cosmos DB
 
@@ -79,7 +79,7 @@ Siga estos pasos para crear una base de datos de Azure Cosmos DB en la suscripci
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
     ```
 
-4. Obtenga su clave de Azure Cosmos DB para conectarse a la aplicación. Tenga `primaryMasterKey`, `documentEndpoint` a la mano, porque los necesitará en el próximo paso.
+4. Obtenga su clave de Azure Cosmos DB para conectarse a la aplicación. Tenga `primaryMasterKey`, `documentEndpoint` a mano, porque los necesitará en el próximo paso.
 
     ```bash
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>

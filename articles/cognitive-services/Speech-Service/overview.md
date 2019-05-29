@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e29e36807aff6c32f295c79c90d80c7d2b5b4bcc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510743"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002985"
 ---
 # <a name="what-are-the-speech-services"></a>¿Qué son los servicios Voz?
 
@@ -42,7 +42,9 @@ Estas características conforman los servicios de voz de Azure. Use los vínculo
 Obtenga información sobre las novedades con los servicios de voz de Azure.
 
 * Mayo de 2019: ya hay documentación disponible para [Transcripción de conversaciones](conversation-transcription-service.md), [Transcripción de centros de llamadas](call-center-transcription.md) y [Asistentes virtuales por voz](voice-first-virtual-assistants.md).
-* Mayo de 2019 - Speech SDK versión 1.5.0 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
+* Mayo de 2019
+    * Speech SDK versión 1.5.1 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
+    * Speech SDK versión 1.5.0 publicado. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
 * Abril de 2019: publicación del SDK de Voz 1.4.0 con compatibilidad con conversión de texto a voz (Beta) para C++, C# y Java en Windows y Linux. Además, el SDK ahora admite formatos de audio MP3 y Opus/Ogg para C++ y C# en Linux. Para obtener una lista completa de actualizaciones, mejoras y problemas conocidos, consulte las [Notas de la versión](releasenotes.md).
 * Marzo de 2019: está disponible un nuevo punto de conexión para la conversión de texto a voz (TTS) que devuelve una lista completa de las voces disponibles en una región concreta. Además, ahora se admiten regiones nuevas para TTS. Para más información, consulte la [referencia de Text-to-speech API (REST)](rest-text-to-speech.md).
 

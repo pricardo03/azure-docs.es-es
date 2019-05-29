@@ -1,27 +1,27 @@
 ---
-title: 'Tutorial: redirigir el tráfico web basado en la dirección URL - CLI de Azure'
-description: En este tutorial aprenderá a redirigir el tráfico web basado en la URL a grupos de servidores escalables específicos mediante la CLI de Azure.
+title: 'Redirección del tráfico web en base a la dirección URL: CLI de Azure'
+description: En este artículo aprenderá a redirigir el tráfico web en base a la URL a grupos de servidores escalables específicos mediante la CLI de Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f0c93c41a468b62baf1ec50d030f235d36a8dd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006479"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955544"
 ---
-# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutorial: Redirección del tráfico web en función de la dirección URL mediante la CLI de Azure
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Redirección del tráfico web en función de la dirección URL mediante la CLI de Azure
 
-Como administrador de IT que administra el tráfico web, desea ayudar a los clientes o usuarios a obtener la información que necesitan lo más rápidamente posible. Una manera en la que puede optimizar su experiencia es mediante el enrutamiento de diferentes clases de tráfico web a diferentes recursos de servidor. Este tutorial le muestra cómo usar la CLI de Azure para instalar y configurar el enrutamiento de Application Gateway para distintos tipos de tráfico de la aplicación. Posteriormente, el enrutamiento dirige el tráfico a diferentes granjas de servidores según la dirección URL.
+Como administrador de IT que administra el tráfico web, desea ayudar a los clientes o usuarios a obtener la información que necesitan lo más rápidamente posible. Una manera en la que puede optimizar su experiencia es mediante el enrutamiento de diferentes clases de tráfico web a diferentes recursos de servidor. Este artículo le muestra cómo usar la CLI de Azure para instalar y configurar el enrutamiento de Application Gateway para distintos tipos de tráfico de la aplicación. Posteriormente, el enrutamiento dirige el tráfico a diferentes granjas de servidores según la dirección URL.
 
 ![Ejemplo de enrutamiento de direcciones URL](./media/tutorial-url-route-cli/scenario.png)
 
-En este tutorial, aprenderá a:
+En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un grupo de recursos para los recursos de red que necesitará
@@ -31,13 +31,13 @@ En este tutorial, aprenderá a:
 > * Crear un conjunto de escalado para cada granja para que esta se pueda escalar de forma automática
 > * Ejecutar una prueba para comprobar que los distintos tipos de tráfico van a la granja correcta
 
-Si lo prefiere, puede completar este tutorial con [Azure PowerShell](tutorial-url-route-powershell.md) o [Azure Portal](create-url-route-portal.md).
+Si lo prefiere, puede completar este procedimiento con [Azure PowerShell](tutorial-url-route-powershell.md) o [Azure Portal](create-url-route-portal.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI de forma local, en este tutorial necesitará la CLI de Azure versión 2.0.4 o posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI de forma local, en este artículo necesitará la CLI de Azure versión 2.0.4 o posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -182,7 +182,7 @@ az network application-gateway rule create \
 
 ## <a name="create-vm-scale-sets"></a>Creación de conjuntos de escalado de máquinas virtuales
 
-En este tutorial, creará tres conjuntos de escalado de máquinas virtuales que admitan los tres grupos de back-end que ha creado. Cree los conjuntos de escalado denominados *myvmss1*, *myvmss2* y *myvmss3*. Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instalará NGINX.
+En este artículo, creará tres conjuntos de escalado de máquinas virtuales que admitan los tres grupos de back-end que ha creado. Cree los conjuntos de escalado denominados *myvmss1*, *myvmss2* y *myvmss3*. Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instalará NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -264,5 +264,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Crear una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL](./tutorial-url-redirect-cli.md)
+* [Crear una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL](./tutorial-url-redirect-cli.md)

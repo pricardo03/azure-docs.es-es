@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f250a5ac5f6fefa099303b033a9687f1a219efd8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a8ff026743ccda0a47ce176db51dbc7913376f46
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262319"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Tutorial: Integración de Azure Active Directory con Bersin
 
@@ -51,9 +51,9 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Bersin en Azure AD, deberá agregar Bersin desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Bersin desde la galería, realice los pasos siguientes:**
+**Para agregar Bersin desde la galería**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -75,12 +75,12 @@ En esta sección, podrá configurar y probar el inicio de sesión único de Azur
 
 Para configurar y probar el inicio de sesión único de Azure AD con Bersin, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Bersin](#configure-bersin-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Bersin](#create-bersin-test-user)**: para tener un homólogo de Britta Simon en Bersin que esté vinculado a su representación en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en Bersin](#configure-bersin-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en Bersin](#create-bersin-test-user)** : para tener un homólogo de Britta Simon en Bersin que esté vinculado a su representación en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -100,7 +100,7 @@ Para configurar el inicio de sesión único de Azure AD con Bersin, siga estos p
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, si quiere configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
+4. Si desea configurar la aplicación de modo que se inicie mediante **IDP**, en la sección **Configuración básica de SAML**, haga lo siguiente:
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Bersin](common/idp-identifier-relay.png)
 
@@ -110,7 +110,7 @@ Para configurar el inicio de sesión único de Azure AD con Bersin, siga estos p
 
     c. En el cuadro de texto **Estado de la retransmisión**, escriba una dirección URL que siga este patrón: `https://www.bersin.com/secure/`
 
-5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+5. Haga clic en **Establecer direcciones URL adicionales** y siga estos pasos si desea configurar la aplicación de modo que se inicie mediante **SP**:
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Bersin](common/metadata-upload-additional-signon.png)
 
@@ -132,7 +132,7 @@ Para configurar el inicio de sesión único de Azure AD con Bersin, siga estos p
 
 ### <a name="configure-bersin-single-sign-on"></a>Configuración del inicio de sesión único en Bersin
 
-Para configurar el inicio de sesión único en **Bersin**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Bersin](mailto:ramansabde@gmail.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Bersin**, envíe el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Bersin](mailto:ramansabde@gmail.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -146,13 +146,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Nuevo usuario](common/new-user.png)
 
-3. En las propiedades Usuario, siga estos pasos.
+3. En las propiedades del usuario, siga estos pasos.
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -181,13 +181,13 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario. Haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="create-bersin-test-user"></a>Creación de un usuario de prueba en Bersin
 
-En esta sección, creará un usuario llamado Britta Simon en Bersin. Colabore con el  [equipo de soporte técnico de Bersin](mailto:USBersinServiceClient@deloitte.com) para agregar los usuarios en la plataforma de Bersin o el dominio que deben incluirse en la lista blanca en la plataforma de Bersin. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de Bersin. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Bersin. Colabore con el  [equipo de soporte técnico de Bersin](mailto:USBersinServiceClient@deloitte.com) para agregar a los usuarios del dominio o la plataforma de Bersin necesarios a la lista blanca de la plataforma de Bersin. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de Bersin. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

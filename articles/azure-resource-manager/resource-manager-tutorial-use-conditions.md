@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ad7c87161c550c4728978e9c975252cab34f76ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a03707246f27bcba9cc46168ec04893b7bbc4c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389796"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990792"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Uso de condiciones en plantillas de Azure Resource Manager
 
 Aprenda a implementar recursos de Azure según condiciones.
 
-En el tutorial [Establecimiento del orden de implementación de los recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), se crean una máquina virtual, una red virtual y algunos otros recursos dependientes incluidos en una cuenta de almacenamiento. En lugar de crear una nueva cuenta de almacenamiento, cada vez, dejará que la gente elija entre crear una nueva cuenta de almacenamiento y usar una existente. Para lograr este objetivo, definirá un parámetro adicional. Si el valor del parámetro es "new", se crea una nueva cuenta de almacenamiento.
+En el tutorial [Establecimiento del orden de implementación de los recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), se crean una máquina virtual, una red virtual y algunos otros recursos dependientes incluidos en una cuenta de almacenamiento. En lugar de crear una nueva cuenta de almacenamiento, cada vez, dejará que la gente elija entre crear una nueva cuenta de almacenamiento y usar una existente. Para lograr este objetivo, definirá un parámetro adicional. Si el valor del parámetro es "new", se crea una nueva cuenta de almacenamiento. En caso contrario, se usa una cuenta de almacenamiento existente con el nombre proporcionado.
 
 ![Diagrama de las condiciones de uso de la plantilla de Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
@@ -35,6 +35,13 @@ En este tutorial se describen las tareas siguientes:
 > * Modificación de la plantilla
 > * Implementación de la plantilla
 > * Limpieza de recursos
+
+Este tutorial solo trata de un escenario básico de condiciones de uso. Para más información, consulte:
+
+* [Estructura de archivos de plantilla: Condición](./resource-group-authoring-templates.md#condition).
+* [Implementación condicional de un recurso en una plantilla de Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy.md).
+* [Función de plantilla: If](./resource-group-template-functions-logical.md#if).
+* [Funciones de comparación para las plantillas de Azure Resource Manager](./resource-group-template-functions-comparison.md)
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -48,6 +55,7 @@ Para completar este artículo, necesitará lo siguiente:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault está diseñado para proteger las claves criptográficas y otros secretos. Para más información, consulte [Tutorial: Integración de Azure Key Vault en Resource Manager Template Deployment](./resource-manager-tutorial-use-key-vault.md). También se recomienda actualizar la contraseña cada tres meses.
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
@@ -60,6 +68,7 @@ Las plantillas de inicio rápido de Azure consisten en un repositorio de plantil
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
+
 3. Seleccione **Abrir** para abrir el archivo.
 4. La plantilla define cinco recursos:
 
@@ -82,12 +91,11 @@ Realice dos cambios en la plantilla existente:
 Éste es el procedimiento para realizar los cambios:
 
 1. Abra **azuredeploy.json** en Visual Studio Code.
-2. Reemplace **variables('storageAccountName')** por **parameters('storageAccountName')** en toda la plantilla.  Hay tres apariciones de **variables('storageAccountName')**.
+2. Reemplace las tres apariciones de **variables("storageAccountName")** por **parameters("storageAccountName")** en toda la plantilla.
 3. Quite la siguiente definición de variable:
 
-    ```json
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
-    ```
+    ![Diagrama de las condiciones de uso de la plantilla de Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+
 4. Agregue los dos parámetros siguientes a la plantilla:
 
     ```json
@@ -95,13 +103,14 @@ Realice dos cambios en la plantilla existente:
       "type": "string"
     },
     "newOrExisting": {
-      "type": "string", 
+      "type": "string",
       "allowedValues": [
-        "new", 
+        "new",
         "existing"
       ]
     },
     ```
+
     La definición de parámetros actualizada se parece a esta:
 
     ![Condición de uso de Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
@@ -117,7 +126,7 @@ Realice dos cambios en la plantilla existente:
     La definición de la cuenta de almacenamiento actualizada se parece a esta:
 
     ![Condición de uso de Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Actualice **storageUri** con el siguiente valor:
+6. Actualice la propiedad **storageUri** de la definición de recursos de la máquina virtual con el siguiente valor:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -129,11 +138,7 @@ Realice dos cambios en la plantilla existente:
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Para implementar la plantilla, siga las instrucciones que se indican en [Implementación de la plantilla](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template).
-
-Al implementar la plantilla mediante Azure PowerShell, es preciso especificar un parámetro adicional. Para aumentar la seguridad, utilice una contraseña generada para la cuenta de administrador de máquina virtual. Consulte [Requisitos previos](#prerequisites).
+Siga las instrucciones de [Implementación de la plantilla](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para abrir Cloud Shell y cargar la plantilla modificada y, después, ejecute el siguiente script de PowerShell para implementar la plantilla.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -162,12 +167,12 @@ Intente otra implementación con **newOrExisting** establecido en "existing" y e
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos.
+Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos. Para eliminar el grupo de recursos, seleccione **Pruébelo** para que se abra Cloud Shell. Para pegar el script de PowerShell, haga clic con el botón derecho en el panel de Shell y, a continuación, seleccione **Pegar**.
 
-1. En Azure Portal, seleccione **Grupos de recursos** en el menú de la izquierda.
-2. Escriba el nombre del grupo de recursos en el campo **Filtrar por nombre**.
-3. Seleccione el nombre del grupo de recursos.  Verá un total de seis recursos en el grupo de recursos.
-4. Seleccione **Eliminar grupo de recursos** del menú superior.
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0573448c753c763e818d641216033dbeacb9e9a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 01cedadc115496fcf00df986b4ad4b9c5aab5139
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199314"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606191"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Inicio rápido: Establecimiento de los grupos de Office 365 que expiran en Azure Active Directory
 
@@ -35,11 +35,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisite"></a>Requisito previo
 
-Debe ser administrador global o administrador de usuarios en la organización para configurar la expiración de grupos.
+ Para configurar la expiración de grupos, es necesario contar como mínimo con el rol de Usuario administrador en la organización.
 
 ## <a name="turn-on-user-creation-for-groups"></a>Activación de la creación de grupos por el usuario
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global o administrador de usuarios en la organización.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de Usuario administrador.
 
 2. Seleccione **Grupos** y, a continuación, seleccione **General**.
   
@@ -80,7 +80,7 @@ Eso es todo. En esta guía de inicio rápido, ha establecido correctamente la di
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la expiración, incluidas las limitaciones técnicas, la adición de una lista de palabras bloqueadas personalizadas y las experiencias de usuario final en las aplicaciones de Office 365, consulte el siguiente artículo que contiene los detalles de dichas directivas de expiración:
+Para obtener más información sobre la expiración, incluidas las instrucciones de PowerShell y las limitaciones técnicas, consulte el artículo siguiente:
 
 > [!div class="nextstepaction"]
-> [Todos los detalles de las directivas de expiración](groups-lifecycle.md)
+> [Expiration policy PowerShell](groups-lifecycle.md) (Directiva de expiración de PowerShell)

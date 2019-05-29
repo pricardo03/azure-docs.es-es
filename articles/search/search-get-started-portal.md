@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b30fa61cd46acd4fa9da9d97c100e3b3a0aaf067
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e5baa0876dc976553e8e541cef6b481329500bf6
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024763"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606449"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Inicio rápido: Uso de herramientas integradas el portal para la importación, indexación y consultas de Azure Search
 > [!div class="op_single_selector"]
@@ -200,7 +200,7 @@ Los filtros de faceta se incluyen en las solicitudes de búsqueda. Puede usar el
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcitytop2"></a>Ejemplo (con faceta con reducción del ámbito): `search=*&facet=city&$top=2`
 
-* **search=*** es una búsqueda vacía. Las búsquedas vacías buscan en todo. Una de las razones para enviar una búsqueda vacía es filtrar o clasificar el conjunto completo de documentos. Por ejemplo, quiere una estructura de navegación en facetas que conste de todas las ciudades del índice.
+* **search=** * es una búsqueda vacía. Las búsquedas vacías buscan en todo. Una de las razones para enviar una búsqueda vacía es filtrar o clasificar el conjunto completo de documentos. Por ejemplo, quiere una estructura de navegación en facetas que conste de todas las ciudades del índice.
 
 * **facet** devuelve una estructura de navegación que puede pasar a un control de interfaz de usuario. Devuelve categorías y un recuento. En este caso, las categorías se basan en el número de ciudades. No hay ninguna agregación en Azure Search, pero puede aproximarla mediante `facet`, que proporciona un recuento de documentos de cada categoría.
 
@@ -252,7 +252,7 @@ Se admite la búsqueda geoespacial mediante el [tipo de dato edm.GeographyPoint]
 
 La consulta de ejemplo filtra todos los resultados por datos de posición, donde los resultados sean inferiores a 5 kilómetros desde un punto dado (especificado como coordenadas de latitud y longitud). Al agregar **$count**, verá cuántos resultados se devuelven al cambiar la distancia o las coordenadas.
 
-La búsqueda geoespacial resulta útil si su aplicación de búsqueda tiene una característica "buscar cerca de mí" o utiliza la navegación mediante mapas. No obstante, no es una búsqueda de texto completo. Si tiene requisitos de usuario de buscar en una ciudad o país por nombre, agregue campos que contengan nombres de ciudades o de países, además de coordenadas.
+La búsqueda geoespacial resulta útil si su aplicación de búsqueda tiene una característica "buscar cerca de mí" o utiliza la navegación mediante mapas. No obstante, no es una búsqueda de texto completo. Si tiene requisitos de usuario de buscar en una ciudad o país/región por nombre, agregue campos que contengan nombres de ciudades o de países/regiones, además de coordenadas.
 
 ## <a name="takeaways"></a>Puntos clave
 

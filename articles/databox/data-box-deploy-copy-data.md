@@ -1,19 +1,19 @@
 ---
-title: Copia de datos a un dispositivo Microsoft Azure Data Box mediante SMB | Microsoft Docs
+title: Tutorial de copia de datos en Azure Data Box mediante SMB| Microsoft Docs
 description: Aprenda a copiar datos a un dispositivo Azure Data Box mediante SMB
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 05/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 83eabca3b2ec1903e25b02083b1a2d5b49745396
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118091"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800463"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Copia de datos a Azure Data Box Disk mediante SMB
 
@@ -41,8 +41,8 @@ Antes de comenzar, asegúrese de que:
 
 En función de la cuenta de almacenamiento seleccionada, Data Box crea hasta:
 - Tres recursos compartidos para cada cuenta de almacenamiento asociada (GPv1 y GPv2).
-- Un recurso compartido para Premium Storage. 
-- Un recurso compartido para una cuenta de Blob Storage. 
+- Un recurso compartido para Premium Storage.
+- Un recurso compartido para una cuenta de Blob Storage.
 
 En los recursos compartidos de blob en bloques y en páginas, las entidades de primer nivel son contenedores y las entidades de segundo nivel son blobs. En los recursos compartidos de Azure Files, las entidades de primer nivel son los recursos compartidos y las entidades de segundo nivel son los archivos.
 
@@ -91,7 +91,7 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 
     **Cree siempre una carpeta para los archivos que se va a copiar en el recurso compartido y, después, copie los archivos en ella**. La carpeta que se creó en los recursos compartidos de blob en bloques y blob en páginas representa un contenedor en el que los datos se cargan como blobs. No se pueden copiar los archivos directamente en la carpeta *root* de la cuenta de almacenamiento.
     
-Si usa un cliente Linux, utilice el siguiente comando para montar el recurso compartido SMB. El parámetro "vers" siguiente es la versión de SMB compatible con el host Linux. Conecte la versión adecuada en el siguiente comando. Para ver las versiones de SMB compatibles con Data Box, consulte [Sistemas de archivos compatibles para clientes Linux](https://docs.microsoft.com/en-us/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients). 
+Si usa un cliente Linux, utilice el siguiente comando para montar el recurso compartido SMB. El parámetro "vers" siguiente es la versión de SMB compatible con el host Linux. Conecte la versión adecuada en el siguiente comando. Para ver las versiones de SMB compatibles con Data Box, consulte [Sistemas de archivos compatibles para clientes Linux](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients). 
 
     `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
     
@@ -132,7 +132,7 @@ Después de haberse conectado al recurso compartido SMB, inicie una copia de dat
 |/z    | Copia los archivos en modo de reinicio; use esta opción si el entorno es inestable. Esta opción reduce el rendimiento porque realiza un registro adicional.      |
 | /zb     | Usa el modo de reinicio. Si se deniega el acceso, esta opción utiliza el modo de copia de seguridad. Esta opción reduce el rendimiento porque utiliza puntos de control.         |
 |/efsraw     | Copia todos los archivos cifrados en el modo sin procesar de EFS. Usar solo con los archivos cifrados.         |
-|log+:<LogFile>| Anexa la salida al archivo de registro existente.|    
+|log+:\<LogFile>| Anexa la salida al archivo de registro existente.|    
  
 El ejemplo siguiente muestra la salida del comando robocopy para copiar archivos en el dispositivo Data Box.
     
@@ -202,7 +202,7 @@ Para optimizar el rendimiento, use los siguientes parámetros de robocopy al cop
 
 Para más información sobre el comando Robocopy, consulte [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy y algunos ejemplos).
 
-Abra la carpeta de destino para ver y comprobar los archivos copiados. Si se produce algún error durante el proceso de copia, descargue los archivos de error para solucionar problemas.
+Abra la carpeta de destino para ver y comprobar los archivos copiados. Si se produce algún error durante el proceso de copia, descargue los archivos de error para solucionar problemas. Para más información, consulte [Ver registro de errores durante la copia de datos en Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). Para obtener una lista detallada de errores durante la copia de datos, consulte [Solución de problemas de Data Box](data-box-troubleshoot.md).
 
 Para garantizar la integridad de los datos, la suma de comprobación se calcula a medida que los datos se copian. Una vez completada la copia, compruebe el espacio utilizado y el espacio disponible en el dispositivo.
     

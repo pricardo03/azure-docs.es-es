@@ -1,6 +1,6 @@
 ---
 title: Transmisión de archivos de vídeo con Azure Media Services y la CLI de Azure | Microsoft Docs
-description: Siga los pasos de este inicio rápido para crear una nueva cuenta de Azure Media Services, codificar un archivo y hacer streaming a Azure Media Player.
+description: Siga los pasos de este tutorial para crear una cuenta de Azure Media Services, codificar un archivo y transmitirlo a Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,24 +9,24 @@ editor: ''
 keywords: azure media services, streaming
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cce424b11cc4cd587c6e7c50bc8bdf988004a43a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205418"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550202"
 ---
-# <a name="quickstart-stream-video-files---cli"></a>Inicio rápido: Hacer streaming de archivos de vídeo: CLI
+# <a name="tutorial-stream-video-files---cli"></a>Tutorial: Hacer streaming de archivos de vídeo: CLI
 
-En este inicio rápido se muestra lo fácil que es codificar y transmitir vídeos en una amplia variedad de exploradores y dispositivos con Azure Media Services y la CLI de Azure. Se puede especificar contenido de entrada mediante direcciones URL HTTPS o SAS o rutas de acceso a archivos de Azure Blob Storage.
+En este tutorial se muestra lo fácil que es codificar y transmitir vídeos en una amplia variedad de exploradores y dispositivos con Azure Media Services y la CLI de Azure. Se puede especificar contenido de entrada mediante direcciones URL HTTPS o SAS o rutas de acceso a archivos de Azure Blob Storage.
 
 En el ejemplo de este artículo se codifica contenido que se hace accesible a través de una dirección URL HTTPS. Media Services v3 no admite actualmente la codificación de transferencia fragmentada a través de direcciones URL HTTPS.
 
-Al final de este inicio rápido, podrá transmitir un vídeo.  
+Al final de este tutorial, podrá transmitir un vídeo.  
 
 ![Reproducción del vídeo](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -334,7 +334,7 @@ Este es un ejemplo:
 > Si el reproductor está hospedado en un sitio HTTPS, asegúrese de iniciar la dirección URL con "https".
 
 1. Abra un explorador web y vaya a [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. En el cuadro **URL:**, pegue la dirección URL que creó en la sección anterior. Puede pegar la dirección URL en formato Smooth, Dash o HLS. Azure Media Player usarán automáticamente un protocolo de transmisión adecuado para la reproducción en el dispositivo.
+2. En el cuadro **URL:** , pegue la dirección URL que creó en la sección anterior. Puede pegar la dirección URL en formato Smooth, Dash o HLS. Azure Media Player usarán automáticamente un protocolo de transmisión adecuado para la reproducción en el dispositivo.
 3. Seleccione **Update Player** (Actualizar reproductor).
 
 >[!NOTE]
@@ -342,7 +342,7 @@ Este es un ejemplo:
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si ya no necesita ninguno de los recursos del grupo de recursos, incluidas las cuentas de almacenamiento y de Media Services que creó en este inicio rápido, elimine el grupo de recursos.
+Si ya no necesita ninguno de los recursos del grupo de recursos, como las cuentas de almacenamiento y de Media Services que creó en este tutorial, elimine el grupo de recursos.
 
 Ejecute este comando de la CLI:
 
@@ -350,10 +350,7 @@ Ejecute este comando de la CLI:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Otras referencias
-
-Consulte [Códigos de error de trabajo](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Introducción a Media Services](media-services-overview.md)
+

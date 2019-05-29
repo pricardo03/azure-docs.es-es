@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 58fb1d73509ab52551bead4526dfb47588cf1ec6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004591"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965723"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>¿Qué es la versión preliminar de Windows Virtual Desktop? 
 
@@ -54,16 +54,13 @@ También puede asignar y conectar a los usuarios a los escritorios virtuales:
 
 Es necesario cumplir una serie de requisitos para configurar Windows Virtual Desktop y conectar correctamente sus usuarios a los escritorios y aplicaciones de Windows.
 
-Windows Virtual Desktop solo admite actualmente los dos siguientes sistemas operativos:
-- Sesión múltiple de Windows 10 Enterprise
-- Windows Server 2016
-
 Está previsto agregar compatibilidad con los siguientes sistemas operativos, así que asegúrese de que dispone de las [licencias adecuadas](https://azure.microsoft.com/pricing/details/virtual-desktop/) para los usuarios según el escritorio y las aplicaciones que tenga pensado implementar:
 
 |SO|Licencia necesaria|
 |---|---|
-
-|Sesión múltiple de Windows 10 Enterprise o Windows 10 Enterprise|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5| |Windows 7 Enterprise |Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5| |Windows Server 2012 R2, 2016, 2019|Licencia de acceso de cliente para Servicios de Escritorio Remoto (CAL) con Software Assurance|
+|Sesión múltiple de Windows 10 Enterprise o Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows Server 2012 R2, 2016, 2019|Licencia de acceso de cliente (CAL) de RDS con Software Assurance|
 
 Su infraestructura necesita cumplir los siguientes requisitos para ser compatible con Windows Virtual Desktop:
 
@@ -76,9 +73,7 @@ Su infraestructura necesita cumplir los siguientes requisitos para ser compatibl
 Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben cumplir estos requisitos:
 
 * Estar [unidas a un dominio estándar](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) o a un [dominio híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Las máquinas virtuales no pueden estar unidas a Azure AD.
-* Deben ejecutar una de las siguientes imágenes de sistema operativo admitidas:
-  * Sesión múltiple de Windows 10 Enterprise
-  * Windows Server 2016
+* Deben ejecutar una de las siguientes [imágenes de sistema operativo admitidas](#supported-virtual-machine-os-image).
 
 >[!NOTE]
 >Si necesita una suscripción a Azure, puede [registrarse para obtener una evaluación gratuita por un mes](https://azure.microsoft.com/free/). Si usa la versión de evaluación gratuita de Azure, debe utilizar Azure AD Domain Services para mantener sincronizada su instancia de Windows Server Active Directory con Azure Active Directory.
@@ -88,8 +83,23 @@ Windows Virtual Desktop consta de los escritorios y las aplicaciones de Windows 
 Para obtener un rendimiento óptimo, asegúrese de que la red cumple los requisitos siguientes:
 
 * La latencia de ida y vuelta (RTT) desde la red del cliente hasta la región de Azure donde se han implementado grupos host debe ser inferior a 150 ms.
-* El tráfico de red puede fluir fuera de las fronteras del país si las máquinas virtuales que hospedan los escritorios y aplicaciones se conectan al servicio de administración.
+* El tráfico de red puede fluir fuera de las fronteras del país o la región si las máquinas virtuales que hospedan los escritorios y aplicaciones se conectan al servicio de administración.
 * Para optimizar el rendimiento de la red, se recomienda que las máquinas virtuales del host de sesión se coloquen en la misma región de Azure que el servicio de administración.
+
+## <a name="supported-remote-desktop-clients"></a>Clientes compatibles de Escritorio remoto
+
+Los clientes de Escritorio remoto siguientes admiten Windows Virtual Desktop:
+
+* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
+* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+
+
+## <a name="supported-virtual-machine-os-image"></a>Imágenes de SO de máquinas virtuales admitidas
+
+Windows Virtual Desktop admite las imágenes de SO siguiente:
+
+* Sesión múltiple de Windows 10 Enterprise
+* Windows Server 2016
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 

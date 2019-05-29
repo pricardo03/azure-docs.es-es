@@ -17,16 +17,14 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0a40c9ee06751edfb7b218cf15275019c142545
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3851e53bb648811b46ec69d9c4fc91b920ce80fb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491328"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784957"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola mediante la identidad de la aplicación
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 En esta guía de inicio rápido, aprenderá a escribir una aplicación .NET Core que pueda obtener un token de acceso mediante la propia identidad de la aplicación, y a llamar a Microsoft Graph API para mostrar una [lista de usuarios](https://docs.microsoft.com/graph/api/user-list) en el directorio. Este escenario es útil en situaciones donde es necesario ejecutar trabajos desatendidos o servicios de Windows con una identidad de aplicación, en lugar de la identidad de un usuario.
 
@@ -100,13 +98,13 @@ Para este inicio rápido se requiere [.NET Core 2.2](https://www.microsoft.com/n
     
     > [!div renderon="docs"]
     >> Donde:
-    >> * `Enter_the_Application_Id_Here` - es el **identificador de aplicación (cliente)** de la aplicación que registró.
-    >> * `Enter_the_Tenant_Id_Here` - sustituya este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com).
-    >> * `Enter_the_Client_Secret_Here` - sustituya este valor por el secreto de cliente creado en el paso 1.
+    >> * `Enter_the_Application_Id_Here`: es el **identificador de aplicación (cliente)** de la aplicación que registró.
+    >> * `Enter_the_Tenant_Id_Here`: sustituya este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com).
+    >> * `Enter_the_Client_Secret_Here`: sustituya este valor por el secreto de cliente creado en el paso 1.
 
     > [!div renderon="docs"]
     > > [!TIP]
-    > > Para buscar los valores de **identificador de aplicación (cliente)** e **identificador de directorio (inquilino)**, vaya a la página **Información general** de Azure Portal. Para generar una nueva clave, vaya a la página **Certificates & secrets** (Certificados y secretos).
+    > > Para buscar los valores de **identificador de aplicación (cliente)** e **identificador de directorio (inquilino)** , vaya a la página **Información general** de Azure Portal. Para generar una nueva clave, vaya a la página **Certificates & secrets** (Certificados y secretos).
     
 #### <a name="step-4-admin-consent"></a>Paso 4: Consentimiento de administrador
 
@@ -132,8 +130,8 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> Donde:
->> * `Enter_the_Tenant_Id_Here` - sustituya este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com).
->> * `Enter_the_Application_Id_Here` - es el **identificador de aplicación (cliente)** de la aplicación que registró.
+>> * `Enter_the_Tenant_Id_Here`: sustituya este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com).
+>> * `Enter_the_Application_Id_Here`: es el **identificador de aplicación (cliente)** de la aplicación que registró.
 
 > [!NOTE]
 > Es posible que vea el error *"AADSTS50011: No reply address is registered for the application"* (AADSTS50011: no hay ninguna dirección de respuesta registrada para la aplicación) después de dar consentimiento a la aplicación mediante la dirección URL anterior. Esto sucede porque esta aplicación y la dirección URL no tienen un URI de redirección. No haga caso del error.
@@ -159,7 +157,7 @@ Como resultado, verá una lista de usuarios en el directorio de Azure AD.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) es la biblioteca que se usa para iniciar la sesión de los usuarios y solicitar tokens de acceso a una API protegida por la Plataforma de identidad de Microsoft. Como se ha descrito, en este inicio rápido se solicitan tokens mediante la propia identidad de la aplicación, en lugar de permisos delegados. El flujo de autenticación usado en este caso se conoce como *[flujo de OAuth de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md)*. Para más información sobre cómo usar MSAL.NET con el flujo de credenciales de cliente, consulte [este artículo](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) es la biblioteca que se usa para iniciar la sesión de los usuarios y solicitar tokens de acceso a una API protegida por la Plataforma de identidad de Microsoft. Como se ha descrito, en este inicio rápido se solicitan tokens mediante la propia identidad de la aplicación, en lugar de permisos delegados. El flujo de autenticación usado en este caso se conoce como *[flujo de OAuth de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md)* . Para más información sobre cómo usar MSAL.NET con el flujo de credenciales de cliente, consulte [este artículo](https://aka.ms/msal-net-client-credentials).
 
  Puede instalar MSAL mediante la ejecución del siguiente comando en la **Consola del Administrador de paquetes** de Visual Studio:
 
@@ -198,7 +196,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > | `config.ClientId` | Es el **Identificador de aplicación (cliente)** de la aplicación registrada en Azure Portal. Puede encontrar este valor en la página **Información general** de la aplicación en Azure Portal. |
 > | `config.Authority`    | (Opcional) El punto de conexión STS del usuario que se autenticará. Normalmente <https://login.microsoftonline.com/{tenant}> en la nube pública, donde {tenant} es el nombre o el identificador del inquilino.|
 
-Para más información, consulte la [documentación de referencia de `ConfidentialClientApplication`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet).
+Para más información, consulte la [documentación de referencia de `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet).
 
 ### <a name="requesting-tokens"></a>Solicitud de tokens
 

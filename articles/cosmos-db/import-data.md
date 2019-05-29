@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo usar las herramientas de migració
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 05/20/2019
 ms.author: dech
-ms.openlocfilehash: 023b344d796ea5297cda202e7baa2f0e0ef5eebd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 792dca41a052930bf2c853846cdd0c09661c5cd3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315817"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954504"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Use la herramienta de migración de datos para migrar los datos a Azure Cosmos DB
 
@@ -19,10 +19,10 @@ En este tutorial, se muestra cómo usar la herramienta de migración de datos de
 
 ¿Qué API se va a usar con Azure Cosmos DB?
 
-* **[API de SQL ](documentdb-introduction.md)**: para importar los datos puede usar cualquiera de las opciones de origen disponibles en la herramienta de migración de datos.
-* **[Table API](table-introduction.md)**: para importar los datos, puede usar la herramienta de migración de datos o AzCopy. Para más información, consulte [Importación de datos para su uso con Table API de Azure Cosmos DB](table-import.md).
-* **[API de Azure Cosmos DB para MongoDB](mongodb-introduction.md)**: la herramienta de migración de datos no es compatible actualmente con la API de Azure Cosmos DB para MongoDB, independientemente de que sea origen o destino. Si quiere migrar los datos dentro o fuera de las colecciones en Azure Cosmos DB, consulte [Migración de los datos a una cuenta de la API de MongoDB para Azure Cosmos DB](mongodb-migrate.md) (Azure Cosmos DB: importar datos en la API de MongoDB), donde encontrará obtener instrucciones para hacerlo. De todos modos, todavía puede usar la herramienta de migración de datos para exportar datos desde MongoDB a las colecciones de API de SQL de Azure Cosmos DB, para así poder usarlos con la API de SQL.
-* **[Gremlin API](graph-introduction.md)**: la herramienta de migración de datos no se admite como herramienta de importación para las cuentas de Gremlin API en este momento.
+* **[API de SQL ](documentdb-introduction.md)** : para importar los datos puede usar cualquiera de las opciones de origen disponibles en la herramienta de migración de datos.
+* **[Table API](table-introduction.md)** : para importar los datos, puede usar la herramienta de migración de datos o AzCopy. Para más información, consulte [Importación de datos para su uso con Table API de Azure Cosmos DB](table-import.md).
+* **[API de Azure Cosmos DB para MongoDB](mongodb-introduction.md)** : la herramienta de migración de datos no es compatible actualmente con la API de Azure Cosmos DB para MongoDB, independientemente de que sea origen o destino. Si quiere migrar los datos dentro o fuera de las colecciones en Azure Cosmos DB, consulte [Migración de los datos a una cuenta de la API de MongoDB para Azure Cosmos DB](mongodb-migrate.md) (Azure Cosmos DB: importar datos en la API de MongoDB), donde encontrará obtener instrucciones para hacerlo. De todos modos, todavía puede usar la herramienta de migración de datos para exportar datos desde MongoDB a las colecciones de API de SQL de Azure Cosmos DB, para así poder usarlos con la API de SQL.
+* **[Gremlin API](graph-introduction.md)** : la herramienta de migración de datos no se admite como herramienta de importación para las cuentas de Gremlin API en este momento.
 
 En este tutorial se describen las tareas siguientes:
 
@@ -85,6 +85,19 @@ Una vez que haya instalado la herramienta, es el momento de importar los datos. 
 La opción del importador de origen de archivos JSON permite importar uno o varios archivos JSON de un único documento o archivos JSON que tengan cada uno una matriz de documentos JSON. Cuando se agregan carpetas que contienen archivos JSON que se van a importar, existe la opción de buscar archivos en subcarpetas de forma recursiva.
 
 ![Captura de pantalla de opciones de origen de archivos JSON: herramientas de migración de base de datos](./media/import-data/jsonsource.png)
+
+La cadena de conexión tiene el formato siguiente:
+
+`AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
+
+* `<CosmosDB Endpoint>` es el URI del punto de conexión. Puede encontrar este valor en Azure Portal. Vaya a la cuenta de Azure Cosmos. Abra el panel **Introducción** y copie el valor **URI**.
+* `<AccountKey>` es la "Contraseña" o **CLAVE PRINCIPAL**. Puede encontrar este valor en Azure Portal. Vaya a la cuenta de Azure Cosmos. Abra el panel **Cadenas de conexión** o **Claves** y copie el valor de "Contraseña" o **CLAVE PRINCIPAL**.
+* `<CosmosDB Database>` es el nombre de la base de datos de CosmosDB.
+
+Ejemplo: `AccountEndpoint=https://myCosmosDBName.documents.azure.com:443/;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDatabaseName`
+
+> [!NOTE]
+> Use el comando Verify para asegurarse de que se puede tener acceso a la cuenta de Cosmos DB especificada en el campo de la cadena de conexión.
 
 Estos son algunos ejemplos de la línea de comandos para importar archivos JSON:
 

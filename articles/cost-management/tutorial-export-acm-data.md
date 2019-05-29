@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/10/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 6975bb872e67650b8b5729a4ac66f0825fb9a80f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 521a5f2543b9a4a84d50f8f0e53a6ae5108f760b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678146"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792885"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
 Si lee el tutorial de análisis de costos, estará familiarizado con la descarga manual de los datos de Cost Management. Sin embargo, puede crear una tarea periódica para exportar automáticamente los datos de Cost Management en el almacenamiento de Azure con una periodicidad diaria, semanal o mensual. Los datos exportados están en formato CSV y contienen toda la información recopilada por Cost Management. A continuación, puede usar los datos exportados en el almacenamiento de Azure con sistemas externos y combinarlos con sus propios datos personalizados. También puede usar los datos exportados en un sistema externo, como un panel u otro sistema financiero.
+
+Vea el vídeo sobre [cómo programar exportaciones a almacenamiento con Azure Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) para conocer más sobre la creación de una exportación programada de los datos de sus costos de Azure a Azure Storage.
 
 Los ejemplos de este tutorial le guiarán durante la exportación de los datos de administración de costos y la comprobación de que los datos se exporten correctamente.
 
@@ -49,8 +51,8 @@ Para crear o ver una exportación de datos o programar una exportación, abra el
 
 > [!NOTE]
 > Además de las suscripciones, puede crear exportaciones en grupo de recursos, cuentas, departamentos e inscripciones. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
-> 
-> 
+>
+>
 
 
 Haga clic en **Agregar**, escriba un nombre para la exportación y seleccione la opción **Exportación diaria de costos desde ese mes hasta la fecha actual**. Haga clic en **Next**.

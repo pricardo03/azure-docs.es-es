@@ -8,12 +8,12 @@ ms.author: sngun
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e43b2d6f5a127f7f0f81c2dfc2fd3737c9ee787
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1afdc0319ae26fcd6c8cb3ada0b4aa8c31fe1fbb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880269"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861305"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Cassandra con .NET SDK y Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] También puede [probar gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sin suscripción de Azure, sin cargos y sin compromiso.
 
 Además, necesita: 
-* Si todavía no tiene instalado Visual Studio 2017, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
+* Si aún no tiene Visual Studio 2019 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 * Instale [Git](https://www.git-scm.com/) para clonar el ejemplo.
 
 <a id="create-account"></a>
@@ -122,7 +122,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     ![Visualización y copia de una clave de acceso en Azure Portal, página Cadena de conexión](./media/create-cassandra-dotnet/keys.png)
 
-2. En Visual Studio 2017, abra el archivo Program.cs. 
+2. En Visual Studio, abra el archivo Program.cs. 
 
 3. Pegue el valor de USERNAME del portal sobre `<FILLME>` en la línea 13.
 

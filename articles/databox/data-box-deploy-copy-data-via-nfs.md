@@ -1,19 +1,19 @@
 ---
-title: Copia de datos a un dispositivo Microsoft Azure Data Box mediante NFS | Microsoft Docs
+title: Tutorial de copia de datos en Azure Data Box mediante NFS| Microsoft Docs
 description: Aprenda a copiar datos a un dispositivo Azure Data Box mediante NFS
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 05/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 423db264c8035f9b089524eb4b19a13baccdf2e0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2b4825770d8220e24c0d981af19313f265806d84
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404712"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800437"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copia de datos a Azure Data Box Disk mediante NFS
 
@@ -130,7 +130,9 @@ Si usa la opción rsync para una copia multiproceso, siga estas directrices:
 > [!IMPORTANT]
 > No se admiten los siguientes tipos de archivos de Linux: vínculos simbólicos, archivos de caracteres, archivos de bloqueo, sockets y canalizaciones. Estos tipos de archivo generarán errores durante el paso **Preparación para el envío**.
 
-- Para garantizar la integridad de los datos, la suma de comprobación se calcula a medida que los datos se copian. Una vez completada la copia, compruebe el espacio utilizado y el espacio disponible en el dispositivo.
+Abra la carpeta de destino para ver y comprobar los archivos copiados. Si se produce algún error durante el proceso de copia, descargue los archivos de error para solucionar problemas. Para más información, consulte [Ver registro de errores durante la copia de datos en Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). Para obtener una lista detallada de errores durante la copia de datos, consulte [Solución de problemas de Data Box](data-box-troubleshoot.md).
+
+Para garantizar la integridad de los datos, la suma de comprobación se calcula a medida que los datos se copian. Una vez completada la copia, compruebe el espacio utilizado y el espacio disponible en el dispositivo.
     
    ![Comprobación del espacio libre y utilizado en el panel](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 

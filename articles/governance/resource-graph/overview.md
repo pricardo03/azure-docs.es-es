@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 45d5cf7c4235d10e136cc96364d52aa4319bbf79
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137778"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162075"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Introducción al servicio Azure Resource Graph
 
@@ -43,7 +43,7 @@ Con Azure Resource Graph, puede:
 ## <a name="how-resource-graph-is-kept-current"></a>Cómo se mantiene actualizado Resource Graph
 
 Cuando se actualiza un recurso de Azure, Resource Manager informa a Resource Graph del cambio.
-A continuación, Resource Graph actualiza su base de datos. Resource Graph también realiza un _examen completo_ regular. Este examen garantiza que los datos de Resource Graph sean actuales en caso de que falten notificaciones o al actualizarse un recurso fuera de Resource Manager.
+A continuación, Resource Graph actualiza su base de datos. Resource Graph también realiza un _examen completo_ regular. Este examen garantiza que los datos de Resource Graph sean actuales en caso de que falten notificaciones o al actualizarse un recurso fuera de Resource Manager.
 
 ## <a name="the-query-language"></a>El lenguaje de consulta
 
@@ -63,9 +63,15 @@ Para usar Resource Graph, debe tener los derechos adecuados en el [Control de ac
 
 ## <a name="throttling"></a>Limitaciones
 
-Como servicio gratuito, las consultas a Resource Graph se limitan para proporcionar la mejor experiencia y tiempo de respuesta para todos los clientes. Si la organización desea utilizar Resource Graph API para consultas frecuentes y a gran escala, utilice el portal de comentarios de la página de Resource Graph. Asegúrese de proporcionar su caso de negocio y seleccione la casilla "Microsoft puede ponerse en contacto con usted por correo electrónico en relación con sus comentarios" para que el equipo pueda ponerse en contacto con usted.
+Como servicio gratuito, las consultas a Resource Graph se limitan para proporcionar la mejor experiencia y tiempo de respuesta para todos los clientes. Si la organización quiere usar Resource Graph API para consultas frecuentes y a gran escala, use el portal "Comentarios" de la [página Resource Graph del portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+Proporcione su caso de negocio y seleccione la casilla "Microsoft puede ponerse en contacto con usted por correo electrónico en relación con sus comentarios" para que el equipo pueda ponerse en contacto con usted.
 
-Resource Graph se limita en el nivel de inquilino. El servicio invalida y establece el encabezado de respuesta `x-ms-ratelimit-remaining-tenant-reads` para indicar las consultas restantes disponibles por usuario en el inquilino. Resource Graph restablece la cuota cada 5 segundos en lugar de cada hora. Para más información, consulte [Limitación de solicitudes de Resource Manager](../../azure-resource-manager/resource-manager-request-limits.md).
+Resource Graph limita las consultas en el nivel de usuario. La respuesta del servicio contiene estos encabezados HTTP:
+
+- `x-ms-user-quota-remaining` (int): la cuota de recurso restante para el usuario. Este valor se asigna al número de consultas.
+- `x-ms-user-quota-resets-after` (hh:mm:ss): tiempo transcurrido hasta que se restablece el consumo de la cuota de un usuario.
+
+Para más información, consulte [Limitación de solicitudes de Resource Manager](../../azure-resource-manager/resource-manager-request-limits.md).
 
 ## <a name="running-your-first-query"></a>Ejecución de la primera consulta
 

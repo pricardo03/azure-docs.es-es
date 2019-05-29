@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f9746dae4cdf10a10922be41602f4ecd7f032f5b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904514"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949794"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Tutorial 1: Predicción del riesgo de crédito en Azure Machine Learning Studio
 
@@ -128,7 +128,7 @@ Una vez que los datos se han convertido al formato CSV, hay que cargarlos en Mac
 
 7. Escriba un nombre para el conjunto de datos. En este tutorial, se denominará "UCI German Credit Card Data".
 
-8. Para el tipo de datos, seleccione **Archivo CSV genérico sin encabezado (.nh.csv)**.
+8. Para el tipo de datos, seleccione **Archivo CSV genérico sin encabezado (.nh.csv)** .
 
 9. Agregue una descripción si así lo desea.
 
@@ -174,7 +174,7 @@ El siguiente paso de este tutorial es crear un experimento en Machine Learning S
 
 Puede ver los 100 primeros registros de los datos e información estadística de todo el conjunto: Haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior) y seleccione **Visualizar**.  
 
-Dado que el archivo de datos no incluye encabezados de columna, Estudio de aprendizaje automático ha proporcionado encabezados genéricos (Col1, Col2, *etc.*). No es esencial que los encabezados sean perfectos para crear un modelo, pero facilitan el trabajo con los datos del experimento. Además, cuando finalmente se publique este modelo en un servicio web, los encabezados ayudarán al usuario del servicio a identificar las columnas.  
+Dado que el archivo de datos no incluye encabezados de columna, Estudio de aprendizaje automático ha proporcionado encabezados genéricos (Col1, Col2, *etc.* ). No es esencial que los encabezados sean perfectos para crear un modelo, pero facilitan el trabajo con los datos del experimento. Además, cuando finalmente se publique este modelo en un servicio web, los encabezados ayudarán al usuario del servicio a identificar las columnas.  
 
 Se pueden agregar encabezados de columna mediante el módulo [Edit Metadata][edit-metadata] (Editar metadatos).
 

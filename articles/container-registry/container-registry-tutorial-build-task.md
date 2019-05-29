@@ -5,21 +5,23 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 5aa637938433eb1f906f0a4d81038cec0d6c6dcc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7a9a1e3d3c92f43d19a75e7cd0e10b3fd395a9b5
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893017"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544974"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatización de las compilaciones de imágenes de contenedor en la nube al confirmar código fuente
 
-Además de una [tarea rápida](container-registry-tutorial-quick-task.md), ACR Tasks admite las compilaciones automatizadas de imágenes de contenedor de Docker con la *tarea de compilación*. En este tutorial va a usar la CLI de Azure para crear una tarea que desencadena automáticamente compilaciones de imágenes en la nube cuando confirma código fuente en un repositorio Git.
+Además de [tareas rápidas](container-registry-tutorial-quick-task.md), ACR Tasks admite compilaciones de imágenes de contenedor Docker automatizadas en la nube al confirmar el código fuente en un repositorio de Git.
 
-En este tutorial, segunda parte de la serie, se realizan las siguientes operaciones:
+En este tutorial, la tarea ACR compila e inserta una única imagen de contenedor especificada en un archivo Dockerfile cuando confirma el código fuente en un repositorio de Git. Para crear una [tarea de varios pasos](container-registry-tasks-multi-step.md) que use un archivo YAML para definir los pasos para compilar, insertar y, opcionalmente, probar varios contenedores durante la confirmación del código, consulte el [Tutorial: Ejecución de un flujo de trabajo de contenedor de varios pasos en la nube al confirmar el código fuente](container-registry-tutorial-multistep-task.md). Para información general sobre ACR Tasks, consulte [Automatización de la aplicación de revisiones de sistema operativo y plataforma con ACR Tasks](container-registry-tasks-overview.md).
+
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crea una tarea.
@@ -33,51 +35,13 @@ En este tutorial se da por hecho que ya ha realizado los pasos de los [tutoriale
 
 Si quiere usar la CLI de Azure de forma local, debe tener la versión **2.0.46** de la CLI de Azure u otra posterior instalada y registrada con [az login][az-login]. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
 
-## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
-### <a name="get-sample-code"></a>Obtención de código de ejemplo
-
-En este tutorial se da por hecho que ya ha realizado los pasos de los [tutoriales anteriores](container-registry-tutorial-quick-task.md) y que ha bifurcado y clonado el repositorio de ejemplo. Si aún no lo ha hecho, complete los pasos de la sección [Requisitos previos](container-registry-tutorial-quick-task.md#prerequisites) del tutorial anterior antes de continuar.
-
-### <a name="container-registry"></a>Registro de contenedor
-
-Debe tener un registro de contenedor de Azure en la suscripción de Azure para completar este tutorial. Si necesita un registro, consulte el [tutorial anterior](container-registry-tutorial-quick-task.md), o [Inicio rápido: Creación de un registro de contenedor con la CLI de Azure](container-registry-get-started-azure-cli.md).
-
-## <a name="overview-of-acr-tasks"></a>Información general sobre ACR Tasks
-
-Una tarea define las propiedades de una compilación automatizada, incluida la ubicación del código fuente de la imagen de contenedor y el evento que desencadena la compilación. Cuando se produce un evento definido en la tarea como, por ejemplo una confirmación en un repositorio Git, ACR Tasks inicia una compilación de imagen de contenedor en la nube. De forma predeterminada, a continuación, se inserta una imagen compilada correctamente en el registro de contenedor de Azure especificado en la tarea.
-
-ACR Tasks admite actualmente los siguientes desencadenadores:
-
-* Confirmación en un repositorio Git
-* Actualización de imagen base
-
-En este tutorial, la tarea ACR compila e inserta una imagen de contenedor único especificada en un archivo Dockerfile. Azure Container Registry Tasks también puede ejecutar [tareas de varios pasos](container-registry-tasks-multi-step.md) mediante un archivo YAML que define los pasos para compilar, insertar y, opcionalmente, probar varios contenedores.
-
-## <a name="create-a-build-task"></a>Creación de una tarea de compilación
-
-En esta sección, creará primero un token de acceso personal de GitHub (PAT) para usarlo con ACR Tasks. A continuación, creará una tarea que desencadena una compilación cuando se confirma el código en su bifurcación del repositorio.
-
-### <a name="create-a-github-personal-access-token"></a>Creación de un token de acceso personal de GitHub
-
-Para desencadenar una compilación en una confirmación en un repositorio Git, ACR Tasks necesita un token de acceso personal (PAT) para acceder al repositorio. Siga estos pasos para generar un token de acceso personal en GitHub:
-
-1. Vaya a la página de creación del token de acceso personal en GitHub en https://github.com/settings/tokens/new
-1. Escriba una breve **descripción** para el token, por ejemplo, "ACR Tasks Demo"
-1. En **repo**, active **repo:status** y **public_repo**
-
-   ![Captura de pantalla de la página de generación de un token de acceso personal en GitHub][build-task-01-new-token]
-
-1. Seleccione el botón **Generar token** (puede que se le pida que confirme la contraseña)
-1. Copie y guarde el token generado en una **ubicación segura** (usará este token cuando defina una tarea en la siguiente sección)
-
-   ![Captura de pantalla del token de acceso personal que se generó en GitHub][build-task-02-generated-token]
-
-### <a name="create-the-build-task"></a>Creación de la tarea de compilación
+## <a name="create-the-build-task"></a>Creación de la tarea de compilación
 
 Ahora que ha completado los pasos necesarios para habilitar ACR Tasks para que lea el estado de confirmación y cree webhooks en un repositorio, puede crear una tarea que desencadene una compilación de imagen de contenedor después de las confirmaciones en el repositorio.
 
-Primero, rellene estas variables de entorno de shell con valores adecuados para el entorno. Este paso no es estrictamente necesario, pero hace que la ejecución de los comandos de varias líneas de la CLI de Azure en este tutorial sea un poco más fácil. Si no rellena estas variables de entorno, deberá reemplazar manualmente cada valor siempre que aparezcan en los comandos de ejemplo.
+Primero, rellene estas variables de entorno de shell con valores adecuados para el entorno. Este paso no es estrictamente necesario, pero hace que la ejecución de los comandos de varias líneas de la CLI de Azure en este tutorial sea un poco más fácil. Si no rellena estas variables de entorno, debe reemplazar manualmente cada valor siempre que aparezca en los comandos de ejemplo.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -106,14 +70,6 @@ Esta tarea especifica que siempre que confirme código en la rama *maestra* del 
 La salida de un comando [az acr task create][az-acr-task-create] que se ha ejecutado correctamente debe ser parecida a la siguiente:
 
 ```console
-$ az acr task create \
->     --registry $ACR_NAME \
->     --name taskhelloworld \
->     --image helloworld:{{.Run.ID}} \
->     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
->     --branch master \
->     --file Dockerfile \
->     --git-access-token $GIT_PAT
 {
   "agentConfiguration": {
     "cpu": 2
@@ -326,12 +282,11 @@ En este tutorial ha aprendido a usar una tarea que desencadena automáticamente 
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-task]: /cli/azure/acr
-[az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr
-[az-acr-task-list-runs]: /cli/azure/acr
+[az-acr-task]: /cli/azure/acr/task
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
 [az-login]: /cli/azure/reference-index#az-login
 
-<!-- IMAGES -->
-[build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png
-[build-task-02-generated-token]: ./media/container-registry-tutorial-build-tasks/build-task-02-generated-token.png
+
+

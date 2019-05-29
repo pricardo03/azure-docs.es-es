@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f395ae51d51e56668482ad6c8d446bdd31050fea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 98e4d1870c57c9718e2d4293157b21ead8ea44e1
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280179"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987489"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integración de Azure Active Directory con OpsGenie
 
@@ -53,7 +53,7 @@ Para configurar la integración de OpsGenie en Azure AD, deberá agregar OpsGeni
 
 **Para agregar OpsGenie desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -71,17 +71,17 @@ Para configurar la integración de OpsGenie en Azure AD, deberá agregar OpsGeni
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con OpsGenie con un usuario de prueba llamado **Britta Simon**.
+En esta sección, va a configurar y probar el inicio de sesión único de Azure AD con OpsGenie utilizando un usuario de prueba llamado **B. Simon**.
 Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de OpsGenie.
 
 Para configurar y probar el inicio de sesión único de Azure AD con OpsGenie, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de OpsGenie](#configure-opsgenie-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de OpsGenie](#create-opsgenie-test-user)**: el objetivo es tener un homólogo de Britta Simon en OpsGenie que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de OpsGenie](#configure-opsgenie-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B. Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que B. Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de OpsGenie](#create-opsgenie-test-user)** , para tener un homólogo de B. Simon en OpsGenie que esté vinculado a la representación del usuario de Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -149,7 +149,7 @@ Para configurar el inicio de sesión único de Azure AD con OpsGenie, realice lo
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
-El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
+El objetivo de esta sección es crear un usuario de prueba llamado "B. Simon" en Azure Portal.
 
 1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
@@ -163,10 +163,10 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **B. Simon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
-    Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario**, escriba **bsimon@yourcompanydomain.extension**  
+    Por ejemplo: BSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
@@ -174,7 +174,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a OpsGenie.
+En esta sección, va a permitir que B. Simon acceda a OpsGenie utilizando el inicio de sesión único de Azure.
 
 1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **OpsGenie**.
 
@@ -192,7 +192,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B. Simon** en la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
@@ -200,7 +200,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-opsgenie-test-user"></a>Creación de un usuario de prueba de OpsGenie
 
-El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en OpsGenie. 
+El objetivo de esta sección es crear un usuario de prueba llamado B. Simon en OpsGenie. 
 
 1. En una ventana del explorador web, inicie sesión en el inquilino de OpsGenie como administrador.
 
@@ -214,14 +214,14 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
    
     ![Configuración de OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
    
-     a. En el cuadro de texto **Email** (Correo electrónico), escriba la dirección de correo electrónico de BrittaSimon en Azure Active Directory.
+     a. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de B. Simon en Azure Active Directory.
    
-    b. En el cuadro de texto **Nombre completo**, escriba **Britta Simon**.
+    b. En el cuadro de texto **Nombre completo**, escriba **B. Simon**.
    
     c. Haga clic en **Save**(Guardar). 
 
 >[!NOTE]
->Britta recibirá un correo electrónico con instrucciones sobre cómo configurar su perfil.
+>B. Simon recibirá un correo electrónico con instrucciones para configurar su perfil.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bba263b65344672808487ae6de4c3f475a871842
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467423"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523943"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registro del tráfico de red de entrada y salida de una máquina virtual mediante Azure Portal
 
@@ -63,7 +63,7 @@ La máquina virtual tarda en crearse unos minutos. No continúe con los pasos re
 Si ya dispone de un monitor de red habilitado en la región este de EE. UU., vaya al [Registro del proveedor de Insights](#register-insights-provider).
 
 1. En el portal, seleccione **Todos los servicios**. En el **cuadro Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados, selecciónela.
-2. Seleccione **Regiones** para expandirla y, a continuación, seleccione **...**  a la derecha de la opción **Este de EE. UU.**, tal y como se muestra en la siguiente imagen:
+2. Seleccione **Regiones** para expandirla y, a continuación, seleccione **...**  a la derecha de la opción **Este de EE. UU.** , tal y como se muestra en la siguiente imagen:
 
     ![Habilitación de Network Watcher](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
 
@@ -95,7 +95,7 @@ Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Mi
     La cuenta de almacenamiento tardará unos minutos en crearse. No continúe con los pasos restantes hasta que haya creado la cuenta de almacenamiento. Si va a usar una cuenta de almacenamiento existente en vez de crear una, asegúrese de seleccionar la cuenta de almacenamiento que tenga la opción **Todas las redes** (valor predeterminado) seleccionada en **Firewalls y redes virtuales**, en la **CONFIGURACIÓN** de la cuenta de almacenamiento.
     
     > [!NOTE]
-    > Aunque actualmente los proveedores de Microsoft.Insight y Microsoft.Network son compatibles con Azure Storage, los registros de Flow de NSG aún no se han incorporado totalmente. Para habilitar el registro de Flow de NSG, debe seleccionarse **Todas las redes** hasta que esta característica esté plenamente incorporada. 
+    > Aunque actualmente los proveedores de Microsoft.Insight y Microsoft.Network son compatibles como Servicios de Microsoft de confianza para Azure Storage, los registros de flujo del grupo de seguridad de red aún no se han incorporado totalmente. Para habilitar el registro de Flow de NSG, debe seleccionarse **Todas las redes** hasta que esta característica esté plenamente incorporada. 
 4. En la esquina superior izquierda del portal, seleccione **Todos los servicios**. En el cuadro **Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados de búsqueda, selecciónela.
 5. En **REGISTROS**, seleccione **Registro de flujos de NSG**, tal y como se muestra en la siguiente imagen:
 

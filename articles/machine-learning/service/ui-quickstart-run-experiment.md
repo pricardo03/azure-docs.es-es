@@ -9,12 +9,12 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440935"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545006"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Inicio rápido: Preparación y visualización de datos sin escribir código en Azure Machine Learning
 
@@ -99,13 +99,13 @@ Seleccione las columnas de datos con las que va a trabajar.  Para empezar, confi
    
 1. Seleccione el módulo **Select Columns in Dataset**.
 
-1. En el panel **Propiedades** a la derecha del lienzo, seleccione **Launch column selector** (Iniciar el selector de columnas).
+1. En el panel **Propiedades** a la derecha del lienzo, seleccione **Editar columnas**.
 
     En el cuadro de diálogo **Seleccionar columnas**, seleccione **TODAS LAS COLUMNAS** e incluya **todas las características**. El cuadro de diálogo debe ser similar al siguiente:
 
      ![selector de columnas](./media/ui-quickstart-run-experiment/select-all.png)
 
-1. En la esquina inferior derecha, seleccione el botón Aceptar con la marca de verificación para cerrar el selector de columnas.
+1. En la esquina inferior derecha, seleccione **Aceptar** para cerrar el selector de columnas.
 
 ## <a name="run-the-experiment"></a>Ejecución del experimento
 
@@ -146,13 +146,13 @@ En primer lugar, elimine por completo la columna **normalized-losses**.
 
 1. Seleccione el módulo **Select Columns in Dataset**.
 
-1. En el panel **Propiedades** a la derecha del lienzo, seleccione **Launch column selector** (Iniciar el selector de columnas).
+1. En el panel **Propiedades** a la derecha del lienzo, seleccione **Editar columnas**.
 
     * Deje las opciones **With rules** (Con reglas) y **TODAS LAS COLUMNAS** seleccionadas.
 
     * En los menús desplegables, seleccione **Excluir** y **nombres de columna** y luego haga clic en el cuadro de texto. Escriba **normalized-losses**.
 
-    * En la esquina inferior derecha, seleccione el botón Aceptar con la marca de verificación para cerrar el selector de columnas.
+    * En la esquina inferior derecha, seleccione **Aceptar** para cerrar el selector de columnas.
 
     ![Excluir una columna](./media/ui-quickstart-run-experiment/exclude-column.png)
         

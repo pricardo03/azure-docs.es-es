@@ -8,13 +8,13 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: b135baf73e21cd524b6e8fad35452362f36cf0c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/14/2019
+ms.openlocfilehash: 73d7aebf3dbff59320e0ef92cbd54811503c71b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079550"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792270"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: Diseño de una base de datos multiinquilino con Azure Database for PostgreSQL Hiperscala (Citus) (versión preliminar)
 
@@ -31,72 +31,7 @@ En este tutorial, usará Azure Database for PostgreSQL Hiperscala (Citus) (versi
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
-
-## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
-
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
-
-## <a name="create-an-azure-database-for-postgresql"></a>Creación de una instancia de Azure Database for PostgreSQL
-
-Para crear un servidor de Azure Database for PostgreSQL, siga estos pasos:
-1. Haga clic en **Crear un recurso** de la esquina superior izquierda de Azure Portal.
-2. En la página **Nuevo**, seleccione **Bases de datos** y, en la página **Bases de datos**, seleccione **Azure Database for PostgreSQL**.
-3. Para la opción de implementación, haga clic en el botón **Crear** en **Hyperscale (Citus) server group - PREVIEW** (Grupo de servidores Hiperescala (Citus): VERSIÓN PRELIMINAR).
-4. Rellene el formulario del nuevo servidor con la siguiente información:
-   - Grupo de recursos: haga clic en el vínculo **Crear nuevo** que está debajo de este cuadro de texto para este campo. Escriba un nombre como **myresourcegroup**.
-   - Nombre del grupo de servidores: escriba un nombre único para el nuevo grupo de servidores, que también se usará para un subdominio de servidor.
-   - Nombre de usuario administrador: escriba un nombre de usuario único, que se usará más adelante para conectarse a la base de datos.
-   - Contraseña: debe contener al menos ocho caracteres de las tres categorías siguientes: letras mayúsculas del alfabeto inglés, letras minúsculas del alfabeto inglés, números (0-9) y caracteres no alfanuméricos (!, $, #, %, etc.)
-   - Ubicación: use la ubicación más cercana a los usuarios para que puedan acceder de la forma más rápida posible a los datos.
-
-   > [!IMPORTANT]
-   > El inicio de sesión y la contraseña de administrador del servidor que especifique aquí serán necesarios para iniciar sesión más adelante en ese servidor y en las bases de datos que se especificarán en este tutorial. Recuerde o grabe esta información para su uso posterior.
-
-5. Haga clic en **Configurar grupo de servidores**. No modifique los valores de esa sección y haga clic en **Guardar**.
-6. Haga clic en **Revisar y crear**  y luego en **Crear** para aprovisionar el servidor. El aprovisionamiento tarda unos minutos.
-7. La página irá a la supervisión de la implementación. Cuando el estado activo cambia de **La implementación está en curso** a **Se completó la implementación**, haga clic en el elemento de menú **Salidas** que se encuentra a la izquierda de la página.
-8. La página de resultados incluirá un nombre de host de coordinación junto a un botón para copiar el valor en el Portapapeles. Anote esta información para usarla más adelante.
-
-## <a name="configure-a-server-level-firewall-rule"></a>Configuración de una regla de firewall de nivel de servidor
-
-El servicio Azure Database for PostgreSQL usa un firewall en el nivel de servidor. De manera predeterminada, el firewall impide que todas las herramientas y aplicaciones externas se conecten al servidor y a cualquier base de datos del servidor. Debemos agregar una regla para abrir el firewall en un intervalo específico de direcciones IP.
-
-1. Desde la sección **Salidas** donde anteriormente copió el nombre de host del nodo de coordinación, haga clic en Atrás para volver al elemento de menú **Información general**.
-
-2. Busque el grupo de escalado correspondiente a la implementación en la lista de recursos y haga clic en él. (Su nombre tendrá el prefijo "sg-".)
-
-3. Haga clic en **Firewall** en **Seguridad**, en el menú de la izquierda.
-
-4. Haga clic en el vínculo **+ Agregar regla de firewall para la dirección IP del cliente actual**. Por último, haga clic en el botón **Guardar**.
-
-5. Haga clic en **Save**(Guardar).
-
-   > [!NOTE]
-   > El servidor Azure PostgreSQL se comunica a través de puerto 5432. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 5432. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 5432.
-   >
-
-## <a name="connect-to-the-database-using-psql-in-cloud-shell"></a>Conexión a la base de datos mediante psql en Cloud Shell
-
-Ahora vamos a usar la utilidad de línea de comandos [psql](https://www.postgresql.org/docs/current/app-psql.html) para conectarnos al servidor de Azure Database for PostgreSQL.
-1. Inicie Azure Cloud Shell desde el icono del terminal en el panel de navegación superior.
-
-   ![Azure Database for PostgreSQL: icono del terminal de Azure Cloud Shell](./media/tutorial-design-database-hyperscale-multi-tenant/psql-cloud-shell.png)
-
-2. Azure Cloud Shell se abrirá en el explorador y podrá escribir comandos de Bash.
-
-   ![Azure Database for PostgreSQL: indicador de Bash de Azure Shell](./media/tutorial-design-database-hyperscale-multi-tenant/psql-bash.png)
-
-3. En el símbolo de sistema de Cloud Shell, conéctese al servidor de Azure Database for PostgreSQL con los comandos psql. El formato siguiente sirve para conectarse a un servidor de Azure Database for PostgreSQL con la utilidad [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
-   ```bash
-   psql --host=<myserver> --username=myadmin --dbname=citus
-   ```
-
-   Por ejemplo, el siguiente comando se conecta a la base de datos predeterminada llamada **citus** en el servidor PostgreSQL **mydemoserver.postgres.database.azure.com** con las credenciales de acceso. Escriba la contraseña de administrador del servidor cuando se le solicite.
-
-   ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
-   ```
+[!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Uso de la utilidad psql para crear un esquema
 
@@ -250,7 +185,7 @@ ORDER BY a.campaign_id, n_impressions desc;
 
 Hasta ahora `company_id` ha distribuido todas las tablas, pero algunos datos no "pertenecen" de manera natural a ningún inquilino en particular y se pueden compartir. Por ejemplo, es posible que todas las empresas de la plataforma de anuncios del ejemplo deseen obtener información geográfica sobre su audiencia según las direcciones IP.
 
-Cree una tabla que contenga información geográfica compartida. Ejecute esto en psql:
+Cree una tabla que contenga información geográfica compartida. Ejecute los siguientes comandos en psql:
 
 ```sql
 CREATE TABLE geo_ips (
@@ -268,7 +203,7 @@ A continuación convierta `geo_ips` en una "tabla de referencia" para almacenar 
 SELECT create_reference_table('geo_ips');
 ```
 
-Cargue en ella datos de ejemplo. No olvide ejecutar esto en psql desde dentro del directorio donde descargó el conjunto de datos.
+Cargue en ella datos de ejemplo. No olvide ejecutar este comando en psql desde dentro del directorio donde descargó el conjunto de datos.
 
 ```sql
 \copy geo_ips from 'geo_ips.csv' with csv
@@ -330,7 +265,7 @@ SELECT id
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-En los pasos anteriores, creó recursos de Azure en un grupo de recursos. Si no cree que vaya a necesitar estos recursos en el futuro, elimine el grupo de servidores. Presione el botón *Eliminar* en la página *Información general* del grupo de servidores. Cuando aparezca una página emergente en la que se le pida hacerlo, confirme el nombre del grupo de servidores y haga clic en el botón *Eliminar* final.
+En los pasos anteriores, creó recursos de Azure en un grupo de servidores. Si no cree que vaya a necesitar estos recursos en el futuro, elimine el grupo de servidores. Presione el botón *Eliminar* en la página *Información general* del grupo de servidores. Cuando aparezca una página emergente en la que se le pida hacerlo, confirme el nombre del grupo de servidores y haga clic en el botón *Eliminar* final.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

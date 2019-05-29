@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0879f9026276eb7149ae44906377a7b369e05116
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a3e457ca29ebe086c6097528af5a9253446b757c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267079"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990558"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: Integración de Azure Active Directory con Vodeclic
 
@@ -53,7 +53,7 @@ Para configurar la integración de Vodeclic en Azure AD, debe agregar Vodeclic d
 
 **Para agregar Vodeclic desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Vodeclic, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Vodeclic](#configure-vodeclic-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Crear un usuario de prueba de Vodeclic](#create-vodeclic-test-user)**, para tener un homólogo de Britta Simon en Vodeclic que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Vodeclic](#configure-vodeclic-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Crear un usuario de prueba de Vodeclic](#create-vodeclic-test-user)** , para tener un homólogo de Britta Simon en Vodeclic que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -191,7 +191,7 @@ En esta sección dará permiso a Britta Simon para que use el inicio de sesión 
 En esta sección, creará un usuario llamado Britta Simon en Vodeclic. Colabore con el  [equipo de soporte técnico de Vodeclic](mailto:hotline@vodeclic.com) para agregar usuarios en la plataforma Vodeclic. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 > [!NOTE]
-> Según los requisitos de la aplicación, es posible que deba obtener la lista de elementos permitidos de la máquina. Para ello, debe compartir la dirección IP pública con el [equipo de soporte técnico de Vodeclic](mailto:hotline@vodeclic.com).
+> Según los requisitos de la aplicación, es posible que deba hacer que su máquina se agregue a una lista de permitidos. Para ello, debe compartir la dirección IP pública con el [equipo de soporte técnico de Vodeclic](mailto:hotline@vodeclic.com).
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

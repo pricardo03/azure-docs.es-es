@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/05/2018
+ms.date: 05/22/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 555a8e3e92dc1d12cb7c6d6e06d2511f15a2c862
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 211935aac56dff8d6e524706c416c126b1a0c3b8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679395"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159362"
 ---
-|**SKU**   | **Túneles<br>S2S/entre redes virtuales** | Conexiones **P2S<br> SSTP** | Conexiones **P2S<br> IKEv2** | **Pruebas comparativas de rendimiento<br>agregado** | **BGP** |
+|**SKU**   | **Túneles<br>S2S/entre redes virtuales** | Conexiones **P2S<br> SSTP** | Conexiones **P2S<br> IKEv2/OpenVPN** | **Pruebas comparativas de rendimiento<br>agregado** | **BGP** |
 |---       | ---        | ---       | ---            | ---       | --- |
 |**Básico** | Máx. 10    | Máx. 128  | No compatible  | 100 Mbps  | No compatible|
 |**VpnGw1**| Máx. 30*   | Máx. 128  | Máx. 250       | 650 MBps  | Compatible |

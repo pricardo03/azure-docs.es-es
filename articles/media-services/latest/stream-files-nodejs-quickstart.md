@@ -1,6 +1,6 @@
 ---
 title: 'Streaming de archivos de vídeo con Azure Media Services: Node.js | Microsoft Docs'
-description: Siga los pasos de este inicio rápido para crear una nueva cuenta de Azure Media Services, codificar un archivo y hacer streaming a Azure Media Player.
+description: Siga los pasos de este tutorial para crear una cuenta de Azure Media Services, codificar un archivo y transmitirlo a Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,23 +9,24 @@ editor: ''
 keywords: azure media services, streaming
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 22b7f2380b509daa4cb9931d6fc57c1297628e3d
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3e4172cd149726e28e0c7dff435ec1f7a59ee169
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522768"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550167"
 ---
-# <a name="quickstart-stream-video-files---nodejs"></a>Inicio rápido: Hacer streaming de archivos de vídeo: Node.js
+# <a name="tutorial-stream-video-files---nodejs"></a>Tutorial: Hacer streaming de archivos de vídeo: Node.js
 
-Este inicio rápido muestra lo fácil que es codificar e iniciar el streaming de vídeos en una amplia variedad de navegadores y dispositivos con Azure Media Services. Se puede especificar contenido de entrada con direcciones URL de HTTPS, direcciones URL de SAS o rutas de acceso a archivos ubicados en Azure Blob Storage.
-El ejemplo de este tema permite codificar contenido que se hace accesible a través de una dirección URL HTTPS. Tenga en cuenta que, actualmente, AMS v3 no admite la codificación de transferencia fragmentada a través de direcciones URL de HTTPS.
+En este tutorial se muestra lo fácil que es codificar vídeos y comenzar a transmitirlos en streaming en una amplia variedad de exploradores y dispositivos con Azure Media Services. Se puede especificar contenido de entrada con direcciones URL de HTTPS, direcciones URL de SAS o rutas de acceso a archivos ubicados en Azure Blob Storage.
 
-Al final del inicio rápido, podrá hacer streaming de un vídeo.  
+En el ejemplo de este artículo se codifica contenido que se hace accesible a través de una dirección URL HTTPS. Tenga en cuenta que, actualmente, AMS v3 no admite la codificación de transferencia fragmentada a través de direcciones URL de HTTPS.
+
+Al final del tutorial, podrá transmitir un vídeo en streaming.  
 
 ![Reproducción del vídeo](./media/stream-files-nodejs-quickstart/final-video.png)
 
@@ -81,7 +82,7 @@ Para probar el streaming, este artículo usa Azure Media Player.
 > Si el reproductor está hospedado en un sitio https, asegúrese de actualizar la dirección URL a "https".
 
 1. Abra un explorador web y vaya a [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. En el cuadro **Dirección URL:**, pegue uno de los valores de la dirección URL de streaming que se obtuvo al ejecutar la aplicación. 
+2. En el cuadro **Dirección URL:** , pegue uno de los valores de la dirección URL de streaming que se obtuvo al ejecutar la aplicación. 
  
      Puede pegar la dirección URL en formato HLS, Dash o Smooth y Azure Media Player cambiará automáticamente a un protocolo de streaming adecuado en su dispositivo.
 3. Presione **Actualizar Player**.
@@ -90,7 +91,7 @@ Azure Media Player puede usarse para realizar pruebas, pero no debe usarse en un
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si ya no necesita ninguno de los recursos del grupo de recursos, incluida las cuentas de almacenamiento y de Media Services que ha creado en este inicio rápido, elimine el grupo de recursos.
+Si ya no necesita ninguno de los recursos del grupo de recursos, como las cuentas de almacenamiento y de Media Services que creó en este tutorial, elimine el grupo de recursos.
 
 Ejecute el siguiente comando de la CLI:
 

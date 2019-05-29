@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/27/2019
-ms.openlocfilehash: 1fca4f6e3aacfee52f348f338806b98d6e61994b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 15b96d44b1ff78a83a4364579b7984d20e3f4d85
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006429"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597714"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Inicio rápido: Control de un dispositivo conectado a IoT Hub (Node.js)
 
@@ -35,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con Node.js. Necesita Node.js 4.x.x o una versión posterior en el equipo de desarrollo.
+Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con Node.js. Necesitará Node.js v10.x.x o una versión posterior en la máquina de desarrollo.
 
 Puede descargar Node.js para varias plataformas desde [nodejs.org](https://nodejs.org).
 

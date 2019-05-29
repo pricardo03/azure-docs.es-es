@@ -3,8 +3,8 @@ title: Inicio de sesión por los usuarios y llamada a Microsoft Graph API desde 
 description: Aprenda a crear una aplicación de escritorio de Windows .NET que se integra con Azure AD para el inicio de sesión y llama a las API protegidas de Azure AD mediante OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/21/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: a2d9639c21e201db1df5145caf1345d4f0879af6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223400"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121944"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Inicio rápido: Inicio de sesión por los usuarios y llamada a Microsoft Graph API desde un escritorio de .NET
 
@@ -57,13 +57,15 @@ Para habilitar una aplicación para que obtenga tokens, regístrela en un inquil
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, seleccione su cuenta y, en la lista **Directorio**, elija el inquilino de Active Directory en el que desee registrar la aplicación.
 3. Seleccione **Todos los servicios** en el panel de navegación izquierdo y elija **Azure Active Directory**.
-4. En **Registros de aplicaciones**, elija **Agregar**.
-5. Siga las indicaciones y cree una aplicación cliente **nativa**.
-    * El **nombre** de la aplicación servirá de descripción de la aplicación para los usuarios finales.
-    * El **URI de redirección** es una combinación de esquema y cadena que utilizará Azure AD para devolver las respuestas de los tokens. Escriba un valor específico para la aplicación, por ejemplo, `http://DirectorySearcher`.
+4. En **Registros de aplicaciones**, elija **Nuevo registro**.
+5. Siga las indicaciones para crear una aplicación de cliente.
+    * **Nombre** es el nombre de la aplicación y describe la aplicación a los usuarios finales.
+    * En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
+    * El **URI de redirección** es una combinación de esquema y cadena que usará Azure AD para devolver respuestas de tokens. Escriba un valor que sea específico de la aplicación (por ejemplo, `http://DirectorySearcher`) y que se base en la información del anterior URI de redireccionamiento. Seleccione también **Public client (mobile and desktop)** (Cliente público [dispositivos móviles y escritorio]) en la lista desplegable. 
 
 6. Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de aplicación único. Necesitará este valor en las secciones siguientes, así que cópielo de la página de la aplicación.
-7. En la página **Configuración**, elija **Permisos necesarios** y luego **Agregar**. Seleccione **Microsoft Graph** como API y en **Permisos delegados**, agregue el permiso **Leer datos de directorio**. El establecimiento de este permiso permitirá a la aplicación consultar Graph API para los usuarios.
+7. En la página **Permisos de API**, seleccione **Agregar un permiso**. En **Seleccionar una API**, seleccione ***Microsoft Graph***.
+8. En **Permisos delegados**, seleccione el permiso **User.Read** y presione **Agregar** para guardar. Este permiso configura la aplicación de modo que consulte Graph API de Azure AD para los usuarios.
 
 ## <a name="step-2-install-and-configure-adal"></a>Paso 2: Instalación y configuración de ADAL
 

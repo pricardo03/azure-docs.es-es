@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: a86e63f17230ed30bd5ae164d2d17d65b5cde745
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ae0b8bb6dec4b129a4965426789819e119a25c53
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408067"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: integración de Azure Active Directory con Meta Networks Connector
 
@@ -54,7 +54,7 @@ Para configurar la integración de Meta Networks Connector en Azure AD, deberá 
 
 **Para agregar Meta Networks Connector desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Para que el inicio de sesión único funcione, es necesario establecer una relac
 
 Para configurar y probar el inicio de sesión único de Azure AD con Meta Networks Connector, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Meta Networks Connector](#configure-meta-networks-connector-single-sign-on)**: para configurar las opciones de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en Meta Networks Connector](#create-meta-networks-connector-test-user)**: para tener un homólogo de Britta Simon en Meta Networks Connector que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en Meta Networks Connector](#configure-meta-networks-connector-single-sign-on)** : para configurar las opciones de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en Meta Networks Connector](#create-meta-networks-connector-test-user)** : para tener un homólogo de Britta Simon en Meta Networks Connector que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -131,8 +131,8 @@ Para configurar el inicio de sesión único de Azure AD con Meta Networks Connec
     | ---------------| --------------- | -------- |
     | firstname | user.givenname | |
     | lastname | user.surname | |
-    | emailaddress| user.mail| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | Nombre | user.userprincipalname| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | emailaddress| user.mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | Nombre | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | phone | user.telephonenumber | |
 
      a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
@@ -172,7 +172,7 @@ Para configurar el inicio de sesión único de Azure AD con Meta Networks Connec
 1. Abra una nueva pestaña en el explorador e inicie sesión en su cuenta de administrador de Meta Networks Connector.
     
     > [!NOTE]
-    > Meta Networks Connector es un sistema seguro. Por lo que antes de acceder a su portal deberá hacer que su dirección IP pública se incluya en lista de permitidos en su lado. Para obtener la dirección IP pública, siga el vínculo especificado [aquí](https://whatismyipaddress.com/). Envíe su dirección IP al [equipo de soporte técnico de Meta Networks Connector](mailto:support@metanetworks.com) para que su dirección IP se incluya en lista de permitidos.
+    > Meta Networks Connector es un sistema seguro. Por lo que antes de acceder a su portal deberá hacer que su dirección IP pública se incluya en una lista de permitidos en su lado. Para obtener la dirección IP pública, siga el vínculo especificado [aquí](https://whatismyipaddress.com/). Envíe su dirección IP al [equipo de soporte técnico de Meta Networks Connector](mailto:support@metanetworks.com) para que su dirección IP se incluya en una lista de permitidos.
     
 2. Vaya a **Administrador** y seleccione **Configuración**.
     

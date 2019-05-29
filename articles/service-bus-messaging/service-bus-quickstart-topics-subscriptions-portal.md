@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 2af346b2c9fa5c46593aa9421c3a762bda78dc2f
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: a392f8b11a7ab1ad72f4da289c54e34b022f1ea6
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610161"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990311"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Inicio rápido: Use Azure Portal para crear un tema de Service Bus y suscripciones a dicho tema
 En este inicio rápido, usará Azure Portal para crear un tema de Service Bus y, después, crear suscripciones a dicho tema. 
@@ -31,7 +31,8 @@ Las suscripciones y temas de Service Bus le permiten escalar para realizar el pr
 
 [!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-
+> [!NOTE]
+> Puede administrar los recursos de Service Bus con el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta dispone de características avanzadas, como la funcionalidad de importación y exportación o la capacidad de probar el tema, las colas, las suscripciones, los servicios de retransmisión, los centros de notificaciones y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información acerca de cómo enviar mensajes a un tema y recibirlos a través de una suscripción, consulte el artículo siguiente: seleccione el lenguaje de programación en la tabla de contenido. 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 602e3145a003a0413287b08151abf472ecf4ade0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406720"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988088"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutorial: integración de Azure Active Directory con Leapsome
 
@@ -53,7 +53,7 @@ Para configurar la integración de Leapsome en Azure AD, deberá agregar Leapsom
 
 **Para agregar Leapsome desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Leapsome, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Leapsome](#configure-leapsome-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Leapsome](#create-leapsome-test-user)**: para tener un homólogo de Britta Simon en Leapsome que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Leapsome](#configure-leapsome-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Leapsome](#create-leapsome-test-user)** : para tener un homólogo de Britta Simon en Leapsome que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -126,10 +126,10 @@ Para configurar el inicio de sesión único de Azure AD con Leapsome, siga estos
 
     | NOMBRE | Atributo de origen | Espacio de nombres |
     | ---------------| --------------- | --------- |  
-    | firstname | user.givenname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | lastname | user.surname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | título | user.jobtitle | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | picture | URL de una fotografía del empleado | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstname | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastname | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | título | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | picture | URL de una fotografía del empleado | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     > [!Note]
@@ -244,7 +244,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-leapsome-test-user"></a>Creación de un usuario de prueba de Leapsome
 
-En esta sección, creará un usuario llamado Britta Simon en Leapsome. Colabore con el [equipo de soporte técnico de Leapsome](mailto:support@leapsome.com) para agregar los usuarios o el dominio que debe incluirse en la lista blanca en la plataforma de Leapsome. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de Leapsome. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Leapsome. Colabore con el [equipo de soporte técnico de Leapsome](mailto:support@leapsome.com) para agregar el dominio o los usuarios necesarios a una lista blanca de la plataforma de Leapsome. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de Leapsome. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 17aaff1a6da2c18e9b1d915f61844635b1ad130b
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231155"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001439"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
@@ -32,7 +32,7 @@ En este inicio rápido, obtendrá información sobre cómo implementar el inicio
 Al final de esta guía de inicio rápido, la aplicación aceptará inicios de sesión de cuentas profesionales y educativas de organizaciones que se han integrado con Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> Si necesita habilitar los inicios de sesión para las cuentas personales además de hacerlo para las cuentas profesionales y educativas, puede usar el *[punto de conexión de la plataforma de identidad](azure-ad-endpoint-comparison.md)*. Para más información, consulte [este tutorial de ASP.NET](tutorial-v2-asp-webapp.md) y [este artículo](active-directory-v2-limitations.md), que explica el *punto de conexión de la plataforma de identidad de Microsoft*.
+> Si necesita habilitar los inicios de sesión para las cuentas personales además de hacerlo para las cuentas profesionales y educativas, puede usar el *[punto de conexión de la plataforma de identidad](azure-ad-endpoint-comparison.md)* . Para más información, consulte [este tutorial de ASP.NET](tutorial-v2-asp-webapp.md) y [este artículo](active-directory-v2-limitations.md), que explica el *punto de conexión de la plataforma de identidad de Microsoft*.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -70,7 +70,7 @@ Para descargar este proyecto de Visual Studio de ejemplo en su lugar, siga estos
 ## <a name="step-2-create-your-aspnet-project"></a>Paso 2: Creación del proyecto de ASP.NET
 
 1. En Visual Studio, vaya a **Archivo -> Nuevo > Proyecto**.
-2. En **Tipo de proyecto**, seleccione **Web** y, después, **Aplicación web ASP.NET (.NET Framework)**.
+2. En **Tipo de proyecto**, seleccione **Web** y, después, **Aplicación web ASP.NET (.NET Framework)** .
 3. Asigne un nombre a la aplicación y seleccione **Crear**.
 4. Seleccione **Vacío** y, después, seleccione **MVC** en **Agregar carpetas y referencias principales** para agregar referencias de MVC.
 5. Seleccione **Crear**.
@@ -199,14 +199,15 @@ En Visual Studio, cree otra vista para mostrar las notificaciones del usuario en
 
 ### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Registre la aplicación en Azure Portal y, luego, agregue su información a *web.config*.
 
-1. Vaya a [Microsoft Azure Portal: registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) para registrar una aplicación.
-2. Seleccione **Nuevo registro de aplicaciones**.
-3. Escriba un nombre para la aplicación.
-4. Pegue la *dirección URL de SSL* del proyecto de Visual Studio en la **Dirección URL de inicio de sesión**. Esta dirección URL también se agrega automáticamente a la lista de direcciones URL de respuesta de la aplicación que registra.
-5. Seleccione **Crear** para registrar la aplicación. Esta acción lo devuelve a la lista de aplicaciones.
-6. Ahora, busque o seleccione la aplicación que acaba de crear para abrir sus propiedades.
-7. Copie el GUID que se encuentra en **Identificador de aplicación** en el Portapapeles.
-8. Vuelva a Visual Studio y, en `web.config`, reemplace `Enter_the_Application_Id_here` por el identificador de aplicación de la aplicación que acaba de registrar.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta personal, profesional o educativa de Microsoft.
+2. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
+3. Vaya a la página [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de la plataforma de identidad de Microsoft para desarrolladores.
+4. Seleccione **Nuevo registro**.
+5. Cuando se abra la página **Registrar una aplicación**, escriba el nombre de su aplicación.
+6. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
+7. Seleccione la plataforma **Web** en la sección **URI de redireccionamiento** y establezca el valor en la *dirección URL de SSL* (la ubicación a la que Azure AD devolverá los tokens) del proyecto de Visual Studio.
+78. Cuando termine, seleccione **Registrar**. En la página de **información general** de la aplicación, copie el valor del **identificador de aplicación (cliente)** .
+9. Vuelva a Visual Studio y, en `web.config`, reemplace `Enter_the_Application_Id_here` por el identificador de aplicación de la aplicación que acaba de registrar.
 
 > [!TIP]
 > Si la cuenta está configurada para acceder a varios directorios, asegúrese de seleccionar el directorio correcto de la organización en la que desea registrar la aplicación. Para ello, haga clic en el nombre de la cuenta en la esquina superior derecha de Azure Portal y, luego, compruebe que el directorio seleccionado es el que se indica:<br/>![Selección del directorio correcto](./media/quickstart-v1-aspnet-webapp/tenantselector.png)

@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 19c2298c9bda03acba28496a97c89c2a53e3c44e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915262"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964902"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: Uso compartido de Azure Spatial Anchors entre sesiones y dispositivos con un back-end de Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Busque la propiedad `StorageConnectionString` y establezca que el valor sea el m
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha usado Azure Cosmos DB para compartir identificadores de delimitador en todos los dispositivos. Para más información acerca de cómo usar Azure Spatial Anchors en una nueva aplicación Android, continúe con el siguiente tutorial.
+En este tutorial, ha usado Azure Cosmos DB para compartir identificadores de delimitador en todos los dispositivos. Para más información sobre cómo usar Azure Spatial Anchors en una nueva aplicación de Unity HoloLens, continúe con el siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Inicio de una nueva aplicación Android](./tutorial-new-android-app.md)
+> [Inicio de una nueva aplicación Android](./tutorial-new-unity-hololens-app.md)

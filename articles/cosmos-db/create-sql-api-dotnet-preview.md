@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 1589c938e635ccff02f94a176b7fc886dbccb779
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 51494acaa393493e567e0fcbb359756bdab21503
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455775"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860905"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Creación de una aplicación web ASP.NET con una cuenta de SQL API de Azure Cosmos DB
 
@@ -35,9 +35,9 @@ En esta guía de inicio rápido se usa la versión 3.0+ del SDK de Azure Cosmos 
 
 ![Aplicación de tareas pendientes con datos de ejemplo](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list-preview.png)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita la carga de trabajo **Desarrollo de Azure** durante la instalación de Visual Studio.
+Si aún no tiene Visual Studio 2019 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita la carga de trabajo **Desarrollo de Azure** durante la instalación de Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
@@ -120,7 +120,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-sql-api-dotnet/keys.png)
 
-2. En Visual Studio 2017, abra el archivo **web.config**. 
+2. En Visual Studio, abra el archivo **web.config**. 
 
 3. Copie el valor del URI del portal (con el botón de copia) y conviértalo en el valor de la clave ``endpoint`` en web.config. 
 

@@ -14,18 +14,21 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 05/21/2019
 ms.author: jowargo
-ms.openlocfilehash: 2793f64528baa2b9a84c671fc73bbe399e2387ea
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c5793d2388ddd7bb59d68f8f7fd7af773179ed41
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411609"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988200"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs
 
-[!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+> [!div class="op_single_selector"]
+> * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
+> * [Swift](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
+
 
 En este tutorial se usa Azure Notification Hubs para enviar notificaciones push a una aplicación iOS. Cree una aplicación iOS vacía que reciba notificaciones push mediante [Apple Push Notification Service (APN)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1).
 
@@ -56,25 +59,6 @@ El código completo de este tutorial se puede encontrar [en GitHub](https://gith
 La realización de este tutorial es un requisito previo para todos los demás tutoriales de Notification Hubs para aplicaciones iOS.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
-
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>Configuración del Centro de notificaciones para notificaciones push de iOS
-
-En esta sección se crea un Centro de notificaciones y se configura la autenticación con APNS mediante el certificado push **.p12** que creó anteriormente. Si desea usar un centro de notificaciones ya creado, puede omitir los pasos hasta el paso 5.
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### <a name="configure-your-notification-hub-with-apns-information"></a>Configuración de un Centro de notificaciones con información de APNS
-
-1. En **Notification Services** (Servicios de notificación), seleccione **Apple (APNS)**.
-2. Seleccione **Certificado**.
-3. Seleccione el **icono del archivo**.
-4. Seleccione el archivo **.p12** que exportó antes.
-5. Especifique la **contraseña** correcta.
-6. Seleccione el modo **Espacio aislado**. Use el modo **Producción** únicamente si desea enviar notificaciones de inserción a los usuarios que compraron la aplicación en la tienda.
-
-    ![Configuración del certificado de APNs en Azure Portal][7]
-
-Su centro de notificaciones ya está configurado con APNs, y tiene las cadenas de conexión para registrar su aplicación y enviar notificaciones push.
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>Conexión de la aplicación iOS a Notification Hubs
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8942ebf3f006c2e1cc72b322dd243d46bf69f04d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91d4cf874d4d98735582d2690072e6a04683c1f5
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888134"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988724"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integración de Azure Active Directory con Adobe Sign
 
@@ -53,7 +53,7 @@ Para configurar la integración de Adobe Sign en Azure AD, será preciso que agr
 
 **Para agregar Adobe Sign desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Adobe Sign, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Adobe Sign](#configure-adobe-sign-single-sign-on)**: para configurar el inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Adobe Sign](#create-adobe-sign-test-user)**: para tener un homólogo de Britta Simon en Adobe Sign que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Adobe Sign](#configure-adobe-sign-single-sign-on)** : para configurar el inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Adobe Sign](#create-adobe-sign-test-user)** : para tener un homólogo de Britta Simon en Adobe Sign que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con Adobe Sign, realice 
 
      a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.echosign.com/`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.echosign.com`
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<companyname>.echosign.com`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte al cliente de Adobe Sign](https://helpx.adobe.com/in/contact/support.html) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único de Azure AD con Adobe Sign, realice 
 
 ### <a name="configure-adobe-sign-single-sign-on"></a>Configuración del inicio de sesión único de Adobe Sign
 
-1. Antes de la configuración, póngase en contacto con el [equipo de soporte técnico al cliente de Adobe Sign](https://helpx.adobe.com/in/contact/support.html) para incluir su dominio en la lista blanca de Adobe Sign. Aquí se muestra cómo agregar el dominio:
+1. Antes de la configuración, póngase en contacto con el [equipo de soporte técnico al cliente de Adobe Sign](https://helpx.adobe.com/in/contact/support.html) para incluir su dominio en la lista de permitidos de Adobe Sign. Aquí se muestra cómo agregar el dominio:
 
      a. El [equipo de soporte técnico al cliente de Adobe Sign](https://helpx.adobe.com/in/contact/support.html) le envía un token generado aleatoriamente. Para el dominio, el token será similar a: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
@@ -193,7 +193,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 9a59255097c6cb2a6728a14c3dbe19dbcbb0932a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5129af1f34f8a2604e7b70c9638b370c7cad029a
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236775"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015539"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Tutorial: Uso de Azure Key Vault con una aplicación web de Azure en .NET
 
@@ -43,7 +43,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 * Para Mac: [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/)
 * Para Windows, Mac y Linux:
   * [Git](https://git-scm.com/downloads)
-  * Este tutorial requiere que se ejecute localmente la CLI de Azure. Debe tener instalada la versión 2.0.4 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
+  * Este tutorial requiere que se ejecute localmente la CLI de Azure. Debe tener instalada la versión 2.0.4 de la CLI de Azure o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
   * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
 ## <a name="about-managed-service-identity"></a>Acerca de Managed Service Identity
@@ -191,7 +191,7 @@ También puede ver este vídeo:
 
 ## <a name="run-the-web-app"></a>Ejecución de la aplicación web
 
-1. En el menú principal de Visual Studio 2017, seleccione **Depurar** > **Iniciar** con o sin depuración. 
+1. En el menú principal de Visual Studio 2019, seleccione **Depurar** > **Iniciar** con o sin depuración. 
 1. En el explorador, vaya a la página **Acerca de**.  
     Aparecerá el valor de **AppSecret**.
 

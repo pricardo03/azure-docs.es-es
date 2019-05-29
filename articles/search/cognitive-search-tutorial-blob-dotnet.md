@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 1b3353cae73bb5710dc9343f1d211266d15743a2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7794cf256ed8063007b4eee7c5c928be85723982
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153209"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170195"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutorial de C#: Llamar a Cognitive Services APIs en una canalización de indexación de Azure Search
 
@@ -44,13 +44,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 En este tutorial se usan los siguientes servicios, herramientas y datos. 
 
-[Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
++ [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de ejemplo. Asegúrese de que la cuenta de almacenamiento se encuentra en la misma región que Azure Search.
 
-[Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de ejemplo.
++ Los [datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) están formados por un pequeño conjunto de archivos de tipos diferentes. 
 
-Los [datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) están formados por un pequeño conjunto de archivos de tipos diferentes. 
++ [Instale Visual Studio](https://visualstudio.microsoft.com/) para usarlo como IDE.
 
-[Instale Visual Studio](https://visualstudio.microsoft.com/) para usarlo como IDE.
++ [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
 
 ## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 
@@ -98,7 +98,7 @@ Para este proyecto, deberá instalar la versión 9 del paquete NuGet `Microsoft.
 
 Instale el paquete NuGet `Microsoft.Azure.Search` con la consola del Administrador de paquetes en Visual Studio. Para abrir la consola del Administrador de paquetes, seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**. Para que el comando se ejecute, vaya a la [página del paquete NuGet Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure.Search), seleccione la versión 9 y copie el comando del Administrador de paquetes. En la consola del Administrador de paquetes, ejecute este comando.
 
-Para instalar el paquete NuGet `Microsoft.Extensions.Configuration.Json` en Visual Studio, seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Administrar paquetes NuGet para la solución...**. Seleccione Examinar y busque el paquete NuGet `Microsoft.Extensions.Configuration.Json`. Una vez que lo encuentre, seleccione el paquete, seleccione el proyecto, confirme que la versión sea la versión estable más reciente y, luego, seleccione Instalar.
+Para instalar el paquete NuGet `Microsoft.Extensions.Configuration.Json` en Visual Studio, seleccione **Herramientas** > **Administrador de paquetes NuGet** > **Administrar paquetes NuGet para la solución...** . Seleccione Examinar y busque el paquete NuGet `Microsoft.Extensions.Configuration.Json`. Una vez que lo encuentre, seleccione el paquete, seleccione el proyecto, confirme que la versión sea la versión estable más reciente y, luego, seleccione Instalar.
 
 ## <a name="add-azure-search-service-information"></a>Agregar información del servicio Azure Search
 
@@ -425,7 +425,7 @@ En este ejercicio se utilizan los siguientes campos y tipos de campos:
 
 Los campos de este índice se definen mediante una clase de modelo. Cada propiedad de la clase de modelo tiene atributos que determinan los comportamientos relacionados con la búsqueda del campo de índice correspondiente. 
 
-Vamos a agregar la clase del modelo a un nuevo archivo de C#. Haga clic con el botón derecho en el proyecto y seleccione **Agregar** > **Nuevo elemento...**, seleccione "Class" y el nombre del archivo `DemoIndex.cs`. Luego, seleccione **Agregar**.
+Vamos a agregar la clase del modelo a un nuevo archivo de C#. Haga clic con el botón derecho en el proyecto y seleccione **Agregar** > **Nuevo elemento...** , seleccione "Class" y el nombre del archivo `DemoIndex.cs`. Luego, seleccione **Agregar**.
 
 Asegúrese de indicar que quiere usar tipos de los espacios de nombres `Microsoft.Azure.Search` y `Microsoft.Azure.Search.Models`.
 

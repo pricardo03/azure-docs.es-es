@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 8a1fb0c3270d4899f05190fb1745075584f613ab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c04a9dff55794a3e48146e8effc3627452b3db14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793593"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950171"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Procedimientos para configurar una directiva de WAF de filtrado geográfico para Front Door
-En este tutorial se muestra cómo usar Azure PowerShell para crear una directiva de filtrado geográfico de ejemplo y a asociarla con el host de front-end de Front Door existente. Esta directiva de filtrado geográfico de ejemplo bloqueará las solicitudes de todos los países, salvo Estados Unidos.
+En este tutorial se muestra cómo usar Azure PowerShell para crear una directiva de filtrado geográfico de ejemplo y a asociarla con el host de front-end de Front Door existente. Esta directiva de filtrado geográfico de ejemplo bloqueará las solicitudes de todos los países o regiones, salvo Estados Unidos.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ahora.
 
@@ -53,10 +53,10 @@ Para crear un perfil de Front Door siga las instrucciones que se describen en [I
 
 ## <a name="define-geo-filtering-match-condition"></a>Definición de la condición de coincidencia del filtrado geográfico
 
-Cree una condición de coincidencia de ejemplo que selecciona las solicitudes que no proceden de "EE.UU.", para lo que se usa [New AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) en los parámetros al crear una condición de coincidencia. [Aquí](front-door-geo-filtering.md) se proporcionan códigos de país de dos letras para la asignación de país.
+Cree una condición de coincidencia de ejemplo que selecciona las solicitudes que no proceden de "EE.UU.", utilizando [New AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) en los parámetros al crear una condición de coincidencia. [Aquí](front-door-geo-filtering.md) se proporcionan códigos de país de dos letras para la asignación de país.
 
 ```azurepowershell-interactive
-$nonUSGeoMatchCondition = New-AzFrontDoorMatchConditionObject `
+$nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable RemoteAddr `
 -OperatorProperty GeoMatch `
 -NegateCondition $true `
@@ -65,10 +65,10 @@ $nonUSGeoMatchCondition = New-AzFrontDoorMatchConditionObject `
  
 ## <a name="add-geo-filtering-match-condition-to-a-rule-with-action-and-priority"></a>Adición de una condición de coincidencia de filtrado geográfico a una regla con Action y Priority
 
-Cree un objeto CustomRule `nonUSBlockRule` en función de la condición de coincidencia, un valor de Action y un valor de Priority, para lo que debe usar [New-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorcustomruleobject).  Un objeto CustomRule puede tener varios MatchCondition.  En este ejemplo, el valor de Action es Block y el de Priority es 1, la prioridad más alta.
+Cree un objeto CustomRule `nonUSBlockRule` en función de la condición de coincidencia, un valor de Action y un valor de Priority, para lo que debe usar [New-AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject).  Un objeto CustomRule puede tener varios MatchCondition.  En este ejemplo, el valor de Action es Block y el de Priority es 1, la prioridad más alta.
 
 ```
-$nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
+$nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 -Name "geoFilterRule" `
 -RuleType MatchRule `
 -MatchCondition $nonUSGeoMatchCondition `
@@ -77,12 +77,12 @@ $nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
 ```
 
 ## <a name="add-rules-to-a-policy"></a>Adición de reglas a una directiva
-Busque el nombre del grupo de recursos que contiene el perfil de Front Door que usan `Get-AzResourceGroup`. A continuación, cree un objeto de directiva `geoPolicy` que contenga `nonUSBlockRule` para lo que usa [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) en el grupo de recursos especificado que contiene el perfil de Front Door. Debe especificar un nombre único para la directiva de replicación geográfica. 
+Busque el nombre del grupo de recursos que contiene el perfil de Front Door que usan `Get-AzResourceGroup`. A continuación, cree un objeto de directiva `geoPolicy` que contenga `nonUSBlockRule` para lo que debe usar [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) en el grupo de recursos especificado que contiene el perfil de Front Door. Debe especificar un nombre único para la directiva de replicación geográfica. 
 
 En el ejemplo siguiente se usa el nombre de grupo de recursos *myResourceGroupFD1* con la suposición de que ha creado el perfil de Front Door mediante las instrucciones proporcionadas en el artículo [Inicio rápido: Creación de una instancia de Front Door](quickstart-create-front-door.md). En el ejemplo siguiente, reemplace el nombre de la directiva *geoPolicyAllowUSOnly* con un nombre de directiva único.
 
 ```
-$geoPolicy = New-AzFrontDoorFireWallPolicy `
+$geoPolicy = New-AzFrontDoorWafPolicy `
 -Name "geoPolicyAllowUSOnly" `
 -resourceGroupName myResourceGroupFD1 `
 -Customrule $nonUSBlockRule  `

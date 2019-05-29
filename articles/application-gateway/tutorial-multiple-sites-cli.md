@@ -3,25 +3,23 @@ title: 'Crear una puerta de enlace de aplicaciones que hospede varios sitios web
 description: Aprenda a crear una puerta de enlace de aplicaciones que hospede varios sitios web mediante la CLI de Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a1f1b464b2ac6fc62ea23a80a3887961ebe2d87e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9c99b534a40b5c87cf511c75ccdb19df4d9aaf63
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100730"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955652"
 ---
-# <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Tutorial: Creación de una puerta de enlace de aplicaciones que hospede varios sitios web mediante la CLI de Azure
+# <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones que hospede varios sitios web mediante la CLI de Azure
 
-Puede usar la CLI de Azure para [configurar el hospedaje de varios sitios web](multiple-site-overview.md) cuando se crea una [puerta de enlace de aplicaciones](overview.md). En este tutorial, definirá grupos de direcciones de back-end mediante conjuntos de escalado de máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este tutorial se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www\.contoso.com* y *www\.fabrikam.com*.
+Puede usar la CLI de Azure para [configurar el hospedaje de varios sitios web](multiple-site-overview.md) cuando se crea una [puerta de enlace de aplicaciones](overview.md). En este artículo se definen grupos de direcciones de back-end mediante conjuntos de escalado de máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este artículo se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www\.contoso.com* y *www\.fabrikam.com*.
 
-En este tutorial, aprenderá a:
+En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de la red
@@ -33,8 +31,7 @@ En este tutorial, aprenderá a:
 
 ![Ejemplo de enrutamiento de varios sitios](./media/tutorial-multiple-sites-cli/scenario.png)
 
-
-Si lo prefiere, puede seguir los pasos de este tutorial mediante [Azure PowerShell](tutorial-multiple-sites-powershell.md).
+Si lo prefiere, puede realizar los pasos de este procedimiento mediante [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -48,11 +45,11 @@ Un grupo de recursos es un contenedor lógico en el que se implementan y se admi
 
 En el ejemplo siguiente, se crea un grupo de recursos llamado *myResourceGroupAG* en la ubicación *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Crear recursos de red 
+## <a name="create-network-resources"></a>Crear recursos de red
 
 Cree la red virtual y la subred denominada *myAGSubnet* mediante [az network vnet create](/cli/azure/network/vnet). A continuación, puede agregar la subred que necesitan los servidores de back-end mediante [az network vnet subnet create](/cli/azure/network/vnet/subnet). Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [az network public-ip create](/cli/azure/network/public-ip).
 
@@ -254,15 +251,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
-
-> [!div class="checklist"]
-> * Configuración de la red
-> * Creación de una puerta de enlace de aplicaciones
-> * Crear un agente de escucha de back-end
-> * Crear reglas de enrutamiento
-> * Crear conjuntos de escalado de máquinas virtuales con los grupos de back-end
-> * Creación de un registro CNAME en el dominio
-
-> [!div class="nextstepaction"]
-> [Crear una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de direcciones URL](./tutorial-url-route-cli.md)
+* [Crear una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de direcciones URL](./tutorial-url-route-cli.md)

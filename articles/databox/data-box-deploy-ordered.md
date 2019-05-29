@@ -1,19 +1,19 @@
 ---
-title: Realización de pedidos de Microsoft Azure Data Box | Microsoft Docs
+title: Tutorial para pedir Azure Data Box | Microsoft Docs
 description: Obtenga información acerca de los requisitos previos de implementación y de cómo se debe pedir Azure Data Box
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/05/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834275"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604091"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Realización de pedidos de Azure Data Box
 
@@ -66,10 +66,10 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
     |---------|---------|
     |Subscription     | Seleccione una suscripción patrocinada por EA, CSP o Azure para el servicio Data Box. <br> La suscripción está vinculada a la cuenta de facturación.       |
     |Tipo de transferencia     | Seleccione **Importar en Azure**.        |
-    |País de origen     |   Seleccione el país en que residen los datos actualmente.         |
+    |País de origen     |   Seleccione el país o región en que residen los datos actualmente.         |
     |Región de Azure de destino     |     Seleccione la región de Azure a la que desea transferir los datos.        |
 
-5. Seleccione Data **Box**. La capacidad máxima utilizable para un solo pedido es de 786 TB. Para tamaños de datos mayores puede crear varios pedidos.
+5. Seleccione Data **Box**. La capacidad máxima utilizable para un solo pedido es de 80 TB. Para tamaños de datos mayores puede crear varios pedidos.
 
       [![Seleccionar opción 1 de Data Box](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 

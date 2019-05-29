@@ -8,65 +8,60 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 03/01/2018
+ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 013467cb64220b525d429c901c48028bf65b3852
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c22230545ccbe1ef1b4bfa35a33f0302197463b1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864934"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124528"
 ---
-# <a name="example-how-to-identify-faces-in-images"></a>Ejemplo: Identificación de caras en imágenes
+# <a name="example-identify-faces-in-images"></a>Ejemplo: Identificación de caras en imágenes
 
-En esta guía se muestra cómo identificar caras desconocidas con el elemento PersonGroup, que se crea a partir de personas conocidas de antemano. Los ejemplos están escritos en C# con la biblioteca cliente de Face API.
-
-## <a name="concepts"></a>Conceptos
-
-Si no está familiarizado con los siguientes conceptos de esta guía, consulte las definiciones en nuestro [Glosario](../Glossary.md) en cualquier momento:
-
-- Face - Detect
-- Face - Identify
-- PersonGroup
+En esta guía se muestra cómo identificar caras desconocidas con los objetos PersonGroup, que se crean a partir de personas conocidas de antemano. Los ejemplos se escriben en C# mediante el uso de la biblioteca cliente de Azure Cognitive Services Face API.
 
 ## <a name="preparation"></a>Preparación
 
-En este ejemplo, se muestra lo siguiente:
+En este ejemplo se muestra:
 
-- Cómo crear un elemento PersonGroup: este elemento PersonGroup contiene una lista de personas conocidas.
-- Cómo asignar caras a cada persona: estas caras se utilizan como línea de base para identificar a las personas. Se recomienda utilizar caras frontales claras, como la foto del documento de identificación. Un buen conjunto de fotos debe contener rostros de la misma persona en diferentes poses, colores de ropa o estilos de cabello.
+- Cómo crear un elemento PersonGroup. Este elemento PersonGroup contiene una lista de personas conocidas.
+- Cómo asignar caras a cada persona. Estas caras se usan como base de referencia para identificar personas. Le recomendamos usar vistas frontales claras de caras. Un ejemplo es un identificador de fotografía. Un buen conjunto de fotos incluye caras de la misma persona en distintas posturas, colores de ropa o peinados.
 
-Para llevar a cabo la demostración de este ejemplo, es necesario preparar un montón de fotos:
+Para demostrar este ejemplo, prepare:
 
-- Unas fotos con la cara de la persona. [Haga clic aquí para descargar fotos de ejemplo](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) para Anna, Bill y Clare.
-- Una serie de fotos de prueba, que pueden o no contener las caras de Anna, Bill o Clare utilizadas para probar la identificación. También puede seleccionar algunas imágenes de muestra del vínculo anterior.
+- Unas fotos con la cara de la persona. [Descargue fotos de ejemplo](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) para Anna, Bill y Clare.
+- Una serie de fotos de prueba. Las fotos podrían contener o no las caras de Anna, Bill o Clare. Se usan para probar la identificación. Seleccione también algunas imágenes de ejemplo del vínculo anterior.
 
 ## <a name="step-1-authorize-the-api-call"></a>Paso 1: Autorización de la llamada a la API
 
-Cada llamada a Face API requiere una clave de suscripción. Esta clave puede pasarse a través de un parámetro de cadena de consulta o especificarse en la cabecera de la solicitud. Para pasar la clave de suscripción a través de una cadena de consulta, haga referencia a la dirección URL de la solicitud para [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) como ejemplo:
+Cada llamada a Face API requiere una clave de suscripción. Esta clave puede pasarse a través de un parámetro de cadena de consulta o especificarse en la cabecera de la solicitud. Para pasar la clave de suscripción a través de una cadena de consulta, consulte la dirección URL de la solicitud para [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) como un ejemplo:
 ```
 https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
 &subscription-key=<Subscription key>
 ```
 
-Como alternativa, también puede especificarse la clave de suscripción en el encabezado de la solicitud HTTP: **ocp-apim-subscription-key: &lt;Clave de suscripción&gt;** Al usar una biblioteca cliente, la clave de suscripción se pasa por el constructor de la clase FaceServiceClient. Por ejemplo: 
+Como alternativa, especifique la clave de suscripción en el encabezado de la solicitud HTTP **ocp-apim-subscription-key: &lt;Clave de suscripción&gt;** .
+Cuando usa una biblioteca cliente, la clave de suscripción se pasa a través del constructor de la clase FaceServiceClient. Por ejemplo: 
  
 ```CSharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
  
-La clave de la suscripción con el punto de conexión correspondiente se puede obtener desde la página Marketplace de Azure Portal. Consulte [Suscripciones](https://azure.microsoft.com/try/cognitive-services/).
+Para obtener la clave de suscripción, vaya a Azure Marketplace desde Azure Portal. Para más información, consulte [Suscripciones](https://azure.microsoft.com/try/cognitive-services/).
 
 ## <a name="step-2-create-the-persongroup"></a>Paso 2: Creación del elemento PersonGroup
 
-En este paso, hemos creado un elemento PersonGroup denominado "MyFriends" que contiene tres personas: Anna, Bill y Clare. Cada persona tiene varias caras registrados. Las caras deben detectarse en las imágenes. Después de todos estos pasos, tiene un elemento PersonGroup similar al de la siguiente imagen:
+En este paso, un PersonGroup denominado "MyFriends" contiene Anna, Bill y Clare. Cada persona tiene varias caras registrados. Las caras se deben detectar en las imágenes. Después de todos estos pasos, tiene un elemento PersonGroup similar al de la siguiente imagen:
 
-![HowToIdentify1](../Images/group.image.1.jpg)
+![MyFriends](../Images/group.image.1.jpg)
 
-### <a name="21-define-people-for-the-persongroup"></a>2.1 Definir personas para el elemento PersonGroup
-Una persona es una unidad básica de identificación. Una persona puede tener una o más caras conocidas registradas. Sin embargo, un elemento PersonGroup es una colección de personas, y cada persona se define dentro de una determinada entidad PersonGroup. La identificación se realiza en un elemento PersonGroup. Por lo tanto, la tarea consiste en crear un elemento PersonGroup y, después, crear personas en él, como Anna, Bill y Clare.
+### <a name="step-21-define-people-for-the-persongroup"></a>Paso 2.1: Definir personas para el elemento PersonGroup
+Una persona es una unidad básica de identificación. Una persona puede tener una o más caras conocidas registradas. Un elemento PersonGroup es una colección de personas. Cada persona se define dentro de un elemento PersonGroup determinado. La identificación se hace en un elemento PersonGroup. La tarea consiste en crear un elemento PersonGroup y, después, crear personas en él, como Anna, Bill y Clare.
 
-En primer lugar, debe crear un nuevo elemento PersonGroup. Esto se ejecuta mediante el uso de [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API. La API de la biblioteca de cliente correspondiente es el método CreatePersonGroupAsync para la clase FaceServiceClient. El identificador de grupo especificado crear el grupo es único para cada suscripción: también se puede obtener, actualizar o eliminar elementos PersonGroup con otras PersonGroup API. Cuando se define un grupo, las personas pueden define dentro de él mediante [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API. El método de la biblioteca cliente es CreatePersonAsync. Puedes agregarle una cara a cada persona después de su creación.
+En primer lugar, cree un elemento PersonGroup mediante [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API. La API de la biblioteca de cliente correspondiente es el método CreatePersonGroupAsync para la clase FaceServiceClient. El identificador de grupo que está especificado para crear el grupo es único para cada suscripción. También puede obtener, actualizar o eliminar elementos PersonGroup mediante otras API PersonGroup. 
+
+Una vez que se define un grupo, puede definir las personas dentro de él mediante [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API. El método de la biblioteca cliente es CreatePersonAsync. Puede agregar una cara a cada persona una vez creada.
 
 ```CSharp 
 // Create an empty PersonGroup
@@ -83,10 +78,10 @@ CreatePersonResult friend1 = await faceServiceClient.CreatePersonAsync(
  
 // Define Bill and Clare in the same way
 ```
-### <a name="step2-2"></a> 2.2 Detectar caras y registrarlas en la persona correcta
-La detección se realiza enviando una petición web "POST" a [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API con el archivo de imagen en el cuerpo de la solicitud HTTP. Cuando se utiliza la biblioteca cliente, la detección de caras se realiza mediante el método DetectAsync para la clase FaceServiceClient.
+### <a name="step2-2"></a> Paso 2.2: Detectar caras y registrarlas en la persona correcta
+La detección se realiza enviando una petición web "POST" a [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API con el archivo de imagen en el cuerpo de la solicitud HTTP. Cuando usa la biblioteca cliente, la detección de caras se realiza mediante el método DetectAsync para la clase FaceServiceClient.
 
-Para cada cara detectada puede llamar a [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) para agregarla a la persona correcta.
+Para cada cara detectada llame a [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) para agregarla a la persona correcta.
 
 El siguiente código demuestra el proceso de cómo detectar una cara en una imagen y agregarla a una persona:
 ```CSharp 
@@ -104,17 +99,17 @@ foreach (string imagePath in Directory.GetFiles(friend1ImageDir, "*.jpg"))
 }
 // Do the same for Bill and Clare
 ``` 
-Observe que si la imagen contiene más de una cara, solo se agrega la cara más grande. Puede agregar otras caras a la persona pasando una cadena en el formato "targetFace = left, top, width, height" al parámetro de consulta targetFace de [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API, o mediante el parámetro opcional targetFace del método AddPersonFaceAsync para agregar otras caras. A cada cara que se agrega a la persona se le dará un identificador de cara persistente único, que se puede utilizar en [PersonGroup Person - Delete Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523e) y [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+Si la imagen contiene más de una cara, solo se agrega la cara más grande. Puede agregar otras caras a la persona. Pase una cadena con el formato "targetFace = left, top, width, height" al parámetro de consulta targetFace de [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API. También puede usar el parámetro opcional targetFace para que el método AddPersonFaceAsync agregue otras caras. Cada cara agregada a la persona tiene un identificador de cara persistente único. Puede usar este identificador en [PersonGroup Person – Delete Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523e) y en [Face – Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 ## <a name="step-3-train-the-persongroup"></a>Paso 3: Entrenamiento del elemento PersonGroup
 
-El elemento PersonGroup debe entrenarse antes de que se pueda realizar una identificación con ella. Por otra parte, tiene que volverse a entrenar después de agregar o quitar a una persona, o si cualquier persona tiene su cara registrada editada. El entrenamiento se realiza mediante [PersonGroup – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API. Cuando se utiliza la biblioteca cliente, simplemente es una llamada al método TrainPersonGroupAsync:
+El elemento PersonGroup debe entrenarse antes de que se pueda realizar una identificación con ella. El elemento PersonGroup se debe volver a entrenar después de agregar o quitar cualquier persona o si edita la cara registrada de una persona. El entrenamiento se realiza mediante [PersonGroup – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API. Cuando usa la biblioteca cliente, se trata de una llamada al método TrainPersonGroupAsync:
  
 ```CSharp 
 await faceServiceClient.TrainPersonGroupAsync(personGroupId);
 ```
  
-El entrenamiento es un proceso asincrónico. Es posible que no se haya terminado incluso después de que se haya devuelto el método TrainPersonGroupAsync. Puede que necesite consultar el estado de entrenamiento mediante [PersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247) API o el método GetPersonGroupTrainingStatusAsync de la biblioteca cliente. El siguiente código demuestra una lógica simple de esperar a que termine el entrenamiento de PersonGroup:
+El entrenamiento es un proceso asincrónico. Es posible que no se haya terminado incluso después de que se haya devuelto el método TrainPersonGroupAsync. Quizás necesite consultar el estado del entrenamiento. Use la API [PersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247) API o el método GetPersonGroupTrainingStatusAsync de la biblioteca cliente. El código siguiente muestra una lógica sencilla de esperar que se complete el entrenamiento del elemento PersonGroup:
  
 ```CSharp 
 TrainingStatus trainingStatus = null;
@@ -133,11 +128,11 @@ while(true)
 
 ## <a name="step-4-identify-a-face-against-a-defined-persongroup"></a>Paso 4: Identificación de una cara con un elemento PersonGroup definido
 
-Al realizar identificaciones, Face API puede calcular la similitud de una cara de prueba entre todas las caras de un grupo y devuelve a la persona o personas más comparables para esa cara de prueba. Esto se realiza a través de [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API o del método IdentifyAsync de la biblioteca cliente.
+Cuando Face API realiza las identificaciones, calcula la similitud de una cara de prueba entre todas las caras dentro de un grupo. Devuelve las personas más comparables con la cara de prueba. Este proceso se realiza con [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API o con el método IdentifyAsync de la biblioteca cliente.
 
-La cara de prueba debe detectarse usando los pasos anteriores, y después el identificador de la cara se pasa a la API de identificación como segundo argumento. Se pueden identificar varios identificadores de cara a la vez y el resultado contendrá todos los resultados de identificación. De forma predeterminada, el identificador devuelve solo una persona que coincida mejor con la cara de la prueba. Si lo prefiere, puede especificar el parámetro opcional maxNumOfCandidatesReturned para que el identificador devuelva más candidatos.
+La cara de prueba se debe detectar con los pasos anteriores. Luego, el identificador de cara se pasa a la API de identificación como segundo argumento. Es posible identificar varios id. de caras a la vez. El resultado contiene todos los resultados identificados. De manera predeterminada, el proceso de identificación devuelve solo una persona que coincida mejor con la cara de la prueba. Si lo prefiere, especifique el parámetro opcional maxNumOfCandidatesReturned para que el proceso de identificación devuelva más candidatos.
 
-El siguiente código demuestra el proceso de identificación:
+El código siguiente muestra el proceso de identificación:
 
 ```CSharp 
 string testImageFile = @"D:\Pictures\test_img1.jpg";
@@ -166,27 +161,28 @@ using (Stream s = File.OpenRead(testImageFile))
 }
 ``` 
 
-Cuando haya terminado los pasos, puede intentar identificar las diferentes caras y ver si las caras de Anna, Bill o Clare se pueden identificar correctamente, de acuerdo con las imágenes cargadas para la detección de caras. Consulte los siguientes ejemplos:
+Una vez que complete los pasos, intente identificar las distintas caras. Vea si las caras de Anna, Bill o Clare se pueden identificar correctamente según las imágenes cargadas para realizar la detección de caras. Consulte los siguientes ejemplos:
 
-![HowToIdentify2](../Images/identificationResult.1.jpg )
+![Identificación de distintas caras](../Images/identificationResult.1.jpg )
 
-## <a name="step-5-request-for-large-scale"></a>Paso 5: Solicitud a gran escala
+## <a name="step-5-request-for-large-scale"></a>Paso 5: Solicitud de gran escala
 
-Como se sabe, un elemento PersonGroup puede albergar hasta 10 000 personas debido a la limitación del diseño anterior.
+Un elemento PersonGroup puede contener hasta 10 000 personas según la limitación de diseño anterior.
 Para más información sobre escenarios de hasta un millón de escalas, consulte [Uso de la característica a gran escala](how-to-use-large-scale.md).
 
 ## <a name="summary"></a>Resumen
 
-En esta guía, ha aprendido el proceso de creación de un elemento PersonGroup e identificar una persona. Este es un rápido recordatorio de las características anteriormente explicadas y demostradas:
+En esta guía, aprendió el proceso de creación de un elemento PersonGroup y a identificar una persona. Se explicaron y mostraron las siguientes características:
 
-- Detección de caras con [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d) API
-- Creación de PersonGroups con [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API
-- Creación de personas con [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API
-- Entrenamiento de un elemento PersonGroup con [PersonGroup – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API
-- Identificación de caras desconocidas en el elemento PersonGroup con [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API
+- Detección de caras con [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d) API.
+- Creación de un elemento PersonGroups con [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API.
+- Creación de personas con [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API.
+- Entrenamiento de un elemento PersonGroup con [PersonGroup – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API.
+- Identificación de caras desconocidas en el elemento PersonGroup con [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API.
 
 ## <a name="related-topics"></a>Temas relacionados
 
-- [Detección de caras en imágenes](HowtoDetectFacesinImage.md)
-- [Incorporación de caras](how-to-add-faces.md)
-- [Uso de la característica a gran escala](how-to-use-large-scale.md)
+- [Face recognition concepts](../concepts/face-recognition.md) (Conceptos del reconocimiento facial)
+- [Detect faces in an image](HowtoDetectFacesinImage.md) (Detección de caras en una imagen)
+- [Agregar caras](how-to-add-faces.md)
+- [Use the large-scale feature](how-to-use-large-scale.md) (Uso de la característica a gran escala)

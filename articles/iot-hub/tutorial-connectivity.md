@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: caa249dda4215dfcef13df96d2dd4245cae49efd
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077571"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595754"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Uso de un dispositivo simulado para probar la conectividad con IoT Hubs
 
@@ -39,7 +39,7 @@ Los scripts de la CLI que se ejecutan en este tutorial usan la [extensión de Mi
 az extension add --name azure-cli-iot-ext
 ```
 
-La aplicación de simulación de dispositivos que se ejecuta en este tutorial está escrita con Node.js. Necesita Node.js 4.x.x o una versión posterior en el equipo de desarrollo.
+La aplicación de simulación de dispositivos que se ejecuta en este tutorial está escrita con Node.js. Necesitará Node.js v10.x.x o una versión posterior en la máquina de desarrollo.
 
 Puede descargar Node.js para varias plataformas desde [nodejs.org](https://nodejs.org).
 

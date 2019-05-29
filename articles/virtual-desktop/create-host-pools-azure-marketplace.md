@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e19523834c0ddb517fa9d15853411c1b58024b43
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236792"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834005"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Tutorial: Creación de un grupo host con Azure Marketplace
 
@@ -59,6 +59,9 @@ En la hoja Configuración de las máquinas virtuales:
 
 En la hoja Configuración de la máquina virtual:
 
+>[!NOTE]
+> Si va a unir sus máquinas virtuales a un entorno de Azure Active Directory Domain Services, asegúrese de que su usuario de unión a un dominio también es miembro del [grupo de administradores de controlador de dominio de AAD](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+
 1. Seleccione el valor de **Origen de la imagen** y escriba la información apropiada para encontrarla y almacenarla. Si decide no usar discos administrados, seleccione la cuenta de almacenamiento que contiene el archivo .vhd.
 2. Escriba el nombre principal de usuario y la contraseña de la cuenta de dominio que unirá las máquinas virtuales al dominio de Active Directory. Este mismo nombre de usuario y contraseña se creará en las máquinas virtuales como una cuenta local. Puede restablecer estas cuentas locales más adelante.
 3. Seleccione la red virtual que tenga conectividad con el servidor de Active Directory y, después, elija la subred donde se hospedarán las máquinas virtuales.
@@ -68,7 +71,7 @@ En la hoja Configuración de la máquina virtual:
 
 En la hoja de información del inquilino de Windows Virtual Desktop:
 
-1. En **Nombre de grupo de inquilinos de Windows Virtual Desktop**, escriba el grupo que contiene su inquilino. Si no tiene planeado un nombre de grupo de inquilinos específico, deje el valor predeterminado.
+1. En **Nombre de grupo de inquilinos de Windows Virtual Desktop**, escriba el grupo que contiene su inquilino. A menos que se le haya proporcionado un nombre de grupo de inquilinos específico, deje el valor predeterminado.
 2. En **Nombre de inquilino de Windows Virtual Desktop**, escriba el inquilino donde se creará este grupo de hosts.
 3. Especificar el tipo de credenciales que desea usar para autenticarse como propietario de RDS del inquilino de Windows Virtual Desktop. Si completó el [tutorial Creación de entidades de servicio y asignaciones de roles con PowerShell](./create-service-principal-role-powershell.md), seleccione **serviceprincipal**. Ahora deberá escribir el **identificador de inquilino de Azure AD** de la instancia de Azure Active Directory que contiene la entidad de servicio.
 4. Escriba las credenciales de la cuenta de administrador del inquilino. Solo se admiten entidades de servicio con credenciales de contraseña.
@@ -94,12 +97,6 @@ Ejecute el siguiente cmdlet para iniciar sesión en el entorno de Windows Virtua
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-Establezca el contexto en el grupo de inquilinos de Windows Virtual Desktop que especificó en la oferta de Azure Marketplace con el siguiente cmdlet. Si ha dejado el grupo de inquilinos de Windows Virtual Desktop como valor predeterminado en la oferta de Azure Marketplace, puede omitir este paso.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 Después de hacer estas dos cosas, puede agregar usuarios al grupo de aplicaciones de escritorio con este cmdlet:

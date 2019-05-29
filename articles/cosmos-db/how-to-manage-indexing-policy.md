@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0b47ffd77ee23f997bb7de2ea41f83c2854cba72
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068671"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550905"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Administración de directivas de indexación en Azure Cosmos DB
 
@@ -22,6 +22,9 @@ En Azure Cosmos DB, para indexar los datos se usan las [directivas de indexaci
 - mediante uno de los SDK
 
 Las [actualizaciones de las directivas de indexación](index-policy.md#modifying-the-indexing-policy) desencadenan transformaciones de índices. También se puede realizar un seguimiento del progreso de esta transformación desde los SDK.
+
+> [!NOTE]
+> Como parte de la actualización del SDK y del Portal, la directiva de índice ha evolucionado para ajustarse al nuevo diseño de índices que se ha implementado en los nuevos contenedores. Con este nuevo diseño, todos los tipos de datos primitivos se indexan como un intervalo con precisión completa (-1). Por lo tanto, las clases de índices y la precisión ya no se exponen al usuario. En el futuro, los usuarios deberán agregar simplemente las rutas de acceso a la sección includedPaths y omitir indexKinds y precision. Este cambio no afecta al rendimiento y puede seguir actualizando la directiva de indexación mediante la misma sintaxis. Además, puede seguir usando todos los ejemplos de la documentación existente para actualizar la directiva de índice.
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 

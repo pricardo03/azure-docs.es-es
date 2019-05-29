@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc04a307779b47b50cd16a81c0566b72bafab95
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c4beac0ab739d62eb7acb00e6b2db717b5f43e15
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860571"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987969"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>Tutorial: Integración de Azure Active Directory con Boxcryptor
 
@@ -54,7 +54,7 @@ Para configurar la integración de Boxcryptor en Azure AD, deberá agregar Boxcr
 
 **Para agregar Boxcryptor desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Boxcryptor, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Boxcryptor](#configure-boxcryptor-single-sign-on)**: para configurar el inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Boxcryptor](#create-boxcryptor-test-user)**: para tener un homólogo de Britta Simon en Boxcryptor que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Boxcryptor](#configure-boxcryptor-single-sign-on)** : para configurar el inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Boxcryptor](#create-boxcryptor-test-user)** : para tener un homólogo de Britta Simon en Boxcryptor que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -108,7 +108,7 @@ Para configurar el inicio de sesión único de Azure AD con Boxcryptor, realice 
 
      a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://www.boxcryptor.com/app`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba el valor: `boxcryptor`
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba el valor: `boxcryptor`
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -146,7 +146,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -181,7 +181,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-boxcryptor-test-user"></a>Creación de un usuario de prueba de Boxcryptor
 
-En esta sección, creará un usuario llamado Britta Simon en Boxcryptor. Colabore con el  [equipo de soporte técnico de Boxcryptor](mailto:support@boxcryptor.com)  para agregar los usuarios o el dominio que deben incluirse en la lista blanca en la plataforma de Boxcryptor. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de Boxcryptor. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Boxcryptor. Colabore con el  [equipo de soporte técnico de Boxcryptor](mailto:support@boxcryptor.com)  para agregar el dominio o los usuarios necesarios a la lista blanca de la plataforma de Boxcryptor. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de Boxcryptor. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

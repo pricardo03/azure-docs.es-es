@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 05/15/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 20b8d7a6a7d6da639481045d9462c484b820a4df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 194f2b80e9cbf3a69fef6ce382e6755934f1d5bd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575848"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787449"
 ---
 # <a name="what-is-azure-data-box-disk"></a>¿Qué es Azure Data Box Disk?
 
@@ -84,27 +84,12 @@ Para más información, vaya a [Azure Data Box Disk security and data protection
 | Interfaz de datos                                          | USB   |
 | Seguridad                                                | Previamente cifrada mediante BitLocker y la actualización segura <br> Discos protegidos por clave de paso <br> Datos cifrados en todo momento  |
 | Velocidad de transferencia de datos                                      | Hasta 430 MBps en función del tamaño de archivo      |
-|Administración                                               | Azure Portal |
+|Administración                                               | Portal de Azure |
 
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
-Actualmente, Data Box Disk puede transferir datos a las siguientes regiones de Azure:
-
-
-|Región de Azure  |Región de Azure  |
-|---------|---------|
-|Centro occidental de EE.UU.     |Centro de Canadá       |        
-|Oeste de EE. UU. 2     |Este de Canadá         |     
-|Oeste de EE. UU.     | Europa occidental        |      
-|Centro-Sur de EE. UU   |Europa del Norte     |         
-|Centro de EE. UU.     |Este de Australia|
-|Centro-Norte de EE. UU  |Sudeste de Australia   |
-|Este de EE. UU      |Centro de Australia |
-|Este de EE. UU. 2     |Centro de Australia 2|
-|Este de Japón     |Corea Central |
-|Oeste de Japón     |Corea del Sur |
-|Sudeste asiático |
+Para más información sobre la disponibilidad regional, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
 
 
 ## <a name="pricing"></a>Precios

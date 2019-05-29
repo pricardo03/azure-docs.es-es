@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259463"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979155"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Introducción al servicio Azure Policy
 
@@ -28,7 +28,7 @@ Azure Policy es un servicio de Azure que se usa para crear, asignar y administra
 
 ## <a name="how-is-it-different-from-rbac"></a>¿En qué se diferencia de RBAC?
 
-Hay algunas diferencias importantes entre una directiva y el control de acceso basado en rol (RBAC). RBAC se centra en las acciones del usuario en ámbitos diferentes. Se le podría agregar al rol de colaborador de un grupo de recursos, para que pueda realizar cambios en dicho grupo. La directiva se centra en las propiedades de los recursos durante la implementación y para todos los recursos existentes. La directiva controla las propiedades como los tipos y las ubicaciones de los recursos. A diferencia de RBAC, la directiva es un sistema que permite de manera predeterminada y niega explícitamente.
+Hay algunas diferencias importantes entre Azure Policy y el control de acceso basado en rol (RBAC). RBAC se centra en las acciones del usuario en ámbitos diferentes. Se le podría agregar al rol de colaborador de un grupo de recursos, para que pueda realizar cambios en dicho grupo. Azure Policy se centra en las propiedades de los recursos durante la implementación y para todos los recursos existentes. Azure Policy controla las propiedades como los tipos y las ubicaciones de los recursos. A diferencia de RBAC, Azure Policy es un sistema que permite de manera predeterminada y niega explícitamente.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Permisos de RBAC en Azure Policy
 
@@ -37,7 +37,7 @@ Azure Policy dispone de varios permisos, conocidos como operaciones, en dos prov
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Muchos roles integrados conceden permiso a recursos de Azure Policy. El rol **Colaborador de la directiva de recursos (versión preliminar)** incluye la mayoría de las operaciones de directiva. El rol **Propietario** tiene derechos completos. Tanto el rol **Colaborador** como **Lector** pueden usar todas las operaciones de lectura de la directiva, pero el rol **Colaborador** también puede activar la corrección.
+Muchos roles integrados conceden permiso a recursos de Azure Policy. El rol **Colaborador de la directiva de recursos (versión preliminar)** incluye la mayoría de las operaciones de Azure Policy. El rol **Propietario** tiene derechos completos. Tanto el rol **Colaborador** como **Lector** pueden usar todas las operaciones de lectura de Azure Policy, pero el rol **Colaborador** también puede activar la corrección.
 
 Si ninguno de los roles integrados tiene los permisos necesarios, cree un [rol personalizado](../../role-based-access-control/custom-roles.md).
 
@@ -115,7 +115,7 @@ En este escenario, tiene tres opciones en el momento de definir los parámetros 
 
 Al crear las opciones de valor en una definición de iniciativa, no se puede proporcionar un valor diferente durante la asignación de la iniciativa, porque no forma parte de la lista.
 
-## <a name="maximum-count-of-policy-objects"></a>Número máximo de objetos de directiva
+## <a name="maximum-count-of-azure-policy-objects"></a>Número máximo de objetos de Azure Policy
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -144,8 +144,8 @@ La siguiente introducción de Azure Policy es de la compilación 2018. Para desc
 
 Ahora que tiene información general acerca de Azure Policy y algunos de los conceptos clave, se recomienda seguir estos pasos:
 
-- [Asignación de una definición de directiva con el portal](assign-policy-portal.md)
-- [Asignación de una definición de directiva con la CLI de Azure](assign-policy-azurecli.md)
-- [Asignación de una definición de directiva con PowerShell](assign-policy-powershell.md)
+- [Asignación de una definición de directiva con el portal](assign-policy-portal.md).
+- [Asignación de una definición de directiva con la CLI de Azure](assign-policy-azurecli.md).
+- [Asignación de una definición de directiva con PowerShell](assign-policy-powershell.md).
 - En [Organización de los recursos con grupos de administración de Azure](..//management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.
-- Vea [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Gobierno de un entorno de Azure mediante Azure Policy) en Channel 9
+- Vea [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Gobierno de un entorno de Azure mediante Azure Policy) en Channel 9.

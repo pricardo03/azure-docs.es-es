@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 943131bc746b5d2a1fd95a26a6a6c9f3bb6b9e57
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 020e0395c7678f6856a293c8386a44d7a959bc06
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65509953"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786530"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integración de Azure Active Directory con SAML SSO for Jira by resolution GmbH
 
@@ -53,7 +53,7 @@ Para configurar un inicio de sesión único en Azure AD, deberá agregar una nu
 
 **Para agregar SAML SSO for Jira by resolution GmbH desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es necesario establecer una relac
 
 Para configurar y probar el inicio de sesión único, es preciso completar los pasos siguientes:
 
-1. **[Configurar la aplicación empresarial de Azure AD para el inicio de sesión único](#configure-the-azure-ad-enterprise-application-for-single-sign-on)**: para configurar la aplicación empresarial de Azure AD para el inicio de sesión único.
-2. **[Configurar el complemento SAML SSO de la instancia de Jira](#configure-the-saml-sso-plugin-of-your-jira-instance)**: para configurar las opciones del inicio de sesión único en la aplicación.
-3. **[Crear un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para crear un usuario de prueba en Azure AD.
-1. **[Asignar el usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que el usuario de prueba utilice el único inicio de sesión en Azure.
-1. **[Crear el usuario de prueba en Jira](#create-the-test-user-also-in-jira)**: para crear un usuario de prueba homólogo en Jira para el usuario de prueba de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: compruebe que la configuración funciona.
+1. **[Configurar la aplicación empresarial de Azure AD para el inicio de sesión único](#configure-the-azure-ad-enterprise-application-for-single-sign-on)** : para configurar la aplicación empresarial de Azure AD para el inicio de sesión único.
+2. **[Configurar el complemento SAML SSO de la instancia de Jira](#configure-the-saml-sso-plugin-of-your-jira-instance)** : para configurar las opciones del inicio de sesión único en la aplicación.
+3. **[Crear un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** : para crear un usuario de prueba en Azure AD.
+1. **[Asignar el usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** : para permitir que el usuario de prueba utilice el único inicio de sesión en Azure.
+1. **[Crear el usuario de prueba en Jira](#create-the-test-user-also-in-jira)** : para crear un usuario de prueba homólogo en Jira para el usuario de prueba de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)** : compruebe que la configuración funciona.
 
 ### <a name="configure-the-azure-ad-enterprise-application-for-single-sign-on"></a>Configuración de la aplicación empresarial de Azure AD para el inicio de sesión único
 
@@ -168,7 +168,7 @@ Para configurar el inicio de sesión único con SAML SSO for Jira by resolution 
     
     d. Haga clic en **Next**.
     
-11. En la página **Identity provider configuration** (Configuración del proveedor de identidades), haga clic en **Next** (Siguiente).
+11. En la página **Identity provider configuration** (Configuración del proveedor de identidades), haga clic en el botón **Next** (Siguiente).
  
     ![Configurar inicio de sesión único](./media/samlssojira-tutorial/addon5b.png)
 

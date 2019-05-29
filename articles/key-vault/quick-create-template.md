@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 05/22/2019
 ms.author: jgao
-ms.openlocfilehash: b1b50858286e3a174de254ae16c64b04abc00936
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 802c0409fe3ac88f73c383958d2337be09ef7992
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716007"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016477"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una plantilla de Resource Manager
 
@@ -61,8 +61,8 @@ La plantilla usada en este inicio rápido forma parte de las [plantillas de inic
     * **Suscripción**: seleccione una suscripción de Azure.
     * **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y, a continuación, haga clic en **Aceptar**. 
     * **Ubicación**: seleccione una ubicación.  Por ejemplo, **Centro de EE. UU**.
-    * **Nombre de Key Vault**: escriba un nombre único para el almacén de claves.  
-    * **Id. de inquilino**: la función de plantilla recupera automáticamente el identificador del inquilino.  No cambie el valor predeterminado
+    * **Nombre del almacén de claves**: escriba un nombre para el almacén de claves que debe ser globalmente único dentro del espacio de nombres .vault.azure.net.  
+    * **Id. de inquilino**: la función de plantilla recupera automáticamente el identificador del inquilino.  No cambie el valor predeterminado.
     * **Id. de usuario de AD**: escriba el identificador del objeto de usuario de Azure AD que recuperó de [Requisitos previos](#prerequisites).
     * **Nombre del secreto**: escriba un nombre para el secreto que almacenará en el almacén de claves.  Por ejemplo, **adminpassword**.
     * **Valor del secreto**: escriba el valor del secreto.  Si almacena una contraseña, se recomienda usar la contraseña generada que creó en Requisitos previos.

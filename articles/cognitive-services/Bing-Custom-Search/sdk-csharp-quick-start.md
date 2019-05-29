@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 100f1d4ed96f04f8208fd544d410f227561343e6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e13edce77819d5ef8cfc3b6becff9fb82224a83
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871592"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595963"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Inicio rápido: Llamada al punto de conexión de Bing Custom Search con el SDK para C# 
 
@@ -25,10 +25,10 @@ Use este documento de inicio rápido para comenzar a solicitar los resultados de
 
 - Una instancia de Bing Custom Search. Consulte [Quickstart: Creación de la primera instancia de Bing Custom Search](quick-start.md) para obtener más información.
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- Cualquier edición de [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+- Cualquier edición de [Visual Studio 2017 o versiones posteriores](https://www.visualstudio.com/downloads/).
 - Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
 - El paquete [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) instalado. 
-    - En el Explorador de soluciones en Visual Studio, haga clic con el botón derecho en el proyecto y seleccione `Manage NuGet Packages` en el menú. Instale el paquete `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. Al instalar el paquete NuGet Custom Search, también se instalarán los ensamblados siguientes:
+    - En el **Explorador de soluciones** de Visual Studio, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet** en el menú. Instale el paquete `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. Al instalar el paquete NuGet Custom Search, también se instalarán los ensamblados siguientes:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json

@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 4b074c9dee93ba44659b0321ae3eee7fbea1c61f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7320f5cd8d012973139adb099785cddae123f775
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145053"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949607"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Tutorial: Uso de Azure CDN para habilitar un dominio personalizado con SSL para un sitio web estático
 
@@ -44,8 +44,9 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) para empezar a traba
 1. En la sección **Nuevo punto de conexión**, rellene los campos para crear un nuevo punto de conexión de red CDN.
 1. Escriba un nombre para el punto de conexión, como *mystaticwebsiteCDN*.
 1. Escriba el dominio del sitio web como el nombre de host para el punto de conexión de red CDN.
-1. En el nombre de host de origen, escriba el punto de conexión del sitio web estático. Para buscar el punto de conexión del sitio web estático, vaya a la sección **Sitio web estático** de la cuenta de almacenamiento y copie el punto de conexión. 
+1. En el nombre de host de origen, escriba el punto de conexión del sitio web estático. Para buscar el punto de conexión del sitio web estático, vaya a la sección **Sitio web estático** de la cuenta de almacenamiento y copie el punto de conexión (prescindiendo de https:// )
 1. Para probar el punto de conexión de red CDN, vaya a *mywebsitecdn.azureedge.net* en el explorador.
+1. Compruebe además, yendo al **Nuevo punto de conexión** en la configuración, el origen para ver si el tipo de origen está establecido en *Origen personalizado* y si *Nombre de host de origen* muestra el nombre del punto de conexión del sitio web estático.
 
 ## <a name="enable-custom-domain-and-ssl"></a>Habilitar el dominio personalizado y SSL
 

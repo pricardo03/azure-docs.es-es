@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bf4eb817bb1705c6af6d4e7e9e28e5789f49a906
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893748"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873028"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Creación de una tabla de clasificación cache-aside en ASP.NET
 
@@ -41,7 +41,7 @@ En este tutorial, aprenderá a:
 Para realizar este tutorial, debe disponer de los siguientes requisitos previos:
 
 * Este tutorial continúa donde lo dejó en el artículo de [inicio rápido de ASP.NET para Azure Cache for Redis](cache-web-app-howto.md). Si aún lo ha hecho ya, complete esta guía de inicio rápido.
-* Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
+* Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
     * ASP.NET y desarrollo web
     * Desarrollo de Azure
     * Desarrollo del escritorio de .NET con SQL Server Express LocalDB o [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express).
@@ -156,7 +156,7 @@ Para más información acerca de este paquete, consulte la página [EntityFramew
 
 1. Agregue la siguiente sección `connectionStrings` en la sección `configuration`. El nombre de la cadena de conexión debe coincidir con el de la clase de contexto de la base de datos de Entity Framework, que es `TeamContext`.
 
-    Esta cadena de conexión da por supuesto que se cumplen los [requisitos previos](#prerequisites) y que se ha instalado SQL Server Express LocalDB, que forma parte de la carga de trabajo del *desarrollo del escritorio de .NET* que se instala con Visual Studio de 2017.
+    Esta cadena de conexión da por supuesto que se cumplen los [requisitos previos](#prerequisites) y que se ha instalado SQL Server Express LocalDB, que forma parte de la carga de trabajo del *desarrollo del escritorio de .NET* que se instala con Visual Studio 2019.
 
     ```xml
     <connectionStrings>

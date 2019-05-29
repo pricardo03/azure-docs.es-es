@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: b884eab6d2d5a2c768991aa82f5a33d2792abd97
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 24869981595cd68eb833f7b176e17a2683127945
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508129"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787926"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage
 
@@ -83,7 +83,7 @@ Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográ
    | **Tipo de cuenta** | StorageV2 | Para más información sobre los tipos de cuenta, consulte [Tipos de cuentas de almacenamiento](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Rendimiento** | Estándar | Suficiente para el escenario de ejemplo. |
    | **Replicación**| Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). | Necesario para el ejemplo funcione. |
-   |**Suscripción** | Su suscripción |Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
+   |**Suscripción** | Su suscripción |Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.azure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
    |**Ubicación** | Este de EE. UU | Elija una ubicación. |
 
@@ -208,7 +208,7 @@ Se inicia una ventana en la consola y la aplicación comienza a ejecutarse. La a
 
 ![Aplicación de consola en ejecución](media/storage-create-geo-redundant-storage/figure3.png)
 
-En el código de ejemplo, la tarea `RunCircuitBreakerAsync` del archivo `Program.cs` se usa para descargar una imagen de la cuenta de almacenamiento con el método [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_). Antes de la descarga, se define [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext?view=azure-dotnet). El contexto de operación define los controladores de eventos, que se activan cuando una descarga se completa correctamente o si se produce un error de descarga y se vuelve a intentar.
+En el código de ejemplo, la tarea `RunCircuitBreakerAsync` del archivo `Program.cs` se usa para descargar una imagen de la cuenta de almacenamiento con el método [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync). Antes de la descarga, se define [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext). El contexto de operación define los controladores de eventos, que se activan cuando una descarga se completa correctamente o si se produce un error de descarga y se vuelve a intentar.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -229,7 +229,7 @@ Para ejecutar el ejemplo, use Maven en la línea de comandos.
 1. Abra un shell y vaya a **storage-blobs-java-v10-quickstart** dentro del directorio clonado.
 2. Escriba `mvn compile exec:java`.
 
-Este ejemplo crea un archivo de prueba en el directorio predeterminado, que es **AppData\Local\Temp** para los usuarios de Windows. El ejemplo, a continuación, presenta las siguientes opciones de comandos que puede escribir:
+Este ejemplo crea un archivo de prueba en el directorio predeterminado. Para los usuarios de Windows, este directorio es **AppData\Local\Temp**. El ejemplo, a continuación, presenta las siguientes opciones de comandos que puede escribir:
 
 - Escriba **P** para ejecutar una operación put blob, que carga un archivo temporal en la cuenta de almacenamiento.
 - Escriba **L** para llevar a cabo una operación list blob; de este modo, se enumeran los blobs que están actualmente en el contenedor.
@@ -301,7 +301,7 @@ Deleted container newcontainer1550799840726
 
 ### <a name="retry-event-handler"></a>Controlador de eventos de reintento
 
-El controlador de eventos `OperationContextRetrying` se llama cuando se produce un error de descarga de la imagen y se ha establecido el reintento. Si se alcanza el máximo de reintentos definido en la aplicación, el valor [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) de la solicitud cambia a `SecondaryOnly`. Esta opción obliga a la aplicación a intentar la descarga de la imagen desde el punto de conexión secundario. Esta configuración reduce el tiempo necesario para solicitar la imagen, ya que no se reintenta siempre con el punto de conexión principal.
+El controlador de eventos `OperationContextRetrying` se llama cuando se produce un error de descarga de la imagen y se ha establecido el reintento. Si se alcanza el máximo de reintentos definido en la aplicación, el valor [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode) de la solicitud cambia a `SecondaryOnly`. Esta opción obliga a la aplicación a intentar la descarga de la imagen desde el punto de conexión secundario. Esta configuración reduce el tiempo necesario para solicitar la imagen, ya que no se reintenta siempre con el punto de conexión principal.
 
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
@@ -329,7 +329,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 
 ### <a name="request-completed-event-handler"></a>Controlador de eventos de solicitud completada
 
-El controlador de eventos `OperationContextRequestCompleted` se llama cuando la descarga de la imagen es correcta. Si la aplicación utiliza el punto de conexión secundario, continuará usándolo hasta 20 veces. Después de 20 veces, la aplicación establece [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) en `PrimaryThenSecondary` de nuevo y vuelve a probar con el punto de conexión principal. Si la solicitud se realiza correctamente, la aplicación continúa leyendo desde el punto de conexión principal.
+El controlador de eventos `OperationContextRequestCompleted` se llama cuando la descarga de la imagen es correcta. Si la aplicación utiliza el punto de conexión secundario, continuará usándolo hasta 20 veces. Después de 20 veces, la aplicación establece [LocationMode](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.locationmode) en `PrimaryThenSecondary` de nuevo y vuelve a probar con el punto de conexión principal. Si la solicitud se realiza correctamente, la aplicación continúa leyendo desde el punto de conexión principal.
 
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)

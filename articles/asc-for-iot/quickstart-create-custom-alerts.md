@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f585c496328fef3e3d7dbb300fc4f07167fd55d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192463"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786179"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Inicio rápido: Creación de alertas personalizadas
 
@@ -50,13 +50,12 @@ Use los grupos de seguridad para agrupar los dispositivos en categorías lógica
 ## <a name="customize-an-alert"></a>Personalización de una alerta
 
 1. Abra IoT Hub. 
-2. Seleccione **Security** (Seguridad) y ,después, seleccione **Custom alerts** (Alertas personalizadas). 
-3. Elija los grupos de seguridad a los que desea aplicar la personalización. 
-4. Haga clic en **Add a custom alert** (Agregar una alerta personalizada)
-5. Escriba un nombre de alerta (tenga en cuenta que los nombres de las alertas no se puede cambiar después de la creación). 
-6. Seleccione el comportamiento de una alerta personalizada en la lista desplegable. 
-7. Edite las propiedades necesarias y haga clic en **OK** (Aceptar).
-8. Asegúrese de hacer clic en **SAVE** (Guardar). Si no se guarda la nueva alerta, la alerta se eliminará la próxima vez que se cierra IoT Hub.
+2. Haga clic en **Alertas personalizadas** en la sección **Seguridad**. 
+3. Elija un grupo de seguridad al que desee aplicar la personalización. 
+4. Haga clic en **Add a custom alert** (Agregar una alerta personalizada) 
+5. Seleccione el comportamiento de una alerta personalizada en la lista desplegable. 
+6. Edite las propiedades necesarias y haga clic en **OK** (Aceptar).
+7. Asegúrese de hacer clic en **SAVE** (Guardar). Si no se guarda la nueva alerta, la alerta se eliminará la próxima vez que se cierra IoT Hub.
 
  
 ## <a name="alerts-available-for-customization"></a>Alertas disponibles para la personalización

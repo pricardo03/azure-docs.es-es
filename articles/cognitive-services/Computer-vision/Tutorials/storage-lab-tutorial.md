@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006002"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541519"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Uso de Computer Vision para generar metadatos de imágenes en Azure Storage
 
@@ -40,17 +40,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-a-computer-vision-resource"></a>Creación de un recurso de Computer Vision
 
-Deberá crear un recurso de Computer Vision para su cuenta de Azure; este recurso administra el acceso al servicio Computer Vision de Azure.
+Deberá crear un recurso de Computer Vision para su cuenta de Azure; este recurso administra el acceso al servicio Computer Vision de Azure. 
 
-1. Inicie sesión en [Azure Portal](https://ms.portal.azure.com), haga clic en **Crear un recurso** y, después, en **IA y Machine Learning** y **Computer Vision**.
+1. Siga las instrucciones que se indican en [Creación de un recurso de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) para crear un recurso de Computer Vision.
 
-    ![Crear una nueva suscripción de Computer Vision API](../Images/new-vision-api.png)
-
-1. En la ventana del cuadro de diálogo, escriba "vision-api-key" en el campo **Nombre** y seleccione **F0** como **Plan de tarifa**. Seleccione la misma **ubicación** que usó al configurar la cuenta de Azure Storage. En **Grupo de recursos**, seleccione **Usar existente** y seleccione también el mismo grupo de recursos. Seleccione la casilla **Confirmo** y haga clic en **Crear**.
-
-    ![Suscripción a Computer Vision API](../Images/create-vision-api.png)
-
-1. Vuelva al menú del grupo de recursos y haga clic en la suscripción de Computer Vision API que acaba de crear. Copie la dirección URL de **Punto de conexión** a cualquier lugar en que pueda recuperarla fácilmente en un momento. Luego, haga clic en **Show access keys** (Mostrar claves de acceso).
+1. Luego, vuelva al menú del grupo de recursos y haga clic en la suscripción de Computer Vision API que acaba de crear. Copie la dirección URL de **Punto de conexión** a cualquier lugar en que pueda recuperarla fácilmente en un momento. Luego, haga clic en **Show access keys** (Mostrar claves de acceso).
 
     ![Página de Azure Portal con el vínculo a las claves de acceso y a la dirección URL del punto de conexión resaltado](../Images/copy-vision-endpoint.png)
 

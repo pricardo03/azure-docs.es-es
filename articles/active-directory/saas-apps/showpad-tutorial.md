@@ -4,56 +4,49 @@ description: Obtenga información sobre cómo configurar el inicio de sesión ú
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 48b6bee0-dbc5-4863-964d-75b25e517741
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/12/2017
+ms.topic: tutorial
+ms.date: 03/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec16aabeb1c8b956b4e525aca4e1c2eb7b133686
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 90a9fec3dc5b7252a0eb9d4120336db168148583
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130303"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902188"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Tutorial: Integración de Azure Active Directory con Showpad
 
 En este tutorial, obtendrá información sobre cómo integrar Showpad con Azure Active Directory (Azure AD).
-
 Integrar Showpad con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Showpad.
-- Puede permitir que los usuarios inicien sesión automáticamente en Showpad (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
+* En Azure AD puede controlar quién tiene acceso a Showpad.
+* Puede permitir que los usuarios inicien sesión automáticamente en Showpad (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Showpad, se necesitan los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en Showpad
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
+* Una suscripción habilitada para el inicio de sesión único en Showpad
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Incorporación de Showpad desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* Showpad admite el inicio de sesión único iniciado por **SP**
+* Showpad admite el aprovisionamiento de usuarios **Just-In-Time**
 
 ## <a name="adding-showpad-from-the-gallery"></a>Incorporación de Showpad desde la galería
 
@@ -61,199 +54,171 @@ Para configurar la integración de Showpad en Azure AD, deberá agregar Showpad 
 
 **Para agregar Showpad desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![APLICACIONES][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![APLICACIONES][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **Showpad**.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/showpad-tutorial/tutorial_showpad_search.png)
+4. En el cuadro de búsqueda, escriba **Showpad**, seleccione **Showpad** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
-1. En el panel de resultados, seleccione **Showpad** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+    ![Showpad en la lista de resultados](common/search-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/showpad-tutorial/tutorial_showpad_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Showpad con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Showpad para un usuario de Azure AD. Es decir, hay que establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Showpad.
-
-Para establecer la relación de vínculo, en Showpad, asigne el valor de **nombre de usuario** de Azure AD como valor de **nombre de usuario**.
+En esta sección podrá configurar y probar el inicio de sesión único de Azure AD con Showpad con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Showpad.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Showpad, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de Showpad](#creating-a-showpad-test-user)**: para tener un homólogo de Britta Simon en Showpad que esté vinculado a su representación en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en Showpad](#configure-showpad-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en Showpad](#create-showpad-test-user)** : para tener un homólogo de Britta Simon en Showpad vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Showpad.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con Showpad, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con Showpad, siga estos pasos:
 
-1. En Azure Portal, en la página de integración de la aplicación **Showpad**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Showpad**, seleccione **Inicio de sesión único**.
 
-    ![Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Configurar inicio de sesión único](./media/showpad-tutorial/tutorial_showpad_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de Showpad**, lleve a cabo los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Configurar inicio de sesión único](./media/showpad-tutorial/tutorial_showpad_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<comapany-name>.showpad.biz/login`.
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<company-name>.showpad.biz`
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    > [!NOTE] 
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Showpad](https://help.showpad.com) para obtener estos valores. 
- 
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de Showpad](common/sp-identifier.png)
 
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<comapany-name>.showpad.biz/login`
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<company-name>.showpad.biz`
 
-    ![Configurar inicio de sesión único](./media/showpad-tutorial/tutorial_showpad_certificate.png) 
+    > [!NOTE]
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico para clientes de Showpad](https://help.showpad.com/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. Haga clic en el botón **Guardar** .
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-    ![Configurar inicio de sesión único](./media/showpad-tutorial/tutorial_general_400.png)
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
+
+6. En la sección **Set up Showpad** (Configurar Showpad), copie las direcciones URL que necesite.
+
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
+    a. URL de inicio de sesión
+
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-showpad-single-sign-on"></a>Configuración del inicio de sesión único en Showpad
 
 1. Inicie la sesión en el inquilino de Showpad como administrador.
 
 1. En el menú de la parte superior, haga clic en **Configuración**.
-   
-    ![Configuración del inicio de sesión único en la aplicación](./media/showpad-tutorial/tutorial_showpad_001.png) 
 
-1. Vaya a **Inicio de sesión único** y haga clic en "**Habilitar**".
-   
+    ![Configuración del inicio de sesión único en la aplicación](./media/showpad-tutorial/tutorial_showpad_001.png)
+
+1. Vaya a **Inicio de sesión único** y haga clic en **Habilitar**.
+
     ![Configuración del inicio de sesión único en la aplicación](./media/showpad-tutorial/tutorial_showpad_002.png)
 
 1. En el cuadro de diálogo **Agregar un servicio de SAML 2.0** , realice los pasos siguientes:
-   
+
     ![Configuración del inicio de sesión único en la aplicación](./media/showpad-tutorial/tutorial_showpad_003.png) 
-   
+
      a. En el cuadro de texto **Nombre**, escriba el nombre del proveedor de identificadores (por ejemplo, el nombre de la compañía).
-   
+
     b. Como **origen de metadatos**, seleccione **XML**.
-   
+
     c. Copie el contenido del archivo XML de metadatos que ha descargado de Azure Portal y, a continuación, péguelo en el cuadro de texto **XML de metadatos**.
-   
+
     d. Seleccione **Aprovisionar cuentas automáticamente para nuevos usuarios cuando inicien sesión**.
-   
+
     e. Haga clic en **Enviar**.
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-![Creación de un usuario de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/showpad-tutorial/create_aaduser_01.png) 
+    ![Botón Nuevo usuario](common/new-user.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
-    
-    ![Creación de un usuario de prueba de Azure AD](./media/showpad-tutorial/create_aaduser_02.png) 
+3. En las propiedades Usuario, siga estos pasos.
 
-1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/showpad-tutorial/create_aaduser_03.png) 
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-1. En la página de diálogo **Usuario**, realice los siguientes pasos:
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/showpad-tutorial/create_aaduser_04.png) 
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`.  
+    Por ejemplo: BrittaSimon@contoso.com
 
-     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
-
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="creating-a-showpad-test-user"></a>Creación de usuarios de prueba de Showpad
 
-El objetivo de esta sección es crear un usuario llamado Britta Simon en Showpad. 
-
-Showpad admite el aprovisionamiento Just-In-Time. Ya lo ha habilitado en **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)**. 
-
-No hay ningún elemento de acción para usted en esta sección. 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, concederá acceso a Britta Simon a Showpad para que use el inicio de sesión único de Azure.
 
-![Asignar usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Showpad**.
 
-**Para asignar Britta Simon a Showpad, realice los pasos siguientes:**
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+2. En la lista de aplicaciones, seleccione **Showpad**.
 
-    ![Asignar usuario][201] 
+    ![Vínculo a Showpad en la lista de aplicaciones](common/all-applications.png)
 
-1. En la lista de aplicaciones, seleccione **Showpad**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Configurar inicio de sesión único](./media/showpad-tutorial/tutorial_showpad_app.png) 
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Asignar usuario][202] 
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-    ![Asignar usuario][203]
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+### <a name="create-showpad-test-user"></a>Creación de un usuario de prueba en Showpad
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+En esta sección se crea un usuario llamado Britta Simon en Showpad. Showpad admite el aprovisionamiento de usuarios Just-In-Time, habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe en Showpad, se crea uno después de la autenticación.
+
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Showpad del Panel de acceso, debería iniciar sesión automáticamente en su aplicación Showpad.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Al hacer clic en el icono de Showpad en el panel de acceso, debería iniciar sesión automáticamente en la versión de Showpad para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/showpad-tutorial/tutorial_general_01.png
-[2]: ./media/showpad-tutorial/tutorial_general_02.png
-[3]: ./media/showpad-tutorial/tutorial_general_03.png
-[4]: ./media/showpad-tutorial/tutorial_general_04.png
-
-[100]: ./media/showpad-tutorial/tutorial_general_100.png
-
-[200]: ./media/showpad-tutorial/tutorial_general_200.png
-[201]: ./media/showpad-tutorial/tutorial_general_201.png
-[202]: ./media/showpad-tutorial/tutorial_general_202.png
-[203]: ./media/showpad-tutorial/tutorial_general_203.png
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 3fca94a56f80ec520ac6777610a90bdddf1b8988
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 2b021975983858386cd7c847ba11a26f4feb9562
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473264"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150458"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas frecuentes
 
@@ -182,6 +182,9 @@ A. Si su dispositivo ha llegado dañado o hay evidencia de que lo hayan alterado
 
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>P: ¿Puedo usar mi propia empresa de transporte para enviar Data Box?
 A. En cuanto al servicio Data Box, Microsoft se encarga de administrar el envío desde y hasta el centro de datos de Azure. Si quiere usar su propio transportista, puede usar el servicio de importación y exportación de Azure. Para obtener más información, vaya a [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md) (¿Qué es el servicio de importación y exportación de Azure?).
+
+### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>P: ¿Mis dispositivos Data Box cruzarán fronteras internacionales durante el envío?
+A. Todos los dispositivos Data Box se envían desde el mismo país de destino y no cruzarán ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los dispositivos se pueden enviar desde y hasta cualquier país de la UE.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>P: La pantalla E-Ink no muestra la etiqueta del envío de devolución. ¿Cuál debo hacer?
 A. Si la pantalla E-Ink no muestra la etiqueta del envío de devolución, realice los siguientes pasos:

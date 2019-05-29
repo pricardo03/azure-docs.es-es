@@ -10,11 +10,11 @@ ms.date: 02/28/2019
 ms.author: mayg
 ms.custom: include file
 ms.openlocfilehash: 7c682105113dac7c1d457489cf926210ead77993
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57343576"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66115997"
 ---
 1. Ejecute el archivo de instalación unificada.
 2. En **Antes de comenzar**, seleccione **Install the configuration server and process server** (Instalar el servidor de configuración y el servidor de procesos).
@@ -43,7 +43,7 @@ ms.locfileid: "57343576"
 9. En **Ubicación de instalación**, seleccione dónde quiere instalar los archivos binarios y almacenar la memoria caché. La unidad que seleccione debe tener al menos 5 GB de espacio disponible en disco, pero se recomienda usar una unidad de memoria caché con 600 GB o más de espacio libre.
 
     ![Ubicación de instalación](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. En **selección de red**, primero seleccione la NIC que utiliza el servidor de procesos integrados para detectar y forzar la instalación de mobility service en máquinas de origen y, a continuación, seleccione la NIC que utiliza el servidor de configuración para la conectividad con Azure. El puerto 9443 es el que se usa de forma predeterminada para enviar y recibir el tráfico de replicación, pero puede modificar este número de puerto para adecuarlo a los requisitos de su entorno. Además del puerto 9443, también se abre el puerto 443 que un servidor web utiliza para coordinar las operaciones de replicación. No use el puerto 443 para enviar o recibir tráfico de replicación.
+10. En **Selección de red**, seleccione en primer lugar la NIC que utiliza el servidor de procesos integrados para la detección y la instalación de inserción del servicio de movilidad en los equipos de origen y, después, seleccione la NIC que usa el servidor de configuración para la conectividad con Azure. El puerto 9443 es el que se usa de forma predeterminada para enviar y recibir el tráfico de replicación, pero puede modificar este número de puerto para adecuarlo a los requisitos de su entorno. Además del puerto 9443, también se abre el puerto 443 que un servidor web utiliza para coordinar las operaciones de replicación. No use el puerto 443 para enviar o recibir tráfico de replicación.
 
     ![Selección de red](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: b3d53b7d5fceb303259823198731b5198cfce82c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: fcd6fc95adc892885fd8471e622ce3b04258d8b5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508244"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800533"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copia de datos a Azure Data Box Blob Storage mediante API REST  
 
@@ -152,6 +152,7 @@ Una vez que esté conectado a Data Box Blob Storage, el siguiente paso es copiar
 - Si los datos que el dispositivo Data Box va a cargar los están cargando a la vez otras aplicaciones fuera del dispositivo Data Box, podría provocar errores en el trabajo de carga y daños en los datos.
 
 En este tutorial, se usa AzCopy para copiar los datos al Data Box Blob Storage. También puede usar el Explorador de Azure Storage (si lo prefiere una herramienta basada en GUI) o un software de partner para copiar los datos.
+
 El procedimiento de copia incluye los siguientes pasos:
 
 - Crear un contenedor
@@ -215,6 +216,8 @@ Si solo desea copiar los recursos de origen que no existen en el destino, especi
 #### <a name="windows"></a> Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+
+Si se han producido errores durante la operación de copia o de conexión, consulte [Solución de problemas relacionados con el almacenamiento de blobs de Data Box](data-box-troubleshoot-rest.md).
 
 El siguiente paso consiste en preparar el dispositivo para el envío.
 

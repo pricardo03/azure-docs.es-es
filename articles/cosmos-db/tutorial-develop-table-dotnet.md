@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 03/11/2019
-ms.openlocfilehash: 0a329722b65e407f011016a1f55e86ef17b47d70
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/20/2019
+ms.openlocfilehash: dc29cc6d3cc2a07214fb638a10039a4c3ea2d92b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192402"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953626"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introducción a Table API de Azure Cosmos DB y Azure Table Storage mediante el SDK de .NET
 
@@ -41,15 +41,15 @@ Necesitará lo siguiente para completar este ejemplo correctamente:
 
 ## <a name="create-a-net-console-project"></a>Creación de un proyecto de consola de .NET
 
-En Visual Studio, cree una nueva aplicación de consola de .NET. Los siguientes pasos muestran cómo crear una aplicación de consola en Visual Studio 2017. Los pasos son similares en otras versiones de Visual Studio. Azure Cosmos DB Table Library se puede usar en cualquier tipo de aplicación. NET, incluidos cualquier servicio en la nube o aplicación web de Azure, y aplicaciones de escritorio o móviles. En esta guía, usamos una aplicación de consola para hacerlo más sencillo.
+En Visual Studio, cree una nueva aplicación de consola de .NET. Los siguientes pasos muestran cómo crear una aplicación de consola en Visual Studio 2019. Azure Cosmos DB Table Library se puede usar en cualquier tipo de aplicación. NET, incluidos cualquier servicio en la nube o aplicación web de Azure, y aplicaciones de escritorio o móviles. En esta guía, usamos una aplicación de consola para hacerlo más sencillo.
 
 1. Seleccione **Archivo** > **Nuevo** > **Proyecto**.
 
-1. Seleccione **Instalado** > **Visual C#** > **Aplicación de consola (.NET Core)**.
+1. Elija **Aplicación de consola (.NET Core)** y, a continuación, seleccione **Siguiente**.
 
-1. En el campo **Nombre**, escriba un nombre para la aplicación, por ejemplo, **CosmosTableSamples** (puede proporcionar un nombre diferente según sea necesario).
+1. En el campo **Nombre del proyecto**, escriba un nombre para la aplicación, como **CosmosTableSamples**. (Puede proporcionar un nombre diferente para adaptarse a sus necesidades).
 
-1. Seleccione **Aceptar**.
+1. Seleccione **Crear**.
 
 Todos los ejemplos de código de este ejemplo se pueden agregar al método Main() del archivo **Program.cs** de la aplicación de consola.
 
@@ -63,7 +63,9 @@ Para obtener el paquete NuGet, siga estos pasos:
 
 ## <a name="configure-your-storage-connection-string"></a>Configuración de la cadena de conexión de almacenamiento.
 
-1. En [Azure Portal](https://portal.azure.com/), haga clic en **Cadena de conexión**. Use el botón de copia en el lado derecho de la ventana para copiar la **CADENA DE CONEXIÓN PRINCIPAL**.
+1. Desde [Azure Portal](https://portal.azure.com/), vaya a su cuenta de Azure Cosmos o la cuenta de Table Storage. 
+
+1. Abra el panel **Cadena de conexión** o **Claves de acceso**. Use el botón de copia en el lado derecho de la ventana para copiar la **CADENA DE CONEXIÓN PRINCIPAL**.
 
    ![Visualización y copia de la cadena de conexión principal (PRIMARY CONNECTION STRING) en el panel Cadena de conexión](./media/create-table-dotnet/connection-string.png)
    

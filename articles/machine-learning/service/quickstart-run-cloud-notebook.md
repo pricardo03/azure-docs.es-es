@@ -8,24 +8,25 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/02/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510614"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015278"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Uso de un servidor de cuadernos basado en la nube para empezar a trabajar con Azure Machine Learning
 
-Cree un servidor de cuadernos en la nube y úselo.  En este inicio rápido, va a ejecutar un código de Python que registra valores en el [área de trabajo de Azure Machine Learning Service](concept-azure-machine-learning-architecture.md). El área de trabajo se encuentra en la nube y es el bloque fundamental que se utiliza para experimentar, entrenar e implementar modelos de aprendizaje automático con Machine Learning. 
+No requiere instalación.  Empiece a trabajar con Azure Machine Learning Service con un servidor de cuadernos administrados en la nube. Si en cambio quiere instalar el SDK en su propio entorno de Python, consulte [Inicio rápido: Uso de su propio servidor de cuadernos para empezar a trabajar con Azure Machine Learning](quickstart-run-local-notebook.md).
 
-En este inicio rápido se muestra cómo crear un recurso de nube en el área de trabajo de Azure Machine Learning, configurado con el entorno de Python necesario para ejecutar Azure Machine Learning. Para usar su propio entorno, consulte [Inicio rápido: Uso de su propio servidor de cuadernos para empezar a trabajar con Azure Machine Learning](quickstart-run-local-notebook.md).  
+En este inicio rápido se explica cómo puede usar el [área de trabajo de Azure Machine Learning Service](concept-azure-machine-learning-architecture.md) para realizar un seguimiento de los experimentos de aprendizaje automático.  Creará una [máquina virtual de Notebook (versión preliminar)](how-to-configure-environment.md#notebookvm), una estación de trabajo de Azure segura y basada en la nube que proporciona un servidor de Jupyter Notebook, JupyterLab y un entorno de aprendizaje automático completamente preparado. Luego, ejecuta un cuaderno de Python en esta máquina virtual que registra los valores en el área de trabajo.
 
 En este artículo de inicio rápido, lleve a cabo las acciones siguientes:
 
-* Crear un nuevo servidor de cuadernos en la nube en su área de trabajo.
+* Crear un área de trabajo
+* Cree una máquina virtual de cuaderno en el área de trabajo.
 * Iniciar la interfaz web de Jupyter.
 * Abra un cuaderno que contiene código para estimar PI y registre los errores en cada iteración.
 * Ejecute el cuaderno.
@@ -35,11 +36,11 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
 
-Si tiene un área de trabajo de Azure Machine Learning Service, vaya a la [siguiente sección](#create-a-cloud-based-notebook-server). En caso contrario, créela ahora.
+Si tiene un área de trabajo de Azure Machine Learning Service, vaya a la [siguiente sección](#create-notebook). En caso contrario, créela ahora.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-a-cloud-based-notebook-server"></a>Creación de un servidor de cuadernos en la nube
+## <a name="create-notebook"></a>Creación de una máquina virtual de cuaderno
 
  En el área de trabajo puede crear un recurso en la nube para empezar a trabajar con cuadernos de Jupyter Notebook. Este recurso le ofrece una plataforma basada en la nube previamente configurada con todo lo que necesita para ejecutar Azure Machine Learning Service.
 
@@ -59,6 +60,7 @@ Si tiene un área de trabajo de Azure Machine Learning Service, vaya a la [sigui
     ![Creación de una máquina virtual nueva](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Espere unos 4 o 5 minutos, hasta que el estado cambie a **En ejecución**.
+
 
 ## <a name="launch-jupyter-web-interface"></a>Inicio de la interfaz web de Jupyter
 
@@ -85,7 +87,7 @@ Ejecute un cuaderno que calcule Pi y que registre el error en el área de trabaj
 1. Haga clic en la primera celda de código y seleccione **Ejecutar**.
 
     > [!NOTE]
-    > Las celdas de código tienen corchetes delante de ellas. Si los corchetes están vacíos (__[  ]__), no se ha ejecutado el código. Si el código está en ejecución, verá un asterisco (__[*]__). Una vez completado el código, aparecerá un número **[1]**.  El número le indica el orden en que se ejecutaron las celdas.
+    > Las celdas de código tienen corchetes delante de ellas. Si los corchetes están vacíos ( __[  ]__ ), no se ha ejecutado el código. Si el código está en ejecución, verá un asterisco ( __[*]__ ). Una vez completado el código, aparecerá un número **[1]** .  El número le indica el orden en que se ejecutaron las celdas.
     >
     > Use **MAYÚS+ENTRAR** como acceso directo para ejecutar una celda.
 
@@ -95,7 +97,7 @@ Ejecute un cuaderno que calcule Pi y que registre el error en el área de trabaj
 
     ![Autenticar](media/quickstart-run-cloud-notebook/authenticate.png)
 
-1. Cuando haya terminado, aparece el número de celdas __[2]__.  Si tuvo que iniciar sesión, verá un mensaje de estado de autenticación correcta.   Si no tiene que iniciar sesión, no verá ningún resultado en esta celda, solo el número que aparece para mostrar que la celda se ejecutó correctamente.
+1. Cuando haya terminado, aparece el número de celdas __[2]__ .  Si tuvo que iniciar sesión, verá un mensaje de estado de autenticación correcta.   Si no tiene que iniciar sesión, no verá ningún resultado en esta celda, solo el número que aparece para mostrar que la celda se ejecutó correctamente.
 
     ![Mensaje de operación correcta](media/quickstart-run-cloud-notebook/success.png)
 
@@ -131,7 +133,7 @@ Detenga la máquina virtual de Notebook cuando no esté utilizándola para reduc
 
 1. Seleccione **Detener**.
 
-1. Cuando esté listo para usar el servidor de nuevo, seleccione **Iniciar**.
+1. Cuando esté listo para volver a usar el servidor, seleccione **Iniciar**.
 
 ### <a name="delete-everything"></a>Eliminar todo el contenido
 
@@ -143,6 +145,7 @@ También puede mantener el grupo de recursos pero eliminar una sola área de tra
 
 En este inicio rápido, ha completado estas tareas:
 
+* Crear un área de trabajo
 * Crear una máquina virtual de cuaderno.
 * Iniciar la interfaz web de Jupyter.
 * Abra un cuaderno que contiene código para estimar PI y registre los errores en cada iteración.

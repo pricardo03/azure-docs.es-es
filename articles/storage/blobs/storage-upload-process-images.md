@@ -10,12 +10,12 @@ ms.date: 11/26/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: mvc
-ms.openlocfilehash: 26b92db330c882aaf258b6e24560cbf2f7930a5f
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e5be86f9f7fbaedeb8fbb10b89926644dcf8aac2
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237140"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835136"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carga de datos de imagen en la nube con Azure Storage
 
@@ -131,7 +131,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 App Service admite varias maneras de implementar contenido en una aplicación web. En este tutorial, se implementa la aplicación web desde un [repositorio de ejemplo público de GitHub](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure la implementación de GitHub local en la aplicación web con el comando [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
-El proyecto de ejemplo contiene una aplicación [MVC de ASP.NET](https://www.asp.net/mvc). La aplicación acepta una imagen, la guarda en una cuenta de almacenamiento y muestra imágenes de un contenedor de miniaturas. La aplicación web usa los espacios de nombres [Microsoft.WindowsAzure.Storage](/dotnet/api/overview/azure/storage), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.azure.storage.blob) y Microsoft.WindowsAzure.Storage.Auth de la biblioteca de cliente de Azure Storage para interactuar con Azure Storage.
+El proyecto de ejemplo contiene una aplicación [MVC de ASP.NET](https://www.asp.net/mvc). La aplicación acepta una imagen, la guarda en una cuenta de almacenamiento y muestra imágenes de un contenedor de miniaturas. La aplicación web usa los espacios de nombres[Microsoft.Azure.Storage](/dotnet/api/overview/azure/storage), [Microsoft.Azure.Storage.Blob](/dotnet/api/microsoft.azure.storage.blob) y Microsoft.Azure.Storage.Authde la biblioteca de cliente de Azure Storage para interactuar con Azure Storage.
 
 ```azurecli-interactive
 az webapp deployment source config --name $webapp \
@@ -163,7 +163,7 @@ az webapp deployment source config --name $webapp \
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-La aplicación web de ejemplo usa la [biblioteca de cliente de Azure Storage](/dotnet/api/overview/azure/storage?view=azure-dotnet) para solicitar tokens de acceso, que se usan para cargar imágenes. Las credenciales de la cuenta de almacenamiento que usa el SDK de Storage se establecen en la configuración de aplicación de la aplicación web. Agregue la configuración de aplicación a la aplicación implementada con el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
+La aplicación web de ejemplo usa la [biblioteca de cliente de Azure Storage](/dotnet/api/overview/azure/storage) para solicitar tokens de acceso, que se usan para cargar imágenes. Las credenciales de la cuenta de almacenamiento que usa el SDK de Storage se establecen en la configuración de aplicación de la aplicación web. Agregue la configuración de aplicación a la aplicación implementada con el comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
 ```azurecli-interactive
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
@@ -213,7 +213,7 @@ Seleccione la región **Upload photos** (Cargar fotos) para seleccionar y cargar
 
 ![Aplicación ImageResizer](media/storage-upload-process-images/figure1.png)
 
-En el código de ejemplo, la tarea `UploadFiletoStorage` del archivo *Storagehelper.cs* se usa para cargar las imágenes en el contenedor de *imágenes* de la cuenta de almacenamiento mediante el método [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet). El siguiente código de ejemplo contiene la tarea `UploadFiletoStorage`.
+En el código de ejemplo, la tarea `UploadFiletoStorage` del archivo *Storagehelper.cs* se usa para cargar las imágenes en el contenedor de *imágenes* de la cuenta de almacenamiento mediante el método [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync). El siguiente código de ejemplo contiene la tarea `UploadFiletoStorage`.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)

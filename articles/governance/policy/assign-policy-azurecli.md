@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e30308ac2cda643cc0157f5e718157f6599751d6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76f457b7d577fb2a08bbcc386328ce4d8e59f902
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283552"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979614"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Creación de una asignación de directiva para identificar recursos no compatibles mediante la CLI de Azure
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante la CLI de Azure
 
 El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos.
 Esta guía de inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar las máquinas virtuales que no están usando discos administrados.
@@ -32,7 +32,7 @@ Esta guía de inicio rápido requiere la ejecución de la versión 2.0.4 de la C
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Registre el proveedor de recursos de Policy Insights mediante la CLI de Azure. El registro del proveedor de recursos garantiza que la suscripción funcionará con él. Para registrar un proveedor de recursos, debe tener permiso para registrar la operación del proveedor de recursos. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar el proveedor de recursos, ejecute el siguiente comando:
+Registre el proveedor de recursos de Azure Policy Insights mediante la CLI de Azure. El registro del proveedor de recursos garantiza que la suscripción funcionará con él. Para registrar un proveedor de recursos, debe tener permiso para registrar la operación del proveedor de recursos. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar el proveedor de recursos, ejecute el siguiente comando:
 
 ```azurecli-interactive
 az provider register --namespace 'Microsoft.PolicyInsights'
@@ -54,7 +54,7 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 
 El comando anterior usa la siguiente información:
 
-- **Nombre**: el nombre real de la asignación.  En este ejemplo se usa *audit-vm-manageddisks*.
+- **Nombre**: el nombre real de la asignación. En este ejemplo se usa *audit-vm-manageddisks*.
 - **DisplayName**: nombre para mostrar de la asignación de directiva. En este caso, usará *Auditoría de máquinas virtuales sin discos administrados*.
 - **Policy**: identificador de definición de la directiva, según la opción utilizada para crear la asignación. En este caso, es el identificador de la definición de directiva *Auditoría de máquinas virtuales que no usan discos administrados*. Para obtener el identificador de definición de directiva, ejecute este comando: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Scope**: un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Puede abarcar desde una suscripción hasta grupos de recursos. Asegúrese de sustituir &lt;scope&gt; por el nombre del grupo de recursos.

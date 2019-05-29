@@ -7,14 +7,14 @@ ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1641a88a95d4c056cdd1be8d855482c80b1430cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c12345791e62aa99bd07dde7fc44dd52d0989941
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283620"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979182"
 ---
-# <a name="create-and-manage-policies-to-enforce-compliance"></a>Creación y administración de directivas para aplicar el cumplimiento
+# <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Creación y administración de directivas para aplicar el cumplimiento
 
 Comprender cómo se crean y administran las directivas en Azure es importante para mantener el cumplimiento de los estándares corporativos y los contratos de nivel de servicio. En este tutorial, aprenderá a usar Azure Policy para realizar algunas de las tareas más comunes relacionadas con la creación, la asignación y la administración de directivas en toda la organización, como, por ejemplo:
 
@@ -42,11 +42,11 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 
    ![Asignación de una definición de directiva en la página Asignaciones](../media/create-and-manage/select-assign-policy.png)
 
-1. En la página **Asignar directiva**, haga clic en los puntos suspensivos para seleccionar una opción de **Ámbito** y seleccione una suscripción y un grupo de administración. Opcionalmente, seleccione un grupo de recursos. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva.  Después, haga clic en **Seleccionar** en la parte inferior de la página **Ámbito**.
+1. En la página **Asignar directiva**, haga clic en los puntos suspensivos para seleccionar una opción de **Ámbito** y seleccione una suscripción y un grupo de administración. Opcionalmente, seleccione un grupo de recursos. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva. Después, haga clic en **Seleccionar** en la parte inferior de la página **Ámbito**.
 
    En este ejemplo se usa la suscripción de **Contoso**. Su suscripción variará.
 
-1. Los recursos se pueden excluir según el **ámbito**.  Las **exclusiones** comienzan en un nivel inferior al nivel del **ámbito**. Las **exclusiones** son opcionales, así que déjelas en blanco por ahora.
+1. Los recursos se pueden excluir según el **ámbito**. Las **exclusiones** comienzan en un nivel inferior al nivel del **ámbito**. Las **exclusiones** son opcionales, así que déjelas en blanco por ahora.
 
 1. Seleccione los puntos suspensivos de **Definición de directiva** para abrir la lista de definiciones disponibles. Puede filtrar el campo **Tipo** de la definición de directiva por *Integrada* para verlas todas y leer sus descripciones.
 
@@ -54,7 +54,8 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 
    ![Uso de un filtro de búsqueda para buscar una directiva](../media/create-and-manage/select-available-definition.png)
 
-1. **Nombre de asignación** se rellena automáticamente con el nombre de directiva seleccionado, pero puede cambiarlo. En este ejemplo, deje *Require SQL Server version 12.0* (Requerir SQL Server 12.0). También puede agregar una **Descripción** opcional. La descripción ofrece detalles sobre esta asignación de directiva.  **Asignado por**: se rellena automáticamente en función de quién ha iniciado sesión. Este campo es opcional, así que se pueden especificar valores personalizados.
+1. **Nombre de asignación** se rellena automáticamente con el nombre de directiva seleccionado, pero puede cambiarlo. En este ejemplo, deje *Require SQL Server version 12.0* (Requerir SQL Server 12.0). También puede agregar una **Descripción** opcional. La descripción ofrece detalles sobre esta asignación de directiva.
+   **Asignado por**: se rellena automáticamente en función de quién ha iniciado sesión. Este campo es opcional, así que se pueden especificar valores personalizados.
 
 1. Deje desactivada la casilla **Crear una identidad administrada**. Esta casilla se _debe_ activar cuando la directiva o la iniciativa que se asigna incluye una directiva con el efecto [deployIfNotExists](../concepts/effects.md#deployifnotexists). Como no es el caso de la directiva usada en este tutorial, déjela en blanco. Para más información, consulte las [identidades administradas](../../../active-directory/managed-identities-azure-resources/overview.md) y [cómo funciona la seguridad de corrección](../how-to/remediate-resources.md#how-remediation-security-works).
 
@@ -116,7 +117,7 @@ Ahora que ha asignado una definición de directiva integrada, puede hacer más c
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>Creación de una definición de directiva con la API de REST
 
-Puede crear una directiva con la API de REST para definiciones de directiva. La API de REST permite crear y eliminar definiciones de directiva, así como recuperar información sobre las definiciones existentes. Para crear una definición de directiva, use el siguiente ejemplo:
+Puede crear una directiva con la API REST para definiciones de Azure Policy. La API de REST permite crear y eliminar definiciones de directiva, así como recuperar información sobre las definiciones existentes. Para crear una definición de directiva, use el siguiente ejemplo:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
@@ -156,7 +157,7 @@ Incluya un cuerpo de solicitud similar al ejemplo siguiente:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Creación de una definición de directiva con PowerShell
 
-Antes de continuar con el ejemplo de PowerShell, asegúrese de que tiene instalada la última versión del módulo Az de Azure PowerShell. 
+Antes de continuar con el ejemplo de PowerShell, asegúrese de que tiene instalada la última versión del módulo Az de Azure PowerShell.
 
 Puede crear una definición de directiva con el cmdlet `New-AzPolicyDefinition`.
 
@@ -369,13 +370,14 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
    ![Asigne una definición desde la página de definición de iniciativa](../media/create-and-manage/assign-definition.png)
 
-   También puede hacer clic con el botón derecho en la fila seleccionada o hacer clic en los puntos suspensivos al final de la fila de un menú contextual.  A continuación, seleccione **Asignar**.
+   También puede hacer clic con el botón derecho en la fila seleccionada o hacer clic en los puntos suspensivos al final de la fila de un menú contextual. A continuación, seleccione **Asignar**.
 
    ![Opciones alternativas para una iniciativa](../media/create-and-manage/select-right-click.png)
 
 1. Rellene la página **Get Secure: Assign Initiative** (Estar protegido: asignar iniciativa) con la siguiente información de ejemplo. Puede usar su propia información.
 
-   - Ámbito: el grupo de administración o la suscripción donde guardó la iniciativa se convertirán en predeterminados.  También puede cambiar ámbito para asignar la iniciativa a un grupo de recursos o una suscripción de la ubicación de almacenamiento.
+   - Ámbito: el grupo de administración o la suscripción donde guardó la iniciativa se convertirán en predeterminados.
+     También puede cambiar ámbito para asignar la iniciativa a un grupo de recursos o una suscripción de la ubicación de almacenamiento.
    - Exclusiones: configure los recursos del ámbito para evitar que se les aplique la asignación de iniciativa.
    - Nombre de la asignación y definición de la iniciativa: Get Secure (Estar protegido) (rellenado previamente como nombre de la iniciativa que se va a asignar).
    - Description: esta asignación de iniciativa está adaptada para aplicar este grupo de definiciones de directiva.
@@ -389,7 +391,8 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
 1. Seleccione **Cumplimiento** en el panel izquierdo de la página de Azure Policy.
 
-1. Busque la iniciativa **Get Secure** (Estar protegido). Es probable que _Estado de compatibilidad_ se encuentre aún como **No iniciado**. Haga clic en la iniciativa para obtener información detallada sobre el progreso de la asignación.
+1. Busque la iniciativa **Get Secure** (Estar protegido). Es probable que _Estado de compatibilidad_ se encuentre aún como **No iniciado**.
+   Haga clic en la iniciativa para obtener información detallada sobre el progreso de la asignación.
 
    ![Página de compatibilidad de iniciativas: evaluaciones no iniciadas](../media/create-and-manage/compliance-status-not-started.png)
 

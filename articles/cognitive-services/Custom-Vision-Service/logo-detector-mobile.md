@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 259787a90b61b171f391dc02276214f17a57d0d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 51b2cd42fabe6406f88388e99459a6f3dd3e69f5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838823"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827648"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconocimiento de logotipos de servicios de Azure imágenes de cámara
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+- [Visual Studio 2017 o cualquier versión posterior](https://www.visualstudio.com/downloads/)
 - Carga de trabajo Xamarin para Visual Studio (consulte [Instalación de Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
 - Un emulador de iOS o de Android para Visual Studio
 - La [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (opcional)

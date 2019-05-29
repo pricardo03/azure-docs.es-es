@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 6c332861bcaf228e4c1e0a619cf4f84e3be0ba15
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b8d7556607cdb73c3e3ae19109bcbf34b72b0915
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204176"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595349"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Inicio rápido: Ejecute su primer trabajo de Azure Batch con la API de .NET
 
@@ -27,7 +27,7 @@ En esta guía de inicio rápido se ejecuta un trabajo de Azure Batch desde una a
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs) o [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS o Windows. 
+* [Visual Studio 2017 o superior](https://www.visualstudio.com/vs) o [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS o Windows. 
 
 * Una cuenta de Batch y una cuenta de Azure Storage vinculada. Para crear estas cuentas, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md). 
 

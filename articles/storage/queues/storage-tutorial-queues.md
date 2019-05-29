@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233880"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797536"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Uso de las colas de Azure Storage
 
@@ -129,18 +129,19 @@ Como la aplicación usa recursos en la nube, el código se ejecuta de forma asin
 
 ## <a name="create-a-queue"></a>Creación de una cola
 
-1. Instale el paquete **WindowsAzure. Storage** en el proyecto con el comando `dotnet add package`. Ejecute el siguiente comando dotnet desde la carpeta de proyecto en la ventana de la consola.
+1. Instale los paquetes **Microsoft.Azure.Storage.Common** y **Microsoft.Azure.Storage.Queue** en el proyecto con el comando `dotnet add package`. Ejecute los siguientes comandos dotnet desde la carpeta de proyecto en la ventana de la consola.
 
    ```console
-   dotnet add package WindowsAzure.Storage
+   dotnet add package Microsoft.Azure.Storage.Common
+   dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
 2. En la parte superior del archivo **Program.cs**, agregue los siguientes espacios de nombres justo después de la instrucción `using System;`. Esta aplicación utiliza tipos de estos espacios de nombres para conectarse a Azure Storage y trabajar con colas.
 
    ```csharp
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
    ```
 
 3. Guarde el archivo **Program.cs**.
@@ -206,7 +207,7 @@ Agregue la cadena de conexión a la aplicación para que pueda acceder a la cuen
 
 ## <a name="insert-messages-into-the-queue"></a>Inserción de mensajes en la cola
 
-Cree un nuevo método para enviar un mensaje a la cola. Agregue el método siguiente a la clase **Program**. Este método obtiene una referencia de cola y, después, crea una nueva cola si esta no existe mediante una llamada a [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). A continuación, agrega el mensaje a la cola mediante una llamada a [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
+Cree un nuevo método para enviar un mensaje a la cola. Agregue el método siguiente a la clase **Program**. Este método obtiene una referencia de cola y, después, crea una nueva cola si esta no existe mediante una llamada a [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). A continuación, agrega el mensaje a la cola mediante una llamada a [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
 1. Agregue el siguiente método **SendMessageAsync** a la clase **Program**.
 
@@ -229,7 +230,7 @@ Cree un nuevo método para enviar un mensaje a la cola. Agregue el método sigui
 
 ## <a name="dequeue-messages"></a>Retirar mensajes de la cola
 
-Cree un nuevo método denominado **ReceiveMessageAsync**. Este método recibe un mensaje de la cola mediante una llamada a [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Una vez que el mensaje se recibe correctamente, es importante eliminarlo de la cola para que no se procese más de una vez. Una vez recibido el mensaje, elimínelo de la cola mediante una llamada a [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+Cree un nuevo método denominado **ReceiveMessageAsync**. Este método recibe un mensaje de la cola mediante una llamada a [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). Una vez que el mensaje se recibe correctamente, es importante eliminarlo de la cola para que no se procese más de una vez. Una vez recibido el mensaje, elimínelo de la cola mediante una llamada a [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
 1. Agregue el siguiente método **ReceiveMessageAsync** a la clase **Program**.
 
@@ -343,8 +344,8 @@ Aquí está la lista de códigos completa de este proyecto.
    ```csharp
    using System;
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
 
    namespace QueueApp
    {

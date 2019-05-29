@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c025cdeb-786c-4aab-abd1-132907007f7e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49c5194f75ad973514a3ec015ef29c1d6f48330a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a13d2a62c64ea114e45b49e38eda0ddc686fe7cf
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838194"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143156"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>Tutorial: Integración de Azure Active Directory con Workable
 
@@ -54,7 +55,7 @@ Para configurar la integración de Workable en Azure AD, deberá agregar Workabl
 
 **Para agregar Workable desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -68,7 +69,7 @@ Para configurar la integración de Workable en Azure AD, deberá agregar Workabl
 
 4. En el cuadro de búsqueda, escriba **Workable**, seleccione **Workable** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![Workable en la lista de resultados](common/search-new-app.png)
+    ![Workable en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
@@ -77,12 +78,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Workable, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Workable](#configure-workable-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de Workable](#create-workable-test-user)**: para tener un homólogo de Britta Simon en Workable que esté vinculado a su representación en Azure AD.
-5. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Workable](#configure-workable-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Workable](#create-workable-test-user)** : para tener un homólogo de Britta Simon en Workable que esté vinculado a su representación en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -141,7 +142,7 @@ Para habilitar el inicio de sesión único en Workable, póngase en contacto con
 
 3. URL de cierre de sesión
 
-Una vez que habilite el inicio de sesión único, el administrador de cuentas de Workable se lo informará y podrá usar la [página de inicio de sesión único de Workable](https://www.workable.com/sso/signin) para iniciar sesión con el subdominio de su cuenta de Workable.
+Una vez que habilite el inicio de sesión único, el administrador de cuentas de Workable se lo informará y podrá usar la [página de inicio de sesión único de Workable](https://id.workable.com/sso/signin) para iniciar sesión con el subdominio de su cuenta de Workable.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -161,8 +162,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
-    Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario**, escriba `brittasimon\@yourcompanydomain.extension`. Por ejemplo, BrittaSimon@contoso.com.
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 

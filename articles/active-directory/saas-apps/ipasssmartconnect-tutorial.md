@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8f8dc8219d65505952f35ad018ef19aeb68d64e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264869"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Tutorial: integración de Azure Active Directory con iPass SmartConnect
 
@@ -54,7 +54,7 @@ Para configurar la integración de iPass SmartConnect en Azure AD, será preciso
 
 **Para agregar iPass SmartConnect desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -77,12 +77,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con iPass SmartConnect, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de iPass SmartConnect](#configure-ipass-smartconnect-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de iPass SmartConnect](#create-ipass-smartconnect-test-user)**: para tener un homólogo de Britta Simon en iPass SmartConnect que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de iPass SmartConnect](#configure-ipass-smartconnect-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de iPass SmartConnect](#create-ipass-smartconnect-test-user)** : para tener un homólogo de Britta Simon en iPass SmartConnect que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -215,7 +215,7 @@ En esta sección, concederá acceso a Britta Simon a iPass SmartConnect para que
 
 ### <a name="create-ipass-smartconnect-test-user"></a>Creación de un usuario de prueba en iPass SmartConnect
 
-En esta sección, creará la usuaria llamada Britta Simon en iPass SmartConnect. Colabore con el  [equipo de soporte técnico de iPass SmartConnect](mailto:help@ipass.com)  para agregar los usuarios o el dominio que deben incluirse en la lista blanca en la plataforma de iPass SmartConnect. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de iPass SmartConnect. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará la usuaria llamada Britta Simon en iPass SmartConnect. Colabore con el  [equipo de soporte técnico de iPass SmartConnect](mailto:help@ipass.com)  para agregar los usuarios o el dominio que deben incluirse en la lista de permitidos en la plataforma de iPass SmartConnect. Si el dominio lo agrega el equipo, los usuarios se aprovisionarán automáticamente en la plataforma de iPass SmartConnect. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

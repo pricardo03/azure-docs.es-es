@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.topic: quickstart
 ms.service: cost-management
-manager: dougeby
+manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 55407ec1846a0fe2eb037756dc2e97d8b05e7330
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b4302713188237b97ffbe8473f6a37edd6741b36
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997305"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793090"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guía de inicio rápido: Explore y analice los costos con Análisis de costos
 
@@ -51,11 +51,9 @@ Para más información acerca de cómo asignar acceso a los datos de Cost Manage
 
 ## <a name="review-costs-in-cost-analysis"></a>Revise los costos en análisis de costos
 
-Para revisar los costos en el análisis de costos, abra el ámbito deseado en Azure Portal y seleccione **Análisis de costos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y **Análisis de costos**, en el menú. Use la píldora **Ámbito** para cambiar a un ámbito diferente en el análisis de costos. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
+Para revisar los costos en el análisis de costos, abra el ámbito en Azure Portal y seleccione **Análisis de costos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y **Análisis de costos**, en el menú. Use la píldora **Ámbito** para cambiar a un ámbito diferente en el análisis de costos. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
-El ámbito que seleccione se utiliza en todo Cost Management para proporcionar la consolidación de datos y controlar el acceso a la información de costos. Cuando use ámbitos, no realice una selección múltiple de ellos. En su lugar, seleccione un ámbito mayor al que otros se acumulan y luego filtre lo que desee. Es importante comprender esto porque algunas personas no deberían tener acceso a un ámbito principal al que se acumulan los ámbitos secundarios.
-
-Haga clic en **Abrir análisis de costos**.
+El ámbito que seleccione se utiliza en todo Cost Management para proporcionar la consolidación de datos y controlar el acceso a la información de costos. Cuando use ámbitos, no realice una selección múltiple de ellos. En su lugar, seleccione un ámbito mayor al que otros se acumulan y luego filtre a los ámbitos anidados que necesite. Es importante comprender este enfoque, ya que algunas personas pueden no tener acceso a un solo ámbito principal, que abarca múltiples ámbitos anidados.
 
 La vista de análisis de costos inicial incluye las siguientes áreas:
 
@@ -63,36 +61,42 @@ La vista de análisis de costos inicial incluye las siguientes áreas:
 
 **Presupuesto**: muestra el límite de gasto previsto para el ámbito seleccionado, en caso de estar disponible.
 
-**Costo acumulado**: muestra el gasto total acumulado de forma diaria desde principios de mes. Después de [crear un presupuesto](tutorial-acm-create-budgets.md) para su cuenta de facturación o suscripción, podrá ver rápidamente su tendencia de gastos con el presupuesto. Mantenga el puntero sobre una fecha para ver el costo acumulado hasta ese día.
+**Costo acumulado**: muestra el gasto total agregado de forma diaria desde principios de mes. Después de [crear un presupuesto](tutorial-acm-create-budgets.md) para su cuenta de facturación o suscripción, podrá ver rápidamente su tendencia de gastos con el presupuesto. Mantenga el puntero sobre una fecha para ver el costo acumulado hasta ese día.
 
-**Gráficos dinámicos (anillos)**: proporcionan gráficos dinámicos, que desglosan el costo total por un conjunto común de propiedades estándar. Muestran el costo acumulado durante el mes actual, de mayor a menor. Puede cambiar los gráficos dinámicos en cualquier momento seleccionando un área dinámica diferente. Los costos se clasifican por servicio (categoría de medidor), ubicación (región) y ámbito secundario predeterminado. Por ejemplo, cuentas de inscripción en cuentas de facturación, grupos de recursos en suscripciones y recursos en grupos de recursos.
+**Gráficos dinámicos (anillos)** : proporcionan gráficos dinámicos, que desglosan el costo total por un conjunto común de propiedades estándar. Muestran el costo acumulado durante el mes actual, de mayor a menor. Puede cambiar los gráficos dinámicos en cualquier momento seleccionando un área dinámica diferente. Los costos se clasifican por servicio (categoría de medidor), ubicación (región) y ámbito secundario predeterminado. Por ejemplo, cuentas de inscripción en cuentas de facturación, grupos de recursos en suscripciones y recursos en grupos de recursos.
 
 ![Vista inicial de análisis de costos en Azure Portal](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
 ## <a name="customize-cost-views"></a>Personalización de vistas de costos
 
-La vista predeterminada proporciona respuestas rápidas a preguntas habituales como:
+El análisis de costos tiene cuatro vistas integradas, optimizadas para los objetivos más comunes:
 
-- ¿Cuánto he gastado?
-- ¿Me mantendré dentro de mi presupuesto?
+Ver | Responder preguntas como...
+--- | ---
+Costo acumulado | ¿Cuánto he gastado hasta ahora en este mes? ¿Me mantendré dentro de mi presupuesto?
+Costo diario | ¿Ha habido algún aumento en los costos por día durante los últimos 30 días?
+Costo por servicio | ¿Cómo ha variado mi uso mensual en las últimas 3 facturas?
+Costo por recurso | ¿Qué recursos cuestan más en lo que va de mes?
+
+![Selector de vista que muestra una selección de ejemplo de este mes](./media/quick-acm-cost-analysis/view-selector.png)
 
 Sin embargo, hay muchos casos donde se necesitan análisis más profundos. La personalización comienza en la parte superior de la página, con la selección de fecha.
 
-De forma predeterminada, el análisis de costos muestra los datos correspondientes al mes actual. Use el selector de fecha para cambiar rápidamente al último mes, este mes, este trimestre natural, este año natural o un intervalo de fechas personalizado que elija. Seleccionar el último mes es la forma más rápida de analizar su última factura de Azure y conciliar cargos fácilmente. Las opciones de trimestre y año actuales ayudan a hacer un seguimiento de los costos con respecto a presupuestos a más largo plazo. También puede seleccionar un intervalo de fechas diferente. Por ejemplo, puede seleccionar un solo día, los últimos siete días o los que sean desde un año antes del mes actual.
+De forma predeterminada, el análisis de costos muestra los datos correspondientes al mes actual. Utilice el selector de fecha para cambiar rápidamente a los intervalos de fechas comunes. Algunos ejemplos son los últimos siete días, el mes pasado, el año actual o un intervalo de fechas personalizado. Las suscripciones de pago por uso también incluyen los intervalos de fechas según el período de facturación, que no está enlazado con el mes natural, como el período de facturación actual o la última factura. Use los vínculos  **<ANTERIOR** y  **SIGUIENTE>** en la parte superior del menú para ir al período anterior o siguiente, respectivamente. Por ejemplo, **<ANTERIOR** cambiará de los últimos siete días al período de hace 8-14 días y luego de hace 15-21 días.
 
 ![Selector de fecha que muestra una selección de ejemplo de este mes](./media/quick-acm-cost-analysis/date-selector.png)
 
-De forma predeterminada, el análisis de costos muestra los costos **acumulados**. Los costos acumulados incluyen todos los costos correspondientes a cada día, además de los días anteriores, a fin de obtener una vista en constante crecimiento de sus costos acumulados diarios. Esta vista está optimizada para mostrar sus tendencias con respecto a un presupuesto durante el intervalo de tiempo seleccionado.
+De forma predeterminada, el análisis de costos muestra los costos **acumulados**. Los costos acumulados incluyen todos los costos correspondientes a cada día, además de los días anteriores, a fin de obtener una vista en constante crecimiento de sus costos agregados diarios. Esta vista está optimizada para mostrar sus tendencias con respecto a un presupuesto durante el intervalo de tiempo seleccionado.
 
 También hay la vista **diaria** que muestra los costos de cada día. La vista diaria no muestra una tendencia de crecimiento. La vista está diseñada para mostrar irregularidades como picos de costos o caídas de un día para otro. Si ha seleccionado un presupuesto, la vista diaria también muestra una estimación del aspecto que puede tener su presupuesto diario. Cuando los costos diarios son sistemáticamente superiores al presupuesto diario estimado, puede esperar sobrepasar su presupuesto mensual. El presupuesto diario estimado simplemente se trata de un medio para ayudarle a visualizar su presupuesto en un nivel más bajo. Cuando los costos diarios experimenten fluctuaciones, la comparación del presupuesto diario estimado con su presupuesto mensual será menos precisa.
 
-Por lo general, puede esperar ver datos o notificaciones para los recursos consumidos en ocho horas.
+Por lo general, puede esperar ver datos o notificaciones para los recursos consumidos en 8-12 horas.
 
 ![Vista diaria que muestra los costos diarios de ejemplo del mes actual](./media/quick-acm-cost-analysis/daily-view.png)
 
-En **Agrupar por** puede seleccionar una categoría de grupo para cambiar los datos mostrados en el gráfico del área total superior. La agrupación le permite ver rápidamente cómo se clasifican los gastos por recurso común y propiedades de uso común, como grupo de recursos o etiquetas de recursos. Para agrupar por etiquetas, seleccione la clave de etiqueta por la que desea agrupar. Verá los costos desglosados por cada valor de dicha etiqueta, con un segmento adicional para los recursos que tengan dicha etiqueta.
+**Agrupe por** propiedades comunes para desglosar los costos e identificar los principales colaboradores. Para agrupar por etiquetas de recursos, por ejemplo, seleccione la clave de etiqueta por la que desea agrupar. Los costos se desglosan por cada valor de etiqueta, con un segmento adicional para los recursos que tengan dicha etiqueta aplicada.
 
-La mayoría de [los recursos de Azure admiten el etiquetado](../azure-resource-manager/tag-support.md); sin embargo, algunas etiquetas no están disponibles en Cost Management y facturación. Además, no se admiten las etiquetas de grupo de recursos. Cost Management solo admite etiquetas de recursos a partir de la fecha en que las etiquetas se aplican directamente al recurso.
+La mayoría de [los recursos de Azure admiten el etiquetado](../azure-resource-manager/tag-support.md); sin embargo, algunas etiquetas no están disponibles en Cost Management y facturación. Además, no se admiten las etiquetas de grupo de recursos. Cost Management solo admite etiquetas de recursos a partir de la fecha en que las etiquetas se aplican directamente al recurso. Consulte el vídeo sobre la [revisión de las directivas de etiquetas con Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) para obtener información sobre el uso de una directiva de etiqueta de Azure para mejorar la visibilidad de los datos sobre costos.
 
 Esta es una vista de los costos de servicio de Azure correspondientes al último mes.
 
@@ -105,9 +109,9 @@ Los gráficos dinámicos del gráfico principal muestran distintas agrupaciones 
 
 La imagen anterior muestra los nombres de los grupos de recursos. Aunque se puede agrupar por etiqueta para ver los costos totales por etiqueta, en ninguna de las vistas de análisis de costos está disponible la posibilidad de ver todas las etiquetas por recurso o grupo de recursos.
 
-Al agrupar los costos por un atributo concreto, se muestran los diez mayores contribuidores a los costos, de mayor a menor. Si hay más de diez grupos, se muestran los nueve mayores colaboradores de costos. También se muestra como un grupo **Otros**, que cubre todos los demás grupos juntos. Al agrupar por etiquetas, también puede ver un grupo **Sin etiqueta** para los costos a los que no se ha aplicado la clave de etiqueta. El grupo **Sin etiqueta** siempre es el último, aunque haya más costos sin etiqueta que con ella. Si hay diez valores de etiqueta, o más, los costos sin etiqueta formarán parte de **Otros**.
+Al agrupar los costos por un atributo concreto, se muestran los diez mayores contribuidores a los costos, de mayor a menor. Si hay más de diez grupos, se muestran los nueve mayores contribuidores a los costos, así como un grupo **Otros**, que abarca todos los grupos restantes juntos. Al agrupar por etiquetas, también puede ver un grupo **Sin etiqueta** para los costos a los que no se ha aplicado la clave de etiqueta. El grupo **Sin etiqueta** siempre es el último, aunque haya más costos sin etiqueta que con ella. Si hay 10 o más valores de etiqueta, los costos sin etiqueta formarán parte de **Otros**.
 
-Las máquinas virtuales, redes y recursos de almacenamiento *clásicos* (Azure Service Management o ASM) no comparten datos de facturación detallados. Al agrupar los costos, se combinan como **servicios clásicos**.
+Las máquinas virtuales, redes y recursos de almacenamiento *clásicos* no comparten datos de facturación detallados. Al agrupar los costos, se combinan como **servicios clásicos**.
 
 Puede ver el conjunto de datos completo de cualquier vista. Todas las selecciones o los filtros que aplique afectan a los datos presentados. Para ver el conjunto de datos completo, haga clic en la lista **tipo de gráfico** y, después, haga clic en la vista **Tabla**.
 

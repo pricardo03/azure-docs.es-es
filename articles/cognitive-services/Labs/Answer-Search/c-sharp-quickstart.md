@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 2fc2a4267c3a10a7837012dc65f0ce1a0f826a11
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dce13636cce299098c988ccea3a059f0f0e12acd
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871275"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823261"
 ---
 # <a name="quickstart-project-answer-search-query-in-c"></a>Inicio rápido: Consulta con Project Answer Search en C#
 
@@ -23,7 +23,7 @@ En el ejemplo de C# siguiente se crea y envía una consulta para obtener informa
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Se requiere [Visual Studio 2017](https://www.visualstudio.com/downloads/) para ejecutar este código en Windows. (La edición gratuita Community Edition funcionará).
+Se requiere [Visual Studio 2017 o posterior](https://www.visualstudio.com/downloads/) para ejecutar este código en Windows. (La edición gratuita de Community Edition funcionará).
 
 Obtenga una clave de acceso para la evaluación gratuita de los [Laboratorios de Cognitive Services](https://aka.ms/answersearchsubscription).
 

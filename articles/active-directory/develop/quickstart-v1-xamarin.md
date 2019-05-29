@@ -3,8 +3,8 @@ title: Introducción a Xamarin de Azure AD | Microsoft Docs
 description: Cree aplicaciones de Xamarin que se integren con Azure AD para el inicio de sesión y la llamada a las API protegidas por Azure AD mediante OAuth.
 services: active-directory
 documentationcenter: xamarin
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e3470d9220ed471a05792ed5b3bb259e0dcbe0a6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881892"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121909"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Inicio rápido: Creación de una aplicación de Xamarin que se integra con el inicio de sesión de Microsoft
 
@@ -57,14 +57,14 @@ Para permitir que la aplicación obtenga tokens, primero debe registrarla en su 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta. A continuación, en la lista **Directorio**, seleccione el inquilino de Active Directory donde quiere registrar la aplicación.
 3. Haga clic en **Todos los servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
-4. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
-5. Para crear una nueva **aplicación cliente nativa**, siga las indicaciones.
+4. Haga clic en **Registros de aplicaciones** y luego **Nuevo registro**.
+5. Para crear una aplicación cliente, siga las indicaciones.
    * **Nombre**: describe la aplicación a los usuarios.
+   * En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
    * El **URI de redirección** es una combinación de esquema y cadena que usará Azure AD para devolver respuestas de tokens. Escriba un valor (por ejemplo, `http://DirectorySearcher`).
 6. Una vez completado el registro, Azure AD asigna a la aplicación un identificador de aplicación único. Copie el valor de la pestaña **Aplicación**, ya que lo necesitará más adelante.
-7. En la página **Configuración**, seleccione **Permisos necesarios** y **Agregar**.
-8. Seleccione **Microsoft Graph** como la API. En **Permisos delegados**, agregue el permiso **Leer datos de directorio**. 
-   Esta acción permite que la aplicación consulte Graph API para los usuarios.
+7. En la página **Permisos de API**, seleccione **Agregar un permiso**. En **Seleccionar una API**, seleccione ***Microsoft Graph***.
+8. En **Permisos delegados**, seleccione el permiso **User.Read** y presione **Agregar** para guardar. Este permiso configura la aplicación de modo que consulte Graph API de Azure AD para los usuarios.
 
 ## <a name="step-3-install-and-configure-adal"></a>Paso 3: Instalación y configuración de ADAL
 

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 29d0dc032bd14161674c58d6e502ad77c3bf75e5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea265ab876dffbb4140d8bbc48123eceaadfe34d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108787"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798446"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Inicio rápido: Búsqueda de vídeos con la API de REST Bing Video Search y C#
 
@@ -24,7 +24,7 @@ Use este artículo de inicio rápido para realizar la primera llamada a Bing Vid
 El código fuente de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) con anotaciones de código, características y control de errores adicionales.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Cualquier edición de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Cualquier edición de [Visual Studio 2017 o posterior](https://www.visualstudio.com/downloads/).
 * El marco [Json.NET](https://www.newtonsoft.com/json), disponible como un paquete NuGet.
 * Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
 

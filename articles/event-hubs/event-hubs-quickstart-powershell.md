@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: fba0d3ac5a20bd4f10b815450f6ce08e50f88ea0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: b3847f798fde8702d6d95450c68fbfbca4c97f9d
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681308"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604457"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Inicio rápido: Creación de un centro de eventos mediante Azure PowerShell
 
@@ -31,7 +31,7 @@ En esta guía de inicio rápido se crea un centro de eventos mediante Azure Powe
 Para completar este tutorial, asegúrese de disponer de los siguientes elementos:
 
 - Suscripción de Azure. Si no tiene una, [cree una cuenta gratuita][] antes de empezar.
-- [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](https://www.visualstudio.com/vs) o posterior.
+- [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [SDK de .NET Standard](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

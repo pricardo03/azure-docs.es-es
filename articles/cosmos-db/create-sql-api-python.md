@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 91a5bf71983511f58fc13a0edf4a1109c3829602
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 033baa80eaa10581777061b40c64afe6331a2e92
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410677"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979080"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: Compilación de una aplicación Python mediante una cuenta de SQL API de Azure Cosmos DB
 
@@ -26,7 +26,7 @@ ms.locfileid: "65410677"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear y consultar documentos, claves y valores y bases de datos de grafos rápidamente. Todas estas operaciones se benefician de la distribución y la escalabilidad de Azure Cosmos DB.
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear y consultar documentos, claves y valores, columnas anchas y bases de datos de grafos rápidamente. Todas estas operaciones se benefician de la distribución y la escalabilidad de Azure Cosmos DB.
 
 En esta guía de inicio rápido se muestra cómo crear una cuenta de [SQL API](sql-api-introduction.md) de Azure Cosmos DB, una base de datos de documentos y un contenedor mediante Azure Portal. Luego se compila y se ejecuta una aplicación de consola compilada con el SDK de Python para [SQL API](sql-api-sdk-python.md). Este inicio rápido usa la versión 3.0 del [SDK de Python](https://pypi.org/project/azure-cosmos).
 
@@ -60,14 +60,19 @@ Ahora vamos a clonar una aplicación de SQL API desde GitHub, a establecer la ca
 
 1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
 
-    ```bash
-    md "C:\git-samples"
+    ```cmd
+    md "git-samples"
     ```
+   Si usa un símbolo del sistema de Bash, debe usar entonces el comando siguiente:
+
+   ```bash
+   mkdir "git-samples"
+   ```
 
 2. Abra una ventana de terminal de Git, como git bash y utilice el comando `cd` para cambiar a la nueva carpeta para instalar la aplicación de ejemplo.
 
     ```bash
-    cd "C:\git-samples"
+    cd "git-samples"
     ```
 
 3. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo. 
@@ -84,7 +89,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     ![Visualización y copia de una clave de acceso en Azure Portal, hoja Claves](./media/create-sql-api-dotnet/keys.png)
 
-2. Abra el archivo `CosmosGetStarted.py` en C:\git-samples\azure-cosmos-db-python-getting-started en Visual Studio Code.
+2. Abra el archivo `CosmosGetStarted.py` en \git-samples\azure-cosmos-db-python-getting-started en Visual Studio Code.
 
 3. Copie el valor **URI** del portal (con el botón de copia) y conviértalo en el valor de la clave de **punto de conexión** en ``CosmosGetStarted.py``. 
 
@@ -180,7 +185,7 @@ Los fragmentos de código siguientes se han tomado del archivo `CosmosGetStarted
 4. En la ventana del terminal integrado, asegúrese de que está en la carpeta azure-cosmos-db-python-getting-started. Si no lo está, ejecute el siguiente comando para cambiar a la carpeta de ejemplo. 
 
     ```
-    cd "C:\git-samples\azure-cosmos-db-python-getting-started"`
+    cd "\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
 5. Ejecute el comando siguiente para instalar el paquete azure-cosmos. 

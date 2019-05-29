@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3e871b8d4de8ff83e260aded89e09ad5b17b3297
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095864"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799238"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protección de datos y seguridad de Azure Data Box
 
@@ -34,6 +34,8 @@ El diagrama siguiente indica el flujo de datos a través de la solución Azure D
 
 ![Seguridad de Data Box](media/data-box-security/data-box-security-2.png)
 
+Mientras los datos fluyen a través de esta solución, se registran los eventos y se generan registros. Para obtener más información, vaya a [Seguimiento y registro de eventos para Azure Data Box](data-box-logs.md).
+
 ## <a name="security-features"></a>Características de seguridad
 
 Data Box proporciona una solución segura para proteger los datos al garantizar que solo las entidades autorizadas puedan ver, modificar o eliminar los datos. Las características de seguridad de esta solución están destinadas al disco y al servicio asociado, lo que garantiza la seguridad de los datos almacenados. 
@@ -48,24 +50,25 @@ El dispositivo Data Box se protege mediante las siguientes características:
 - Ejecuta solo el software específico para Data Box.
 - Arranca en un estado bloqueado.
 - Controla el dispositivo a través de una contraseña de desbloqueo de dispositivo.
-- Credenciales de acceso para copiar datos hacia y desde el dispositivo.
+- Credenciales de acceso para copiar datos hacia y desde el dispositivo. Todos los accesos a la página **Credenciales del dispositivo** en Azure Portal quedan registrados en los [registros de actividad](data-box-logs.md#query-activity-logs-during-setup).
 
 ### <a name="data-box-data-protection"></a>Protección de datos de Data Box
 
 Los datos que fluyen en Data Box se protegen mediante las siguientes características:
 
-- Cifrado AES de 256 bits para datos en reposo. 
+- Cifrado AES de 256 bits para datos en reposo.
 - Se pueden usar protocolos cifrados para los datos en movimiento.
-- Eliminación segura de los datos desde el dispositivo una vez completada la carga de datos en Azure. La eliminación de datos se realiza según los estándares de NIST 800-88r1.
+- Eliminación segura de los datos desde el dispositivo una vez completada la carga de datos en Azure. La eliminación de datos se realiza según los estándares de NIST 800-88r1. El evento de eliminación de datos se registra en el [historial de pedidos](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Protección del servicio Data Box
 
 El servicio Data Box se protege mediante las siguientes características:
 
 - El acceso al servicio Data Box requiere que la organización tenga una suscripción de Azure que incluya dicho servicio. Su suscripción regula las características a las que puede tener acceso en Azure Portal.
-- Dado que el servicio Data Box está hospedado en Azure, se encuentra protegido por las características de seguridad de Azure. Para obtener más información acerca de las características de seguridad que proporciona Microsoft Azure, visite el [Centro de confianza de Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx). 
-- El servicio de Data Box almacena la contraseña de desbloqueo que se usa para desbloquear el dispositivo en el servicio. 
-- El servicio Data Box almacena los detalles del pedido y del estado en el servicio. Esta información se elimina cuando se elimina el pedido. 
+- Dado que el servicio Data Box está hospedado en Azure, se encuentra protegido por las características de seguridad de Azure. Para obtener más información acerca de las características de seguridad que proporciona Microsoft Azure, visite el [Centro de confianza de Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
+- El acceso al pedido de Data Box puede controlarse mediante el uso de los roles del control de acceso basado en rol. Para obtener más información, consulte [Set up access control for Data Box order](data-box-logs.md#set-up-access-control-on-the-order) (Configuración del control de accesos para el pedido de Data Box).
+- El servicio de Data Box almacena la contraseña de desbloqueo que se usa para desbloquear el dispositivo en el servicio.
+- El servicio Data Box almacena los detalles del pedido y del estado en el servicio. Esta información se elimina cuando se elimina el pedido.
 
 ## <a name="managing-personal-data"></a>Administración de datos personales
 

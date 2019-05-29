@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: b5c61ecb74c0fcdacc6024a74565f05b036e2ac6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fe2978e176b986164ebb01fddbd29481f8a117bd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65081397"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145429"
 ---
 1. Inicie Visual Studio 2017.
 
@@ -19,11 +19,11 @@ ms.locfileid: "65081397"
 
     En caso contrario, active la casilla junto a **Desarrollo multiplataforma de .NET Core** y elija **Modificar** en la esquina inferior derecha del cuadro de diálogo. La instalación de la nueva característica tardará un momento.
 
-1. Crear una aplicación Windows Universal de Visual C# vacía. En primer lugar, elija **Archivo** > **Nuevo** > **Proyecto** en el menú. En el cuadro de diálogo **Nuevo proyecto**, expanda **Instalado** > **Visual C#** > **Windows Universal** en el panel izquierdo. Luego, seleccione **Aplicación vacía (Windows universal)**. Para el nombre del proyecto, escriba *helloworld*.
+1. Crear una aplicación Windows Universal de Visual C# vacía. En primer lugar, elija **Archivo** > **Nuevo** > **Proyecto** en el menú. En el cuadro de diálogo **Nuevo proyecto**, expanda **Instalado** > **Visual C#**  > **Windows Universal** en el panel izquierdo. Luego, seleccione **Aplicación vacía (Windows universal)** . Para el nombre del proyecto, escriba *helloworld*.
 
     ![Captura de pantalla del cuadro de diálogo Nuevo proyecto](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. El SDK de Voz requiere que la aplicación se cree para Windows 10 Fall Creators Update o posterior. En la ventana emergente **New Universal Windows Platform Project** (Nuevo proyecto de la Plataforma universal de Windows), elija **Windows 10 Fall Creators Update (10.0, compilación 16299)** como la **versión mínima**. En el cuadro **Versión de destino**, seleccione esta o cualquier versión posterior y, a continuación, haga clic en **Aceptar**.
+1. El SDK de Voz requiere que la aplicación se cree para Windows 10 Fall Creators Update o posterior. En la ventana emergente **New Universal Windows Platform Project** (Nuevo proyecto de la Plataforma universal de Windows), elija **Windows 10 Fall Creators Update (10.0, compilación 16299)** como la **versión mínima**. En el cuadro **Versión de destino**, seleccione esta o cualquier versión posterior y, a continuación, haga clic en **Aceptar**.
 
     ![Captura de pantalla de la ventana New Universal Windows Platform Project (Nuevo proyecto de la Plataforma universal de Windows)](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 

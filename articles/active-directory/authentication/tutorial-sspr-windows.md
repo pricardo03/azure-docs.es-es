@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224658"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861529"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión
 
-En este tutorial va a permitir a los usuarios restablecer sus contraseñas desde la pantalla de inicio de sesión de Windows 10. Con la nueva actualización de Windows 10 de abril de 2018, los usuarios con dispositivos **unidos a Azure AD** o **unidos a Azure AD híbrido** pueden usar un vínculo "Restablecer contraseña" en la pantalla de inicio de sesión. Al hacer clic en este vínculo, se incorporan a la misma experiencia de autoservicio de restablecimiento de contraseña (SSPR) con la que están familiarizados.
+En este tutorial va a permitir a los usuarios restablecer sus contraseñas desde la pantalla de inicio de sesión de Windows 10. Con la nueva actualización de Windows 10 de abril de 2018, los usuarios con dispositivos **unidos a Azure AD** o **unidos a Azure AD híbrido** pueden usar un vínculo "Restablecer contraseña" en la pantalla de inicio de sesión. Al hacer clic en este vínculo, se incorporan a la misma experiencia de autoservicio de restablecimiento de contraseña (SSPR) con la que están familiarizados. Si un usuario está bloqueado, este proceso no desbloquea las cuentas en la instancia local de Active Directory.
 
 > [!div class="checklist"]
 > * Configuración del vínculo de restablecimiento de contraseña con Intune

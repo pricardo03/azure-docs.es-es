@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2074ea1028f6a5e8a0251c6d0c9519361db6ba8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1c84bf84f8ba28a98937b02a463003a900aefaa0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150384"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002908"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Inicio rápido: Creación un clasificador de carga de trabajo mediante T-SQL
 
@@ -107,6 +107,6 @@ Siga estos pasos para limpiar los recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora ha creado un clasificador de carga de trabajo. Ejecute algunas consultas como TheCEO para ver cómo responden. Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para ver las consultas y la importancia asignada.
-
-Para más información sobre la administración de cargas de trabajo de SQL Data Warehouse, consulte los artículos sobre la [Importancia de la carga de trabajo de SQL Data Warehouse](sql-data-warehouse-workload-importance.md) y la [Clasificación de la carga de trabajo de SQL Data Warehouse](sql-data-warehouse-workload-classification.md).
+- Ahora ha creado un clasificador de carga de trabajo. Ejecute algunas consultas como TheCEO para ver cómo responden. Consulte [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) para ver las consultas y la importancia asignada.
+- Para más información sobre la administración de cargas de trabajo de Azure SQL Data Warehouse, consulte [Importancia de la carga de trabajo](sql-data-warehouse-workload-importance.md) y [Clasificación de la carga de trabajo](sql-data-warehouse-workload-classification.md).
+- Consulte los artículos de procedimientos para [configurar la importancia de la carga de trabajo](sql-data-warehouse-how-to-configure-workload-importance.md) y sobre cómo [administrar y supervisar la administración de la carga de trabajo](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

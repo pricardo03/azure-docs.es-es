@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 55d4f4bdf204453ccfe353e0d79abedb118bd9d8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0ce1c8b811c11d0268cde79a609c05e740a529b6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021605"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171571"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutorial de REST: Llamada a Cognitive Services APIs en una canalización de indexación de Azure Search
 
@@ -45,13 +45,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 En este tutorial se usan los siguientes servicios, herramientas y datos. 
 
-[Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
++ [Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de ejemplo. Asegúrese de que la cuenta de almacenamiento se encuentra en la misma región que Azure Search.
 
-[Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de ejemplo.
++ La [aplicación de escritorio Postman](https://www.getpostman.com/) se usa para hacer llamadas REST a Azure Search.
 
-La [aplicación de escritorio Postman](https://www.getpostman.com/) se usa para hacer llamadas REST a Azure Search.
++ Los [datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) están formados por un pequeño conjunto de archivos de tipos diferentes. 
 
-Los [datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) están formados por un pequeño conjunto de archivos de tipos diferentes. 
++ [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
 
 ## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 352ad9473a1c1a9360ddceb720ff968f4e97e012
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617313"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65889291"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integración de Azure Active Directory con Tableau Online
 
@@ -53,7 +53,7 @@ Para configurar la integración de Tableau Online en Azure AD, será preciso que
 
 **Para agregar Tableau Online desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Tableau Online, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Tableau Online](#configure-tableau-online-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Tableau Online](#create-tableau-online-test-user)**: para tener un homólogo de Britta Simon en Tableau Online vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Tableau Online](#configure-tableau-online-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Tableau Online](#create-tableau-online-test-user)** : para tener un homólogo de Britta Simon en Tableau Online vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con Tableau Online, siga
 
      a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`.
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`.
 
     > [!NOTE]
     > El valor `<entityid>` lo obtendrá en la sección **Configuración de Tableau Online** de este tutorial. El valor del Id. de entidad será el valor de **Identificador de Azure AD** de la sección **Configuración de Tableau Online**.
@@ -188,7 +188,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo, BrittaSimon\@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -229,7 +229,7 @@ En esta sección, creará una usuaria llamada Britta Simon en Tableau Online.
   
     ![Creación de un usuario de prueba de Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
-2. Seleccione **Add users for (SAML) authentication** [Agregar usuarios para la autenticación (SAML)]. En el cuadro de texto **Enter email addresses** (Especificar direcciones de correo electrónico), agregue britta.simon@contoso.com
+2. Seleccione **Add users for (SAML) authentication** [Agregar usuarios para la autenticación (SAML)]. En el cuadro de texto **Especificar direcciones de correo electrónico**, agregue britta.simon\@contoso.com.
   
     ![Creación de un usuario de prueba de Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 

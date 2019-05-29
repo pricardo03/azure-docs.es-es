@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f080e315430cba986642e4a24af776cc82062c0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 94fbcc1c29c1860642dda0afab6a1f10e719a05a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190793"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962192"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados
 
@@ -178,17 +178,17 @@ Además, tiene que habilitar **Permitir actualizaciones en la barra de estado a 
 
 ### <a name="configure-seamless-sso"></a>Configuración del inicio de sesión único de conexión directa
 
-Para completar correctamente la combinación de Azure AD híbrido de los dispositivos de nivel inferior de Windows en un dominio administrado que utiliza la autenticación de paso a través o la sincronización de hash de contraseñas como su método de autenticación en la nube de Azure AD, también debe [configurar el inicio de sesión único de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+Para completar correctamente la combinación de Azure AD híbrido de los dispositivos de nivel inferior de Windows en un dominio administrado que utiliza la autenticación de paso a través o la sincronización de hash de contraseñas como su método de autenticación en la nube de Azure AD, también debe [configurar el inicio de sesión único de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). Si tiene problemas para configurar el SSO de conexión directa, consulte el artículo [Solución de problemas de inicio de sesión de conexión directa de Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso).
 
 
 ### <a name="control-windows-down-level-devices"></a>Control de dispositivos de Windows de nivel inferior 
 
-Para registrar dispositivos de nivel inferior de Windows, debe descargar e instalar un paquete de Windows Installer (.msi) desde el Centro de descarga. Para más información, haga clic [aquí](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+Para registrar dispositivos de nivel inferior de Windows, debe descargar e instalar un paquete de Windows Installer (.msi) desde el Centro de descarga. Para más información, consulte el artículo [Control de la unión a Azure AD híbrido de los dispositivos](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
 
 
 ## <a name="verify-the-registration"></a>Comprobación del registro
 
-Para comprobar el estado de registro del dispositivo en su inquilino de Azure, puede usar el cmdlet **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** en el **[módulo de PowerShell de Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Para comprobar el estado de registro del dispositivo en su inquilino de Azure, puede usar el cmdlet **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** en el **[módulo de PowerShell de Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0)** .
 
 Cuando se usa el cmdlet **Get-MSolDevice** para comprobar los detalles de servicio:
 

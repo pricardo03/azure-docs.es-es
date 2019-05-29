@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68457367987305b6926f8f885a226cfcedd23873
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900835"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860313"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Tutorial: Aplicación Translator Speech en C#
 
@@ -34,7 +34,7 @@ Está disponible un archivo de la solución de Visual Studio para esta aplicaci�
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para este tutorial, necesita cualquier edición de Visual Studio 2017, incluida Community Edition.
+Para este tutorial, necesita cualquier edición de Visual Studio 2019, incluida Community Edition.
 
 La solución de Visual Studio compila también un instalador para la aplicación. Necesita [WiX Toolset](http://wixtoolset.org/) y [WiX Toolset Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) para la compatibilidad de esta funcionalidad.
 

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: b0fda94f3120f1f228836713456d584d33c08a48
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 22d5aea119d71553afc02ee923fab5cf5ead5ce0
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033137"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519045"
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Inicio rápido: Creación de una aplicación de Table API con Java y Azure Cosmos DB
 
@@ -35,8 +35,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 Además: 
 
-* [Kit de desarrollo de Java (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * En Ubuntu, ejecute `apt-get install default-jdk` para instalar el JDK.
+* [Kit de desarrollo de Java (JDK) 8](https://aka.ms/azure-jdks)
     * Asegúrese de establecer la variable de entorno JAVA_HOME para que apunte a la carpeta donde está instalado el JDK.
 * [Descargar](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) un archivo binario de [Maven](https://maven.apache.org/)
     * En Ubuntu, puede ejecutar `apt-get install maven` para instalar Maven.

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: 05c84f91c960bbcf7383cd2164289c8398f8dc91
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: a946443e1d1e66a1ae8f70671ff328cdf47ff009
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607762"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992011"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de Azure Portal para crear una cola de Service Bus
 Esta guía de inicio rápido describe cómo enviar y recibir mensajes de una cola de Service Bus, cómo usar [Azure portal][Azure portal] para crear un espacio de nombres de mensajería y una cola dentro de este, y cómo obtener las credenciales de autorización de ese espacio de nombres. El procedimiento muestra después cómo enviar y recibir mensajes de esta cola mediante la [biblioteca de .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
@@ -197,6 +197,8 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
     await queueClient.CompleteAsync(message.SystemProperties.LockToken);
 }
 ```
+> [!NOTE]
+> Puede administrar los recursos de Service Bus con el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta dispone de características avanzadas, como la funcionalidad de importación y exportación o la capacidad de probar el tema, las colas, las suscripciones, los servicios de retransmisión, los centros de notificaciones y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

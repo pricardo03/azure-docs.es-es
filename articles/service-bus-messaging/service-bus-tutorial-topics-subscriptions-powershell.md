@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 845fc32d527158258304a92c6855017c9d8c0492
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3d1e1491ad045eba88ca7bbe54a1acb38199f7d7
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049564"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987914"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante PowerShell y temas/suscripciones
 
@@ -269,6 +269,9 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
     await queueClient.CompleteAsync(message.SystemProperties.LockToken);
 }
 ```
+
+> [!NOTE]
+> Puede administrar los recursos de Service con el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta dispone de características avanzadas, como la funcionalidad de importación y exportación o la capacidad de probar el tema, las colas, las suscripciones, los servicios de retransmisión, los centros de notificaciones y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

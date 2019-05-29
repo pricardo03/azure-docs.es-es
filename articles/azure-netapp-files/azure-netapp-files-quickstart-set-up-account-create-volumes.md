@@ -1,6 +1,6 @@
 ---
-title: Configuración de Azure NetApp Files y creación de un volumen | Microsoft Docs
-description: Describe cómo configurar Azure NetApp Files y crear un volumen rápidamente.
+title: 'Inicio rápido: Configuración de Azure NetApp Files y creación de un volumen de NFS | Microsoft Docs'
+description: En este inicio rápido se describe cómo configurar Azure NetApp Files y crear un volumen rápidamente.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,28 +12,38 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 4/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 634f23cf3161fff09f21c79fd8300cb269dcc5b7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 2bcd8163cb3c6071812d4d247b5b333edcfc89e5
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546590"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523023"
 ---
-# <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Configuración de Azure NetApp Files y creación de un volumen 
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Inicio rápido: Configuración de Azure NetApp Files y creación de un volumen de NFS 
 
 En este artículo se muestra cómo configurar Azure NetApp Files y crear un volumen rápidamente. 
 
+En este inicio rápido, configurará los elementos siguientes:
+
+- Registro de Azure NetApp Files y proveedor de recursos de NetApp
+- Cuenta de NetApp
+- Grupo de capacidad
+- Volumen de NFS para Azure NetApp Files
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
 ## <a name="before-you-begin"></a>Antes de empezar 
 
-Tiene que formar parte del programa de la versión preliminar pública y figurar en la lista blanca para acceder al proveedor de recursos de Microsoft.NetApp. Para conocer más detalles sobre cómo unirse al programa de versión preliminar pública, visite la [página de registro en la versión preliminar pública de Azure NetApp Files](https://aka.ms/nfspublicpreview). 
+> [!IMPORTANT] 
+> Se le debe conceder acceso al servicio Azure Files de NetApp.  Para solicitar acceso al servicio, consulte la [página de envío de la lista de espera de Azure Files de NetApp](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u).  Antes de continuar, debe esperar un correo electrónico de confirmación oficial del equipo de Azure NetApp Files. 
 
 ## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Registro de Azure NetApp Files y del proveedor de recursos de NetApp
 
 1. En Azure Portal, haga clic en el icono de Azure Cloud Shell en la esquina superior derecha.
 
-      ![Icono de Azure Cloud Shell](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
+    ![Icono de Azure Cloud Shell](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell-window.png)
 
 2. Especifique la suscripción que se ha incluido en la lista blanca de Azure NetApp Files:
     
@@ -88,7 +98,7 @@ Tiene que formar parte del programa de la versión preliminar pública y figurar
 
 5. Haga clic en **OK**.
 
-## <a name="create-a-volume-for-azure-netapp-files"></a>Creación de un volumen de Azure NetApp Files
+## <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Creación de un volumen de NFS para Azure NetApp Files
 
 1. En la hoja de administración de Azure NetApp Files de la cuenta de NetApp, haga clic en **Volúmenes**.
 
@@ -100,7 +110,6 @@ Tiene que formar parte del programa de la versión preliminar pública y figurar
 
 3. En la ventana Crear un volumen, especifique la información del volumen: 
    1. Escriba **myvol1** como nombre del volumen. 
-   2. Escriba **myfilepath1** como la ruta de acceso de archivo que se usará para crear la ruta de acceso de exportación del volumen.
    3. Seleccione el grupo de capacidad (**mypool1**).
    4. Use el valor predeterminado de la cuota. 
    5. En la red virtual, haga clic en **Crear nueva** para crear una red virtual de Azure.  Luego, rellene la siguiente información:
@@ -116,7 +125,13 @@ Tiene que formar parte del programa de la versión preliminar pública y figurar
 
       ![Ventar Crear una red virtual](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. Haga clic en **Revisar + crear**.
+4. Haga clic en **Protocolo** y seleccione **NFS** como el tipo de protocolo del volumen.   
+
+    Escriba **myfilepath1** como la ruta de acceso de archivo que se usará para crear la ruta de acceso de exportación del volumen. 
+
+    ![Especificación del protocolo de NFS para el inicio rápido](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+
+5. Haga clic en **Revisar + crear**.
 
     ![Ventana Revisar y crear](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)  
 
@@ -125,7 +140,31 @@ Tiene que formar parte del programa de la versión preliminar pública y figurar
 
     ![Volumen creado](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)  
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando haya terminado, y si lo desea, puede eliminar el grupo de recursos. La acción de eliminar un grupo de recursos es irreversible.  
+
+> [!IMPORTANT]
+> Todos los recursos dentro de los grupos de recursos se eliminarán de forma permanente y esta acción no se puede deshacer. 
+
+1. En el cuadro de búsqueda de Azure Portal, escriba **Azure NetApp Files** y seleccione **Azure NetApp Files** en la lista que aparece.
+
+2. En la lista de suscripciones, haga clic en el grupo de recursos (myRG1) que quiere eliminar. 
+
+    ![Navegación a los grupos de recursos](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
+
+
+3. En la página del grupo de recursos, seleccione **Eliminar grupo de recursos**.
+
+    ![Eliminación de un grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+
+    Se abre una ventana con una advertencia acerca de los recursos que se eliminarán con el grupo de recursos.
+
+4. Escriba el nombre del grupo de recursos (myRG1) para confirmar que quiere eliminar de forma permanente el grupo de recursos y todos los recursos que contiene y, luego, haga clic en **Eliminar**.
+
+    ![Eliminación de un grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+
 ## <a name="next-steps"></a>Pasos siguientes  
 
-* [Información sobre la jerarquía del almacenamiento de Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-* [Administración de volúmenes mediante Azure NetApp Files](azure-netapp-files-manage-volumes.md) 
+> [!div class="nextstepaction"]
+> [Administración de volúmenes mediante Azure NetApp Files](azure-netapp-files-manage-volumes.md)  

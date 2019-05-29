@@ -3,8 +3,8 @@ title: Compilación de una aplicación de página única de AngularJS para el in
 description: Obtenga información sobre como compilar una aplicación de página única de AngularJS que se integre con Azure AD para el inicio de sesión y llame a las API protegidas de Azure AD mediante OAuth.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6596d1d8251bafd1ff013961555b20475e3a06d3
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1a1fdbcd04504181a20f5245b6f2378be5b9d405
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544947"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001207"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Inicio rápido: Compilación de una aplicación de página única de AngularJS para el inicio y el cierre de sesión con Azure Active Directory
 
@@ -47,7 +47,7 @@ Para crear la aplicación de trabajo completa, tendrá que:
 3. Usar ADAL para ayudar a proteger las páginas en la aplicación de una sola página.
 
 > [!NOTE]
-> Si necesita habilitar los inicios de sesión para las cuentas personales además de hacerlo para las cuentas profesionales y educativas, puede usar el *[punto de conexión de la plataforma de identidad](azure-ad-endpoint-comparison.md)*. Para más información, consulte [este tutorial de SPA de JavaScript](tutorial-v2-javascript-spa.md) y [este artículo](active-directory-v2-limitations.md), que explica el *punto de conexión de la plataforma de identidad de Microsoft*. 
+> Si necesita habilitar los inicios de sesión para las cuentas personales además de hacerlo para las cuentas profesionales y educativas, puede usar el *[punto de conexión de la plataforma de identidad](azure-ad-endpoint-comparison.md)* . Para más información, consulte [este tutorial de SPA de JavaScript](tutorial-v2-javascript-spa.md) y [este artículo](active-directory-v2-limitations.md), que explica el *punto de conexión de la plataforma de identidad de Microsoft*. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -63,20 +63,15 @@ Para habilitar la aplicación a fin de autenticar a los usuarios y obtener token
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Si inició sesión en varios directorios, debe asegurarse de que está viendo el directorio correcto. Para ello, en la barra superior, haga clic en su cuenta. En la lista **Directorio** lista, elija el inquilino de Azure AD donde desea registrar la aplicación.
 1. Haga clic en **Todos los servicios** en el panel izquierdo y seleccione **Azure Active Directory**.
-1. Haga clic en **Registros de aplicaciones** y luego seleccione **Agregar**.
-1. Siga las indicaciones y cree una nueva aplicación web y/o API web:
-
-    * **Nombre** describe la aplicación a los usuarios.
-    * La **dirección URL de inicio de sesión** es la ubicación en la que Azure AD devolverá los tokens. La ubicación predeterminada para este ejemplo es `https://localhost:44326/`.
-
-1. Cuando termine el registro, Azure AD asignará un identificador de aplicación único a la aplicación. Necesitará este valor en las secciones siguientes, así que cópielo de la pestaña de la aplicación.
-1. Adal.js utiliza el flujo implícito de OAuth para comunicarse con Azure AD. Debe habilitar el flujo implícito para la aplicación mediante estos pasos:
-
-    1. Haga clic en la aplicación y seleccione **Manifiesto** para abrir el editor de manifiestos en línea.
-    1. Busque la propiedad `oauth2AllowImplicitFlow`. Establezca su valor en `true`.
-    1. Haga clic en **Guardar** para guardar el manifiesto.
-
-1. Conceda permisos para la aplicación en todo el inquilino. Vaya a **Configuración > Permisos necesarios** y haga clic en el botón **Conceder permisos** de la barra superior.
+1. Haga clic en **Registros de aplicaciones** y luego **Nuevo registro**.
+1. Cuando se abra la página **Registrar una aplicación**, escriba el nombre de su aplicación.
+1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
+1. Seleccione la plataforma **Web** en la sección **URI de redireccionamiento** y establezca el valor en `https://localhost:44326/` (la ubicación a la que Azure AD devolverá tokens).
+1. Cuando termine, seleccione **Registrar**. En la página de **Información general** de la aplicación, anote el valor en **Id. de aplicación (cliente)** .
+1. Adal.js utiliza el flujo implícito de OAuth para comunicarse con Azure AD. Debe habilitar el flujo implícito para la aplicación mediante estos pasos. En el panel de navegación izquierdo de la aplicación registrada, seleccione **Autenticación**.
+1. En **Configuración avanzada**, vaya a **Concesión implícita** y habilite las casillas **Tokens de id.** y **Tokens de acceso**. Los tokens de identificador y los tokens de acceso son necesarios, ya que esta aplicación debe iniciar la sesión de los usuarios y llamar a una API.
+1. Seleccione **Guardar**.
+1. Conceda permisos para la aplicación en todo el inquilino. Vaya a **Permisos de API** y seleccione el botón **Conceder consentimiento de administrador** en **Conceder consentimiento**.
 1. Seleccione **Sí** para confirmar la acción.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Paso 2: Instalación de ADAL y configuración de la aplicación de una sola página

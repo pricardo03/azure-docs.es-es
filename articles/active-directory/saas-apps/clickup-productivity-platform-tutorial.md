@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 3244140999dc61560549db077d4c402b3986956b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2a14b251df0bedbcd27ab4e9bf1abe9a27ad50d6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282651"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutorial: Integración de Azure Active Directory con la plataforma de productividad ClickUp
 
@@ -52,7 +52,7 @@ Para configurar la integración de ClickUp en Azure AD, deberá agregar la aplic
 
 **Para agregar ClickUp desde la galería, realice los siguientes pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -75,12 +75,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con ClickUp, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en ClickUp](#configure-clickup-productivity-platform-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación del usuario de prueba de ClickUp](#create-clickup-productivity-platform-test-user)**: para tener un homólogo de Britta Simon en ClickUp vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en ClickUp](#configure-clickup-productivity-platform-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación del usuario de prueba de ClickUp](#create-clickup-productivity-platform-test-user)** : para tener un homólogo de Britta Simon en ClickUp vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con ClickUp, realice los
 
      a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://app.clickup.com/login/sso`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://api.clickup.com/v1/team/<team_id>/microsoft`
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://api.clickup.com/v1/team/<team_id>/microsoft`
 
     > [!NOTE]
     > El valor del identificador no es real. Actualícelo con el valor del identificador real, que se explica más adelante en este tutorial.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad0c1ac2ce39fd919cb82ce2bdb0841edf9c777
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e9fa951e50a38b8bc63cc4e26ef54c013531bd7d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855629"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-factset"></a>Tutorial: Integración de Azure Active Directory con FactSet
 
@@ -53,7 +53,7 @@ Para configurar la integración de FactSet en Azure AD, será preciso agregar Fa
 
 **Para agregar FactSet desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con FactSet, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de FactSet](#configure-factset-single-sign-on)**: para configurar el inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de usuario de prueba de FactSet](#create-factset-test-user)**: para tener un homólogo de Britta Simon en FactSet que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de FactSet](#configure-factset-single-sign-on)** : para configurar el inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de usuario de prueba de FactSet](#create-factset-test-user)** : para tener un homólogo de Britta Simon en FactSet que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,12 +105,12 @@ Para configurar el inicio de sesión único de Azure AD con FactSet, realice los
 
     ![Información de dominio y direcciones URL de inicio de sesión único de FactSet](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://login.factset.com/services/auth-test?idpid=<GUID>`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<intendedDestinationURL>.factset.com?idpid=<GUID>`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://login.factset.com`
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://login.factset.com`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de FactSet](mailto:support@factset.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el representante de la cuenta de FactSet para obtener estos valores. Si no sabe quién es su representante de FactSet, puede encontrar ayuda en la [página de números de soporte técnico de FactSet](https://www.factset.com/support-numbers). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único de Azure AD con FactSet, realice los
 
 ### <a name="configure-factset-single-sign-on"></a>Configuración del inicio de sesión único en FactSet
 
-Para configurar el inicio de sesión único en **FactSet**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de FactSet](mailto:support@factset.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **FactSet**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL correspondientes copiadas de Azure Portal a las personas de soporte técnico de FactSet con las que esté en contacto. Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -148,7 +148,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -183,7 +183,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-factset-test-user"></a>Creación de un usuario de prueba de FactSet
 
-En esta sección, creará un usuario llamado Britta Simon en FactSet. Trabaje con el  [equipo de soporte técnico de FactSet](mailto:support@factset.com) para agregar los usuarios a la plataforma de FactSet. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en FactSet. Trabaje con los representantes de soporte técnico de FactSet cuenta para agregar los usuarios a la plataforma de FactSet. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

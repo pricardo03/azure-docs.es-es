@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: glenga
 ms.openlocfilehash: 031a460862cf12efa02c139074e5a7066f0526c6
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641794"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132281"
 ---
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Para poder publicar la aplicación, debe iniciar sesión en Azure.
 
-1. En el área **Azure: Functions**, elija **Iniciar sesión en Azure...**. En caso de no tener ninguna cuenta, seleccione **Crear una cuenta de Azure gratis**.
+1. En el área **Azure: Functions**, elija **Iniciar sesión en Azure…** . En caso de no tener ninguna cuenta, seleccione **Crear una cuenta de Azure gratis**.
 
     ![Respuesta de localhost de la función en el explorador](./media/functions-sign-in-vs-code/functions-sign-into-azure.png)
 

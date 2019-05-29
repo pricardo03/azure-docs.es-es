@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150760"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603090"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolución de Azure Data Box Disk y comprobación de la carga de datos en Azure
 
@@ -56,7 +56,7 @@ Realice los pasos siguientes si va a devolver el dispositivo en Estados Unidos o
 2. Selle la caja de envío y asegúrese de que la etiqueta de envío de devolución está visible.
 3. Póngase en contacto con UPS para programar la recogida del dispositivo. Para programar una recogida:
 
-    - Llame a la oficina local de UPS (número gratuito específico del país).
+    - Llame a la oficina local de UPS (número gratuito específico del país o región).
     - En la llamada, indique el número de seguimiento del envío inverso, que se muestra en la etiqueta impresa.
     - Si no se indica el número de seguimiento, UPS solicitará que el abono de una cantidad adicional en la recogida.
     - En lugar de programar la recogida, también puede devolver la instancia de Data Box Disk en el punto de recogida más cercano.
@@ -78,7 +78,7 @@ Realice los pasos siguientes si va a devolver el dispositivo en Europa.
 
 2. Selle la caja de envío y asegúrese de que la etiqueta de envío de devolución está visible.
 3. Si va a devolver el dispositivo en Europa con DHL, para solicitar la recogida de DHL, visite su sitio Web y especifique el número de factura de porte aéreo.
-4. Visite el sitio Web de DHL Express del país y elija **Book a Courier Collection > eReturn Shipment** (Reservar una colección Courier > Envío eReturn).
+4. Visite el sitio Web de DHL Express del país o región y elija **Book a Courier Collection > eReturn Shipment** (Reservar una colección Courier > Envío eReturn).
 
     ![Envío de devolución de DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     

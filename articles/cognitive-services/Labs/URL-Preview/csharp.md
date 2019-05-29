@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 0e2d4b783068cfd14385eb1712ea246c94dc9500
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2cb3f1de803b8549a88866da1042f4f32609a601
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877276"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827159"
 ---
 # <a name="quickstart-url-preview-query-in-c"></a>Inicio rápido: Consulta de URL Preview en C#
 
@@ -23,7 +23,7 @@ En el ejemplo de C# siguiente se crea una vista previa de la dirección URL del 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Se requiere [Visual Studio 2017](https://www.visualstudio.com/downloads/) para ejecutar este código en Windows. (La edición gratuita Community Edition funcionará).
+Se requiere [Visual Studio 2017 o posterior](https://www.visualstudio.com/downloads/) para ejecutar este código en Windows. (La edición gratuita de Community Edition funcionará).
 
 Obtenga una clave de acceso para la evaluación gratuita de los [Laboratorios de Cognitive Services](https://aka.ms/answersearchsubscription).
 

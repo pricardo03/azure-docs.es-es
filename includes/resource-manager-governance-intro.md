@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 0b3af1bd7b3ab48074432d9e39552d72c6664b98
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d1e7fa1ed1649508f0d4923db8817d17ad556ca1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124738"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164568"
 ---
 Al implementar recursos en Azure, dispone de una enorme flexibilidad a la hora de decidir qué tipos de recursos implementar, dónde se encuentran y cómo configurarlos. Sin embargo, esa flexibilidad puede abrirle a más opciones que le gustaría permitir en su organización. Cuando piensa en implementar recursos en Azure, tal vez se pregunte:
 
-* ¿Cómo puedo cumplir los requisitos legales de soberanía de datos en determinados países?
+* ¿Cómo puedo cumplir los requisitos legales de soberanía de datos en determinados países o regiones?
 * ¿Cómo puedo controlar los costos?
 * ¿Cómo puedo asegurarme de que alguien no modifique por error un sistema importante?
 * ¿Cómo puedo realizar un seguimiento de los costos de los recursos y facturarlos de forma precisa?

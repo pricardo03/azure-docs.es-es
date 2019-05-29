@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f69ef2c7c260d8df918fb2495bded6910d6b17b1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e994150f68c0f274c97c27fccc89f226bc8236cd
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707630"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Tutorial: Integración de Azure Active Directory con HRworks Single Sign-On
 
@@ -53,7 +53,7 @@ Para configurar la integración de HRworks Single Sign-On en Azure AD, será pre
 
 **Para agregar HRworks Single Sign-On desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con HRworks Single Sign-On, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de HRworks Single Sign-On](#configure-hrworks-single-sign-on-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de HRworks Single Sign-On](#create-hrworks-single-sign-on-test-user)**: para tener un homólogo de Britta Simon en HRworks Single Sign-On que esté vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de HRworks Single Sign-On](#configure-hrworks-single-sign-on-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de HRworks Single Sign-On](#create-hrworks-single-sign-on-test-user)** : para tener un homólogo de Britta Simon en HRworks Single Sign-On que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -130,15 +130,15 @@ Para configurar el inicio de sesión único de Azure AD con HRworks Single Sign-
 
 2. Haga clic en **Administrador** > **Datos básicos** > **Seguridad** > **Inicio de sesión único** en el lado izquierdo de la barra de menús y realice los pasos siguientes:
 
-       ![Configurar inicio de sesión único](./media/hrworks-single-sign-on-tutorial/configure01.png)
+       ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
-     a. Seleccione la casilla **Utilizar inicio de sesión único (SSO)**.
+     a. Seleccione la casilla **Utilizar inicio de sesión único (SSO)** .
 
     b. Seleccione **Metadatos XML** como **método de entrada de metadatos**.
 
     c. Seleccione **Individual NameID identifier** (Identificador de NameID individual) como **Value for NameID** (Valor para NameID).
 
-    d. En el Bloc de notas, abra el archivo XML de metadatos que descargó de Azure Portal, copie el contenido y luego péguelo en el cuadro de texto  **Metadata**  (Metadatos).
+    d. En el Bloc de notas, abra el archivo XML de metadatos que descargó de Azure Portal, copie el contenido y luego péguelo en el cuadro de texto **Metadatos**.
 
     e. Haga clic en **Save**(Guardar).
 
@@ -202,7 +202,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en HRworks Single Sig
 
 2. Haga clic en **Administrator** (Administrador) > **Persons** (Personas) > **Persons** (Personas) > **New person** (Nueva persona) en el lado izquierdo de la barra de menús.
 
-     ![Configurar inicio de sesión único](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Configurar inicio de sesión único](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 3. En el menú emergente, haga clic en **Next** (Siguiente).
 

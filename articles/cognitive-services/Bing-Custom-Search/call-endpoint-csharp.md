@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: maheshb
-ms.openlocfilehash: a775c1c864a8a5513be546195da5c0891f8bb1f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 267b50e15d39fc5a0df763cea2e2b79f9b23d151
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849404"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595810"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Inicio rápido: Llamada al punto de conexión de Bing Custom Search con C# 
 
@@ -25,10 +25,10 @@ Use este documento de inicio rápido para comenzar a solicitar los resultados de
 
 - Una instancia de Bing Custom Search. Consulte [Quickstart: Creación de la primera instancia de Bing Custom Search](quick-start.md) para obtener más información.
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- Cualquier edición de [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+- Cualquier edición de [Visual Studio 2017 o versiones posteriores](https://www.visualstudio.com/downloads/).
 - Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
 - El paquete [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) instalado. 
-    - En el Explorador de soluciones en Visual Studio, haga clic con el botón derecho en el proyecto y seleccione `Manage NuGet Packages` en el menú. Instale el paquete `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. Al instalar el paquete NuGet Custom Search, también se instalarán los ensamblados siguientes:
+    - En el **Explorador de soluciones** de Visual Studio, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet** en el menú. Instale el paquete `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. Al instalar el paquete NuGet Custom Search, también se instalarán los ensamblados siguientes:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json

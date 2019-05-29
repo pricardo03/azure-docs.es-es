@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8092724a8ebf04342e00d054cc78fe26b48d2f82
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1fe436632eee12157dde2b082a5c77e67e7977cc
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842709"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Tutorial: Integración de Azure Active Directory con Boomi
 
@@ -53,7 +53,7 @@ Para configurar la integración de Boomi en Azure AD, deberá agregar Boomi desd
 
 **Para agregar Boomi desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -76,12 +76,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Boomi, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Boomi](#configure-boomi-single-sign-on)**: para configurar el inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Boomi](#create-boomi-test-user)**: para tener un homólogo de Britta Simon en Boomi que esté vinculado a la representación de ella en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Boomi](#configure-boomi-single-sign-on)** : para configurar el inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Boomi](#create-boomi-test-user)** : para tener un homólogo de Britta Simon en Boomi que esté vinculado a la representación de ella en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -237,7 +237,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Boomi, tienen que 
 
     ![Usuarios](./media/boomi-tutorial/tutorial_boomi_001.png "Usuarios")
 
-3. Haga clic en el icono **+**, se abre el cuadro de diálogo **Add/Maintain User Roles** (Agregar o mantener roles de usuario).
+3. Haga clic en el icono **+** , se abre el cuadro de diálogo **Add/Maintain User Roles** (Agregar o mantener roles de usuario).
 
     ![Usuarios](./media/boomi-tutorial/tutorial_boomi_002.png "Usuarios")
 
@@ -251,7 +251,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Boomi, tienen que 
 
     d. Escriba el **id. de federación** del usuario. Cada usuario debe tener un id. de federación que identifica de forma única al usuario dentro de la cuenta.
 
-    e. Asigne el rol **Usuario estándar** al usuario. No asigne el rol Administrador porque le proporcionaría acceso normal a Atmosphere, así como acceso de inicio de sesión único.
+    e. Asigne el rol **Usuario estándar** al usuario. No asigne el rol Administrador porque les proporcionaría acceso normal a Atmosphere, además de acceso de inicio de sesión único.
 
     f. Haga clic en **OK**.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 69e86e486a9cdb058b972bda5176c14e15f4630a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 55fa42eb1c35025b1008b3b5d26f61c243ff2b97
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682735"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956669"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: integración de Azure Active Directory con Uberflip
 
@@ -72,16 +72,16 @@ Para configurar la integración de Uberflip en Azure AD, deberá agregar Uberfli
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Uberflip con un usuario de prueba llamado **Britta Simon**. Para que el inicio de sesión único funcione, es preciso establecer un vínculo entre un usuario de Azure AD y un usuario relacionado de Uberflip.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Uberflip con un usuario de prueba llamado **B Simon**. Para que el inicio de sesión único funcione, es preciso establecer un vínculo entre un usuario de Azure AD y un usuario relacionado de Uberflip.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Uberflip, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**, para permitir que los usuarios utilicen esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** , para permitir que los usuarios utilicen esta característica.
 1. **[Configuración del inicio de sesión único de Uberflip](#configure-uberflip-single-sign-on)** para configurar los valores de inicio de sesión único en la aplicación.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Creación de un usuario de prueba de Uberflip](#create-an-uberflip-test-user)** para que haya un usuario llamado Britta Simon en Uberflip que esté vinculado a ese mismo nombre de usuario de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**, para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B. Simon.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B. Simon para que use el inicio de sesión único de Azure AD.
+1. **[Creación de un usuario de prueba de Uberflip](#create-an-uberflip-test-user)** , para que haya un usuario llamado B. Simon en Uberflip que esté vinculado a ese mismo nombre de usuario de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)** , para comprobar si funciona la configuración.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -103,7 +103,7 @@ Para configurar el inicio de sesión único de Azure AD con Uberflip, siga estos
 
 1. En el panel **Configuración básica de SAML**, realice uno de los pasos siguientes, según el modo de inicio de sesión único que quiera configurar:
 
-   * Para configurar la aplicación en modo de inicio de sesión único con IDP iniciado, en el cuadro **Dirección URL de respuesta (URL del Servicio de consumidor de aserciones)**, escriba una dirección URL mediante el siguiente patrón:
+   * Para configurar la aplicación en modo de inicio de sesión único con IDP iniciado, en el cuadro **Dirección URL de respuesta (URL del Servicio de consumidor de aserciones)** , escriba una dirección URL mediante el siguiente patrón:
 
      `https://app.uberflip.com/sso/saml2/<IDPID>/<ACCOUNTID>`
 
@@ -136,7 +136,7 @@ Para configurar el inicio de sesión único en Uberflip, es preciso enviar el XM
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
-En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Portal.
+En esta sección, creará un usuario de prueba llamado B. Simon en Azure Portal.
 
 1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
 
@@ -150,9 +150,9 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Por
 
     ![Panel Usuario](common/user-properties.png)
 
-    1. En el cuadro **Nombre**, escriba **BrittaSimon**.
+    1. En el cuadro **Nombre**, escriba **BSimon**.
   
-    1. En el cuadro **Nombre de usuario**, escriba **BrittaSimon\@\<dominiodeempresa>.\<extensión>**. Por ejemplo, **BrittaSimon\@contoso.com**.
+    1. En el cuadro **Nombre de usuario**, escriba **BSimon\@\<dominiodeempresa>.\<extensión>** . Por ejemplo, **BSimon\@contoso.com**.
 
     1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
@@ -160,7 +160,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Por
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Uberflip.
+En esta sección, habilitará a B. Simon para que use el inicio de sesión único de Azure concediéndole acceso a Uberflip.
 
 1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **Uberflip**.
 
@@ -178,7 +178,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-1. En el panel **Usuarios y grupos**, seleccione **Britta Simon** en la lista **Usuarios** y, luego, elija **Seleccionar** en la parte inferior del panel.
+1. En el panel **Usuarios y grupos**, seleccione **B Simon** en la lista **Usuarios** y, luego, elija **Seleccionar** en la parte inferior del panel.
 
 1. Si espera algún valor de rol en la aserción de SAML, en el panel **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. Elija **Seleccionar** en la parte inferior del panel.
 
@@ -186,7 +186,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-an-uberflip-test-user"></a>Creación de un usuario de prueba de Uberflip
 
-Ahora se crea un usuario llamado Britta Simon en Uberflip. No tiene que hacer nada para crear este usuario. Uberflip admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. Si el usuario llamado Britta Simon no existe en Uberflip, se crea uno después de la autenticación.
+Ahora se crea un usuario llamado B. Simon en Uberflip. No tiene que hacer nada para crear este usuario. Uberflip admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. Si el usuario llamado B. Simon no existe en Uberflip, se crea uno después de la autenticación.
 
 > [!NOTE]
 > Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Uberflip](mailto:support@uberflip.com).

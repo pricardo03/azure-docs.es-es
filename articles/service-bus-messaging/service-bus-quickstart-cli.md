@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: eb19833251fc9ee08a12aaf6ffcef55d59cea5d6
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 076e3b41a50681e453c1a07575ac6cb7071d97d2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500641"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992034"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de la CLI de Azure para crear una cola de Service Bus
 En este inicio rápido se describe cómo enviar y recibir mensajes con Service Bus mediante la CLI de Azure y la biblioteca Java de Service Bus. Por último, si le interesa obtener más información técnica, puede [leer una explicación](#understand-the-sample-code) de los elementos clave del ejemplo de código.
@@ -366,6 +366,9 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 }
 ```
+
+> [!NOTE]
+> Puede administrar los recursos de Service Bus con el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta dispone de características avanzadas, como la funcionalidad de importación y exportación o la capacidad de probar el tema, las colas, las suscripciones, los servicios de retransmisión, los centros de notificaciones y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

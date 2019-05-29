@@ -4,7 +4,7 @@ description: Conozca las diferencias entre la Microsoft Authentication Library f
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2576121bfc945b90ce8ec0260ea30ec110e14dd8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138824"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785216"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migración de aplicaciones a MSAL.NET
 
@@ -192,7 +192,7 @@ Esto se debe a que la API de Resource Manager espera una barra diagonal en su no
 La lógica que usa Azure AD es la siguiente:
 - Para el punto de conexión de ADAL (v1.0) con un token de acceso de la versión 1.0 (el único posible), aud = resource
 - Si MSAL (punto de conexión de la versión 2.0) pide un token de acceso para un recurso que acepta tokens de la versión 2.0, aud=resource.AppId
-- Si MSAL (punto de conexión de la versión 2.0) pide un token de acceso para un recurso que acepta tokens de la versión 1.0 (que es el caso anterior), Azure AD analiza la audiencia deseada desde el ámbito solicitado tomando todo el contenido antes de la última barra diagonal y usándolo como el identificador del recurso. Por lo tanto, si https://database.windows.net espera una audiencia de "https://database.windows.net/", será preciso solicitar un ámbito de https://database.windows.net//.default. Vea también el problema [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): falta la barra diagonal final de la dirección URL, lo que ha provocado el produjo el error de autenticación de SQL #747
+- Si MSAL (punto de conexión de la versión 2.0) pide un token de acceso para un recurso que acepta tokens de la versión 1.0 (que es el caso anterior), Azure AD analiza la audiencia deseada desde el ámbito solicitado tomando todo el contenido antes de la última barra diagonal y usándolo como el identificador del recurso. Por lo tanto, si https:\//database.windows.net espera una audiencia de "https://database.windows.net/", deberá solicitar un ámbito de https:\//database.windows.net//.default. Vea también el problema [747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): falta la barra diagonal final de la dirección URL, lo que ha provocado el produjo el error de autenticación de SQL #747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Ámbitos para solicitar acceso a todos los permisos de una aplicación de la versión 1.0

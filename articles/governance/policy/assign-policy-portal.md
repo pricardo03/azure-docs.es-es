@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42e8e7bdd52dcb8f236d94e7f931c91cd21605fd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 291152b46f97c9b6dd10b67c7ce812fcc791ce09
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278962"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979601"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Creación de una asignación de directiva para identificar recursos no compatibles
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles
 
 El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos.
 Esta guía de inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar las máquinas virtuales que no están usando discos administrados.
@@ -40,11 +40,11 @@ En esta guía de inicio rápido, creará una asignación de directiva y asignar�
 
    ![Asignación de una definición de directiva en la página Asignaciones](./media/assign-policy-portal/select-assign-policy.png)
 
-1. En la página **Asignar directiva**, haga clic en los puntos suspensivos para seleccionar una opción de **Ámbito** y seleccione una suscripción y un grupo de administración. Opcionalmente, seleccione un grupo de recursos. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva.  Después, haga clic en **Seleccionar** en la parte inferior de la página **Ámbito**.
+1. En la página **Asignar directiva**, haga clic en los puntos suspensivos para seleccionar una opción de **Ámbito** y seleccione una suscripción y un grupo de administración. Opcionalmente, seleccione un grupo de recursos. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva. Después, haga clic en **Seleccionar** en la parte inferior de la página **Ámbito**.
 
    En este ejemplo se usa la suscripción de **Contoso**. Su suscripción variará.
 
-1. Los recursos se pueden excluir según el **ámbito**.  Las **exclusiones** comienzan en un nivel inferior al nivel del **ámbito**. Las **exclusiones** son opcionales, así que déjelas en blanco por ahora.
+1. Los recursos se pueden excluir según el **ámbito**. Las **exclusiones** comienzan en un nivel inferior al nivel del **ámbito**. Las **exclusiones** son opcionales, así que déjelas en blanco por ahora.
 
 1. Seleccione los puntos suspensivos de **Definición de directiva** para abrir la lista de definiciones disponibles. Azure Policy viene con definiciones de directivas integradas que puede usar. Muchas están disponibles, como:
 
@@ -52,13 +52,14 @@ En esta guía de inicio rápido, creará una asignación de directiva y asignar�
    - Apply tag and its value (Aplicar una etiqueta y su valor)
    - Requisito de la versión 12.0 de SQL Server
 
-   Para obtener una lista parcial de las directivas integradas disponibles, vea [Ejemplos de Azure Policy](./samples/index.md).
+   Para una lista parcial de las directivas integradas disponibles, consulte los [ejemplos de Azure Policy](./samples/index.md).
 
 1. En la lista de definiciones de directiva, busque la definición *Auditoría de máquinas virtuales que no usan discos administrados*. Haga clic en esa directiva y después en **Seleccionar**.
 
    ![Búsqueda de la definición de directiva correcta](./media/assign-policy-portal/select-available-definition.png)
 
-1. **Nombre de asignación** se rellena automáticamente con el nombre de directiva seleccionado, pero puede cambiarlo. En este ejemplo, se deja *Auditoría de máquinas virtuales que no usan discos administrados*. También puede agregar una **Descripción** opcional. La descripción ofrece detalles sobre esta asignación de directiva. **Asignado por** se rellena automáticamente en función de quién ha iniciado sesión. Este campo es opcional, así que se pueden especificar valores personalizados.
+1. **Nombre de asignación** se rellena automáticamente con el nombre de directiva seleccionado, pero puede cambiarlo. En este ejemplo, se deja *Auditoría de máquinas virtuales que no usan discos administrados*. También puede agregar una **Descripción** opcional. La descripción ofrece detalles sobre esta asignación de directiva.
+   **Asignado por** se rellena automáticamente en función de quién ha iniciado sesión. Este campo es opcional, así que se pueden especificar valores personalizados.
 
 1. Deje desactivada la casilla **Crear una identidad administrada**. Esta casilla se _debe_ activar cuando la directiva o la iniciativa incluye una directiva con el efecto [deployIfNotExists](./concepts/effects.md#deployifnotexists). Como no es el caso de la directiva usada en este guía de inicio rápido, déjela en blanco. Para más información, consulte las [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md) y [cómo funciona la seguridad de corrección](./how-to/remediate-resources.md#how-remediation-security-works).
 
@@ -83,7 +84,8 @@ Si una condición se evalúa en todos los recursos existentes y el valor obtenid
 | Nuevo | Audit, AuditIfNotExist\* | True | No compatible |
 | Nuevo | Audit, AuditIfNotExist\* | False | Compatible |
 
-\* Los efectos Append, DeployIfNotExist y AuditIfNotExist requieren que la instrucción IF sea TRUE. Los efectos requieren también que la condición de existencia sea FALSE para ser no compatibles. Si es TRUE, la condición IF desencadena la evaluación de la condición de existencia de los recursos relacionados.
+\* Los efectos Append, DeployIfNotExist y AuditIfNotExist requieren que la instrucción IF sea TRUE.
+Los efectos requieren también que la condición de existencia sea FALSE para ser no compatibles. Si es TRUE, la condición IF desencadena la evaluación de la condición de existencia de los recursos relacionados.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -97,7 +99,8 @@ Para quitar la asignación creada, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, se asigna una definición de directiva a un ámbito y se evalúa su informe de cumplimiento. La definición de la directiva confirma que todos los recursos del ámbito son compatibles y se identifican cuáles no lo son.
+En esta guía de inicio rápido, se asigna una definición de directiva a un ámbito y se evalúa su informe de cumplimiento.
+La definición de la directiva confirma que todos los recursos del ámbito son compatibles y se identifican cuáles no lo son.
 
 Para más información sobre la asignación de directivas para garantizar la compatibilidad de los nuevos recursos, continúe con el tutorial para:
 

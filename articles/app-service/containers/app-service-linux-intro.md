@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 22c4096711bbc1d47ff6684e38ac829d77681a9f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8d40b28103e24214ef00864b032266cc95889eff
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793448"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780329"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introducción a Azure App Service en Linux
 
@@ -33,12 +33,12 @@ App Service en Linux es compatible con un toda una serie de imágenes integradas
 
 | Idioma | Versiones compatibles |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10, 10.14 |
 | Java * | Tomcat 8.5, 9.0, Java SE, WildFly 14 (todos ellos ejecutan JRE 8) |
 | PHP | 5.6, 7.0, 7.2 |
-| Python (versión preliminar) | 2.7, 3.6, 3.7 |
-| .NET Core | 1.0, 1.1, 2.0, 2.1 |
-| Ruby | 2.3 |
+| Python | 2.7, 3.6, 3.7 |
+| .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
+| Ruby | 2.3, 2.4 |
 
 ## <a name="deployments"></a>Implementaciones
 
@@ -71,9 +71,9 @@ Consulte el [panel de estado de Azure](https://azure.microsoft.com/status).
 
 Azure Portal solo muestra las características que funcionan actualmente para Web Apps for Containers. A medida que se habiliten más características, estas aparecerán en el portal.
 
-App Service en Linux solo se admite con los planes de App Service [Básico, Estándar y Premium](https://azure.microsoft.com/pricing/details/app-service/plans/); no tiene un nivel [Gratis o Compartido](https://azure.microsoft.com/pricing/details/app-service/plans/). No se puede crear Web App for Containers en un plan de App Service que ya hospeda Web Apps que no sean de Linux.  
+App Service en Linux solo se admite con los planes de App Service [Gratis, Básico, Estándar y Premium](https://azure.microsoft.com/pricing/details/app-service/plans/); no tiene un nivel [Compartido](https://azure.microsoft.com/pricing/details/app-service/plans/). No se puede crear Aplicación web en Linux en un plan de App Service que ya hospeda Web Apps que no sean de Linux.  
 
-Debido a una limitación actual, no mezcle aplicaciones de Windows y Linux en el mismo grupo de recursos.
+Debido a una limitación actual, para el mismo grupo de recursos no puede mezclar aplicaciones de Windows y Linux en la misma región.
 
 ## <a name="troubleshooting"></a>solución de problemas
 

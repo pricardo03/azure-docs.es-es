@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8201b4089759fb55fae12820f7495664c502837e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 24c6df6a06d08249f236fc36d64b4204b0103b3c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023641"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540900"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>¿Qué es la "búsqueda cognitiva" en Azure Search?
 
@@ -25,7 +25,7 @@ La búsqueda cognitiva es una característica de IA en Azure Search, que se usa 
 
 + Las aptitudes de **procesamiento de imágenes** incluyen [reconocimiento óptico de caracteres (OCR)](cognitive-search-skill-ocr.md) e identificación de [características visuales](cognitive-search-skill-image-analysis.md), como detección facial, interpretación de imágenes, reconocimiento de imágenes (personas famosas y puntos de referencia) o atributos como colores o la orientación de la imagen. Puede crear representaciones de texto de contenido de imágenes, que se puede buscar mediante todas las funcionalidades de consulta de Azure Search.
 
-![Diagrama de la canalización de Cognitive Search](./media/cognitive-search-intro/cogsearch-architecture.png "Diagrama de la canalización de Cognitive Search")
+![Diagrama de canalización de Cognitive Search](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive search pipeline overview")
 
 Los conocimientos cognitivos de Azure Search se basan en los modelos de Machine Learning de Cognitive Services APIs: [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) y [análisis de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
@@ -61,7 +61,7 @@ Internamente, la canalización genera una colección de documentos enriquecidos.
 
 El elemento [api-version=2019-05-06 de REST de Search Service](search-api-preview.md) extiende los conjuntos de aptitudes con una definición de knowledgeStore que proporciona una conexión al almacenamiento de Azure y proyecciones que describen cómo se almacenan los enriquecimientos. 
 
-Cuando agrega una instancia de Knowledge Store a un conjunto de aptitudes, puede proyectar una representación de sus enriquecimientos para los escenarios que no sean de búsqueda de texto completo. Para obtener más información, consulte [Información sobre Knowledge Store](knowledge-store-concept-intro.md).
+Cuando agrega una instancia de Knowledge Store a un conjunto de aptitudes, puede proyectar una representación de sus enriquecimientos para los escenarios que no sean de búsqueda de texto completo. Para más información, consulte [¿Qué es Knowledge Store?](knowledge-store-concept-intro.md)
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Paso 3: Índice de búsqueda y acceso basado en consulta
 

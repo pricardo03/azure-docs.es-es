@@ -16,16 +16,14 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 605206682cb70d430773cdbf9ff746eabf594103
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9deaf610696f676610f589168426ac24be692c99
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190843"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823516"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Inicio rápido: Inicio de sesión y adquisición de un token de acceso por parte de una aplicación de página única de JavaScript (SPA)
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 En esta guía de inicio rápido aprenderá a usar un código de ejemplo que muestra cómo una aplicación de página única (SPA) de JavaScript puede iniciar sesión en cuentas personales, profesionales y educativas, y obtener un token de acceso para llamar a Microsoft Graph API o a cualquier API web.
 
@@ -64,7 +62,7 @@ Para este inicio rápido, necesitará la siguiente configuración:
 > 1. Cuando se abra la página **Registrar una aplicación**, escriba el nombre de su aplicación.
 > 1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
 > 1. Seleccione la plataforma **Web** en la sección **URI de redirección** y establezca el valor en `http://localhost:30662/`.
-> 1. Cuando termine, seleccione **Registrar**.  En la página de **Información general** de la aplicación, anote el valor en **Id. de aplicación (cliente)**.
+> 1. Cuando termine, seleccione **Registrar**.  En la página de **Información general** de la aplicación, anote el valor en **Id. de aplicación (cliente)** .
 > 1. Para esta guía, se requiere que habilite el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md). En el panel de navegación izquierdo de la aplicación registrada, seleccione **Autenticación**.
 > 1. En **Configuración avanzada**, vaya a **Concesión implícita** y habilite las casillas **Tokens de id.** y **Tokens de acceso**. Los tokens de identificador y los tokens de acceso son necesarios, ya que esta aplicación debe iniciar la sesión de los usuarios y llamar a una API.
 > 1. Seleccione **Guardar**.
@@ -115,10 +113,10 @@ var msalConfig = {
 > - `Enter_the_Tenant_Info_Here` se establece como una de las opciones siguientes:
 >   - Si la aplicación admite **Accounts in this organizational directory** (Cuentas en este directorio de la organización), reemplace este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com)
 >   - Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por `organizations`
->   - Si la aplicación admite **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio organizativo y cuentas Microsoft personales), reemplace este valor por `common`. Para restringir el soporte técnico a *Personal Microsoft accounts only* (Solo a cuentas Microsoft personales), reemplace este valor por `consumers`.
+>   - Si la aplicación admite **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales**, reemplace este valor por `common`. Para restringir el soporte técnico a *Personal Microsoft accounts only* (Solo a cuentas Microsoft personales), reemplace este valor por `consumers`.
 >
 > > [!TIP]
-> > Para buscar los valores de **Identificador de aplicación (cliente)**, **Identificador de directorio (inquilino)** y **Tipos de cuenta admitidos**, vaya a la página **Información general** en Azure Portal.
+> > Para buscar los valores de **Identificador de aplicación (cliente)** , **Identificador de directorio (inquilino)** y **Tipos de cuenta admitidos**, vaya a la página **Información general** en Azure Portal.
 >
 
 #### <a name="step-4-run-the-project"></a>Paso 4: Ejecución del proyecto
@@ -185,7 +183,7 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |`cacheLocation`  | (Opcional) Esto permite establecer el almacenamiento del explorador para el estado de autenticación. El valor predeterminado es sessionStorage.   |
 > |`storeAuthStateInCookie`  | (Opcional) La biblioteca almacenará el estado de la solicitud de autenticación necesario para la validación de los flujos de autenticación en las cookies del explorador. Esto se establece para que los exploradores IE y Edge puedan solucionar determinados [problemas conocidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 
- Consulte la [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) para más información sobre las opciones de configuración disponibles.
+ Para obtener más detalles sobre las opciones configurables disponibles, lea [Inicializar aplicaciones cliente](msal-js-initializing-client-applications.md).
 
 ### <a name="sign-in-users"></a>Inicio de sesión de usuarios
 
@@ -258,6 +256,7 @@ myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     console.log(error);
 });
 ```
+
 > [!NOTE]
 > Esta guía de inicio rápido usa los métodos `loginRedirect` y `acquireTokenRedirect` cuando el explorador utilizado es Internet Explorer, debido a un [problema conocido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) por la manera en que Internet Explorer controla las ventanas emergentes.
 

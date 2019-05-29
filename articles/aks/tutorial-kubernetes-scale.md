@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 74cd73cd7f9d5be9da552fb22ef2a2750ddc8321
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed82c214e2fbb2a1efc5917eb74ffe9b29abb115
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61029863"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560322"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -83,7 +83,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-Para usar el escalador automático, los pods deben tener solicitudes de la CPU y límites definidos. En la implementación de `azure-vote-front`, el contenedor del front-end ya solicita 0,25 CPU, con un límite de 0,5 CPU. Estas solicitudes de recursos y los límites se definen tal y como se muestra en el siguiente fragmento de código de ejemplo:
+Para usar la autoescala, todos los contenedores de los pod y los pods deben tener definidos solicitudes y límites de CPU. En la implementación de `azure-vote-front`, el contenedor del front-end ya solicita 0,25 CPU, con un límite de 0,5 CPU. Estas solicitudes de recursos y los límites se definen tal y como se muestra en el siguiente fragmento de código de ejemplo:
 
 ```yaml
 resources:

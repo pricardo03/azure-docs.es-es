@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0bdf47991435a9a28a4db12f3aa89478b18bb9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b989e5cf5b66d21c19d58f2f64fbba1927f5d69
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020274"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792795"
 ---
 # <a name="what-is-the-cloudyn-service"></a>¿Qué es el servicio Cloudyn?
 
@@ -24,6 +24,10 @@ Cloudyn, una subsidiaria de Microsoft, le permite realizar un seguimiento de los
 Para ver un vídeo de introducción, consulte [Introducción a Cloudyn](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
 
 Azure Cost Management ofrece una funcionalidad similar a Cloudyn. Azure Cost Management es una solución de administración de costos de Azure nativa. Le ayuda a analizar costos, crear y administrar presupuestos, exportar datos, y revisar y actuar sobre recomendaciones de optimización para ahorrar dinero. Para más información, consulte [Azure Cost Management](overview-cost-mgt.md).
+
+Vea el [vídeo de Azure Cost Management y Cloudyn](https://www.youtube.com/watch?v=PmwFWwSluh8) para obtener recomendaciones de cuándo debe usar Azure Cost Management o Cloudyn, según sus necesidades empresariales.
+
+>[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
 ## <a name="cloudyn-features-moving-to-azure-cost-management"></a>Características de Cloudyn en migración a Azure Cost Management
 

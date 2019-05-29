@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: 31b1b852c92ad671564fd54520af3f3a23b3e3c2
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 80cef3efd65a3f68dba1856a892a9a120f7d95cd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59499808"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990295"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de Azure PowerShell para crear una cola de Service Bus
 Esta guía de inicio rápido describe cómo enviar y recibir mensajes de una cola de Service Bus, cómo usar PowerShell para crear un espacio de nombres de mensajería y una cola dentro de este, y cómo obtener las credenciales de autorización de ese espacio de nombres. El procedimiento muestra después cómo enviar y recibir mensajes de esta cola mediante la [biblioteca de .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
@@ -90,7 +90,7 @@ Para ejecutar el código, haga lo siguiente:
 
 3. Vaya a la carpeta de ejemplos `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
-4. Si aún no lo ha hecho, obtenga la cadena de conexión mediante el siguiente cmdlet de PowerShell. No olvide reemplazar `my-resourcegroup` y `namespace-name` por sus valores específicos: 
+4. Si aún no lo ha hecho, obtenga la cadena de conexión mediante el siguiente cmdlet de PowerShell. No olvide reemplazar `my-resourcegroup`  y  `namespace-name` por sus valores específicos: 
 
    ```azurepowershell-interactive
    Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
@@ -254,6 +254,9 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
     await queueClient.CompleteAsync(message.SystemProperties.LockToken);
 }
 ```
+
+> [!NOTE]
+> Puede administrar los recursos de Service Bus con el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta dispone de características avanzadas, como la funcionalidad de importación y exportación o la capacidad de probar el tema, las colas, las suscripciones, los servicios de retransmisión, los centros de notificaciones y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

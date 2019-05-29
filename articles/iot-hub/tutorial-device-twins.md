@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2019
 ms.custom: mvc
-ms.openlocfilehash: b0e6e75f962383055d4f28356c3db57aac4a088b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 85f1c051f13484ea8e14a6ae8402067b613fe2bc
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088084"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597532"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -43,7 +43,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con Node.js. Necesita Node.js 4.x.x o una versión posterior en el equipo de desarrollo.
+Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con Node.js. Necesitará Node.js v10.x.x o una versión posterior en la máquina de desarrollo.
 
 Puede descargar Node.js para varias plataformas desde [nodejs.org](https://nodejs.org).
 
@@ -59,7 +59,7 @@ Descargue el proyecto de muestra de Node.js desde https://github.com/Azure-Sampl
 
 Para completar este tutorial, su suscripción de Azure tiene que contener un centro de IoT con un dispositivo agregado en el registro de identidad del dispositivo. La entrada en el registro de identidad del dispositivo permite que el dispositivo simulado que se ejecuta en este tutorial se conecte con el centro.
 
-Si aún no tiene un centro de IoT configurado en su suscripción, puede configurar uno con el siguiente script de la CLI. Este script utiliza el nombre **tutorial-iot-hub** para el centro de IoT, cuando lo ejecute, tiene que reemplazar este nombre por otro que sea exclusivo. El script crea el grupo de recursos y el centro en la región **Centro de EE. UU.**, que usted puede cambiar a otra región más cercana. El script recupera la cadena de conexión de servicio del centro de IoT, que se utiliza en el ejemplo de back-end para conectar con el centro de IoT:
+Si aún no tiene un centro de IoT configurado en su suscripción, puede configurar uno con el siguiente script de la CLI. Este script utiliza el nombre **tutorial-iot-hub** para el centro de IoT, cuando lo ejecute, tiene que reemplazar este nombre por otro que sea exclusivo. El script crea el grupo de recursos y el centro en la región **Centro de EE. UU.** , que usted puede cambiar a otra región más cercana. El script recupera la cadena de conexión de servicio del centro de IoT, que se utiliza en el ejemplo de back-end para conectar con el centro de IoT:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub

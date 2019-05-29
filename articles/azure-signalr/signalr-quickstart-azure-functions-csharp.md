@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: df1b2cdd265b9cf48801174d1f0cd9936eae5f8b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 75d9977546c2a085765310a5654897f739a271ae
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265005"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595396"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Guía de inicio rápido: Creación de un salón de chat con Azure Functions y SignalR Service mediante C\#
 
@@ -20,7 +20,7 @@ El servicio Azure SignalR le permite agregar fácilmente funcionalidad en tiempo
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
+Si aún no tiene instalado Visual Studio 2019, puede descargar y usar la versión **gratuita** de [Visual Studio 2019 Community](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 
 También puede ejecutar este tutorial en la línea de comandos (macOS, Windows o Linux) mediante [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing), el [SDK de .NET Core](https://dotnet.microsoft.com/download) y su editor de código favorito.
 
@@ -57,7 +57,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
 
 1. Use una de las opciones siguientes para iniciar localmente la aplicación de función de Azure.
 
-    - **Visual Studio**: En el menú Depurar, seleccione *Iniciar depuración* para ejecutar la aplicación.
+    - **Visual Studio**: En el menú *Depurar*, seleccione *Iniciar depuración* para ejecutar la aplicación.
 
         ![Depuración de la aplicación](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
 

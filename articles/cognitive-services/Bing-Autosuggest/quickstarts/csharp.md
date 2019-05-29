@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 10e25797c15a821579cd15333cdd833e491acbd0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 55c1a2a56743b53d6d5932665be0c45e1ac9b9b3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546116"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596038"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Inicio rápido: Sugerencia de consultas de búsqueda con la API de REST Bing Autosuggest y C#
 
@@ -23,7 +23,7 @@ Use este inicio rápido para empezar a realizar llamadas a Bing Autosuggest API 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Cualquier edición de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Cualquier edición de [Visual Studio 2017 o versiones posteriores](https://www.visualstudio.com/downloads/).
 * Si usa Linux/MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]

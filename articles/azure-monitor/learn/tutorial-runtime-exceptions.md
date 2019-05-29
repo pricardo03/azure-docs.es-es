@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 267e790cec3c915330f8f72053458527ee7bfead
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 19455998ca13b9abf48bb1cb3856e38b5c47ef52
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095575"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595597"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Búsqueda y diagnóstico de excepciones en tiempo de ejecución con Azure Application Insights
 
@@ -34,7 +34,7 @@ Azure Application Insights recopila datos de telemetría de cualquier aplicació
 
 Para completar este tutorial:
 
-- Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
+- Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
     - ASP.NET y desarrollo web
     - Desarrollo de Azure
 - Descargue e instale [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
@@ -75,7 +75,7 @@ Application Insights recopila los errores de la aplicación y permite ver su fre
     ![Detalles de la excepción](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Identificación de código con errores
-Snapshot Debugger recopila instantáneas de las excepciones que se producen con más frecuencia en la aplicación para ayudarle a diagnosticar su causa principal en producción.  Puede ver las instantáneas de depuración en el portal para examinar la pila de llamadas e inspeccionar las variables en cada marco de pila de llamadas. Posteriormente, puede depurar el código fuente descargando la instantánea y abriéndola en Visual Studio 2017 Enterprise.
+Snapshot Debugger recopila instantáneas de las excepciones que se producen con más frecuencia en la aplicación para ayudarle a diagnosticar su causa principal en producción.  Puede ver las instantáneas de depuración en el portal para examinar la pila de llamadas e inspeccionar las variables en cada marco de pila de llamadas. Posteriormente, puede depurar el código fuente descargando la instantánea y abriéndola en Visual Studio 2019 Enterprise.
 
 1. En las propiedades de la excepción, haga clic en **Abrir instantánea de depuración**.
 2. Se abre el panel **Depurar instantánea** con la pila de llamadas de la solicitud.  Haga clic en cualquiera de los métodos para ver los valores de todas las variables locales en el momento de la solicitud.  Si empezamos por el primero de los métodos de este ejemplo, podemos ver variables locales que no tienen ningún valor.

@@ -3,8 +3,8 @@ title: 'Introducción a la Plataforma de identidad de Microsoft (versión 2.0): 
 description: Obtenga información sobre la plataforma y el punto de conexión de la Plataforma de identidad de Microsoft (versión 2.0).
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,20 +13,20 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 414200462d3575aa576b5ef2268a3ac0b01063ba
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3d139efaa8e6de4861dc8e885bd22a426fde6c94
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190757"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833039"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Introducción a la Plataforma de identidad de Microsoft (versión 2.0)
 
-La plataforma de identidad de Microsoft es una evolución de la plataforma de desarrolladores y de servicio de identidad de Azure Active Directory (Azure AD). Permite a los desarrolladores compilar aplicaciones que inicien sesión en todas las identidades de Microsoft, obtener tokens para llamar a las API de Microsoft, como Microsoft Graph, o a otras API que los desarrolladores hayan creado. El punto de conexión de la Plataforma de identidad de Microsoft consta de lo siguiente:
+Plataforma de identidad de Microsoft es una evolución de la plataforma para desarrolladores de Azure Active Directory (Azure AD). Permite a los desarrolladores compilar aplicaciones que inicien sesión en todas las identidades de Microsoft, obtener tokens para llamar a las API de Microsoft, como Microsoft Graph, o a otras API que los desarrolladores hayan creado. El punto de conexión de la Plataforma de identidad de Microsoft consta de lo siguiente:
 
 - **Servicio de autenticación compatibles con los estándares OAuth 2.0 y OpenID Connect** que permite a los desarrolladores autenticar identidades de Microsoft como las siguientes:
   - Cuentas profesionales o educativas (aprovisionadas a través de Azure AD)
@@ -56,7 +56,7 @@ Trabajar con la identidad no tiene porqué ser complicado. Elija un escenario qu
 
 En el gráfico siguiente se describen escenarios comunes de aplicaciones de autenticación: úselo como referencia al integrar la Plataforma de identidad de Microsoft con su aplicación.
 
-[![Escenarios de aplicaciones en la Plataforma de identidad de Microsoft](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.png#lightbox)
+[![Escenarios de aplicaciones en la Plataforma de identidad de Microsoft](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -79,4 +79,4 @@ Cuando lo tenga todo listo para iniciar la aplicación en un **entorno de produc
 
 ## <a name="learn-more"></a>Más información
 
-Si tenía intención de compilar una aplicación orientada al cliente que inicie sesión en las identidades locales y sociales, eche un vistazo al artículo de [introducción a Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+Si tiene intención de compilar una aplicación orientada al cliente que inicie sesión en las identidades locales y sociales, eche un vistazo al artículo de [introducción a Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 60c4d1631717eea602e391387d57afe268efbace
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e55c8c6a579489c8ed5a13ccb93f0e72c286ab13
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075891"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991938"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante la CLI y temas o suscripciones
 
@@ -324,6 +324,9 @@ public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscrip
     return new CompletableFuture().completedFuture(null);
 }
 ```
+
+> [!NOTE]
+> Puede administrar los recursos de Service Bus con el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite a los usuarios conectarse a un espacio de nombres de Service Bus y administrar las entidades de mensajería de una forma sencilla. La herramienta dispone de características avanzadas, como la funcionalidad de importación y exportación o la capacidad de probar el tema, las colas, las suscripciones, los servicios de retransmisión, los centros de notificaciones y los centros de eventos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
