@@ -96,7 +96,7 @@ Vamos a fijarnos un poco más en cómo se define una canalización en formato JS
 
 | Etiqueta | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Nombre |Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: ".", "+","?", "/", "<",">", "\*", "%", "&", ":","\\"</li></ul> |Sí |
+| name |Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: ".", "+","?", "/", "<",">", "\*", "%", "&", ":","\\"</li></ul> |Sí |
 | description | Especifique el texto que describe para qué se usa la canalización. |Sí |
 | actividades | La sección **activities** puede contener una o más actividades definidas. Vea la sección siguiente para obtener más información sobre el elemento JSON de actividades. | Sí |
 | start | Fecha y hora de inicio para la canalización. Debe estar en [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: `2016-10-14T16:32:41Z`. <br/><br/>Se puede especificar una hora local, por ejemplo, una hora EST. Aquí tiene un ejemplo: `2016-02-27T06:00:00-05:00`, que es 06:00 EST.<br/><br/>Las propiedades start y end juntas especifican un período activo para la canalización. Los segmentos de salida solo se producen en este período activo. |Sin <br/><br/>Si se especifica un valor para la propiedad end, hay que especificar un valor para la propiedad start.<br/><br/>Las horas de inicio y finalización pueden estar vacías para crear una canalización. Debe especificar ambos valores para establecer un período activo para que se ejecute la canalización. Si no especifica horas de inicio y finalización al crear una canalización, puede establecer mediante el cmdlet Set-AzDataFactoryPipelineActivePeriod más adelante. |
@@ -134,7 +134,7 @@ En la tabla siguiente se describen las propiedades en la definición JSON de la 
 
 | Etiqueta | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Nombre | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad. <br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sí |
+| name | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad. <br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |Sí |
 | description | Texto que describe para qué se usa la actividad. |Sí |
 | type | Tipo de la actividad. Consulte los artículos [Actividades de movimiento de datos](#data-movement-activities) y [Actividades de transformación de datos](#data-transformation-activities) para ver los diferentes tipos de actividades. |Sí |
 | inputs |Tablas de entrada utilizadas por la actividad <br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Sí |
