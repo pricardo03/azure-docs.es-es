@@ -211,13 +211,13 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
 
    | Propiedad | Anidada en | DESCRIPCIÓN |
    |:--- |:--- |:--- |
-   | Tipo | properties |La propiedad type se establece en **AzureBlob**, ya que los datos residen en el almacenamiento de blobs. |
+   | type | properties |La propiedad type se establece en **AzureBlob**, ya que los datos residen en el almacenamiento de blobs. |
    | linkedServiceName | formato |Hace referencia al servicio AzureStorageLinkedService que creó anteriormente. |
    | folderPath | typeProperties | Especifica el contenedor de blobs y la carpeta que contiene los blobs de entrada. | 
    | fileName | typeProperties |Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este tutorial, solo se procesa el archivo input.log. |
-   | Tipo | formato |Los archivos de registro están en formato de texto, así que use **TextFormat**. |
+   | type | formato |Los archivos de registro están en formato de texto, así que use **TextFormat**. |
    | columnDelimiter | formato |Las columnas de los archivos de registro están delimitadas por una coma (`,`). |
-   | frecuencia/intervalo | availability |La frecuencia se establece en **Mes** y el intervalo es **1**, lo que significa que los segmentos de entrada estarán disponibles cada mes. |
+   | frequency/interval | availability |La frecuencia se establece en **Mes** y el intervalo es **1**, lo que significa que los segmentos de entrada estarán disponibles cada mes. |
    | external | properties | Esta propiedad se establece en **true** si esta canalización no ha generado los datos de entrada. En este tutorial, esta canalización no genera el archivo input.log, por lo que la propiedad se establece en **true**. |
 
     Para más información acerca de estas propiedades de JSON, consulte el artículo acerca del [conector de blobs de Azure](data-factory-azure-blob-connector.md#dataset-properties).
