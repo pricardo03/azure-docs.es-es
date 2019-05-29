@@ -7,18 +7,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 04/03/2019
-ms.openlocfilehash: f480aeb7e126cb6ab8286bbfbfb8441fefeb07ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/16/2019
+ms.openlocfilehash: 09509b32320fb10b8ab3d563442b6d0fb44ad34e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716088"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909211"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carga de datos y ejecución de consultas en un clúster de Apache Spark en Azure HDInsight
 
 En este tutorial, aprenderá a crear una trama de datos a partir de un archivo CSV y a ejecutar consultas SQL de Spark interactivas en un clúster de [Apache Spark](https://spark.apache.org/) en Azure HDInsight. En Spark, una trama de datos es una colección distribuida de datos que se organizan en columnas con nombre. Una trama de datos es conceptualmente equivalente a una tabla de una base de datos relacional o a una trama de datos de R/Python.
- 
+
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Creación de una trama de datos a partir de un archivo csv
@@ -26,7 +26,22 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Complete [Creación de un clúster de Apache Spark en Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+Un clúster de Apache Spark en HDInsight. Vea [Creación de un clúster de Apache Spark](./apache-spark-jupyter-spark-sql-use-portal.md).
+
+## <a name="create-a-jupyter-notebook"></a>Creación de un cuaderno de Jupyter
+
+Jupyter Notebook es un entorno de cuaderno interactivo que admite varios lenguajes de programación. El cuaderno le permite interactuar con los datos, combinar código con el texto de marcado y realizar visualizaciones básicas. 
+
+1. Edite la dirección URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter`; para ello, reemplace `SPARKCLUSTER` por el nombre del clúster de Spark. Después, escriba la dirección URL editada en un explorador web. Cuando se le solicite, escriba las credenciales de inicio de sesión del clúster.
+
+2. En la página web de Jupyter, seleccione **New** (Nuevo)  > **PySpark** para crear un cuaderno. 
+
+   ![Creación de un cuaderno de Jupyter Notebook para ejecutar consultas Spark SQL interactivas](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter Notebook to run interactive Spark SQL query")
+
+   Se crea y se abre un nuevo cuaderno con el nombre Untitled(`Untitled.ipynb`).
+
+    > [!NOTE]  
+    > Si se usa el kernel de PySpark para crear un cuaderno, la sesión `spark` se crea automáticamente al ejecutar la primera celda de código. No es necesario crear la sesión explícitamente.
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Creación de una trama de datos a partir de un archivo csv
 
@@ -34,13 +49,7 @@ Las aplicaciones pueden crear tramas de datos directamente desde archivos o carp
     
 ![Instantánea de los datos de consulta SQL interactiva de Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Instantánea de los datos de consultas SQL interactivas de Spark")
 
-
-1. Abra la instancia de Jupyter Notebook que creó en la sección de requisitos previos y cree un nuevo cuaderno con PySpark.
-
-    > [!NOTE]  
-    > Si se usa el kernel de PySpark para crear un cuaderno, la sesión `spark` se crea automáticamente al ejecutar la primera celda de código. No es necesario crear la sesión explícitamente.
-
-2. Pegue el código siguiente en una celda vacía del cuaderno y presione **MAYÚS + ENTRAR** para ejecutarlo. El código importa los tipos necesarios para este escenario:
+1. Pegue el código siguiente en una celda vacía del cuaderno de Jupyter y presione **MAYÚS + ENTRAR** para ejecutar el código. El código importa los tipos necesarios para este escenario:
 
     ```python
     from pyspark.sql import *
@@ -51,7 +60,7 @@ Las aplicaciones pueden crear tramas de datos directamente desde archivos o carp
 
     ![Estado de consulta Spark SQL interactiva](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Estado de consulta Spark SQL interactiva")
 
-3. Ejecute el código siguiente para crear una trama de datos y una tabla temporal (**hvac**). 
+2. Ejecute el código siguiente para crear una trama de datos y una tabla temporal (**hvac**). 
 
     ```python
     # Create a dataframe and table from sample data
@@ -94,11 +103,7 @@ También puede seleccionar el nombre del grupo de recursos para abrir la página
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
-> [!div class="checklist"]
-> * A crear una trama de datos de Apache Spark.
-> * Ejecutar Spark SQL en la trama de datos.
+En este tutorial, aprenderá a crear una trama de datos a partir de un archivo CSV y a ejecutar consultas SQL de Spark interactivas en un clúster de Apache Spark en Azure HDInsight. En el siguiente artículo podrá ver cómo extraer en una herramienta de análisis de BI, como Power BI, los datos que registró en Apache Spark.
 
-En el siguiente artículo podrá ver cómo extraer en una herramienta de análisis de BI, como Power BI, los datos que registró en Apache Spark. 
 > [!div class="nextstepaction"]
 > [Análisis de datos mediante herramientas de inteligencia empresarial](apache-spark-use-bi-tools.md)

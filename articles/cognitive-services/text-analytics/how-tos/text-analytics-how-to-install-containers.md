@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: e0e8b9f767376db8028a3ac4a2d8659bab69268b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9f68b74c09bf0122ba856680a60bdb14ffa868f
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829963"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306523"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalación y ejecución de contenedores de Text Analytics
 
@@ -36,7 +36,7 @@ Debe cumplir los siguientes requisitos previos para poder usar contenedores de T
 |--|--|
 |Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
-|`Cognitive Services` Recurso |Para poder usar el contenedor, debe tener:<br><br>Un [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) recursos de Azure para obtener la clave de facturación asociada y el URI del extremo de facturación. Ambos valores están disponibles en las páginas de información general de servicios cognitivos y las claves del portal de Azure y es necesario para iniciar el contenedor. Deberá agregar el `text/analytics/v2.0` enrutamiento para el URI del extremo, tal como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI.<br><br>**{BILLING_KEY}**: clave de recurso<br><br>**{BILLING_ENDPOINT_URI}**: el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|`Cognitive Services` Recurso |Para poder usar el contenedor, debe tener:<br><br>Un [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) recursos de Azure para obtener la clave de facturación asociada y el URI del extremo de facturación. Ambos valores están disponibles en las páginas de información general de servicios cognitivos y las claves del portal de Azure y es necesario para iniciar el contenedor. Deberá agregar el `text/analytics/v2.0` enrutamiento para el URI del extremo, tal como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI.<br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 ### <a name="the-host-computer"></a>El equipo host
 
@@ -46,14 +46,14 @@ Debe cumplir los siguientes requisitos previos para poder usar contenedores de T
 
 En la tabla siguiente, se describe el número mínimo y recomendado de núcleos de CPU, por lo menos 2,6 gigahercios (GHz) o con mayor rapidez, y de memoria, en gigabytes (GB), para asignar a cada contenedor de Text Analytics.
 
-| Contenedor | Mínima | Recomendado | TPS<br>(Mínimo, máximo)|
+| Contenedor | Mínimo | Recomendada | TPS<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
 |Extracción de frases clave | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |15, 30|
-|Detección de idiomas | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |15, 30|
+|Detección de idioma | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |15, 30|
 |Análisis de sentimiento | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |15, 30|
 
 * Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
-* TP - transacciones por segundo
+* TPS: transacciones por segundo
 
 El núcleo y la memoria se corresponden con los valores de `--cpus` y `--memory` que se usan como parte del comando `docker run`.
 
@@ -64,7 +64,7 @@ Las imágenes de contenedor de Text Analytics están disponibles en Microsoft Co
 | Contenedor | Repositorio |
 |-----------|------------|
 |Extracción de frases clave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-|Detección de idiomas | `mcr.microsoft.com/azure-cognitive-services/language` |
+|Detección de idioma | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Análisis de sentimiento | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
 Use la [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando para descargar una imagen de contenedor de registro de contenedor de Microsoft.
@@ -166,6 +166,10 @@ El envío de los contenedores de Text Analytics información de facturación par
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obtener más información acerca de estas opciones, consulte [Configure containers](../text-analytics-resource-container-config.md) (Configuración de contenedores).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Resumen
 

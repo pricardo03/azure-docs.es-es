@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153048"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306553"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar y ejecutar contenedores de servicios de voz
 
@@ -25,7 +25,7 @@ Los contenedores de dos voz son **texto a voz** y **texto a voz**.
 
 |Función|Características|Más reciente|
 |-|-|--|
-|Voz a texto| <li>Permite transcribir en tiempo real voz en texto.<li>Puede transcribir por lotes voz a partir de grabaciones de audio. <li>Admite resultados intermedios, detección de fin de voz, formato de texto automático y enmascaramiento de palabras soeces. <li>Puede llamar al servicio [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) para extraer la intención del usuario de la transcripción de voz.\*|1.1.1|
+|Conversión de voz en texto| <li>Permite transcribir en tiempo real voz en texto.<li>Puede transcribir por lotes voz a partir de grabaciones de audio. <li>Admite resultados intermedios, detección de fin de voz, formato de texto automático y enmascaramiento de palabras soeces. <li>Puede llamar al servicio [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) para extraer la intención del usuario de la transcripción de voz.\*|1.1.1|
 |Text-to-Speech| <li>Convierte el texto a una voz que parece natural. <li>Ofrece varios géneros y dialectos para muchos idiomas compatibles. <li>Admite la entrada de texto sin formato o el lenguaje de marcado de síntesis de voz (SSML). |1.1.0|
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -38,9 +38,9 @@ Debe cumplir los siguientes requisitos previos antes de utilizar contenedores de
 |--|--|
 |Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
-|Recursos de voz |Para poder usar estos contenedores, debe tener:<br><br>Un _voz_ recursos de Azure para obtener la clave de facturación asociada y el URI del extremo de facturación. Ambos valores están disponibles en el portal de Azure **voz** páginas de información general y las claves y son necesarios para iniciar el contenedor.<br><br>**{BILLING_KEY}**: clave de recurso<br><br>**{BILLING_ENDPOINT_URI}**: el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|Recursos de voz |Para usar estos contenedores, debe tener:<br><br>Un _voz_ recursos de Azure para obtener la clave de facturación asociada y el URI del extremo de facturación. Ambos valores están disponibles en el portal de Azure **voz** páginas de información general y las claves y son necesarios para iniciar el contenedor.<br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
-## <a name="request-access-to-the-container-registry"></a>Solicitar acceso al registro de contenedor
+## <a name="request-access-to-the-container-registry"></a>Solicitud de acceso al registro de contenedor
 
 Primero debe completar y enviar la [formulario de solicitud de contenedores de Cognitive Services Speech](https://aka.ms/speechcontainerspreview/) para solicitar acceso al contenedor. 
 
@@ -64,7 +64,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 La tabla siguiente describen los núcleos de CPU y memoria para asignar cada contenedor de voz mínimos y recomendados.
 
-| Contenedor | Mínima | Recomendado |
+| Contenedor | Mínimo | Recomendada |
 |-----------|---------|-------------|
 |cognitive-services-speech-to-text | 2 núcleos<br>2 GB de memoria  | 4 núcleos<br>4 GB de memoria  |
 |cognitive-services-text-to-speech | 1 núcleo, 0,5 GB de memoria| 2 núcleos, 1 GB de memoria |
@@ -110,7 +110,7 @@ En la tabla siguiente se enumera las configuraciones regionales admitidas para *
 |Configuración regional de idioma|`Tags`|
 |--|--|
 |Chino|`zh-cn`|
-|English |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
+|Inglés |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
 |Francés |`fr-ca`<br>`fr-fr`|
 |Alemán|`de-de`|
 |Italiano|`it-it`|
@@ -139,10 +139,10 @@ En la tabla siguiente se enumera las configuraciones regionales admitidas para *
 |Configuración regional de idioma|`Tags`|Voces admitidas|
 |--|--|--|
 |Chino|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao-apollo|
-|English |`en-au`|Catherine<br>hayleyrus|
-|English |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
-|English |`en-in`|heera-apollo<br>priyarus<br>Ravi apollo<br>|
-|English |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
+|Inglés |`en-au`|Catherine<br>hayleyrus|
+|Inglés |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
+|Inglés |`en-in`|heera-apollo<br>priyarus<br>Ravi apollo<br>|
+|Inglés |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
 |Francés|`fr-ca`|caroline<br>harmonierus|
 |Francés|`fr-fr`|hortenserus<br>julie-apollo<br>paul-apollo|
 |Alemán|`de-de`|hedda<br>heddarus<br>Stefan apollo|
@@ -155,7 +155,7 @@ En la tabla siguiente se enumera las configuraciones regionales admitidas para *
 
 ### <a name="docker-pull-for-the-speech-containers"></a>Extracción de docker para los contenedores de voz
 
-#### <a name="speech-to-text"></a>Voz a texto
+#### <a name="speech-to-text"></a>Conversión de voz en texto
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest
@@ -171,7 +171,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice el siguiente proceso para trabajar con el contenedor.
 
-1. [Ejecute el contenedor](#run-the-container-with-docker-run), con la configuración de facturación necesaria pero no se utiliza. Hay más [ejemplos](speech-container-configuration.md#example-docker-run-commands) del comando `docker run` disponibles. 
+1. [Ejecute el contenedor](#run-the-container-with-docker-run) con la configuración de facturación requerida pero no utilizada. Hay más [ejemplos](speech-container-configuration.md#example-docker-run-commands) del comando `docker run` disponibles. 
 1. [Consulta del punto de conexión de predicción del contenedor](#query-the-containers-prediction-endpoint). 
 
 ## <a name="run-the-container-with-docker-run"></a>Ejecute el contenedor con `docker run`.
@@ -180,7 +180,7 @@ Utilice el comando [docker run](https://docs.docker.com/engine/reference/command
 
 **Durante la versión preliminar**, la configuración de facturación debe ser válida para iniciar el contenedor, pero no se factura el uso.
 
-| Marcador de posición | `Value` |
+| Marcador de posición | Valor |
 |-------------|-------|
 |{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en la página de claves de voz del portal de Azure.  |
 |{BILLING_ENDPOINT_URI} | El valor del identificador URI del punto de conexión facturación está disponible en la página de introducción a la voz del portal de Azure.|
@@ -197,7 +197,7 @@ Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} 
 ```
 
-### <a name="speech-to-text"></a>Voz a texto
+### <a name="speech-to-text"></a>Conversión de voz en texto
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
@@ -221,24 +221,24 @@ Este comando:
 
 |Contenedor|Punto de conexión|
 |--|--|
-|Voz a texto|ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1|
+|Conversión de voz en texto|ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1|
 |Texto a voz|http://localhost:5000/speech/synthesize/cognitiveservices/v1|
 
-### <a name="speech-to-text"></a>Voz a texto
+### <a name="speech-to-text"></a>Conversión de voz en texto
 
 El contenedor proporciona el punto de conexión de consulta basada en websocket API, que se accede mediante el [Speech SDK](index.yml).
 
-De forma predeterminada, el SDK de voz usa servicios de voz en línea. Para usar el contenedor, deberá cambiar el método de inicialización. Vea los ejemplos siguientes.
+De forma predeterminada, el SDK de voz usa servicios de voz en línea. Para usar el contenedor, deberá cambiar el método de inicialización. Consulte los ejemplos siguientes.
 
-#### <a name="for-c"></a>ParaC#
+#### <a name="for-c"></a>Para C#
 
-Cambiar del uso de esta llamada de inicialización de la nube de Azure:
+Cambie de usar esta llamada de inicialización en la nube de Azure:
 
 ```C#
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-Esta llamada con el punto de conexión de contenedor:
+por esta llamada mediante el punto de conexión de contenedor:
 
 ```C#
 var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1", "YourSubscriptionKey");
@@ -246,13 +246,13 @@ var config = SpeechConfig.FromEndpoint("ws://localhost:5000/speech/recognition/d
 
 #### <a name="for-python"></a>Para Python
 
-Cambiar del uso de esta llamada de inicialización de la nube de Azure
+Cambie de usar esta llamada de inicialización en la nube de Azure
 
 ```python
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 ```
 
-Esta llamada con el punto de conexión de contenedor:
+por esta llamada mediante el punto de conexión de contenedor:
 
 ```python
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, endpoint="ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
@@ -272,7 +272,7 @@ El contenedor proporciona el punto de conexión REST API que pueden encontrarse 
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-Al ejecutar el contenedor, el contenedor usa **stdout** y **stderr** para generar información útil solucionar problemas que se producen al inicio o ejecución del contenedor. 
+Al ejecutar el contenedor, este usa **stdout** y **stderr** para generar información útil para solucionar problemas que se producen al inicio o ejecución del contenedor. 
 
 ## <a name="billing"></a>Facturación
 
@@ -282,12 +282,16 @@ El envío de contenedores de voz, información de facturación para Azure, media
 
 Para obtener más información acerca de estas opciones, consulte [Configure containers](speech-container-configuration.md) (Configuración de contenedores).
 
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
+
 ## <a name="summary"></a>Resumen
 
 En este artículo, ha aprendido los conceptos y flujo de trabajo para descargar, instalar y ejecutar contenedores de voz. En resumen:
 
 * Voz proporciona dos contenedores de Linux docker, que encapsula la conversión de voz en texto y texto a voz.
-* Imágenes de contenedor se descargan desde el registro de contenedor privado de Azure.
+* Las imágenes de contenedor se descargan desde el registro de contenedor privado de Azure.
 * Las imágenes de contenedor se ejecutan en Docker.
 * Puede usar la API de REST o SDK para llamar a operaciones en contenedores de voz especificando el URI del contenedor del host.
 * Debe especificar la información de facturación al crear una instancia de un contenedor.

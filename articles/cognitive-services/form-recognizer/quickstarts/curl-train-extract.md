@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Entrenamiento de un modelo y extracción de datos de formularios mediante cURL (Form Recognizer)'
 titleSuffix: Azure Cognitive Services
-description: En este inicio rápido, usará la API REST de Form Recognizer con cURL para entrenar un modelo y extraer datos de formularios.
+description: En este inicio rápido, usará la API de REST de Form Recognizer con cURL para entrenar un modelo y extraer datos de formularios.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,35 +9,51 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 36f98a8dea2a732a7f8504b160da895637366fc8
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: bd68e2803b3b538011cfa37378890f2cc7b22223
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471904"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906993"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de los datos del formulario mediante la API REST con cURL
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de los datos del formulario mediante la API de REST con cURL
 
-En este inicio rápido, usará la API REST de Form Recognizer con cURL para entrenar y puntuar formularios para extraer tablas y pares clave-valor.
+En este inicio rápido, usará la API de REST de Azure Form Recognizer con cURL para entrenar y puntuar formularios para extraer tablas y pares clave-valor.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
+Para completar este inicio rápido, debe cumplir los siguientes requisitos:
+- Tener acceso a la versión preliminar de acceso limitado de Form Recognizer. Para acceder a la versión preliminar, rellene y envíe el formulario [Solicitud de acceso de Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
+- [cURL](https://curl.haxx.se/windows/) instalado.
+- Un conjunto de al menos cinco formularios del mismo tipo. Para este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
 
-* Debe acceder a la versión preliminar de acceso limitado de Form Recognizer. Para acceder a la versión preliminar, rellene y envíe el formulario [Solicitud de acceso de Form Recognizer de Cognitive Services](https://aka.ms/FormRecognizerRequestAccess). 
-* Debe tener [cURL](https://curl.haxx.se/windows/).
-* Debe tener una clave de suscripción a Form Recognizer. Siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Form Recognizer y obtener su clave.
-* Debe tener un conjunto mínimo de cinco formularios del mismo tipo. Para este inicio rápido puede usar un [conjunto de datos de ejemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
+## <a name="create-a-form-recognizer-resource"></a>Creación de un recurso de Form Recognizer
+
+Cuando se le conceda acceso para usar Form Recognizer, recibirá un correo electrónico de bienvenida con varios vínculos y recursos. Use el vínculo de "Azure Portal" de dicho mensaje para abrir Azure Portal y crear un recurso de Form Recognizer. En el panel **Crear**, proporcione la siguiente información:
+
+|    |    |
+|--|--|
+| **Nombre** | Un nombre descriptivo para su recurso. Se recomienda usar un nombre descriptivo, como *MyNameFormRecognizer*. |
+| **Suscripción** | Seleccione la suscripción de Azure a la que se le ha concedido acceso. |
+| **Ubicación** | Ubicación de la instancia de Cognitive Services. Las diferentes ubicaciones pueden crear latencias, pero no tienen ningún impacto en la disponibilidad del tiempo de ejecución del recurso. |
+| **Plan de tarifa** | El costo del recurso depende el plan de tarifa elegido y del uso. Para obtener más información, consulte los [detalles de los precios](https://azure.microsoft.com/pricing/details/cognitive-services/).
+| **Grupos de recursos** | [Grupo de recursos de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) que contendrá su recurso. Puede crear un nuevo grupo o agregarlo a uno ya existente. |
+
+> [!IMPORTANT]
+> Normalmente, al crear un recurso de Cognitive Services en Azure Portal, tiene la opción de crear una clave de suscripción para varios servicios (que se usa en varias instancias de Cognitive Services) o una clave de suscripción para un solo servicio (que se usa solo con una instancia específica de Cognitive Services). Sin embargo, dado que Form Recognizer se encuentra en versión preliminar, no se incluye en la suscripción para varios servicios, y no puede crear la suscripción para un solo servicio a menos que use el vínculo proporcionado en el correo electrónico de bienvenida.
+
+Cuando el recurso de Form Recognizer termine la implementación, búsquelo y selecciónelo en la lista **Todos los recursos** del portal. A continuación, seleccione la pestaña **Claves** para ver las claves de la suscripción. Cualquiera de las claves dará a la aplicación acceso al recurso. Copie el valor de **CLAVE 1**. La usará en la sección siguiente.
 
 ## <a name="train-a-form-recognizer-model"></a>Entrenamiento de un modelo de Form Recognizer
 
-En primer lugar, necesitará un conjunto de datos de entrenamiento. Puede usar los datos de un blob de Azure o sus propios datos de entrenamiento locales. Debe tener un mínimo de cinco formularios de ejemplo (documentos PDF o imágenes) de la misma estructura y tipo que los datos de entrada principales. Como alternativa, puede usar un formulario vacío; el nombre de archivo del formulario incluye la palabra "empty".
+En primer lugar, necesitará un conjunto de datos de entrenamiento. Puede usar los datos de un blob de Azure o sus propios datos de entrenamiento locales. Debe tener un mínimo de cinco formularios de ejemplo (documentos PDF o imágenes) de la misma estructura y tipo que los datos de entrada principales. También puede usar un único formulario vacío. El nombre de archivo del formulario debe incluir la palabra "vacío".
 
-Para entrenar un modelo de Form Recognizer mediante los documentos del contenedor de blobs de Azure, llame a la API **Train**, para lo que debe ejecutando el comando de cURL siguiente. Antes de ejecutar el comando haga los siguientes cambios:
+Para entrenar un modelo de Form Recognizer mediante los documentos del contenedor de blobs de Azure, llame a la API **Train** mediante la ejecución del comando de cURL siguiente. Antes de ejecutar el comando, realice estos cambios:
 
-* Reemplace `<Endpoint>` por el punto de conexión que obtuvo de la clave de suscripción de Form Recognizer. Puede encontrarlo en la pestaña de información general de recursos de Form Recognizer.
-* Reemplace `<SAS URL>` por una dirección URL de la firma de acceso compartido (SAS) del contenedor de Azure Blob Storage compartido en la que se encuentran los datos de entrenamiento.  
-* Reemplace `<subscription key>` por la clave de suscripción.
+1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo de la clave de suscripción de Form Recognizer. Lo encontrará en la pestaña **Información general** del recurso Form Recognizer.
+1. Reemplace `<SAS URL>` por una dirección URL de la firma de acceso compartido (SAS) del contenedor de Azure Blob Storage compartido de la ubicación en la que se encuentran los datos de entrenamiento.  
+1. Reemplace `<subscription key>` con la clave de suscripción que copió en el paso anterior.
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
@@ -84,17 +100,18 @@ Recibirá una respuesta `200 (Success)` con la siguiente salida JSON:
 }
 ```
 
-Ante el valor de `"modelId"`, ya que lo necesitará para los pasos siguientes.
+Tome nota del valor de `"modelId"`. Lo necesitará en los pasos siguientes.
   
 ## <a name="extract-key-value-pairs-and-tables-from-forms"></a>Extraiga los pares clave-valor y las tablas de los formularios
 
-A continuación, analizará un documento y extraerá de él tanto los pares clave-valor como las tablas. Llame a la API **Model - Analyze**, para lo que debe ejecutar el siguiente comando de cURL. Antes de ejecutar el comando haga los siguientes cambios:
+A continuación, analizará un documento y extraerá de él tanto los pares clave-valor como las tablas. Llame a la API **Model - Analyze** mediante la ejecución del siguiente comando de cURL. Antes de ejecutar el comando, realice estos cambios:
 
-* Reemplace `<Endpoint>` por el punto de conexión que obtuvo de la clave de suscripción de Form Recognizer. Lo encontrará en la pestaña **Información General** del recurso Form Recognizer.
-* Reemplace `<modelID>` por el identificador de modelo que recibió en el paso anterior del entrenamiento del modelo.
-* Reemplace `<path to your form>` por la ruta de acceso al formulario.
-* Reemplace `<subscription key>` por la clave de suscripción.
-* Reemplace `<file type>` por el tipo de archivo (los tipos admitidos son pdf, imagen/jpeg, imagen/png).
+1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo de la clave de suscripción de Form Recognizer. Lo encontrará en la pestaña **Información general** del recurso Form Recognizer.
+1. Reemplace `<modelID>` por el identificador de modelo que recibió en la sección anterior.
+1. Reemplace `<path to your form>` por la ruta de acceso al archivo del formulario.
+1. Reemplace `<file type>` por el tipo de archivo. Tipos compatibles: pdf, image/jpeg e image/png.
+1. Reemplace `<subscription key>` por la clave de suscripción.
+
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
@@ -102,7 +119,7 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<mode
 
 ### <a name="examine-the-response"></a>Examen de la respuesta
 
-Se devuelve una respuesta correcta en formato JSON que representa los pares de clave-valor extraídos y las tablas del formulario.
+Se devuelve una respuesta correcta en JSON. Representa las tablas y los pares clave-valor extraídos del formulario:
 
 ```bash
 {
@@ -427,7 +444,7 @@ Se devuelve una respuesta correcta en formato JSON que representa los pares de c
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía, ha utilizado las API REST de Form Recognizer con cURL para entrenar un modelo y ejecutarlo en un caso de ejemplo. A continuación, consulte la documentación de referencia para explorar la API de Form Recognizer con mayor profundidad.
+En este inicio rápido, ha utilizado la API de REST de Form Recognizer con cURL para entrenar un modelo y ejecutarlo en un escenario de ejemplo. A continuación, consulte la documentación de referencia para explorar la API de Form Recognizer con mayor profundidad.
 
 > [!div class="nextstepaction"]
 > [Documentación de referencia de API REST](https://aka.ms/form-recognizer/api)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 9bc18157a6f60555ea18901796199a3fe9dc4c22
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 26ebeb463f42dce06c29a5bd3f69585430a2ee90
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891216"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306637"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar y ejecutar contenedores de cara
 
@@ -32,7 +32,7 @@ Debe cumplir los siguientes requisitos previos antes de usar los contenedores de
 |--|--|
 |Motor de Docker| El motor de Docker debe estar instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> En Windows, Docker también debe configurarse para admitir los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Necesita un conocimiento básico de los conceptos de Docker, como registros, repositorios, contenedores y las imágenes de contenedor. También necesita conocimientos de basic `docker` comandos.| 
-|Azure `Cognitive Services` recursos |Para usar el contenedor, debe tener:<br><br>Un recurso de Azure Cognitive Services y la clave de facturación asociada y el URI del extremo de facturación. Ambos valores están disponibles en el **Introducción** y **claves** páginas para el recurso. Son necesarios para iniciar el contenedor. Agregar el `face/v1.0` enrutamiento al punto de conexión URI, como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI: <br><br>**{BILLING_KEY}**: clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : ejemplo URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/face/v1.0`|
+|Azure `Cognitive Services` recursos |Para usar el contenedor, debe tener:<br><br>Un recurso de Azure Cognitive Services y la clave de facturación asociada y el URI del extremo de facturación. Ambos valores están disponibles en el **Introducción** y **claves** páginas para el recurso. Son necesarios para iniciar el contenedor. Agregar el `face/v1.0` enrutamiento al punto de conexión URI, como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI: <br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : ejemplo URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitud de acceso al registro de contenedor privado
 
@@ -47,9 +47,9 @@ Debe cumplir los siguientes requisitos previos antes de usar los contenedores de
 
 En la tabla siguiente se describen los núcleos de CPU y memoria mínimos y recomendados para asignar cada contenedor de Face API.
 
-| Contenedor | Mínima | Recomendado | Transacciones por segundo<br>(Mínimo, máximo)|
+| Contenedor | Mínimo | Recomendada | Transacciones por segundo<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
-|Caras | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |10, 20|
+|Face | 1 núcleo, 2 GB de memoria | 1 núcleo, 4 GB de memoria |10, 20|
 
 * Cada núcleo debe ser al menos a 2,6 GHz o superior.
 * Transacciones por segundo (TPS).
@@ -62,7 +62,7 @@ Imágenes de contenedor para Face API están disponibles.
 
 | Contenedor | Repositorio |
 |-----------|------------|
-| Caras | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
+| Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -143,6 +143,10 @@ Los contenedores de Face API envían información de facturación en Azure media
 
 Para obtener más información acerca de estas opciones, consulte [Configure containers](./face-resource-container-config.md) (Configuración de contenedores).
 
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
+
 ## <a name="summary"></a>Resumen
 
 En este artículo, ha aprendido los conceptos y flujo de trabajo acerca de cómo descargar, instalar y ejecutar contenedores de Face API. En resumen:
@@ -154,7 +158,7 @@ En este artículo, ha aprendido los conceptos y flujo de trabajo acerca de cómo
 * Debe especificar la información de facturación cuando crea una instancia de un contenedor.
 
 > [!IMPORTANT]
-> Contenedores de cognitive Services no están una licencia para ejecutar sin estar conectados a Azure para la medición. Los clientes deben habilitar los contenedores comunicar la información de facturación con el servicio de disponibilidad en todo momento. Los contenedores de servicios cognitivos no envían datos del cliente, como la imagen o texto que se está analizando a Microsoft.
+> Contenedores de cognitive Services no están una licencia para ejecutar sin estar conectados a Azure para la medición. Los clientes deben habilitar los contenedores comunicar la información de facturación con el servicio de disponibilidad en todo momento. Los contenedores de Cognitive Services no envían datos de los clientes (por ejemplo, la imagen o el texto que se está analizando) a Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

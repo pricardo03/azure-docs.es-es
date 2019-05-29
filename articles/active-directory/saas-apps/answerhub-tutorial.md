@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d6ff44a8d760150df491b67ee56d62c4daff31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 52c49bdd51bda7876d19a681bde79c9dbeeb4ea7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882797"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901287"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integración de Azure Active Directory con AnswerHub
 
@@ -80,7 +80,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con AnswerHub, 
 2. [Configuración del inicio de sesión único de AnswerHub](#configure-answerhub-single-sign-on): para configurar los valores de inicio de sesión único en la aplicación.
 3. [Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user) llamado Britta Simon.
 4. [Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user), para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. [Creación de un usuario de prueba de AnswerHub](#create-answerhub-test-user) que se corresponde y se vincula con un usuario de prueba de Azure AD.
+5. Creación de un usuario de prueba de AnswerHub que se corresponde y se vincula con un usuario de prueba de Azure AD.
 6. [Prueba del inicio de sesión único](#test-single-sign-on) para comprobar que la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -107,12 +107,12 @@ En esta sección, configura el inicio de sesión único de Azure AD en Azure Por
 
      a. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<company>.answerhub.com`
 
-    b. En el cuadro **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente formato: `https://<company>.answerhub.com`
+    b. En el cuadro **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente formato: `https://<company>.answerhub.com`
 
     > [!NOTE]
     > Estos valores no son reales. Debe actualizarlos con la dirección URL de inicio de sesión y el identificador reales. Póngase en contacto con el [equipo de soporte técnico de AnswerHub](mailto:success@answerhub.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el vínculo **Descargar** situado junto a **Certificado (Base64)**, según sus requisitos, y guarde el certificado en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el vínculo **Descargar** situado junto a **Certificado (Base64)** , según sus requisitos, y guarde el certificado en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -184,7 +184,7 @@ En esta sección, creará un usuario de prueba llamado Britta Simon en Azure Por
 
      a. En el cuadro **Nombre**, escriba **BrittaSimon**.
   
-    b. En el cuadro **Nombre de usuario**, escriba **brittasimon@<dominioDeSuEmpresa.extensión>**.  
+    b. En el cuadro **Nombre de usuario**, escriba **brittasimon\@<yourcompanydomain.extension>** .  
     Por ejemplo, BrittaSimon@contoso.com.
 
     c. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.

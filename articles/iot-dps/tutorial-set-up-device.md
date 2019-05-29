@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 344cc3b8ba3f7698f5124d464f3c277b6cb5cdde
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d5a4f6c7d7d19ced4f2cd9ff21b00e58703f795e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500981"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911680"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configuración del dispositivo para el aprovisionamiento mediante el servicio Azure IoT Hub Device Provisioning
 
@@ -27,7 +27,7 @@ En el tutorial anterior, aprendió a configurar el servicio Azure IoT Hub Device
 
 En este tutorial se presupone que ya ha creado la instancia de Device Provisioning Service y un centro de IoT, para lo que debe seguir las instrucciones del tutorial [Configuración de los recursos de la nube](tutorial-set-up-cloud.md).
 
-En este tutorial se usan los [SDK y las bibliotecas de Azure IoT para el repositorio de C](https://github.com/Azure/azure-iot-sdk-c), que contiene el SDK de cliente del servicio Device Provisioning. El SDK proporciona actualmente compatibilidad con TPM y X.509 para los dispositivos que se ejecutan en implementaciones de Windows o Ubuntu. Este tutorial se basa en el uso de un cliente de desarrollo de Windows, que también da por supuesto un conocimiento básico de Visual Studio 2017. 
+En este tutorial se usan los [SDK y las bibliotecas de Azure IoT para el repositorio de C](https://github.com/Azure/azure-iot-sdk-c), que contiene el SDK de cliente del servicio Device Provisioning. El SDK proporciona actualmente compatibilidad con TPM y X.509 para los dispositivos que se ejecutan en implementaciones de Windows o Ubuntu. Este tutorial se basa en el uso de un cliente de desarrollo de Windows, que también da por supuesto un conocimiento básico de Visual Studio. 
 
 Si no está familiarizado con el proceso de aprovisionamiento automático, no olvide revisar los [conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md) antes de continuar. 
 
@@ -36,14 +36,14 @@ Si no está familiarizado con el proceso de aprovisionamiento automático, no ol
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Visual Studio 2015 o [Visual Studio 2017](https://www.visualstudio.com/vs/) con la carga de trabajo de [desarrollo de escritorio con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o posterior con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
 * Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 
 
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>Compilación de una versión específica de la plataforma del SDK
 
-El SDK de cliente del servicio Device Provisioning le ayuda a implementar el software de registro del dispositivo. Pero para poder usarlo, es preciso compilar una versión del SDK específico de su plataforma de cliente de desarrollo y mecanismo de plataforma. En este tutorial, se compila un SDK que usa Visual Studio 2017 en una plataforma de desarrollo de Windows para un tipo de atestación compatible:
+El SDK de cliente del servicio Device Provisioning le ayuda a implementar el software de registro del dispositivo. Pero para poder usarlo, es preciso compilar una versión del SDK específico de su plataforma de cliente de desarrollo y mecanismo de plataforma. En este tutorial, se compila un SDK que usa Visual Studio en una plataforma de desarrollo de Windows para un tipo de atestación compatible:
 
 1. Descargue el [sistema de compilación CMake](https://cmake.org/download/).
 
@@ -130,7 +130,7 @@ Dependiendo de si ha compilado el SDK para usar la atestación para un dispositi
   
   1. Ejecute la solución con cualquiera de los comandos de "Inicio" del menú "Depurar". En la ventana de salida, escriba **i** para la inscripción individual cuando se le solicite. La ventana de salida muestra un certificado X.509 generado localmente para el dispositivo simulado. Copie en el portapapeles la salida desde *---BEGIN CERTIFICATE---* hasta *-----END CERTIFICATE-----* y asegúrese de incluir ambas líneas. Solo necesita el primer certificado de la ventana de salida.
  
-  1. Cree un archivo llamado **_X509testcert.pem_**, ábralo en el editor de texto que desee y copie el contenido del portapapeles en este archivo. Guarde el archivo tal como lo usará más adelante para la inscripción de dispositivo. Cuando se ejecuta el software de registro, utiliza el mismo certificado durante el aprovisionamiento automático.    
+  1. Cree un archivo llamado **_X509testcert.pem_** , ábralo en el editor de texto que desee y copie el contenido del portapapeles en este archivo. Guarde el archivo tal como lo usará más adelante para la inscripción de dispositivo. Cuando se ejecuta el software de registro, utiliza el mismo certificado durante el aprovisionamiento automático.    
 
 Estos artefactos de seguridad se requieren durante la inscripción del dispositivo al servicio Device Provisioning. El servicio de aprovisionamiento espera a que el dispositivo arranque y se conecte con él en cualquier momento posterior en el tiempo. La primera vez que arranca el dispositivo, la lógica del SDK de cliente interactúa con el chip (o simulador) para extraer los artefactos de seguridad del dispositivo y comprueba el registro con el servicio Device Provisioning. 
 
@@ -141,7 +141,7 @@ El último paso es escribir una aplicación de registro que use el SDK de client
 > [!NOTE]
 > Para este paso supondremos que se usa un dispositivo simulado, lo que se realiza mediante la ejecución de una aplicación de registro de ejemplo de SDK desde la estación de trabajo. Sin embargo, se aplican los mismos conceptos si se compila una aplicación de registro para su implementación en un dispositivo físico. 
 
-1. En Azure Portal, seleccione la hoja **Información general** del servicio Device Provisioning y copie el valor de **_Ámbito de id_**. El servicio genera el *ámbito del identificador* y este garantiza la exclusividad. Es inmutable y se utiliza para identificar de forma exclusiva los identificadores de registro.
+1. En Azure Portal, seleccione la hoja **Información general** del servicio Device Provisioning y copie el valor de **_Ámbito de id_** . El servicio genera el *ámbito del identificador* y este garantiza la exclusividad. Es inmutable y se utiliza para identificar de forma exclusiva los identificadores de registro.
 
     ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
@@ -211,5 +211,5 @@ En este tutorial aprendió lo siguiente:
 Avance hasta el siguiente tutorial para aprender a aprovisionar el dispositivo en su instancia de IoT Hub inscribiéndolo en el servicio Azure IoT Hub Device Provisioning para su aprovisionamiento automático.
 
 > [!div class="nextstepaction"]
-> [Aprovisionamiento del dispositivo en una instancia de IoT Hub](tutorial-provision-device-to-hub.md)
+> [Aprovisionar el dispositivo en la instancia de IoT Hub](tutorial-provision-device-to-hub.md)
 

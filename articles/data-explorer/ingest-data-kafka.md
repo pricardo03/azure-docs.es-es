@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 11/19/2018
-ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/17/2019
+ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047116"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901029"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Inicio rápido: Ingesta de datos de Kafka en Azure Data Explorer
  
@@ -22,11 +22,11 @@ El Explorador de datos de Azure es un servicio de exploración de datos altament
  
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar. 
  
-* [Base de datos y clúster de prueba](create-cluster-database-portal.md)
+* [Una base de datos y un clúster de prueba](create-cluster-database-portal.md).
  
-* [Una aplicación de ejemplo](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) que genera datos y los envía a Kafka
+* [Una aplicación de ejemplo](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) que genera datos y los envía a Kafka.
 
-* [Visual Studio 2017, versión 15.3.2 o superior](https://www.visualstudio.com/vs/) para ejecutar la aplicación de ejemplo
+* [Visual Studio de 2019](https://visualstudio.microsoft.com/vs/) para ejecutar la aplicación de ejemplo.
  
 ## <a name="kafka-connector-setup"></a>Instalación del conector de Kafka
 

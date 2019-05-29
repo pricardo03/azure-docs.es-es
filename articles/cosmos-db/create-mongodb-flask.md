@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 35159a1630c7f1268119cd55cc6e0ac99dfd7b5f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 07f213de3509ed16af627af5e0583cd985c278f6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119214"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954659"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Inicio rápido: Compilación de una aplicación de Python mediante la API de Azure Cosmos DB para MongoDB
 
@@ -104,7 +104,7 @@ Los fragmentos de código siguientes se han tomado del archivo app.py y se utili
 
 2. Abra una ventana de terminal y `cd` en el directorio donde se guarda la aplicación.
 
-3. A continuación, establezca la variable de entorno para la aplicación de Flask con `set FLASK_APP=app.py` o `export FLASK_APP=app.py` si usa un equipo Mac.
+3. A continuación, establezca la variable de entorno para la aplicación de Flask con `set FLASK_APP=app.py` o `$env:FLASK_APP = app.py` para los editores de PowerShell, o `export FLASK_APP=app.py` si usa un equipo Mac. 
 
 4. Ejecute la aplicación con `flask run` y vaya a [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
@@ -142,7 +142,7 @@ Para la implementación en Azure, debe quitar las claves de la aplicación y ase
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-Después debe agregar los valores de MONGOURL, MONGO_PASSWORD y MONGO_USERNAME a la configuración de la aplicación. Puede seguir este [tutorial](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings) para aprender acerca de la configuración de la aplicación en Azure Web Apps.
+Después debe agregar los valores de MONGOURL, MONGO_PASSWORD y MONGO_USERNAME a la configuración de la aplicación. Puede seguir este [tutorial](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings) para aprender acerca de la configuración de la aplicación en Azure Web Apps.
 
 Si no desea crear una bifurcación de este repositorio, también puede hacer clic en el botón de implementación en Azure siguiente. A continuación, debe ir a Azure y ajustar la configuración de la aplicación con la información de cuenta de Cosmos DB.
 

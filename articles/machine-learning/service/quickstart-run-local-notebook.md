@@ -10,18 +10,18 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549142"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864379"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Uso de su propio servidor de cuadernos para empezar a trabajar con Azure Machine Learning
 
-Use su propio servidor de cuadernos para ejecutar el código que registra valores en el [área de trabajo de Azure Machine Learning Service](concept-azure-machine-learning-architecture.md). El área de trabajo se encuentra en la nube y es el bloque fundamental que se utiliza para experimentar, entrenar e implementar modelos de aprendizaje automático con Machine Learning.
+Use su propio entorno de Python y su servidor de Jupyter Notebook para empezar a trabajar con Azure Machine Learning Service.  Para empezar a trabajar rápidamente sin necesidad de instalar el SDK, consulte [Inicio rápido: Uso de un servidor de cuadernos basado en la nube para empezar a trabajar con Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
-Este inicio rápido usa su propio entorno de Python y el servidor de Jupyter Notebook. Para empezar a trabajar rápidamente sin necesidad de instalar el SDK, consulte [Inicio rápido: Uso de un servidor de cuadernos basado en la nube para empezar a trabajar con Azure Machine Learning](quickstart-run-cloud-notebook.md) 
+En este inicio rápido se explica cómo puede usar el [área de trabajo de Azure Machine Learning Service](concept-azure-machine-learning-architecture.md) para realizar un seguimiento de los experimentos de aprendizaje automático. Ejecutará código de Python que registra los valores en el área de trabajo.
 
 Vea una versión en vídeo de este artículo de inicio rápido:
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 
 * Un servidor de cuadernos de Python 3.6 con el SDK de Azure Machine Learning instalado.
 * Un área de trabajo de Azure Machine Learning Service.
-* Un archivo de configuración de área de trabajo (**.azureml/config.json**).
+* Un archivo de configuración de área de trabajo ( **.azureml/config.json**).
 
 Consiga todos estos requisitos previos en [Creación de un área de trabajo de Azure Machine Learning Service](setup-create-workspace.md#portal).
 

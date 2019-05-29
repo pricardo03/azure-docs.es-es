@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 7e2b3424c3d8edc931054dea062280ea7789dc44
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 88e8d543e8bc3c3ae07133ec333b33c4486c2684
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143070"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864510"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Creación de una función desencadenada mediante HTTP en Azure
 
@@ -108,7 +108,7 @@ Se crea una subcarpeta denominada _HttpTrigger_, que contiene los archivos sigui
 
   Cada enlace requiere una dirección, un tipo y un nombre único. El desencadenador HTTP tiene un enlace de entrada de tipo [`httpTrigger`](functions-bindings-http-webhook.md#trigger) y un enlace de salida de tipo [`http`](functions-bindings-http-webhook.md#output).
 
-* **__init__.py**: archivo de script que es su función de desencadenador HTTP. Revise este script y observe que contiene un valor `main()` predeterminado. Los datos HTTP del desencadenador se pasan a esta función con el uso del valor `req` que se llama parámetro de enlace. `req` es una instancia de la [clase azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest), que se define en function.json. 
+* **\_\_init\_\_.py**: archivo de script que es su función de desencadenador HTTP. Revise este script y observe que contiene un valor `main()` predeterminado. Los datos HTTP del desencadenador se pasan a esta función con el uso del valor `req` que se llama parámetro de enlace. `req` es una instancia de la [clase azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest), que se define en function.json. 
 
     El objeto devuelto, definido como `$return` en function.json, es una instancia de la [clase azure.functions.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Para más información, vea [Enlaces y desencadenadores HTTP de Azure Functions](functions-bindings-http-webhook.md).
 

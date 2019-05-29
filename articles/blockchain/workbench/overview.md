@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 05/20/2019
 ms.topic: overview
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 58fd09726f05ba442c66387ecbd6cfad37f598e1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 16e2497f4e26d16c008161477fd7d573e59e84db
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332564"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955207"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>¿Qué es Azure Blockchain Workbench?
 
@@ -41,13 +41,13 @@ Workbench entrega eventos automáticamente a Service Bus y Event Grid para envia
 
 Azure Blockchain Workbench simplifica la configuración de red de cadena de bloques del consorcio como una solución preconfigurada con una plantilla de solución de Azure Resource Manager. La plantilla proporciona implementación simplificada que implementa todos los componentes necesarios para ejecutar un consorcio. En la actualidad, Blockchain Workbench admite Ethereum.
 
-## <a name="use-active-directory-login"></a>Usar inicio de sesión de Active Directory
+## <a name="use-active-directory"></a>Usar Active Directory
 
 Con los protocolos existentes de cadena de bloques, las identidades de cadena de bloques se representan como una dirección en la red. Azure Blockchain Workbench abstrae la identidad de cadena de bloques mediante la asociación con una identidad de Active Directory, lo que simplifica la compilación de aplicaciones empresariales con identidades de Active Directory.
 
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>Sincronizar datos en cadena con almacenamiento fuera de la cadena
 
-Azure Blockchain Workbench facilita el análisis de datos y eventos de cadena de bloques mediante la sincronización automática de datos de la cadena de bloques con el almacenamiento fuera de la cadena. En lugar de extraer datos directamente desde la cadena de bloques, puede consultar sistemas de bases de datos fuera de la cadena, como SQL Server. Los usuarios finales que realizan tareas de análisis de datos no necesitan conocimientos específicos sobre cadenas de bloques. 
+Azure Blockchain Workbench facilita el análisis de datos y eventos de cadena de bloques mediante la sincronización automática de datos de la cadena de bloques con el almacenamiento fuera de la cadena. En lugar de extraer datos directamente desde la cadena de bloques, puede consultar sistemas de bases de datos fuera de la cadena, como SQL Server. Los usuarios finales que realizan tareas de análisis de datos no necesitan conocimientos sobre cadenas de bloques.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

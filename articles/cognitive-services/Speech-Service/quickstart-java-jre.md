@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: fmegen
-ms.openlocfilehash: 05475dbfb7dc1ee3f5de1a9b858eaf212b674eac
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3dad2696332f57d9a0dc86927f91caa7352b1d7b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466392"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65884944"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Inicio rápido: Reconocimiento de voz con el SDK de Voz para Java
 
@@ -55,7 +55,7 @@ Si ejecuta Ubuntu Linux, asegúrese de que estén instaladas estas dependencias 
   ```
 
 Si está ejecutando Windows (64 bits), asegúrese de que ha instalado Microsoft Visual C++ Redistributable para su plataforma.
-* [Descarga de Microsoft Visual C++ Redistributable para Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+* [Descarga de Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## <a name="create-and-configure-project"></a>Creación y configuración de un proyecto
 
@@ -63,7 +63,7 @@ Si está ejecutando Windows (64 bits), asegúrese de que ha instalado Microsoft
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 
-1. Para agregar una nueva clase vacía al proyecto de Java, seleccione **File (Archivo)**  >  **New (Nuevo)**  >  **Class (Clase)**.
+1. Para agregar una nueva clase vacía al proyecto de Java, seleccione **File (Archivo)**  >  **New (Nuevo)**  >  **Class (Clase)** .
 
 1. En la ventana **New Java Class** (Nueva clase de Java) escriba **speechsdk.quickstart** en el campo **Package** (Paquete) y **Main** en el campo **Name** (Nombre).
 
@@ -81,7 +81,7 @@ Si está ejecutando Windows (64 bits), asegúrese de que ha instalado Microsoft
 
 ## <a name="build-and-run-the-app"></a>Compilación y ejecución de la aplicación
 
-Presione F11, o seleccione **Run (Ejecutar)** > **Debug (Depurar)**.
+Presione F11, o seleccione **Run (Ejecutar)**  > **Debug (Depurar)** .
 Los próximos 15 segundos de la entrada de voz del micrófono se reconocen y se registran en la ventana de consola.
 
 ![Captura de pantalla de la salida de la consola después de un reconocimiento correcto](media/sdk/qs-java-jre-07-console-output.png)

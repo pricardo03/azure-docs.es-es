@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 2a27ec63ea4ae25823c604612bd3bcf3a057da61
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: ae5a1708b56db45bec38a4482b5dfd936bdedd4a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "61250009"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901236"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Guía de inicio rápido: Aprovisionamiento de un dispositivo X.509 simulado mediante el SDK para C de Azure IoT
 
@@ -35,7 +35,7 @@ En este artículo se mostrarán las inscripciones individuales.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Visual Studio 2015 o [Visual Studio 2017](https://www.visualstudio.com/vs/) con la carga de trabajo de [desarrollo de escritorio con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o posterior con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
 * Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 
 
@@ -112,7 +112,7 @@ Usará código de ejemplo del SDK para C de Azure IoT para crear el certificado 
 
     La ventana de salida muestra un certificado X.509 autofirmado generado localmente para el dispositivo simulado. Copie la salida en el portapapeles desde **---BEGIN CERTIFICATE---** hasta **-----END CERTIFICATE-----** y asegúrese de incluir ambas líneas. Solo necesita el primer certificado de la ventana de salida.
  
-5. Con un editor de texto, guarde el certificado en un nuevo archivo denominado **_X509testcert.pem_**. 
+5. Con un editor de texto, guarde el certificado en un nuevo archivo denominado **_X509testcert.pem_** . 
 
 
 ## <a name="create-a-device-enrollment-entry-in-the-portal"></a>Creación de una entrada de inscripción de dispositivo en el portal
@@ -141,7 +141,7 @@ En esta sección, actualizará el código de ejemplo para enviar la secuencia de
 
 
 
-1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_**.
+1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_** .
 
     ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 

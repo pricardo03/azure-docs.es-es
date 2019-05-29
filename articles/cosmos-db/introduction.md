@@ -4,14 +4,14 @@ description: Información acerca de Azure Cosmos DB. Esta base de datos de vario
 author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/20/2019
 ms.author: rimman
-ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a338cec213b82d54b08f2a11a969ddecf72ea7e5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280951"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953909"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
 
@@ -44,7 +44,7 @@ Cosmos DB se ha diseñado con creación de particiones horizontales y replicaci�
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>Baja latencia garantizada en el percentil 99, en todo el mundo
 
-Mediante Cosmos DB se pueden crear aplicaciones de escala planetaria con una gran capacidad de respuesta. Con el nuevo protocolo de replicación de arquitectura multimaestro y un [motor de base de datos optimizado para escritura](index-policy.md) y sin bloqueos, Cosmos DB garantiza latencias inferiores a 10 ms para las operaciones de lectura y escritura (indexadas) en el percentil 99, en todo el mundo. Esta funcionalidad permite la ingesta sostenida de datos y consultas increíblemente rápidas en aplicaciones con alta capacidad de respuesta.
+Mediante Cosmos DB se pueden crear aplicaciones de escala planetaria con una gran capacidad de respuesta. Con el nuevo protocolo de replicación de arquitectura multimaestro y un [motor de base de datos optimizado para escritura](index-policy.md) y sin bloqueos, Cosmos DB garantiza latencias inferiores a 10 ms para las operaciones de lectura (indexadas) y escritura en el percentil 99, en todo el mundo. Esta funcionalidad permite la ingesta sostenida de datos y consultas increíblemente rápidas en aplicaciones con alta capacidad de respuesta.
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Varias opciones de coherencia definidas con precisión
 

@@ -7,14 +7,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: aahi
-ms.openlocfilehash: cc82e091ae4c033bda7f1d91c9aed36bb081de88
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: ec32d5de9e3af14abbf14f79f37ab00f3346b1c1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233615"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306975"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Instalar y ejecutar contenedores de Detector de anomalías
 
@@ -22,7 +22,7 @@ El Detector de anomalías tiene el siguiente contenedor:
 
 |Función|Características|
 |-|-|
-|Detector de anomalías| <li> Detecta anomalías cuando se producen en tiempo real. <li> Detecta anomalías en todo el conjunto de datos como un lote. <li> Deduce el intervalo normal esperado de los datos. <li> Ajuste de sensibilidad de detección admite anomalías mejor ajustar los datos. |
+|Anomaly Detector| <li> Detecta anomalías cuando se producen en tiempo real. <li> Detecta anomalías en todo el conjunto de datos como un lote. <li> Deduce el intervalo normal esperado de los datos. <li> Ajuste de sensibilidad de detección admite anomalías mejor ajustar los datos. |
 
 Para obtener información detallada acerca de las API, consulte:
 * [Más información sobre el servicio de API del Detector de anomalías](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
@@ -37,7 +37,7 @@ Debe cumplir los siguientes requisitos previos antes de utilizar contenedores De
 |--|--|
 |Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
-|Recursos del Detector de anomalías |Para usar estos contenedores, debe tener:<br><br>Un _Detector de anomalías_ recursos de Azure para obtener la clave de facturación asociada y el URI del extremo de facturación. Ambos valores están disponibles en las páginas de información general sobre el Detector de anomalías y las claves del portal de Azure y es necesario para iniciar el contenedor.<br><br>**{BILLING_KEY}**: clave de recurso<br><br>**{BILLING_ENDPOINT_URI}**: el ejemplo de URI de punto de conexión es `https://westus2.api.cognitive.microsoft.com`|
+|Recursos del Detector de anomalías |Para usar estos contenedores, debe tener:<br><br>Un _Detector de anomalías_ recursos de Azure para obtener la clave de facturación asociada y el URI del extremo de facturación. Ambos valores están disponibles en las páginas de información general sobre el Detector de anomalías y las claves del portal de Azure y es necesario para iniciar el contenedor.<br><br>**{BILLING_KEY}** : clave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : el ejemplo de URI de punto de conexión es `https://westus2.api.cognitive.microsoft.com`|
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitud de acceso al registro de contenedor
 
@@ -176,6 +176,10 @@ El envío de los contenedores del Detector de anomalías información de factura
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obtener más información acerca de estas opciones, consulte [Configure containers](anomaly-detector-container-configuration.md) (Configuración de contenedores).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Resumen
 

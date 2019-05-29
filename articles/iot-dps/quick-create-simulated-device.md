@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e705ce17f0f09d341f2c650dfaccbbad60da14c7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: ca6914967d855123c70bf746a9d68d2e045e76d9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500199"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908679"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Guía de inicio rápido: Aprovisionamiento de un dispositivo de TPM simulado mediante el SDK para C de Azure IoT
 
@@ -34,7 +34,7 @@ En este artículo se mostrarán las inscripciones individuales.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Visual Studio 2015 o [Visual Studio 2017](https://www.visualstudio.com/vs/) con la carga de trabajo de [desarrollo de escritorio con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 o posterior con la carga de trabajo ["Desarrollo para el escritorio con C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) habilitada.
 * Tener instalada la versión más reciente de [Git](https://git-scm.com/download/).
 
 
@@ -115,7 +115,7 @@ En esta sección, compilará y ejecutará un ejemplo que leerá la clave de apro
 
 3. En el *Explorador de soluciones* de Visual Studio, vaya a la carpeta **Aprovisionar\_Herramientas**. Haga clic con el botón derecho en el proyecto **tpm_device_provision** y seleccione **Establecer como proyecto de inicio**. 
 
-4. En el menú de Visual Studio, seleccione **Depurar** > **Iniciar sin depurar** para ejecutar la solución. La aplicación lee y muestra un  **_id. de registro_** y una **_clave de aprobación_**. Copie estos valores. Se usarán en la sección siguiente para la inscripción del dispositivo. 
+4. En el menú de Visual Studio, seleccione **Depurar** > **Iniciar sin depurar** para ejecutar la solución. La aplicación lee y muestra un  **_id. de registro_** y una **_clave de aprobación_** . Copie estos valores. Se usarán en la sección siguiente para la inscripción del dispositivo. 
 
 
 <a id="portalenrollment"></a>
@@ -145,7 +145,7 @@ En esta sección, compilará y ejecutará un ejemplo que leerá la clave de apro
 
 En esta sección, configurará código de ejemplo para usar [Advanced Message Queuing Protocol (AMQP)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) para enviar la secuencia de arranque del dispositivo a la instancia del servicio Device Provisioning. Esta secuencia de arranque hará que el dispositivo se reconozca y se asigne a un centro de IoT vinculado a la instancia del servicio Device Provisioning.
 
-1. En Azure Portal, seleccione la pestaña **Información general** del servicio Device Provisioning y copie el valor de **_Ámbito de id_**.
+1. En Azure Portal, seleccione la pestaña **Información general** del servicio Device Provisioning y copie el valor de **_Ámbito de id_** .
 
     ![Extracción de información del punto de conexión del servicio Device Provisioning desde el portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
@@ -219,5 +219,5 @@ Si piensa seguir trabajando con el ejemplo de cliente de dispositivo y explorán
 En este tutorial, ha creado un dispositivo de TPM simulado en su máquina y lo ha aprovisionado con IoT Hub mediante el servicio Azure IoT Hub Device Provisioning. Para obtener información sobre cómo inscribir el dispositivo de TPM mediante programación, siga la guía de inicio rápido para la inscripción de un dispositivo de TPM mediante programación. 
 
 > [!div class="nextstepaction"]
-> [Inicio rápido de Azure: Inscripción de dispositivos de TPM al servicio Azure IoT Hub Device Provisioning](quick-enroll-device-tpm-java.md)
+> [Guía de inicio rápido de Azure: Inscripción de dispositivos de TPM al Servicio Azure IoT Hub Device Provisioning](quick-enroll-device-tpm-java.md)
 

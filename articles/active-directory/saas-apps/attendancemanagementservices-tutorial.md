@@ -4,129 +4,130 @@ description: Obtenga información sobre cómo configurar el inicio de sesión ú
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 1f56e612-728b-4203-a545-a81dc5efda00
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/13/2018
+ms.topic: tutorial
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3642bea878ca4d1582319e5e1d964dfa43ff061
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 9449e196a59fa20288bca9d4401c5e56a97b86cd
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60283718"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901223"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Tutorial: Integración de Azure Active Directory con Attendance Management Services
 
 En este tutorial, obtendrá información sobre cómo integrar Attendance Management Services con Azure Active Directory (Azure AD).
-
 La integración de Attendance Management Services con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Attendance Management Services.
-- Puede permitir que los usuarios inicien sesión automáticamente en Attendance Management Services (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a Attendance Management Services.
+* Puede permitir que los usuarios inicien sesión automáticamente en Attendance Management Services (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Attendance Management Services, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción a Attendance Management Services con el inicio de sesión único habilitado
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
+* Suscripción a Attendance Management Services con el inicio de sesión único habilitado
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de Attendance Management Services desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* Attendance Management Services admite el inicio de sesión único iniciado por **SP**.
 
 ## <a name="adding-attendance-management-services-from-the-gallery"></a>Adición de Attendance Management Services desde la galería
+
 Para configurar la integración de Attendance Management Services en Azure AD, es preciso agregar Attendance Management Services desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Attendance Management Services desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Botón Nueva aplicación][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **Attendance Management Services**, seleccione **Attendance Management Services** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Attendance Management Services en la lista de resultados](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_addfromgallery.png)
+4. En el cuadro de búsqueda, escriba **Attendance Management Services**, seleccione **Attendance Management Services** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
+
+    ![Attendance Management Services en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Attendance Management Services con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Attendance Management Services para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Attendance Management Services.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Attendance Management Services con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Attendance Management Services.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Attendance Management Services, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **Creación de un usuario de prueba de Attendance Management Services**: para tener un homólogo de Britta Simon en Attendance Management Services que esté vinculado a la representación del usuario en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Attendance Management Services](#configure-attendance-management-services-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Attendance Management Services](#create-attendance-management-services-test-user)** : para tener un homólogo de Britta Simon en Attendance Management Services que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Attendance Management Services.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con Attendance Management Services, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con Attendance Management Services, realice los pasos siguientes:
 
-1. En Azure Portal, en la página de integración de la aplicación **Attendance Management Services**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Attendance Management Services**, seleccione **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de Attendance Management Services**, siga estos pasos:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Información de inicio de sesión único del dominio y las direcciones URL de Attendance Management Services](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://id.obc.jp/<tenant information >/`.
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://id.obc.jp/<tenant information >/`
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
+
+    ![Información de inicio de sesión único del dominio y las direcciones URL de Attendance Management Services](common/sp-identifier.png)
+
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://id.obc.jp/<tenant information >/`
+
+    b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://id.obc.jp/<tenant information >/`
 
     > [!NOTE]
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Attendance Management Services](https://www.obcnet.jp/) para obtener estos valores.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Attendance Management Services](https://www.obcnet.jp/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-    ![Vínculo de descarga del certificado](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_certificate.png) 
+    ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. Haga clic en el botón **Guardar** .
+6. En la sección **Set up Attendance Management Services** (Configurar Attendance Management Services), copie las direcciones URL adecuadas según sus necesidades.
 
-    ![Botón Configurar inicio de sesión único](./media/attendancemanagementservices-tutorial/tutorial_general_400.png)
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-1. En la sección **Configuración de Attendance Management Services**, haga clic en **Configurar Attendance Management Services** para abrir la ventana **Configurar inicio de sesión**. Copie los valores de **SAML Entity ID y SAML Single Sign-On Service URL** (Identificador de entidad de SAML y Dirección URL del servicio de inicio de sesión único de SAML) de la sección **Referencia rápida**.
+    a. URL de inicio de sesión
 
-    ![Configuración de Attendance Management Services](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_configure.png) 
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-attendance-management-services-single-sign-on"></a>Configuración del inicio de sesión único de Attendance Management Services
 
 1. En otra ventana del explorador, inicie sesión en su sitio de la empresa de Attendance Management Services como administrador.
 
@@ -140,9 +141,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
      a. Seleccione **Use SAML authentication** (Usar autenticación SAML).
 
-    b. En el cuadro de texto **Identifier** (Identificador), pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que ha copiado de Azure Portal. 
+    b. En el cuadro de texto **Identifier** (Identificador), pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
 
-    c. En el cuadro de texto **Authentication endpoint URL** (Dirección URL del punto de conexión de autenticación), pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que ha copiado de Azure Portal.
+    c. En el cuadro de texto **Authentication endpoint URL** (Dirección URL de punto de conexión de autenticación), pegue el valor de la **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
     d. Haga clic en **Seleccionar un archivo** para cargar el certificado que ha descargado de Azure AD.
 
@@ -150,49 +151,63 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     f. Haga clic en **Registro**.
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación. Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/attendancemanagementservices-tutorial/create_aaduser_01.png)
+    ![Botón Nuevo usuario](common/new-user.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/attendancemanagementservices-tutorial/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/attendancemanagementservices-tutorial/create_aaduser_03.png)
-
-1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/attendancemanagementservices-tutorial/create_aaduser_04.png)
-
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="create-an-attendance-management-services-test-user"></a>Creación de un usuario de prueba de Attendance Management Services
+
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure para concederle acceso a Attendance Management Services.
+
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Attendance Management Services**.
+
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+
+2. En la lista de aplicaciones, seleccione **Attendance Management Services**.
+
+    ![Vínculo de Attendance Management Services en la lista de aplicaciones](common/all-applications.png)
+
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
+
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Panel Agregar asignación](common/add-assign-user.png)
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+### <a name="create-attendance-management-services-test-user"></a>Creación de un usuario de prueba de Attendance Management Services
 
 Para permitir que los usuarios de Azure AD inicien sesión en Attendance Management Services, deben aprovisionarse en Attendance Management Services. En el caso de Attendance Management Services, el aprovisionamiento es una tarea manual.
 
 **Para aprovisionar una cuenta de usuario, realice estos pasos:**
 
-1. Inicie sesión en el sitio de su empresa de Attendance Management Services como administrador.
+1. Inicie sesión en el sitio de la empresa de Attendance Management Services como administrador.
 
 1. Haga clic en **Administración de usuarios** en la sección **Administración de seguridad**.
 
@@ -206,66 +221,22 @@ Para permitir que los usuarios de Azure AD inicien sesión en Attendance Managem
 
     ![Agregar empleado](./media/attendancemanagementservices-tutorial/user4.png)
 
-     a. En el **OBCiD** cuadro de texto, escriba el correo electrónico del usuario como **BrittaSimon\@contoso.com**.
+     a. En el cuadro de texto **OBCiD**, escriba el correo electrónico del usuario, por ejemplo, `BrittaSimon\@contoso.com`.
 
     b. En el cuadro de texto **Contraseña**, escriba la contraseña del usuario.
 
     c. Haga clic en **Registro**.
 
-
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure para concederle acceso a Attendance Management Services.
-
-![Asignación de rol de usuario][200] 
-
-**Para asignar Britta Simon a Attendance Management Services, realice los pasos siguientes:**
-
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
-
-    ![Asignar usuario][201] 
-
-1. En la lista de aplicaciones, seleccione **Attendance Management Services**.
-
-    ![Vínculo de Attendance Management Services en la lista de aplicaciones](./media/attendancemanagementservices-tutorial/tutorial_attendancemanagementservices_app.png)  
-
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"][202]
-
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación][203]
-
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
-
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
-
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Attendance Management Services en el panel de acceso, automáticamente iniciará sesión en su aplicación Attendance Management Services.
-Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de Attendance Management Services en el panel de acceso, debería iniciar sesión automáticamente en la versión de Attendance Management Services para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/attendancemanagementservices-tutorial/tutorial_general_01.png
-[2]: ./media/attendancemanagementservices-tutorial/tutorial_general_02.png
-[3]: ./media/attendancemanagementservices-tutorial/tutorial_general_03.png
-[4]: ./media/attendancemanagementservices-tutorial/tutorial_general_04.png
-
-[100]: ./media/attendancemanagementservices-tutorial/tutorial_general_100.png
-
-[200]: ./media/attendancemanagementservices-tutorial/tutorial_general_200.png
-[201]: ./media/attendancemanagementservices-tutorial/tutorial_general_201.png
-[202]: ./media/attendancemanagementservices-tutorial/tutorial_general_202.png
-[203]: ./media/attendancemanagementservices-tutorial/tutorial_general_203.png
-
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

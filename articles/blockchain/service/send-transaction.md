@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: d3ad4cdfe33948c04c278ed3dfef7aa6fda637ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0b5e39e9cf2fc3ffe91db6587bc1ed1bab079e93
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027501"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65777336"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Tutorial: Envío de transacciones mediante Azure Blockchain Service
 
@@ -128,7 +128,7 @@ Puede obtener la clave pública de la lista de nodos de transacción. Copie la c
 ### <a name="transaction-node-endpoint-addresses"></a>Direcciones de punto de conexión de nodo de transacción
 
 1. En Azure Portal, vaya a cada nodo de la transacción y seleccione **Nodos de transacción > Cadenas de conexión**.
-1. Copie y guarde la dirección URL del punto de conexión que aparece en **HTTPS (Access key 1) (HTTPS [clave de acceso]) para cada nodo de transacción. Más adelante en el tutorial necesitará las direcciones de punto de conexión del archivo de configuración del contrato inteligente.
+1. Copie y guarde la dirección URL del punto de conexión que aparece en **HTTPS (Access key 1)** (HTTPS [clave de acceso 1]) para cada nodo de transacción. Más adelante en el tutorial necesitará las direcciones de punto de conexión del archivo de configuración del contrato inteligente.
 
     ![Dirección de punto de conexión de transacción](./media/send-transaction/endpoint.png)
 
@@ -230,7 +230,7 @@ Reemplace los valores de los corchetes angulares.
 
 En este ejemplo, el valor inicial del valor **storeData** se establece en 42.
 
-**privateFor** define los nodos para los que está disponible el contrato. En este ejemplo, la cuenta del nodo de transacción predeterminado puede transmitir las transacciones privadas al nodo **alpha**. Deberá agregar claves públicas para todos los participantes de la transacción privada. Si no incluye **privateFor:** y **from:**, las transacciones de contrato inteligente son públicas y todos los miembros del consorcio pueden verlas.
+**privateFor** define los nodos para los que está disponible el contrato. En este ejemplo, la cuenta del nodo de transacción predeterminado puede transmitir las transacciones privadas al nodo **alpha**. Deberá agregar claves públicas para todos los participantes de la transacción privada. Si no incluye **privateFor:** y **from:** , las transacciones de contrato inteligente son públicas y todos los miembros del consorcio pueden verlas.
 
 Para guardar todos los archivos, seleccione **File > Save All** (Archivo > Guardar todo).
 

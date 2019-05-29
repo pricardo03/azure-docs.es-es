@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bac43ef17116dcb2d6a6bb3dd7c1617d91a010d9
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886376"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864817"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Inicio rápido: Creación de una aplicación web de ASP.NET 
 
 ## <a name="introduction"></a>Introducción
 
-En esta guía de inicio rápido se muestra cómo crear e implementar una aplicación web de ASP.NET en Azure App Service mediante Visual Studio 2017. La aplicación de ejemplo se conecta a Azure Redis Cache para almacenar y recuperar datos de la memoria caché. Después de finalizar el inicio rápido, tendrá una aplicación web en ejecución hospedada en Azure que lee y escribe en una instancia de Azure Redis Cache.
+En esta guía de inicio rápido se muestra cómo crear e implementar una aplicación web de ASP.NET en Azure App Service mediante Visual Studio 2019. La aplicación de ejemplo se conecta a Azure Redis Cache para almacenar y recuperar datos de la memoria caché. Después de finalizar el inicio rápido, tendrá una aplicación web en ejecución hospedada en Azure que lee y escribe en una instancia de Azure Redis Cache.
 
 ![Prueba sencilla completada en Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -34,7 +34,7 @@ En esta guía de inicio rápido se muestra cómo crear e implementar una aplicac
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar esta guía de inicio rápido, instale [Visual Studio 2017](https://www.visualstudio.com/downloads/) con los entornos siguientes:
+Para completar esta guía de inicio rápido, instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) con los entornos siguientes:
 * ASP.NET y desarrollo web
 * Desarrollo de Azure
 
@@ -46,7 +46,7 @@ Para completar esta guía de inicio rápido, instale [Visual Studio 2017](https:
 
     ![Crear proyecto](./media/cache-web-app-howto/cache-create-project.png)
 
-    a. En la lista **Plantillas**, expanda el nodo **Visual C#**.
+    a. En la lista **Plantillas**, expanda el nodo **Visual C#** .
 
     b. Seleccione **Nube**.
 
@@ -324,7 +324,7 @@ En caso contrario, si ya ha terminado con la aplicación de ejemplo de la guía 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Grupos de recursos**.
 
-2. En el cuadro de texto **Filtrar por nombre...**, escriba el nombre del grupo de recursos. En las instrucciones de este artículo se usa un grupo de recursos llamado *TestResources*. En el grupo de recursos, en la lista de resultados, seleccione **...** y, después, **Eliminar grupo de recursos**.
+2. En el cuadro de texto **Filtrar por nombre...** , escriba el nombre del grupo de recursos. En las instrucciones de este artículo se usa un grupo de recursos llamado *TestResources*. En el grupo de recursos, en la lista de resultados, seleccione **...** y, después, **Eliminar grupo de recursos**.
 
     ![Eliminar](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
