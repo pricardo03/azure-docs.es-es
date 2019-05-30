@@ -101,6 +101,8 @@
       href: event-sources.md
     - name: Controladores de eventos
       href: event-handlers.md
+    - name: Recuperación geográfica ante desastres
+      href: geo-disaster-recovery.md
 - name: Guías de procedimientos
   items:
     - name: Publicación en tema personalizado

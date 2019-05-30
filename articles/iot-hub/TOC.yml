@@ -66,6 +66,8 @@
               href: tutorial-routing-config-message-routing-PowerShell.md
         - name: 'Parte 2: Visualización de los resultados del enrutamiento de mensajes'
           href: tutorial-routing-view-message-routing-results.md
+    - name: Enriquecimientos de mensajes
+      href: tutorial-message-enrichments.md
     - name: Uso de métricas y registros de diagnóstico
       href: tutorial-use-metrics-and-diags.md
     - name: Realización de conmutación por error manual
@@ -78,6 +80,8 @@
       href: tutorial-connectivity.md
 - name: Conceptos
   items:
+    - name: Introducción sobre los enriquecimientos de mensajes
+      href: iot-hub-message-enrichments-overview.md
     - name: Introducción a la administración de dispositivos
       href: iot-hub-device-management-overview.md
     - name: Comparación entre IoT Hub y Event Hubs

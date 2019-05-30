@@ -78,6 +78,9 @@
         - name: Predicción de la renovación
           displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
+    - name: Conjuntos de datos abiertos de Azure
+      href: 'https://docs.microsoft.com/azure/open-datasets/samples'
+      maintainContext: true
 - name: Conceptos
   items:
     - name: Área de trabajo
@@ -130,6 +133,9 @@
         - name: Habilitación del registro
           displayName: 'troubleshoot, log, files, tracing'
           href: how-to-enable-logging.md
+        - name: Establecimiento de directorios de entrada y salida
+          displayName: 'large data, write, experiment files, size limit'
+          href: how-to-save-write-experiment-files.md
         - name: Uso de la extensión de VS Code
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md

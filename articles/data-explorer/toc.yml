@@ -9,7 +9,7 @@
   items:
     - name: Creación de un clúster y una base de datos
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: create-cluster-database-portal.md
         - name: Azure CLI
           href: create-cluster-database-cli.md
@@ -41,14 +41,6 @@
           href: web-query-data.md
         - name: Python
           href: python-query-data.md
-    - name: Visualización de datos
-      items:
-        - name: 'Power BI: conector'
-          href: power-bi-connector.md
-        - name: 'Power BI: consulta importada'
-          href: power-bi-imported-query.md
-        - name: 'Power BI: consulta SQL'
-          href: power-bi-sql-query.md
 - name: Tutoriales
   items:
     - name: Ingesta de datos sin usar código
@@ -80,6 +72,20 @@
           href: anomaly-detection.md
         - name: Machine Learning
           href: machine-learning-clustering.md
+    - name: Visualización de datos
+      items:
+        - name: Power BI
+          items:
+            - name: Conector
+              href: power-bi-connector.md
+            - name: consulta importada
+              href: power-bi-imported-query.md
+            - name: Consulta SQL
+              href: power-bi-sql-query.md
+        - name: Sisense
+          href: sisense.md
+        - name: Grafana
+          href: grafana.md
     - name: administración
       items:
         - name: Administración de permisos de la base de datos
@@ -108,8 +114,6 @@
           href: kqlmagic.md
         - name: Copia de datos mediante Azure Data Factory
           href: data-factory-load-data.md
-        - name: Visualización de datos en Grafana
-          href: grafana.md
         - name: Conexión con ODBC
           href: connect-odbc.md
     - name: Solución de problemas

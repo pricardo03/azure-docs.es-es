@@ -57,6 +57,8 @@
       href: security-center-powershell-onboarding.md
     - name: Configuración de Security Center
       href: security-center-policies-overview.md
+    - name: Comparación de las bases de referencia mediante la supervisión de la integridad de los archivos
+      href: security-center-file-integrity-monitoring-baselines.md
       items:
         - name: Colección de datos
           href: security-center-enable-data-collection.md

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/02/2019
+ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466298"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238847"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager (versión preliminar pública)
 
@@ -55,7 +55,6 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar este artículo, necesitará lo siguiente:
 
 * Algo de experiencia con el desarrollo de [plantillas Azure Resource Manager](./resource-group-overview.md).
-* Azure Deployment Manager está en versión preliminar privada. Para registrarse con Azure Deployment Manager, rellene la [hoja de suscripción](https://aka.ms/admsignup). 
 * Azure PowerShell. Para más información, consulte el artículo de [introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Cmdlets de Deployment Manager. Para instalar estos cmdlets en versión preliminar, necesita la versión más reciente de PowerShellGet. Para obtener la versión más reciente, consulte [Instalación de PowerShellGet](/powershell/gallery/installing-psget). Después de instalar PowerShellGet, cierre la ventana de PowerShell. Abra una nueva ventana con privilegios elevados de PowerShell y ejecute el siguiente comando:
 
@@ -106,18 +105,18 @@ La carpeta ArtifactStore de la descarga contiene dos carpetas:
 
 Las dos versiones (1.0.0.0 y 1.0.0.1) son para la [implementación de revisiones](#deploy-the-revision). Aunque los artefactos de plantilla y los artefactos binarios tienen dos versiones, solo los artefactos binarios son diferentes entre las dos versiones. En la práctica, los artefactos binarios se actualizan con más frecuencia que los artefactos de plantilla.
 
-1. Abra **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** en un editor de texto. Se trata de una plantilla básica para crear una cuenta de almacenamiento.  
-2. Abra **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**. 
+1. Abra **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** en un editor de texto. Se trata de una plantilla básica para crear una cuenta de almacenamiento.
+2. Abra **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**.
 
     ![Tutorial de Azure Deployment Manager: creación de una plantilla de aplicación web](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
     La plantilla llama a un paquete de implementación, que contiene los archivos de la aplicación web. En este tutorial, el paquete comprimido solo contiene un archivo index.html.
-3. Abra **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**. 
+3. Abra **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**.
 
     ![Tutorial de Azure Deployment Manager: creación de los parámetros de plantilla de aplicación web containerRoot](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
 
     El valor de deployPackageUri es la ruta de acceso al paquete de implementación. El parámetro contiene una variable **$containerRoot**. El valor de $containerRoot se proporciona en la [plantilla de lanzamiento](#create-the-rollout-template) mediante la concatenación de la ubicación de SAS de origen del artefacto, la raíz del artefacto y deployPackageUri.
-4. Abra **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.  
+4. Abra **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.
 
     ```html
     <html>
@@ -257,7 +256,7 @@ En la siguiente captura de pantalla se muestra la definición del paso de espera
 
 ![Tutorial de Azure Deployment Manager: paso de espera de recursos de plantilla de lanzamiento](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-wait-step.png)
 
-La duración usa el [estándar ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (se requieren letras mayúsculas) es un ejemplo de una espera de 1 minuto. 
+La duración usa el [estándar ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (se requieren letras mayúsculas) es un ejemplo de una espera de 1 minuto.
 
 En la siguiente captura de pantalla solo se muestran algunas partes de la definición de lanzamiento:
 
@@ -292,13 +291,13 @@ Creará un archivo de parámetros que se usa con la plantilla de lanzamiento.
 
 ## <a name="deploy-the-templates"></a>Implementación de las plantillas
 
-Azure PowerShell puede usarse para implementar las plantillas. 
+Azure PowerShell puede usarse para implementar las plantillas.
 
 1. Ejecute el script para implementar la topología del servicio.
 
     ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
-    $location = "Central US"  
+    $location = "Central US"
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
 
     # Create a resource group
@@ -429,7 +428,7 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
     * **&lt;namePrefix>ServiceWUSrg**: contiene los recursos definidos por ServiceWUS.
     * **&lt;namePrefix>ServiceEUSrg**: contiene los recursos definidos por ServiceEUS.
     * El grupo de recursos de la identidad administrada definida por el usuario.
-3. Seleccione el nombre del grupo de recursos.  
+3. Seleccione el nombre del grupo de recursos.
 4. Seleccione **Eliminar grupo de recursos** del menú superior.
 5. Repita los dos últimos pasos para eliminar otros grupos de recursos creados en este tutorial.
 

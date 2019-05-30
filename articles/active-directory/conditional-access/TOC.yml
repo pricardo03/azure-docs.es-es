@@ -64,7 +64,7 @@
       href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Requerir MFA para los intentos de acceso de redes que no son de confianza
       href: untrusted-networks.md
-    - name: Requerir Términos de uso
+    - name: Requerir condiciones de uso
       href: terms-of-use.md
 - name: Referencia
   items:
