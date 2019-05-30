@@ -216,7 +216,7 @@
           href: online-backup-and-restore.md
         - name: Cumplimiento normativo
           href: compliance.md
-    - name: límites
+    - name: Límites de recursos
       href: concepts-limits.md
 - name: 'Cassandra, MongoDB y otras API'
   expanded: true

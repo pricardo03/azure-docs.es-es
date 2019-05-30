@@ -219,18 +219,18 @@
           href: backup-azure-restore-windows-server.md
         - name: Restauración del estado del sistema de Windows Server
           href: backup-azure-restore-system-state.md
-        - name: Supervisión y administración de almacenes de Recovery Services
-          href: backup-azure-manage-windows-server.md
     - name: Almacén de Recovery Services
       items:
         - name: Introducción a los almacenes de Recovery Services
           href: backup-azure-recovery-services-vault-overview.md
-        - name: Actualización de un almacén de Backup a un almacén de Recovery Services
-          href: backup-azure-upgrade-backup-to-recovery-services.md
+        - name: Crear almacén de Recovery Services
+          href: backup-create-rs-vault.md
         - name: Eliminación de un almacén de Recovery Services
           href: backup-azure-delete-vault.md
         - name: Traslado de un almacén de Recovery Services
           href: backup-azure-move-recovery-services-vault.md
+        - name: Supervisión y administración de almacenes de Recovery Services
+          href: backup-azure-manage-windows-server.md
     - name: Solución de problemas
       items:
         - name: MV de Azure
