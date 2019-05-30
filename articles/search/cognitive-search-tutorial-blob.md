@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/02/2019
+ms.date: 05/28/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 0ce1c8b811c11d0268cde79a609c05e740a529b6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: fb45d2e36939a53d6242cf7cd5a0b9f1990780c3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66171571"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299054"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutorial de REST: Llamada a Cognitive Services APIs en una canalización de indexación de Azure Search
 
@@ -419,7 +419,7 @@ La respuesta indica si se está ejecutando el indexador. Una vez finalizada la i
 
 Las advertencias son comunes con algunas combinaciones de aptitudes y archivos de origen y no siempre indican un problema. En este tutorial, las advertencias son benignas (por ejemplo, no hay entradas de texto de archivos JPEG). Puede revisar la respuesta de estado para obtener información detallada acerca de las advertencias generadas durante la indexación.
  
-## <a name="verify-content"></a>Comprobación del contenido
+## <a name="query-your-index"></a>Consulta del índice
 
 Una vez finalizada la indexación, ejecute consultas que devuelvan el contenido de los campos individuales. De forma predeterminada, Azure Search devuelve los primeros 50 resultados. Los datos de ejemplo tiene un tamaño reducido, por lo que la configuración predeterminada funciona bien. Sin embargo, si trabaja con conjuntos de datos más grandes, deberá incluir parámetros en la cadena de consulta para que se devuelvan más resultados. Para obtener instrucciones, consulte [Cómo paginar los resultados de la búsqueda en Azure Search](search-pagination-page-layout.md).
 
@@ -445,74 +445,8 @@ Repita el proceso para otros campos: contenido, languageCode, keyPhrases y organ
 
 Puede usar GET o POST, según la longitud y la complejidad de la cadena de consulta. Para más información, consulte la [Realización de una consulta al índice de Azure Search con la API de REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-<a name="access-enriched-document"></a>
 
-## <a name="accessing-the-enriched-document"></a>Acceso al documento enriquecido
 
-Cognitive Search permite ver la estructura del documento enriquecido. Los documentos enriquecidos son estructuras temporales creadas durante el enriquecimiento, que se elimina cuando se completa el proceso.
-
-Para capturar una instantánea del documento enriquecido creado durante la indexación, agregue un campo denominado ```enriched``` al índice. El indexador vuelca automáticamente en el campo una representación de cadena del enriquecimiento del documento.
-
-El campo ```enriched``` contendrá una cadena que es una representación lógica del documento enriquecido en memoria en formato JSON.  Sin embargo, el valor del campo es un documento JSON válido. Las comillas son caracteres de escape, por lo que deberá reemplazar `\"` por `"` para ver el documento con el formato JSON.  
-
-El campo ```enriched``` está destinado a la depuración, solo para ayudarle a entender la forma lógica del contenido en el que se evalúan las expresiones. Puede ser una herramienta útil para entender y depurar su conjunto de aptitudes.
-
-Repita el ejercicio anterior, incluido un campo `enriched` para capturar el contenido de un documento enriquecido:
-
-### <a name="request-body-syntax"></a>Sintaxis del cuerpo de la solicitud
-```json
-{
-  "fields": [
-    {
-      "name": "id",
-      "type": "Edm.String",
-      "key": true,
-      "searchable": true,
-      "filterable": false,
-      "facetable": false,
-      "sortable": true
-    },
-    {
-      "name": "content",
-      "type": "Edm.String",
-      "sortable": false,
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "languageCode",
-      "type": "Edm.String",
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "keyPhrases",
-      "type": "Collection(Edm.String)",
-      "searchable": true,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "organizations",
-      "type": "Collection(Edm.String)",
-      "searchable": true,
-      "sortable": false,
-      "filterable": false,
-      "facetable": false
-    },
-    {
-      "name": "enriched",
-      "type": "Edm.String",
-      "searchable": false,
-      "sortable": false,
-      "filterable": false,
-      "facetable": false
-    }
-  ]
-}
-```
 <a name="reset"></a>
 
 ## <a name="reset-and-rerun"></a>Restablecer y volver a ejecutar

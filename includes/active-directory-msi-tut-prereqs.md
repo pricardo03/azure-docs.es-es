@@ -9,11 +9,11 @@ ms.date: 11/13/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: 5e4181c8b88b7321e525846ee60fd6916d796503
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626242"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66226467"
 ---
 - Si no está familiarizado con la característica Managed Identities for Azure Resources, consulte esta [introducción](../articles/active-directory/msi-overview.md). Si no tiene una cuenta de Azure, [regístrese para obtener una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Para realizar la creación de recursos necesarios y la administración de roles, la cuenta debe tener permisos de "Propietario" en el ámbito adecuado (en su suscripción o en un grupo de recursos). Si necesita ayuda con la asignación de roles, consulte [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](../articles/role-based-access-control/role-assignments-portal.md).

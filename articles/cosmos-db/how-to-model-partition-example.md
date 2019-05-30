@@ -4,14 +4,14 @@ description: Aprenda a modelar y crear particiones en un ejemplo real mediante C
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 3/27/2019
+ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c98a8187c0365abc8fdb2bedacc5216266cc5cad
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58919898"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240996"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Procedimientos para modelar y crear particiones de datos en Azure Cosmos DB mediante un ejemplo real
 
@@ -140,7 +140,7 @@ La recuperación de los usuarios se realiza mediante la lectura del elemento cor
 
 ### <a name="c2-createedit-a-post"></a>[C2] Crear o editar una publicación
 
-Del mismo modo que **[C1]**, solo tenemos que escribir en el contenedor `posts`.
+Del mismo modo que **[C1]** , solo tenemos que escribir en el contenedor `posts`.
 
 ![Escritura de un elemento individual en el contenedor posts](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -199,7 +199,7 @@ Aunque la consulta principal filtrar por la clave de partición del contenedor, 
 
 ### <a name="c4-like-a-post"></a>[C4] Gustar una publicación
 
-Al igual que **[C3]**, creamos el elemento correspondiente en el contenedor `posts`.
+Al igual que **[C3]** , creamos el elemento correspondiente en el contenedor `posts`.
 
 ![Escritura de un elemento individual en el contenedor posts](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -209,7 +209,7 @@ Al igual que **[C3]**, creamos el elemento correspondiente en el contenedor `pos
 
 ### <a name="q5-list-a-posts-likes"></a>[Q5] Enumerar los "Me gusta" de una publicación
 
-Al igual que **[Q4]**, se consulta los "Me gusta" para la publicación y, después, se agregan sus nombres de usuario.
+Al igual que **[Q4]** , se consulta los "Me gusta" para la publicación y, después, se agregan sus nombres de usuario.
 
 ![Recuperación de todos los "Me gusta" de una publicación y agregación de sus datos adicionales](./media/how-to-model-partition-example/V1-Q5.png)
 
@@ -282,7 +282,7 @@ También modificamos los elementos de comentarios y, "Me gusta" para agregar el 
 
 Lo que queremos conseguir es que cada vez que agregamos un comentario o un "Me gusta", también aumentamos `commentCount` o `likeCount` en la publicación correspondiente. Como en nuestro contenedor `posts` `postId` ha creado particiones, el nuevo elemento (comentario o "Me gusta") y su publicación correspondiente se colocan en la misma partición lógica. Como resultado, podemos usar un [procedimiento almacenado](stored-procedures-triggers-udfs.md) para realizar dicha operación.
 
-Ahora, al crear un comentario (**[C3]**), en lugar de simplemente agregar un nuevo elemento al contenedor `posts` llamamos al siguiente procedimiento almacenado de dicho contenedor:
+Ahora, al crear un comentario ( **[C3]** ), en lugar de simplemente agregar un nuevo elemento al contenedor `posts` llamamos al siguiente procedimiento almacenado de dicho contenedor:
 
 ```javascript
 function createComment(postId, comment) {
@@ -396,7 +396,7 @@ Exactamente la misma cuando se enumeran los "Me gusta".
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: asegurarse de que todas las solicitudes se pueden escalar
 
-Si se examinan nuestras mejoras generales en el rendimiento, aún hay dos solicitudes que no hemos optimizado totalmente: **[Q3]** y **[P6]**. Son las solicitudes que implican consultas que no filtran por la clave de partición de los contenedores a que se dirige.
+Si se examinan nuestras mejoras generales en el rendimiento, aún hay dos solicitudes que no hemos optimizado totalmente: **[Q3]** y **[P6]** . Son las solicitudes que implican consultas que no filtran por la clave de partición de los contenedores a que se dirige.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Enumerar las publicaciones de un usuario en forma abreviada
 

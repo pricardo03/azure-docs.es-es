@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
 ms.openlocfilehash: 7022c3b2d2f3618d55b0a70d2690abf1497ec6a6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865342"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "61473186"
 ---
 # <a name="what-is-project-url-preview"></a>¿Qué es Project URL Preview?
 El punto de conexión de URL Preview adopta un parámetro de consulta de dirección URL y devuelve una respuesta JSON con el nombre del recurso de destino, una breve descripción y un vínculo a una imagen para mostrarla en una vista previa. La respuesta incluye también la marca [isFamilyFriendly](url-preview-reference.md#query-parameters), que indica si la dirección URL contiene contenido para adultos, pirateado o ilegal. 

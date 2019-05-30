@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: fdde10c9ef7c035ed36b5f823a0b77e7c8b53803
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: cd004e1eb6a40648c52dd3b5aee0ec38bff8f9b3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65964558"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304188"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Preguntas más frecuentes sobre Azure Spatial Anchors
 
@@ -51,19 +51,19 @@ Para más información, consulte [Introducción a Azure Spatial Anchors](overvie
 
 **P: ¿Qué información acerca de un entorno se transmite y almacena en el servicio cuando se usa Azure Spatial Anchors? ¿Se transmiten y almacenan imágenes del entorno?**
 
-**R.**: Al crear o localizar delimitadores, se procesan imágenes del entorno en el dispositivo en un formato derivado. Este formato derivado se transmite al servicio y se almacena en él.
+**R.** : Al crear o localizar delimitadores, se procesan imágenes del entorno en el dispositivo en un formato derivado. Este formato derivado se transmite al servicio y se almacena en él.
 
 Para proporcionar transparencia, la siguiente es una imagen de un entorno y la nube de puntos dispersos derivada. La nube de puntos muestra la representación geométrica del entorno que se transmite y almacena en el servicio. Por cada punto de la nube de puntos dispersos, se transmite y almacena un hash con las características visuales de ese punto. El hash se deriva de los datos de píxeles, pero no contiene ninguno de ellos.
 
 Azure Spatial Anchors se adhiere a los [Términos del acuerdo de servicio de Azure](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9) y la [Declaración de privacidad de Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
 
-![Un entorno y su nube de puntos dispersos derivada](./media/sparce-point-cloud.png)
+![Un entorno y su nube de puntos dispersos derivada](./media/sparse-point-cloud.png)
 *Figura 1: Un entorno y su nube de puntos dispersos derivada*
 
 
 **P: ¿Hay alguna manera de enviar información de diagnóstico a Microsoft?**
 
-**R.**: Sí. Azure Spatial Anchors tiene un modo de diagnóstico en el que los desarrolladores pueden elegir participar mediante la API de Azure Spatial Anchors. Esto es útil, por ejemplo, si encuentra un entorno donde no se puede crear y localizar delimitadores de forma predecible. Puede que le pidamos que envíe un informe de diagnóstico con información que nos ayudará a depurar el problema. Para más información, consulte [Registro y diagnóstico de Azure Spatial Anchors](./concepts/logging-diagnostics.md).
+**R.** : Sí. Azure Spatial Anchors tiene un modo de diagnóstico en el que los desarrolladores pueden elegir participar mediante la API de Azure Spatial Anchors. Esto es útil, por ejemplo, si encuentra un entorno donde no se puede crear y localizar delimitadores de forma predecible. Puede que le pidamos que envíe un informe de diagnóstico con información que nos ayudará a depurar el problema. Para más información, consulte [Registro y diagnóstico de Azure Spatial Anchors](./concepts/logging-diagnostics.md).
 
 ## <a name="availability-and-pricing-faqs"></a>Preguntas más frecuentes sobre disponibilidad y precios
 
@@ -79,7 +79,7 @@ Las fechas de disponibilidad general se anunciarán próximamente.
 
 **P: ¿Existen limitaciones?**
  
-**R.**: Sí, hay limitaciones.  No esperamos que las alcance en un trabajo típico de desarrollo y prueba de aplicaciones. En el caso de las implementaciones en producción, estamos preparados para dar respaldo a las necesidades de gran escala de nuestros clientes. [Póngase en contacto con nosotros](mailto:azuremrs@microsoft.com) para tratar este asunto. Durante esta fase de versión preliminar, no hemos publicado aún nuestra estructura de precios y niveles, pero esperamos hacerlo pronto.
+**R.** : Sí, hay limitaciones.  No esperamos que las alcance en un trabajo típico de desarrollo y prueba de aplicaciones. En el caso de las implementaciones en producción, estamos preparados para dar respaldo a las necesidades de gran escala de nuestros clientes. [Póngase en contacto con nosotros](mailto:azuremrs@microsoft.com) para tratar este asunto. Durante esta fase de versión preliminar, no hemos publicado aún nuestra estructura de precios y niveles, pero esperamos hacerlo pronto.
 
 **P: ¿En qué regiones está disponible Azure Spatial Anchors?**
 

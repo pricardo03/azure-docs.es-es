@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3a307c32d15aa8c7809d728d98220b0819e91c7c
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432114"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357391"
 ---
 # <a name="what-is-computer-vision"></a>¿Qué es Computer Vision?
 
@@ -46,7 +46,7 @@ Puede analizar imágenes para detectar y proporcionar información detallada ace
 
 Puede usar Computer Vision para extraer el texto de una imagen en una secuencia de caracteres de lectura mecánica mediante el [reconocimiento óptico de caracteres (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Si es necesario, OCR corrige el giro del texto reconocido y proporciona las coordenadas del marco de cada palabra. El OCR admite 25 idiomas y detecta automáticamente el idioma del texto reconocido.
 
-También puede usar [Read API](concept-recognizing-text.md#read-api) para extraer texto impreso y manuscrito de imágenes y documentos con mucho texto. Read API utiliza modelos actualizados y sirve para diferentes objetos con superficies y fondos distintos, como recibos, pósteres, tarjetas de visita, cartas y pizarras. Actualmente, Read API se encuentra disponible en versión preliminar y en inglés, ya que se trata del único idioma compatible.
+También puede usar [Read API](concept-recognizing-text.md#read-api) para extraer texto impreso y manuscrito de imágenes y documentos con mucho texto. Read API utiliza modelos actualizados y sirve para diferentes objetos con superficies y fondos distintos, como recibos, pósteres, tarjetas de visita, cartas y pizarras. Actualmente, el inglés es el único idioma que se admite.
 
 ## <a name="moderate-content-in-images"></a>Moderación del contenido de las imágenes
 

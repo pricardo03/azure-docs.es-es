@@ -16,11 +16,11 @@ ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261469"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "60290771"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>¿Qué es Managed Identities for Azure Resources?
 
@@ -41,7 +41,7 @@ Los siguientes términos se usan en las identidades administradas para el conjun
 
 - **Id. de cliente**: un identificador único que genera Azure AD y que está asociado a una aplicación y entidad de servicio durante su aprovisionamiento inicial.
 - **Id. de entidad de seguridad**: identificador de objeto del objeto de entidad de servicio de la identidad administrada que se usa para conceder acceso basado en roles a los recursos de Azure.
-- **Azure Instance Metadata Service (IMDS)**: un punto de conexión de REST al que pueden acceder todas las máquinas virtuales IaaS creadas mediante Azure Resource Manager. El punto de conexión está disponible en una dirección IP no enrutable conocida (169.254.169.254) a la que se puede acceder solo desde dentro de la máquina virtual.
+- **Azure Instance Metadata Service (IMDS)** : un punto de conexión de REST al que pueden acceder todas las máquinas virtuales IaaS creadas mediante Azure Resource Manager. El punto de conexión está disponible en una dirección IP no enrutable conocida (169.254.169.254) a la que se puede acceder solo desde dentro de la máquina virtual.
 
 ## ¿Cómo funcionan las identidades administradas para los recursos de Azure?<a name="how-does-it-work"></a>
 

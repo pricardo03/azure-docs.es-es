@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1534bc65a369254802973d6c3b91ed8b76ed44e0
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: bb04d6c8b16a6b9bdbbb95b0b4f577cf4cc3ed86
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596562"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235074"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introducción a Data Science Virtual Machine de Azure para Linux y Windows
 
@@ -48,7 +48,7 @@ La exploración y el modelado de datos a gran escala o las competencias/hackatho
 
 ### <a name="custom-compute-power-for-azure-notebooks"></a>Capacidad de proceso personalizada para Azure Notebooks
 
-[Azure Notebooks](/azure/notebooks/azure-notebooks-overview.md) es un servicio hospedado gratuito para desarrollar, ejecutar y compartir cuadernos de Jupyter Notebook en la nube sin necesidad de instalación. El nivel de servicio gratuito, sin embargo, está limitado a 4 GB de memoria y 1 GB de datos. Para liberar todos los límites, debe asociar luego un proyecto de Notebooks a una instancia de Data Science Virtual Machine o a cualquier otra máquina virtual que ejecute el servidor de Jupyter. Si inicia sesión en Azure Notebooks con una cuenta mediante Azure Active Directory (por ejemplo, una cuenta corporativa), se muestran automáticamente las instancias de Data Science Virtual Machine en las suscripciones asociadas a esa cuenta. Para más información, consulte [Administración y configuración de proyectos: nivel de proceso](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+[Azure Notebooks](/azure/notebooks/azure-notebooks-overview) es un servicio hospedado gratuito para desarrollar, ejecutar y compartir cuadernos de Jupyter Notebook en la nube sin necesidad de instalación. El nivel de servicio gratuito, sin embargo, está limitado a 4 GB de memoria y 1 GB de datos. Para liberar todos los límites, debe asociar luego un proyecto de Notebooks a una instancia de Data Science Virtual Machine o a cualquier otra máquina virtual que ejecute el servidor de Jupyter. Si inicia sesión en Azure Notebooks con una cuenta mediante Azure Active Directory (por ejemplo, una cuenta corporativa), se muestran automáticamente las instancias de Data Science Virtual Machine en las suscripciones asociadas a esa cuenta. Para más información, consulte [Administración y configuración de proyectos: nivel de proceso](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Evaluación y experimentación a corto plazo
 La máquina virtual de ciencia de datos puede usarse para evaluar o aprender herramientas como Microsoft ML Server, SQL Server, herramientas de Visual Studio, Jupyter, aprendizaje profundo/kits de herramientas de ML y nuevas herramientas conocidas de la comunidad con el mínimo esfuerzo de instalación. Puesto que Data Science Virtual Machine se puede configurar rápidamente, se puede aplicar en otros escenarios de uso a corto plazo como la replicación de los experimentos publicados, la ejecución de demostraciones, el seguimiento de tutoriales en las sesiones en línea y los tutoriales de conferencia.

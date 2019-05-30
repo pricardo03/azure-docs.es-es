@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94fbcc1c29c1860642dda0afab6a1f10e719a05a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: e45b3b19821644142176c5c0cc7646c4643fe17c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962192"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235223"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados
 
@@ -178,7 +178,7 @@ Además, tiene que habilitar **Permitir actualizaciones en la barra de estado a 
 
 ### <a name="configure-seamless-sso"></a>Configuración del inicio de sesión único de conexión directa
 
-Para completar correctamente la combinación de Azure AD híbrido de los dispositivos de nivel inferior de Windows en un dominio administrado que utiliza la autenticación de paso a través o la sincronización de hash de contraseñas como su método de autenticación en la nube de Azure AD, también debe [configurar el inicio de sesión único de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). Si tiene problemas para configurar el SSO de conexión directa, consulte el artículo [Solución de problemas de inicio de sesión de conexión directa de Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso).
+Para completar correctamente la combinación de Azure AD híbrido de los dispositivos de nivel inferior de Windows en un dominio administrado que utiliza la autenticación de paso a través o la sincronización de hash de contraseñas como su método de autenticación en la nube de Azure AD, también debe [configurar el inicio de sesión único de conexión directa](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). Si tiene problemas para configurar el SSO de conexión directa, consulte el artículo [Solución de problemas de inicio de sesión de conexión directa de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso).
 
 
 ### <a name="control-windows-down-level-devices"></a>Control de dispositivos de Windows de nivel inferior 

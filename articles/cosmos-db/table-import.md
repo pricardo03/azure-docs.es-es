@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: a0d2927024dff78021d433b965bb6c0149236ddd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876824"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242584"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migración de los datos a una cuenta de Table API de Azure Cosmos DB
 
@@ -109,7 +109,7 @@ dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=
 
 ## <a name="migrate-data-by-using-azcopy"></a>Migración de datos mediante AzCopy
 
-La utilidad de línea de comandos AzCopy es la otra opción para migrar datos desde Azure Table Storage a Table API de Azure Cosmos DB. Para usar AzCopy, primero exporte los datos tal y como se describe en [Exportación de datos desde Table Storage](../storage/common/storage-use-azcopy.md#export-data-from-table-storage) y luego impórtelos a Azure Cosmos DB, según se describe en [Table API de Azure Cosmos DB](../storage/common/storage-use-azcopy.md#import-data-into-table-storage).
+La utilidad de línea de comandos AzCopy es la otra opción para migrar datos desde Azure Table Storage a Table API de Azure Cosmos DB. Para usar AzCopy, primero exporte los datos tal y como se describe en [Exportación de datos desde Table Storage](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#export-data-from-table-storage) y luego impórtelos a Azure Cosmos DB, según se describe en [Table API de Azure Cosmos DB](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#import-data-into-table-storage).
 
 Al realizar la importación en Azure Cosmos DB, consulte el ejemplo siguiente. Tenga en cuenta que el valor /Dest utiliza cosmosdb, no el básico.
 

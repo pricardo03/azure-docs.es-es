@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6a03707246f27bcba9cc46168ec04893b7bbc4c3
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0d27eef8ee2c70449bacaced0de89bdc5e6989ff
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990792"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357810"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Uso de condiciones en plantillas de Azure Resource Manager
 
@@ -39,7 +39,7 @@ En este tutorial se describen las tareas siguientes:
 Este tutorial solo trata de un escenario básico de condiciones de uso. Para más información, consulte:
 
 * [Estructura de archivos de plantilla: Condición](./resource-group-authoring-templates.md#condition).
-* [Implementación condicional de un recurso en una plantilla de Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy.md).
+* [Implementación condicional de un recurso en una plantilla de Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Función de plantilla: If](./resource-group-template-functions-logical.md#if).
 * [Funciones de comparación para las plantillas de Azure Resource Manager](./resource-group-template-functions-comparison.md)
 

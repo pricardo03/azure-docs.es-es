@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 0f2b45685d2976c567c16666e2ca89d334914b63
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: eff827937adbae7cfdfdd86392593df8d698053c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417300"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241816"
 ---
 # <a name="create-and-publish-a-product"></a>Crear y publicar un producto  
 
@@ -36,8 +36,8 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 + Conocer la [terminología de API Management de Azure](api-management-terminology.md).
-+ Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-+ Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
++ Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
++ Además, realice el siguiente tutorial: [Importación y publicación de la primera API](import-and-publish.md).
 
 ## <a name="create-and-publish-a-product"></a>Crear y publicar un producto
 
@@ -86,7 +86,7 @@ Los desarrolladores tienen que suscribirse primero a un producto para acceder a 
 4. Elija una API y haga clic en **Seleccionar**.
 
 > [!TIP]
-> Puede crear o actualizar la suscripción del usuario para un *producto* con claves de suscripción personalizadas [mediante la API REST](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate) o un comando de PowerShell.
+> Puede crear o actualizar la suscripción del usuario para un *producto* con claves de suscripción personalizadas [mediante la API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate) o un comando de PowerShell.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

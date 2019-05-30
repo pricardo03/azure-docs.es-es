@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e811d1f7fb84e2539ba9daea3eea13f5e028f997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389566"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241384"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Creación de plantillas vinculadas de Azure Resource Manager
 
@@ -89,7 +89,7 @@ La plantilla vinculada crea una cuenta de almacenamiento. La plantilla vinculada
 2. Se han realizado los siguientes cambios:
 
     * Quite todos los parámetros excepto **location**.
-    * Agregue un parámetro llamado **storageAccountName**. 
+    * Agregue un parámetro llamado **storageAccountName**.
         ```json
         "storageAccountName":{
           "type": "string",
@@ -99,7 +99,7 @@ La plantilla vinculada crea una cuenta de almacenamiento. La plantilla vinculada
         },
         ```
         El nombre y la ubicación de la cuenta de almacenamiento se pasan como parámetros de la plantilla principal a la plantilla vinculada.
-        
+
     * Quite el elemento **variables** y todas las definiciones de variable.
     * Quite todos los recursos, excepto la cuenta de almacenamiento. Puede quitar un total de cuatro recursos.
     * Actualice el valor del elemento **name** del recurso de la cuenta de almacenamiento con:
@@ -109,7 +109,7 @@ La plantilla vinculada crea una cuenta de almacenamiento. La plantilla vinculada
         ```
 
     * Actualice el elemento **outputs** para que tenga este aspecto:
-    
+
         ```json
         "outputs": {
           "storageUri": {
@@ -272,7 +272,7 @@ La plantilla principal se llama azuredeploy.json.
     Ponga atención a estos detalles:
 
     * Un recurso `Microsoft.Resources/deployments` en la plantilla principal se usa para vincular a otra plantilla.
-    * El recurso `deployments` tiene un nombre llamado `linkedTemplate`. Este nombre de usa para [configurar la dependencia](#configure-dependency).  
+    * El recurso `deployments` tiene un nombre llamado `linkedTemplate`. Este nombre de usa para [configurar la dependencia](#configure-dependency).
     * Solo puede usar el modo de implementación [incremental](./deployment-modes.md) al llamar a las plantillas vinculadas.
     * `templateLink/uri` contiene el URI de la plantilla vinculada. Actualice el valor con el URI que obtiene al cargar la plantilla vinculada (la que tiene un token de SAS).
     * Use `parameters` para pasar valores desde la plantilla principal a la plantilla vinculada.
@@ -305,7 +305,7 @@ Como la cuenta de almacenamiento ahora se define en la plantilla vinculada, debe
 
     ![Las plantillas vinculadas de Azure Resource Manager configuran la dependencia](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    *linkedTemplate* es el nombre del recurso de implementaciones.  
+    *linkedTemplate* es el nombre del recurso de implementaciones.
 3. Actualice **properties/diagnosticsProfile/bootDiagnostics/storageUri** tal y como se muestra en la captura de pantalla anterior.
 4. Guarde la plantilla modificada.
 
@@ -334,4 +334,4 @@ Para mejorar el proyecto, efectúe los siguientes cambios adicionales en el proy
 En este tutorial, ha dividido una plantilla en una plantilla principal y una plantilla vinculada. Para aprender a usar extensiones de máquina virtual para realizar tareas posteriores a la implementación, consulte:
 
 > [!div class="nextstepaction"]
-> [Implementación de extensiones de máquina virtual](./deployment-manager-tutorial.md)
+> [Implementación de extensiones de máquina virtual](./resource-manager-tutorial-deploy-vm-extensions.md)
