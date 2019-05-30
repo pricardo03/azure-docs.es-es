@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 069b3fe89183d7897cea39e2a8a1fe1bbed80bb0
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.date: 05/29/2019
+ms.openlocfilehash: 168a73ced039b9bced9a6aae6a138468b345b19d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556348"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391680"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Uso de Enterprise Security Package en HDInsight
 
@@ -21,7 +21,7 @@ El clúster de Azure HDInsight estándar es de un único usuario. Es apropiado p
 
 Muchas empresas han migrado a un modelo en el que los equipos de TI administran los clústeres y varios equipos de aplicaciones los comparten. Estas empresas más grandes necesitan acceso multiusuario a cada clúster de Azure HDInsight.
 
-HDInsight se basa en un proveedor de identidades conocido (Active Directory) de una manera administrada. Mediante la integración de HDInsight con [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), puede acceder a los clústeres con sus credenciales de dominio. 
+HDInsight se basa en un proveedor de identidades conocido (Active Directory) de una manera administrada. Mediante la integración de HDInsight con [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/overview.md), puede acceder a los clústeres con sus credenciales de dominio. 
 
 Las máquinas virtuales (VM) de HDInsight están unidas al dominio proporcionado. De este modo, todos los servicios que se ejecutan en HDInsight (Apache Ambari, servidor de Apache Hive, Apache Ranger, servidor Thrift de Apache Spark, etc.) funcionan perfectamente para el usuario autenticado. Los administradores pueden crear entonces directivas de autorización seguras con Apache Ranger para proporcionar control de acceso basado en rol para los recursos del clúster.
 
@@ -45,7 +45,7 @@ En resumen, es necesario configurar un entorno con:
 HDInsight actualmente solo admite Azure AD DS como el controlador de dominio principal que el clúster usa para la comunicación de Kerberos. Pero hay otras configuraciones complejas de Active Directory que son posibles, siempre que dicha configuración lleve a habilitar Azure AD DS para el acceso de HDInsight.
 
 ### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services
-[Azure AD DS](../../active-directory-domain-services/active-directory-ds-overview.md) proporciona un dominio administrado que es totalmente compatible con Windows Server Active Directory. Microsoft se encarga de administrar y supervisar el dominio, y de aplicarle los parches, en una configuración de alta disponibilidad (HA). Puede implementar el clúster sin preocuparse por mantener los controladores de dominio. 
+[Azure AD DS](../../active-directory-domain-services/overview.md) proporciona un dominio administrado que es totalmente compatible con Windows Server Active Directory. Microsoft se encarga de administrar y supervisar el dominio, y de aplicarle los parches, en una configuración de alta disponibilidad (HA). Puede implementar el clúster sin preocuparse por mantener los controladores de dominio. 
 
 Los usuarios, los grupos y las contraseñas se sincronizan desde Azure AD. La sincronización unidireccional desde la instancia de Azure AD a Azure AD DS permite que los usuarios inicien sesión en el clúster con las mismas credenciales corporativas. 
 

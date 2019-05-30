@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cc74bfe9bf9e5f33b7cf05ebb19b44ab8b3bea43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee64d25afcb2be73bed26c6c4dec87f216a0fd82
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60822431"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383868"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Captura de eventos a través de Azure Event Hubs en Azure Blob Storage o Azure Data Lake Storage
 Azure Event Hubs permite capturar automáticamente los datos de streaming de Event Hubs de la cuenta de [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) o [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) que prefiera, con la flexibilidad agregada de poder especificar un intervalo de tiempo o de tamaño. La configuración de Capture es rápida, su ejecución no tiene costes administrativos y se escala automáticamente con las [unidades de procesamiento](event-hubs-features.md#throughput-units) de Event Hubs. El uso de Event Hubs Capture constituye la forma más sencilla de cargar datos de streaming en Azure y permite centrarse en el procesamiento de datos, en lugar de en su captura.
@@ -155,7 +155,7 @@ Para más información acerca de Event Hubs, visite los vínculos siguientes:
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
-[Avro Tools]: https://www-us.apache.org/dist/avro/avro-1.8.2/java/avro-tools-1.8.2.jar
+[Avro Tools]: https://www-us.apache.org/dist/avro/avro-1.9.0/java/avro-tools-1.9.0.jar
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

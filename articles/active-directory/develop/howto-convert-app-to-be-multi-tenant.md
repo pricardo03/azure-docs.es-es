@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68973d3a88791bcfffc8183f5e3a16975fe15742
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2e6a5ecd704aabb4994337cb7b7df9e84677348d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540458"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235278"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedimientos para: Inicio de sesión de cualquier usuario de Azure Active Directory mediante el patrón de aplicación multiinquilino
 
@@ -45,7 +45,7 @@ Vamos a examinar cada paso con detalle. También puede ir directamente a [esta l
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Actualización del registro para que sea multiempresa
 
-De forma predeterminada, los registros de API y de aplicación web en Azure son de un solo inquilino. Para convertir su registro en multiempresa, busque el modificador **Multiempresa** en el panel **Propiedades** del registro de la aplicación en [Azure Portal][AZURE-portal] y establézcalo en **Sí**.
+De forma predeterminada, los registros de API y de aplicación web en Azure son de un solo inquilino. Puede convertir el registro de varios inquilinos, busque el **admite tipos de cuenta** activar el **autenticación** panel de su registro de la aplicación en el [deAzureportal] [ AZURE-portal] y estableciéndolo en **cuentas en el directorio de cualquier organización**.
 
 Para que la aplicación pueda convertirse en multiempresa, Azure AD requiere que el URI de id. de aplicación sea único a nivel global. El URI de id. de aplicación es una de las maneras en que una aplicación se identifica en los mensajes de protocolo. Cuando la aplicación es de un solo inquilino, es suficiente con que el URI de id. de aplicación sea único en dicho inquilino. En el caso de una aplicación multiempresa, debe ser único a nivel global de forma que Azure AD pueda encontrar la aplicación entre todos los inquilinos. El carácter globalmente único viene impuesto por la necesidad de que el URI de id. de aplicación tenga un nombre de host que coincida con un dominio comprobado del inquilino de Azure AD.
 
@@ -150,7 +150,7 @@ Esto se demuestra en un ejemplo de llamada a la API web de un cliente nativo de 
 
 Un caso parecido tiene lugar si los diferentes niveles de una aplicación se registran en distintos inquilinos. Por ejemplo, considere el caso de la creación de una aplicación cliente nativa que llama a la API de Office 365 Exchange Online. Para desarrollar la aplicación nativa y, más tarde, para que se ejecute en el inquilino de un cliente, la entidad de servicio de Exchange Online debe existir. En este caso, el desarrollador y el cliente tienen que comprar Exchange Online para que la entidad de servicio se cree en sus inquilinos.
 
-Si es una API creada por una organización que no sea de Microsoft, el desarrollador de la API debe proporcionar una forma de sus clientes dar su consentimiento a la aplicación en los inquilinos de sus clientes. Es el diseño recomendado para que el desarrollador de terceros compilar la API de forma que también puede funcionar como un cliente web para implementar el registro. Para ello:
+Si es una API creada por una organización que no sea de Microsoft, el desarrollador de la API debe proporcionar una forma de sus clientes dar su consentimiento a la aplicación en los inquilinos de sus clientes. Es el diseño recomendado para que el desarrollador de terceros compilar la API de forma que también puede funcionar como un cliente web para implementar el registro. Para ello, siga estos pasos:
 
 1. Consulte las secciones anteriores para asegurarse de que la API implementa los requisitos de código y el registro de aplicaciones multiempresa.
 2. Además de exponer los roles y ámbitos de la API, asegúrese de que el registro incluye el "iniciar sesión y leer el perfil de usuario" permiso (proporcionado por el valor predeterminado).

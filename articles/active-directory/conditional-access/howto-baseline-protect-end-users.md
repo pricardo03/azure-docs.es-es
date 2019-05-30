@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cd52fb82e5e4cce759be5dfdd8872f64802459
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 104665774eee885cc2f562e9813cffcf23aa943e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003167"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235502"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Directiva de línea de base: Protección del usuario final (versión preliminar)
 
@@ -75,11 +75,11 @@ Esta directiva de línea de base proporciona la opción de excluir a los usuario
 
 La directiva **directiva de línea base: Protección del usuario final (versión preliminar)** viene previamente configurada y se mostrarán en la parte superior cuando vaya a la hoja de acceso condicional en Azure portal.
 
-Para habilitar esta directiva y proteger a los administradores:
+Para habilitar esta directiva y proteger a los usuarios:
 
 1. Inicie sesión en el **portal Azure** como administrador global, Administrador de seguridad o administrador de acceso condicional.
 1. Vaya a **Azure Active Directory** > **acceso condicional**.
-1. En la lista de directivas, seleccione **directiva de línea base: Protección del usuario final (versión preliminar)**.
+1. En la lista de directivas, seleccione **directiva de línea base: Protección del usuario final (versión preliminar)** .
 1. Establecer **Habilitar directiva** a **usar la directiva inmediatamente**.
 1. Agregar exclusiones de cualquier usuario haciendo clic en **usuarios** > **Seleccionar usuarios excluidos** y elegir los usuarios que deben excluirse. Haga clic en **seleccione** , a continuación, **realiza**.
 1. Haga clic en **guardar**.

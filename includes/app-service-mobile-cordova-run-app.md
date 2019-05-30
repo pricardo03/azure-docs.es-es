@@ -2,31 +2,35 @@
 author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
-ms.date: 08/23/2018
+ms.date: 05/06/2019
 ms.author: crdun
-ms.openlocfilehash: 3217383b105c022aef42d8000f3a41cefea542fe
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 8d7731480b6239c572d39f52b6a0217d2ac48d25
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66140906"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240222"
 ---
-1. Visite [Azure Portal].
-2. Haga clic en **App Services** > el back-end que ha creado.
-3. En la configuración de la aplicación de móvil, haga clic en **Inicio rápido** > **Cordova**.
-![Azure Portal con inicio rápido de Mobile Apps resaltado][quickstart]
-4. En **Configurar la aplicación cliente**, seleccione **Crear aplicación nueva** y, a continuación, haga clic en **Descargar**.
-2. Desempaquete el archivo ZIP descargado en un directorio del disco duro, vaya al archivo de la solución (.sln) y ábralo con Visual Studio.
-3. En Visual Studio, elija la plataforma de la solución (Android, iOS o Windows) en la lista desplegable situada junto a la flecha de inicio. Para seleccionar un dispositivo de implementación o un emulador específicos, haga clic en la lista desplegable de la flecha verde. Puede usar la plataforma Android y el emulador Rippler predeterminados. Para tutoriales más avanzados (por ejemplo, las notificaciones de inserción), deberá seleccionar un dispositivo o emulador compatibles.
-4. Presione F5 o haga clic en la flecha verde para compilar y ejecutar su aplicación Cordova. Si ve en el emulador un cuadro de diálogo de seguridad que solicita el acceso a la red, acéptelo.
-5. Una vez que la aplicación se inicia en el dispositivo o emulador, escriba texto significativo en **Enter new text** (Escriba el nuevo texto), como *Completar el tutorial* y haga clic en el botón **Add** (Agregar).
+1. Navegue hasta el archivo de solución en el proyecto de cliente (.sln) y ábralo con Visual Studio.
+
+2. En Visual Studio, elija la plataforma de la solución (Android, iOS o Windows) en la lista desplegable situada junto a la flecha de inicio. Para seleccionar un dispositivo de implementación o un emulador específicos, haga clic en la lista desplegable de la flecha verde. Puede usar la plataforma Android y el emulador Rippler predeterminados. Para tutoriales más avanzados (por ejemplo, las notificaciones de inserción), deberá seleccionar un dispositivo o emulador compatibles.
+
+3. Abra el archivo `ToDoActivity.java` en esta carpeta - ZUMOAPPNAME/aplicación/src/main/java/com/ejemplo/zumoappname. Es el nombre de la aplicación `ZUMOAPPNAME`.
+
+4. Vaya a la [portal Azure](https://portal.azure.com/) y vaya a la aplicación móvil que ha creado. En el `Overview` hoja, busque la dirección URL que es el punto de conexión público para la aplicación móvil. Por ejemplo, será el nombre del sitio para el nombre de mi aplicación "test123" https://test123.azurewebsites.net.
+
+5. Vaya a la `index.js` archivo ZUMOAPPNAME/www/js/index.js y en `onDeviceReady()` método, reemplace `ZUMOAPPURL` parámetro con el punto de conexión público anterior.
+
+    `client = new WindowsAzure.MobileServiceClient('ZUMOAPPURL');`
+    
+    se convierte en
+    
+    `client = new WindowsAzure.MobileServiceClient('https://test123.azurewebsites.net');`
+    
+6. Presione F5 o haga clic en la flecha verde para compilar y ejecutar su aplicación Cordova. Si ve en el emulador un cuadro de diálogo de seguridad que solicita el acceso a la red, acéptelo.
+
+7. Después de la aplicación se inicia en el dispositivo o emulador, escriba un texto significativo en **escriba el nuevo texto**, tales como *completar el tutorial* y, a continuación, haga clic en el **agregar** botón.
 
 El back-end inserta datos de la solicitud en la tabla TodoItem de SQL Database y devuelve información acerca de los elementos recién almacenados a la aplicación móvil. La aplicación móvil muestra estos datos en la lista.
 
 Puede repetir los pasos del 3 al 5 para otras plataformas.
-
-<!-- Images. -->
-[quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
-
-<!-- URLs -->
-[Azure Portal]: https://portal.azure.com/

@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7cb8d494d32f2a9c192418bfab2d5ca9b679c5fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5517bb59d168ffa8d9339d9e765c385cef6db4ce
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704992"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389488"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Supervisión de la identidad y el acceso en Azure Security Center (Versión preliminar)
 Este artículo le ayuda a usar Azure Security Center para supervisar la identidad y la actividad de acceso del usuario.
+
+> [!NOTE]
+> La "vista *clásico* identidad y acceso" vínculo se retirará el 31 de julio de 2019. Haga clic en [aquí](security-center-features-retirement-july2019.md#menu_classicidentity) para obtener información sobre servicios alternativos.
 
 > [!NOTE]
 > La supervisión de la identidad y el acceso se encuentra en versión preliminar y solo está disponible en el nivel estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
@@ -115,8 +118,8 @@ Use la tabla siguiente como referencia para ayudarle a conocer las recomendacion
 |Subscription|30|Quitar las cuentas externas con permisos de propietario de la suscripción|Elimine las cuentas externas con permisos de propietario de la suscripción a fin de evitar el acceso no supervisado. |
 |Subscription|30|Habilitar MFA para las cuentas de la aplicación de administración de Azure con permisos de lectura en la suscripción|Habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de lectura para evitar una vulneración de las cuentas o recursos.|
 |Subscription|25|Quitar las cuentas externas con permisos de escritura de la suscripción|Elimine las cuentas externas con permisos de escritura de la suscripción a fin de evitar el acceso no supervisado. |
-|Subscription|20|Quitar de la suscripción las cuentas en desuso con permisos de propietario|Quite de la suscripción las cuentas en desuso con permisos de propietario.|
-|Subscription|5|Quitar las cuentas en desuso de la suscripción|Quite las cuentas en desuso de sus suscripciones para habilitar el acceso a solo los usuarios actuales. |
+|Subscription|20|Quitar de la suscripción las cuentas en desuso con permisos de propietario|Quite de la suscripción las cuentas en desuso con permisos de propietario. Las cuentas en desuso son las cuentas para el que iniciar sesión se ha bloqueado en Azure AD.|
+|Subscription|5|Quitar las cuentas en desuso de la suscripción|Quite las cuentas en desuso de sus suscripciones para habilitar el acceso a solo los usuarios actuales. Las cuentas en desuso son las cuentas para el que iniciar sesión se ha bloqueado en Azure AD.|
 |Subscription|5|Designar a más de un propietario en la suscripción|Designe a más de un propietario de la suscripción para tener redundancia de acceso de administrador.|
 |Subscription|5|Designar a un máximo de 3 propietarios en la suscripción|Designe a un máximo de 3 propietarios de suscripción para reducir el riesgo de vulneración por parte de un propietario en peligro.|
 |Almacén de claves|5|Habilitar los registros de diagnóstico en Key Vault|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |

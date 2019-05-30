@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c80e9953a24504c4ad324ce077b741e60a52b1fb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 215b839c21c2590c08ac2f4250086eaf97914ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65908017"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243708"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticación de usuario final con Azure Data Lake Storage Gen1 mediante el SDK de .NET.
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticaci
 ## <a name="end-user-authentication"></a>Autenticación de usuario final
 Agregue este fragmento de código a su aplicación cliente .NET. Reemplace los valores de marcador de posición por los valores recuperados de una aplicación nativa de Azure AD (se enumera como requisito previo). Este fragmento de código le permite autenticar la aplicación **de manera interactiva** con Data Lake Store Gen1, lo que significa que se le pedirá que escriba sus credenciales de Azure.
 
-Para facilitar su uso, el siguiente fragmento de código emplea valores predeterminados para el identificador de cliente y un URI de redirección que son válidos con cualquier suscripción de Azure. En el siguiente fragmento de código, solo es necesario proporcionar el valor del identificador del inquilino. Puede recuperar el identificador del inquilino siguiendo las instrucciones proporcionadas en [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+Para facilitar su uso, el siguiente fragmento de código emplea valores predeterminados para el identificador de cliente y un URI de redirección que son válidos con cualquier suscripción de Azure. En el siguiente fragmento de código, solo es necesario proporcionar el valor del identificador del inquilino. Puede recuperar el identificador del inquilino siguiendo las instrucciones proporcionadas en [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
     
 - Reemplace la función Main() por el siguiente contenido:
 

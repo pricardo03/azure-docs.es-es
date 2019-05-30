@@ -7,14 +7,14 @@ manager: barbkess
 editor: ''
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 05/24/2019
 ms.author: barclayn
-ms.openlocfilehash: 9346f3f9bd9395ac863af87d05724a76ae83fb2f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dba1fe91a635f467f4a3aeeaa048897065822869
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702323"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236636"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Redundancia y disponibilidad de Azure Key Vault
 
@@ -25,6 +25,8 @@ El contenido del almacén de claves se replica dentro de la región y en una reg
 Si se produce un error en algún componente individual dentro del servicio del almacén de claves, los componentes alternativos de la región se encargan de atender la solicitud para garantizar que no se pierde funcionalidad. No es necesario realizar ninguna acción para ello. Se lleva a cabo automáticamente y es transparente para el programador.
 
 En el caso excepcional de que toda una región de Azure pase a estar no disponible, las solicitudes efectuadas a Azure Key Vault de esa región se enrutarán automáticamente (un proceso conocido como *conmutación por error*) a una región secundaria. Cuando la región primaria vuelva a estar disponible, las solicitudes se enrutarán a ella nuevamente (*conmutación por recuperación*). Conviene insistir en que no es necesaria ninguna acción, ya que este proceso se realiza automáticamente.
+
+En este diseño de alta disponibilidad, Azure Key Vault no requiere ningún tiempo de inactividad para las actividades de mantenimiento.
 
 Hay algunas advertencias que deben tenerse en cuenta:
 

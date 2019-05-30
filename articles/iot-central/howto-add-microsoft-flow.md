@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467974"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235802"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Creación de flujos de trabajo con el conector de IoT Central en Microsoft Flow
 
@@ -41,7 +41,7 @@ En esta sección se muestra cómo desencadenar una notificación móvil en la ap
 
     ![Crear una acción de Microsoft Flow](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. Verá una lista de flujos de trabajo tha tienen acceso a y se adjuntan a esta regla IoT Central. Haga clic en **Explore plantillas** o **nuevo > crear desde plantilla** y puede elegir entre cualquiera de las plantillas disponibles. 
+1. Verá una lista de flujos de trabajo que tienen acceso a y se adjuntan a esta regla IoT Central. Haga clic en **Explore plantillas** o **nuevo > crear desde plantilla** y puede elegir entre cualquiera de las plantillas disponibles. 
 
     ![Plantillas disponibles de Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates1.png)
 

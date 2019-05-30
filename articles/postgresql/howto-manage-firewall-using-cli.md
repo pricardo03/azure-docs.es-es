@@ -1,20 +1,20 @@
 ---
-title: Creación y administración de reglas de firewall de Azure Database for PostgreSQL mediante la CLI de Azure
-description: En este artículo se describe cómo crear y administrar reglas de firewall de Azure Database for PostgreSQL mediante la línea de comandos de Azure.
+title: 'Crear y administrar reglas de firewall en Azure Database for PostgreSQL: solo servidor mediante la CLI de Azure'
+description: 'En este artículo se describe cómo crear y administrar reglas de firewall en Azure Database for PostgreSQL: solo servidor mediante la línea de comandos de CLI de Azure.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: 9a96361d3fb155ea5b400990690e3c2b1f65f819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 03b1c215994e4089ad0aed4eac3868b05c564c4c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422379"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067532"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Creación y administración de reglas de firewall de Azure Database for PostgreSQL mediante la CLI de Azure
+# <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Crear y administrar reglas de firewall en Azure Database for PostgreSQL: solo servidor mediante la CLI de Azure
 Las reglas de firewall de nivel de servidor pueden usarse para administrar el acceso a una base de datos de Azure para PostgreSQL Server desde una dirección IP específica o intervalo de direcciones IP. Con los comandos de la CLI de Azure adecuados, puede crear, actualizar, eliminar, enumerar y mostrar reglas de firewall para administrar el servidor. Para obtener información general de la base de datos de Azure PostgreSQL para reglas de firewall, consulte [base de datos de Azure para las reglas de firewall del servidor PostgreSQL](concepts-firewall-rules.md).
 
 Reglas virtuales Network (VNet) también pueden usarse para proteger el acceso a su servidor. Obtenga más información sobre [reglas mediante la CLI de Azure y los puntos de conexión de servicio creación y administración de red Virtual](howto-manage-vnet-using-cli.md).

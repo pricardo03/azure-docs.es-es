@@ -5,17 +5,17 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3773a3e121c3b0162b83ea075601b7386228e4d5
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876193"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067611"
 ---
-# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de métricas con umbrales dinámicos in Azure Monitor (versión preliminar pública)
+# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métricas con umbrales dinámicos en Azure Monitor
 
 La alerta de métricas con detección de umbrales dinámicos aprovecha el aprendizaje automático avanzado para obtener información acerca del comportamiento histórico de las métricas e identificar patrones y anomalías que indican problemas posibles para los servicios. Proporciona soporte técnico tanto de una interfaz de usuario simple como de operaciones a escala, ya que permite a los usuarios configurar reglas de alerta a través de la API de Azure Resource Manager de forma totalmente automática.
 
@@ -64,7 +64,7 @@ Puede elegir que la alerta que se va a desencadenar en una de las tres condicion
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>¿Qué significa la configuración avanzada de los umbrales dinámicos?
 
-**Períodos de error**: los umbrales dinámicos también permiten configurar el número de infracciones necesarias para que se desencadene, que es el número mínimo de desviaciones requeridas en un período concreto para que el sistema genere una alerta (el valor predeterminado es cuatro desviaciones en 20 minutos). El usuario puede configurar los períodos de error y elegir los motivos por los que va a recibir alertas. Para ello solo debe cambiar los períodos de error y el período de tiempo. Esta capacidad reduce el ruido de las alertas que generan los picos transitorios. Por ejemplo: 
+**Períodos de error**: los umbrales dinámicos también permiten configurar el número de infracciones necesarias para que se desencadene, que es el número mínimo de desviaciones requeridas en un período concreto para que el sistema genere una alerta (el valor predeterminado es cuatro desviaciones en 20 minutos). El usuario puede configurar los períodos de error y elegir los motivos por los que va a recibir alertas. Para ello solo debe cambiar los períodos de error y el período de tiempo. Esta capacidad reduce el ruido de las alertas que generan los picos transitorios. Por ejemplo:
 
 Para desencadenar una alerta cuando el problema es continuo durante 20 minutos, 4 veces consecutivas en un período dado de 5 minutos, utilice la siguiente configuración:
 
@@ -116,7 +116,7 @@ Los elementos siguientes son procedimientos recomendados sobre cómo configurar 
 
 4. Una vez haya seleccionado un recurso de destino, haga clic en **Agregar condición**.
 
-5. Seleccione **"Porcentaje de CPU"**.
+5. Seleccione **"Porcentaje de CPU"** .
 
 6. De manera opcional, puede restringir la métrica ajustando **Período** y **Agregación**. No se recomienda usar el tipo de agregación "máxima" para este tipo de métrica ya que es menos representativo del comportamiento. Para el tipo de agregación "máxima", el umbral estático puede ser más adecuado.
 
@@ -153,7 +153,7 @@ Los elementos siguientes son procedimientos recomendados sobre cómo configurar 
 
 4. Una vez haya seleccionado un recurso de destino, haga clic en **Agregar condición**.
 
-5. Seleccione la opción **"Tiempo de ejecución de solicitud HTTP"**.
+5. Seleccione la opción **"Tiempo de ejecución de solicitud HTTP"** .
 
 6. De manera opcional, puede restringir la métrica ajustando **Período** y **Agregación**. No se recomienda usar el tipo de agregación "máxima" para este tipo de métrica ya que es menos representativo del comportamiento. Para el tipo de agregación "máxima", el umbral estático puede ser más adecuado.
 

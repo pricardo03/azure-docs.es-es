@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c100bd6815e003d49efcdca65b16d7efa35ac34
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610908"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234252"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servicios y tecnologías de seguridad disponibles en Azure
 
@@ -60,7 +60,7 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 | [Cifrado de conexión de&nbsp;Azure&nbsp;SQL](../sql-database/sql-database-control-access.md)|Para proporcionar seguridad, SQL Database controla el acceso con reglas de firewall que limitan la conectividad por dirección IP, con mecanismos de autenticación que requieren a los usuarios que demuestren su identidad y con mecanismos de autorización que limitan a los usuarios el acceso a datos y acciones específicos. |
 | [Always Encrypted (Database Engine)](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Protege la información confidencial, como números de tarjetas de crédito o números de identificación nacionales (por ejemplo, números de la seguridad social de EE. UU.), almacenados en bases de datos de Azure SQL Database o SQL Server.  |
 | [Cifrado de datos transparente de&nbsp;Azure&nbsp;SQL](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Característica de seguridad de base de datos que cifra el almacenamiento de una base de datos completa. |
-| [Introducción a la auditoría de SQL Database](../sql-database/sql-database-auditing.md)|Característica de auditoría de bases de datos que realiza un seguimiento de eventos de bases de datos y los escribe en un registro de auditoría de su cuenta de Azure Storage.  |
+| [Auditoría de Azure SQL Database](../sql-database/sql-database-auditing.md)|Característica de auditoría de bases de datos que realiza un seguimiento de eventos de bases de datos y los escribe en un registro de auditoría de su cuenta de Azure Storage.  |
 
 
 ## <a name="identity-and-access-management"></a>Administración de identidades y acceso
@@ -69,7 +69,7 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 | [Control de acceso&nbsp;basado en&nbsp;rol de&nbsp;Azure](../active-directory/role-based-access-control-configure.md)|Característica de control de acceso diseñada para que los usuarios accedan únicamente a los recursos necesarios en función de sus roles dentro de la organización.  |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)|Repositorio de autenticación basado en la nube que admite un directorio en la nube de varios inquilinos y varios servicios de administración de identidades en Azure.  |
 | [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)|Servicio de administración de identidades que permite controlar la manera en que los clientes se registran, inician sesión y administran sus perfiles al usar las aplicaciones de Azure.   |
-| [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)| Una versión en la nube y administrada de Active Directory Domain Services. |
+| [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)| Una versión en la nube y administrada de Active Directory Domain Services. |
 | [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)| Aprovisionamiento de seguridad que utiliza diferentes formas de autenticación y comprobación antes de permitir el acceso a información protegida. |
 
 ## <a name="backup-and-disaster-recovery"></a>Copia de seguridad y recuperación ante desastres

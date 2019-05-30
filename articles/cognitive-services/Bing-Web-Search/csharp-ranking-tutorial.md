@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: bking
-ms.openlocfilehash: 7c074d5d25453e2b2a1ddfc32422790235815f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6afaa2f497fa1a23d083c3ddd76359a49105732d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431164"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384837"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilación de un cliente de búsqueda de aplicación de consola en C#
 
@@ -38,7 +38,7 @@ Para seguir el tutorial, necesitará:
 
 Cree un proyecto en Visual Studio con `Ctrl`+`Shift`+`N`.
 
-En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C# > Escritorio clásico de Windows > Aplicación de consola (.NET Framework)**.
+En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C# > Escritorio clásico de Windows > Aplicación de consola (.NET Framework)** .
 
 Asigne a la aplicación el nombre **MyConsoleSearchApp** y haga clic en **Aceptar**.
 
@@ -221,7 +221,7 @@ Antes de mostrar cómo visualizar los resultados en orden de clasificación, ech
 }
 ```
 
-El objeto JSON `rankingResponse` ([documentación](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) describe el orden de presentación adecuado de los resultados de la búsqueda. Incluye uno o varios de los grupos clasificados por orden de prioridad siguientes:
+El objeto JSON `rankingResponse` ([documentación](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) describe el orden de presentación adecuado de los resultados de la búsqueda. Incluye uno o varios de los grupos clasificados por orden de prioridad siguientes:
 
 - `pole`: los resultados de la búsqueda para obtener el tratamiento más visible (por ejemplo, se muestran por encima de la línea principal y la barra lateral).
 - `mainline`: Los resultados de la búsqueda se muestran en la línea principal.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 59cb14c86963d956b0bd63f65b10776dff4aa97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ada62fbfa51604a6b3188c27d5c14da40c8ac116
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452728"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400203"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Ejemplos de inicio rápido de PowerShell de Azure Monitor
 En este artículo se muestran comandos de PowerShell de ejemplo para ayudarle a acceder a las características de Azure Monitor.
@@ -42,6 +42,11 @@ Verá una pantalla de inicio de sesión. Una vez que inicie sesión, se muestran
 Get-AzSubscription
 ```
 
+Para ver el contexto de trabajo (qué suscripción se ejecutan los comandos en), use el siguiente comando:
+
+```powershell
+Get-AzContext
+```
 Para cambiar el contexto de trabajo a una suscripción diferente, utilice el siguiente comando:
 
 ```powershell
@@ -50,18 +55,23 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log-for-a-subscription"></a>Recuperación del registro de actividades para una suscripción
-Utilice el cmdlet `Get-AzLog` .  A continuación se muestran algunos ejemplos comunes.
+Use la [Get AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet.  A continuación se muestran algunos ejemplos comunes. El registro de actividad contiene los últimos 90 días de operaciones. Uso de las fechas anteriores en este momento, se producirá en un mensaje de error.  
+
+Ver cuál es la fecha y hora actuales comprobar qué momento para usar en los siguientes comandos:
+```powershell
+Get-Date
+```
 
 Obtención de entradas de registro desde esta fecha y hora hasta la actual:
 
 ```powershell
-Get-AzLog -StartTime 2016-03-01T10:30
+Get-AzLog -StartTime 2019-03-01T10:30
 ```
 
 Obtención de entradas de registro entre un intervalo de fecha y hora:
 
 ```powershell
-Get-AzLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
+Get-AzLog -StartTime 2019-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
 Obtención de entradas de registro de un grupo de recursos específico:
@@ -85,13 +95,13 @@ Get-AzLog -Caller 'myname@company.com'
 El comando siguiente recupera los últimos 1000 eventos desde el registro de actividades:
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 10
 ```
 
 `Get-AzLog` es compatible con muchos otros parámetros. Consulte la referencia `Get-AzLog` para obtener más información.
 
 > [!NOTE]
-> `Get-AzLog` solo proporciona 15 días de historial. El parámetro **-MaxEvents** permite consultar los últimos eventos N más allá de 15 días. Para acceder a eventos de hace más de 15 días, use el SDK o la API de REST (ejemplo de C# usando el SDK). Si no incluye **StartTime**, el valor predeterminado será **EndTime** menos una hora. Si no incluye **EndTime**, el valor predeterminado será la hora actual. Todas las horas se muestran en UTC.
+> `Get-AzLog` solo proporciona 15 días de historial. Mediante el **- MaxRecords** parámetro le permite consultar los últimos eventos N más allá de 15 días. Para acceder a eventos de hace más de 15 días, use el SDK o la API de REST (ejemplo de C# usando el SDK). Si no incluye **StartTime**, el valor predeterminado será **EndTime** menos una hora. Si no incluye **EndTime**, el valor predeterminado será la hora actual. Todas las horas se muestran en UTC.
 > 
 > 
 
@@ -142,7 +152,7 @@ En la tabla siguiente se describen los parámetros y valores utilizados para cre
 
 | Parámetro | value |
 | --- | --- |
-| Name |simpletestdiskwrite |
+| NOMBRE |simpletestdiskwrite |
 | Ubicación (Location) de esta regla de alerta |Este de EE. UU |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |

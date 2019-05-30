@@ -12,12 +12,12 @@ ms.date: 05/03/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41dde1579fc98db37ab7d92ce362d0a4ce9a82cf
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 23e5fc24e426c87bbc5062183f2ee2db0e546484
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65824571"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388213"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiencias de usuario final para aplicaciones en Azure Active Directory
 Azure Active Directory (Azure AD) proporciona varias maneras personalizables para implementar aplicaciones para los usuarios finales de su organización:
@@ -48,7 +48,7 @@ Para obtener más información sobre el iniciador de aplicaciones de Office 365,
 ## <a name="direct-sign-on-to-federated-apps"></a>Inicio de sesión directo en aplicaciones federadas
 La mayoría de las aplicaciones federadas que admiten SAML 2.0, WS-Federation u OpenID Connect también tienen la capacidad de que los usuarios inicien la sesión en la aplicación y, después, lo hagan a través Azure AD, ya sea mediante el redireccionamiento automático o haciendo clic en un vínculo para iniciar la sesión. Esto se conoce como inicio de sesión por el proveedor de servicios y la mayoría de las aplicaciones federadas incluidas en la Galería de aplicaciones de Azure AD lo admiten (consulte la documentación vinculada desde el Asistente para la configuración de inicio de sesión único de la aplicación en Azure Portal para obtener más detalles).
 
-![](./media/end-user-experiences/workdaymobile.png)
+![Ejemplo de una página de inicio de sesión de aplicación móvil](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Vínculos directos de inicio de sesión
 Azure AD también admite vínculos directos de inicio de sesión único a las aplicaciones individuales que admiten el inicio de sesión con contraseña, el inicio de sesión único vinculado y cualquier forma de inicio de sesión único federado.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: c0d73b2e37046f75a1cea700d9099c5bbb5f6e0c
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: c849aadcd0fdc8f8ba071e3db5572e9e4c590e92
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170417"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66391397"
 ---
 Los tamaños de máquina virtual optimizada para GPU son máquinas virtuales especializadas con GPU de NVIDIA. Estos tamaños están diseñados para cargas de trabajo de proceso intensivo, uso intensivo de gráficos y visualización. En este artículo se proporciona información sobre el número y el tipo de GPU, vCPU, discos de datos y NIC. El ancho de banda de red y el rendimiento del almacenamiento también se incluyen para cada tamaño de esta agrupación. 
 
@@ -28,9 +28,9 @@ Los tamaños de máquina virtual optimizada para GPU son máquinas virtuales esp
 
 ## <a name="nc-series"></a>Serie NC
 
-Premium Storage:  No admitido
+Premium Storage:  No compatible
 
-Caching de Premium Storage:  No admitido
+Caching de Premium Storage:  No compatible
 
 Las VM de la serie NC disponen de una tarjeta [Tesla K80 de NVIDIA](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf). Los usuarios pueden trabajar con datos con mayor rapidez aprovechando CUDA para las aplicaciones de exploración de energía, simulaciones de accidentes, la representación de trazado de rayos, el aprendizaje profundo y mucho más. La configuración NC24r proporciona una interfaz de red de baja latencia y alto rendimiento optimizada para cargas de trabajo de computación paralelas estrechamente unidas.
 
@@ -110,7 +110,7 @@ La máquina virtual de la serie NDv2 es una nueva incorporación a la familia de
 
 | Tamaño              | vCPU | GPU              | Memoria  | NICs (Máx) | Máx. del disco           | Máx. Discos de datos (1023 GB cada uno) | Ancho de banda de red máx. | 
 |-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
-| Standard_ND40s_v2 | 40   | 8 V100 (NVLink) | 672 GiB | 8          | 1344 / 2948XIO temporal | 32                             | 24 000 Mbps           |
+| Standard_ND40s_v2 | 40   | 8 V100 (NVLink) | 672 GiB | 8          | 1344 / 2948XIO temporal | 32                             | 24000 Mbps           |
 
 ## <a name="nd-series"></a>Serie ND
 
@@ -137,9 +137,9 @@ Las máquinas virtuales de serie ND son una novedad incorporada a la familia GPU
 
 ## <a name="nv-series"></a>Serie NV
 
-Premium Storage:  No admitido
+Premium Storage:  No compatible
 
-Caching de Premium Storage:  No admitido
+Caching de Premium Storage:  No compatible
 
 Las máquinas virtuales de la serie NV dispone de tarjetas GPU [Tesla M60 de NVIDIA](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) y tecnología NVIDIA GRID para aplicaciones aceleradas de escritorio y escritorios virtuales donde los clientes pueden visualizar sus datos o simulaciones. Los usuarios pueden visualizar sus flujos de trabajo con muchos gráficos en las instancias de NV para obtener una excelente funcionalidad gráfica y ejecutar, además, cargas de trabajo de precisión únicas, como la codificación y la representación. 
 
@@ -165,9 +165,9 @@ Cada GPU en instancias de NVv3 viene con una licencia de la CUADRÍCULA. Esta li
 
 | Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | GPU | Memoria de GPU: GiB | Discos de datos máx. | Nº máx. NIC | Estaciones de trabajo virtuales | Aplicaciones virtuales | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6s_v3 | 12 | 112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
-| Standard_NV12s_v3 | 24 | 224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
-| Standard_NV24s_v3 | 48 | 448 |1280 | 4 | 32 | 32 | 8 | 4 | 100 |
+| Standard_NV12s_v3 | 12 | 112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
+| Standard_NV24s_v3 | 24 | 224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
+| Standard_NV48s_v3 | 48 | 448 |1280 | 4 | 32 | 32 | 8 | 4 | 100 |
 
 1 GPU = media tarjeta M60.
 

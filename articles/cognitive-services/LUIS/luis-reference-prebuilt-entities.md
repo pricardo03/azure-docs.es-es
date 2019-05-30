@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 05/29/2019
 ms.author: diberry
-ms.openlocfilehash: 96157511c0255774a64c0f64a333fe88a37f80d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 729d5d1c9ad21654fbd5923b9f3ffacc3b709ef0
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712700"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388784"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por la referencia cultural en el modelo de LUIS
 
@@ -65,7 +65,7 @@ Se admiten las siguientes entidades:
 ------|:------:|
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervalo de tiempo   |    -   | 
+[fecha y hora](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
 [Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -170,7 +170,7 @@ Se admiten las siguientes entidades:
 ------|:------:|
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervalo de tiempo   |    -   | 
+[fecha y hora](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
 [Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -191,7 +191,7 @@ Se admiten las siguientes entidades:
 ------|:------:|
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervalo de tiempo   |    -   | 
+[fecha y hora](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
 [Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -212,7 +212,7 @@ Se admiten las siguientes entidades:
 ------|:------:|
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervalo de tiempo   |    -   | 
+[fecha y hora](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    -   | 
 [Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 

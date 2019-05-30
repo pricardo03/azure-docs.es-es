@@ -12,33 +12,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2019
-ms.author: v-mohabe
-ms.openlocfilehash: cfe633c5251842257a0bef5237ea6b80aeaf05e9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: HT
+ms.date: 05/29/2019
+ms.author: monhaber
+ms.openlocfilehash: e7420adfe1608df39ef72124817f1d6dadf07db8
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968590"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400163"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>Seguridad avanzada de datos para servidores de SQL Server en IaaS
-Seguridad avanzada de datos para servidores de SQL Server en IaaS es un paquete unificado para funcionalidades avanzadas de seguridad SQL. Actualmente incluye funcionalidad para presentar y mitigar posibles vulnerabilidades de la base de datos y para detectar actividades anómalas que podrían indicar una amenaza para la base de datos.
+Seguridad avanzada de datos para servidores de SQL Server en Azure Virtual Machines es un paquete unificado para funcionalidades avanzadas de seguridad SQL. Actualmente incluye funcionalidad para presentar y mitigar posibles vulnerabilidades de la base de datos y para detectar actividades anómalas que podrían indicar una amenaza para la base de datos. 
 
-Esta oferta de IaaS SQL Server se basa en la misma tecnología fundamental que se usan en el [paquete de seguridad de datos avanzada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
+Esta oferta para los servidores SQL de las máquinas virtuales de Azure se basa en la misma tecnología fundamental que se usan en el [paquete de seguridad de datos avanzada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
 
 ## <a name="overview"></a>Información general
 
-Seguridad de datos avanzados (ADS) proporciona un conjunto de capacidades avanzadas de seguridad SQL, que consta de evaluación de vulnerabilidades y protección contra amenazas avanzada.
+Seguridad avanzada de datos proporciona un conjunto de capacidades avanzadas de seguridad SQL, que consta de evaluación de vulnerabilidades y protección contra amenazas avanzada.
 
 * [Evaluación de vulnerabilidades](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) es un servicio fácil de configurar que puede detectar, realizar un seguimiento y ayudarle a corregir posibles puntos vulnerables de una base de datos. Proporciona visibilidad sobre el estado de seguridad y que incluye los pasos para resolver problemas de seguridad y mejorar sus fortifications de base de datos.
 * [Protección contra amenazas avanzada](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a su servidor SQL server. Continuamente supervisa la base de datos para detectar actividades sospechosas y proporciona alertas de seguridad orientados a la acción de patrones de acceso de la base de datos anómalos. Estas alertas proporcionan los detalles de actividad sospechosa y las medidas recomendadas para investigar y mitigar la amenaza.
 
-## <a name="get-started-with-ads-for-iaas"></a>Empezar a trabajar con anuncios para IaaS
+## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Empezar a trabajar con seguridad avanzada de datos de SQL en Azure Virtual Machines
 
-Los pasos siguientes ayudarán a comenzar con anuncios de IaaS.
+Los pasos siguientes ayudarán a comenzar con seguridad avanzada de datos de SQL en Azure Virtual Machines.
 
-### <a name="set-up-ads-for-iaas"></a>Configuración de anuncios para IaaS
+### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Configuración de seguridad avanzada de datos para SQL en Azure Virtual Machines
 
 **Antes de comenzar**: Necesita un área de trabajo de Log Analytics para almacenar los registros de seguridad que se está analizados. Si no tiene uno, a continuación, puede crear uno fácilmente, como se explica en [crear un área de trabajo de Log Analytics en Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -72,7 +72,7 @@ Puede ver y administrar las alertas de seguridad actual.
 
 1. Para ver detalles de alertas y acciones para investigar la amenaza actual y protección frente a amenazas futuras, desplácese hacia abajo el **información General** página y en el **los pasos de corrección** sección, haga clic en el  **PASOS de investigación** vínculo.
 
-    ![Pasos para la corrección](./media/security-center-advanced-iaas-data/remediation-steps.png)
+    ![Pasos de corrección](./media/security-center-advanced-iaas-data/remediation-steps.png)
 
 1. Para ver los registros que están asociados con la activación de la alerta, vaya a **las áreas de trabajo de análisis de registro** y realice los pasos siguientes:
 
@@ -95,7 +95,7 @@ Puede ver y administrar las alertas de seguridad actual.
 
 Puede establecer una lista de destinatarios para recibir una notificación por correo electrónico cuando se generan alertas ASC. El correo electrónico contiene un vínculo directo a la alerta en Azure Security Center con todos los detalles pertinentes. 
 
-1. Vaya a **Security Center** > **directiva de seguridad** y en la fila de la suscripción correspondiente, haga clic en **Editar configuración >**.
+1. Vaya a **Security Center** > **directiva de seguridad** y en la fila de la suscripción correspondiente, haga clic en **Editar configuración >** .
 
     ![Configuración de la suscripción](./media/security-center-advanced-iaas-data/subscription-settings.png)
 
@@ -120,7 +120,7 @@ El panel de evaluación de vulnerabilidad proporciona información general de lo
 
 Puede ver los resultados de la evaluación de vulnerabilidad e informes directamente desde Log Analytics.
 
-1. Navegue hasta el área de trabajo de Log Analytics con la solución de ADS.
+1. Navegue hasta el área de trabajo de Log Analytics con la solución de seguridad avanzada de datos.
 1. Vaya a **soluciones** y seleccione el **evaluación de vulnerabilidad de SQL** solución.
 1. En el **resumen** panel, haga clic en **Ver resumen** y seleccione su **informe de evaluación de vulnerabilidad de SQL**.
 
@@ -142,7 +142,7 @@ Puede ver los resultados de la evaluación de vulnerabilidad e informes directam
 
 1. Puede ejecutar cualquier consulta de Log Analytics en los datos de resultados de evaluación de vulnerabilidad para segmentar y desglosar los datos según sus necesidades.
 
-## <a name="advanced-threat-protection-for-sql-servers-on-iaas-alerts"></a>Avanzada de protección contra amenazas para servidores SQL Server en IaaS alertas
+## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Avanzada de protección contra amenazas para servidores SQL Server en las alertas de máquinas virtuales de Azure
 Las alertas se generan con intentos inusuales y potencialmente dañinos de acceso o ataque a servidores SQL Server. Estos eventos pueden desencadenar las siguientes alertas:
 
 ### <a name="anomalous-access-pattern-alerts"></a>Alertas de patrón de acceso anómalos

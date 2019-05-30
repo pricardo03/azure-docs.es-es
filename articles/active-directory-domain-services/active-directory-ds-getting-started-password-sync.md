@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Habilitación de la sincronizaci
 description: Introducción a Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
-ms.author: ergreenl
-ms.openlocfilehash: ad905f93a8c4b03fd6ccc9edb93b52f23bcb2c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 734e4bad970229ea8eb770d586062b098e586353
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417492"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234891"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Habilitación de la sincronización de los valores hash de las contraseñas con Azure Active Directory Domain Services
 En las tareas anteriores, habilitó Azure Active Directory Domain Services para su inquilino de Azure Active Directory (Azure AD). La siguiente tarea consiste en habilitar la sincronización de los valores hash de las contraseñas necesarios para la autenticación NT LAN Manager (NTLM) y Kerberos en Azure AD Domain Services. Una vez configurada la sincronización de los valores hash de las contraseñas, los usuarios pueden iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
@@ -32,7 +32,7 @@ Los pasos necesarios son diferentes según se trate de cuentas de usuario solo d
 | **Tipo de cuenta de usuario.** | **Pasos que seguir** |
 | --- |---|
 | **Cuentas de usuario en la nube creadas en Azure AD** |**&#x2713;** [Siga las instrucciones de este artículo](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-hash-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |
-| **Cuentas de usuario sincronizadas desde un directorio local** |**&#x2713;**[Sincronización de los valores hash de las contraseñas de las cuentas de usuario sincronizadas desde la instancia local de AD con el dominio administrado](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
+| **Cuentas de usuario sincronizadas desde un directorio local** |**&#x2713;** [Sincronización de los valores hash de las contraseñas de las cuentas de usuario sincronizadas desde la instancia local de AD con el dominio administrado](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
 
 <br>
 
@@ -82,6 +82,6 @@ Unos minutos después de haber cambiado su contraseña, la nueva contraseña se 
 * [Actualización de la propia contraseña](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Introducción a la administración de contraseñas en Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Habilitación de la sincronización de los valores hash de las contraseñas con Azure Active Directory Domain Services para un inquilino de Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-* [Administración de un dominio administrado con Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)
+* [Administrar un dominio de Azure AD Domain Services](manage-domain.md)
 * [Join a Windows virtual machine to an Azure AD Domain Services managed domain (Unión de una máquina virtual Windows a un dominio administrado de Azure Active Directory Domain Services)](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain (Unión de una máquina virtual con Red Hat Enterprise Linux a un dominio administrado de Azure Active Directory Domain Services)](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

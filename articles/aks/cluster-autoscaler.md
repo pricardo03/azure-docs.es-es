@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: d5a287a8da884290e94e9ac1c864abe28e47d53d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 23922ec02f7406b5cbc482c938dbcf6a56cad6d7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508139"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234156"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Obtener una vista previa: escalado automático de un clúster para satisfacer las necesidades de aplicación en Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ Para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (A
 En este artículo se muestra cómo habilitar y administrar el escalado automático de clústeres en un clúster de AKS. Solo se debe probar el Escalador automático del clúster en versión preliminar en clústeres AKS con un grupo de nodo único.
 
 > [!IMPORTANT]
-> Características de versión preliminar AKS son autoservicio y participación. Las versiones preliminares se proporcionan para recopilar comentarios y los errores de nuestra comunidad. Sin embargo, no se admiten por soporte técnico de Azure. Si crea un clúster, o agregar estas características para clústeres existentes, ese clúster no se admite hasta que la característica ya no está en versión preliminar y se aprueba para disponibilidad general (GA).
+> Características de versión preliminar AKS son autoservicio, participación. Se proporcionan para recopilar comentarios y los errores de nuestra comunidad. En la vista previa, estas características no están diseñadas para su uso en producción. Características en versión preliminar pública se incluyen en el soporte técnico de "mejor esfuerzo". Asistencia de los equipos de soporte técnico de AKS está disponible durante el horario comercial del Pacífico (PST) solo timezone. Para obtener más información, consulte los siguientes artículos de soporte técnico:
 >
-> Si tiene problemas con las características de vista previa, [abra una incidencia en el repositorio de GitHub de AKS] [ aks-github] con el nombre de la característica de vista previa en el título del error.
+> * [Directivas de soporte técnico AKS][aks-support-policies]
+> * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -181,7 +182,8 @@ En este artículo le mostramos cómo escalar automáticamente el número de nodo
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[aks-github]: https://github.com/azure/aks/issues
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

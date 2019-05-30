@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 05/24/2019
 ms.author: iainfou
-ms.openlocfilehash: fd9695698f90a1efebb71a2b24a196dd8c911081
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 52b929d8caa7b855e45ce9ca57d39d1dfcbcb8a1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073886"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392702"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada en Azure Kubernetes Service (AKS)
 
@@ -31,11 +31,13 @@ También puede:
 
 En este artículo se usa Helm para instalar el controlador de entrada NGINX, cert-manager y una aplicación web de ejemplo. Debe tener Helm inicializado dentro del clúster de AKS y usar una cuenta de servicio para Tiller. Para más información sobre cómo configurar y usar Helm, consulte el artículo sobre la [instalación de aplicaciones con Helm en Azure Kubernetes Service (AKS)][use-helm].
 
-En este artículo también requiere que se está ejecutando la CLI de Azure versión 2.0.61 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
+En este artículo también requiere que se está ejecutando la CLI de Azure versión 2.0.64 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Crear un controlador de entrada
 
 Para crear el controlador de entrada, use `Helm` para instalar *nginx-ingress*. Para obtener redundancia adicional, se implementan dos réplicas de los controladores de entrada NGINX con el parámetro `--set controller.replicaCount`. Para sacar el máximo provecho de las réplicas en ejecución del controlador de entrada, asegúrese de que hay más de un nodo en el clúster de AKS.
+
+El controlador de entrada también debe programarse en un nodo de Linux. Los nodos de Windows Server (actualmente en versión preliminar de AKS) no deben ejecutar el controlador de entrada. Un selector de nodo se especifica utilizando el `--set nodeSelector` parámetro para indicar el programador de Kubernetes para ejecutar el controlador de entrada NGINX en un nodo basado en Linux.
 
 > [!TIP]
 > En el ejemplo siguiente se crea un espacio de nombres de Kubernetes para los recursos de entrada denominado *entrada basic*. Especifique un espacio de nombres para su propio entorno según sea necesario. Si el clúster de AKS no está habilitado de RBAC, agregue `--set rbac.create=false` a los comandos de Helm.
@@ -45,7 +47,11 @@ Para crear el controlador de entrada, use `Helm` para instalar *nginx-ingress*. 
 kubectl create namespace ingress-basic
 
 # Use Helm to deploy an NGINX ingress controller
-helm install stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2
+helm install stable/nginx-ingress \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Cuando se crea el servicio del equilibrador de carga de Kubernetes para el controlador de entrada NGINX, se asigna la dirección IP pública dinámica, como se muestra en la salida del ejemplo siguiente:
@@ -102,19 +108,19 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - http:
       paths:
-      - path: /
-        backend:
+      - backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
-        backend:
+        path: /(.*)
+      - backend:
           serviceName: ingress-demo
           servicePort: 80
+        path: /hello-world-two(/|$)(.*)
 ```
 
 Cree el recurso de entrada con el comando `kubectl apply -f hello-world-ingress.yaml`.
@@ -127,11 +133,11 @@ ingress.extensions/hello-world-ingress created
 
 ## <a name="test-the-ingress-controller"></a>Prueba del controlador de entrada
 
-Para probar las rutas para el controlador de entrada, vaya a las dos aplicaciones. Abra un explorador web en la dirección IP de su controlador de entrada NGINX, como *http://40.117.74.8*. La primera aplicación de demostración aparece en el explorador web, como se muestra en el ejemplo siguiente:
+Para probar las rutas para el controlador de entrada, vaya a las dos aplicaciones. Abra un explorador web en la dirección IP de su controlador de entrada NGINX, como *http://40.117.74.8* . La primera aplicación de demostración aparece en el explorador web, como se muestra en el ejemplo siguiente:
 
 ![Primera aplicación ejecutándose detrás del controlador de entrada](media/ingress-basic/app-one.png)
 
-A continuación, agregue la ruta de acceso */hello-world-two* a la dirección IP, como *http://40.117.74.8/hello-world-two*. Se muestra la segunda aplicación de demostración con el título personalizado:
+A continuación, agregue la ruta de acceso */hello-world-two* a la dirección IP, como *http://40.117.74.8/hello-world-two* . Se muestra la segunda aplicación de demostración con el título personalizado:
 
 ![Segunda aplicación ejecutándose detrás del controlador de entrada](media/ingress-basic/app-two.png)
 

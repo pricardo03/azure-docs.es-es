@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 414869833b894e2688505a91fed8fafe0c912b73
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: aac871e71ca0dd30a32e74dd92e417fc95eaa5e1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523733"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241338"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configurar una directiva de firewall de aplicaciones web con Azure PowerShell
 Directiva de firewall (WAF) de aplicaciones web de Azure define inspecciones necesarias cuando llega una solicitud de acceso principal.
@@ -31,7 +31,7 @@ Azure PowerShell ofrece un conjunto de cmdlets que usan el modelo [Azure Resourc
 
 Puede instalar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) en el equipo local y usarlo en cualquier sesión de PowerShell. Siga las instrucciones en la página, inicie sesión con sus credenciales de Azure e instale el módulo de PowerShell de Az.
 
-#### <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
+#### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 ```
 Connect-AzAccount
 
@@ -57,15 +57,15 @@ El ejemplo siguiente muestra cómo configurar una regla personalizada con dos co
 ```powershell-interactive
 $referer = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
 $password = New-AzFrontDoorWafMatchConditionObject -MatchVariable QueryString -OperatorProperty Contains -MatchValue "password"
-$AllowFromTrustedSites = New-AzFrontDoorCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
+$AllowFromTrustedSites = New-AzFrontDoorWafCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
 ```
 
 ## <a name="custom-rule-based-on-http-request-method"></a>Regla personalizada basada en método de solicitud http
-Crear una regla de bloqueo "PUT" utilizando método [New AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) como sigue:
+Crear una regla de bloqueo "PUT" utilizando método [New AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) como sigue:
 
 ```powershell-interactive
 $put = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestMethod -OperatorProperty Equal -MatchValue PUT
-$BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
+$BlockPUT = New-AzFrontDoorWafCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
 ```
 
 ## <a name="create-a-custom-rule-based-on-size-constraint"></a>Crear una regla personalizada en función de la restricción de tamaño
@@ -73,7 +73,7 @@ $BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule
 El ejemplo siguiente crea una regla que bloquea las solicitudes con la dirección Url que tiene más de 100 caracteres con Azure PowerShell:
 ```powershell-interactive
 $url = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
-$URLOver100 = New-AzFrontDoorCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
+$URLOver100 = New-AzFrontDoorWafCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
 ```
 ## <a name="add-managed-default-rule-set"></a>Agregar regla administrado predeterminado establecido
 

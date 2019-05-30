@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ad1a5b69e4ec7b44c0e61a5ddd2c06633464d31a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410044"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234994"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP optimizar el rendimiento de las máquinas virtuales de Azure
 
@@ -79,7 +79,7 @@ Tenga en cuenta que aumentar la MTU no es preciso crear necesariamente una red m
 
 #### <a name="azure-and-vm-mtu"></a>Azure y la MTU de la máquina virtual
 
-La MTU de máquinas virtuales de Azure predeterminado es 1.500 bytes. La pila de red Virtual de Azure intentará fragmento de un paquete en bytes de 1400. Pero la pila de red Virtual le permitirá paquetes 2,006 bytes cuando se establece el bit no fragmentar en el encabezado IP.
+La MTU de máquinas virtuales de Azure predeterminado es 1.500 bytes. La pila de red Virtual de Azure intentará fragmento de un paquete en bytes de 1400.
 
 Tenga en cuenta que la pila de red Virtual no es intrínsecamente ineficaz porque divide los paquetes en 1.400 bytes, aunque las máquinas virtuales tienen una MTU de 1.500. Un porcentaje elevado de paquetes de red son mucho más pequeño que 1.400 o 1.500 bytes.
 
@@ -264,7 +264,7 @@ Redes aceleradas proporcionan la latencia de red ultralow coherente a través de
 
 Redes aceleradas mejora el rendimiento al permitir que a la máquina virtual para omitir el host y establecer una ruta de datos directamente con un host SmartNIC invitada. Estas son algunas de las ventajas de accelerated networking:
 
-- **Menor latencia / más paquetes por segundo (pps)**: Quitar el conmutador virtual de la ruta de datos elimina el tiempo que los paquetes que se pasan en el host para el procesamiento de directiva y aumenta el número de paquetes que se pueden procesar en la máquina virtual.
+- **Menor latencia / más paquetes por segundo (pps)** : Quitar el conmutador virtual de la ruta de datos elimina el tiempo que los paquetes que se pasan en el host para el procesamiento de directiva y aumenta el número de paquetes que se pueden procesar en la máquina virtual.
 
 - **Inestabilidad reducida**: Procesamiento de conmutador virtual depende de la cantidad de directivas que deben aplicarse y la carga de trabajo de la CPU que se encarga del procesamiento. Descarga de la aplicación de directivas en el hardware, elimina esa variabilidad, entregar paquetes directamente a la máquina virtual, lo que elimina la comunicación de host-a-VM y todas las interrupciones de software y cambios de contexto.
 

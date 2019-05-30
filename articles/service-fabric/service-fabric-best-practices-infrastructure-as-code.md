@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9224ecebed35a631514c5254703ad2694675d40e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2dfe1493c6611fb69a417895aaa1028ad5881b9c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66159929"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237432"
 ---
 # <a name="infrastructure-as-code"></a>Infraestructura como código
 
@@ -95,6 +95,47 @@ for root, dirs, files in os.walk(self.microservices_app_package_path):
         microservices_sfpkg.write(os.path.join(root, file), os.path.join(root_folder, file))
 
 microservices_sfpkg.close()
+```
+
+## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuración de actualización automática de máquina Virtual de Azure del sistema operativo 
+Actualizar las máquinas virtuales es una operación iniciada por el usuario y se recomienda que utilice [actualización de máquina Virtual escala establecer automáticas del sistema operativo](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para administración de revisiones de host; los clústeres de Azure Service Fabric Aplicación de orquestación de revisiones es una solución alternativa que está pensada para cuando hospedados fuera de Azure, aunque se puede usar POA en Azure, con una sobrecarga de hospedaje POA en que se va a un motivo habitual para preferir la actualización automática del sistema operativo de máquina Virtual de Azure a través de POA. Estas son las propiedades de plantilla de proceso escala de máquina Virtual establecido el Administrador de recursos para habilitar la actualización automática del sistema operativo:
+
+```json
+"upgradePolicy": {
+   "mode": "Automatic",
+   "automaticOSUpgradePolicy": {
+        "enableAutomaticOSUpgrade": true,
+        "disableAutomaticRollback": false
+    }
+},
+```
+Al usar las actualizaciones automáticas del sistema operativo con Service Fabric, la nueva imagen de sistema operativo se implanta un dominio de actualización en un momento para mantener una alta disponibilidad de los servicios que se ejecutan en Service Fabric. Para utilizar las actualizaciones automáticas del sistema operativo en Service Fabric, el clúster debe estar configurado para utilizar el nivel de durabilidad Silver o superior.
+
+Asegúrese de que la siguiente clave del registro se establece en false para impedir que actualizaciones coordinadas de iniciar las máquinas host de windows: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+
+Estas son las propiedades de plantilla de proceso escala de máquina Virtual establecido el Administrador de recursos para establecer la clave del registro de Windows Update en false:
+```json
+"osProfile": {
+        "computerNamePrefix": "{vmss-name}",
+        "adminUsername": "{your-username}",
+        "secrets": [],
+        "windowsConfiguration": {
+          "provisionVMAgent": true,
+          "enableAutomaticUpdates": false
+        }
+      },
+```
+
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Configuración de actualización de Azure Service Fabric Cluster
+El siguiente es la propiedad de la plantilla de Resource Manager para habilitar la actualización automática del clúster de Service Fabric:
+```json
+"upgradeMode": "Automatic",
+```
+Para actualizar manualmente el clúster, descargue la distribución de cab/deb a una máquina virtual de clúster y, a continuación, invocar el siguiente comando de PowerShell:
+```powershell
+Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
+Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
+Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

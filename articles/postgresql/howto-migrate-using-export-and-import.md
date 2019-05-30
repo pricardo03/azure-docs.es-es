@@ -1,20 +1,20 @@
 ---
-title: Migración de una base de datos mediante importación y exportación en Azure Database for PostgreSQL
+title: 'Migrar una base de datos mediante importación y exportación en Azure Database for PostgreSQL: servidor único'
 description: Describe cómo extraer una base de datos PostgreSQL en un archivo de script e importar los datos en la base de datos de destino desde ese archivo.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/01/2018
-ms.openlocfilehash: ecd7dc225379fc9d3eda6fb2e80e3c47a73db49b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 785e9ec77dea749546e3f1d59007706eac14f2ea
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422345"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067021"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migración de una base de datos de PostgreSQL mediante exportación e importación
-Puede usar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extraer una base de datos PostgreSQL en un archivo de script y [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) para importar los datos en la base de datos de destino desde ese archivo.
+Puede usar [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) para extraer una base de datos PostgreSQL en un archivo de script y [psql](https://www.postgresql.org/docs/current/static/app-psql.html) para importar los datos en la base de datos de destino desde ese archivo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para seguir esta guía, necesitará:

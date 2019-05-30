@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 3957fefb44bd8e4732f74f69d5522bd499100d0b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e50314d80f3b773d2ea3bbc8abd4709b574aae65
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149863"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226225"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuración del SDK de Application Insights con ApplicationInsights.config o .xml
-El SDK de Application Insights para .NET consta de varios paquetes de NuGet. El [paquete principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) proporciona la API para enviar telemetría a Application Insights. Los [paquetes adicionales](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) proporcionan *módulos* e *inicializadores* de telemetría para hacer un seguimiento automático de la aplicación y su contexto. Si ajusta el archivo de configuración, puede habilitar o deshabilitar los módulos e inicializadores de telemetría, y establecer los parámetros para algunos de ellos.
+El SDK de Application Insights para .NET consta de varios paquetes de NuGet. El [paquete principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) proporciona la API para enviar telemetría a Application Insights. Los [paquetes adicionales](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) proporcionan *módulos* e *inicializadores* de telemetría para hacer un seguimiento automático de la aplicación y su contexto. Ajustando el archivo de configuración, puede habilitar o deshabilitar los módulos de telemetría y los inicializadores y establecer parámetros para algunos de ellos.
 
 El archivo de configuración se denomina `ApplicationInsights.config` o `ApplicationInsights.xml`, dependiendo del tipo de la aplicación. Se agrega automáticamente al proyecto cuando se [instalan la mayoría de las versiones del SDK][start]. También se agrega a una aplicación web con el [Monitor de estado en un servidor IIS][redfield] o cuando selecciona la [extensión de Application Insights para un sitio web o una máquina virtual de Azure](azure-web-apps.md).
 
@@ -30,10 +30,10 @@ No hay un archivo equivalente para controlar el [SDK en una página web][client]
 En este documento se describen las secciones que verá en el archivo de configuración, cómo controlan los componentes del SDK y qué paquetes NuGet cargan esos componentes.
 
 > [!NOTE]
-> Las instrucciones de ApplicationInsights.config y .xml no se aplican al SDK de .NET Core. Para los cambios en una aplicación de .NET Core, normalmente se usa el archivo appsettings.json. Se puede encontrar un ejemplo en la [documentación de Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger).
+> Las instrucciones de ApplicationInsights.config y .xml no se aplican al SDK de .NET Core. Para configurar aplicaciones de .NET Core, siga [esto](../../azure-monitor/app/asp-net-core.md) guía.
 
 ## <a name="telemetry-modules-aspnet"></a>Módulos de telemetría (ASP.NET)
-Cada módulo de telemetría recopila un tipo específico de datos y usa la API principal para enviar dichos datos. Los módulos los instalan diferentes paquetes NuGet, que también agregan las líneas necesarias al archivo .config.
+Cada módulo de telemetría recopila un tipo específico de datos y usa la API principal para enviar los datos. Los módulos los instalan diferentes paquetes NuGet, que también agregan las líneas necesarias al archivo .config.
 
 Hay un nodo en el archivo de configuración para cada módulo. Para deshabilitar un módulo, elimine el nodo o conviértalo en comentario.
 
@@ -52,10 +52,12 @@ También puede escribir su propio código de seguimiento de dependencias con la 
 * [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) .
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Telemetría de diagnósticos de Application Insights
-`DiagnosticsTelemetryModule` informa de errores en el propio código de instrumentación de Application Insights. Por ejemplo, si el código no puede tener acceso a los contadores de rendimiento o si un `ITelemetryInitializer` inicia una excepción. La telemetría de seguimiento que sigue este módulo aparece en la [Búsqueda de diagnóstico][diagnostic]. Envía datos de diagnóstico a dc.services.vsallin.net.
+`DiagnosticsTelemetryModule` informa de errores en el propio código de instrumentación de Application Insights. Por ejemplo, si el código no puede tener acceso a los contadores de rendimiento o si un `ITelemetryInitializer` inicia una excepción. La telemetría de seguimiento que sigue este módulo aparece en la [Búsqueda de diagnóstico][diagnostic].
 
+```
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
-* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) . Si solamente se instala este paquete, el archivo ApplicationInsights.config no se crea automáticamente.
+* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you only install this package, the ApplicationInsights.config file is not automatically created.
+```
 
 ### <a name="developer-mode"></a>Modo de programador
 `DeveloperModeWithDebuggerAttachedTelemetryModule` fuerza al `TelemetryChannel` de Application Insights a enviar los datos inmediatamente, elemento de telemetría a elemento, cuando se adjunta un depurador al proceso de aplicación. Esto reduce la cantidad de tiempo entre el momento en que la aplicación realiza un seguimiento de telemetría y el momento en que esta aparece en el portal de Application Insights. Esto provoca una sobrecarga considerable en la CPU y el ancho de banda.
@@ -91,19 +93,19 @@ Informa del [tiempo de respuesta y del código del resultado](../../azure-monito
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
-El paquete Microsoft.ApplicationInsights proporciona la [API principal](https://msdn.microsoft.com/library/mt420197.aspx) del SDK. Los otros módulos de telemetría usan esto y también puede [usarlo usted mismo para definir su propia telemetría](../../azure-monitor/app/api-custom-events-metrics.md).
+El paquete Microsoft.ApplicationInsights proporciona la [API principal](https://msdn.microsoft.com/library/mt420197.aspx) del SDK. Utilícelo en los otros módulos de telemetría y también puede [se usa para definir su propia telemetría](../../azure-monitor/app/api-custom-events-metrics.md).
 
 * No hay entrada en ApplicationInsights.config.
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) . Si solamente instala este NuGet, no se genera ningún archivo .config.
 
 ## <a name="telemetry-channel"></a>Canal de telemetría
-El canal de telemetría administra el almacenamiento en búfer y la transmisión de telemetría al servicio Application Insights.
+El [canal de telemetría](telemetry-channels.md) administra el almacenamiento en búfer y la transmisión de telemetría al servicio Application Insights.
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` es el canal predeterminado para servicios. Almacena en búfer los datos de la memoria.
-* `Microsoft.ApplicationInsights.PersistenceChannel` es una alternativa para aplicaciones de consola. Pueden guardar los datos no vaciados en almacenamiento persistente cuando la aplicación se cierre y se enviarán cuando la aplicación se inicie de nuevo.
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` es el canal predeterminado para las aplicaciones web. Datos en el búfer en memoria e intente de nuevo emplea mecanismos y almacenamiento en disco local para la entrega de datos de telemetría más confiable.
+* `Microsoft.ApplicationInsights.InMemoryChannel` es un canal de telemetría ligero, que se utiliza si no se ha configurado ningún otro canal. 
 
 ## <a name="telemetry-initializers-aspnet"></a>Inicializadores de telemetría (ASP.NET)
-Los inicializadores de telemetría establecen propiedades de contexto que se envían junto con todos los elementos de telemetría.
+Inicializadores de telemetría establecen propiedades de contexto que se envían junto con todos los elementos de telemetría.
 
 También puede [escribir sus propios inicializadores](../../azure-monitor/app/api-filtering-sampling.md#add-properties) para establecer propiedades de contexto.
 
@@ -129,17 +131,17 @@ Los inicializadores estándar están todos establecidos por los paquetes NuGet w
 
     Conjunto de `<Filters>` que identifica las propiedades de las solicitudes.
 * `UserTelemetryInitializer` actualiza las propiedades `Id` y `AcquisitionDate` del contexto `User` para todos los elementos de telemetría con valores extraídos de la cookie `ai_user` que genera el código de instrumentación JavaScript de Application Insights que se ejecuta en el explorador del usuario.
-* `WebTestTelemetryInitializer` establece el identificador de usuario, el identificador de sesión y las propiedades de origen sintético de las solicitudes HTTP que proceden de [pruebas de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md).
+* `WebTestTelemetryInitializer` establece las propiedades de origen sintético, el Id. de sesión y el Id. de usuario que proceden de las solicitudes de HTTP [pruebas de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md).
   Conjunto de `<Filters>` que identifica las propiedades de las solicitudes.
 
 Para aplicaciones de .NET que se ejecutan en Service Fabric, puede incluir el paquete de NuGet `Microsoft.ApplicationInsights.ServiceFabric`. Este paquete incluye `FabricTelemetryInitializer`, que agrega propiedades de Service Fabric a elementos de telemetría. Para obtener más información, consulte la [página de GitHub](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) sobre las propiedades que agrega este paquete de NuGet.
 
 ## <a name="telemetry-processors-aspnet"></a>Procesadores de telemetría (ASP.NET)
-Los procesadores de telemetría pueden filtrar y modificar cada elemento de telemetría justo antes de que se envíe desde el SDK al portal.
+Los procesadores de telemetría pueden filtrar y modificar cada elemento de telemetría justo antes de que se envíe desde el SDK en el portal.
 
 También puede [escribir sus propios procesadores de telemetría](../../azure-monitor/app/api-filtering-sampling.md#filtering).
 
-#### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>Procesador de telemetría de muestreo adaptivo (desde 2.0.0-beta3)
+#### <a name="adaptive-sampling-telemetry-processor-from-200-beta3"></a>Procesador de telemetría de muestreo adaptable (desde 2.0.0-beta3)
 Esta opción está habilitada de manera predeterminada. Si la aplicación envía una gran cantidad de datos de telemetría, este procesador quita algunos de ellos.
 
 ```xml
@@ -156,8 +158,8 @@ El parámetro proporciona el destino que el algoritmo intenta alcanzar. Cada ins
 
 [Obtenga más información sobre el muestreo](../../azure-monitor/app/sampling.md).
 
-#### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>Procesador de telemetría de muestreo de tasa fija (desde 2.0.0-beta1)
-También hay un [procesador de telemetría de muestreo](../../azure-monitor/app/api-filtering-sampling.md) estándar (desde 2.0.1):
+#### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>Procesador de telemetría de muestreo de frecuencia fija (desde 2.0.0-Beta1)
+También es un estándar [procesador de telemetría de muestreo](../../azure-monitor/app/api-filtering-sampling.md) (desde 2.0.1):
 
 ```XML
 

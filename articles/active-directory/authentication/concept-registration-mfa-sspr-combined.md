@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415791"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235587"
 ---
 # <a name="combined-security-information-registration-preview"></a>Información del registro de seguridad combinados (versión preliminar)
 
@@ -24,7 +24,7 @@ Antes del registro combinado, los usuarios registrar los métodos de autenticaci
 
 ![Mi mostrando perfil registra información de seguridad de un usuario](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Antes de habilitar la nueva experiencia, revise esta documentación centrada en el administrador y la documentación centrada en usuario para asegurarse de que entiende la funcionalidad y el efecto de esta característica. Basar su formación en la documentación del usuario para preparar los usuarios para la nueva experiencia y ayudan a garantizar un lanzamiento satisfactorio.
+Antes de habilitar la nueva experiencia, revise esta documentación centrada en el administrador y la documentación centrada en usuario para asegurarse de que entiende la funcionalidad y el efecto de esta característica. Basar su formación en el [documentación de usuario](../user-help/user-help-security-info-overview.md) para preparar los usuarios para la nueva experiencia y ayuda a garantizar un lanzamiento satisfactorio.
 
 Azure AD combina información de seguridad, el registro no está actualmente disponible para las nubes nacionales, como Azure US Government, Azure Alemania o Azure China 21Vianet.
 
@@ -46,12 +46,12 @@ Combinar registro admite los siguientes métodos de autenticación y las accione
 
 |   | Register  | Change | Eliminar |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sí (máximo de 5) | Sin  | Sí |
+| Microsoft Authenticator | Sí (máximo de 5) | No | Sí |
 | Otra aplicación de autenticador | Sí (máximo de 5) | Sin  | Sí |
-| Token de hardware | Sin  | No | Sí |
-| Teléfono | Sí | Sí | Sí |
+| token de hardware | No | No | Sí |
+| Phone | Sí | Sí | Sí |
 | Teléfono alternativo | Sí | Sí | Sí |
-| Teléfono del trabajo | Sin  | No | Sin  |
+| Teléfono del trabajo | Sin  | No | No |
 | Email | Sí | Sí | Sí |
 | Preguntas de seguridad | Sí | Sin  | Sí |
 | Contraseñas de aplicación | Sí | Sin  | Sí |
@@ -84,20 +84,20 @@ Registro combinado respeta las directivas de autenticación multifactor y SSPR, 
 
 Estos son algunos escenarios en los que los usuarios deban registrar o actualizar su información de seguridad:
 
-* Registro de la autenticación multifactor forzado mediante Identity Protection: Los usuarios deben registrar durante el inicio de sesión. Registrar los métodos de autenticación multifactor y los métodos SSPR (si el usuario está habilitado para SSPR).
-* Registro de la autenticación multifactor forzado mediante la autenticación de Multi-factor Authentication por usuario: Los usuarios deben registrar durante el inicio de sesión. Registrar los métodos de autenticación multifactor y los métodos SSPR (si el usuario está habilitado para SSPR).
-* Registro de la autenticación multifactor forzado a través de acceso condicional y otras directivas: Se piden a los usuarios a registrarse cuando use un recurso que requiere autenticación multifactor. Registrar los métodos de autenticación multifactor y los métodos SSPR (si el usuario está habilitado para SSPR).
-* Aplicadas el registro de SSPR: Los usuarios deben registrar durante el inicio de sesión. Se registran sólo los métodos SSPR.
-* Fuerza la actualización SSPR: Los usuarios deben revisar su información de seguridad en un intervalo establecido por el administrador. Los usuarios se muestran su información y se pueden confirmar la información actual o realizar cambios si es necesario.
+- Registro de la autenticación multifactor forzado mediante Identity Protection: Los usuarios deben registrar durante el inicio de sesión. Registrar los métodos de autenticación multifactor y los métodos SSPR (si el usuario está habilitado para SSPR).
+- Registro de la autenticación multifactor forzado mediante la autenticación de Multi-factor Authentication por usuario: Los usuarios deben registrar durante el inicio de sesión. Registrar los métodos de autenticación multifactor y los métodos SSPR (si el usuario está habilitado para SSPR).
+- Registro de la autenticación multifactor forzado a través de acceso condicional y otras directivas: Se piden a los usuarios a registrarse cuando use un recurso que requiere autenticación multifactor. Registrar los métodos de autenticación multifactor y los métodos SSPR (si el usuario está habilitado para SSPR).
+- Aplicadas el registro de SSPR: Los usuarios deben registrar durante el inicio de sesión. Se registran sólo los métodos SSPR.
+- Fuerza la actualización SSPR: Los usuarios deben revisar su información de seguridad en un intervalo establecido por el administrador. Los usuarios se muestran su información y se pueden confirmar la información actual o realizar cambios si es necesario.
 
 Cuando se aplica el registro, los usuarios se muestran el número mínimo de los métodos necesarios para cumplir las directivas de autenticación multifactor y SSPR de más a menos seguro.
 
-Por ejemplo: 
+Por ejemplo:
 
-* Un usuario está habilitado para SSPR. La directiva SSPR requiere dos métodos para restablecer y ha habilitado el teléfono, correo electrónico y el código de aplicación móvil.
-   * Este usuario debe registrar dos métodos.
-      * Se muestra al usuario Authenticator y teléfono de forma predeterminada.
-      * El usuario puede elegir registrar de correo electrónico en lugar de la aplicación authenticator o el teléfono.
+- Un usuario está habilitado para SSPR. La directiva SSPR requiere dos métodos para restablecer y ha habilitado el teléfono, correo electrónico y el código de aplicación móvil.
+   - Este usuario debe registrar dos métodos.
+      - Se muestra al usuario Authenticator y teléfono de forma predeterminada.
+      - El usuario puede elegir registrar de correo electrónico en lugar de la aplicación authenticator o el teléfono.
 
 Este diagrama de flujo describe los métodos que se muestran para un usuario cuando se interrumpe registrar durante el inicio de sesión:
 

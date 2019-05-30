@@ -4,19 +4,19 @@ description: En este artículo se describe cómo administrar el entorno de Azure
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5e350e8a9093936f1e747afda7c3192b4d8368d
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: ba7d412e9bfc29a53cd0aa47a926f60580b45490
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471713"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237650"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Time Series Insights mediante plantillas de Azure Resource Manager
 
@@ -27,7 +27,7 @@ Time Series Insights admite los siguientes recursos:
    | Recurso | DESCRIPCIÓN |
    | --- | --- |
    | Entorno | Un entorno de Time Series Insights es una agrupación lógica de eventos que se leen los agentes de eventos, almacenan y están disponibles para consulta. Para obtener más información, consulte [planear su entorno Azure Time Series Insights](time-series-insights-environment-planning.md) |
-   | Origen del evento | Un origen de eventos es una conexión a un agente de eventos del que Time Series Insights lee e ingiere eventos en el entorno. Los orígenes de eventos actualmente admitidos son IoT Hub y Event Hub. |
+   | Origen de eventos | Un origen de eventos es una conexión a un agente de eventos del que Time Series Insights lee e ingiere eventos en el entorno. Los orígenes de eventos actualmente admitidos son IoT Hub y Event Hub. |
    | Conjuntos de datos de referencia | Los conjuntos de datos de referencia proporcionan metadatos sobre los eventos del entorno. Los metadatos de los conjuntos de datos de referencia se combinarán con los eventos durante la entrada. Los conjuntos de datos de referencia se definen como recursos según sus propiedades de eventos principales. Los metadatos reales que constituye el conjunto de datos de referencia se cargan o se modifican mediante las API de plano de datos. |
    | Directiva de acceso | Las directivas de acceso conceden permisos para emitir consultas de datos, manipular datos de referencia en el entorno y compartir consultas guardadas y perspectivas asociadas con el entorno. Para obtener más información, lea [conceder acceso a los datos en un entorno de Time Series Insights mediante Azure portal](time-series-insights-data-access.md) |
 

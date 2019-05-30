@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 43f3a55bc820a232ccebc3a940faa86f9eb730f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9771c110e277d67bee329fe62434b18a01189476
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467381"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072220"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con Azure Files en Azure Kubernetes Service (AKS)
 
@@ -136,7 +136,7 @@ azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX 
 
 ## <a name="use-the-persistent-volume"></a>Uso del volumen persistente
 
-El siguiente código de YAML crea un pod que utiliza la notificación de volumen persistente *azurefile* para montar el recurso compartido de archivos de Azure en la ruta de acceso */mnt/azure*.
+El siguiente código de YAML crea un pod que utiliza la notificación de volumen persistente *azurefile* para montar el recurso compartido de archivos de Azure en la ruta de acceso */mnt/azure*. Para Windows Server containers (actualmente en versión preliminar de AKS), especifique un *mountPath* con la convención de ruta de acceso de Windows, como *'D:'* .
 
 Cree un archivo denominado `azure-pvc-files.yaml` y cópielo en el siguiente código YAML. Asegúrese de que *claimName* coincide con la clase PVC creada en el último paso.
 

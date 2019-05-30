@@ -3,19 +3,19 @@ title: 'Idiomas admitidos: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: Una lista de los idiomas naturales admitidos por Translator Text API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: v-pawal
+ms.openlocfilehash: 153fd5a8202ca0d919a2254449d846f8798bd10d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690144"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382491"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 
@@ -23,7 +23,7 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 
 [Más información sobre cómo funciona la traducción automática](https://www.microsoft.com/translator/mt.aspx)
 
-## <a name="translation"></a>Traducción
+## <a name="translation"></a>Conversión
 
 **Translator API V2**
 
@@ -40,7 +40,7 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 > [!NOTE]
 > Actualmente, un subconjunto de los lenguajes neuronales están disponibles en Translator personalizado y otros que estamos agregando gradualmente. [Ver los idiomas disponibles actualmente en el traductor personalizado](#customization).
 
-|Idioma|  Código de idioma|  API V2| API V3|
+|Lenguaje|  Código de idioma|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
 |Afrikáans| `af`    |Solo estadísticas|  Neuronal|
 |Árabe|    `ar`    |Traducción neuronal disponible|  Neuronal|
@@ -111,7 +111,7 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 
 El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->" indica que el idioma se puede transliterar hacia o desde cualquiera de los alfabetos enumerados. "-->" indica que el idioma solo se puede transliterar de un idioma al otro.
 
-| Idioma    | Código de idioma | Script | Hacia/Desde | Script|
+| Lenguaje    | Código de idioma | Script | Hacia/Desde | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latino `Latn` |
 |Bangla  | `bn` | Bengalí `Beng` | <--> | Latino `Latn` |
@@ -126,7 +126,7 @@ El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->"
 | Canarés | `kn` | Canarés `Knda` | --> | Latino `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Latino `Latn` |
 | Maratí | `mr` | Devanagari `Deva` | --> | Latino `Latn` |
-| Odia | `or` | Odia `Orya` | <--> | Latino `Latn` |
+| Oriya | `or` | Odia `Orya` | <--> | Latino `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
 | Serbio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latino `Latn` |
 | Serbio (latino) | `sr-Latn` | Latino `Latn` | --> | Cirílico `Cyrl`|
@@ -138,7 +138,7 @@ El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->"
 
 El diccionario admite los siguientes idiomas desde o hacia el inglés con los métodos Lookup y Examples.
 
-| Idioma    | Código de idioma |
+| Lenguaje    | Código de idioma |
 |:----------- |:-------------:|
 | Afrikáans      | `af`          |
 | Árabe       | `ar`          |
@@ -206,7 +206,7 @@ Puede recuperar una lista de los idiomas admitidos por Translator Text API v3.0 
 
 Los siguientes idiomas están disponibles para la personalización a o desde inglés mediante [personalizado traductor](https://aka.ms/CustomTranslator).
 
-| Idioma    | Código de idioma |
+| Lenguaje    | Código de idioma |
 |:----------- |:-------------:|
 | Árabe       | `ar`          |
 | Bangla      | `bn`          |

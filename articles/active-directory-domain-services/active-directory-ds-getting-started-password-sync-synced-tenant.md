@@ -3,7 +3,7 @@ title: 'Azure AD Domain Services: Habilitación de la sincronización de contras
 description: Introducción a Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2017
-ms.author: ergreenl
-ms.openlocfilehash: 74ad811481aea83454d7e3179652e68d4c406521
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 37bcdcd304f702f210e755f45af71b2da10bd6e1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417255"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234883"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Habilitación de la sincronización de contraseñas con Azure Active Directory Domain Services
 En las tareas anteriores, habilitó Azure Active Directory Domain Services para su inquilino de Azure Active Directory (Azure AD). La siguiente tarea consiste en habilitar la sincronización de los hashes de credenciales necesarios para que la autenticación NT LAN Manager (NTLM) y Kerberos se sincronice con Azure AD Domain Services. Una vez configurada la sincronización de credenciales, los usuarios pueden iniciar sesión en el dominio administrado mediante sus credenciales corporativas.
@@ -30,7 +30,7 @@ Los pasos necesarios son diferentes según se trate de cuentas de usuario solo d
 | **Tipo de cuenta de usuario.** | **Pasos que seguir** |
 | --- | --- |
 | **Cuentas de usuario sincronizadas desde un directorio local** |**&#x2713;** [Siga las instrucciones de este artículo](active-directory-ds-getting-started-password-sync-synced-tenant.md#task-5-enable-password-synchronization-to-your-managed-domain-for-user-accounts-synced-with-your-on-premises-ad) |
-| **Cuentas de usuario en la nube creadas en Azure AD** |**&#x2713;**: [Sincronización de contraseñas de cuentas de usuario solo de nube con el dominio administrado](active-directory-ds-getting-started-password-sync.md) |
+| **Cuentas de usuario en la nube creadas en Azure AD** |**&#x2713;** : [Sincronización de contraseñas de cuentas de usuario solo de nube con el dominio administrado](active-directory-ds-getting-started-password-sync.md) |
 
 > [!TIP]
 > **Puede que tenga que seguir ambos conjuntos de pasos.**
@@ -80,6 +80,6 @@ En función del tamaño de su directorio (número de usuarios o grupos, por ejem
 
 ## <a name="related-content"></a>Contenido relacionado
 * [Habilitación de la sincronización de contraseñas con los Servicios de dominio de Azure AD para un directorio de Azure AD solo de nube](active-directory-ds-getting-started-password-sync.md)
-* [Administración de un dominio administrado con Servicios de dominio de Azure AD](active-directory-ds-admin-guide-administer-domain.md)
+* [Administrar un dominio de Azure AD Domain Services](manage-domain.md)
 * [Join a Windows virtual machine to an Azure AD Domain Services managed domain (Unión de una máquina virtual con Windows a un dominio administrado de Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain (Unión de una máquina virtual con Red Hat Enterprise Linux a un dominio administrado de Servicios de dominio de Azure AD)](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

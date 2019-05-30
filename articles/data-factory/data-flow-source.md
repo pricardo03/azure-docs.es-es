@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: dc0a6e008c7a1f4fb414f6d8adad3a94abc7a6b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 51c1ea7b554178f7fb3f264bf731ffd5872ceea2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792335"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234559"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformación de origen para la asignación de flujo de datos 
 
@@ -92,7 +92,7 @@ Elija la configuración para administrar archivos en el origen.
 
 Si el origen está en la base de datos SQL o SQL Data Warehouse, tendrá opciones adicionales para la administración de archivos de origen.
 
-* **Consultar** escriba una consulta SQL para el origen. Este valor invalida cualquier tabla que ha elegido en el conjunto de datos. Tenga en cuenta que **Order By** cláusulas no se admiten aquí. Pero puede establecer una instrucción SELECT FROM completa aquí.
+* **Consultar** escriba una consulta SQL para el origen. Este valor invalida cualquier tabla que haya elegido en el conjunto de datos. Tenga en cuenta que **Order By** no se admiten las cláusulas aquí, pero puede establecer una instrucción SELECT FROM completa. También puede usar las funciones de tabla definido por el usuario. **Seleccionar * desde udfGetData()** es una UDF en SQL que devuelve una tabla. Esta consulta genera una tabla de origen que puede usar en su flujo de datos.
 * **Tamaño del lote**: Escriba un tamaño de lote para fragmentar datos grandes en lecturas.
 
 > [!NOTE]

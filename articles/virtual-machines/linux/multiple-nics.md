@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: b77ed879375cff8d45f7d532283647e70252bdab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 838afe38cc3b2b98ddad358ddb23ab6b6727e867
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772440"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236849"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red
 
@@ -100,7 +100,7 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
-Agregue tablas de enrutamiento al sistema operativo invitado completando los pasos descritos en [Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red](#configure-guest-os-for- multiple-nics).
+Agregue tablas de enrutamiento al sistema operativo invitado completando los pasos descritos en [Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Adición de una NIC a una máquina virtual
 Los pasos anteriores crean una máquina virtual con varias NIC. También puede agregar varias NIC a una máquina virtual existente con la CLI de Azure. Diferentes [tamaños de máquina virtual](sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta. Si es necesario, puede [cambiar el tamaño de una máquina virtual](change-vm-size.md).
@@ -138,7 +138,7 @@ Inicie la máquina virtual con [az vm start](/cli/azure/vm):
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
-Agregue tablas de enrutamiento al sistema operativo invitado completando los pasos descritos en [Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red](#configure-guest-os-for- multiple-nics).
+Agregue tablas de enrutamiento al sistema operativo invitado completando los pasos descritos en [Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red](#configure-guest-os-for-multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Eliminación de una NIC de una máquina virtual
 Para quitar una NIC de una máquina virtual existente, en primer lugar desasigne la máquina virtual con [az vm deallocate](/cli/azure/vm). En el ejemplo siguiente se desasigna la máquina virtual denominada *myVM*:
@@ -183,7 +183,7 @@ También puede utilizar `copyIndex()` para anexar un número a un nombre de recu
 
 Puede leer un ejemplo completo de [cómo crear varias NIC con plantillas de Resource Manager](../../virtual-network/template-samples.md).
 
-Agregue tablas de enrutamiento al sistema operativo invitado completando los pasos descritos en [Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red](#configure-guest-os-for- multiple-nics).
+Agregue tablas de enrutamiento al sistema operativo invitado completando los pasos descritos en [Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red](#configure-guest-os-for-multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Configuración del sistema operativo invitado para varias NIC
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 05/30/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 92ef494efa62a7f4e2d0a7c88ef8efd950dd2472
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cdef62fabdaf3b76effba380c38fa7b8b3c9a87b
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786103"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399732"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>¿Qué son las zonas de disponibilidad en Azure?
 Las zonas de disponibilidad son una oferta que protege las aplicaciones y datos de los errores del centro de datos. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de las zonas de disponibilidad dentro de una región protege las aplicaciones y los datos frente a los errores del centro de datos. Los servicios con redundancia de zona replican las aplicaciones y los datos entre zonas de disponibilidad para protegerlos frente a puntos de error únicos. Con las zonas de disponibilidad, Azure ofrece el mejor Acuerdo de Nivel de Servicio del sector de tiempo de actividad de máquina virtual, con un 99,99 %. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
@@ -46,8 +46,8 @@ Las combinaciones de servicios de Azure y regiones que admiten zonas de disponib
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|
 |          |Centro de EE. UU.|Este de EE. UU|Este de EE. UU. 2|Oeste de EE. UU. 2|Centro de Francia|Europa del Norte|Sur de Reino Unido 2|Europa occidental|Este de Japón|Sudeste asiático|
 | **Proceso**                         |            |              |           |           |                |              |          |             |            |                |
-| Linux Virtual Machines          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
-| Windows Virtual Machines        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Máquinas virtuales Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Máquinas virtuales Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Virtual Machine Scale Sets      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | **Storage**   |            |              |           |           |                |              |          |             |            |                |
 | Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
@@ -60,6 +60,7 @@ Las combinaciones de servicios de Azure y regiones que admiten zonas de disponib
 | Application Gateway   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    | &#10003;       | &#10003;       |
 | **Bases de datos**                     |            |              |           |           |                |              |          |             |            |                |
 | SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |            | &#10003;       |
+| Azure Cosmos DB                    |    |    |   |  |       |     | &#10003; |     |            | &#10003;       |
 | **Analytics**                       |            |              |           |           |                |              |          |             |            |                |
 | Event Hubs                      | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 | **Integración**                     |            |              |           |           |                |              |          |             |            |                |
@@ -85,6 +86,7 @@ No hay ningún costo adicional asociado a las máquinas virtuales implementadas 
 - [Recuperación ante desastres geográfica de Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Recuperación ante desastres geográfica de Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Crear una puerta de enlace de red virtual con redundancia de zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+- [Agregar región con redundancia de zona para Azure Cosmos DB](../cosmos-db/high-availability.md##availability-zone-support)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

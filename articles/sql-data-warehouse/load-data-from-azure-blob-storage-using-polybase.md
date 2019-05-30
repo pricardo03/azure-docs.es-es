@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8ca3b52d181578e6b35090489b7133a94b55cbd
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852082"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242959"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos de taxis de Nueva York en Azure SQL Data Warehouse
 
@@ -151,7 +151,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
     | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
     | Nombre de servidor | Nombre completo del servidor | Este nombre debería parecerse al siguiente: **mynewserver-20180430.database.windows.net**. |
     | Authentication | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que hemos configurado en este tutorial. |
-    | Iniciar sesión | La cuenta de administrador del servidor | Se trata de la cuenta que especificó cuando creó el servidor. |
+    | Inicio de sesión | La cuenta de administrador del servidor | Se trata de la cuenta que especificó cuando creó el servidor. |
     | Contraseña | Contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
 
     ![conectar con el servidor](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -590,7 +590,7 @@ Cargar con PolyBase y autentican a través de las identidades administradas es e
   
 1. **Conectividad de PolyBase a la cuenta de Azure Storage:**
     
-   1. Crear la credencial con ámbito de base de datos con **IDENTITY = 'Managed Service Identity'**:
+   1. Crear la credencial con ámbito de base de datos con **IDENTITY = 'Managed Service Identity'** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -640,7 +640,7 @@ Hizo todo esto:
 > * Vio el progreso de los datos a medida que se cargaban
 > * Creó estadísticas de los datos recién cargados
 
-Avance a la introducción a la migración para obtener información sobre cómo migrar una base de datos existente a SQL Data Warehouse.
+Vaya a la información general de desarrollo para obtener información sobre cómo migrar una base de datos a SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Obtener información sobre la migración de una base de datos existente a SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Decisiones de diseño para migrar una base de datos a SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)

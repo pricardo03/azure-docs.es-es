@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b808654baded5bbe721866441a8d1115eff7bcaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 842d3146bf1927871e29eb750cde09e9029b7c12
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308916"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242099"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Visualización de registros de actividad de cambios de RBAC en recursos de Azure
 
@@ -43,7 +43,7 @@ La manera más fácil de empezar a trabajar es ver los registros de actividad co
 
 El registro de actividad del portal tiene varios filtros. Estos son los filtros relacionados con RBAC:
 
-|Filtrar  |Value  |
+|Filtrar  |Valor  |
 |---------|---------|
 |Categoría de eventos     | <ul><li>Administrativo</li></ul>         |
 |Operación     | <ul><li>Creación de asignaciones de roles</li> <li>Eliminación de asignaciones de roles</li> <li>Creación o actualización de definiciones de roles personalizadas</li> <li>Eliminación de definiciones de roles personalizadas</li></ul>      |
@@ -121,9 +121,9 @@ Estos son los pasos básicos para empezar a trabajar:
 
 1. [Crear un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Configurar la solución Activity Log Analytics](../azure-monitor/platform/collect-activity-logs.md#configuration) para el área de trabajo.
+1. [Configurar la solución Activity Log Analytics](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) para el área de trabajo.
 
-1. [Ver los registros de actividad](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Una forma rápida de navegar a la página de información general de solución de análisis de registro de actividad es hacer clic en el **Log Analytics** opción.
+1. [Ver los registros de actividad](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Una forma rápida de navegar a la página de información general de solución de análisis de registro de actividad es hacer clic en el **Log Analytics** opción.
 
    ![Opción de registros de Azure Monitor en portal](./media/change-history-report/azure-log-analytics-option.png)
 

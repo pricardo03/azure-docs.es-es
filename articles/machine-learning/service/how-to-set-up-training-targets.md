@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160481"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236633"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configuración de destinos de proceso del entrenamiento del modelo 
 
 Con el servicio Azure Machine Learning, puede entrenar el modelo en una variedad de recursos o entornos, denominados colectivamente [__destinos de proceso__](concept-azure-machine-learning-architecture.md#compute-target). Un destino de proceso puede ser una máquina local o un recurso de nube, como una instancia de Azure Machine Learning Compute, Azure HDInsight o una máquina virtual remota.  También puede crear destinos de proceso para la implementación de modelos tal como se describe en ["Cómo y dónde implementar los modelos"](how-to-deploy-and-where.md).
 
-Los destinos de proceso se pueden crear y administrar mediante el SDK de Azure Machine Learning, Azure Portal o la CLI de Azure. Si tiene destinos de proceso creados mediante cualquier otro servicio (por ejemplo, un clúster de HDInsight), para usarlos debe adjuntarlos al área de trabajo del servicio Azure Machine Learning.
+Puede crear y administrar un destino de proceso mediante el SDK de aprendizaje de máquina de Azure, portal de Azure, la extensión de la CLI de Azure o Azure Machine Learning VS Code. Si tiene destinos de proceso creados mediante cualquier otro servicio (por ejemplo, un clúster de HDInsight), para usarlos debe adjuntarlos al área de trabajo del servicio Azure Machine Learning.
  
 En este artículo, aprenderá a usar diversos destinos de proceso para el entrenamiento de modelos.  Los pasos para todos los destinos de proceso siguen el mismo flujo de trabajo:
 1. __Crear__ un destino de proceso si aún no tiene uno.
@@ -377,6 +377,10 @@ Puede acceder a los destinos de proceso asociados con el área de trabajo median
 
 Para más información, consulte el artículo sobre la [administración de recursos](reference-azure-machine-learning-cli.md#resource-management).
 
+## <a name="set-up-compute-with-vs-code"></a>Configuración de proceso con VS Code
+
+Puede tener acceso, crear y administrar los destinos de proceso que están asociados con el área de trabajo mediante el [extensión de VS Code](how-to-vscode-tools.md#create-and-manage-compute-targets) para el servicio Azure Machine Learning.
+
 ## <a id="submit"></a>Envío de una ejecución de entrenamiento
 
 Después de crear una configuración de ejecución, se utiliza para ejecutar el experimento.  El patrón de código para enviar una ejecución de entrenamiento es el mismo para todos los tipos de destinos de proceso:
@@ -416,8 +420,9 @@ Cambie el mismo experimento para que se ejecute en un destino de proceso diferen
 
 También puede:
 
-* Enviar el experimento con un objeto `Estimator`, tal como se muestra en [Entrenamiento de modelos de aprendizaje automático con estimadores](how-to-train-ml-models.md). 
+* Enviar el experimento con un objeto `Estimator`, tal como se muestra en [Entrenamiento de modelos de aprendizaje automático con estimadores](how-to-train-ml-models.md).
 * Envíe un experimento [mediante la extensión de la CLI](reference-azure-machine-learning-cli.md#experiments).
+* Enviar un experimento a través de la [extensión de VS Code](how-to-vscode-tools.md#train-and-tune-models).
 
 ## <a name="github-tracking-and-integration"></a>Integración y seguimiento de GitHub
 

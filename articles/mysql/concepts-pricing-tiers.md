@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: e5d7ff8513a0659ca1107b9baf07cdf4bac4b807
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8e3d12db8d2500a2675e451580bee7072d22d41c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688626"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225429"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Planes de tarifa de Azure Database for MySQL
 
@@ -38,48 +38,7 @@ Después de crear un servidor, el número de núcleos virtuales, la generación 
 
 ## <a name="compute-generations-and-vcores"></a>Procesar generaciones y núcleos virtuales
 
-Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. Actualmente, puede elegir entre dos generaciones de proceso, Gen 4 y Gen 5. Las CPU lógicas Gen 4 se basan en los procesadores Intel E5-2673 v3 (Haswell) de 2.4 GHz. Las CPU lógicas Gen 5 se basan en los procesadores Intel E5-2673 v4 (Broadwell) de 2.3 GHz. Las CPU lógicas Gen 4 y Gen 5 están disponibles en las siguientes regiones ("X" indica disponible).
-
-| **Región de Azure** | **Gen 4** | **Gen 5** |
-|:---|:----------:|:--------------------:|
-| Centro de EE. UU. |  | X |
-| Este de EE. UU |  | X |
-| Este de EE. UU. 2 |  | X |
-| Centro-Norte de EE. UU |  | X |
-| Centro-Sur de EE. UU |  | X |
-| Oeste de EE. UU. |  | X |
-| Oeste de EE. UU. 2 |  | X |
-| Sur de Brasil |  | X |
-| Centro de Canadá |  | X |
-| Este de Canadá |  | X |
-| Europa del Norte |  | X |
-| Europa occidental |  | X |
-| Centro de Francia |  | X |
-| Sur de Reino Unido 2 |  | X |
-| Oeste de Reino Unido |  | X |
-| Asia oriental |  | X |
-| Sudeste asiático |  | X |
-| Este de Australia |  | X |
-| Centro de Australia |  | X |
-| Centro de Australia 2 |  | X |
-| Sudeste de Australia |  | X |
-| India Central |  | X |
-| Sur de la India |  | X |
-| Oeste de la India |  | X |
-| Este de Japón |  | X |
-| Oeste de Japón |  | X |
-| Corea Central |  | X |
-| Corea del Sur |  | X |
-| Este de China 1 | X |  |
-| Este de China 2 |  | X |
-| Norte de China 1 | X |  |
-| Norte de China 2 |  | X |
-| Centro de Alemania |  | X |
-| Departamento de Defensa de EE. UU. Centro  | X |  |
-| Departamento de Defensa de EE. UU. Este  | X |  |
-| Gobierno de EE. UU.: Arizona |  | X |
-| Gobierno de EE. UU.: Texas |  | X |
-| Gobierno de EE. UU. - Virginia |  | X |
+Los recursos de proceso se proporcionan como núcleos virtuales, que representan la CPU lógica del hardware subyacente. China oriental 1, 1 de centro y Norte de China, US DoD Central y US DoD este usan las CPU lógicas Gen 4 que se basan en Intel E5-2673 v3 (Haswell) procesadores a 2,4 GHz. Todas las demás regiones usan las CPU lógicas Gen 5 basados en Intel E5-2673 v4 (Broadwell) procesadores de 2,3 GHz.
 
 ## <a name="storage"></a>Almacenamiento
 
@@ -92,17 +51,25 @@ El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamien
 | Tamaño de incremento de almacenamiento | 1 GB | 1 GB | 1 GB |
 | E/S | Variable |3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. | 3 IOPS/GB<br/>100 IOPS mín.<br/>6000 IOPS máx. |
 
-Puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor. El plan Básico no proporciona una garantía de IOPS. En los planes de tarifa Uso general y Memoria optimizada, el valor de IOPS se escala con el tamaño de almacenamiento aprovisionado en una proporción 3:1.
+Puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor y permitir que el sistema crecer automáticamente según el consumo de almacenamiento de la carga de trabajo de almacenamiento. El plan Básico no proporciona una garantía de IOPS. En los planes de tarifa Uso general y Memoria optimizada, el valor de IOPS se escala con el tamaño de almacenamiento aprovisionado en una proporción 3:1.
 
 Puede supervisar el consumo de E/S en Azure Portal o mediante los comandos de la CLI de Azure. Las métricas pertinentes que se deben supervisar son el [límite de almacenamiento, el porcentaje de almacenamiento, el almacenamiento usado y el porcentaje de E/S](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Alcance del límite de almacenamiento
 
-El servidor se marca como de solo lectura cuando el almacenamiento disponible se vuelve menor que 5 GB o, de ser inferior, el 5 % del almacenamiento aprovisionado. Por ejemplo, si ha aprovisionado 100 GB de almacenamiento, y el uso real supera los 95 GB, el servidor se marca como de solo lectura. O bien, si ha aprovisionado 5 GB de almacenamiento, el servidor se marca como de solo lectura cuando el almacenamiento disponible se vuelva inferior a 250 MB.  
+Servidores con menos de 100 GB aprovisionar almacenamiento son de sólo lectura si el almacenamiento disponible es inferior a 512MB o el 5% del tamaño de almacenamiento aprovisionado. Servidores con más de 100 GB aprovisionar almacenamiento están marcados como lectura sólo cuando el almacenamiento disponible es inferior a 5 GB.
+
+Por ejemplo, si ha aprovisionado 110 GB de almacenamiento y la utilización real se realiza a través tanto 105 GB, el servidor está marcado como de solo lectura. Como alternativa, si ha aprovisionado 5 GB de almacenamiento, el servidor está marcado como de solo lectura cuando llega el almacenamiento disponible a menos de 512 MB.
 
 Mientras el servicio intenta hacer que el servidor sea de solo lectura, se bloquean todas las nuevas solicitudes de transacción de escritura, y las transacciones activas existentes continuarán ejecutándose. Cuando el servidor se establece en solo lectura, todas las operaciones de escritura y confirmaciones de transacción posteriores generarán errores. Las consultas de lectura seguirán funcionando sin interrupciones. Después de aumentar el almacenamiento aprovisionado, el servidor estará listo para aceptar las transacciones de escritura de nuevo.
 
-Recomendamos que configure una alerta que le envíe una notificación cada vez que su almacenamiento en servidor esté cerca del umbral para que pueda evitar entrar en el estado de solo lectura. Para obtener más información, consulte la documentación sobre [cómo configurar una alerta](howto-alert-on-metric.md).
+Se recomienda activar almacenamiento crecimiento automático o para configurar una alerta para notificarle cuando el almacenamiento de servidor se está agotando el umbral por lo que puede evitar entrar en el estado de solo lectura. Para obtener más información, consulte la documentación sobre [cómo configurar una alerta](howto-alert-on-metric.md).
+
+### <a name="storage-auto-grow"></a>Crecimiento automático de almacenamiento
+
+Si el crecimiento automático de almacenamiento está habilitado, el almacenamiento crece automáticamente sin que afecte a la carga de trabajo. Para los servidores con menos de 100 GB aprovisionar almacenamiento, 5 GB aumenta el tamaño de almacenamiento aprovisionado tan pronto como el almacenamiento disponible está por debajo de la mayor de 1 GB o 10% del almacenamiento aprovisionado. Para los servidores con más de 100 GB de almacenamiento aprovisionado, 5% aumenta el tamaño de almacenamiento aprovisionado cuando el espacio de almacenamiento libre está por debajo del 5% del tamaño de almacenamiento aprovisionado. Se aplican los límites de almacenamiento máximo según lo especificado anteriormente.
+
+Por ejemplo, si ha aprovisionado 1000 GB de almacenamiento y la utilización real se realiza a través 950 GB, el tamaño de almacenamiento del servidor se ha aumentado hasta 1050 GB. Como alternativa, si ha aprovisionado 10 GB de almacenamiento, el tamaño de almacenamiento es aumentan hasta 15 GB cuando menos de 1 GB de almacenamiento es gratuito.
 
 ## <a name="backup"></a>Copia de seguridad
 

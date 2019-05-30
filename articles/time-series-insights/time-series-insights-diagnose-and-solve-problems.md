@@ -4,19 +4,19 @@ description: En este artículo se describe cómo diagnosticar y solucionar probl
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7be2652355e3b9830d4a5198ba71c0f4a78858dd
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 68d46b54bf066724d8f3474f421d2d1f751b75e3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471699"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235043"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnóstico y solución de problemas de su entorno Time Series Insights
 
@@ -104,13 +104,13 @@ Asegúrese de que el nombre y el valor de la propiedad timestamp se ajustan a la
 
 La manera más fácil de asegurarse de que el nombre de la propiedad timestamp se captura y funciona correctamente consiste en utilizar el explorador de Time Series Insights. En el explorador de Time Series Insights mediante el gráfico, seleccione un período de tiempo después de proporcionar el nombre de la propiedad timestamp. Haga clic con el botón derecho en la selección y, a continuación, seleccione la opción de **exploración de eventos**.
 
-El primer encabezado de columna debe ser el nombre de propiedad timestamp. Junto a la palabra **Timestamp**, debería ver **($ts)**.
+El primer encabezado de columna debe ser el nombre de propiedad timestamp. Junto a la palabra **Timestamp**, debería ver **($ts)** .
 
 No debe ver los valores siguientes:
 
-- *(abc)*: indica que Time Series Insights lee los valores de datos como cadenas.
+- *(abc)* : indica que Time Series Insights lee los valores de datos como cadenas.
 - *Icono de calendario*: indica que Time Series Insights lee los valores de datos como *datetime*.
-- *#*: indica que Time Series Insights lee los valores de datos como un entero.
+- *#* : indica que Time Series Insights lee los valores de datos como un entero.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

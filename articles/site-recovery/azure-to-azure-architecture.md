@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 96873b5fdefc74893929f8150230118a162f195b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25cf3914274e73e0789aa87e9288649d1b0cb1eb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791179"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399573"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Azure a Azure
 
@@ -142,7 +142,7 @@ Para controlar la conectividad de salida para máquinas virtuales con direccione
 
 #### <a name="source-region-rules"></a>Reglas de la región de origen
 
-**Regla** |  **Detalles** | **Etiqueta de servicio**
+**Rule** |  **Detalles** | **Etiqueta de servicio**
 --- | --- | --- 
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de origen. | Almacenamiento. \<nombre de la región >.
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Active Directory (Azure AD).<br/><br/> Si se agregan direcciones de Azure AD en el futuro, debe crear reglas de grupo de seguridad de red.  | AzureActiveDirectory
@@ -150,7 +150,7 @@ Permitir HTTPS de salida: puerto 443 | Permitir el acceso a los [puntos de conex
 
 #### <a name="target-region-rules"></a>Reglas de la región de destino
 
-**Regla** |  **Detalles** | **Etiqueta de servicio**
+**Rule** |  **Detalles** | **Etiqueta de servicio**
 --- | --- | --- 
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de destino. | Almacenamiento. \<nombre de la región >.
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure AD.<br/><br/> Si se agregan direcciones de Azure AD en el futuro, debe crear reglas de grupo de seguridad de red.  | AzureActiveDirectory

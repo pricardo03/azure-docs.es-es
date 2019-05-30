@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3f62557d024f56b7014784b6956f15a950f8cca7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1fb67600ea01629e7bf3ab4c7c470e4727b0e923
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926247"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393183"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Modificación del modelo de licencia para una máquina virtual de SQL Server en Azure
 En este artículo se describe cómo cambiar el modelo de licencia para una máquina virtual con SQL Server en Azure mediante el nuevo proveedor de recursos de VM con SQL, **Microsoft.SqlVirtualMachine**. Hay dos modelos para una máquina virtual (VM) que hospeda SQL Server - pago por uso, de licencia y traiga su propia licencia (BYOL). Y ahora, mediante Azure portal, CLI de Azure o PowerShell se puede modificar qué modelo de licencia que usa la máquina virtual de SQL Server. 
@@ -34,7 +34,7 @@ El cambio entre los dos modelos de licencia no genera **ningún tiempo de inacti
 ## <a name="remarks"></a>Comentarios
 
 
- - Los clientes CSP pueden utilizar la Ventaja híbrida de Azure si implementan una máquina virtual de pago por uso y, a continuación, la convierten al modo traiga su propia licencia. 
+ - Los clientes de Azure asociado de soluciones en la nube (CSP) pueden utilizar la ventaja híbrida de Azure, primero implementa una máquina virtual de pago por uso y, a continuación, convertirlo en bring-your-propia licencia. 
  - Al registrar una imagen de máquina virtual de SQL Server personalizada con el proveedor de recursos, especifique el tipo de licencia como = 'AHUB'. Salir de la licencia, escriba en blanco, o especificando 'PAYG' provocará que se producirá un error en el registro. 
  - Si quita el recurso de máquina virtual de SQL Server, volverá a la configuración de la licencia codificado de forma rígida de la imagen. 
  - Agregar una máquina virtual de SQL Server a un conjunto de disponibilidad, es necesario volver a crear la máquina virtual. Como estas, cualquier las máquinas virtuales agregadas a una disponibilidad del conjunto volverá al tipo de licencia de pago por uso predeterminado y ventaja híbrida de AZURE deberá habilitarse de nuevo. 

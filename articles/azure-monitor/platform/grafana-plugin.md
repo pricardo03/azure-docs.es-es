@@ -3,18 +3,18 @@ title: Supervisión de los servicios y aplicaciones de Azure mediante Grafana
 description: Enrute los datos de Azure Monitor y Application Insights para que puedan verse en Grafana.
 services: azure-monitor
 keywords: ''
-author: lingliw
-ms.author: v-lingwu
-ms.date: 04/12/19
+author: rboucher
+ms.author: robb
+ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9a20aba84e79e87f84d63e4bdae3ba1aac062f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396093"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387191"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Supervisar los servicios de Azure en Grafana
 Ahora, los servicios y las aplicaciones de Azure se pueden supervisar desde [Grafana](https://grafana.com/) gracias al [complemento de origen de datos de Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). El complemento recopila datos de rendimiento de aplicación recabados por Azure Monitor, incluidos varios registros y métricas. De este modo, podrá ver estos datos en el panel de Grafana.
@@ -103,7 +103,7 @@ Tras haber iniciado sesión correctamente, deberá ver que el complemento de ori
      > [!NOTE]
      >
      > La consulta predeterminada que se proporciona con el complemento usa dos macros: "$__timeFilter() y $__interval. 
-     > Estas macros permiten a Grafana calcular dinámicamente el intervalo de tiempo y el intervalo de agregación, al acercarse a una parte de un gráfico. Puede quitar estas macros y usar un filtro de tiempo estándar, como *TimeGenerated > ago(1h)*, pero significaría que el gráfico no admitiese la característica de acercamiento.
+     > Estas macros permiten a Grafana calcular dinámicamente el intervalo de tiempo y el intervalo de agregación, al acercarse a una parte de un gráfico. Puede quitar estas macros y usar un filtro de tiempo estándar, como *TimeGenerated > ago(1h)* , pero significaría que el gráfico no admitiese la característica de acercamiento.
     
      ![Configuración del gráfico de Grafana para Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
@@ -119,8 +119,6 @@ También puede reutilizar esta configuración para incluir métricas desde su se
 
 Aquí tiene algunos artículos de referencia interesantes sobre cómo usar Telegraf, InfluxDB, Prometheus y Docker:
  - [How To Monitor System Metrics with the TICK Stack on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04) (Cómo supervisar métricas de sistema con la pila TICK en Ubuntu 16.04)
-
- - [Monitor Docker resource metrics with Grafana, InfluxDB, and Telegraf](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/) (Supervisar métricas de recursos de Docker con Grafana, InfluxDB y Telegraf)
 
  - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/) (Solución de supervisión para hosts, contenedores y servicios en contenedores de Docker)
 
@@ -168,3 +166,4 @@ Si ha configurado un entorno de Grafana en Azure, se le cobrará cuando se ejecu
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Información general sobre las métricas en Microsoft Azure](data-platform.md)
+

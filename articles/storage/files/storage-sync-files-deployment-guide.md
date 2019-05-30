@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fa7c3d8bbbca5457a194c414863682050dfec9d7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65189991"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240093"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -97,8 +97,7 @@ En el panel que se abre, escriba la siguiente información:
 Cuando haya terminado, seleccione **Crear** para implementar el servicio de sincronización de almacenamiento.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-Antes de interactuar con los cmdlets de administración de Azure File Sync, debe importar un archivo DLL y crear un contexto de administración de Azure File Sync. Esto es necesario porque los cmdlets de administración de Azure File Sync todavía no forman parte de los módulos de Azure PowerShell.
-
+Reemplace **< Az_Region >** , **< RG_Name >** , y **< my_storage_sync_service >** con sus propios valores, a continuación, use los comandos siguientes para crear e implementar un Servicio de sincronización de almacenamiento:
 
 ```powershell
 Connect-AzAccount
@@ -133,7 +132,7 @@ if ($resourceGroups -notcontains $resourceGroup) {
     New-AzResourceGroup -Name $resourceGroup -Location $region
 }
 
-$storageSyncName = "<my-storage-sync-service>"
+$storageSyncName = "<my_storage_sync_service>"
 $storageSync = New-AzStorageSyncService -ResourceGroupName $resourceGroup -Name $storageSyncName -Location $region
 ```
 

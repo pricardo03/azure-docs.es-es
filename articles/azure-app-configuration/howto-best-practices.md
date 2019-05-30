@@ -12,30 +12,39 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: d1275a48de5cad9321186ba20860d853b8ce55ad
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 3d9a597e7ced631627a121f3f0757e472f9a4bae
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413621"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393590"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Prácticas recomendadas de configuración de la aplicación de Azure
 
-Este artículo describen las prácticas y patrones comunes al utilizar la configuración de la aplicación de Azure.
+Este artículo describen patrones comunes y procedimientos recomendados cuando se usa la configuración de aplicación de Azure.
 
 ## <a name="key-groupings"></a>Agrupaciones de clave
 
-Configuración de la aplicación proporciona dos opciones para organizar las claves: prefijos o etiquetas de clave. Puede usar uno o ambos.
+Configuración de la aplicación proporciona dos opciones para organizar las claves:
 
-Los prefijos de clave son las partes del principio de claves. Puede agrupar lógicamente un conjunto de claves utilizando el mismo prefijo en sus nombres. Los prefijos pueden contener varios componentes conectados entre sí por un delimitador, como `/`, de forma similar a una ruta de dirección URL, para formar un espacio de nombres. Estas jerarquías son útiles para almacenar las claves para muchas aplicaciones, servicios de componentes y entornos en un almacén de configuración de la aplicación. Una cuestión importante que debe tener en cuenta es que las claves son lo que hace referencia el código de aplicación para recuperar los valores de la configuración correspondiente. No debe cambiar una clave o bien tendrá que modificar el código cada vez que ocurre.
+* Prefijos de clave
+* Etiquetas
 
-Las etiquetas es un atributo de claves. Se utilizan para crear variantes de una clave. Por ejemplo, puede asignar etiquetas a varias versiones de una clave. Una versión puede ser una iteración, el entorno o cualquier otra información contextual. La aplicación puede solicitar un conjunto completamente distinto de valores de clave especificando otra etiqueta. Todas las referencias de clave pueden permanecer sin cambios.
+Puede usar una o ambas opciones para agrupar sus claves.
+
+*Los prefijos de clave* son las partes del principio de claves. Puede agrupar lógicamente un conjunto de claves utilizando el mismo prefijo en sus nombres. Los prefijos pueden contener varios componentes conectados por un delimitador, como `/`, de forma similar a una ruta de dirección URL, para formar un espacio de nombres. Estas jerarquías son útiles cuando se está almacenando las claves para muchas aplicaciones, servicios de componentes y entornos en un almacén de configuración de la aplicación.
+
+Una cuestión importante que debe tener en cuenta es que las claves son lo que hace referencia el código de aplicación para recuperar los valores de la configuración correspondiente. No deberían cambiar las claves, o bien tendrá que modificar el código cada vez que ocurre.
+
+*Las etiquetas* son un atributo en las claves. Se usan para crear variantes de una clave. Por ejemplo, puede asignar etiquetas a varias versiones de una clave. Una versión podría ser una iteración, un entorno o cualquier otra información contextual. La aplicación puede solicitar un conjunto completamente distinto de los valores de clave mediante la especificación de otra etiqueta. Como resultado, todas las referencias de clave permanecen sin cambios en el código.
 
 ## <a name="key-value-compositions"></a>Composiciones de pares clave-valor
 
-Configuración de la aplicación trata todas las claves que se almacenan con él como entidades independientes. No intente deducir ninguna relación entre las claves o heredar valores de clave en función de su jerarquía. Puede agregar varios conjuntos de claves, sin embargo, con las etiquetas junto con la configuración correcta de apilamiento en el código de aplicación.
+Configuración de la aplicación trata todas las claves que se almacenan con él como entidades independientes. Configuración de la aplicación no intenta deducir ninguna relación entre las claves o para heredar valores de clave en función de su jerarquía. Sin embargo, es posible agregar varios conjuntos de claves, mediante el uso de etiquetas junto con la configuración correcta de apilamiento en el código de aplicación.
 
-Veamos un ejemplo. Tiene una configuración **Asset1** cuyo valor puede variar según el entorno de "Desarrollo". Puede crear una clave denominada "Asset1" con una etiqueta vacía y una etiqueta denominada "Desarrollo". Coloque el valor predeterminado de **Asset1** en el primero y cualquier valor específico para el "Desarrollo" en el último. En el código, primero hay que recuperar los valores de clave sin ninguna etiqueta y, a continuación, aquellos con una etiqueta de "Desarrollo" para sobrescribir los valores anteriores de las mismas claves. Si usa un marco de programación modernos, como .NET Core, puede obtener esta funcionalidad de apilamiento de forma gratuita si usa un proveedor de configuración nativo para tener acceso a la configuración de la aplicación. El fragmento de código siguiente muestra cómo puede implementar en una aplicación .NET Core de apilamiento.
+Veamos un ejemplo. Suponga que tiene una configuración denominada **Asset1**, cuyo valor puede variar según el entorno de desarrollo. Cree una clave denominada "Asset1" con una etiqueta vacía y una etiqueta denominada "Desarrollo". En la primera etiqueta, coloca el valor predeterminado de **Asset1**, and debe incluir un valor específico para el "Desarrollo" en el último.
+
+En el código, primero recupere los valores de clave sin ninguna etiqueta y, a continuación, recuperar el mismo conjunto de valores de clave, una segunda vez con la etiqueta "Desarrollo". Cuando se recuperan los valores de la segunda vez, se sobrescriben los valores de las claves anteriores. El sistema de configuración de .NET Core permite "apilar" varios conjuntos de datos de configuración en la parte superior entre sí. Si existe una clave en más de un conjunto, se utiliza el último conjunto que lo contiene. Con un marco de programación modernos, como .NET Core, obtiene esta capacidad de apilamiento de forma gratuita si usa un proveedor de configuración nativo para tener acceso a la configuración de la aplicación. El fragmento de código siguiente muestra cómo puede implementar el apilamiento en una aplicación .NET Core:
 
 ```csharp
 // Augment the ConfigurationBuilder with Azure App Configuration
@@ -49,13 +58,18 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 ## <a name="app-configuration-bootstrap"></a>Bootstrap de configuración de aplicación
 
-Para obtener acceso a un almacén de configuración de la aplicación, puede usar su cadena de conexión, que está disponible en el portal de Azure. Las cadenas de conexión contienen información de credenciales y se consideran como secretos. Deben almacenarse en un almacén de claves. Una mejor opción es usar Azure identidad administrada. Con este método, solo necesita dirección URL del extremo para arrancar el acceso al almacén de configuración de la configuración de la aplicación. Puede insertar la dirección URL en el código de aplicación (por ejemplo, en el *appsettings.json* archivo). Consulte [integrar con Azure administra las identidades](howto-integrate-azure-managed-service-identity.md) para obtener más detalles.
+Para obtener acceso a un almacén de configuración de la aplicación, puede usar su cadena de conexión, que está disponible en el portal de Azure. Dado que las cadenas de conexión contienen información de credenciales, se consideran secretos. Estos secretos deben almacenarse en Azure Key Vault y el código debe autenticarse en Key Vault para recuperarlos.
 
-## <a name="web-app-or-function-access-to-app-configuration"></a>Aplicación Web o función acceso a la configuración de aplicación
+Una mejor opción es usar la característica de las identidades administradas en Azure Active Directory. Con identidades administradas, necesita solo en la URL del extremo de configuración de la aplicación para acceso de arranque a su almacén de configuración de la aplicación. Puede insertar la dirección URL en el código de aplicación (por ejemplo, en el *appsettings.json* archivo). Consulte [integrar con Azure administra las identidades](howto-integrate-azure-managed-service-identity.md) para obtener más información.
 
-Puede escribir la cadena de conexión en su almacén de configuración de la aplicación en la configuración de la aplicación de App Service a través del portal de Azure. También puede almacenar en Key Vault y [haga referencia a él desde App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references). También puede usar Azure para acceder al almacén de configuración de la identidad administrada. Consulte [integrar con Azure administra las identidades](howto-integrate-azure-managed-service-identity.md) para obtener más detalles.
+## <a name="app-or-function-access-to-app-configuration"></a>Función o aplicación acceso a la configuración de aplicación
 
-Como alternativa, puede insertar la configuración de la configuración de la aplicación en App Service. Configuración de la aplicación proporciona una función de exportación (en Azure portal y CLI) que envía datos directamente a App Service. Con este método, no es necesario cambiar el código de aplicación en absoluto.
+Puede proporcionar acceso a la configuración de la aplicación para aplicaciones web o las funciones mediante cualquiera de los métodos siguientes:
+
+* A través del portal de Azure, escriba la cadena de conexión en su almacén de configuración de la aplicación en la configuración de la aplicación de App Service.
+* Store de la cadena de conexión en su almacén de configuración de la aplicación en Key Vault y [haga referencia a él desde App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+* Uso de Azure administra las identidades para acceder al almacén de configuración de la aplicación. Para obtener más información, consulte [integrar con Azure administra las identidades](howto-integrate-azure-managed-service-identity.md).
+* Insertar configuración de la configuración de la aplicación en App Service. Configuración de la aplicación proporciona una función de exportación (en Azure portal y la CLI de Azure) que envía datos directamente a App Service. Con este método, no es necesario cambiar el código de aplicación en absoluto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

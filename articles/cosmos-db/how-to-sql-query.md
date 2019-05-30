@@ -4,14 +4,14 @@ description: Más información sobre la sintaxis SQL, los conceptos de base de d
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: bbca0239053b8f3164055a07b376abc597b0348f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 943ed63aed0f64ae6cbd62c52731c6ec73ddd0bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954136"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388479"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Ejemplos de consultas SQL para Azure Cosmos DB
 
@@ -511,7 +511,7 @@ Puede usar los operadores binarios admitidos siguientes:
 |Aritméticos | +,-,*,/,% |
 |Bit a bit    | \|, &, ^, <<, >>, >>> (desplazamiento a la derecha con relleno de ceros) |
 |Lógicos    | AND, OR, NOT      |
-|Comparación | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
+|De comparación | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
 |String     |  \|\| (concatenar) |
 
 Las consultas siguientes utilizan los operadores binarios:
@@ -550,13 +550,13 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
 
 | **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
-| **Undefined** | No definido | No definido | No definido | No definido | No definido | No definido | No definido |
-| **Null** | No definido | **OK (CORRECTO)** | No definido | No definido | No definido | No definido | No definido |
-| **Boolean** | No definido | No definido | **OK (CORRECTO)** | No definido | No definido | No definido | No definido |
-| **Number** | No definido | No definido | No definido | **OK (CORRECTO)** | No definido | No definido | No definido |
-| **String** | No definido | No definido | No definido | No definido | **OK (CORRECTO)** | No definido | No definido |
-| **Object** | No definido | No definido | No definido | No definido | No definido | **OK (CORRECTO)** | No definido |
-| **Array** | No definido | No definido | No definido | No definido | No definido | No definido | **OK (CORRECTO)** |
+| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Boolean** | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** |
 
 Para los operadores de comparación como `>`, `>=`, `!=`, `<`, y `<=`, comparación entre los tipos o entre dos objetos o matrices genera `Undefined`.  
 
@@ -568,19 +568,19 @@ Los operadores lógicos operan en valores booleanos. Las siguientes tablas muest
 
 **operator OR**
 
-| OR | True  | False | No definido |
+| OR | True  | False | Undefined |
 | --- | --- | --- | --- |
 | True  |True  |True  |True  |
-| False |True  |False |No definido |
-| No definido |True  |No definido |No definido |
+| False |True  |False |Undefined |
+| Undefined |True  |Undefined |Undefined |
 
 **operator AND**
 
-| Y | True  | False | No definido |
+| Y | True  | False | Undefined |
 | --- | --- | --- | --- |
-| True  |True  |False |No definido |
+| True  |True  |False |Undefined |
 | False |False |False |False |
-| No definido |No definido |False |No definido |
+| Undefined |Undefined |False |Undefined |
 
 **operator NOT**
 
@@ -588,7 +588,7 @@ Los operadores lógicos operan en valores booleanos. Las siguientes tablas muest
 | --- | --- |
 | True  |False |
 | False |True  |
-| No definido |No definido |
+| Undefined |Undefined |
 
 ## <a name="between-keyword"></a>Palabra clave BETWEEN
 
@@ -756,7 +756,7 @@ Esta consulta recupera la familia `id` en orden ascendente de nombre de la ciuda
 
 ## <a id="OffsetLimitClause"></a>Cláusula de límite de desplazamiento
 
-LÍMITE de desplazamiento es una cláusula opcional para omitir y llevamos a cabo un número de valores de la consulta. El recuento de desplazamiento y el recuento de límite son necesarios en la cláusula de LIMIT de desplazamiento.
+LÍMITE de desplazamiento es una cláusula opcional para omitir y llevamos a cabo un número de valores de la consulta. El recuento de desplazamiento y el recuento de límite son necesarios en la cláusula de LIMIT de desplazamiento. Actualmente esta cláusula es compatible con consultas dentro de una sola partición, las consultas entre particiones aún no admiten. 
 
 Cuando se usa el límite de desplazamiento junto con una cláusula ORDER BY, el conjunto de resultados se genera haciendo skip y toman los valores ordenados. Si no se usa la cláusula ORDER BY, se producirá un error en un orden determinista de valores.
 
@@ -1294,11 +1294,11 @@ SQL API admite las siguientes funciones de agregado. SUM y AVG operan en valores
 
 | Función | DESCRIPCIÓN |
 |-------|-------------|
-| RECUENTO | Devuelve el número de elementos de la expresión. |
+| COUNT | Devuelve el número de elementos de la expresión. |
 | SUM   | Devuelve la suma de todos los valores de la expresión. |
-| MÍN.   | Devuelve el valor mínimo de la expresión. |
+| MÍN   | Devuelve el valor mínimo de la expresión. |
 | MÁX   | Devuelve el valor máximo de la expresión. |
-| AVG   | Devuelve la media de los valores de la expresión. |
+| MEDIA   | Devuelve la media de los valores de la expresión. |
 
 También puede agregar a través de los resultados de una iteración de matriz. Para obtener más información, consulte el [iteración](#Iteration) sección.
 

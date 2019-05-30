@@ -2,31 +2,24 @@
 title: Validación del rendimiento de la VPN en una red Microsoft Azure Virtual Network | Microsoft Docs
 description: El objetivo de este documento es ayudar a un usuario a validar el rendimiento de red de sus recursos locales en una máquina virtual de Azure.
 services: vpn-gateway
-documentationcenter: na
-author: chadmath
+author: cherylmc
 manager: jasmc
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/15/2018
+ms.date: 05/29/2019
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1117afcf6254c32ebe0a4e72ad5619606098253
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457567"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388611"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Validación del rendimiento de la VPN en una red virtual
 
 Una conexión a la puerta de enlace de la VPN le permite establecer una conectividad segura y entre entornos locales entre su red virtual dentro de Azure y la infraestructura local de TI.
 
-Este artículo muestra cómo validar el rendimiento de red de los recursos locales en una máquina virtual de Azure. También proporciona orientación para la solución de errores.
+Este artículo muestra cómo validar el rendimiento de red de los recursos locales en una máquina virtual de Azure. También proporciona orientación para la solución de errores. 
 
 >[!NOTE]
 >Este artículo se ha creado para ayudar a diagnosticar problemas comunes y solucionarlos. Si no puede resolver el problema mediante el uso de la siguiente información, [póngase en contacto con soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -127,7 +120,7 @@ Puede experimentar una copia de archivos lenta cuando use el Explorador de Windo
 - Velocidad de lectura/escritura del disco de VM insuficiente. Para más información, vea [Solución de problemas de Azure Storage](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interfaz con orientación externa del dispositivo local
-Si la dirección IP orientada a Internet del dispositivo VPN local se incluye en la definición de la [red local](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) en Azure, puede experimentar la incapacidad para ofrecer la VPN, desconexiones esporádicas o problemas de rendimiento.
+Si el dispositivo VPN local dirección IP accesible desde Internet se incluye en el [red local](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) definición de espacio de direcciones en Azure, puede experimentar incapacidad para ofrecer la VPN, desconexiones esporádicas o problemas de rendimiento.
 
 ## <a name="checking-latency"></a>Comprobación de la latencia
 Use tracert para realizar un seguimiento del dispositivo perimetral de Microsoft Azure para determinar si hay retrasos superiores a 100 ms entre saltos.

@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Introducción | Microsoft Docs'
 description: Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2018
-ms.author: ergreenl
-ms.openlocfilehash: 3020d7b29f19ec2ab578acbebac8db8ea320a844
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/22/2019
+ms.author: mstephen
+ms.openlocfilehash: 65cc63b32afcc565f1901c4df2893ad103ec0da3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103586"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234905"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Consulte [Consideraciones de red de Azure Active Directory Domain Services](active-directory-ds-networking.md).
+Consulte [Consideraciones de red de Azure Active Directory Domain Services](network-considerations.md).
 
 
 ## <a name="task-2-configure-network-settings"></a>Tarea 2: Configuración de red
@@ -41,7 +41,7 @@ La siguiente tarea de configuración es crear una red virtual de Azure y una sub
 3. Elija la red virtual en la que Azure AD Domain Services debe habilitarse. Puede seleccionar una red virtual existente o crear una nueva.
 
    > [!TIP]
-   > **El dominio administrado no se puede mover a otra red virtual después de haber habilitado Azure AD Domain Services.** Seleccione la red virtual correcta para habilitar el dominio administrado. Después de crear un dominio administrado, no se puede mover a otra red virtual sin eliminar el dominio administrado. Se recomienda revisar [Consideraciones de red de Azure Active Directory Domain Services](active-directory-ds-networking.md) antes de empezar.  
+   > **El dominio administrado no se puede mover a otra red virtual después de haber habilitado Azure AD Domain Services.** Seleccione la red virtual correcta para habilitar el dominio administrado. Después de crear un dominio administrado, no se puede mover a otra red virtual sin eliminar el dominio administrado. Se recomienda revisar [Consideraciones de red de Azure Active Directory Domain Services](network-considerations.md) antes de empezar.  
    >
 
 4. **Cree una red virtual:** haga clic en **Crear nueva** para crear una nueva red virtual. Use una subred dedicada para Azure AD Domain Services. Por ejemplo, cree una subred llamada 'DomainServices', lo que facilitará que otros administradores sepan lo que se implementa en la subred. Cuando haya terminado, haga clic en **Aceptar**.
@@ -57,7 +57,7 @@ La siguiente tarea de configuración es crear una red virtual de Azure y una sub
 
    > [!NOTE]
    > **Directrices para seleccionar una subred**
-   > 1. Use una subred dedicada para Azure AD Domain Services. No implemente otras máquinas virtuales en esta subred. Esta configuración permite configurar grupos de seguridad de red (NSG) para las cargas de trabajo o máquinas virtuales sin interrumpir el dominio administrado. Para obtener detalles, vea [Consideraciones de red de Azure Active Directory Domain Services](active-directory-ds-networking.md).
+   > 1. Use una subred dedicada para Azure AD Domain Services. No implemente otras máquinas virtuales en esta subred. Esta configuración permite configurar grupos de seguridad de red (NSG) para las cargas de trabajo o máquinas virtuales sin interrumpir el dominio administrado. Para obtener detalles, vea [Consideraciones de red de Azure Active Directory Domain Services](network-considerations.md).
    > 2. No seleccione la subred Gateway para implementar Azure AD Domain Services, porque no es una configuración admitida.
    > 3. La subred que ha seleccionado debe tener como mínimo de 3 a 5 direcciones IP disponibles en su espacio de direcciones.
 

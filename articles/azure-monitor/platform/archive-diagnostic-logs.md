@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 82aaa573c55748daf62b620cdd82561bae6af492
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc1804e547bb1a29fc0dc680b948f1bb31af8307
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345998"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244929"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivo de registros de diagnóstico de Azure
 
-En este artículo, le mostraremos cómo puede usar Azure Portal, los cmdlets de PowerShell, la CLI o la API de REST para archivar los [registros de diagnóstico de Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) en una cuenta de almacenamiento. Esta opción es útil si desea conservar los registros de diagnóstico con una directiva de retención opcional para auditorías, análisis estáticos o copias de seguridad. La cuenta de almacenamiento no tiene que estar en la misma suscripción que la del recurso que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
+En este artículo, le mostraremos cómo puede usar Azure Portal, los cmdlets de PowerShell, la CLI o la API de REST para archivar los [registros de diagnóstico de Azure](diagnostic-logs-overview.md) en una cuenta de almacenamiento. Esta opción es útil si desea conservar los registros de diagnóstico con una directiva de retención opcional para auditorías, análisis estáticos o copias de seguridad. La cuenta de almacenamiento no tiene que estar en la misma suscripción que la del recurso que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
 
 > [!WARNING]
 > El formato de los datos de registro de la cuenta de almacenamiento cambiará a JSON Lines el 1 de noviembre de 2018. [Consulte este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -26,7 +26,7 @@ En este artículo, le mostraremos cómo puede usar Azure Portal, los cmdlets de 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, necesita [crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) en la que poder archivar los registros de diagnóstico. Le recomendamos encarecidamente que no utilice una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos de supervisión. Sin embargo, si también va a archivar las métricas del registro de actividad y de diagnóstico en una cuenta de almacenamiento, puede que tenga sentido utilizar igualmente esa cuenta de almacenamiento para los registros de diagnóstico a fin de mantener todos los datos de supervisión en una ubicación central.
+Antes de comenzar, necesita [crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) en la que poder archivar los registros de diagnóstico. Le recomendamos encarecidamente que no utilice una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos de supervisión. Sin embargo, si también va a archivar el registro de actividad y las métricas de diagnóstico para una cuenta de almacenamiento, es posible que sentido utilizar esa cuenta de almacenamiento para los registros de diagnóstico para mantener todos los datos de supervisión en una ubicación central.
 
 > [!NOTE]
 >  Actualmente no puede archivar datos en una cuenta de almacenamiento que está detrás de una red virtual protegida.

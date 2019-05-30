@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 6fd7f36510bdc7ed56ede6a5743a5f131149472e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 32d385416c83f81553e734d9471d0b502a458b07
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834754"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390503"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola de serie de Azure para Windows
 
@@ -122,7 +122,7 @@ Si tiene que habilitar los mensajes del cargador de arranque de Windows para que
 
 ### <a name="use-cmd-or-powershell-in-serial-console"></a>Utilice CMD o PowerShell en la consola serie
 
-1. Conéctese a la consola serie. Si se conecta correctamente, el símbolo del sistema es **SAC>**:
+1. Conéctese a la consola serie. Si se conecta correctamente, el símbolo del sistema es **SAC>** :
 
     ![Conectarse a SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
@@ -170,7 +170,9 @@ La consola serie puede deshabilitarse para una escala de máquina virtual o una 
 > Para habilitar o deshabilitar la consola serie en una suscripción, debe tener permisos de escritura en la suscripción. Estos permisos incluyen, entre otros, los roles de administrador o propietario. Los roles personalizados también pueden tener permisos de escritura.
 
 ### <a name="subscription-level-disable"></a>Deshabilitación a nivel de supervisión
-La consola serie puede deshabilitarse para toda una suscripción a través de la [llamada API REST Disable Console](/rest/api/serialconsole/console/disableconsole). Puede usar la función **Probarlo** disponible en la página de documentación de la API para deshabilitar y habilitar la consola serie para una suscripción. Escriba el identificador de suscripción para **subscriptionId**, escriba "default" para el valor **predeterminado** y, a continuación, seleccione **Ejecutar**. Los comandos de la CLI de Azure aún no están disponibles.
+La consola serie puede deshabilitarse para toda una suscripción a través de la [llamada API REST Disable Console](/rest/api/serialconsole/console/disableconsole). Esta acción requiere acceso de nivel de colaborador o superior a la suscripción. Puede usar la función **Probarlo** disponible en la página de documentación de la API para deshabilitar y habilitar la consola serie para una suscripción. Escriba el identificador de suscripción para **subscriptionId**, escriba "default" para el valor **predeterminado** y, a continuación, seleccione **Ejecutar**. Los comandos de la CLI de Azure aún no están disponibles.
+
+Para volver a habilitar la consola serie para una suscripción, utilice el [llamada API de REST de consola habilitar](/rest/api/serialconsole/console/enableconsole).
 
 ![Probarlo en API REST](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
@@ -246,10 +248,10 @@ Dado que la mayoría de los errores son transitorios, es posible que se solucion
 
 Error                            |   Mitigación
 :---------------------------------|:--------------------------------------------|
-No se puede recuperar la configuración de diagnóstico de arranque para *&lt;VMNAME&gt;*. Para usar la consola serie, asegúrese de que el diagnóstico de arranque está habilitado para esta máquina virtual. | Asegúrese de que la máquina virtual tiene los [diagnósticos de arranque](boot-diagnostics.md) habilitados.
+No se puede recuperar la configuración de diagnóstico de arranque para *&lt;VMNAME&gt;* . Para usar la consola serie, asegúrese de que el diagnóstico de arranque está habilitado para esta máquina virtual. | Asegúrese de que la máquina virtual tiene los [diagnósticos de arranque](boot-diagnostics.md) habilitados.
 La máquina virtual se encuentra en un estado desasignado detenido. Inicie la máquina virtual y vuelva a intentar la conexión de la consola serie. | La máquina virtual tiene que estar en un estado iniciado para tener acceso a la consola serie
 No tiene los permisos necesarios para usar la consola serie de esta máquina virtual. Asegúrese de tener los permisos del rol de Colaborador de la máquina virtual como mínimo.| El acceso a la consola serie requiere determinados permisos. Para obtener más información, consulte la sección [Requisitos previos](#prerequisites).
-No se puede determinar el grupo de recursos para la cuenta de almacenamiento de diagnósticos de arranque *&lt;STORAGEACCOUNTNAME&gt;*. Compruebe que los diagnósticos de arranque están habilitados para esta máquina virtual y acceda a esta cuenta de almacenamiento. | El acceso a la consola serie requiere determinados permisos. Para obtener más información, consulte la sección [Requisitos previos](#prerequisites).
+No se puede determinar el grupo de recursos para la cuenta de almacenamiento de diagnósticos de arranque *&lt;STORAGEACCOUNTNAME&gt;* . Compruebe que los diagnósticos de arranque están habilitados para esta máquina virtual y acceda a esta cuenta de almacenamiento. | El acceso a la consola serie requiere determinados permisos. Para obtener más información, consulte la sección [Requisitos previos](#prerequisites).
 Se encontró una respuesta "Prohibido" al obtener acceso a la cuenta de almacenamiento de diagnósticos de arranque de la VM. | Asegúrese de que el diagnóstico de arranque no tenga un firewall de cuentas. Se necesita una cuenta de almacenamiento de diagnósticos de arranque accesible para que la consola serie funcione.
 Socket web está cerrado o no se pudo abrir. | Puede que necesite incluir `*.console.azure.com` en la lista blanca. Un enfoque más detallado, pero más largo, es incluir en la lista blanca los [rangos de IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), que cambian con bastante frecuencia.
 Se muestra solamente información de mantenimiento cuando se conecta a una máquina virtual Windows| Este error se produce si no se ha habilitado la consola de administración especial para la imagen de Windows. Consulte [Habilitación de la consola serie en imágenes personalizadas o antiguas](#enable-the-serial-console-in-custom-or-older-images) para obtener instrucciones sobre cómo habilitar manualmente SAC en la máquina virtual Windows. Para más información, consulte [Señales de mantenimiento de Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
@@ -262,9 +264,10 @@ Problema                             |   Mitigación
 Al presionar **Entrar** después del banner de conexión no se muestra ninguna solicitud de inicio de sesión. | Para obtener más información, consulte [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) (Al presionar Entrar, no se realiza ninguna acción). Este error puede ocurrir si está ejecutando una máquina virtual personalizada, un dispositivo protegido o una configuración de arranque que hace que Windows no pueda conectarse correctamente al puerto serie. Este error se producirá también si está ejecutando una máquina virtual cliente de Windows 10, ya que únicamente las máquinas virtuales de Windows Server están configuradas para tener habilitada la opción EMS.
 No se puede escribir en el símbolo del sistema de SAC si la depuración del kernel está habilitada. | Conéctese mediante RDP a la máquina virtual y ejecute `bcdedit /debug {current} off` desde un símbolo del sistema con privilegios elevados. Si no puede conectarse mediante RDP, en su lugar puede conectar el disco del sistema operativo a otra máquina virtual de Azure y modificarlo mientras está conectado como un disco de datos mediante la ejecución de `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off` para, seguidamente, volver a intercambiar el disco.
 Pegar en PowerShell en SAC da como resultado un tercer carácter si el contenido original tenía un carácter repetido. | Una solución alternativa es ejecutar `Remove-Module PSReadLine` para descargar el módulo PSReadLine desde la sesión actual. Esta acción no eliminará ni desinstalará el módulo.
-Algunas entradas de teclado generan resultados extraños de SAC (por ejemplo, **[A**, **[3~**). | Las secuencias de escape [VT100](https://aka.ms/vtsequences) no son compatibles con el símbolo del sistema de SAC.
+Algunas entradas de teclado generan resultados extraños de SAC (por ejemplo, **[A**, **[3~** ). | Las secuencias de escape [VT100](https://aka.ms/vtsequences) no son compatibles con el símbolo del sistema de SAC.
 El hecho de pegar cadenas largas no funciona. | La consola serie limita la longitud de las cadenas pegadas en el terminal a 2048 caracteres a fin de impedir que el ancho de banda del puerto serie se sobrecargue.
 La consola serie no funciona con un firewall de la cuenta de almacenamiento. | Por su diseño, la consola serie no puede operar con firewalls de la cuenta de almacenamiento habilitados en la cuenta de almacenamiento del diagnóstico de arranque.
+Consola serie no funciona con una cuenta de almacenamiento mediante Azure Data Lake Storage Gen2 con espacios de nombres jerárquico. | Se trata de un problema conocido con los espacios de nombres jerárquico. Para mitigar, asegúrese de que cuenta de almacenamiento de diagnósticos de arranque de la máquina virtual no se crea mediante Azure Data Lake Storage Gen2. Esta opción solo puede establecerse durante la creación de la cuenta de almacenamiento. Es posible que deba crear cuenta de almacenamiento de un diagnóstico de arranque independiente sin Azure Data Lake Storage Gen2 habilitado para mitigar este problema.
 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes

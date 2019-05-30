@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 83de0046a56788e40b9224823af0411a18dea5eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0db301109da657083d121cc8b986372adcb54171
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66122509"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389044"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Movimiento de datos desde almacenes de datos ODBC mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +72,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | credential |La parte de la credencial de acceso de la cadena de conexión especificada en formato de valor de propiedad específico del controlador. Ejemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |No |
 | authenticationType |Tipo de autenticación que se usa para conectarse al almacén de datos ODBC. Los valores posibles son: Anónima y básica. |Sí |
 | userName |Especifique el nombre de usuario si usa la autenticación básica. |Sin  |
-| password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
+| password |Especifique la contraseña de la cuenta de usuario que ha especificado para el nombre de usuario. |No |
 | gatewayName |Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse al almacén de datos ODBC. |Sí |
 
 ### <a name="using-basic-authentication"></a>Uso de la autenticación básica

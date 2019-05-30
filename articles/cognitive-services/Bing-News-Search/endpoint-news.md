@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: b680f476345bde61797fd1cc137cad6e5653d0a5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6ea218da23d65696c76008cb15e183fcc4bbda10
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798218"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383224"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Puntos de conexión de Bing News Search API
 
@@ -39,7 +39,7 @@ Devuelve nuevos elementos según una consulta de búsqueda. Si la consulta de b�
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-Devuelve los principales elementos de noticias por categoría. En concreto, puede solicitar los artículos principales sobre negocios, deportes o entretenimiento mediante `category=business`, `category=sports` o `category=entertainment`.  El parámetro `category` solo se puede usar con la dirección URL `/news`. Existen algunos requisitos formales para especificar las categorías; consulte `category` en la documentación de [parámetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Para enviar una consulta por URL, codifique el término de búsqueda y anéxelo al parámetro `q=""`. Para lograr una disponibilidad, consulte [países o regiones y mercados admitidos](language-support.md#supported-markets-for-news-endpoint).
+Devuelve los principales elementos de noticias por categoría. En concreto, puede solicitar los artículos principales sobre negocios, deportes o entretenimiento mediante `category=business`, `category=sports` o `category=entertainment`.  El parámetro `category` solo se puede usar con la dirección URL `/news`. Existen algunos requisitos formales para especificar las categorías; consulte `category` en la documentación de [parámetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters). Para enviar una consulta por URL, codifique el término de búsqueda y anéxelo al parámetro `q=""`. Para lograr una disponibilidad, consulte [países o regiones y mercados admitidos](language-support.md#supported-markets-for-news-endpoint).
 
 ### <a name="trending-news-topics"></a>Temas de noticias de tendencia 
 
@@ -51,7 +51,7 @@ Devuelve los temas de noticias que actualmente son tendencia en las redes social
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre encabezados, parámetros, códigos de mercado, objetos de respuesta, errores etc., consulte la referencia [Bing News Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference).
+Para más información sobre encabezados, parámetros, códigos de mercado, objetos de respuesta, errores etc., consulte la referencia [Bing News Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
 
 Para una información completa acerca de los parámetros admitidos por cada punto de conexión, consulte las páginas de referencia de cada tipo.
 Para obtener ejemplos de solicitudes básicas con News Search API, consulte los [inicios rápidos de Bing News Search](https://docs.microsoft.com/azure/cognitive-services/bing-news-search).

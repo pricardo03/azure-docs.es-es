@@ -11,16 +11,16 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: fa02c0913329ec740e3066b05b2e44a36ad379ce
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a038dc2706c7cb128751630f8997851409886290
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797803"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384807"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Cómo navegar por los resultados de Bing Web Search API
 
-Cuando se llama a Web Search API, Bing devuelve una lista de resultados. La lista es un subconjunto del número total de resultados que pueden estar relacionados con la consulta. Para obtener el número total estimado de resultados disponibles, consulte el campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) del objeto de respuesta.  
+Cuando se llama a Web Search API, Bing devuelve una lista de resultados. La lista es un subconjunto del número total de resultados que pueden estar relacionados con la consulta. Para obtener el número total estimado de resultados disponibles, consulte el campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) del objeto de respuesta.  
 
 En el siguiente ejemplo se muestra el campo `totalEstimatedMatches` que incluye una respuesta web.  
 
@@ -35,7 +35,7 @@ En el siguiente ejemplo se muestra el campo `totalEstimatedMatches` que incluye 
 }  
 ```
 
-Para paginar mediante las páginas web disponibles, use los parámetros de consulta [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) y [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset).  
+Para paginar mediante las páginas web disponibles, use los parámetros de consulta [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#count) y [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#offset).  
 
 El parámetro `count` especifica el número de resultados que se van a devolver en la respuesta. El número máximo de resultados que se pueden solicitar en la respuesta es 50. El valor predeterminado es 10. El número real entregado puede ser menor que el solicitado.
 
@@ -59,7 +59,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-Web Search API devuelve resultados que incluyen páginas web y pueden incluir imágenes, vídeos y noticias. Al paginar los resultados de búsqueda, lo que hace es paginar la respuesta [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer), y no las otras respuestas, como imágenes o noticias. Por ejemplo, si establece `count` en 50, obtendrá 50 resultados de página web, pero la respuesta puede incluir también resultados de las otras respuestas. Por ejemplo, la respuesta puede incluir 15 imágenes y 4 artículos de noticias. Los resultados pueden incluir también noticias en la primera página, pero no en la segunda página o viceversa.   
+Web Search API devuelve resultados que incluyen páginas web y pueden incluir imágenes, vídeos y noticias. Al paginar los resultados de búsqueda, lo que hace es paginar la respuesta [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer), y no las otras respuestas, como imágenes o noticias. Por ejemplo, si establece `count` en 50, obtendrá 50 resultados de página web, pero la respuesta puede incluir también resultados de las otras respuestas. Por ejemplo, la respuesta puede incluir 15 imágenes y 4 artículos de noticias. Los resultados pueden incluir también noticias en la primera página, pero no en la segunda página o viceversa.   
 
 Si especifica el parámetro de consulta `responseFilter` y no incluye páginas web en la lista de filtros, no use los parámetros `count` y `offset`. 
 

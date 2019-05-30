@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 80ef63cdd9de8cb2340fe15d761402bb9f00fae9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d077487f85c789bcdfea3d91e29ee0d44ce82de0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795974"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239436"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Arquitectura de SAP HANA en Azure (instancias grandes)
 
@@ -34,7 +34,7 @@ La arquitectura global de SAP HANA en Azure (instancias grandes) proporciona una
 
 La arquitectura que se muestra se divide en tres secciones:
 
-- **derecha**: Se muestra en los centros de una infraestructura local que ejecuta aplicaciones diferentes en los datos para que puedan acceder a los usuarios finales empresariales de aplicaciones, como SAP. Idealmente, esta infraestructura local se conecta a su vez a Azure mediante [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- **derecha**: Se muestra en los centros de una infraestructura local que ejecuta aplicaciones diferentes en los datos para que puedan acceder a los usuarios finales empresariales de aplicaciones, como SAP. Idealmente, esto local infraestructura está conectada a Azure con [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 - **Center**: Muestra la IaaS de Azure y, en este caso, uso de máquinas virtuales para hospedar SAP u otras aplicaciones que usan SAP HANA como sistema DBMS. Las instancias de HANA menores que funcionan con la memoria proporcionada por las máquinas virtuales se implementan en máquinas virtuales junto con el nivel de aplicación. Para más información sobre máquinas virtuales, consulte [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/).
 
@@ -45,11 +45,11 @@ La arquitectura que se muestra se divide en tres secciones:
   -  [Uso de SAP en máquinas virtuales Windows](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Uso de soluciones de SAP en Azure Virtual Machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **izquierdo**: Muestra el hardware con certificación SAP HANA TDI en el sello de instancias grandes de Azure. Las unidades de HANA (instancias grandes) se conectan a las redes virtuales de su suscripción con la misma tecnología que la empleada para la conectividad entre la infraestructura local y la de Azure.
+- **izquierdo**: Muestra el hardware con certificación SAP HANA TDI en el sello de instancias grandes de Azure. Las unidades de instancia grande de HANA se conectan a las redes virtuales de su suscripción de Azure mediante el uso de la misma tecnología como la conectividad de local a Azure. A partir de mayo de 2019, se introdujo una optimización que puede comunicarse entre las unidades de instancia grande de HANA y las máquinas virtuales de Azure sin la participación de la puerta de enlace de ExpressRoute. Esta optimización que se denomina ruta con Fast de ExpressRoute se muestra en esta arquitectura (líneas rojas). 
 
 El sello de instancias grandes de Azure en sí combina los componentes siguientes:
 
-- **Informática**: Servidores que se basan en procesadores Intel Xeon E7-8890v3 o Intel Xeon E7-8890v4 que proporcionan la funcionalidad de computación necesaria y poseen certificación para SAP HANA.
+- **Informática**: Servidores que se basan en diferentes generación de procesadores Intel Xeon que proporcionan la funcionalidad de computación necesaria y poseen certificación para SAP HANA.
 - **Network** (Red): Un tejido de red de alta velocidad unificada que interconecta la computación, almacenamiento y componentes de red local.
 - **Almacenamiento**: Una infraestructura de almacenamiento que se accede a través de un tejido de red unificada. La capacidad de almacenamiento específico que se proporciona depende de la configuración específica de SAP HANA en Azure (instancias grandes) que se implementa. Está disponible más capacidad de almacenamiento con un costo mensual adicional.
 

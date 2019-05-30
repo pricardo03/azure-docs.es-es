@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9ee8800d84d1090f97fb72980123f59d5aa0375
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cf8e7fed30a9b25b2960e3321eca5c4398911f35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783474"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236249"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Consideraciones sobre la topología de red al utilizar el Proxy de aplicación de Azure Active Directory
 
@@ -102,7 +102,7 @@ La latencia no se ve comprometida porque el tráfico está fluyendo por una red 
 
 Aunque el centro de atención de este artículo es la selección de la ubicación del conector, también puede cambiar la ubicación de la aplicación para obtener mejores características de latencia.
 
-Las organizaciones están cambiando sus redes a entornos hospedados cada vez con más frecuencia. Esto les permite colocar sus aplicaciones en un entorno hospedado que también forma parte de su red corporativa y seguir estando dentro del dominio. En este caso, los patrones analizados en las secciones anteriores se pueden aplicar a la nueva ubicación de la aplicación. Si se plantea esta opción, consulte [Servicios de dominio de Azure Active Directory](../../active-directory-domain-services/active-directory-ds-overview.md).
+Las organizaciones están cambiando sus redes a entornos hospedados cada vez con más frecuencia. Esto les permite colocar sus aplicaciones en un entorno hospedado que también forma parte de su red corporativa y seguir estando dentro del dominio. En este caso, los patrones analizados en las secciones anteriores se pueden aplicar a la nueva ubicación de la aplicación. Si se plantea esta opción, consulte [Servicios de dominio de Azure Active Directory](../../active-directory-domain-services/overview.md).
 
 Además, considere organizar los conectores con [grupos de conectores](application-proxy-connector-groups.md) para las aplicaciones de destino que se encuentren en ubicaciones y redes distintas. 
 

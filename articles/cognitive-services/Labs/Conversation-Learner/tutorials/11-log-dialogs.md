@@ -3,19 +3,19 @@ title: 'Uso de diálogos de registro con un modelo de Conversation Learner: Micr
 titleSuffix: Azure
 description: Obtenga información acerca de cómo usar diálogos de registro con un modelo de Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: e3a84bfa643ebe74983bcef0d0ea72c701ffa589
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: f1e161fa05a77682d0b5eb1c6c21975ac87028a3
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60707533"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387663"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Uso de diálogos de registro con un modelo de Conversation Learner
 

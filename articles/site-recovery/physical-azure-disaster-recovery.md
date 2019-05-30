@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: a6be2fbbf946f13213f95b8876cfdddfa2ffbe67
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c3b9aa6fcf5cf96e3ef1f3bdd76e9f1d19be5c5c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098174"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400098"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -152,7 +152,7 @@ Seleccione y compruebe los recursos de destino.
 
 ## <a name="create-a-replication-policy"></a>Creación de una directiva de replicación
 
-1. Para crear una directiva de replicación, haga clic en **Site Recovery Infrastructure (Infraestructura de Site Recovery)** > **Directivas de replicación** > **+Directiva de replicación**.
+1. Para crear una directiva de replicación, haga clic en **Site Recovery Infrastructure (Infraestructura de Site Recovery)**  > **Directivas de replicación** >  **+Directiva de replicación**.
 2. En **Crear directiva de replicación**, especifique un nombre de directiva.
 3. En **Umbral de RPO**, especifique el límite del objetivo de punto de recuperación (RPO). Este valor especifica la frecuencia con que se crean puntos de recuperación de datos. Se genera una alerta cuando la replicación continua supera este límite.
 4. En **Retención de punto de recuperación**, especifique la duración (en horas) del período de retención de cada punto de recuperación. Las máquinas virtuales replicadas se pueden recuperar a cualquier momento de un período. Se admite una retención de hasta 24 horas para máquinas replicadas en Premium Storage y 72 horas para almacenamiento estándar.

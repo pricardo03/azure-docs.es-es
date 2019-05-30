@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 024e007a34f71256d5cd148720412a0c57bb74ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2936b94d7ba791b1a4e5a9b95aca3ca3ecdb5904
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240534"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383430"
 ---
 # <a name="get-trending-images-from-the-web"></a>Obtención de imágenes populares de la web
 
@@ -39,7 +39,7 @@ Trending Images API solo se admite actualmente en los mercados siguientes:
 - en-AU (inglés, Australia)  
 - zh-CN (chino, China)
 
-La respuesta contiene un objeto[TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#trendingimages) que muestra las imágenes por categoría. Use el elemento `title` de la categoría para agrupar las imágenes en la experiencia del usuario. Las categorías pueden cambiar todos los días.  
+La respuesta contiene un objeto[TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) que muestra las imágenes por categoría. Use el elemento `title` de la categoría para agrupar las imágenes en la experiencia del usuario. Las categorías pueden cambiar todos los días.  
 
 ```json
 {
@@ -90,7 +90,7 @@ La respuesta contiene un objeto[TrendingImages](https://docs.microsoft.com/rest/
 
 Cada icono contiene una imagen y opciones para obtener imágenes relacionadas. Para obtener las imágenes relacionadas, puede usar la consulta `text` para llamar a [Image Search API](./search-the-web.md) y mostrar las imágenes relacionadas por su cuenta. O bien, puede usar la dirección URL en `webSearchUrl` para llevar al usuario a la página de resultados de búsqueda de imágenes de Bing, que contiene las imágenes relacionadas.
 
-Si llama a Image Search API para obtener las imágenes relacionadas, establezca el parámetro de consulta [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) en el identificador del campo `id`. Al especificar el identificador, se garantiza que la respuesta contiene la imagen (es la primera imagen de la respuesta) y sus imágenes relacionadas. Además, establezca el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) en el texto del campo `text` del objeto `query`.
+Si llama a Image Search API para obtener las imágenes relacionadas, establezca el parámetro de consulta [id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) en el identificador del campo `id`. Al especificar el identificador, se garantiza que la respuesta contiene la imagen (es la primera imagen de la respuesta) y sus imágenes relacionadas. Además, establezca el parámetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) en el texto del campo `text` del objeto `query`.
 
 En el ejemplo siguiente se muestra cómo usar el identificador de la imagen para obtener las imágenes relacionadas de Mr. Smith en la respuesta anterior de Trending Images API.
 

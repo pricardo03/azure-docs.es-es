@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: de0ba13a527569e446a44c275b7323d4487f53b6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4c2dad687d31597954b023dde9d1b9d69788fe04
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780310"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241404"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Versión preliminar: limitar el tráfico de salida para los nodos del clúster y controlar el acceso a los puertos necesarios y los servicios de Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ De forma predeterminada, los clústeres de AKS tiene acceso de internet saliente
 Este artículo detalla qué puertos de red y nombres de dominio completo (FQDN) son obligatorios y opcionales si restringe el tráfico de salida en un clúster de AKS.  Esta funcionalidad actualmente está en su versión preliminar.
 
 > [!IMPORTANT]
-> Características de versión preliminar AKS son autoservicio y participación. Las versiones preliminares se proporcionan para recopilar comentarios y los errores de nuestra comunidad. Sin embargo, no se admiten por soporte técnico de Azure. Si crea un clúster, o agregar estas características para clústeres existentes, ese clúster no se admite hasta que la característica ya no está en versión preliminar y se aprueba para disponibilidad general (GA).
+> Características de versión preliminar AKS son autoservicio, participación. Se proporcionan para recopilar comentarios y los errores de nuestra comunidad. En la vista previa, estas características no están diseñadas para su uso en producción. Características en versión preliminar pública se incluyen en el soporte técnico de "mejor esfuerzo". Asistencia de los equipos de soporte técnico de AKS está disponible durante el horario comercial del Pacífico (PST) solo timezone. Para obtener más información, consulte los siguientes artículos de soporte técnico:
 >
-> Si tiene problemas con las características de vista previa, [abra una incidencia en el repositorio de GitHub de AKS] [ aks-github] con el nombre de la característica de vista previa en el título del error.
+> * [Directivas de soporte técnico AKS][aks-support-policies]
+> * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -68,11 +69,11 @@ En AKS, hay dos conjuntos de puertos y direcciones:
 Los siguientes puertos de salida / reglas de red son necesarias para un clúster de AKS:
 
 * El puerto TCP *443*
-* El puerto TCP *9000*
+* El puerto TCP *9000* para el pod frontal de túnel para comunicarse con el extremo de túnel en el servidor de API.
 
 El siguiente FQDN / reglas de aplicación son necesarias:
 
-| FQDN                      | Port      | Uso      |
+| FQDN                      | Port      | Usar      |
 |---------------------------|-----------|----------|
 | *.azmk8s.io               | HTTPS:443 | Esta dirección es el punto de conexión de servidor de API. |
 | aksrepos.azurecr.io       | HTTPS:443 | Esta dirección es necesaria para el acceso a las imágenes en Azure Container Registry (ACR). |
@@ -90,7 +91,7 @@ Los siguientes puertos de salida / reglas de red no son necesarias para los clú
 
 El siguiente FQDN / reglas de aplicación se recomiendan para que clústeres AKS funcionar correctamente:
 
-| FQDN                                    | Port      | Uso      |
+| FQDN                                    | Port      | Usar      |
 |-----------------------------------------|-----------|----------|
 | *.ubuntu.com                            | HTTP:80   | Esta dirección permite a los nodos del clúster de Linux descargar las revisiones de seguridad requeridos y actualizaciones. |
 | packages.microsoft.com                  | HTTPS:443 | Esta dirección es el repositorio de paquetes de Microsoft usa para almacenar en caché *apt-get* operaciones. |
@@ -105,9 +106,6 @@ El siguiente FQDN / reglas de aplicación se recomiendan para que clústeres AKS
 
 En este artículo, ha aprendido qué puertos y direcciones para permitir si restringir el tráfico de salida para el clúster. También puede definir cómo se pueden comunicar los pods a sí mismos y qué restricciones tienen dentro del clúster. Para obtener más información, consulte [proteger el tráfico entre pods mediante las directivas de redes en AKS][network-policy].
 
-<!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -118,3 +116,5 @@ En este artículo, ha aprendido qué puertos y direcciones para permitir si rest
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-upgrade]: upgrade-cluster.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

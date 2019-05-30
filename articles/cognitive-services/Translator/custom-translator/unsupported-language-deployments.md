@@ -3,21 +3,21 @@ title: 'Implementaciones de idioma no admitido: traductor personalizado'
 titleSuffix: Azure Cognitive Services
 description: Cómo implementar pares de idioma no admitido en convertidor personalizado.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: v-pawal
-ms.openlocfilehash: 09fbd771d945646fe385508779d38e4abb2ee293
-ms.sourcegitcommit: daf6538427ea6effef898f2ee3d857e5fa2dccbc
+ms.openlocfilehash: 0938ba2e839be603c557cc2a87dd0c5aa1dfe1e3
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64476511"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390588"
 ---
-# <a name="unsupported-language-deployments"></a>Implementaciones de idioma no admitido
+# <a name="unsupported-language-deployments"></a>Implementaciones en lenguajes no compatibles
 
 <!--Custom Translator provides the highest-quality translations possible using the latest techniques in neural machine learning. While Microsoft intends to make neural training available in all languages, there are some limitations that prevent us from being able to offer neural machine translation in all language pairs.-->  
 
@@ -32,7 +32,7 @@ Para los modelos para ser candidatos para la implementación, debe cumplir los s
 * El modelo debe estar en estado implementado cuando se produce la migración.  
 * El par de idioma del modelo debe ser un par de idioma no admitido en el traductor personalizado.  Los pares de idiomas en el que se admite un lenguaje desde o hacia el inglés, pero el par de sí mismo no incluye a inglés, son candidatos para las implementaciones de idioma no admitido.  Por ejemplo, un modelo de concentrador para francés al par de idioma alemán se considera un par de idioma compatible aunque francés para inglés y en alemán son incluso par de idioma no admitido.
 
-## <a name="process"></a>Proceso
+## <a name="process"></a>Process
 Una vez que se han migrado los modelos del concentrador que son candidatos para la implementación, se puede encontrar yendo a la **configuración** página para el área de trabajo y el desplazamiento hasta el final de la página donde podrá ver una **no compatible Traductor concentrador aprendizajes** sección.  En esta sección solo aparece si tiene proyectos que cumplen los requisitos previos mencionados anteriormente.
 
 ![Migración desde Microsoft Translator Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)

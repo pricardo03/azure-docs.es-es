@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/01/2016
+ms.date: 05/06/2019
 ms.author: crdun
-ms.openlocfilehash: 03fb286bd24bb12f3a1e508627a2de156e185568
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 559050cbc575fce5bdb5b32ec266e1cc3d09b2d5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097487"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242709"
 ---
 # <a name="create-a-xamarinios-app"></a>Creación de una aplicación Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -33,59 +33,40 @@ Completar este tutorial es un requisito previo para todos los demás tutoriales 
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
 * Una cuenta de Azure activa. Si no dispone de ninguna cuenta, regístrese para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio con Xamarin. Consulte [Configuración e instalación](/visualstudio/cross-platform/setup-and-install) para obtener instrucciones.
-* Un equipo Mac con Xcode v7.0 o versiones posteriores y Xamarin Studio Community instalados. Consulte [Configuración e instalación](/visualstudio/cross-platform/setup-and-install) y [Configuración, instalación y comprobaciones para usuarios de Mac](/visualstudio/cross-platform/setup-install-and-verifications-for-mac-users) (MSDN).
-
+* Visual Studio para Mac. Consulte [configuración e instalación de Visual Studio para Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* Un equipo Mac con Xcode 9.0 o posterior.
+  
 ## <a name="create-an-azure-mobile-app-backend"></a>Creación de un nuevo back-end de Azure Mobile App
-Siga estos pasos para crear un back-end de Mobile App.
-
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="configure-the-server-project"></a>Configuración del proyecto de servidor
-Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usarse por las aplicaciones del cliente móvil. Después, descargue un proyecto de servidor para un back-end de "lista de tareas" sencillo y publíquelo en Azure.
-
-Para configurar el proyecto de servidor para que use el back-end de Node.js o. NET, siga los pasos que se indican a continuación.
-
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Crear una conexión de base de datos y configurar el proyecto de cliente y servidor
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarinios-app"></a>Descarga y ejecución de la aplicación Xamarin.iOS
-1. En el equipo Mac, abra el [Azure Portal] en una ventana del explorador.
-2. En la hoja de configuración de la aplicación móvil, haga clic en **Introducción** > **Xamarin.iOS**. En el paso 3, haga clic en **Crear una nueva aplicación** , en caso de que no esté seleccionado.  A continuación, haga clic en el botón **Descargar** .
+## <a name="run-the-xamarinios-app"></a>Ejecute la aplicación de Xamarin.iOS
+1. Abra el proyecto de Xamarin.iOS.
 
-      Se descarga una aplicación cliente que se conecta a su back-end móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
-3. Extraiga el proyecto descargado y, después, ábralo en Xamarin Studio (o Visual Studio).
+2. Vaya a la [portal Azure](https://portal.azure.com/) y vaya a la aplicación móvil que ha creado. En el `Overview` hoja, busque la dirección URL que es el punto de conexión público para la aplicación móvil. Por ejemplo, será el nombre del sitio para el nombre de mi aplicación "test123" https://test123.azurewebsites.net.
 
-    ![][9]
+3. Abra el archivo `QSTodoService.cs` en esta carpeta - xamarin.iOS/ZUMOAPPNAME. Es el nombre de la aplicación `ZUMOAPPNAME`.
 
-    ![][8]
-4. Presione la tecla F5 para compilar el proyecto e iniciar la aplicación en el emulador de iPhone.
-5. En la aplicación, escriba texto significativo, como *Aprender Xamarin*, y haga clic en el botón **+**.
+4. En `QSTodoService` class, reemplace `ZUMOAPPURL` variable con el punto de conexión público anterior.
+
+    `const string applicationURL = @"ZUMOAPPURL";`
+
+    se convierte en
+    
+    `const string applicationURL = @"https://test123.azurewebsites.net";`
+    
+5. Presione la tecla F5 para implementar y ejecutar la aplicación en un emulador de iPhone.
+
+6. En la aplicación, escriba texto significativo, como *completar el tutorial* y, a continuación, haga clic en el botón +.
 
     ![][10]
 
-    Los datos de la solicitud se insertan en la tabla TodoItem. El back-end de aplicación móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
+    Los datos de la solicitud se insertan en la tabla TodoItem. El back-end de la aplicación móvil devuelve los elementos almacenados en la tabla y los datos aparecen en la lista.
 
-> [!NOTE]
-> Puede revisar el código que obtiene acceso al back-end de aplicación móvil para consultar e insertar datos en el archivo de C# QSTodoService.cs.
->
->
-
-## <a name="next-steps"></a>Pasos siguientes
-* [Add Offline Sync to your app](app-service-mobile-xamarin-ios-get-started-offline-data.md) (Incorporación de sincronización sin conexión a la aplicación)
-* [Incorporación de autenticación a la aplicación](app-service-mobile-xamarin-ios-get-started-users.md)
-* [Agregar notificaciones push a la aplicación de Xamarin.Android](app-service-mobile-xamarin-ios-get-started-push.md)
-* [Uso del cliente administrado para Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
-
-<!-- Anchors. -->
-[Getting started with mobile app backends]:#getting-started
-[Create a new mobile app backend]:#create-new-service
-[Next Steps]:#next-steps
-
+   > [!NOTE]
+   > Puede revisar el código de acceso al back-end de aplicación móvil para consultar e insertar datos; este se encuentra en el archivo de C# ToDoActivity.cs.
+   
 <!-- Images. -->
-[6]: ./media/app-service-mobile-xamarin-ios-get-started/xamarin-ios-quickstart.png
-[8]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-vs.png
-[9]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-xamarin-project-ios-xs.png
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
-
-<!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/

@@ -1,21 +1,21 @@
 ---
-title: Escenarios de uso de Almacén de consultas en Azure Database for PostgreSQL
-description: En este artículo se describen algunos escenarios para usar Almacén de consultas en Azure Database for PostgreSQL.
+title: 'Escenarios de uso de la consulta Store en Azure Database for PostgreSQL: servidor único'
+description: 'En este artículo se describe algunos escenarios para la consulta Store en Azure Database for PostgreSQL: servidor único.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: 873462354b70d13e56ca108c3257031ef34873f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 029c595ba983d3b758568fbacaf6577014d893db
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563195"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067315"
 ---
 # <a name="usage-scenarios-for-query-store"></a>Escenarios de uso de Almacén de consultas
 
-**Se aplica a:** Azure Database for PostgreSQL 9.6 y 10
+**Se aplica a:** Azure Database for PostgreSQL: servidor único 9.6 y 10
 
 Puede usar Almacén de consultas en una amplia variedad de escenarios en los que sea crítico realizar y un seguimiento y mantener un rendimiento predecible de la carga de trabajo. Considere los ejemplos siguientes: 
 - Identificación y optimización de las consultas más costosas 

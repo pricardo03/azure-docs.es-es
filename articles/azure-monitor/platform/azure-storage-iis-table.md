@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: a4e0432260cfb9ee11ed318305fb967d160de835
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 901544886e0a0c90c29e83fc71f7a7a25ffc6862
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66129692"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244880"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Uso de Azure blob storage para IIS y Azure table storage para eventos con Azure Monitor
+# <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>Recopilar registros de diagnóstico de Azure desde Azure Storage
 
 Monitor de Azure puede leer los registros de los siguientes servicios que escriben diagnósticos en table storage o registros ISS en blob storage:
 
@@ -38,8 +38,8 @@ Monitor de Azure recopilar estos registros de diagnósticos de Azure, los regist
 
 | Tipo de registro | Tipo de recurso | Ubicación |
 | --- | --- | --- |
-| Registros de IIS |Virtual Machines <br> Roles web <br> Roles de trabajo |wad-iis-logfiles (Blob Storage) |
-| Syslog |Virtual Machines |LinuxsyslogVer2v0 (Table Storage) |
+| Registros IIS |Virtual Machines <br> Roles web <br> Roles de trabajo |wad-iis-logfiles (Blob Storage) |
+| syslog |Virtual Machines |LinuxsyslogVer2v0 (Table Storage) |
 | Eventos operativos de Service Fabric |Nodos de Service Fabric |WADServiceFabricSystemEventTable |
 | Service Fabric Reliable Actor Events |Nodos de Service Fabric |WADServiceFabricReliableActorEventTable |
 | Service Fabric Reliable Service Events |Nodos de Service Fabric |WADServiceFabricReliableServiceEventTable |

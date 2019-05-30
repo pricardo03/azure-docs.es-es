@@ -3,19 +3,19 @@ title: Método de transliteración de Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Use el método de transliteración de Translator Text API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: cd7fee34f020f16d1511bc57b4ad86dbd5eb168d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 138a04cca1bbbaf7b59f628f491a5f13d73fb6f7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796951"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387393"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: Transliterar
 
@@ -57,7 +57,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 Los encabezados de solicitud incluyen lo siguiente:
 
 <table width="100%">
-  <th width="20%">Encabezados</th>
+  <th width="20%">encabezados</th>
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>Encabezados de autenticación</td>
@@ -114,7 +114,7 @@ Un ejemplo de respuesta JSON es:
 ## <a name="response-headers"></a>Encabezados de respuesta
 
 <table width="100%">
-  <th width="20%">Encabezados</th>
+  <th width="20%">encabezados</th>
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>X-RequestId</td>
@@ -131,7 +131,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>200</td>
-    <td>Correcto.</td>
+    <td>Correcta.</td>
   </tr>
   <tr>
     <td>400</td>

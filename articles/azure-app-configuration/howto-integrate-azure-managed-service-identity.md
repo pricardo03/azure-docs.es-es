@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3977991386dbcd07e92f21d1ac541f486b4f7f0a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408917"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393648"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integración con identidades administradas de Azure
 
@@ -49,7 +49,7 @@ Para realizar este tutorial, necesitará lo siguiente:
 
 Para configurar una identidad administrada en el portal, primero crea una aplicación como lo hace normalmente y, a continuación, habilita la característica.
 
-1. Cree una aplicación en [Azure Portal](https://aka.ms/azconfig/portal) como lo haría normalmente. Vaya a ella en el portal.
+1. Cree una aplicación en [Azure Portal](https://portal.azure.com) como lo haría normalmente. Vaya a ella en el portal.
 
 2. Desplácese hacia abajo hasta el grupo **Configuración** en el panel de navegación izquierdo y seleccione **Identidad**.
 
@@ -59,9 +59,9 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
 ## <a name="grant-access-to-app-configuration"></a>Conceder acceso a App Configuration
 
-1. En [Azure Portal](https://aka.ms/azconfig/portal), seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
+1. En [Azure Portal](https://portal.azure.com), seleccione **Todos los recursos** y seleccione la instancia de almacén de App Configuration que creó en el inicio rápido.
 
-2. Seleccione **Access Control (IAM)**.
+2. Seleccione **Access Control (IAM)** .
 
 3. En la pestaña **Comprobar el acceso**, seleccione **Agregar** en la interfaz de usuario de la tarjeta **Agregar una asignación de roles**.
 
@@ -75,7 +75,7 @@ Para configurar una identidad administrada en el portal, primero crea una aplica
 
 ## <a name="use-a-managed-identity"></a>Uso de una identidad administrada
 
-1. Abra *appsettings.json*y agregue el siguiente script. Reemplace *\<service_endpoint>*, incluidos los corchetes, por la dirección URL del almacén de configuración de aplicaciones:
+1. Abra *appsettings.json*y agregue el siguiente script. Reemplace *\<service_endpoint>* , incluidos los corchetes, por la dirección URL del almacén de configuración de aplicaciones:
 
     ```json
     "AppConfig": {
