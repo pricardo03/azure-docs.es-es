@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 188a79df99a174436808acd3d964abf9357cf4c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fef7b82e6969de16d1815250d2373c99021b0e86
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467943"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254717"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reducción de los costos de servicio con Azure Advisor
 
@@ -44,6 +44,13 @@ Advisor también le notificará de las instancias reservadas que tenga que expir
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Eliminar no asociadas direcciones IP públicas para ahorrar dinero
 
 Advisor identifica las direcciones IP públicas que no están asociadas actualmente a los recursos de Azure, como los equilibradores de carga o máquinas virtuales. Estas direcciones IP direcciones conlleva un cargo nominal. Si no piensa usarlas, eliminarlos pueden dar lugar a un ahorro de costos.
+
+## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Eliminar las canalizaciones de Azure Data Factory que se producen errores
+
+Azure Advisor detectará las canalizaciones de Azure Data Factory que se producirá un error repetidamente y recomienda resolver los problemas o eliminar las canalizaciones por error si ya no son necesarios. Se le facturará para estas canalizaciones aunque aunque no atienden a, mientras que se producen errores. 
+
+## <a name="use-standard-snapshots-for-managed-disks"></a>Usar instantáneas estándares para discos administrados
+Para guardar el 60% del costo, se recomienda almacenar las instantáneas en el almacenamiento estándar, independientemente del tipo de almacenamiento del disco primario. Se trata de la opción predeterminada para instantáneas de discos administrados. Azure Advisor identificará las instantáneas de Premium Storage y se recomienda migrar la instantánea de Premium a Standard Storage almacenados. [Más información sobre los precios de Managed Disks](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Obtención de acceso a las recomendaciones sobre el costo en Azure Advisor
 

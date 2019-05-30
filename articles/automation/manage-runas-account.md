@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/21/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3afe27bf71d112b53c31ab696f71d4e1a0cf6b79
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 140b1263047849e13a44441c368e6357078574d8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002507"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240809"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Administración de cuentas de ejecución de Azure Automation
 
@@ -54,7 +54,7 @@ Para crear o actualizar una cuenta de ejecución, debe tener los permisos y priv
 |Crear o quitar un certificado de Automation|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Colaborador en el grupo de recursos         |Grupo de recursos de la cuenta de Automation|
 |Crear o quitar una conexión de Automation|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Colaborador en el grupo de recursos |Grupo de recursos de la cuenta de Automation|
 
-<sup>1</sup> Los usuarios que no son administradores en el inquilino de Azure AD pueden [registrar aplicaciones de AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) si la opción **Los usuarios pueden registrar aplicaciones** del inquilino de Azure AD en la página **Configuración de usuario** está establecida en **Sí**. Si los registros de aplicaciones se establece en **No**, el usuario que realiza esta acción debe ser un **administrador Global** en Azure AD.
+<sup>1</sup> Los usuarios que no son administradores en el inquilino de Azure AD pueden [registrar aplicaciones de AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) si la opción **Los usuarios pueden registrar aplicaciones** del inquilino de Azure AD en la página **Configuración de usuario** está establecida en **Sí**. Si los registros de aplicaciones se establece en **No**, el usuario que realiza esta acción debe ser lo que se define en la tabla anterior.
 
 Si no es un miembro de instancia de Active Directory de la suscripción antes de que haya sido agregado a la **administrador Global** rol de la suscripción que haya sido agregado como invitado. En este caso, recibirá una advertencia `You do not have permissions to create…` en la página **Agregar cuenta de Automation**. Los usuarios que se han agregado a la **administrador Global** rol en primer lugar se puede quitar de la instancia de Active Directory de la suscripción y volverse a agregar para convertirlos en usuarios completos en Active Directory. Para comprobar esta situación, en el panel de **Azure Active Directory** de Azure Portal, seleccione **Usuarios y grupos**, **All Users** y, después de seleccionar el usuario específico, seleccione **Perfil**. El valor del atributo **Tipo de usuario** del perfil de los usuarios no debería ser **Invitado**.
 
@@ -376,7 +376,7 @@ En Azure Portal, seleccione **Suscripciones** y elija la suscripción de su cuen
 
 ![Colaboradores de suscripción](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Para agregar la entidad de servicio a un grupo de recursos, seleccione el grupo de recursos en Azure Portal y elija **Control de acceso (IAM)**. Seleccione **Agregar asignación de roles** para abrir la página **Agregar asignación de roles**. En **Rol**, seleccione **Colaborador**. En el cuadro de texto **Seleccionar**, escriba el nombre de la entidad de servicio de la cuenta de ejecución y selecciónela de la lista. Haga clic en **Guardar** para guardar los cambios. Siga estos pasos con todos los grupos de recursos a los que desee dar acceso a la entidad de servicio de ejecución de Azure Automation.
+Para agregar la entidad de servicio a un grupo de recursos, seleccione el grupo de recursos en Azure Portal y elija **Control de acceso (IAM)** . Seleccione **Agregar asignación de roles** para abrir la página **Agregar asignación de roles**. En **Rol**, seleccione **Colaborador**. En el cuadro de texto **Seleccionar**, escriba el nombre de la entidad de servicio de la cuenta de ejecución y selecciónela de la lista. Haga clic en **Guardar** para guardar los cambios. Siga estos pasos con todos los grupos de recursos a los que desee dar acceso a la entidad de servicio de ejecución de Azure Automation.
 
 ## <a name="misconfiguration"></a>Error de configuración
 

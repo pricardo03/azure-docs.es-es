@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df9c3ecbec6dccd9ba8db2b375cfab3276005098
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581129"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072982"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances y orquestadores de contenedores
 
@@ -56,7 +56,7 @@ En lugar de escalar horizontalmente el número de máquinas virtuales en el clú
 
 ## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Implementación de ejemplo: nodos virtuales para Azure Kubernetes Service (AKS)
 
-Para escalar rápidamente las cargas de trabajo de aplicación en un clúster de [Azure Kubernetes Service](../aks/intro-kubernetes.md), puede usar *nodos virtuales* creados de manera dinámica en Azure Container Instances. Actualmente en versión preliminar, los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en ACI y el clúster de AKS. 
+Para escalar rápidamente las cargas de trabajo de aplicación en un clúster de [Azure Kubernetes Service](../aks/intro-kubernetes.md), puede usar *nodos virtuales* creados de manera dinámica en Azure Container Instances. Los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en ACI y el clúster de AKS. 
 
 Actualmente, estos nodos virtuales admiten instancias de contenedor de Linux. Empiece a trabajar con los nodos virtuales mediante la [CLI de Azure](https://go.microsoft.com/fwlink/?linkid=2047538) o [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2047545).
 

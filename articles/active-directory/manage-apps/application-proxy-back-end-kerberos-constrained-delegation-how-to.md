@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c95eb45d75a54af75fdc8004316bc8bfeeddbd7e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0cfaea53156b78fad024046bb6f55229f8ad6536
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783933"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236264"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Solucionar problemas de las configuraciones de delegación restringida de Kerberos para el proxy de aplicación
 
@@ -182,4 +182,4 @@ Si aún no puede realizar ningún progreso, póngase en contacto con el servicio
 - La autenticación de varios saltos se usa normalmente en escenarios con una aplicación en niveles y con un back-end y un front-end, los cuales requieren realizar una autenticación, como SQL Server Reporting Services. Para configurar el escenario de múltiples saltos, consulte el artículo de soporte técnico [Kerberos Constrained Delegation May Require Protocol Transition in Multi-hop Scenarios](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul) (La delegación restringida de Kerberos puede requerir una transición de protocolo en escenarios de varios saltos).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Configurar KCD en un dominio administrado](../../active-directory-domain-services/active-directory-ds-enable-kcd.md).
+[Configurar KCD en un dominio administrado](../../active-directory-domain-services/deploy-kcd.md).

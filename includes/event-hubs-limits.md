@@ -5,15 +5,15 @@ services: event-hubs
 author: sethmanheim
 ms.service: event-hubs
 ms.topic: include
-ms.date: 02/26/2018
-ms.author: sethm
+ms.date: 05/22/2019
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 38f7dd6eb1c4965eca003e5ba337ec5912a53420
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 3f3b60c3744ce9dea61054b3fa0aaccfea27d784
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66148232"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238843"
 ---
 En la tabla siguiente se enumeran las cuotas y los límites específicos de [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Para más información sobre los precios de Event Hubs, consulte los [precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -31,3 +31,19 @@ En la tabla siguiente se enumeran las cuotas y los límites específicos de [Azu
 | Unidades de rendimiento máximo |Espacio de nombres |Si se supera el límite de unidad de rendimiento, los datos se limitan y genera un [excepción de servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar un mayor número de unidades de rendimiento para el nivel estándar, archivo un [solicitud de soporte técnico](/azure/azure-supportability/how-to-create-azure-support-request). Las [unidades de rendimiento adicionales](../articles/event-hubs/event-hubs-auto-inflate.md) se encuentran disponibles en bloques de 20 y están sujetas a un compromiso de compra. |20 |
 | Número de reglas de autorización por espacio de nombres |Espacio de nombres|Se rechazan las posteriores solicitudes de creación de reglas de autorización.|12 |
 | Número de llamadas a GetRuntimeInformation (método) | Entidad | - | 50 por segundo | 
+
+### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs dedicado: cuotas y límites
+La oferta de Event Hubs dedicado se factura a un precio mensual fijo, con un mínimo de 4 horas de uso. El nivel dedicado ofrece todas las características del plan estándar, pero con capacidad de escala de empresa y los límites para los clientes con cargas de trabajo exigentes. 
+
+| Característica | límites |
+| --- | ---|
+| Ancho de banda |  20 CUs |
+| Espacios de nombres | 50 por unidad de capacidad |
+| Event Hubs |  No hay límite en event hubs o temas |
+| Eventos de entrada | Se incluye |
+| Tamaño de los mensajes | 1 millón de Bytes |
+| Particiones | 2000 por unidad de capacidad |
+| Grupos de consumidores | No hay límite por unidad de capacidad, 1000 por centro de eventos |
+| Conexiones asincrónicas | 100 000 incluidos |
+| Retención de mensajes | 90 días, 10 TB incluido por unidad de capacidad |
+| Capture | Se incluye |

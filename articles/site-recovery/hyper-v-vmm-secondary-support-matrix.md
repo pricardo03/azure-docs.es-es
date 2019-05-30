@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8b8f9856fe7e0fa591ceb42aab97e92642b6098
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362346"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399365"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de Hyper-V a un sitio secundario
 
@@ -58,8 +58,8 @@ Solo se pueden replicar máquinas Linux con el almacenamiento siguiente:
 Host: formación de equipos NIC | Sí 
 Host: VLAN | Sí 
 Host: IPv4 | Sí 
-Host: IPv6 | Sin  
-VM invitada: formación de equipos NIC | Sin 
+Host: IPv6 | No 
+VM invitada: formación de equipos NIC | No
 VM invitada: IPv4 | Sí
 VM invitada: IPv6 | Sin 
 VM invitada: Windows/Linux - dirección IP estática | Sí
@@ -88,12 +88,12 @@ Disco en clúster compartido | Sin
 Disco cifrado | Sin 
 UEFI| N/D
 NFS | Sin 
-SMB 3.0 | Sin 
+SMB 3.0 | No
 RDM | N/D
 Disco > 1 TB | Sí
 Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí
 Espacios de almacenamiento | Sí
-Agregar/quitar disco en caliente | Sin 
+Agregar/quitar disco en caliente | No
 Excluir el disco | Sí
 Varias rutas (MPIO) | Sí
 
@@ -101,7 +101,7 @@ Varias rutas (MPIO) | Sí
 
 **Acción** | **Compatible**
 --- | --- 
-Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) |  Sin 
+Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) |  No
 Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin 
 
 ## <a name="azure-site-recovery-provider"></a>Proveedor de Azure Site Recovery

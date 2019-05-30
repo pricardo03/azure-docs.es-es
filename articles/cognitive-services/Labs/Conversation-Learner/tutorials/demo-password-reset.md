@@ -3,19 +3,19 @@ title: 'Modelo de Conversation Learner de demostración, restablecimiento de con
 titleSuffix: Azure
 description: Obtenga información acerca de cómo crear un modelo de Conversation Learner de demostración.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 6436193dadb5933074fdce861a31672a0f4849de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: 15aa3a8346087908cf77f1f68db916cc2c184448
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60313160"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389875"
 ---
 # <a name="demo-password-reset"></a>Demostración: Restablecimiento de contraseña
 En este tutorial se muestra un bot simple de soporte técnico que puede ayudar a restablecer la contraseña, que utiliza la tecnología de Conversation Learner. El modelo de bot puede aprender flujos de diálogos no triviales y secuencias de varios turnos, incluidas clases fuera del dominio. La tarea puede realizarse sin código o entidades.

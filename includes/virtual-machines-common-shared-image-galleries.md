@@ -8,19 +8,20 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 7a0e628eed861767d1eeb50b0ded7bb3d8807328
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145866"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271531"
 ---
-La galería de imágenes compartidas es un servicio que ayuda a generar estructura y organización en torno a las imágenes de VM administradas y personalizadas. Galerías de imágenes compartidas proporcionan:
+Galería de imágenes compartidas es un servicio que ayuda a crear la estructura y organización en torno a sus imágenes administradas. Galerías de imágenes compartidas proporcionan:
 
 - Administrar la replicación global de imágenes.
 - Control de versiones y la agrupación de imágenes para facilitar la administración.
-- Asegúrese de las imágenes de alta disponibilidad con las cuentas de almacenamiento con redundancia de zona (ZRS) en las regiones que admiten zonas de disponibilidad. ZRS ofrece una mejor resistencia frente a errores de zona.
-- Compartir entre suscripciones e incluso entre inquilinos, mediante RBAC.
+- Imágenes de alta disponibilidad con cuentas de almacenamiento con redundancia de zona (ZRS) en las regiones que admiten zonas de disponibilidad. ZRS ofrece una mejor resistencia frente a errores de zona.
+- Compartir entre suscripciones e incluso entre los inquilinos de Active Directory (AD), mediante RBAC.
+- Escalar las implementaciones con las réplicas de la imagen en cada región.
 
 Uso de una galería de imágenes compartidas para compartir imágenes con diferentes usuarios, entidades de servicio o grupos de AD dentro de su organización. Las imágenes compartidas se pueden replicar en varias regiones, para un escalado más rápido de las implementaciones.
 
@@ -51,9 +52,9 @@ Hay tres parámetros para cada definición de la imagen que se usan en combinaci
 
 |Definición de imágenes|Publicador|Oferta|SKU|
 |---|---|---|---|
-|myImage1|Contoso|Finanzas|Back-end|
-|myImage2|Contoso|Finanzas|Front-end|
-|myImage3|Pruebas|Finanzas|Front-end|
+|myImage1|Contoso|Finance|Back-end|
+|myImage2|Contoso|Finance|Front-end|
+|myImage3|Pruebas|Finance|Front-end|
 
 Los tres tienen conjuntos de valores únicos. El formato es similar a cómo se pueden especificar actualmente publicador, oferta y SKU de [imágenes de Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) en Azure PowerShell para obtener la versión más reciente de una imagen de Marketplace. Cada definición de la imagen debe tener un único conjunto de estos valores.
 
@@ -77,19 +78,19 @@ Regiones de origen se muestran en la tabla siguiente. Todas las regiones públic
 
 | Regiones de origen |
 |---------------------|-----------------|------------------|-----------------|
-| Centro de Australia   | EUAP de centro de EE. UU. | Corea Central    | Sur de Reino Unido 2      |
+| Centro de Australia   | EUAP del centro de EE. UU. | Corea Central    | Sur del Reino Unido 2      |
 | Centro de Australia 2 | Asia oriental       | Corea del Sur      | Oeste de Reino Unido         |
 | Este de Australia      | Este de EE. UU         | Centro-Norte de EE. UU | Centro occidental de EE.UU. |
 | Sudeste de Australia | Este de EE. UU. 2       | Europa del Norte     | Europa occidental     |
-| Sur de Brasil        | EUAP de este de EE. UU. 2  | Centro-Sur de EE. UU | Oeste de la India      |
+| Sur de Brasil        | EUAP del este de EE.UU. 2  | Centro-Sur de EE. UU | Oeste de la India      |
 | Centro de Canadá      | Centro de Francia  | Sur de la India      | Oeste de EE. UU.         |
 | Este de Canadá         | Sur de Francia    | Sudeste asiático   | Oeste de EE. UU.         |
-| India Central       | Este de Japón      | Norte de Reino Unido         | Oeste de EE. UU. 2       |
+| India Central       | Este de Japón      | Norte del Reino Unido         | Oeste de EE. UU. 2       |
 | Centro de EE. UU.          | Oeste de Japón      | Sur de Reino Unido 2         |                 |
 
 
 
-## <a name="limits"></a>Límites 
+## <a name="limits"></a>límites 
 
 Hay límites por suscripción, para implementar los recursos con galerías de imágenes compartidas:
 - 100 galerías de imágenes compartidas, por suscripción por región
@@ -99,10 +100,29 @@ Hay límites por suscripción, para implementar los recursos con galerías de im
 Para obtener más información, consulte [comprobar el uso de recursos con límites de](https://docs.microsoft.com/azure/networking/check-usage-against-limits) para obtener ejemplos sobre cómo comprobar el uso actual.
  
 
-## <a name="scaling"></a>Escalado
+## <a name="scaling"></a>Cambiar escala
 La galería de imágenes compartidas le permite especificar el número de réplicas de las imágenes que quiere que Azure mantenga. Esto ayuda en los escenarios de implementación de varias VM, ya que las implementaciones de VM se pueden distribuir a las distintas réplicas, lo que reduce la probabilidad de que el proceso de creación de instancias quede limitado por la sobrecarga de una única réplica.
 
+
+Con la Galería de imágenes compartidas, ahora puede implementar hasta un 1000 instancias de máquina virtual en un conjunto de escalado de máquinas virtuales (de hasta 600 con imágenes administradas). Réplicas de imagen proporcionan coherencia, confiabilidad y un mejor rendimiento de la implementación.  Puede establecer un número de réplicas diferentes en cada región de destino, según las necesidades de escalado para la región. Puesto que cada réplica es una copia en profundidad de la imagen, esto ayuda a escalar las implementaciones linealmente con cada réplica adicional. Mientras que sabemos que no hay dos imágenes o regiones son los mismos, le mostramos nuestras directrices generales sobre cómo usar las réplicas en una región:
+
+- Para cada 20 máquinas de virtuales que crean al mismo tiempo, se recomienda que mantenga una réplica. Por ejemplo, si va a crear 120 máquinas virtuales de manera simultánea con la misma imagen en una región, se recomienda que mantener al menos 6 réplicas de la imagen. 
+- Para cada implementación del conjunto de escalado con hasta 600 instancias, se recomienda que mantener al menos una réplica. Por ejemplo, si va a crear 5 conjuntos de escalado de forma simultánea, cada uno con 600 instancias de máquina virtual con la misma imagen en una sola región, se recomienda que mantener al menos 5 réplicas de la imagen. 
+
+Siempre se recomienda en exceso el número de réplicas debido a factores como el tamaño de la imagen, el contenido y el tipo de sistema operativo.
+
+
 ![Gráfico que muestra cómo puede escalar imágenes](./media/shared-image-galleries/scaling.png)
+
+
+
+## <a name="make-your-images-highly-available"></a>Hacer que las imágenes de alta disponibilidad
+
+[Azure Storage con redundancia de zona (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) proporciona resistencia frente a un error de la zona de disponibilidad en la región. Con la disponibilidad general de la Galería de imágenes compartidas, puede elegir almacenar las imágenes en las cuentas ZRS en regiones con zonas de disponibilidad. 
+
+También puede elegir el tipo de cuenta para cada una de las regiones de destino. El tipo de cuenta de almacenamiento predeterminada es Standard_LRS, pero puede elegir Standard_ZRS para regiones con zonas de disponibilidad. Comprobar la disponibilidad regional de ZRS [aquí](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
+
+![Gráfico que muestra ZRS](./media/shared-image-galleries/zrs.png)
 
 
 ## <a name="replication"></a>Replicación
@@ -113,26 +133,25 @@ Las regiones donde puede replicarse la versión de una imagen compartida se pued
 ![Gráfico que muestra cómo puede replicar imágenes](./media/shared-image-galleries/replication.png)
 
 
-## <a name="access"></a>Acceso
+## <a name="access"></a>Access
 
-Dado que la galería de imágenes compartidas, la imagen compartida y la versión de la imagen compartida son recursos, pueden compartirse con los controles integrados nativos de Azure RBAC. Uso de RBAC puede compartir estos recursos para otros usuarios, las entidades de servicio y grupos. Incluso puede compartir el acceso a personas fuera de los inquilinos que se crearon dentro. Una vez que un usuario tiene acceso a la versión de imagen compartido, puede implementar una máquina virtual o un conjunto de escalado de máquinas virtuales.  Aquí está la matriz de uso compartido que ayuda a entender a lo que el usuario tiene acceso:
+Como la Galería de imágenes compartidas, definición de la imagen y versión de la imagen son todos los recursos, que pueden compartirse usa el método integrado que controla nativo RBAC de Azure. Uso de RBAC puede compartir estos recursos para otros usuarios, las entidades de servicio y grupos. Incluso puede compartir el acceso a personas fuera de los inquilinos que se crearon dentro. Una vez que un usuario tiene acceso a la versión de imagen compartido, puede implementar una máquina virtual o un conjunto de escalado de máquinas virtuales.  Aquí está la matriz de uso compartido que ayuda a entender a lo que el usuario tiene acceso:
 
-| Compartido con el usuario     | Galería de imágenes compartidas | Imagen compartida | Versión de la imagen compartida |
+| Compartido con el usuario     | Galería de imágenes compartidas | Definición de imágenes | Versión de la imagen |
 |----------------------|----------------------|--------------|----------------------|
 | Galería de imágenes compartidas | Sí                  | Sí          | Sí                  |
-| Imagen compartida         | No                   | Sí          | Sí                  |
-| Versión de la imagen compartida | No                   | No           | Sí                  |
+| Definición de imágenes     | No                   | Sí          | Sí                  |
 
-Se recomienda el uso compartido en el nivel de la Galería para una mejor experiencia. Para obtener más información sobre RBAC, consulte [administrar el acceso a recursos de Azure mediante RBAC](../articles/role-based-access-control/role-assignments-portal.md).
+Se recomienda el uso compartido en el nivel de la Galería para una mejor experiencia. No se recomienda compartir versiones individuales de la imagen. Para obtener más información sobre RBAC, consulte [administrar el acceso a recursos de Azure mediante RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
-Las imágenes también se pueden compartir, a escala, entre los inquilinos mediante un registro de aplicaciones de varios inquilinos. Para obtener más información acerca de cómo compartir imágenes entre los inquilinos, consulte [compartir imágenes de máquina virtual de la galería en inquilinos de Azure](../articles/virtual-machines/linux/share-images-across-tenants.md).
+Las imágenes también se pueden compartir, a escala, incluso entre inquilinos mediante un registro de aplicaciones de varios inquilinos. Para obtener más información acerca de cómo compartir imágenes entre los inquilinos, consulte [compartir imágenes de máquina virtual de la galería en inquilinos de Azure](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
 ## <a name="billing"></a>Facturación
 No hay ningún cargo adicional por usar el servicio de la galería de imágenes compartidas. Se le cobrará por los siguientes recursos:
 - Costos de almacenamiento de las versiones de imágenes compartidas. Costo depende del número de réplicas de la versión de la imagen y el número de regiones de en que la versión se replica. Por ejemplo, si tiene 2 imágenes y ambos se replican en 3 regiones, a continuación, cambiará 6 discos administrados en función de su tamaño. Para más información, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Cargos de salida de red para la replicación de la primera versión de imagen de la región de origen a las regiones replicadas. Las réplicas subsiguientes se controlan dentro de la región, por lo que no hay ningún cargo adicional. 
 
-## <a name="updating-resources"></a>Actualizando los recursos
+## <a name="updating-resources"></a>Actualización de recursos
 
 Una vez creado, puede realizar algunos cambios en los recursos de galería de imágenes. Estos se limitan a:
  
@@ -148,7 +167,7 @@ Definición de la imagen:
 Versión de la imagen:
 - Recuento de réplicas regionales
 - Regiones de destino
-- Exclusión de la versión más reciente
+- Excluir de la versión más reciente
 - Fecha final del ciclo de vida
 
 

@@ -2,18 +2,17 @@
 title: 'Procedimientos recomendados de operador: características básicas del programador en Azure Kubernetes Service (AKS)'
 description: Conozca las prácticas recomendadas para utilizar características básicas del programador, como las cuotas de recursos y los presupuestos de interrupciones de pods en Azure Kubernetes Service (AKS).
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 11/26/2018
+ms.author: iainfou
+ms.openlocfilehash: f6e370442c9c359a38025762fb90269119ec0ea6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60463887"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65074124"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características básicas del programador en Azure Kubernetes Service (AKS)
 
@@ -28,7 +27,7 @@ Este artículo de procedimientos recomendados se centra en las características 
 
 ## <a name="enforce-resource-quotas"></a>Aplicación de cuotas de recursos
 
-**Orientación con procedimientos recomendados.**: planeación y aplicación de cuotas de recursos a nivel de espacio de nombres. Si los pods no definen solicitudes y límites de recursos, rechace la implementación. Supervise el uso de recursos y ajuste las cuotas según sea necesario.
+**Orientación con procedimientos recomendados.** : planeación y aplicación de cuotas de recursos a nivel de espacio de nombres. Si los pods no definen solicitudes y límites de recursos, rechace la implementación. Supervise el uso de recursos y ajuste las cuotas según sea necesario.
 
 Las solicitudes y límites de recursos se colocan en la especificación de pod. Estos límites se usan por el programador de Kubernetes en el momento de la implementación para buscar un nodo disponible en el clúster. Estos límites y las solicitudes funcionan en el nivel de pod individual. Para obtener más información sobre cómo definir estos valores, vea [Define pod resource requests and limits][resource-limits] (Definición de los límites y solicitudes de recursos del pod).
 
@@ -95,7 +94,7 @@ spec:
       app: nginx-frontend
 ```
 
-También puede definir un porcentaje, como *60 %*, que permite compensar automáticamente el conjunto de réplicas escalando verticalmente el número de pods.
+También puede definir un porcentaje, como *60 %* , que permite compensar automáticamente el conjunto de réplicas escalando verticalmente el número de pods.
 
 Puede definir un número máximo de instancias no disponibles en un conjunto de réplicas. De nuevo, también se puede definir un porcentaje máximo de pods no disponibles. El siguiente manifiesto YAML de presupuesto de interrupciones de pods define que no estarán no disponibles más de dos pods en el conjunto de réplicas:
 
@@ -127,6 +126,8 @@ Para obtener más información sobre el uso de los presupuestos de interrupcione
 
 El [kube-asesor] [ kube-advisor] herramienta es un proyecto de código abierto de AKS asociado que examina un clúster de Kubernetes e informa de los problemas que encuentre. Una comprobación útil consiste en identificar los pods que no tienen preparados los límites y las solicitudes de recursos.
 
+La herramienta Asesor de kube puede informar sobre la solicitud de recurso y los límites que no se encuentra en las aplicaciones PodSpecs para Windows, así como las aplicaciones de Linux, pero la propia herramienta de kube-advisor debe programarse en un pod de Linux. Puede programar un pod para ejecutarse en un grupo de nodos con un sistema operativo específico mediante un [selector del nodo] [ k8s-node-selector] en configuración del pod.
+
 En un clúster de AKS que hospeda varios equipos y aplicaciones de desarrollo, puede ser difícil realizar un seguimiento de los pods sin definir estos límites y solicitudes de recursos. Como práctica recomendada, ejecute regularmente `kube-advisor` en los clústeres de AKS, especialmente si no asigna cuotas de recursos a los espacios de nombres.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -148,3 +149,4 @@ Este artículo se ha centrado en características básicas del programador de Ku
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

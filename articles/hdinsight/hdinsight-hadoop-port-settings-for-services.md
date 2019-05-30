@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2d0b8aba95787f179733dd596e783f097cba4299
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 16041d2b7a971c9ba479c133261930b38d130792
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692123"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252780"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Apache Hadoop en HDInsight
 
@@ -27,7 +27,6 @@ Internamente, HDInsight se implementa mediante varias Azure Virtual Machines (lo
 
 > [!IMPORTANT]  
 > Si no especifica una instancia de Azure Virtual Network como una opción de configuración de HDInsight, automáticamente se crea una. Sin embargo, no puede unir otras máquinas (por ejemplo, otras Azure Virtual Machines o su equipo de desarrollo de cliente) a esta red virtual.
-
 
 Para unir equipos adicionales a la red virtual, debe crear primero la red virtual y luego especificarla al crear el clúster de HDInsight. Para más información, consulte [Extensión de las funcionalidades de HDInsight con Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)
 
@@ -104,7 +103,7 @@ Ejemplos:
 | Programador de Resource Manager |Nodos principales |8030 |HTTP |Interfaz administrativa |
 | Interfaz de aplicación de Resource Manager |Nodos principales |8050 |HTTP |Dirección de la interfaz del administrador de aplicaciones |
 | NodeManager |Todos los nodos de trabajo |30050 |&nbsp; |La dirección del administrador de contenedores |
-| Interfaz de usuario web de NodeManager |Todos los nodos de trabajo |30060 |HTTP |Interfaz de Resource Manager |
+| Interfaz de usuario web de NodeManager |Todos los nodos de trabajo |30060 |HTTP |Interfaz del Administrador de recursos |
 | Dirección de escala de tiempo |Nodos principales |10200 |RPC |El servicio RPC del servicio de escala de tiempo. |
 | Interfaz de usuario web de escala de tiempo |Nodos principales |8181 |HTTP |La interfaz de usuario web del servicio de escala de tiempo |
 

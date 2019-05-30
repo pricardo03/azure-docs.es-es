@@ -9,30 +9,30 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop, sachinp
+ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 05/22/2019
-ms.openlocfilehash: e091ec29c810fce7a39ad5aa5cc8f0ddae711752
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 7ff8405bba39e274c4f9f0cbacb7c295564c877e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016401"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303209"
 ---
-# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de Instancia administrada de Azure SQL Database
+# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a Azure SQL Database administra los límites de recursos de instancia
 
-En este artículo se proporciona información general acerca de los límites de recursos de Instancia administrada de Azure SQL Database y se proporciona información acerca de cómo crear una solicitud para aumentar los límites predeterminados de suscripciones regionales.
+Este artículo proporciona información general sobre los límites de recursos para la instancia administrada de Azure SQL Database y proporciona información sobre cómo solicitar un aumento de estos límites.
 
 > [!NOTE]
-> Para conocer otras limitaciones de Instancia administrada, consulte [modelo de compra basado en núcleo virtual](sql-database-managed-instance.md#vcore-based-purchasing-model) y [Niveles de servicio de Instancia administrada](sql-database-managed-instance.md#managed-instance-service-tiers). Para conocer las diferencias en las características e instrucciones T-SQL admitidas, consulte las instrucciones [Diferencias entre las características](sql-database-features.md) y [Compatibilidad con instrucciones T-SQL](sql-database-managed-instance-transact-sql-information.md).
+> Para conocer las diferencias en las características e instrucciones T-SQL admitidas, consulte las instrucciones [Diferencias entre las características](sql-database-features.md) y [Compatibilidad con instrucciones T-SQL](sql-database-managed-instance-transact-sql-information.md).
 
 ## <a name="instance-level-resource-limits"></a>Límites de recursos a nivel de instancia
 
-Instancia administrada tiene características y límites de recursos que dependen de la infraestructura y la arquitectura subyacentes. Los límites dependen de la generación de hardware y del nivel de servicio.
+Instancia administrada tiene las características y los límites de recursos que dependen de la infraestructura y la arquitectura subyacente. Los límites dependen de la generación de hardware y del nivel de servicio.
 
 ### <a name="hardware-generation-characteristics"></a>Características de la generación de hardware
 
-Instancia administrada de Azure SQL Database puede implementarse en dos generaciones de hardware (Gen4 y Gen5). Las generaciones de hardware tienen diferentes características que se describen en la tabla siguiente:
+Instancia administrada de Azure SQL Database se puede implementar en dos generaciones de hardware: Gen4 y Gen5. Las generaciones de hardware tienen diferentes características que se describen en la tabla siguiente:
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ Instancia administrada de Azure SQL Database puede implementarse en dos generaci
 
 ### <a name="service-tier-characteristics"></a>Características del nivel de servicios
 
-Instancia administrada tiene dos niveles de servicio: Uso general y Crítico para la empresa. Estos niveles proporcionan funcionalidades diferentes, como se describe en la tabla siguiente:
+Instancia administrada tiene dos niveles de servicio - uso General y crítico para la empresa. Estos niveles proporcionan funcionalidades diferentes, como se describe en la tabla siguiente:
 
 | **Característica** | **Uso general** | **Crítico para la empresa** |
 | --- | --- | --- |
@@ -60,19 +60,20 @@ Instancia administrada tiene dos niveles de servicio: Uso general y Crítico par
 | Rendimiento de datos (aproximado) | 100 - 250 MB/s por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
 | Latencia de E/S (aproximada) | 5-10 ms | 1-2 ms |
 | Tamaño máximo de tempDB | 192 GB - 1920 GB (24 GB por núcleo virtual) | No hay restricciones: limitadas por el tamaño máximo de almacenamiento de la instancia |
+| Sesiones máximas | 30000 | 30000 |
 
 **Notas**:
 
 - Tanto los datos como el tamaño de archivo de registro en las bases de datos del usuario y las del sistema se incluyen en el tamaño de almacenamiento de la instancia que se compara con el límite de tamaño de almacenamiento máximo. Utilice la vista del sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> para determinar el espacio total utilizado por las bases de datos. Los registros de errores no se mantienen y no se incluyen en el tamaño. Las copias de seguridad no se incluyen en el tamaño del almacenamiento.
-- El rendimiento e IOPS también dependen del tamaño de página que no está limitado explícitamente por instancia administrada.
+- Rendimiento e IOPS también dependen del tamaño de página que no está limitado explícitamente por instancia administrada.
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Las instancias administradas solo se pueden crear en las [regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Si desea crear una instancia administrada en una región que no se admita actualmente, puede [enviar la solicitud de soporte técnico a través de Azure Portal](#obtaining-a-larger-quota-for-sql-managed-instance).
+Las instancias administradas pueden crearse solo en [regiones admitidas](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para crear una instancia administrada en una región que no se admite actualmente, puede [enviar una solicitud de soporte técnico a través del portal de Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
 
 ## <a name="supported-subscription-types"></a>Tipos de suscripciones admitidos
 
-Actualmente, Instancia administrada admite la implementación solo en los siguientes tipos de suscripciones:
+Instancia administrada admite actualmente la implementación solo en los siguientes tipos de suscripciones:
 
 - [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/)
@@ -85,17 +86,17 @@ Actualmente, Instancia administrada admite la implementación solo en los siguie
 
 ## <a name="regional-resource-limitations"></a>Limitaciones de recursos regionales
 
-Los tipos de suscripción compatibles pueden contener un número limitado de recursos por región. Instancia administrada tiene dos límites predeterminados por región de Azure en función del tipo de suscripción:
+Los tipos de suscripción compatibles pueden contener un número limitado de recursos por región. Instancia administrada tiene dos límites predeterminados por región de Azure según un tipo del tipo de suscripción:
 
 - **Límite de subred**: el número máximo de subredes en que se implementan instancias administradas en una sola región.
 - **Límite del número de instancias**: el número máximo de instancias que se pueden implementar en una sola región.
 
 > [!Note]
-> Estos límites son la configuración predeterminada y las limitaciones técnicas no. Los límites pueden ser mayor y a petición mediante la creación de especial [solicitud de soporte técnico en Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) si necesita más instancias administradas en la región actual. Como alternativa, puede crear nuevas instancias administradas en otra región de Azure sin necesidad de enviar solicitudes de soporte técnico.
+> Estos límites son la configuración predeterminada y las limitaciones técnicas no. Los límites pueden ser mayor y a petición mediante la creación de un especial [solicitud de soporte técnico en Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) si necesita más instancias administradas en la región actual. Como alternativa, puede crear nuevas instancias administradas en otra región de Azure sin necesidad de enviar solicitudes de soporte técnico.
 
-En la tabla siguiente se muestran los límites regionales predeterminados para las suscripciones admitidas:
+La siguiente tabla muestra los límites regionales predeterminada para las suscripciones admitidos:
 
-|Tipo de suscripción| Número máximo de subredes de Instancia administrada | Número máximo de instancias |Número máximo de subredes de instancia administradas de GP*|Número máximo de subredes de instancia administradas de BC*|
+|Tipo de suscripción| Número máximo de subredes de la instancia administrada | Número máximo de instancias |Número máximo de subredes de instancia administradas de GP*|Número máximo de subredes de instancia administradas de BC*|
 | :---| :--- | :--- |:--- |:--- |
 |Pago por uso|1*|4*|4*|1*|
 |CSP |1*|4*|4*|1*|
@@ -103,14 +104,13 @@ En la tabla siguiente se muestran los límites regionales predeterminados para l
 |Desarrollo/pruebas - Enterprise|1*|4*|4*|1*|
 |EA|3**|12**|12**|3**|
 
-\* Puede implementar 1 instancia de BC o 4 de GP en una subred, con el fin de que el número total de “unidades de instancia” de la subred nunca es superior a 4.
+\* Puede implementar 1 BC o 4 instancias de la directiva de grupo en una subred, por lo que nunca supere el número total de "unidades de instancia" en la subred 4.
 
-** Se aplica el número máximo de instancias en un nivel de servicio si no hay instancias en otro nivel de servicio. En caso de que planee mezclar instancias de GP y BC dentro de la misma subred, utilice la siguiente sección como referencia para las combinaciones permitidas. Como regla sencilla, el número total de subredes no puede superar as 3 y el número total de unidades de instancia no puede superar las 12.
-
+** Se aplica el número máximo de instancias en un nivel de servicio si no hay instancias en otro nivel de servicio. Si va a combinar instancias GP y continuidad del negocio en la misma subred, use la siguiente sección como referencia para las combinaciones permitidas. Como regla sencilla, el número total de subredes no puede superar as 3 y el número total de unidades de instancia no puede superar las 12.
 
 
 > [!IMPORTANT]
-> Al planear las implementaciones, considere la posibilidad de que una instancia de Crítico para la empresa (BC) (debido a la redundancia agregada) por lo general consume 4 veces más capacidad que una instancia De uso general (GP). Por tanto, para los cálculos, 1 instancia de GP = 1 unidad de instancia y 1 instancia de BC = 4 unidades de instancia. Para simplificar el análisis de consumo frente a los límites predeterminados, resuma las unidades de instancia de todas las subredes de la región en la que se implementan instancias administradas y comparar los resultados con los límites de la unidad de instancia del tipo de suscripción.
+> Al planear las implementaciones, considere la posibilidad de que una instancia de Crítico para la empresa (BC) (debido a la redundancia agregada) por lo general consume 4 veces más capacidad que una instancia De uso general (GP). Por tanto, para los cálculos, 1 instancia de GP = 1 unidad de instancia y 1 instancia de BC = 4 unidades de instancia. Para simplificar el análisis de consumo frente a los límites predeterminados, se resumen las unidades de instancia a través de todas las subredes de la región donde las instancias administradas se implementan y comparan los resultados con los límites de la unidad de instancia para el tipo de suscripción.
 
 ## <a name="strategies-for-deploying-mixed-general-purpose-and-business-critical-instances"></a>Estrategias para implementar instancias De uso general y de Crítico para la empresa mixtas
 
@@ -130,16 +130,16 @@ Los siguientes ejemplos cubren los casos de implementación con subredes no vac�
 |3|1 BC, 0 GP|1 BC, 0 GP|0 BC, un máximo de 4 GP|
 |3|1 BC, 0 GP|0 BC, un máximo de 4 GP|0 BC, un máximo de 4 GP|
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtención de una cuota mayor Instancia administrada de SQL
+## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Instancia administrada de obtención de una cuota mayor para SQL
 
-Si necesita más instancias administradas en sus regiones actuales, puede enviar la solicitud de soporte técnico para ampliar la cuota mediante Azure Portal.
+Si necesita más instancias administradas en sus regiones actuales, envíe una solicitud de soporte técnico para ampliar la cuota mediante el portal de Azure.
 Para iniciar el proceso de obtención de una cuota mayor:
 
 1. Abra **Ayuda y soporte técnico** y haga clic en **Nueva solicitud de soporte técnico**.
 
    ![Ayuda y soporte técnico](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. En la pestaña Conceptos básicos de la nueva solicitud de soporte técnico:
-   - En **Tipo de problema**, seleccione **Límites de servicio y suscripción (cuotas)**.
+   - En **Tipo de problema**, seleccione **Límites de servicio y suscripción (cuotas)** .
    - En **Suscripción**, seleccione la suscripción.
    - En **Tipo de cuota**, seleccione **Instancia administrada de SQL Database**.
    - En **Plan de soporte técnico**, seleccione un plan de soporte técnico.
@@ -166,6 +166,6 @@ Para iniciar el proceso de obtención de una cuota mayor:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información acerca de Instancia administrada, consulte [¿Qué es Instancia administrada de SQL Database (versión preliminar)?](sql-database-managed-instance.md).
+- Para obtener más información acerca de la instancia administrada, consulte [¿qué es una instancia administrada?](sql-database-managed-instance.md).
 - Para obtener información de precios, vea [Precios de Instancia administrada de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).
-- Para obtener información sobre cómo crear su primera instancia administrada, consulte la [guía de inicio rápido](sql-database-managed-instance-get-started.md).
+- Para obtener información sobre cómo crear su primera instancia administrada, consulte [la Guía de inicio rápido](sql-database-managed-instance-get-started.md).

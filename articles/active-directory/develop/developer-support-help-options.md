@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2019
+ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0741dda0aa087f21625cabe79e51d0b9e344f7ef
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962662"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235332"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opciones de ayuda y soporte técnico para desarrolladores
 
@@ -51,7 +51,7 @@ Donde *{Your Search Terms}* son sus palabras clave de búsqueda.
 
 ## <a name="use-the-development-support-tools"></a>Uso de las herramientas de soporte técnico de desarrollo
 
-| Tool  | DESCRIPCIÓN  |
+| Herramienta  | DESCRIPCIÓN  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Pegue un identificador o un token de acceso para descodificar los valores y nombres de notificaciones. |
 | [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)| Esta herramienta le permite realizar las solicitudes y ver las respuestas en Microsoft Graph API. |
@@ -81,10 +81,10 @@ Las siguientes publicaciones de Stack Overflow contienen sugerencias sobre cómo
 
 Si encuentra un error o un problema relacionado con nuestras bibliotecas, genere un problema en los repositorios de GitHub. Dado que nuestra bibliotecas son de código abierto, también puede enviar una solicitud de incorporación de cambios.
 
-Para ver una lista de bibliotecas y sus repositorios de GitHub, consulte los artículos siguientes:
+Para obtener una lista de bibliotecas y sus repositorios de GitHub, consulte lo siguiente:
 
 * Bibliotecas [ADAL](active-directory-authentication-libraries.md) y repositorios de GitHub
-* Bibliotecas [MSAL](reference-v2-libraries.md) y repositorios de GitHub
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), y [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) bibliotecas y repositorios de GitHub
 
 ## <a name="open-a-support-request"></a>Apertura de una solicitud de soporte técnico
 

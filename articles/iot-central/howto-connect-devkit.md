@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 130ca6bc946d44d80cddba5486d405bfb15523cb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887343"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235878"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central
 
@@ -66,7 +66,7 @@ Si ha usado anteriormente el dispositivo y desea volver a configurarlo para usar
 #### <a name="to-prepare-the-devkit-device"></a>Para preparar el dispositivo DevKit
 
 1. Descargue el firmware de Azure IoT Central precompilado más reciente para MXChip desde la página [releases](https://aka.ms/iotcentral-docs-MXChip-releases) (versiones) en GitHub.
-1. Conecte el dispositivo DevKit en el equipo de desarrollo con un cable USB. En Windows, se abre una ventana del explorador de archivos en una unidad asignada al almacenamiento en el dispositivo DevKit. Por ejemplo, la unidad podría denominarse **AZ3166 (D:)**.
+1. Conecte el dispositivo DevKit en el equipo de desarrollo con un cable USB. En Windows, se abre una ventana del explorador de archivos en una unidad asignada al almacenamiento en el dispositivo DevKit. Por ejemplo, la unidad podría denominarse **AZ3166 (D:)** .
 1. Arrastre el archivo **iotCentral.bin** a la ventana de la unidad. Cuando se complete la operación de copia, el dispositivo se reinicia con el nuevo firmware.
 
 1. Cuando se reinicie el dispositivo DevKit, se muestra la siguiente pantalla:
@@ -208,12 +208,12 @@ Una aplicación creada a partir de la plantilla de aplicación Ejemplo Devkits i
 | gyroscopeZ (giróscopo Z)     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>States 
-| NOMBRE          | Nombre para mostrar   | NORMAL | PRECAUCIÓN | PELIGRO | 
+| NOMBRE          | `Display name`   | NORMAL | PRECAUCIÓN | PELIGRO | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Device State (Estado del dispositivo)   | Verde  | Naranja  | Rojo    | 
 
 #### <a name="events"></a>Eventos 
-| NOMBRE             | Nombre para mostrar      | 
+| NOMBRE             | `Display name`      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Button B Pressed (Botón B presionado)  | 
 
@@ -221,7 +221,7 @@ Una aplicación creada a partir de la plantilla de aplicación Ejemplo Devkits i
 
 Valores numéricos
 
-| Nombre para mostrar | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Inicial |
+| `Display name` | Nombre del campo | Unidades | Posiciones decimales | Mínima | Máxima | Inicial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltage (Voltaje)      | setVoltage | Voltios | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
@@ -229,13 +229,13 @@ Valores numéricos
 
 Cambiar configuración
 
-| Nombre para mostrar | Nombre del campo | Texto activado | Texto desactivado | Inicial |
+| `Display name` | Nombre del campo | Texto activado | Texto desactivado | Inicial |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | ACTIVAR      | Apagado      | Off     |
 
 ### <a name="properties"></a>Properties (Propiedades)
 
-| Type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| Type            | `Display name` | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
 | Propiedad de dispositivo | Die number   | dieNumber  | número    |
 | Propiedad de dispositivo | Ubicación del dispositivo   | location  | location    |
@@ -243,11 +243,11 @@ Cambiar configuración
 
 ### <a name="commands"></a>Comandos:
 
-| Nombre para mostrar | Nombre del campo | Tipo de valor devuelto | Nombre para mostrar del campo de entrada | Nombre del campo de entrada | Tipo de campo de entrada |
+| `Display name` | Nombre del campo | Tipo de valor devuelto | Nombre para mostrar del campo de entrada | Nombre del campo de entrada | Tipo de campo de entrada |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | Echo         | echo       | text        | valor para mostrar         | displayedValue   | text             |
 | Cuenta atrás    | Cuenta atrás  | número      | Recuento de               | countFrom        | número           |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido cómo conectar un dispositivo Raspberry Pi a una aplicación de Azure IoT Central, el siguiente paso sugerido es obtener información sobre cómo [configurar una plantilla personalizada del dispositivo](howto-set-up-template.md) para su propio dispositivo de IoT.
+Ahora que ha aprendido cómo conectar un MXChip IoT DevKit a la aplicación de Azure IoT Central, el siguiente paso sugerido es obtener información sobre cómo [configurar una plantilla personalizada del dispositivo](howto-set-up-template.md) para su propio dispositivo de IoT.

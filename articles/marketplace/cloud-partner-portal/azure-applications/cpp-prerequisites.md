@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 64039234a3863332ca19b915fb59a5271625d695
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942876"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258184"
 ---
 # <a name="azure-application-prerequisites"></a>Requisitos previos de la aplicación de Azure
 
@@ -38,7 +38,8 @@ Para más información, consulte [Creación de la interfaz de usuario de Azure P
 
 Los requisitos empresariales incluyen las siguientes obligaciones contractuales, de procedimientos y legales:
 
-* Debe ser publicador de Cloud Marketplace registrado. Si no está registrado, siga los pasos descritos en el artículo [convertirse en anunciante de Marketplace en la nube](../../become-publisher.md).
+* Debe ser publicador de Cloud Marketplace registrado. Si no está registrado, siga los pasos descritos en el artículo [convertirse en anunciante de Marketplace en la nube](https://docs.microsoft.com/azure/marketplace/become-publisher
+).
 
 >[!NOTE]
 >Debe usar la misma cuenta de registro de Microsoft Developer Center para iniciar sesión en Cloud Partner Portal. Solo debe tener una cuenta Microsoft para sus ofertas de Azure Marketplace. Esta cuenta no debería ser específica de servicios ni de ofertas individuales.

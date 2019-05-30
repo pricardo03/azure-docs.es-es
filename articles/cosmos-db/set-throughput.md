@@ -4,14 +4,14 @@ description: Aprenda cómo establecer el rendimiento aprovisionado para las base
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: rimman
-ms.openlocfilehash: 598a1562127a67c78f67cdd02b00d83d4a606739
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f30155c0fbdbdd93ab4ffc3ae85ef2ad62b188c9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953544"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389246"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar rendimiento en contenedores y bases de datos
 
@@ -71,9 +71,8 @@ En la siguiente imagen se muestra cómo una partición física puede hospedar un
 Puede combinar los dos modelos. Se permite el aprovisionamiento del rendimiento tanto en la base de datos como en el contenedor. En el ejemplo siguiente se muestra cómo aprovisionar el rendimiento en un contenedor y una base de datos de Azure Cosmos:
 
 * Puede crear una base de datos de Azure Cosmos denominada *Z* con rendimiento aprovisionado de *"K"* RU. 
-* A continuación, cree cinco contenedores llamados *A*, *B*, *C*, *d.*, y *E* dentro de la base de datos.
-* Puede configurar explícitamente *"P"* unidades de solicitud del rendimiento aprovisionado en el contenedor llamado *B*.
-* El *"K"* RUs rendimiento se comparte entre los cuatro contenedores *A*, *C*, *d.*, y *E*. La cantidad exacta de rendimiento disponible para *A*, *C*, *d.*, o *E* varía. No hay ningún Acuerdo de Nivel de Servicio para el rendimiento de cada contenedor individual.
+* A continuación, cree cinco contenedores llamados *A*, *B*, *C*, *d.* , y *E* dentro de la base de datos. Al crear el contenedor B, asegúrese de habilitar **aprovisionamiento del rendimiento dedicado para este contenedor** opción y configurar explícitamente *"P"* unidades de solicitud del rendimiento aprovisionado en este contenedor. Tenga en cuenta que puede configurar rendimiento compartido y dedicado sólo cuando se crea la base de datos y el contenedor. 
+* El *"K"* RUs rendimiento se comparte entre los cuatro contenedores *A*, *C*, *d.* , y *E*. La cantidad exacta de rendimiento disponible para *A*, *C*, *d.* , o *E* varía. No hay ningún Acuerdo de Nivel de Servicio para el rendimiento de cada contenedor individual.
 * El contenedor llamado *B* se garantiza que obtenga el *"P"* rendimiento RUs todo el tiempo. Estará respaldado por los Acuerdos de Nivel de Servicio.
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Rendimiento de la actualización en una base de datos o un contenedor
@@ -101,7 +100,7 @@ Puede escalar el rendimiento aprovisionado de un contenedor o una base de datos 
 |RU asignadas o disponibles para un contenedor específico|Sin garantías. Las RU asignadas a un contenedor determinado dependen de las propiedades. Las propiedades pueden ser la elección de las claves de partición de contenedores que comparten el rendimiento, la distribución de la carga de trabajo y el número de contenedores. |Todas las RU configuradas en el contenedor se reservan exclusivamente para el contenedor.|
 |Almacenamiento máximo de un contenedor|Sin límite.|Sin límite.|
 |Rendimiento máximo por partición lógica de un contenedor|10 000 RU|10 000 RU|
-|Almacenamiento máximo (datos + índice) por partición lógica de un contenedor|10 GB|10 GB|
+|Almacenamiento máximo (datos + índice) por partición lógica de un contenedor|10 GB|10 GB|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

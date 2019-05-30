@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 1c7712fc2ce55a3d22995bb119a9ee485a064903
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8b1a9b3dee999a35950559a049230f7fdbbc47b6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683389"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399186"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solucionar problemas de alertas de registro en Azure Monitor  
 
@@ -38,7 +38,7 @@ Para mitigar los retrasos, el sistema espera volver a intentar la consulta de al
 
 Como se describe en el artículo en [terminología para alertas de registro](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), el período de tiempo se indica en la configuración especifica el intervalo de tiempo para la consulta. La consulta devuelve sólo los registros que se crearon dentro de este intervalo. 
 
-El período de tiempo restringe los datos capturados para que una consulta de registro evitar abusos y evita cualquier comando de tiempo (como **hace**) utilizados en una consulta de registro. Por ejemplo, si el período se establece en 60 minutos, y la consulta se ejecuta a la 1:15 p. m., los registros creados entre las 12:15 p. m. y la 1:15 p. m. son los únicos que se usan para la consulta de registros. Si la consulta de registro usa un comando de tiempo como **hace (1 día)**, la consulta usa solo datos entre las 12:15 p. M. y 1:15 P.M. porque el período de tiempo está establecido en ese intervalo.
+El período de tiempo restringe los datos capturados para que una consulta de registro evitar abusos y evita cualquier comando de tiempo (como **hace**) utilizados en una consulta de registro. Por ejemplo, si el período se establece en 60 minutos, y la consulta se ejecuta a la 1:15 p. m., los registros creados entre las 12:15 p. m. y la 1:15 p. m. son los únicos que se usan para la consulta de registros. Si la consulta de registro usa un comando de tiempo como **hace (1 día)** , la consulta usa solo datos entre las 12:15 p. M. y 1:15 P.M. porque el período de tiempo está establecido en ese intervalo.
 
 Compruebe que el período de tiempo en la configuración coincide con la consulta. El ejemplo mostrado anteriormente, si usa la consulta de registro **hace (1 día)** con el marcador de color verde, el período de tiempo debe establecerse en 24 horas o 1440 minutos (indicados en rojo). Esta configuración garantiza que la consulta se ejecuta según lo previsto.
 
@@ -181,6 +181,7 @@ El siguiente evento de ejemplo en el registro de actividad de Azure es para una 
 Cada regla de alerta de registro creado en Azure Monitor como parte de su configuración debe especificar una consulta de analytics que se ejecutará periódicamente el servicio de alerta. La consulta de análisis podría tener la sintaxis correcta en el momento de creación de reglas o actualización. Pero a veces, durante un período de tiempo, la consulta proporcionada en la regla de alerta de registro puede desarrollar problemas de sintaxis y provocar un error en la ejecución de reglas. Algunas razones comunes por qué una consulta de analytics proporcionada en una regla de alerta de registro puede desarrollar errores son:
 
 - La consulta se escribe en [ejecutar en varios recursos](../log-query/cross-workspace-query.md). Y ya no existen uno o varios de los recursos especificados.
+- [alerta de registro del tipo de unidades métricas](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) configurado una alerta no es compatible con las normas de la sintaxis de la consulta
 - No ha habido ningún flujo de datos para la plataforma de análisis. El [ejecución de la consulta produce un error](https://dev.loganalytics.io/documentation/Using-the-API/Errors) porque no hay ningún dato para la consulta proporcionada.
 - Los cambios en [lenguaje de consulta](https://docs.microsoft.com/azure/kusto/query/) incluyen un formato revisado para comandos y funciones. Por lo tanto, la consulta proporcionada anteriormente en una regla de alerta ya no es válida.
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.openlocfilehash: be592cb6bb7c041fab0a2f96a338f4f4bb0ff00a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510924"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225357"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de lectura en Azure Database for MySQL
 
@@ -42,8 +42,7 @@ Si un servidor maestro no tiene ningún servidor de réplica existente, el patr�
 
 Cuando se inicia el flujo de trabajo crear réplica, se crea una base de datos de Azure en blanco para el servidor MySQL. El nuevo servidor se rellena con los datos que estaban en el servidor maestro. El tiempo que se tarda en crear la réplica depende de la cantidad de datos en el servidor maestro y del tiempo desde la última copia de seguridad completa semanal. Puede oscilar desde unos minutos hasta varias horas.
 
-> [!NOTE]
-> Si no tiene alertas de almacenamiento en sus servidores, se recomienda que lo haga. La alerta le informa cuando un servidor está alcanzando el límite de almacenamiento, lo que afectará a la replicación.
+Cada réplica está habilitada para el almacenamiento [crecimiento automático](concepts-pricing-tiers.md#storage-auto-grow). La característica de crecimiento permite a la réplica a mantenerse al día con los datos replicados a él y evitar una interrupción en la replicación causada por errores de almacenamiento insuficiente.
 
 Aprenda a [crear una réplica de lectura en Azure Portal](howto-read-replicas-portal.md).
 
@@ -69,7 +68,7 @@ Esta métrica se calcula utilizando el `seconds_behind_master` métrica disponib
 
 Establecer una alerta que le informa cuando el retraso de replicación alcanza un valor que no es aceptable para la carga de trabajo.
 
-## <a name="stop-replication"></a>Detener replicación
+## <a name="stop-replication"></a>Detención replicación
 
 Puede decidir detener la replicación entre un servidor maestro y una réplica. Una vez que se ha detenido la replicación entre un servidor maestro y una réplica de lectura, la réplica se convierte en un servidor independiente. Los datos del servidor independiente son los datos que estaban disponibles en la réplica en el momento en que se inició el comando para detener la replicación. El servidor independiente no alcanza al servidor maestro.
 

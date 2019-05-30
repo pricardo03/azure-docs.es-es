@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 1b983c534ab92218759175655bbf396788e4c39d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5c27d47a918939d012abee3c2317eba39587d734
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956500"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243580"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Preview - autoriza el acceso seguro a la API de servidor mediante intervalos de direcciones IP en Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ En Kubernetes, el servidor de la API recibe las solicitudes para realizar accion
 Este artículo muestra cómo usar API servidor autorizado los intervalos de direcciones IP para limitar las solicitudes de plano de control. Esta funcionalidad actualmente está en su versión preliminar.
 
 > [!IMPORTANT]
-> Características de versión preliminar AKS son autoservicio y participación. Las versiones preliminares se proporcionan para recopilar comentarios y los errores de nuestra comunidad. Sin embargo, no se admiten por soporte técnico de Azure. Si crea un clúster, o agregar estas características para clústeres existentes, ese clúster no se admite hasta que la característica ya no está en versión preliminar y se aprueba para disponibilidad general (GA).
+> Características de versión preliminar AKS son autoservicio, participación. Se proporcionan para recopilar comentarios y los errores de nuestra comunidad. En la vista previa, estas características no están diseñadas para su uso en producción. Características en versión preliminar pública se incluyen en el soporte técnico de "mejor esfuerzo". Asistencia de los equipos de soporte técnico de AKS está disponible durante el horario comercial del Pacífico (PST) solo timezone. Para obtener más información, consulte los siguientes artículos de soporte técnico:
 >
-> Si tiene problemas con las características de vista previa, [abra una incidencia en el repositorio de GitHub de AKS] [ aks-github] con el nombre de la característica de vista previa en el título del error.
+> * [Directivas de soporte técnico AKS][aks-support-policies]
+> * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -242,7 +243,6 @@ En este artículo, ha habilitado API intervalos de IP de servidor autorizado. Es
 Para obtener más información, consulte [conceptos de seguridad de aplicaciones y clústeres de AKS] [ concepts-security] y [procedimientos recomendados de seguridad del clúster y las actualizaciones en AKS] [ operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
 [azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
 
 <!-- LINKS - internal -->
@@ -265,3 +265,5 @@ Para obtener más información, consulte [conceptos de seguridad de aplicaciones
 [az-network-firewall-ip-config-create]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-create
 [az-network-firewall-network-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create
 [az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

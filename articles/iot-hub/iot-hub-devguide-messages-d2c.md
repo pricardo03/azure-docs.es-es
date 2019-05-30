@@ -6,14 +6,14 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: fddea12d4c6b7d09d87174d29c645ef6da54af6f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 094641baaa1472b481140072cd5d3d35d27d5ed7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917419"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390515"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usar el enrutamiento de mensajes de IoT Hub para enviar mensajes de dispositivo a nube a distintos puntos de conexión
 
@@ -39,7 +39,7 @@ Puede usar la [integración y los SDK de Event Hubs](iot-hub-devguide-messages-r
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-IoT Hub admite la escritura de datos en Azure Blob Storage en el [Apache Avro](https://avro.apache.org/) , así como el formato JSON. La funcionalidad de codificar en formato JSON está en versión preliminar en todas las regiones donde IoT Hub está disponible, excepto en el Este de Estados Unidos, el Oeste de Estados Unidos y Europa occidental. El valor predeterminado es AVRO. El formato de codificación puede establecerse solo cuando se configura el punto de conexión de almacenamiento de blobs. No se puede editar el formato para un extremo existente. Cuando se usa la codificación JSON, debe establecer el tipo de contenido a JSON y contentEncoding a UTF-8 en el mensaje [las propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties). Puede seleccionar el formato de codificación mediante IoT Hub Create o la API de REST de actualización, específicamente el [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), el Portal de Azure, [CLI de Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). El diagrama siguiente muestra cómo seleccionar el formato de codificación en el Portal de Azure.
+IoT Hub admite la escritura de datos en Azure Blob Storage en el [Apache Avro](https://avro.apache.org/) formato, así como en formato JSON. La capacidad de codificar en formato JSON está disponible con carácter general en todas las regiones en la que IoT Hub está disponible. El valor predeterminado es AVRO. El formato de codificación puede establecerse solo cuando se configura el punto de conexión de almacenamiento de blobs. No se puede editar el formato para un extremo existente. Cuando se usa la codificación JSON, debe establecer el tipo de contenido a JSON y contentEncoding a UTF-8 en el mensaje [las propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties). Si no se establece, IoT Hub escribirá los mensajes en formato codificado de base 64. Puede seleccionar el formato de codificación mediante IoT Hub Create o la API de REST de actualización, específicamente el [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), el portal de Azure, [CLI de Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest), o el [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). El diagrama siguiente muestra cómo seleccionar el formato de codificación en el portal de Azure.
 
 ![Codificación de punto de conexión de almacenamiento de blobs](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -95,19 +95,19 @@ Use los siguientes tutoriales para obtener información sobre cómo leer un mens
 
 ## <a name="fallback-route"></a>Ruta de reserva
 
-La ruta de reserva envía todos los mensajes que no cumplen las condiciones de la consulta en cualquiera de las rutas existentes al punto de conexión de Event Hubs integrado (**mensajes y eventos**), que es compatible con [Event Hubs](/azure/event-hubs/). Si el enrutamiento de mensajes está activado, puede habilitar la funcionalidad de ruta de reserva. Una vez que se crea una ruta, datos dejen de fluir al integrado-in-punto de conexión, a menos que se crea una ruta a ese extremo. Si no hay ninguna ruta al punto de conexión integrado y está habilitada una ruta de reserva, solo se enviarán al punto de conexión integrado los mensajes que no coinciden con las condiciones de la consulta sobre rutas. Además, si se eliminan todas las rutas existentes, se debe habilitar la ruta de reserva para recibir todos los datos en el punto de conexión integrado. 
+La ruta de reserva envía todos los mensajes que no cumplen las condiciones de la consulta en cualquiera de las rutas existentes al punto de conexión de Event Hubs integrado (**mensajes y eventos**), que es compatible con [Event Hubs](/azure/event-hubs/). Si el enrutamiento de mensajes está activado, puede habilitar la funcionalidad de ruta de reserva. Una vez que se crea una ruta, datos dejen de fluir al integrado-in-punto de conexión, a menos que se crea una ruta a ese extremo. Si no hay ninguna ruta al punto de conexión integrado y está habilitada una ruta de reserva, solo se enviarán al punto de conexión integrado los mensajes que no coinciden con las condiciones de la consulta sobre rutas. Además, si se eliminan todas las rutas existentes, se debe habilitar la ruta de reserva para recibir todos los datos en el punto de conexión integrado.
 
-Puede habilitar o deshabilitar la ruta de reserva en Azure Portal -> hoja Enrutamiento de mensajes. También puede usar Azure Resource Manager para [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para usar un punto de conexión personalizado para la ruta de reserva.
+Puede habilitar o deshabilitar la ruta de reserva en el portal de Azure -> hoja de enrutamiento de mensajes. También puede usar Azure Resource Manager para [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para usar un punto de conexión personalizado para la ruta de reserva.
 
 ## <a name="non-telemetry-events"></a>Eventos que no son de telemetría
 
 Además de los datos de telemetría del dispositivo, el enrutamiento de mensajes permite enviar eventos de cambio de dispositivo gemelo y eventos del ciclo de vida del dispositivo. Por ejemplo, si se crea una ruta con el origen de datos establecido en **eventos de cambio de dispositivo gemelo**, IoT Hub envía mensajes al punto de conexión que contienen el cambio en el dispositivo gemelo. De forma similar, si se crea una ruta con el origen de datos establecido en **eventos del ciclo de vida del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha eliminado o se ha creado. 
 
-[IoT Hub también se integra con Azure Event Grid](iot-hub-event-grid.md) para publicar los eventos de dispositivo con el fin de admitir integraciones en tiempo real y automatización de flujos de trabajo basados en estos eventos. Consulte las [diferencias principales entre el enrutamiento de mensajes y Event Grid](iot-hub-event-grid-routing-comparison.md) para obtener información sobre la mejor opción para su escenario.
+[IoT Hub también se integra con Azure Event Grid](iot-hub-event-grid.md) para publicar los eventos de dispositivo para admitir aplicaciones integradas en tiempo real y automatización de flujos de trabajo basándose en estos eventos. Consulte las [diferencias principales entre el enrutamiento de mensajes y Event Grid](iot-hub-event-grid-routing-comparison.md) para obtener información sobre la mejor opción para su escenario.
 
 ## <a name="testing-routes"></a>Prueba de las rutas
 
-Al crear una ruta nueva o al modificar una ruta existente, debe probar la consulta de ruta con un mensaje de ejemplo. Puede probar rutas individuales o probar todas las rutas a la vez y no se enruta ningún mensaje a los puntos de conexión durante la prueba. Puede usar Azure Portal, Azure Resource Manager, Azure PowerShell y la CLI de Azure para realizar las pruebas. Resultados de ayudar a identificar si el mensaje de ejemplo coincide con la consulta, mensaje no coincide con la consulta o no se pudo ejecutar la prueba porque la sintaxis de consulta o de mensaje de ejemplo son incorrectas. Para más información, consulte [Prueba de una ruta](/rest/api/iothub/iothubresource/testroute) y [Prueba de todas las rutas](/rest/api/iothub/iothubresource/testallroutes).
+Al crear una ruta nueva o al modificar una ruta existente, debe probar la consulta de ruta con un mensaje de ejemplo. Puede probar rutas individuales o probar todas las rutas a la vez y no se enruta ningún mensaje a los puntos de conexión durante la prueba. Azure portal, Azure Resource Manager, Azure PowerShell y CLI de Azure pueden usarse para realizar pruebas. Resultados de ayudar a identificar si el mensaje de ejemplo coincide con la consulta, mensaje no coincide con la consulta o no se pudo ejecutar la prueba porque la sintaxis de consulta o de mensaje de ejemplo son incorrectas. Para más información, consulte [Prueba de una ruta](/rest/api/iothub/iothubresource/testroute) y [Prueba de todas las rutas](/rest/api/iothub/iothubresource/testallroutes).
 
 ## <a name="latency"></a>Latencia
 
@@ -117,11 +117,11 @@ En la mayoría de los casos, el aumento en la latencia promedio es menor que 500
 
 ## <a name="monitoring-and-troubleshooting"></a>Supervisión y solución de problemas
 
-IoT Hub proporciona varias métricas relacionadas con el enrutamiento y los puntos de conexión para ofrecerle una visión general del mantenimiento del centro y los mensajes enviados. Puede combinar información de varias métricas para identificar la causa principal de los problemas. Por ejemplo, use la métrica **enrutamiento: mensajes de telemetría quitar** o **d2c.telemetry.egress.dropped** para identificar el número de mensajes que se quitaron cuando no coincidían con las consultas en cualquiera de las rutas y la ruta de reserva se deshabilitó. [Métricas de IoT Hub](iot-hub-metrics.md) enumera todas las métricas que están habilitadas de forma predeterminada para el centro de IoT.
+IoT Hub proporciona varias métricas relacionadas con enrutamiento y puntos de conexión para ofrecerle una visión general del estado de su centro y los mensajes enviados. Puede combinar información de varias métricas para identificar la causa principal de los problemas. Por ejemplo, use la métrica **enrutamiento: mensajes de telemetría quitar** o **d2c.telemetry.egress.dropped** para identificar el número de mensajes que se quitaron cuando no coincidían con las consultas en cualquiera de las rutas y la ruta de reserva se deshabilitó. [Métricas de IoT Hub](iot-hub-metrics.md) enumera todas las métricas que están habilitadas de forma predeterminada para el centro de IoT.
 
 Puede usar la API de REST [obtener estado de punto de conexión](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) obtener [estado](iot-hub-devguide-endpoints.md#custom-endpoints) de los puntos de conexión. Se recomienda usar la [métricas de IoT Hub](iot-hub-metrics.md) relacionados con la latencia de mensajes de enrutamiento para identificar y depurar errores cuando el estado de punto de conexión está inactiva o es incorrecto. Por ejemplo, para el tipo de extremo de Event Hubs, puede supervisar **d2c.endpoints.latency.eventHubs**. Se actualizará el estado de un punto de conexión en mal estado a correcto cuando IoT Hub ha establecido un estado coherente de mantenimiento.
 
-Mediante los registros de diagnóstico de **rutas** de la [configuración de diagnóstico](../iot-hub/iot-hub-monitor-resource-health.md) de Azure Monitor, puede realizar un seguimiento de los errores producidos durante la evaluación de una consulta de enrutamiento y del mantenimiento del punto de conexión según lo percibido por IoT Hub, por ejemplo, cuando un punto de conexión está inactivo. Estos registros de diagnóstico se pueden enviar a Azure Storage, Event Hubs o registros de Azure Monitor para el procesamiento personalizado.
+Mediante el **rutas** registros de diagnóstico en Azure Monitor [configuración de diagnóstico](../iot-hub/iot-hub-monitor-resource-health.md), puede realizar un seguimiento de errores que se producen durante la evaluación de estado de consulta y el punto de conexión de enrutamiento según lo percibido por IoT Hub, por ejemplo cuando un punto de conexión está inactivo. Estos registros de diagnóstico se pueden enviar a Azure Storage, Event Hubs o registros de Azure Monitor para el procesamiento personalizado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

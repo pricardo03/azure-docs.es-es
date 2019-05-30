@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Características | Microsoft Doc
 description: Características de Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 8d1c3eb3-1022-4add-a919-c98cc6584af1
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/30/2018
-ms.author: ergreenl
-ms.openlocfilehash: 9e4ab7aa4f61921d8b327404a266694349d78164
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 27aaaca4f28feac0f68b4e034426c64b934b1f95
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417272"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234928"
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
 ## <a name="features"></a>Características
@@ -32,10 +32,10 @@ Las siguientes características están disponibles en los dominios administrados
 * **Crear dominios con nombres personalizados:** puede crear dominios con nombres personalizados (por ejemplo, "contoso100.com") mediante Azure AD Domain Services. Puede utilizar nombres de dominio comprobados o sin comprobar. Si lo desea, también puede crear un dominio con el sufijo de dominio integrado (es decir, *.onmicrosoft.com) que se ofrece a través del directorio de Azure AD.
 * **Integración con Azure AD:** no es necesario configurar o administrar la replicación en Azure AD Domain Services. Las cuentas de usuario, las pertenencias a grupos y las credenciales de usuario (contraseñas) del directorio de Azure AD están disponibles automáticamente con Azure AD Domain Services. Los nuevos usuarios, grupos o cambios de atributos que se producen en el inquilino de Azure AD o en el directorio local se sincronizan automáticamente con Azure AD Domain Services.
 * **Autenticación Kerberos y NTLM:** con compatibilidad para la autenticación Kerberos y NTLM, puede implementar las aplicaciones que dependen de la autenticación integrada de Windows.
-* **Utilizar las credenciales y contraseñas corporativas:** las contraseñas para usuarios del inquilino de Azure AD funcionan con Azure AD Domain Services. Los usuarios pueden utilizar sus credenciales corporativas para máquinas de unión al dominio, iniciar sesión de forma interactiva o a través de escritorio remoto y autenticarse en el dominio administrado.
+* **Utilizar las credenciales y contraseñas corporativas:** las contraseñas para usuarios del inquilino de Azure AD funcionan con Azure AD Domain Services. Los usuarios pueden usar sus credenciales corporativas para unir máquinas mediante dominio, inicie sesión en forma interactiva o a través de escritorio remoto y autenticarse en el dominio administrado.
 * **Enlace LDAP y compatibilidad con lectura LDAP**: puede utilizar las aplicaciones que dependen de enlaces LDAP para autenticar usuarios en dominios ofrecidos por Azure AD Domain Services. Además, las aplicaciones que utilizan operaciones de lectura LDAP para consultar los atributos de usuario y equipo desde el directorio también pueden trabajar con Servicios de dominio de Azure AD.
 * **LDAP seguro (LDAPS):** puede habilitar el acceso al directorio sobre LDAP seguro (LDAPS). El acceso LDAP seguro está disponible de forma predeterminada dentro de la red virtual. Sin embargo, también tiene la opción de habilitar el acceso LDAP seguro a través de Internet.
-* **Directiva de grupo:** puede aprovechar un único GPO integrado para los usuarios y contenedores de equipos para exigir el cumplimiento de directivas de seguridad necesarias para las cuentas de usuario, así como para los equipos unidos a dominios. También puede crear sus propios GPO personalizados y asignarlos a unidades organizativas personalizadas para [administrar la directiva de grupo](active-directory-ds-admin-guide-administer-group-policy.md).
+* **Directiva de grupo:** puede aprovechar un único GPO integrado para los usuarios y contenedores de equipos para exigir el cumplimiento de directivas de seguridad necesarias para las cuentas de usuario, así como para los equipos unidos a dominios. También puede crear sus propios GPO personalizados y asignarlos a unidades organizativas personalizadas para [administrar la directiva de grupo](manage-group-policy.md).
 * **Administrar DNS:** los miembros del grupo "Administradores de controlador de dominio de AAD" pueden administrar DNS para el dominio administrado mediante herramientas de administración de DNS conocidas, como el complemento MMC de Administración de DNS.
 * **Crear a unidades organizativas (OU) personalizadas:** Los miembros del grupo "Administradores de controlador de dominio de AAD" pueden crear unidades organizativas personalizadas en el dominio administrado. A estos usuarios se les conceden privilegios administrativos completos sobre unidades organizativas personalizadas, por lo que pueden agregar o quitar cuentas de servicio, equipos, grupos, etc. dentro de estas unidades organizativas personalizadas.
 * **Disponible en muchas regiones globales de Azure:** Consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para saber en qué regiones de Azure está disponible Azure AD Domain Services.

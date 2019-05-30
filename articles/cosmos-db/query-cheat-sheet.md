@@ -1,17 +1,17 @@
 ---
 title: Hojas de referencia rápida en PDF de consultas Azure Cosmos DB
 description: Hojas de referencia rápida de consultas en PDF imprimibles que le ayudan a usar SQL de Azure Cosmos DB, MongoDB, Graph y Table API para consultar sus datos
-author: rockboyfor
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.author: v-yeche
-ms.openlocfilehash: 848b5a75e4e957b2ad61072ff2e229cacdba2019
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/28/2019
+ms.author: sngun
+ms.openlocfilehash: 51660fb416aa9850381f515a3a31cc57519094b0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60928221"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256979"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Hojas de referencia rápida de consultas Azure Cosmos DB
 

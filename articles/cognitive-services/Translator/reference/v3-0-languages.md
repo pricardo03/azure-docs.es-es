@@ -3,21 +3,21 @@ title: Método de idiomas de Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Use el método de idiomas de Translator Text API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 6e0342d876db424454526637322d67d55c0432a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 415093610bfbc314e569eeeb658508bdfb021d9c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797295"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389729"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Idiomas
+# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Languages
 
 Obtiene el conjunto de idiomas admitidos actualmente por otras operaciones de Translator Text API. 
 
@@ -40,7 +40,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
     <td><em>Parámetro obligatorio</em>.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`.</td>
   </tr>
   <tr>
-    <td>ámbito</td>
+    <td>scope</td>
     <td>*Parámetro opcional*.<br/>Lista de nombres separados por comas que definen el grupo de idiomas que se devolverá. Los nombres de grupo permitidos son: `translation`, `transliteration` y `dictionary`. Si no se proporciona ningún ámbito, se devuelven todos los grupos, lo que es equivalente a pasar `scope=translation,transliteration,dictionary`. Para decidir qué conjunto de idiomas admitidos es adecuado para su escenario, vea la descripción del [objeto de respuesta](#response-body).</td>
   </tr>
 </table> 
@@ -48,7 +48,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 Los encabezados de solicitud son:
 
 <table width="100%">
-  <th width="20%">Encabezados</th>
+  <th width="20%">encabezados</th>
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>Accept-Language</td>
@@ -229,7 +229,7 @@ La lista de idiomas admitidos no cambiará con frecuencia. Para ahorrar ancho de
 ## <a name="response-headers"></a>Encabezados de respuesta
 
 <table width="100%">
-  <th width="20%">Encabezados</th>
+  <th width="20%">encabezados</th>
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>ETag</td>
@@ -251,7 +251,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>200</td>
-    <td>Correcto.</td>
+    <td>Correcta.</td>
   </tr>
   <tr>
     <td>304</td>

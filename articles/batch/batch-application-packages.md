@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee54d37050991763e60a6feb96c75d80384a42ac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c17835a4155e97395e8ae1b8e9ba6d2a42433f71
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726672"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298748"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
 
@@ -142,7 +142,7 @@ Haga clic en **Aplicaciones** > **Agregar**.
 
 La ventana **Nueva aplicación** proporciona los siguientes campos para especificar la configuración de la nueva aplicación y del paquete de aplicación.
 
-**Id. de la aplicación**
+**Id. de aplicación**
 
 Este campo especifica el identificador de la nueva aplicación, que está sujeto a las reglas de validación estándar de identificadores de Azure Batch. Las reglas para proporcionar un identificador de aplicación son las siguientes:
 
@@ -176,7 +176,7 @@ Para agregar una versión del paquete de aplicación de una aplicación existent
 
 ![Hoja Agregar paquete de aplicación en Azure Portal][8]
 
-Como puede ver, los campos coinciden con los de la ventana **Nueva aplicación**, excepto el cuadro de texto **Id. de aplicación**, que está deshabilitado. Como hizo para la nueva aplicación, especifique la **Versión** del paquete nuevo, vaya al archivo .zip de su **Paquete de aplicación** y haga clic en **Aceptar** para cargar el paquete.
+Como puede ver, los campos coinciden con los de la **nueva aplicación** ventana, pero la **Id. de aplicación** casilla está deshabilitada. Como hizo para la nueva aplicación, especifique la **Versión** del paquete nuevo, vaya al archivo .zip de su **Paquete de aplicación** y haga clic en **Aceptar** para cargar el paquete.
 
 ### <a name="update-or-delete-an-application-package"></a>Actualización o eliminación de un paquete de aplicación
 Para actualizar o eliminar un paquete de aplicación existente, abra los detalles de la aplicación, haga clic en **Paquetes** y en los **puntos suspensivos** de la fila del paquete de aplicación que desee modificar, y seleccione la acción que desee realizar.
@@ -261,7 +261,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-En los nodos de Linux, el formato es ligeramente diferente. Los puntos (.), guiones (-) y signos de número (##) se convierten en caracteres de subrayado en la variable de entorno. Además, tenga en cuenta que se conserva el caso del identificador de la aplicación. Por ejemplo: 
+En los nodos de Linux, el formato es ligeramente diferente. Los puntos (.), guiones (-) y signos de número (##) se convierten en caracteres de subrayado en la variable de entorno. Además, tenga en cuenta que se conserva el caso del identificador de la aplicación. Por ejemplo:
 
 ```
 Linux:

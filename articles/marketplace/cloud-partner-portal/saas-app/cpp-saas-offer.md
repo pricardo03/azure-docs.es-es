@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 08baf908d47cdc6a9bc1e97f88eb5ff509d6790e
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 813cfb25ebcd3dd15314d7aa05933d0bf1167917
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835052"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258059"
 ---
 # <a name="azure-saas-application-offer"></a>Oferta de aplicación SaaS de Azure
 
@@ -20,6 +20,7 @@ En esta sección se explica cómo publicar una oferta de aplicación de software
 
 > [!IMPORTANT] 
 > SaaS ofrecen funcionalidad se está migrando a la [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Todos los publicadores nuevo deben usar el centro de partners para crear nuevas ofertas de SaaS y administrar ofertas existentes.  Los editores actuales con ofertas de SaaS se están migrando batchwise de Cloud Partner Portal para el centro de partners.  Cloud Partner Portal mostrará mensajes de estado para indicar cuándo se han migrado las ofertas existentes específicas.
+> Para obtener más información, consulte [crear una nueva oferta de SaaS](../../partner-center-portal/create-new-saas-offer.md).
 
 
 Usar aplicaciones SaaS cuando se implementará la solución en su propia suscripción de Azure y los clientes que iniciarán sesión en a través de una interfaz que diseña y administra para probar la aplicación. Se usa <a href="https://azure.microsoft.com/services/active-directory">Azure Active Directory</a> (AAD) para aprovechar el entorno de prueba existente.

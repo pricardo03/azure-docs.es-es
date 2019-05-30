@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 395a231fcf43378a51e22427254abb196a46081e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a3f441a0dd7f7b9f402390e853bd1c28f282f653
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709007"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245095"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Nuevo entrenamiento e implementación de un modelo de aprendizaje automático
 
@@ -59,7 +59,7 @@ En este ejemplo, se utiliza C# para crear la aplicación de reciclado. También 
 
 Use los pasos siguientes para llamar a las API de nuevo entrenamiento:
 
-1. Cree una aplicación de consola en C# mediante Visual Studio: **Nuevo** > **Proyecto** > **Visual C#** > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)**.
+1. Cree una aplicación de consola en C# mediante Visual Studio: **Nuevo** > **Proyecto** > **Visual C#**  > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)** .
 1. Inicie sesión en el portal de servicio web Machine Learning.
 1. Haga clic en el servicio web con el que está trabajando.
 1. Haga clic en **Consume**(Consumo).
@@ -89,7 +89,7 @@ El código de ejemplo de BES carga un archivo desde una unidad local (por ejempl
 1. En la lista de cuentas de almacenamiento, seleccione una para almacenar el modelo reciclado.
 1. En la columna de navegación izquierda, haga clic en **Claves de acceso**.
 1. Copie y guarde el valor de **Primary Access Key**.
-1. En la columna de navegación izquierda, haga clic en **Contenedores**.
+1. En la columna de navegación izquierdo, haga clic en **Blobs**.
 1. Seleccione un contenedor existente o cree uno nuevo y guarde el nombre.
 
 Busque las declaraciones *StorageAccountName*, *StorageAccountKey* y *StorageContainerName* y actualice los valores guardados en el portal.

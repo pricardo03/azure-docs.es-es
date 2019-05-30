@@ -1,6 +1,6 @@
 ---
 title: Habilitar el cifrado de disco para los clústeres de Linux de Azure Service Fabric | Microsoft Docs
-description: En este artículo se describe cómo habilitar el cifrado de disco para el conjunto de escalado de un clúster de Service Fabric en Azure mediante Azure Resource Manager y Azure Key Vault.
+description: En este artículo se describe cómo habilitar el cifrado de disco para los nodos de clúster de Azure Service Fabric en Linux mediante el uso de Azure Resource Manager y Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -13,27 +13,27 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
-ms.openlocfilehash: f580bf02b222f01a3d5aad1254f208791ea22b38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47b07188d1757708fb494c6a66e93379657e806a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161782"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258762"
 ---
-# <a name="enable-disk-encryption-for-service-fabric-linux-cluster-nodes"></a>Habilitación del cifrado de disco para nodos de clústeres con Linux de Service Fabric 
+# <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Habilitar el cifrado de disco para los nodos de clúster de Azure Service Fabric en Linux 
 > [!div class="op_single_selector"]
 > * [Cifrado de disco para Linux](service-fabric-enable-azure-disk-encryption-linux.md)
 > * [Cifrado de disco para Windows](service-fabric-enable-azure-disk-encryption-windows.md)
 >
 >
 
-Siga los pasos siguientes para habilitar el cifrado de disco en los nodos de un clúster con Linux de Service Fabric. Debe hacer esto para cada uno de los tipos de nodo o de los conjuntos de escalado de máquinas virtuales. Para cifrar los nodos, aprovechamos la funcionalidad Azure Disk Encryption en los conjuntos de escalado de máquinas virtuales.
+En este tutorial, obtendrá información sobre cómo habilitar el cifrado de disco en los nodos de clúster de Azure Service Fabric en Linux. Deberá seguir estos pasos para cada uno de los tipos de nodos y conjuntos de escalado de máquinas virtuales. Para el cifrado de los nodos, vamos a usar la funcionalidad de Azure Disk Encryption en conjuntos de escalado de máquinas virtuales.
 
-La guía abarca los siguientes procedimientos:
+La guía trata los temas siguientes:
 
-* Conceptos clave que debe tener en cuenta para habilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales de un clúster con Linux de Service Fabric.
-* Pasos de requisitos previos que se deben seguir antes de habilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales de un clúster con Linux de Service Fabric.
-* Pasos que se deben seguir para habilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales de un clúster con Linux de Service Fabric.
+* Conceptos clave a tener en cuenta cuando se establece habilitar el cifrado de disco en el escalado de máquinas virtuales del clúster de Service Fabric en Linux.
+* Los pasos que se deben seguir antes de habilitar el cifrado de disco en Service Fabric del clúster los nodos de Linux.
+* Pasos a seguir para habilitar el cifrado de disco en los nodos de clúster de Service Fabric en Linux.
 
 
 
@@ -41,22 +41,29 @@ La guía abarca los siguientes procedimientos:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Registro automático**: para su uso, la versión preliminar del cifrado de disco de un conjunto de escalado de máquinas virtuales requiere el registro automático
-* Puede realizar el registro automático de la suscripción mediante la ejecución de los pasos siguientes: 
-```powershell
-Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
-```
-* Espere unos 10 minutos hasta que el estado sea "Registrado". Puede comprobar el estado ejecutando el comando siguiente: 
-```powershell
-Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
-* **Azure Key Vault**: cree un almacén de claves en la misma suscripción y región que el conjunto de escalado de máquina virtual y establezca la directiva de acceso "EnabledForDiskEncryption" en el almacén de claves mediante el cmdlet de PS. También puede establecer la directiva usando la interfaz de usuario de Key Vault en Azure Portal: 
-```powershell
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
-```
-* Instalar la versión más reciente [CLI de Azure](/cli/azure/install-azure-cli) , que contiene los nuevos comandos de cifrado.
-* Instale la versión más reciente del [SDK de Azure desde Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Los siguientes son el conjunto de escalado de máquinas virtuales ADE cmdlets para habilitar ([establecer](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) cifrado, recuperar ([obtener](/powershell/module/az.compute/get-azvmssvmdiskencryption)) estado de cifrado y quitar ([deshabilitar](/powershell/module/az.compute/disable-azvmssdiskencryption)) cifrado en escala instancia del conjunto. 
+ **Registro automático**
+
+La versión preliminar de cifrado de disco para el conjunto de escalado de máquinas virtuales requiere el registro de autoservicio. Para ello, siga los pasos que se describen a continuación:
+
+1. Ejecute el siguiente comando: 
+    ```powershell
+    Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
+    ```
+2. Espere unos 10 minutos hasta que se lee el estado *registrado*. Puede comprobar el estado, ejecute el comando siguiente:
+    ```powershell
+    Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+    ```
+**Azure Key Vault**
+
+1. Cree un almacén de claves en la misma suscripción y región que el conjunto de escalado. A continuación, seleccione el **EnabledForDiskEncryption** directiva en el almacén de claves de acceso mediante el cmdlet de PowerShell. También puede establecer la directiva mediante el uso de la interfaz de usuario del almacén de claves en el portal de Azure con el siguiente comando:
+    ```powershell
+    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
+    ```
+2. Instale la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli), que contiene los nuevos comandos de cifrado.
+
+3. Instale la versión más reciente de la [SDK de Azure desde Azure PowerShell](https://github.com/Azure/azure-powershell/releases) release. Estos son los cmdlets de Azure Disk Encryption para habilitar de conjunto de escalado de máquinas virtuales ([establecer](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) cifrado, recuperar ([obtener](/powershell/module/az.compute/get-azvmssvmdiskencryption)) estado de cifrado y quitar ([deshabilitar](/powershell/module/az.compute/disable-azvmssdiskencryption)) el cifrado en la escala establece la instancia.
+
 
 | Get-Help | Version |  Origen  |
 | ------------- |-------------| ------------|
@@ -69,16 +76,18 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 
 
 ## <a name="supported-scenarios-for-disk-encryption"></a>Escenarios admitidos para el cifrado de disco
-* El cifrado de conjuntos de escalado de máquinas virtuales se admite solo en conjuntos de escalado creados con discos administrados y no es compatible con conjuntos de escalado con discos nativos (o no administrados).
-* El cifrado de conjuntos de escalado de máquinas virtuales se admite para volúmenes de datos para conjuntos de escalado de máquinas virtuales Linux. El cifrado de discos del sistema operativo no se admite en la versión preliminar actual para Linux.
-* Crear una nueva imagen de máquina virtual del conjunto de escalado de máquinas virtuales y las operaciones de actualización no se admiten en la vista previa actual.
+* Cifrado para conjuntos de escalado de máquinas virtuales solo se admite para conjuntos de escalado creados con discos administrados. No es compatible con conjuntos de escalado con disco nativo (o no administrado).
+* Se admiten cifrado y deshabilitación del cifrado de volúmenes de datos y del sistema operativo en conjuntos de escalado de máquinas virtuales de Linux. 
+* No se admiten las operaciones de actualización y crear una nueva imagen de máquina virtual (VM) para conjuntos de escalado de máquinas virtuales en la vista previa actual.
 
 
-### <a name="create-new-linux-cluster-and-enable-disk-encryption"></a>Creación de un nuevo clúster de Linux y habilitación del cifrado de disco
+## <a name="create-a-new-cluster-and-enable-disk-encryption"></a>Crear un nuevo clúster y habilitar el cifrado de disco
 
-Use los siguientes comandos para crear clúster y habilitar el cifrado de disco mediante un certificado autofirmado & plantilla de Azure Resource Manager.
+Use los siguientes comandos para crear un clúster y habilitar el cifrado de disco mediante el uso de una plantilla de Azure Resource Manager y un certificado autofirmado.
 
-### <a name="sign-in-to-azure"></a>Iniciar sesión en Azure  
+### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure  
+
+Inicie sesión con los siguientes comandos:
 
 ```powershell
 
@@ -94,11 +103,11 @@ az account set --subscription $subscriptionId
 
 ```
 
-#### <a name="use-the-custom-template-that-you-already-have"></a>Uso de la plantilla personalizada ya existente 
+### <a name="use-the-custom-template-that-you-already-have"></a>Uso de la plantilla personalizada ya existente 
 
-Si tiene que crear una plantilla personalizada para adaptarla a sus necesidades, es muy aconsejable comenzar con una de las ya disponibles en las [plantillas de ejemplo de Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) para clústeres de Linux. 
+Si necesita crear una plantilla personalizada, recomendamos encarecidamente que use una de las plantillas en el [ejemplos de plantilla de creación de clústeres de Azure Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) página. 
 
-Si ya tiene una plantilla personalizada, asegúrese de volver a comprobar que los tres parámetros relacionados con el certificado de la plantilla y el archivo de parámetros tengan los nombres siguientes y que los valores sean null como se indica a continuación.
+Si ya tiene una plantilla personalizada, compruebe que los tres parámetros relacionados con el certificado en la plantilla y el archivo de parámetros se denominan como sigue. Asegúrese también de que los valores son null como sigue:
 
 ```Json
    "certificateThumbprint": {
@@ -112,7 +121,7 @@ Si ya tiene una plantilla personalizada, asegúrese de volver a comprobar que lo
     },
 ```
 
-Dado que para el conjunto de escalado de máquinas virtuales Linux solo se admite el cifrado de disco de datos, es necesario agregar un disco de datos mediante una plantilla de Azure Resource Manager. Actualice la plantilla para el aprovisionamiento de disco de datos como se indica a continuación:
+Dado que el cifrado de disco de datos solo se admite para conjuntos de escalado de máquinas virtuales de Linux, debe agregar un disco de datos mediante una plantilla de Resource Manager. Actualizar la plantilla para el aprovisionamiento de disco de datos como sigue:
 
 ```Json
    
@@ -154,7 +163,7 @@ New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOut
 
 ```
 
-Este es el comando equivalente de la CLI para hacer lo mismo. Cambie los valores de las instrucciones declare por los valores adecuados. La CLI admite todos los demás parámetros que admiten los comandos de PowerShell anteriores.
+Este es el comando equivalente de la CLI. Cambie los valores de las instrucciones declare en los valores adecuados. La CLI admite todos los demás parámetros que admite el comando de PowerShell anterior.
 
 ```azurecli
 declare certPassword=""
@@ -173,15 +182,16 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ```
 
-#### <a name="linux-data-disk-mounting"></a>Montaje de disco de datos de Linux
-Antes de proceder a realizar el cifrado en un conjunto de escalado de máquinas virtuales Linux, es necesario asegurarse de que el disco de datos agregado está correctamente montado. Inicie sesión para la máquina virtual de clúster de Linux y ejecute el comando LSBLK. El resultado debe mostrar ese disco de datos agregado en la columna de punto de montaje.
+### <a name="mount-a-data-disk-to-a-linux-instance"></a>Montar un disco de datos a una instancia de Linux
+Antes de continuar con el cifrado en un conjunto de escalado de máquinas virtuales, asegúrese de que está montado el disco de datos se ha agregado correctamente. Inicie sesión la máquina virtual del clúster de Linux y ejecute el **LSBLK** comando. El resultado debe mostrar ese disco de datos agregados en el **punto de montaje** columna.
 
 
-#### <a name="deploy-application-to-linux-service-fabric-cluster"></a>Implementación de una aplicación en un clúster de Service Fabric con Linux
-Siga los pasos y la guía para [implementar una aplicación en el clúster](service-fabric-quickstart-containers-linux.md)
+### <a name="deploy-application-to-a-service-fabric-cluster-in-linux"></a>Implementar la aplicación en un clúster de Service Fabric en Linux
+Para implementar una aplicación en el clúster, siga los pasos y orientación en [inicio rápido: Implementar contenedores Linux en Service Fabric](service-fabric-quickstart-containers-linux.md).
 
 
-#### <a name="enable-disk-encryption-for-service-fabric-linux-cluster-virtual-machine-scale-set-created-above"></a>Habilitación del cifrado de disco para el conjunto de escalado de máquinas virtuales del clúster de Service Fabric con Linux creado anteriormente
+### <a name="enable-disk-encryption-for-the-virtual-machine-scale-sets-created-previously"></a>Habilitar el cifrado de disco para los conjuntos de escalado de máquina virtual que creó anteriormente
+Para habilitar el cifrado de disco para el escalado de máquinas virtuales establece que ha creado a través de los pasos anteriores, ejecute los siguientes comandos:
  
 ```powershell
 $VmssName = "nt1vm"
@@ -201,9 +211,9 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 
 ```
 
-#### <a name="validate-if-disk-encryption-enabled-for-linux-virtual-machine-scale-set"></a>Compruebe si el cifrado del disco está habilitado para el conjunto de escalado de máquinas virtuales Linux.
-Obtenga el estado de un conjunto de escalado de máquinas virtuales completo o de cualquier instancia de máquina virtual del conjunto de escalado. A continuación, puede ver los comandos.
-Además el usuario puede iniciar sesión en la máquina virtual de clúster de Linux y ejecute el comando LSBLK. El resultado debe mostrar ese disco de datos agregado en la columna de punto de montaje y la columna de tipo como cifrado para el disco de datos agregado.
+### <a name="validate-if-disk-encryption-is-enabled-for-a-virtual-machine-scale-set-in-linux"></a>Validar si está habilitado el cifrado de disco para un conjunto de escalado de Linux
+Para obtener el estado de un conjunto de escalado de máquina virtual completa o cualquier instancia de un conjunto de escalado, ejecute los siguientes comandos.
+Además, puede iniciar sesión en la máquina virtual del clúster de Linux y ejecutar el **LSBLK** comando. El resultado debe mostrar el disco de datos agregados en el **punto de montaje** columna y el **tipo** debe leer columna *Crypt*.
 
 ```powershell
 
@@ -220,8 +230,8 @@ az vmss encryption show -g <resourceGroupName> -n <VMSS name>
 
 ```
 
-#### <a name="disable-disk-encryption-for-service-fabric-cluster-virtual-machine-scale-set"></a>Deshabilitación del cifrado de disco para el conjunto de escalado de máquinas virtuales del clúster de Service Fabric 
-La deshabilitación del cifrado del disco se aplica al conjunto de escalado de máquinas virtuales completo y no a cada instancia 
+### <a name="disable-disk-encryption-for-a-virtual-machine-scale-set-in-a-service-fabric-cluster"></a>Deshabilitar el cifrado de disco para un conjunto de escalado en un clúster de Service Fabric
+Deshabilitar el cifrado de disco para un conjunto mediante la ejecución de los siguientes comandos de escalado de máquina virtual. Tenga en cuenta que la deshabilitación del cifrado de disco se aplica el conjunto de escalado de máquina virtual completa y no una instancia individual.
 
 ```powershell
 $VmssName = "nt1vm"
@@ -237,4 +247,4 @@ az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este punto, dispone de un clúster seguro y el procedimiento para habilitar o deshabilitar el cifrado del disco para el conjunto de escalado de máquinas virtuales del clúster de Service Fabric con Linux. A continuación, [Cifrado de disco para Windows](service-fabric-enable-azure-disk-encryption-windows.md) 
+En este momento, debe haber un clúster seguro y saber cómo habilitar y deshabilitar el cifrado de disco para los nodos de clúster de Service Fabric y conjuntos de escalado de máquinas virtuales. Para obtener instrucciones similares en los nodos de clúster de Service Fabric en Linux, consulte [cifrado de disco para Windows](service-fabric-enable-azure-disk-encryption-windows.md). 

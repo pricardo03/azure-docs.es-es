@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 59701c31e461bbd5d73ec708504139347f6075f2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60585481"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241870"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalado horizontal con Azure SQL Database
 Es muy fácil escalar horizontalmente bases de datos de SQL Azure mediante las herramientas de **Elastic Database**. Estas herramientas y características permiten usar los recursos de bases de datos de **Azure SQL Database** con el fin de crear soluciones para cargas de trabajo transaccionales y, especialmente, aplicaciones de software como servicio (SaaS). Las características de Elastic Database se componen de lo siguiente:
 
 * [Biblioteca de cliente de Elastic Database](sql-database-elastic-database-client-library.md): la biblioteca de cliente es una característica que permite crear y mantener bases de datos particionadas.  Consulte [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 * [Herramienta de división y combinación de Elastic Database](sql-database-elastic-scale-overview-split-and-merge.md): mueve datos entre bases de datos particionadas. Esta herramienta es útil para mover datos de una base de datos de varios inquilinos a una de un solo inquilino (o viceversa). Consulte el [tutorial de la herramienta de división y combinación de Base de datos elástica](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Trabajos de Elastic Database](sql-database-elastic-jobs-overview.md) (versión preliminar): use trabajos para administrar un gran número de bases de datos de Azure SQL. Realice fácilmente operaciones administrativas, como cambios de esquema, administración de credenciales, actualizaciones de datos de referencia, recopilación de datos de rendimiento o de trabajos de recolección de telemetría de inquilinos (cliente).
+* [Trabajos de elastic Database](elastic-jobs-overview.md): use trabajos para administrar un gran número de bases de datos de Azure SQL. Realice fácilmente operaciones administrativas, como cambios de esquema, administración de credenciales, actualizaciones de datos de referencia, recopilación de datos de rendimiento o de trabajos de recolección de telemetría de inquilinos (cliente).
 * [Consulta de Elastic Database](sql-database-elastic-query-overview.md) (versión preliminar): le permite ejecutar una consulta Transact-SQL que abarca varias bases de datos. Esto permite la conexión con herramientas de informes, como Excel, Power BI, Tableau, etc.
 * [Transacciones elásticas](sql-database-elastic-transactions-overview.md): esta característica permite ejecutar transacciones que abarcan varias bases de datos de Azure SQL Database. Las transacciones de bases de datos elásticas están disponibles para aplicaciones .NET mediante ADO .NET y se integran con la conocida experiencia de programación en la que se emplean las clases [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
 

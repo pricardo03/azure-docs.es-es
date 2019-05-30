@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 163b8e1f68b8d5a102465022c67f7d0da57a7215
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 541ffe70ae5198e631568584a58d02ac283e89d3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596963"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298255"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Uso de la extensión de la CLI para Azure Machine Learning Service
 
@@ -40,7 +40,7 @@ La CLI no sustituye al SDK de Azure Machine Learning. Es una herramienta complem
 
 Buscar el [completa de documentos de referencia para la extensión de azure-cli-ml de CLI de Azure](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/?view=azure-cli-latest).
 
-## <a name="install-the-extension"></a>Instale la extensión
+## <a name="install-the-extension"></a>Instalación de la extensión
 
 Para instalar la extensión de la CLI de Machine Learning, use el siguiente comando:
 
@@ -165,13 +165,11 @@ Los siguientes comandos muestran cómo registrar un modelo entrenado e implement
     Para obtener más información, consulte [perfil de az ml modelo](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
 
 + Implementa el modelo en AKS
-
     ```azurecli-interactive
-    az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
+    az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
     ```
-
+    
     El siguiente es un ejemplo `inferenceconfig.json` documento:
-
     ```json
     {
     "entryScript": "score.py",
@@ -182,6 +180,13 @@ Los siguientes comandos muestran cómo registrar un modelo entrenado e implement
     "enableGpu": false,
     "baseImage": null,
     "baseImageRegistry": null
+    }
+    ```
+    Este es un ejemplo de documento 'deploymentconfig.json':
+    ```json
+    {
+    "computeType": "aks",
+    "ComputeTarget": "akscomputetarget"
     }
     ```
 

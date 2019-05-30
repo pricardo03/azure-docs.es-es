@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65de80004dd05e3eb29f3313bc17405c40450d7a
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401789"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397135"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
@@ -305,6 +305,8 @@ Este error se produce debido a uno de los siguientes problemas:
 
 4. El runbook se intentó llamar a un archivo ejecutable o subproceso en un runbook que se ejecuta en un espacio aislado de Azure. Este escenario no se admite en espacios aislados de Azure.
 
+5. El runbook que se ha intentado escribir demasiados datos de excepción en el flujo de salida.
+
 #### <a name="resolution"></a>Resolución
 
 Cualquiera de las siguientes soluciones resolverá el problema:
@@ -316,6 +318,8 @@ Cualquiera de las siguientes soluciones resolverá el problema:
 * Otra solución consiste en ejecutar el runbook en un [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Los Hybrid Worker no están limitados por los límites de memoria y de red como lo están los espacios aislados de Azure.
 
 * Si necesita llamar a un proceso (por ejemplo, .exe o subprocess.call) en un runbook, deberá ejecutar el runbook en una instancia de [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+
+* Hay un límite de 1MB en el flujo de salida del trabajo. Asegúrese de que incluir llamadas a un archivo ejecutable o un subproceso en un bloque try/catch. Si produce una excepción, puede escribir el mensaje de esa excepción en una variable de Automation. Esto evitará se escriban en la secuencia de salida del trabajo.
 
 ### <a name="fails-deserialized-object"></a>Escenario: Error en runbook debido a un objeto deserializado
 

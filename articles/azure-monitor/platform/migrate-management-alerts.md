@@ -1,26 +1,26 @@
 ---
 title: Migración de las alertas de eventos de administración de Azure a Alertas del registro de actividad
 description: Las Alertas de eventos de administración se retirarán el 1 de octubre. Prepárese migrando las alertas existentes.
-author: lingliw
+author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.author: v-lingwu
+ms.date: 08/14/2017
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78519dad85739b6e4d760bc34719837956638f48
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60255926"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388713"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migración de las alertas de eventos de administración de Azure a Alertas del registro de actividad
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
-> Las Alertas de eventos de administración se desactivarán a partir del 1 de octubre. Utilice las instrucciones siguientes para determinar si tiene estas alertas y migrarlas en caso afirmativo.
+> Alertas de eventos de administración se desactivará en o después de octubre 1,2017. Utilice las instrucciones siguientes para determinar si tiene estas alertas y migrarlas en caso afirmativo.
 
 ## <a name="what-is-changing"></a>Lo que está cambiando
 
@@ -32,7 +32,7 @@ Azure Monitor (anteriormente Azure Insights) ofrecía una funcionalidad para cre
 El siguiente script de PowerShell devuelve una lista de todas las alertas de eventos de administración que tiene en su suscripción, así como las condiciones establecidas en cada alerta.
 
 ```powershell
-Connect-AzAccount -Environment AzureChinaCloud
+Connect-AzAccount
 $alerts = $null
 foreach ($rg in Get-AzResourceGroup ) {
   $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
@@ -115,3 +115,4 @@ Las alertas de eventos de administración que haya creado previamente no se migr
 * Revisión del [esquema de webhook de alertas del registro de actividad](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 * Más información sobre las [notificaciones del servicio](../../azure-monitor/platform/service-notifications.md)
 * Más información sobre los [grupos de acciones](../../azure-monitor/platform/action-groups.md)
+

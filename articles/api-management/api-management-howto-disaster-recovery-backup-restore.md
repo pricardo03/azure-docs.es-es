@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 0c1efa0e5cfa4bf31e58be64b3fe78075b79b515
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: e0c02829a2fef6e281794fdba6c9fb5d9b8a736b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66141740"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241716"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -63,7 +63,7 @@ Todas las tareas que se realizan en los recursos mediante Azure Resource Manager
 6. Escriba una dirección URL de marcador de posición como `http://resources` para el **URI de redireccionamiento**, ya que es un campo obligatorio, pero el valor no se utiliza más adelante. Haga clic en la casilla para guardar la aplicación.
 7. Haga clic en **Create**(Crear).
 
-### <a name="add-an-application"></a>Agregar una aplicación
+### <a name="add-an-application"></a>Adición de una aplicación
 
 1. Una vez creada la aplicación, haga clic en **Configuración**.
 2. Haga clic en **Permisos necesarios**.
@@ -72,7 +72,7 @@ Todas las tareas que se realizan en los recursos mediante Azure Resource Manager
 5. Elija **Windows** **Azure Service Management API**.
 6. Haga clic en **Seleccionar**.
 
-    ![Agregar permisos](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    ![Adición de permisos](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
 7. Haga clic en **Permisos delegados** al lado de la aplicación recién agregada, active la casilla **Access Azure Service Management (preview)** [Acceso a Azure Service Management (versión preliminar)].
 8. Haga clic en **Seleccionar**.
@@ -117,14 +117,14 @@ Reemplace `{tenant id}`, `{application id}` y `{redirect uri}` mediante las sigu
 
     Una vez especificados los valores, el ejemplo de código debe devolver un token similar al ejemplo siguiente:
 
-    ![Token][api-management-arm-token]
+    ![Se necesita el cifrado de tokens][api-management-arm-token]
 
     > [!NOTE]
     > El token puede expirar tras un período determinado. Vuelva a ejecutar el ejemplo de código para generar un token nuevo.
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Llamada a operaciones de copia de seguridad y restauración
 
-Las API REST son [servicio API Management: Copia de seguridad](/rest/api/apimanagement/apimanagementservice/backup) y [servicio API Management: Restauración](/rest/api/apimanagement/apimanagementservice/restore).
+Las API REST son [servicio API Management: Copia de seguridad](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup) y [servicio API Management: Restauración](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore).
 
 Antes de llamar a las operaciones de "copia de seguridad y restauración" descritas en las secciones siguientes, establezca el encabezado de solicitud de autorización para la llamada REST.
 

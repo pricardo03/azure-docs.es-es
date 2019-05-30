@@ -7,56 +7,48 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: danimir
-ms.author: danil
+author: jovanpop-msft
+ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2a7a6ed5bd28bcc83500da6e82b6c4ff48b2989c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cae0fbd450e6b392e1689d4642181f6e5279752b
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719085"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393211"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Optimización de la supervisión y el rendimiento
 
-Azure SQL Database es un servicio de datos flexible, que se administra automáticamente y donde, de manera sencilla, puede supervisar el uso, agregar o quitar recursos (CPU, memoria, E/S), buscar recomendaciones que pueden mejorar el rendimiento de la base de datos o permitir que la base de datos se adapte a la carga de trabajo y optimice el rendimiento automáticamente.
+Habilita la base de datos de SQL Azure supervisar con facilidad de uso, agregar o quitar recursos (CPU, memoria y E/S), solucionar los posibles problemas y buscar recomendaciones que pueden mejorar el rendimiento de la base de datos. Azure SQL Database tiene muchas características que pueden corregir automáticamente los problemas en las bases de datos si desea permitir que la base de datos de adaptarse a la carga de trabajo y optimizar el rendimiento. Sin embargo, hay algunos problemas personalizados que puede necesitar solucionar problemas. En este artículo se explica algunas prácticas recomendadas y herramientas que puede usar para solucionar los problemas de rendimiento.
+
+Hay dos actividades principales que necesita hacer para asegurarse de que esa base de datos se está ejecutando sin problemas:
+- [Supervisión del rendimiento de la base de datos](#monitoring-database-performance) con el fin de asegurarse de que los recursos asignados a la base de datos pueden controlar la carga de trabajo. Si ve que está alcanzando los límites de recursos, necesitaría para identificar las consultas que consumen más recursos y optimizarlas o agregar más recursos mediante la actualización de nivel de servicio.
+- [Solucionar problemas de rendimiento](#troubleshoot-performance-issues) con el fin de identificar por qué se produjo algún problema, identificar la causa raíz del problema y la acción que se solucionará el problema.
 
 ## <a name="monitoring-database-performance"></a>Supervisar el rendimiento de la base de datos
 
-La supervisión del rendimiento de una base de datos SQL en Azure comienza con la supervisión del uso de recursos, en relación con el nivel de rendimiento elegido para la base de datos. Azure SQL Database le permite identificar las oportunidades para mejorar y optimizar el rendimiento de las consultas sin cambiar los recursos mediante la revisión de [recomendaciones para la optimización del rendimiento](sql-database-advisor.md). Los motivos comunes por los que se obtiene poco rendimiento de la base de datos son la falta de índices o la poca optimización de las consultas. Puede aplicar estas recomendaciones de optimización para mejorar el rendimiento de la carga de trabajo. También puede permitir que Azure SQL Database [optimice el rendimiento de las consultas automáticamente](sql-database-automatic-tuning.md) aplicando todas las recomendaciones identificadas y comprobando que mejoran el rendimiento de la base de datos.
+La supervisión del rendimiento de una base de datos SQL en Azure comienza con la supervisión del uso de recursos, en relación con el nivel de rendimiento elegido para la base de datos. Debe supervisar los siguientes recursos:
+ - **Uso de CPU** -deberá comprobar están llegando a 100% de uso de CPU en un período de tiempo más largo. Esto podría indicar que es posible que deba actualizar base de datos o instancia o identificar y optimizar las consultas que usan la mayoría de la capacidad de proceso.
+ - **Estadísticas de espera** -deba comprobar qué por qué las consultas están esperando para algunos recursos. Queriesmig esperar que se captura o se guardan en los archivos de base de datos, porque se alcanza algún límite de recursos en espera, etcetera de datos.
+ - **El uso de E/S** -deberá comprobar están llegando a los límites de E/S de almacenamiento subyacente.
+ - **Uso de memoria** -es la cantidad de memoria disponible para su base de datos o la instancia es proporcional al número de núcleos virtuales, y debe comprobar lo suficiente como para la carga de trabajo. Esperanza de vida es uno de los parámetros que pueden indicar que las páginas rápidamente quitan de la memoria.
+
+La base de datos de SQL Azure **proporciona los avisos que pueden ayudar a solución y corrección posibles problemas de rendimiento**. Puede identificar fácilmente las oportunidades para mejorar y optimizar el rendimiento de las consultas sin cambiar los recursos mediante la revisión [recomendaciones de optimización del rendimiento](sql-database-advisor.md). Los motivos comunes por los que se obtiene poco rendimiento de la base de datos son la falta de índices o la poca optimización de las consultas. Puede aplicar estas recomendaciones de optimización para mejorar el rendimiento de la carga de trabajo. También puede permitir que Azure SQL Database [optimice el rendimiento de las consultas automáticamente](sql-database-automatic-tuning.md) aplicando todas las recomendaciones identificadas y comprobando que mejoran el rendimiento de la base de datos.
 
 Dispone de las siguientes opciones para supervisar el rendimiento de la base de datos y solucionar problemas relacionados con dicho rendimiento:
 
 - En [Azure Portal](https://portal.azure.com), haga clic en **Bases de datos SQL**, seleccione la base de datos y luego use el gráfico de supervisión para buscar recursos que se acerquen a su máximo. El consumo de DTU se muestra de manera predeterminada. Haga clic en **Editar** para cambiar el intervalo de tiempo y los valores que se muestran.
-- Use [Información de rendimiento de consultas](sql-database-query-performance.md) para identificar las consultas que consumen la mayoría de los recursos.
-- Usar [SQL Database Advisor](sql-database-advisor-portal.md) para ver recomendaciones para crear y quitar índices, parametrizar consultas y solucionar problemas de esquema.
+- Herramientas como SQL Server Management Studio proporcionan varios informes muy útiles, como un [panel rendimiento](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) donde puede supervisar la utilización de recursos e identificar las consultas, que consumen más recursos o [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed)donde puede identificar las consultas con peor rendimiento.
+- Use [Query Performance Insight](sql-database-query-performance.md) el [portal Azure](https://portal.azure.com) para identificar las consultas que consumen la mayoría de los recursos. Esta característica solo está disponible en la base de datos única y los grupos elásticos.
+- Usar [SQL Database Advisor](sql-database-advisor-portal.md) para ver recomendaciones para crear y quitar índices, parametrizar consultas y solucionar problemas de esquema. Esta característica solo está disponible en la base de datos única y los grupos elásticos.
 - Use [Intelligent Insights de Azure SQL](sql-database-intelligent-insights.md) para supervisar automáticamente el rendimiento de su base de datos. Una vez que se detecta un problema de rendimiento, se genera un registro de diagnóstico con los detalles y el análisis de la causa principal (RCA) del problema. Cuando es posible, se proporciona una recomendación para la mejora del rendimiento.
-- [Habilitar la optimización automática](sql-database-automatic-tuning-enable.md) y dejar que SQL Azure Database corrija problemas de rendimiento automáticamente.
+- [Habilitar la optimización automática](sql-database-automatic-tuning-enable.md) y dejar que Azure SQL Database corrija los problemas de rendimiento automáticamente.
 - Puede usar las [vistas de administración dinámica (DMV)](sql-database-monitoring-with-dmvs.md), los [eventos extendidos](sql-database-xevent-db-diff-from-svr.md) y el [almacén de datos de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) para obtener soluciones más detalladas de los problemas de rendimiento.
 
 > [!TIP]
 > Consulte la [guía de rendimiento](sql-database-performance-guidance.md) para buscar las técnicas que puede usar para mejorar el rendimiento de Azure SQL Database si identifica algún problema de rendimiento al usar uno o más de los métodos detallados anteriormente.
-
-## <a name="monitor-databases-using-the-azure-portal"></a>Supervisión de bases de datos mediante el Portal de Azure
-
-En el [portal Azure](https://portal.azure.com/), puede supervisar una utilización de la base de datos individual s seleccionando la base de datos y haga clic en el **supervisión** gráfico. Al hacer esto, se abrirá la ventana **Métrica** que se puede cambiar haciendo clic en el botón **Editar gráfico**. Agregue las siguientes métricas:
-
-- Porcentaje de CPU
-- Porcentaje de DTU
-- Porcentaje de E/S de datos
-- Porcentaje de tamaño de base de datos
-
-Una vez agregadas estas métricas, podrá verlas en el gráfico **Supervisión** con más información en la ventana **Métrica**. Las cuatro métricas muestran el porcentaje de uso medio, en relación con la **DTU** de la base de datos. Consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) para obtener más información sobre los niveles de servicio.  
-
-![Supervisión del nivel de servicio del rendimiento de la base de datos.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
-
-También se pueden configurar alertas en las métricas de rendimiento. Haga clic en el botón **Agregar alerta** de la ventana **Métrica**. Siga el asistente para configurar la alerta. Tiene la opción de que se genere una alerta si la métrica supera un umbral determinado, o si no llega a él.
-
-Por ejemplo, si espera que crezca la carga de trabajo de una base de datos, puede configurar una alerta por correo electrónico cada vez que la base de datos alcance el 80% en cualquiera de las métricas de rendimiento. Esto se puede usar como advertencia prematura para saber cuándo puede tener que cambiar al tamaño de proceso inmediatamente superior.
-
-Las métricas de rendimiento también pueden ayudarle a determinar si puede cambiar a un tamaño de proceso inferior. Suponga que usa una base de datos Estándar S2 y todas las métricas de rendimiento muestran que, de media, la base de datos no usa más del 10% en ningún momento. Es probable que la base de datos funcione bien en Estándar S1. Sin embargo, tenga en cuenta las cargas de trabajo que tienen picos o fluctúan antes de tomar la decisión de cambiar a un tamaño de proceso inferior.
 
 ## <a name="troubleshoot-performance-issues"></a>Solución de problemas de rendimiento
 
@@ -65,6 +57,18 @@ Para diagnosticar y resolver problemas de rendimiento, debe comprender el estado
 ![Estados de carga de trabajo](./media/sql-database-monitor-tune-overview/workload-states.png)
 
 Para una carga de trabajo con problemas de rendimiento, dichos problemas pueden deberse a la contención de la CPU (una condición **relacionada con la ejecución**) o a la existencia de consultas individuales que esperan algo (una condición **relacionada con la espera**).
+
+Las causas o **relacionadas con la ejecución** problemas podrían ser:
+- **Problemas de compilación** -optimizador de consultas de SQL podría generar un plan poco óptimo debido a estadísticas obsoletas, la estimación del número de filas que se procesarán incorrecta o la estimación de memoria necesaria. Si sabe que se ha ejecutado con más rapidez en el pasado o en otra instancia (instancia de instancia administrada o SQL Server), desconecte los planes de ejecución real y comparar que vean son diferentes. Intente aplicar sugerencias de consulta o vuelve a generar estadísticas o índices que va a obtener el mejor plan. Habilitar la corrección automática de planes en Azure SQL Database para mitigar estos problemas de forma automática.
+- **Problemas de ejecución** : si el plan de consulta es óptimo, a continuación, probablemente esté alcanzando algunos límites de recursos en la base de datos, como el rendimiento de escritura de registro o podría usar desfragmentados índices que se deben volver a generar. Un gran número de consultas simultáneas que se pasan los recursos también podría ser la causa de problemas de ejecución. **Relacionadas con la espera** son problemas en la mayoría de los casos relacionados con los problemas de ejecución, ya que las consultas que no se está ejecutando eficazmente probablemente están esperando para algunos recursos.
+
+Las causas o **relacionadas con la espera** problemas podrían ser:
+- **Bloqueo** -una consulta es posible que mantiene el bloqueo de algunos objetos de base de datos, mientras que otros usuarios están intentando obtener acceso a los mismos objetos. Puede identificar fácilmente las consultas de bloqueo mediante la DMV o las herramientas de supervisión.
+- **Problemas de E/S** -consultas podrían estar esperando las páginas se escriban en los archivos de datos o de registro. En este caso verá `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, o `PAGEIOLATCH_*` estadísticas en la DMV de espera.
+- **Problemas de TempDB** : si está usando una gran cantidad de tablas temporales o consulte los derrames de un lote de TempDB en los planes de las consultas es posible que tenga un problema con el rendimiento de TempDB. 
+- **Problemas relacionados con la memoria** -puede que no tenga suficiente memoria para la carga de trabajo por lo que podría colocar la esperanza de vida o las consultas obtienen menos concesión de memoria que necesitan. En algunos casos, la inteligencia integrada en el optimizador de consultas soluciona estos problemas.
+ 
+En las secciones siguientes se explica cómo identificar y solucionar algunos de estos problemas.
 
 ## <a name="running-related-performance-issues"></a>Problemas de rendimiento relacionados con la ejecución
 
@@ -76,11 +80,11 @@ Como pauta general, si el uso de la CPU se mantiene en un 80 % o por encima de 
 
 Si resulta que tiene un problema de rendimiento relacionado con la ejecución, su objetivo es identificar el problema en cuestión mediante uno o más métodos. Los métodos más comunes para identificar problemas relacionados con la ejecución son los siguientes:
 
-- Use [Azure Portal](#monitor-databases-using-the-azure-portal) para supervisar el porcentaje de uso de la CPU.
+- Use [Azure Portal](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) para supervisar el porcentaje de uso de la CPU.
 - Use las [vistas de administración dinámicas](sql-database-monitoring-with-dmvs.md) siguientes:
 
   - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) devuelve el consumo de CPU, E/S y memoria para una base de datos de Azure SQL Database. Hay una fila para cada 15 segundos, incluso si no hay ninguna actividad en la base de datos. Los datos históricos se conservan durante una hora.
-  - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) devuelve datos de almacenamiento y uso de CPU para una instancia de Azure SQL Database. Los datos se recopilan y agregan en intervalos de cinco minutos.
+  - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) devuelve datos de almacenamiento y uso de CPU para una base de datos de Azure SQL. Los datos se recopilan y agregan en intervalos de cinco minutos.
 
 > [!IMPORTANT]
 > Para obtener un conjunto de consultas de T-SQL que usan estas DMV para solucionar problemas de uso de la CPU, consulte [Identify CPU performance issues](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues) (Identificar problemas de rendimiento de la CPU).

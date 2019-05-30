@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: d0a4180a3ea28427b8d82c6f5cf86ef9fa51d580
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e20aef77625fe426526884c3fcee83019afd0c0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785894"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299248"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -53,13 +53,13 @@ Si aún no tiene una referencia en el SDK de Application Insights:
   * [Proyecto de Java](../../azure-monitor/app/java-get-started.md)
   * [Proyecto de Node.js](../../azure-monitor/app/nodejs.md)
   * [JavaScript en cada página web](../../azure-monitor/app/javascript.md) 
-* En el código del dispositivo o del servidor web, incluya lo siguiente:
+* En el código de servidor web o de dispositivo, incluya:
 
-    *C#:*`using Microsoft.ApplicationInsights;`
+    *C#:* `using Microsoft.ApplicationInsights;`
 
-    *Visual Basic:*`Imports Microsoft.ApplicationInsights`
+    *Visual Basic:* `Imports Microsoft.ApplicationInsights`
 
-    *Java:*`import com.microsoft.applicationinsights.TelemetryClient;`
+    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
     *Node.js:* `var applicationInsights = require("applicationinsights");`
 
@@ -712,7 +712,7 @@ dependencies
 
 ## <a name="flushing-data"></a>Datos de vaciado
 
-Normalmente, el SDK envía datos en momentos elegidos para minimizar el impacto en el usuario. Sin embargo, en algunos casos puede que desee vaciar el búfer: por ejemplo, si usa el SDK en una aplicación que se apaga.
+Normalmente, el SDK envía datos a intervalos fijos (normalmente 30 segundos) o siempre que el búfer es completa (normalmente de 500 elementos). Sin embargo, en algunos casos puede que desee vaciar el búfer: por ejemplo, si usa el SDK en una aplicación que se apaga.
 
 *C#*
 
@@ -1175,7 +1175,7 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 * **Sesión**: sesión del usuario. El identificador se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
 * **User**: información del usuario.
 
-## <a name="limits"></a>Límites
+## <a name="limits"></a>límites
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 

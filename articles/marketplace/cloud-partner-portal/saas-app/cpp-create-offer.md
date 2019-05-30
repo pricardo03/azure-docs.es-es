@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 646e9bf844477b3d8e1c4c42fb5956e015805433
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 9ca85e4414739bff05176eddc1f31963e453dcf0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833497"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258119"
 ---
 # <a name="create-a-new-saas-application-offer"></a>Creación de una nueva oferta de aplicación SaaS
 
@@ -20,7 +20,7 @@ En este artículo se explica cómo crear y publicar una entrada de oferta de apl
 
 > [!IMPORTANT] 
 > SaaS ofrecen funcionalidad se está migrando a la [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Todos los publicadores nuevo deben usar el centro de partners para crear nuevas ofertas de SaaS y administrar ofertas existentes.  Los editores actuales con ofertas de SaaS se están migrando batchwise de Cloud Partner Portal para el centro de partners.  Cloud Partner Portal mostrará mensajes de estado para indicar cuándo se han migrado las ofertas existentes específicas.
-
+> Para obtener más información, consulte [crear una nueva oferta de SaaS](../../partner-center-portal/create-new-saas-offer.md).
 
 ## <a name="offer-process"></a>Proceso de la oferta
 

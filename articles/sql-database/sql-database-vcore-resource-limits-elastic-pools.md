@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/22/2019
-ms.openlocfilehash: 7f3afec0425033fba174e000195fa26b295aaef1
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/23/2019
+ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507939"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240357"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Límites de recursos para grupos elásticos que usan el modelo de compra basado en núcleo virtual
 
@@ -44,6 +44,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|1|2|3|4|5|6|
 |Memoria (GB)|7|14|21|28|35|42|
+|Máximo número de bases de datos por grupo|100|200|500|500|500|500|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|512|756|756|1536|1536|1536|
@@ -56,7 +57,6 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)* |210|420|630|840|1050|1260|
 |Inicios de sesión simultáneos máximo por grupo * |210|420|630|840|1050|1260|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
-|Máximo número de bases de datos por grupo|100|200|300|500|500|500|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Número de réplicas|1|1|1|1|1|1|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -72,6 +72,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|168|
+|Máximo número de bases de datos por grupo|500|500|500|500|500|500|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|1536|2048|2048|2048|3584|4096|
@@ -84,7 +85,6 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1470|1680|1890|2100|3360|5040|
 |Máximo de grupo de inicios de sesión simultáneos (solicitudes) *|1470|1680|1890|2100|3360|5040|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
-|Máximo número de bases de datos por grupo|200|500|500|500|500|500|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Número de réplicas|1|1|1|1|1|1|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -100,6 +100,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|6|8|10|12|14|
 |Memoria (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
+|Máximo número de bases de datos por grupo|100|200|500|500|500|500|500|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|512|756|756|1536|1536|1536|
@@ -112,7 +113,6 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|210|420|630|840|1050|1260|1470|
 |Inicios de sesión simultáneos máximo por grupo (solicitudes) *|210|420|630|840|1050|1260|1470|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
-|Máximo número de bases de datos por grupo|200|500|500|500|500|500|500|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Número de réplicas|1|1|1|1|1|1|1|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -128,6 +128,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|16|18|20|24|32|40|80|
 |Memoria (GB)|81.6|91.8|102|122.4|163.2|204|408|
+|Máximo número de bases de datos por grupo|500|500|500|500|500|500|500|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamaño máximo de datos (GB)|2048|2048|3072|3072|4096|4096|4096|
@@ -139,7 +140,6 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Registro de los límites de frecuencia (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1680|1890|2100|2520|33600|4200|8400|
 |Inicios de sesión simultáneos máximo por grupo (solicitudes) *|1680|1890|2100|2520|33600|4200|8400|
-|Máximo número de bases de datos por grupo|500|500|500|500|500|500|500|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Número de réplicas|1|1|1|1|1|1|1|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -157,6 +157,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|1|2|3|4|5|6|
 |Memoria (GB)|7|14|21|28|35|42|
+|Máximo número de bases de datos por grupo|Solo se admiten las bases de datos únicas con este tamaño de proceso|50|100|100|100|100|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|1|2|3|4|5|6|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
@@ -169,7 +170,6 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|210|420|630|840|1050|1260|
 |Inicios de sesión simultáneos máximo por grupo (solicitudes) *|210|420|630|840|1050|1260|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
-|Máximo número de bases de datos por grupo|Solo se admiten las bases de datos únicas con este tamaño de proceso|50|100|100|100|100|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|N/D|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Número de réplicas|4|4|4|4|4|4|
 |AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
@@ -185,6 +185,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|4|4|4|4|4|4|
 |Núcleos virtuales|7|8|9|10|16|24|
 |Memoria (GB)|81.6|91.8|102|122.4|163.2|204|
+|Máximo número de bases de datos por grupo|100|100|100|100|100|100|
 |Compatible con almacén de columnas|N/D|N/D|N/D|N/D|N/D|N/D|
 |Almacenamiento OLTP en memoria (GB)|7|8|9.5|11|20|36|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
@@ -197,7 +198,6 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1470|1680|1890|2100|3360|5040|
 |Inicios de sesión simultáneos máximo por grupo (solicitudes) *|1470|1680|1890|2100|3360|5040|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
-|Máximo número de bases de datos por grupo|100|100|100|100|100|100|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
 |Número de réplicas|4|4|4|4|4|4|
 |AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
@@ -213,6 +213,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|2|4|6|8|10|12|14|
 |Memoria (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
+|Máximo número de bases de datos por grupo|Solo se admiten las bases de datos únicas con este tamaño de proceso|50|100|100|100|100|100|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|1571|3142|4.713|6284|8.655|11.026|13.397|
 |Tamaño máximo de datos (GB)|1024|1024|1536|1536|1536|3072|3072|
@@ -225,7 +226,6 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|210|420|630|840|1050|1260|1470|
 |Inicios de sesión simultáneos máximo por grupo (solicitudes) *|210|420|630|840|1050|1260|1470|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
-|Máximo número de bases de datos por grupo|Solo se admiten las bases de datos únicas con este tamaño de proceso|50|100|100|100|100|100|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|N/D|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Número de réplicas|4|4|4|4|4|4|4|
 |AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
@@ -241,6 +241,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Generación de H/W|5|5|5|5|5|5|5|
 |Núcleos virtuales|16|18|20|24|32|40|80|
 |Memoria (GB)|81.6|91.8|102|122.4|163.2|204|408|
+|Máximo número de bases de datos por grupo|100|100|100|100|100|100|100|
 |Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
 |Almacenamiento OLTP en memoria (GB)|15 768|18.139|20.51|25 252|37 936|52.22|131,64|
 |Tamaño máximo de datos (GB)|3072|3072|3072|4096|4096|4096|4096|
@@ -253,7 +254,6 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 |Cantidad máxima de trabajos simultáneos por grupo (solicitudes)*|1680|1890|2100|2520|3360|4200|8400|
 |Inicios de sesión simultáneos máximo por grupo (solicitudes) *|1680|1890|2100|2520|3360|4200|8400|
 |Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|
-|Máximo número de bases de datos por grupo|100|100|100|100|100|100|100|
 |Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Número de réplicas|4|4|4|4|4|4|4|
 |AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|Sí|

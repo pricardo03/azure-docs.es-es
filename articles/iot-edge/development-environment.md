@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f3d1fb393138aeb590bc0645d6abe93652a52a5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a6fc2af0cbe770ee787da757966bbc1647717e5a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61247562"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302682"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Preparación del entorno de desarrollo y prueba para IoT Edge
 
@@ -62,11 +62,11 @@ Las plantillas de módulo para algunos lenguajes y servicios tienen requisitos p
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Generador de módulos Node.js de Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
 
-### <a name="visual-studio-2017-extension"></a>Extensión de Visual Studio 2017
+### <a name="visual-studio-20172019-extension"></a>Extensión de Visual Studio 2017/2019
 
-Las herramientas de Azure IoT Edge para Visual Studio proporcionan una plantilla de módulo IoT Edge basada en C#. 
+Las herramientas de Azure IoT Edge para Visual Studio proporcionan una IoT Edge basado en plantilla del módulo de C# y C. 
 
-Para obtener más información y descargar, vea [Herramientas de Azure IoT Edge para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
+Para obtener más información y descargar, consulte [herramientas de Azure IoT Edge para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) o [herramientas de Azure IoT Edge para Visual Studio de 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 
 ### <a name="iot-edge-dev-tool"></a>Herramienta de desarrollo de IoT Edge
 
@@ -109,7 +109,7 @@ Para obtener más información, vea [Running Azure IoT Edge in a container](http
 
 ### <a name="iot-edge-device-container"></a>Contenedor de dispositivos IoT Edge
 
-El contenedor de dispositivos de IoT Edge es un dispositivo IoT Edge completo, listo para iniciarse en cualquier equipo con un motor de contenedor. El contenedor de dispositivos incluye el runtime de IoT Edge y un motor de contenedor propio. Cada instancia del contenedor es un dispositivo IoT Edge autoaprovisionado totalmente funcional. El contenedor de dispositivos admite la depuración remota de los módulos, siempre y cuando haya una ruta de red para el módulo. El contenedor de dispositivos es adecuado para crear de forma rápida grandes cantidades de dispositivos IoT Edge para probar escenarios a escala o canalizaciones de DevOps. También admite la implementación en Kubernetes a través de Helm. 
+El contenedor de dispositivos de IoT Edge es un dispositivo IoT Edge completo, listo para iniciarse en cualquier equipo con un motor de contenedor. El contenedor de dispositivos incluye el runtime de IoT Edge y un motor de contenedor propio. Cada instancia del contenedor es un dispositivo IoT Edge autoaprovisionado totalmente funcional. El contenedor de dispositivos admite la depuración remota de los módulos, siempre y cuando haya una ruta de red para el módulo. El contenedor de dispositivos es adecuado para crear rápidamente grandes cantidades de IoT Edge dispositivos para probar escenarios a escala o las canalizaciones de Azure. También admite la implementación en Kubernetes a través de Helm. 
 
 Para obtener más información, vea el artículo sobre el [contenedor de dispositivos de Azure IoT Edge](https://github.com/toolboc/azure-iot-edge-device-container).
 

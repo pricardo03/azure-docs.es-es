@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: ce05d097aa69aa1aadb8450e40722448bc5a7de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55b73f5f4e6998eb1eb8c5ebc873fa20f8722a3e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61402048"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304587"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Creación y administración de máquinas virtuales Windows en Azure mediante C# #
 
@@ -41,7 +41,7 @@ Tardará unos 20 minutos en realizar estos pasos.
 
 1. Si aún no lo ha hecho, instale [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Seleccione **Desarrollo de escritorio de .NET** en la página Cargas de trabajo y haga clic en **Instalar**. En el resumen, puede ver que **Herramientas de desarrollo de .NET Framework 4 – 4.6** se selecciona automáticamente. Si ya ha instalado Visual Studio, puede agregar la carga de trabajo de .NET con el selector de Visual Studio.
 2. En Visual Studio, haga clic en **Archivo** > **Nuevo** > **proyecto**.
-3. En **Plantillas** > **Visual C#**, seleccione **Aplicación de consola (.NET Framework)**, escriba *myDotnetProject* como nombre del proyecto, seleccione la ubicación del proyecto y, haga clic en **Aceptar**.
+3. En **Plantillas** > **Visual C#** , seleccione **Aplicación de consola (.NET Framework)** , escriba *myDotnetProject* como nombre del proyecto, seleccione la ubicación del proyecto y, haga clic en **Aceptar**.
 
 ## <a name="install-the-package"></a>Instalación del paquete
 
@@ -60,7 +60,7 @@ Antes de empezar este paso, asegúrese de que tiene acceso a una [entidad de ser
 
 ### <a name="create-the-authorization-file"></a>Creación del archivo de autorización
 
-1. En el Explorador de soluciones, haga clic en *myDotnetProject* > **Agregar** > **Nuevo elemento** y, después, seleccione **Archivo de texto** en *Elementos de Visual C#*. Asigne un nombre al archivo *azureauth.properties* y, luego, haga clic en **Agregar**.
+1. En el Explorador de soluciones, haga clic en *myDotnetProject* > **Agregar** > **Nuevo elemento** y, después, seleccione **Archivo de texto** en *Elementos de Visual C#* . Asigne un nombre al archivo *azureauth.properties* y, luego, haga clic en **Agregar**.
 2. Agregue estas propiedades de autorización:
 
     ```
@@ -80,12 +80,12 @@ Antes de empezar este paso, asegúrese de que tiene acceso a una [entidad de ser
 4. Establezca una variable de entorno de Windows denominada AZURE_AUTH_LOCATION con la ruta de acceso completa al archivo de autorización que ha creado. Por ejemplo, puede usar el comando de PowerShell siguiente:
 
     ```
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
 ### <a name="create-the-management-client"></a>Creación del cliente de administración
 
-1. Abra el archivo Program.cs del proyecto que ha creado y agregue las siguientes instrucciones using a las instrucciones existentes en la parte superior del archivo:
+1. Abra el archivo Program.cs del proyecto que ha creado. Agregue las siguientes instrucciones using a las instrucciones existentes en la parte superior del archivo:
 
     ```
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -365,7 +365,7 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Incorporación de un disco de datos a la máquina virtual
 
-Para agregar un disco de datos a la máquina virtual, agregue este código al método Main para agregar un disco de datos de 2 GB de tamaño, tener un LUN de 0 y un tipo de almacenamiento en caché de lectura y escritura:
+Para agregar un disco de datos a la máquina virtual, agregue este código al método Main. Este ejemplo agrega un disco de datos de 2 GB de tamaño, tener un LUN de 0 y un tipo de almacenamiento en caché de lectura y escritura:
 
 ```
 Console.WriteLine("Adding data disk to vm...");

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 59a801fd149a0f647298d94522f9eefc1ea6eb9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3cbc2d5be1f7addf833162b23c5db0786e9d361
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820904"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297489"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Las métricas de registro durante el entrenamiento se ejecuta en Azure Machine Learning
 
@@ -67,7 +67,7 @@ En el ejemplo siguiente, se entrena un modelo sklearn Ridge sencillo de forma lo
 
 1. Cree un script de entrenamiento en un cuaderno local de Jupyter. 
 
-   ``` python
+   ```python
    # load diabetes dataset, a well-known small dataset that comes with scikit-learn
    from sklearn.datasets import load_diabetes
    from sklearn.linear_model import Ridge
@@ -394,7 +394,7 @@ Para cada modelo de regresión que se crea usando las funcionalidades de aprendi
 
 <a name="pvt"></a>
 
-#### <a name="predicted-vs-true"></a>Predicho frente a True
+#### <a name="predicted-vs-true"></a>Predicho frente a True 
 
 Predicho frente a True (Predicho frente verdadero), muestra la relación entre un valor predicho y su valor verdadero correlacionado para un problema de regresión. Este gráfico se puede usar para medir el rendimiento de un modelo, ya que cuanto más se acerquen los valores predichos a la línea y=x, mejor será la precisión de un modelo predictivo.
 

@@ -4,15 +4,15 @@ description: En este artículo se describen las categorías de conflicto y las d
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98e9f5fff1b74d417ee07ed0056c8046b49baa17
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60892598"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236543"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipos de conflicto y directivas de resolución de conflictos
 
@@ -30,7 +30,7 @@ Para las cuentas de Azure Cosmos configuradas con varias regiones de escritura, 
 
 Azure Cosmos DB ofrece un mecanismo flexible basado en directivas para resolver conflictos de escritura. Puede seleccionar entre dos directivas de resolución de conflictos en un contenedor de Azure Cosmos:
 
-- **Últimos casos de escritura correcta (LWW)**: esta directiva de resolución utiliza de forma predeterminada una propiedad de marca de tiempo definida por el sistema. (que se basa en el protocolo de reloj de sincronización de hora). Si usa la API de SQL, puede especificar cualquier otro numérico propiedad personalizada (por ejemplo, su propia noción de una marca de tiempo) que se usará para la resolución de conflictos. Una propiedad numérica personalizada también se conoce como el *ruta de acceso de resolución de conflictos*. 
+- **Últimos casos de escritura correcta (LWW)** : esta directiva de resolución utiliza de forma predeterminada una propiedad de marca de tiempo definida por el sistema. (que se basa en el protocolo de reloj de sincronización de hora). Si usa la API de SQL, puede especificar cualquier otro numérico propiedad personalizada (por ejemplo, su propia noción de una marca de tiempo) que se usará para la resolución de conflictos. Una propiedad numérica personalizada también se conoce como el *ruta de acceso de resolución de conflictos*. 
 
   Si dos o más elementos entran en conflicto en operaciones de inserción o de reemplazo, el elemento que contiene el valor más alto para la ruta de acceso para la resolución de conflictos se convierte en el ganador. Si varios elementos tienen el mismo valor numérico para la ruta de acceso para la resolución de conflictos, el sistema determina la versión ganadora. Se garantiza que todas las regiones convergen en un solo ganador y finalizan con la versión idéntica del elemento confirmado. En caso de que haya conflictos de eliminación, la versión eliminada siempre se impone a otros conflictos, ya sean de inserción o de reemplazo, Este resultado se produce independientemente de cuál sea el valor de la ruta de acceso de resolución de conflictos.
 

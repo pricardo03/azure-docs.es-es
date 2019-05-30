@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5dbd4fefd5c5e1acd7e12ace547ddb8866b7f081
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1ac3cdecc79cafb9ea2697cca3c87b2ebe083d40
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148586"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254861"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Preguntas comunes sobre cómo realizar copias de seguridad de archivos y carpetas 
 
@@ -101,7 +101,7 @@ Esta advertencia puede aparecer incluso si ha configurado una directiva de copia
 El tamaño de la carpeta de caché determina la cantidad de datos de los que se realiza la copia de seguridad.
 - Los volúmenes de la carpeta de caché deben tener espacio libre que es igual al menos 5-10% del tamaño total de datos de copia de seguridad.
 - Si el volumen tiene menos del 5% de espacio libre, aumente el tamaño del volumen o mueva la carpeta de caché a un volumen con espacio suficiente.
-- 
+- Si la copia de seguridad del estado del sistema Windows, necesitaría 30-35 GB adicionales de espacio libre en el volumen que contiene la carpeta de caché
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>¿Cómo se puede cambiar la ubicación de caché para el agente de MARS?
 
 
@@ -112,7 +112,7 @@ El tamaño de la carpeta de caché determina la cantidad de datos de los que se 
 2. No mueva los archivos. En su lugar, copie la carpeta de caché de espacio en una unidad diferente que tenga espacio suficiente.
 3. Actualice las siguientes entradas del registro con la ruta de acceso de la nueva carpeta de caché.<br/>
 
-    | Ruta de acceso del Registro | Clave del Registro | `Value` |
+    | Ruta de acceso del Registro | Clave del Registro | Valor |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |

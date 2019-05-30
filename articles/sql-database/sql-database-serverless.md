@@ -12,16 +12,16 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/20/2019
-ms.openlocfilehash: 57f2c38ce0479f43d7f24de8d1feb554517bcc69
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a9f883a9776f68a7ece471caca5dc1d7af2aec32
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951485"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393542"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database sin servidor (versión preliminar)
 
-## <a name="what-is-the-serverless-compute-tier"></a>Qué es el nivel de proceso sin servidor
+## <a name="serverless-compute-tier"></a>Nivel de servicio de informática sin servidor
 
 SQL Database sin servidor (versión preliminar) es un nivel de proceso que factura por la cantidad de proceso utilizada por una sola base de datos por segundo. Este nivel de proceso sin servidor ofrece una relación entre precio y rendimiento optimizada para bases de datos únicas con patrones de uso intermitentes e impredecibles, que pueden permitirse alguna demora en el calentamiento de los recursos de proceso después de períodos de inactividad.
 
@@ -66,14 +66,14 @@ La tabla siguiente resume las diferencias entre el nivel de proceso sin servidor
 |**Escenario de uso principal**| Bases de datos con uso impredecible e intermitente, intercalado con períodos de inactividad. | Bases de datos o grupos elásticos con uso más habitual.|
 | **Trabajo de administración del rendimiento** |Inferior|Superior|
 |**Escalado de proceso**|Automático|Manual|
-|**Capacidad de respuesta del proceso**|Menor después de períodos de inactividad|Inmediato|
+|**Capacidad de respuesta del proceso**|Menor después de períodos de inactividad|Inmediata|
 |**Granularidad de facturación**|Por segundo|Por hora|
 
 ## <a name="purchasing-model-and-service-tier"></a>Modelo de compra y nivel de servicio
 
 SQL Database sin servidor solo se admite actualmente en el nivel de uso general en hardware de generación 5 en el modelo de compra de núcleos virtuales.
 
-## <a name="autoscaling"></a>Escalado automático
+## <a name="autoscale"></a>Escalado automático
 
 ### <a name="scaling-responsiveness"></a>Escalado de la capacidad de respuesta
 
@@ -83,7 +83,7 @@ En general, las bases de datos se ejecutan en una máquina con capacidad suficie
 
 Se reclame la memoria para bases de datos sin servidor con mayor frecuencia que las bases de datos de proceso aprovisionada. Este comportamiento es importante para controlar los costos en sin servidor y puede afectar al rendimiento.
 
-#### <a name="cache-reclaiming"></a>Almacenar en caché reclamar
+#### <a name="cache-reclamation"></a>Recuperación de la memoria caché
 
 A diferencia de las bases de datos de proceso aprovisionada, se reclama memoria desde la caché SQL desde una base de datos sin servidor cuando el uso de CPU o memoria caché es baja.
 
@@ -115,7 +115,7 @@ La reanudación automática se desencadena si se cumple cualquiera de las siguie
 
 |Característica|Desencadenamiento de reanudación automática|
 |---|---|
-|Autenticación y autorización|Iniciar sesión|
+|Autenticación y autorización|Inicio de sesión|
 |Detección de amenazas|Habilitación o deshabilitación de la configuración de detección de amenazas en el nivel de base de datos o servidor<br>Modificación de la configuración de detección de amenazas en el nivel de base de datos o servidor|
 |Detección y clasificación de datos|Adición, modificación, eliminación o visualización de las etiquetas de confidencialidad|
 |Auditoría|Visualización de registros de auditoría<br>Actualización o visualización de la directiva de auditoría|
@@ -145,7 +145,7 @@ Las características siguientes no admiten la pausa y reanudación automáticas.
 - La base de datos de sincronización utilizada en la sincronización de datos SQL.
 
 
-## <a name="on-boarding-into-the-serverless-compute-tier"></a>Incorporación del nivel de proceso sin servidor
+## <a name="onboarding-into-serverless-compute-tier"></a>Incorporación a nivel de proceso sin servidor
 
 La creación de una nueva base de datos o el cambio de una base de datos existente a un nivel de proceso sin servidor siguen el mismo patrón que la creación de una nueva base de datos en el nivel de proceso aprovisionado y constan de los dos pasos siguientes:
 
@@ -167,11 +167,11 @@ La creación de una nueva base de datos o el cambio de una base de datos existen
 > [!NOTE]
 > Actualmente no es posible usar T-SQL para mover una base de datos existente al nivel de proceso sin servidor o cambiar su tamaño de proceso, pero esto sí puede realizarse mediante Azure Portal o PowerShell.
 
-### <a name="create-new-database-using-the-azure-portal"></a>Creación de una nueva base de datos mediante Azure Portal
+### <a name="create-new-serverless-database-using-azure-portal"></a>Crear nueva base de datos sin servidor mediante Azure portal
 
 Consulte [Quickstart: Creación de una base de datos única en Azure SQL Database con Azure Portal](sql-database-single-database-get-started.md).
 
-### <a name="create-new-database-using-powershell"></a>Creación de una nueva base de datos mediante PowerShell
+### <a name="create-new-serverless-database-using-powershell"></a>Crear nueva base de datos sin servidor mediante PowerShell
 
 En el ejemplo siguiente se crea una nueva base de datos en el nivel de proceso sin servidor definida por el objetivo de servicio denominado GP_S_Gen5_4 con los valores predeterminados para el mínimo de núcleos virtuales y la demora de pausa automática.
 
@@ -190,7 +190,7 @@ New-AzSqlDatabase `
   -AutoPauseDelay 720
 ```
 
-### <a name="move-existing-database-into-the-serverless-compute-tier"></a>Cambio de una base de datos existente al nivel de proceso sin servidor
+### <a name="move-provisioned-compute-database-into-serverless-compute-tier"></a>Mover la base de datos de proceso aprovisionado en el nivel de proceso sin servidor
 
 En el siguiente ejemplo se mueve una base de datos única existente desde el nivel de proceso aprovisionado al nivel de proceso sin servidor. En este ejemplo se especifica explícitamente el mínimo de núcleos virtuales, el máximo de núcleos virtuales y la demora de pausa automática.
 
@@ -207,11 +207,11 @@ Set-AzSqlDatabase
   -AutoPauseDelay 1440
 ```
 
-### <a name="move-a-database-out-of-the-serverless-compute-tier"></a>Cambio de una base de datos del nivel de proceso sin servidor al nivel de proceso aprovisionado
+### <a name="move-serverless-database-into-provisioned-compute-tier"></a>Mover la base de datos sin servidor en el nivel de proceso aprovisionada
 
 Una base de datos sin servidor se puede mover a un nivel de proceso aprovisionado de la misma manera que se mueve una base de datos de proceso aprovisionado a un nivel de proceso sin servidor.
 
-## <a name="modify-serverless-configuration-parameters"></a>Modificación de los parámetros de configuración sin servidor
+## <a name="modifying-serverless-configuration"></a>Modificación de la configuración sin servidor
 
 ### <a name="maximum-vcores"></a>Máximo de núcleos virtuales
 
@@ -225,7 +225,7 @@ Modificación de los núcleos virtuales mínimos se realiza mediante el [conjunt
 
 Modificar el retraso pausarautomáticamente se realiza mediante el [conjunto AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando en PowerShell mediante el `AutoPauseDelay` argumento.
 
-## <a name="monitor-serverless-database"></a>Supervisión de la base de datos sin servidor
+## <a name="monitoring"></a>Supervisión
 
 ### <a name="resources-used-and-billed"></a>Recursos utilizados y facturados
 
@@ -237,9 +237,9 @@ El paquete de aplicaciones es el límite de administración de recursos más ext
 
 #### <a name="user-resource-pool"></a>Grupo de recursos de usuario
 
-El grupo de recursos de usuario es el límite de administración de recursos más interno de una base de datos, independientemente de si la base de datos se encuentra en un nivel de proceso sin servidor o aprovisionado. El grupo de recursos de usuario abarca la CPU y la E/S para cargas de trabajo de usuario generadas por consultas de DDL (por ejemplo, CREATE, ALTER, etc.) y DML (por ejemplo, SELECT, INSERT, UPDATE, DELETE, etc.). Por lo general, estas consultas representan la proporción de uso dentro del paquete de aplicaciones más importante.
+El grupo de recursos de usuario es el límite de administración de recursos más interno de una base de datos, independientemente de si la base de datos se encuentra en un nivel de proceso sin servidor o aprovisionado. El usuario resource pool ámbitos CPU y E/S para cargas de trabajo de usuario generados por consultas DDL como CREATE y ALTER y DML de las consultas, como seleccionar, insertar, actualizar y eliminar. Por lo general, estas consultas representan la proporción de uso dentro del paquete de aplicaciones más importante.
 
-### <a name="metrics"></a>Métricas
+### <a name="metrics"></a>metrics
 
 |Entidad|Métrica|DESCRIPCIÓN|Unidades|
 |---|---|---|---|
@@ -279,7 +279,7 @@ Para ver los límites de recursos, consulte [Nivel de proceso sin servidor](sql-
 La cantidad de proceso que se factura es el máximo de CPU y memoria usado en cada segundo. Si la cantidad de CPU y memoria usadas es inferior a la cantidad mínima aprovisionada para cada una, se factura la cantidad aprovisionada. Para comparar la CPU y la memoria con fines de facturación, la memoria se normaliza en unidades de núcleos virtuales cambiando la escala de la cantidad de GB de memoria en 3 GB por núcleo virtual.
 
 - **Recurso facturado**: CPU y memoria
-- **Importe facturado ($)**: precio de la unidad de núcleo virtual * máx. (mínimo de núcleos virtuales, núcleos virtuales usados, GB de memoria mínima * 1/3, GB de memoria usada * 1/3) 
+- **Importe facturado ($)** : precio de la unidad de núcleo virtual * máx. (mínimo de núcleos virtuales, núcleos virtuales usados, GB de memoria mínima * 1/3, GB de memoria usada * 1/3) 
 - **Frecuencia de facturación**: Por segundo
 
 El precio de unidad de memoria con núcleo virtual en el costo por núcleo virtual por segundo. Consulte la [página de precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) para conocer los precios de unidad específicos de una región determinada.
@@ -310,7 +310,7 @@ Suponga que el precio de la unidad de proceso es 0,000073 $/núcleo virtual/seg
 
 ## <a name="available-regions"></a>Regiones disponibles
 
-El nivel de proceso sin servidor está disponible en todas las regiones excepto las siguientes: Centro de Australia, Este de China, Norte de China, Sur de Francia, Centro de Alemania, Nordeste de Alemania, India occidental, Sur de Corea del Sur, Oeste de Sudáfrica, Norte de Reino Unido, Sur de Reino Unido, Oeste de Reino Unido y Centro-oeste de EE. UU.
+El nivel de proceso sin servidor está disponible en todas las regiones excepto las siguientes: Este de Australia Central, China, Norte de China, sur de Francia, noreste de Alemania, Alemania Central, India occidental, Corea del Sur, oeste de Sudáfrica, Norte de Reino Unido, sur de Reino Unido, oeste de Reino Unido y centro occidental de EE.UU.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

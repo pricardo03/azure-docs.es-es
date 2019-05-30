@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2cc5d953ec412c1c747989d58303beae05f2039c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66118055"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234299"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Requisitos previos Azure Disk Encryption (versión anterior)
 
@@ -73,7 +73,7 @@ Puede encontrar un ejemplo de los comandos que se pueden usar para montar los di
 **Directiva de grupo:**
  - La solución Azure Disk Encryption usa el protector de claves externas de BitLocker para máquinas virtuales IaaS con Windows. Para las máquinas virtuales unidas en un dominio, no cree ninguna directiva de grupo que exija protectores de TPM. Para obtener información acerca de la directiva de grupo para "Permitir BitLocker sin un TPM compatible", consulte la [Referencia de la directiva de grupo de BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup).
 
--  La directiva de BitLocker en máquinas virtuales de unión a un dominio con directivas de grupo personalizadas debe incluir la siguiente configuración: [Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings) (Configuración de almacenamiento de usuario de información de recuperación de BitLocker -> Permitir clave de recuperación de 256 bits). Azure Disk Encryption presentará un error cuando la configuración de la directiva de grupo personalizada para BitLocker sea incompatible. En máquinas que no tengan la configuración de directiva correcta, puede que sea necesario aplicar la nueva directiva, forzar la nueva directiva a actualizarse (gpupdate.exe /force) y luego reiniciar.  
+-  La directiva de BitLocker en máquinas virtuales de unión a un dominio con directivas de grupo personalizadas debe incluir la siguiente configuración: [Configurar el almacenamiento de usuario de BitLocker información de recuperación -> clave de recuperación permiten 256 bits](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption presentará un error cuando la configuración de la directiva de grupo personalizada para BitLocker sea incompatible. En máquinas que no tengan la configuración de directiva correcta, puede que sea necesario aplicar la nueva directiva, forzar la nueva directiva a actualizarse (gpupdate.exe /force) y luego reiniciar.  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -246,7 +246,7 @@ Siga los pasos que aparecen en el artículo [Uso del portal para crear una aplic
 1. [Comprobar los permisos requeridos](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
 2. [Crear una aplicación de Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - Puede utilizar cualquier nombre y dirección URL de inicio de sesión que desee al crear la aplicación.
-3. [Obtener el identificador de aplicación y la clave de autenticación](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) 
+3. [Obtener el identificador de aplicación y la clave de autenticación](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) 
      - La clave de autenticación es el secreto de cliente y se utiliza como el AadClientSecret para Set-AzVMDiskEncryptionExtension. 
         - La aplicación usa la clave de autenticación como una credencial para iniciar sesión en Azure AD. En Azure Portal, este secreto se denomina "claves", pero no tiene relación con los almacenes de claves. Proteja adecuadamente este secreto. 
      - El identificador de aplicación se usará más adelante como el AadClientId para Set-AzVMDiskEncryptionExtension y como ServicePrincipalName para Set-AzKeyVaultAccessPolicy. 

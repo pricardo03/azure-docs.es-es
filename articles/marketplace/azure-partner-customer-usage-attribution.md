@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 09ce4cdc6ab4556f0ba68507bb23d09e02ae0357
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800972"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296824"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
 
@@ -97,7 +97,7 @@ Para habilitar la atribución de uso del cliente, al diseñar las llamadas de AP
 ![Formato de GUID de ejemplo](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!Note]
-> El formato de la cadena es importante. Si no se incluye el prefijo **pid-**, no es posible consultar los datos. El seguimiento de los distintos SDK se hace de forma diferente. Para implementar este método, revise la compatibilidad y el enfoque del seguimiento de su SDK de Azure preferido.
+> El formato de la cadena es importante. Si no se incluye el prefijo **pid-** , no es posible consultar los datos. El seguimiento de los distintos SDK se hace de forma diferente. Para implementar este método, revise la compatibilidad y el enfoque del seguimiento de su SDK de Azure preferido.
 
 #### <a name="example-the-python-sdk"></a>Ejemplo: SDK de Python
 
@@ -186,7 +186,7 @@ Después de agregar el identificador único global a la plantilla o en el agente
 
    ![Seleccionar Add Tracking GUID (Agregar GUID de seguimiento)](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
 
-1. En el cuadro **Tracking GUID** (GUID de seguimiento), escriba su identificador único global de seguimiento. Escriba solo el GUID, sin el prefijo **pid -**. En el cuadro **Custom Description** (Descripción personalizada), escriba el nombre o la descripción de la oferta.
+1. En el cuadro **Tracking GUID** (GUID de seguimiento), escriba su identificador único global de seguimiento. Escriba solo el GUID, sin el prefijo **pid -** . En el cuadro **Custom Description** (Descripción personalizada), escriba el nombre o la descripción de la oferta.
 
    ![Página de perfil](media/marketplace-publishers-guide/guid-dev-center-login.png)
 
@@ -208,7 +208,7 @@ Después de agregar el identificador único global a la plantilla o en el agente
 
 Tras modificar la plantilla y realizar una implementación de prueba, use el siguiente script de PowerShell para recuperar los recursos que implementó y etiquetó.
 
-Puede usar dicho script para comprobar que el GUID se ha agregado correctamente a la plantilla de Resource Manager. El script no se aplica a la implementación de la API de Resource Manager.
+Puede usar dicho script para comprobar que el GUID se ha agregado correctamente a la plantilla de Resource Manager. La secuencia de comandos no se aplica a las implementaciones de API de Resource Manager o Terraform.
 
 Inicie sesión en Azure. Antes de ejecutar el script seleccione la suscripción con la implementación que desea comprobar. Ejecute el script en el contexto de la suscripción de la implementación.
 
@@ -245,7 +245,7 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="report"></a>Informar
+## <a name="report"></a>Informe
 
 Puede encontrar el informe de atribución de uso del cliente en el panel de análisis de Partner Center. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Para ver el informe, tendrá que usar las credenciales del centro de partners para iniciar sesión. Si tiene problemas con informes o iniciar sesión, crear una solicitud de soporte técnico siguiendo las instrucciones de la sección de soporte técnico Get.
 

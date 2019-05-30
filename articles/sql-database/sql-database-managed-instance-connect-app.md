@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 52a9cfa52cd63715addadcbfb367510ded56fd76
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142720"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297090"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL Database
 
@@ -56,7 +56,7 @@ Hay dos opciones de conexión local a una red virtual de Azure:
 - Conexión VPN de sitio a sitio ([Azure Portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [CLI de Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Conexión de [ExpressRoute](../expressroute/expressroute-introduction.md)  
 
-Si ha establecido la conexión local a Azure correctamente y no puede establecer la conexión con Instancia administrada, compruebe si el firewall tiene abierta la conexión saliente en el puerto 1433 de SQL, así como los puertos 11000-12000 para el redireccionamiento.
+Si se ha establecido correctamente de local a la conexión de Azure y no se puede establecer conexión con instancia administrada, compruebe si el firewall tiene abierta la conexión saliente en el puerto 1433 de SQL, así como intervalo de 11000 a 11999 de puertos para la redirección.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Conexión de una aplicación en el cuadro de desarrollo
 
@@ -96,7 +96,7 @@ Este escenario se ilustra en el diagrama siguiente:
 
 Para solucionar problemas de conectividad, consulte la siguiente información:
 
-- Si no puede conectarse a la Instancia administrada desde una máquina virtual de Azure dentro de la misma red virtual, pero desde una subred diferente, compruebe si tiene un grupo de seguridad de red establecido en la subred de la máquina virtual que podría estar bloqueando el acceso. Además, tenga en cuenta que deberá abrir una conexión saliente en el puerto 1433 de SQL, así como los puertos en el intervalo 11000-12000, ya que son necesarios para establecer conexión a través de un redireccionamiento dentro del límite de Azure.
+- Si no puede conectarse a instancia administrada desde una máquina virtual de Azure dentro de la misma red virtual pero una subred diferente, compruebe si tiene un grupo de seguridad de red establecido en la subred de VM que podría estar bloqueando el acceso. Además tenga en cuenta que deberá abrir una conexión saliente en el puerto 1433 de SQL, así como los puertos en el intervalo de 11000 a 11999 puesto que los que se necesitan para conectarse mediante un redireccionamiento dentro del límite de Azure.
 - Asegúrese de que la propagación de BGP está establecida en **Habilitado** para la tabla de rutas asociada a la red virtual.
 - Si utiliza VPN de P2S, compruebe la configuración en Azure Portal para ver si detecta números de **entrada/salida**. Los números distintos de cero indican que Azure enruta el tráfico hacia y desde un entorno local.
 

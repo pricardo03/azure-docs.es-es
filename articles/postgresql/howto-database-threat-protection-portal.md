@@ -1,19 +1,19 @@
 ---
-title: 'Advanced Threat Protection: Azure Database for PostgreSQL'
+title: Servidor único de protección - Azure Database for PostgreSQL - contra amenazas avanzada
 description: Protección contra amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a69a8b651188b9566fdbec4bc6de09a8fec164c7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421336"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067467"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Advanced Threat Protection para Azure Database for PostgreSQL
+# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Protección contra amenazas avanzada de Azure Database for PostgreSQL: servidor único
 
 Advanced Threat Protection para Azure Database for PostgreSQL detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos.
 
@@ -28,8 +28,8 @@ Advanced Threat Protection forma parte de la oferta Seguridad de datos avanzada,
 
 ## <a name="set-up-threat-detection"></a>Configurar la detección de amenazas
 1. Inicie Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-2. Vaya a la página de configuración del servidor de Azure Database for PostgreSQL que quiere proteger. En la configuración de seguridad, seleccione **Advanced Threat Protection (versión preliminar)**.
-3. En la página de configuración de **Advanced Threat Protection (versión preliminar)**:
+2. Vaya a la página de configuración del servidor de Azure Database for PostgreSQL que quiere proteger. En la configuración de seguridad, seleccione **Advanced Threat Protection (versión preliminar)** .
+3. En la página de configuración de **Advanced Threat Protection (versión preliminar)** :
 
    - Habilite Protección contra amenazas avanzada en el servidor.
    - En **Configuración de Advanced Threat Protection**, en el cuadro de texto **Enviar alertas a**, proporcione la lista de correos electrónicos para recibir alertas de seguridad cuando se detecten actividades anómalas en la base de datos.

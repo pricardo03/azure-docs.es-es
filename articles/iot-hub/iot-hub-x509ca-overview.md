@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615001"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257572"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticación de dispositivos mediante certificados de entidades de certificación X.509
 
@@ -40,7 +40,7 @@ Para un entorno de producción, se recomienda adquirir un certificado de entidad
 
 También puede crear un certificado autofirmado de entidad de certificación X.509 para experimentación o para usarla en redes de IoT cerradas.
 
-Independientemente de cómo obtenga el certificado de entidad de certificación X.509, asegúrese de que la clave privada correspondiente es secreta y está protegida en todo momento.  Esto es necesario para fomentar la confianza en la autenticación con la entidad de certificación X.509.
+Independientemente de cómo obtener el certificado de entidad de certificación X.509, asegúrese de mantener su secreto de la clave privada correspondiente y protegidos en todo momento.  Esto es necesario para fomentar la confianza en la autenticación con la entidad de certificación X.509.
 
 Obtenga información sobre cómo [crear un certificado autofirmado de entidad de certificación](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), que puede usar para experimentación a través de la descripción de esta característica.
 

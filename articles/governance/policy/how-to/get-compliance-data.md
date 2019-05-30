@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 050f301b55c718e80c1b4157639bd9dce506f6ba
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 428a1614889409300064420e1d3d4fbc0423a0ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979429"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237525"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtener datos de cumplimiento de los recursos de Azure
 
@@ -91,12 +91,12 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 En una asignación, un recurso es **No compatible** si no cumple las reglas de iniciativa o directiva.
 En la tabla siguiente se muestra cómo funcionan los distintos efectos de directiva con la evaluación de condición para el estado de cumplimiento resultante:
 
-| Estado del recurso | Efecto | Evaluación de directiva | Estado de compatibilidad |
+| Estado del recurso | Efecto | Evaluación de directiva | Estado de cumplimiento |
 | --- | --- | --- | --- |
-| Existe | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | No compatible |
-| Existe | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
-| Nuevo | Audit, AuditIfNotExist\* | True  | No compatible |
-| Nuevo | Audit, AuditIfNotExist\* | False | Conforme |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | Incompatible |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compatible |
+| Nuevo | Audit, AuditIfNotExist\* | True  | Incompatible |
+| Nuevo | Audit, AuditIfNotExist\* | False | Compatible |
 
 \* Los efectos Append, DeployIfNotExist y AuditIfNotExist requieren que la instrucción IF sea TRUE.
 Los efectos requieren también que la condición de existencia sea FALSE para ser no compatibles. Si es TRUE, la condición IF desencadena la evaluación de la condición de existencia de los recursos relacionados.
@@ -416,7 +416,8 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Registros de Azure Monitor
 
-Si tiene un [área de trabajo de Log Analytics](../../../log-analytics/log-analytics-overview.md) con `AzureActivity` desde el [solución Activity Log Analytics](../../../azure-monitor/platform/collect-activity-logs.md) asociadas a su suscripción, también puede ver los resultados de incumplimiento del ciclo de evaluación mediante consultas sencillas de Kusto y `AzureActivity` tabla. Con los detalles de los registros de Azure Monitor, se pueden configurar alertas para comprobar la opción de no compatibilidad.
+Si tiene un [área de trabajo de Log Analytics](../../../log-analytics/log-analytics-overview.md) con `AzureActivity` desde el [solución Activity Log Analytics](../../../azure-monitor/platform/activity-log-collect.md) asociadas a su suscripción, también puede ver los resultados de incumplimiento del ciclo de evaluación mediante consultas sencillas de Kusto y `AzureActivity` tabla. Con los detalles de los registros de Azure Monitor, se pueden configurar alertas para comprobar la opción de no compatibilidad.
+
 
 ![Cumplimiento de directiva de Azure mediante registros de Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 
@@ -427,4 +428,4 @@ Si tiene un [área de trabajo de Log Analytics](../../../log-analytics/log-analy
 - Vea la [Descripción de los efectos de directivas](../concepts/effects.md).
 - Comprender cómo [crear mediante programación las directivas](programmatically-create.md).
 - Obtenga información sobre cómo [corregir recursos no compatibles](remediate-resources.md).
-- Compruebe que un grupo de administración con [organizar los recursos con grupos de administración de Azure](../../management-groups/overview.md).
+- En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

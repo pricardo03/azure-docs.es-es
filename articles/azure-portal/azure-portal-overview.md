@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: kfollis
 ms.author: kfollis
-ms.date: 03/22/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: bff6fe697912bca0bc55501a74a01a92b1330521
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de04b461d8e2d2dce9a88052a86fbe5d163fafec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551402"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244196"
 ---
 # <a name="azure-portal-overview"></a>Introducción a Azure Portal
 
@@ -23,6 +23,8 @@ En este artículo presenta Azure portal, identifica los elementos de la página 
 ## <a name="what-is-the-azure-portal"></a>¿Qué es el portal de Azure?
 
 El portal de Azure es una consola unificada basada en web que proporciona una alternativa a las herramientas de línea de comandos. Con Azure portal, puede administrar su suscripción de Azure mediante una interfaz gráfica de usuario. Puede crear, administrar y supervisar todo, desde aplicaciones web sencillas hasta implementaciones complejas en la nube, crear paneles personalizados para una vista organizada de los recursos y configurar las opciones de accesibilidad para una mejor experiencia.
+
+El portal de Azure está diseñado para la resistencia y disponibilidad continua. Tiene una presencia en cada centro de datos de Azure por lo que resulta resistente a errores del centro de datos individual y también evita ralentizaciones de la red al que se está cerca de los usuarios. El portal de Azure se actualiza continuamente y no requiere ningún tiempo de inactividad para las actividades de mantenimiento.
 
 ## <a name="azure-home"></a>Azure Home
 
@@ -66,7 +68,6 @@ Se ha rellenado previamente sus favoritos en la barra lateral con vínculos a lo
 
 > [!TIP]
 > La forma más rápida para encontrar un recurso, el servicio o la documentación es usar *búsqueda* en el encabezado global. Use los vínculos de la ruta de navegación para volver a las páginas anteriores.
->
 >
 
 ## <a name="next-steps"></a>Pasos siguientes

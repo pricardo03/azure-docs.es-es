@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: bbbaef306b9ed2bb415b29bc6d96dcfe649338f9
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 95044373800441bdcc04bdb84e8485dce29f11e7
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205938"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357400"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -91,7 +91,7 @@ Para anidar la plantilla dentro de la plantilla principal, use la propiedad **te
 > [!NOTE]
 > En las plantillas anidadas, no puede utilizar parámetros o variables definidos en la plantilla anidada. Puede usar parámetros y variables de la plantilla principal. En el ejemplo anterior, `[variables('storageName')]` recupera un valor de la plantilla principal, no de la plantilla anidada. Esta restricción no se aplica a las plantillas externas.
 >
-> Para dos recursos definen dentro de una plantilla de anidamiento y un recurso depende de la otra, el valor de la dependencia es simplemente el nombre de los recursos dependientes:
+> Para dos recursos definen dentro de una plantilla anidada y un recurso depende de la otra, el valor de la dependencia es simplemente el nombre del recurso dependiente:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"

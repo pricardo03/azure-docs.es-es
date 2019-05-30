@@ -5,15 +5,14 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 03/26/2019
-ms.date: 04/29/2019
-ms.author: v-yiso
-ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: 41420497bffd0abdc598e4c86b2dbda1466b2ce1
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484890"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252844"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitectura de red virtual de Azure HDInsight
 
@@ -26,7 +25,7 @@ Clústeres de HDInsight de Azure tienen distintos tipos de máquinas virtuales o
 | Type | DESCRIPCIÓN |
 | --- | --- |
 | Nodo principal |  Para todos los tipos de clúster excepto Apache Storm, los nodos principales hospedan los procesos que administración la ejecución de la aplicación distribuida. El nodo principal es también el nodo que se puede acceder mediante SSH en y ejecutar aplicaciones que, a continuación, se coordinan para ejecutar en los recursos del clúster. El número de nodos principales se fija en dos para los tipos de clúster. |
-| Nodo zooKeeper | Zookeeper coordina las tareas entre los nodos que realizan procesamiento de datos. También elección de líder del nodo principal y realiza un seguimiento de qué nodo principal se está ejecutando un servicio principal específico. El número de nodos de ZooKeeper se fija en dos. |
+| Nodo zooKeeper | Zookeeper coordina las tareas entre los nodos que realizan procesamiento de datos. También elección de líder del nodo principal y realiza un seguimiento de qué nodo principal se está ejecutando un servicio principal específico. El número de nodos de ZooKeeper se fija en tres. |
 | Nodo de trabajo | Representa los nodos que admiten la funcionalidad de procesamiento de datos. Pueden agregar o quitar del clúster para escalar la funcionalidad de computación y administrar los costos de los nodos de trabajo. |
 | Nodo perimetral de R Server | El nodo perimetral de R Server representa el nodo se puede acceder mediante SSH en y ejecutar aplicaciones que, a continuación, se coordinan para ejecutar en los recursos del clúster. Un nodo perimetral no participa en el análisis de datos dentro del clúster. Este nodo también hospeda R Studio Server, lo que permite ejecutar la aplicación de R con un explorador. |
 | Nodo de región | Para el tipo de clúster de HBase, el nodo de la región (también denominado un nodo de datos) ejecuta en el servidor de regiones. Los servidores de regiones atender y administración una parte de los datos administrados por HBase. Pueden agregar o quitar del clúster para escalar la funcionalidad de computación y administrar los costos de los nodos de la región.|

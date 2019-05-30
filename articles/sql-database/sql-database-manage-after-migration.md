@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 73bc2d9889727a1633986e12642bd06cf2714632
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949908"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357329"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de las bases de datos únicas o agrupadas en Azure SQL Database
 
@@ -29,6 +29,7 @@ El cambio del entorno autocontrolado y autoadministrado tradicional a un entorno
 
 En este artículo se tratan algunas de las características básicas de Azure SQL Database como una plataforma que puede aprovechar fácilmente al trabajar con bases de datos únicas y agrupadas en grupos elásticos. Son las siguientes:
 
+- Supervisar la base de datos mediante el portal de Azure
 - Recuperación ante desastres y continuidad empresarial (BCDR)
 - Seguridad y cumplimiento normativo
 - Supervisión y mantenimiento inteligentes de la base de datos
@@ -36,6 +37,25 @@ En este artículo se tratan algunas de las características básicas de Azure SQ
 
 > [!NOTE]
 > Este artículo se aplica a las siguientes opciones de implementación en Azure SQL Database: bases de datos únicas y grupos elásticos. No es válido para la opción de implementación de instancias administradas en SQL Database.
+
+## <a name="monitor-databases-using-the-azure-portal"></a>Supervisión de bases de datos mediante el Portal de Azure
+
+En el [portal Azure](https://portal.azure.com/), puede supervisar una utilización de la base de datos individual s seleccionando la base de datos y haga clic en el **supervisión** gráfico. Al hacer esto, se abrirá la ventana **Métrica** que se puede cambiar haciendo clic en el botón **Editar gráfico**. Agregue las siguientes métricas:
+
+- Porcentaje de CPU
+- Porcentaje de DTU
+- Porcentaje de E/S de datos
+- Porcentaje de tamaño de base de datos
+
+Una vez agregadas estas métricas, podrá verlas en el gráfico **Supervisión** con más información en la ventana **Métrica**. Las cuatro métricas muestran el porcentaje de uso medio, en relación con la **DTU** de la base de datos. Consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md) para obtener más información sobre los niveles de servicio.  
+
+![Supervisión del nivel de servicio del rendimiento de la base de datos.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+También se pueden configurar alertas en las métricas de rendimiento. Haga clic en el botón **Agregar alerta** de la ventana **Métrica**. Siga el asistente para configurar la alerta. Tiene la opción de que se genere una alerta si la métrica supera un umbral determinado, o si no llega a él.
+
+Por ejemplo, si espera que crezca la carga de trabajo de una base de datos, puede configurar una alerta por correo electrónico cada vez que la base de datos alcance el 80% en cualquiera de las métricas de rendimiento. Esto se puede usar como advertencia prematura para saber cuándo puede tener que cambiar al tamaño de proceso inmediatamente superior.
+
+Las métricas de rendimiento también pueden ayudarle a determinar si puede cambiar a un tamaño de proceso inferior. Suponga que usa una base de datos Estándar S2 y todas las métricas de rendimiento muestran que, de media, la base de datos no usa más del 10% en ningún momento. Es probable que la base de datos funcione bien en Estándar S1. Sin embargo, tenga en cuenta las cargas de trabajo que tienen picos o fluctúan antes de tomar la decisión de cambiar a un tamaño de proceso inferior.
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Recuperación ante desastres y continuidad empresarial (BCDR)
 
@@ -312,8 +332,8 @@ SQL Database utiliza algunas técnicas inteligentes que permiten controlar ciert
 
 Hay varias maneras de conseguir este objetivo:
 
-- **[Sincronización de datos](sql-database-sync-data.md)**: esta característica le ayuda a sincronizar los datos bidireccionalmente entre varias bases de datos de SQL Server locales y SQL Database. Para la sincronización con bases de datos de SQL Server locales, debe instalar y configurar el agente de sincronización en un equipo local y abrir el puerto TCP de salida 1433.
-- **[Replicación de transacciones](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)**: con la replicación de transacciones puede sincronizar sus datos de la base de datos local a Azure SQL DB, donde la base de datos local es el anunciante y Azure SQL DB es el suscriptor. Por ahora, solo se admite esta configuración. Para obtener más información sobre cómo migrar sus datos de la base de datos local a Azure SQL con el tiempo de inactividad mínimo, consulte el tema sobre el [uso de la replicación de transacciones](sql-database-single-database-migrate.md#method-2-use-transactional-replication).
+- **[Sincronización de datos](sql-database-sync-data.md)** : esta característica le ayuda a sincronizar los datos bidireccionalmente entre varias bases de datos de SQL Server locales y SQL Database. Para la sincronización con bases de datos de SQL Server locales, debe instalar y configurar el agente de sincronización en un equipo local y abrir el puerto TCP de salida 1433.
+- **[Replicación de transacciones](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** : con la replicación de transacciones puede sincronizar sus datos de la base de datos local a Azure SQL DB, donde la base de datos local es el anunciante y Azure SQL DB es el suscriptor. Por ahora, solo se admite esta configuración. Para obtener más información sobre cómo migrar sus datos de la base de datos local a Azure SQL con el tiempo de inactividad mínimo, consulte el tema sobre el [uso de la replicación de transacciones](sql-database-single-database-migrate.md#method-2-use-transactional-replication).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

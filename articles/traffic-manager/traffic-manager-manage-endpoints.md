@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057810fa8030321f9a94085f66bc1ea93dbc3830
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330013"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238938"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Incorporación, deshabilitación, habilitación o eliminación de puntos de conexión
 
@@ -52,7 +52,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 1. En un explorador, inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
 3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**. 
-4. Haga clic en el punto de conexión que desea deshabilitar y, después, en la hola **Punto de conexión** que se muestra, haga clic en **Editar**.
+4. Haga clic en el punto de conexión que desea deshabilitar.
 5. En la hoja **Punto de conexión**, cambie el estado del punto de conexión a **Deshabilitado**y haga clic en **Guardar**.
 6. Los clientes siguen enviando tráfico al punto de conexión durante el período de vida (TTL). Puede cambiar el valor de TTL en la página Configuración del perfil de Traffic Manager.
 
@@ -61,7 +61,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 1. En un explorador, inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
 3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**. 
-4. Haga clic en el punto de conexión que desea deshabilitar y, después, en la hola **Punto de conexión** que se muestra, haga clic en **Editar**.
+4. Haga clic en el punto de conexión que desea habilitar.
 5. En la hoja **Punto de conexión**, cambie el estado del punto de conexión a **Habilitado**y haga clic en **Guardar**.
 6. Los clientes siguen enviando tráfico al punto de conexión durante el período de vida (TTL). Puede cambiar el valor de TTL en la página Configuración del perfil de Traffic Manager.
 
@@ -70,8 +70,8 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 1. En un explorador, inicie sesión en [Azure Portal](https://portal.azure.com).
 2. En la barra de búsqueda, busque el nombre del **perfil de Traffic Manager** que desea modificar y haga clic en él en los resultados que se muestran.
 3. En la hoja **Perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión**. 
-4. Haga clic en el punto de conexión que desea deshabilitar y, después, en la hola **Punto de conexión** que se muestra, haga clic en **Editar**.
-5. En la hoja **Punto de conexión**, cambie el estado del punto de conexión a **Habilitado**y haga clic en **Guardar**.
+4. Haga clic en el punto de conexión que desea eliminar.
+5. En el **extremo** hoja, haga clic en **eliminar**
 
 
 ## <a name="next-steps"></a>Pasos siguientes

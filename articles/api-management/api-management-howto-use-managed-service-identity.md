@@ -11,18 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75a02abb6cce332daad12e1feb25fb425f89f7f4
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656698"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393382"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Usar identidades administradas en Azure API Management
 
 Este artículo muestra cómo crear una identidad administrada para una instancia del servicio API Management y cómo tener acceso a otros recursos. Una identidad administrada generada por Azure Active Directory (Azure AD) permite a la instancia de API Management a sencilla y segura a otros recursos protegidos por AD Azure, como Azure Key Vault. Esta identidad está administrada por Azure y no requiere que aprovisione o rote los secretos. Para obtener más información acerca de las identidades administradas, vea [What ' s identidades administradas para los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Cree una identidad administrada para una instancia de API Management
 
@@ -242,3 +240,4 @@ Más información sobre las identidades administradas para los recursos de Azure
 
 * [¿Qué es identidades administradas para los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md)
 * [Plantillas del Administrador de recursos de Azure](https://github.com/Azure/azure-quickstart-templates)
+* [Autenticar con una identidad administrada en una directiva](./api-management-authentication-policies.md#ManagedIdentity)

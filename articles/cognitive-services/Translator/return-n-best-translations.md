@@ -3,19 +3,19 @@ title: 'Devuelva las N mejores traducciones: Translator Text API'
 titlesuffix: Azure Cognitive Services
 description: Devuelva las N mejores traducciones con Microsoft Translator Text API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: 62992122dc16003078bb80ecd87c2bd3692586dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-pawal
+ms.openlocfilehash: 27138fc82515983bb07df845e1204fe04dff915a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610587"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389669"
 ---
 # <a name="how-to-return-n-best-translations"></a>Devolución de las N mejores traducciones
 
@@ -39,7 +39,7 @@ La firma es:
 |:---|:---|
 | appId | **Obligatorio** Si se usa el encabezado de autorización, deje el campo appid vacío o incluya una cadena que contenga "Bearer" + " " + token de acceso.|
 | text | **Obligatorio** Una cadena que representa el texto que se va a traducir. El tamaño del texto no debe superarlos 10 000 caracteres.|
-| De | **Obligatorio** Una cadena que representa el código de idioma del texto que se va a traducir. |
+| from | **Obligatorio** Una cadena que representa el código de idioma del texto que se va a traducir. |
 | to | **Obligatorio** Una cadena que representa el código de idioma al que se va a traducir el texto. |
 | maxTranslations | **Obligatorio** Un entero que representa el número máximo de traducciones que se van a devolver. |
 | options | **Opcional** Un objeto TranslateOptions que contiene los valores que se enumeran a continuación. Son todos opcionales y toman como valor predeterminado las opciones de configuración más comunes.

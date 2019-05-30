@@ -3,19 +3,19 @@ title: Método de búsqueda de diccionario de Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Use el método de búsqueda de diccionario de Translator Text API.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: b844ac4018ef768527ca17bd68ca53baaf5d9552
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-pawal
+ms.openlocfilehash: 10ccdcf0fda424e67b993c7c9300f0b84c56121f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605498"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389784"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3.0: Búsqueda en diccionario
 
@@ -41,7 +41,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
     <td>*Parámetro obligatorio*.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`.</td>
   </tr>
   <tr>
-    <td>De</td>
+    <td>from</td>
     <td>*Parámetro obligatorio*.<br/>Especifica el idioma del texto de entrada. El idioma de origen debe ser uno de los [idiomas admitidos](./v3-0-languages.md) que están incluidos en el ámbito `dictionary`.</td>
   </tr>
   <tr>

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 9ca3cbb1ef46c7fe53b6b16bda40ebef245613f3
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 80ef8870bafa00f3debda99db299018a39d42a82
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415656"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245033"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copiar datos de Office 365 en Azure mediante Azure Data Factory
 
@@ -41,8 +41,8 @@ Para copiar datos de Office 365 en Azure, es preciso completar los pasos de requ
 - El administrador de inquilinos de Office 365 debe completar las acciones de incorporación como se describe [aquí](https://docs.microsoft.com/graph/data-connect-get-started).
 - Cree y configure una aplicación web de Azure AD en Azure Active Directory.  Para obtener instrucciones, vea cómo [crear una aplicación de Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Anote los siguientes valores; los usará para definir el servicio vinculado para Office 365:
-    - Identificador de inquilino. Para obtener instrucciones, vea [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
-    - Identificador de aplicación y clave de aplicación.  Para obtener instrucciones, vea [Obtención del id. y la clave de autenticación de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+    - Identificador de inquilino. Para obtener instrucciones, vea [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    - Identificador de aplicación y clave de aplicación.  Para obtener instrucciones, vea [Obtención del id. y la clave de autenticación de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 - Agregue la identidad del usuario que va a realizar la solicitud de acceso a los datos como propietario de la aplicación web de Azure AD (aplicación web de Azure AD > Configuración > Propietarios > Agregar propietario). 
     - La identidad del usuario debe pertenecer a la organización de Office 365 de la que obtendrá los datos. Además, no debe un usuario invitado.
 
@@ -83,7 +83,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Office 3
 | servicePrincipalTenantId | Especifique la información del inquilino en el que reside la aplicación web de Azure AD. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. | Sí |
-| connectVia | El entorno de ejecución de integración que se usará para conectarse al almacén de datos.  Si no se especifica, se usará Azure Integration Runtime. | No |
+| connectVia | El entorno de ejecución de integración que se usará para conectarse al almacén de datos.  Si no se especifica, se usará Azure Integration Runtime. | Sin  |
 
 >[!NOTE]
 > La diferencia entre **office365TenantId** y **servicePrincipalTenantId** y el valor correspondiente que se debe proporcionar:
@@ -120,7 +120,7 @@ Para copiar datos de Office 365, se admiten las siguientes propiedades:
 |:--- |:--- |:--- |
 | type | La propiedad type del conjunto de datos debe establecerse en: **Office365Table** | Sí |
 | tableName | Nombre del conjunto de datos para extraer de Office 365. Haga clic [aquí](https://docs.microsoft.com/graph/data-connect-datasets#datasets) para obtener la lista de conjuntos de datos de Office 365 disponibles para la extracción. | Sí |
-| allowedGroups | Predicado de selección de grupo.  Utilice esta propiedad para seleccionar hasta 10 grupos de usuarios para los que se recuperarán los datos.  Si se especifica ningún grupo, se devolverán datos para toda la organización. | No |
+| allowedGroups | Predicado de selección de grupo.  Utilice esta propiedad para seleccionar hasta 10 grupos de usuarios para los que se recuperarán los datos.  Si se especifica ningún grupo, se devolverán datos para toda la organización. | Sin  |
 | userScopeFilterUri | Cuando `allowedGroups` no se especifica la propiedad, puede usar una expresión de predicado que se aplica en todo el inquilino para filtrar las filas específicas para extraer de Office 365. El formato de predicado debe coincidir con el formato de la consulta de Microsoft Graph API, por ejemplo, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | No |
 | dateFilterColumn | Nombre de la columna de filtro de fecha y hora. Utilice esta propiedad para limitar el intervalo de tiempo para que Office 365 se extraen los datos. | Sí, si el conjunto de datos tiene una o varias columnas de fecha y hora. Consulte [aquí](https://docs.microsoft.com/graph/data-connect-filtering#filtering) para obtener la lista de conjuntos de datos que requieren este filtro de fecha y hora. |
 | startTime | Inicie el valor de fecha y hora para el filtro. | Sí si `dateFilterColumn` se especifica |

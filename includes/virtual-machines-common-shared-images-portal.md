@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 291ec651061b7a8a3ea3c0645a6bd6581d529ef6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170383"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245002"
 ---
-## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure 
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure 
 
 Inicie sesión en Azure Portal en https://portal.azure.com.
 
@@ -56,7 +56,6 @@ Cree la definición de la imagen de galería dentro de la galería. En este ejem
 1. Cuando finalice la implementación, seleccione **ir al recurso**.
 
 
-
 ## <a name="create-an-image-version"></a>Creación de la versión de una imagen
 
 Crear una versión de la imagen de una imagen administrada. En este ejemplo, la versión de imagen es *1.0.0* y se replica en los centros de datos *Centro-oeste de EE. UU.* y *Centro-sur de EE. UU.* Al elegir las regiones de destino para la replicación, recuerde que también tiene que incluir el *origen* región como un destino para la replicación.
@@ -75,3 +74,20 @@ Los caracteres permitidos para la versión de una imagen son números y puntos. 
 1. Cuando finalice la implementación, seleccione **ir al recurso**.
 
 Puede tardar un rato para replicar la imagen en todas las regiones de destino.
+
+## <a name="share-the-gallery"></a>Compartir la Galería
+
+Se recomienda que comparten acceso en el nivel de la Galería de imágenes. El siguiente le guiará a través de uso compartido de la galería que acaba de crear.
+
+1. Abra [Azure Portal](https://portal.azure.com).
+1. En el menú de la izquierda, seleccione **grupos de recursos**. 
+1. En la lista de grupos de recursos, seleccione **myGalleryRG**. Se abrirá la hoja del grupo de recursos.
+1. En el menú de la izquierda de la **myGalleryRG** página, seleccione **control de acceso (IAM)** . 
+1. En **agregar una asignación de roles**, seleccione **agregar**. El **agregar una asignación de roles** se abrirá el panel. 
+1. En **rol**, seleccione **lector**.
+1. En **asignar acceso a**, deje el valor predeterminado de **usuario, grupo o entidad de servicio de Azure AD**.
+1. En **seleccione**, escriba la dirección de correo electrónico de la persona que desea invitar.
+1. Si el usuario está fuera de su organización, verá el mensaje **este usuario se enviará un correo electrónico que les permite colaborar con Microsoft.** Seleccione el usuario con la dirección de correo electrónico y, a continuación, haga clic en **guardar**.
+
+Si el usuario está fuera de su organización, reciben una invitación por correo electrónico para unirse a la organización. El usuario debe aceptar la invitación, a continuación, podrá ver la galería y todas las definiciones de la imagen y las versiones en su lista de recursos.
+

@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5846d2bd85a382b8e2aee539af405518e9fb221
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0afec1d6eded25a2d9b2389c950e2e21e06e0d54
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60289021"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307073"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Invitar a usuarios y asignar roles de recursos de Azure en PIM
 
@@ -127,7 +127,7 @@ Como un usuario externo, primero deberá aceptar la invitación para su organiza
 
     ![Revisión de los permisos](./media/pim-resource-roles-external-users/invite-accept.png)
 
-1. Puede que se le pida aceptar los términos de uso y especificar si desea mantener la sesión iniciada.
+1. Puede que se le pida para aceptar los términos de uso y especifique si desea mantener la sesión iniciada.
 
     Se abre Azure Portal. Si solo tiene derecho a un rol, no tendrá acceso a los recursos.
 

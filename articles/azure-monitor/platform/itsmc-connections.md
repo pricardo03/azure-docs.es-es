@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 0ff73e342a668fef6d405783c130cf216f8003b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ffd9c4bfc934faff1664ff39c0e979a9d6c09487
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395651"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399776"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](../../azure-monitor/platform/itsmc-overview.md).
@@ -51,7 +51,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 
 Use el siguiente procedimiento para conectar la instancia de System Center Service Manager con ITSMC:
 
-1. En Azure Portal, vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)**.
+1. En Azure Portal, vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)** .
 
 2.  En **ORÍGENES DE DATOS DEL ÁREA DE TRABAJO**, haga clic en **Conexiones de ITSM**.
 
@@ -72,8 +72,8 @@ Use el siguiente procedimiento para conectar la instancia de System Center Servi
 | **Dirección URL del servidor**   | Escriba la dirección URL de la aplicación web de Service Manager. [Aquí](#create-and-deploy-service-manager-web-app-service) podrá obtener más información sobre la aplicación web de Service Manager.
 | **Id. de cliente**   | Escriba el identificador de cliente que ha generado (mediante el script automático) para autenticar la aplicación web. [Aquí](../../azure-monitor/platform/itsmc-service-manager-script.md) podrá obtener más información sobre el script automatizado.|
 | **Secreto de cliente**   | Escriba el secreto de cliente generado para este identificador.   |
-| **Ámbito de sincronización de datos**   | Seleccione los elementos de trabajo de Service Manager que quiere sincronizar mediante ITSMC.  Estos elementos de trabajo se importan en Log Analytics. **Opciones:**  incidentes, solicitudes de cambio.|
-| **Sincronización de datos** | Escriba el número de días pasados de los que desea los datos. **Límite máximo**: 120 días. |
+| **Sincronización de datos**   | Seleccione los elementos de trabajo de Service Manager que quiere sincronizar mediante ITSMC.  Estos elementos de trabajo se importan en Log Analytics. **Opciones:**  incidentes, solicitudes de cambio.|
+| **Ámbito de sincronización de datos** | Escriba el número de días pasados de los que desea los datos. **Límite máximo**: 120 días. |
 | **Creación de un elemento de configuración de solución ITSM** | Seleccione esta opción si desea crear los elementos de configuración en el producto ITSM. Al seleccionarla, Log Analytics crea los elementos de configuración afectados como elementos de configuración (si no existen) en el sistema ITSM compatible. **Valor predeterminado**: deshabilitado. |
 
 ![Conexión de Service Manager](media/itsmc-connections/service-manager-connection.png)
@@ -103,7 +103,7 @@ Ejecute el script proporcionando los siguientes detalles necesarios:
 
 - Detalles de la suscripción de Azure
 - Definición de un nombre de grupo de recursos
-- Location
+- Ubicación
 - Detalles del servidor de Service Manager (nombre del servidor, dominio, nombre de usuario y contraseña)
 - Prefijo de nombre de sitio de la aplicación web
 - Espacio de nombres de ServiceBus.
@@ -185,11 +185,12 @@ En las secciones siguientes se proporcionan detalles sobre cómo conectar su pro
 ### <a name="prerequisites"></a>Requisitos previos
 Asegúrese de que se cumplen los siguientes requisitos previos:
 - ITSMC instalado Más información:  [Agregar la solución IT Service Management Connector](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versiones compatibles con ServiceNow: Londres, Kingston, Yakarta, Estambul, Helsinki, Ginebra.
+- Versiones compatibles con ServiceNow: Madrid, Londres, Kingston, Yakarta, Estambul, Helsinki, Ginebra.
 
-**Los administradores de ServiceNow deben realizar lo siguiente en la instancia de ServiceNow:**:
+**Los administradores de ServiceNow deben realizar lo siguiente en la instancia de ServiceNow:** :
 - Generar el identificador y el secreto del cliente para el producto de ServiceNow. Para más información sobre cómo generar el identificador y el secreto de cliente, consulte la siguiente información según sea necesario:
 
+    - [Configuración de OAuth para Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configuración de OAuth de Londres](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configuración de OAuth para Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Configuración de OAuth para Yakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -205,7 +206,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 Use el procedimiento siguiente para crear una nueva conexión a ServiceNow.
 
 
-1. En Azure Portal, vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)**.
+1. En Azure Portal, vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)** .
 
 2.  En **ORÍGENES DE DATOS DEL ÁREA DE TRABAJO**, haga clic en **Conexiones de ITSM**.
     ![Nueva conexión](media/itsmc-connections/add-new-itsm-connection.png)
@@ -300,7 +301,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 
 Use el procedimiento siguiente para crear una conexión a Provance:
 
-1. En Azure Portal, vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)**.
+1. En Azure Portal, vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)** .
 
 2.  En **ORÍGENES DE DATOS DEL ÁREA DE TRABAJO**, haga clic en **Conexiones de ITSM**.
     ![Nueva conexión](media/itsmc-connections/add-new-itsm-connection.png)
@@ -351,7 +352,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 
 Use el procedimiento siguiente para crear una conexión a Provance:
 
-1. En Azure Portal, vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)**.
+1. En Azure Portal, vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)** .
 
 2.  En **ORÍGENES DE DATOS DEL ÁREA DE TRABAJO**, haga clic en **Conexiones de ITSM**.
     ![Nueva conexión](media/itsmc-connections/add-new-itsm-connection.png)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 86ad6fce34f323d94f7b9c318ba81f547360d4df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038514"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237321"
 ---
 # <a name="networking"></a>Redes
 
@@ -60,7 +60,7 @@ Para habilitar las redes aceleradas en un clúster existente, es necesario escal
 
 * Los clústeres de Service Fabric se pueden implementar en una red virtual existente mediante los pasos descritos en [Patrones de redes de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-* Se recomiendan grupos de seguridad de red (NSG) para los tipos de nodo que restringen el tráfico entrante y saliente a su clúster. Asegúrese de que los puertos necesarios estén abiertos en el NSG. Por ejemplo:  ![Reglas de NSG de Service Fabric][NSGSetup]
+* Se recomiendan grupos de seguridad de red (NSG) para los tipos de nodo que restringen el tráfico entrante y saliente a su clúster. Asegúrese de que los puertos necesarios estén abiertos en el NSG. Por ejemplo: ![Reglas de NSG de Service Fabric][NSGSetup]
 
 * El tipo de nodo principal, que contiene los servicios del sistema de Service Fabric, no debe exponerse a través del equilibrador de carga externo y puede exponerse mediante un [equilibrador de carga interno](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer).
 
@@ -71,6 +71,8 @@ Para habilitar las redes aceleradas en un clúster existente, es necesario escal
 * Para ejecutar cargas de trabajo de contenedor de Windows, use el [modo de red abierto](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) para facilitar la comunicación de servicio a servicio.
 
 * Use un proxy inverso, como [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) o el [proxy inverso de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) para exponer los puertos de aplicación comunes, como 80 o 443.
+
+* Para los contenedores de Windows hospedado en un con separación de aire máquinas que no se pueden extraer bases capas de almacenamiento de Azure en la nube, invalidar el comportamiento de la capa externa, mediante el uso de la [--artefactos nondistributable permitir](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) marca en el demonio de Docker.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

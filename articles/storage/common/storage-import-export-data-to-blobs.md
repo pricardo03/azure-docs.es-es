@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/29/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ddaead7a0e616b3138dca0b18a58d64e38a46f9e
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409375"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356427"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Uso del servicio Azure Import/Export para importar datos de Azure Blob Storage
 
@@ -58,7 +58,7 @@ Realice los pasos siguientes para preparar las unidades de disco.
 6.  Para preparar el disco, ejecute el siguiente comando. **Dependiendo del tamaño de los datos, esto puede tardar desde varias horas a días.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite /enablecontentmd5 
     ```
     Se crea un archivo de diario en la misma carpeta en la que se ejecutó la herramienta. También se crean otros dos archivos: un archivo *.xml* (la carpeta en la que se ejecuta la herramienta) y un archivo *drive-manifest.xml* (la carpeta en la que residen los datos).
     
@@ -68,12 +68,12 @@ Realice los pasos siguientes para preparar las unidades de disco.
     |---------|---------|
     |/j:     |nombre del archivo de diario, con la extensión .jrn. Se genera un archivo de diario por unidad. Se recomienda usar el número de serie del disco como nombre del archivo de diario.         |
     |/id:     |El identificador de sesión. Use un número de sesión único para cada instancia del comando.      |
-    |/sk:     |clave de la cuenta de Azure Storage.         |
     |/t:     |letra de unidad del disco que se va a enviar. Por ejemplo, unidad `D`.         |
     |/bk:     |clave de BitLocker de la unidad. Su contraseña numérica de salida de `manage-bde -protectors -get D:`      |
     |/srcdir:     |letra de unidad del disco que se va a enviar seguida de `:\`. Por ejemplo, `D:\`.         |
     |/dstdir:     |El nombre del contenedor de destino en Azure Storage.         |
     |/skipwrite:     |Se debe preparar la opción que especifica que no es necesario copiar nuevos datos y que se deben preparar los datos existentes en el disco.          |
+    |/enablecontentmd5:     |La opción cuando se habilita, se garantiza que MD5 se calcula durante la carga de blobs en bloques en Azure.          |
 7. Repita el paso anterior para cada disco que vaya a enviar. Se crea un archivo de diario con el nombre proporcionad para cada ejecución de la línea de comandos.
     
     > [!IMPORTANT]

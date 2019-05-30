@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: dc208f3231882a0726733c897e70557c657cddf3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6e627de5b22a67051961e70bab56b2d931129281
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024526"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244799"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Uso de los resultados de búsqueda en Azure Search
 Este artículo contiene instrucciones para implementar los elementos estándar de una página de resultados de búsqueda, como los recuentos totales, la recuperación de documentos, los criterios de ordenación y la funcionalidad de navegación. Las opciones relacionadas con la página que aportan datos o información a la página de resultados de búsqueda se especifican a través de solicitudes [Buscar documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) que se envían al servicio Azure Search. 
 
-En la API REST, las solicitudes incluyen un comando GET, una ruta de acceso y parámetros de consulta que informan al servicio de lo que se está solicitando y de cómo formular la respuesta. En el SDK de .NET, la API equivalente es la [clase DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
+En la API REST, las solicitudes incluyen un comando GET, una ruta de acceso y parámetros de consulta que informan al servicio de lo que se está solicitando y de cómo formular la respuesta. En el SDK de .NET, la API equivalente es la [clase DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
 Algunos ejemplos de código contienen una interfaz de front-end web. Puede consultar aquí estos ejemplos: [aplicación de demostración de trabajos de la ciudad de Nueva York](https://azjobsdemo.azurewebsites.net/) y [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 

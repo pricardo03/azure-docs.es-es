@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 349896a7114fba83d852b8bc066f4f7eb0a070ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550297"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242634"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
 
@@ -109,7 +109,7 @@ Otros destinos opcionales de los registros de diagnóstico:
 
     ![Diagnóstico de Batch](media/batch-diagnostics/diagnostics-portal.png)
 
-Otras opciones para habilitar la recopilación de registros son: usar Azure Monitor en el portal para configurar el diagnóstico, usar una [plantilla de Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md) o usar Azure PowerShell o la CLI de Azure. Consulte [Recopilación y uso de los datos de registro provenientes de los recursos de Azure](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs).
+Otras opciones para habilitar la recopilación de registros son: usar Azure Monitor en el portal para configurar el diagnóstico, usar una [plantilla de Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md) o usar Azure PowerShell o la CLI de Azure. Consulte [Recopilación y uso de los datos de registro provenientes de los recursos de Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Acceso a los registros de diagnóstico en el almacenamiento

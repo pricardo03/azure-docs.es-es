@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: c72392e46805049703300dd6f60fc7bf08b9053b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9bddb6552b11dd506ee3e2c1c416c15da11048b7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235760"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258752"
 ---
 # <a name="capacity-planning-and-scaling"></a>Escalado y planeamiento de capacidad
 
@@ -70,6 +70,9 @@ Una vez declaradas las restricciones de ubicación y las propiedades de nodo, re
 2. Ejecute `Get-ServiceFabricNode` para asegurarse de que el nodo ya está como deshabilitado. Si no es así, espere hasta que se deshabilite. Esta operación puede tardar un par de horas por cada nodo. No continúe hasta que el nodo esté como deshabilitado.
 3. Disminuya en uno el número de máquinas virtuales de ese tipo de nodo. Se quitará la instancia de máquina virtual más alta.
 4. repita los pasos del 1 al 3 según vea necesario, pero nunca apague las instancias del nodo principal ni las reduzca a un número inferior al que garantiza el nivel de confiabilidad. Consulte el [planeamiento de la capacidad del clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obtener una lista de instancias recomendadas.
+
+> [!NOTE]
+> Es un escenario admitido para cuándo se debe realizar una operación de escalado vertical: ¿Puedo migrar mi clúster de Service Fabric y la aplicación desde el disco no administrado a Managed Disks sin tiempo de inactividad de aplicación. Mediante el aprovisionamiento de una nueva máquina virtual conjuntos de escalado con discos administrados, y realizar una actualización de la aplicación con las restricciones de posición que tienen como destino aprovisiona capacidad; clúster de Service Fabric puede programar la carga de trabajo en la capacidad de nodo de clúster aprovisionado que se implanta por dominio de actualización sin tiempo de inactividad de aplicación. [SKU básica de los equilibradores de carga Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) los puntos de conexión del grupo de back-end pueden ser una máquina Virtual en un único conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. Esto significa que no puede usar un equilibrador de carga de SKU básica si mueve la aplicación de Service Fabric sistemas entre conjuntos de escalado, sin causar temporal inaccesibilidad de su tejido de servicio de clúster de punto de conexión de administración, aunque el clúster y su aplicación todavía se está ejecutando; Normalmente usuario aprovisionar un equilibrador de carga de SKU estándar, cuando se realiza un intercambio de dirección IP (VIP) virtuales entre los recursos de un equilibrador de carga de SKU básica y LB de SKU estándar, para mitigar cualquier futura aproximadamente 30 segundos de inaccesibilidad necesario para el intercambio de VIP.
 
 ## <a name="horizontal-scaling"></a>Escalado horizontal
 

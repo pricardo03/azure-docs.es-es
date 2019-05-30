@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/23/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74767e9d00f630efd2be026c3c3688c816c2ccee
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 387f1e0bf6461b5e87da1de35e74c5e49c5dc632
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113359"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305543"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -40,6 +40,18 @@ Esta página se actualiza mensualmente, por lo que se recomienda visitarla con f
 ---
 
 ## <a name="april-2019"></a>Abril de 2019
+
+### <a name="new-azure-ad-threat-intelligence-detection-is-now-available-in-refreshed-azure-ad-identity-protection"></a>Nueva detección de inteligencia de amenazas de Azure AD ahora está disponible en actualizar Azure AD Identity Protection
+
+**Tipo:** Nueva característica  
+**Categoría del servicio:** Azure AD Identity Protection  
+**Funcionalidad del producto:** Seguridad y protección de la identidad
+
+Detección de inteligencia de amenazas de Azure AD ahora está disponible en el Azure AD Identity Protection actualizada. Esta nueva funcionalidad ayuda a indicar la actividad del usuario que es raro que un usuario específico o que es coherente con los patrones de ataque conocidos basados en inteligencia de amenazas internas y externas de Microsoft.
+
+Para obtener más información acerca de la versión actualizada de Azure AD Identity Protection, consulte el [cuatro grandes mejoras de Azure AD Identity Protection están ahora en versión preliminar pública](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Four-major-Azure-AD-Identity-Protection-enhancements-are-now-in/ba-p/326935) blog y el [¿qué es Azure Active Directory ¿Protección de identidad (actualizar)?](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-v2) artículo. Para obtener más información acerca de la detección de inteligencia de amenazas de Azure AD, consulte el [eventos de riesgo de Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#azure-ad-threat-intelligence) artículo.
+
+---
 
 ### <a name="azure-active-directory-azure-ad-entitlement-management-is-now-available-public-preview"></a>Administración de derechos de Azure Active Directory (Azure AD) está ahora disponible (versión preliminar)
 
@@ -125,7 +137,7 @@ Para obtener más información sobre cómo crear una revisión de acceso, consul
 **Categoría del servicio:** Sincronización de AD  
 **Funcionalidad del producto:** Plataforma
 
-Azure AD Connect está en proceso de transición de nuestros sistemas de alertas de correo electrónico, potencialmente, que muestra a algunos clientes un remitente de correo electrónico nuevo. Para solucionar este problema, debe agregar `azure-noreply@microsoft.com` a la lista blanca de su organización o no podrá continuar recibiendo alertas importantes desde su Office 365, Azure o los servicios de sincronización.
+Azure AD Connect está en proceso de transición de nuestros sistemas de alertas de correo electrónico, potencialmente, que muestra a algunos clientes un remitente de correo electrónico nuevo. Para solucionar este problema, debe agregar `azure-noreply@microsoft.com` a su organización a la lista de permitidos o no podrá continuar recibiendo alertas importantes desde su Office 365, Azure o los servicios de sincronización.
 
 ---
 
@@ -289,7 +301,7 @@ Para ayudar a impedir que los administradores accidentalmente bloqueen a sí mis
 **Categoría del servicio:** Términos de uso  
 **Funcionalidad del producto:** Gobernanza
 
-Hemos actualizado nuestros términos de experiencias de uso existentes para ayudar a mejorar cómo revisar y dar su consentimiento a los términos de uso en un dispositivo móvil. Ahora puede acercar y alejar, vuelva atrás, descargar la información y seleccionar los hipervínculos. Para obtener más información acerca de los términos de uso actualizados, consulte [Azure Active Directory característica términos de uso](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users).
+Hemos actualizado nuestros términos existentes de experiencias de uso para mejorar cómo revisar y dar su consentimiento a los términos de uso en un dispositivo móvil. Ahora puede acercar y alejar, vuelva atrás, descargar la información y seleccionar los hipervínculos. Para obtener más información acerca de los términos de uso actualizados, consulte [Azure Active Directory característica términos de uso](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users).
 
 ---
 
@@ -664,34 +676,34 @@ Para más información acerca de cómo obtener y usar esta marca de tiempo, cons
 **Categoría del servicio:** Términos de uso  
 **Funcionalidad del producto:** Gobernanza
  
-Los administradores ahora pueden activar la opción **Requerir que los usuarios concedan su consentimiento en todos los dispositivos** para requerir que los usuarios acepten los términos de uso en todos los dispositivos que estén usando en su inquilino.
+Los administradores ahora pueden activar el **requieren que los usuarios den su consentimiento en todos los dispositivos** opción para requerir que los usuarios aceptar los términos de uso en todos los dispositivos están usando en su inquilino.
 
-Para más información, consulte [la sección de términos de uso por dispositivo del artículo Característica Azure Active Directory Terms of Use](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
+Para obtener más información, consulte el [términos por dispositivo de la sección de uso de los términos de Azure Active Directory de la característica de uso](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Los administradores pueden configurar la expiración de los términos de uso mediante una programación periódica
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Los administradores pueden configurar los términos de uso expire según una programación periódica
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Términos de uso  
 **Funcionalidad del producto:** Gobernanza
  
 
-Los administradores pueden ahora activar la opción **Expirar autorizaciones** para hacer que los términos de uso expiren para todos los usuarios según la programación periódica especificada. La programación puede ser anual, semestral, trimestral o mensual. Después de que caduquen los términos de uso, los usuarios deben Aceptar.
+Los administradores ahora pueden activar el **expiran consentimientos** caducidad de la opción para realizar una condición de uso para todos los usuarios según la programación periódica especificada. La programación puede ser anual, semestral, trimestral o mensual. Después de que caduquen los términos de uso, los usuarios deben Aceptar.
 
-Para más información, consulte [la sección Agregar términos de uso del artículo Característica Azure Active Directory Terms of Use](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
+Para obtener más información, consulte el [agregar términos de la sección de uso de los términos de Azure Active Directory de la característica de uso](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>Los administradores pueden configurar la expiración de los términos de uso según una programación de cada usuario
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>Los administradores pueden configurar los términos de uso expire en función de la programación de cada usuario
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Términos de uso  
 **Funcionalidad del producto:** Gobernanza
 
-Los administradores ahora pueden especificar una duración tras la cual el usuario debe volver a aceptar los términos de uso. Por ejemplo, los administradores pueden especificar que los usuarios deben volver a aceptar los términos de uso cada 90 días.
+Los administradores ahora pueden especificar una duración que el usuario debe aceptar los términos de uso. Por ejemplo, los administradores pueden especificar que los usuarios deben acepten los términos de uso cada 90 días.
 
-Para más información, consulte [la sección Agregar términos de uso del artículo Característica Azure Active Directory Terms of Use](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
+Para obtener más información, consulte el [agregar términos de la sección de uso de los términos de Azure Active Directory de la característica de uso](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
  
 ---
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d00808295d39247729f6e843ac59ad7b23407148
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 99fe386ec75e60a16f3095f22dccc3852883f8aa
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785411"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304512"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Experiencia de invitación de colaboración B2B de Azure Active Directory
 
@@ -56,7 +56,7 @@ Para obtener información sobre cómo puede, como administrador de inquilinos, v
 
 ## <a name="terms-of-use"></a>Términos de uso
 
-Puede presentar los términos de uso al usuario invitado durante el proceso de canje inicial mediante la característica de términos de uso de Azure AD. En Azure Active Directory, puede acceder a esta característica en **Administrar** > **Relaciones organizativas** > **Términos de uso** o en **Seguridad** > **Acceso condicional** > **Términos de uso**. Para obtener más información, vea [Característica de términos de uso de Azure AD](../conditional-access/terms-of-use.md).
+Términos de uso puede presentar al usuario invitado durante el proceso de canje inicial mediante el uso de los términos de Azure AD de la característica de uso. En Azure Active Directory, puede acceder a esta característica en **Administrar** > **Relaciones organizativas** > **Términos de uso** o en **Seguridad** > **Acceso condicional** > **Términos de uso**. Para obtener más información, consulte [característica términos de uso de Azure AD](../conditional-access/terms-of-use.md).
 
 ![Captura de pantalla en la que se muestran los nuevos términos de uso](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 

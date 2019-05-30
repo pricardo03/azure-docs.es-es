@@ -4,15 +4,15 @@ description: En este artículo se describe la cobertura de las certificaciones p
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: bbfc31e5eab2c2beb232a9ec2e0d5e11e4107be5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: af1b3dba0ac73ef30a4be20cab795ce6de595970
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606289"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239695"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Cumplimiento de Azure Cosmos DB 
 
@@ -20,7 +20,7 @@ Azure Cosmos DB está disponible en todas las regiones de Azure. Microsoft pone 
 
 * La nube **pública de Azure**, que está disponible globalmente.
 
-* **Azure China** está disponible gracias a una exclusiva asociación entre Microsoft y 21Vianet, uno de los proveedores de acceso a Internet más importantes del país.
+* **Azure China 21Vianet** está disponible a través de una exclusiva asociación entre Microsoft y 21Vianet, uno de los mayores proveedores de internet del país.
 
 * **Azure Alemania** proporciona servicios bajo un modelo de administrador de datos que garantiza que los datos de los clientes permanecen en Alemania bajo el control de T-Systems International GmbH, una subsidiaria de Deutsche Telekom, que actúa como administrador de datos para Alemania.
 
@@ -36,15 +36,32 @@ Azure Cosmos DB está ampliando continuamente su cobertura de certificaciones. A
 
 | **Aplicable globalmente** | **Gobierno de Estados Unidos** | **Específica del sector** | **Específica del país o región** |
 | --- | --- | --- | --- |
-| Certificación de CSA STAR<br/><br/>Atestación de CSA STAR<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| SRG del DoD nivel 2<br/><br/>FedRAMP Moderate<br/><br/>GxP (21 CFR Parte 11 de la FDA)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>C5 de Alemania<br/><br/>Norma MTCS nivel 3 en Singapur<br/><br/>Categoría Alta del ENS|
+| Certificación de CSA STAR | SRG del DoD nivel 2 | HIPAA BAA | Australia IRAP Unclassified |
+| Atestación de CSA STAR | FedRAMP Moderate | HITRUST | C5 de Alemania|
+| ISO 20000-1:2011 | GxP (21 CFR Parte 11 de la FDA) | PCI DSS | Norma MTCS nivel 3 en Singapur |
+| ISO 22301:2012 | | | Categoría Alta del ENS|
+| ISO 27001:2013| | | |
+| ISO 27017:2015 | | | |
+| ISO 27018:2014 | | | |
+| ISO 9001:2015 | | | |
+| SOC 1, 2, 3 | | | |
 
 Para obtener más información acerca de cada una de estas ofertas de cumplimiento y cómo lo benefician, consulte la página [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Información general sobre el cumplimiento de Microsoft Azure).
 
 En la tabla siguiente se enumeran las certificaciones compatibles con Azure Cosmos DB en Azure Government:
 
-| **Aplicable globalmente** | **Gobierno de Estados Unidos** | **Específica del sector** | **Específica del país o región** |
+| **Aplicable globalmente** | **Gobierno de Estados Unidos** | **Específica del sector** | 
 | --- | --- | --- | --- |
-| Certificación de CSA STAR<br/><br/>Atestación de CSA STAR<br/><br/>ISO 20000-1:2011<br/><br/>ISO 9001:2015<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3 | SRG del DoD nivel 2<br/><br/>SRG del DoD nivel 5<br/><br/>CJIS<br/><br/>FedRAMP High<br/><br/>IRS 1075<br/><br/>NIST CSF<br/><br/>NIST SP 800-171| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>C5 de Alemania<br/><br/>Norma MTCS nivel 3 en Singapur<br/><br/>Categoría Alta del ENS|
+| Certificación de CSA STAR | CJIS| HIPAA BAA | 
+| Atestación de CSA STAR| SRG del DoD nivel 2| HITRUST  | 
+| ISO 20000-1:2011 | Nivel 4 de DoD SRG | PCI DSS | 
+| ISO 9001:2012 | SRG del DoD nivel 5 | | 
+| ISO 27001:2013 | FedRAMP High | |
+| ISO 9001:2015 | IRS 1075|  |
+| ISO 27017:2014 | NIST CSF | |
+| ISO 27018:2015 | NIST SP 800-171 | |
+| SOC 1, 2, 3 | | |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

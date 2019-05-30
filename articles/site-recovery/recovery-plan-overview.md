@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 520f30b5fabebf299b5407a502b76d7d30850bfd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32cad7005b2b4da830ac3febf6da847933967a3d
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60947358"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400025"
 ---
 # <a name="about-recovery-plans"></a>Acerca de los planes de recuperación
 
@@ -61,11 +61,11 @@ Con esta personalización implementada, aquí se muestra lo que ocurre cuando se
 
 La recuperación de aplicaciones de gran tamaño puede ser una tarea compleja. Los pasos manuales hacen que el proceso sea propenso a errores y la persona que ejecuta la conmutación por error podría no conocer las complejidades de la aplicación. Puede usar un plan de recuperación para imponer el orden y automatizar las acciones necesarias en cada paso utilizando para ello runbooks de Azure Automation para conmutar por error a Azure o scripts. En el caso de tareas que no se pueden automatizar, puede insertar pausas para acciones manuales en los planes de recuperación. Hay un par de tipos de tareas que puede configurar:
 
-* **Tareas en la VM de Azure después de la conmutación por error**: cuando conmuta por error a Azure, normalmente debe realizar acciones para poder conectarse a la VM después de la conmutación por error. Por ejemplo:  
+* **Tareas en la VM de Azure después de la conmutación por error**: cuando conmuta por error a Azure, normalmente debe realizar acciones para poder conectarse a la VM después de la conmutación por error. Por ejemplo: 
     * Crear una dirección IP pública en la VM de Azure.
     * Asignar a un grupo de seguridad de red al adaptador de red de la VM de Azure.
     * Agregar un equilibrador de carga a un conjunto de disponibilidad.
-* **Tareas dentro de la VM después a la conmutación por error**: estas tareas normalmente reconfiguran la aplicación que se ejecuta en la máquina a fin de que siga funcionando correctamente en el nuevo entorno. Por ejemplo: 
+* **Tareas dentro de la VM después a la conmutación por error**: estas tareas normalmente reconfiguran la aplicación que se ejecuta en la máquina a fin de que siga funcionando correctamente en el nuevo entorno. Por ejemplo:
     * Modificar la cadena de conexión de base de datos dentro de la máquina.
     * Cambiar la configuración o las reglas del servidor web.
 

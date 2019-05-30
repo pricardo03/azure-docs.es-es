@@ -9,11 +9,11 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: b3788ede23a423bebf96661ea88b227bfb5fdf4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531272"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238141"
 ---
 En la tabla siguiente se describe cada uno de los principales aceleradores, valores predeterminados, límites y cuotas de Azure Scheduler.
 

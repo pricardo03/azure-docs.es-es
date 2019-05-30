@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311137"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399200"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Creación de artefactos personalizados para la máquina virtual de DevTest Labs
 
@@ -89,15 +89,40 @@ Los tipos permitidos son:
 * bool (cualquier booleano JSON válido)
 * array (cualquier matriz JSON válida)
 
+## <a name="secrets-as-secure-strings"></a>Información confidencial como cadenas seguras
+Declare los secretos como cadenas seguras. Esta es la sintaxis para declarar un parámetro de cadena segura dentro de la `parameters` sección de la **artifactfile.json** archivo:
+
+```json
+
+    "securestringParam": {
+      "type": "securestring",
+      "displayName": "Secure String Parameter",
+      "description": "Any text string is allowed, including spaces, and will be presented in UI as masked characters.",
+      "allowEmpty": false
+    },
+```
+
+Comando de instalación del artefacto, ejecute el script de PowerShell que toma la cadena segura creada mediante el comando ConvertTo-SecureString. 
+
+```json
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./artifact.ps1 -StringParam ''', parameters('stringParam'), ''' -SecureStringParam (ConvertTo-SecureString ''', parameters('securestringParam'), ''' -AsPlainText -Force) -IntParam ', parameters('intParam'), ' -BoolParam:$', parameters('boolParam'), ' -FileContentsParam ''', parameters('fileContentsParam'), ''' -ExtraLogLines ', parameters('extraLogLines'), ' -ForceFail:$', parameters('forceFail'), '\"')]"
+  }
+```
+
+Para el artifactfile.json de ejemplo completo y el artifact.ps1 (script de PowerShell), consulte [este ejemplo en GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+
+Otro punto importante a tener en cuenta es no registrará los secretos en la consola como los resultados se capturan para la depuración de usuario. 
+
 ## <a name="artifact-expressions-and-functions"></a>Expresiones y funciones de artefacto
 Puede utilizar expresiones y funciones para construir el comando de instalación del artefacto.
 Las expresiones se incluyen entre corchetes ([ y ]) y se evalúan cuando se instala el artefacto. Las expresiones pueden aparecer en cualquier lugar en un valor de cadena JSON. Las expresiones siempre devuelven otro valor JSON. Si necesita usar una cadena literal que comienza por un corchete ([), debe usar dos corchetes ([[).
-Normalmente, se utilizan expresiones con funciones para construir un valor. **Al igual que en JavaScript, las llamadas de función tienen el formato functionName(arg1, arg2, arg3)**.
+Normalmente, se utilizan expresiones con funciones para construir un valor. **Al igual que en JavaScript, las llamadas de función tienen el formato functionName(arg1, arg2, arg3)** .
 
 En la lista siguiente se muestran las funciones comunes:
 
-* **parameters(parameterName)**: devuelve un valor de parámetro que se proporciona cuando se ejecuta el comando de artefacto.
-* **concat(arg1, arg2, arg3,….. )**: combina varios valores de cadena. Esta función puede tomar diversos argumentos.
+* **parameters(parameterName)** : devuelve un valor de parámetro que se proporciona cuando se ejecuta el comando de artefacto.
+* **concat(arg1, arg2, arg3,….. )** : combina varios valores de cadena. Esta función puede tomar diversos argumentos.
 
 En el ejemplo siguiente se muestra cómo utilizar expresiones y funciones para construir un valor:
 
