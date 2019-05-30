@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1084a3e546a234739fbede46612dce96537c7d4a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 318f21beffb401053c56576ccd9e641dc89cf559
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950647"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298816"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Referencia de PowerShell ADConnectivityTools
 
@@ -33,10 +33,9 @@ Detecta problemas de DNS locales.
 Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObject] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Description
 
-Ejecuta pruebas de conectividad de DNS locales.
-Para configurar el conector de Active Directory, el usuario debe tener ambos resolución de nombres para el bosque que están intentando conectarse a, así como en los controladores de dominio asociados a este bosque.
+Ejecuta pruebas de conectividad de DNS locales. Para configurar el conector de Active Directory, el usuario debe tener ambos resolución de nombres para el bosque que están intentando conectarse a, así como en los controladores de dominio asociados a este bosque.
 
 ### <a name="examples"></a>EJEMPLOS
 
@@ -120,7 +119,7 @@ Determina si existe un bosque especificado.
 Confirm-ForestExists [-Forest] <String> [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Description
 
 Consulta un servidor DNS para obtener las direcciones IP asociadas con un bosque.
 
@@ -175,7 +174,7 @@ Confirm-FunctionalLevel -Forest <String> [-RunWithCurrentlyLoggedInUserCredentia
 Confirm-FunctionalLevel -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Description
 
 Comprueba que el nivel funcional del bosque de AD es igual o mayor que una versión MinAdForestVersion determinada (WindowsServer2003).
 Se pueden solicitar la cuenta (dominio\nombre de usuario) y la contraseña.
@@ -268,7 +267,7 @@ Detecta problemas de conectividad de la red local.
 Confirm-NetworkConnectivity [-DCs] <Array> [-SkipDnsPort] [-ReturnResultAsPSObject] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Description
 
 Ejecuta pruebas de conectividad de la red local.
 
@@ -358,7 +357,7 @@ Determina si un bosque especificado y sus controladores de dominio asociados son
 Confirm-TargetsAreReachable [-Forest] <String> [-DCs] <Array> [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Description
 
 Ejecuta pruebas de "ping" (si un equipo puede comunicarse con un equipo de destino a través de la red o de Internet)
 
@@ -435,7 +434,7 @@ Confirm-ValidDomains [-Forest <String>] [-RunWithCurrentlyLoggedInUserCredential
 Confirm-ValidDomains -ForestFQDN <Forest> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Description
 
 Validar que todos los dominios del FQDN del bosque obtenido sean accesibles mediante un intento de recuperación de DomainGuid y DomainDN.
 Se pueden solicitar la cuenta (dominio\nombre de usuario) y la contraseña.
@@ -527,7 +526,7 @@ Validar si un usuario tiene credenciales de administrador de empresa.
 Confirm-ValidEnterpriseAdminCredentials [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Description
 
 Busca si el usuario proporcionado tiene credenciales de administrador de empresa.
 Se pueden solicitar la cuenta (dominio\nombre de usuario) y la contraseña.
@@ -582,7 +581,7 @@ Get-DomainFQDNData [[-DomainFQDNDataType] <String>] [-RunWithCurrentlyLoggedInUs
  [-ReturnExceptionOnError] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Description
 
 Intenta obtener un objeto domainFQDN de las credenciales proporcionadas.
 Si el objeto domainFQDN es válido, se devolverá DomainFQDNName RootDomainName, según la elección del usuario.
@@ -670,7 +669,7 @@ Recupera un objeto ForestFQDN de una combinación de cuenta y contraseña.
 Get-ForestFQDN [-Forest] <String> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Description
 
 Intenta obtener un objeto ForestFQDN de las credenciales proporcionadas.
 Se pueden solicitar la cuenta (dominio\nombre de usuario) y la contraseña.
@@ -741,7 +740,7 @@ Start-ConnectivityValidation [-Forest] <String> [-AutoCreateConnectorAccount] <B
  [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Description
 
 Ejecuta todos los mecanismos disponibles que comprueban que las credenciales de AD sean válidas.
 
@@ -824,7 +823,7 @@ Start-NetworkConnectivityDiagnosisTools [[-Forest] <String>] [-Credentials] <PSC
  [-ValidCredentials] [<CommonParameters>]
 ```
 
-### <a name="description"></a>DESCRIPCIÓN
+### <a name="description"></a>Description
 
 Ejecuta pruebas de conectividad de la red local.
 

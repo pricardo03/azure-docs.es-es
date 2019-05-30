@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 0a6bcb3fb94df56caf4d095097572dd8a704f856
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/27/2019
+ms.openlocfilehash: 705ced82ad4edad0bb4adc057414f6b20b80d8d3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701193"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298868"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Uso de repositorios de metadatos externos en Azure HDInsight
 
@@ -50,7 +50,7 @@ HDInsight también admite tiendas de metadatos personalizadas, que se recomienda
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selección de una tienda de metadatos personalizada durante la creación del clúster
 
-Puede apuntar el clúster a una base de datos de Azure SQL aprovisionada durante la creación del clúster, o puede configurar la base de datos SQL una vez creado el clúster. Esta opción se especifica en Almacenamiento > Tienda de metadatos al crear un nuevo clúster de Hadoop, Spark o Hive interactivo desde Azure Portal.
+Puede apuntar el clúster a una base de datos de Azure SQL aprovisionada durante la creación del clúster, o puede configurar la base de datos SQL una vez creado el clúster. Esta opción se especifica con el **almacenamiento > configuración de Metastore** al crear un nuevo Hadoop, Spark o clúster de interactive Hive de Azure portal.
 
 ![Repositorio de metadatos de Hive en HDInsight: Azure Portal](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
 

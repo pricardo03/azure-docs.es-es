@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/19/2019
 ms.author: tomfitz
 ms.openlocfilehash: 8bd16378e9c82a011309c12cf241b59d03405a77
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012530"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238357"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ ms.locfileid: "60012530"
 
 #### <a name="template-limits"></a>Límites de plantilla
 
-| Value | Límite predeterminado | Límite máximo |
+| Valor | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | Parámetros |256 |256 |
 | variables |256 |256 |

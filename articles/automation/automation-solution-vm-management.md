@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: d4e1ad106b928c41bd6940d7c3713b5fb34afe3a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002490"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389111"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
 
@@ -71,7 +71,8 @@ Para implementar Start/Stop VMs durante fuera de la solución de horas en una cu
 | Microsoft.OperationsManagement/solutions/write | Grupo de recursos |
 | Microsoft.OperationalInsights/workspaces/* | Grupo de recursos |
 | Microsoft.Insights/diagnosticSettings/write | Grupo de recursos |
-| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | Grupo de recursos |
+| Microsoft.Insights/ActionGroups/Write | Grupo de recursos |
+| Microsoft.Insights/ActionGroups/read | Grupo de recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Grupo de recursos |
 | Microsoft.Resources/deployments/* | Grupo de recursos |
 
@@ -118,8 +119,8 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
    - Especifique un nombre para el nuevo **área de trabajo de Log Analytics**, por ejemplo, "ContosoLAWorkspace".
    - Seleccione la **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
    - En **Grupo de recursos**, puede crear un grupo de recursos nuevo o seleccionar uno existente.
-   - Seleccione una **ubicación**. Actualmente, las únicas ubicaciones disponibles son: **Sudeste de Australia**, **Centro de Canadá**, **Centro de la India**, **Este de EE. UU.**, **Japón Oriental**, **Sudeste Asiático**, **Sur de Reino Unido**, **Europa Occidental** y **Oeste de EE. UU. 2**.
-   - Seleccione un **plan de tarifa**. Elija la opción **Por GB (independiente)**. Se ha actualizado los registros de Azure Monitor [precios](https://azure.microsoft.com/pricing/details/log-analytics/) y el nivel por GB es la única opción.
+   - Seleccione una **ubicación**. Actualmente, las únicas ubicaciones disponibles son: **Sudeste de Australia**, **Centro de Canadá**, **Centro de la India**, **Este de EE. UU.** , **Japón Oriental**, **Sudeste Asiático**, **Sur de Reino Unido**, **Europa Occidental** y **Oeste de EE. UU. 2**.
+   - Seleccione un **plan de tarifa**. Elija la opción **Por GB (independiente)** . Se ha actualizado los registros de Azure Monitor [precios](https://azure.microsoft.com/pricing/details/log-analytics/) y el nivel por GB es la única opción.
 
    > [!NOTE]
    > Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
@@ -138,7 +139,7 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
 
    En este caso, se le pedirá que:
    - Especifique los **nombres del grupo de recursos de destino**. Estos valores son nombres de grupos de recursos que contienen máquinas virtuales que se administrarán mediante esta solución. Puede especificar más de un nombre y separarlos con una coma (los valores no distinguen mayúsculas de minúsculas). Se puede usar un carácter comodín si quiere dirigirse a las máquinas virtuales de todos los grupos de recursos de la suscripción. Este valor se almacena en las variables **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupNames**.
-   - Especifique el **lista de exclusiones de máquinas virtuales (cadena)**. Este valor es el nombre de una o varias máquinas virtuales del grupo de recursos de destino. Puede especificar más de un nombre y separarlos con una coma (los valores no distinguen mayúsculas de minúsculas). Se admite el uso de un carácter comodín. Este valor se almacena en la variable **External_ExcludeVMNames**.
+   - Especifique el **lista de exclusiones de máquinas virtuales (cadena)** . Este valor es el nombre de una o varias máquinas virtuales del grupo de recursos de destino. Puede especificar más de un nombre y separarlos con una coma (los valores no distinguen mayúsculas de minúsculas). Se admite el uso de un carácter comodín. Este valor se almacena en la variable **External_ExcludeVMNames**.
    - Seleccione una **programación**. Este valor es la fecha y hora recurrentes para iniciar y detener las máquinas virtuales en los grupos de recursos de destino. De forma predeterminada, la programación se configura para 30 minutos a partir de entonces. No se puede seleccionar otra región. Para configurar su zona horaria concreta después de configurar la solución, consulte el siguiente artículo [Modificación de la programación de inicio y apagado](#modify-the-startup-and-shutdown-schedules).
    - Para recibir **notificaciones por correo electrónico** de un grupo de acciones, acepte el valor predeterminado **Sí** y proporcione una dirección de correo electrónico válida. Si selecciona **No** pero decide en un momento posterior que desea recibir notificaciones por correo electrónico, puede actualizar el [grupo de acciones](../azure-monitor/platform/action-groups.md) que se crea con las direcciones de correo electrónico válidas separadas por un punto y coma. También deberá habilitar las reglas de alerta siguientes:
 
@@ -147,7 +148,7 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
      - Sequenced_StartStop_Parent
 
      > [!IMPORTANT]
-     > El valor predeterminado de los **nombres del grupo de recursos de destino** es **&ast;**. Este se dirige a todas las máquinas virtuales de una suscripción. Si no desea que la solución se dirija a todas las máquinas virtuales de su suscripción, este valor debe actualizarse a una lista de nombres del grupo de recursos antes de habilitar las programaciones.
+     > El valor predeterminado de los **nombres del grupo de recursos de destino** es **&ast;** . Este se dirige a todas las máquinas virtuales de una suscripción. Si no desea que la solución se dirija a todas las máquinas virtuales de su suscripción, este valor debe actualizarse a una lista de nombres del grupo de recursos antes de habilitar las programaciones.
 
 8. Cuando haya configurado los valores iniciales necesarios para la solución, haga clic en **Aceptar** para cerrar la página **Parámetros** y seleccione **Crear**. Cuando todos los valores se hayan validado, la solución se implementa en su suscripción. Este proceso puede tardar varios segundos en finalizar y se puede realizar un seguimiento de su progreso en **Notificaciones** en el menú.
 
@@ -250,9 +251,9 @@ Todos los runbooks primarios incluyen el parámetro All _WhatIf_. Cuando se esta
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Se llama desde el runbook primario. Este runbook crea alertas según el recurso para el escenario de AutoStop.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadero o falso  | Crea o actualiza las reglas de alerta de Azure en las máquinas virtuales de los grupos de recursos o la suscripción de destino. <br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1, vm2, vm3_.<br> *WhatIf* valida la lógica de runbook sin ejecución.|
-|AutoStop_Disable | ninguno | Deshabilita la programación predeterminada y las alertas de AutoStop.|
+|AutoStop_Disable | None | Deshabilita la programación predeterminada y las alertas de AutoStop.|
 |AutoStop_StopVM_Child | WebHookData | Se llama desde el runbook primario. Las reglas de alertas llaman a este runbook para detener la máquina virtual.|
-|Bootstrap_Main | ninguno | Se usa una vez para realizar configuraciones de arranque como webhookURI, a las que normalmente no se puede acceder desde Azure Resource Manager. Este runbook se quita automáticamente tras la implementación correcta.|
+|Bootstrap_Main | None | Se usa una vez para realizar configuraciones de arranque como webhookURI, a las que normalmente no se puede acceder desde Azure Resource Manager. Este runbook se quita automáticamente tras la implementación correcta.|
 |ScheduledStartStop_Child | VMName <br> Acción: Start o Stop <br> ResourceGroupName | Se llama desde el runbook primario. Ejecuta una acción de inicio o detención para la detención programada.|
 |ScheduledStartStop_Parent | Acción: Start o Stop <br>VMList <br> WhatIf: Verdadero o falso | Este valor afecta a todas las máquinas virtuales de la suscripción. Edite **External_Start_ResourceGroupNames** y **External_Stop_ResourceGroupNames** para que se ejecute solo en estos grupos de recursos de destino. También puede excluir máquinas virtuales específicas si actualiza la variable **External_ExcludeVMNames**.<br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1, vm2, vm3_.<br> _WhatIf_ valida la lógica de runbook sin ejecución.|
 |SequencedStartStop_Parent | Acción: Start o Stop <br> WhatIf: Verdadero o falso<br>VMList| Cree etiquetas denominadas **sequencestart** y **sequencestop** en todas las máquinas virtuales en las que quiera secuenciar la actividad de inicio y detención. Estos nombres de etiqueta distinguen entre mayúsculas y minúsculas. El valor de la etiqueta debe ser un entero positivo (1, 2, 3) que se corresponda con el orden en que se desee que se realice el inicio o la detención. <br> VMList: lista de máquinas virtuales separadas por comas. Por ejemplo, _vm1, vm2, vm3_. <br> _WhatIf_ valida la lógica de runbook sin ejecución. <br> **Nota**: Las máquinas virtuales deben estar en grupos de recursos definidos como External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames y External_ExcludeVMNames, en las variables de Azure Automation. Para que las acciones surtan efecto, deben tener las etiquetas correspondientes.|
@@ -315,7 +316,7 @@ Automation crea dos tipos de registros en el área de trabajo de Log Analytics: 
 |resultDescription | Describe el estado de resultado del trabajo de Runbook. Los valores posibles son:<br>- Se inicia el trabajo<br>- Error del trabajo<br>- Trabajo completado|
 |RunbookName | Especifica el nombre del Runbook.|
 |SourceSystem | Especifica el sistema de origen para los datos enviados. En Automation, el valor es OpsManager|
-|StreamType | Especifica el tipo de evento. Los valores posibles son:<br>- Detallado<br>- Salida<br>error<br>- Warning|
+|StreamType | Especifica el tipo de evento. Los valores posibles son:<br>- Detallado<br>- Salida<br>error<br>Warning (Advertencia)|
 |SubscriptionId | Especifica el identificador de suscripción del trabajo.
 |Time | Fecha y hora en que se ejecuta el trabajo de Runbook.|
 
@@ -353,7 +354,7 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para lo
 
 Para tener acceso a la solución, navegue a su cuenta de Automation y seleccione **Área de trabajo** en **RECURSOS RELACIONADOS**. En la página de log analytics, seleccione **soluciones** en **GENERAL**. En la página **Soluciones**, seleccione la solución **Start-Stop-VM[workspace]** en la lista.
 
-Al seleccionar la solución se muestra la página de la solución **Start-Stop-VM[workspace]**. En él puede examinar detalles importantes como el icono **StartStopVM**. Al igual que en el área de trabajo de Log Analytics, este icono muestra un número y una representación gráfica de los trabajos de runbook de la solución que se han iniciado y han finalizado correctamente.
+Al seleccionar la solución se muestra la página de la solución **Start-Stop-VM[workspace]** . En él puede examinar detalles importantes como el icono **StartStopVM**. Al igual que en el área de trabajo de Log Analytics, este icono muestra un número y una representación gráfica de los trabajos de runbook de la solución que se han iniciado y han finalizado correctamente.
 
 ![Página de la solución Update Management de Automation](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
@@ -421,7 +422,7 @@ Para eliminar la solución, realice los siguientes pasos.
 1. En su cuenta de Automation en **recursos relacionados**, seleccione **área de trabajo vinculado**.
 1. Seleccione **vaya al área de trabajo**.
 1. En **General**, seleccione **soluciones**. 
-1. En la página **Soluciones**, seleccione la solución **Start-Stop-VM[Workspace]**. En la página **VMManagementSolution[Workspace]**, en el menú, seleccione **Eliminar**.<br><br> ![Eliminación de la solución de administración de máquinas virtuales](media/automation-solution-vm-management/vm-management-solution-delete.png)
+1. En la página **Soluciones**, seleccione la solución **Start-Stop-VM[Workspace]** . En la página **VMManagementSolution[Workspace]** , en el menú, seleccione **Eliminar**.<br><br> ![Eliminación de la solución de administración de máquinas virtuales](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. En la ventana **Eliminar solución**, confirme que desea eliminar la solución.
 1. Mientras se comprueba la información y se elimina la solución, puede realizar un seguimiento de su progreso en **Notificaciones** en el menú. Cuando comience el proceso para eliminar la solución, se le devuelve a la página **Soluciones**.
 

@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2019
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c989b690e9537dcaaf3710996474a1b8b99826b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962742"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235351"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Guía del desarrollador de plataforma de identidad de Microsoft
 
 En este artículo contiene las definiciones de algunos de los conceptos clave para desarrolladores y la terminología, que son útiles para obtener información sobre el desarrollo de aplicaciones con la plataforma Microsoft identity.
 
-## <a name="access-token"></a>token de acceso
+## <a name="access-token"></a>de la aplicación Twitter
 
 Un tipo de [token de seguridad](#security-token) emitido por un [servidor de autorización](#authorization-server) y usado por una [aplicación cliente](#client-application) para acceder a un [servidor de recursos protegidos](#resource-server). Normalmente en forma de [JSON Web Token (JWT)][JWT], el token personifica la autorización concedida al cliente por el [propietario del recurso](#resource-owner) para un nivel de acceso solicitado. El token contiene todas las [notificaciones](#claim) aplicables sobre el sujeto, lo que permite a la aplicación cliente utilizarlo como forma de credencial al acceder a un recurso determinado. Esto también elimina la necesidad de que el propietario del recurso exponga sus credenciales al cliente.
 
@@ -64,7 +64,7 @@ Para permitir que una aplicación integre y delegue las funciones de administrac
 
 Para más información, consulte [Integración de aplicaciones con Azure Active Directory][AAD-Integrating-Apps].
 
-## <a name="authentication"></a>autenticación
+## <a name="authentication"></a>Autenticación
 
 El acto de solicitar a un usuario credenciales legítimas, que proporciona la base para la creación de una entidad de seguridad que se utilizará para el control de identidades y de acceso. Por ejemplo, durante una [concesión de autorización de OAuth2](#authorization-grant), el usuario que se autentica está cumpliendo el rol de [propietario del recurso](#resource-owner) o de [aplicación cliente](#client-application), en función de la concesión usada.
 
@@ -142,7 +142,7 @@ Una [aplicación cliente](#client-application) obtiene acceso a un [servidor de 
 
 También se revelan durante el proceso de [consentimiento](#consent) , ya que proporciona al administrador o al propietario del recurso la oportunidad de conceder o denegar el acceso de cliente a los recursos en su inquilino.
 
-Las solicitudes de permisos se configuran en la pestaña "Aplicaciones"/"Configuración" de [Azure Portal][AZURE-portal], bajo "Permisos necesarios", al seleccionar los "Permisos delegados" y "Permisos de la aplicación" deseados (el último requiere la pertenencia al rol de administrador global). Dado que un [cliente público](#client-application) no puede mantener credenciales con seguridad, solo puede solicitar permisos delegados, mientras que un [cliente confidencial](#client-application) tiene la capacidad de solicitar permisos tanto delegados como de aplicación. El [objeto de aplicación](#application-object) de cliente almacena los permisos declarados en su [propiedad requiredResourceAccess][AAD-Graph-App-Entity].
+Las solicitudes de permiso se configuran en el **permisos de API** página para una aplicación en el [portal de Azure][AZURE-portal], seleccionando los deseado "permisos delegados" y " Permisos de aplicación"(el último requiere la pertenencia al rol Administrador Global). Dado que un [cliente público](#client-application) no puede mantener credenciales con seguridad, solo puede solicitar permisos delegados, mientras que un [cliente confidencial](#client-application) tiene la capacidad de solicitar permisos tanto delegados como de aplicación. El [objeto de aplicación](#application-object) de cliente almacena los permisos declarados en su [propiedad requiredResourceAccess][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>propietario del recurso
 

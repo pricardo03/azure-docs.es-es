@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 30df480eb314594cbc4d949302aff11e6d764b6f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: c7b73cad200666db9e926d8e808eaa4a8dccffb2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147862"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66249113"
 ---
 ## <a name="premium-ssd"></a>SSD Premium
 
@@ -24,7 +24,7 @@ Para más información sobre los tipos de máquinas virtuales individuales y los
 ### <a name="disk-size"></a>Tamaño del disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-Cuando se aprovisiona un disco de Premium Storage, a diferencia de Standard Storage, se garantizan la capacidad, las E/S por segundo y el rendimiento del mismo. Por ejemplo, si crea un disco P50, Azure aprovisiona una capacidad de almacenamiento de 4095 GB, 7500 E/S por segundo y un rendimiento de 250 MB/s para él. La aplicación puede usar toda la capacidad y el rendimiento o parte de ellos. Los discos SSD premium están diseñados para proporcionar rendimiento de destino el 99,9 % del tiempo.
+Cuando se aprovisiona un disco de Premium Storage, a diferencia de Standard Storage, se garantizan la capacidad, las E/S por segundo y el rendimiento del mismo. Por ejemplo, si crea un disco P50, Azure aprovisiona una capacidad de almacenamiento de 4095 GB, 7500 E/S por segundo y un rendimiento de 250 MB/s para él. La aplicación puede usar toda la capacidad y el rendimiento o parte de ellos. Los discos SSD Premium están diseñados para proporcionar baja latencias de un solo dígito y IOPS y rendimiento descritos en la anterior tabla 99,9% del tiempo de destino.
 
 ### <a name="transactions"></a>Transacciones
 
@@ -37,7 +37,7 @@ Los discos SSD estándar de Azure son una opción de almacenamiento rentable, op
 ### <a name="disk-size"></a>Tamaño del disco
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-SSDs estándares están diseñadas para proporcionar las latencias de milisegundos para la mayoría de las operaciones de E/S y para entregar la IOPS y el rendimiento hasta los límites descritos en la anterior tabla 99% del tiempo. IOPS y el rendimiento real pueden variar a veces, según los patrones de tráfico. Los discos SSD estándar proporcionarán un rendimiento más coherente que los discos HDD, con una latencia menor.
+SSDs estándares están diseñadas para proporcionar las latencias de milisegundos y la IOPS y el rendimiento hasta los límites descritos en la anterior tabla 99% del tiempo. IOPS y el rendimiento real pueden variar a veces, según los patrones de tráfico. Los discos SSD estándar proporcionarán un rendimiento más coherente que los discos HDD, con una latencia menor.
 
 ### <a name="transactions"></a>Transacciones
 
@@ -45,7 +45,7 @@ Para SSD estándar, cada operación de E/S menor o igual a 256 KiB de rendimient
 
 ## <a name="standard-hdd"></a>HDD estándar
 
-Los discos HDD estándar de Azure ofrecen compatibilidad de discos confiable y de bajo coste para las máquinas virtuales que ejecutan cargas de trabajo que no tienen en cuenta la latencia. También admite blobs, tablas, colas y archivos. Con Standard Storage, los datos se almacenan en unidades de disco duro (HDD). Cuando se trabaja con máquinas virtuales, se pueden usar discos SSD y HDD estándar para escenarios de desarrollo/pruebas y para cargas de trabajo menos críticas. Unidades de disco duro estándares están disponibles en todas las regiones de Azure y se pueden utilizar con todas las máquinas virtuales de Azure.
+Los discos HDD estándar de Azure ofrecen compatibilidad de discos confiable y de bajo coste para las máquinas virtuales que ejecutan cargas de trabajo que no tienen en cuenta la latencia. Con Standard Storage, los datos se almacenan en unidades de disco duro (HDD). Discos de latencia, IOPS y rendimiento de HDD estándar pueden variar más ampliamente en comparación con discos basados en SSD. Cuando se trabaja con máquinas virtuales, puede usar discos estándar de unidad de disco duro para escenarios de desarrollo/pruebas y menos cargas de trabajo críticas. Unidades de disco duro estándares están disponibles en todas las regiones de Azure y se pueden utilizar con todas las máquinas virtuales de Azure.
 
 ### <a name="disk-size"></a>Tamaño del disco
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]

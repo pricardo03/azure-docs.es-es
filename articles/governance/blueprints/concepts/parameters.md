@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5c1bb1f959f920ea9bce23082ec531dc83d873ad
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711807"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356983"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 
@@ -44,7 +44,8 @@ Si usa la asignación del plano técnico un **asignado por el sistema de identid
 
 Si usa la asignación del plano técnico un **asignada por el usuario de la identidad administrada**, la hace referencia a Key Vault _puede_ existe en una suscripción centralizada. La identidad administrada debe tener los derechos correspondientes en el almacén de claves antes de la asignación del plano técnico.
 
-En ambos casos, debe tener el almacén de claves **habilitar el acceso a Azure Resource Manager para la implementación de plantilla** configurado en el **las directivas de acceso** página. Para obtener instrucciones sobre cómo habilitar esta característica, consulte [Key Vault: Habilitar la implementación de plantillas](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> [!IMPORTANT]
+> En ambos casos, debe tener el almacén de claves **habilitar el acceso a Azure Resource Manager para la implementación de plantilla** configurado en el **las directivas de acceso** página. Para obtener instrucciones sobre cómo habilitar esta característica, consulte [Key Vault: Habilitar la implementación de plantillas](../../../managed-applications/key-vault-access.md#enable-template-deployment).
 
 Para más información sobre Azure Key Vault, consulte [Introducción a Key Vault](../../../key-vault/key-vault-overview.md).
 

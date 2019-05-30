@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236259"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390420"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configuración de la experiencia de Bing Custom Search
 
@@ -40,7 +40,7 @@ Al crear la instancia de Custom Search, puede especificar los sectores de la web
 
 Si conoce los sectores que quiere incluir en la instancia de Custom Search, agréguelos a la lista **Active** (Activos) de esta. 
 
-Si no está seguro de qué sectores incluir, puede enviar consultas de búsqueda a Bing en el panel **Vista previa** y seleccionar los sectores que quiera. Para ello: 
+Si no está seguro de qué sectores incluir, puede enviar consultas de búsqueda a Bing en el panel **Vista previa** y seleccionar los sectores que quiera. Para ello, siga estos pasos: 
 
 1. Seleccione Bing en la lista desplegable del panel Vista previa y escriba la consulta de búsqueda.
 
@@ -74,7 +74,7 @@ Después de agregar sectores de la web a la lista de **activos**, el portal de B
 
 ## <a name="search-for-images-and-videos"></a>Búsqueda de imágenes y vídeos
 
-Puede buscar imágenes y vídeos de forma similar al contenido web mediante [Bing Custom Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) o [Bing Custom Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference). Puede mostrar estos resultados con la [UI hospedada](hosted-ui.md) o las API. 
+Puede buscar imágenes y vídeos de forma similar al contenido web mediante [Bing Custom Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) o [Bing Custom Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Puede mostrar estos resultados con la [UI hospedada](hosted-ui.md) o las API. 
 
 Estas API son similares a las API no personalizadas de [Bing Image Search](../Bing-Image-Search/overview.md) y [Bing Video Search](../Bing-Video-Search/search-the-web.md), pero buscan en toda la web y no requieren el parámetro de consulta `customConfig`. Consulte esta documentación para obtener más información sobre cómo trabajar con imágenes y vídeos. 
 
@@ -83,7 +83,7 @@ Estas API son similares a las API no personalizadas de [Bing Image Search](../Bi
 Puede probar la instancia de búsqueda mediante el panel de vista previa situado al lado derecho del portal para enviar consultas de búsqueda y ver los resultados. 
 
 1. Debajo del cuadro de búsqueda, seleccione **My Instance** (Mi instancia). Puede comparar los resultados de la experiencia de búsqueda con Bing seleccionando **Bing**. 
-2. Seleccione un filtro de búsqueda seguro y el mercado en el que buscar (consulte [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) [Parámetros de consulta]).
+2. Seleccione un filtro de búsqueda seguro y el mercado en el que buscar (consulte [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) [Parámetros de consulta]).
 3. Escriba una consulta y presione Entrar o haga clic en el icono de búsqueda para ver los resultados de la configuración actual. Puede cambiar el tipo de búsqueda que realiza haciendo clic en **Web**, **Imagen** o **Vídeo** para obtener los resultados correspondientes. 
 
 <a name="adjustrank"></a>
@@ -94,7 +94,7 @@ El portal le permite ajustar la clasificación de la búsqueda de contenido de s
 
 |            |                                                                                                                                                                      |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Bloquear      | Mueve el dominio, la subpágina o la página web a la lista de bloqueados. Bing excluirá la aparición de contenido del sitio seleccionado en los resultados de búsqueda.                    |
+| Block      | Mueve el dominio, la subpágina o la página web a la lista de bloqueados. Bing excluirá la aparición de contenido del sitio seleccionado en los resultados de búsqueda.                    |
 | Aumentar de nivel      | Coloca el contenido del dominio o la subpágina en un nivel más alto en los resultados de búsqueda.                                                                                        |
 | Reducir de nivel     | Coloca el contenido del dominio o la subpágina en un nivel inferior en los resultados de búsqueda. Seleccione si desea reducir de nivel el contenido del dominio o la subpágina a los que pertenece la página web. |
 | Anclar al principio | Mueve el dominio, la subpágina o la página web a la lista **Pinned** (Anclados). Esto obliga a la página web a aparecer como el resultado de búsqueda principal para una consulta de búsqueda determinada.                   |
@@ -133,7 +133,7 @@ De manera predeterminada, las páginas web solo están ancladas al principio de 
 |---------------|----------------------------------------------------------------------------------|
 | Empieza por | El anclaje coincide si la cadena de consulta del usuario empieza por lo mismo que la de anclaje. |
 | Termina por   | El anclaje coincide si la cadena de consulta del usuario termina por lo mismo que la de anclaje.  |
-| Contiene    | El anclaje coincide si la cadena de consulta del usuario contiene la de anclaje.   |
+| Contains    | El anclaje coincide si la cadena de consulta del usuario contiene la de anclaje.   |
 
 
 Para cambiar la condición de coincidencia de anclaje, haga clic en el icono de edición del anclaje. En la columna **Query match condition** (Condición de coincidencia de la consulta), haga clic en la lista desplegable y seleccione la nueva condición para usarla. Después, haga clic en el icono para guardar el cambio.
@@ -144,7 +144,7 @@ Para cambiar el orden de los anclajes, puede arrastrarlos y colocarlos o editar 
 
 Si varios anclajes satisfacen una condición de coincidencia, Bing Custom Search usará la más alta de la lista.
 
-## <a name="view-statistics"></a>Ver estadísticas
+## <a name="view-statistics"></a>Visualización de estadísticas
 
 Si se ha suscrito a Custom Search en el nivel adecuado (consulte los [planes de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), se agrega una pestaña **Statistics** (Estadísticas) a las instancias de producción. En la pestaña de estadísticas se muestra información detallada sobre cómo se usan los puntos de conexión de Custom Search, como el volumen de llamadas, las mejores consultas, la distribución geográfica, los códigos de respuesta y la búsqueda segura. Puede filtrar esta información mediante los controles proporcionados.
 

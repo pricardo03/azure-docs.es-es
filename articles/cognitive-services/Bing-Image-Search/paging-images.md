@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 38b2244d68de25f53d59dd4eb0a6beba03f0e51d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9368abe7d3b6ad6cf6e86b503dca4fca4f18739c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60916689"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388472"
 ---
 # <a name="page-through-the-images-results"></a>Navegue por las páginas de resultados de imagen.
 
-Cuando se llama a Bing Image Search API, Bing devuelve una lista de resultados. La lista es un subconjunto del número total de resultados que están relacionados con la consulta. Para obtener el número total estimado de resultados disponibles, consulte el campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) del objeto de respuesta.  
+Cuando se llama a Bing Image Search API, Bing devuelve una lista de resultados. La lista es un subconjunto del número total de resultados que están relacionados con la consulta. Para obtener el número total estimado de resultados disponibles, consulte el campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#totalestimatedmatches) del objeto de respuesta.  
 
 En el siguiente ejemplo se muestra el campo `totalEstimatedMatches` que incluye una respuesta de imágenes.  
 
@@ -34,7 +34,7 @@ En el siguiente ejemplo se muestra el campo `totalEstimatedMatches` que incluye 
 }  
 ```  
 
-Para paginar por las imágenes disponibles, use los parámetros de consulta [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#count) y [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offset).  
+Para paginar por las imágenes disponibles, use los parámetros de consulta [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#count) y [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset).  
 
 El parámetro `count` especifica el número de resultados que se van a devolver en la respuesta. El número máximo de resultados que se pueden solicitar en la respuesta es 150. El valor predeterminado es 35. El número real entregado puede ser menor que el solicitado.
 
@@ -58,7 +58,7 @@ Host: api.cognitive.microsoft.com
 
 En general, si pagina 35 imágenes a la vez, establece el parámetro de consulta `offset` en 0 en la primera solicitud y, después, incrementa `offset` en 35 en cada solicitud subsiguiente. Sin embargo, algunos de los resultados de la respuesta subsiguiente pueden ser duplicados de la respuesta anterior. Por ejemplo, las dos primeras imágenes de la respuesta pueden ser las mismas que las dos últimas imágenes de la respuesta anterior.
 
-Para eliminar resultados duplicados, use el campo [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#nextoffset) del objeto `Images`. El campo `nextOffset` le indica el objeto `offset` que debe usar para la solicitud siguiente. Por ejemplo, si desea paginar 30 imágenes a la vez, establece `count` en 30 y `offset` en 0 en la primera solicitud. En la siguiente solicitud, establece `count` en 30 y `offset` en el valor `nextOffset` de la respuesta anterior. Para paginar hacia atrás, se recomienda mantener una pila de los desplazamientos anteriores y retirar el más reciente.
+Para eliminar resultados duplicados, use el campo [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#nextoffset) del objeto `Images`. El campo `nextOffset` le indica el objeto `offset` que debe usar para la solicitud siguiente. Por ejemplo, si desea paginar 30 imágenes a la vez, establece `count` en 30 y `offset` en 0 en la primera solicitud. En la siguiente solicitud, establece `count` en 30 y `offset` en el valor `nextOffset` de la respuesta anterior. Para paginar hacia atrás, se recomienda mantener una pila de los desplazamientos anteriores y retirar el más reciente.
 
 > [!NOTE]
 > La paginación se aplica solo a la búsqueda de imágenes (/images/search), y no a la información detallada de imágenes o a imágenes populares (/images/trending).

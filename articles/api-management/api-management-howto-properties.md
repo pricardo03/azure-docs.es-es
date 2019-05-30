@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60658042"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241687"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Cómo usar valores con nombre en las directivas de Azure API Management
 En API Management, las directivas constituyen una funcionalidad eficaz del sistema que permite a Azure Portal cambiar el comportamiento de la API mediante la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Las instrucciones de las directivas se pueden crear con valores de texto literal, expresiones de directiva y valores con nombre. 
@@ -28,9 +28,9 @@ Cada instancia del servicio de API Management tiene una colección de propiedade
 | Atributo | Type | DESCRIPCIÓN |
 | --- | --- | --- |
 | `Display name` |string |Cadena alfanumérica que se usa para hacer referencia a la propiedad en las directivas. |
-| `Value` |string |El valor de la propiedad. No puede estar vacío ni contener solo espacios en blanco. |
-|`Secret`|boolean|Determina si el valor es secreto y si se debe cifrar.|
-| `Tags` |matriz de cadena |Etiquetas opcionales que, cuando se proporcionan, pueden usarse para filtrar la lista de propiedades. |
+| `Value`        |string |El valor de la propiedad. No puede estar vacío ni contener solo espacios en blanco. |
+| `Secret`       |boolean|Determina si el valor es secreto y si se debe cifrar.|
+| `Tags`         |matriz de cadena |Etiquetas opcionales que, cuando se proporcionan, pueden usarse para filtrar la lista de propiedades. |
 
 ![Valores con nombre](./media/api-management-howto-properties/named-values.png)
 
@@ -39,7 +39,7 @@ Los valores de propiedad pueden contener cadenas literales y [expresiones de dir
 | NOMBRE | `Value` | `Secret` | `Tags` |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
-| ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
+| ContosoHeaderValue |•••••••••••••••••••••• |True  |Contoso |
 | ExpressionProperty |@(DateTime.Now.ToString()) |False | |
 
 ## <a name="to-add-and-edit-a-property"></a>Incorporación y edición de una propiedad
@@ -55,7 +55,7 @@ Los valores de propiedad pueden contener cadenas literales y [expresiones de dir
 
 Una vez creada la propiedad, es posible editarla haciendo clic en ella. Si cambia el nombre de propiedad, las directivas que hagan referencia a esa propiedad se actualizarán automáticamente para utilizar el nuevo nombre.
 
-Para obtener información sobre cómo editar una propiedad mediante la API de REST, consulte [Edit a property using the REST API](/rest/api/apimanagement/property?Patch)(Edición de una propiedad mediante la API de REST).
+Para obtener información sobre cómo editar una propiedad mediante la API de REST, consulte [Edit a property using the REST API](/rest/api/apimanagement/2019-01-01/property?patch)(Edición de una propiedad mediante la API de REST).
 
 ## <a name="to-delete-a-property"></a>Eliminación de una propiedad
 
@@ -66,7 +66,7 @@ Para eliminar una propiedad, haga clic en **Delete (Eliminar)** junto a la propi
 > 
 > 
 
-Para obtener información sobre cómo eliminar una propiedad mediante la API de REST, consulte [Delete a property using the REST API](/rest/api/apimanagement/property?Delete)(Eliminación de una propiedad mediante la API de REST).
+Para obtener información sobre cómo eliminar una propiedad mediante la API de REST, consulte [Delete a property using the REST API](/rest/api/apimanagement/2019-01-01/property/delete)(Eliminación de una propiedad mediante la API de REST).
 
 ## <a name="to-search-and-filter-named-values"></a>Búsqueda y filtrado de valores con nombre
 

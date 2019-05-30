@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: b084790bf5a4edfed74dd95a40c11eec26d34dbe
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e1bc99cdc089050fbfa931bbbc7b9a6a316a3a75
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415483"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240177"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services
 
@@ -31,13 +31,13 @@ En este artículo, aprenderá a configurar un clúster de HDInsight con ESP medi
 >
 > Si el almacenamiento de clúster es Azure Blob Storage (WASB), no deshabilite MFA.
 
-Habilitar Azure AD DS es un requisito previo para poder crear un clúster de HDInsight con ESP. Para obtener más información, consulte [Habilitación de Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
+Habilitar Azure AD DS es un requisito previo para poder crear un clúster de HDInsight con ESP. Para obtener más información, consulte [Habilitación de Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/create-instance.md). 
 
 Cuando está habilitado Azure AD-DS, todos los usuarios y objetos comienzan a sincronizarse desde Azure Active Directory (AAD) hasta Azure AD-DS de forma predeterminada. La longitud de la operación de sincronización depende del número de objetos en Azure AD. La sincronización puede tardar algunos días cuando hay cientos de miles de objetos. 
 
-Puede sincronizar solo los grupos que necesitan tener acceso a los clústeres de HDInsight. Esta opción de sincronizar solo determinados grupos se conoce como *sincronización con ámbito*. Para instrucciones, consulte [Configuración de la sincronización con ámbito desde Azure AD a un dominio administrado](../../active-directory-domain-services/active-directory-ds-scoped-synchronization.md).
+Puede sincronizar solo los grupos que necesitan tener acceso a los clústeres de HDInsight. Esta opción de sincronizar solo determinados grupos se conoce como *sincronización con ámbito*. Para instrucciones, consulte [Configuración de la sincronización con ámbito desde Azure AD a un dominio administrado](../../active-directory-domain-services/scoped-synchronization.md).
 
-Al habilitar LDAP seguro, coloque el nombre de dominio en el nombre del firmante y el nombre alternativo del firmante del certificado. Por ejemplo, si el nombre de dominio es *contoso100.onmicrosoft.com*, asegúrese de que existe ese nombre exacto en el nombre del firmante y el nombre alternativo del firmante del certificado. Para obtener más información, consulte [Configuración de LDAP seguro (LDAPS) para un dominio administrado con Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md). A continuación se presenta un ejemplo de creación de un certificado autofirmado con el nombre de dominio (*contoso100.onmicrosoft.com*) en el nombre del firmante y en el nombre de DNS (nombre alternativo del firmante):
+Al habilitar LDAP seguro, coloque el nombre de dominio en el nombre del firmante y el nombre alternativo del firmante del certificado. Por ejemplo, si el nombre de dominio es *contoso100.onmicrosoft.com*, asegúrese de que existe ese nombre exacto en el nombre del firmante y el nombre alternativo del firmante del certificado. Para obtener más información, consulte [Configuración de LDAP seguro (LDAPS) para un dominio administrado con Azure AD Domain Services](../../active-directory-domain-services/configure-ldaps.md). A continuación se presenta un ejemplo de creación de un certificado autofirmado con el nombre de dominio (*contoso100.onmicrosoft.com*) en el nombre del firmante y en el nombre de DNS (nombre alternativo del firmante):
 
 ```powershell
 $lifetime=Get-Date

@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30bbddd044d1aea70e43825035c94b69a46f1f8
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 1be6fc2b7d6da85778524cb8986f399c341370c1
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935829"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307033"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>¿Qué es el gobierno de identidades de Azure AD?
 
@@ -60,7 +60,7 @@ Normalmente, el departamento de TI delega las decisiones sobre la aprobación de
 
 Las organizaciones pueden automatizar el proceso del ciclo de vida de los accesos utilizando determinadas tecnologías, como los [grupos dinámicos](../users-groups-roles/groups-dynamic-membership.md), junto con el aprovisionamiento de usuarios en [aplicaciones SaaS](../saas-apps/tutorial-list.md) o [aplicaciones integradas con SCIM](../manage-apps/use-scim-to-provision-users-and-groups.md).  Las organizaciones también pueden controlar qué [usuarios invitados tienen acceso a las aplicaciones locales](../b2b/hybrid-cloud-to-on-premises.md).  Estos derechos de acceso se pueden revisar periódicamente utilizando [revisiones de acceso de Azure AD](access-reviews-overview.md) recurrentes.
 
-Cuando un usuario intenta acceder a las aplicaciones, Azure AD impone directivas de [acceso condicional](/azure/active-directory/conditional-access/). Por ejemplo, las directivas de acceso condicional pueden incluir mostrando un [términos de uso](../conditional-access/terms-of-use.md) y [garantizar el usuario ha aceptado los términos](../conditional-access/require-tou.md) antes de poder acceder a una aplicación.
+Cuando un usuario intenta acceder a las aplicaciones, Azure AD impone directivas de [acceso condicional](/azure/active-directory/conditional-access/). Por ejemplo, las directivas de acceso condicional pueden especificar que se muestren los [términos de uso](../conditional-access/terms-of-use.md) para [garantizar que el usuario acepta los términos](../conditional-access/require-tou.md) antes de acceder a una aplicación.
 
 ## <a name="privileged-access-lifecycle"></a>Ciclo de vida de los accesos con privilegios
 
@@ -84,6 +84,6 @@ También puede consultar la pestaña de la introducción de **gobierno de identi
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [¿Qué es la administración de derechos de Azure AD? (Versión preliminar)](entitlement-management-overview.md)
-- [¿Qué acceso de Azure AD de revisiones?](access-reviews-overview.md)
+- [¿Qué son las revisiones de acceso de Azure AD?](access-reviews-overview.md)
 - [¿Qué es Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
 - [¿Qué puedo hacer con los Términos de uso?](active-directory-tou.md)

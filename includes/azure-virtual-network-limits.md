@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/15/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8cee74696d9636a8ac1d6fcbab493f18184355e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cb586be1a139b331c259a1197cc62e7ca4f25666
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787639"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238738"
 ---
 <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo para los recursos administrados a través de redes la **clásico** modelo de implementación por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
@@ -54,7 +54,7 @@ Los límites siguientes se aplican solo para los recursos administrados a travé
 | Grupos de seguridad de red |5.000 |
 | Reglas de NSG por NSG |1000 |
 | Direcciones IP y rangos especificados para el origen o destino en un grupo de seguridad |4.000 |
-| Grupos de seguridad de aplicación |3000 |
+| Grupos de seguridad de aplicaciones |3000 |
 | Grupos de seguridad de aplicaciones por configuración de IP, por NIC |20 |
 | Configuraciones de IP por grupo de seguridad de aplicaciones |4.000 |
 | Grupos de seguridad de aplicaciones que se pueden especificar en todas las reglas de seguridad de un grupo de seguridad de red |100 |
@@ -70,7 +70,7 @@ Los límites siguientes se aplican solo para los recursos administrados a travé
 | Direcciones IP públicas - dinámicas | 1000 por Basic. |Póngase en contacto con el servicio de soporte técnico. |
 | Direcciones IP públicas - estáticas | 1000 por Basic. |Póngase en contacto con el servicio de soporte técnico. |
 | Direcciones IP públicas - estáticas | 200 estándar.|Póngase en contacto con el servicio de soporte técnico. |
-| Tamaño de prefijo IP pública (versión preliminar) | /28 | Póngase en contacto con el servicio de soporte técnico. |
+| Tamaño de prefijo IP pública | /28 | Póngase en contacto con el servicio de soporte técnico. |
 
 #### <a name="load-balancer"></a>Límites del equilibrador de carga
 Los límites siguientes solo se aplican a los recursos de redes administrados a través de Azure Resource Manager por región y por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).

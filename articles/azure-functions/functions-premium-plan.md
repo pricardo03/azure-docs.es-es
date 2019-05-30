@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544766"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242303"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Plan de funciones Premium de Azure (versión preliminar)
 
@@ -91,7 +91,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 ### <a name="available-instance-skus"></a>SKU de instancia disponible
 
-Al crear nuestra su plan de capacidad de escalado, puede elegir entre tres tamaños de instancia.  Se le facturará el número total de núcleos y memoria consumida por segundo.  La aplicación automáticamente puede escalar horizontalmente a varias instancias según sea necesario.  
+Al crear o escalar su plan, puede elegir entre tres tamaños de instancia.  Se le facturará el número total de núcleos y memoria consumida por segundo.  La aplicación automáticamente puede escalar horizontalmente a varias instancias según sea necesario.  
 
 |SKU|Núcleos|Memoria|Almacenamiento|
 |--|--|--|--|
@@ -103,7 +103,7 @@ Al crear nuestra su plan de capacidad de escalado, puede elegir entre tres tama�
 
 A continuación se muestran las regiones admitidas actualmente para la versión preliminar pública.
 
-|Área|
+|Region|
 |--|
 |Este de Australia|
 |Sudeste de Australia|

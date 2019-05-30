@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: 31c5feac577dc5e9e0eed9ced9ccfe25c12d3086
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1b36ed5197aeb056c70200a49e09cc777d66d0b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310474"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237356"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Información sobre la configuración de la copia de seguridad periódica en Azure Service Fabric
 
@@ -54,7 +54,7 @@ Una directiva de copia de seguridad consta de las siguientes configuraciones:
         ```
 
     2. **Programación de copia de seguridad basada en tiempo**: este tipo de programación debe usarse si es necesario realizar copias de seguridad de datos a horas específicas del día o la semana. El tipo de frecuencia de la programación puede ser diaria o semanal.
-        1. **Programación de copia de seguridad basada en tiempo _diaria_**: este tipo de programación debe usarse si es necesario realizar copias de seguridad de datos a horas específicas del día. Para especificarla, establezca `ScheduleFrequencyType` en _Cada día_; y establezca `RunTimes` en la lista de horas del día deseadas con el formato ISO8601. Se omitirá la fecha especificada junto con la hora. Por ejemplo, `0001-01-01T18:00:00` representa _6:00 P.M._ cada día y se omite la parte de fecha _0001-01-01_. En el ejemplo siguiente se ilustra la configuración para desencadenar la copia de seguridad diaria a las _9:00 AM_ y _6:00 P.M._ todos los días.
+        1. **Programación de copia de seguridad basada en tiempo _diaria_** : este tipo de programación debe usarse si es necesario realizar copias de seguridad de datos a horas específicas del día. Para especificarla, establezca `ScheduleFrequencyType` en _Cada día_; y establezca `RunTimes` en la lista de horas del día deseadas con el formato ISO8601. Se omitirá la fecha especificada junto con la hora. Por ejemplo, `0001-01-01T18:00:00` representa _6:00 P.M._ cada día y se omite la parte de fecha _0001-01-01_. En el ejemplo siguiente se ilustra la configuración para desencadenar la copia de seguridad diaria a las _9:00 AM_ y _6:00 P.M._ todos los días.
 
             ```json
             {
@@ -67,7 +67,7 @@ Una directiva de copia de seguridad consta de las siguientes configuraciones:
             }
             ```
 
-        2. **Programación de copia de seguridad basada en tiempo _semanal_**: este tipo de programación debe usarse si es necesario realizar copias de seguridad de datos a horas específicas del día. Para especificarla, establezca `ScheduleFrequencyType` en _Cada semana_; establezca `RunDays` en la lista de días de la semana en las que se debe desencadenar la copia de seguridad y establezca `RunTimes` en la lista de horas del día deseadas con el formato ISO8601, se omitirá la fecha especificada junto con la hora. Lista de días de la semana en las que se debe desencadenar la copia de seguridad periódica. En el ejemplo siguiente se ilustra la configuración para desencadenar la copia de seguridad diaria a las _9:00 AM_ y _6:00 P.M._ de lunes a viernes.
+        2. **Programación de copia de seguridad basada en tiempo _semanal_** : este tipo de programación debe usarse si es necesario realizar copias de seguridad de datos a horas específicas del día. Para especificarla, establezca `ScheduleFrequencyType` en _Cada semana_; establezca `RunDays` en la lista de días de la semana en las que se debe desencadenar la copia de seguridad y establezca `RunTimes` en la lista de horas del día deseadas con el formato ISO8601, se omitirá la fecha especificada junto con la hora. Lista de días de la semana en las que se debe desencadenar la copia de seguridad periódica. En el ejemplo siguiente se ilustra la configuración para desencadenar la copia de seguridad diaria a las _9:00 AM_ y _6:00 P.M._ de lunes a viernes.
 
             ```json
             {
@@ -137,9 +137,6 @@ Una directiva de copia de seguridad consta de las siguientes configuraciones:
             "MinimumNumberOfBackups": 20
         }
         ```
-
-> [!IMPORTANT]
-> Debido a un problema en el entorno en tiempo de ejecución, debe asegurarse de que la duración de la retención en la directiva de retención se configure para que sea inferior a 24 días, o bien provocará que en el servicio de restauración de copia de seguridad se produzca una pérdida de cuórum posterior a la conmutación por error de la réplica.
 
 ## <a name="enable-periodic-backup"></a>Habilitación de la copia de seguridad periódica
 Después de definir la directiva de copia de seguridad para satisfacer los requisitos de copia de seguridad de datos, la directiva de copia de seguridad debe asociarse correctamente con una _aplicación_, _servicio_ o _partición_.

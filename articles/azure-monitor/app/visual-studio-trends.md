@@ -15,12 +15,12 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 898f0974a6a29abde5c84d611adc8d50c3873141
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b08dfd87910cbb9f23f6b108a970d160612e1a7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60372793"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255903"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Análisis de tendencias en Visual Studio
 La herramienta Tendencias de Application Insights muestra cómo los eventos de telemetría importantes de la aplicación web cambian a lo largo del tiempo, lo que ayuda a identificar rápidamente los problemas y las anomalías. Al vincularle a información de diagnóstico más detallada, Tendencias puede ayudarle a mejorar el rendimiento de la aplicación, realizar un seguimiento de las causas de las excepciones y revelar información de los eventos personalizados.
@@ -94,7 +94,7 @@ Para dejar de aplicar uno de estos filtros, haga clic en el botón **Remove sele
 ![Varios filtros](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Búsqueda de anomalías
-La herramienta Tendencias puede resaltar las burbujas de eventos anómalos en comparación con otras burbujas de la misma serie temporal. En la lista desplegable Tipo de vista, elija **Recuentos en el ciclo (resaltar anomalías)** o **Porcentajes en el ciclo (resaltar anomalías)**. Las burbujas rojas son anómalas. Las anomalías se definen como burbujas con recuentos o porcentajes que superan 2,1 veces la desviación estándar de los recuentos o porcentajes que se produjeron en los últimos dos períodos (48 horas si está viendo las últimas 24 horas, etc.).
+La herramienta Tendencias puede resaltar las burbujas de eventos anómalos en comparación con otras burbujas de la misma serie temporal. En la lista desplegable Tipo de vista, elija **Recuentos en el ciclo (resaltar anomalías)** o **Porcentajes en el ciclo (resaltar anomalías)** . Las burbujas rojas son anómalas. Las anomalías se definen como burbujas con recuentos o porcentajes que superan 2,1 veces la desviación estándar de los recuentos o porcentajes que se produjeron en los últimos dos períodos (48 horas si está viendo las últimas 24 horas, etc.).
 
 ![Los puntos de color indican anomalías](./media/visual-studio-trends/TrendsAnomalies-750.png)
 
@@ -108,5 +108,5 @@ La herramienta Tendencias puede resaltar las burbujas de eventos anómalos en co
 | --- | --- |
 | **[Trabajo con Application Insights en Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Busque la telemetría, consulte los datos de CodeLens y configure Application Insights. Todos desde Visual Studio. |![Haga clic con el botón derecho en el proyecto y seleccione Application Insights, Búsqueda.](./media/visual-studio-trends/34.png) |
 | **[Incorporación de datos adicionales](../../azure-monitor/app/asp-net-more.md)**<br/>Supervise el uso, la disponibilidad, las dependencias y las excepciones. Integrar seguimientos de marcos de registro. Escribir telemetría personalizada. |![Visual Studio](./media/visual-studio-trends/64.png) |
-| **[Trabajo con el portal de Application Insights](../../azure-monitor/app/app-insights-dashboards.md)**<br/>Paneles, eficaces herramientas de diagnóstico y análisis, alertas, un mapa activo de dependencias de la aplicación y exportación de la telemetría. |![Visual Studio](./media/visual-studio-trends/62.png) |
+| **[Trabajo con el portal de Application Insights](../../azure-monitor/app/overview-dashboard.md)**<br/>Paneles, eficaces herramientas de diagnóstico y análisis, alertas, un mapa activo de dependencias de la aplicación y exportación de la telemetría. |![Visual Studio](./media/visual-studio-trends/62.png) |
 

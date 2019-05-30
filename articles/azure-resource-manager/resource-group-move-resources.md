@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ae1afe103d4c52a2a7d921ef4f34dc030f3c6f7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872638"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225888"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -62,7 +62,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Registros de Azure Monitor
 * Azure Relay
 * Azure Stack: registros
-* Lote
+* Batch
 * BizTalk Services
 * Servicio de bots
 * CDN
@@ -89,7 +89,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Machine Learning: los servicios de Machine Learning Studio se pueden mover a un grupo de recursos en la misma suscripción, pero no una suscripción diferente. Otros recursos de Machine Learning se pueden mover entre suscripciones.
 * Managed Disks: Managed Disks en zonas de disponibilidad no se puede mover a otra suscripción
 * Identidad administrada: asignada por el usuario
-* Servicios multimedia
+* Media Services
 * Supervisión: asegúrese de que el cambio a una nueva suscripción no exceda las [cuotas de suscripción](../azure-subscription-service-limits.md#monitor-limits).
 * Notification Hubs
 * Operational Insights
@@ -99,7 +99,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Dirección IP pública: la dirección IP de SKU básica se puede mover. Las direcciones IP públicas de SKU Estándar no se pueden mover.
 * Almacén de Recovery Services: inscríbase en una [versión preliminar](#recovery-services-limitations).
 * SAP HANA en Azure
-* Programador
+* Scheduler
 * Search: no puede trasladar varios recursos de Search en regiones diferentes en una operación. En su lugar, muévalos en operaciones independientes.
 * Azure Service Bus
 * Service Fabric
@@ -133,8 +133,8 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Azure NetApp Files
 * Certificados: los certificados de App Service se pueden trasladar, pero los certificados cargados tienen [limitaciones](#app-service-limitations).
 * Aplicaciones clásicas
-* Instancias de contenedor
-* Servicio de contenedor
+* Azure Container Instances
+* Container Service
 * Data Box
 * Dev Spaces
 * Dynamics LCS
@@ -323,7 +323,7 @@ Es posible que esta operación tarde varios minutos.
 
 ### <a name="recovery-services-limitations"></a>Limitaciones de Recovery Services
 
- Para trasladar un almacén de Recovery Services, debe inscribirse en una [versión preliminar pública limitada](../backup/backup-azure-move-recovery-services-vault.md).
+ Para mover un almacén de Recovery Services, siga estos pasos: [Mover recursos al nuevo grupo de recursos o suscripción](../backup/backup-azure-move-recovery-services-vault.md).
 
 Actualmente, puede trasladar un almacén de Recovery Services, por región, cada vez. No puede trasladar aquellos almacenes que realizan copias de seguridad de Azure Files, Azure File Sync o SQL en máquinas virtuales de IaaS.
 
@@ -467,7 +467,7 @@ Mientras todavía se esté ejecutando la operación, continuará recibiendo el c
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
 ```
 
-## <a name="move-resources"></a>Mover recursos
+## <a name="move-resources"></a>Traslado de recursos
 
 ### <a name="a-nameuse-portal-by-using-azure-portal"></a><a name="use-portal" />Mediante Azure Portal
 

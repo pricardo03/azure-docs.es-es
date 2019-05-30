@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5daf0944212dc4b8040a39e6efbf5bb25f7f39f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 712004a1ae8a2a72854b7b2332449a019c0820c3
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901819"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256257"
 ---
 # <a name="create-an-application-insights-resource"></a>Creación de recursos en Application Insights
 Azure Application Insights muestra los datos de la aplicación en un *recurso*de Microsoft Azure. Por tanto, la creación de un nuevo recurso forma parte de la [configuración de Application Insights para supervisar una aplicación nueva][start]. En muchos casos, la creación de un recurso puede realizarla automáticamente el IDE. Pero en algunos casos, creará un recurso manualmente. Por ejemplo, para tener recursos independientes para las compilaciones de desarrollo y producción de la aplicación.
@@ -69,7 +69,6 @@ Si espera más datos, haga clic en **Actualizar** después de unos segundos.
 Puede escribir un [script de PowerShell](../../azure-monitor/app/powershell.md) para crear automáticamente un recurso.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Creación de un panel](../../azure-monitor/app/app-insights-dashboards.md)
 * [Búsqueda de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Exploración de métricas](../../azure-monitor/app/metrics-explorer.md)
 * [Escribir consultas de Analytics](../../azure-monitor/app/analytics.md)

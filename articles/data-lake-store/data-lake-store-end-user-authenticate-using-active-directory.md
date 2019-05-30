@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c0fe63e395ee08cb65e9bbbadc4ce1f03032ce95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c2b774c304e46f9fc68f3beaf64218e614ecad1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60878249"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234051"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticación de usuario final en Azure Data Lake Storage Gen1 con Azure Active Directory
 > [!div class="op_single_selector"]
@@ -45,12 +45,12 @@ En este artículo se habla de cómo crear una **aplicación nativa de Azure AD p
   
     ![Obtener dominio de AAD](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* El identificador del inquilino de Azure. Para obtener instrucciones sobre cómo recuperar el identificador de inquilino, consulte [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+* El identificador del inquilino de Azure. Para obtener instrucciones sobre cómo recuperar el identificador de inquilino, consulte [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## <a name="end-user-authentication"></a>Autenticación de usuario final
-El mecanismo de autenticación es el enfoque recomendado si quiere que un usuario final inicie sesión en la aplicación a través de Azure AD. La aplicación puede acceder a los recursos de Azure con el mismo nivel de acceso que el usuario final que ha iniciado sesión. El usuario final tiene que proporcionar sus credenciales periódicamente para que la aplicación conserve el acceso.
+Este mecanismo de autenticación es el enfoque recomendado si desea que un usuario final para iniciar sesión en su aplicación a través de Azure AD. La aplicación puede acceder a los recursos de Azure con el mismo nivel de acceso que el usuario final que ha iniciado sesión. El usuario final tiene que proporcionar sus credenciales periódicamente para que la aplicación conserve el acceso.
 
-El resultado del inicio de sesión por parte del usuario final es que la aplicación recibe un token de acceso y un token de actualización. El token de acceso se adjunta a cada solicitud hecha a Data Lake Storage Gen1 o Data Lake Analytics y es válido, de manera predeterminada, durante 1 hora. El token de actualización se puede usar para obtener un nuevo token de acceso y es válido, de manera predeterminada, hasta dos semanas. Puede usar dos enfoques distintos para el inicio de sesión del usuario final.
+El resultado del usuario final inicie sesión en es que la aplicación recibe un token de acceso y un token de actualización. El token de acceso se adjunta a cada solicitud hecha a Data Lake Storage Gen1 o Data Lake Analytics y es válido, de manera predeterminada, durante 1 hora. El token de actualización se puede usar para obtener un nuevo token de acceso y es válido, de manera predeterminada, hasta dos semanas. Puede usar dos enfoques diferentes para el inicio de sesión del usuario final.
 
 ### <a name="using-the-oauth-20-pop-up"></a>Uso de la ventana emergente de OAuth 2.0
 La aplicación puede desencadenar una ventana emergente de autorización de OAuth 2.0 en la que el usuario final puede escribir sus credenciales. Esta ventana emergente también funciona con el proceso de autenticación en dos fases (2FA) de Azure AD, si fuera necesario. 
@@ -82,7 +82,7 @@ Al seguir las instrucciones del vínculo, asegúrese de seleccionar **Nativa** c
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Paso 2: Obtener Id. de aplicación y URI de redireccionamiento
 
-Si necesita recuperar el identificador de la aplicación, consulte [Obtener el identificador de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+Si necesita recuperar el identificador de la aplicación, consulte [Obtener el identificador de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 Para recuperar el URI de redireccionamiento, siga estos pasos.
 

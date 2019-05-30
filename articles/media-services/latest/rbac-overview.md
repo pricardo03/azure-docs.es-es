@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/23/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 82c438ea246ba18fa7dac2281d68a3ea7ba41db8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93b2cd3a2565b14ea07d6db6b14dd146e4223528
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60930207"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236913"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Control de acceso basado en roles (RBAC) para cuentas de Media Services
 
@@ -43,6 +43,7 @@ Para obtener más información, consulte los siguientes artículos:
 - [Roles de administrador de suscripciones clásico de Azure RBAC y roles de administrador de Azure AD](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 - [¿Qué es RBAC para recursos de Azure?](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Utilice RBAC para administrar el acceso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
+- [Operaciones del proveedor de recursos de Media Services](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftmedia)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

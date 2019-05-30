@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777396"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244935"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
-El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos. El esquema de los datos es diferente en función de si va a leer los datos en el portal, PowerShell, la CLI o directamente mediante la API REST en comparación con la [transmisión de datos a Storage o Event Hubs mediante un perfil de registro](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Los ejemplos siguientes muestran el esquema puesto a disposición por el portal, PowerShell, la CLI y la API REST. Al final del artículo se proporciona una asignación de estas propiedades al [esquema de registros de diagnóstico de Azure](./diagnostic-logs-schema.md).
+El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos. El esquema de los datos es diferente en función de si va a leer los datos en el portal, PowerShell, la CLI o directamente mediante la API REST en comparación con la [transmisión de datos a Storage o Event Hubs mediante un perfil de registro](activity-log-export.md). Los ejemplos siguientes muestran el esquema puesto a disposición por el portal, PowerShell, la CLI y la API REST. Al final del artículo se proporciona una asignación de estas propiedades al [esquema de registros de diagnóstico de Azure](diagnostic-logs-schema.md).
 
 ## <a name="administrative"></a>Administrativo
 Esta categoría contiene el registro de todas las operaciones de creación, actualización, eliminación y acción realizadas a través de Resource Manager. Los ejemplos de los tipos de eventos que aparecen en esta categoría incluyen "crear máquina virtual" y "eliminar grupo de seguridad de red". Cada acción realizada por un usuario o una aplicación mediante Resource Manager se modela como una operación en un tipo de recurso determinado. Si el tipo de operación es Write, Delete o Action, los registros de inicio y corrección o error de esa operación se registran en la categoría Administrativo. La categoría Administrativo también incluye los cambios realizados en el control de acceso basado en roles de una suscripción.
@@ -216,7 +216,7 @@ Esta categoría contiene el registro de los eventos de estado del servicio que s
         "localizedValue": "Resource Health"
     },
     "eventTimestamp": "2018-09-04T15:33:43.65Z",
-    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "id": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
     "level": "Critical",
     "operationId": "",
     "operationName": {
@@ -232,7 +232,7 @@ Esta categoría contiene el registro de los eventos de estado del servicio que s
         "value": "Microsoft.Compute/virtualMachines",
         "localizedValue": "Microsoft.Compute/virtualMachines"
     },
-    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "resourceId": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -242,7 +242,7 @@ Esta categoría contiene el registro de los eventos de estado del servicio que s
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
-    "subscriptionId": "<subscription Id>",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "stage": "Active",
         "title": "Virtual Machine health status changed to unavailable",
@@ -275,7 +275,7 @@ Esta categoría contiene el registro de los eventos de estado del servicio que s
 | status |Cadena que describe el estado del evento de estado. Los valores pueden ser: Active, Resolved, InProgress, Updated. |
 | subStatus | Normalmente es null para las alertas. |
 | submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
-| subscriptionId |Identificador de la suscripción de Azure. |
+| subscriptionId |Identificador de suscripción de Azure |
 | properties |Conjunto de pares `<Key, Value>` (es decir, diccionario) que describen los detalles del evento.|
 | properties.title | Cadena fácil de usar que describe el estado del recurso. |
 | properties.details | Cadena fácil de usar que aporta detalles adicionales sobre el evento. |
@@ -798,6 +798,6 @@ Al realizar la transmisión del registro de actividad de Azure a una cuenta de a
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Más información sobre el registro de actividad (antes, Registros de auditoría)](../../azure-monitor/platform/activity-logs-overview.md)
-* [Transmisión del registro de actividad de Azure a Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [Más información sobre el registro de actividad](activity-logs-overview.md)
+* [Exportar el registro de actividad a Azure Storage o Event Hubs](activity-log-export.md)
 

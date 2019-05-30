@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485492"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234122"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
 
@@ -228,7 +228,7 @@ RLS se implementa en Transact-SQL. Una función definida por el usuario define l
     - Un predicado BLOCK impide que las filas que no pasan el filtro se inserten o actualicen con INSERT o UPDATE.
     - Si SESSION\_CONTEXT no se ha establecido, la función devuelve NULL y no hay filas visibles ni que puedan insertarse.
 
-Para habilitar RLS en todas las particiones, ejecute la siguiente instrucción T-SQL con Visual Studio (SSDT), SSMS o el script de PowerShell incluido en el proyecto. O bien, si utiliza [trabajos de Elastic Database](sql-database-elastic-jobs-overview.md), puede automatizar la ejecución de esta instrucción T-SQL en todas las particiones.
+Para habilitar RLS en todas las particiones, ejecute la siguiente instrucción T-SQL con Visual Studio (SSDT), SSMS o el script de PowerShell incluido en el proyecto. O bien, si utiliza [trabajos de Elastic Database](elastic-jobs-overview.md), puede automatizar la ejecución de esta instrucción T-SQL en todas las particiones.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.

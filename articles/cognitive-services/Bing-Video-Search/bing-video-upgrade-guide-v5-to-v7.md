@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 633981682bd8820d72a98b3fc6fbd802e0cd2afb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32dc928147af8fbb3c84bdb76e50cee4fdabe17d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60759901"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386647"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Guía de actualización de Video Search API
 
@@ -71,11 +71,11 @@ Bloqueado|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Parámetros de consulta
 
-- Se ha cambiado el nombre del parámetro de consulta `modulesRequested` por [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested).  
+- Se ha cambiado el nombre del parámetro de consulta `modulesRequested` por [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested).  
 
 ### <a name="object-changes"></a>Cambios en objetos
 
-- Ha cambiado el nombre del campo `nextOffsetAddCount` de [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) a `nextOffset`. También ha cambiado la forma de usar el desplazamiento. Anteriormente, se establecía el parámetro de consulta [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) en el valor `nextOffset` más el valor de desplazamiento anterior más el número de vídeos en el resultado. Ahora, basta con establecer el parámetro de consulta `offset` en el valor `nextOffset`.  
+- Ha cambiado el nombre del campo `nextOffsetAddCount` de [Videos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) a `nextOffset`. También ha cambiado la forma de usar el desplazamiento. Anteriormente, se establecía el parámetro de consulta [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) en el valor `nextOffset` más el valor de desplazamiento anterior más el número de vídeos en el resultado. Ahora, basta con establecer el parámetro de consulta `offset` en el valor `nextOffset`.  
   
-- Ha cambiado el tipo de datos del campo `relatedVideos` de `Video[]` a [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videosmodule) (consulte [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails)).
+- Ha cambiado el tipo de datos del campo `relatedVideos` de `Video[]` a [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (consulte [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)).
 

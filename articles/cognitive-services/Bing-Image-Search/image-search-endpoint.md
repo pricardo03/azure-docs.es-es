@@ -10,16 +10,16 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 9b3edd10d2928a512b94e9273000439f80cb8f33
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 076dbb26c267cf65a0d6f3a9835375b09951f2aa
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65777093"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388514"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Puntos de conexión para Bing Image Search API
 
-**Image Search API** incluye tres puntos de conexión.  El punto de conexión 1 devuelve imágenes de la web en función de una consulta. El punto de conexión 2 devuelve [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  El punto de conexión 3 devuelve imágenes populares.
+**Image Search API** incluye tres puntos de conexión.  El punto de conexión 1 devuelve imágenes de la web en función de una consulta. El punto de conexión 2 devuelve [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse).  El punto de conexión 3 devuelve imágenes populares.
 
 ## <a name="endpoints"></a>Puntos de conexión
 
@@ -34,9 +34,9 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
-Una solicitud GET devuelve información detallada sobre una imagen, como páginas web que incluyen la imagen. Incluya el parámetro [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) con una solicitud `GET`.
+Una solicitud GET devuelve información detallada sobre una imagen, como páginas web que incluyen la imagen. Incluya el parámetro [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) con una solicitud `GET`.
 
-O bien, puede incluir una imagen binaria en el cuerpo de una solicitud `POST` y establecer el parámetro [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) en `RecognizedEntities`. Esto devolverá [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) que se utilizará como parámetro en una solicitud `GET` subsiguiente, que devuelve información sobre las personas de la imagen.  Establezca `modules` en `All` para obtener todos los detalles, excepto `RecognizedEntities` en los resultados de `POST` sin realizar otra llamada mediante `insightsToken`.
+O bien, puede incluir una imagen binaria en el cuerpo de una solicitud `POST` y establecer el parámetro [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) en `RecognizedEntities`. Esto devolverá [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference#insightstoken) que se utilizará como parámetro en una solicitud `GET` subsiguiente, que devuelve información sobre las personas de la imagen.  Establezca `modules` en `All` para obtener todos los detalles, excepto `RecognizedEntities` en los resultados de `POST` sin realizar otra llamada mediante `insightsToken`.
 
 
 **Punto de conexión 3:** devuelve imágenes que son populares en función de las solicitudes de búsqueda que realizan otros usuarios. Las imágenes se dividen en categorías diferentes, por ejemplo, en función de personas o eventos destacables.
@@ -46,7 +46,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending
 
 Para una lista de los mercados que admiten imágenes populares, consulte [Imágenes populares](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images).
 
-Para más información sobre encabezados, parámetros, códigos de mercado, objetos de respuesta, errores etc., consulte la referencia [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+Para más información sobre encabezados, parámetros, códigos de mercado, objetos de respuesta, errores etc., consulte la referencia [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
 ## <a name="response-json"></a>Respuesta JSON
 La respuesta a una solicitud de búsqueda de imágenes incluye los resultados como objetos JSON. Para obtener ejemplos de análisis de los resultados, consulte el [tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) y el [código fuente](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source).
 

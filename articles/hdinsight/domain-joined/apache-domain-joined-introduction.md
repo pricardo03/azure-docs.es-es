@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: 8142caf867ffe811726677fb1dcbadc7d1458251
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0582fa8b26bee05e4d2948037cc39a71ed656fce
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793563"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243952"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>¿Qué es Enterprise Security Package en Azure HDInsight
 
@@ -36,7 +36,7 @@ La seguridad del perímetro en HDInsight se logra a través de redes virtuales y
 Otro nivel de seguridad del perímetro se logra mediante el servicio de VPN Gateway. La puerta de enlace actúa como primera línea de defensa para cualquier solicitud entrante al clúster de HDInsight. Acepta la solicitud, la valida y solo entonces permite que la solicitud pase a los otros nodos del clúster. De este modo, la puerta de enlace proporciona la seguridad del perímetro a otros nodos de nombre y datos en el clúster.
 
 ## <a name="authentication"></a>Authentication
-Un administrador de empresa puede crear un clúster de HDInsight con ESP en una [red virtual](https://azure.microsoft.com/services/virtual-network/). Todos los nodos del clúster de HDInsight se unen al dominio administrado por la empresa. Esto se logra mediante el uso de [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
+Un administrador de empresa puede crear un clúster de HDInsight con ESP en una [red virtual](https://azure.microsoft.com/services/virtual-network/). Todos los nodos del clúster de HDInsight se unen al dominio administrado por la empresa. Esto se logra mediante el uso de [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). 
 
 Con esta configuración, empleados de la empresa pueden iniciar sesión en los nodos del clúster con sus credenciales de dominio. También pueden usar sus credenciales de dominio para autenticarse con otros puntos de conexión aprobados tales como Apache Ambari Views, ODBC, JDBC, PowerShell y las API REST para interactuar con el clúster. El administrador tiene control total sobre la limitación del número de usuarios que interactúan con el clúster mediante estos puntos de conexión.
 

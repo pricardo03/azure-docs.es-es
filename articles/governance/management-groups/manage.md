@@ -2,16 +2,16 @@
 title: Cómo cambiar, eliminar o administrar los grupos de administración - gobierno de Azure
 description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
 author: rthorn17
-ms.service: azure-resource-manager
-ms.date: 04/04/2019
+ms.service: governance
+ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: b3798ec7578530e04ec9e00086fffaec9a58a7cd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 028b4cbf62bf9ed0b3b38f54d3b787a8c1368da0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950268"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242949"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -206,10 +206,12 @@ Uno de los motivos de crear un grupo de administración es agrupar las suscripci
 Para mover la suscripción, todos los permisos RBAC siguientes deben ser true:
 
 - Rol de "propietario" en la suscripción secundaria.
-- Rol "Propietario", "Colaborador" o "Colaborador de grupo de administración" en el group.* de administración de destino principal
-- Rol "Propietario", "Colaborador" o "Colaborador de grupo de administración" en el group.* de administración primario existente
+- Rol "Propietario", "Colaborador" o "Colaborador de grupo de administración" en el grupo de administración de destino primario.
+- Rol "Propietario", "Colaborador" o "Colaborador de grupo de administración" en el grupo de administración primario existente.
 
-*: A menos que el destino o el grupo de administración primario existente es el grupo de administración raíz. Puesto que el grupo de administración raíz es la zona para todos los nuevos grupos de administración y suscripciones de aterrizaje predeterminada, los usuarios no necesitan permisos en él para mover un elemento.
+Si el destino o el grupo de administración primario existente es el grupo de administración raíz, no se aplican los requisitos de permisos. Puesto que el grupo de administración raíz es la zona para todos los nuevos grupos de administración y suscripciones de aterrizaje predeterminada, no necesita los permisos sobre él para mover un elemento.
+
+Si el rol de propietario de la suscripción se hereda el grupo de administración actual, los destinos de movimiento están limitados. Sólo puede mover la suscripción a otro grupo de administración que tiene el rol de propietario. No se puede mover a un grupo de administración que sea un colaborador porque se perdería la propiedad de la suscripción. Si está directamente asignado al rol de propietario de la suscripción (no se hereda del grupo de administración), puede moverlo a cualquier grupo de administración que sea un colaborador.
 
 Para ver qué permisos tiene en Azure portal, seleccione la administración de grupo y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../../role-based-access-control/overview.md).
 
@@ -325,7 +327,7 @@ Se admiten grupos de administración en el [registro de actividad de Azure](../.
 
 ![Registros de actividad con grupos de administración](media/al-mg.png)
 
-Si observa las consultas en los grupos de administración fuera de Azure Portal, el ámbito de destino de los grupos de administración se parece a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
+Si observa las consultas en los grupos de administración fuera de Azure Portal, el ámbito de destino de los grupos de administración se parece a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 
 ## <a name="referencing-management-groups-from-other-resource-providers"></a>Hacer referencia a grupos de administración de otros proveedores de recursos
 

@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/14/2019
+ms.date: 05/17/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8b5a16e2d5e3ac723675ebdb536a51d20412681f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764851"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235385"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos para: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -40,11 +40,11 @@ Vamos a saltar directamente a la creación de la identidad. Si experimenta un pr
 
    ![Seleccionar registros de aplicaciones](./media/howto-create-service-principal-portal/select-app-registrations.png)
 
-1. Seleccione **Nuevo registro de aplicaciones**.
+1. Seleccione **Nuevo registro**.
 
    ![Agregar aplicación](./media/howto-create-service-principal-portal/select-add-app.png)
 
-1. Proporcione un nombre y una dirección URL para la aplicación. Seleccione **Aplicación web o API** para indicar el tipo de aplicación que desea crear. No se pueden crear credenciales para una [aplicación nativa](../manage-apps/application-proxy-configure-native-client-application.md). No se puede usar ese tipo en una aplicación automatizada. Después de configurar los valores, seleccione **Crear**.
+1. Proporcione un nombre para la aplicación. Seleccione una cuenta admitida tipo, que determina quién puede usar la aplicación. En **URI de redireccionamiento**, seleccione **Web** para el tipo de aplicación que desea crear. Escriba el URI que se envía el token de acceso.  No se pueden crear credenciales para una [aplicación nativa](../manage-apps/application-proxy-configure-native-client-application.md). No se puede usar ese tipo en una aplicación automatizada. Después de configurar los valores, seleccione **Registrar**.
 
    ![Aplicación de nombre](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -66,7 +66,7 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
 
    Si no ve la suscripción que busca, seleccione el **filtro de suscripciones globales**. Asegúrese de que la suscripción que desea está seleccionada para el portal. 
 
-1. Seleccione **Access Control (IAM)**.
+1. Seleccione **Access Control (IAM)** .
 1. Seleccione **Agregar asignación de roles**.
 
    ![Seleccione Agregar asignación de roles.](./media/howto-create-service-principal-portal/select-add.png)
@@ -81,37 +81,47 @@ La entidad de servicio está configurada. Puede empezar a usarla para ejecutar a
 
 ## <a name="get-values-for-signing-in"></a>Obtención de valores para iniciar sesión
 
-### <a name="get-tenant-id"></a>Obtención del identificador de inquilino
-
-Al iniciar sesión mediante programación, deberá pasar el id. de inquilino con la solicitud de autenticación.
+Al iniciar sesión mediante programación, deberá pasar el id. de inquilino con la solicitud de autenticación. También necesitará el identificador de la aplicación y una clave de autenticación. Para obtener estos valores, use los pasos siguientes:
 
 1. Seleccione **Azure Active Directory**.
-1. Seleccione **Propiedades**.
-
-   ![Selección de las propiedades de Azure AD](./media/howto-create-service-principal-portal/select-ad-properties.png)
-
-1. Copie el **Id. de directorio** para obtener el identificador del inquilino.
-
-   ![Id. de inquilino](./media/howto-create-service-principal-portal/copy-directory-id.png)
-
-### <a name="get-application-id-and-authentication-key"></a>Obtención del id. y la clave de autenticación de la aplicación
-
-También necesitará el identificador de la aplicación y una clave de autenticación. Para obtener estos valores, use los pasos siguientes:
 
 1. En **Registros de aplicaciones**, en Azure AD, seleccione su aplicación.
 
    ![Seleccionar aplicación](./media/howto-create-service-principal-portal/select-app.png)
 
+1. Copie el identificador de directorio (inquilino) y almacenarlo en el código de aplicación.
+
+    ![Id. de inquilino](./media/howto-create-service-principal-portal/copy-tenant-id.png)
+
 1. Copie el **id. de aplicación** y almacénelo en el código de la aplicación.
 
-   ![Identificador de cliente](./media/howto-create-service-principal-portal/copy-app-id.png)
+   ![Id. de cliente](./media/howto-create-service-principal-portal/copy-app-id.png)
 
+## <a name="certificates-and-secrets"></a>Certificados y secretos
+Aplicaciones de demonio pueden usar dos tipos de credenciales para autenticarse con Azure AD: los certificados y secretos de aplicación.  Se recomienda usar un certificado, pero también puede crear un nuevo secreto de aplicación.
+
+### <a name="upload-a-certificate"></a>Carga de un certificado
+
+Puede usar un certificado existente si tiene uno.  Si lo desea, puede crear un certificado autofirmado con fines de prueba. Abra PowerShell y ejecute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) con los parámetros siguientes para crear un certificado autofirmado en el almacén de certificados de usuario en el equipo: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Exportar este certificado mediante el [administrar certificados de usuario](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) complemento MMC accesible desde el Panel de Control de Windows.
+
+Para cargar el certificado:
+1. Seleccione **certificados y secretos**.
+
+   ![Seleccionar Configuración](./media/howto-create-service-principal-portal/select-certs-secrets.png)
+1. Haga clic en **cargar certificado** y seleccione el certificado (autofirmado o un certificado existente de certificado que exportó).
+    ![Cargar certificado](./media/howto-create-service-principal-portal/upload-cert.png)
+1. Haga clic en **Agregar**.
+
+Después de registrar el certificado con la aplicación en el portal de registro de aplicación, deberá habilitar el código de la aplicación cliente usar el certificado.
+
+### <a name="create-a-new-application-secret"></a>Crear un nuevo secreto de aplicación
+Si decide no usar un certificado, puede crear un nuevo secreto de aplicación.
 1. Seleccione **certificados y secretos**.
 
    ![Seleccionar Configuración](./media/howto-create-service-principal-portal/select-certs-secrets.png)
 
 1. Seleccione **los secretos de cliente -> nuevo secreto de cliente**.
-1. Proporcione una descripción del secreto y una duración. Cuando haya terminado, seleccione **agregar**.
+1. Proporcione una descripción del secreto y una duración. Cuando haya terminado, seleccione **Agregar**.
 
    ![Guardar el secreto](./media/howto-create-service-principal-portal/save-secret.png)
 

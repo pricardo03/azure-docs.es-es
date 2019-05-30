@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 51fd1195942a7bae86bb4cc0af9df3146d6e45c2
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 8e711c0586ce63d4293e2fb0914bbe884b55971f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921911"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389967"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conecte su solución externa mediante Common Event Format
 
@@ -32,7 +32,7 @@ Puede conectar Azure Sentinel con una solución externa que le permite guardar l
 > [!NOTE] 
 > Datos se almacenan en la ubicación geográfica del área de trabajo en el que se ejecuta Azure Sentinel.
 
-## <a name="how-it-works"></a>Funcionamiento
+## <a name="how-it-works"></a>Cómo funciona
 
 La conexión entre su dispositivo CEF y Sentinel Azure lleva a cabo en tres pasos:
 
@@ -44,6 +44,8 @@ La conexión entre su dispositivo CEF y Sentinel Azure lleva a cabo en tres paso
 2. El agente de Syslog recopila los datos y lo envía de forma segura a Log Analytics, donde se puede analizar y enriquecido.
 3. El agente almacena los datos en un área de trabajo de Log Analytics, por lo que puede consultarse según sea necesario, con los paneles, las reglas de correlación y análisis.
 
+> [!NOTE]
+> El agente puede recopilar registros de varios orígenes, pero debe estar instalado en el equipo de servidor proxy dedicado.
 
 ## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>Paso 1: Conexión al dispositivo a través de la máquina virtual de Azure dedicada CEF
 
@@ -61,7 +63,7 @@ También puede implementar el agente manualmente en una máquina virtual existen
 1. En el portal de Azure Sentinel, haga clic en **conectores de datos** y seleccione el tipo de dispositivo. 
 
 1. En **configuración del agente de Linux Syslog**:
-   - Elija **implementación automática** si desea crear un nuevo equipo que viene preinstalado con el agente de Azure Sentinel e incluye todas la necesaria de la configuración, como se describió anteriormente. Seleccione **implementación automática** y haga clic en **implementación automática del agente**. Esto le llevará a la página de compra para una VM de Linux dedicada que se conecta automáticamente al área de trabajo, es. La máquina virtual es un **estándar D2s v3 (2 vCPU, 8 GB de memoria)** y tiene una dirección IP pública.
+   - Elija **implementación automática** si desea crear un nuevo equipo que viene preinstalado con el agente de Azure Sentinel e incluye todas la necesaria de la configuración, como se describió anteriormente. Seleccione **implementación automática** y haga clic en **implementación automática del agente**. Esto le llevará a la página de compra para una VM de Linux dedicada que se conecta automáticamente al área de trabajo. La máquina virtual es un **estándar D2s v3 (2 vCPU, 8 GB de memoria)** y tiene una dirección IP pública.
       1. En el **implementación personalizada** página, proporcione sus detalles y elija un nombre de usuario y una contraseña y si acepta los términos y condiciones, la máquina virtual de compra.
       1. Configurar su dispositivo para enviar los registros mediante la configuración indicada en la página de conexión. Para el conector genérico Common Event Format, use estos valores:
          - Protocolo = UDP
@@ -118,6 +120,13 @@ Si no usa Azure, implementar manualmente el agente Azure Centinela para ejecutar
   
  Para usar el esquema correspondiente en Log Analytics para los eventos CEF, busque `CommonSecurityLog`.
 
+## <a name="step-2-forward-common-event-format-cef-logs-to-syslog-agent"></a>Paso 2: Reenviar los registros de Common Event Format (CEF) al agente de Syslog
+
+Establezca su solución de seguridad para enviar mensajes de Syslog en formato CEF a su agente de Syslog. Asegúrese de que usar los mismos parámetros que aparecen en la configuración de agente. Normalmente, estos son:
+
+- Puerto 514
+- Instalaciones local4
+
 ## <a name="step-3-validate-connectivity"></a>Paso 3: Validar conectividad
 
 Puede tardar más de 20 minutos hasta que los registros se empiecen a aparecer en Log Analytics. 
@@ -128,7 +137,7 @@ Puede tardar más de 20 minutos hasta que los registros se empiecen a aparecer e
 
 3. Asegúrese de que los registros de envío que cumplen con [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. En el equipo que ejecuta el agente de Syslog, asegúrese de que estos puertos 514, 25226 están abiertos y escucha, utilizando el comando `netstat -a -n:`. Para obtener más información sobre el uso de este comando, consulte [netstat(8) - página man de Linux](https://linux.die.netman/8/netstat). Si está escuchando correctamente, verá esto:
+4. En el equipo que ejecuta el agente de Syslog, asegúrese de que estos puertos 514, 25226 están abiertos y escucha, utilizando el comando `netstat -a -n:`. Para obtener más información sobre el uso de este comando, consulte [netstat(8) - página man de Linux](https://linux.die.net/man/8/netstat). Si está escuchando correctamente, verá esto:
 
    ![Puertos de Centinela de Azure](./media/connect-cef/ports.png) 
 

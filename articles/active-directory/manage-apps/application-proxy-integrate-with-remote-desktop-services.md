@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 05/23/2019
 ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ecd55cbb3a8eefc150db731901458561d90f033
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 621ca9a7a55f86a92f0c809b6e220245f47dfd39
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783405"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233723"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure AD
 
@@ -68,11 +68,12 @@ Una vez configurados RDS y el proxy de aplicación de Azure AD para su entorno, 
    - Dirección URL interna: `https://\<rdhost\>.com/`, donde `\<rdhost\>` es la raíz común que comparten Acceso web y Puerta de enlace de Escritorio remoto.
    - Dirección URL externa: este campo se rellena automáticamente según el nombre de la aplicación, pero puede modificarlo. Los usuarios visitarán esta dirección URL cuando tengan acceso a RDS.
    - Método de autenticación previa: Azure Active Directory
-   - Traducir URL en encabezados: No
+   - Traducir URL en encabezados: Sin 
 2. Asigne usuarios a la aplicación publicada de RD. Asegúrese también de que todos tienen acceso a RDS.
 3. Deje el método de inicio de sesión único de la aplicación como **Se desactivó el inicio de sesión único de Azure AD**. Se solicita a los usuarios que se autentiquen una vez en Azure AD y una vez en Acceso web de Escritorio remoto, pero tienen inicio de sesión único en Puerta de enlace de Escritorio remoto.
-4. Vaya a **Azure Active Directory** > **Registros de aplicaciones** > *Su aplicación* > **Configuración**.
-5. Seleccione **Propiedades** y actualice el campo **Dirección URL de la página principal** para que apunte al punto de conexión de Acceso web de Escritorio remoto (como `https://\<rdhost\>.com/RDWeb`).
+4. Seleccione **Azure Active Directory**y, a continuación, **registros de aplicaciones**. Elija la aplicación en la lista.
+5. En **administrar**, seleccione **Branding**.
+6. Actualización de la **URL de página principal** campo para que apunte al punto de conexión Web a Escritorio remoto (como `https://\<rdhost\>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Dirigir el tráfico RDS al proxy de aplicación
 

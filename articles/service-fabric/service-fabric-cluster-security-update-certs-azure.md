@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f1998ec2fe82b9fd52547fbccb208542b22bc949
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66161823"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306910"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Agregar o quitar certificados para un clúster de Service Fabric de Azure
 Se recomienda leer [Escenarios de seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md) para familiarizarse con cómo Service Fabric usa los certificados X.509. Debe entender qué es un certificado de clúster y para qué se usa antes de seguir avanzando.
@@ -48,7 +48,7 @@ Si su intención es eliminar el certificado marcado como principal, deberá impl
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Incorporación de un certificado secundario mediante Powershell para Resource Manager
 > [!TIP]
-> Ahora es mejor y más fácil forma para agregar un certificado secundario mediante la [agregar AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. No es necesario que siga el resto de los pasos descritos en esta sección.  Además, no es necesario en la plantilla usada originalmente para crear e implementar el clúster cuando se usa el [agregar AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
+> Hay ahora una manera mejor y más fácil agregar un certificado secundario mediante la [agregar AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. No es necesario que siga el resto de los pasos descritos en esta sección.  Además, no es necesario en la plantilla usada originalmente para crear e implementar el clúster cuando se usa el [agregar AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
 
 En estos pasos se da por hecho que está familiarizado con el funcionamiento de Resource Manager, que ha implementado al menos un clúster de Service Fabric mediante una plantilla de Resource Manager, y que tiene a mano la plantilla que utilizó para configurar el clúster. También se da por hecho que está familiarizado con el uso de JSON.
 
@@ -195,7 +195,7 @@ Modifique el parámetro File de la plantilla de Resource Manager, y agregue los 
 ### <a name="deploy-the-template-to-azure"></a>Implementación de la plantilla en Azure
 
 - Ahora está preparado para implementar la plantilla en Azure. Abra un símbolo del sistema de Azure PS versión 1 o superior.
-- Inicie sesión en su cuenta de Azure y seleccione la suscripción de Azure específica. Este es un paso importante para personas que tienen acceso a más de una suscripción.
+- Inicie sesión en su cuenta de Azure y seleccione la suscripción de azure específica. Este es un paso importante para personas que tienen acceso a más de una suscripción.
 
 ```powershell
 Connect-AzAccount

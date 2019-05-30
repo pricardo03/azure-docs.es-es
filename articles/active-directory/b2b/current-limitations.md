@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 05/29/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4aae8eb29b9e90bd1cb84949e97e21ed68c04c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d1466614dfeb8fa4d3d095bae070d01c6503c5bb
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812782"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357239"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitaciones de colaboración B2B de Azure AD
 La colaboración B2B de Active Directory (Azure AD) de Azure está sujeta actualmente a las limitaciones descritas en este artículo.
@@ -29,6 +29,9 @@ En los flujos de colaboración B2B, hemos agregado usuarios al directorio y los 
 
 ## <a name="azure-ad-directories"></a>Directorios de Azure AD
 Azure AD B2B está sujeto a los límites de directorio del servicio Azure AD. Para obtener más información sobre el número de directorios que puede crear un usuario y el número de directorios al que puede pertenecer un usuario o usuario invitado, consulte [Restricciones y límites del servicio Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+
+## <a name="national-clouds"></a>Nubes nacionales
+[Nubes nacionales](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) son instancias físicamente aisladas de Azure. No se admite la colaboración B2B a través de límites de la nube nacional. Por ejemplo, si su inquilino de Azure se encuentra en la nube pública, global, no se puede invitar a un usuario cuya cuenta se encuentra en una nube nacional. Para colaborar con el usuario, pídale a otra dirección de correo electrónico o crear una cuenta de usuario del miembro para ellos en el directorio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

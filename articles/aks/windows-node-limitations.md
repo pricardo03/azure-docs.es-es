@@ -2,17 +2,17 @@
 title: Limitaciones de los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 description: Obtenga información sobre las limitaciones conocidas al ejecutar cargas de trabajo de aplicación y los grupos de nodos de Windows Server en Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 3d249271995d96307722dadf6b3e012e63565e6a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.author: twhitney
+ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956263"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304392"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitaciones actuales para grupos de nodos de Windows Server y las cargas de trabajo de aplicación en Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ En Azure Kubernetes Service (AKS), puede crear un grupo de nodos que ejecuta Win
 En este artículo se describe algunas de las limitaciones y los conceptos del sistema operativo para los nodos de Windows Server en AKS. Grupos de nodos para Windows Server están actualmente en versión preliminar.
 
 > [!IMPORTANT]
-> Características de versión preliminar AKS son autoservicio y participación. Las versiones preliminares se proporcionan para recopilar comentarios y los errores de nuestra comunidad. Sin embargo, no se admiten por soporte técnico de Azure. Si crea un clúster, o agregar estas características para clústeres existentes, ese clúster no se admite hasta que la característica ya no está en versión preliminar y se aprueba para disponibilidad general (GA).
+> Características de versión preliminar AKS son autoservicio, participación. Se proporcionan para recopilar comentarios y los errores de nuestra comunidad. En la vista previa, estas características no están diseñadas para su uso en producción. Características en versión preliminar pública se incluyen en el soporte técnico de "mejor esfuerzo". Asistencia de los equipos de soporte técnico de AKS está disponible durante el horario comercial del Pacífico (PST) solo timezone. Para obtener más información, consulte los siguientes artículos de soporte técnico:
 >
-> Si tiene problemas con las características de vista previa, [abra una incidencia en el repositorio de GitHub de AKS] [ aks-github] con el nombre de la característica de vista previa en el título del error.
+> * [Directivas de soporte técnico AKS][aks-support-policies]
+> * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Limitaciones de Windows Server en Kubernetes
 
@@ -57,6 +58,8 @@ Se aplican las siguientes limitaciones adicionales a soporte de grupo de nodos d
 - Vista previa de las características de AKS, como el Escalador automático del clúster y directivas de redes no están aprobadas para los nodos de Windows Server.
 - Solo se deben programar los controladores de entrada en nodos de Linux mediante un NodeSelector.
 - Espacios de desarrollo de Azure actualmente solo está disponible para grupos de nodos basado en Linux.
+- Grupo cuentas de servicio administradas (gMSA) de soporte técnico cuando los nodos de Windows Server no estén unidos a un dominio de Active Directory no está disponible actualmente en AKS.
+    - El código abierto, upstream [aks motor] [ aks-engine] proyecto actualmente proporciona soporte técnico de gMSA si necesita usar esta característica.
 
 ## <a name="os-concepts-that-are-different"></a>Conceptos del sistema operativo que son diferentes
 
@@ -74,11 +77,13 @@ Para empezar a trabajar con contenedores de Windows Server en AKS, [crear un gru
 
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
-[aks-github]: https://github.com/azure/aks/issues]
 [kubernetes]: https://kubernetes.io
+[aks-engine]: https://github.com/azure/aks-engine
 
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [windows-node-cli]: windows-container-cli.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

@@ -3,7 +3,7 @@ title: Protección contra amenazas avanzada de Windows Defender con Azure Securi
 description: Este documento presenta la integración entre Azure Security Center y la Protección contra amenazas avanzada de Windows Defender.
 services: security-center
 documentationcenter: na
-author: barclayn
+author: monhaber
 manager: barbkess
 editor: ''
 ms.service: security-center
@@ -11,21 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
-ms.author: barclayn
-ms.openlocfilehash: 75ca1401f72e00454dc3355d31c8b8ea64669a72
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/27/2018
+ms.author: monhaber
+ms.openlocfilehash: 8511f8987368d5746373f71e9f553013e385e0ee
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129134"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258467"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Protección contra amenazas avanzada de Windows Defender con Azure Security Center
 
 Azure Security Center va a ampliar su oferta de plataformas de protección de cargas de trabajo en la nube mediante la integración con la [Protección contra amenazas avanzada de Windows Defender](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP).
 Este cambio ofrece funcionalidades completas de detección y respuesta (EDR) de puntos de conexión. Con la integración de ATP de Windows Defender, puede detectar anomalías. También puede detectar y responder a ataques avanzados en los puntos de conexión de servidor que Azure Security Center supervisa.
 
-Los clientes de Azure Security Center ahora pueden usar las características de ATP de Windows Defender:
+## <a name="windows-defender-atp-features-in-security-center"></a>Características de Windows Defender ATP en Security Center
+
+Al usar Windows Defender ATP obtendrá:
 
 - **Sensores de detección de brechas de próxima generación**: los sensores de ATP de Windows Defender para los servidores Windows recopilan una amplia variedad de señales de comportamiento.
 
@@ -53,9 +55,10 @@ Puede investigar más la alerta basándose en ATP de Windows Defender. Allí pue
 
 ## <a name="platform-support"></a>Compatibilidad con plataformas
 
-Esta característica admite la detección en Windows Server 2012 R2 y Windows Server 2016.
+Windows Defender ATP en Security Center admite la detección en los sistemas de operativos Windows Server 2012 R2 y Windows Server 2016 que pertenecen a una suscripción de servicio estándar.
 
-Se admiten solo los servidores en las suscripciones para el nivel de servicio estándar.
+> [!NOTE]
+> Al usar Azure Security Center para supervisar los servidores, se crea automáticamente un inquilino de ATP de Windows Defender y los datos de ATP de Windows Defender se almacenan en Europa de forma predeterminada. Si tiene que mover los datos a otra ubicación, deberá ponerse en contacto con Microsoft Support para restablecer al inquilino.
 
 ## <a name="onboarding-servers-to-security-center"></a>Incorporación de servidores a Security Center 
 
@@ -69,7 +72,6 @@ Para incorporar servidores a Security Center, haga clic en **Go to Azure Securit
 4. Después de la incorporación, puede supervisar las máquinas en **Procesos y aplicaciones**.
 
    ![Incorporación de equipos](media/security-center-wdatp/onboard-computers.png)
-
 
 ## <a name="enable-windows-defender-atp-integration"></a>Habilitación de la integración con ATP de Windows Defender
 
@@ -113,7 +115,7 @@ Para generar una alerta de prueba inofensiva de ATP de Windows Defender:
 
 3. Si el comando se ejecuta correctamente, verá una nueva alerta en el panel de Azure Security Center y el portal de ATP de Windows Defender. Esta alerta puede tardar unos minutos en aparecer.
 
-4. Para revisar la alerta en Security Center, vaya a **Security Alerts (Alertas de seguridad)** >  **Suspicious Powershell CommandLine (Línea de comandos de Powershell Sospechosa)**.
+4. Para revisar la alerta en Security Center, vaya a **Security Alerts (Alertas de seguridad)**  >  **Suspicious Powershell CommandLine (Línea de comandos de Powershell Sospechosa)** .
 
 5. En la ventana de la investigación, seleccione el vínculo para ir al portal de ATP de Windows Defender.
 

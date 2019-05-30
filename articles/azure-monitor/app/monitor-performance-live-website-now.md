@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3f4ef7f333525d7408d0345b917102cddb295386
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131000"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255462"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentación de aplicaciones web en tiempo de ejecución con Monitor de estado de Application Insights
 
@@ -48,10 +48,10 @@ A continuación hay un resumen de lo que se obtiene por cada vía:
 | [Excepciones más detalladas](../../azure-monitor/app/asp-net-exceptions.md) | |Sí |
 | [Diagnósticos de dependencia](../../azure-monitor/app/asp-net-dependencies.md) |En .NET 4.6 +, pero con menos detalle |Sí, detalles completos: códigos de resultado, texto de comandos SQL, verbo HTTP|
 | [Contadores de rendimiento del sistema](../../azure-monitor/app/performance-counters.md) |Sí |Sí |
-| [API para la telemetría personalizada][api] |Sí |No |
-| [Integración del registro de seguimiento](../../azure-monitor/app/asp-net-trace-logs.md) |Sí |No |
-| [Datos de usuario y página](../../azure-monitor/app/javascript.md) |Sí |No |
-| Es necesario volver a compilar el código |Sí | No |
+| [API para la telemetría personalizada][api] |Sí |Sin  |
+| [Integración del registro de seguimiento](../../azure-monitor/app/asp-net-trace-logs.md) |Sí |Sin  |
+| [Datos de usuario y página](../../azure-monitor/app/javascript.md) |Sí |Sin  |
+| Es necesario volver a compilar el código |Sí | Sin  |
 
 
 
@@ -151,7 +151,7 @@ Luego, reinicie el monitor de estado.
 
 * Como Monitor de estado es una aplicación .NET también es posible habilitar [seguimiento de .net mediante la adición de los diagnósticos adecuados para el archivo de configuración](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Por ejemplo, en algunos escenarios puede ser útil ver lo que sucede en el nivel de red por [configuración del seguimiento de red](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
 
-### <a name="insufficient-permissions"></a>No hay permisos suficientes
+### <a name="insufficient-permissions"></a>Permisos insuficientes
   
 * En el servidor, si ve en un mensaje acerca de "permisos insuficientes", intente lo siguiente:
   * En el Administrador de IIS, seleccione el grupo de aplicaciones, abra **Configuración avanzada** y en **Modelo de proceso**, anote la identidad.
@@ -177,7 +177,7 @@ Elimine cualquiera de estos archivos encontrados en el directorio de la aplicaci
 
 * Consulte Más [soluciones de problemas][qna].
 
-## <a name="system-requirements"></a>Requisitos de sistema
+## <a name="system-requirements"></a>Requisitos del sistema
 Compatibilidad de sistema operativo para el Monitor de estado de Application Insights en servidor:
 
 * Windows Server 2008
@@ -295,7 +295,7 @@ En el caso de las aplicaciones que instrumenta solo en tiempo de ejecución medi
 * Solicitudes HTTP
 * Llamadas a dependencias
 * Excepciones
-* Contadores de rendimiento
+* contadores de rendimiento
 
 En el caso de las aplicaciones ya instrumentadas en el momento de la compilación:
 
@@ -321,7 +321,6 @@ Vea la telemetría:
 * [Explore las métricas](../../azure-monitor/app/metrics-explorer.md) para supervisar el rendimiento y uso.
 * [Busque eventos y registros][diagnostic] para diagnosticar problemas.
 * [Análisis](../../azure-monitor/app/analytics.md) para más consultas avanzadas
-* [Creación de paneles](../../azure-monitor/app/app-insights-dashboards.md)
 
 Agregue más telemetría:
 

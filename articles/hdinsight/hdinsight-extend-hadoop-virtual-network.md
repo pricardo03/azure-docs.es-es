@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/29/2019
-ms.openlocfilehash: e586ab1bdcca9d6109cf42b6341c333fabb02993
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/28/2019
+ms.openlocfilehash: 9316ca0dfaa2d550ea9a2b89d2c93e0e37230f62
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601668"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388338"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
@@ -211,41 +211,39 @@ Para conectarse a Apache Ambari y otras páginas web a través de la red virtual
 
 ## <a id="networktraffic"></a> Control del tráfico de red
 
+### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>Control del tráfico entrante a los clústeres de HDInsight
+
 El tráfico de red en instancias de Azure Virtual Network se puede controlar mediante los métodos siguientes:
 
 * Los **Grupos de seguridad de red** (NSG) permiten filtrar el tráfico de entrada y salida de la red. Para más información, vea el documento [Filtrar el tráfico de red con grupos de seguridad de red](../virtual-network/security-overview.md).
 
-    > [!WARNING]  
-    > HDInsight no admite la restricción de tráfico saliente. Se debe permitir todo el tráfico saliente.
-
-* Las **Rutas definidas por el usuario** (UDR) definen cómo fluye el tráfico entre los recursos de la red. Para más información, vea el documento [Rutas definidas por el usuario y reenvío IP](../virtual-network/virtual-networks-udr-overview.md).
-
 * Los **Dispositivos de red virtual** replican las funciones de dispositivos como enrutadores y firewalls. Para más información, vea el documento [Dispositivos de red](https://azure.microsoft.com/solutions/network-appliances).
 
-Como un servicio administrado, HDInsight requiere acceso sin restricciones para el estado de HDInsight y administración de servicios para el tráfico entrante y saliente de la red virtual. Al usar grupos de seguridad de red y rutas definidas por el usuario, debe asegurarse de que estos servicios pueden seguir comunicándose con el clúster de HDInsight.
+Como un servicio administrado, HDInsight requiere acceso sin restricciones para el estado de HDInsight y administración de servicios para el tráfico entrante y saliente de la red virtual. Al usar NSG, debe asegurarse de que estos servicios puedan comunicarse con el clúster de HDInsight.
 
-### <a id="hdinsight-ip"></a> HDInsight con grupos de seguridad de red y rutas definidas por el usuario
+![Diagrama de entidades de HDInsight que creó en la red virtual de Azure personalizado](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-Si planea usar **grupos de seguridad de red** o **rutas definidas por el usuario** para controlar el tráfico de red, realice las siguientes acciones antes de instalar HDInsight:
+### <a id="hdinsight-ip"></a> HDInsight con grupos de seguridad de red
+
+Si planea usar **grupos de seguridad de red** para controlar el tráfico de red, realice las siguientes acciones antes de instalar HDInsight:
 
 1. Identificar la región de Azure que va a usar para HDInsight.
 
 2. Identificar las direcciones IP requeridas para HDInsight. Para más información, vea la sección [Direcciones IP requeridas por HDInsight](#hdinsight-ip).
 
-3. Cree o modifique los grupos de seguridad de red o las rutas definidas por el usuario para la subred en la que tiene previsto instalar HDInsight.
+3. Crear o modificar los grupos de seguridad de red para la subred que tiene previsto instalar HDInsight en.
 
-    * __Grupos de seguridad de red__: permita tráfico de __entrada__ en el puerto __443__ desde las direcciones IP. Esto garantizará que los servicios de administración de HDI puedan comunicarse con el clúster desde fuera de la red virtual.
-    * __Rutas definidas por el usuario__: si pretende usar rutas definidas por el usuario, cree una ruta para cada dirección IP y establezca el __Tipo del próximo salto__ en __Internet__. También debe permitir el tráfico saliente de la red virtual sin restricciones. Por ejemplo, puede enrutar todo el tráfico a la red o firewall de aplicación virtual de Azure (hospedado en Azure) con fines de supervisión, pero no se debe bloquear el tráfico saliente.
+    * __Grupos de seguridad de red__: permita tráfico de __entrada__ en el puerto __443__ desde las direcciones IP. Esto garantizará que los servicios de administración de HDInsight pueden comunicarse con el clúster desde fuera de la red virtual.
 
-Para más información sobre grupos de seguridad de red o rutas definidas por el usuario, vea la documentación siguiente:
+Para obtener más información sobre los grupos de seguridad de red, consulte el [visión general de grupos de seguridad de red](../virtual-network/security-overview.md).
 
-* [Grupo de seguridad de red](../virtual-network/security-overview.md)
+### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Controlar el tráfico saliente de clústeres de HDInsight
 
-* [Rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md)
+Para obtener más información sobre cómo controlar el tráfico saliente de clústeres de HDInsight, consulte [configurar restricción del tráfico de red saliente para clústeres de HDInsight de Azure](hdinsight-restrict-outbound-traffic.md).
 
 #### <a name="forced-tunneling-to-on-premise"></a>Tunelización forzada a una ubicación local
 
-La tunelización forzada es una configuración de enrutamiento definida por el usuario en la que todo el tráfico de subred se fuerza a una red o ubicación específica, por ejemplo, la red local. HDInsight __no__ soporte técnico de la tunelización forzada a las redes locales. Si usa Firewall de Azure o un dispositivo de red virtual hospedada en Azure, puede usar Udr para enrutar el tráfico a él con fines de supervisión y permitir todo el tráfico saliente.
+La tunelización forzada es una configuración de enrutamiento definida por el usuario en la que todo el tráfico de subred se fuerza a una red o ubicación específica, por ejemplo, la red local. HDInsight __no__ soporte técnico de la tunelización forzada del tráfico a redes locales. 
 
 ## <a id="hdinsight-ip"></a> Direcciones IP necesarias
 
@@ -270,7 +268,7 @@ Si usa grupos de seguridad de red, debe permitir que el tráfico de los servicio
     > [!IMPORTANT]  
     > Si la región de Azure que está usando no aparece, use únicamente las cuatro direcciones IP del paso 1.
 
-    | País | Área | Direcciones IP de origen permitidas | Destino permitido | Direction |
+    | País | Region | Direcciones IP de origen permitidas | Destino permitido | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | Asia | Asia oriental | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
     | &nbsp; | Sudeste asiático | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |

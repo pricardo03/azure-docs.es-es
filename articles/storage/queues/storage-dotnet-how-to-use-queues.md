@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 054369a7fd75663c75c99c6ee586843582a6b6f9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: HT
+ms.openlocfilehash: bfa69c6904644f707626e57a6696695cf4868c50
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965958"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236617"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introducción al Almacenamiento en cola de Azure mediante .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -75,7 +75,7 @@ CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     
 Ahora ya puede escribir código que lee y escribe datos en el Almacenamiento en cola.
 
-## <a name="create-a-queue"></a>Crear una cola
+## <a name="create-a-queue"></a>Creación de una cola
 En este ejemplo se muestra cómo crear una cola si todavía no existe:
 
 ```csharp
@@ -231,7 +231,7 @@ foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes
 ```
 
 ## <a name="get-the-queue-length"></a>la longitud de la cola
-Puede obtener una estimación del número de mensajes existentes en una cola. El método [FetchAttributes](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet) solicita al servicio de cola la recuperación de los atributos de la cola, incluido el número de mensajes. La propiedad [ApproximateMessageCount](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet) devuelve el último valor recuperado por el método **FetchAttributes**, sin llamar a Queue service.
+Puede obtener una estimación del número de mensajes existentes en una cola. El método [FetchAttributes](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet) solicita al servicio de cola la recuperación de los atributos de la cola, incluido el número de mensajes. La propiedad [ApproximateMessageCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet) devuelve el último valor recuperado por el método **FetchAttributes**, sin llamar a Queue service.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -255,7 +255,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 ```
 
 ## <a name="delete-a-queue"></a>Eliminación de una cola
-Para eliminar una cola y todos los mensajes contenidos en ella, llame al método [Delete](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet) en el objeto de cola.
+Para eliminar una cola y todos los mensajes contenidos en ella, llame al método [Delete](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet) en el objeto de cola.
 
 ```csharp
 // Retrieve storage account from connection string.

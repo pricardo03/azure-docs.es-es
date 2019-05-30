@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: e1cd7d9e135f5e3196f02237076c5c8069048fb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 199ce2fe24d76595493dc2128cebb3fcb642fcab
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442739"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241145"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -278,7 +278,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "serviceBusTrigger". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
-|**dirección** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
+|**direction** | N/D | Debe establecerse en "in". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa el mensaje de cola o tema en el código de la función. Se establece en "$return" para hacer referencia al valor devuelto de la función. |
 |**queueName**|**QueueName**|Nombre de la cola que se debe supervisar.  Se establece únicamente si se supervisa una cola, no un tema.
 |**topicName**|**TopicName**|Nombre del tema que se debe supervisar. Se establece únicamente si se supervisa un tema, no una cola.|
@@ -330,7 +330,7 @@ El desencadenador de Service Bus proporciona varias [propiedades de metadatos](.
 |`CorrelationId`|`string`|Identificador de correlación.|
 
 > [!NOTE]
-> Actualmente, el desencadenador solo funciona con colas y suscripciones que no usan sesiones. Realice un seguimiento de [este elemento de la característica](https://github.com/Azure/azure-functions-host/issues/563) para comprobar si hay actualizaciones relacionadas con ella. 
+> Actualmente, el desencadenador de bus de servicio que funciona con las suscripciones y colas de la sesión habilitada está en versión preliminar. Realiza un seguimiento de [este elemento](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) para las actualizaciones con respecto a esto. 
 
 Consulte los [ejemplos de código](#trigger---example) que utilizan estas propiedades más arriba en este artículo.
 
@@ -594,7 +594,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
 |**type** | N/D | Debe establecerse en "serviceBus". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
-|**dirección** | N/D | Debe establecerse en "out". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
+|**direction** | N/D | Debe establecerse en "out". Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. |
 |**name** | N/D | Nombre de la variable que representa la cola o el tema en el código de la función. Se establece en "$return" para hacer referencia al valor devuelto de la función. |
 |**queueName**|**QueueName**|Nombre de la cola.  Se establece únicamente si se envían mensajes de cola, no de tema.
 |**topicName**|**TopicName**|Nombre del tema que se debe supervisar. Se establece únicamente si se envían mensajes de tema, no de cola.|

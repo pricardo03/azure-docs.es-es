@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: pabutler
-ms.openlocfilehash: 6ca0eb23dad218262eff5d80543628df273022c9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c97bf10daa8f062cc833c7d7c5f7b0ca4835ca6f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942234"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257540"
 ---
 # <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>Administre su perfil de publicador de Azure Marketplace y AppSource
 
@@ -49,7 +49,7 @@ también puede vincular su cuenta del centro de desarrollo existente con el perf
 > [!NOTE]
 > Registro de la cuenta de centro para desarrolladores es obligatorio para la publicación en Marketplace las SKU de pago.
 
-Si no tienes una cuenta del Centro para desarrolladores, puede crear una cuenta, como se describe en [registrar en Centro de desarrollo](../../register-dev-center.md).  A continuación, agregue la dirección de correo electrónico registrada como propietario en Cloud Partner Portal para su oferta. Los propietarios solo pueden agregar la dirección de correo electrónico registrada para el perfil de publicación desde la sección **Usuario**. Después, inicie sesión en el portal con la misma dirección de correo electrónico y vincule la cuenta del Centro de desarrollo.
+Si no tienes una cuenta del Centro para desarrolladores, puede crear una cuenta, como se describe en [registrar en Centro de desarrollo](https://docs.microsoft.com/azure/marketplace/register-dev-center).  A continuación, agregue la dirección de correo electrónico registrada como propietario en Cloud Partner Portal para su oferta. Los propietarios solo pueden agregar la dirección de correo electrónico registrada para el perfil de publicación desde la sección **Usuario**. Después, inicie sesión en el portal con la misma dirección de correo electrónico y vincule la cuenta del Centro de desarrollo.
 
 ![Detalles del perfil de anunciante: descripción del perfil de anunciante](./media/publisherprofiledescription.png)
 

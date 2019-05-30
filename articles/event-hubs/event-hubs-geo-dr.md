@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b3b3b019df70b6c27833afdd0447ecf32da32ff
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821804"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305012"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs: recuperación ante desastres geográfica 
 
 Cuando hay regiones de Azure completas o centros de datos (si no se utilizan [zonas de disponibilidad](../availability-zones/az-overview.md)) que experimentan un tiempo de inactividad, es crucial que el procesamiento de datos siga funcionando en otra región o centro de datos. De esta forma, la *recuperación ante desastres con localización geográfica* y la *replicación geográfica* son características importantes para cualquier empresa. Azure Event Hubs admite tanto la recuperación ante desastres con localización geográfica como la replicación geográfica, en el nivel de espacio de nombres. 
 
-La característica de recuperación ante desastres con localización geográfica está disponible globalmente para el SKU estándar de Event Hubs.
+La característica de recuperación ante desastres está disponible globalmente para Event Hubs estándar y SKU dedicado. Tenga en cuenta que puede solo espacios de nombres de par de replicación geográfica en el mismo nivel de SKU. Por ejemplo, si tiene un espacio de nombres en un clúster que se ofrece solo en nuestra SKU dedicado, solo se puede emparejar con un espacio de nombres en otro clúster. 
 
 ## <a name="outages-and-disasters"></a>Interrupciones y desastres
 

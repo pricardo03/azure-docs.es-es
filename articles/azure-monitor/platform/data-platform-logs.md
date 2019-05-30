@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 897f2eef0a52838d6190cb85a6a7f4492250935b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809230"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244850"
 ---
 # <a name="logs-in-azure-monitor"></a>Registros en Azure Monitor
 
@@ -79,7 +79,7 @@ Azure Monitor puede recopilar datos de registro de diversos orígenes, tanto en 
 | Datos | DESCRIPCIÓN |
 |:---|:---|
 | Registros de auditoría de Azure Active Directory | Configurar a través de la configuración de diagnóstico para cada directorio. Consulte [registros de integración de Azure AD con registros de Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
-| Registros de actividad | Almacenan por separado de forma predeterminada y puede usarse para cerca de alertas en tiempo real. Instale la solución Activity Log Analytics para escribir en el área de trabajo de Log Analytics. Consulte [recopilar y analizar los registros de actividad de Azure en Log Analytics](collect-activity-logs.md). |
+| Registros de actividad | Almacenan por separado de forma predeterminada y puede usarse para cerca de alertas en tiempo real. Instale el registro de actividad de solución de análisis para escribir en el área de trabajo de Log Analytics. Consulte [recopilar y analizar los registros de actividad de Azure en Log Analytics](activity-log-collect.md). |
 
 ### <a name="azure-resources"></a>Recursos de Azure
 
@@ -87,7 +87,7 @@ Azure Monitor puede recopilar datos de registro de diversos orígenes, tanto en 
 |:---|:---|
 | Diagnóstico de recursos | Configurar opciones de diagnóstico para escribir en datos de diagnóstico, incluidas las métricas para un área de trabajo de Log Analytics. Consulte [Stream registros de diagnóstico de Azure a Log Analytics](diagnostic-logs-stream-log-store.md). |
 | Soluciones de supervisión | Soluciones de supervisión de escriben los datos que se recopilan a su área de trabajo de Log Analytics. Consulte [detalles de la recopilación de datos para soluciones de administración de Azure](../insights/solutions-inventory.md) para obtener una lista de soluciones. Consulte [supervisión de soluciones en Azure Monitor](../insights/solutions.md) para obtener más información sobre la instalación y uso de soluciones. |
-| Métricas | Enviar métricas de la plataforma para recursos de Azure Monitor a un área de trabajo de Log Analytics para conservar los datos de registro durante períodos más largos y llevar a cabo un análisis complejo con otros tipos de datos mediante el [lenguaje de consulta Kusto](/azure/kusto/query/). Consulte [Stream registros de diagnóstico de Azure a Log Analytics](diagnostic-logs-stream-log-store.md). |
+| metrics | Enviar métricas de la plataforma para recursos de Azure Monitor a un área de trabajo de Log Analytics para conservar los datos de registro durante períodos más largos y llevar a cabo un análisis complejo con otros tipos de datos mediante el [lenguaje de consulta Kusto](/azure/kusto/query/). Consulte [Stream registros de diagnóstico de Azure a Log Analytics](diagnostic-logs-stream-log-store.md). |
 | Almacenamiento de tablas de Azure | Recopilar datos de Azure storage donde escriben algunos recursos de Azure los datos de supervisión. Consulte [almacenamiento de blobs de Azure de uso para IIS y Azure table storage para eventos con Log Analytics](azure-storage-iis-table.md). |
 
 ### <a name="virtual-machines"></a>Virtual Machines

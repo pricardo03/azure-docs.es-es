@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363764"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304972"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Uso de datos de referencia de una instancia de SQL Database para un trabajo de Azure Stream Analytics (versión preliminar).
 
@@ -59,16 +59,14 @@ Use los pasos siguientes para agregar Azure SQL Database como un origen de entra
 
 ### <a name="visual-studio-prerequisites"></a>Requisitos previos de Visual Studio
 
-1. Si usa Visual Studio 2017, actualice a 15.8.2 o posterior. Tenga en cuenta que la versión 16.0 y las versiones posteriores no son compatibles en este momento.
-
-2. [Instale las herramientas de Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md). Las siguientes versiones de Visual Studio son compatibles:
+1. [Instale las herramientas de Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md). Las siguientes versiones de Visual Studio son compatibles:
 
    * Visual Studio 2015
-   * Visual Studio 2017
+   * Visual Studio 2019
 
-3. Familiarícese con la guía de inicio rápido de las [herramientas de Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md).
+2. Familiarícese con la guía de inicio rápido de las [herramientas de Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md).
 
-4. Cree una cuenta de almacenamiento.
+3. Cree una cuenta de almacenamiento.
 
 ### <a name="create-a-sql-database-table"></a>Creación de una tabla de SQL Database
 
@@ -118,7 +116,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Abra el archivo SQL en el editor y escriba la consulta SQL.
 
-5. Si usa Visual Studio 2017 y tiene herramientas de datos de SQL Server instaladas, puede probar la consulta al hacer clic en **Ejecutar**. Se abrirá una ventana del asistente para ayudarle a conectarse a la instancia de SQL Database, y el resultado de la consulta aparecerá en la ventana de la parte inferior.
+5. Si usas 2019 de Visual Studio y ha instalado las herramientas de datos de SQL Server, puede probar la consulta haciendo clic **Execute**. Se abrirá una ventana del asistente para ayudarle a conectarse a la instancia de SQL Database, y el resultado de la consulta aparecerá en la ventana de la parte inferior.
 
 ### <a name="specify-storage-account"></a>Definición de la cuenta de almacenamiento
 
@@ -159,7 +157,7 @@ Cuando se usa la consulta delta, se recomiendan las [tablas temporales de Azure 
  
 2. Cree la consulta delta. 
    
-   Esta consulta recupera todas las filas en la base de datos SQL que se insertaron o se elimina dentro de una hora de inicio,  **\@deltaStartTime**y una hora de finalización  **\@deltaEndTime**. La consulta delta debe devolver las mismas columnas que la consulta de instantánea, además de la columna **_operation_**. Esta columna define si la fila se inserta o elimina entre  **\@deltaStartTime** y  **\@deltaEndTime**. Las filas resultantes se marcan como **1** si se insertaron los registros, o como **2** si estos se eliminaron. 
+   Esta consulta recupera todas las filas en la base de datos SQL que se insertaron o se elimina dentro de una hora de inicio,  **\@deltaStartTime**y una hora de finalización  **\@deltaEndTime**. La consulta delta debe devolver las mismas columnas que la consulta de instantánea, además de la columna **_operation_** . Esta columna define si la fila se inserta o elimina entre  **\@deltaStartTime** y  **\@deltaEndTime**. Las filas resultantes se marcan como **1** si se insertaron los registros, o como **2** si estos se eliminaron. 
 
    En el caso de los registros actualizados, las tablas temporales realiza la contabilidad mediante la captura de una operación de inserción y eliminación. Después, el tiempo de ejecución de Stream Analytics aplicará los resultados de la consulta delta a la instantánea anterior para mantener actualizados los datos de referencia. A continuación, se muestra un ejemplo de consulta delta:
 
@@ -174,6 +172,9 @@ Cuando se usa la consulta delta, se recomiendan las [tablas temporales de Azure 
    ```
  
    Tenga en cuenta que el tiempo de ejecución de Stream Analytics puede ejecutar periódicamente la consulta de instantánea, además de la consulta delta para almacenar los puntos de control.
+
+## <a name="test-your-query"></a>Prueba de la consulta
+   Es importante comprobar que la consulta devuelve el conjunto de datos esperado que utilizará el trabajo de Stream Analytics como datos de referencia. Para probar la consulta, vaya a la entrada en la sección de topología de trabajo en el portal. A continuación, puede seleccionar datos de ejemplo en la entrada de referencia de base de datos de SQL. Después de que el ejemplo está disponible, puede descargar el archivo y compruebe si los datos devueltos es como se esperaba. Si desea una optimización de las iteraciones de desarrollo y pruebas, se recomienda utilizar la [herramientas de Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). Puede también cualquier otra herramienta que prefiera para asegurarse primero de que la consulta devuelve los resultados correctos de su base de datos de SQL Azure y, a continuación, utilizarlo en el trabajo de Stream Analytics. 
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
@@ -193,10 +194,6 @@ La combinación de ambas métricas se puede utilizar para deducir si el trabajo 
 **¿Necesito un tipo especial de instancia de Azure SQL Database?**
 
 Azure Stream Analytics funcionará con cualquier tipo de base de datos de Azure SQL. Sin embargo, es importante comprender que el conjunto de frecuencia de actualización de la entrada de datos de referencia podría afectar a la carga de la consulta. Para usar la opción de la consulta delta, se recomienda usar las tablas temporales de Azure SQL Database.
-
-**¿Puedo crear un ejemplo de entrada a partir de la entrada de datos de referencia de SQL Database?**
-
-Esta característica no está disponible.
 
 **¿Por qué Azure Stream Analytics almacena las instantáneas en la cuenta de Azure Storage?**
 

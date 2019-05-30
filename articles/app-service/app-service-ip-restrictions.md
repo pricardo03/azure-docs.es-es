@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 05/23/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: be0de7e809565fce4171401760d11ef9de45724e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541682"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236116"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restricciones de acceso de Azure App Service #
 
@@ -54,7 +54,7 @@ Puede hacer clic en **[+] agregar** para agregar una nueva regla de restricción
 
 Al crear una regla, debe seleccionar Permitir/Denegar y también el tipo de regla. También deben proporcionar el valor de prioridad y está restringiendo el acceso a.  Opcionalmente, puede agregar un nombre y una descripción para la regla.  
 
-Para establecer una dirección IP basada en reglas, seleccione un tipo de IPv4 o IPv6. La notación de dirección IP debe ser CIDR tanto para direcciones IPv4 como IPv6. Para especificar una dirección exacta, puede usar un formato como 1.2.3.4/32, donde los cuatro primeros octetos representan la dirección IP y /32 es la máscara. La notación CIDR IPv4 para todas las direcciones es 0.0.0.0/0. Para más información acerca de la notación CIDR, puede leer [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) (Enrutamiento interdominios sin clases). 
+Para establecer una dirección IP basada en reglas, seleccione un tipo de IPv4 o IPv6. La notación de dirección IP debe ser CIDR tanto para direcciones IPv4 como IPv6. Para especificar una dirección exacta, puede usar un formato como 1.2.3.4/32, donde los cuatro primeros octetos representan la dirección IP y /32 es la máscara. La notación CIDR IPv4 para todas las direcciones es 0.0.0.0/0. Para más información acerca de la notación CIDR, puede leer [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) (Enrutamiento interdominios sin clases).
 
 ![Agregar una regla de restricción de acceso de red virtual](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
@@ -79,6 +79,14 @@ Para eliminar una regla, haga clic en los puntos suspensivos **...**  en la regl
 Además de ser capaz de controlar el acceso a la aplicación, también puede restringir el acceso al sitio de scm utilizado por la aplicación. El sitio scm es WebDeploy extremo y también en la consola de Kudu. Puede asignar restricciones de acceso al sitio de scm desde la aplicación por separado o usar el mismo conjunto de la aplicación y el sitio de scm. Cuando se activa la casilla para tener las mismas restricciones que la aplicación, todo lo que está en blanco. Si desactiva la casilla, se aplican las configuraciones que tenía anteriormente en el sitio de scm. 
 
 ![restricciones de acceso de la lista](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+
+## <a name="blocking-a-single-ip-address"></a>Bloqueo de una única dirección IP ##
+
+Al agregar la primera regla de restricción de IP, el servicio se agregará una explícita **denegar todo** regla con una prioridad de 2147483647. En la práctica, la configuración explícita **denegar todo** regla será la última regla ejecutada y bloqueará el acceso a cualquier dirección IP no permitido explícitamente mediante una **permitir** regla.
+
+Para el escenario donde los usuarios desean bloquear explícitamente una única dirección IP o el bloque de direcciones IP, pero permitir todo acceso else, es necesario agregar explícita **permitir todo** regla.
+
+![dirección ip única de bloque](media/app-service-ip-restrictions/block-single-address.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulación de las reglas de restricción de acceso mediante programación ##
 

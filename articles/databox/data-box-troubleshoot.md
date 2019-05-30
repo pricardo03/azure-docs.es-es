@@ -1,54 +1,36 @@
 ---
-title: Solucionar problemas en Azure Data Box | Microsoft Docs
-description: Describe cómo solucionar problemas en Azure Data Box que se ven al cargar datos en Azure.
+title: Solucionar problemas en Azure Data Box, cuadro intensivo de datos de Azure | Microsoft Docs
+description: Describe cómo solucionar problemas que cuando se copian datos en estos dispositivos se ven en Azure Data Box y cuadro intensivo de datos de Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 1126002a93419371be3216c55114385c9c600419
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0c454c5f19ebefc7f91df62511448dbedb93dfc4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594005"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257285"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box"></a>Solucionar problemas relacionados con Azure Data Box
+# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Solucionar problemas relacionados con Azure Data Box y cuadro intensivo de datos de Azure
 
-Este artículo detalla información sobre cómo solucionar problemas que puede ver al usar Azure Data Box.
+Este artículo detalla información sobre cómo solucionar problemas que puede ver al usar el Boxn de datos de Azure o cuadro intensivo de datos de Azure.
 
 ## <a name="errors-during-data-copy"></a>Errores durante la copia de datos
 
 En las secciones siguientes se resumen todos los errores que se ven durante la copia de datos.
 
-### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH 
-
-**Descripción del error:** El nombre del contenedor o recurso compartido debe tener entre 3 y 63 caracteres.
-
-**Resolución sugerida:** La carpeta en el recurso compartido de Data Box (SMB o NFS) a la que ha copiado los datos se convierte en un contenedor de Azure en su cuenta de almacenamiento. 
-
-- En el **Connect y copie** página de la IU web local, descarga y revise los nombres de los archivos de error para identificar la carpeta con problemas de Data Box.
-- Cambiar el nombre de carpeta en el recurso compartido de Data Box para asegurarse de:
-
-    - El nombre tiene entre 3 y 63 caracteres.
-    - Los nombres solo pueden tener letras, números y guiones.
-    - Los nombres no pueden comenzar ni terminar con guiones.
-    - Los nombres no pueden tener guiones consecutivos.
-    - Ejemplos de nombres válidos: `my-folder-1`, `my-really-extra-long-folder-111`.
-    - Ejemplos de nombres que no son válidos: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
-
-    Para obtener más información, vea las convenciones de nomenclatura de Azure para [los nombres de contenedor](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) y [comparten nombres](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
-
 ### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
 **Descripción del error:** El nombre del contenedor o recurso compartido debe tener entre 3 y 63 caracteres. 
 
-**Resolución sugerida:** La carpeta en el recurso compartido de Data Box (SMB o NFS) a la que ha copiado los datos se convierte en un contenedor de Azure en su cuenta de almacenamiento. 
+**Resolución sugerida:** La carpeta en la share(SMB/NFS) Data Box o cuadro intensivo de datos a la que ha copiado los datos se convierte en un contenedor de Azure en su cuenta de almacenamiento. 
 
-- En el **Connect y copie** página de la IU web local, descarga y revise los nombres de los archivos de error para identificar la carpeta con problemas de Data Box.
-- Cambiar el nombre de carpeta en el recurso compartido de Data Box para asegurarse de:
+- En el **Connect y copie** página de la web local de dispositivos de interfaz de usuario, la descarga y la revisión de los nombres de los archivos de error para identificar la carpeta con problemas.
+- Cambiar el nombre de carpeta en el cuadro de datos o intensivo de datos de cuadro de recurso compartido para asegurarse de:
 
     - El nombre tiene entre 3 y 63 caracteres.
     - Los nombres solo pueden tener letras, números y guiones.
@@ -64,10 +46,10 @@ En las secciones siguientes se resumen todos los errores que se ven durante la c
 
 **Descripción del error:** El nombre del contenedor o recurso compartido debe constar solo de letras, números o guiones.
 
-**Resolución sugerida:** La carpeta en el recurso compartido de Data Box (SMB o NFS) a la que ha copiado los datos se convierte en un contenedor de Azure en su cuenta de almacenamiento. 
+**Resolución sugerida:** La carpeta en la share(SMB/NFS) Data Box o cuadro intensivo de datos a la que ha copiado los datos se convierte en un contenedor de Azure en su cuenta de almacenamiento. 
 
-- En el **Connect y copie** página de la IU web local, descarga y revise los nombres de los archivos de error para identificar la carpeta con problemas de Data Box.
-- Cambiar el nombre de carpeta en el recurso compartido de Data Box para asegurarse de:
+- En el **Connect y copie** página de la web local de dispositivos de interfaz de usuario, la descarga y la revisión de los nombres de los archivos de error para identificar la carpeta con problemas.
+- Cambiar el nombre de carpeta en el cuadro de datos o intensivo de datos de cuadro de recurso compartido para asegurarse de:
 
     - El nombre tiene entre 3 y 63 caracteres.
     - Los nombres solo pueden tener letras, números y guiones.
@@ -82,10 +64,10 @@ En las secciones siguientes se resumen todos los errores que se ven durante la c
 
 **Descripción del error:** Los nombres de contenedor y los nombres de recurso compartido no se pueden iniciar o finalizar con guiones y no puede tener guiones consecutivos.
 
-**Resolución sugerida:** La carpeta en el recurso compartido de Data Box (SMB o NFS) a la que ha copiado los datos se convierte en un contenedor de Azure en su cuenta de almacenamiento. 
+**Resolución sugerida:** La carpeta en la share(SMB/NFS) Data Box o cuadro intensivo de datos a la que ha copiado los datos se convierte en un contenedor de Azure en su cuenta de almacenamiento. 
 
-- En el **Connect y copie** página de la IU web local, descarga y revise los nombres de los archivos de error para identificar la carpeta con problemas de Data Box.
-- Cambiar el nombre de carpeta en el recurso compartido de Data Box para asegurarse de:
+- En el **Connect y copie** página de la web local de dispositivos de interfaz de usuario, la descarga y la revisión de los nombres de los archivos de error para identificar la carpeta con problemas.
+- Cambiar el nombre de carpeta en el cuadro de datos o intensivo de datos de cuadro de recurso compartido para asegurarse de:
 
     - El nombre tiene entre 3 y 63 caracteres.
     - Los nombres solo pueden tener letras, números y guiones.
@@ -112,7 +94,7 @@ Para obtener más información, consulte [copia a discos administrados](data-box
 
 **Descripción del error:** Recurso compartido de archivos de Azure limita a un recurso compartido de 5 TB de datos. Ha superado este límite para algunos recursos compartidos.
 
-**Resolución sugerida:** En el **Connect y copie** página de la Data Box IU web local, descargue y revise los archivos de error.
+**Resolución sugerida:** En el **Connect y copie** página de la interfaz de usuario de web local, descargue y revise los archivos de error.
 
 Identifique las carpetas que tienen este problema de los registros de error y asegúrese de que los archivos en esa carpeta son inferior a 5 TB.
 
@@ -194,7 +176,7 @@ Para obtener más información, vea las convenciones de nomenclatura de Azure pa
 
 **Descripción del error:** El blob o archivo no está alineado correctamente.
 
-**Resolución sugerida:** Alinea el recurso compartido de blobs de página en el cuadro de datos solo admite archivos que son de 512 bytes (por ejemplo, VHD/VHDX). Los datos que se copian en el recurso compartido de blobs de página se cargan en Azure como blobs en páginas.
+**Resolución sugerida:** Alinea el recurso compartido de blobs de página en Data Box o cuadro intensivo de datos solo admite archivos 512 bytes (por ejemplo, VHD/VHDX). Los datos que se copian en el recurso compartido de blobs de página se cargan en Azure como blobs en páginas.
 
 Quitar todos los datos que no son VHD/VHDX desde el recurso compartido de blobs de página. Puede usar recursos compartidos de blob en bloques o los archivos de Azure para datos genéricos.
 

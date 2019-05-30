@@ -3,19 +3,19 @@ title: Referencia de Translator Text API V3.0
 titlesuffix: Azure Cognitive Services
 description: Documentación de referencia para Translator Text API V3.0.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
-ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 973d38413fa39fec1c50b5e9770b6114fa2c4c3d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796876"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387514"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -41,7 +41,7 @@ En la mayoría de los casos, las solicitudes dirigidas a Microsoft Translator Te
 
 Para hacer que la solicitud se administre en un centro de datos específico, cambie el punto de conexión Global en la solicitud de API por el punto de conexión regional que desee:
 
-|DESCRIPCIÓN|Área|URL base|
+|DESCRIPCIÓN|Region|URL base|
 |:--|:--|:--|
 |Azure|Global|  api.cognitive.microsofttranslator.com|
 |Azure|Norteamérica|   api-nam.cognitive.microsofttranslator.com|
@@ -55,7 +55,7 @@ Suscríbase a Translator Text API o [varios servicios de Cognitive Services](htt
 
 Hay tres encabezados que puede usar para autenticar su suscripción. En esta tabla, se explica cómo se utiliza cada uno de ellos:
 
-|Encabezados|DESCRIPCIÓN|
+|encabezados|DESCRIPCIÓN|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Úselo con la suscripción a Cognitive Services si pasa su clave secreta*.<br/>El valor es la clave secreta de Azure para su suscripción a Translator Text API.|
 |Autorización|*Úselo con la suscripción a Cognitive Services si pasa un token de autenticación.*<br/>El valor es el token de portador: `Bearer <token>`.|
@@ -144,7 +144,7 @@ El código de error es un número de 6 dígitos que combina el código de estado
 | 400036| Falta el lenguaje de destino (campo "To") o no es válido.|
 | 400042| Una de las opciones especificadas (campo "Options") no es válida.|
 | 400043| Falta el id. de seguimiento del cliente (campo ClientTraceId o encabezado X-ClientTranceId) o no es válido.|
-| 400050| El texto de entrada es demasiado largo.|
+| 400050| El texto de entrada es demasiado largo. Vista [los límites de solicitudes](../request-limits.md).|
 | 400064| Falta un parámetro "translation" o no es válido.|
 | 400070| El número de scripts de destino (parámetro ToScript) no coincide con el número de lenguajes de destino (parámetro To).|
 | 400071| Valor no válido para TextType.|
@@ -152,14 +152,15 @@ El código de error es un número de 6 dígitos que combina el código de estado
 | 400073| El parámetro de script no es válido.|
 | 400074| El cuerpo de la solicitud no es un JSON válido.|
 | 400075| La combinación de categoría y par de lenguaje no es válida.|
-| 400077| Se superó el tamaño máximo de solicitud.|
+| 400077| Se superó el tamaño máximo de solicitud. Vista [los límites de solicitudes](../request-limits.md).|
 | 400079| El sistema personalizado solicitado para la traducción entre, desde y hacia el lenguaje no existe.|
 | 401000| La solicitud no está autorizada porque faltan las credenciales o no son válidas.|
 | 401015| "Las credenciales proporcionadas son para Speech API. Esta solicitud requiere credenciales para Text API. Use una suscripción a Translator Text API."|
 | 403000| No se permite la operación.|
 | 403001| No se permite la operación porque la suscripción superó su cuota disponible.|
 | 405000| No se admite el método de solicitud para el recurso solicitado.|
-| 408001| El sistema de traducción personalizado solicitado aún no está disponible. Vuelva a intentarlo en unos minutos.|
+| 408001| Se está preparando el sistema de traducción solicitado. Vuelva a intentarlo en unos minutos.|
+| 408002| Solicitud superó el tiempo de espera mientras se esperaba en la secuencia entrante. El cliente no ha producido una solicitud en el tiempo que se preparó el servidor debe esperar. El cliente puede repetir la solicitud sin modificaciones en cualquier momento posterior.|
 | 415000| Falta el encabezado Content-Type o no es válido.|
 | 429000, 429001, 429002| El servidor rechazó la solicitud porque el cliente ha superado los límites de solicitudes.|
 | 500000| Se ha producido un error inesperado. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|

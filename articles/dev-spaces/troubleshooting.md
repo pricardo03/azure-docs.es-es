@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 39ef23d04dc1cf1b48297ecf8f0accfef4935cd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158955"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234003"
 ---
 # <a name="troubleshooting-guide"></a>Guía de solución de problemas
 
@@ -261,7 +261,7 @@ Un usuario con acceso de tipo Propietario o Colaborador a la suscripción de Azu
 az provider register --namespace Microsoft.DevSpaces
 ```
 
-## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Con los nodos virtuales de AKS, Dev Spaces agota el tiempo de espera en el paso *Esperando la compilación de la imagen de contenedor...*.
+## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Con los nodos virtuales de AKS, Dev Spaces agota el tiempo de espera en el paso *Esperando la compilación de la imagen de contenedor...* .
 
 ### <a name="reason"></a>Reason
 Este tiempo de espera se produce cuando se intenta usar espacios de desarrollo para ejecutar un servicio que está configurado para ejecutarse un [nodo virtual AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Dev Spaces no admite actualmente la compilación o depuración de servicios en nodos virtuales.
@@ -404,3 +404,8 @@ Crear un controlador con un nombre alternativo:
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
 ```
+
+## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Habilitación de espacios de desarrollo producen errores cuando se agregan grupos de nodos de Windows a un clúster de AKS
+
+### <a name="reason"></a>Reason
+Actualmente, los espacios de desarrollo de Azure está diseñada para ejecutarse en Linux pods y los nodos solo. En este momento, no se puede habilitar espacios de desarrollo de Azure en un clúster AKS con un grupo de nodos de Windows.

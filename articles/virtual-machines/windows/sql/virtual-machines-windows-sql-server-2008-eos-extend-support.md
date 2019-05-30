@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 398b7a78c9bc13631e15c8725efb8cc0fba3f127
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62261e46dc4744597acd10c32f0a835f4a597d4d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806482"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243972"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Ampliar la compatibilidad de SQL Server 2008 y SQL Server 2008 R2 con Azure
 
@@ -40,7 +40,7 @@ Las imágenes implementadas a través de Marketplace vienen con la extensión SQ
   > [!NOTE]
   > Mientras que el servidor SQL Server `Create` y `Manage` hojas funcionará con la imagen de SQL Server 2008 R2 en Azure portal, las siguientes características están _no admite_: Copias de seguridad automáticas, integración de Azure Key Vault, R Services y configuración de almacenamiento.
 
-## <a name="licensing"></a>Licencia
+## <a name="licensing"></a>Licencias
 Las implementaciones de pago por uso SQL Server 2008 R2 se pueden convertir en [ventaja híbrida de Azure (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Para convertir una licencia de Software Assurance (SA) basada en pago por uso, los clientes deben registrarse en la VM de SQL [proveedor de recursos](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). Una vez registrado con el proveedor de recursos de VM de SQL, el tipo de licencia SQL será intercambiable entre ventaja híbrida de AZURE y de pago por uso. 
@@ -58,7 +58,7 @@ SQL Server requiere que las instantáneas coherentes con la aplicación de Azure
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-El [Database Migration Service](/dms/dms-overview) es una opción para los clientes si la migración desde local a la máquina virtual de Azure mediante la actualización de SQL Server a SQL Server 2012 y versiones posteriores.
+El [Database Migration Service](/azure/dms/dms-overview) es una opción para los clientes si la migración desde local a la máquina virtual de Azure mediante la actualización de SQL Server a SQL Server 2012 y versiones posteriores.
 
 ## <a name="disaster-recovery"></a>Recuperación ante desastres
 

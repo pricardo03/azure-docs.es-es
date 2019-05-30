@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: d35e221790c2f94caf582859f78389ecca987709
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 58451dd225a4f0625a6922bde672a6928ea50943
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942202"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257484"
 ---
 # <a name="cloud-partner-portal-management"></a>Administración de cloud Partner Portal
 
@@ -24,7 +24,7 @@ En esta sección se describe los tipos de operaciones disponibles para crear y a
 Antes de usar Cloud Partner Portal, debe familiarizarse con los siguientes artículos:
 
 - [Términos y directivas de Marketplace de Azure](../../policies-terms.md) enumera los distintos requisitos legales y técnicos y las reglas que se aplican a los usuarios de y los publicadores para el [Azure Marketplace](https://azuremarketplace.microsoft.com) y [AppSource](https://appsource.microsoft.com).
-- [Convertirse en anunciante de Marketplace en la nube](../../become-publisher.md) proporciona una visión general de todos los pasos necesarios para convertirse en un publicador de nube de Microsoft oficial.
+- [Convertirse en anunciante de Marketplace en la nube](https://docs.microsoft.com/azure/marketplace/become-publisher) proporciona una visión general de todos los pasos necesarios para convertirse en un publicador de nube de Microsoft oficial.
 
 
 ## <a name="account-creation-and-management"></a>Creación de cuentas y administración

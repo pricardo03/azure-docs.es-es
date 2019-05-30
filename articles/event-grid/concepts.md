@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562362"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305272"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts de Azure Event Grid
 
@@ -22,7 +22,8 @@ En este artículo se describen los principales conceptos de Azure Event Grid.
 
 Una evento es la cantidad mínima de información que describe completamente algo que se ha producido en el sistema. Todos los eventos tienen información común, como: origen del evento, hora en que el evento ha tenido lugar e identificador único. Cada evento tiene además información específica que solo es relevante para el tipo de evento concreto. Por ejemplo, un evento sobre un nuevo archivo que se crea en Azure Storage contiene detalles sobre el archivo, como el valor `lastTimeModified`. O bien, un evento de Event Hubs tiene la dirección URL del archivo de captura. 
 
-Cada evento tiene 64 KB de datos como máximo.
+Un evento de tamaño de hasta 64 KB se tratan por acuerdo de nivel de servicio (SLA) de disponibilidad General (GA). El soporte técnico para un evento de tamaño de hasta 1 MB está actualmente en versión preliminar. Eventos de más de 64 KB se cobran en incrementos de 64 KB. 
+
 
 Para obtener las propiedades que se envían en un evento, vea [Esquema de eventos de Azure Event Grid](event-schema.md).
 
@@ -59,9 +60,6 @@ Para obtener ejemplos de creación de suscripciones, vea:
 Para obtener información sobre las suscripciones de Event Grid actuales, vea [Consulta de suscripciones de Event Grid](query-event-subscriptions.md).
 
 ## <a name="event-subscription-expiration"></a>Caducidad de la suscripción de eventos
-
-La [extensión de Event Grid](/cli/azure/azure-cli-extensions-list) para la CLI de Azure le permite establecer una fecha de expiración al crear una suscripción de eventos. Si va a utilizar la API REST, utilice también `api-version=2018-09-15-preview`
-
 La suscripción de eventos expira automáticamente después de esa fecha. Establezca una fecha de expiración para las suscripciones de eventos que solamente son necesarias durante un tiempo limitado y de cuya limpieza no quiere preocuparse. Por ejemplo, es posible que, al crear una suscripción de eventos para probar un escenario, desee establecer una fecha de expiración. 
 
 Para ver un ejemplo acerca de cómo se establece una fecha de expiración, consulte [Suscripción con filtros avanzados](how-to-filter-events.md#subscribe-with-advanced-filters).
@@ -82,7 +80,10 @@ Si Event Grid no puede confirmar que un evento se ha recibido en el punto de con
 
 ## <a name="batching"></a>Lotes
 
-Cuando se usa un tema personalizado, los eventos siempre se deben publicar en una matriz. En los escenarios de bajo rendimiento, puede utilizarse un lote con un único evento; sin embargo, en los casos de uso de gran volumen, se recomienda agrupar varios eventos en cada publicación para lograr una mayor eficacia. Los lotes pueden tener hasta 1 MB. Cada uno de los eventos no debe superar los 64 KB.
+Cuando se usa un tema personalizado, los eventos siempre se deben publicar en una matriz. En los escenarios de bajo rendimiento, puede utilizarse un lote con un único evento; sin embargo, en los casos de uso de gran volumen, se recomienda agrupar varios eventos en cada publicación para lograr una mayor eficacia. Los lotes pueden tener hasta 1 MB. Cada evento todavía no debe superior a 64 KB (Disponibilidad General) o 1 MB (versión preliminar).
+
+> [!NOTE]
+> Un evento de tamaño de hasta 64 KB se tratan por acuerdo de nivel de servicio (SLA) de disponibilidad General (GA). El soporte técnico para un evento de tamaño de hasta 1 MB está actualmente en versión preliminar. Eventos de más de 64 KB se cobran en incrementos de 64 KB. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

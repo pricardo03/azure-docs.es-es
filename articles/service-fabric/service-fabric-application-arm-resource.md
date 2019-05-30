@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621469"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258663"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Administración de aplicaciones y servicios como recursos de Azure Resource Manager
 
@@ -258,6 +258,17 @@ En el siguiente fragmento se muestran los diferentes tipos de recursos que se pu
    > El elemento *apiVersion* debe estar establecido en `"2017-07-01-preview"`. Esta plantilla se puede implementar también con independencia del clúster, siempre y cuando este se haya implementado.
 
 5. Así que, implemente. 
+
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Quitar recursos de la aplicación de proveedor de recursos de Service Fabric
+Los siguientes desencadenará el paquete de aplicación para que sea no aprovisionado del clúster y limpiará el espacio en disco utilizado:
+```powershell
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+```
+Basta con quitar Microsoft.ServiceFabric/clusters/application de la plantilla ARM no anula la provisión de la aplicación
+
+>[!NOTE]
+> Una vez completada la eliminación no debería ver ya la versión del paquete en SFX o ARM. No se puede eliminar el recurso de versión del tipo de aplicación que se ejecuta la aplicación con; ARM/SFRP evitar que esto. Si se intenta deshacer el aprovisionamiento de la ejecución del paquete, se evitará SF en tiempo de ejecución.
+
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Administración de una aplicación existente mediante Resource Manager
 

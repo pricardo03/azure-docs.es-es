@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e9ee0d6fab96c84eee8a520d01d97faddab49f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b0844030d069fba40bfd2fdf55252d8b9e3b1c2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249706"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235124"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guía de implementación de la característica Azure Active Directory
 
@@ -65,7 +65,7 @@ A continuación agregaremos la base de la fase 1 mediante la importación de nue
 | Tarea | Detalles | Licencia necesaria |
 | ---- | ------ | ---------------- |
 | [Instalación de Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Prepárese para sincronizar usuarios de su directorio local existente con la nube. | Azure AD Free |
-| [Implementación de la sincronización de hash de contraseñas](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Sincronice los hash de contraseña para permitir que se repliquen los cambios de contraseña, la detección y la solución de problemas con la contraseña y los informes de revelación de credenciales. | Azure AD Premium P1 |
+| [Implementación de la sincronización de hash de contraseñas](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Sincronice los hash de contraseña para permitir que se repliquen los cambios de contraseña, la detección y la solución de problemas con la contraseña y los informes de revelación de credenciales. | Azure AD Free |
 | [Implementación de la escritura diferida de contraseñas](../authentication/howto-sspr-writeback.md) | Permita la escritura diferida de los cambios de contraseña en la nube en un entorno de Windows Server Active Directory local. | Azure AD Premium P1 |
 | [Implementación de Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md) | Habilite la supervisión de estadísticas de las claves de estado para los servidores de Azure AD Connect y de AD FS, y los controladores de dominio. | Azure AD Premium P1 |
 | [Asignación de licencias a usuarios según su pertenencia a un grupo en Azure Active Directory](../users-groups-roles/licensing-groups-assign.md) | Ahorre tiempo y esfuerzo mediante la creación de grupos de licencias que habiliten o deshabiliten características por grupo en lugar de la configuración por usuario. | |

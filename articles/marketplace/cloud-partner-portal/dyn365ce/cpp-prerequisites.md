@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 0b14180c894977d822aa30ea5f46a2e21e247dc1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dd2e68c820a8c9e503a3539fd50bf3fba68e3949
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942328"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257522"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Requisitos previos para Dynamics 365 for Customer Engagement
 
@@ -40,7 +40,7 @@ Su aplicación de Dynamics 365 for Customer Engagement debe cumplir con las [dir
 
 Los requisitos empresariales incluyen las siguientes obligaciones contractuales, de procedimientos y legales:
 
-* Debe estar registrado en [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) o ser un anunciante registrado en Cloud Marketplace. Si no está registrado, siga los pasos que se indican en [Conviértase en anunciante de Cloud Marketplace](../../become-publisher.md).  (Para el tercer paso, use [el formulario de nominación de asociado de AppSource](https://appsource.microsoft.com/partners/signup) en su lugar). 
+* Debe estar registrado en [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) o ser un anunciante registrado en Cloud Marketplace. Si no está registrado, siga los pasos que se indican en [Conviértase en anunciante de Cloud Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Para el tercer paso, use [el formulario de nominación de asociado de AppSource](https://appsource.microsoft.com/partners/signup) en su lugar). 
 
     >[!NOTE]
     >Debe usar la misma cuenta de registro de Microsoft Developer Center para iniciar sesión en Cloud Partner Portal. Solo debe tener una cuenta Microsoft para sus ofertas de Azure Marketplace. Esta cuenta no debería ser específica de servicios ni de ofertas individuales.

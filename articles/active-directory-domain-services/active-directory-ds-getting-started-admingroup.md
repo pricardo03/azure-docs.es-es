@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Introducción | Microsoft Docs'
 description: Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ergreenl
-ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: a4a515f3d669794d5bcdd8fa506a8d3b846db987
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417764"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234935"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilitación de Azure Active Directory Domain Services mediante Azure Portal
 
@@ -44,7 +44,7 @@ El asistente crea automáticamente el grupo administrativo en el directorio de A
 
 ## <a name="configure-synchronization"></a>Configuración de la sincronización
 
-Azure AD Domain Services permite la sincronización completa de todos los usuarios y grupos disponibles en Azure AD, o seleccionar la sincronización con ámbito para sincronizar solo grupos específicos. Si elige la sincronización completa, **no** podrá elegir la sincronización con ámbito en un momento posterior. Para obtener más información sobre la sincronización con ámbito, visite el artículo[de sincronización con ámbito de Azure AD Domain Services](active-directory-ds-scoped-synchronization.md).
+Azure AD Domain Services permite la sincronización completa de todos los usuarios y grupos disponibles en Azure AD, o seleccionar la sincronización con ámbito para sincronizar solo grupos específicos. Si elige la sincronización completa, **no** podrá elegir la sincronización con ámbito en un momento posterior. Para obtener más información sobre la sincronización con ámbito, visite el artículo[de sincronización con ámbito de Azure AD Domain Services](scoped-synchronization.md).
 
 ### <a name="full-synchronization"></a>Sincronización completa
 
@@ -98,7 +98,7 @@ El proceso de aprovisionamiento del dominio administrado puede tardar hasta una 
 
 ## <a name="need-help"></a>¿Necesita ayuda?
 
-Puede tardar una hora o dos para ambos controladores de dominio para aprovisionar el dominio administrado. Si se produjo un error en la implementación o se detuvo en el estado "Pendiente" durante más de dos horas, [póngase en contacto con el equipo del producto para obtener ayuda](active-directory-ds-contact-us.md).
+Puede tardar una hora o dos para ambos controladores de dominio para aprovisionar el dominio administrado. Si se produjo un error en la implementación o se detuvo en el estado "Pendiente" durante más de dos horas, [póngase en contacto con el equipo del producto para obtener ayuda](contact-us.md).
 
 ## <a name="next-step"></a>Paso siguiente
 

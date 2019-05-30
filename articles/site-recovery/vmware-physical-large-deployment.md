@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: raynew
-ms.openlocfilehash: 593a82221ec94e43d50b7382ba89053d5f68864a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e96aafe61c0d8547ffca9e97bfd9e90c9529155f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805927"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237279"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar la recuperación ante desastres a escala para los servidores físicos o máquinas virtuales de VMware
 
@@ -101,7 +101,7 @@ Los límites de indican el número de conmutaciones por error que son compatible
 **¿Equipo cumple con Azure?** | **Límites de máquina virtual de Azure (conmutación por error de disco administrado)**
 --- | --- 
 Sí | 2000
-No | 1000
+Sin  | 1000
 
 - Los límites se suponen es mínimos que son otros trabajos en curso en la región de destino para la suscripción.
 - Algunas regiones de Azure son más pequeñas y podrían tener límites ligeramente inferiores.
@@ -188,7 +188,7 @@ Después de iniciar la replicación para el primer lote de máquinas virtuales, 
 1. Asigna un administrador de recuperación ante desastres para supervisar el estado de mantenimiento de máquinas replicadas.
 2. [Supervisar eventos](site-recovery-monitor-and-troubleshoot.md) para los elementos replicados y la infraestructura.
 3. [Supervisar el estado](vmware-physical-azure-monitor-process-server.md) de los servidores de procesos de escalado horizontal.
-4. Suscríbase para obtener [notificaciones por correo electrónico](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) para los eventos, para facilitar la supervisión.
+4. Suscríbase para obtener [notificaciones por correo electrónico](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) para los eventos, para facilitar la supervisión.
 5. Llevar a cabo regular [maniobras de recuperación ante desastres](site-recovery-test-failover-to-azure.md)para asegurarse de que todo funciona según lo previsto.
 
 

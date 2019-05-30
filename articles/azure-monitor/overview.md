@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c72ac62b55b2b08be5aaad563933bcb2b703cba9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787231"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245074"
 ---
 # <a name="azure-monitor-overview"></a>Introducción a Azure Monitor
 
@@ -38,7 +38,7 @@ Todos los datos recopilados por Azure Monitor pueden clasificarse como uno de lo
 
 En muchos recursos de Azure, los datos recopilados por Azure Monitor aparecen directamente en la página de información general de Azure Portal. Eche un vistazo a cualquier máquina virtual, por ejemplo, y verá varios gráficos en los que aparecen métricas de rendimiento. Haga clic en cualquiera de los gráficos para abrir los datos en el [explorador de métricas](platform/metrics-charts.md) de Azure Portal, lo que le permitirá crear gráficos con los valores de diversas métricas a lo largo del tiempo.  Puede ver los gráficos de forma interactiva o anclarlos a un panel para verlos con otras visualizaciones.
 
-![Métricas](media/overview/metrics.png)
+![metrics](media/overview/metrics.png)
 
 Los datos de registro recopilados por Azure Monitor se pueden analizar con [consultas](log-query/log-query-overview.md) que recuperan, consolidan y analizan rápidamente los datos recopilados.  Puede crear y probar consultas usando [Log Analytics](log-query/portals.md) en el portal de Azure y, a continuación, ya sea directamente analizar los datos mediante estas herramientas o guardar las consultas para su uso con [visualizaciones](visualizations.md) o [alerta las reglas de](platform/alerts-overview.md).
 
@@ -55,7 +55,7 @@ Azure Monitor puede recopilar datos de diversos orígenes. Puede pensar en super
 - **Datos de supervisión de la suscripción de Azure**: datos sobre el funcionamiento y la administración de una suscripción de Azure, así como sobre el estado y el funcionamiento del propio Azure. 
 - **Datos de supervisión de inquilino de Azure**: datos sobre el funcionamiento de los servicios de Azure en el nivel del inquilino, como Azure Active Directory.
 
-En cuanto crea una suscripción a Azure y empieza a agregar recursos, como máquinas virtuales y aplicaciones web, Azure Monitor comienza a recopilar datos.  Los [registros de actividad](platform/activity-logs-overview.md) registran la creación y modificación de recursos. Las [métricas](platform/data-platform.md) indican cómo está funcionando un recurso y los recursos que consume. 
+En cuanto crea una suscripción a Azure y empieza a agregar recursos, como máquinas virtuales y aplicaciones web, Azure Monitor comienza a recopilar datos.  [Los registros de actividad](platform/activity-logs-overview.md) registrar cuando se crean o modifican los recursos. Las [métricas](platform/data-platform.md) indican cómo está funcionando un recurso y los recursos que consume. 
 
 Amplíe los datos que recopila y obtenga información sobre el funcionamiento real de los recursos [habilitando diagnósticos](platform/diagnostic-logs-overview.md) y [agregando un agente](platform/agent-windows.md) a los recursos de proceso. De este modo, recopilará datos de telemetría sobre el funcionamiento interno de un recurso y podrá configurar diferentes [orígenes de datos](platform/agent-data-sources.md) para recopilar registros y métricas del sistema operativo invitado Windows y Linux. 
 

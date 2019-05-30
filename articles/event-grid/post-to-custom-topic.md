@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162048"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304208"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicación en un tema personalizado de Azure Event Grid
 
@@ -76,7 +76,10 @@ Para los temas personalizados, los datos de nivel superior contienen los mismos 
 ]
 ```
 
-Para obtener una descripción de estas propiedades, vea [Esquema de eventos de Azure Event Grid](event-schema.md). Al publicar eventos en un tema de Event Grid, la matriz puede tener un tamaño total de hasta 1 MB. Cada evento de la matriz tiene 64 KB como máximo.
+Para obtener una descripción de estas propiedades, vea [Esquema de eventos de Azure Event Grid](event-schema.md). Al publicar eventos en un tema de Event Grid, la matriz puede tener un tamaño total de hasta 1 MB. Cada evento en la matriz se limita a 64 KB (Disponibilidad General) o 1 MB (versión preliminar).
+
+> [!NOTE]
+> Un evento de tamaño de hasta 64 KB se tratan por acuerdo de nivel de servicio (SLA) de disponibilidad General (GA). El soporte técnico para un evento de tamaño de hasta 1 MB está actualmente en versión preliminar. Eventos de más de 64 KB se cobran en incrementos de 64 KB. 
 
 Por ejemplo, un esquema de datos de evento válido es:
 
@@ -94,16 +97,16 @@ Por ejemplo, un esquema de datos de evento válido es:
 }]
 ```
 
-## <a name="response"></a>Respuesta
+## <a name="response"></a>Response
 
 Después de publicar en el punto de conexión del tema, recibirá una respuesta. La respuesta es un código de respuesta HTTP estándar. Algunas respuestas comunes son:
 
-|Resultado  |Respuesta  |
+|Resultado  |Response  |
 |---------|---------|
 |Correcto  | 200 OK  |
 |Los datos del evento tienen un formato incorrecto | 400 - Solicitud incorrecta |
 |Clave de acceso no válida | 401 No autorizado |
-|Punto de conexión incorrecto | 405 No encontrado |
+|Punto de conexión incorrecto | 404 No encontrado |
 |La matriz o el evento superan los límites de tamaño | 413 Carga demasiado grande |
 
 Si hay errores, el cuerpo del mensaje tiene el formato siguiente:

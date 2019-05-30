@@ -4,16 +4,16 @@ description: Aprenda a solucionar los errores de incorporación de las solucione
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8867912d98897a695c1e59ebd4177301230281bb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145162"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399770"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Solución de problemas de errores al incorporar soluciones
 
@@ -42,6 +42,24 @@ Este error se debe a permisos incorrectos o que faltan en la máquina virtual, e
 #### <a name="resolution"></a>Resolución
 
 Asegúrese de tener los permisos correctos para incorporar la máquina virtual. Revise los [permisos necesarios para incorporar máquinas](../automation-role-based-access-control.md#onboarding) y vuelva a intentar incorporar la solución. Si recibe el error `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, asegúrese de que tiene el `Microsoft.OperationalInsights/workspaces/read` permiso para encontrará si la máquina virtual esté incorporada a un área de trabajo.
+
+### <a name="diagnostic-logging"></a>Escenario: Se produce un error en la incorporación con el mensaje: no se pudo configurar la cuenta de Automation para el registro de diagnóstico
+
+#### <a name="issue"></a>Problema
+
+Al intentar incorporar una máquina virtual a una solución, recibe el mensaje siguiente:
+
+```error
+Failed to configure automation account for diagnostic logging
+```
+
+#### <a name="cause"></a>Causa
+
+Este error puede deberse a si el plan de tarifa no coincide con el modelo de facturación de la suscripción. Para obtener más información, consulte [supervisión del uso y costos estimados en Azure Monitor](http://aka.ms/PricingTierWarning).
+
+#### <a name="resolution"></a>Resolución
+
+Crear manualmente el área de trabajo de Log Analytics y repita el proceso de incorporación para seleccionar el área de trabajo creada.
 
 ### <a name="computer-group-query-format-error"></a>Escenario: ComputerGroupQueryFormatError
 

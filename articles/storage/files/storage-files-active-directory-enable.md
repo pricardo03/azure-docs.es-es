@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: rogarana
-ms.openlocfilehash: d5e2f9dba3afee953d296316e990b58c536cbdae
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 26251ebd3c83f6cd44203e1d3cc5f1b523a0d8d9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602008"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237790"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Habilitación de la autenticación de Azure Active Directory a través de SMB para Azure Files (versión preliminar)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -47,13 +47,13 @@ Antes de habilitar Azure AD a través de SMB para Azure Files, asegúrese de hab
 
 2.  **Habilite Azure AD Domain Services en el inquilino de Azure AD.**
 
-    Para admitir la autenticación con las credenciales de Azure AD, debe habilitar Azure AD Domain Services para su inquilino de Azure AD. Si no es el administrador del inquilino de Azure AD, póngase en contacto con el administrador y siga las instrucciones paso a paso para [habilitar Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+    Para admitir la autenticación con las credenciales de Azure AD, debe habilitar Azure AD Domain Services para su inquilino de Azure AD. Si no es el administrador del inquilino de Azure AD, póngase en contacto con el administrador y siga las instrucciones paso a paso para [habilitar Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/create-instance.md).
 
     Suele tardar unos 15 minutos en completarse una implementación de Azure AD Domain Services. Confirme que el estado de mantenimiento de Azure AD Domain Services muestra **En ejecución**, con la sincronización de hash de contraseña habilitada, antes de continuar con el paso siguiente.
 
 3.  **Unión a dominio de una máquina virtual de Azure con Azure AD Domain Services.**
 
-    Para acceder a un recurso compartido de archivos mediante las credenciales de Azure AD desde una máquina virtual, la máquina virtual debe unirse al dominio con Azure AD Domain Services. Para más información sobre cómo unir a un dominio una máquina virtual, consulte [Unión de una máquina virtual de Windows Server a un dominio administrado](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md).
+    Para acceder a un recurso compartido de archivos mediante las credenciales de Azure AD desde una máquina virtual, la máquina virtual debe unirse al dominio con Azure AD Domain Services. Para más información sobre cómo unir a un dominio una máquina virtual, consulte [Unión de una máquina virtual de Windows Server a un dominio administrado](../../active-directory-domain-services/join-windows-vm.md).
 
     > [!NOTE]
     > La autenticación de Azure AD a través de SMB con Azure Files solo se admite en las máquinas virtuales de Azure que se ejecutan en las versiones de sistemas operativos posteriores a Windows 7 o Windows Server 2008 R2.
@@ -79,7 +79,7 @@ Para habilitar la autenticación de Azure AD a través de SMB mediante [Azure Po
 
 1. En Azure Portal, vaya a la cuenta de almacenamiento existente o [cree una nueva](../common/storage-quickstart-create-account.md).
 2. En la sección **Configuración**, haga clic en **Configuración**.
-3. Habilite la **autenticación de Azure Active Directory para Azure Files (versión preliminar)**.
+3. Habilite la **autenticación de Azure Active Directory para Azure Files (versión preliminar)** .
 
 En la imagen siguiente se muestra cómo habilitar la autenticación de Azure AD a través de SMB para la cuenta de almacenamiento.
 

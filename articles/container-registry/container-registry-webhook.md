@@ -5,18 +5,18 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 05/24/2019
 ms.author: danlep
-ms.openlocfilehash: 0a3d2d0e858dc052095c0a58287970d10c06f0ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18ac3fcb2797b24c9d5e5f05968eed4bf8732af7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787281"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389449"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Webhooks de Azure Container Registry
 
-Un registro de contenedor de Azure almacena y administra imágenes privadas de contenedor de Docker, de una forma similar a la que Docker Hub almacena imágenes públicas. También pueden hospedar los repositorios para [gráficos de Helm](container-registry-helm-repos.md) (versión preliminar), dar formato a un paquete para implementar aplicaciones en Kubernetes. Puede usar webhooks para desencadenar eventos cuando determinadas acciones tienen lugar en uno de los repositorios de registro. Los webhooks pueden responder a eventos en el nivel de registro o pueden limitarse a una etiqueta de repositorio específica.
+Un registro de contenedor de Azure almacena y administra imágenes privadas de contenedor de Docker, de una forma similar a la que Docker Hub almacena imágenes públicas. También pueden hospedar los repositorios para [gráficos de Helm](container-registry-helm-repos.md) (versión preliminar), dar formato a un paquete para implementar aplicaciones en Kubernetes. Puede usar webhooks para desencadenar eventos cuando determinadas acciones tienen lugar en uno de los repositorios de registro. Los webhooks pueden responder a eventos en el nivel de registro o pueden limitarse a una etiqueta de repositorio específica. Con un [con replicación geográfica](container-registry-geo-replication.md) registro, configura cada webhook para responder a eventos en una réplica regional específica.
 
 Para obtener información detallada sobre las solicitudes de webhook, consulte [Referencia de esquema de webhook de Azure Container Registry](container-registry-webhook-reference.md).
 
@@ -35,12 +35,13 @@ Para obtener información detallada sobre las solicitudes de webhook, consulte [
 
 | Valor | DESCRIPCIÓN |
 |---|---|
-| NOMBRE | El nombre que desea dar al webhook. Puede contener solo letras y números y debe estar entre 5 y 50 caracteres de longitud. |
+| Nombre del Webhook | El nombre que desea dar al webhook. Puede contener solo letras y números y debe estar entre 5 y 50 caracteres de longitud. |
+| Ubicación | Para un [con replicación geográfica](container-registry-geo-replication.md) registro, especifique la región de Azure de la réplica del registro. 
 | URI de servicio | El identificador URI donde el webhook debe enviar notificaciones POST. |
 | Encabezados personalizados | Los encabezados que van a pasar junto con la solicitud POST. Deben tener el formato "clave: valor". |
 | Acciones de desencadenador | Acciones que desencadenan el webhook. Acciones incluyen la inserción de la imagen, eliminación de imágenes, inserción de gráfico de Helm, delete del gráfico de Helm y cuarentena de la imagen. Puede elegir una o varias acciones que desencadenan el webhook. |
 | Status | El estado del webhook después de su creación. Esto está habilitada de manera predeterminada. |
-| Ámbito | El ámbito en el que trabaja el webhook. Si no se especifica, el ámbito es para todos los eventos en el registro. Puede especificar para un repositorio o etiqueta con el formato "repositorio: etiqueta" o "repositorio: *" para todas las etiquetas en un repositorio. |
+| Scope | El ámbito en el que trabaja el webhook. Si no se especifica, el ámbito es para todos los eventos en el registro. Puede especificar para un repositorio o etiqueta con el formato "repositorio: etiqueta" o "repositorio: *" para todas las etiquetas en un repositorio. |
 
 Formulario de webhook de ejemplo:
 

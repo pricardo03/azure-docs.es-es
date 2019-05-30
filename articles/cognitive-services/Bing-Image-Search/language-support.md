@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 57a96648e480c89d1112f069676edb1abcc7cfc3
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6f4c354c89fa00d5fc65c635f5f6315761be2f01
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869848"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384139"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Compatibilidad de idiomas y regiones para Bing Image Search API
 
@@ -32,7 +32,7 @@ También puede especificar el país o región utilizando el parámetro de consul
 > - en-AU (inglés, Australia)
 > - zh-CN (chino, China)
 
-## <a name="countriesregions"></a>Países/regiones
+## <a name="countriesregions"></a>Países o regiones
 
 |País/región|Código|
 |-------|----|
@@ -45,9 +45,9 @@ También puede especificar el país o región utilizando el parámetro de consul
 |Chile|CL|
 |Dinamarca|DK|
 |Finlandia|FI|
-|Francia|VF|
+|Francia|FR|
 |Alemania|DE|
-|RAE de Hong Kong|HK|
+|Hong Kong SAR|HK|
 |India|IN|
 |Indonesia|ID|
 |Italia|IT|
@@ -76,7 +76,7 @@ También puede especificar el país o región utilizando el parámetro de consul
 
 ## <a name="markets"></a>Mercados
 
-|País/región|Idioma|Código de mercado|
+|País/región|Lenguaje|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Español|es-AR|
 |Australia|English|en-AU|
@@ -91,7 +91,7 @@ También puede especificar el país o región utilizando el parámetro de consul
 |Finlandia|Finés|fi-FI|
 |Francia|Francés|fr-FR|
 |Alemania|Alemán|de-DE|
-|RAE de Hong Kong|Chino tradicional|zh-HK|
+|Hong Kong SAR|Chino tradicional|zh-HK|
 |India|English|en-IN|
 |Indonesia|English|en-ID|
 |Italia|Italiano|it-IT|
@@ -119,4 +119,4 @@ También puede especificar el país o región utilizando el parámetro de consul
 |Estados Unidos|Español|es-US|
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre los puntos de conexión de Bing News Search, consulte [News Image Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referencia de News Image Search API v7).
+Para obtener más información sobre los puntos de conexión de Bing News Search, consulte [News Image Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) (Referencia de News Image Search API v7).

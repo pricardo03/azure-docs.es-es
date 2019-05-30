@@ -3,19 +3,19 @@ title: 'Modelo de Conversation Learner de demostración, pedido de pizza: Micros
 titleSuffix: Azure
 description: Obtenga información acerca de cómo crear un modelo de Conversation Learner de demostración.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 3fe11bef6c505771ee1e3f2e12e647eafc7c45d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: nitinme
+ms.openlocfilehash: 010245480d8e1f59d5c1b92a9e717f73b5ba7f4c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60431000"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389139"
 ---
 # <a name="demo-pizza-order"></a>Demostración: Pedido de pizza
 Esta demostración ilustra un bot de pedido de pizza, que ayuda al pedido de una pizza mediante:

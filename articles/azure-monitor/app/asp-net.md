@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: c69e925913d4dcb3a8bec34cbf25dac184ea65c5
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595561"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256619"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -99,12 +99,10 @@ El portal se abrirá en una vista de los datos de telemetría de su aplicación.
 
 En el portal, haga clic en cualquier icono para ver su contenido con mayor detalle.
 
-[Más información acerca del uso de Application Insights en Azure Portal](../../azure-monitor/app/app-insights-dashboards.md).
-
-## <a name="step-4-publish-your-app"></a>Paso 4: Publique su aplicación
+## <a name="step-4-publish-your-app"></a>Paso 4: Publicación de la aplicación
 Publique su aplicación en el servidor IIS o en Azure. Consulte [Secuencia de métricas en directo](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) para asegurarse de que todo está ejecutándose sin problemas.
 
-La telemetría se crea en el portal de Application Insights, donde puede supervisar las métricas, buscar en la telemetría y configurar los [paneles](../../azure-monitor/app/app-insights-dashboards.md). También puede usar el eficaz [lenguaje de consulta de Kusto](/azure/kusto/query/) para analizar el uso y rendimiento o para buscar eventos concretos.
+Compilaciones de telemetría en el portal de Application Insights, donde puede supervisar las métricas, buscar la telemetría. También puede usar el eficaz [lenguaje de consulta de Kusto](/azure/kusto/query/) para analizar el uso y rendimiento o para buscar eventos concretos.
 
 También puede seguir analizando la telemetría en [Visual Studio](../../azure-monitor/app/visual-studio.md) con herramientas como búsqueda de diagnóstico y las [tendencias](../../azure-monitor/app/visual-studio-trends.md).
 
@@ -138,16 +136,15 @@ Si está interesado, puede examinar otros temas:
 
 ### <a name="more-telemetry"></a>Más telemetría
 
-* **[Datos de carga de página y explorador](../../azure-monitor/app/javascript.md)**: inserte un fragmento de código en las páginas web.
-* **[Obtenga una supervisión más detallada de las dependencias y excepciones](../../azure-monitor/app/monitor-performance-live-website-now.md)**: instale el Monitor de estado en el servidor.
+* **[Datos de carga de página y explorador](../../azure-monitor/app/javascript.md)** : inserte un fragmento de código en las páginas web.
+* **[Obtenga una supervisión más detallada de las dependencias y excepciones](../../azure-monitor/app/monitor-performance-live-website-now.md)** : instale el Monitor de estado en el servidor.
 * **[Codifique eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md)** para contar, cronometrar y medir las acciones de los usuarios.
-* **[Obtenga datos del registro](../../azure-monitor/app/asp-net-trace-logs.md)**: ponga en correlación los datos del registro con la telemetría.
+* **[Obtenga datos del registro](../../azure-monitor/app/asp-net-trace-logs.md)** : ponga en correlación los datos del registro con la telemetría.
 
 ### <a name="analysis"></a>Análisis
 
 * **[Trabajo con Application Insights en Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Incluye información acerca de la depuración con telemetría, la búsqueda de diagnóstico y la profundización en el código.
-* **[Trabajo con el portal de Application Insights](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Incluye información acerca de los paneles, eficaces herramientas de diagnóstico y análisis, alertas, un mapa activo de dependencias de la aplicación y exportación de la telemetría.
-* **[Analytics](../../azure-monitor/log-query/get-started-portal.md)**: eficaz lenguaje de consulta.
+* **[Analytics](../../azure-monitor/log-query/get-started-portal.md)** : eficaz lenguaje de consulta.
 
 ### <a name="alerts"></a>Alertas
 

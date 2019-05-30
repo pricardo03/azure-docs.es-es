@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 5ae2ca352c6d3cbe02b659a97fe3147c1a31128f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df3156688f018aee4717271557220396827dd9e2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60947432"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306825"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Creación de un contenedor de Service Fabric que se ejecuta en un servidor de Apache Tomcat en Linux
 Apache Tomcat es una conocida implementación de código abierto de las tecnologías Java Servlet y Java Server. En este artículo se muestra cómo crear un contenedor con Apache Tomcat y una sencilla aplicación web, cómo implementar el contenedor en un clúster de Service Fabric con Linux y cómo conectarse a la aplicación web.  
@@ -111,9 +111,9 @@ Siga los pasos descritos en esta sección para crear una imagen de Docker basada
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Inserción de la imagen de Tomcat en el registro de contenedor
 Ahora que ha comprobado que la imagen de Tomcat se ejecuta en un contenedor en el equipo de desarrollo, insértela en un repositorio de un registro de contenedor. En este artículo se usa Azure Container Registry para almacenar la imagen, pero puede usar cualquier registro de contenedor que prefiera modificando algunos pasos. En este artículo se supone que el nombre del registro es *myregistry* y el nombre de registro completo es myregistry.azurecr.io. Cambie estas propiedades según sea adecuado para su escenario. 
 
-1. Ejecute `docker login` para iniciar sesión en el registro de contenedor con sus [credenciales de registro](../container-registry/container-registry-authentication.md).
+1. Ejecute `docker login` para iniciar sesión en el registro de contenedor con su [las credenciales del registro](../container-registry/container-registry-authentication.md).
 
-   En el ejemplo siguiente se pasa el identificador y la contraseña de una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) de Azure Active Directory. Por ejemplo, puede que haya asignado una entidad de servicio al registro para ver un escenario de automatización. O bien, puede iniciar sesión con su nombre de usuario y contraseña del registro.
+   En el ejemplo siguiente se pasa el identificador y la contraseña de una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) de Azure Active Directory. Por ejemplo, puede que haya asignado una entidad de servicio al registro para ver un escenario de automatización. O bien, podría iniciar sesión con su nombre de usuario del registro y la contraseña.
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -162,7 +162,7 @@ Ahora que ha insertado la imagen de Tomcat en un registro de contenedor, puede c
    </Resources>
    ```
 
-11. En el manifiesto de aplicación (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), bajo la etiqueta **ServiceManifestImport**, agregue el siguiente código XML. Reemplace los valores de **AccountName** y **Password** de la etiqueta **RepositoryCredentials** por el nombre del registro de contenedor y la contraseña necesaria para iniciar sesión en él.
+11. En el manifiesto de aplicación (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), bajo la etiqueta **ServiceManifestImport**, agregue el siguiente código XML. Reemplace el **AccountName** y **contraseña** en el **RepositoryCredentials** etiqueta con el nombre del registro de contenedor y la contraseña necesaria para iniciar sesión en ella.
 
    ```xml
    <Policies>

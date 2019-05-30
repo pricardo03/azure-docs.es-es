@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 926629660c9593c59362bd1bc49c5115ac5e3187
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441056"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235943"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Introducción a Azure Automation State Configuration
 
@@ -69,7 +69,7 @@ Ubuntu  | 18,04
 
 ### <a name="dsc-requirements"></a>Requisitos de DSC
 
-Para todos los nodos de Windows que se ejecuta en Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) se instalará durante la incorporación.  Para nodos que ejecutan Windows Server 2012 y Windows 7, [WinRM se habilitarán](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+Para todos los nodos de Windows que se ejecuta en Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) se instalará durante la incorporación.  Para nodos que ejecutan Windows Server 2012 y Windows 7, [WinRM se habilitarán](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
 Para todos los nodos de Linux que se ejecuta en Azure, [PowerShell DSC para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) se instalará durante la incorporación.
 
@@ -109,7 +109,7 @@ Si tiene una cuenta de Automation definida para una región específica, puede r
 | Este de Japón |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Sudeste de Australia |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | Sur de Reino Unido 2 | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| Gobierno de EE. UU. - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Para obtener una lista de direcciones IP de regiones en lugar de nombres de regiones, descargue el archivo XML [Direcciones IP de los centros de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653) desde el Centro de descarga de Microsoft.
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93adedc5c1343df1eee05b653b60cfd7e810044c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2edbf5548f5e230986f0a1786d67fb4580e574e2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540422"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235429"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Marco de consentimiento de Azure Active Directory
 
@@ -40,7 +40,7 @@ Los siguientes pasos muestran cómo funciona la experiencia de consentimiento pa
 
 1. Suponga que tiene una aplicación de cliente web que necesita solicitar permisos concretos para tener acceso a un recurso o API. Obtendrá información sobre cómo realizar esta configuración en la sección siguiente, pero básicamente Azure Portal se utiliza para declarar solicitudes de permisos en el momento de la configuración. Al igual que otras opciones de configuración, pasan a formar parte del registro de Azure AD de la aplicación:
 
-    ![Permisos para otras aplicaciones](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
+    ![Permisos para otras aplicaciones](./media/consent-framework/permissions.png)
 
 1. Plantéese la posibilidad de que los permisos de la aplicación estén actualizados, la aplicación se ejecute y un usuario esté a punto de usarla por primera vez. En primer lugar, la aplicación debe obtener un código de autorización del punto de conexión `/authorize` de Azure AD. El código de autorización, a continuación, se puede utilizar para adquirir un nuevo acceso y un token de actualización.
 
@@ -58,11 +58,10 @@ Los siguientes pasos muestran cómo funciona la experiencia de consentimiento pa
 
     **Para consentir los permisos delegados de una aplicación**
 
-   1. Vaya a la página **Configuración** de la aplicación.
-   1. Seleccione **Permisos necesarios**.
-   1. Haga clic en el botón **Conceder permisos**.
+   1. Vaya a la **permisos de API** página de la aplicación
+   1. Haga clic en el **conceder consentimiento del administrador** botón.
 
-      ![Concesión de permisos para el consentimiento explícito del administrador](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Concesión de permisos para el consentimiento explícito del administrador](./media/consent-framework/grant-consent.png)
 
    > [!IMPORTANT]
    > Actualmente es obligatorio conceder explícitamente el consentimiento con el botón **Conceder permisos** para las aplicaciones de página única (SPA) que usan ADAL.js. En caso contrario, se produce un error en la aplicación cuando se solicita el token de acceso.

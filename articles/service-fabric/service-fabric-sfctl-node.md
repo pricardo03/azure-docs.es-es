@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 08ea0081c84ea31b2b71d03679b1b527cf94c075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556787"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258727"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Administre los nodos que forman un clúster.
@@ -180,6 +180,8 @@ Recupera la información de carga de un nodo de Service Fabric para todas las m�
 Notifica a Service Fabric que el estado persistente en un nodo se quitó o perdió de forma permanente.
 
 Esto implica que no es posible recuperar el estado persistente de ese nodo. Por lo general, esto ocurre si se borró un disco duro, o si se bloquea un disco duro. El nodo debe estar inactivo para que esta operación se realice correctamente. Esta operación permite a Service Fabric saber que las réplicas en ese nodo ya no existen, y que Service Fabric debe dejar de esperar a que esas réplicas vuelvan a activarse. No ejecute este cmdlet si no se ha quitado el estado en el nodo y el nodo puede recuperarse con su estado intacto.
+
+A partir de Service Fabric 6.5, para poder usar este cmdlet para los nodos raíz, cambie los nodos raíz a regulares nodos (valor de inicialización no) y, a continuación, invocar este cmdlet para quitar el estado del nodo. Si el clúster se ejecuta en Azure, después de que el valor de inicialización nodo deja de funcionar, Service Fabric intentará cambiarlo a un nodo de valor de inicialización no automáticamente. Para que esto suceda, asegúrese de que el número de nodos de valor de inicialización no en el tipo de nodo principal no es menos que el número de nodos de inicialización. Si es necesario, agregar más nodos para el tipo de nodo principal para lograr esto. Para clúster independiente, si no se espera que el nodo de valor de inicialización de abajo vuelva con su estado intacto, por favor, quite el nodo del clúster, consulte [quitar nodos de clúster de Service Fabric independiente](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
 
 ### <a name="arguments"></a>Argumentos
 

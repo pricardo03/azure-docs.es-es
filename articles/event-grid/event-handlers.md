@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 33604a16f5895e20d4475d1dd8b27c34184feb72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 915d1284d66438219fc9aba893512e5f6a5b02b3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345488"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305041"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Controladores de eventos de Azure Event Grid
 
@@ -71,6 +71,28 @@ Use Logic Apps para automatizar los procesos de negocios para responder a evento
 | [Tutorial: supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Una aplicación lógica supervisa los cambios realizados en una máquina virtual y envía mensajes de correo electrónico sobre dichos cambios. |
 | [Tutorial: envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Una aplicación lógica envía un correo electrónico de notificación cada vez que se agrega un dispositivo al centro de IoT. |
 | [Tutorial: Ejemplos de integración de Azure Service Bus en Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envía mensajes de temas de Service Bus a la aplicación de función y a la aplicación lógica. |
+
+## <a name="service-bus-queue-preview"></a>Cola de Service Bus (versión preliminar)
+
+Usar Service Bus como un controlador de eventos para enrutar los eventos de Event Grid directamente a las colas de Service Bus para su uso en escenarios de almacenamiento en búfer o comando y control de aplicaciones empresariales. La versión preliminar no funciona con los temas de Service Bus y las sesiones, pero funciona con todos los niveles de colas de Service Bus.
+
+Tenga en cuenta, al Bus de servicio como un controlador se encuentra en versión preliminar pública, debe instalar la extensión de CLI o PowerShell cuando las usa para crear las suscripciones de eventos.
+
+### <a name="using-cli"></a>Uso de CLI
+
+Para la CLI de Azure, el ejemplo siguiente se suscribirá un se conecta y tema de Event Grid a una cola de Service Bus:
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebusqueue \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
+```
 
 ## <a name="queue-storage"></a>Queue Storage
 

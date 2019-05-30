@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561552"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257946"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Orígenes de eventos de Azure Event Grid
 
@@ -74,7 +74,7 @@ Para ejemplos de Event Hubs como controlador, consulte este artículo sobre el [
 
 ## <a name="iot-hub"></a>IoT Hub
 
-Suscríbase a eventos de IoT Hub para responder a eventos de dispositivo creado, eliminado, conectado y desconectado.
+Suscribirse a eventos de telemetría y eventos de IoT Hub para responder a dispositivo creado, eliminado, conectados o desconectados.
 
 |Título  |DESCRIPCIÓN  |
 |---------|---------|

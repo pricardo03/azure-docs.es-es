@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb461367d58f7cadeccd434c0e4ab452b7fc640e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484392"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241910"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Administración del esquema en una aplicación SaaS con el patrón base de datos por inquilino con Azure SQL Database
  
 A medida que una aplicación de base de datos evoluciona, resulta inevitable realizar cambios en los datos de referencia o el esquema de la base de datos.  También es necesario realizar las tareas de mantenimiento de la base de datos de manera periódica. Administrar una aplicación que usa el patrón de base de datos por inquilino requiere aplicar estos cambios o tareas de mantenimiento a todo un conjunto de bases de datos de inquilino.
 
-Este tutorial explora dos escenarios: la implementación de actualizaciones de datos de referencia para todos los inquilinos y la recompilación de un índice en la tabla que contiene los datos de referencia. La característica [Trabajos elásticos](sql-database-elastic-jobs-overview.md) se usa para ejecutar estas acciones en todas las bases de datos de inquilino y en la base de datos de plantilla que se usa para crear bases de datos de inquilino nuevas.
+Este tutorial explora dos escenarios: la implementación de actualizaciones de datos de referencia para todos los inquilinos y la recompilación de un índice en la tabla que contiene los datos de referencia. La característica [Trabajos elásticos](elastic-jobs-overview.md) se usa para ejecutar estas acciones en todas las bases de datos de inquilino y en la base de datos de plantilla que se usa para crear bases de datos de inquilino nuevas.
 
 En este tutorial, aprenderá a:
 
@@ -46,7 +46,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introducción a los patrones de administración de esquema de SaaS
 
-El patrón de base de datos por inquilino aísla de manera eficaz los datos de inquilino, pero aumenta la cantidad de bases de datos para administrar y mantener. La característica [Trabajos elásticos](sql-database-elastic-jobs-overview.md) facilita la administración de las bases de datos SQL. Los trabajos le permiten ejecutar de manera segura y confiable las tareas (scripts T-SQL) en un grupo de bases de datos. Los trabajos pueden implementar cambios en los datos de referencia comunes y el esquema en todas las bases de datos de inquilino de una aplicación. Trabajos elásticos también se puede usar para mantener una base de datos de *plantilla* que se usa para crear inquilinos nuevos, garantizando así que siempre tenga el esquema y los datos de referencia más recientes.
+El patrón de base de datos por inquilino aísla de manera eficaz los datos de inquilino, pero aumenta la cantidad de bases de datos para administrar y mantener. La característica [Trabajos elásticos](elastic-jobs-overview.md) facilita la administración de las bases de datos SQL. Los trabajos le permiten ejecutar de manera segura y confiable las tareas (scripts T-SQL) en un grupo de bases de datos. Los trabajos pueden implementar cambios en los datos de referencia comunes y el esquema en todas las bases de datos de inquilino de una aplicación. Trabajos elásticos también se puede usar para mantener una base de datos de *plantilla* que se usa para crear inquilinos nuevos, garantizando así que siempre tenga el esquema y los datos de referencia más recientes.
 
 ![pantalla](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
@@ -91,7 +91,7 @@ Para crear un trabajo nuevo, se usa un conjunto de procedimientos almacenados en
 
 Observe los elementos siguientes en el script *DeployReferenceData.sql*:
 * **sp\_add\_target\_group** crea el nombre del grupo de destino DemoServerGroup.
-* **sp\_add\_target\_group\_member** se usa para definir el conjunto de bases de datos de destino.  En primer lugar, se agrega el servidor _tenants1-dpt-&lt;usuario&gt;_.  Agregar el servidor como destino hace que las bases de datos de ese servidor en el momento de la ejecución del trabajo se incluyan en el trabajo. Luego, la base de datos _basetenantdb_ y la base de datos *adhocreporting* (que se usan en un tutorial posterior) se agregan como destinos.
+* **sp\_add\_target\_group\_member** se usa para definir el conjunto de bases de datos de destino.  En primer lugar, se agrega el servidor _tenants1-dpt-&lt;usuario&gt;_ .  Agregar el servidor como destino hace que las bases de datos de ese servidor en el momento de la ejecución del trabajo se incluyan en el trabajo. Luego, la base de datos _basetenantdb_ y la base de datos *adhocreporting* (que se usan en un tutorial posterior) se agregan como destinos.
 * **sp\_add\_job** crea un trabajo denominado _Reference Data Deployment_ (Implementación de datos de referencia).
 * **sp\_add\_jobstep** crea el paso de trabajo que contiene el texto del comando T-SQL para actualizar la tabla de referencia VenueTypes.
 * En las demás vistas del script se muestran los objetos existentes y se supervisa la ejecución de los trabajos. Use estas consultas para revisar el valor de estado de la columna **lifecycle** (ciclo de vida) para determinar si el trabajo finalizó en todas las bases de datos de destino.
@@ -133,5 +133,4 @@ A continuación, pruebe el [notificación Ad hoc tutorial](saas-tenancy-cross-te
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Otros tutoriales basados en la implementación de la aplicación Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Administración de bases de datos escaladas horizontalmente en la nube](sql-database-elastic-jobs-overview.md)
-* [Creación y administración de bases de datos escaladas horizontalmente](sql-database-elastic-jobs-create-and-manage.md)
+* [Administración de bases de datos escaladas horizontalmente en la nube](elastic-jobs-overview.md)

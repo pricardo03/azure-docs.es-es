@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 0a44f7d9c18e406850e2dbfb091088be0b8c2113
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: c58faa7104a3ca2c740a1d1e35ca5bfd47c3a9fd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235899"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241207"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Creación de una galería de imágenes compartidas con Azure PowerShell 
 
@@ -49,24 +49,48 @@ Para completar el ejemplo de este artículo, debe tener una imagen administrada 
 Al trabajar en este artículo, reemplace los nombres de grupo de recursos y máquina virtual cuando proceda.
 
 [!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
+
  
 ## <a name="create-vms-from-an-image"></a>Creación de máquinas virtuales a partir de una imagen
 
-Una vez que la versión de la imagen se completa, puede crear una o varias VM nuevas. Con el parámetro simplificado establecido para el cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm), solo debe proporcionar el identificador de la versión de la imagen. 
+Una vez que la versión de la imagen se completa, puede crear una o varias VM nuevas. Mediante el [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet. 
 
-Este ejemplo crea una máquina virtual denominada *myVMfromImage*, en *myResourceGroup* en el centro de datos del *Este de EE. UU.*
+Este ejemplo crea una máquina virtual denominada *myVMfromImage*, en el *myResourceGroup* en el *South Central US* centro de datos.
+
 
 ```azurepowershell-interactive
-New-AzVm `
-   -ResourceGroupName "myResourceGroup" `
-   -Name "myVMfromImage" `
-   -Image $imageVersion.Id `
-   -Location "South Central US" `
-   -VirtualNetworkName "myImageVnet" `
-   -SubnetName "myImageSubnet" `
-   -SecurityGroupName "myImageNSG" `
-   -PublicIpAddressName "myImagePIP" `
-   -OpenPorts 3389
+$resourceGroup = "myResourceGroup"
+$location = "South Central US"
+$vmName = "myVMfromImage"
+
+# Create user object
+$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+
+# Create a resource group
+New-AzResourceGroup -Name $resourceGroup -Location $location
+
+# Network pieces
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+  -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+  -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+  -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+  -DestinationPortRange 3389 -Access Allow
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+  -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
+$nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+  -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
+
+# Create a virtual machine configuration using $imageVersion.Id to specify the shared image
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
+Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+Set-AzVMSourceImage -Id $imageVersion.Id | `
+Add-AzVMNetworkInterface -Id $nic.Id
+
+# Create a virtual machine
+New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
 [!INCLUDE [virtual-machines-common-gallery-list-ps](../../../includes/virtual-machines-common-gallery-list-ps.md)]

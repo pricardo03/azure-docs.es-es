@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: a70a887ccb19d9c1cbdb5f8ebf6aa8d4b25a0dfd
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65161076"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388993"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Tarea de Azure DevOps para el Explorador de datos de Azure
 
@@ -44,7 +44,7 @@ Cree las siguientes carpetas de ejemplo (*funciones*, *directivas*, *tablas*) en
 > [!TIP]
 > Al crear su propio flujo de trabajo, se recomienda realizar su idempotente de código. Por ejemplo, usar [tabla .create mezcla](/azure/kusto/management/tables#create-merge-tables) en lugar de [.create tabla](/azure/kusto/management/tables#create-table)y usar [.create o alter](/azure/kusto/management/functions#create-or-alter-function) función en lugar de [.create](/azure/kusto/management/functions#create-function) función.
 
-## <a name="create-a-release-pipeline"></a>Creación de una canalización de versión
+## <a name="create-a-release-pipeline"></a>Crear una canalización de versiones
 
 1. Inicie sesión en su [organización de Azure DevOps](https://dev.azure.com/).
 1. Seleccione **canalizaciones** > **versiones** desde el menú izquierdo y seleccione **nueva canalización**.
@@ -67,7 +67,7 @@ Cree las siguientes carpetas de ejemplo (*funciones*, *directivas*, *tablas*) en
 
     ![Crear variable](media/devops/create-variable.png)
 
-    Para buscar su Endpoint_URL, la página de información general de su **Cluster de Azure Data Explorer** en Azure portal contiene el URI de clúster de explorador de datos de Azure. Construir el URI en el siguiente formato `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Por ejemplo: https://kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    Para buscar su Endpoint_URL, la página de información general de su **Cluster de Azure Data Explorer** en Azure portal contiene el URI de clúster de explorador de datos de Azure. Construir el URI en el siguiente formato `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Por ejemplo, https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
 
     ![URI del clúster de explorador de datos Azure](media/devops/adx-cluster-uri.png)
 

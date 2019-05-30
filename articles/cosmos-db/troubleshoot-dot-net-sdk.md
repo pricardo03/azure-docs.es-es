@@ -3,18 +3,18 @@ title: Diagnosticar y solucionar problemas cuando se usa el SDK de .NET de Azure
 description: Use características como el registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas de Azure Cosmos DB mediante .NET SDK.
 author: j82w
 ms.service: cosmos-db
-ms.date: 01/19/2019
+ms.date: 05/28/2019
 ms.author: jawilley
 ms.devlang: c#
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7f969ab6059140ec32c9c5bf5045c546602a3c15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e48809537acc21edbcf12d299a333df486c258f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404723"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257149"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar y solucionar problemas cuando se usa el SDK de .NET de Azure Cosmos DB
 Este artículo tratan problemas comunes, soluciones alternativas, herramientas y pasos de diagnóstico cuando se usa el [.NET SDK](sql-api-sdk-dotnet.md) con cuentas de Azure Cosmos DB SQL API.

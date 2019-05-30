@@ -6,35 +6,35 @@ author: alkohli
 ms.service: databox
 ms.subservice: ''
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: acba9d2c87d2fb23e48ac24cec22388044702bac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604447"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240146"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Apertura de una incidencia de soporte técnico en Azure Data Box 
 
-Este artículo se aplica a Azure Data Box y a Azure Data Box Disk, administrados ambos por el servicio Azure Data Box. Si tiene algún problema con el servicio Azure Data Box, puede crear una solicitud de servicio de soporte técnico. Este artículo le enseñará a:
+En este artículo se aplica a Azure Data Box, cuadro intensivo de datos de Azure y discos de Azure Data Box, que son administrados por el servicio de Azure Data Box. Si tiene algún problema con el servicio Azure Data Box, puede crear una solicitud de servicio de soporte técnico. Este artículo le enseñará a:
 
 * Crear una solicitud de soporte.
 * Administrar el ciclo de vida de una solicitud de soporte técnico desde dentro del portal.
 
-## <a name="create-a-support-request"></a>Crear solicitud de soporte técnico
+## <a name="create-a-support-request"></a>Crear una solicitud de soporte
 
 Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 
 1. Vaya al pedido de Data Box o Data Box Disk. Vaya a la sección **SOPORTE Y SOLUCIÓN DE PROBLEMAS** y haga clic en **Nueva solicitud de soporte técnico**.
      
-    ![Nueva solicitud de soporte técnico](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
+    ![Nueva solicitud de soporte](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
    
 2. En **Nueva solicitud de soporte técnico**, seleccione **Datos básicos**. En **Datos básicos**, siga estos pasos:
     
     1. En la lista desplegable **Tipo de problema**, seleccione **Técnico**.
     2. Elija la **suscripción**.
-    3. En **Servicio**, active **Mis servicios**. Seleccione **Data Box: versión preliminar** en la lista desplegable. 
+    3. En **Servicio**, active **Mis servicios**. En la lista desplegable, seleccione **Data Box**. 
     4. Especifique su **Plan de soporte técnico**.
     5. Haga clic en **Next**.
 
@@ -84,3 +84,5 @@ Después de crear una incidencia de soporte técnico, puede administrar el ciclo
 ## <a name="next-steps"></a>Pasos siguientes
 
 Aprenda a [solucionar problemas relacionados con Data Box Disk](data-box-disk-troubleshoot.md).
+Obtenga información sobre cómo [solucionar problemas relacionados con Data Box](data-box-troubleshoot.md).
+Obtenga información sobre cómo [solucionar problemas relacionados con el almacenamiento de blobs de datos cuadro](data-box-troubleshoot-rest.md).

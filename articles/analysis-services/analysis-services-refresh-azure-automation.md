@@ -7,12 +7,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: abbad97e29f60e5f135017cd43f9d30eba1805ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 4cae93cff594ad561973f8029ea7335dc4c60263
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142683"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356997"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualización con Azure Automation
 
@@ -26,7 +26,7 @@ Un Runbook de PowerShell, que muestra cómo actualizar un modelo de ejemplo se p
 
 Todas las llamadas deben autenticarse con un token válido de Azure Active Directory (OAuth 2).  El ejemplo de este artículo usará un Principal de servicio (SPN) para autenticarse en Azure Analysis Services.
 
-Para más información acerca de cómo crear una entidad de servicio, consulte]
+Para más información acerca de cómo crear una entidad de servicio, consulte [crear una entidad de servicio mediante Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -43,7 +43,7 @@ Para más información acerca de cómo crear una entidad de servicio, consulte]
 
 3. Seleccione SQL Server, a continuación, haga clic en **importación**.
  
-    ![Importar módulo](./media/analysis-services-refresh-azure-automation/2.png)
+    ![Módulo de importación](./media/analysis-services-refresh-azure-automation/2.png)
 
 4. Haga clic en **OK**.
  
@@ -67,11 +67,11 @@ La entidad de servicio que cree debe tener permisos de administrador del servido
 
 3. Importar el Runbook de Automation
 
-    ![Importar runbook](./media/analysis-services-refresh-azure-automation/8.png)
+    ![Importación del runbook](./media/analysis-services-refresh-azure-automation/8.png)
 
 4. Busque el **actualización Model.ps1** de archivos, proporcione un **nombre** y **descripción**y, a continuación, haga clic en **crear**.
 
-    ![Importar runbook](./media/analysis-services-refresh-azure-automation/9.png)
+    ![Importación del runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
 5. Cuando se ha creado el Runbook, pasará automáticamente al modo de edición.  Seleccione **Publicar**.
 

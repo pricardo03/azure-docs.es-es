@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/18/2018
+ms.date: 05/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca481d50efb99d6e36c66388192e9f27cd66bf45
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096103"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298830"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Consideraciones especiales para instancias
 Azure AD Connect se utiliza habitualmente con la instancia mundial de Azure AD y Office 365. Pero también hay otras instancias y estas tienen requisitos diferentes para las direcciones URL y otras consideraciones especiales.
@@ -42,7 +42,7 @@ Características que actualmente no están presentes en Microsoft Cloud Germany:
 * La **escritura diferida de contraseñas** está disponible en versión preliminar con Azure AD Connect versión 1.1.570.0 y posteriores.
 * Otros servicios de Azure AD Premium no están disponibles.
 
-## <a name="microsoft-azure-government-cloud"></a>Microsoft Azure Government Cloud
+## <a name="microsoft-azure-government"></a>Microsoft Azure Government
 [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/) es una nube para el gobierno de Estados Unidos.
 
 Esta nube ha sido compatible con versiones anteriores de DirSync. A partir de la compilación 1.1.180 de Azure AD Connect la próxima generación de la nube es compatible. Esta generación utiliza solo puntos de conexión basados en EE. UU. y tiene una lista de direcciones URL diferentes para abrir en el servidor proxy.
@@ -51,17 +51,21 @@ Esta nube ha sido compatible con versiones anteriores de DirSync. A partir de la
 | --- |
 | \*.microsoftonline.com |
 | \*.microsoftonline.us |
-| \*. windows.net (se requiere para la detección automática del inquilino de gobierno de Azure AD) |
+| \*. windows.net (necesario para la detección automática de inquilino de Azure Government) |
 | \*.gov.us.microsoftonline.com |
 | +Listas de revocación de certificados |
 
 > [!NOTE]
-> A partir de la versión 1.1.647.0 de AAD Connect, no hace falta establecer el valor de AzureInstance en el registro, siempre que *. windows.net esté abierto en los servidores proxy.
+> A partir de Azure AD Connect versión 1.1.647.0, establecer el valor de AzureInstance en el registro ya no es necesario siempre que *. windows.net esté abierto en los servidores proxy. Sin embargo, para los clientes que no permiten la conectividad a Internet desde sus servidores de Azure AD Connect, se puede usar la siguiente configuración manual.
 
-Características que actualmente no están presentes en Microsoft Azure Government Cloud:
+### <a name="manual-configuration"></a>Configuración manual
 
-* La **escritura diferida de contraseñas** está disponible en versión preliminar con Azure AD Connect versión 1.1.570.0 y posteriores.
-* Otros servicios de Azure AD Premium no están disponibles.
+Se usan los siguientes pasos de configuración manual para asegurarse de que Azure AD Connect usa puntos de conexión de sincronización de Azure Government.
+
+1. Inicie la instalación de Azure AD Connect.
+2. Cuando vea la primera página en donde se supone que tiene que aceptar el CLUF, no continúe y deje que el Asistente para instalación se continúe ejecutando.
+3. Inicie regedit y cambie la clave del registro `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` al valor `4`.
+4. Vuelva al Asistente para instalación de Azure AD Connect, acepte el CLUF y continúe. Durante la instalación, asegúrese de usar el **configuración personalizada** ruta de acceso de instalación (y no la instalación rápida), a continuación, continuar con la instalación como de costumbre.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).

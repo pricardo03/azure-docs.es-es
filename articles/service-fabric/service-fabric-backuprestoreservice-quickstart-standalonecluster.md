@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 28378b4b769e0d0e70a82a45baac0872d1476036
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 154efffcb1f86907fefecc060419c1d9450470f8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413643"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237335"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Restauración y copia de seguridad periódicas de Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -170,9 +170,6 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
-> [!IMPORTANT]
-> Debido a un problema en el entorno en tiempo de ejecución, debe asegurarse de que la duración de la retención en la directiva de retención se configure para que sea inferior a 24 días, o bien provocará que en el servicio de restauración de copia de seguridad se produzca una conmutación por error de la réplica de publicación de pérdida de cuórum.
-
 ### <a name="enable-periodic-backup"></a>Habilitación de la copia de seguridad periódica
 Después de definir la directiva para satisfacer los requisitos de protección de datos de la aplicación, la directiva de copia de seguridad debe asociarse a la aplicación. En función de los requisitos, la directiva de copia de seguridad puede asociarse a una aplicación, un servicio o una partición.
 
@@ -265,11 +262,6 @@ LsnOfLastBackupRecord   : 2437
 CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
-
-## <a name="known-issues"></a>Problemas conocidos
-- Asegúrese de que la duración de la retención se configure para que sea inferior a 24 días. 
-- El servicio de restauración de copia de seguridad no aparece en escenarios en los que el separador decimal es distinto de ".".
-- El servicio de restauración de copia de seguridad no puede aparecer en un clúster protegido con la seguridad basada en GMSA.
 
 ## <a name="limitation-caveats"></a>Limitaciones o advertencias
 - Cmdlets de PowerShell de Service Fabric están en modo de vista previa.

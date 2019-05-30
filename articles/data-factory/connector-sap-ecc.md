@@ -3,22 +3,21 @@ title: Copia de datos desde SAP ECC mediante Azure Data Factory | Microsoft Docs
 description: Obtenga información sobre cómo copiar datos desde SAP ECC en almacenes de datos receptores compatibles a través de una actividad de copia de una canalización de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 04/26/2018
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 04/26/2018
+ms.author: jingwang
+ms.openlocfilehash: 7c75793a696137a1d4cc24fa94877a7fb4e4247a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128124"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243917"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copia de datos de SAP ECC mediante Azure Data Factory
 
@@ -33,6 +32,9 @@ En concreto, este conector SAP ECC admite las siguientes funcionalidades:
 - Copia de datos de SAP ECC en SAP NetWeaver versión 7.0 y versiones posteriores. 
 - Copia de datos de todos los objetos expuestos por los servicios de SAP ECC OData (por ejemplo, SAP Table/Views, BAPI, Data Extractors, etc.), o de los datos o IDOC que se envían a SAP PI que se pueden recibir como OData mediante adaptadores relativos.
 - Copiar datos con la autenticación básica.
+
+>[!TIP]
+>Para copiar datos desde SAP ECC a través de la tabla o vista SAP, puede usar [tabla SAP](connector-sap-table.md) conector que es más eficaz y escalable.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -55,9 +57,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP ECC:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **SapEcc** | Sí |
-| url | La dirección URL del servicio SAP ECC OData. | Sí |
-| username | Nombre de usuario usado para conectarse a SAP ECC. | Sin  |
-| password | Contraseña de texto no cifrado que se usa para conectarse a SAP ECC. | Sin  |
+| URL | La dirección URL del servicio SAP ECC OData. | Sí |
+| userName | Nombre de usuario usado para conectarse a SAP ECC. | No |
+| password | Contraseña de texto no cifrado que se usa para conectarse a SAP ECC. | No |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**

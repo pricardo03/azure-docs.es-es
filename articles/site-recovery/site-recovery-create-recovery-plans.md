@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: d52aa3b39a17c42c0f0e0cb669c69d336b41ba48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 866374df7d3a6973cfc5995afd5cc3c4b0145c48
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61035829"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399999"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Creación y personalización de los planes de recuperación
 
@@ -21,7 +21,7 @@ En este artículo se describe cómo crear y personalizar un plan de recuperació
 
 ## <a name="create-a-recovery-plan"></a>Creación de un plan de recuperación
 
-1. En el almacén de Recovery Services, seleccione **Planes de recuperación (Site Recovery)** > **+Plan de recuperación**.
+1. En el almacén de Recovery Services, seleccione **Planes de recuperación (Site Recovery)**  >  **+Plan de recuperación**.
 2. En **Crear plan de recuperación**, especifique un nombre para el plan.
 3. Elija un origen y un destino en función de las máquinas del plan y seleccione **Resource Manager** para el modelo de implementación. La ubicación de origen debe tener máquinas habilitadas para conmutación por error y recuperación. 
 
@@ -70,13 +70,16 @@ Puede personalizar un plan de recuperación si agrega un script o una acción ma
     Sitio de Hyper-V a Azure | Runbook | N/D
     VMM en VMM secundario | Script | Script
 
-1. En el plan de recuperación, haga clic en el paso al que se debe agregar la acción y especifique cuándo se debe producir la acción. Si desea que la acción se produzca antes de que se inicien las máquinas del grupo después de la conmutación por error, seleccione **Add pre-action** (Agregar acción previa).
-    b. Si desea que la acción se produzca antes de que se inicien las máquinas del grupo después de la conmutación por error, seleccione **Add post action** (Agregar acción posterior). Para mover la posición de la acción, seleccione los botones **Move Up** (Subir) o **Move Down** (Bajar).
+1. En el plan de recuperación, haga clic en el paso al que se debe agregar la acción y especifique cuándo debe producirse la acción:
+    1. Si desea que la acción se produzca antes de que se inicien las máquinas del grupo después de la conmutación por error, seleccione **Add pre-action** (Agregar acción previa).
+    1. Si desea que la acción se produzca antes de que se inicien las máquinas del grupo después de la conmutación por error, seleccione **Add post action** (Agregar acción posterior). Para mover la posición de la acción, seleccione los botones **Move Up** (Subir) o **Move Down** (Bajar).
 2. En **Insert action** (Insertar acción), seleccione **Script** o **Manual action** (Acción manual).
-3. Si quiere agregar una acción manual, haga lo siguiente. Escriba un nombre para la acción e instrucciones para la misma. La persona que ejecuta la conmutación por error verá estas instrucciones.
-    b. Especifique si desea agregar la acción manual para todos los tipos de conmutación por error: prueba, conmutación por error, conmutación por error planeada (si corresponde). A continuación, haga clic en **Aceptar**.
-4. Si quiere agregar un script, haga lo siguiente. Si va a agregar un script de VMM, seleccione **Failover to VMM script** (Conmutación por error en script de VMM) y, en **Ruta de acceso del script**, escriba la ruta de acceso relativa al recurso compartido. Por ejemplo, si el recurso compartido está en \\<VMMServerName>\MSSCVMMLibrary\RPScripts, especifique la ruta de acceso: \RPScripts\RPScript.PS1.
-    b. Si va a agregar un runbook de automatización de Azure, especifique la **cuenta de Azure Automation** en que se encuentra el runbook y seleccione el valor de **Script de runbook de Azure** adecuado.
+3. Si desea agregar una acción manual, haga lo siguiente:
+    1. Escriba un nombre para la acción e instrucciones para la misma. La persona que ejecuta la conmutación por error verá estas instrucciones.
+    1. Especifique si desea agregar la acción manual para todos los tipos de conmutación por error: prueba, conmutación por error, conmutación por error planeada (si corresponde). A continuación, haga clic en **Aceptar**.
+4. Si desea agregar una secuencia de comandos, realice lo siguiente:
+    1. Si va a agregar un script de VMM, seleccione **Failover to VMM script** (Conmutación por error en script de VMM) y, en **Ruta de acceso del script**, escriba la ruta de acceso relativa al recurso compartido. Por ejemplo, si se encuentra en el recurso compartido \\ \<Nombredeservidorvmm > \MSSCVMMLibrary\RPScripts, especifique la ruta de acceso: \RPScripts\RPScript.PS1.
+    1. Si va a agregar un runbook de automatización de Azure, especifique la **cuenta de Azure Automation** en que se encuentra el runbook y seleccione el valor de **Script de runbook de Azure** adecuado.
 5. Ejecute una conmutación por error de prueba del plan de recuperación para garantizar que el script funciona según lo esperado.
 
 ## <a name="watch-a-video"></a>Ver un vídeo

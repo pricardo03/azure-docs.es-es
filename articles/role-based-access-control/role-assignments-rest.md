@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9c307b2b2e720881acb983a2a1b00ac8e03dac4
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531837"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357073"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Administración del acceso a recursos de Azure mediante RBAC y la API de REST
 
@@ -38,12 +38,16 @@ En RBAC, para enumerar el acceso se enumeran las asignaciones de roles. Para mos
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito cuya lista de asignaciones de roles quiere obtener.
 
-    | Ámbito | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Recurso |
-
+    
+       
+     > [!NOTE]
+     > En el ejemplo anterior que Microsoft.Web es que se usa el proveedor de recursos que hace referencia a la instancia de servicio de aplicación. De forma similar puede usar cualquier otro proveedor de recursos y generar el URI de ámbito. Para entender más, consulte [tipos y proveedores de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) compatible y [las operaciones del proveedor de recursos de Azure RM](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations).  
+     
 1. Reemplace *{filter}* por la condición que quiere aplicar para filtrar la lista de asignación de roles.
 
     | Filtrar | DESCRIPCIÓN |
@@ -77,7 +81,7 @@ En RBAC, para conceder acceso es preciso crear una asignación de roles. Para cr
     
 1. En el identificador URI, reemplace *{scope}* por el ámbito de la asignación de roles.
 
-    | Ámbito | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |
@@ -105,7 +109,7 @@ En RBAC, para quitar el acceso hay que quitar una asignación de roles. Para qui
 
 1. En el identificador URI, reemplace *{scope}* por el ámbito para eliminar la asignación de roles.
 
-    | Ámbito | Type |
+    | Scope | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Grupos de recursos |

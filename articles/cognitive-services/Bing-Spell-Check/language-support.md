@@ -10,20 +10,20 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 16efb97569aabbea28065b03e9944d6881c39eee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60895387"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390161"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Compatibilidad de idiomas y regiones de Bing Spell Check API
 
 Bing Spell Check API admite estos idiomas (solo en modo `spell`).
 
-Tenga en cuenta que, para que funcione con otro idioma distinto de `en-US`, es necesario definir `mkt` y `Accept-Language` o `setLang` según se describe en la [referencia sobre Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference).
+Tenga en cuenta que, para que funcione con otro idioma distinto de `en-US`, es necesario definir `mkt` y `Accept-Language` o `setLang` según se describe en la [referencia sobre Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference).
 
-| Idioma    | Código de idioma |
+| Lenguaje    | Código de idioma |
 |:----------- |:-------------:|
 | Árabe      | `ar`          |
 | Chino (República Popular China)     | `zh-CN`          |

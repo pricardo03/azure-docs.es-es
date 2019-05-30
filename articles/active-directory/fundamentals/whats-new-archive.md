@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931e44f85131e8cbdd7aecddd6398f6f59d1b166
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 90577ea9f24bc5f36113bc1bdb913949772325c9
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937292"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305503"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivo de novedades de Azure Active Directory
 
@@ -483,7 +483,7 @@ Para más información sobre esta actualización, consulte [Azure AD Connect: hi
 
 ---
 
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Actualizaciones en la interfaz de usuario del usuario final correspondiente a las condiciones de uso (CDU)
+### <a name="updates-to-the-terms-of-use-end-user-ui"></a>Las actualizaciones de los términos de usar la interfaz de usuario final
 
 **Tipo:** Característica modificada  
 **Categoría del servicio:** Términos de uso  
@@ -641,25 +641,25 @@ Para obtener más información acerca de la Protección con contraseña de Azure
 
 ---
 
-### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nueva plantilla "todos los invitados" de la directiva de acceso condicional creada durante la creación de los Términos de uso (TOU)
+### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Nuevo "todos los invitados" acceso condicional plantilla de directiva creado durante los términos de la creación de uso
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Términos de uso  
 **Funcionalidad del producto:** Gobernanza
 
-Durante la creación de los Términos de uso (TOU), también se ha creado una nueva plantilla de la directiva de acceso condicional para "todos los invitados" y "todas las aplicaciones". Esta nueva plantilla de la directiva se aplica a los Términos de uso recién creados, lo que facilita el proceso de cumplimiento y creación para los invitados.
+Durante la creación de los términos de uso, también se crea una nueva plantilla de directiva de acceso condicional para "todos los invitados" y "todas las aplicaciones". Esta nueva plantilla de la directiva se aplica a los Términos de uso recién creados, lo que facilita el proceso de cumplimiento y creación para los invitados.
 
 Para obtener más información, consulte [Característica Azure Active Directory Terms of Use](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
-### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nueva plantilla "personalizado" de la directiva de acceso condicional creada durante la creación de los Términos de uso (TOU)
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-creation"></a>Nueva plantilla de directiva de acceso condicional "custom" creado durante los términos de utilizar la creación
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Términos de uso  
 **Funcionalidad del producto:** Gobernanza
 
-Durante la creación de los términos de uso (TOU), también se ha creado una nueva plantilla "personalizado" de la directiva de acceso condicional. Esta nueva plantilla de la directiva le permite crear los términos de uso y, a continuación, pasar inmediatamente a la hoja de creación de la directiva de acceso condicional, sin necesidad de navegar de forma manual a través del portal.
+Durante la creación de los términos de uso, también se crea una nueva plantilla de directiva de acceso condicional "custom". Esta nueva plantilla de la directiva le permite crear los términos de uso y, a continuación, pasar inmediatamente a la hoja de creación de la directiva de acceso condicional, sin necesidad de navegar de forma manual a través del portal.
 
 Para obtener más información, consulte [Característica Azure Active Directory Terms of Use](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -715,11 +715,11 @@ Las ofertas de software como servicio, como Azure Active Directory (Azure AD) es
 
 Aunque vamos a cambiar el soporte, también sabemos que aún hay situaciones en las que tendrá que utilizar un conjunto de circuitos dedicado para el tráfico de autenticación. Por este motivo, Azure AD seguirá admitiendo restricciones de intervalos de IP por inquilino utilizando ExpressRoute y los servicios que ya tienen emparejamiento de Microsoft con la comunidad "Otros servicios en línea de Office 365". Si los servicios se ven afectados pero requieren ExpressRoute, debe hacer lo siguiente:
 
-- **Si está en un emparejamiento público de Azure.** Cambie a un emparejamiento de Microsoft y suscríbase a la comunidad **Otros servicios en línea de Office 365 (12076:5100)**. Para más información sobre cómo cambiar de emparejamiento público de Azure a emparejamiento de Microsoft, consulte el artículo [Cambiar un emparejamiento público a emparejamiento de Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
+- **Si está en un emparejamiento público de Azure.** Cambie a un emparejamiento de Microsoft y suscríbase a la comunidad **Otros servicios en línea de Office 365 (12076:5100)** . Para más información sobre cómo cambiar de emparejamiento público de Azure a emparejamiento de Microsoft, consulte el artículo [Cambiar un emparejamiento público a emparejamiento de Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
 
-- **Si está en un emparejamiento de Microsoft.** Suscríbase a la comunidad **Otros servicio en línea de Office 365 (12076:5100)**. Para más información sobre los requisitos de enrutamiento, consulte la sección [Soporte técnico para las comunidades de BGP](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp) en el artículo de requisitos de enrutamiento de ExpressRoute.
+- **Si está en un emparejamiento de Microsoft.** Suscríbase a la comunidad **Otros servicio en línea de Office 365 (12076:5100)** . Para más información sobre los requisitos de enrutamiento, consulte la sección [Soporte técnico para las comunidades de BGP](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp) en el artículo de requisitos de enrutamiento de ExpressRoute.
 
-Si debe continuar usando circuitos dedicados, deberá hablar con el equipo de su cuenta Microsoft acerca de cómo obtener autorización para utilizar la comunidad **Otros servicios en línea de Office 365 (12076:5100)**. El comité de revisión administrado por MS Office comprobará si necesita los circuitos y se asegurará de que comprende las implicaciones técnicas de su conservación. Las suscripciones no autorizadas que intenten crear filtros de ruta para Office 365 recibirán un mensaje de error. 
+Si debe continuar usando circuitos dedicados, deberá hablar con el equipo de su cuenta Microsoft acerca de cómo obtener autorización para utilizar la comunidad **Otros servicios en línea de Office 365 (12076:5100)** . El comité de revisión administrado por MS Office comprobará si necesita los circuitos y se asegurará de que comprende las implicaciones técnicas de su conservación. Las suscripciones no autorizadas que intenten crear filtros de ruta para Office 365 recibirán un mensaje de error. 
  
 ---
 
@@ -729,7 +729,7 @@ Si debe continuar usando circuitos dedicados, deberá hablar con el equipo de su
 **Categoría del servicio:** Términos de uso  
 **Funcionalidad del producto:** Experiencia para el desarrollador
  
-Hemos agregado Microsoft Graph API para el funcionamiento de la administración de los términos de uso de Azure AD. Puede crear, actualizar y eliminar el objeto Términos de uso.
+Hemos agregado las API de Graph de Microsoft para la operación de administración de las condiciones de uso de Azure AD. Es posible crear, actualizar y eliminar los términos de uso de objeto.
 
 ---
 
@@ -914,7 +914,7 @@ Para más información, consulte:
 
 ---
  
-### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Los Términos de uso de AD Azure ahora tienen informes por usuario
+### <a name="azure-ad-terms-of-use-now-has-per-user-reporting"></a>Tiene Azure AD los términos de uso ahora por usuario de informe
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Términos de uso  
@@ -963,7 +963,7 @@ Para obtener más información, consulte [Configuring single sign-on to applicat
 **Funcionalidad del producto:** Cumplimiento normativo
  
 
-Los Términos de uso de Azure AD han dejado de estar en versión preliminar pública y ahora están disponibles de forma general.
+Términos de uso de Azure AD se han movido desde la versión preliminar pública para disponible con carácter general.
 
 Para obtener más información, consulte [Azure AD terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use) (Característica de términos de uso de Azure AD).
 
@@ -1463,7 +1463,7 @@ Para más información, consulte:
 
 ---
 
-### <a name="terms-of-use-update-to-mobile-experience"></a>Actualización de los términos de uso relacionados con la experiencia móvil 
+### <a name="terms-of-use-update-to-mobile-experience"></a>Términos de usar update con la experiencia móvil 
 
 **Tipo:** Característica modificada  
 **Categoría del servicio:** Términos de uso  

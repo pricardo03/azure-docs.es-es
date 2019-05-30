@@ -12,23 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f5819194e7967b5921f34223cad299752460de30
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574263"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255637"
 ---
 # <a name="analytics-in-application-insights"></a>Analytics de Application Insights
 Analytics es la herramienta eficaz de búsqueda y consulta de [Application Insights](app-insights-overview.md). Analytics es una herramienta web por lo que no requiere ninguna configuración.
-Si ya ha configurado Application Insights para una de las aplicaciones, puede analizar los datos de la aplicación abriendo Analytics desde la [hoja de información general](app-insights-dashboards.md) de la aplicación.
+Si ya ha configurado Application Insights para una de las aplicaciones, a continuación, puede analizar los datos de la aplicación abriendo Analytics desde la hoja de información general de la aplicación.
 
 ![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Análisis.](./media/analytics/001.png)
 
 También puede usar el [sitio de prueba de Analytics](https://go.microsoft.com/fwlink/?linkid=859557), que es un entorno de demostración gratuito con una gran cantidad de datos de ejemplo.
-<br>
-<br>
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 ## <a name="relation-to-azure-monitor-logs"></a>Relación con los registros de Azure Monitor
 El análisis de Application Insights se basa en [Azure Data Explorer](/azure/data-explorer), como los registros de Azure Monitor, y también usa el [lenguaje de consulta de Kusto](/azure/kusto/query). Usa el mismo [portal de Log Analytics](../log-query/get-started-portal.md) que los registros de Azure Monitor, aunque sus datos se almacenan en una partición independiente.

@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: 5b3475f35ac958432d319eafe6e3392e155d9ff4
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 6a4f7f5671562679a245d97ad8491764657cbb34
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002105"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242465"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adición de métricas extendidas a máquinas virtuales de Azure
 
@@ -28,7 +28,7 @@ Tras habilitar la recopilación de métricas puede:
 - Controlar los costos mediante el ajuste de tamaño en función del uso.
 - Obtener recomendaciones de Cloudyn para optimizar de forma rentable el tamaño.
 
-Por ejemplo, puede supervisar los porcentajes de CPU y de memoria de las máquinas virtuales de Azure. Las métricas de las máquinas virtual de Azure corresponden a _Porcentaje de CPU [host]_ y _Porcentaje de memoria [invitado]_.
+Por ejemplo, puede supervisar los porcentajes de CPU y de memoria de las máquinas virtuales de Azure. Las métricas de máquina virtual de Azure corresponden a _porcentaje de CPU_ y _\Memory\% Bytes asignados en uso_.
 
 > [!NOTE]
 > La recopilación de datos métricos extendidos solo se admite con la supervisión a nivel de invitado de Azure. Cloudyn no es compatible con la extensión de máquina virtual de los registros de Azure Monitor.
@@ -44,7 +44,7 @@ En el ejemplo anterior, hay disponible un conjunto limitado de métricas estánd
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Habilitación de métricas extendidas en Azure Portal
 
-Las métricas estándar son las métricas del equipo host. La métrica _Porcentaje de CPU [host]_ es un ejemplo. También hay métricas básicas para las máquinas virtuales invitadas y también se denominan métricas extendidas. Entre los ejemplos de métricas extendidas se encuentran _Porcentaje de memoria [invitado]_ y _Memoria disponible [invitado]_.
+Las métricas estándar son las métricas del equipo host. El _porcentaje de CPU_ métrica es un ejemplo. También hay métricas básicas para las máquinas virtuales invitadas y también se denominan métricas extendidas. Ejemplos de métricas extendidas _\Memory\% Bytes asignados en uso_ y _\Memory\Available Bytes_.
 
 La habilitación de las métricas extendidas es un proceso sencillo. En cada máquina virtual, habilite la supervisión a nivel de invitado. Cuando se habilita la supervisión a nivel de invitado, el agente de Azure Diagnostics se instala en la máquina virtual. De forma predeterminada, se agrega un conjunto básico de métricas extendidas. El siguiente proceso es el mismo para las máquinas virtuales clásicas y regulares, así como para las máquinas virtuales Windows y Linux.
 
@@ -58,7 +58,7 @@ Tenga en cuenta que tanto la supervisión a nivel de invitado de Azure como la d
     ![Habilitación de la supervisión a nivel de invitado en la página de información general](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
 4. Pocos minutos después, el agente de Azure Diagnostics está instalado en la máquina virtual. Se agrega un conjunto básico de métricas. Actualice la página. Los contadores de rendimiento agregados aparecen en la pestaña de información general.
 5. En Supervisión, seleccione **Métricas**.
-6. En **Espacio de nombres de métrica** del gráfico de métricas, seleccione **Invitado (clásico)**.
+6. En **Espacio de nombres de métrica** del gráfico de métricas, seleccione **Invitado (clásico)** .
 7. En la lista Métrica podrá ver todos los contadores de rendimiento disponibles para la máquina virtual invitada.  
     ![lista de métricas extendidas de ejemplo](./media/azure-vm-extended-metrics/extended-metrics.png)
 

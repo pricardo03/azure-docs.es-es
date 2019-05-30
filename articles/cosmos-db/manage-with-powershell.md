@@ -4,15 +4,15 @@ description: Use Azure Powershell para administrar sus cuentas de Azure Cosmos D
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: samples
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 347c3a1c6cabca9532e5ada1237f2933841d5094
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: f720b678f2c7a6e564ef3e8fa9ae071b004ed1a6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077596"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243389"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Administrar los recursos de Azure Cosmos DB SQL API con PowerShell
 
@@ -36,7 +36,7 @@ Las siguientes secciones muestran cómo administrar la cuenta de Azure Cosmos, i
 * [Crear una cuenta de Azure Cosmos](#create-account)
 * [Actualizar una cuenta de Azure Cosmos](#update-account)
 * [Obtener una cuenta de Azure Cosmos](#get-account)
-* [Eliminar una cuenta de Azure Cosmos](#delete-account)
+* [Eliminación de una cuenta de Azure Cosmos](#delete-account)
 * [Actualizar las etiquetas para una cuenta de Azure Cosmos](#update-tags)
 * [Enumeración de claves para una cuenta de Azure Cosmos](#list-keys)
 * [Regenerar claves para una cuenta de Azure Cosmos](#regenerate-keys)

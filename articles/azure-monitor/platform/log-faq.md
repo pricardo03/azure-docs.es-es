@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: dcd546b4b4d8e47395535cd37e1629166c8c2e7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08e915354df4f4aa1d9a183e78cbad47460b8d37
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60394836"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356221"
 ---
 # <a name="log-analytics-faq"></a>Preguntas frecuentes sobre Log Analytics
 
@@ -35,7 +35,7 @@ R: Son lo mismo. [Log Analytics se integra como una característica de Azure Mon
 
 ### <a name="q-can-i-still-use-log-search"></a>P: ¿Puedo usar la búsqueda de registros? 
 
-R: La búsqueda de registros todavía sigue estando disponible en el portal de OMS y en Azure Portal con el nombre **Registros (clásico)**. El portal de OMS se retirará oficialmente el 15 de enero de 2019. La experiencia de registros clásica en Azure Portal se retirará gradualmente y será reemplazada con la nueva experiencia de registros. 
+R: La búsqueda de registros todavía sigue estando disponible en el portal de OMS y en Azure Portal con el nombre **Registros (clásico)** . El portal de OMS se retirará oficialmente el 15 de enero de 2019. La experiencia de registros clásica en Azure Portal se retirará gradualmente y será reemplazada con la nueva experiencia de registros. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>P: ¿puedo seguir usando el portal de análisis avanzado? 
 La nueva experiencia de registros de Azure Portal se basa en el portal de análisis avanzado, pero todavía se tiene acceso a ella fuera de Azure Portal. Los pasos que se realizarán para retirar este portal externo se anunciará próximamente.
@@ -84,7 +84,7 @@ R: La lista de vistas y soluciones instaladas está disponible en Azure Portal. 
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>P: ¿por qué no puedo crear áreas de trabajo en la región Centro-oeste de EE. UU.? 
 
-R: Esta región tiene un límite de capacidad temporal. Nos pondremos a trabajar con este límite en la primera mitad de 2019.
+R: Esta región tiene un límite de capacidad temporal. Este límite se prevé que se dirige a finales de septiembre de 2019.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>P: ¿Log Analytics utiliza al mismo agente que Azure Security Center?
@@ -195,7 +195,7 @@ Por su parte, un icono de advertencia amarillo significa que el agente está ten
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>P: ¿Cómo detener la comunicación entre un agente y Log Analytics?
 
 R: En System Center Operations Manager, quite el equipo de la lista de equipos que administra OMS. Operations Manager actualiza la configuración del agente para que ya no informe a Log Analytics. En el caso de los agentes conectados directamente a Log Analytics, puede detener la comunicación mediante: Panel de Control, Configuración de seguridad, **Microsoft Monitoring Agent**.
-Quite todas las áreas de trabajo enumeradas en **Azure Log Analytics (OMS)**.
+Quite todas las áreas de trabajo enumeradas en **Azure Log Analytics (OMS)** .
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>P: ¿Por qué recibo un error al tratar de mover mi área de trabajo de una suscripción de Azure a otra?
 

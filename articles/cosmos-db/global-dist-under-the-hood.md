@@ -4,15 +4,15 @@ description: En este artículo se ofrecen detalles técnicos relacionados con la
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 8c916a2fcff606a99e5c567318c1818ff7d5d273
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: c490657eb67a34e79c8dbaea31cb59b49cc6448e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65071944"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241091"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Aspectos técnicos de la distribución de datos global con Azure Cosmos DB
 
@@ -68,7 +68,7 @@ Empleamos relojes vectoriales codificados (que contienen relojes lógicos y de i
 
 En las bases de datos de Cosmos configuradas con varias regiones de escritura, el sistema ofrece varias directivas de resolución de conflictos automáticas flexibles para que los desarrolladores elijan entre ellas, incluidas: 
 
-- **Last-Write-Wins (LWW)**, que, de forma predeterminada, utiliza una propiedad de marca de tiempo definido por el sistema (que se basa en el protocolo de sincronización de hora reloj). Cosmos DB también permite especificar cualquier otra propiedad numérica personalizada que se vaya a usar para la resolución de conflictos.  
+- **Last-Write-Wins (LWW)** , que, de forma predeterminada, utiliza una propiedad de marca de tiempo definido por el sistema (que se basa en el protocolo de sincronización de hora reloj). Cosmos DB también permite especificar cualquier otra propiedad numérica personalizada que se vaya a usar para la resolución de conflictos.  
 - **Definido por la aplicación (personalizada) en directiva de resolución de conflicto** (expresada a través de procedimientos de mezcla), que está diseñado para la conciliación de semántica definida por la aplicación de conflictos. Estos procedimientos se invocan tras la detección de los conflictos de escritura-escritura bajo los auspicios de una transacción de base de datos en el servidor. El sistema proporciona exactamente una vez que garantiza la ejecución de un procedimiento de mezcla como parte del protocolo de compromiso. Hay [varios ejemplos de resolución en conflicto](how-to-manage-conflicts.md) disponible jugar con.  
 
 ## <a name="consistency-models"></a>Modelos de coherencia

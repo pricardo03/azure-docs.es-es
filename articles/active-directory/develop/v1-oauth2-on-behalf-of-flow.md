@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2983980786fc706d103c0147a0776f2ff8c2d4f
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0f4ab484b76bb536dd4e9d3c4fff2c85d93e4a41
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545470"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235205"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Llamadas entre servicios que usan la identidad de usuarios delegada en el flujo de On-Behalf-Of
 
@@ -58,31 +58,32 @@ Registre el servicio de nivel intermedio y la aplicación cliente en Azure AD.
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. En la barra superior, seleccione su cuenta y, en la lista **Directorio**, seleccione un inquilino de Active Directory para la aplicación.
 1. Haga clic en **Más servicios** en el panel izquierdo y elija **Azure Active Directory**.
-1. Seleccione **Registros de aplicaciones** y, después, haga clic en **Nuevo registro de aplicaciones**.
+1. Seleccione **registros de aplicaciones** y, a continuación, **nuevo registro**.
 1. Escriba un nombre descriptivo para la aplicación y seleccione el tipo de aplicación.
-    1. Según el tipo de aplicación, establezca la dirección URL de redireccionamiento o de inicio de sesión en la URL base.
-    1. Haga clic en **Crear** para crear la aplicación.
+1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
+1. Establece el URI de redireccionamiento en la dirección URL base.
+1. Seleccione **Registrar** para crear la aplicación.
 1. Genere un secreto de cliente antes de salir de Azure Portal.
-   1. Todavía en Azure Portal, elija la aplicación y seleccione **Configuración**.
-   1. Seleccione **Claves** en el menú de configuración y agregue una clave con una duración de un año o dos años.
-   1. Al guardar esta página, Azure Portal muestra el valor de clave. Copie y guarde el valor de clave en una ubicación segura.
+1. En el portal de Azure, elija la aplicación y seleccione **certificados y secretos**.
+1. Seleccione **nuevo secreto de cliente** y agregue un secreto con una duración de un año o dos años.
+1. Al guardar esta página, el portal de Azure muestra el valor del secreto. Copie y guarde el valor del secreto en una ubicación segura.
 
-      > [!IMPORTANT]
-      > Necesitará la clave para configurar las opciones de la aplicación en la implementación. Este valor de clave no se volverá a mostrar y no se puede recuperar de ninguna otra manera. Regístrelo en cuanto esté visible en Azure Portal.
+> [!IMPORTANT]
+> Necesita el secreto para configurar las opciones de la aplicación en su implementación. Este valor secreto no se volverá a mostrar, y no es recuperable por otros medios. Regístrelo en cuanto esté visible en Azure Portal.
 
 ### <a name="register-the-client-application"></a>Registro del tipo de aplicación cliente
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. En la barra superior, seleccione su cuenta y, en la lista **Directorio**, seleccione un inquilino de Active Directory para la aplicación.
 1. Haga clic en **Más servicios** en el panel izquierdo y elija **Azure Active Directory**.
-1. Seleccione **Registros de aplicaciones** y, después, haga clic en **Nuevo registro de aplicaciones**.
+1. Seleccione **registros de aplicaciones** y, a continuación, **nuevo registro**.
 1. Escriba un nombre descriptivo para la aplicación y seleccione el tipo de aplicación.
-   1. Según el tipo de aplicación, establezca la dirección URL de redireccionamiento o de inicio de sesión en la URL base.
-   1. Haga clic en **Crear** para crear la aplicación.
-1. Configure permisos para la aplicación.
-   1. En el menú Configuración, elija la sección **Permisos necesarios** y, después, seleccione **Agregar** y **Seleccionar una API**.
-   1. Escriba el nombre del servicio de nivel intermedio en el campo de texto.
-   1. Elija **Seleccionar permisos** y, después, seleccione **Access service name** (Acceder al nombre del servicio).
+1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
+1. Establece el URI de redireccionamiento en la dirección URL base.
+1. Seleccione **Registrar** para crear la aplicación.
+1. Configure permisos para la aplicación. En **permisos de API**, seleccione **agregar un permiso** y, a continuación, **Mis API**.
+1. Escriba el nombre del servicio de nivel intermedio en el campo de texto.
+1. Elija **seleccionar permisos** y, a continuación, seleccione **acceso <service name>** .
 
 ### <a name="configure-known-client-applications"></a>Configuración de aplicaciones cliente conocidas
 
@@ -114,9 +115,9 @@ Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre 
 | Aserción |requerido | Valor del token de acceso usado en la solicitud. |
 | client_id |requerido | Identificador de aplicación asignado al servicio de llamada durante el registro con Azure AD. Para buscar el identificador de la aplicación en Azure Portal, seleccione **Active Directory**, elija el directorio y, por último, seleccione el nombre de la aplicación. |
 | client_secret |requerido | La clave registrada para el servicio de llamada de Azure AD. Este valor debe haberse anotado en el momento del registro. |
-| Recurso |requerido | URI del identificador de la aplicación del servicio de recepción (recurso seguro). Para buscar el URI del identificador de la aplicación en Azure Portal, seleccione **Active Directory** y elija el directorio. Seleccione el nombre de la aplicación, elija **Todas las opciones** y, después, seleccione **Propiedades**. |
+| resource |requerido | URI del identificador de la aplicación del servicio de recepción (recurso seguro). Para buscar el URI del identificador de la aplicación en Azure Portal, seleccione **Active Directory** y elija el directorio. Seleccione el nombre de la aplicación, elija **Todas las opciones** y, después, seleccione **Propiedades**. |
 | requested_token_use |requerido | Especifica cómo se debe procesar la solicitud. En el "flujo en nombre de", el valor debe ser **on_behalf_of**. |
-| ámbito |requerido | Lista de ámbitos separados por un espacio para la solicitud de token. Para OpenID Connect, el ámbito **openid** debe especificarse.|
+| scope |requerido | Lista de ámbitos separados por un espacio para la solicitud de token. Para OpenID Connect, el ámbito **openid** debe especificarse.|
 
 #### <a name="example"></a>Ejemplo
 
@@ -149,9 +150,9 @@ Una solicitud de token de acceso entre servicios con un certificado contiene los
 | client_id |requerido | Identificador de aplicación asignado al servicio de llamada durante el registro con Azure AD. Para buscar el identificador de la aplicación en Azure Portal, seleccione **Active Directory**, elija el directorio y, por último, seleccione el nombre de la aplicación. |
 | client_assertion_type |requerido |El valor debe ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |requerido | Debe crear una instancia de JSON Web Token y firmar con el certificado que ha registrado como credenciales de la aplicación. Consulte el artículo acerca de las [credenciales de certificado](active-directory-certificate-credentials.md) para obtener información sobre el formato de la aserción y de cómo registrar el certificado.|
-| Recurso |requerido | URI del identificador de la aplicación del servicio de recepción (recurso seguro). Para buscar el URI del identificador de la aplicación en Azure Portal, seleccione **Active Directory** y elija el directorio. Seleccione el nombre de la aplicación, elija **Todas las opciones** y, después, seleccione **Propiedades**. |
+| resource |requerido | URI del identificador de la aplicación del servicio de recepción (recurso seguro). Para buscar el URI del identificador de la aplicación en Azure Portal, seleccione **Active Directory** y elija el directorio. Seleccione el nombre de la aplicación, elija **Todas las opciones** y, después, seleccione **Propiedades**. |
 | requested_token_use |requerido | Especifica cómo se debe procesar la solicitud. En el "flujo en nombre de", el valor debe ser **on_behalf_of**. |
-| ámbito |requerido | Lista de ámbitos separados por un espacio para la solicitud de token. Para OpenID Connect, el ámbito **openid** debe especificarse.|
+| scope |requerido | Lista de ámbitos separados por un espacio para la solicitud de token. Para OpenID Connect, el ámbito **openid** debe especificarse.|
 
 Estos parámetros son casi iguales a los de la solicitud con un secreto compartido, salvo que el parámetro `client_secret parameter` se sustituye por los parámetros `client_assertion_type` y `client_assertion`.
 
@@ -183,10 +184,10 @@ Una respuesta correcta es una respuesta de OAuth 2.0 de JSON con los parámetros
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
 | token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es el **portador**. Para más información sobre los tokens de portador, consulte [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]). |
-| ámbito |Ámbito de acceso concedido en el token. |
+| scope |Ámbito de acceso concedido en el token. |
 | expires_in |Período de validez del token de acceso (en segundos). |
 | expires_on |La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. Este valor se utiliza para determinar la duración de los tokens almacenados en caché. |
-| Recurso |URI del identificador de la aplicación del servicio de recepción (recurso seguro). |
+| resource |URI del identificador de la aplicación del servicio de recepción (recurso seguro). |
 | access_token |El token de acceso solicitado. El servicio de llamada puede usar este token para autenticarse en el servicio de recepción. |
 | ID_token |Token de identificador solicitado. El servicio de llamada puede usar este token para verificar la identidad del usuario y comenzar una sesión con el usuario. |
 | refresh_token |Token de actualización para el token de acceso solicitado. El servicio de llamada puede usar este token para solicitar otro token de acceso después de que expire el token de acceso actual. |
@@ -258,7 +259,7 @@ Una solicitud de servicio a servicio para una aserción SAML contiene los siguie
 | Aserción |requerido | Valor del token de acceso usado en la solicitud.|
 | client_id |requerido | Identificador de aplicación asignado al servicio de llamada durante el registro con Azure AD. Para buscar el identificador de la aplicación en Azure Portal, seleccione **Active Directory**, elija el directorio y, por último, seleccione el nombre de la aplicación. |
 | client_secret |requerido | La clave registrada para el servicio de llamada de Azure AD. Este valor debe haberse anotado en el momento del registro. |
-| Recurso |requerido | URI del identificador de la aplicación del servicio de recepción (recurso seguro). Este es el recurso que será la audiencia del token SAML. Para buscar el URI del identificador de la aplicación en Azure Portal, seleccione **Active Directory** y elija el directorio. Seleccione el nombre de la aplicación, elija **Todas las opciones** y, después, seleccione **Propiedades**. |
+| resource |requerido | URI del identificador de la aplicación del servicio de recepción (recurso seguro). Este es el recurso que será la audiencia del token SAML. Para buscar el URI del identificador de la aplicación en Azure Portal, seleccione **Active Directory** y elija el directorio. Seleccione el nombre de la aplicación, elija **Todas las opciones** y, después, seleccione **Propiedades**. |
 | requested_token_use |requerido | Especifica cómo se debe procesar la solicitud. En el "flujo en nombre de", el valor debe ser **on_behalf_of**. |
 | requested_token_type | requerido | Especifica el tipo de token solicitado. El valor puede ser **urn:ietf:params:oauth:token-type:saml2** o **urn:ietf:params:oauth:token-type:saml1**, en función de los requisitos del recurso al que se accede. |
 
@@ -274,10 +275,10 @@ La respuesta contiene un token SAML codificado con UTF8 y Base64url.
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
 | token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es el **portador**. Para más información sobre los tokens de portador, consulte [The OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]). |
-| ámbito |Ámbito de acceso concedido en el token. |
+| scope |Ámbito de acceso concedido en el token. |
 | expires_in |Período de validez del token de acceso (en segundos). |
 | expires_on |La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. Este valor se utiliza para determinar la duración de los tokens almacenados en caché. |
-| Recurso |URI del identificador de la aplicación del servicio de recepción (recurso seguro). |
+| resource |URI del identificador de la aplicación del servicio de recepción (recurso seguro). |
 | access_token |Parámetro que devuelve la aserción de SAML. |
 | refresh_token |El token de actualización. El servicio de llamada puede usar este token para solicitar otro token de acceso después de que expire la aserción SAML actual. |
 

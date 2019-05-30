@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 98588e0c25439fd4988fe39e06e7042cfa9113cb
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227925"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305678"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>¿Qué es la condición de ubicación del acceso condicional de Azure Active Directory? 
 
@@ -56,7 +56,7 @@ Una ubicación con nombre tiene los siguientes componentes:
 - **Países o regiones**: esta opción le permite seleccionar uno o más países o regiones para definir una ubicación con nombre.
 - **Incluir áreas desconocidas** -algunas direcciones IP no están asignadas a un país o región determinados. Esta opción le permite elegir si estas direcciones IP deberían estar incluidas en la ubicación con nombre. Use esta configuración cuando la directiva que usa la ubicación con nombre deba aplicarse en ubicaciones desconocidas.
 
-El número de ubicaciones con nombre que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Las organizaciones pueden configurar hasta 90 ubicaciones con nombre, cada una configurada con hasta 12000 intervalos IP.
+El número de ubicaciones con nombre que se pueden configurar está restringido por el tamaño del objeto relacionado en Azure AD. Las organizaciones pueden configurar hasta 90 ubicaciones con nombre, cada una configurada con hasta 1200 intervalos IP.
 
 Directiva de acceso condicional se aplica al tráfico IPv4 e IPv6. Ubicaciones con nombre actualmente no permiten intervalos IPv6 va a configurar. Esta limitación hace que las siguientes situaciones:
 

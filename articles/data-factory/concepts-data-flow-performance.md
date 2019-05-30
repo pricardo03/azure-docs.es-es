@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: 7fca586083f70e0b0f7e593d5203392260cd2136
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 90c7e4653b879c2432f08506cea08646e84bb69a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66172346"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297701"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Rendimiento de flujos de datos de asignación y la Guía de optimización
 
@@ -29,7 +29,7 @@ Azure Data Factory asignación fluyen los datos proporcionan una interfaz de exp
 
 ![Depurar botón](media/data-flow/debugb1.png "depurar")
 
-## <a name="optimizing-for-azure-sql-database"></a>Optimización de base de datos SQL Azure
+## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimización de base de datos SQL Azure y Azure SQL Data Warehouse
 
 ![Parte del origen](media/data-flow/sourcepart2.png "parte de origen")
 
@@ -65,6 +65,13 @@ Azure Data Factory asignación fluyen los datos proporcionan una interfaz de exp
 * Aumentar el número de núcleos, lo que aumentará el número de nodos y proporcionarle más capacidad de procesamiento para consultar y escribir en la base de datos de SQL Azure.
 * Pruebe las opciones de "Proceso optimizado" y "Con optimización para memoria" para aplicar más recursos a los nodos de proceso.
 
+### <a name="unit-test-and-performance-test-with-debug"></a>Pruebas unitarias y pruebas de rendimiento con la depuración
+
+* Cuando los flujos de datos pruebas unitarias, establezca el botón "Datos de flujo de depuración" en ON.
+* En el Diseñador de flujo de datos, utilice la pestaña de vista previa de datos en las transformaciones para ver los resultados de la lógica de transformación.
+* Prueba unitaria de los datos fluyen desde el Diseñador de canalizaciones mediante la colocación de una actividad de flujo de datos en el diseño de canalización de lienzo y usar el botón "Debug" para probar.
+* Las pruebas en modo de depuración funcionará en un entorno de clúster calienten activo sin necesidad de esperar una número de seguridad de clúster just-in-time.
+
 ### <a name="disable-indexes-on-write"></a>Deshabilitar índices durante la escritura
 * Usar una actividad de procedimiento almacenado de canalización ADF antes de la actividad de flujo de datos que deshabilita los índices en las tablas de destino que se escriben en el receptor.
 * Después de la actividad de flujo de datos, agregue otra actividad de procedimiento almacenado que habilitar estos índices.
@@ -72,6 +79,34 @@ Azure Data Factory asignación fluyen los datos proporcionan una interfaz de exp
 ### <a name="increase-the-size-of-your-azure-sql-db"></a>Aumentar el tamaño de la base de datos de SQL Azure
 * Programar un cambio de tamaño de su origen y receptor de Azure SQL DB antes de la serie de límites de la canalización para aumentar el rendimiento y minimizar la limitación de Azure una vez que alcance DTU.
 * Una vez completada la ejecución de la canalización, puede cambiar el tamaño de las bases de datos a la velocidad de ejecución normal.
+
+## <a name="optimizing-for-azure-sql-data-warehouse"></a>Optimización del almacenamiento de datos SQL Azure
+
+### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>Utilizar el almacenamiento provisional para cargar datos de forma masiva a través de Polybase
+
+* Con el fin de evitar el procesamiento fila por fila de sus témpanos de datos, establezca la opción de "Ensayo" en la configuración del receptor para que ADF puede aprovechar Polybase para evitar inserciones de fila por fila en el almacenamiento de datos. Esto indicará a ADF para usar Polybase para que los datos se pueden cargar de forma masiva.
+* Cuando se ejecuta la actividad de flujo de datos de una canalización con almacenamiento provisional activado, deberá seleccionar la ubicación del almacén de blobs de los datos de almacenamiento provisionales para la carga masiva.
+
+### <a name="increase-the-size-of-your-azure-sql-dw"></a>Aumentar el tamaño de almacenamiento de datos de SQL Azure
+
+* Programar un cambio de tamaño de su origen y receptor de Azure SQL DW antes de ejecutar la canalización para aumentar el rendimiento y minimizar la limitación de Azure una vez que alcance los límites de DWU.
+
+* Una vez completada la ejecución de la canalización, puede cambiar el tamaño de las bases de datos a la velocidad de ejecución normal.
+
+## <a name="optimize-for-files"></a>Optimizar archivos
+
+* Puede controlar cuántas particiones que se va a usar ADF. En cada transformación del origen y receptor, así como cada transformación individuales, puede establecer un esquema de partición. Para archivos más pequeños, es posible seleccionar "Partición única" a veces puede trabajar mejor y más rápido que pedir Spark para la partición de los archivos pequeños.
+* Si no tiene suficiente información acerca de los datos de origen, puede elegir "Round Robin" creación de particiones y establecer el número de particiones.
+* Si explorar los datos y que tenga las columnas que pueden ser claves hash correcto, use la opción de particionamiento de Hash.
+
+### <a name="file-naming-options"></a>Opciones de nombre de archivo
+
+* La naturaleza de forma predeterminada de la escritura de datos transformados en flujos de datos de asignación de ADF consiste en escribir en un conjunto de datos que tiene un Blob o un servicio vinculado de ADLS. Debe establecer ese conjunto de datos para que apunte a una carpeta o contenedor, no es un archivo con nombre.
+* Flujos de datos, use Azure Databricks Spark para su ejecución, lo que significa que se va a dividir a través de varios archivos basados en la salida predeterminada o creación de particiones de Spark o las particiones de esquema que ha elegido explícitamente.
+* Una operación muy común en flujos de datos de ADF es elegir "A único archivo de salida" para que todos los archivos de parte de la salida se combinan en un único archivo de salida.
+* Sin embargo, esta operación requiere que el resultado se reduce a una única partición en un único nodo de clúster.
+* Téngalo en cuenta al elegir esta opción popular. Puede quedarse sin recursos del nodo de clúster si combina muchos archivos grandes de origen en una partición del archivo de salida única.
+* Para evitar agotar los recursos del nodo de proceso, puede mantener el valor predeterminado o el esquema de partición explícito en ADF, que optimiza el rendimiento, y, a continuación, agregar una actividad de copia posteriores en la canalización que combina toda la parte archivos de la carpeta de salida a un único nuevo archivo. En esencia, esta técnica separa la acción de transformación de combinación de archivos y consigue el mismo resultado que la configuración de "salida de archivo único".
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos de flujo de datos:

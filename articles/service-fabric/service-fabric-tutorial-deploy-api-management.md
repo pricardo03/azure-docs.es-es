@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 92b1e95598da27f0b7d7df30dfa4a82824b4a48c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 970d533424e2e603a96bf7e36317cbcdf5110304
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158220"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306812"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar API Management con Service Fabric en Azure
 
@@ -75,8 +75,8 @@ Cree un servicio básico y confiable de ASP.NET Core sin estado, con la plantill
 Inicie Visual Studio como administrador y cree un servicio ASP.NET Core:
 
  1. En Visual Studio, seleccione Archivo -> Nuevo proyecto.
- 2. En Nube, seleccione la plantilla de aplicación de Service Fabric y asígnele el nombre **"ApiApplication"**.
- 3. Seleccione la plantilla de servicio de ASP.NET Core sin estado y denomine al proyecto **"WebApiService"**.
+ 2. En Nube, seleccione la plantilla de aplicación de Service Fabric y asígnele el nombre **"ApiApplication"** .
+ 3. Seleccione la plantilla de servicio de ASP.NET Core sin estado y denomine al proyecto **"WebApiService"** .
  4. Seleccione la plantilla de proyecto de ASP.NET Core 2.0 de API web.
  5. Una vez creado el proyecto, abra `PackageRoot\ServiceManifest.xml` y quite los atributos `Port` de la configuración del recurso de punto de conexión:
 

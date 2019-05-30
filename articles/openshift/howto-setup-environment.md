@@ -3,18 +3,18 @@ title: Configurar el entorno de desarrollo de Azure Red Hat OpenShift | Microsof
 description: Estos son los requisitos previos para trabajar con Microsoft Azure Red Hat OpenShift.
 services: openshift
 keywords: configurar el programa de instalación de red hat openshift
-author: TylerMSFT
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: 6ba7e67620ebfd7ff98c1ba81c7cecb133288be7
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: f0ef421d7954aa33cf69e7de2f4902a86ed8b580
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962122"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306398"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Configuración del entorno de desarrollo de Red Hat OpenShift en Azure
 
@@ -65,31 +65,43 @@ Para registrar manualmente estos proveedores y características, utilice las ins
     az account set --subscription <SUBSCRIPTION ID>
     ```
 
-2. Registre la característica de openshiftmanagedcluster Microsoft.ContainerService:
+1. Registre la característica de openshiftmanagedcluster Microsoft.ContainerService:
 
     ```bash
     az feature register --namespace Microsoft.ContainerService -n openshiftmanagedcluster
     ```
 
-3. Registre el proveedor Microsoft.Solutions:
+1. Registre el proveedor Microsoft.Storage:
+
+    ```bash
+    az provider register -n Microsoft.Storage --wait
+    ```
+    
+1. Registre el proveedor de Microsoft.Compute:
+
+    ```bash
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. Registre el proveedor Microsoft.Solutions:
 
     ```bash
     az provider register -n Microsoft.Solutions --wait
     ```
 
-4. Registre el proveedor de Microsoft.Network:
+1. Registre el proveedor de Microsoft.Network:
 
     ```bash
     az provider register -n Microsoft.Network --wait
     ```
 
-5. Registre el proveedor Microsoft.KeyVault:
+1. Registre el proveedor Microsoft.KeyVault:
 
     ```bash
     az provider register -n Microsoft.KeyVault --wait
     ```
 
-6. Actualizar el registro del proveedor de recursos Microsoft.ContainerService:
+1. Actualizar el registro del proveedor de recursos Microsoft.ContainerService:
 
     ```bash
     az provider register -n Microsoft.ContainerService --wait

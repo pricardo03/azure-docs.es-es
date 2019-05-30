@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: d46c545db9e1950988b49cdb577d074b6d04380c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f63b705f7967eeddaf522941d6db9be5d9f2719d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236601"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244989"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Crear una galería de imágenes compartidas mediante el portal de Azure
 
@@ -67,6 +67,7 @@ Este ejemplo crea una máquina virtual denominada *myVMfromImage*, en *myResourc
 1. Si desea permitir el acceso remoto a la máquina virtual, en **puertos de entrada públicos**, elija **Permitir puertos seleccionados** y, a continuación, seleccione **RDP (3389)** en la lista desplegable. Si no desea permitir el acceso remoto a la máquina virtual, deje **ninguno** seleccionado para **puertos de entrada públicos**.
 1. Cuando haya terminado, seleccione el **revisión + crear** situado en la parte inferior de la página.
 1. Después de la máquina virtual pasa la validación, seleccione **crear** en la parte inferior de la página para iniciar la implementación.
+
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

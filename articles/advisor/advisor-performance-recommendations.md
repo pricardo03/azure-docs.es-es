@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920443"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254652"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Mejora del rendimiento de las aplicaciones de Azure con Azure Advisor
 
@@ -93,6 +93,22 @@ Azure Advisor aprovecha la heurística basada en la carga de trabajo como la pro
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Escalar el servidor Azure MySQL, PostgreSQL de Azure o Azure MariaDB a una SKU superior para evitar las restricciones de conexión
 Cada nueva conexión al servidor de base de datos ocupa la parte de la memoria. Degrada el rendimiento del servidor de base de datos si se producen errores en las conexiones al servidor porque un [límite](https://docs.microsoft.com/azure/postgresql/concepts-limits) en memoria. Azure Advisor identificará los servidores que ejecutan con muchos errores de conexión y recomendamos que actualice los límites de conexiones del servidor para proporcionar más memoria al servidor de escalado de proceso o el uso de SKU optimizadas de memoria, lo que tiene más proceso por núcleo.
+
+## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>Escalar la memoria caché a un tamaño diferente o SKU para mejorar la memoria caché y rendimiento de la aplicación
+
+Las instancias de caché tienen un mejor rendimiento cuando no se está ejecutando bajo presión de memoria, carga elevada en el servidor o ancho de banda de red elevado lo cual puede provocar que deje de responder, sufrir una pérdida de datos o dejan de estar disponibles. Advisor identificará las instancias de caché en estas condiciones y recomienda aplicar las prácticas recomendadas para reducir la presión de memoria, la carga del servidor o el ancho de banda de red o el escalado a un tamaño diferente o SKU con más capacidad.
+
+## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Agregar regiones con el tráfico a su cuenta de Azure Cosmos DB
+
+Advisor detectará las cuentas de Azure Cosmos DB que tienen tráfico desde una región que no está configurada actualmente y recomienda agregar esa región. Esto mejorará la latencia para las solicitudes procedentes de esa región y asegurará la disponibilidad en caso de interrupciones de la región. [Más información sobre la distribución de datos global con Azure Cosmos DB](https://aka.ms/cosmos/globaldistribution)
+
+## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Configurar Azure Cosmos DB la directiva de indexación con el cliente a incluir o excluir rutas de acceso
+
+Azure Advisor identificará los contenedores de Cosmos DB que usan la directiva de indexación predeterminada, pero podrían beneficiarse de una directiva de indexación personalizada basada en el patrón de carga de trabajo. El valor predeterminado de directiva de indexación indexa todas las propiedades, pero mediante una directiva de indexación personalizada con incluida o excluidas rutas de acceso explícitas utilizadas en los filtros de consulta puede reducir el RU y el almacenamiento usado para la indización. [Más información acerca de cómo modificar las directivas de índice](https://aka.ms/cosmosdb/modify-index-policy)
+
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Configurar el tamaño de página de consulta (MaxItemCount) de Azure Cosmos DB en -1 
+
+Azure Advisor identificará los contenedores de Azure Cosmos DB que usan el tamaño de página de consulta de 100 y se recomienda usar un tamaño de página de -1 para exámenes más rápidos. [Más información sobre el número máximo de elementos](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Obtención de acceso a las recomendaciones sobre rendimiento en Advisor
 

@@ -1,6 +1,6 @@
 ---
 title: 'Los administradores administrar usuarios y dispositivos - Azure MFA: Azure Active Directory'
-description: Describe cómo cambiar opciones de la configuración del usuario, como por ejemplo forzar a los usuarios realizar nuevamente el proceso proofup.
+description: Cómo los administradores pueden cambiar la configuración de usuario, como forzar a los usuarios volver a realizar el proceso de prueba.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78d6d901c050f6d1df8b53b34f0088d3ad8b0f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04d4848a00fd645bcf23342f27fe820ccf034a8b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415148"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298838"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Administrar la configuración de usuario con Azure Multi-Factor Authentication en la nube
 
@@ -35,12 +35,20 @@ Esta configuración obliga al usuario a volver a realizar el proceso de registro
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la parte izquierda, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
 3. En la derecha, seleccione **Multi-factor Authentication** en la barra de herramientas. Se abre la página de Multi-Factor Authentication.
-4. Active la casilla junto al usuario o usuarios que desea administrar. Aparecerá una lista de opciones de paso rápido a la derecha.
+4. Active la casilla junto al usuario o usuarios que desea administrar. Aparece una lista de opciones de paso rápido a la derecha.
 5. Seleccione **Administrar configuración de usuario**.
 6. Active la casilla **Requerir a los usuarios seleccionados que vuelvan a proporcionar métodos de contacto**.
    ![Requerir que los usuarios vuelvan a proporcionar métodos de contacto](./media/howto-mfa-userdevicesettings/reproofup.png)
 7. Haga clic en **guardar**.
 8. Haga clic en **Cerrar**.
+
+Las organizaciones pueden seguir estos pasos con PowerShell, con lo siguiente como guía para borrar el `StrongAuthenticationMethods` atributo:
+
+```PowerShell
+$Upn = "theuser@domain.com"
+$noMfaConfig = @()
+Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
+```
 
 ## <a name="delete-users-existing-app-passwords"></a>Eliminar las contraseñas de aplicación existentes de los usuarios
 
@@ -51,7 +59,7 @@ Esta configuración elimina todas las contraseñas de aplicación que ha creado 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la parte izquierda, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
 3. En la derecha, seleccione **Multi-factor Authentication** en la barra de herramientas. Se abre la página de Multi-Factor Authentication.
-4. Active la casilla junto al usuario o usuarios que desea administrar. Aparecerá una lista de opciones de paso rápido a la derecha.
+4. Active la casilla junto al usuario o usuarios que desea administrar. Aparece una lista de opciones de paso rápido a la derecha.
 5. Seleccione **Administrar configuración de usuario**.
 6. Active la casilla **Eliminar todas las contraseñas de aplicación existentes generadas por los usuarios seleccionados**.
    ![Eliminar todas las contraseñas de aplicación existente](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
@@ -64,14 +72,14 @@ Una de las características configurables de Azure Multi-Factor Authentication e
 
 Los usuarios pueden optar por no usar la verificación en dos pasos durante un número de días configurable en sus dispositivos habituales. Si se compromete la seguridad de la cuenta o se pierde un dispositivo de confianza, necesita tener la posibilidad de quitar el estado de confianza y volver a solicitar la verificación en dos pasos.
 
-La opción **Restaurar autenticación multifactor en todos los dispositivos recordados** supone que el usuario tendrá que realizar la verificación en dos pasos la próxima vez que inicie sesión, con independencia de que decida o no marcar su dispositivo como de confianza.
+Cuando está activada, **restaurar la autenticación multifactor en todos los dispositivos recordados** usuarios son necesarios para realizar la verificación en dos pasos la próxima vez que inicie sesión, incluso si se marcan su dispositivo como de confianza.
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Cómo restaurar MFA en todos los dispositivos suspendidos para un usuario
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la parte izquierda, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
 3. En la derecha, seleccione **Multi-factor Authentication** en la barra de herramientas. Se abre la página de Multi-Factor Authentication.
-4. Active la casilla junto al usuario o usuarios que desea administrar. Aparecerá una lista de opciones de paso rápido a la derecha.
+4. Active la casilla junto al usuario o usuarios que desea administrar. Aparece una lista de opciones de paso rápido a la derecha.
 5. Seleccione **Administrar configuración de usuario**.
 6. Active la casilla de **restaurar la autenticación multifactor en todos los dispositivos recordados**
    ![restaurar la autenticación multifactor en todos los dispositivos recordados](./media/howto-mfa-userdevicesettings/rememberdevices.png)

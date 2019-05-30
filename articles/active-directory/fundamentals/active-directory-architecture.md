@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 05/23/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12819bdc20dea57a8a114bb4ff311f828be8b15a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ba36825805ff54165a3e6c4e221550cc30b07d3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249800"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235176"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>¿Qué es la arquitectura de Azure Active Directory?
 Azure Active Directory (Azure AD) le permite administrar el acceso a los servicios y recursos de Azure para los usuarios de forma segura. Con Azure AD se incluye un conjunto completo de funcionalidades de administración de identidades. Para más información sobre las características de Azure AD, consulte [¿Qué es Azure Active Directory?](active-directory-whatis.md)
@@ -30,14 +30,14 @@ La arquitectura distribuida geográficamente de Azure AD combina las funcionalid
 
 En este artículo se tratan los siguientes elementos de la arquitectura:
  *  Diseño de la arquitectura del servicio
- *  Facilidad de uso 
+ *  Escalabilidad
  *  Disponibilidad continua
  *  Centros de datos
 
 ### <a name="service-architecture-design"></a>Diseño de la arquitectura del servicio
 La manera más común de compilar un sistema con datos enriquecidos que sea accesible y pueda usarse es con bloques de creación independientes o unidades de escalado. Para la capa de datos de Azure AD, a las unidades de escalado se les llama *particiones*. 
 
-El nivel de datos tiene varios servicios front-end que proporcionan la funcionalidad de lectura y escritura. En el diagrama siguiente se muestra cómo se entregan los componentes de una partición de directorio único a lo largo de centros de datos geográficamente distribuidos. 
+El nivel de datos tiene varios servicios front-end que proporcionan la funcionalidad de lectura y escritura. El diagrama siguiente muestra cómo se entregan los componentes de una partición de directorio único a lo largo de centros de datos geográficamente distribuidos. 
 
   ![Diagrama de la partición de directorio único](./media/active-directory-architecture/active-directory-architecture.png)
 
@@ -49,7 +49,7 @@ La *réplica principal* recibe todas las *operaciones de escritura* para la part
 
 **Réplicas secundarias**
 
-Todas las *lecturas* de los directorios son atendidas desde las *réplicas secundarias*, que se encuentran en centros de datos ubicados físicamente en regiones geográficas diferentes. Existen muchas réplicas secundarias, ya que los datos se replican de forma asincrónica. Las lecturas de directorio, como las solicitudes de autenticación, se procesan en los centros de datos que están cerca de los clientes. Las réplicas secundarias son responsables de la escalabilidad de lectura.
+Todos los directorios *lee* son atendidas desde *réplicas secundarias*, que se encuentran en los centros de datos que están ubicados físicamente en regiones geográficas diferentes. Existen muchas réplicas secundarias, ya que los datos se replican de forma asincrónica. Lecturas de directorio, como las solicitudes de autenticación son atendidas desde los centros de datos que están cerca de los clientes. Las réplicas secundarias son responsables de la escalabilidad de lectura.
 
 ### <a name="scalability"></a>Escalabilidad
 
@@ -61,7 +61,7 @@ Las aplicaciones de directorio se conectan a los centros de datos más cercanos.
 
 ### <a name="continuous-availability"></a>Disponibilidad continua
 
-La disponibilidad (o tiempo de actividad) define la capacidad de un sistema de ejecutarse sin interrupciones. La clave para la alta disponibilidad de Azure AD es que los servicios pueden cambiar rápidamente el tráfico a través de varios centros de datos distribuidos geográficamente. Cada centro de datos es independiente, lo que permite anular la correlación de los modos con error.
+La disponibilidad (o tiempo de actividad) define la capacidad de un sistema de ejecutarse sin interrupciones. La clave para la alta disponibilidad de Azure AD es que los servicios pueden cambiar rápidamente el tráfico entre varios centros de datos distribuidos geográficamente. Cada centro de datos es independiente, lo que permite a los modos de error anular la correlación. En este diseño de alta disponibilidad, Azure AD no requiere ningún tiempo de inactividad para las actividades de mantenimiento.
 
 El diseño de la partición de Azure AD se ha simplificado en comparación con el diseño empresarial de AD, mediante un diseño maestro único que incluye un proceso de conmutación por error de la réplica principal determinista y cuidadosamente organizado.
 
@@ -73,21 +73,21 @@ Las operaciones de lectura (que superan a las de escritura en muchos órdenes de
 
 **Durabilidad de datos**
 
-Una operación de escritura está confirmada de forma duradera en al menos dos centros de datos antes de su reconocimiento. Esto ocurre al confirmar por primera vez la operación de escritura en el servidor principal y, después, replicar inmediatamente esta operación en al menos otro centro de datos. Esta acción de escritura garantiza que una potencial pérdida grave del centro de datos que hospeda la réplica principal no tenga como resultado una pérdida de datos.
+Una operación de escritura es duradera en al menos dos centros de datos antes de su reconocimiento. Esto sucede por primera confirmación de la escritura en el servidor principal y, a continuación, replicar inmediatamente la operación de escritura en al menos un centro de datos. Esta acción de escritura garantiza que una potencial pérdida grave del centro de datos que hospeda la réplica principal no dar lugar a pérdida de datos.
 
 Azure AD mantiene un [tiempo objetivo de recuperación (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) de cero para no perder datos en las conmutaciones por error. Esto incluye:
 -  Emisión de tokens y lecturas de directorio
 -  Permite únicamente un RTO de 5 minutos para la escritura en directorios
 
-### <a name="data-centers"></a>Centros de datos
+### <a name="datacenters"></a>Centros de datos
 
-Las réplicas de Azure AD se almacenan en centros de datos ubicados en todo el mundo. Para más información, consulte [Centros de datos de Azure](https://azure.microsoft.com/overview/datacenters).
+Las réplicas de Azure AD se almacenan en centros de datos ubicados en todo el mundo. Para obtener más información, consulte [infraestructura global de Azure](https://azure.microsoft.com/global-infrastructure/).
 
 Azure AD funciona a través de centros de datos con las siguientes características:
 
- * Autenticación, Graph y otros servicios de AD residen detrás del servicio de puerta de enlace. La puerta de enlace administra el equilibrio de carga de estos servicios. Se conmutará por error automáticamente si se detecta algún servidor incorrecto mediante el sondeo de estado transaccional. En función de estos sondeos de estado, la puerta de enlace enruta dinámicamente el tráfico a centros de datos correctos.
- * Para las operaciones de *lectura*, el directorio tiene réplicas secundarias y servicios front-end correspondientes en una configuración activa-activa que funciona en varios centros de datos. En caso de error de un centro de datos completo, el tráfico se redirigirá automáticamente a otro centro de datos.
- *  Para las operaciones de *escritura*, el directorio continuará por error la réplica principal en los centros de datos a través de procedimientos de conmutación por error planeados (el nuevo elemento principal se sincroniza con el antiguo) o de emergencia. La durabilidad de los datos se logra al replicar cualquier confirmación en al menos dos centros de datos.
+ * Autenticación, Graph y otros servicios de AD residen detrás del servicio de puerta de enlace. La puerta de enlace administra el equilibrio de carga de estos servicios. Se conmutará por error automáticamente si se detecta algún servidor incorrecto mediante el sondeo de estado transaccional. Según estos sondeos de estado, la puerta de enlace enruta dinámicamente el tráfico a centros de datos en buen estado.
+ * Para *lee*, el directorio tiene réplicas secundarias y los servicios front-end correspondientes en una configuración activa-activa que funciona en varios centros de datos. En caso de error de todo un centro de datos, el tráfico se redirigirá automáticamente a otro centro de datos.
+ *  Para *escribe*, el directorio se producirá un error a través de la réplica principal de (maestra) en centros de datos a través de planeada (nuevo elemento principal se sincroniza con el antiguo) o procedimientos de emergencia de conmutación por error. Durabilidad de los datos se logra al replicar cualquier confirmación en al menos dos centros de datos.
 
 **Coherencia de datos**
 

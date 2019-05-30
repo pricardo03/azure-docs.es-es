@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 02/25/2019
+ms.date: 05/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 15118535578419f9e1230c5b2fcfd0d7c42257ea
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 93fc9a4e9e44bd7e8db3d49fe390ebe273c45ce9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65909008"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239040"
 ---
 # <a name="access-data-from-your-datastores"></a>Acceder a los datos de los almacenes de datos
 
@@ -149,13 +149,13 @@ ds.download(target_path='your target path',
 <a name="train"></a>
 ## <a name="access-datastores-during-training"></a>Acceso a almacenes de datos durante el entrenamiento
 
-Una vez que el almacén de datos esté disponible en el destino de proceso, puede tener acceso durante las ejecuciones de entrenamiento (por ejemplo, los datos de entrenamiento o validación) pasando simplemente la ruta de acceso a él como un parámetro en el script de entrenamiento.
+Una vez que estén disponibles en el almacén de datos destino de proceso de entrenamiento, puede acceder durante las ejecuciones de entrenamiento (por ejemplo, los datos de entrenamiento o validación) pasando simplemente la ruta de acceso a él como un parámetro en el script de entrenamiento.
 
 La siguiente tabla se enumeran los [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) métodos que indiquen el destino de proceso de cómo usar el almacén de datos durante las ejecuciones.
 
 forma|Método|DESCRIPCIÓN|
 ----|-----|--------
-Montar| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Usar para montar el almacén de datos en el destino de proceso.
+Montaje| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Usar para montar el almacén de datos en el destino de proceso.
 Descargar|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Usar para descargar el contenido de su almacén de datos en la ubicación especificada por `path_on_compute`. <br> Contexto de ejecución de aprendizaje, esta descarga se produce antes de la ejecución.
 Cargar|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Usar para cargar un archivo desde la ubicación especificada por `path_on_compute` en su almacén de datos. <br> Contexto de ejecución de aprendizaje, esta carga se produce después de su ejecución.
 
@@ -178,19 +178,20 @@ ds.path('./bar').as_download()
 > [!NOTE]
 > Cualquier `ds` o `ds.path` objeto se resuelve en un nombre de variable de entorno del formato `"$AZUREML_DATAREFERENCE_XXXX"` cuyo valor representa la ruta de acceso de montaje y descarga en el proceso de destino. La ruta de acceso del almacén de datos en el proceso de destino no puede ser el mismo que la ruta de acceso de ejecución para el script de entrenamiento.
 
-### <a name="compute-context-and-datastore-type-matrix"></a>Matriz de tipo de contexto y el almacén de datos de proceso
+### <a name="training-compute-and-datastore-matrix"></a>Matriz de proceso y el almacén de datos de entrenamiento
 
-La matriz siguiente muestra las funcionalidades de acceso de datos disponibles para los escenarios de contexto y el almacén de datos de proceso diferentes. El término "Canalización" en esta matriz se refiere a la capacidad para utilizar almacenes de datos como una entrada o salida en [canalizaciones de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines).
+La matriz siguiente muestra las funcionalidades de acceso de datos disponibles para los escenarios de almacén de datos y destinos de proceso de entrenamiento distintos. Obtenga más información sobre la [destinos de proceso de aprendizaje para Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
 
-||Proceso local|Proceso de Azure Machine Learning|Transferencia de datos|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
--|--|-----------|----------|---------|-----|--------------|---------|---------|
-|AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> Canalización|Canalización|Canalización|[`as_download()`] <br> [`as_upload()`]|Canalización||[`as_download()`] <br> [`as_upload()`]|
-|AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] Canalización |||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|
-|AzureDataLakeDatastore|||Canalización|Canalización|||Canalización||
-|AzureDataLakeGen2Datastore|||Canalización||||||
-|AzureDataPostgresSqlDatastore|||Canalización||||||
-|AzureSqlDatabaseDataDatastore|||Canalización||||||
-
+|Proceso|[AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py)                                       |[AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py)                                      |[AzureDataLakeDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakedatastore?view=azure-ml-py) |[AzureDataLakeGen2Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) [AzurePostgreSqlDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_postgre_sql_datastore.azurepostgresqldatastore?view=azure-ml-py) [AzureSqlDatabaseDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_sql_database_datastore.azuresqldatabasedatastore?view=azure-ml-py) |
+|--------------------------------|----------------------------------------------------------|----------------------------------------------------------|------------------------|----------------------------------------------------------------------------------------|
+| Local|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|N/D         |N/D                                                                         |
+| Proceso de Azure Machine Learning |[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|N/D         |N/D                                                                         |
+| Máquinas virtuales               |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                           | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |N/D         |N/D                                                                         |
+| HDInsight                      |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |N/D         |N/D                                                                         |
+| Transferencia de datos                  |[ML&nbsp;canalizaciones](concept-ml-pipelines.md)                                               |N/D                                           |[ML&nbsp;canalizaciones](concept-ml-pipelines.md)            |[ML&nbsp;canalizaciones](concept-ml-pipelines.md)                                                                            |
+| Databricks                     |[ML&nbsp;canalizaciones](concept-ml-pipelines.md)                                              |N/D                                           |[ML&nbsp;canalizaciones](concept-ml-pipelines.md)             |N/D                                                                         |
+| Azure Batch                    |[ML&nbsp;canalizaciones](concept-ml-pipelines.md)                                               |N/D                                           |N/D         |N/D                                                                         |
+| Azure DataLake Analytics       |N/D                                           |N/D                                           |[ML&nbsp;canalizaciones](concept-ml-pipelines.md)             |N/D                                                                         |
 
 > [!NOTE]
 > Puede haber escenarios en que altamente iterativo, los procesos de datos de gran tamaño ejecutan más rápidamente mediante la [`as_download()`] en lugar de [`as_mount()`]; Esto se puede validar de manera experimental.
@@ -199,7 +200,7 @@ La matriz siguiente muestra las funcionalidades de acceso de datos disponibles p
 
 Ejemplos de código siguientes son específicos para la [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) clase para tener acceso a su almacén de datos durante el entrenamiento.
 
-Este código crea un Estimador mediante el script de entrenamiento, `train.py`, desde el directorio de origen indicado con los parámetros definidos en `script_params`, todo en el destino de proceso especificado.
+Este código crea un Estimador mediante el script de entrenamiento, `train.py`, desde el directorio de origen indicado con los parámetros definidos en `script_params`, todas en el entrenamiento destino de proceso.
 
 ```Python
 from azureml.train.estimator import Estimator

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 9cd02172af5246c60b93a6e4696988268abed506
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409805"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258677"
 ---
 # <a name="azure-database-security-best-practices"></a>Procedimientos recomendados para la seguridad de las bases de datos de Azure
 En este artículo se describe los procedimientos recomendados de seguridad de base de datos.
@@ -165,6 +165,10 @@ La habilitación de estas funcionalidades ayuda a:
 - Detectar posibles amenazas y responder a ellas.
 
 Además, la detección de amenazas integra las alertas con Azure Security Center para obtener una vista centralizada del estado de seguridad de todos los recursos de Azure.
+
+## <a name="enable-feature-restrictions"></a>Habilitar restricciones de características
+
+Los datos contenidos en las bases de datos pueden exponerse a los atacantes de usar los vectores de ataque que aprovechan los errores de base de datos y los tiempos de ejecución. La base de datos de SQL Azure proporciona una serie de mecanismos de restricción de características para proteger la base de datos. Para obtener más información, consulte [restricciones de características de base de datos de SQL](../sql-database/sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea [Patrones y procedimientos recomendados de seguridad en Azure](security-best-practices-and-patterns.md) para obtener más procedimientos recomendados de seguridad que pueda aplicar cuando diseñe, implemente y administre las soluciones en la nube mediante Azure.

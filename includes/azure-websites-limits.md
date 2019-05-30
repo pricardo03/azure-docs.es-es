@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: c2db5740d6373c8f6be5dabe0260fe7f99575641
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ce64047fd7490106790ea8bb1ad7963d82a87c24
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554276"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238759"
 ---
 | Recurso | Gratuito | Compartido | Básica | Estándar | Premium (v2) | Aislado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -29,7 +29,7 @@ ms.locfileid: "57554276"
 | Dominios personalizados por aplicación</a> |0 (solo subdominio de azurewebsites.net)|500 |500 |500 |500 |500 |
 | Compatibilidad con dominio [Compatibilidad con SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |No compatible, el certificado comodín para *. azurewebsites.net disponible de forma predeterminada|No compatible, el certificado comodín para *. azurewebsites.net disponible de forma predeterminada|Conexiones SSL SNI ilimitadas |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP |Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP | Se incluyen conexiones SNI SSL ilimitadas y 1 conexión SSL de IP|
 | Equilibrador de carga integrado | |X |X |X |X |X<sup>9</sup> |
-| [Siempre activado](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
+| [Siempre activado](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Copias de seguridad programadas](../articles/app-service/manage-backup.md) | | | | Copias de seguridad programadas cada 2 horas, un máximo de 12 copias de seguridad por día (manual y programada) | Copias de seguridad programadas cada hora, un máximo de 50 copias de seguridad por día (manual y programada) | Copias de seguridad programadas cada hora, un máximo de 50 copias de seguridad por día (manual y programada) |
 | [Autoscale](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
 | [WebJobs](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |

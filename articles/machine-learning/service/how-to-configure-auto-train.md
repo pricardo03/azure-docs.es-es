@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3fcc1926d580007750e7e1f5a3de06ef6578e1b5
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: c0f8a56df5b41236256115ced0d46a87c5ee91a5
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957462"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400249"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar automatizadas experimentos de aprendizaje automático en Python
 
@@ -42,7 +42,7 @@ Antes de comenzar el experimento, debe determinar el tipo de problema de aprendi
 
 El aprendizaje automático automatizado admite los siguientes algoritmos durante el proceso de optimización y automatización. Como usuario, no hay ninguna necesidad de especificar el algoritmo. Aunque los algoritmos DNN disponibles durante el entrenamiento, ML automatizada no compila los modelos de DNN.
 
-Clasificación | Regresión | Previsión de Series temporales
+clasificación | Regresión | Previsión de Series temporales
 |-- |-- |--
 [Regresión logística](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Red elástica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Red elástica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
 [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
@@ -59,6 +59,14 @@ Clasificación | Regresión | Previsión de Series temporales
 [Bayes naive](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
 [Descenso de gradiente estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
+Use la `task` parámetro en el `AutoMLConfig` constructor para especificar el tipo de experimento.
+
+```python
+from azureml.train.automl import AutoMLConfig
+
+# task can be one of classification, regression, forecasting
+automl_config = AutoMLConfig(task="classification")
+```
 
 ## <a name="data-source-and-format"></a>Formato y origen de datos
 El aprendizaje automático automatizado es compatible con los datos que residen en el escritorio local o en la nube, como Azure Blob Storage. Los datos pueden leerse en los formatos de datos compatibles con scikit-learn. Puede leer los datos en:
@@ -121,7 +129,7 @@ Clave | Type | Se excluye mutuamente con    | DESCRIPCIÓN
 ---|---|---|---
 X | Dataframe de Pandas o matriz de Numpy | data_train, label, columns |  Todas las características que se usan para el aprendizaje
 y | Dataframe de Pandas o matriz de Numpy |   etiqueta   | Datos de etiquetas que se usan para el aprendizaje. Para la clasificación, debe ser una matriz de enteros.
-X_valid | Dataframe de Pandas o matriz de Numpy   | data_train, label | _Opcional_ Todas las características con las que se debe validar. Si no se especifica, X se divide entre "train" y "validate"
+X_valid | Dataframe de Pandas o matriz de Numpy   | data_train, label | _Opcional_ datos que constituye el conjunto de validación de características. Si no se especifica, X se divide entre "train" y "validate"
 y_valid |   Dataframe de Pandas o matriz de Numpy | data_train, label | _Opcional_ Los datos de etiqueta con los que se va a validar. Si no se especifica, Y se divide entre "train" y "validate"
 sample_weight | Dataframe de Pandas o matriz de Numpy |   data_train, label, columns| _Opcional_ Un valor de ponderación para cada ejemplo. Se usa cuando se quieren asignar ponderaciones distintas a los puntos de datos
 sample_weight_valid | Dataframe de Pandas o matriz de Numpy | data_train, label, columns |    _Opcional_ Un valor de ponderación para cada ejemplo de validación. Si no se especifica, sample_weight se divide entre "train" y "validate"
@@ -129,30 +137,6 @@ data_train |    Dataframe de Pandas |  X, y, X_valid, y_valid |    Todos los dat
 etiqueta | string  | X, y, X_valid, y_valid |  Qué columna de data_train representa la etiqueta
 columnas | Matriz de cadenas  ||  _Opcional_ Lista blanca de columnas que se usarán para las características
 cv_splits_indices   | Matriz de enteros ||  _Opcional_ Lista de índices para dividir los datos para la validación cruzada
-
-### <a name="load-and-prepare-data-using-data-prep-sdk"></a>Cargue y prepare los datos con el SDK de preparación de datos.
-Automatizadas experimentos de machine learning admite la carga de datos y lo transforma mediante el SDK de la preparación de datos. El uso del SDK proporciona la capacidad de
-
->* Opciones de carga desde varios tipos de archivos con inferencia de parámetros de análisis (codificación, separador, encabezados).
->* Opciones de conversión de tipo usando la inferencia durante la carga de archivos.
->* Compatibilidad con la conexión para MS SQL Server y Azure Data Lake Storage.
->* Adición de una columna mediante una expresión
->* Atribución de valores que faltan
->* Derivación de columnas por ejemplos
->* Filtrado
->* Transformaciones personalizadas de Python
-
-Para obtener información sobre el SDK de preparación de datos, consulte el artículo [Cómo preparar datos para el modelado](how-to-load-data.md).
-A continuación se muestra un ejemplo de carga de datos mediante el SDK de preparación de datos.
-```python
-# The data referenced here was pulled from `sklearn.datasets.load_digits()`.
-simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
-X = dprep.auto_read_file(simple_example_data_root + 'X.csv').skip(1)  # Remove the header row.
-# You can use `auto_read_file` which intelligently figures out delimiters and datatypes of a file.
-
-# Here we read a comma delimited file and convert all columns to integers.
-y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelector(term='.*', use_regex = True))
-```
 
 ## <a name="train-and-validation-data"></a>Datos de entrenamiento y validación
 
@@ -222,7 +206,7 @@ Las tres diferentes `task` los valores de parámetro determinan la lista de algo
 ### <a name="primary-metric"></a>Métrica principal
 La métrica principal; como se muestra en los ejemplos anteriores determina la métrica que se usará durante el entrenamiento del modelo para la optimización. La métrica principal que puede seleccionar viene determinada por el tipo de tarea que elija. A continuación es una lista de métricas disponibles.
 
-|Clasificación | Regresión | Previsión de Series temporales
+|clasificación | Regresión | Previsión de Series temporales
 |-- |-- |--
 |accuracy| spearman_correlation | spearman_correlation
 |AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
@@ -501,6 +485,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 ![Gráfico de importancia de características](./media/how-to-configure-auto-train/feature-importance.png)
+
+Para obtener más información sobre cómo obtener una explicación del modelo y la importancia de características pueden habilitarse en otras áreas del SDK de fuera de aprendizaje automático automatizadas, consulte el [concepto](machine-learning-interpretability-explainability.md) artículo sobre la interoperabilidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

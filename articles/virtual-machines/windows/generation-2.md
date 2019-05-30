@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 9553612d5b9d0b646c5c25e3f719038ac27d4826
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 1dcc0d3a652ccbf365a18ce734a54dc78515b1a7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596166"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388359"
 ---
 # <a name="generation-2-vms-preview-on-azure"></a>Máquinas virtuales de generación 2 (versión preliminar) en Azure
 
@@ -30,7 +30,9 @@ ms.locfileid: "65596166"
 
 Compatibilidad para las máquinas virtuales de generación 2 (VM) ahora está disponible en versión preliminar pública en Azure. No se puede cambiar la generación de una máquina virtual después de que haya creado. Por lo tanto, se recomienda que revise las consideraciones [aquí](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) , así como la información de esta página antes de elegir una generación.
 
-Características clave de soporte técnico de las máquinas virtuales de generación 2, como: aumento de memoria, Intel® Software Guard Extensions (SGX) y virtual memoria persistente (vPMEM), que no se admiten en máquinas virtuales de generación 1. Máquinas virtuales de generación 2 tienen algunas características que aún no se admiten en Azure. Para obtener más información, consulte el [características y capacidades](#features-and-capabilities) sección. Máquinas virtuales de generación 2 usan la nueva vs arquitectura de arranque basados en UEFI la arquitectura basados en BIOS utilizada por máquinas virtuales de generación 1. En comparación con las máquinas virtuales de generación 1, las máquinas virtuales de generación 2 pueden haber mejorado tiempos de arranque e instalación. Para obtener una visión general de las máquinas virtuales de generación 2 y algunas de las diferencias claves entre la generación 1 y generación 2, consulte [debo crear una máquina virtual de generación 1 o 2 en Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Generación 2 máquinas virtuales de compatibilidad con las características clave que no se admiten en máquinas virtuales de generación 1, como: aumento de memoria, Intel® Software Guard Extensions (SGX) y virtual memoria persistente (vPMEM). Máquinas virtuales de generación 2 también tienen algunas características que aún no se admiten en Azure. Para obtener más información, consulte el [características y capacidades](#features-and-capabilities) sección.
+
+Máquinas virtuales de generación 2 usan la nueva vs arquitectura de arranque basados en UEFI la arquitectura basados en BIOS utilizada por máquinas virtuales de generación 1. En comparación con las máquinas virtuales de generación 1, las máquinas virtuales de generación 2 pueden haber mejorado tiempos de arranque e instalación. Para obtener una visión general de las máquinas virtuales de generación 2 y algunas de las diferencias claves entre la generación 1 y generación 2, consulte [debo crear una máquina virtual de generación 1 o 2 en Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 ## <a name="generation-2-vm-sizes"></a>Tamaños de máquina virtual de generación 2
 
@@ -47,10 +49,10 @@ Máquinas virtuales de generación 1 son compatibles con todos los tamaños de m
 
 Máquinas virtuales de generación 2 admiten las siguientes imágenes de Marketplace de Azure:
 
-* Servidor de Windows de 2019 centro de datos
-* Servidor de Windows 2016 Datacenter
-* Servidor Windows 2012 R2 Datacenter
-* Servidor Windows 2012 Datacenter
+* Windows Server 2019 Datacenter
+* Windows Server 2016 Datacenter
+* Windows Server 2012 R2 Datacenter
+* Windows Server 2012 Datacenter
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>En el entorno local frente a máquinas virtuales de Azure de generación 2
 
@@ -76,7 +78,7 @@ Azure no admite actualmente algunas de las características que on-premises Hype
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Capacidades de generación 2 de vs de generación 1
 
-| Funcionalidad | Generación 1 | Generación 2 |
+| Capacidad | Generación 1 | Generación 2 |
 |------------|--------------|--------------|
 | > 2 TB de disco del sistema operativo                    | :x:                        | :heavy_check_mark: |
 | SO de disco/imágenes/Swap personalizado         | :heavy_check_mark:         | :heavy_check_mark: |
@@ -111,6 +113,29 @@ Generación 2 máquinas virtuales se pueden crear desde una imagen administrada 
 Generación que 2 máquinas virtuales también pueden crearse mediante conjuntos de escalado de máquinas virtuales. Puede crear la generación 2 máquinas virtuales mediante conjuntos de escalado de máquina virtual de Azure mediante la CLI de Azure.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+* **¿Son generación 2 máquinas virtuales disponibles en todas las regiones de Azure?**  
+    Sí; Sin embargo, no todos los [tamaños de máquina virtual de generación 2](#generation-2-vm-sizes) están disponibles en todas las regiones. La disponibilidad de generación 2 máquinas virtuales depende de la disponibilidad del tamaño de máquina virtual.
+
+* **¿Hay una diferencia de precio entre la generación 1 y generación 2 máquinas virtuales?**  
+    No hay ninguna diferencia en los precios entre las máquinas virtuales de generación 2 y la generación 1.
+
+* **¿Cómo se puede aumentar el tamaño del disco del sistema operativo?**  
+  Mayores de 2 TB de discos del sistema operativo están familiarizados con la generación 2 máquinas virtuales. De forma predeterminada, la mayoría de los discos de sistema operativo son menos de 2 TB para máquinas virtuales de generación 2, pero se puede aumentar el tamaño del disco a un máximo recomendado de 4 TB. Puede aumentar el tamaño del disco del sistema operativo a través de la CLI de Azure o Azure portal. Para obtener más información sobre discos de expansión mediante programación, vea [cambiar el tamaño de un disco](expand-os-disk.md).
+
+  Para aumentar el tamaño del disco del sistema operativo mediante el portal de Azure:
+
+  * Vaya a la página de propiedades de la máquina virtual en el portal de Azure.
+
+  * Apagar y desasignar la máquina virtual mediante la **detener** botón en el portal de Azure.
+
+  * En el **discos** , seleccione el disco del sistema operativo que le gustaría a aumentar.
+
+  * Seleccione **configuración** en el **discos** sección y actualizar la **tamaño** al valor deseado.
+
+  * Vuelva a la página de propiedades de la máquina virtual y **iniciar** la máquina virtual.
+  
+  Es posible que vea una advertencia mayores de 2 TB de discos del sistema operativo. La advertencia no es aplicable a las máquinas virtuales de generación 2; Sin embargo, son los tamaños de disco de SO más de 4 TB **no se recomienda.**
 
 * **¿Las máquinas virtuales de generación 2 admiten Accelerated Networking?**  
     Sí, la compatibilidad de las máquinas virtuales de generación 2 [Accelerated Networking](../../virtual-network/create-vm-accelerated-networking-cli.md).

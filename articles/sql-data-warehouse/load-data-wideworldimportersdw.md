@@ -10,16 +10,16 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6bc1431ace55538c489d73e0a62d18f274c06d57
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a8bca6c1e56595e4a7d64f9f388c9daca0b166ac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873755"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242924"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos en Azure SQL Data Warehouse
 
-En este tutorial se utiliza PolyBase para cargar el almacenamiento de datos WideWorldImportersDW de Azure Blob Storage en Azure SQL Data Warehouse. El tutorial utiliza [Azure Portal](https://portal.azure.com) y [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para: 
+En este tutorial se utiliza PolyBase para cargar el almacenamiento de datos WideWorldImportersDW de Azure Blob Storage en Azure SQL Data Warehouse. El tutorial utiliza [Azure Portal](https://portal.azure.com) y [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para:
 
 > [!div class="checklist"]
 > * Crear un almacenamiento de datos en Azure Portal
@@ -37,7 +37,6 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Antes de completar este tutorial, descargue e instale la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
-
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
@@ -152,7 +151,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
     | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
     | Nombre de servidor | Nombre completo del servidor | Por ejemplo, **sample-svr.database.windows.net** es el nombre completo de un servidor. |
     | Authentication | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que se ha configurado en este tutorial. |
-    | Iniciar sesión | La cuenta de administrador del servidor | Se trata de la cuenta que especificó cuando creó el servidor. |
+    | Inicio de sesión | La cuenta de administrador del servidor | Se trata de la cuenta que especificó cuando creó el servidor. |
     | Contraseña | Contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
 
     ![conectar con el servidor](media/load-data-wideworldimportersdw/connect-to-server.png)
@@ -1121,7 +1120,7 @@ Hizo todo esto:
 > * Vio el progreso de los datos a medida que se cargaban
 > * Creó estadísticas de los datos recién cargados
 
-Avance a la introducción a la migración para obtener información sobre cómo migrar una base de datos existente a SQL Data Warehouse.
+Vaya a la información general de desarrollo para obtener información sobre cómo migrar una base de datos a SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Obtener información sobre la migración de una base de datos existente a SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Decisiones de diseño para migrar una base de datos a SQL Data Warehouse](sql-data-warehouse-overview-develop.md)

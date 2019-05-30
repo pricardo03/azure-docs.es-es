@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload8: na
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 4f6a724fe6c1e8668084f1c1cefbaa01cffba181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f7d482b088003e3800debb2db9f6f26bda1672a
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444623"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298183"
 ---
 # <a name="azure-log-integration-faq"></a>Preguntas más frecuentes sobre Azure Log Integration
 
 En este artículo se responden algunas preguntas frecuentes sobre Azure Log Integration.
 
 >[!IMPORTANT]
-> La característica Azure Log Integration dejará de utilizarse el 01/06/2019. Las descargas de AzLog se deshabilitaron el 27 de junio de 2018. Para obtener orientación sobre cómo avanzar, consulte el artículo [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Uso de Azure Monitor para realizar la integración con herramientas SIEM) 
+> La característica de integración de registro de Azure dejará de utilizarse en 15/06/2019. Las descargas de AzLog se deshabilitaron el 27 de junio de 2018. Para obtener orientación sobre cómo avanzar, consulte el artículo [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Uso de Azure Monitor para realizar la integración con herramientas SIEM) 
 
 Azure Log Integration es un servicio del sistema operativo Windows que puede usar para integrar los registros sin procesar de los recursos de Azure en los sistemas locales de administración de eventos e información de seguridad (SIEM). Esta integración le proporciona un panel unificado de todos los recursos, locales o en la nube. Puede agregar, correlacionar, analizar y alertar sobre eventos de seguridad asociados con las aplicaciones.
 
@@ -49,7 +49,7 @@ Ejecute el comando **AzLog source list**.
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>¿Cómo puedo saber de qué suscripción son los registros de integración de Azure?
 
-En el caso de los registros de auditoría que se colocan en los directorios **AzureResourcemanagerJson**, el identificador de la suscripción está en el nombre del archivo de registro. Esto también se aplica en el caso de los registros de la carpeta **AzureSecurityCenterJson**. Por ejemplo: 
+En el caso de los registros de auditoría que se colocan en los directorios **AzureResourcemanagerJson**, el identificador de la suscripción está en el nombre del archivo de registro. Esto también se aplica en el caso de los registros de la carpeta **AzureSecurityCenterJson**. Por ejemplo:
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
@@ -105,7 +105,7 @@ El comando **azlog authorize** asigna el rol Lector a la entidad de servicio de 
 
 ## <a name="where-can-i-find-the-definition-of-the-properties-in-the-audit-log"></a>¿Dónde puedo encontrar la definición de las propiedades de registro de auditoría?
 
-Consulte:
+Vea:
 
 * [Operaciones de auditoría con Azure Resource Manager](../azure-resource-manager/resource-group-audit.md)
 * [Lista de los eventos de administración de una suscripción en la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931934.aspx)

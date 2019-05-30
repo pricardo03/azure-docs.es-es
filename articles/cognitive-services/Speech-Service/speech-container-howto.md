@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 7a4153dd382a901db21752dd3d55a01803431791
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306553"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388687"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar y ejecutar contenedores de servicios de voz
 
-Contenedores de voz permiten que los clientes creen una arquitectura de aplicaciones de voz que se optimiza para aprovechar las capacidades de nube sólidas y localidad de edge. Los contenedores de dos voz ahora admitimos son **texto a voz** y **texto a voz**. 
+Contenedores de voz permiten que los clientes creen una arquitectura de aplicaciones de voz que se optimiza para aprovechar las capacidades de nube sólidas y localidad de edge. 
 
 Los contenedores de dos voz son **texto a voz** y **texto a voz**. 
 
 |Función|Características|Más reciente|
 |-|-|--|
-|Conversión de voz en texto| <li>Permite transcribir en tiempo real voz en texto.<li>Puede transcribir por lotes voz a partir de grabaciones de audio. <li>Admite resultados intermedios, detección de fin de voz, formato de texto automático y enmascaramiento de palabras soeces. <li>Puede llamar al servicio [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) para extraer la intención del usuario de la transcripción de voz.\*|1.1.1|
-|Text-to-Speech| <li>Convierte el texto a una voz que parece natural. <li>Ofrece varios géneros y dialectos para muchos idiomas compatibles. <li>Admite la entrada de texto sin formato o el lenguaje de marcado de síntesis de voz (SSML). |1.1.0|
+|Voz a texto| <li>Transcribe continua en tiempo real voz o proceso por lotes las grabaciones de audio en texto con los resultados intermedios.|1.1.1|
+|Text-to-Speech| <li>Convierte el texto a una voz que parece natural. con la entrada de texto sin formato o lenguaje de marcado de síntesis de voz (SSML). |1.1.0|
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -64,7 +64,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 La tabla siguiente describen los núcleos de CPU y memoria para asignar cada contenedor de voz mínimos y recomendados.
 
-| Contenedor | Mínimo | Recomendada |
+| Contenedor | Mínima | Recomendado |
 |-----------|---------|-------------|
 |cognitive-services-speech-to-text | 2 núcleos<br>2 GB de memoria  | 4 núcleos<br>4 GB de memoria  |
 |cognitive-services-text-to-speech | 1 núcleo, 0,5 GB de memoria| 2 núcleos, 1 GB de memoria |
@@ -110,7 +110,7 @@ En la tabla siguiente se enumera las configuraciones regionales admitidas para *
 |Configuración regional de idioma|`Tags`|
 |--|--|
 |Chino|`zh-cn`|
-|Inglés |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
+|English |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
 |Francés |`fr-ca`<br>`fr-fr`|
 |Alemán|`de-de`|
 |Italiano|`it-it`|
@@ -139,10 +139,10 @@ En la tabla siguiente se enumera las configuraciones regionales admitidas para *
 |Configuración regional de idioma|`Tags`|Voces admitidas|
 |--|--|--|
 |Chino|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao-apollo|
-|Inglés |`en-au`|Catherine<br>hayleyrus|
-|Inglés |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
-|Inglés |`en-in`|heera-apollo<br>priyarus<br>Ravi apollo<br>|
-|Inglés |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
+|English |`en-au`|Catherine<br>hayleyrus|
+|English |`en-gb`|george-apollo<br>hazelrus<br>susan-apollo|
+|English |`en-in`|heera-apollo<br>priyarus<br>Ravi apollo<br>|
+|English |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
 |Francés|`fr-ca`|caroline<br>harmonierus|
 |Francés|`fr-fr`|hortenserus<br>julie-apollo<br>paul-apollo|
 |Alemán|`de-de`|hedda<br>heddarus<br>Stefan apollo|
@@ -155,7 +155,7 @@ En la tabla siguiente se enumera las configuraciones regionales admitidas para *
 
 ### <a name="docker-pull-for-the-speech-containers"></a>Extracción de docker para los contenedores de voz
 
-#### <a name="speech-to-text"></a>Conversión de voz en texto
+#### <a name="speech-to-text"></a>Voz a texto
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest
@@ -197,7 +197,7 @@ Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY} 
 ```
 
-### <a name="speech-to-text"></a>Conversión de voz en texto
+### <a name="speech-to-text"></a>Voz a texto
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
@@ -221,10 +221,10 @@ Este comando:
 
 |Contenedor|Punto de conexión|
 |--|--|
-|Conversión de voz en texto|ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1|
+|Voz a texto|ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1|
 |Texto a voz|http://localhost:5000/speech/synthesize/cognitiveservices/v1|
 
-### <a name="speech-to-text"></a>Conversión de voz en texto
+### <a name="speech-to-text"></a>Voz a texto
 
 El contenedor proporciona el punto de conexión de consulta basada en websocket API, que se accede mediante el [Speech SDK](index.yml).
 

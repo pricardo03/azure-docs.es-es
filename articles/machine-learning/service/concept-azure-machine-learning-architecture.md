@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3167f60cca9997c9713efad0fbb8a51b20def76b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: e57133a750e282484271261d8e4ddb9a12de2a0e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66151175"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242421"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona Azure Machine Learning Service: Arquitectura y conceptos
 
@@ -37,6 +37,7 @@ Por lo general, el flujo de trabajo de machine learning sigue esta secuencia:
 Siga estos pasos con cualquiera de las siguientes acciones:
 + [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
++ [Extensión de Azure Machine Learning VS Code](how-to-vscode-tools.md)
 +  El [interfaz visual (versión preliminar) para el servicio Azure Machine Learning](ui-concept-visual-interface.md)
 
 > [!NOTE]
@@ -108,7 +109,7 @@ Use la API del SDK de Python o la CLI de Azure Machine Learning para almacenar y
 
 Un destino de proceso es el recurso de proceso que se usa para ejecutar el script de entrenamiento o para hospedar la implementación del servicio web. Los destinos de proceso admitidos son los siguientes:
 
-| Destino de proceso | Aprendizaje | Implementación |
+| Destino de proceso | Cursos | Implementación |
 | ---- |:----:|:----:|
 | Equipo local | ✓ | &nbsp; |
 | Proceso de Azure Machine Learning | ✓ | &nbsp; |
@@ -141,7 +142,7 @@ Para entrenar un modelo, especifique el directorio que contiene el script de ent
 
 Si quiere ver un ejemplo, consulte [Tutorial: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](tutorial-train-models-with-aml.md).
 
-## <a name="run"></a>Ejecutar
+## <a name="run"></a>Ejecute
 
 Una ejecución es un registro que contiene la información siguiente:
 
@@ -196,7 +197,7 @@ El registro de imágenes realiza un seguimiento de las imágenes creadas a parti
 
 Una implementación es una instancia del modelo en un servicio web que se puede hospedar en la nube o un módulo de IoT para las implementaciones de dispositivos integrados.
 
-### <a name="web-service"></a>Servicio Web
+### <a name="web-service"></a>Servicio web
 
 Un servicio web implementado puede usar Azure Container Instances, Azure Kubernetes Service o FPGA. Cree el servicio desde el modelo, scripts y archivos asociados. Estas se encapsulan en una imagen, que proporciona el entorno de tiempo de ejecución para el servicio web. La imagen tiene un punto de conexión HTTP de carga equilibrada que recibe solicitudes de puntuación que se envían al servicio web.
 

@@ -1,40 +1,58 @@
 ---
 title: Prueba de la definición de interfaz de usuario para Azure Managed Applications | Microsoft Docs
 description: Describe cómo probar la experiencia del usuario para la creación de la aplicación administrada de Azure a través del portal.
-services: managed-applications
-documentationcenter: na
 author: tfitzmac
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/22/2018
+ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: b1392c29881a9077e26baafc8972148800d03d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99ca319910be2cb20214172826eb40361abe72f0
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746329"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257669"
 ---
-# <a name="test-azure-portal-interface-for-your-managed-application"></a>Prueba de la interfaz de Azure Portal para la aplicación administrada
-Después de [crear el archivo createUiDefinition.json](create-uidefinition-overview.md) para la aplicación administrada de Azure, debe probar la experiencia del usuario. Para simplificar las pruebas, use un script que cargue el archivo en el portal. No es necesario implementar la aplicación administrada.
+# <a name="test-your-portal-interface-for-azure-managed-applications"></a>Probar la interfaz del portal de Azure Managed Applications
+
+Después de [crear el archivo createUiDefinition.json](create-uidefinition-overview.md) de la aplicación administrada, debe probar la experiencia del usuario. Para simplificar las pruebas, use un entorno de recinto de seguridad que se carga el archivo en el portal. No es necesario implementar la aplicación administrada. El espacio aislado presenta la interfaz de usuario en la experiencia del portal actual, pantalla completa. O bien, puede usar un script de PowerShell para probar la interfaz, pero utiliza una vista del portal heredada. En este artículo se muestran ambos enfoques. El recinto de seguridad es la manera recomendada para obtener una vista previa de la interfaz.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un archivo **createUiDefinition.json**. Si no tiene este archivo, copie el [archivo de ejemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) y guárdelo localmente.
+* Un archivo **createUiDefinition.json**. Si no tiene este archivo, copie el [archivo de ejemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="download-test-script"></a>Descarga del script de prueba
+## <a name="use-sandbox"></a>Uso de espacio aislado
+
+1. Abra el [crear espacio aislado de definición de interfaz de usuario](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade).
+
+   ![Mostrar espacio aislado](./media/test-createuidefinition/show-sandbox.png)
+
+1. Reemplace la definición vacía con el contenido del archivo createUiDefinition.json. Seleccione **Preview**.
+
+   ![Seleccione Vista previa](./media/test-createuidefinition/select-preview.png)
+
+1. Se muestra el formulario creado. Puede recorrer la experiencia del usuario y rellene los valores.
+
+   ![Mostrar formulario](./media/test-createuidefinition/show-ui-form.png)
+
+### <a name="troubleshooting"></a>solución de problemas
+
+Si no se muestra el formulario después de seleccionar **Preview**, puede tener un error de sintaxis. Busque el indicador rojo en la barra de desplazamiento a la derecha y navegar hasta él.
+
+![Mostrar error de sintaxis](./media/test-createuidefinition/show-syntax-error.png)
+
+Si no se muestra el formulario y, en su lugar, verá un icono de una nube con la colocación de anulación, el formulario tiene un error, como una propiedad que falta. Abra las herramientas de desarrollo Web en el explorador. La **consola** muestra mensajes importantes sobre la interfaz.
+
+![Mostrar error](./media/test-createuidefinition/show-error.png)
+
+## <a name="use-test-script"></a>Usar script de prueba
 
 Para probar la interfaz en el portal, copie uno de los siguientes scripts en la máquina local:
 
 * [Script de carga en PowerShell](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
 * [Script de carga en la CLI de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
-
-## <a name="run-script"></a>Ejecución de script
 
 Para ver el archivo de interfaz en el portal, ejecute el script descargado. El script crea una cuenta de almacenamiento en la suscripción de Azure y carga el archivo createUiDefinition.json en la cuenta de almacenamiento. La cuenta de almacenamiento se crea la primera vez que ejecute el script o si la cuenta de almacenamiento se ha eliminado. Si ya existe la cuenta de almacenamiento en su suscripción de Azure, el script la reutiliza. El script abre el portal y carga el archivo de la cuenta de almacenamiento.
 
@@ -70,19 +88,9 @@ Para la CLI de Azure, utilice:
 ./sideload-createuidef.sh
 ```
 
-## <a name="test-your-interface"></a>Prueba de la interfaz
-
 El script abre una nueva pestaña en el explorador. Muestra el portal con la interfaz para crear la aplicación administrada.
 
 ![Visualización del portal](./media/test-createuidefinition/view-portal.png)
-
-Antes de rellenar los campos, abra Web Developer Tools en el explorador. La **consola** muestra mensajes importantes sobre la interfaz.
-
-![Selección de la consola](./media/test-createuidefinition/select-console.png)
-
-Si la definición de la interfaz tiene un error, verá la descripción en la consola.
-
-![Mostrar error](./media/test-createuidefinition/show-error.png)
 
 Proporcione los valores para los campos. Cuando termine, verá los valores que se han pasado a la plantilla.
 
@@ -90,15 +98,7 @@ Proporcione los valores para los campos. Cuando termine, verá los valores que s
 
 Puede utilizar estos valores como el archivo de parámetros para probar la plantilla de implementación.
 
-## <a name="troubleshooting-the-interface"></a>Solución de problemas de la interfaz
-
-Algunos errores comunes que pueden aparecer son:
-
-* El portal no carga la interfaz. En su lugar, muestra un icono de una nube con una gota. Por lo general, aparece este icono cuando hay algún error de sintaxis en el archivo. Abra el archivo en VS Code o en otro editor de JSON que tenga la validación de esquemas y busque errores de sintaxis.
-
-* El portal se bloquea en la pantalla de resumen. Normalmente, esta interrupción se produce cuando existe algún error en la sección de salida. Por ejemplo, puede que haya hecho referencia un control que no existe.
-
-* Un parámetro de la salida está vacío. El parámetro puede haber hecho referencia a una propiedad que no existe. Por ejemplo, la referencia al control es válida, pero la referencia de propiedad no es válida.
+Si el portal se bloquea en la pantalla de resumen, podría haber un error en la sección de salida. Por ejemplo, puede que haya hecho referencia un control que no existe. Si un parámetro en la salida está vacío, el parámetro es posible que se hace referencia a una propiedad que no existe. Por ejemplo, la referencia al control es válida, pero la referencia de propiedad no es válida.
 
 ## <a name="test-your-solution-files"></a>Prueba de los archivos de la solución
 

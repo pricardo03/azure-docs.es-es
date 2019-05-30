@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562214d4bf8fd83f740e114a6d77200b4611649
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: e7eebc68ae8a55d636f3bc85e179bd7d6813be8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003227"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235555"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Directiva de línea de base: Autenticación heredados de bloque (versión preliminar)
 
@@ -74,13 +74,13 @@ Si usa MacOS, se recomienda actualizar a Office para Mac 2016 o posterior. Si us
 
 Para que los clientes de Outlook basado en Windows usan la autenticación moderna, Exchange Online debe ser también habilitada la autenticación moderna. Si se deshabilita la autenticación moderna para Exchange Online, los clientes de Outlook basado en Windows que admiten autenticación moderna (Outlook 2013 o versiones posterior) usará la autenticación básica para conectarse a buzones de Exchange Online.
 
-SharePoint Online está habilitado de forma predeterminada la autenticación moderna. Para los directorios creados después del 1 de agosto de 2017, la autenticación moderna está habilitada de forma predeterminada en Exchange Online. Sin embargo, si anteriormente tenía deshabilitada la autenticación moderna o está usando un directorio creado antes de esta fecha, siga los pasos descritos en el siguiente artículo para [habilitar la autenticación moderna en Exchange Online](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+SharePoint Online está habilitado de forma predeterminada la autenticación moderna. Para los directorios creados después del 1 de agosto de 2017, la autenticación moderna está habilitada de forma predeterminada en Exchange Online. Sin embargo, si anteriormente tenía deshabilitada la autenticación moderna o está usando un directorio creado antes de esta fecha, siga los pasos descritos en el siguiente artículo para [habilitar la autenticación moderna en Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### <a name="step-4-skype-for-business"></a>Paso 4: Skype Empresarial
 
 Para evitar que las solicitudes de autenticación heredados realizadas por Skype para la empresa, es necesario habilitar la autenticación moderna para Skype empresarial Online. Para los directorios creados después del 1 de agosto de 2017, la autenticación moderna para Skype para la empresa está habilitada de forma predeterminada.
 
-Para habilitar la autenticación moderna de Skype para la empresa, se recomienda realizar la transición a Microsoft Teams, que admite la autenticación moderna de forma predeterminada. Sin embargo, si no es capaz de tr en este momento, deberá habilitar la autenticación moderna para Skype empresarial Online para que empiece de Skype para los clientes empresariales que usan autenticación moderna. Siga estos pasos en el artículo [Skype para las topologías de negocio compatibles con la autenticación moderna](https://docs.microsoft.com/en-us/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), para conocer los pasos habilitar la autenticación moderna para Skype para la empresa.
+Para habilitar la autenticación moderna de Skype para la empresa, se recomienda realizar la transición a Microsoft Teams, que admite la autenticación moderna de forma predeterminada. Sin embargo, si no es capaz de tr en este momento, deberá habilitar la autenticación moderna para Skype empresarial Online para que empiece de Skype para los clientes empresariales que usan autenticación moderna. Siga estos pasos en el artículo [Skype para las topologías de negocio compatibles con la autenticación moderna](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), para conocer los pasos habilitar la autenticación moderna para Skype para la empresa.
 
 Además de habilitar la autenticación moderna para Skype empresarial Online, se recomienda modernas autenticación habilitarse para Exchange Online cuando se habilita la autenticación moderna para Skype para la empresa. Este proceso le ayudarán a sincronizar el estado de la autenticación moderna en Exchange Online y Skype para la empresa en línea y evitará que varias solicitudes de inicio de sesión de Skype para los clientes empresariales.
 
@@ -105,11 +105,11 @@ Pasos para habilitar la autenticación moderna se encuentra en los siguientes ar
 
 La directiva **directiva de línea base: Autenticación heredados de bloque (versión preliminar)** viene previamente configurada y se mostrarán en la parte superior cuando vaya a la hoja de acceso condicional en Azure portal.
 
-Para habilitar esta directiva y proteger a los administradores:
+Para habilitar esta directiva y proteger su organización:
 
 1. Inicie sesión en el **portal Azure** como administrador global, Administrador de seguridad o administrador de acceso condicional.
 1. Vaya a **Azure Active Directory** > **acceso condicional**.
-1. En la lista de directivas, seleccione **directiva de línea base: Autenticación heredados de bloque (versión preliminar)**.
+1. En la lista de directivas, seleccione **directiva de línea base: Autenticación heredados de bloque (versión preliminar)** .
 1. Establecer **Habilitar directiva** a **usar la directiva inmediatamente**.
 1. Agregar exclusiones de cualquier usuario haciendo clic en **usuarios** > **Seleccionar usuarios excluidos** y elegir los usuarios que deben excluirse. Haga clic en **seleccione** , a continuación, **realiza**.
 1. Haga clic en **guardar**.

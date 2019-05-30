@@ -4,20 +4,23 @@ description: Usar plantillas de Azure Resource Manager para crear y configurar A
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/24/2019
 ms.author: mjbrown
-ms.openlocfilehash: a3798ac0c73c7bc6c4012dbb089275254f4c3504
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5683fd072961c7793d8f4bbeb9ecc16a93dd7373
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968843"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242587"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Administrar recursos de la API de SQL de Azure Cosmos DB (Core) mediante plantillas de Azure Resource Manager
 
 ## Crear una cuenta de Azure Cosmos, base de datos y contenedor <a id="create-resource"></a>
 
 Crear recursos de Azure Cosmos DB mediante una plantilla de Azure Resource Manager. Esta plantilla creará una cuenta de Azure Cosmos con dos contenedores que compartan el rendimiento de 400 RU/s en el nivel de base de datos. Copie la plantilla e implementar tal y como se muestra a continuación o visite [Galería de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) e implementar desde el portal de Azure. También puede descargar la plantilla en el equipo local o crear una nueva plantilla y especificar la ruta de acceso local con el `--template-file` parámetro.
+
+> [!NOTE]
+> Actualmente no se puede implementar Functions(UDFs) definido de usuario, procedimientos almacenados y desencadenadores mediante el uso de plantillas de Resource Manager. 
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 

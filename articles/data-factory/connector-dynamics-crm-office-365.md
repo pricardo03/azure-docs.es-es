@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869530"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356972"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 
@@ -205,7 +205,7 @@ Para copiar datos de Dynamics, establezca el tipo de origen de la actividad de c
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en: **DynamicsSource**. | Sí |
-| query | FetchXML es un lenguaje de consulta patentado que se usa en Dynamics (Online y local). Consulte el ejemplo siguiente. Para más información, consulte [Build queries with FetchXML](https://msdn.microsoft.com/library/gg328332.aspx) (Creación de consultas con FetchXML). | No (si se especifica "entityName" en el conjunto de datos) |
+| query | FetchXML es un lenguaje de consulta patentado que se usa en Dynamics (Online y local). Consulte el ejemplo siguiente. Para obtener más información, consulte [crear consultas con FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | No (si se especifica "entityName" en el conjunto de datos) |
 
 >[!NOTE]
 >La columna PK siempre se copiará incluso si la proyección de columna que se configura en la consulta de FetchXML no la contiene.
@@ -269,12 +269,12 @@ Para copiar datos en Dynamics, establezca el tipo de receptor de la actividad de
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del receptor de la actividad de copia debe establecerse en: **DynamicsSink**. | Sí |
-| writeBehavior | El comportamiento de escritura de la operación.<br/>El valor permitido es **"Upsert"**. | Sí |
+| writeBehavior | El comportamiento de escritura de la operación.<br/>El valor permitido es **"Upsert"** . | Sí |
 | writeBatchSize | El recuento de filas de datos escritos en Dynamics en cada lote. | No (el valor predeterminado es 10) |
 | ignoreNullValues | Indica si se omiten los valores nulos de los datos de entrada (excepto los campos de clave) durante la operación de escritura.<br/>Los valores permitidos son **true** y **false**.<br>- **True**: deja los datos del objeto de destino sin cambiar cuando realiza una operación upsert/update. Inserta un valor predeterminado definido al realizar una operación insert.<br/>- **False**: actualiza los datos del objeto de destino a NULL cuando realiza una operación upsert/update. Inserta un valor NULL al realizar una operación insert. | No (el valor predeterminado es false) |
 
 >[!NOTE]
->El valor predeterminado del receptor "**writeBatchSize**" y el de la actividad de copia "**[parallelCopies](copy-activity-performance.md#parallel-copy)**" del receptor de Dynamics es 10 en ambos casos. Por lo tanto, se enviarán 100 registros a Dynamics simultáneamente.
+>El valor predeterminado del receptor "**writeBatchSize**" y el de la actividad de copia " **[parallelCopies](copy-activity-performance.md#parallel-copy)** " del receptor de Dynamics es 10 en ambos casos. Por lo tanto, se enviarán 100 registros a Dynamics simultáneamente.
 
 Para Dynamics 365 en línea, hay un límite de [2 llamadas simultáneas por lotes por organización](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Si se supera dicho límite, se produce un error de "Servidor ocupado" antes de que la primera solicitud se haya ejecutado siquiera. Mantener el valor "writeBatchSize" menor o igual a 10 evitará tal limitación de las llamadas simultáneas.
 

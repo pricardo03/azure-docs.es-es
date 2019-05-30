@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 12/11/2017
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 15152196e45265985c8abb409523982bd4c5d427
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2cb99cfe765e1d3444f362e591812f5088c78c0e
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697422"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393146"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Empezar a trabajar con un espacio aislado de Apache Hadoop, un emulador en una máquina virtual
 
@@ -24,19 +24,16 @@ Aprenda a instalar el espacio aislado de Apache Hadoop desde Hortonworks en una 
 * [Oracle VirtualBox](https://www.virtualbox.org/). Descárguelo e instálelo [aquí](https://www.virtualbox.org/wiki/Downloads).
 
 
-
 ## <a name="download-and-install-the-virtual-machine"></a>Descarga e instalación de la máquina virtual
-1. Vaya a las [descargas de Hortonworks](https://hortonworks.com/downloads/#sandbox).
+1. Vaya a la [Cloudera descargas](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
 
-2. Haga clic en **DOWNLOAD FOR VIRTUALBOX** (DESCARGAR PARA VIRTUALBOX) para descargar la última versión de Hortonworks Sandbox en una máquina virtual. Se le pedirá que se registre en Hortonworks para poder descargar. La descarga tarda de una a dos horas según la velocidad de la red.
+2. Haga clic en **VIRTUALBOX** en **elegir un tipo de instalación** para descargar Sandbox de Hortonworks más reciente en una máquina virtual. Inicie sesión o complete el formulario de interés del producto.
 
-    ![Imagen del vínculo para descargar Sandbox de Hortonworks para VirtualBox](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
-3. En la misma página web, haga clic en el vínculo **Import on Virtual Box** (Importar en Virtual Box para descargar un archivo PDF que contiene las instrucciones de instalación de la máquina virtual.
+1. Haga clic en el botón **espacio aislado de HDP (más RECIENTE)** para comenzar la descarga.
 
-Para descargar un espacio aislado de una versión más antigua de HDP, expanda el archivo:
+Para obtener instrucciones sobre cómo configurar el espacio aislado, consulte [espacio aislado de implementación y la Guía de instalación](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
 
-![Archivo de Hortonworks Sandbox](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
-
+Para descargar un espacio aislado anterior versión de HDP, consulte los vínculos en **versiones anteriores**.
 
 ## <a name="start-the-virtual-machine"></a>Inicio de la máquina virtual
 
@@ -52,7 +49,7 @@ Para descargar un espacio aislado de una versión más antigua de HDP, expanda e
 1. En el paso **get started** (introducción) de la página Sandbox de Hortonworks, seleccione **View Advanced Options** (Ver opciones avanzadas). Use la información de esta página para iniciar sesión en el espacio aislado mediante SSH. Utilice el nombre y la contraseña proporcionada.
 
    > [!NOTE]
-   > Si no tiene instalado un cliente SSH, puede usar el SSH web que proporciona la máquina virtual en **http://localhost:4200/**.
+   > Si no tiene instalado un cliente SSH, puede usar el SSH web que proporciona la máquina virtual en **http://localhost:4200/** .
 
     La primera vez que se conecte mediante SSH, se le pedirá que cambie la contraseña de la cuenta raíz. Escriba una contraseña nueva, que se usará al iniciar sesión mediante SSH.
 

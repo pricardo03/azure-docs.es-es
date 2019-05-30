@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 05/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: ab777b487159b009bf2cac6086bb09cc71714b0d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d0a6d97440404904c041369a4631fdd3fb618b4
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587757"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257567"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Creación de la interfaz de usuario de Azure Portal para una aplicación administrada
 En este documento se presentan los conceptos principales del archivo createUiDefinition.json. Azure Portal usa este archivo para generar la interfaz de usuario para crear una aplicación administrada.
@@ -48,6 +48,8 @@ El esquema de la propiedad parameters depende de la combinación de los valores 
 
 Se recomienda incluir `$schema`, aunque es opcional. Si se especifica, el valor de `version` debe coincidir con la versión en el identificador URI de `$schema`.
 
+Puede usar un editor de JSON para crear la definición de interfaz de usuario, o puede usar el espacio aislado de definición de interfaz de usuario para crear y obtener una vista previa de la definición de interfaz de usuario. Para obtener más información sobre el espacio aislado, consulte [probar la interfaz del portal de Azure Managed Applications](test-createuidefinition.md).
+
 ## <a name="basics"></a>Aspectos básicos
 El paso Aspectos básicos es siempre el primer paso del asistente que se genera cuando Azure Portal analiza el archivo. Además de mostrar los elementos especificados en `basics`, el portal inserta elementos para que los usuarios elijan la suscripción, el grupo de recursos y la ubicación de la implementación. Por lo general, los elementos que consultan los parámetros de toda la implementación, como el nombre de un clúster o las credenciales del administrador, deben ir en este paso.
 
@@ -59,7 +61,7 @@ La propiedad steps puede contener cero o más pasos adicionales que se mostrará
 ## <a name="outputs"></a>Salidas
 Azure Portal usa la propiedad `outputs` para asignar elementos de `basics` y `steps` a los parámetros de la plantilla de implementación de Azure Resource Manager. Las claves de este diccionario son los nombres de los parámetros de plantilla, y los valores son propiedades de los objetos de salida de los elementos a los que se hace referencia.
 
-Para definir el nombre del recurso de la aplicación administrada, debe incluir un valor llamado `applicationResourceName` en la propiedad outputs. Si no establece este valor, la aplicación asigna un GUID al nombre. Puede incluir un cuadro de texto en la interfaz de usuario que requiera un nombre de usuario.
+Para definir el nombre del recurso de la aplicación administrada, debe incluir un valor llamado `applicationResourceName` en la propiedad outputs. Si no establece este valor, la aplicación asigna un GUID para el nombre. Puede incluir un cuadro de texto en la interfaz de usuario que requiera un nombre de usuario.
 
 ```json
 "outputs": {
@@ -72,7 +74,7 @@ Para definir el nombre del recurso de la aplicación administrada, debe incluir 
 ```
 
 ## <a name="functions"></a>Functions
-CreateUiDefinition proporciona funciones similares a las funciones de plantilla de Azure Resource Manager (tanto en sintaxis como en funcionalidad) para trabajar con las entradas y salidas de los elementos, así como características como los condicionales.
+Al igual que las funciones de plantilla en Azure Resource Manager (tanto en la sintaxis y la funcionalidad), CreateUiDefinition proporciona funciones para trabajar con entradas y salidas y características como los condicionales de los elementos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 El propio archivo createUiDefinition.json tiene un esquema simple. Su profundidad real procede de todos los elementos y funciones que admite. Dichos elementos se describen con más detalle en:

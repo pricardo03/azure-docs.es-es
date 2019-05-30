@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a14e03c21de0b5388040943fbe5e9434271b567f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472239"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258812"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Control de acceso de Service Bus con Firmas de acceso compartido
 
@@ -71,10 +71,10 @@ Cualquier cliente que tenga acceso al nombre de una regla de autorización y una
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`**: instante de expiración del token. Entero que refleja los segundos transcurridos desde la época `00:00:00 UTC` del 1 de enero de 1970 (época de UNIX) cuando expira el token.
-* **`skn`**: nombre de la regla de autorización.
-* **`sr`**: URI del recurso al que se accede.
-* **`sig`**: firma.
+* **`se`** : instante de expiración del token. Entero que refleja los segundos transcurridos desde la época `00:00:00 UTC` del 1 de enero de 1970 (época de UNIX) cuando expira el token.
+* **`skn`** : nombre de la regla de autorización.
+* **`sr`** : URI del recurso al que se accede.
+* **`sig`** : firma.
 
 El valor de `signature-string` es el hash SHA-256 calculado sobre el URI del recurso (**ámbito** tal y como se describe en la sección anterior) y la representación de cadenas del instante de expiración del token, separados por CRLF.
 
@@ -86,7 +86,9 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 El token contiene los valores sin el hash para que el destinatario pueda volver a calcular el hash con los mismos parámetros y verificar que el emisor posee una clave de firma válida.
 
-El URI de recurso es el URI completo del recurso de Service Bus al que se solicita el acceso. Por ejemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` o `sb://<namespace>.servicebus.windows.net/<entityPath>`; es decir, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. El URI debe estar [codificado por porcentaje](https://msdn.microsoft.com/library/4fkewx0t.aspx).
+El URI de recurso es el URI completo del recurso de Service Bus al que se solicita el acceso. Por ejemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` o `sb://<namespace>.servicebus.windows.net/<entityPath>`; es decir, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
+
+**El URI debe ser [codificados con porcentaje](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 La regla de autorización de acceso compartido usada para firmar debe configurarse en la entidad especificada por este URI, o uno de sus primarios jerárquicos. Por ejemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` o `http://contoso.servicebus.windows.net` en el ejemplo anterior.
 

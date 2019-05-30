@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: c33219eacb1d3bada5630a7792f98ba33dba824e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153484"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235860"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Ejecutar la actividad de flujo de datos en Azure Data Factory
 Utilice la actividad de flujo de datos de execute para ejecutar el flujo de datos ADF en ejecuciones de canalización depuración (sandbox) y en las ejecuciones de canalización desencadenada.
@@ -49,25 +49,26 @@ Utilice la actividad de flujo de datos de execute para ejecutar el flujo de dato
 
 ![Ejecutar el flujo de datos](media/data-flow/activity-data-flow.png "ejecutar el flujo de datos")
 
-### <a name="run-on"></a>Ejecutar el
-
-Elija el entorno de proceso para esta ejecución del flujo de datos. El valor predeterminado es la resolución automática de Azure predeterminada Integration Runtime. Esta opción ejecutará el flujo de datos en el entorno de Spark en la misma región que la factoría de datos. El tipo de cálculo será un clúster de trabajo, lo que significa que el entorno de proceso tardará varios minutos en Inicio.
-
 ### <a name="debugging-pipelines-with-data-flows"></a>Depuración de canalizaciones con flujos de datos
 
 ![Depurar botón](media/data-flow/debugbutton.png "botón Depurar")
 
 Utilizar la depuración de flujo de datos para utilizar un clúster calienten para probar los flujos de datos interactivamente en una ejecución de depuración de canalización. Use la opción de la canalización de depuración para probar los flujos de datos dentro de una canalización.
 
-### <a name="run-on"></a>Ejecutar el
+### <a name="run-on"></a>Ejecutar en
 
 Este es un campo obligatorio que define qué tiempo de ejecución de integración que se usará para la ejecución de la actividad de flujo de datos. De forma predeterminada, la factoría de datos usará el tiempo de ejecución de integración de Azure de resolución automática de forma predeterminada. Sin embargo, puede crear sus propios tiempos de ejecución de integración de Azure que definir regiones específicas, TTL, recuentos básicos y tipo de proceso para la ejecución de actividad de flujo de datos.
 
 La configuración predeterminada para las ejecuciones de flujo de datos es de 8 núcleos de proceso general con un TTL de 60 minutos.
 
+Elija el entorno de proceso para esta ejecución del flujo de datos. El valor predeterminado es la resolución automática de Azure predeterminada Integration Runtime. Esta opción ejecutará el flujo de datos en el entorno de Spark en la misma región que la factoría de datos. El tipo de cálculo será un clúster de trabajo, lo que significa que el entorno de proceso tardará varios minutos en Inicio.
+
 Tiene control sobre el entorno de ejecución de Spark para sus actividades de flujo de datos. En el [en tiempo de ejecución de integración de Azure](concepts-integration-runtime.md) es la configuración para establecer el tipo de proceso (uso general, con optimización para memoria y proceso optimizado), número de núcleos de trabajo y tiempo de vida para que coincida con el motor de ejecución con el proceso de flujo de datos requisitos. Además, establecer el TTL, podrá mantener un clúster activo que está inmediatamente disponible para las ejecuciones de trabajos.
 
 ![En tiempo de ejecución de integración de Azure](media/data-flow/ir-new.png "en tiempo de ejecución de integración de Azure")
+
+> [!NOTE]
+> La selección de tiempo de ejecución de integración de la actividad de flujo de datos solo se aplica a *desencadena las ejecuciones* de la canalización. Depuración de la canalización con flujos de datos con la depuración se ejecutará en el clúster de Spark predeterminado de 8 núcleos.
 
 ### <a name="staging-area"></a>Área de ensayo
 

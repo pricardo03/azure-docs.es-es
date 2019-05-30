@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 128f28d2a8b97feb3d20c34b7468b60c446a78a6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111313"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306925"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Escalado mediante programación de un clúster de Service Fabric 
 
@@ -29,16 +29,16 @@ Los clústeres de Service Fabric que se ejecutan en Azure se basan en conjuntos 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Administración de credenciales
-Una dificultad que se presenta al escribir un servicio para controlar el escalado es que el servicio tiene que tener acceso a recursos de conjunto de escalado de máquinas virtuales sin un inicio de sesión interactivo. El acceso al clúster de Service Fabric es fácil si el servicio de escalado está modificando su propia aplicación de Service Fabric, pero se requieren credenciales para tener acceso al conjunto de escalado. Para iniciar sesión, puede usar una [entidad de servicio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creada con la [CLI de Azure](https://github.com/azure/azure-cli).
+Una dificultad que se presenta al escribir un servicio para controlar el escalado es que el servicio tiene que tener acceso a recursos de conjunto de escalado de máquinas virtuales sin un inicio de sesión interactivo. El acceso al clúster de Service Fabric es fácil si el servicio de escalado está modificando su propia aplicación de Service Fabric, pero se requieren credenciales para tener acceso al conjunto de escalado. Para iniciar sesión, puede usar un [serviceprincipal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creado con el [CLI de Azure](https://github.com/azure/azure-cli).
 
 Una entidad de servicio se puede crear con los pasos siguientes:
 
-1. Inicie sesión en la CLI de Azure (`az login`) como un usuario con acceso al conjunto de escalado de máquinas virtuales
+1. Inicie sesión en la CLI de Azure (`az login`) como un usuario con acceso a la escala de máquina virtual establecido
 2. Cree la entidad de servicio con `az ad sp create-for-rbac`
     1. Anote el appId (denominado "ID de cliente" en otros lugares), el nombre, la contraseña y el inquilino para su uso posterior.
     2. También necesitará el identificador de suscripción, que se puede ver con `az account list`
 
-Se puede iniciar sesión en la biblioteca de proceso fluida puede con estas credenciales de la siguiente forma (tenga en cuenta que los tipos de Azure fluidos principales como `IAzure` se encuentran en el paquete [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/)):
+La biblioteca de proceso fluida puede iniciar sesión con estas credenciales como sigue (tenga en cuenta que los tipos de Azure fluidos principales como `IAzure` están en el [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) paquete):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {

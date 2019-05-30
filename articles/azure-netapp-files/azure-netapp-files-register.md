@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: b-juche
-ms.openlocfilehash: fbe0b82008d7b15332c4e2cd62c49c611f20fe89
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794709"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299208"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registro en Azure NetApp Files
 
@@ -60,12 +60,12 @@ Para usar el servicio, debe registrar el proveedor de recursos de Azure para Azu
 
    La salida del comando tiene el siguiente aspecto:
    
-       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC",  
-       "name": "Microsoft.NetApp/publicPreviewADC" 
+       "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/ANFGA",  
+       "name": "Microsoft.NetApp/ANFGA" 
        
    `<SubID>` es su identificador de suscripción.
 
-    Si no ve el nombre de la característica `Microsoft.NetApp/publicPreviewADC`, no tiene acceso al servicio. Se detendrá en este paso. Siga las instrucciones de [enviar una solicitud de lista de espera para acceder al servicio](#waitlist) para solicitar el acceso del servicio antes de continuar. 
+    Si no ve el nombre de la característica `Microsoft.NetApp/ANFGA`, no tiene acceso al servicio. Se detendrá en este paso. Siga las instrucciones de [enviar una solicitud de lista de espera para acceder al servicio](#waitlist) para solicitar el acceso del servicio antes de continuar. 
 
 4. En la consola de Azure Cloud Shell, escriba el comando siguiente para registrar el proveedor de recursos de Azure: 
     

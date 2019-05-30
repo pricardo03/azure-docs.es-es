@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: 5fcd7c10002e7e1ae9683fdd89d3af14a1500050
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e770beb0470b54d8e13493bca4790323b2e96ce1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561802"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393200"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos de Azure Event Grid para IoT Hub
 
@@ -33,6 +33,9 @@ Azure IoT Hub emite los siguientes tipos de eventos:
 | Microsoft.Devices.DeviceDeleted | Se publica cuando se elimina un dispositivo de una instancia de IoT Hub. | 
 | Microsoft.Devices.DeviceConnected | Se publica cuando se conecta un dispositivo a una instancia de IoT Hub. |
 | Microsoft.Devices.DeviceDisconnected | Se publica cuando se desconecta un dispositivo de una instancia de IoT Hub. | 
+| Microsoft.Devices.DeviceTelemetry | Se publica cuando se envía un mensaje de telemetría a IoT hub. |
+
+Todos los eventos de dispositivo, excepto los eventos de telemetría de dispositivo están disponibles con carácter general en todas las regiones compatibles con Event Grid. Evento de telemetría de dispositivo se encuentra en versión preliminar pública y está disponible en todas las regiones excepto este de Estados Unidos, oeste de Estados Unidos, Europa occidental, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), y [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="example-event"></a>Evento de ejemplo
 
@@ -56,6 +59,40 @@ El esquema para los eventos de dispositivo conectado y dispositivo desconectado 
   }, 
   "dataVersion": "1", 
   "metadataVersion": "1" 
+}]
+```
+
+El evento DeviceTelemetry se genera cuando se envía un evento de telemetría a IoT Hub. A continuación se muestra un esquema de ejemplo para este evento.
+
+```json
+[{
+  "id": "9af86784-8d40-fe2g-8b2a-bab65e106785",
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceTelemetry",
+  "eventTime": "2019-01-07T20:58:30.48Z",
+  "data": {        
+      "body": {            
+          "Weather": {                
+              "Temperature": 900            
+          },
+          "Location": "USA"        
+      },
+        "properties": {            
+          "Status": "Active"        
+        },
+        "systemProperties": {            
+            "iothub-content-type": "application/json",
+            "iothub-content-encoding": "utf-8",
+            "iothub-connection-device-id": "d1",
+            "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+            "iothub-connection-auth-generation-id": "123455432199234570",
+            "iothub-enqueuedtime": "2019-01-07T20:58:30.48Z",
+            "iothub-message-source": "Telemetry"        
+        }    
+    },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -129,7 +166,9 @@ Para todos los eventos de IoT Hub, el objeto de datos contiene las siguientes pr
 | hubName | string | Nombre de la instancia de IoT Hub en que se creó o eliminó el dispositivo. |
 | deviceId | string | Identificador único del dispositivo. Una cadena que distingue mayúsculas de minúsculas puede tener una longitud de hasta 128 caracteres alfanuméricos ASCII de 7 bits más los siguientes caracteres especiales: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
-El contenido del objeto de datos es diferente para cada publicador de eventos. Para los eventos de IoT Hub de **Dispositivo conectado** y **Dispositivo desconectado**, el objeto de datos contiene las siguientes propiedades:
+El contenido del objeto de datos es diferente para cada publicador de eventos. 
+
+Para los eventos de IoT Hub de **Dispositivo conectado** y **Dispositivo desconectado**, el objeto de datos contiene las siguientes propiedades:
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
@@ -137,7 +176,15 @@ El contenido del objeto de datos es diferente para cada publicador de eventos. P
 | deviceConnectionStateEventInfo | objeto | Información de evento del estado de conexión del dispositivo
 | sequenceNumber | string | Un número que indica el orden de los eventos de dispositivo conectado o dispositivo desconectado. El evento más reciente tendrá un número de secuencia mayor que el del evento anterior. Este número puede variar en más de 1, pero el orden es siempre ascendente. Consulte [cómo usar el número de secuencia](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
-El contenido del objeto de datos es diferente para cada publicador de eventos. Para los eventos de IoT Hub de **Dispositivo creado** y **Dispositivo eliminado**, el objeto de datos contiene las siguientes propiedades:
+Para **telemetría de dispositivo** eventos de IoT Hub, el objeto de datos contiene el mensaje de dispositivo a nube en [formato de mensaje de IoT hub](../iot-hub/iot-hub-devguide-messages-construct.md) y tiene las siguientes propiedades:
+
+| Propiedad | Escriba | DESCRIPCIÓN |
+| -------- | ---- | ----------- |
+| Cuerpo | string | El contenido del mensaje desde el dispositivo. |
+| properties | string | Las propiedades de la aplicación son cadenas definidas por el usuario que se pueden agregar al mensaje. Estos campos son opcionales. |
+| Propiedades del sistema | string | [Propiedades del sistema](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) ayudar a identificar el contenido y el origen de los mensajes. Mensaje de telemetría de dispositivo debe estar en un formato JSON válido con el tipo de contenido establecido en JSON y contentEncoding establecido en UTF-8 en las propiedades de mensaje del sistema. Si no se establece, IoT Hub escribirá los mensajes en formato codificado de base 64.  |
+
+Para los eventos de IoT Hub de **Dispositivo creado** y **Dispositivo eliminado**, el objeto de datos contiene las siguientes propiedades:
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |

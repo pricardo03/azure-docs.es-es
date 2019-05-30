@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142641"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235766"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Obtener una vista previa: crear y administrar varios grupos de nodos para un clúster en Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ En Azure Kubernetes Service (AKS), los nodos de la misma configuración se agrup
 Este artículo muestra cómo crear y administrar varios grupos de nodos en un clúster de AKS. Esta funcionalidad actualmente está en su versión preliminar.
 
 > [!IMPORTANT]
-> Características de versión preliminar AKS son autoservicio y participación. Las versiones preliminares se proporcionan para recopilar comentarios y los errores de nuestra comunidad. Sin embargo, no se admiten por soporte técnico de Azure. Si crea un clúster, o agregar estas características para clústeres existentes, ese clúster no se admite hasta que la característica ya no está en versión preliminar y se aprueba para disponibilidad general (GA).
+> Características de versión preliminar AKS son autoservicio, participación. Se proporcionan para recopilar comentarios y los errores de nuestra comunidad. En la vista previa, estas características no están diseñadas para su uso en producción. Características en versión preliminar pública se incluyen en el soporte técnico de "mejor esfuerzo". Asistencia de los equipos de soporte técnico de AKS está disponible durante el horario comercial del Pacífico (PST) solo timezone. Para obtener más información, consulte los siguientes artículos de soporte técnico:
 >
-> Si tiene problemas con las características de vista previa, [abra una incidencia en el repositorio de GitHub de AKS] [ aks-github] con el nombre de la característica de vista previa en el título del error.
+> * [Directivas de soporte técnico AKS][aks-support-policies]
+> * [Preguntas más frecuentes de soporte técnico de Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -72,6 +73,7 @@ Al crear y administrar clústeres AKS que admiten varios grupos de nodos, se apl
 * Varios grupos de nodos solo están disponibles para los clústeres creados después de registrar correctamente el *MultiAgentpoolPreview* y *VMSSPreview* características para su suscripción. No se puede agregar o administrar grupos de nodos con un clúster de AKS existente creado antes de que estas características se han registrado correctamente.
 * No se puede eliminar el primer grupo de nodos.
 * No se puede usar el complemento de enrutamiento de aplicación HTTP.
+* No puede utilizar una plantilla de Resource Manager existente al igual que con la mayoría de las operaciones de grupos de nodos de agregar/actualizar/eliminar. En su lugar, [usar una plantilla de Resource Manager independiente](#manage-node-pools-using-a-resource-manager-template) para realizar cambios en grupos de nodos en un clúster de AKS.
 
 Aunque esta característica está en versión preliminar, se aplican las siguientes limitaciones adicionales:
 
@@ -328,6 +330,95 @@ Events:
 
 Solo los pods que tienen este su sabor aplicado pueden programarse en nodos *gpunodepool*. Cualquier otro pod se programaría en el *nodepool1* grupo de nodos. Si crea grupos de nodos adicionales, puede usar taints adicionales y se pueden programar tolerations para limitar qué pods en esos recursos del nodo.
 
+## <a name="manage-node-pools-using-a-resource-manager-template"></a>Administrar grupos de nodos mediante una plantilla de Resource Manager
+
+Cuando usa una plantilla de Azure Resource Manager para crear y los recursos administrados, normalmente puede actualizar la configuración de la plantilla y volver a implementar para actualizar el recurso. Con nodepools en AKS, no se puede actualizar el perfil nodepool inicial una vez creado el clúster de AKS. Este comportamiento significa que no se puede actualizar una plantilla de Resource Manager existente, realice un cambio en los grupos de nodos y volver a implementar. En su lugar, debe crear una plantilla de Resource Manager independiente que actualiza los grupos de agentes para un clúster AKS existente.
+
+Crear una plantilla como `aks-agentpools.json` y pegue el siguiente ejemplo de manifiesto. Esta plantilla de ejemplo configura los valores siguientes:
+
+* Las actualizaciones de la *Linux* grupo agente denominado *myagentpool* para ejecutar los tres nodos.
+* Establece los nodos en el grupo de nodos para ejecutar la versión de Kubernetes *1.12.8*.
+* Define el tamaño del nodo como *Standard_DS2_v2*.
+
+Edite estos valores como necesite para actualizar, agregar o eliminar grupos de nodos según sea necesario:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of your existing AKS cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location of your existing AKS cluster."
+      }
+    },
+    "agentPoolName": {
+      "type": "string",
+      "defaultValue": "myagentpool",
+      "metadata": {
+        "description": "The name of the agent pool to create or update."
+      }
+    },
+    "vnetSubnetId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The Vnet subnet resource ID for your existing AKS cluster."
+      }
+    }
+  },
+  "variables": {
+    "apiVersion": {
+      "aks": "2019-04-01"
+    },
+    "agentPoolProfiles": {
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.ContainerService/managedClusters/agentPools",
+      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+            "maxPods": "[variables('agentPoolProfiles').maxPods]",
+            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+            "count": "[variables('agentPoolProfiles').agentCount]",
+            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+            "osType": "[variables('agentPoolProfiles').osType]",
+            "storageProfile": "ManagedDisks",
+      "type": "VirtualMachineScaleSets",
+            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+            "orchestratorVersion": "1.12.8"
+      }
+    }
+  ]
+}
+```
+
+Implementar esta plantilla mediante el [Crear implementación de un grupo az] [ az-group-deployment-create] de comandos, tal como se muestra en el ejemplo siguiente. Se le solicitará el nombre del clúster de AKS y la ubicación existente:
+
+```azurecli-interactive
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-file aks-agentpools.json
+```
+
+Puede tardar unos minutos en actualizar el clúster de AKS según la configuración del nodo grupo y las operaciones que defina en la plantilla de Resource Manager.
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 En este artículo, ha creado un clúster de AKS que incluya los nodos basados en GPU. Para reducir los costos innecesarios, es posible que desee eliminar el *gpunodepool*, o todo el clúster AKS.
@@ -351,7 +442,6 @@ En este artículo ha aprendido a crear y administrar varios grupos de nodos en u
 Para crear y usar grupos de nodos de contenedor de Windows Server, vea [crear un contenedor de Windows Server en AKS][aks-windows].
 
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -379,3 +469,6 @@ Para crear y usar grupos de nodos de contenedor de Windows Server, vea [crear un
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

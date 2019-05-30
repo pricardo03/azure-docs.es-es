@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124720"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399591"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
 
@@ -156,8 +156,8 @@ Para cada equipo que quiera replicar, busque la dirección IP:
 
 1. En **Almacenes de Recovery Services**, seleccione el nombre de un almacén. Estamos usando **ContosoVMVault**.
 2. En **Introducción**, seleccione Site Recovery. Luego, seleccione **Preparar infraestructura**.
-3. En **Objetivo de protección** > **¿Dónde están ubicadas las máquinas?**, seleccione **Local**.
-4. En **¿A dónde quiere replicar las máquinas?**, seleccione **En Azure**.
+3. En **Objetivo de protección** >  **¿Dónde están ubicadas las máquinas?** , seleccione **Local**.
+4. En **¿A dónde quiere replicar las máquinas?** , seleccione **En Azure**.
 5. En **Are your machines virtualized** (¿Están las máquinas virtualizadas?), seleccione **Not virtualized/Other** (No virtualizadas/Otros). Después seleccione **Aceptar**.
 
     ![Objetivo de protección](./media/azure-stack-site-recovery/protection-goal.png)

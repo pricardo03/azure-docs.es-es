@@ -5,30 +5,30 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 05/28/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c025c431d826d3a2951a9eb5c09308695e172887
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 9f7f9b1504533e0ec503e97c086c380da71671a0
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170711"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299703"
 ---
 | Recurso | Límite predeterminado y máximo |
 | --- | --- |
 | Circuitos ExpressRoute por suscripción |10 |
 | Circuitos ExpressRoute por región y suscripción, con Azure Resource Manager |10 |
-| Número máximo de rutas para emparejamiento privado de Azure con estándar ExpressRoute |4.000 |
-| Número máximo de rutas para emparejamiento privado de Azure con complemento ExpressRoute Premium |10 000 |
-| Número máximo de rutas para emparejamiento privado de Azure desde el espacio de direcciones de red virtual para una conexión de ExpressRoute |200 | 
-| Número máximo de rutas para emparejamiento de Microsoft Azure con estándar ExpressRoute |200 |
-| Número máximo de rutas para emparejamiento de Microsoft Azure con complemento ExpressRoute Premium |200 |
+| Número máximo de rutas anunciadas a emparejamiento privado de Azure con estándar ExpressRoute |4.000 |
+| Número máximo de rutas anunciadas a emparejamiento privado de Azure con complemento ExpressRoute Premium |10 000 |
+| Número máximo de rutas que anuncia de emparejamiento privado de Azure desde el espacio de direcciones de red virtual de una conexión ExpressRoute |200 |
+| Número máximo de rutas anunciadas a Microsoft emparejamiento con estándar ExpressRoute |200 |
+| Número máximo de rutas anunciadas a Microsoft emparejamiento con el complemento ExpressRoute Premium |200 |
 | Número máximo de vinculado a la misma red virtual en la misma ubicación de emparejamiento de circuitos de ExpressRoute |4 |
 | Número máximo de circuitos ExpressRoute vinculado a la misma red virtual en distintas ubicaciones de emparejamiento |4 |
-| Número de vínculos de red virtual permitidos por circuito ExpressRoute |Consulte la tabla siguiente. |
+| Número de vínculos de red virtual permitidos por circuito ExpressRoute |Consulte la [número de redes virtuales por circuito de ExpressRoute](#vnetpercircuit) tabla.  |
 
-#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Número de redes virtuales por circuito de ExpressRoute
+#### <a name="vnetpercircuit"></a> Número de redes virtuales por circuito de ExpressRoute
 | **Tamaño del circuito** | **Número de vínculos de red virtual para estándar** | **Número de vínculos de red virtual con complemento Premium** |
 | --- | --- | --- |
 | 50 Mbps |10 |20 |

@@ -5,15 +5,15 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: include
-ms.date: 04/30/2018
+ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 443db1b4609e62fb7c57de417e42a2b4d0737ada
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3f94481e6a8550479788d92c744327e1dc3b58c4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554036"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376925"
 ---
 Los límites siguientes se aplican a los temas de sistema de Azure Event Grid y temas personalizados, *no* dominios del evento.
 
@@ -22,6 +22,8 @@ Los límites siguientes se aplican a los temas de sistema de Azure Event Grid y 
 | Temas personalizados por suscripción de Azure | 100 |
 | Suscripciones de eventos por tema | 500 |
 | Velocidad de publicación de un tema personalizado (entrada) | 5000 eventos por segundo y tema |
+| Solicitudes de publicación | 250 por segundo |
+| Tamaño del evento | Compatibilidad con 64 KB en General (GA) de disponibilidad. Compatibilidad con 1 MB está actualmente en versión preliminar. |
 
 Los límites siguientes se aplican a solo los dominios de eventos.
 
@@ -31,3 +33,4 @@ Los límites siguientes se aplican a solo los dominios de eventos.
 | Suscripciones de eventos por tema dentro de un dominio | 50 durante la versión preliminar pública |
 | Suscripciones de eventos de ámbito de dominio | 50 durante la versión preliminar pública |
 | Publicación de velocidad para un dominio de eventos (entrada) | 5000 eventos por segundo durante la versión preliminar pública |
+| Solicitudes de publicación | 250 por segundo |

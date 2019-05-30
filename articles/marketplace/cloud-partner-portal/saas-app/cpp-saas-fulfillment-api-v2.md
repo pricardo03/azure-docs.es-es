@@ -7,16 +7,20 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 4efd9556e255709204654cf0acbf1b08fa2c1fc0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: d240fd7097f0dc284377063df72efd888c09adb6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872154"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258110"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>Versión de API de SaaS realización 2 
 
 Este artículo se describe la API que permite a los proveedores de software independientes (ISV) para vender sus aplicaciones SaaS en Azure Marketplace y AppSource. Esta API es que un requisito para SaaS permiten transacciones ofertas en AppSource y el Azure Marketplace.
+
+> [!IMPORTANT] 
+> SaaS ofrecen funcionalidad se ha migrado a la [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Todos los publicadores nuevo deben usar el centro de partners para crear nuevas ofertas de SaaS y administrar ofertas existentes.  Los editores actuales con ofertas de SaaS se están migrando batchwise de Cloud Partner Portal para el centro de partners.  Cloud Partner Portal mostrará mensajes de estado para indicar cuándo se han migrado las ofertas existentes específicas.
+> Para obtener más información, consulte [crear una nueva oferta de SaaS](../../partner-center-portal/create-new-saas-offer.md).
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>Administrar el ciclo de vida de suscripción de SaaS
 
@@ -35,7 +39,7 @@ Cuando un cliente inicia una compra, el ISV recibe esta información en un códi
 
 ![Llamadas de API para el aprovisionamiento de un servicio SaaS.](./media/saas-post-provisioning-api-v2-calls.png)
 
-#### <a name="provisioned"></a>Aprovisionado
+#### <a name="provisioned"></a>aprovisionado
 
 Este estado es el estado estable de un servicio de aprovisionamiento.
 
@@ -53,7 +57,7 @@ El siguiente diagrama muestra las acciones cuando se inicia una actualización a
 
 ![Llamadas de API cuando se inicia la actualización al servicio SaaS.](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
-#### <a name="suspended"></a>Suspendido
+#### <a name="suspended"></a>Suspended
 
 Este estado indica que no se ha recibido el pago del cliente. Mediante la directiva, se proporcionará al cliente un período de gracia antes unfulfilling la suscripción. Cuando una suscripción está en este estado: 
 
@@ -61,12 +65,12 @@ Este estado indica que no se ha recibido el pago del cliente. Mediante la direct
 - La suscripción debe estar en un estado recuperable que puede restaurar toda la funcionalidad sin ninguna pérdida de datos o la configuración. 
 - Puede esperar obtener una solicitud de restablecimiento para esta suscripción a través de la API de realización, o una solicitud de desaprovisionamiento al final del período de gracia. 
 
-#### <a name="unsubscribed"></a>Suscripción cancelada 
+#### <a name="unsubscribed"></a>Cancelar la suscripción a 
 
 Las suscripciones alcanza este estado en respuesta a una solicitud de cliente explícita o como respuesta a un impago de cuotas. La expectativa de que el ISV es que los datos del cliente se conservan para la recuperación en la solicitud durante un período mínimo de X días y, a continuación, se eliminan. 
 
 
-## <a name="api-reference"></a>Referencia de la API
+## <a name="api-reference"></a>Referencia de API
 
 Esta sección documentan el SaaS *API de suscripción* y *API Operations*.  El valor de la `api-version` las API de parámetro para la versión 2 están `2018-08-31`.  
 
@@ -133,7 +137,7 @@ Código: 400<br>
 Solicitud incorrecta. x-ms-marketplace-token es falta, con formato incorrecto o expirado.
 
 Código: 403<br>
-No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error
@@ -208,7 +212,7 @@ Según el token de autenticación, obtener el publicador y las suscripciones cor
 El token de continuación solo estarán presente si hay más "páginas" de los planes para recuperar. 
 
 Código: 403 <br>
-No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual. 
+No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual. 
 
 Código: Error de servidor interno 500
 
@@ -273,7 +277,7 @@ Código: 404<br>
 No encontrado<br> 
 
 Código: 403<br>
-No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error<br>
@@ -328,7 +332,7 @@ Código: 404<br>
 No encontrado<br> 
 
 Código: 403<br>
-No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual. <br> 
+No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual. <br> 
 
 Código: 500<br>
 Internal Server Error<br>
@@ -382,7 +386,7 @@ Código: 400<br>
 Errores de validación de solicitud incorrecta
 
 Código: 403<br>
-No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error
@@ -448,7 +452,7 @@ Errores de validación de solicitud incorrecta.
 >Solo un plan o cantidad puede ser revisada al mismo tiempo, no ambos. Edita en una suscripción con **actualización** no se encuentra en `allowedCustomerOperations`.
 
 Código: 403<br>
-No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error
@@ -514,7 +518,7 @@ Errores de validación de solicitud incorrecta.
 >Solo un plan o cantidad puede ser revisada al mismo tiempo, no ambos. Edita en una suscripción con **actualización** no se encuentra en `allowedCustomerOperations`.
 
 Código: 403<br>
-No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error
@@ -562,7 +566,7 @@ Código: 400<br>
 Eliminar en una suscripción con **eliminar** no en `allowedCustomerOperations`.
 
 Código: 403<br>
-No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error
@@ -630,7 +634,7 @@ Código: 400<br>
 Errores de validación de solicitud incorrecta
 
 Código: 403<br>
-No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error
@@ -693,7 +697,7 @@ Código: 400<br>
 Errores de validación de solicitud incorrecta
 
 Código: 403<br>
-No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
  
 Código: 500<br> Internal Server Error
 
@@ -751,7 +755,7 @@ Código: 400<br>
 Errores de validación de solicitud incorrecta
 
 Código: 403<br>
-No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 409<br>
 Conflicto. Por ejemplo, ya se cumple una transacción más reciente

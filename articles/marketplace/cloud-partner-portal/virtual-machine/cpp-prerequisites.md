@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 65ff96ba3aea889ff5b2e2431578f9344f6d840b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 258d21eae5af50b5dc0bed6887618e2999cae45a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938079"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257396"
 ---
 # <a name="virtual-machine-prerequisites"></a>Requisitos previos de las máquinas virtuales
 
@@ -36,7 +36,7 @@ Los requisitos empresariales incluyen obligaciones contractuales, de procedimien
 <!-- TD: Aren't most of these business requirements common to all AMP offerings?  If yes, then move to higher level, perhaps to the AMP section "Become a Cloud Marketplace Publisher" -->
 <!-- TD: Need references for remaining docs/business reqs!-->
 
-- Debe ser publicador de Cloud Marketplace registrado.  Si aún no está registrado, siga los pasos del artículo [Conviértase en anunciante de Cloud Marketplace](../../become-publisher.md).
+- Debe ser publicador de Cloud Marketplace registrado.  Si aún no está registrado, siga los pasos del artículo [Conviértase en anunciante de Cloud Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE]
     > Debe usar la misma cuenta de registro de Microsoft Developer Center para iniciar sesión en [Cloud Partner Portal](https://cloudpartner.azure.com).

@@ -11,12 +11,12 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0d40ca0ae6ccd4f709d7d94d52764d4affcc215
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468013"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244694"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformación de XML con asignaciones en Azure Logic Apps con Enterprise Integration Pack
 
@@ -28,11 +28,11 @@ Para conocer los límites relacionados con las cuentas de integración y artefac
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una suscripción de Azure. Si aún no tiene una, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta de Azure gratuita</a>.
+* Una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/).
 
 * Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) donde almacena las asignaciones y otros artefactos para soluciones negocio a negocio (B2B) y de integración empresarial.
 
-* Si la asignación hace referencia a un ensamblado externo, debe cargar *tanto el ensamblado como la asignación* en la cuenta de integración. Asegúrese de *cargar primero el ensamblado* y luego la asignación que hace referencia a este.
+* Si la asignación hace referencia a un ensamblado externo, debe cargar *tanto el ensamblado como la asignación* en la cuenta de integración. Asegúrese de que [ *cargar primero el ensamblado*](#add-assembly)y, a continuación, cargar la asignación que hace referencia al ensamblado.
 
   Si el ensamblado es de 2 MB o menos, puede agregarlo a la cuenta de integración *directamente* desde Azure Portal. Pero si el ensamblado o la asignación tiene más de 2 MB, pero menos del [límite de tamaño de ensamblados o asignaciones](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), existen estas opciones:
 
@@ -50,9 +50,11 @@ Para conocer los límites relacionados con las cuentas de integración y artefac
 
 No necesita una aplicación lógica al crear y agregar asignaciones. Sin embargo, al usar una asignación, la aplicación lógica se debe vincular a una cuenta de integración donde se almacena esa asignación. Aprenda a [vincular aplicaciones lógicas a cuentas de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Si aún no tiene una aplicación lógica, obtenga información sobre [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+<a name="add-assembly"></a>
+
 ## <a name="add-referenced-assemblies"></a>Incorporación de ensamblados de referencia
 
-1. Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> con sus credenciales de su cuenta de Azure.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales de su cuenta de Azure.
 
 1. Para buscar y abrir la cuenta de integración, en el menú principal de Azure, seleccione **Todos los servicios**. 
    En el cuadro de búsqueda, escriba "cuenta de integración". 
@@ -74,6 +76,9 @@ No necesita una aplicación lógica al crear y agregar asignaciones. Sin embargo
 
 Según el tamaño del archivo de ensamblado, siga los pasos para cargar un ensamblado de [hasta 2 MB](#smaller-assembly) o de [más de 2 MB, pero solo hasta 8 MB](#larger-assembly).
 Para conocer los límites de las cantidades de ensamblados en cuentas de integración, consulte [Límites y configuración de Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
+
+> [!NOTE]
+> Si cambia el ensamblado, también debe actualizar la asignación si el mapa tiene cambios o no.
 
 <a name="smaller-assembly"></a>
 
@@ -99,7 +104,7 @@ Para conocer los límites de las cantidades de ensamblados en cuentas de integra
 
 ### <a name="add-assemblies-more-than-2-mb"></a>Incorporación de ensamblados de más de 2 MB
 
-Para agregar ensamblados de mayor tamaño, puede cargar el ensamblado en un contenedor de blobs de Azure de la cuenta de almacenamiento de Azure. Los pasos que debe seguir para agregar ensamblados dependen de si el contenedor de blobs tiene acceso de lectura público. En primer lugar, revise si el contenedor de blobs tiene o no acceso de lectura público con estos pasos: [Establecimiento del nivel de acceso público para un contenedor de blobs](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Para agregar ensamblados de mayor tamaño, puede cargar el ensamblado en un contenedor de blobs de Azure de la cuenta de almacenamiento de Azure. Los pasos para agregar ensamblados varían en función de si el contenedor de blobs tiene acceso de lectura público. En primer lugar, revise si el contenedor de blobs tiene o no acceso de lectura público con estos pasos: [Establecimiento del nivel de acceso público para un contenedor de blobs](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Comprobación del nivel de acceso de un contenedor
 
@@ -170,7 +175,7 @@ Para conocer los límites de las cantidades de asignaciones en cuentas de integr
 
 Después de cargar cualquier ensamblado al que hace referencia la asignación, ahora puede cargar la asignación.
 
-1. Si todavía no inicia sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, hágalo con las credenciales de su cuenta de Azure. 
+1. Si todavía no inicia sesión en [Azure Portal](https://portal.azure.com), hágalo con las credenciales de su cuenta de Azure. 
 
 1. Si la cuenta de integración todavía no está abierta, en el menú principal de Azure, seleccione **Todos los servicios**. 
    En el cuadro de búsqueda, escriba "cuenta de integración". 
@@ -310,7 +315,7 @@ the map appears in the **Maps** list.
 
 Para actualizar una asignación existente, debe cargar un nuevo archivo de asignación que tiene todos los cambios que desea. Sin embargo, primero puede descargar la asignación existente para editarla.
 
-1. En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, busque y abra la cuenta de integración, si todavía no está abierto.
+1. En [Azure Portal](https://portal.azure.com), busque y abra la cuenta de integración, si todavía no está abierto.
 
 1. En el menú principal de Azure, seleccione **Todos los servicios**. En el cuadro de búsqueda, escriba "cuenta de integración". Seleccione **Cuentas de integración**.
 
@@ -328,7 +333,7 @@ Para actualizar una asignación existente, debe cargar un nuevo archivo de asign
 
 ## <a name="delete-maps"></a>Eliminación de asignaciones
 
-1. En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, busque y abra la cuenta de integración, si todavía no está abierto.
+1. En [Azure Portal](https://portal.azure.com), busque y abra la cuenta de integración, si todavía no está abierto.
 
 1. En el menú principal de Azure, seleccione **Todos los servicios**. 
    En el cuadro de búsqueda, escriba "cuenta de integración". 

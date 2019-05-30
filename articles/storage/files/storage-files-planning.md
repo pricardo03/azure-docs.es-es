@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9144165a3ce593dce11b5e50ce5f0af9f0afa480
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232759"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237670"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -101,9 +101,9 @@ Los recursos compartidos deben aprovisionarse en incrementos de 1 GB. Tamaño m�
 >
 > Límite de ráfaga = 3 * la línea de base de e/s por segundo. (Hasta un máximo de 100 000 e/s por segundo).
 >
-> tasa de salida = 60 MiB/s + 0,06 * aprovisionado GiB
+> Velocidad de salida = 60 MiB/s + 0,06 * GiB aprovisionado
 >
-> tasa de entrada = 40 MiB/s + 0,04 * aprovisionado GiB
+> Velocidad de entrada = 40 MiB/s + 0,04 * GiB aprovisionado
 
 Tamaño del recurso compartido se puede aumentar en cualquier momento, pero se puede reducir únicamente después de 24 horas desde el último incremento. Después de esperar 24 horas sin un aumento de tamaño, puede reducir el tamaño del recurso compartido tantas veces como sea necesario, hasta que aumente de nuevo. Los cambios de escala IOPS/rendimiento será efectivos en cuestión de minutos después del cambio de tamaño.
 
@@ -189,9 +189,9 @@ Es posible sincronizar varios recursos compartidos de archivos de Azure en un ú
 Existen muchas opciones sencillas para la transferencia masiva de datos desde un recurso de archivos existente, como un recurso compartido de archivos local, a Azure Files. Algunas populares incluyen (lista no exhaustiva):
 
 * **Azure File Sync**: como parte de una primera sincronización entre un recurso compartido de archivos de Azure (un "punto de conexión de nube") y un espacio de nombres de directorio de Windows (un "punto de conexión de servidor"), Azure File Sync replica todos los datos del recurso compartido de archivos existente en Azure Files.
-* **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: El servicio Azure Import/Export permite transferir de forma segura grandes cantidades de datos a un recurso compartido de archivos de Azure mediante el envío de unidades de disco duro a un centro de datos de Azure. 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy es una herramienta de copia conocida que se incluye con Windows y Windows Server. Robocopy puede usarse para transferir datos a Azure Files al montar el recurso compartido de archivos localmente y luego usar la ubicación montada como destino en el comando de Robocopy.
-* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde Azure Files, así como Azure Blob Storage, mediante sencillos comandos con un rendimiento óptimo. AzCopy está disponible para Windows y Linux.
+* **[Azure Import/Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : El servicio Azure Import/Export permite transferir de forma segura grandes cantidades de datos a un recurso compartido de archivos de Azure mediante el envío de unidades de disco duro a un centro de datos de Azure. 
+* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy es una herramienta de copia conocida que se incluye con Windows y Windows Server. Robocopy puede usarse para transferir datos a Azure Files al montar el recurso compartido de archivos localmente y luego usar la ubicación montada como destino en el comando de Robocopy.
+* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde Azure Files, así como Azure Blob Storage, mediante sencillos comandos con un rendimiento óptimo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)

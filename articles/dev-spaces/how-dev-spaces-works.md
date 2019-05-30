@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Describe los procesos que espacios de desarrollo de Azure power y cómo están configurados en el archivo de configuración azds.yaml
 keywords: azds.yaml, espacios de desarrollo de Azure, los espacios de desarrollo, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: f7cf5ae875fa0fb87322052df036d35e8e5e89a4
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605419"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399829"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Cómo funciona la espacios de desarrollo de Azure y está configurado
 
@@ -80,7 +80,7 @@ Trataremos más detalles acerca de cómo funciona Azure Dev espacios en cada una
 ## <a name="prepare-your-aks-cluster"></a>Preparar el clúster de AKS
 
 Preparar el clúster de AKS implica:
-* Comprobando la AKS clúster está en una región [compatibles con Azure Dev espacios](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+* Comprobando la AKS clúster está en una región [compatibles con Azure Dev espacios][supported-regions].
 * Comprobando que ejecutan Kubernetes 1.10.3 o una versión posterior.
 * Habilitación de espacios de desarrollo de Azure en el clúster con `az aks use-dev-spaces`
 
@@ -135,7 +135,7 @@ El `prep` comando consultará los archivos en el proyecto y vuelva a crear el gr
 
 * Java
 * Node.js
-* .NET Core
+* Núcleo de .NET
 
 Le *debe* ejecutar el `prep` comando desde un directorio que contiene el código fuente. Ejecuta el `prep` comando desde el directorio correcto permite a las herramientas de cliente identificar el lenguaje y crear un Dockerfile para incluir la aplicación adecuada. También puede ejecutar el `prep` comando desde un directorio que contiene un *pom.xml* archivo para los proyectos de Java.
 
@@ -278,7 +278,7 @@ Cuando se realiza una solicitud HTTP a un servicio desde fuera del clúster, la 
 
 Cuando se realiza una solicitud HTTP a un servicio de otro servicio en el clúster, la solicitud se pasa primero por contenedor de devspaces proxy del servicio que realiza la llamada. El contenedor proxy devspaces examina la solicitud HTTP y comprueba el `azds-route-as` encabezado. En función del encabezado, el contenedor proxy devspaces buscará la dirección IP del servicio asociado con el valor del encabezado. Si se encuentra una dirección IP, el contenedor devspaces proxy redirige la solicitud a esa dirección IP. Si no se encuentra una dirección IP, el contenedor devspaces proxy enruta la solicitud para el contenedor de la aplicación principal.
 
-Por ejemplo, las aplicaciones *serviceA* y *serviceB* se implementan en un espacio de desarrollo primario denominado *predeterminada*. *serviceA* se basa en *serviceB* y realiza llamadas HTTP a ella. Usuario de Azure crea un espacio de desarrollo secundarios según el *predeterminada* espacio llamado *azureuser*. Usuario de Azure también implementa su propia versión de *serviceA* a su espacio de secundarios. Cuando se realiza una solicitud a *http://azureuser.s.default.serviceA.fedcba09...azds.io*:
+Por ejemplo, las aplicaciones *serviceA* y *serviceB* se implementan en un espacio de desarrollo primario denominado *predeterminada*. *serviceA* se basa en *serviceB* y realiza llamadas HTTP a ella. Usuario de Azure crea un espacio de desarrollo secundarios según el *predeterminada* espacio llamado *azureuser*. Usuario de Azure también implementa su propia versión de *serviceA* a su espacio de secundarios. Cuando se realiza una solicitud a *http://azureuser.s.default.serviceA.fedcba09...azds.io* :
 
 ![Enrutamiento de Azure espacios de desarrollo](media/how-dev-spaces-works/routing.svg)
 
@@ -337,13 +337,13 @@ El *install.set* propiedad le permite configurar uno o varios de los valores que
 
 En el ejemplo anterior, el *install.set.replicaCount* propiedad indica el controlador de número de instancias de la aplicación se ejecute en el espacio de desarrollo. Según el escenario, puede aumentar este valor, pero tendrán un impacto en asociar a un depurador al pod de la aplicación. Para obtener más información, consulte el [artículo de solución de problemas](troubleshooting.md).
 
-En el gráfico de Helm generado, se establece la imagen de contenedor en *{{. Values.Image.Repository}} :{{. Values.Image.Tag}}*. El `azds.yaml` archivo define *install.set.image.tag* propiedad como *$(tag)* de forma predeterminada, que se usa como el valor de *{{. Values.Image.Tag}}*. Estableciendo el *install.set.image.tag* propiedad de este modo, permite la imagen de contenedor para la aplicación se etiqueten de una manera distinta cuando se ejecuta espacios de desarrollo de Azure. En este caso, la imagen está etiquetada como  *\<valor desde image.repository >: $(tag)*. Debe usar el *$(tag)* variable como el valor de *install.set.image.tag* en orden para los espacios de desarrollo, reconocer y busque el contenedor en el clúster de AKS.
+En el gráfico de Helm generado, se establece la imagen de contenedor en *{{. Values.Image.Repository}} :{{. Values.Image.Tag}}* . El `azds.yaml` archivo define *install.set.image.tag* propiedad como *$(tag)* de forma predeterminada, que se usa como el valor de *{{. Values.Image.Tag}}* . Estableciendo el *install.set.image.tag* propiedad de este modo, permite la imagen de contenedor para la aplicación se etiqueten de una manera distinta cuando se ejecuta espacios de desarrollo de Azure. En este caso, la imagen está etiquetada como  *\<valor desde image.repository >: $(tag)* . Debe usar el *$(tag)* variable como el valor de *install.set.image.tag* en orden para los espacios de desarrollo, reconocer y busque el contenedor en el clúster de AKS.
 
-En el ejemplo anterior, `azds.yaml` define *install.set.ingress.hosts*. El *install.set.ingress.hosts* propiedad define un formato de nombre de host para los puntos de conexión públicos. Esta propiedad también usa *$(spacePrefix)*, *$(rootSpacePrefix)*, y *$(hostSuffix)*, que son los valores proporcionados por el controlador. 
+En el ejemplo anterior, `azds.yaml` define *install.set.ingress.hosts*. El *install.set.ingress.hosts* propiedad define un formato de nombre de host para los puntos de conexión públicos. Esta propiedad también usa *$(spacePrefix)* , *$(rootSpacePrefix)* , y *$(hostSuffix)* , que son los valores proporcionados por el controlador. 
 
 El *$(spacePrefix)* es el nombre del espacio de desarrollo secundarios, que adopta la forma de *SPACENAME.s*. El *$(rootSpacePrefix)* es el nombre del espacio primario. Por ejemplo, si *azureuser* es un espacio de secundarios de *predeterminada*, el valor de *$(rootSpacePrefix)* es *predeterminada* y el valor de *$(spacePrefix)* es *azureuser.s*. Si el espacio no es un espacio de secundarios *$(spacePrefix)* está en blanco. Por ejemplo, si la *predeterminada* espacio no tiene ningún espacio primario, el valor de *$(rootSpacePrefix)* es *predeterminada* y el valor de *$(spacePrefix)* está en blanco. El *$(hostSuffix)* es un sufijo DNS que señala el controlador de entrada de espacios de desarrollo de Azure que se ejecuta en el clúster de AKS. Este sufijo DNS corresponde a una entrada DNS de carácter comodín, por ejemplo  *\*. RANDOM_VALUE.eus.azds.IO*, que se creó cuando se agregó el controlador de espacios de desarrollo de Azure en el clúster de AKS.
 
-En la fórmula anterior `azds.yaml` archivo, también podría actualizar *install.set.ingress.hosts* para cambiar el nombre de host de la aplicación. Por ejemplo, si quisiera simplificar el nombre de host de la aplicación de *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* a *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)*.
+En la fórmula anterior `azds.yaml` archivo, también podría actualizar *install.set.ingress.hosts* para cambiar el nombre de host de la aplicación. Por ejemplo, si quisiera simplificar el nombre de host de la aplicación de *$(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)* a *$(spacePrefix)$(rootSpacePrefix)web$(hostSuffix)* .
 
 Para crear el contenedor para la aplicación, se usa el controlador de la siguientes secciones de la `azds.yaml` archivo de configuración:
 
@@ -408,7 +408,7 @@ Para las aplicaciones de Java, .NET y Node.js, puede depurar la aplicación que 
 
 ![Depurar el código](media/get-started-node/debug-configuration-nodejs2.png)
 
-Al iniciar la aplicación mediante Visual Studio Code o Visual Studio para la depuración, controlan y la conexión en el espacio de desarrollo de la misma manera como en ejecución `azds up`. Las herramientas de cliente en Visual Studio Code y Visual Studio también proporcionan un parámetro adicional con información específica para la depuración. El parámetro contiene el nombre de imagen de depurador, la ubicación del depurador dentro de la imagen del depurador y la ubicación de destino dentro del contenedor de la aplicación para montar la carpeta del depurador. 
+Al iniciar la aplicación mediante Visual Studio Code o Visual Studio para la depuración, controlan y la conexión en el espacio de desarrollo de la misma manera como en ejecución `azds up`. Las herramientas de cliente en Visual Studio Code y Visual Studio también proporcionan un parámetro adicional con información específica para la depuración. El parámetro contiene el nombre de imagen de depurador, la ubicación del depurador dentro de la imagen del depurador y la ubicación de destino dentro del contenedor de la aplicación para montar la carpeta del depurador.
 
 La imagen de depurador se determina automáticamente las herramientas de cliente. Usa un método similar al utilizado durante el Dockerfile y gráfico de Helm generar cuando se ejecuta `azds prep`. Después de que el depurador está montado en la imagen de la aplicación, se ejecuta con `azds exec`.
 
@@ -442,3 +442,7 @@ Para empezar a trabajar con el desarrollo en equipo, consulte los artículos de 
 * [Desarrollo en equipo - .NET Core con la CLI y el código de Visual Studio](team-development-netcore.md)
 * [Desarrollo en equipo - .NET Core con Visual Studio](team-development-netcore-visualstudio.md)
 * [Desarrollo en equipo - Node.js con la CLI y el código de Visual Studio](team-development-nodejs.md)
+
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

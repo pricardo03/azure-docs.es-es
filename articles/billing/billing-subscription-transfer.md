@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/24/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 33d0e5f92d5de104530882b204b1f196360511b2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826759"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236457"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de una suscripción de Azure a otra cuenta
 
@@ -59,7 +59,7 @@ Transfiera su suscripción a otro usuario del Centro de cuentas para cambiar el 
    ![Página web de primera transferencia de suscripción](./media/billing-subscription-transfer/image4.png)
 
    ![Página web de segunda transferencia de suscripción](./media/billing-subscription-transfer/image5.png)
-1. Correcto La suscripción ya está transferida.
+1. ¡Éxito! La suscripción ya está transferida.
 
 <a id="EA"></a>
 
@@ -102,7 +102,9 @@ La transferencia de las suscripciones de autoservicio está disponible para las 
 
 ### <a name="whoisaa"></a>¿Quién es el administrador de la cuenta de la suscripción?
 
-El administrador de cuenta es la persona que se inscribió o que adquirió la suscripción de Azure. Están autorizados para tener acceso al [Centro de cuentas](https://account.azure.com/Subscriptions) y realizar diversas tareas de administración como crear suscripciones, cancelar suscripciones, cambiar la facturación de una suscripción o cambiar el administrador de servicios. Si no está seguro de quién es el administrador de cuenta de la suscripción, use los pasos siguientes para averiguarlo.
+El administrador de cuenta es la persona que se inscribió o que adquirió la suscripción de Azure. Están autorizados para tener acceso al [Centro de cuentas](https://account.azure.com/Subscriptions) y realizar diversas tareas de administración como crear suscripciones, cancelar suscripciones, cambiar la facturación de una suscripción o cambiar el administrador de servicios. Para obtener más información acerca de la descripción de los roles de administrador y permisos, consulte [permisos del rol de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+
+Si no está seguro de quién es el administrador de cuenta de la suscripción, use los pasos siguientes para averiguarlo.
 
 1. Visite la [página Suscripciones de Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Seleccione la suscripción que desee comprobar y, luego, consulte **Configuración**.
@@ -172,7 +174,7 @@ Para aceptar una transferencia de suscripción, se debe proporcionar una tarjeta
 
 Si no se puede transferir la propiedad de suscripción, puede migrar manualmente los recursos. Consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
 
-## <a name="need-help-contact-us"></a>¿Ayuda? Póngase en contacto con nosotros.
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
 Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 

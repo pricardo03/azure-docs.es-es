@@ -1,9 +1,9 @@
 ---
-title: Creación de un certificado de LDAP seguro para un dominio administrado de Azure AD Domain Services | Microsoft Docs
+title: Crear una. Archivo PFX con el certificado de LDAP (LDAPS) seguro para un dominio de Azure AD Domain Services
 description: Creación de un certificado de LDAP seguro para un dominio administrado de Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -13,22 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2017
-ms.author: ergreenl
-ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.author: mstephen
+ms.openlocfilehash: b79418c6e64727e4fdf13b3f4f267d84fcf5da85
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418564"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235024"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Creación de un archivo .PFX con el certificado de LDAP seguro (LDAPS) para un dominio administrado
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Realice la [Tarea 1: obtención de un certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md).
 
+Realice la [Tarea 1: obtención de un certificado para LDAP seguro](configure-ldaps.md).
 
 ## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>Tarea 2: exportación del certificado de LDAP seguro a un archivo .PFX
+
 Antes de iniciar esta tarea, asegúrese de haber obtenido el certificado de LDAP seguro de una entidad de certificación pública o bien haber creado un certificado autofirmado.
 
 Para exportar el certificado de LDAPS a un archivo .PFX:
@@ -40,7 +41,7 @@ Para exportar el certificado de LDAPS a un archivo .PFX:
 3. En el menú **Archivo**, haga clic en **Agregar o quitar complemento**.
 
     ![Adición del complemento a la consola MMC](./media/active-directory-domain-services-admin-guide/secure-ldap-add-snapin.png)
-4. En el cuadro de diálogo **Agregar o quitar complemento**, seleccione el complemento **Certificados** y haga clic en el botón **Agregar >**.
+4. En el cuadro de diálogo **Agregar o quitar complemento**, seleccione el complemento **Certificados** y haga clic en el botón **Agregar >** .
 
     ![Adición del complemento Certificados a la consola MMC](./media/active-directory-domain-services-admin-guide/secure-ldap-add-certificates-snapin.png)
 5. En el Asistente para el **complemento Certificados**, seleccione **Cuenta de equipo** y haga clic en **Siguiente**.
@@ -96,6 +97,6 @@ Para exportar el certificado de LDAPS a un archivo .PFX:
 
     ![Exportación de certificados: listo](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
 
-
 ## <a name="next-step"></a>Paso siguiente
+
 [Tarea 3: habilitación de LDAP seguro para el dominio administrado](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

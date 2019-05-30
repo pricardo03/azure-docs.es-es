@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 384f709bb32f973efec39518eaa895e25136fe23
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765705"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390648"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementación continua en Azure App Service
 En este artículo se muestra cómo configurar la implementación continua en [Azure App Service](overview.md). App Service permite la implementación continua desde BitBucket, GitHub y [Azure DevOps Services](https://www.visualstudio.com/team-services/) mediante la extracción de las actualizaciones más recientes del repositorio existente en alguno de estos servicios.
@@ -130,7 +130,7 @@ En la página **Configurar**, en la sección **Compilar**, especifique el marco 
 
 En la página **Probar**, elija si desea habilitar las pruebas de carga y, después, haga clic en **Continuar**.
 
-En función del [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/plans/) de App Service, también puede ver una página **Implementar en el almacenamiento provisional**. Elija si desea [habilitar ranuras de implementación](deploy-staging-slots.md) y después haga clic en **Continuar**. 
+En función del [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/plans/) de App Service, también puede ver una página **Implementar en el almacenamiento provisional**. Elija si desea [habilitar ranuras de implementación](deploy-staging-slots.md) y después haga clic en **Continuar**. DevOps no permite la entrega continua a la ranura de producción. Esto es así por diseño para evitar que las implementaciones accidentales a producción. Debe configurar la entrega continua para una ranura de ensayo, compruebe los cambios e intercambiar las ranuras cuando esté listo.
 
 ### <a name="finish-configuration"></a>Finalización de la configuración
 

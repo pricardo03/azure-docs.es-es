@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: e6c7d682d9b16266208baeeff14168b3da157251
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a62ec95c715c08a8fddc09f0c8e5f5bba368556
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60584886"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241756"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciales usadas para acceder a la biblioteca de cliente de Elastic Database
 
@@ -79,6 +79,6 @@ Al igual que con las credenciales de administración, no use valores que tengan 
 
 [Protección de SQL Database](sql-database-security-overview.md)
 
-[Introducción a trabajos de Elastic Database](sql-database-elastic-jobs-getting-started.md)
+[Trabajos de elastic Database](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

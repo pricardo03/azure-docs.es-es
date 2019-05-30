@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e13a4b1c01329bef1ec270af5ba007cd788aa
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464429"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399741"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure
 
@@ -70,7 +70,7 @@ Configuración de notificaciones de correo electrónico para alertas
    | Nivel de alerta | Alertas enviadas |
    | --- | --- |
    | Crítico | Error de copia de seguridad, error de recuperación |
-   | Advertencia | Para trabajos de copia de seguridad realizados correctamente con advertencias (por ejemplo, se produjo un error en algunos escritores al crear una instantánea) |
+   | Advertencia | actualmente, no hay ninguna alerta de advertencia está disponible para las copias de seguridad de máquina virtual de Azure (por ejemplo: no se pudo algunos escritores al crear una instantánea) |
    | Informativo | Actualmente, no hay alertas informativas disponibles para la copia de seguridad de máquinas virtuales de Azure |
 
 ### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Situaciones en las que no se envía ningún correo electrónico incluso si se configuran las notificaciones

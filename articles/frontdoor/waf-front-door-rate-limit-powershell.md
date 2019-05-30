@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 3701a69ab72abf20a4f1608a1cee56c9cea38aca
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 99b0cab3fd277f90a675f0e6087d572853053a08
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523634"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387350"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurar una regla de límite web application firewall frecuencia mediante Azure PowerShell
 La regla de límites de velocidad de web de Azure aplicación firewall (WAF) para el acceso de principal de Azure controla el número de solicitudes permitidas desde una dirección IP de cliente único durante una duración de un minuto.
@@ -65,10 +65,10 @@ En el ejemplo siguiente se buscan */promo* como el valor de la *RequestUri* vari
      -MatchValue "/promo"
 ```
 ## <a name="create-a-custom-rate-limit-rule"></a>Crear una regla de límite de velocidad personalizada
-Establecer un límite de velocidad mediante [New AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). En el ejemplo siguiente, el límite se establece en 1000. Las solicitudes desde cualquier cliente a la página de promoción superior a 1000 durante un minuto se bloquean hasta que se inicie el siguiente minuto.
+Establecer un límite de velocidad mediante [New AzFrontDoorWafCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). En el ejemplo siguiente, el límite se establece en 1000. Las solicitudes desde cualquier cliente a la página de promoción superior a 1000 durante un minuto se bloquean hasta que se inicie el siguiente minuto.
 
 ```powershell-interactive
-   $promoRateLimitRule = New-AzFrontDoorCustomRuleObject `
+   $promoRateLimitRule = New-AzFrontDoorWafCustomRuleObject `
      -Name "rateLimitRule" `
      -RuleType RateLimitRule `
      -MatchCondition $promoMatchCondition `

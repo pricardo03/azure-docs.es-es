@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72d744808d6b52ccd151645c97005bfdfe1a5541
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452690"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243464"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa
 
@@ -117,8 +117,8 @@ El enrutamiento de los datos de supervisión a un centro de eventos con Azure Mo
 * **Servidor de Syslog**: si desea transmitir los datos de Azure Monitor directamente a un servidor de syslog, puede consultar [este repositorio de GitHub](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [(Archivado del registro de actividades en una cuenta de almacenamiento)](../../azure-monitor/platform/archive-activity-log.md)
-* [Lea la información general sobre el registro de actividades de Azure](../../azure-monitor/platform/activity-logs-overview.md)
-* [Configure una alerta basada en un evento del registro de actividades](../../azure-monitor/platform/alerts-log-webhook.md)
+* [Archivar el registro de actividad a una cuenta de almacenamiento](../../azure-monitor/platform/archive-activity-log.md)
+* [Lea la información general sobre el registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md)
+* [Configurar una alerta basada en un evento de registro de actividad](../../azure-monitor/platform/alerts-log-webhook.md)
 
 

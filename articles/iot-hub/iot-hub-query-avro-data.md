@@ -5,29 +5,29 @@ author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 69c890cfc3db04fe625ed7ad008f545c01844834
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 84e1dd77c6e873dc2facb5126bbddf795192b60d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61441633"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257738"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Consulta de datos de Avro con Azure Data Lake Analytics
 
-En este artículo se explica cómo consultar los datos de Avro para enrutar de forma eficaz los mensajes de Azure IoT Hub a servicios de Azure. [El enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md) le permite filtrar los datos mediante consultas enriquecidas en función de las propiedades de un mensaje, el cuerpo del mensaje y las etiquetas y las propiedades del dispositivo gemelo. Para más información sobre las funcionalidades de consulta del enrutamiento de mensajes, consulte el artículo sobre la sintaxis de la consulta del enrutamiento de mensajes. 
-<!--[Message Routing Query Syntax](iot-hub-devguide-routing-query-syntax.md). I don't have this article yet. -->
+En este artículo se explica cómo consultar los datos de Avro para enrutar de forma eficaz los mensajes de Azure IoT Hub a servicios de Azure. [El enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md) le permite filtrar los datos mediante consultas enriquecidas en función de las propiedades de un mensaje, el cuerpo del mensaje y las etiquetas y las propiedades del dispositivo gemelo. Para obtener más información sobre las capacidades de consultas de enrutamiento de mensajes, consulte el artículo [sintaxis de consulta de enrutamiento de mensajes](iot-hub-devguide-routing-query-syntax.md).
 
-La dificultad radica en que cuando Azure IoT Hub enruta los mensajes a Azure Blob Storage, IoT Hub escribe el contenido en formato Avro, que tiene propiedades de mensaje y de cuerpo de mensaje. IoT Hub solo admite la escritura de datos en Blob Storage en formato de datos de Avro, y este formato no se usa para ningún otro punto de conexión. Para más información, consulte un artículo sobre cómo usar los contenedores de Azure Storage. Aunque el formato Avro es muy útil para la conservación de datos y mensajes, es difícil de usar para consultar datos. En comparación, es mucho más fácil consultar datos en formato JSON o CSV.
+Ha sido el desafío que cuando Azure IoT Hub enruta los mensajes a Azure Blob storage, de forma predeterminada IoT Hub escribe el contenido en formato Avro, que tiene una propiedad de cuerpo de mensaje y una propiedad de mensaje. El formato Avro no se usa para otros puntos de conexión. Aunque el formato Avro es muy útil para la conservación de datos y mensajes, es difícil de usar para consultar datos. En comparación, es mucho más fácil consultar datos en formato JSON o CSV. IoT Hub ahora admite la escritura de datos en almacenamiento de blobs en JSON, así como de AVRO.
 
-<!-- https://review.docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
+Para obtener más información, consulte [uso de Azure Blob Storage como un punto de conexión de enrutamiento](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
-Para atender las necesidades y los formatos de los macrodatos no relacionales y superar esta dificultad, puede usar muchos de los patrones de macrodatos para transformar y escalar datos. Uno de los modelos, "pago por consulta", es propio de Azure Data Lake Analytics, que es en lo que se basa este artículo. Aunque puede ejecutar fácilmente la consulta en Hadoop o en otras soluciones, Data Lake Analytics con frecuencia es más conveniente para el enfoque de "pago por consulta". 
+Para atender las necesidades y los formatos de los macrodatos no relacionales y superar esta dificultad, puede usar muchos de los patrones de macrodatos para transformar y escalar datos. Uno de los modelos, "pago por consulta", es propio de Azure Data Lake Analytics, que es en lo que se basa este artículo. Aunque puede ejecutar fácilmente la consulta en Hadoop o en otras soluciones, Data Lake Analytics con frecuencia es más conveniente para el enfoque de "pago por consulta".
 
 Hay un "extractor" para Avro en U-SQL. Para obtener más información, consulte [U-SQL Avro example](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) (Ejemplo de Avro en U-SQL).
 
 ## <a name="query-and-export-avro-data-to-a-csv-file"></a>Consulta y exportación de datos de Avro a un archivo CSV
+
 En esta sección, se consultan datos de Avro y se exportan a un archivo CSV en Azure Blob Storage, aunque podría colocar fácilmente los datos en otros almacenes de datos o repositorios.
 
 1. Configure Azure IoT Hub para enrutar los datos a un punto de conexión de Azure Blob Storage usando una propiedad en el cuerpo del mensaje para seleccionar los mensajes.
@@ -49,21 +49,21 @@ En esta sección, se consultan datos de Avro y se exportan a un archivo CSV en A
 4. En Data Lake Analytics, configure Azure Blob Storage como almacén adicional, el mismo Blob Storage a donde Azure IoT Hub enruta los datos.
 
    ![El panel "Orígenes de datos"](./media/iot-hub-query-avro-data/query-avro-data-4.png)
- 
+
 5. Como se describe en [U-SQL Avro example](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) (Ejemplo de Avro en U-SQL), necesita cuatro archivos DLL. Cargue estos archivos en una ubicación de la instancia de Data Lake Store.
 
    ![Cuatro archivos DLL cargados](./media/iot-hub-query-avro-data/query-avro-data-5.png)
 
 6. En Visual Studio, cree un proyecto de U-SQL.
- 
+
    !Create a U-SQL project](./media/iot-hub-query-avro-data/query-avro-data-6.png)
 
 7. Pegue el contenido del siguiente script en el archivo recién creado. Modifique las tres secciones resaltadas: su cuenta de Data Lake Analytics, las rutas de acceso de los archivos DLL asociados y la ruta de acceso correcta para la cuenta de almacenamiento.
-    
+
    ![Las tres secciones que se van a modificar](./media/iot-hub-query-avro-data/query-avro-data-7a.png)
 
    El script U-SQL real para la salida sencilla a un archivo CSV:
-    
+
     ```sql
         DROP ASSEMBLY IF EXISTS [Avro];
         CREATE ASSEMBLY [Avro] FROM @"/Assemblies/Avro/Avro.dll";
@@ -127,21 +127,21 @@ En esta sección, se consultan datos de Avro y se exportan a un archivo CSV en A
         FROM @rs;
 
         OUTPUT @cnt TO @output_file USING Outputters.Text(); 
-    ```    
+    ```
 
     Data Lake Analytics tardó cinco minutos en ejecutar el siguiente script, que se limitó a 10 unidades analíticas y procesó 177 archivos. El resultado se muestra en la salida del archivo CSV que aparece en la siguiente imagen:
-    
+
     ![Resultados de la salida en el archivo CSV](./media/iot-hub-query-avro-data/query-avro-data-7b.png)
 
     ![Salida convertida en el archivo CSV](./media/iot-hub-query-avro-data/query-avro-data-7c.png)
 
     Para analizar el JSON, continúe en el paso 8.
-    
+
 8. La mayoría de los mensajes de IoT están en formato de archivo JSON. Al agregar las líneas siguientes, puede analizar el mensaje en un archivo JSON, que permite agregar cláusulas WHERE y generar solo los datos necesarios.
 
     ```sql
-       @jsonify = 
-         SELECT Microsoft.Analytics.Samples.Formats.Json.JsonFunctions.JsonTuple(Encoding.UTF8.GetString(Body)) 
+       @jsonify =
+         SELECT Microsoft.Analytics.Samples.Formats.Json.JsonFunctions.JsonTuple(Encoding.UTF8.GetString(Body))
            AS message FROM @rs;
     
         /*
@@ -163,8 +163,8 @@ En esta sección, se consultan datos de Avro y se exportan a un archivo CSV en A
         OUTPUT @cnt TO @output_file USING Outputters.Text();
     ```
 
-    La salida muestra una columna para cada elemento del comando `SELECT`. 
-    
+    La salida muestra una columna para cada elemento del comando `SELECT`.
+
     ![Salida que muestra una columna para cada elemento](./media/iot-hub-query-avro-data/query-avro-data-8.png)
 
 ## <a name="next-steps"></a>Pasos siguientes

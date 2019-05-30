@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: 122f0884469a4901b02a1c86dd5ec98ef4fb24b0
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: f36442c5e26391f410eeb5e39a7485da7199bdad
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000251"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243449"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -55,7 +55,8 @@ Se recomienda realizar la siguiente validación, antes de empezar a solucionar p
 
 | Detalles del error | Causas posibles | Acciones recomendadas |
 | ---     | ---     | ---    |
-| **Error** <br /><ol><li>*El Agente de Microsoft Azure Recovery Services no se pudo conectar a Microsoft Azure Backup. (Id.: 100050) Compruebe la configuración de red y asegúrese de que tiene conexión a Internet*<li>*(407) Se requiere autenticación del proxy* |El proxy bloquea la conexión. |  <ul><li>Vaya a **IE** > **Configuración** > **Opciones de Internet** > **Seguridad** > **Internet**. A continuación, seleccione **Nivel personalizado** y desplácese hasta que vea la sección de descarga de archivos. Seleccione **Habilitar**.<li>Es posible que también tenga que agregar estos sitios a los [sitios de confianza](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins) de Internet Explorer.<li>Cambie la configuración para usar un servidor proxy. A continuación, proporcione los detalles del servidor proxy. <li>Si tiene instalado un software antivirus instalado en el servidor, excluya los archivos siguientes del examen. <ul><li>CBEngine.exe (en lugar de dpmra.exe).<li>CSC.exe (relacionado con .NET Framework). Hay un archivo CSC.exe por cada versión de .NET instalada en el servidor. Excluya todos los archivos CSC.exe vinculados a todas las versiones de .NET Framework en el servidor afectado. <li>Ubicación de caché o carpeta temporal. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la ubicación de caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.<li>La carpeta Bin está en C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Bin.
+| **Error** <br /><ol><li>*El Agente de Microsoft Azure Recovery Services no se pudo conectar a Microsoft Azure Backup. (Id.: 100050) Compruebe la configuración de red y asegúrese de que tiene conexión a Internet*<li>*(407) Se requiere autenticación del proxy* |El proxy bloquea la conexión. |  <ul><li>Vaya a **IE** > **Configuración** > **Opciones de Internet** > **Seguridad** > **Internet**. A continuación, seleccione **Nivel personalizado** y desplácese hasta que vea la sección de descarga de archivos. Seleccione **Habilitar**.<li>Es posible que también tenga que agregar estos sitios a los [sitios de confianza](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins) de Internet Explorer.<li>Cambie la configuración para usar un servidor proxy. A continuación, proporcione los detalles del servidor proxy.<li> Si el equipo ha limitado el acceso a internet, asegúrese de que la configuración del firewall en la máquina o proxy permite estos [direcciones URL](backup-configure-vault.md#verify-internet-access) y [dirección IP](backup-configure-vault.md#verify-internet-access). <li>Si tiene instalado un software antivirus instalado en el servidor, excluya los archivos siguientes del examen. <ul><li>CBEngine.exe (en lugar de dpmra.exe).<li>CSC.exe (relacionado con .NET Framework). Hay un archivo CSC.exe por cada versión de .NET instalada en el servidor. Excluya todos los archivos CSC.exe vinculados a todas las versiones de .NET Framework en el servidor afectado. <li>Ubicación de caché o carpeta temporal. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la ubicación de caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.<li>La carpeta Bin está en C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Bin.
+
 
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>No se pudo establecer la clave de cifrado para proteger las copias de seguridad
@@ -68,13 +69,13 @@ Se recomienda realizar la siguiente validación, antes de empezar a solucionar p
 
 | Detalles del error | Causas posibles | Acciones recomendadas |
 |---------|---------|---------|
-|**Error** <br /><ol>*La activación no se completó correctamente. No se pudo realizar la operación actual debido a un error de servicio interno [0x1FC07]. Intente de nuevo la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft*     | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se movió de manera incorrecta a otra ubicación. <li> Falta el archivo OnlineBackup.KEK.         | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre equivalente al 5 % o 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, consulte los pasos de las [preguntas sobre el Agente de Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la ubicación de caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|**Error** <br />*La activación no se completó correctamente. No se pudo realizar la operación actual debido a un error de servicio interno [0x1FC07]. Intente de nuevo la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft*     | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se movió de manera incorrecta a otra ubicación. <li> Falta el archivo OnlineBackup.KEK.         | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre equivalente al 5 % o 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, consulte los pasos de las [preguntas sobre el Agente de Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la ubicación de caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>La frase de contraseña de cifrado no está configurada correctamente.
 
 | Detalles del error | Causas posibles | Acciones recomendadas |
 |---------|---------|---------|
-|**Error** <br /><ol>*Error 34506. La frase de contraseña de cifrado almacenada en este equipo no está configurada correctamente*.    | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se movió de manera incorrecta a otra ubicación. <li> Falta el archivo OnlineBackup.KEK.        | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre equivalente al 5 % o 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, consulte los pasos de las [preguntas sobre el Agente de Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la ubicación de caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.         |
+|**Error** <br />*Error 34506. La frase de contraseña de cifrado almacenada en este equipo no está configurada correctamente*.    | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se movió de manera incorrecta a otra ubicación. <li> Falta el archivo OnlineBackup.KEK.        | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre equivalente al 5 % o 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, consulte los pasos de las [preguntas sobre el Agente de Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la ubicación de caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 
 ## <a name="backups-dont-run-according-to-the-schedule"></a>Las copias de seguridad no se ejecutan según la programación.
@@ -119,7 +120,7 @@ Es posible que Azure Backup no monte correctamente el volumen de recuperación, 
 
     ![Captura de pantalla del Administrador de dispositivos de Azure Backup con la opción Controladores de almacenamiento resaltada](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
-7.  Vaya a **Administrador de tareas** > **Servicios (local)** > **Servicio del iniciador iSCSI de Microsoft**.
+7.  Vaya a **Administrador de tareas** > **Servicios (local)**  > **Servicio del iniciador iSCSI de Microsoft**.
 
     ![Captura de pantalla del Administrador de tareas de Azure Backup con la opción Servicios (local) resaltada](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
 
@@ -129,7 +130,7 @@ Es posible que Azure Backup no monte correctamente el volumen de recuperación, 
 
 Si la recuperación sigue sin funcionar, reinicie el cliente o el servidor. Si no quiere reiniciar o la recuperación sigue sin funcionar incluso después del reinicio del servidor, intente recuperar desde una máquina alternativa. Siga los pasos de [este artículo](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
-## <a name="need-help-contact-support"></a>¿Ayuda? Ponerse en contacto con soporte técnico
+## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.
 
 ## <a name="next-steps"></a>Pasos siguientes

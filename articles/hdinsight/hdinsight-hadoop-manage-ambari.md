@@ -6,20 +6,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1659ab72620b6bf91eb932f8414a0f6600350e37
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 49e8fbef7af16e109c1e9f1e0d8c9aab1a008e21
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714471"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257995"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari simplifica la administración y la supervisión de un clúster de Apache Hadoop al brindar una API de REST y una interfaz de usuario web fácil de usar. Ambari se incluye en los clústeres de HDInsight basado en Linux y, además, se usa para supervisar el clúster y realizar cambios en la configuración.
+Apache Ambari simplifica la administración y la supervisión de un clúster de Apache Hadoop al brindar una API de REST y una interfaz de usuario web fácil de usar. Ambari se incluye en los clústeres de HDInsight y se usa para supervisar el clúster y realizar cambios de configuración.
 
 Con este documento aprende a usar la interfaz de usuario web de Ambari con un clúster de HDInsight.
 
@@ -27,14 +27,9 @@ Con este documento aprende a usar la interfaz de usuario web de Ambari con un cl
 
 [Apache Ambari](https://ambari.apache.org) simplifica la administración de Hadoop al proporcionar una interfaz de usuario de web fácil de usar. Puede usar Ambari para administrar y supervisar los clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las [API de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-La interfaz de usuario web de Ambari se proporciona de forma predeterminada con clústeres de HDInsight que usan el sistema operativo Linux.
-
-> [!IMPORTANT]  
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
-
 ## <a name="connectivity"></a>Conectividad
 
-La interfaz de usuario web de Ambari está disponible en el clúster de HDInsight en HTTPS://CLUSTERNAME.azurehdinsight.net, donde **CLUSTERNAME** es el nombre del clúster.
+La interfaz de usuario de Web de Ambari está disponible en el clúster de HDInsight en `https://CLUSTERNAME.azurehdinsight.net`, donde `CLUSTERNAME` es el nombre del clúster.
 
 > [!IMPORTANT]  
 > La conexión a Ambari en HDInsight requiere HTTPS. Cuando se le solicite autenticación, use el nombre de la cuenta de administrador y la contraseña que proporcionó cuando se creó el clúster.
@@ -54,23 +49,17 @@ Cuando se abra la página, observe la barra que se encuentra en la parte superio
 
 ![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
-* **Logotipo de Ambari** : abre el panel, que puede usarse para supervisar el clúster.
-
-* **Cluster name # ops** : muestra el número de operaciones de Ambari en curso. Seleccione el nombre del clúster o **# ops** para ver una lista de las operaciones en segundo plano.
-
-* **# alerts**: muestra alertas de advertencia o alertas críticas del clúster, si las hay.
-
-* **Dashboard** : muestra el panel.
-
-* **Services** : información y ajustes de configuración de los servicios en el clúster.
-
-* **Hosts** : información y ajustes de configuración de los nodos del clúster.
-
-* **Alerts** : un registro de información, advertencias y alertas críticas.
-
-* **Admin** : servicios/pila de software que están instalados en el clúster, información de la cuenta de servicio y seguridad Kerberos.
-
-* **Botón Admin** : administración de Ambari, configuración del usuario y cierre de sesión.
+|item |DESCRIPCIÓN |
+|---|---|
+|Logotipo de Ambari|Abre el panel, que puede usarse para supervisar el clúster.|
+|# Ops de nombre del clúster|Muestra el número de operaciones de Ambari en curso. Seleccione el nombre del clúster o **# ops** para ver una lista de las operaciones en segundo plano.|
+|# alerts|Muestra las advertencias o alertas críticas, si existe, para el clúster.|
+|panel|Muestra el panel.|
+|Servicios|Configuración de información y configuración para los servicios del clúster.|
+|Hosts|Valores de configuración y la información de los nodos del clúster.|
+|Alertas|Un registro de información, advertencias y alertas críticas.|
+|Administración|Pila/servicios de software que están instalados en el clúster, la información de la cuenta de servicio y la seguridad de Kerberos.|
+|Botón Administrador|Administración de Ambari, la configuración de usuario y cierre de sesión.|
 
 ## <a name="monitoring"></a>Supervisión
 
@@ -113,7 +102,7 @@ Para más información sobre los nodos del clúster, seleccione **Hosts**. A con
 
 ![detalles del host](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
-### <a name="services"></a>Services
+### <a name="services"></a>Servicios
 
 La barra lateral **Services** (Servicios) del panel proporciona información rápida del estado de los servicios que se ejecutan en el clúster. Se usan varios iconos para indicar el estado o las acciones que se deben realizar. Por ejemplo, si es necesario reciclar un servicio, se muestra un símbolo de reciclaje amarillo.
 
@@ -162,31 +151,18 @@ La página **Hosts** muestra todos los hosts existentes en el clúster. Siga est
 
 2. Use el menú **Actions** para seleccionar la acción que desea realizar:
 
-   * **Start all components** : inicie todos los componentes en el host.
-
-   * **Stop all components** : detenga todos los componentes en el host.
-
-   * **Restart all components** : detenga e inicie todo los componentes en el host.
-
-   * **Turn on maintenance mode** : suprime las alertas del host. Este modo se debería habilitar si va a realizar acciones que generan alertas. Por ejemplo, detener e iniciar un servicio.
-
-   * **Turn off maintenance mode** : devuelve el host a su estado de alerta normal.
-
-   * **Stop** : detiene DataNode o NodeManagers en el host.
-
-   * **Start** : inicia DataNode o NodeManagers en el host.
-
-   * **Restart** : detiene e inicia DataNode o NodeManagers en el host.
-
-   * **Decommission** : quita un host del clúster.
-
-     > [!NOTE]  
-     > No use esta acción en clústeres de HDInsight.
-
-   * **Recommission** : agrega un host anteriormente retirado al clúster.
-
-     > [!NOTE]  
-     > No use esta acción en clústeres de HDInsight.
+    |item |DESCRIPCIÓN |
+    |---|---|
+    |Iniciar todos los componentes|Inicie todos los componentes en el host.|
+    |Detener todos los componentes|Detenga todos los componentes en el host.|
+    |Reinicie todos los componentes|Detener e iniciar todos los componentes en el host.|
+    |Activar el modo de mantenimiento|Suprime las alertas para el host. Este modo se debería habilitar si va a realizar acciones que generan alertas. Por ejemplo, detener e iniciar un servicio.|
+    |Desactivar el modo de mantenimiento|Devuelve el host de alerta normal.|
+    |Stop|Detiene DataNode o NodeManagers en el host.|
+    |Iniciar|Inicia DataNode o NodeManagers en el host.|
+    |Reinicio|Detiene e inicia DataNode o NodeManagers en el host.|
+    |Dar de baja|Quita un host del clúster. **No use esta acción en clústeres de HDInsight.**|
+    |Recommission|Agrega un host anteriormente retirado al clúster. **No use esta acción en clústeres de HDInsight.**|
 
 ### <a id="service"></a>Servicios
 
@@ -226,7 +202,6 @@ Para configurar un servicio, use los siguientes pasos:
 ## <a name="ambari-views"></a>Vistas de Ambari
 
 Las vistas de Ambari permiten a los desarrolladores conectar elementos de interfaz de usuario a la interfaz de usuario web de Ambari mediante el [marco de vistas de Apache Ambari](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight proporciona las siguientes vistas con los tipos de clúster de Hadoop:
-
 
 * Vista de Hive: la vista de Hive permite ejecutar consultas de Hive directamente desde el explorador web. Puede guardar consultas, ver resultados, guardar resultados en el almacenamiento del clúster o descargar los resultados en el sistema local. Para más información sobre el uso de vistas de Hive, consulte [Uso de vistas de Apache Hive con HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 

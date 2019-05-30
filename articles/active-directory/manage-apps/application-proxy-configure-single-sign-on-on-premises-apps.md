@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5524576ef21830ae13526dad2d8ac8a1d0864cf1
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 907cb598d708bfa26f53d2e43fef5456258c21b1
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956878"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393045"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>Inicio de sesión único en SAML para aplicaciones locales con el Proxy de aplicación (versión preliminar)
 
@@ -50,14 +50,14 @@ Tenga en cuenta lo siguiente cuando vas a través del tutorial:
 1. Seleccione **SAML** como el método de inicio de sesión único.
 1. En el **establecer seguridad de sesión único con SAML** página, edite el **configuración básica de SAML** datos y siga los pasos descritos en [configuración básica de SAML de ENTRAR](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) configurar basado en SAML autenticación para la aplicación.
 
-   * Asegúrese de que el **dirección URL de respuesta** coincide o es una ruta de acceso bajo la **dirección URL externa** para la aplicación en el entorno local que publica a través del Proxy de aplicación. 
-   * Si la aplicación requiere otra **dirección URL de respuesta** para la configuración de SAML, agregue este elemento como un **adicionales** dirección URL en la lista y marcar la casilla de verificación situada junto a ella para designarlo como la principal  **Dirección URL de respuesta** para enviar las respuestas SAML iniciado por IDP.
-   * Para un flujo iniciado por SP, asegúrese de que la aplicación también especifica el valor correcto **dirección URL de respuesta** o dirección URL del servicio de consumidor de aserción que se utilizará para recibir el token de autenticación.
+   * Asegúrese de que el **dirección URL de respuesta** coincide con el **dirección URL externa** para la aplicación en el entorno local que se publican a través de Proxy de aplicación o es una ruta de acceso en el **dirección URL externa**.
+   * Para un flujo iniciado por IDP, donde la aplicación requiere otra **dirección URL de respuesta** para la configuración de SAML, agregue este elemento como un **adicionales** dirección URL en la lista y marcar la casilla de verificación situada junto a ella para designarlo como la principal **dirección URL de respuesta**.
+   * Para un flujo iniciado por SP, asegúrese de que la aplicación de back-end especifica el valor correcto **dirección URL de respuesta** o dirección URL del servicio de consumidor de aserción que se utilizará para recibir el token de autenticación.
 
      ![Escriba los datos de configuración básicas de SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
     > [!NOTE]
-    > Si la aplicación de back-end espera el **dirección URL de respuesta** para que sea la dirección URL interna, necesita instalar la extensión de inicio de sesión segura de mis aplicaciones en dispositivos de los usuarios. Esta extensión le redireccionará automáticamente para el servicio de Proxy de aplicación adecuado. Para instalar la extensión, consulte [extensión de inicio de sesión seguro de mis aplicaciones](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
+    > Si la aplicación de back-end espera el **dirección URL de respuesta** para que sea la dirección URL interna, necesitará usar [dominios personalizados](application-proxy-configure-custom-domain.md) tener direcciones URL internas y externas de coincidencia o instalar la extensión de inicio de inicio de sesión segura de mis aplicaciones en los dispositivos de usuarios. Esta extensión le redireccionará automáticamente para el servicio de Proxy de aplicación adecuado. Para instalar la extensión, consulte [extensión de inicio de sesión seguro de mis aplicaciones](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
 
 ## <a name="test-your-app"></a>Prueba de la aplicación
 

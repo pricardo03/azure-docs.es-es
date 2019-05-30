@@ -3,19 +3,19 @@ title: Informes de Collaborative Translation Framework (CTF) - Translator Text A
 titlesuffix: Azure Cognitive Services
 description: Cómo usar los informes de Collaborative Translation Framework (CTF).
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: 178747ffddbadb06751ce0db7d16701c3cea7416
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: v-pawal
+ms.openlocfilehash: 166c152828a91889d7d1d7eb6f8c03dac48172f5
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712815"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389387"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Cómo usar los informes de Collaborative Translation Framework (CTF)
 
@@ -76,7 +76,7 @@ Este método obtiene el recuento de traducciones que se crean por el usuario. Pr
 |:---|:---|
 | appId | **Obligatorio** Si se usa el encabezado de autorización, deje el campo appid vacío o incluya una cadena que contenga "Bearer" + " " + token de acceso.|
 | uriPrefix | **Opcional** Una cadena que contiene el prefijo del URI de la traducción.|
-| De | **Opcional** Una cadena que representa el código de idioma del texto de traducción. |
+| from | **Opcional** Una cadena que representa el código de idioma del texto de traducción. |
 | to | **Opcional** Una cadena que representa el código de idioma al que se va a traducir el texto.|
 | minRating| **Opcional** Un valor entero que representa la clasificación de calidad mínima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
 | maxRating| **Opcional** Un valor entero que representa la clasificación de calidad máxima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
@@ -96,10 +96,10 @@ El conjunto de resultados contiene la matriz de **UserTranslationCount**. Cada U
 
 | Campo | DESCRIPCIÓN |
 |:---|:---|
-| Número| Número de resultados que se recupera|
+| Count| Número de resultados que se recupera|
 | De | Idioma de origen|
 | Rating| Clasificación que se aplica por el remitente en la llamada al método AddTranslation()|
-| Para| Idioma de destino|
+| En| Idioma de destino|
 | Identificador URI| URI que se aplica en la llamada al método AddTranslation()|
 | Usuario| Nombre del usuario|
 
@@ -147,7 +147,7 @@ Este método recupera las traducciones creadas por el usuario. Proporciona las t
 |:---|:---|
 | appId | **Obligatorio** Si se usa el encabezado de autorización, deje el campo appid vacío o incluya una cadena que contenga "Bearer" + " " + token de acceso.|
 | uriPrefix| **Opcional** Una cadena que contiene el prefijo del URI de la traducción.|
-| De| **Opcional** Una cadena que representa el código de idioma del texto de traducción.|
+| from| **Opcional** Una cadena que representa el código de idioma del texto de traducción.|
 | to| **Opcional** Una cadena que representa el código de idioma al que se va a traducir el texto.|
 | minRating| **Opcional** Un valor entero que representa la clasificación de calidad mínima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
 | maxRating| **Opcional** Un valor entero que representa la clasificación de calidad máxima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
@@ -171,7 +171,7 @@ El conjunto de resultados contiene la matriz de **UserTranslation**. Cada UserTr
 | De| Idioma de origen|
 | OriginalText| Texto de lenguaje de origen que se usa al enviar la solicitud|
 |Rating |Clasificación que se aplica por el remitente en la llamada al método AddTranslation()|
-|Para|    Idioma de destino|
+|En|    Idioma de destino|
 |TranslatedText|    Traducción tal y como se envió en la llamada al método AddTranslation()|
 |Identificador URI|   URI que se aplica en la llamada al método AddTranslation()|
 |Usuario   |Nombre del usuario|

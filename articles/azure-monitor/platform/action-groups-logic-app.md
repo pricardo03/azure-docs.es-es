@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234952"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389577"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Procedimientos para desencadenar acciones complejas con alertas de Azure Monitor
 
@@ -26,7 +26,7 @@ El proceso general es:
 
 -   Crear la aplicación lógica para el tipo de alerta respectivo.
 
--   Importar el esquema para el tipo de alerta respectivo a la aplicación lógica.
+-   Importar una carga de ejemplo para el tipo de alerta correspondiente a la aplicación lógica.
 
 -   Definir el comportamiento de la aplicación lógica.
 
@@ -58,7 +58,7 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
     ![Usar una carga de ejemplo](media/action-groups-logic-app/use-sample-payload-button.png "Usar una carga de ejemplo")
 
-8.  Copie y pegue el esquema de ejemplo siguiente en el cuadro de diálogo:
+8.  Copie y pegue la siguiente carga de ejemplo en el cuadro de diálogo:
 
     ```json
         {
@@ -140,7 +140,7 @@ La próxima vez que una alerta llame al grupo de acciones, se llamará a la apli
 Las entradas de Azure Service Health forman parte del registro de actividad. El proceso de creación de la alerta es similar a la [creación de una alerta de registro de actividad](#create-an-activity-log-alert-administrative), pero con unos cuantos cambios:
 
 - Los pasos del 1 al 7 son iguales.
-- Para el paso 8, use el esquema de ejemplo siguiente para el desencadenador de solicitud HTTP:
+- Paso 8, use la siguiente carga de ejemplo para el desencadenador de solicitud HTTP:
 
     ```json
     {
@@ -228,7 +228,7 @@ Las entradas de Azure Service Health forman parte del registro de actividad. El 
 El proceso de creación de una alerta de métrica es similar a la [creación de una alerta de registro de actividad](#create-an-activity-log-alert-administrative), pero con unos cuantos cambios:
 
 - Los pasos del 1 al 7 son iguales.
-- Para el paso 8, use el esquema de ejemplo siguiente para el desencadenador de solicitud HTTP:
+- Paso 8, use la siguiente carga de ejemplo para el desencadenador de solicitud HTTP:
 
     ```json
     {
@@ -281,11 +281,11 @@ El proceso de creación de una alerta de métrica es similar a la [creación de 
        
        !["Condición de carga de la alerta métrica"](media/action-groups-logic-app/metric-alert-payload-condition.png "Condición de carga de la alerta métrica")
 
-  2. En la condición **if true**, agregue un bucle **For each** y la acción de Microsoft Teams. Defina el mensaje con una combinación de HTML y contenido dinámico.
+  1. En la condición **if true**, agregue un bucle **For each** y la acción de Microsoft Teams. Defina el mensaje con una combinación de HTML y contenido dinámico.
 
       !["Acción posterior a la condición true de la alerta de métrica"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Acción posterior a la condición true de la alerta de métrica")
 
-  3. En la condición **If false**, defina una acción de Microsoft Teams que comunique que la alerta de métrica no coincide con las expectativas de la aplicación lógica. Incluya la carga de JSON. Observe cómo hacer referencia al contenido dinámico de `triggerBody` en la expresión `json()`.
+  1. En la condición **If false**, defina una acción de Microsoft Teams que comunique que la alerta de métrica no coincide con las expectativas de la aplicación lógica. Incluya la carga de JSON. Observe cómo hacer referencia al contenido dinámico de `triggerBody` en la expresión `json()`.
 
       !["Acción posterior a la condición false de la alerta de métrica"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Acción posterior a la condición false de la alerta de métrica")
 
@@ -298,3 +298,4 @@ Logic Apps tiene una serie de distintos conectores que permiten desencadenar acc
 * Consulte la [introducción a las alertas del registro de actividad de Azure](../../azure-monitor/platform/alerts-overview.md) y aprenda cómo puede recibir alertas.  
 * Aprenda a [configurar alertas siempre que se publique una notificación de Azure Service Health](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Más información sobre los [grupos de acciones](../../azure-monitor/platform/action-groups.md).
+

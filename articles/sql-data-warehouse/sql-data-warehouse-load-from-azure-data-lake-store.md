@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Carga de Azure Data Lake Store a Azure SQL Data Warehouse | Microsoft Docs'
+title: Carga de tutorial de Azure Data Lake Store a Azure SQL Data Warehouse | Microsoft Docs
 description: Use tablas externas de PolyBase para cargar datos de Azure Data Lake Storage en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9d6a2c097a6040e7c005cc0feeefd59caf352441
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: a706fca7f7653c6916efc72d07988e79c9015a43
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65850495"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244496"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Cargar datos desde Azure Data Lake Storage en SQL Data Warehouse
 Use tablas externas de PolyBase para cargar datos de Azure Data Lake Storage en Azure SQL Data Warehouse. Aunque puede ejecutar consultas ad hoc en datos almacenados en Data Lake Storage, se recomienda importar los datos en SQL Data Warehouse para mejorar el rendimiento.

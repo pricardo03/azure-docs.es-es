@@ -1,19 +1,19 @@
 ---
 title: Supervisión del rendimiento de un clúster en Azure HDInsight
 description: Supervisión de la capacidad y rendimiento de un clúster de HDInsight.
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: arindamc
-ms.openlocfilehash: 9a6a63748ef36bbbceb00bc815616f2cb12692a7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.date: 05/29/2019
+ms.author: hrasheed
+ms.openlocfilehash: 3fcd1e54a8993b2693b169a2c8b4c6e9bca57119
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799788"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393412"
 ---
 # <a name="monitor-cluster-performance"></a>Supervisión del rendimiento de un clúster
 
@@ -29,7 +29,7 @@ Para obtener una visión de alto nivel de los nodos de un clúster y su carga, i
 
 | Color | DESCRIPCIÓN |
 | --- | --- |
-| Red | Al menos un componente maestro del host está inactivo. Mueva el puntero encima para una información sobre herramientas que enumera los componentes afectados. |
+| Rojo | Al menos un componente maestro del host está inactivo. Mueva el puntero encima para una información sobre herramientas que enumera los componentes afectados. |
 | Naranja | Al menos un componente secundario en el host está inactivo. Mueva el puntero encima para una información sobre herramientas que enumera los componentes afectados. |
 | Amarillo | El servidor de Ambari no recibió ningún latido del host durante más de 3 minutos. |
 | Verde | Estado de funcionamiento normal. |

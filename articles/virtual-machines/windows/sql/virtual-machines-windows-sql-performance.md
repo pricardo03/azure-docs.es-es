@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1f40c62fce61ba16dfdf289d54cd19c3739ce21
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477355"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393768"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Directrices de rendimiento para SQL Server en Azure Virtual Machines
 
@@ -38,7 +38,7 @@ En [SQL Server images provisioned in the Azure portal](quickstart-sql-vm-create-
 
 La siguiente es una lista de comprobación rápida para un rendimiento óptimo de SQL Server en Azure Virtual Machines:
 
-| Ámbito | Optimizaciones |
+| Área | Optimizaciones |
 | --- | --- |
 | [Tamaño de VM](#vm-size-guidance) | - [DS3_v2](../sizes-general.md), o superior, para la edición SQL Enterprise.<br/><br/> - [DS2_v2](../sizes-general.md), o superior, para las ediciones SQL Standard y Web. |
 | [Storage](#storage-guidance) | - Use [unidades de estado sólido prémium](../disks-types.md). Solo se recomienda el almacenamiento estándar en fases de desarrollo o pruebas.<br/><br/> - Mantenga la [cuenta de almacenamiento](../../../storage/common/storage-create-storage-account.md) y la máquina virtual con SQL Server en la misma región.<br/><br/> * Deshabilite el [almacenamiento con redundancia geográfica](../../../storage/common/storage-redundancy.md) (replicación geográfica) de Azure en la cuenta de almacenamiento. |
@@ -84,7 +84,7 @@ La directiva del almacenamiento en caché predeterminada en el disco del sistema
 
 ### <a name="temporary-disk"></a>Disco temporal
 
-La unidad de almacenamiento temporal, etiquetada como la unidad **D**:, no se conserva en el almacenamiento de blobs de Azure. No almacene archivos de base de datos de usuarios ni archivos de registro de transacciones de usuarios en la unidad **D:**.
+La unidad de almacenamiento temporal, etiquetada como la unidad **D**:, no se conserva en el almacenamiento de blobs de Azure. No almacene archivos de base de datos de usuarios ni archivos de registro de transacciones de usuarios en la unidad **D:** .
 
 En máquinas virtuales de las series D, Dv2 y G, la unidad temporal está ubicada en discos SSD. Si la carga de trabajo implica un uso intensivo de TempDB (por ejemplo, con objetos temporales o combinaciones complejas), el almacenamiento de TempDB en la unidad **D** podría dar lugar a un mayor rendimiento de TempDB y la reducción de su latencia. Para ver un escenario de ejemplo, consulte la explicación de TempDB en la siguiente entrada de blog: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm) (Instrucciones de configuración del almacenamiento para SQL Server en máquinas virtuales de Azure).
 
@@ -94,7 +94,7 @@ Esta recomendación tiene una sola excepción: _si se realiza un uso de TempDB i
 
 ### <a name="data-disks"></a>Discos de datos.
 
-* **Uso de discos de datos para archivos de datos y de registro.**: si no usa seccionamiento de discos, utilice dos discos P30 de SSD prémium, uno para los archivos de registro y otro para los archivos de datos y TempDB. Cada SSD proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el artículo sobre la [Selección del tipo de disco](../disks-types.md). Si usa una técnica de fragmentación de discos, como los espacios de almacenamiento, puede lograr un rendimiento óptimo si tiene dos grupos: uno para los archivos de registro y otro para los archivos de datos. Sin embargo, si planea usar instancias de clúster de conmutación por error de SQL Server (FCI), debe configurar un grupo.
+* **Uso de discos de datos para archivos de datos y de registro.** : si no usa seccionamiento de discos, utilice dos discos P30 de SSD prémium, uno para los archivos de registro y otro para los archivos de datos y TempDB. Cada SSD proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el artículo sobre la [Selección del tipo de disco](../disks-types.md). Si usa una técnica de fragmentación de discos, como los espacios de almacenamiento, puede lograr un rendimiento óptimo si tiene dos grupos: uno para los archivos de registro y otro para los archivos de datos. Sin embargo, si planea usar instancias de clúster de conmutación por error de SQL Server (FCI), debe configurar un grupo.
 
    > [!TIP]
    > - Para obtener resultados de la pruebas con varias configuraciones de discos y cargas de trabajo, consulte la siguiente entrada de blog: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/) (Instrucciones de configuración del almacenamiento para SQL Server en máquinas virtuales de Azure).
@@ -179,11 +179,22 @@ Esta recomendación tiene una sola excepción: _si se realiza un uso de TempDB i
 
 Algunas implementaciones pueden lograr ventajas de rendimiento adicionales mediante técnicas de configuración más avanzadas. En la siguiente lista se destacan algunas características de SQL Server que pueden ayudarle a lograr un mejor rendimiento:
 
-* **Crear una copia de seguridad en Azure Storage**: al realizar copias de seguridad para SQL Server que se ejecutan en máquinas virtuales de Azure, puede usar una [Copia de seguridad en URL de SQL Server](https://msdn.microsoft.com/library/dn435916.aspx). Esta característica está disponible a partir de SQL Server 2012 SP1 CU2 y se recomienda para las copias de seguridad en los discos de datos conectados. Al realizar copias de seguridad o restaurar en o desde el almacenamiento de Azure, siga las recomendaciones que se ofrecen en [Solución de problemas y prácticas recomendadas de copia de seguridad de SQL Server en URL y restauración a partir de copias de seguridad almacenadas en Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). También puede automatizar estas copias de seguridad con [Automated Backup para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
+### <a name="backup-to-azure-storage"></a>Copia de seguridad en almacenamiento de Azure
+al realizar copias de seguridad para SQL Server que se ejecutan en máquinas virtuales de Azure, puede usar una [Copia de seguridad en URL de SQL Server](https://msdn.microsoft.com/library/dn435916.aspx). Esta característica está disponible a partir de SQL Server 2012 SP1 CU2 y se recomienda para las copias de seguridad en los discos de datos conectados. Al realizar copias de seguridad o restaurar en o desde el almacenamiento de Azure, siga las recomendaciones que se ofrecen en [Solución de problemas y prácticas recomendadas de copia de seguridad de SQL Server en URL y restauración a partir de copias de seguridad almacenadas en Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). También puede automatizar estas copias de seguridad con [Automated Backup para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
-    Antes de SQL Server 2012, puede usar la [Herramienta de copia de seguridad de SQL Server a Azure](https://www.microsoft.com/download/details.aspx?id=40740). Esta herramienta puede ayudar a aumentar el rendimiento de la copia de seguridad con varios destinos de franjas de copia de seguridad.
+Antes de SQL Server 2012, puede usar la [Herramienta de copia de seguridad de SQL Server a Azure](https://www.microsoft.com/download/details.aspx?id=40740). Esta herramienta puede ayudar a aumentar el rendimiento de la copia de seguridad con varios destinos de franjas de copia de seguridad.
 
-* **Archivos de datos de SQL Server en Azure**: esta nueva característica ([Archivos de datos de SQL Server en Azure](https://msdn.microsoft.com/library/dn385720.aspx)) está disponible a partir de SQL Server 2014. La ejecución de SQL Server con archivos de datos en Azure muestra características de rendimiento comparables con el uso de discos de datos de Azure.
+### <a name="sql-server-data-files-in-azure"></a>Archivos de datos de SQL Server en Azure
+
+esta nueva característica ([Archivos de datos de SQL Server en Azure](https://msdn.microsoft.com/library/dn385720.aspx)) está disponible a partir de SQL Server 2014. La ejecución de SQL Server con archivos de datos en Azure muestra características de rendimiento comparables con el uso de discos de datos de Azure.
+
+### <a name="failover-cluster-instance-and-storage-spaces"></a>Instancia de clúster de conmutación por error y espacios de almacenamiento
+
+Si usa espacios de almacenamiento, al agregar nodos al clúster en el **confirmación** página, desactive la casilla **agregar todo el almacenamiento apto al clúster**. 
+
+![Desactive el almacenamiento apto](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
+
+Si utiliza espacios de almacenamiento y no desactiva la casilla **Add all eligible storage to the cluster** (Agregar todo el almacenamiento apto al clúster), Windows separa los discos virtuales durante el proceso de agrupación en clústeres. Como resultado, no aparecen en el Administrador de discos ni el Explorador hasta que se quiten los espacios de almacenamiento del clúster y se vuelvan a asociar mediante PowerShell. Espacios de almacenamiento agrupa varios discos en grupos de almacenamiento. Para obtener más información, consulte el artículo sobre [espacios de almacenamiento](/windows-server/storage/storage-spaces/overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

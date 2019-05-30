@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tarcher
-ms.openlocfilehash: 7145a50bc53fd28afafd3de9c724b5e5f71624fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89108f02957990ad1c7eb736f39de89537f06db5
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60905889"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297918"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Estado de Terraform en Azure Storage
 
@@ -79,7 +79,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 Para configurar Terraform para usar el back-end, incluya una configuración de *back-end* con un tipo de *azurerm* dentro de la configuración de Terraform. Agregue los valores *storage_account_name*, *container_name* y *key* al bloque de configuración.
 
-En el ejemplo siguiente se configura un back-end de Terraform y se crea el grupo de recursos de Azure. Reemplace los valores por los de su entorno.
+El ejemplo siguiente configura un back-end de Terraform y crea un grupo de recursos de Azure. Reemplace los valores por los de su entorno.
 
 ```json
 terraform {

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f9a1e82cb60bf0ec32165294e7f4af3e93d042b0
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 44f16b3334b991e071fa85ca4cffbc0837f0a6ec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158536"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244429"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Search 
 
 Unidad de algoritmos de inteligencia artificial el [cognitivas canalizaciones indexación](cognitive-search-concept-intro.md) utilizado con este fin del documento en Azure Search. Estos algoritmos se basan en recursos de Azure Cognitive Services, incluidos [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) para análisis de imágenes y reconocimiento óptico de caracteres (OCR) y [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) para reconocimiento de entidades extracción de frases clave y enriquecimientos de otros. Ya que usa Azure Search para fines de enriquecimiento del documento, los algoritmos se encapsulan dentro de un *aptitud*, colocados en un *aptitudes*y que se hace referencia por un *indizador* durante la indización.
 
-Puede enriquecer un número limitado de documentos de manera gratuita, o bien puede asociar un recurso de Cognitive Services facturable para cargas de trabajo más grandes y más frecuentes. En este artículo, obtendrá información sobre cómo conectar un recurso de Cognitive Services facturable con tus aptitudes cognitivas para enriquecer documentos durante [indexación de Azure Search](search-what-is-an-index.md).
+Puede enriquecer un número limitado de documentos de forma gratuita. O bien, puede asociar un recurso de Cognitive Services facturable para una *aptitudes* para cargas de trabajo mayores y más frecuentes. En este artículo, obtendrá información sobre cómo conectar un recurso de Cognitive Services facturable para enriquecer documentos durante la búsqueda de Azure [indización](search-what-is-an-index.md).
 
 > [!NOTE]
 > Eventos facturables incluyen las llamadas a API de Cognitive Services y la imagen de extracción como parte de la fase de averiguación de documentos en Azure Search. No hay ningún cargo para la extracción de texto en documentos o las aptitudes que no llame a Cognitive Services.
@@ -30,7 +30,9 @@ Puede enriquecer un número limitado de documentos de manera gratuita, o bien pu
 
 ## <a name="same-region-requirement"></a>Requisito de la misma región
 
-Necesitamos que Azure Search y Azure Cognitive Services existen en la misma región. De lo contrario, obtendrá este mensaje en tiempo de ejecución: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` No hay ninguna manera de mover servicios entre regiones. Si recibe este error, debe crear un nuevo servicio en la misma región y volver a publicar los índices en consecuencia.
+Necesitamos que Azure Search y Azure Cognitive Services existen en la misma región. De lo contrario, obtendrá este mensaje en tiempo de ejecución: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+
+No hay ninguna manera de mover servicios entre regiones. Si recibe este error, debe crear un nuevo recurso de Cognitive Services en la misma región que Azure Search.
 
 ## <a name="use-free-resources"></a>Uso de recursos gratis
 
@@ -42,9 +44,9 @@ Recursos gratuitos (enriquecimientos limitado) están restringidos a 20 document
 
    ![Abra el Asistente para importar datos](media/search-get-started-portal/import-data-cmd2.png "abrir el Asistente para importar datos")
 
-1. Elija un origen de datos y seguir **agregar cognitive search (opcional)**. Para ver un tutorial paso a paso de este asistente, consulte [de importación, índice y consulta mediante el uso de las herramientas del portal](search-get-started-portal.md).
+1. Elija un origen de datos y seguir **agregar cognitive search (opcional)** . Para ver un tutorial paso a paso de este asistente, consulte [de importación, índice y consulta mediante el uso de las herramientas del portal](search-get-started-portal.md).
 
-1. Expanda **adjuntar Cognitive Services** y, a continuación, seleccione **gratis (enriquecimientos limitados)**:
+1. Expanda **adjuntar Cognitive Services** y, a continuación, seleccione **gratis (enriquecimientos limitados)** :
 
    ![Expande la sección Servicios cognitivos adjuntar](./media/cognitive-search-attach-cognitive-services/attach1.png "sección expandido adjuntar Cognitive Services")
 
@@ -56,7 +58,7 @@ Para cargas de trabajo que creación más de 20 enriquecimientos al día, asegú
 
 Se le cobrará solo para las habilidades que llamar a Cognitive Services APIs. No se le cobra para [habilidades personalizadas](cognitive-search-create-custom-skill-example.md), o como habilidades [combinación de texto](cognitive-search-skill-textmerger.md), [divisor de texto](cognitive-search-skill-textsplit.md), y [conformador](cognitive-search-skill-shaper.md), que no están basadas en API.
 
-1. Abra el Asistente para importar datos, elija un origen de datos y seguir **agregar cognitive search (opcional)**.
+1. Abra el Asistente para importar datos, elija un origen de datos y seguir **agregar cognitive search (opcional)** .
 
 1. Expanda **adjuntar Cognitive Services** y, a continuación, seleccione **crear nuevo recurso de Cognitive Services**. Se abrirá una nueva pestaña para que pueda crear el recurso:
 

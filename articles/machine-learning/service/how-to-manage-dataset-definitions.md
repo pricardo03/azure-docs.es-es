@@ -1,5 +1,5 @@
 ---
-title: Definición de conjunto de datos y control de versiones con los conjuntos de datos de aprendizaje automático de Azure
+title: Versión y administrar definiciones de conjunto de datos con conjuntos de datos de aprendizaje automático de Azure
 titleSuffix: Azure Machine Learning service
 description: Obtenga información sobre cómo actualizar las definiciones de conjunto de datos y administrar el ciclo de vida de las definiciones
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: e58ce156deaaad259ea7b74521bcf9b79afbd183
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4476bdd902f054683fa544dc44b548689f3a1881
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146215"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241880"
 ---
-# <a name="update-and-manage-the-lifecycle-of-dataset-definitions"></a>Actualizar y administrar el ciclo de vida de las definiciones de conjunto de datos
+# <a name="version-and-manage-your-dataset-definitions"></a>Versión y administrar las definiciones de conjunto de datos
 
 Obtenga información sobre cómo actualizar y administrar las definiciones de conjunto de datos con conjuntos de datos de Azure Machine Learning (versión preliminar).
 
@@ -37,7 +37,7 @@ Debe tener una suscripción de Azure y un área de trabajo para registrar el con
 
 El archivo de ejemplo usado en los ejemplos de este documento está disponible en [ https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv ](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv).
 
-## <a name="update-dataset-definitions"></a>Actualizar las definiciones de conjunto de datos
+## <a name="create-and-update-definitions"></a>Crear y actualizar las definiciones
 
 Se creará en primer lugar y registrar un conjunto de datos con el área de trabajo.
 
@@ -173,7 +173,7 @@ ds_def_old.head(5)
       <th>ID</th>
       <th>Case Number</th>
       <th>Date</th>
-      <th>Bloquear</th>
+      <th>Block</th>
       <th>IUCR</th>
       <th>Primary Type</th>
       <th>DESCRIPCIÓN</th>
@@ -344,7 +344,7 @@ Una vez que haya recuperado una definición, puede usar con los modelos de apren
 
 Puede administrar el ciclo de vida de cada definición de conjunto de datos de forma independiente. Hay tres fases del ciclo de vida: activo, en desuso o archivado.
 
-### <a name="active"></a>Activas
+### <a name="active"></a>Active
 
 Cuando se crea una nueva definición de conjunto de datos, está activo de forma predeterminada. 
 

@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 111167584fb2e0e2ee5977e0e24b3ebf07b170c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65961427"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238001"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -34,8 +34,8 @@ ZRS está disponible con carácter general en las regiones siguientes:
 - Sur de Reino Unido 2
 - Centro de EE. UU.
 - Este de EE. UU.
-- Este de EE. UU. 2
-- Oeste de EE. UU. 2
+- Este de EE. UU. - 2
+- Oeste de EE. UU. 2
 
 Microsoft sigue habilitando ZRS en otras regiones de Azure. Revise periódicamente la página [Actualizaciones de servicios Azure](https://azure.microsoft.com/updates/) para información sobre las regiones nuevas.
 
@@ -49,7 +49,7 @@ ZRS podría no proteger los datos frente a un desastre regional en el que varias
 ## <a name="converting-to-zrs-replication"></a>Conversión a la replicación de ZRS
 Migrar a o desde LRS, GRS y RA-GRS es sencillo. Use Azure Portal o la API del proveedor de recursos de almacenamiento para cambiar el tipo de redundancia de la cuenta. Azure, a continuación, replicará los datos según corresponda. 
 
-Migrar datos desde o hacia ZRS requiere una estrategia diferente. La migración de ZRS implica el movimiento físico de los datos desde un sello de almacenamiento único a varios sellos dentro de una región.
+Migrar datos a ZRS requieren una estrategia diferente. La migración de ZRS implica el movimiento físico de los datos desde un sello de almacenamiento único a varios sellos dentro de una región.
 
 Hay dos opciones principales para la migración a ZRS: 
 

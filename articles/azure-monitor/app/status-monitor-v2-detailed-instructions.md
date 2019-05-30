@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 3aca64c7b0f1ad04967782cb3349da302db557a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6eca2b47c2362f34415db8b4f335f3089babc58b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145086"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255877"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>Instrucciones detalladas de v2 del Monitor de estado
 
@@ -239,7 +239,7 @@ Revise nuestra [referencia de API](status-monitor-v2-api-enable-monitoring.md) p
 - [Explore las métricas](../../azure-monitor/app/metrics-explorer.md) para supervisar el rendimiento y uso.
 - [Busque eventos y registros](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas
 - [Análisis](../../azure-monitor/app/analytics.md) para más consultas avanzadas
-- [Creación de paneles](../../azure-monitor/app/app-insights-dashboards.md)
+- [Creación de paneles](../../azure-monitor/app/overview-dashboard.md)
 
  Agregue más telemetría:
 

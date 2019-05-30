@@ -11,30 +11,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/23/2019
 ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fa5c5638da390f4416afc9f4bd9c5d58c34cea8
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0f4e71bd7fd7e0ed9a220619995ba108fdccabe4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825574"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233748"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Establecimiento de una página principal personalizada para aplicaciones publicadas mediante el Proxy de aplicación de Azure AD
 
-En este artículo se describe cómo configurar una aplicación para que solicite a un usuario a una página principal personalizada, que pueden diferir dependiendo de si son internos o externos. Cuando se publica una aplicación con el Proxy de aplicación, establecer una dirección URL interna, pero a veces, que no es la página de que un usuario debería ver en primer lugar. Establezca una página principal personalizada para que un usuario obtiene la página correcta cuando accedan a la aplicación. El usuario verá la página principal personalizada que establezca, independientemente de si acceden a la aplicación desde el Panel de acceso de Azure Active Directory o el iniciador de aplicaciones de Office 365.
+En este artículo se describe cómo configurar una aplicación para dirigir al usuario a una página principal personalizada. Cuando se publica una aplicación con el Proxy de aplicación, establecer una dirección URL interna, pero a veces, que no es la página de que un usuario debería ver en primer lugar. Establezca una página principal personalizada para que un usuario obtiene la página correcta cuando accedan a la aplicación. El usuario verá la página principal personalizada que establezca, independientemente de si acceden a la aplicación desde el Panel de acceso de Azure Active Directory o el iniciador de aplicaciones de Office 365.
 
 Cuando un usuario inicia la aplicación, le dirige de forma predeterminada para la dirección URL del dominio raíz de la aplicación publicada. La página de aterrizaje normalmente se establece como la dirección URL de la página principal. Usar el módulo de PowerShell de Azure AD para definir una dirección URL de la página principal personalizada cuando desee que un usuario de la aplicación lleguen a una página específica dentro de la aplicación.
 
-Un escenario de continuación que explica por qué su empresa establecería una página principal personalizada, y por qué es diferente según el tipo de usuario:
+Este es un escenario que explica por qué su empresa establecería una página principal personalizada:
 
+- Dentro de la red corporativa, un usuario visita `https://ExpenseApp/login/login.aspx` para iniciar sesión y acceder a la aplicación.
 - Dado que tiene otros recursos (por ejemplo, imágenes) que el Proxy de aplicación necesita obtener acceso en el nivel superior de la estructura de carpetas, publica la aplicación con `https://ExpenseApp` como la dirección URL interna.
-- Sin embargo, dentro de la red corporativa, un usuario visita `https://ExpenseApp/login/login.aspx` para iniciar sesión y acceder a la aplicación.
 - La URL externa predeterminada es `https://ExpenseApp-contoso.msappproxy.net`, que no lleva a un usuario externo a la página de inicio de sesión.
-- Desea establecer `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` como la dirección URL de la página principal externo en su lugar, por lo que un usuario externo ve la página de inicio de sesión en primer lugar.
+- Desea establecer `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` como la dirección URL de la página principal en su lugar, por lo que un usuario externo ve la página de inicio de sesión en primer lugar.
 
 >[!NOTE]
 >Al proporcionar a los usuarios acceso a las aplicaciones publicadas, estas aparecen en el [panel de acceso de Azure AD](../user-help/my-apps-portal-end-user-access.md) y el [iniciador de aplicaciones de Office 365](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
@@ -49,21 +49,21 @@ Antes de establecer la dirección URL de la página principal tenga en cuenta lo
 
 - Si realiza un cambio en la aplicación publicada, este podría restablecer el valor de la dirección URL de la página principal. Si actualiza la aplicación en el futuro, debe volver a comprobar y, si es necesario, actualizar la dirección URL de la página principal.
 
-Puede cambiar la página principal externa o interna mediante Azure portal o mediante PowerShell.
+Puede establecer la dirección URL de página principal a través del portal de Azure o mediante PowerShell.
 
 ## <a name="change-the-home-page-in-the-azure-portal"></a>Vaya a la página principal de Azure Portal.
 
-Para cambiar las páginas principales de externas e internas de la aplicación a través del portal de Azure AD, siga estos pasos:
+Para cambiar la dirección URL de página principal de la aplicación a través del portal de Azure AD, siga estos pasos:
 
-1. Inicie sesión en el [portal de Azure Active Directory](https://aad.portal.azure.com/). Aparece el panel del centro de administración de Azure Active Directory.
-2. En la barra lateral, seleccione **Azure Active Directory**. Aparece la página de información general de Azure AD.
-3. En la barra lateral de información general, seleccione **registros de aplicaciones**. Aparece la lista de aplicaciones registradas.
-4. Elija la aplicación en la lista. Aparece una página que muestra los detalles de la aplicación registrada.
-5. Seleccione el vínculo situado bajo **URI de redirección**, que muestra el número de URI de redireccionamiento para la web y los tipos de cliente público. Aparece la página de autenticación para la aplicación registrada.
-6. En la última fila de la **URI de redirección** de tabla, establezca el **tipo** columna **cliente público (mobile y desktop)** y en el **URI de redireccionamiento**columna, escriba la dirección URL interna que desea usar. Aparece una nueva fila vacía debajo de la fila que acaba de modificar.
-7. En la nueva fila, establezca el **tipo** columna **Web**y en el **URI de redireccionamiento** columna, escriba la dirección URL externa que desea usar.
-8. Seleccione si desea eliminar las filas existentes de URI de redireccionamiento, el **eliminar** icono (una lata de elementos no utilizados) junto a cada fila no deseada.
-9. Seleccione **Guardar**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador.
+2. Seleccione **Azure Active Directory**y, a continuación, **registros de aplicaciones**. Aparece la lista de aplicaciones registradas.
+3. Elija la aplicación en la lista. Aparece una página que muestra los detalles de la aplicación registrada.
+4. En **administrar**, seleccione **Branding**.
+5. Actualización de la **URL de página principal** con la nueva ruta de acceso.
+
+   ![Página de personalización para una aplicación registrada que muestra el campo de dirección URL de la página principal](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
+ 
+6. Seleccione **Guardar**.
 
 ## <a name="change-the-home-page-with-powershell"></a>Cambio de la página principal con PowerShell
 

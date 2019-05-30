@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 07e8fce5fd8db5d2070b8e382a0eba2ae7187b0d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485252"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242788"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Administración de esquema en una aplicación SaaS que usa bases de datos SQL multiinquilino particionadas
 
@@ -31,7 +31,7 @@ En este tutorial se exploran estos dos escenarios:
 - La implementación de actualizaciones de los datos de referencia para todos los inquilinos.
 - La recompilación de un índice de la tabla que contiene los datos de referencia.
 
-La característica [Trabajos elásticos](sql-database-elastic-jobs-overview.md) de Azure SQL Database se usa para ejecutar estas operaciones entre distintas bases de datos de inquilino. Los trabajos también funcionan en la base de datos de inquilino de "plantilla". En la aplicación Wingtip Tickets de ejemplo, esta base de datos de plantilla se copia para aprovisionar una base de datos de inquilino nueva.
+La característica [Trabajos elásticos](elastic-jobs-overview.md) de Azure SQL Database se usa para ejecutar estas operaciones entre distintas bases de datos de inquilino. Los trabajos también funcionan en la base de datos de inquilino de "plantilla". En la aplicación Wingtip Tickets de ejemplo, esta base de datos de plantilla se copia para aprovisionar una base de datos de inquilino nueva.
 
 En este tutorial, aprenderá a:
 
@@ -57,7 +57,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introducción a los patrones de administración de esquema de SaaS
 
-El modelo de base de datos multiinquilino con particiones utilizado en este ejemplo habilita una base de datos de inquilino para que contenga uno o más inquilinos. En este ejemplo se analiza la posibilidad de usar una combinación de bases de datos multiinquilino o de un solo inquilino, lo cual permitiría habilitar un modelo *híbrido* de administración de inquilinos. La administración de cambios en estas bases de datos puede ser complicada. La característica [Trabajos elásticos](sql-database-elastic-jobs-overview.md) facilita la administración de grandes cantidades de bases de datos. Los trabajos le permiten ejecutar de manera segura y confiable los scripts de Transact-SQL como tareas en un grupo de bases de datos de inquilino. Las tareas son independientes de la interacción o la intervención del usuario. Este método se puede usar para implementar cambios en el esquema o en los datos de referencia comunes en todos los inquilinos de una aplicación. También puede usar Trabajos elásticos para mantener una copia de la base de datos de la plantilla golden. La plantilla se usa para crear inquilinos nuevos, asegurándose siempre de que se usen los datos de referencia y el esquema más recientes.
+El modelo de base de datos multiinquilino con particiones utilizado en este ejemplo habilita una base de datos de inquilino para que contenga uno o más inquilinos. En este ejemplo se analiza la posibilidad de usar una combinación de bases de datos multiinquilino o de un solo inquilino, lo cual permitiría habilitar un modelo *híbrido* de administración de inquilinos. La administración de cambios en estas bases de datos puede ser complicada. La característica [Trabajos elásticos](elastic-jobs-overview.md) facilita la administración de grandes cantidades de bases de datos. Los trabajos le permiten ejecutar de manera segura y confiable los scripts de Transact-SQL como tareas en un grupo de bases de datos de inquilino. Las tareas son independientes de la interacción o la intervención del usuario. Este método se puede usar para implementar cambios en el esquema o en los datos de referencia comunes en todos los inquilinos de una aplicación. También puede usar Trabajos elásticos para mantener una copia de la base de datos de la plantilla golden. La plantilla se usa para crear inquilinos nuevos, asegurándose siempre de que se usen los datos de referencia y el esquema más recientes.
 
 ![pantalla](media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -125,7 +125,7 @@ Observe los elementos siguientes en el script *DeployReferenceData.sql*:
     - Un tipo de miembro de destino de *servidor*.
         - Se trata del servidor *tenants1-mt-&lt;user&gt;* que contiene las bases de datos de inquilinos.
         - Al incluir el servidor, se incluyen las bases de datos de inquilino que existen en el momento en que se ejecuta el trabajo.
-    - Un tipo de miembro de destino de *base de datos* para la base de datos de plantilla (*basetenantdb*) que reside en el servidor on *catalog-mt-&lt;usuario&gt;*.
+    - Un tipo de miembro de destino de *base de datos* para la base de datos de plantilla (*basetenantdb*) que reside en el servidor on *catalog-mt-&lt;usuario&gt;* .
     - Un tipo de miembro de destino de *base de datos* para incluir la base de datos *adhocreporting* que se usa en un tutorial posterior.
 
 - **sp\_add\_job** crea un trabajo denominado *Reference Data Deployment*.
@@ -134,7 +134,7 @@ Observe los elementos siguientes en el script *DeployReferenceData.sql*:
 
 - En las demás vistas del script se muestran los objetos existentes y se supervisa la ejecución de los trabajos. Use estas consultas para revisar el valor de estado en la columna **ciclo de vida** a fin de determinar si el trabajo finalizó. El trabajo actualiza la base de datos de inquilinos y actualiza las dos bases de datos adicionales que contienen la tabla de referencia.
 
-En SSMS, vaya a la base de datos de inquilino del servidor *tenants1-mt-&lt;user&gt;*. Consulte la tabla *VenueTypes* para confirmar que ni *Motorcycle Racing* ni *Swimming Club* ahora se agregaron a la tabla. El número total de tipos de ubicación debe haber aumentado en dos.
+En SSMS, vaya a la base de datos de inquilino del servidor *tenants1-mt-&lt;user&gt;* . Consulte la tabla *VenueTypes* para confirmar que ni *Motorcycle Racing* ni *Swimming Club* ahora se agregaron a la tabla. El número total de tipos de ubicación debe haber aumentado en dos.
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Creación de un trabajo para administrar el índice de tabla de referencia
 
@@ -161,8 +161,7 @@ Observe los elementos siguientes en el script *OnlineReindex.sql*:
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
-* [Administración de bases de datos escaladas horizontalmente en la nube](sql-database-elastic-jobs-overview.md)
-* [Creación y administración de bases de datos escaladas horizontalmente](sql-database-elastic-jobs-create-and-manage.md)
+* [Administración de bases de datos escaladas horizontalmente en la nube](elastic-jobs-overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

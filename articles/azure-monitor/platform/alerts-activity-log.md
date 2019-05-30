@@ -1,18 +1,18 @@
 ---
-title: Crear, ver y administrar las alertas del registro de actividad en Azure Monitor
-description: Cómo crear alertas del registro de actividad en Azure Portal, la plantilla de recursos y PowerShell.
+title: Crear, ver y administrar la actividad alertas de registro en Azure Monitor
+description: Cómo crear alertas del registro de actividad mediante el portal de Azure, una plantilla de Azure Resource Manager y Azure PowerShell.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130109"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244954"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
@@ -59,9 +59,9 @@ Utilice el siguiente procedimiento:
      **Vista de destino de ejemplo de alerta**
      ![Seleccionar destino](media/alerts-activity-log/select-target.png)
 
-   - En **Criterios de destino**, haga clic en **Agregar criterio** y verá todas las señales disponibles para el destino (incluidas las de categorías tales como **Registro de actividad**), con el nombre de la categoría agregado en el nombre de **Servicio de supervisión**.
+   - En **criterios de destino**, haga clic en **agregar criterios** y se muestran todas las señales disponibles para el destino los de las distintas categorías de incluidos **registro de actividad**; con Anexa el nombre de categoría en **servicio Monitor** nombre.
 
-   - Seleccione la señal de la lista que se muestra y que corresponde a varias operaciones posibles para el tipo **Registro de actividad**.
+   - Seleccione la señal en la lista mostrada de varias operaciones posibles para el tipo **registro de actividad**.
 
      Puede seleccionar la escala de tiempo del historial de registro y la lógica de la alerta correspondiente a esta señal de destino:
 
@@ -97,7 +97,7 @@ Utilice el siguiente procedimiento:
     Puede habilitar, deshabilitar, editar o eliminar una regla. Obtenga más información sobre cómo administrar las reglas del registro de actividad.
 
 
-Alternativamente, una simple analogía para comprender las condiciones en las que se pueden crear reglas de alertas en el registro de actividad, es explorar o filtrar eventos a través del [Registro de actividad en Azure Portal ](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). En "Azure Monitor: registro de actividad", se puede filtrar o buscar un evento necesario y crear una alerta mediante el botón **Agregar alerta de registro de actividad**; a continuación, siga del paso 4 en adelante, tal como se indica en el tutorial anterior.
+Como alternativa, es una analogía simple para las condiciones de la descripción en el que se pueden crear reglas de alerta en el registro de actividad explorar o filtrar los eventos a través de [registro de actividad en Azure portal](activity-log-view.md#azure-portal). En Azure Monitor: registro de actividad, uno puede filtrar o buscar eventos necesario y, a continuación, crear una alerta mediante el **Agregar alerta de registro de actividad** botón; a continuación, siga los pasos 4 y versiones posteriores como se indica en el tutorial anterior.
     
  ![ agregar alerta del registro de actividad](media/alerts-activity-log/add-activity-log.png)
     
@@ -201,7 +201,7 @@ El formato JSON del ejemplo anterior se puede guardar como (digamos) sampleActiv
 > Una regla de alerta nueva del registro de actividad puede tardar hasta 5 minutos en activarse.
 
 ## <a name="rest-api"></a>API DE REST 
-[Azure Monitor - Activity Log Alerts API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) es una API REST que es totalmente compatible con la API REST de Azure Resource Manager. Por lo tanto, se puede utilizar a través de Powershell con el cmdlet de Resource Manager y con la CLI de Azure.
+[Azure Monitor: alertas de API de registro de actividad](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) es una API de REST y totalmente compatible con la REST API de Azure Resource Manager. Por lo tanto, se puede utilizar a través de Powershell con el cmdlet de Resource Manager y con la CLI de Azure.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -216,7 +216,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActi
 
 donde el sampleActivityLogAlert.parameters.json contiene los valores proporcionados para los parámetros necesarios para crear una regla de alerta.
 
-### <a name="use-activity-log-powershell-cmdlets"></a>Usar cmdlets de PowerShell de registro de actividad
+### <a name="use-activity-log-powershell-cmdlets"></a>Usar el registro de actividad de los cmdlets de PowerShell
 
 Las alertas del registro de actividad tienen cmdlets dedicados de PowerShell disponibles:
 
