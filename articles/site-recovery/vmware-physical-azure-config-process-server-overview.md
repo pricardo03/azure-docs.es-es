@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 6f501e251f0b006bbbb4f64090cac5c3d61b7bf2
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 8b3815fc9dc44484779a70b51ebff4802265d53a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523546"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417745"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Acerca de los componentes de Site Recovery (configuración, proceso de destino maestro)
 
@@ -32,7 +32,7 @@ Recuperación ante desastres de máquinas virtuales de VMware locales y servidor
 **Implementación de servidor físico** | Si no se puede instalar como una VM de VMware, se puede instalar en un servidor físico. | [Implementar](physical-azure-set-up-source.md#set-up-the-source-environment) el servidor de configuración manualmente.
 
 
-## <a name="process-server"></a>Servidor de procesos
+## <a name="process-server"></a>Servidor de proceso
 
 **Configuración** | **Detalles** | **Links**
 --- | --- | ---

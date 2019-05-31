@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: c11eeb84fe4ed1ded93cb8de7ff54b756fd36749
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779910"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388386"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -459,7 +459,7 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 * Asegúrese de que la versión del SDK es 2.0 o superior.
 * Compruebe que establece el mismo porcentaje de muestreo en el cliente y el servidor.
 
-## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+## <a name="frequently-asked-questions"></a>Preguntas frecuentes
 
 *¿Qué es el comportamiento de muestreo predeterminado en ASP.NET y ASP.NET Core SDK?*
 
@@ -483,7 +483,7 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 *¿Pueden ser muestreadas más de una vez los datos de telemetría?*
 
-* No. SamplingTelemetryProcessors omitir elementos de muestreo consideraciones si el elemento ya se ha muestreado. Lo mismo puede decirse de muestreo de ingesta como también, que no aplicarán muestreo a los elementos muestreados ya en el propio SDK. "
+*  No. SamplingTelemetryProcessors omitir elementos de muestreo consideraciones si el elemento ya se ha muestreado. Lo mismo puede decirse de muestreo de ingesta como también, que no aplicarán muestreo a los elementos muestreados ya en el propio SDK. "
 
 *¿Por qué realizar un muestreo no consiste simplemente en "recopilar X por ciento de cada tipo de telemetría"?*
 
@@ -527,3 +527,4 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [filtro](../../azure-monitor/app/api-filtering-sampling.md) puede proporcionar un control más estricto de los SDK que envía.
+* Lea el artículo Developer Network [optimizar la telemetría con Application Insights](https://msdn.microsoft.com/magazine/mt808502.aspx).

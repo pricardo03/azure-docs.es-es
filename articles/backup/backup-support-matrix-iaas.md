@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 2f48e0d8b46684d067fe2e32f241e28d94c2edbd
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471645"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399684"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 Puede usar el [servicio Azure Backup](backup-overview.md) para realizar una copia de seguridad de máquinas locales y las cargas de trabajo y máquinas virtuales (VM). Este artículo resumen las opciones de soporte técnico y las limitaciones al realizar copias de seguridad de máquinas virtuales de Azure con Azure Backup.
@@ -40,10 +40,10 @@ Más información sobre la copia de seguridad [mediante un servidor de copia de 
 
 **Acción** | **Soporte técnico**
 --- | ---
-Habilitar copia de seguridad al crear una máquina virtual de Azure con Windows | Compatible para:  Windows Server 2019 (centro de datos/Datacenter Core), Windows Server 2016 (Core/centro de datos de centro de datos); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (versiones RTM y SP1)
+Habilitar copia de seguridad al crear una máquina virtual de Azure con Windows | Compatible para: <br/><br/> -Windows Server 2019 (centro de datos/Datacenter Core/Standard) <br/><br/> -Windows Server 2016 (centro de datos/Datacenter Core/Standard) <br/><br/> -Windows Server 2012 R2 (Datacenter y Standard) <br/><br/> -Windows Server 2008 R2 (RTM y SP1 Standard)
 Habilitar copia de seguridad al crear una máquina virtual Linux | Compatible para:<br/><br/> - Ubuntu Server: 18.04, CON 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Copia de seguridad de una máquina virtual que está apagado o desconectado VM |  Se admite.<br/><br/> La instantánea es coherente solo con bloqueos, no con aplicaciones.
-Realizar una copia de seguridad de discos después de migrar a discos administrados |  Se admite.<br/><br/> La copia de seguridad seguirá funcionando. No es necesaria ninguna acción.
+Realizar una copia de seguridad de discos después de migrar a discos administrados |  Se admite.<br/><br/> La copia de seguridad seguirá funcionando. no se requiere ninguna acción.
 Copia de seguridad de discos administrados después de habilitar el bloqueo del grupo de recursos | No compatible.<br/><br/> Copia de seguridad de Azure no puede eliminar los puntos anteriores de recursos y las copias de seguridad se iniciarán un error cuando se alcanza el límite máximo de puntos de restauración.
 Modificar directiva de copia de seguridad de una máquina virtual |  Se admite.<br/><br/> La máquina virtual se hará copia mediante la configuración de retención y programación en la nueva directiva. Si la configuración de retención está extendida, los puntos de recuperación existentes se marcan y se mantienen. Si se reduzcan, puntos de recuperación existentes se van a eliminar en el siguiente trabajo de limpieza y finalmente se eliminará.
 Cancelación de un trabajo de copia de seguridad | Compatible durante el proceso de instantáneas.<br/><br/> No se admite cuando se transfiere la instantánea al almacén.
@@ -61,7 +61,7 @@ En la tabla siguiente se resume los sistemas operativos compatibles cuando la co
 
 **Escenario** | **SO compatible**
 --- | ---
-Copia de seguridad con la extensión del agente de máquina virtual de Azure | Cliente Windows: No compatible<br/><br/> Windows Server 2019 (centro de datos/Datacenter Core), Windows Server 2016 (Core/centro de datos de centro de datos); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (versiones RTM y SP1)
+Copia de seguridad con la extensión del agente de máquina virtual de Azure | Cliente Windows: No compatible<br/><br/>-Windows Server 2019 (centro de datos/Datacenter Core/Standard) <br/><br/> -Windows Server 2016 (centro de datos/Datacenter Core/Standard) <br/><br/> -Windows Server 2012 R2 (Datacenter y Standard) <br/><br/> -Windows Server 2008 R2 (RTM y SP1 Standard)
 Copia de seguridad con el agente de MARS | Sistemas operativos [compatibles](backup-support-matrix-mars-agent.md#support-for-direct-backups).
 Copia de seguridad con DPM/MABS | Sistemas operativos compatibles para copia de seguridad con [MABS](backup-mabs-protection-matrix.md) y [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -216,7 +216,7 @@ Seguridad de los datos:
 **Máquina** | **En tránsito** | **En reposo**
 --- | --- | ---
 Máquinas Windows locales sin DPM/MABS | ![Sí][green] | ![Sí][green]
-VM de Azure | ![Sí][green] | ![Sí][green]
+Máquinas virtuales de Azure | ![Sí][green] | ![Sí][green]
 Máquinas virtuales de Azure o locales con DPM | ![Sí][green] | ![Sí][green]
 Máquinas virtuales de Azure o locales con MABS | ![Sí][green] | ![Sí][green]
 
@@ -232,7 +232,7 @@ Copia de seguridad admite la compresión del tráfico de copia de seguridad, com
 **Máquina** | **Comprimir a MABS/DPM (TCP)** | **Comprimir en el almacén (HTTPS)**
 --- | --- | ---
 Máquinas Windows locales sin DPM/MABS | N/D | ![Sí][green]
-VM de Azure | N/D | N/D
+Máquinas virtuales de Azure | N/D | N/D
 Máquinas virtuales de Azure o locales con DPM | ![Sí][green] | ![Sí][green]
 Máquinas virtuales de Azure o locales con MABS | ![Sí][green] | ![Sí][green]
 

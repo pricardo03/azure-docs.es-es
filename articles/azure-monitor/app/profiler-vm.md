@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 4cca65e2be44d2c846cd4034f0a9d7e8c7d9af28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ab30351bfff9c5bbf070a1e8a54a4919e4d2231a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130884"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226267"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Generación de perfiles de aplicaciones web en ejecución en una máquina virtual o un conjunto de escalado de máquinas virtuales de Azure mediante Application Insights Profiler
 
@@ -31,7 +31,8 @@ También puede implementar Azure Application Insights Profiler en estos servicio
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Implementación de Profiler en una máquina virtual o un conjunto de escalado de máquinas virtuales
 En este artículo se muestran los pasos necesarios para que Application Insights Profiler se ejecute en una máquina virtual (VM) de Azure o un conjunto de escalado de máquinas virtuales de Azure. Profiler se instala con la extensión de Azure Diagnostics para VM. Configure la extensión para ejecutar Profiler y compile el SDK de Application Insights en la aplicación.
 
-1. Agregue el SDK de Application Insights a su [aplicación ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) o [aplicación. NET](windows-services.md?toc=/azure/azure-monitor/toc.json) normal.  
+1. Agregue el SDK de Application Insights a su [aplicación ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+
    Para ver los perfiles para las solicitudes, debe enviar telemetría de solicitudes a Application Insights.
 
 1. Instale la extensión de Azure Diagnostics en la VM. Para consultar ejemplos de plantillas de Azure Resource Manager completas:  

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6fd9ce1947b8207aced44204fc2989622a1998f2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5c49a639c0426b4535c4c2e88d36d447c10826f1
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761919"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416708"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Preguntas más frecuentes de Azure Disk Encryption para máquinas virtuales IaaS
 
@@ -48,13 +48,13 @@ Las distribuciones de servidor de Linux que no están aprobadas por Azure no son
 | Ubuntu | 18,04| Sistema operativo y disco de datos |
 | Ubuntu | 16.04| Sistema operativo y disco de datos |
 | Ubuntu | 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Sistema operativo y disco de datos |
-| RHEL | 7.6 | Sistema operativo y disco de datos* |
-| RHEL | 7.5 | Sistema operativo y disco de datos* |
-| RHEL | 7.4 | Sistema operativo y disco de datos* |
-| RHEL | 7.3 | Sistema operativo y disco de datos* |
-| RHEL | 7.2 | Sistema operativo y disco de datos* |
-| RHEL | 6.8 | Disco de datos* |
-| RHEL | 6.7 | Disco de datos* |
+| RHEL | 7.6 | Sistema operativo y disco de datos (vea la nota siguiente) |
+| RHEL | 7.5 | Sistema operativo y disco de datos (vea la nota siguiente) |
+| RHEL | 7.4 | Sistema operativo y disco de datos (vea la nota siguiente) |
+| RHEL | 7.3 | Sistema operativo y disco de datos (vea la nota siguiente) |
+| RHEL | 7.2 | Sistema operativo y disco de datos (vea la nota siguiente) |
+| RHEL | 6.8 | Disco de datos (vea la nota siguiente) |
+| RHEL | 6.7 | Disco de datos (vea la nota siguiente) |
 | CentOS | 7.5 | Sistema operativo y disco de datos |
 | CentOS | 7.4 | Sistema operativo y disco de datos |
 | CentOS | 7.3 | Sistema operativo y disco de datos |
@@ -65,7 +65,7 @@ Las distribuciones de servidor de Linux que no están aprobadas por Azure no son
 | SLES | 12-SP3 | Disco de datos |
 
 > [!NOTE]
-> Nueva implementación de ADE es compatible con RHEL del sistema operativo y disco de datos para las imágenes de pago por uso de RHEL7. ADE actualmente no se admite para las imágenes de tipo "Trae tu propia suscripción" (BYOS) de RHEL. Consulte también el [Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md) artículo para obtener más información. __
+> Es compatible con la nueva implementación de ADE RHEL del sistema operativo y disco de datos para las imágenes de pago por uso de RHEL7. ADE actualmente no se admite para las imágenes de tipo "Trae tu propia suscripción" (BYOS) de RHEL. Consulte [Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md) para obtener más información.
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>¿Cómo puedo empezar a usar Azure Disk Encryption?
 

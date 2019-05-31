@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1520b01826de2a80d8baeccf4913fa180d385644
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60903302"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256298"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
 [Application Insights][start] puede supervisar las [aplicaciones de Azure Cloud Service](https://azure.microsoft.com/services/cloud-services/) para comprobar la disponibilidad, el rendimiento, los errores y el uso al combinar datos de los SDK de Application Insights con datos de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de los servicios en la nube. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
@@ -41,7 +41,7 @@ Esta opción instrumenta una aplicación en el entorno de ejecución, lo que le 
 
 Si esta opción es todo lo que necesita, ha terminado. 
 
-Los siguientes pasos son [ver las métricas de la aplicación](../../azure-monitor/app/metrics-explorer.md), [consultar los datos con Analytics](../../azure-monitor/app/analytics.md) y, quizás, configurar un [panel](../../azure-monitor/app/app-insights-dashboards.md). 
+Los pasos siguientes son [ver las métricas desde su aplicación](../../azure-monitor/app/metrics-explorer.md), [consultar los datos con Analytics](../../azure-monitor/app/analytics.md). 
 
 Para supervisar el rendimiento en el explorador, puede que quiera configurar [pruebas de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md) y [agregar código a las páginas web](../../azure-monitor/app/javascript.md).
 
@@ -61,7 +61,7 @@ La telemetría de la aplicación se almacena, analiza y muestra en un recurso de
 Cada recurso pertenece a un grupo de recursos. Los grupos de recursos se usan para administrar los costos, para conceder acceso a los miembros del equipo y para implementar las actualizaciones en una transacción coordinada única. Por ejemplo, podría [escribir un script para implementar](../../azure-resource-manager/resource-group-template-deploy.md) un servicio en la nube de Azure y sus recursos de supervisión de Application Insights en una operación todo en uno.
 
 ### <a name="resources-for-components"></a>Recursos para componentes
-Le recomendamos que cree un recurso independiente para cada componente de la aplicación. Es decir, crear un recurso para cada rol web y rol de trabajo. Puede analizar cada componente por separado, pero crear un [panel](../../azure-monitor/app/app-insights-dashboards.md) que reúna los gráficos de clave de todos los componentes, de modo que pueda compararlos y supervisarlos conjuntamente de un solo vistazo. 
+Le recomendamos que cree un recurso independiente para cada componente de la aplicación. Es decir, crear un recurso para cada rol web y rol de trabajo. Puede analizar cada componente por separado, pero crear un [panel](../../azure-monitor/app/overview-dashboard.md) que reúna los gráficos de clave de todos los componentes, de modo que pueda compararlos y supervisarlos conjuntamente de un solo vistazo. 
 
 Un enfoque alternativo consiste en enviar la telemetría de más de un rol al mismo recurso, pero [agregar una propiedad de dimensión para cada elemento de telemetría](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) que identifique su rol de origen. En este enfoque, los gráficos de métricas, como las excepciones, normalmente muestran una agregación de las cuentas de diferentes roles, pero puede segmentar el gráfico por el identificador de rol cuando sea necesario. También se pueden filtrar las búsquedas por la misma dimensión. Esta alternativa hace un poco más fácil el poder ver todo al mismo tiempo, pero también puede causar confusión entre los roles.
 
@@ -91,7 +91,7 @@ Si ha decidido crear un recurso independiente para cada rol, y quizás otro conj
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configuración de Diagnósticos de Azure para cada rol
 Establezca esta opción para supervisar la aplicación con Application Insights. Para los roles web, esta opción permite la supervisión del rendimiento, alertas y diagnósticos, así como el análisis del uso. Para otros roles, puede buscar y supervisar Azure Diagnostics, como el reinicio, los contadores de rendimiento y las llamadas a System.Diagnostics.Trace. 
 
-1. En el Explorador de soluciones de Visual Studio, en **\<YourCloudService>** > **Roles**, abra las propiedades de cada rol.
+1. En el Explorador de soluciones de Visual Studio, en **\<YourCloudService>**  > **Roles**, abra las propiedades de cada rol.
 
 1. En **Configuración**, seleccione la casilla **Enviar datos de diagnóstico a Application Insights** y seleccione el recurso de Application Insights adecuado que creó anteriormente.
 
@@ -229,7 +229,7 @@ Para obtener telemetría basada en el explorador, como recuentos de vista de pá
 Para comprobar que la aplicación efectivamente está activa y responde adecuadamente, [configure las pruebas web][availability].
 
 ## <a name="display-everything-together"></a>Mostrar todos los elementos juntos
-Para obtener una imagen general del sistema, puede mostrar los gráficos de supervisión clave en un [panel](../../azure-monitor/app/app-insights-dashboards.md). Por ejemplo, puede anclar la solicitud y el número de errores de cada rol. 
+Para obtener una imagen general del sistema, puede mostrar los gráficos de supervisión clave en un [panel](../../azure-monitor/app/overview-dashboard.md). Por ejemplo, puede anclar la solicitud y el número de errores de cada rol. 
 
 Si el sistema usa otros servicios de Azure, como Stream Analytics, incluya también sus gráficos de supervisión. 
 

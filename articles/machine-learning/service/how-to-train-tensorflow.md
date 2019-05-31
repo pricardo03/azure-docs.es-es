@@ -10,18 +10,20 @@ ms.author: minxia
 author: mx-iao
 ms.date: 05/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f3d675d0eac1255974995fd7717192ec6a21bac1
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 314917ce91407206d786b191df118893696ac82c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400231"
+ms.locfileid: "66417128"
 ---
-# <a name="use-azure-machine-learning-service-to-train-and-register-tensorflow-models"></a>Usar el servicio Azure Machine Learning para entrenar y registrar los modelos de TensorFlow
+# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Entrenar y registrar TensorFlow modelos a escala con el servicio Azure Machine Learning
 
 Este artículo muestra cómo entrenar y registrar un modelo de TensorFlow con el servicio Azure Machine Learning. Vamos a usar el popular [conjunto de datos MNIST](http://yann.lecun.com/exdb/mnist/) para clasificar los dígitos escritos a mano mediante una red neuronal profunda basada en TensorFlow.
 
-Con el servicio de Azure Machine Learning, podrá escalar rápidamente sus trabajos de aprendizaje de código abierto con los recursos de proceso en la nube elástica. También podrá realizar un seguimiento de sus ejecuciones de entrenamiento, modelos de la versión, implementar los modelos y mucho más. Si va a desarrollar un modelo de TensorFlow desde el principio o lleva un modelo existente a la nube, servicio de Azure Machine Learning está aquí para ayudarle a crear modelos para entornos de producción.
+Con el servicio de Azure Machine Learning, podrá escalar rápidamente sus trabajos de aprendizaje de código abierto con los recursos de proceso en la nube elástica. También podrá realizar un seguimiento de sus ejecuciones de entrenamiento, modelos de la versión, implementar los modelos y mucho más. 
+
+Si va a desarrollar un modelo de TensorFlow desde el principio o lleva un modelo existente a la nube, puede crear modelos para entornos de producción con el servicio de Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

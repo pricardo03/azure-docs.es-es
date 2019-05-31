@@ -8,20 +8,20 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/28/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 7e70920e806b3d9838d693ff1fc74a3e9371319d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5614cc6fa01ddd10d670fdf429051a8e024550fc
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445270"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298204"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de Azure Log Integration: Procesamiento de eventos de Azure Key Vault mediante Event Hubs
 
 >[!IMPORTANT]
-> La característica Azure Log Integration dejará de utilizarse el 01/06/2019. Las descargas de AzLog se deshabilitaron el 27 de junio de 2018. Para obtener orientación sobre cómo avanzar, consulte el artículo [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Uso de Azure Monitor para realizar la integración con herramientas SIEM) 
+> La característica de integración de registro de Azure dejará de utilizarse en 15/06/2019. Las descargas de AzLog se deshabilitaron el 27 de junio de 2018. Para obtener orientación sobre cómo avanzar, consulte el artículo [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) (Uso de Azure Monitor para realizar la integración con herramientas SIEM) 
 
 Puede usar Azure Log Integration para recuperar los eventos registrados y hacer que estén disponibles en su sistema de información de seguridad y administración de eventos (SIEM). En este tutorial se muestra un ejemplo de cómo se puede usar Azure Log Integration para procesar registros adquiridos a través de Azure Event Hubs.
 

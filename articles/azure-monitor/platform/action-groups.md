@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 5/10/2019
+ms.date: 5/30/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: fba5119feb1ff7a0170a573371e479caa5fc33eb
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f4f10191ea28f73732f81eb9dc25321f82683652
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544467"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416965"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 ## <a name="overview"></a>Información general ##
@@ -35,9 +35,9 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 1. En el [portal](https://portal.azure.com), seleccione **Monitor**. El **Monitor** panel consolida toda la supervisión la configuración y datos en una vista.
 
     ![Servicio "Monitor"](./media/action-groups/home-monitor.png)
-1. Seleccione **Alertas** y seleccione **Administrar los grupos de acciones**.
+1. Seleccione **alertas** , a continuación, seleccione **administrar acciones**.
 
-    ![Botón Administrar los grupos de acciones](./media/action-groups/manage-action-groups.png)
+    ![Botón Acciones de administración](./media/action-groups/manage-action-groups.png)
 1. Seleccione **Agregar grupo de acciones** y rellene los campos.
 
     ![Comando "Agregar grupo de acciones"](./media/action-groups/add-action-group.png)
@@ -51,7 +51,7 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
 1. Definir una lista de acciones. Proporcionar lo siguiente para cada acción:
 
-     a. **Nombre**: escriba un identificador único para esta acción.
+    a. **Nombre**: escriba un identificador único para esta acción.
 
     b. **Tipo de acción**: seleccione correo electrónico, SMS, notificación push, voz, aplicación lógica, webhook, ITSM o runbook de Automation.
 
@@ -102,6 +102,8 @@ Rangos de direcciones IP de origen
  - 13.106.57.196
  - 52.244.68.117
  - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19

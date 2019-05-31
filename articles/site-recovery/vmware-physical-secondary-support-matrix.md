@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 742f1359d928aa05a8b8d36bde2ccf022db93b79
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564857"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418254"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en un sitio secundario.
 
@@ -60,10 +60,10 @@ Solo se pueden replicar máquinas Linux con el almacenamiento siguiente:
 Host: formación de equipos NIC | Sí 
 Host: VLAN | Sí 
 Host: IPv4 | Sí 
-Host: IPv6 | Sin  
-VM invitada: formación de equipos NIC | Sin 
+Host: IPv6 | Sin 
+VM invitada: formación de equipos NIC | No
 VM invitada: IPv4 | Sí
-VM invitada: IPv6 | Sin 
+VM invitada: IPv6 | Sin
 VM invitada: Windows/Linux - dirección IP estática | Sí
 VM invitada: múltiples NIC | Sí
 
@@ -87,14 +87,14 @@ VMDK | Sí
 VHD/VHDX | N/D 
 VM de 2 generación | N/D 
 Disco en clúster compartido | Sí 
-Disco cifrado | Sin  
+Disco cifrado | Sin 
 UEFI| Sí 
-NFS | Sin  
-SMB 3.0 | Sin  
+NFS | Sin 
+SMB 3.0 | No 
 RDM | Sí 
 Disco > 1 TB | Sí 
 Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí 
-Espacios de almacenamiento | Sin  
+Espacios de almacenamiento | Sin 
 Agregar/quitar disco en caliente | Sí 
 Excluir el disco | Sí 
 Varias rutas (MPIO) | N/D 
@@ -103,8 +103,8 @@ Varias rutas (MPIO) | N/D
 
 **Acción** | **Compatible** 
 --- | --- 
-Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin  
-Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin  
+Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) | No 
+Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin 
 
 ## <a name="mobility-service-and-updates"></a>Mobility Service y actualizaciones
 

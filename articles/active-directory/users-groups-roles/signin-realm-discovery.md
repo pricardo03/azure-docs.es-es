@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: db627359b75aa0ea19e30a8d22bcacaa3409cb4a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920517"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418159"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Detección del dominio de inicio para las páginas de inicio de sesión de Azure Active Directory
 
@@ -32,19 +32,19 @@ Para admitir una gama más amplia de credenciales y aumentar la usabilidad, comp
 
 Una ventaja adicional de este trabajo es error mejorada de mensajería. Estos son algunos ejemplos del error al iniciar sesión en una aplicación que admite Azure Active Directory solo a los usuarios de mensajería mejorado.
 
-1. Se escribió incorrectamente el nombre de usuario o el nombre de usuario aún no se haya sincronizado con Azure AD:
+- Se escribió incorrectamente el nombre de usuario o el nombre de usuario aún no se haya sincronizado con Azure AD:
   
     ![se escribió incorrectamente o no se encuentra el nombre de usuario](./media/signin-realm-discovery/typo-username.png)
   
-2. Se escribió incorrectamente el nombre de dominio:
+- Se escribió incorrectamente el nombre de dominio:
   
     ![se escribió incorrectamente o no se encuentra el nombre de dominio](./media/signin-realm-discovery/typo-domain.png)
   
-3. Usuario intenta iniciar sesión con un dominio de consumidor conocidos:
+- Usuario intenta iniciar sesión con un dominio de consumidor conocidos:
   
     ![Inicie sesión con un dominio de consumidor conocidos](./media/signin-realm-discovery/consumer-domain.png)
   
-4. Se escribió incorrectamente la contraseña, pero el nombre de usuario es preciso:  
+- Se escribió incorrectamente la contraseña, pero el nombre de usuario es preciso:  
   
     ![contraseña se escribió incorrectamente con el nombre de usuario buena](./media/signin-realm-discovery/incorrect-password.png)
   

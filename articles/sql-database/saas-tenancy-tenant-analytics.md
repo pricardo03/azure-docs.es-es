@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 0be39aaf5526ea288764fc72d6c498cca2d659b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6115d7f70c2c75898b18a27af298a44ca87ca1bd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486566"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240880"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación de un solo inquilino
  
@@ -99,9 +99,9 @@ Ahora que ha implementado la aplicación y se rellena con datos de inquilino int
 
 En el Explorador de objetos, siga estos pasos:
 
-1. Expanda el servidor *tenants1-dpt-&lt;Usuario&gt;*.
+1. Expanda el servidor *tenants1-dpt-&lt;Usuario&gt;* .
 2. Expanda el nodo Bases de datos y vea la lista de bases de datos de inquilino.
-3. Expanda el servidor *catalog-dpt-&lt;Usuario&gt;*.
+3. Expanda el servidor *catalog-dpt-&lt;Usuario&gt;* .
 4. Verifique que puede ver el almacén de análisis y la base de datos jobaccount.
 
 Expanda el almacén de análisis para ver los siguientes elementos de la base de datos en el Explorador de objetos de SSMS:
@@ -241,5 +241,5 @@ Felicidades.
 ## <a name="additional-resources"></a>Recursos adicionales
 
 - Otros [tutoriales basados en la aplicación SaaS de Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [Trabajos elásticos](sql-database-elastic-jobs-overview.md).
+- [Trabajos elásticos](elastic-jobs-overview.md).
 - [Análisis entre inquilinos mediante datos extraídos: aplicación multiinquilino](saas-multitenantdb-tenant-analytics.md)

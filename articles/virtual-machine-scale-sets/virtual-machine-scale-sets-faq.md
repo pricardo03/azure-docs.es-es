@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: b5af6c5007130d71f94e1fa748adc333a8d08a48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689316"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258284"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -134,7 +134,7 @@ Para configurar el escalado automático en un conjunto de escalado de máquinas 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>¿Si he detenido (desasignado) una máquina virtual, esa máquina virtual se inicia como parte de una operación de escalado automático?
 
-No. Si las reglas de escalado automático requieren instancias adicionales de máquina virtual como parte de un conjunto de escalado, se crea una nueva instancia de máquina virtual. Las instancias de máquina virtual detenidas (desasignadas) no se inician como parte de un evento de escalado automático. Sin embargo, es posible que esas máquinas virtuales detenidas (desasignadas) se eliminen como parte de un evento de escalado automático que escala en el número de instancias, del mismo modo que se puede eliminar cualquier instancia de máquina virtual según el orden del identificador de instancia de máquina virtual.
+ No. Si las reglas de escalado automático requieren instancias adicionales de máquina virtual como parte de un conjunto de escalado, se crea una nueva instancia de máquina virtual. Las instancias de máquina virtual detenidas (desasignadas) no se inician como parte de un evento de escalado automático. Sin embargo, es posible que esas máquinas virtuales detenidas (desasignadas) se eliminen como parte de un evento de escalado automático que escala en el número de instancias, del mismo modo que se puede eliminar cualquier instancia de máquina virtual según el orden del identificador de instancia de máquina virtual.
 
 
 
@@ -232,8 +232,8 @@ Puede proporcionar claves públicas SSH en texto sin formato al crear una máqui
 Nombre del elemento de linuxConfiguration | Obligatorio | Type | DESCRIPCIÓN
 --- | --- | --- | ---
 ssh | Sin  | Colección | Especifica la configuración de la clave SSH para un sistema operativo Linux
-path | Sí | string | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
-keyData | Sí | string | Especifica una clave pública SSH codificada en base64
+path | Sí | String | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
+keyData | Sí | String | Especifica una clave pública SSH codificada en base64
 
 Para ver un ejemplo, consulte [la plantilla de inicio rápido de GitHub 101-vm-sshkey ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -621,11 +621,11 @@ Dispone de cierta flexibilidad en la manera de controlar las alertas de umbrales
 
 ## <a name="patching-and-operations"></a>Aplicación de revisiones y operaciones
 
-### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>¿Cómo creo un conjunto de escalado en un grupo de recursos existente?
+### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>¿Puedo crear un conjunto de escalado en un grupo de recursos existente?
 
-Todavía no es posible crear conjuntos de escalado en un grupo de recursos existente desde Azure Portal, pero puede especificar un grupo de recursos existente al implementar un conjunto de escalado desde una plantilla de Azure Resource Manager. También puede especificar un grupo de recursos existente al crear un conjunto de escalado con Azure PowerShell o CLI.
+Sí, puede crear un conjunto de escalado en un grupo de recursos existente.
 
-### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>¿Podemos mover un conjunto de escalado a otro grupo de recursos?
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>¿Puedo mover un conjunto de escalado a otro grupo de recursos?
 
 Sí, se pueden mover recursos del conjunto de escalado a una nueva suscripción o a un nuevo grupo de recursos.
 
@@ -686,7 +686,7 @@ Para informarse sobre propiedad de cada máquina virtual sin realizar varias lla
 
 No, no puede pasar diferentes argumentos de extensión a diferentes máquinas virtuales de un conjunto de escalado de máquinas virtuales. De todas formas, las extensiones pueden actuar en función de propiedades únicas de la máquina virtual en la que se ejecutan, como el nombre de la máquina. Además, las extensiones pueden consultar metadatos de instancias en http://169.254.169.254 para más información sobre la máquina virtual.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>¿Por qué hay huecos entre los nombres de máquina virtual de mi conjunto de escalado de máquinas virtuales y los identificadores de máquina virtual? Por ejemplo:  0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>¿Por qué hay huecos entre los nombres de máquina virtual de mi conjunto de escalado de máquinas virtuales y los identificadores de máquina virtual? Por ejemplo: 0, 1, 3...
 
 Hay huecos entre los nombres de máquina virtual del conjunto de escalado de máquinas virtuales y el identificador de la máquina virtual porque la propiedad **overprovision** del conjunto de escalado de máquinas virtuales está establecida en el valor predeterminado de **true**. Si la propiedad overprovision se establece en **true**, se crean más máquinas de las solicitadas. Las máquinas virtuales adicionales se eliminan a continuación. En este caso, lo que consigue es una mayor confiabilidad en la implementación a cambio de reglas de traducción de direcciones de red (NAT) contiguas y de nomenclatura contiguas.
 

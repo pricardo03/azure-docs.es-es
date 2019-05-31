@@ -13,18 +13,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 20bb8d5380f5a905a827dfb12dcc032e327267e0
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864862"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418231"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
-En este artículo se muestra cómo usar Visual Studio de 2019 para crear un proyecto de SDK de Azure WebJobs, ejecutarlo localmente y, a continuación, implementarla en [Azure App Service](overview.md). El proyecto creado es una aplicación de consola .NET Core, que usa la versión 3.x del SDK de WebJobs. Si está interesado en la versión 2.x, que usa .NET Framework, consulte [desarrollar e implementar WebJobs con Visual Studio: Azure App Service](webjobs-dotnet-deploy-vs.md).
+En este artículo se muestra cómo usar Visual Studio de 2019 para crear un proyecto de SDK de Azure WebJobs, ejecutarlo localmente y, a continuación, implementarla en [Azure App Service](overview.md). Versión 3.x del SDK de WebJobs es compatible con aplicaciones de consola .NET Core y .NET Framework. Para más información sobre cómo trabajar con el SDK de WebJobs, consulte [cómo usar el SDK de WebJobs de Azure para el procesamiento en segundo plano basado en eventos](webjobs-sdk-how-to.md).
 
-Para más información sobre cómo trabajar con el SDK de WebJobs, consulte [cómo usar el SDK de WebJobs de Azure para el procesamiento en segundo plano basado en eventos](webjobs-sdk-how-to.md).
+Este artículo muestra cómo implementar WebJobs como una aplicación de consola .NET Core. Para implementar WebJobs como una aplicación de consola de .NET Framework, consulte [WebJobs como .NET Framework de las aplicaciones de consola](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Si está interesado en la versión de SDK de WebJobs 2.x, que solo es compatible con .NET Framework, consulte [desarrollar e implementar WebJobs con Visual Studio: Azure App Service](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -171,7 +171,7 @@ Comenzando con la versión 3.x, explícitamente debe instalar la extensión de e
                     });
     ```
 
-## <a name="create-a-function"></a>Crear una función
+## <a name="create-a-function"></a>Creación de una función
 
 1. Haga clic en el proyecto, seleccione **agregar** > **nuevo elemento...** , elija **clase**, el nombre del nuevo C# archivo de clase *Functions.cs*y seleccione **agregar**.
 
@@ -203,7 +203,7 @@ El emulador de Azure Storage que se ejecuta localmente no tiene todas las caract
 
 1. Abra el **Explorador de servidores** en Visual Studio e inicie sesión en Azure. Haga clic con el botón derecho en el nodo **Azure** y, después, seleccione **Conectar a la suscripción de Microsoft Azure**.
 
-   ![Iniciar sesión en Azure](./media/webjobs-sdk-get-started/sign-in.png)
+   ![Inicio de sesión en Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
 1. En el nodo **Azure**, en el **Explorador de servidores**, haga clic con el botón derecho en **Almacenamiento** y seleccione luego **Crear cuenta de almacenamiento**.
 
@@ -217,7 +217,7 @@ El emulador de Azure Storage que se ejecuta localmente no tiene todas las caract
 
    ![Crear cuenta de almacenamiento](./media/webjobs-sdk-get-started/create-storage-account.png)
 
-1. En el nodo **Storage**, en el **Explorador de servidores**, seleccione la nueva cuenta de almacenamiento. En la ventana **Propiedades**, seleccione los puntos suspensivos (**...**) a la derecha del campo de valor **Cadena de conexión**.
+1. En el nodo **Storage**, en el **Explorador de servidores**, seleccione la nueva cuenta de almacenamiento. En la ventana **Propiedades**, seleccione los puntos suspensivos ( **...** ) a la derecha del campo de valor **Cadena de conexión**.
 
    ![Puntos suspensivos de Cadena de conexión](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
@@ -340,7 +340,7 @@ En esta sección, realiza las tareas siguientes para configurar el registro de A
 
    |NOMBRE  |Cadena de conexión  |Tipo de base de datos|
    |---------|---------|------|
-   |AzureWebJobsStorage | {cadena de conexión de almacenamiento copiada anteriormente}|Personalizar|
+   |AzureWebJobsStorage | {cadena de conexión de almacenamiento copiada anteriormente}|Personalizado|
 
 1. Si el cuadro de diálogo **Configuración de la aplicación** no tiene una clave de instrumentación de Application Insights, agregue la que ha copiado anteriormente. (Es posible que la clave de instrumentación ya esté allí, en función de cómo haya creado la aplicación de App Service).
 
@@ -431,7 +431,7 @@ En esta sección, volverá a realizar una ejecución local para comprobar que lo
 
    ![Selección de Buscar](./media/webjobs-sdk-get-started/select-search.png)
 
-1. Si no ve el mensaje *¡Hola App Insights!*, seleccione **Actualizar** periódicamente durante varios minutos. (Los registros no aparecen inmediatamente porque el cliente de Application Insights tarda un tiempo en vaciar los registros que procesa).
+1. Si no ve el mensaje *¡Hola App Insights!* , seleccione **Actualizar** periódicamente durante varios minutos. (Los registros no aparecen inmediatamente porque el cliente de Application Insights tarda un tiempo en vaciar los registros que procesa).
 
    ![Registros de Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
 
@@ -490,13 +490,13 @@ Los enlaces de entrada simplifican el código que lee los datos. En este ejemplo
 
 1. Cree un contenedor de blobs en la cuenta de almacenamiento.
 
-    a. En el **Explorador de servidores** en Visual Studio, expanda el nodo de la cuenta de almacenamiento, haga clic con el botón derecho en **Blobs** y, a continuación, seleccione **Crear contenedor de blobs**.
+   a. En el **Explorador de servidores** en Visual Studio, expanda el nodo de la cuenta de almacenamiento, haga clic con el botón derecho en **Blobs** y, a continuación, seleccione **Crear contenedor de blobs**.
 
    b. En el cuadro de diálogo **Crear contenedor de blobs**, especifique *contenedor* como nombre para el contenedor y, después, haga clic en **Aceptar**.
 
 1. Cargue el archivo *Program.cs* en el contenedor de blobs. (Este archivo se usa aquí como ejemplo; podría cargar cualquier archivo de texto y crear un mensaje de cola con el nombre del archivo).
 
-    a. En el **Explorador de servidores**, haga doble clic en el nodo correspondiente al contenedor que ha creado.
+   a. En el **Explorador de servidores**, haga doble clic en el nodo correspondiente al contenedor que ha creado.
 
    b. En la ventana **Contenedor**, seleccione el botón **Cargar**.
 

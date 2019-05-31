@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d693af5ddd0b94734dfa065bef8a1f3a5de09ccc
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597126"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236488"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)
 
@@ -121,7 +121,7 @@ Puede tener acceso a la DSVM Ubuntu mediante tres métodos:
 1. X2Go para sesiones de gráficas
 1. JupyterHub y JupyterLab para instancias de Jupyter Notebook
 
-También puede adjuntar una máquina virtual de ciencia de datos a Azure Notebooks para ejecutar cuadernos de Jupyter en la máquina virtual y omitir las limitaciones del nivel de servicio gratuito. Para obtener más información, consulte [administrar y configurar proyectos de blocs de notas: nivel de proceso](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+También puede adjuntar una máquina virtual de ciencia de datos a Azure Notebooks para ejecutar cuadernos de Jupyter en la máquina virtual y omitir las limitaciones del nivel de servicio gratuito. Para obtener más información, consulte [administrar y configurar proyectos de blocs de notas: nivel de proceso](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ### <a name="ssh"></a>SSH
 
@@ -268,7 +268,7 @@ conda install <package> -n py35
 
 Si se encuentra en una interfaz gráfica o tiene la configuración de reenvío de X11, puede escribir **pycharm** para iniciar el IDE de PyCharm Python. Puede usar los editores de texto predeterminados. Además, puede usar Spyder, un IDE de Python que integra las distribuciones de Anaconda Python. Spyder necesita un escritorio gráfico o el reenvío de X11. Se proporciona un acceso directo a Spyder en el escritorio gráfico.
 
-### <a name="jupyter-notebook"></a>Cuaderno de Jupyter
+### <a name="jupyter-notebook"></a>Jupyter Notebook
 
 La distribución de Anaconda también incluye un cuaderno de Jupyter Notebook, un entorno para compartir código y análisis. Se accede a Jupyter Notebook mediante JupyterHub. Inicie sesión con su nombre de usuario y contraseña de Linux local.
 

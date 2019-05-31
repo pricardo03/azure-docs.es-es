@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712872"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244904"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -29,7 +29,7 @@ Supongamos que ha creado una regla de alerta de métrica de umbral estático sim
 - Recurso de objetivo (el recurso de Azure que quiere supervisar): myVM
 - Métrica: Porcentaje de CPU
 - Tipo de condición: estática
-- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Las agregaciones de tiempo compatibles son Min, Max, Avg, Total): Media
+- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Agregaciones en tiempo admitidos son Min, Max, Avg, Total, Count): Media
 - Período (la ventana temporal según la cual se comprueban los valores de la métrica): En los últimos 5 minutos
 - Frecuencia (es decir, la frecuencia con la que la alerta de métricas comprueba si se cumplen las condiciones): 1 min
 - Operador: Mayor que
@@ -44,7 +44,7 @@ Supongamos que ha creado una regla de alerta de métrica simple de umbrales din�
 - Recurso de objetivo (el recurso de Azure que quiere supervisar): myVM
 - Métrica: Porcentaje de CPU
 - Tipo de condición: Dinámica
-- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Las agregaciones de tiempo compatibles son Min, Max, Avg, Total): Media
+- Agregación de tiempo (estadística que se ejecuta sobre valores de métrica sin procesar. Agregaciones en tiempo admitidos son Min, Max, Avg, Total, Count): Media
 - Período (la ventana temporal según la cual se comprueban los valores de la métrica): En los últimos 5 minutos
 - Frecuencia (es decir, la frecuencia con la que la alerta de métricas comprueba si se cumplen las condiciones): 1 min
 - Operador: Mayor que
@@ -150,7 +150,7 @@ Si ya utiliza alertas de métricas clásicas y desea ver si las alertas de métr
 |Microsoft.Cache/redis| Sí |
 |Microsoft.ClassicCompute/virtualMachines | Sin  |
 |Microsoft.ClassicCompute/domainNames/slots/roles | Sin |
-|Microsoft.CognitiveServices/accounts | Sin  |
+|Microsoft.CognitiveServices/accounts | No |
 |Microsoft.Compute/virtualMachines | Sí|
 |Microsoft.Compute/virtualMachineScaleSets| Sí|
 |Microsoft.ClassicStorage/storageAccounts| Sin  |
@@ -173,9 +173,9 @@ Si ya utiliza alertas de métricas clásicas y desea ver si las alertas de métr
 |Microsoft.TimeSeriesInsights/environments | Sí|
 |Microsoft. Web/serverfarms | Sí |
 |Microsoft. Web/sites (se excluyen funciones) | Sí|
-|Microsoft. Web/hostingEnvironments/multiRolePools | Sin |
+|Microsoft. Web/hostingEnvironments/multiRolePools | No|
 |Microsoft. Web/hostingEnvironments/workerPools| Sin  |
-|Microsoft.SQL/Servers | Sin  |
+|Microsoft.SQL/Servers | No |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

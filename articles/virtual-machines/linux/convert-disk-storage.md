@@ -16,16 +16,18 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 2e7eb455a53abbe2df6ff72f091a599665732429
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bc42bcbf7149f88eb895317a411c7acd5913d63d
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724905"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417685"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Convertir Azure managed disks el almacenamiento de estándar a Premium a estándar o Premium
 
-Hay cuatro [tipos de disco](disks-types.md) para Azure managed disks: Estándar, Premium SSD, SSD estándar y almacenamiento en disco Ultra Azure HDD. Puede cambiar fácilmente entre SSD Premium, estándar de SSD y HDD estándar según sus necesidades de rendimiento con poco tiempo de inactividad. Esta funcionalidad no se admite para discos no administrados o Ultra almacenamiento en disco. Pero le resultará muy fácil [convert no administrados a discos administrados](convert-unmanaged-to-managed-disks.md) para poder cambiar entre los tipos de disco.
+Hay cuatro tipos de discos de Azure de discos administrados: Azure SSD ultra (versión preliminar), premium SSD estándar SSD y HDD estándar. Puede cambiar entre los tres tipos de disco de GA (premium SSD estándar SSD y HDD estándar) según sus necesidades de rendimiento. Todavía no pueden cambiar desde o hacia una SSD ultra, debe implementar una nueva.
+
+Esta funcionalidad no se admite para discos no administrados. Pero le resultará muy fácil [convertir un disco no administrado en un disco administrado](convert-unmanaged-to-managed-disks.md) para poder cambiar entre los tipos de disco.
 
 En este artículo se muestra cómo convertir managed disks de estándar a Premium a estándar o Premium mediante el uso de la CLI de Azure. Para instalar o actualizar la herramienta, consulte [instalar la CLI de Azure](/cli/azure/install-azure-cli).
 

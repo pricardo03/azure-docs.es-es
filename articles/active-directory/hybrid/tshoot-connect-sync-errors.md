@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ba74961eb549afd2fcf7c10f2d8b981e389a2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63aebb9a9bbefe84ac36b92cd69e0d93de0ab76
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381695"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298757"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solución de errores durante la sincronización
 Pueden producirse errores cuando se sincronizan datos de identidad de Windows Server Active Directory (AD DS) con Azure Active Directory (Azure AD). En este artículo se proporciona información general sobre los distintos tipos de errores de sincronización, algunos de los posibles escenarios que provocan dichos errores y las posibles maneras de corregirlos. También se incluyen los tipos de error comunes, pero puede que no cubra todos los posibles errores.
@@ -190,7 +190,7 @@ Para un usuario sincronizado, el sufijo de UserPrincipalName se ha cambiado de u
 
 #### <a name="example"></a>Ejemplo
 1. Bob Smith, una cuenta de Contoso.com, se agrega como un nuevo usuario a Active Directory con el atributo UserPrincipalName bob@contoso.com
-2. Bob pasa a otra división de Contoso.com llamada Fabrikam.com y el valor de UserPrincipalName se cambia a bob@fabrikam.com
+2. Bob pasa a otra división de Contoso.com llamada Fabrikam.com y su UserPrincipalName se cambia a bob@fabrikam.com
 3. Tanto contoso.com como fabrikam.com son dominios federados con Azure Active Directory.
 4. El atributo userPrincipalName de Bob no se actualiza, por lo que se produce un error de sincronización de "FederatedDomainChangeError".
 

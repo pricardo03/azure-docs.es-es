@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79082056403460a7f1be50c386960ce1476c8ad
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 5044567396d832d3c3b2b46e3c3e90e053834595
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66397909"
+ms.locfileid: "66417901"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -51,13 +51,15 @@ Los roles de administrador disponibles son los siguientes:
 
   El rol de administrador de autenticación está actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-  <b>Importante</b>: Los usuarios con este rol pueden cambiar las credenciales de las personas que pueden tener acceso a información confidencial o privada o configuración crítica dentro y fuera de Azure Active Directory. Cambiar las credenciales de un usuario puede significar la capacidad de asumir la identidad y los permisos de ese usuario. Por ejemplo: 
+  <b>Importante</b>: Los usuarios con este rol pueden cambiar las credenciales de las personas que pueden tener acceso a información confidencial o privada o configuración crítica dentro y fuera de Azure Active Directory. Cambiar las credenciales de un usuario puede significar la capacidad de asumir la identidad y los permisos de ese usuario. Por ejemplo:
 
   * Propietarios de registro de la aplicación y la aplicación de empresa, que pueden administrar las credenciales de las aplicaciones que poseen. Esas aplicaciones pueden tener permisos con privilegios en Azure AD y en otra parte que no se hayan concedido a los administradores de autenticación. A través de esta ruta de acceso de un administrador de autenticación puede ser capaz de asumir la identidad del propietario de la aplicación y, a continuación, más asumir la identidad de una aplicación con privilegios mediante la actualización de las credenciales de la aplicación.
   * Propietarios de suscripción de Azure, que pueden tener acceso a información confidencial o privada o configuración crítica en Azure.
   * Propietarios del grupo de seguridad y el grupo de Office 365, que pueden administrar la pertenencia a grupos. Dichos grupos pueden conceder acceso a información confidencial o privada o a configuración crítica en Azure AD y en cualquier otra parte.
   * Los administradores de otros servicios fuera de Azure AD, como Exchange Online, Office Security y Compliance Center y sistemas de recursos humanos.
   * Usuarios no administradores como empleados ejecutivos, de asesoramiento jurídico y de recursos humanos que pueden tener acceso a información confidencial o privada.
+
+* **[Administrador de Azure Information Protection](#azure-information-protection-administrator)** : los usuarios con este rol tienen todos los permisos en el servicio Azure Information Protection. Este rol permite configurar las etiquetas de la directiva de Azure Information Protection, administrar plantillas de protección y activar la protección. Este rol no concede ningún permiso de Identity Protection Center, Privileged Identity Management, Supervisión del estado de mantenimiento del servicio Office 365 y Centro de seguridad y cumplimiento de Office 365.
 
 * **[Administrador de flujo de usuario de B2C](#b2c-user-flow-administrator)** : Los usuarios con este rol pueden crear y administrar B2C flujos de usuario (también conocido como "integradas" directivas) en Azure Portal. Creando o editando los flujos de usuario, estos usuarios pueden cambiar el contenido html, CSS y javascript de la experiencia del usuario, cambiar los requisitos de MFA por cada flujo de usuario, en el token de notificaciones de cambio y ajustar la configuración de sesión de todas las directivas en el inquilino. Por otro lado, este rol no incluyen la capacidad de revisar los datos de usuario, ni realizar cambios en los atributos que se incluyen en el esquema de inquilino. Cambia a Identity Experience Framework (también conocido como personalizados) las directivas también está fuera del ámbito de este rol.
 
@@ -135,8 +137,6 @@ Los roles de administrador disponibles son los siguientes:
 
 * **[Invitador de usuarios](#guest-inviter)** : los usuarios con este rol pueden administrar las invitaciones de usuarios invitados de Azure Active Directory B2B cuando la configuración de usuario **Los miembros pueden invitar a otras personas** está establecida en No. Más información sobre la colaboración B2B en [¿Qué es la colaboración B2B de Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) No incluye otros permisos.
 
-* **[Administrador de Information Protection](#information-protection-administrator)** : los usuarios con este rol tienen todos los permisos en el servicio Azure Information Protection. Este rol permite configurar las etiquetas de la directiva de Azure Information Protection, administrar plantillas de protección y activar la protección. Este rol no concede ningún permiso de Identity Protection Center, Privileged Identity Management, Supervisión del estado de mantenimiento del servicio Office 365 y Centro de seguridad y cumplimiento de Office 365.
-
 * **[Administrador de Intune](#intune-service-administrator)** : los usuarios con este rol tienen permisos globales en Microsoft Intune Online, cuando existe el servicio. Además, este rol contiene la capacidad de administrar usuarios y dispositivos para asociar una directiva, así como también para crear y administrar grupos. Para más información, consulte [Control de administración basado en rol (RBAC) con Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
   > [!NOTE]
   > En Microsoft Graph API, Azure AD Graph API y Azure AD PowerShell, este rol se identifica como "Administrador de servicios de Intune". En [Azure Portal](https://portal.azure.com) es "Administrador de Intune".
@@ -161,7 +161,7 @@ Además, el usuario puede tener acceso a informes relacionados con la adopción 
   * Lector del Centro de mensajes
   * Lector de informes
   
-  <b>Importante</b>: Los usuarios con este rol pueden cambiar las contraseñas de las personas que pueden tener acceso a información confidencial o privada o configuración crítica dentro y fuera de Azure Active Directory. Cambiar la contraseña de un usuario puede significar la capacidad de asumir la identidad y los permisos del usuario. Por ejemplo: 
+  <b>Importante</b>: Los usuarios con este rol pueden cambiar las contraseñas de las personas que pueden tener acceso a información confidencial o privada o configuración crítica dentro y fuera de Azure Active Directory. Cambiar la contraseña de un usuario puede significar la capacidad de asumir la identidad y los permisos del usuario. Por ejemplo:
   * Propietarios de registro de la aplicación y la aplicación de empresa, que pueden administrar las credenciales de las aplicaciones que poseen. Esas aplicaciones pueden tener permisos con privilegios en Azure AD y en otra parte no concederlos a los administradores del departamento de soporte técnico. Mediante esta ruta de acceso, un administrador del departamento de soporte técnico puede ser capaz de asumir la identidad del propietario de la aplicación y después asumir la identidad de una aplicación con privilegios mediante la actualización de las credenciales de la aplicación.
   * Propietarios de suscripción de Azure, que pueden tener acceso a información confidencial o privada o configuración crítica en Azure.
   * Propietarios del grupo de seguridad y el grupo de Office 365, que pueden administrar la pertenencia a grupos. Dichos grupos pueden conceder acceso a información confidencial o privada o a configuración crítica en Azure AD y en cualquier otra parte.
@@ -185,7 +185,7 @@ Además, el usuario puede tener acceso a informes relacionados con la adopción 
   * Forzar a los usuarios para volver a registrar con la credencial sin contraseña existente (por ejemplo, MFA, FIDO)
   * Revocar 'recordar MFA en el dispositivo,' Preguntar para MFA en el siguiente inicio de sesión
 
-* **[Administrador de roles con privilegios](#privileged-role-administrator)** : los usuarios con este rol pueden administrar asignaciones de roles en Azure Active Directory, así como en Azure AD Privileged Identity Management. Además, este rol permite administrar todos los aspectos de Privileged Identity Management.
+* **[Administrador de roles con privilegios](#privileged-role-administrator)** : los usuarios con este rol pueden administrar asignaciones de roles en Azure Active Directory, así como en Azure AD Privileged Identity Management. Además, este rol permite administrar todos los aspectos de Privileged Identity Management y las unidades administrativas.
 
   <b>Importante</b>: Este rol concede la capacidad de administrar las asignaciones para todos los roles de Azure AD, incluido el rol de administrador Global. Este rol no incluye ninguna otra capacidad con privilegios en Azure AD, como crear o actualizar los usuarios. Sin embargo, los usuarios asignados a este rol pueden concederse a sí mismos o a otros usuarios privilegios adicionales mediante la asignación de roles adicionales.
 
@@ -268,7 +268,7 @@ Además, el usuario puede tener acceso a informes relacionados con la adopción 
   |<p>En todos los usuarios, incluidos todos los administradores</p>|<p>Administrar licencias</p><p>Administrar todas las propiedades de usuario, excepto el nombre principal de usuario</p>
   |Solo en los usuarios que no son administradores o en cualquiera de los siguientes roles de administrador limitados:<ul><li>Lectores de directorios<li>Invitador de usuarios<li>Administrador del departamento de soporte técnico<li>Lector del Centro de mensajes<li>Lector de informes<li>Administrador de usuarios|<p>Eliminar y restaurar</p><p>Deshabilitar y habilitar</p><p>Invalidar tokens de actualización</p><p>Administrar todas las propiedades de usuario, incluido el nombre principal de usuario</p><p>Restablecimiento de contraseña</p><p>Actualizar las claves de dispositivo (FIDO)</p>
   
-  <b>Importante</b>: Los usuarios con este rol pueden cambiar las contraseñas de las personas que pueden tener acceso a información confidencial o privada o configuración crítica dentro y fuera de Azure Active Directory. Cambiar la contraseña de un usuario puede significar la capacidad de asumir la identidad y los permisos del usuario. Por ejemplo: 
+  <b>Importante</b>: Los usuarios con este rol pueden cambiar las contraseñas de las personas que pueden tener acceso a información confidencial o privada o configuración crítica dentro y fuera de Azure Active Directory. Cambiar la contraseña de un usuario puede significar la capacidad de asumir la identidad y los permisos del usuario. Por ejemplo:
   * Propietarios de registro de la aplicación y la aplicación de empresa, que pueden administrar las credenciales de las aplicaciones que poseen. Esas aplicaciones pueden tener permisos con privilegios en Azure AD y en otra parte no concederlos a los administradores de usuarios. Mediante esta ruta de acceso, un administrador de usuarios puede ser capaz de asumir la identidad del propietario de la aplicación y después asumir la identidad de una aplicación con privilegios mediante la actualización de las credenciales de la aplicación.
   * Propietarios de suscripción de Azure, que pueden tener acceso a información confidencial o privada o configuración crítica en Azure.
   * Propietarios del grupo de seguridad y el grupo de Office 365, que pueden administrar la pertenencia a grupos. Dichos grupos pueden conceder acceso a información confidencial o privada o a configuración crítica en Azure AD y en cualquier otra parte.
@@ -341,6 +341,22 @@ Puede ver, configurar y restablecer la información de los métodos de autentica
 | microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Lee las propiedades básicas de todos los recursos en microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Lee y configura el estado de mantenimiento del servicio Office 365. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
+
+### <a name="azure-information-protection-administrator"></a>Administrador de Azure Information Protection
+Puede administrar todos los aspectos del servicio Azure Information Protection.
+
+  > [!NOTE]
+  > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
+  >
+  >
+
+| **Acciones** | **Descripción** |
+| --- | --- |
+| microsoft.azure.informationProtection/allEntities/allTasks | Administra todos los aspectos de Azure Information Protection. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lee y configura el estado de mantenimiento del servicio Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
 
@@ -770,22 +786,6 @@ Puede restablecer contraseñas de usuarios que no son administradores y de admin
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lee y configura el estado de mantenimiento del servicio Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
 
-### <a name="information-protection-administrator"></a>Administrador de Information Protection
-Puede administrar todos los aspectos del producto Azure Information Protection.
-
-  > [!NOTE]
-  > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información, vea la descripción del rol anterior.
-  >
-  >
-
-| **Acciones** | **Descripción** |
-| --- | --- |
-| microsoft.azure.informationProtection/allEntities/allTasks | Administra todos los aspectos de Azure Information Protection. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Azure. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Lee y configura el estado de mantenimiento del servicio Office 365. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Crea y administra incidencias de soporte técnico de Office 365. |
-
 ### <a name="intune-service-administrator"></a>Administrador de servicios de Intune
 Puede administrar todos los aspectos del producto Intune.
 
@@ -998,8 +998,12 @@ Puede administrar las asignaciones de roles en Azure AD y todos los aspectos de 
 
 | **Acciones** | **Descripción** |
 | --- | --- |
-| microsoft.aad.directory/directoryRoles/update | Actualiza DirectoryRoles en Azure Active Directory. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Crea y elimina todos los recursos, y lee y actualiza las propiedades estándar en microsoft.aad.privilegedIdentityManagement. |
+| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/allTasks | Leer ni configurar la propiedad servicePrincipals.appRoleAssignedTo en Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Leer ni configurar la propiedad servicePrincipals.oAuth2PermissionGrants en Azure Active Directory. |
+| microsoft.aad.directory/administrativeUnits/allProperties/allTasks | Crear y administrar unidades administrativas (incluidos a los miembros) |
+| microsoft.aad.directory/roleAssignments/allProperties/allTasks | Crear y administrar las asignaciones de roles. |
+| microsoft.aad.directory/roleDefinitions/allProperties/allTasks | Crear y administrar definiciones de roles. |
 
 ### <a name="reports-reader"></a>Lector de informes
 Puede leer los informes de inicio de sesión y auditoría.
@@ -1251,6 +1255,7 @@ DisplayName de Graph | Nombre para mostrar de portal de Azure | directoryRoleTem
 Administrador de aplicaciones | Administrador de aplicaciones | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Desarrollador de aplicaciones | Desarrollador de aplicaciones | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Administrador de autenticación | Administrador de autenticación | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Administrador de Azure Information Protection | Administrador de Azure Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Administrador de flujo de usuario de B2C | Administrador de flujo de usuario de B2C | 6e591065-9bad-43ed-90f3-e9424366d2f0
 Administrador de atributos de flujos de usuario B2C | Administrador de atributos de flujos de usuario B2C | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 Administrador de conjuntos de claves B2C con IEF | Administrador de conjuntos de claves B2C con IEF | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1275,7 +1280,6 @@ Administrador de servicios de Exchange | Administrador de Exchange | 29232cdf-93
 Administrador del proveedor de identidades externas | Administrador del proveedor de identidades externas | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Invitador de usuarios | Invitador de usuarios | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Administrador del departamento de soporte técnico | Administrador de contraseñas | 729827e3-9c14-49f7-bb1b-9608f156bbb8
-Administrador de Information Protection | Administrador de Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Administrador de servicios de Intune | Administrador de Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Administrador de Kaizala | Administrador de Kaizala | 74ef975b-6605-40af-a5d2-b9539d836353
 Administrador de licencias | Administrador de licencias | 4d6ac14f-3453-41d0-bef9-a3e0c569773a

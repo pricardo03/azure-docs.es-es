@@ -16,16 +16,18 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: abd893c68f2e9cac713e09dd0bdafb7f277ae889
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5687e6d0094083a9ee58455cc72b0b2e4da32d65
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707535"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417151"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Actualizar el tipo de almacenamiento de un disco administrado
 
-Hay cuatro opciones para Azure managed disks: Estándar, Premium SSD, SSD estándar y almacenamiento en disco Ultra Azure HDD. Puede cambiar entre estos tipos de almacenamiento según sus necesidades de rendimiento con poco tiempo de inactividad. Esta funcionalidad no se admite para discos no administrados. Pero le resultará muy fácil [convertir un disco no administrado en un disco administrado](convert-unmanaged-to-managed-disks.md) para poder cambiar entre los tipos de disco.
+Hay cuatro tipos de discos de Azure de discos administrados: Azure SSD ultra (versión preliminar), premium SSD estándar SSD y HDD estándar. Puede cambiar entre los tres tipos de disco de GA (premium SSD estándar SSD y HDD estándar) según sus necesidades de rendimiento. Todavía no pueden cambiar desde o hacia una SSD ultra, debe implementar una nueva.
+
+Esta funcionalidad no se admite para discos no administrados. Pero le resultará muy fácil [convertir un disco no administrado en un disco administrado](convert-unmanaged-to-managed-disks.md) para poder cambiar entre los tipos de disco.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

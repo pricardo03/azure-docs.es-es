@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0c85685f9ace70ea94eea158d91f0d8b01827a43
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66391466"
+ms.locfileid: "66420734"
 ---
 Los tamaños de VM optimizadas para almacenamiento proporcionan un alto rendimiento de disco y de E/S y son ideales para macrodatos, bases de datos SQL y NoSQL, almacenamiento de datos y bases de datos transaccionales grandes.  Por ejemplo, Cassandra, MongoDB, Cloudera y Redis. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento local y del ancho de banda de red para cada tamaño optimizado.
 
@@ -41,7 +41,7 @@ Caching de Premium Storage: No compatible
 | Standard_L16s_v2  | 16 | 128 | 160 |  2 de 1,92 TB  | 800000 / 4000 | 16000/320 | 32 | 4 / 6400  |
 | Standard_L32s_v2  | 32 | 256 | 320 |  4 de 1,92 TB  | 1.5 M / 8000    | 32000/640 | 32 | 8 / 12800 |
 | Standard_L64s_v2  | 64 | 512 | 640 |  8 de 1,92 TB  | 2.9 M / 16000   | 64000/1280 | 32 | 8 / 16000+ |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10 de 1,92 TB   | 3.8 M / 20000   | 80000/1400 | 32 | 8 / 16000+ |
+| Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10 de 1,92 TB   | 3.8 M / 20000   | 80000/1400 | 32 | 8 / 16000+ |
 
 <sup>1</sup> Las máquinas virtuales de la serie Lsv2 tienen un disco de recursos temporal basado en el estándar SCSI para paginación o el archivo de intercambio del sistema operativo (D: en Windows, /dev/sdb en Linux). Dicho disco proporciona 80 GiB de almacenamiento, 4000 IOPS y una velocidad de transferencia de 80 MBps por cada 8 vCPU (p. ej., el tamaño Standard_L80s_v2 proporciona 800 GiB a 40 000 IOPS y 800 MBps). Esto garantiza que las unidades de NVMe se puedan dedicar completamente al uso de aplicaciones. Este disco es efímero y se perderán todos los datos al detenerlo o desasignarlo.
 
@@ -50,6 +50,18 @@ Caching de Premium Storage: No compatible
 <sup>3</sup> La tecnología Hyper-V NVMe Direct proporciona acceso sin límite a las unidades de NVMe locales asignadas de forma segura al espacio de VM de invitado.  Para lograr el máximo rendimiento es necesario usar la última compilación WS2019 o Ubuntu 18.04 o 16.04 de Azure Marketplace.  El rendimiento de escritura varía en función del tamaño de E/S, la carga de unidad y la utilización de capacidad.
 
 <sup>4</sup> Las VM de la serie Lsv2 no proporcionan almacenamiento caché de host para el disco de datos, ya que las cargas de trabajo de Lsv2 no se ven beneficiadas.  Sin embargo, las máquinas virtuales Lsv2 pueden admitir la opción de disco de sistema operativo efímero de máquina virtual de Azure (hasta 30 GiB).
+
+<sup>5</sup> las máquinas virtuales con más de 64 vCPU requieren uno de estos sistemas operativos invitados compatibles:
+- Windows Server 2016 o posterior
+- Ubuntu 16.04 LTS o posterior, con Azure optimizado kernel (kernel 4.15 valor o una versión posterior)
+- SLES 12 SP2 o posterior
+- Versión RHEL o CentOS 6.7 a través de 6.10, con el paquete LIS proporcionada por Microsoft 4.3.1 (o posterior) instalado
+- Versión RHEL o CentOS 7.3, con el paquete proporcionado por Microsoft LIS 4.2.1 (o posterior) instalado
+- Versión RHEL o CentOS 7.4 o posterior
+- Oracle Linux con UEK4 o posterior
+- Debian 9 con el kernel backports, Debian, 10 o posterior
+- CoreOS con un kernel 4.14 o posterior
+
 
 ## <a name="size-table-definitions"></a>Definiciones de tabla de tamaño
 

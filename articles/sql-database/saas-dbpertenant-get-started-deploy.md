@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 14f76a716447e09299cfa18d6758245706c7b481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bbb67845922dd9a3b2a78f76bf25d73bace98a82
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556551"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240131"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con SQL Database
 
@@ -129,8 +129,8 @@ La aplicación Wingtip usa  [*Azure Traffic Manager*](../traffic-manager/traffi
 
     | Elemento de URL        | DESCRIPCIÓN       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Elementos de eventos de la aplicación Wingtip.<br /><br /> *-dpt* distingue la implementación de *base de datos por inquilino* de Wingtip Tickets de otras implementaciones. Algunos ejemplos incluyen la implementación *única* de aplicación por inquilino (*-sa*) o de *base de datos multiinquilino* (*-mt*). |
-    | .*&lt;usuario&gt;* | *af1* en el ejemplo. |
+    | http://events.wingtip-dpt | Elementos de eventos de la aplicación Wingtip.<br /><br /> *-dpt* distingue la implementación de *base de datos por inquilino* de Wingtip Tickets de otras implementaciones. Algunos ejemplos incluyen la implementación *única* de aplicación por inquilino ( *-sa*) o de *base de datos multiinquilino* ( *-mt*). |
+    | . *&lt;usuario&gt;* | *af1* en el ejemplo. |
     | .trafficmanager.NET/ | Traffic Manager, URL base. |
     | fabrikamjazzclub | Identifica el inquilino denominado Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
@@ -182,7 +182,7 @@ Si quiere controlar y supervisar los trabajos en segundo plano, use los cmdlets 
     - De manera predeterminada, los trabajos en segundo plano se ejecutan durante 120 minutos.
     - Cada trabajo provoca una carga basada en CPU en una base de datos de inquilinos al ejecutar *sp_CpuLoadGenerator*. La intensidad y la duración de la carga varía según `$DemoScenario`.
     - *sp_CpuLoadGenerator* recorre en bucle una instrucción SQL SELECT que provoca una carga elevada de CPU. El intervalo de tiempo entre las emisiones de SELECT varía en función de los valores de los parámetros para crear una carga de CPU controlable. Los niveles de carga y los intervalos son aleatorios para simular cargas más realistas.
-    - Este archivo .sql está almacenado en *WingtipTenantDB\\dbo\\StoredProcedures\\*.
+    - Este archivo .sql está almacenado en *WingtipTenantDB\\dbo\\StoredProcedures\\* .
 
 4. Si `$OneTime = $false`, el generador de carga inicia los trabajos en segundo plano y sigue ejecutándose. Cada 10 segundos, supervisa si se aprovisionó algún inquilino nuevo. Si establece `$OneTime = $true`, LoadGenerator inicia los trabajos en segundo plano y luego detiene la ejecución en primer plano. Para este tutorial, deje `$OneTime = $false`.
 
@@ -221,14 +221,14 @@ Actualice el centro de eventos para que el nuevo inquilino aparezca en la lista.
 
 Ahora que ha empezado a ejecutar una carga en la colección de inquilinos, veamos algunos de los recursos que se han implementado.
 
-1. En  [Azure Portal](https://portal.azure.com), vaya a la lista de los servidores SQL. A continuación, abra el servidor  **catalog-dpt-&lt;USUARIO&gt;** .
+1. En  [Azure Portal](https://portal.azure.com), vaya a la lista de los servidores SQL. A continuación, abra el servidor  **catalog-dpt-&lt;USUARIO&gt;**  .
     - El servidor de catálogos contiene dos bases de datos, **tenantcatalog** y **basetenantdb** (una base de datos de plantilla que se copia para crear nuevos inquilinos).
 
    ![Bases de datos](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Vuelva a la lista de servidores SQL Server.
 
-3. Abra el servidor **tenants1-dpt-&lt;USUARIO&gt;** que contiene las bases de datos de los inquilinos.
+3. Abra el servidor **tenants1-dpt-&lt;USUARIO&gt;**  que contiene las bases de datos de los inquilinos.
 
 4. Observe los siguientes elementos:
 
@@ -254,7 +254,7 @@ Estos dos gráficos ilustran que los grupos elásticos y SQL Database funcionan 
 
 - Para más información, consulte los [tutoriales adicionales que se basan en el patrón de base de datos por inquilino de la aplicación SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - Para información sobre los grupos elásticos, consulte  [¿Qué son los grupos elásticos de Azure SQL?](sql-database-elastic-pool.md)
-- Para información sobre los trabajos elásticos, consulte  [Administración de bases de datos escaladas horizontalmente en la nube](sql-database-elastic-jobs-overview.md).
+- Para información sobre los trabajos elásticos, consulte  [Administración de bases de datos escaladas horizontalmente en la nube](elastic-jobs-overview.md).
 - Para más información sobre las aplicaciones SaaS multiinquilino, consulte  [Patrones de inquilinato de base de datos SaaS multiinquilino](saas-tenancy-app-design-patterns.md).
 
 ## <a name="next-steps"></a>Pasos siguientes

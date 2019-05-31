@@ -8,15 +8,17 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 56ec4d867abd5f2767c64b0800eeb017c0fb9923
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2a4d636ccb03e36f7c495f3c10c90033d7c3c93c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793000"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417914"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
+
 > [!div class="op_single_selector"]
+>
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Fuente de cambios de .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
@@ -156,8 +158,8 @@ ms.locfileid: "65793000"
 * SDK de GA
 * Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.14.1 y anteriores.
 
-
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
+
 Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
 Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible. 
@@ -183,10 +185,10 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 | [1.1.0](#1.1.0) |13 de agosto de 2017 |--- |
 | [1.0.0](#1.0.0) |7 de julio de 2017 |--- |
 
-
 ## <a name="faq"></a>Preguntas más frecuentes
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Otras referencias
-Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
+Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

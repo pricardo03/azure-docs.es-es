@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 5c8a15aa5198983a56a0238c1bb56f9345d07acc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852144"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258590"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database
 
@@ -27,6 +27,7 @@ En este artículo se resume y explica las diferencias de sintaxis y el comportam
 - [Seguridad](#security) incluye las diferencias en [auditoría](#auditing), [certificados](#certificates), [credenciales](#credential), [proveedores de servicios criptográficos](#cryptographic-providers), [inicios de sesión y usuarios](#logins-and-users)y el [clave de servicio y la clave maestra de servicio](#service-key-and-service-master-key).
 - [Configuración](#configuration) incluye las diferencias en [extensión del grupo de búferes](#buffer-pool-extension), [intercalación](#collation), [los niveles de compatibilidad](#compatibility-levels), [la creación de reflejo de base de datos ](#database-mirroring), [opciones de base de datos](#database-options), [del Agente SQL Server](#sql-server-agent), y [opciones de tabla](#tables).
 - [Funcionalidades](#functionalities) incluye [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [transacciones distribuidas](#distributed-transactions), [eventos extendidos](#extended-events), [bibliotecas externas](#external-libraries), [filestream y FileTable](#filestream-and-filetable), [búsqueda semántica de texto completo](#full-text-semantic-search), [servidores vinculados](#linked-servers), [PolyBase](#polybase), [replicación](#replication), [restaurar](#restore-statement), [Service Broker](#service-broker), [procedimientos almacenados, funciones y desencadenadores](#stored-procedures-functions-and-triggers).
+- [Configuración del entorno](#Environment) , como las configuraciones de redes virtuales y la subred.
 - [Las características que tienen un comportamiento diferente en las instancias administradas](#Changes).
 - [Problemas conocidos y limitaciones temporales](#Issues).
 
@@ -192,7 +193,7 @@ Una instancia administrada no puede tener acceso a archivos, por lo que no se pu
 - [Extensión del grupo de búferes](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) no se admite.
 - `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` no se admite. Consulte [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
-### <a name="collation"></a>Intercalación
+### <a name="collation"></a>Collation
 
 La intercalación de la instancia predeterminada es `SQL_Latin1_General_CP1_CI_AS` y puede especificarse como un parámetro de creación. Consulte [Intercalaciones](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
@@ -276,12 +277,12 @@ Para más información, consulte [ALTER DATABASE](https://docs.microsoft.com/sql
 ### <a name="sql-server-agent"></a>Agente SQL Server
 
 - Configuración del Agente SQL Server es de solo lectura. El procedimiento `sp_set_agent_properties` no se admite en instancia administrada. 
-- Trabajos (jobs)
+- Trabajos
   - Se admiten los pasos de trabajo de T-SQL.
   - Se admiten los siguientes trabajos de replicación:
     - Lector del registro de transacciones
     - Instantánea
-    - Distribuidor
+    - Distribuidor.
   - Los pasos de trabajo SSIS se admiten.
   - Actualmente no se admiten otros tipos de pasos de trabajo:
     - No se admite el paso de trabajo de replicación de mezcla. 
@@ -299,7 +300,7 @@ Para más información, consulte [ALTER DATABASE](https://docs.microsoft.com/sql
 
 Las siguientes características actualmente no se admiten, pero se habilitarán en el futuro:
 
-- Proxies
+- Servidores proxy
 - Programación de trabajos en una CPU inactiva
 - Habilitar o deshabilitar un agente
 - Alertas
@@ -454,6 +455,19 @@ No se admite el agente de servicio entre instancias:
 - `xp_cmdshell` no se admite. Consulte [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
 - `Extended stored procedures` no se admiten, que incluye `sp_addextendedproc`  y `sp_dropextendedproc`. Consulte [procedimientos almacenados extendidos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - No se admiten `sp_attach_db`, `sp_attach_single_file_db`, y `sp_detach_db`. Consulte [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), y [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
+
+## <a name="Environment"></a>Restricciones de Environmet
+
+### <a name="subnet"></a>Subred
+- En la subred reservada para la instancia administrada no se puede colocar cualquier otro recurso (por ejemplo máquinas virtuales). Colocar estos recursos en otras subredes.
+- Subred debe tener un número suficiente de disponible [direcciones IP](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Mínimo es 16, aunque se recomienda tener al menos 32 direcciones IP en la subred.
+- [Los puntos de conexión de servicio no se pueden asociadas a la subred de la instancia administrada](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Asegúrese de que la opción de puntos de conexión de servicio está deshabilitada cuando se crea la red virtual.
+- El número y los tipos de instancias que se pueden colocar en la subred tienen algunos [límites y restricciones](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- Hay algunos [reglas de seguridad que se deben aplicar en la subred](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+
+### <a name="vnet"></a>VNET
+- Red virtual puede implementarse mediante el modelo de recursos: no se admite el modelo clásico de red virtual.
+- Algunos servicios, como entornos de App Service, Logic apps y las instancias administradas (se usa para la replicación geográfica, replicación transaccional, o a través de servidores vinculados) no pueden acceder a las instancias administradas en diferentes regiones si sus redes virtuales están conectadas mediante [emparejamiento global](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Puede conectarse a estos recursos a través de ExpressRoute o redes a través de las puertas de enlace de red virtual.
 
 ## <a name="Changes"></a> Cambios de comportamiento
 

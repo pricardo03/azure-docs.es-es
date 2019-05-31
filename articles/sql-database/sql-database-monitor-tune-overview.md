@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: cae0fbd450e6b392e1689d4642181f6e5279752b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 2fa43fcd48736a3d044deb07ed690af580c3b987
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393211"
+ms.locfileid: "66416278"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Optimización de la supervisión y el rendimiento
 
@@ -143,6 +143,24 @@ WHERE
 GROUP BY q.query_hash
 ORDER BY count (distinct p.query_id) DESC
 ```
+### <a name="factors-influencing-query-plan-changes"></a>Factores que influyen en los cambios del plan de consulta
+
+Una recompilación de plan de ejecución de consultas puede producir un plan de consulta generado que difiere de lo que originalmente se almacenó en caché. Existen varias razones por qué podría compilarse automáticamente un plan existente original:
+- Cambios en el esquema que se hace referencia la consulta
+- Cambios de datos en las tablas que se hace referencia la consulta 
+- Cambios realizados en las opciones de contexto de consulta 
+
+Es posible que se va a expulsar un plan compilado desde la memoria caché para una variedad de motivos, incluidos se reinicia la instancia, base de datos con ámbito de los cambios de configuración, presión de memoria y las solicitudes explícitas para borrar la caché. Además, mediante una sugerencia RECOMPILE significa que no se almacena en caché un plan.
+
+Todavía puede provocar una recompilación (o una compilación nueva después de la expulsión de caché) en la generación de un plan de ejecución de consulta idéntica de la que originalmente se observa.  Si, sin embargo, hay cambios en el plan en comparación con el plan original o anterior, estas son las explicaciones de por qué cambió un plan de ejecución de consulta más comunes:
+
+- **Cambiar el diseño físico**. Por ejemplo, nuevos índices crean que más eficazmente cubren que los requisitos de una consulta se pueden utilizar en una nueva compilación si el optimizador de consultas decide que es más adecuada para aprovechar ese nuevo índice que usa la estructura de datos que se seleccionó originalmente para la primera versión de la ejecución de consultas.  Es posible que los cambios físicos a los objetos que se hace referencia en una nueva opción de plan en tiempo de compilación.
+
+- **Diferencias de recursos de servidor**. En un escenario donde un plan difiere del "sistema A" frente a "el sistema B": la disponibilidad de recursos, como el número de procesadores disponibles, puede influir en el plan se genera.  Por ejemplo, si un sistema tiene un mayor número de procesadores, puede elegirse un plan paralelo. 
+
+- **Estadísticas diferentes**. Las estadísticas asociadas con los objetos que se hace referencia cambiado o son significativamente diferentes de las estadísticas del sistema original.  Si cambia las estadísticas y se produce una recompilación, el optimizador de consultas usará las estadísticas a partir de ese momento concreto en el tiempo. Pueden tener las estadísticas revisadas significativamente distintas distribuciones de datos y las frecuencias que no eran el caso de la compilación original.  Estos cambios se utilizan para calcular las estimaciones de cardinalidad (número de filas que prevé que fluyen a través del árbol lógico de consulta).  Los cambios en las estimaciones de cardinalidad pueden dar lugar a nosotros para elegir diferentes operadores físicos y orden de operaciones asociadas.  Incluso los pequeños cambios en las estadísticas pueden dar lugar a un plan de ejecución de la consulta modificada.
+
+- **Versión del estimador de cardinalidad o de nivel de compatibilidad base de datos modificados**.  Pueden permitir que los cambios realizados en el nivel de compatibilidad de base de datos nuevas estrategias y las características que pueden producir un plan de ejecución de consulta diferentes.  Más allá del nivel de compatibilidad de base de datos, cómo deshabilitar o habilitar la marca de seguimiento 4199 o cambiar el estado de la configuración con ámbito de base de datos QUERY_OPTIMIZER_HOTFIXES también puede influir en las opciones del plan de ejecución en tiempo de compilación de consulta.  Las marcas de seguimiento 9481 (forzar la CE heredada) y 2312 (forzar la CE predeterminada) también son planear que afectan a. 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>Resolver consultas de problemas o proporcionar más recursos
 

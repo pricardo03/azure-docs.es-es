@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: manayar
-ms.openlocfilehash: 6c271c2c9feb1520951b2a8e301da4878970d60a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 61430f5a43a04fa0e5b2f0c79ff03419c73aaf28
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259428"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416552"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Protección de la instancia de escalado de máquinas virtuales de Azure establecida instances (versión preliminar)
 Conjuntos de escalado de máquina virtual de Azure permiten elasticidad mejor para sus cargas de trabajo a través de [escalado automático](virtual-machine-scale-sets-autoscale-overview.md), por lo que puede configurar cuando se escala horizontalmente la infraestructura y cuando escala en. Conjuntos de escalado también permiten administrar centralmente, configurar y actualizar un gran número de máquinas virtuales a través de diferentes [directiva de actualización](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) configuración. Puede configurar una actualización en el modelo de conjunto de escalado y la nueva configuración se aplica automáticamente a cada instancia del conjunto de escalado si ha configurado la directiva de actualización en automático o graduales.
@@ -30,7 +30,7 @@ Como su aplicación procesa el tráfico, puede haber situaciones en las que dese
 En este artículo se describe cómo puede aplicar y utilizar las capacidades de protección de la otra instancia con instancias del conjunto de escalado.
 
 > [!NOTE]
->Protección de la instancia está actualmente en versión preliminar pública. No es necesario ningún procedimiento opcional para usar la funcionalidad de versión preliminar pública que se describe a continuación. Vista previa de protección de instancia solo se admite con la API versión 2019-03-01 y versiones posteriores.
+>Protección de la instancia está actualmente en versión preliminar pública. No es necesario ningún procedimiento opcional para usar la funcionalidad de versión preliminar pública que se describe a continuación. Vista previa de protección de instancia solo se admite con la API versión 2019-03-01 y en conjuntos de escalado con discos administrados.
 
 ## <a name="types-of-instance-protection"></a>Tipos de protección de la instancia
 Conjuntos de escalado proporcionan dos tipos de capacidades de protección de instancia:

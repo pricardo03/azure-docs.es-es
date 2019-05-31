@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 5/7/2019
+ms.date: 5/28/2019
 ms.author: borisb
-ms.openlocfilehash: 7909ee1dc3980a5a4ff2418d4d6790361a66a65e
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e950a92925e77fa05708d2af3e04e7991243f613
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410735"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357746"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
@@ -102,7 +102,7 @@ Si va a usar la configuración de red para restringir aún más el acceso desde 
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Actualización del certificado de cliente de RHUI expirado en una máquina virtual
 
-Si usa una imagen de máquina virtual de RHEL anterior, por ejemplo, RHEL 7.4 (URN de imagen: `RedHat:RHEL:7.4:7.4.2018010506`), experimentará problemas de conectividad a RHUI debido a un certificado de cliente SSL ahora expirado. El error que vea puede ser similar a _"SSL del mismo nivel rechazó el certificado como expirado"_ o _Error: No se puede recuperar el repositorio de metadatos (repomd.xml) para el repositorio:... Compruebe su ruta de acceso y vuelva a intentarlo"_. Para solucionar este problema, actualice el paquete de cliente de RHUI en la máquina virtual con el siguiente comando:
+Si usa una imagen de máquina virtual de RHEL anterior, por ejemplo, RHEL 7.4 (URN de imagen: `RedHat:RHEL:7.4:7.4.2018010506`), experimentará problemas de conectividad a RHUI debido a un certificado de cliente SSL ahora expirado. El error que vea puede ser similar a _"SSL del mismo nivel rechazó el certificado como expirado"_ o _Error: No se puede recuperar el repositorio de metadatos (repomd.xml) para el repositorio:... Compruebe su ruta de acceso y vuelva a intentarlo"_ . Para solucionar este problema, actualice el paquete de cliente de RHUI en la máquina virtual con el siguiente comando:
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
@@ -138,89 +138,15 @@ Los nuevos servidores RHUI de Azure se implementan con [Azure Traffic Manager](h
 ### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Procedimiento de actualización manual para usar los servidores de RHUI de Azure
 Este procedimiento se proporciona solo como referencia. Las imágenes de RHEL PAYG ya tienen la configuración correcta para conectarse a la RHUI de Azure. Para actualizar manualmente la configuración para usar los servidores de RHUI de Azure, complete los pasos siguientes:
 
-1. Descargue la firma de clave pública mediante curl.
-
-   ```bash
-   curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc
-   ```
-
-1. Compruebe la validez de la clave descargada.
-
-   ```bash
-   gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
-   ```
-
-1. Compruebe la salida y, a continuación, compruebe el `keyid` y el `user ID packet`.
-
-   ```bash
-   Version: GnuPG v1.4.7 (GNU/Linux)
-   :public key packet:
-           version 4, algo 1, created 1446074508, expires 0
-           pkey[0]: [2048 bits]
-           pkey[1]: [17 bits]
-           keyid: EB3E94ADBE1229CF
-   :user ID packet: "Microsoft (Release signing) <gpgsecurity@microsoft.com>"
-   :signature packet: algo 1, keyid EB3E94ADBE1229CF
-           version 4, created 1446074508, md5len 0, sigclass 0x13
-           digest algo 2, begin of digest 1a 9b
-           hashed subpkt 2 len 4 (sig created 2015-10-28)
-           hashed subpkt 27 len 1 (key flags: 03)
-           hashed subpkt 11 len 5 (pref-sym-algos: 9 8 7 3 2)
-           hashed subpkt 21 len 3 (pref-hash-algos: 2 8 3)
-           hashed subpkt 22 len 2 (pref-zip-algos: 2 1)
-           hashed subpkt 30 len 1 (features: 01)
-           hashed subpkt 23 len 1 (key server preferences: 80)
-           subpkt 16 len 8 (issuer key ID EB3E94ADBE1229CF)
-           data: [2047 bits]
-   ```
-
-1. Instale la clave pública.
-
-   ```bash
-   sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
-   sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
-   ```
-
-1. Descargue, compruebe e instale un RPM Package Manager (RPM) de cliente.
-
-    >[!NOTE]
-    >Las versiones del paquete cambian. Si se conecta manualmente a RHUI de Azure, puede encontrar la versión más reciente del paquete de cliente para cada familia de RHEL si aprovisiona la imagen más reciente de la galería.
-
-    a. Descargue.
-
-    - Para RHEL 6:
-        ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/Packages/r/rhui-azure-rhel6-2.2-74.noarch.rpm
-        ```
-
-    - Para RHEL 7:
-        ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/Packages/r/rhui-azure-rhel7-2.2-74.noarch.rpm
-        ```
-
-   b. Compruebe.
-
-   ```bash
-   rpm -Kv azureclient.rpm
-   ```
-
-   c. Compruebe la salida para asegurarse de que la firma del paquete es correcta.
-
-   ```bash
-   azureclient.rpm:
-       Header V3 RSA/SHA256 Signature, key ID be1229cf: OK
-       Header SHA1 digest: OK (927a3b548146c95a3f6c1a5d5ae52258a8859ab3)
-       V3 RSA/SHA256 Signature, key ID be1229cf: OK
-       MD5 digest: OK (c04ff605f82f4be8c96020bf5c23b86c)
-   ```
-
-   d. Instale el RPM.
-
-    ```bash
-    sudo rpm -U azureclient.rpm
-    ```
-
-1. Al finalizar, compruebe que puede acceder a la RHUI en Azure desde la máquina virtual.
+- Para RHEL 6:
+  ```bash
+  yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel6.config' install 'rhui-azure-rhel6'
+  ```
+        
+- Para RHEL 7:
+  ```bash
+  yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
+  ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para crear una máquina virtual Linux de Red Hat Enterprise a partir de la imagen de pago por uso de Azure Marketplace y usar la RHUI hospedada en Azure, vaya a [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e65f7ca0a01e0ceee6448ea49e1d6d6da696cf6
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468324"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417081"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Roles de administrador por tarea de administrador en Azure Active Directory
 
@@ -338,7 +338,7 @@ Actualizar configuración de usuario | Administrador global |
 
 Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
-Enviar incidencia de soporte técnico | Administrador de servicios | Administrador de aplicaciones, Administrador de facturación, Administrador de aplicaciones en la nube, Administrador de cumplimiento, Administrador de Dynamics 365, Administrador de análisis de escritorio, Administrador de Exchange, Administrador de contraseñas, Administrador de protección de información, Administrador de Intune, Administrador de Skype Empresarial, Administrador de Power BI, Administrador de autenticación con privilegios, Administrador de SharePoint, Administrador de comunicaciones de equipos, Administrador de equipos, Administrador de usuarios, Administrador de Workplace Analytics
+Enviar incidencia de soporte técnico | Administrador de servicios | Administrador de aplicaciones, Administrador de Azure Information Protection, contraseña de administrador, Administrador de la aplicación en la nube, cumplimiento administrador, Administrador de Dynamics 365, análisis de escritorio Administrador, Administrador de Exchange, de facturación Administrador, Administrador de Intune, Skype para Administrador empresarial, Administrador de Power BI, con privilegios de administrador de autenticación, Administrador de SharePoint, Administrador de comunicaciones de los equipos, los equipos administrador, Administrador de usuarios Administrador de Workplace Analytics
 
 ## <a name="next-steps"></a>Pasos siguientes
 

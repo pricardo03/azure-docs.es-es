@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/24/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: f3ba08bc1d557d53bca2421b5052f496c740b185
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 4ff52e737438210296b8f2201d5e66e1d38b7bc9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969333"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418289"
 ---
 # <a name="monitor-the-process-server"></a>Supervisión del servidor de procesos
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo supervisar la [Site Recovery](site-recovery-
 
 [Obtenga más información](vmware-physical-azure-config-process-server-overview.md) sobre el rol y la implementación de servidores de procesos.
 
-## <a name="monitoring-overview"></a>Información general de supervisión
+## <a name="monitoring-overview"></a>Información general de la supervisión
 
 Puesto que el servidor de procesos tiene muchas funciones, especialmente en el almacenamiento en caché de los datos replicados, la compresión y la transferencia a Azure, es importante supervisar el estado del servidor de proceso de forma continuada.
 
@@ -53,15 +53,15 @@ El servidor de procesos genera un número de alertas de estado de resumen en la 
 
 **Tipo de alerta** | **Detalles**
 --- | ---
-![Estado correcto][green] | Servidor de procesos está conectado y en buen estado.
+![Healthy][green] | Servidor de procesos está conectado y en buen estado.
 ![Advertencia][yellow] | Uso de CPU > 80% durante los últimos 15 minutos
 ![Advertencia][yellow] | Uso de memoria > 80% durante los últimos 15 minutos
 ![Advertencia][yellow] | Carpeta de caché de espacio libre < 30% durante los últimos 15 minutos
 ![Advertencia][yellow] | No se estén ejecutando los servicios de servidor de procesos para los últimos 15 minutos
-![Fundamental][red] | Uso de CPU > 95% durante los últimos 15 minutos
-![Fundamental][red] | > 95% de uso de memoria durante los últimos 15 minutos
-![Fundamental][red] | Carpeta de caché de espacio libre < 25% para los últimos 15 minutos
-![Fundamental][red] | Ningún latido desde el servidor de procesos durante 15 minutos.
+![Crítico][red] | Uso de CPU > 95% durante los últimos 15 minutos
+![Crítico][red] | > 95% de uso de memoria durante los últimos 15 minutos
+![Crítico][red] | Carpeta de caché de espacio libre < 25% para los últimos 15 minutos
+![Crítico][red] | Ningún latido desde el servidor de procesos durante 15 minutos.
 
 ![Clave de la tabla](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 

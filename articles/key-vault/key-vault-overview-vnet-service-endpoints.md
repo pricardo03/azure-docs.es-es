@@ -8,12 +8,12 @@ manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: d003e851dcfa77b18a67450946a71e4a13ce495c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00274f8e15006f6f58a7c5f153bf0bbc0d26afb9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700969"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416426"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de red virtual para Azure Key Vault
 
@@ -53,7 +53,7 @@ Para más información, vea [Configuración de firewalls y redes virtuales de Az
 > Tenga en cuenta las siguientes limitaciones de configuración:
 > * Se permite un máximo de 127 reglas de red virtual y 127 reglas de IPv4. 
 > * Los rangos de dirección pequeños con tamaños de prefijos "/31" o "/32" no son compatibles. En su lugar, configure estos rangos utilizando reglas de direcciones IP individuales.
-> * Las reglas de red IP solo se permiten para direcciones IP públicas. No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en RFC 1918) en las reglas IP. Las redes privadas incluyen direcciones que empiecen con **10.**, **172.16 31**, y **192.168.**. 
+> * Las reglas de red IP solo se permiten para direcciones IP públicas. No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en RFC 1918) en las reglas IP. Las redes privadas incluyen direcciones que empiecen con **10.** , **172.16 31**, y **192.168.** . 
 > * Solo se admiten direcciones IPV4 en este momento.
 
 ## <a name="trusted-services"></a>Servicios de confianza
@@ -68,7 +68,7 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 |Azure Backup|Permitir la opción de copia de seguridad y restauración de claves y secretos pertinentes durante la copia de seguridad de máquinas virtuales de Azure mediante [Azure Backup](../backup/backup-introduction-to-azure-backup.md).|
 |Exchange Online y SharePoint Online|Permitir el acceso a la clave de cliente para Azure Storage Service Encryption con la [clave de cliente](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Permitir el acceso a la clave de inquilino para [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|Azure App Service|[Implementar un certificado de Azure Web App mediante Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/).|
+|Azure App Service|[Implementar un certificado de Azure Web App mediante Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Azure SQL Database|[Cifrado de datos transparente con compatibilidad con Bring Your Own Key para Azure SQL Database y Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Storage Service Encryption mediante claves administradas por el cliente en Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Cifrado de datos en Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) con una clave administrada de cliente.|

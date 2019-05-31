@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a1d2cc50b405df2c71d94e74973b3291a4e908cb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393483"
+ms.locfileid: "66417988"
 ---
 # <a name="content-key-policies"></a>Directivas de clave de contenido
 
@@ -25,7 +25,7 @@ Con Media Services puede entregar el contenido cifrado de forma dinámica en viv
 
 Para especificar opciones de cifrado en el flujo, deberá crear un [directiva Streaming](streaming-policy-concept.md) y asócielo con su [localizador de Streaming](streaming-locators-concept.md). Crear el [directiva de clave de contenido](https://docs.microsoft.com/rest/api/media/contentkeypolicies) para configurar cómo la clave de contenido (que proporciona acceso seguro a su [activos](assets-concept.md)) se entrega para los clientes finales. Deberá establecer los requisitos (restricciones) en la directiva de clave de contenido que se deben cumplir en orden para las claves con la configuración especificada que se entregará a los clientes. Esta directiva de clave de contenido no es necesaria para borrar streaming o descarga. 
 
-Por lo general, asocie su **directiva de clave de contenido** con su **localizador de Streaming**. Como alternativa, puede especificar la directiva de clave de contenido dentro de una directiva de transmisión por secuencias (al crear una directiva personalizada de transmisión por secuencias para escenarios avanzados). 
+Por lo general, asocie su **directiva de clave de contenido** con su [localizador de Streaming](streaming-locators-concept.md). Como alternativa, puede especificar la directiva de clave de contenido dentro de un [directiva Streaming](streaming-policy-concept.md) (al crear una directiva personalizada de transmisión por secuencias para escenarios avanzados). 
 
 Se recomienda permitir que Media Services para generar automáticamente claves de contenido. Normalmente, usaría una clave de larga duración y comprobar la existencia de las directivas con **obtener**. Para obtener la clave, debe llamar a un método de acción independiente para conseguir los secretos o credenciales. Vea el ejemplo siguiente.
 
