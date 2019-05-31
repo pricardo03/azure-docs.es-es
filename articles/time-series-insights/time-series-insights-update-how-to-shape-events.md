@@ -1,8 +1,8 @@
 ---
 title: Dar forma a los eventos con la versión preliminar de Azure Time Series Insights | Microsoft Docs
-description: Obtenga información acerca de cómo dar forma a los eventos en la versión preliminar de Azure Time Series Insights.
+description: Descubra cómo dar forma a los eventos de vista previa de Azure tiempo Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 38072d111d51cc2d2c6265643b69a870a679a454
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: f0e1a79073596dcabfacb7163e12b33bb582b7c3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466156"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238928"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Dar forma a los eventos con la versión preliminar de Azure Time Series Insights
 
@@ -23,7 +23,7 @@ En este artículo se proporciona información para dar forma a su archivo JSON p
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
-Es importante que piense en cómo envía eventos a la versión preliminar de Time Series Insights. Es decir, siempre debería:
+Piense en cómo enviar eventos a la vista previa en tiempo Series Insights. Es decir, siempre debería:
 
 * Enviar los datos a través de la red de la forma más eficaz posible.
 * Almacenar los datos de una manera que le ayude a agregarlos de manera más adecuada para su escenario.
@@ -31,16 +31,16 @@ Es importante que piense en cómo envía eventos a la versión preliminar de Tim
 Para garantizar el máximo rendimiento posible de las consultas, haga lo siguiente:
 
 * No envíe propiedades innecesarias. La versión preliminar de Time Series Insights le facturará en función del uso. Es mejor almacenar y procesar los datos que vaya a consultar.
-* Use campos de instancia para los datos estáticos. Este procedimiento le ayudará a evitar el envío de datos estáticos a través de la red. Los campos de instancia, que son un componente del modelo de serie temporal, funcionan como datos de referencia en el servicio GA de Time Series Insights. Para obtener más información sobre los campos de instancia, consulte los [modelos de serie temporal](./time-series-insights-update-tsm.md).
+* Use campos de instancia para los datos estáticos. Este procedimiento le ayudará a evitar el envío de datos estáticos a través de la red. Campos de instancia, un componente del modelo de serie temporal, funcionan como hacen referencia a datos en Time Series Insights con carácter general de los servicios disponibles. Para obtener más información sobre los campos de instancia, consulte los [modelos de serie temporal](./time-series-insights-update-tsm.md).
 * Comparta propiedades de dimensión entre dos o más eventos. Este procedimiento le ayudará a enviar datos a través de la red de manera más eficaz.
-* No utilice el anidamiento profundo de matriz. La versión preliminar de Time Series Insights admite hasta dos niveles de matrices anidadas que contengan objetos. Igualmente, la versión preliminar de Time Series Insights acopla las matrices en mensajes de varios eventos con pares de valores de propiedad.
-* Si solo existen algunas de las medidas para todos o la mayoría de los eventos, es mejor que envíe estas medidas como propiedades independientes dentro del mismo objeto. Al enviarlas por separado se reduce el número de eventos y, como hay que procesar menos eventos, las consultas son más eficaces.
+* No utilice el anidamiento profundo de matriz. Vista previa en tiempo Series Insights admite hasta dos niveles de matrices anidadas que contienen objetos. Igualmente, la versión preliminar de Time Series Insights acopla las matrices en mensajes de varios eventos con pares de valores de propiedad.
+* Si solo existen algunas de las medidas para todos o la mayoría de los eventos, es mejor que envíe estas medidas como propiedades independientes dentro del mismo objeto. Enviarlos por separado, reduce el número de eventos y pueden mejorar el rendimiento de las consultas porque menos eventos deben procesarse.
 
 ## <a name="example"></a>Ejemplo
 
-El ejemplo siguiente se basa en un escenario donde dos o más dispositivos envían señales o medidas. Las medidas o señales podrían ser *Caudal*, *Presión de aceite del motor*, *Temperatura* y *Humedad*.
+El ejemplo siguiente se basa en un escenario donde dos o más dispositivos envían señales o medidas. Las señales o medidas pueden ser *flujo tasa*, *presión del aceite del motor*, *temperatura*, y *humedad*.
 
-En el ejemplo siguiente, hay un único mensaje de IoT Hub donde la matriz externa contiene una sección compartida de valores de dimensión comunes. La matriz externa usa datos de instancia de serie temporal para aumentar la eficacia del mensaje. La instancia de serie temporal contiene metadatos del dispositivo, que no cambian con cada evento, pero que proporcionan propiedades útiles para el análisis de datos. Para ahorrar en bytes enviados a través de la conexión y hacer que el mensaje sea más eficaz, considere la posibilidad de agrupar valores de dimensiones comunes y emplear metadatos de instancia de serie temporal.
+En el ejemplo siguiente, hay un único mensaje IoT Hub de Azure donde la matriz externa contiene una sección compartida común de valores de dimensión. La matriz externa usa datos de instancia de serie temporal para aumentar la eficacia del mensaje. La instancia de serie temporal contiene metadatos del dispositivo, que no cambian con cada evento, pero que proporcionan propiedades útiles para el análisis de datos. Para ahorrar en bytes enviados a través de la conexión y hacer que el mensaje sea más eficaz, considere la posibilidad de agrupar valores de dimensiones comunes y emplear metadatos de instancia de serie temporal.
 
 ### <a name="example-json-payload"></a>Carga JSON de ejemplo
 
@@ -108,7 +108,7 @@ En el ejemplo siguiente, hay un único mensaje de IoT Hub donde la matriz extern
   },
 ```
 
-La versión preliminar de Time Series Insights une una tabla (después del acoplamiento) durante el tiempo de consulta. La tabla incluye columnas adicionales, como **Type**. En el ejemplo siguiente se demuestra cómo puede dar [forma](./time-series-insights-send-events.md#json) a los datos de telemetría:
+La versión preliminar de Time Series Insights une una tabla (después del acoplamiento) durante el tiempo de consulta. La tabla incluye columnas adicionales, como **Type**. El ejemplo siguiente demuestra cómo puede [forma](./time-series-insights-send-events.md#json) los datos de telemetría.
 
 | deviceId  | Type | L1 | L2 |  timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -119,16 +119,15 @@ La versión preliminar de Time Series Insights une una tabla (después del acopl
 En el ejemplo anterior, tenga en cuenta lo siguiente:
 
 * Las propiedades estáticas se almacenan en la versión preliminar de Time Series Insights para optimizar los datos enviados a través de la red.
-* Los datos de la versión preliminar de Time Series Insights se combinan cuando se realiza una consulta mediante el valor de *timeSeriesId* que está definido en la instancia.
+* Datos de vista previa de información de serie de tiempo se unen en tiempo de consulta mediante el identificador de la serie de tiempo que se define en la instancia.
 * Se usan dos capas de anidamiento, que es la opción más compatible con la versión preliminar de Time Series Insights. Es fundamental para evitar matrices profundamente anidadas.
 * Como hay pocas medidas, estas se envían como propiedades independientes en el mismo objeto. En este ejemplo, **series.Flow Rate psi**, **series.Engine Oil Pressure psi** y **series.Flow Rate ft3/s** son columnas únicas.
 
 >[!IMPORTANT]
-> Los campos de instancia no se almacenan con telemetría. Se almacenan con metadatos en el **modelo de serie temporal**.
+> Campos de instancia no se almacenan con la telemetría. Se almacenan con metadatos en el **modelo de serie temporal**.
 > La tabla anterior representa la vista de consulta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para poner en práctica estas pautas, consulte [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md) (Sintaxis de consultas de la versión preliminar de Azure Time Series Insights). Obtendrá más información sobre la sintaxis de consultas para la API REST de acceso a datos de la versión preliminar de Time Series Insights.
-
 - Para obtener información sobre las formas JSON admitidas, consulte [Supported JSON shapes](./time-series-insights-send-events.md#json) (Formas JSON admitidas).

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949580"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243593"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Control de acceso en Azure Data Lake Storage Gen2
 
@@ -26,9 +26,9 @@ Azure Data Lake Storage Gen2 implementa un modelo de control de acceso que admit
 
 RBAC utiliza las asignaciones de roles para aplicar de forma eficaz los conjuntos de permisos a *entidades de seguridad*. Un *entidad de seguridad* es un objeto que representa un usuario, grupo, entidad de servicio o identidad administrada que se define en Azure Active Directory (AD) que solicita acceso a recursos de Azure.
 
-Normalmente, los recursos de Azure están limitados a los recursos de nivel superior (por ejemplo: Cuentas de almacenamiento de Azure). En el caso de Azure Storage y, por tanto, Azure Data Lake Storage Gen2, este mecanismo se ha ampliado al recurso de sistema de archivos.
+Normalmente, los recursos de Azure están limitados a los recursos de nivel superior (por ejemplo: Cuentas de almacenamiento de Azure). En el caso de Azure Storage y, por tanto, Azure Data Lake Storage Gen2, este mecanismo se ha ampliado para el recurso de contenedor (sistema de archivos).
 
-Para obtener información sobre cómo asignar roles a entidades de seguridad en el ámbito de la cuenta de almacenamiento, consulte [autenticar el acceso a Azure blobs y colas con Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para obtener información sobre cómo asignar roles a entidades de seguridad en el ámbito de la cuenta de almacenamiento, consulte [conceder acceso a datos blob y cola de Azure con RBAC en Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>El impacto de las asignaciones de roles en listas de control de acceso de nivel de archivo y directorio
 
@@ -49,7 +49,7 @@ Los tokens de SAS incluyen permisos permitidos como parte del token. Los permiso
 
 ## <a name="access-control-lists-on-files-and-directories"></a>Listas de control de acceso en archivos y directorios
 
-Puede asociar a una entidad de seguridad con un nivel de acceso de archivos y directorios. Estas asociaciones se capturan en un *lista de control de acceso (ACL)*. Cada archivo y directorio en la cuenta de almacenamiento tiene una lista de control de acceso.
+Puede asociar a una entidad de seguridad con un nivel de acceso de archivos y directorios. Estas asociaciones se capturan en un *lista de control de acceso (ACL)* . Cada archivo y directorio en la cuenta de almacenamiento tiene una lista de control de acceso.
 
 Si ha asignado un rol a una entidad de seguridad en el nivel de cuenta de almacenamiento, puede usar listas de control de acceso para conceder que acceso elevado de esa entidad de seguridad a los directorios y archivos específicos.
 
@@ -77,8 +77,6 @@ ACL predeterminadas son plantillas de las ACL asociadas a un directorio que dete
 
 Tanto las ACL de acceso como las ACL predeterminadas tienen la misma estructura.
 
-Tanto las ACL de acceso como las ACL predeterminadas tienen la misma estructura.
-
 > [!NOTE]
 > El cambio de la ACL predeterminada en un elemento primario no afecta a la ACL de acceso o a la ACL predeterminada de los elementos secundarios que ya existen.
 
@@ -91,6 +89,9 @@ Los permisos de un objeto del sistema de archivos son de **lectura**, **escritur
 | **Lectura (R)** | Puede leer el contenido de un archivo | Requiere permisos de **lectura** y **ejecución** para enumerar el contenido del directorio. |
 | **Escritura (W)** | Puede escribir o anexar a un archivo | Requiere permisos de **lectura** y **ejecución** para crear elementos secundarios en un directorio. |
 | **Ejecución (X)** | No significa nada en el contexto de Data Lake Storage Gen2 | Se requiere para atravesar los elementos secundarios de un directorio. |
+
+> [!NOTE]
+> Si va a conceder permisos mediante el uso de ACL solo (ninguna RBAC) y, después, para conceder a un servicio principal de lectura o acceso de escritura a un archivo, debe asignar a la entidad de servicio **Execute** permisos para el sistema de archivos y para cada carpeta en el jerarquía de carpetas que conducen al archivo.
 
 #### <a name="short-forms-for-permissions"></a>Formas abreviadas de los permisos
 
@@ -269,7 +270,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>¿Es preciso habilitar la compatibilidad con las ACL?
 
-No. Control de acceso mediante las ACL está habilitada para una cuenta de almacenamiento como el Namespace (SNP) jerárquica característica está activada.
+ No. Control de acceso mediante las ACL está habilitada para una cuenta de almacenamiento como el Namespace (SNP) jerárquica característica está activada.
 
 Si el espacio de nombres jerárquico está DESACTIVADO, las reglas de autorización de RBAC siguen siendo aplicables.
 
@@ -281,7 +282,7 @@ Utilice siempre grupos de seguridad de Azure AD como la entidad asignada en las 
 
 - El autor de la llamada tiene los permisos de "superusuario",
 
-O
+o
 
 - El directorio principal debe tener permisos de escritura y ejecución.
 - Tanto el directorio que se va a eliminar como todos los directorios que contiene requieren permisos de lectura, escritura y ejecución.

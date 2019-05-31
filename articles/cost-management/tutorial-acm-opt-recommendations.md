@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 67cf15b00e597131afe421bf8306a5df4511af9a
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 81180d6930816a4a7715ce60313347019029fccd
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65965521"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416091"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutorial: Optimización de los costos a partir de las recomendaciones
 
@@ -36,7 +36,7 @@ Las recomendaciones están disponibles para una variedad de ámbitos y tipos de 
 
 Debe tener máquinas virtuales activas con al menos 14 días de actividad.
 
-## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com/).
 
 ## <a name="view-cost-optimization-recommendations"></a>Visualización de las recomendaciones de optimización de costos
@@ -49,7 +49,17 @@ Para ver las recomendaciones para un grupo de administración, abra el ámbito d
 
 La lista de recomendaciones identifica las deficiencias de uso o muestra las recomendaciones de compra que pueden ayudarle a ahorrar más dinero. El **Ahorro potencial anual** totalizado muestra el importe total que se puede ahorrar si apaga o desasigna todas las VM que cumplan las reglas de recomendación. Si no quiere apagarlas, considere la posibilidad de cambiar su tamaño a una SKU de VM menos costosa.
 
-La categoría **Impacto**, junto con el **Ahorro potencial anual**, está diseñada para ayudar a identificar las recomendaciones con el máximo potencial de ahorro. Las recomendaciones de alto impacto son [Compra de instancias reservadas de máquina virtual para ahorrar dinero en los costos de pago por uso](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs) y [Optimización del gasto en máquinas virtuales mediante la adecuación del tamaño o el apagado en instancias infrautilizadas](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances). Las recomendaciones de impacto moderado son [Reducción de los costos mediante la eliminación de circuitos ExpressRoute no aprovisionados](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits) y [Reducción de costos mediante la eliminación o reconfiguración de puertas de enlace de red virtual inactivas](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways).
+La categoría **Impacto**, junto con el **Ahorro potencial anual**, está diseñada para ayudar a identificar las recomendaciones con el máximo potencial de ahorro.
+
+Se incluyen recomendaciones de alto impacto:
+- [Comprar instancias reservadas de máquina virtual para ahorrar dinero en costos de pago por uso](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
+- [Optimizar el gasto en máquinas virtuales cambiando el tamaño o apagar instancias infrautilizadas](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
+- [Usar almacenamiento estándar para almacenar las instantáneas de discos administrados ](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+
+Se incluyen recomendaciones de impacto moderado:
+- [Eliminar las canalizaciones de Azure Data Factory que se producen errores](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
+- [Reducir los costos mediante la eliminación de circuitos de ExpressRoute no aprovisionados](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
+- [Reducir los costos al eliminar o reconfigurar puertas de enlace de red virtual inactivas](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
 
 ## <a name="act-on-a-recommendation"></a>Actuar en función de una recomendación
 

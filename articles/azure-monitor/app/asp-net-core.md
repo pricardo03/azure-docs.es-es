@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8522b1d0a8f8466870966d3f11ce66f7bf15672b
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: cb7ace20fd0a59dafff3d7f8240f54c3c8e12492
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016364"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226393"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicaciones de ASP.NET Core
 
@@ -111,13 +111,13 @@ El [Application Insights SDK (Kit de desarrollo de Software) para ASP.NET Core](
     > [!NOTE]
     > Una clave de instrumentación especificada en el código wins a través de la variable de entorno `APPINSIGHTS_INSTRUMENTATIONKEY`, que gane sobre otras opciones.
 
-## <a name="run-your-application"></a>Ejecutar la aplicación
+## <a name="run-your-application"></a>Ejecución de la aplicación
 
  Ejecute la aplicación y realizar solicitudes a él. Datos de telemetría ahora deben comenzar a fluir a Application Insights. La siguiente telemetría se recopila automáticamente mediante el SDK de Application Insights.
 
 |Las solicitudes y dependencias |Detalles|
 |---------------|-------|
-|Solicitudes | Solicitudes web entrantes a la aplicación. |
+|Requests | Solicitudes web entrantes a la aplicación. |
 |Http/Https | Las llamadas realizadas con `HttpClient`. |
 |SQL | Las llamadas realizadas con `SqlClient`. |
 |[Almacenamiento de Azure](https://www.nuget.org/packages/WindowsAzure.Storage/) | Llamadas realizadas con el cliente de Azure Storage. |
@@ -138,7 +138,7 @@ Compatibilidad con [los contadores de rendimiento](https://azure.microsoft.com/d
 
 [Los registros de ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger) de gravedad `Warning` o versiones posteriores son automáticamente capturados desde el SDK versión 2.7.0-beta3 o superior.
 
-### <a name="live-metrics"></a>Live Metrics
+### <a name="live-metrics"></a>Métricas en vivo
 
 Puede tardar unos minutos para la telemetría comenzar a aparecer en el portal. Para comprobar rápidamente si todo funciona, es mejor usar [Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream), mientras que realizar solicitudes a la aplicación en ejecución.
 
@@ -348,7 +348,7 @@ Si está instalado el SDK en tiempo de compilación, como se muestra en este art
 
 ### <a name="can-i-enable-application-insights-monitoring-using-tools-like-status-monitor"></a>¿Puedo habilitar la supervisión de Application Insights con herramientas como Monitor de estado?
 
-No. [Monitor de estado](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now) y su reemplazo próximas [v2 del Monitor de estado](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) actualmente admite ASP.NET 4.x solo.
+ No. [Monitor de estado](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now) y su reemplazo próximas [v2 del Monitor de estado](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) actualmente admite ASP.NET 4.x solo.
 
 ### <a name="i-have-an-aspnet-core-20-application-isnt-application-insights-automatically-enabled-without-me-doing-anything"></a>Tengo una aplicación ASP.NET Core 2.0. ¿No está habilitada automáticamente Application Insights sin que hiciera nada?
 
@@ -382,7 +382,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## <a name="video"></a>Vídeo
 
-- Externo vídeo paso a paso acerca de cómo [configurar Application Insights con .NET Core y Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) desde cero.
+- Vídeo externo detallado sobre cómo [configurar Application Insights con .NET Core y Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) desde cero.
+- Externo vídeo paso a paso acerca de cómo [configurar Application Insights con .NET Core y Visual Studio Code](https://youtu.be/ygGt84GDync) desde cero.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Explore los flujos de usuarios](../../azure-monitor/app/usage-flows.md) para saber cómo navegan por la aplicación.

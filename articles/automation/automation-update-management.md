@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b92083b78971ab00f87e073ba7f4944a6f828daf
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 885c5266e80114b54007d05d2220fbf5ea5ab84e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991636"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397635"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -234,7 +234,7 @@ Para crear una nueva implementación de actualizaciones, seleccione **Programar 
 | Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md) |
 |Clasificaciones de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite|
 |Incluir o excluir actualizaciones|Se abrirá la página **Incluir/Excluir**. Las actualizaciones que se incluirán o excluirán están en pestañas independientes. Para más información sobre cómo se controla la inclusión, consulte la sección [Comportamiento de inclusión](automation-update-management.md#inclusion-behavior). |
-|Configuración de la programación|Seleccione la hora de inicio y seleccione Una vez o de manera periódica para la periodicidad|
+|Configuración de programación|Seleccione la hora de inicio y seleccione Una vez o de manera periódica para la periodicidad|
 | Scripts previos + scripts posteriores|Seleccione los scripts que se ejecutarán antes y después de la implementación.|
 | Ventana de mantenimiento |Número de minutos establecido para las actualizaciones. El valor no puede ser inferior a 30 minutos ni más de 6 horas |
 | Control de reinicio| Determina cómo se deben controlar los reinicios. Las opciones disponibles son la siguientes:</br>Reboot if required (Default) [Reiniciar si es necesario (predeterminada)]</br>Always reboot (Reiniciar siempre)</br>Never reboot (No reiniciar nunca)</br>Only reboot (solo reiniciar), no se instalarán las actualizaciones|
@@ -262,7 +262,7 @@ Haga clic en **Actualizaciones que faltan** para ver la lista de actualizaciones
 
 ## <a name="view-update-deployments"></a>Visualización de implementaciones de actualizaciones
 
-Seleccione la pestaña **Implementaciones de actualizaciones** para ver la lista de implementaciones de actualizaciones existentes. Seleccione cualquiera de las implementaciones de actualizaciones de la tabla para abrir el panel **Actualizar la ejecución de implementación** para esa implementación de actualizaciones.
+Seleccione la pestaña **Implementaciones de actualizaciones** para ver la lista de implementaciones de actualizaciones existentes. Seleccione cualquiera de las implementaciones de actualizaciones de la tabla para abrir el panel **Actualizar la ejecución de implementación** para esa implementación de actualizaciones. Los registros de trabajo se almacenan durante 30 días como máximo.
 
 ![Información general de los resultados de la implementación de actualizaciones](./media/automation-update-management/update-deployment-run.png)
 
@@ -274,20 +274,20 @@ En las siguientes tablas se muestran las clasificaciones de actualizaciones en U
 
 ### <a name="windows"></a> Windows
 
-|Clasificación  |DESCRIPCIÓN  |
+|clasificación  |DESCRIPCIÓN  |
 |---------|---------|
 |Actualizaciones críticas     | Actualización para un problema específico que resuelve un error crítico no relacionado con la seguridad.        |
 |Actualizaciones de seguridad     | Actualización para un problema específico del producto relacionado con la seguridad.        |
-|Paquetes acumulativos de revisiones     | Conjunto acumulativo de revisiones que se empaquetan para facilitar la implementación.        |
-|Paquetes de características     | Nuevas características del producto que se distribuyen fuera de una versión del producto.        |
-|Service Pack     | Un conjunto acumulativo de revisiones que se aplican a una aplicación.        |
+|Paquetes acumulativos de actualizaciones     | Conjunto acumulativo de revisiones que se empaquetan para facilitar la implementación.        |
+|Feature Packs     | Nuevas características del producto que se distribuyen fuera de una versión del producto.        |
+|Service Packs     | Un conjunto acumulativo de revisiones que se aplican a una aplicación.        |
 |Actualizaciones de definiciones     | Una actualización de archivos de definiciones de virus o de otra índole.        |
 |Herramientas     | Utilidad o característica que ayuda a realizar una o más tareas.        |
 |Actualizaciones     | Actualización de una aplicación o archivo que están instalados actualmente.        |
 
 ### <a name="linux"></a>Linux
 
-|Clasificación  |DESCRIPCIÓN  |
+|clasificación  |DESCRIPCIÓN  |
 |---------|---------|
 |Actualizaciones críticas y de seguridad     | Actualizaciones para un problema específico o un problema de un producto específico relacionado con la seguridad.         |
 |Otras actualizaciones     | Todas las demás actualizaciones que ni son críticas por naturaleza ni son actualizaciones de seguridad.        |
@@ -356,7 +356,7 @@ Para más información sobre los puertos que necesita Hybrid Runbook Worker, con
 
 Se recomienda utilizar las direcciones mostradas al definir las excepciones. Puede descargar los [intervalos de direcciones IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Este archivo se actualiza semanalmente y refleja los intervalos implementados en ese momento y los próximos cambios en los intervalos de direcciones.
 
-## <a name="search-logs"></a>Buscar registros
+## <a name="search-logs"></a>Búsqueda de registros
 
 Además de los detalles que se proporcionan en Azure Portal, se pueden realizar búsquedas en los registros. En la página de la solución, seleccione **Log Analytics**. Se abre el panel **Búsqueda de registros**.
 
@@ -586,7 +586,7 @@ Estos grupos se definen mediante una consulta, cuando se inicia una implementaci
 * Ubicaciones
 * `Tags`
 
-![Seleccionar grupos](./media/automation-update-management/select-groups.png)
+![Selección de grupos](./media/automation-update-management/select-groups.png)
 
 Para obtener una vista previa de los resultados de un grupo dinámico, haga clic en el botón **Vista previa**. Esta vista previa muestra la pertenencia al grupo en ese momento; en este ejemplo, estamos buscando máquinas con la etiqueta **Role** es igual a **BackendServer**. Si se ha agregado esta etiqueta a varias máquinas, se agregarán a las implementaciones futuras en ese grupo.
 
@@ -596,7 +596,7 @@ Para obtener una vista previa de los resultados de un grupo dinámico, haga clic
 
 Para que no son de Azure las máquinas, las búsquedas guardadas también conocen como grupos de equipos se utilizan para crear el grupo dinámico. Para obtener información sobre cómo crear una búsqueda guardada, consulte [crear un grupo de equipos](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Una vez creado el grupo puede seleccionarla en la lista de búsquedas guardadas. Haga clic en **Preview** para obtener una vista previa de los equipos de la búsqueda guardada en ese momento.
 
-![Seleccionar grupos](./media/automation-update-management/select-groups-2.png)
+![Selección de grupos](./media/automation-update-management/select-groups-2.png)
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integración con System Center Configuration Manager
 
