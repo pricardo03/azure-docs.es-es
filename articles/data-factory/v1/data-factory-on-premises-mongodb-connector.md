@@ -67,11 +67,11 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesMongoDb** |Sí |
-| Servidor |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
-| puerto |Puerto TCP que el servidor de MongoDB utiliza para escuchar las conexiones del cliente. |Valor predeterminado opcional: 27017 |
+| server |Dirección IP o nombre de host del servidor de MongoDB. |Sí |
+| port |Puerto TCP que el servidor de MongoDB utiliza para escuchar las conexiones del cliente. |Valor predeterminado opcional: 27017 |
 | authenticationType |Básica o anónima. |Sí |
 | username |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
-| contraseña |Contraseña del usuario. |Sí (si se usa la autenticación básica). |
+| password |Contraseña del usuario. |Sí (si se usa la autenticación básica). |
 | authSource |Nombre de la base de datos de MongoDB que desea usar para comprobar las credenciales de autenticación. |Opcional (si se usa la autenticación básica). Valor predeterminado: se utiliza la cuenta de administrador y la base de datos especificada mediante la propiedad databaseName. |
 | databaseName |Nombre de la base de datos de MongoDB a la que desea acceder. |Sí |
 | gatewayName |Nombre de la puerta de enlace que accede al almacén de datos. |Sí |
