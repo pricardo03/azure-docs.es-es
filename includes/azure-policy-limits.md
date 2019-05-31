@@ -5,15 +5,15 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/18/2018
+ms.date: 05/30/2019
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: 57cec39bde460c6079091490acf541761c61e003
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 7907504401f4b47aafe6032ea895d9647e6c303c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119297"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66420788"
 ---
 Hay un número máximo de cada tipo de objeto de Azure Policy. Una entrada de _Scope_ significa la suscripción o el [grupo de administración](../articles/governance/management-groups/overview.md).
 
@@ -26,5 +26,5 @@ Hay un número máximo de cada tipo de objeto de Azure Policy. Una entrada de _
 | Definición de directiva | Parámetros | 20 |
 | Definición de iniciativa | Directivas | 100 |
 | Definición de iniciativa | Parámetros | 100 |
-| Asignaciones de iniciativas o directivas | Exclusiones (notScopes) | 250 |
+| Asignaciones de iniciativas o directivas | Exclusiones (notScopes) | 400 |
 | Regla de directiva | Condicionales anidados | 512 |

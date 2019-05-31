@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: 0307dc5c83782119f6c10279563b8b9f0a999d28
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65952938"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236879"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -21,7 +21,7 @@ Las bases de datos de SQL Server son cargas de trabajo críticas que requieren u
 
 En este artículo se muestra cómo realizar copias de seguridad de una base de datos de SQL Server que se ejecuta en una máquina virtual de Azure en un almacén de copia de seguridad de Azure Recovery Services.
 
-En este artículo, aprenderá cómo:
+En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear y configurar un almacén.
@@ -49,7 +49,7 @@ Todas las operaciones, una máquina virtual de SQL Server requiere conectividad 
 
 Establecer la conectividad con una de las siguientes opciones:
 
-- **Permitir que los intervalos IP de centro de datos Azure**. Esta opción permite [intervalos IP](https://www.microsoft.com/download/details.aspx?id=41653) en la descarga. Para obtener acceso a un grupo de seguridad de red (NSG), use el cmdlet Set-AzureNetworkSecurityRule. Si le específicas de región única lista blanca de direcciones IP, se deberá también necesita a la lista blanca de Azure Active Directory (Azure AD) etiqueta de servicio para habilitar la autenticación.
+- **Permitir que los intervalos IP de centro de datos Azure**. Esta opción permite [intervalos IP](https://www.microsoft.com/download/details.aspx?id=41653) en la descarga. Para obtener acceso a un grupo de seguridad de red (NSG), use el cmdlet Set-AzureNetworkSecurityRule. Si está seguro sólo las direcciones de IP específicos de la región de la lista de destinatarios, también deberá actualizar la etiqueta de servicio de Azure Active Directory (Azure AD) para habilitar la autenticación de la lista de destinatarios seguros.
 
 - **Permitir el acceso mediante etiquetas NSG**. Si usa los NSG para restringir la conectividad, esta opción agrega una regla para el NSG que permita el acceso saliente a Azure Backup mediante el uso de la etiqueta de AzureBackup. Además de esta etiqueta, también necesitará correspondiente [reglas](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para Azure AD y el almacenamiento de Azure para permitir la conectividad de transferencia de datos y autenticación. La etiqueta de AzureBackup sólo está actualmente disponible en PowerShell. Para crear una regla mediante el uso de la etiqueta de AzureBackup:
 
@@ -68,7 +68,7 @@ Establecer la conectividad con una de las siguientes opciones:
   - Guardar el NSG<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
 - **Permitir el acceso mediante el uso de etiquetas de Firewall de Azure**. Si usa Firewall de Azure, crear una regla de aplicación mediante el AzureBackup [etiqueta FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags). Esto permite el acceso saliente a Azure Backup.
-- **Implementar un servidor proxy HTTP para enrutar el tráfico**. Cuando hace una copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure, la extensión de copia de seguridad en la máquina virtual usa las API de HTTPS para enviar comandos de administración para Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Las extensiones son el único componente que está configurado para tener acceso a la red internet pública.
+- **Implementar un servidor proxy HTTP para enrutar el tráfico**. Cuando hace una copia de seguridad de una base de datos de SQL Server en una máquina virtual de Azure, la extensión de copia de seguridad en la máquina virtual usa las API de HTTPS para enviar comandos de administración para Azure Backup y datos a Azure Storage. La extensión de copia de seguridad también usa Azure AD para la autenticación. Enrute el tráfico de extensión de copia de seguridad de estos tres servicios a través del proxy HTTP. Las extensiones son el único componente configurado para el acceso a la red pública de Internet.
 
 Las opciones de conectividad incluyen las siguientes ventajas y desventajas:
 
@@ -96,7 +96,8 @@ Evite el uso de los elementos siguientes en los nombres de base de datos:
   * Al final y los espacios iniciales
   * Los signos de exclamación (!)
   * Cierre los corchetes ([])
-  * A partir de F:\
+  * Punto y coma ';'
+  * Barra diagonal '/'
 
 Creación de alias está disponible para los caracteres no admitidos, pero se recomienda evitarlos. Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
@@ -162,7 +163,7 @@ Cómo detectar bases de datos que se ejecuta en una máquina virtual:
 
      * Para proteger más de 50 bases de datos, configure varias copias de seguridad.
      * Para habilitar [ ](#enable-auto-protection) toda la instancia o el grupo de disponibilidad Always On. En el **AUTOPROTECT** lista desplegable, seleccione **ON**y, a continuación, seleccione **Aceptar**.
-     
+
     > [!NOTE]
     > El [protección automática](#enable-auto-protection) característica permite no solo la protección en todas las bases de datos existentes a la vez, pero protege también automáticamente las nuevas bases de datos agregados a esa instancia o el grupo de disponibilidad.  
 
@@ -174,7 +175,7 @@ Cómo detectar bases de datos que se ejecuta en una máquina virtual:
 
    - Seleccione la directiva predeterminada como HourlyLogBackup.
    - Elegir una directiva de copia de seguridad existente creada previamente para SQL.
-   - Definir una nueva directiva basada en el intervalo de retención y RPO.
+   - Defina una nueva directiva basada en el objetivo de punto de recuperación (RPO) y en la duración de retención.
 
      ![Seleccionar directiva de copia de seguridad](./media/backup-azure-sql-database/select-backup-policy.png)
 
@@ -182,7 +183,7 @@ Cómo detectar bases de datos que se ejecuta en una máquina virtual:
 
     ![Habilitar la directiva de copia de seguridad elegida](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Realizar un seguimiento del progreso de la configuración en el **notificaciones** área del portal.
+7. Realice el seguimiento del progreso de la configuración en el área de  **notificaciones**  del portal.
 
     ![Área de notificaciones](./media/backup-azure-sql-database/notifications-area.png)
 
