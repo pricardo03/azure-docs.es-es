@@ -75,8 +75,8 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesPostgreSql** |Sí |
-| Servidor |Nombre del servidor de PostgreSQL. |Sí |
-| Base de datos |Nombre de la base de datos de PostgreSQL. |Sí |
+| server |Nombre del servidor de PostgreSQL. |Sí |
+| database |Nombre de la base de datos de PostgreSQL. |Sí |
 | schema |Nombre del esquema de la base de datos. El nombre del esquema distingue mayúsculas de minúsculas. |Sin  |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos de PostgreSQL. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
 | username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
