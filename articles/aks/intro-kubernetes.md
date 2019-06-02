@@ -99,7 +99,7 @@ Para más información, consulte [Proyecto de Azure DevOps][azure-devops].
 
 ## <a name="docker-image-support-and-private-container-registry"></a>Compatibilidad con imágenes de Docker y registro de contenedor privado
 
-AKS admite el formato de imagen de Docker. Para el almacenamiento privado de las imágenes de Docker, puede realizar la integración de ASK con Azure Container Registry (ACR).
+AKS admite el formato de imagen de Docker. Para el almacenamiento privado de las imágenes de Docker, puede realizar la integración de AKS con Azure Container Registry (ACR).
 
 Para crear un almacén de imágenes privado, consulte [Azure Container Registry][acr-docs].
 
