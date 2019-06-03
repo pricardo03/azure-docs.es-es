@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4f1ce8fd44a501f594f3093789d1ef03e664d018
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69c14c6b98b572bc413f5a35696269e13344387e
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829555"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417319"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Compatibilidad de idiomas y regiones para Text Analytics API
 
@@ -23,7 +23,11 @@ En este artículo se explica qué lenguajes se admiten para cada operación: an�
 
 ## <a name="language-detection"></a>Detección de idiomas
 
-Text Analytics API puede detectar hasta 120 idiomas diferentes. La detección de idioma devuelve el "script" de un idioma. Por ejemplo, en el caso de la frase "Tengo un perro", se devolverá `en` en lugar de `en-US`. El único caso especial es el chino, donde la funcionalidad de detección de idioma devolverá `zh_CHS` o `zh_CHT` si puede determinar el script dado el texto proporcionado. En situaciones donde no se puede identificar un script específico para un documento chino, devolverá simplemente `zh`.
+Text Analytics API puede detectar una amplia gama de lenguajes, variantes, dialectos y algunos lenguajes cultural o configuración regional.  La detección de idioma devuelve el "script" de un idioma. Por ejemplo, en el caso de la frase "Tengo un perro", se devolverá `en` en lugar de `en-US`. El único caso especial es el chino, donde la funcionalidad de detección de idioma devolverá `zh_CHS` o `zh_CHT` si puede determinar el script dado el texto proporcionado. En situaciones donde no se puede identificar un script específico para un documento chino, devolverá simplemente `zh`.
+
+No publicamos la lista exacta de idiomas para esta característica, pero puede detectar una amplia gama de lenguajes, variantes, dialectos y algunos lenguajes cultural o configuración regional. 
+
+Si tiene contenido que se expresan en un lenguaje usado con menos frecuencia, puede intentar la detección para ver si devuelve un código de idioma. Es la respuesta para los idiomas que no puedan detectarse `unknown`.
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Análisis de sentimiento, extracción de frases clave y el reconocimiento de entidades con nombre
 
@@ -33,7 +37,7 @@ Para el Análisis de sentimiento, la Extracción de frases clave y el Reconocimi
 
 La compatibilidad de idiomas se introduce inicialmente en la versión preliminar, pasando de forma gradual al estado de disponible de forma general (GA), independientemente de los demás y del servicio de Text Analytics en general. Los idiomas pueden mantenerse en versión preliminar, incluso mientras se realiza la transición de Text Analytics API a disponible de forma general.
 
-| Idioma    | Código de idioma | Opinión | Frases clave | Reconocimiento de entidades con nombre |   Notas  |
+| Lenguaje    | Código de idioma | Opinión | Frases clave | Reconocimiento de entidades con nombre |   Notas  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Árabe      | `ar`          |           |             | ✔ \*                     | |
 | Checo       | `cs`          |           |             | ✔ \*                     | |

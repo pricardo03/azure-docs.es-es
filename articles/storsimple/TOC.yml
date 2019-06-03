@@ -87,14 +87,16 @@
           href: storsimple-ova-web-ui-admin.md
     - name: Notas de la versión
       items:
-        - name: 'Actualización 1.1: actual'
+        - name: Actualización 1.2
+          href: storsimple-virtual-array-update-12-release-notes.md
+        - name: Actualización 1.1
           href: storsimple-virtual-array-update-11-release-notes.md
         - name: Actualización 1
           href: storsimple-virtual-array-update-1-release-notes.md
-        - name: Actualización 0.6
-          href: storsimple-virtual-array-update-06-release-notes.md
         - name: Archivar
           items:
+            - name: Actualización 0.6
+              href: storsimple-virtual-array-update-06-release-notes.md
             - name: Actualización 0.5
               href: storsimple-virtual-array-update-05-release-notes.md
             - name: Actualización 0.4
@@ -103,7 +105,7 @@
               href: storsimple-ova-update-03-release-notes.md
             - name: Update 0.2 y 0.1
               href: storsimple-ova-update-01-release-notes.md
-- name: StorSimple serie 8000 (Azure Portal)
+- name: StorSimple serie 8000
   items:
     - name: Información general
       items:
@@ -219,7 +221,7 @@
               items:
                 - name: Administrar el controlador del dispositivo
                   href: storsimple-8000-manage-device-controller.md
-                - name: 'Configurar el proxy web '
+                - name: Configurar el proxy web
                   href: storsimple-8000-configure-web-proxy.md
                 - name: Modificar la configuración de DATA 0
                   href: storsimple-8000-modify-data-0.md

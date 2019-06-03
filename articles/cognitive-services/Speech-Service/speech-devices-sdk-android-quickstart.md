@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 073166a594088bca04d81883247a5880fcbd1cb7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: bd0160073898a5a83af2e7b2bba2dba007c04513
+ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66234519"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66425660"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Inicio rápido: Ejecutar la aplicación de ejemplo de SDK de dispositivos de voz en Android
 
@@ -84,7 +84,7 @@ Para validar la instalación del kit de desarrollo, cree e instale la aplicació
 
 1. Agregue la clave de suscripción de voz al código fuente. Si quiere probar el reconocimiento de intenciones, agregue también la clave de suscripción y el identificador de aplicación del [servicio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
-   Para voz y LUIS su información entra en MainActivity.java:
+   Para voz y LUIS, su información entra en MainActivity.java:
 
    ```java
     // Subscription
@@ -95,7 +95,7 @@ Para validar la instalación del kit de desarrollo, cree e instale la aplicació
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Si usas la transcripción de conversación su información de clave y la región de voz también son necesarios en conversation.java:
+    Si usas la transcripción de conversación, la información de clave y la región de voz también son necesarios en conversation.java:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -145,7 +145,7 @@ Para validar la instalación del kit de desarrollo, cree e instale la aplicació
 
    ![Opciones y aplicación de ejemplo del SDK de dispositivos de voz de ejemplo](media/speech-devices-sdk/qsg-8.png)
 
-1. Agregados recientemente es la demostración de transcripción de la conversación. Empezar a transcribir con sesión de inicio. De forma predeterminada, todos los usuarios están un invitado, sin embargo, si dispone de las firmas de voz del participante puede colocarse en un /video/participants.properties archivo en el dispositivo. Para generar la firma de voz vistazo [transcribir conversaciones (SDK)](how-to-use-conversation-transcription-service.md).
+1. Pruebe la demostración de transcripción de conversación nuevo. Empezar a transcribir con sesión de inicio. De forma predeterminada, todos los usuarios están un invitado. Sin embargo, si dispone de las firmas de voz del participante se pueden colocar en un archivo `/video/participants.properties` en el dispositivo. Para generar la firma de voz, examine [transcribir conversaciones (SDK)](how-to-use-conversation-transcription-service.md).
 
    ![Aplicación de demostración de transcripción de conversación](media/speech-devices-sdk/qsg-15.png)
 

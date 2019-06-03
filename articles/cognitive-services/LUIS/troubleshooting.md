@@ -11,16 +11,20 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: b114b1c3b1c421c6e6944666e3fd928d2aced966
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f922f9c64f182377365192543305b48659c518da
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66225870"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66417980"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
 Este artículo contiene respuestas a las preguntas más frecuentes sobre Language Understanding (LUIS).
+
+## <a name="whats-new"></a>Novedades
+
+[Obtenga más información](whats-new.md) sobre novedades de comprensión del lenguaje.
 
 <a name="luis-authoring"></a>
 
@@ -64,7 +68,7 @@ Las aplicaciones precompiladas de Cortana están en desuso desde 2017. Ya no se 
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>¿Cómo puedo transferir la propiedad de la aplicación de LUIS?
 Para transferir una aplicación de LUIS a otra suscripción de Azure, exporte la aplicación de LUIS e impórtela con una cuenta nueva. Actualice el id. de aplicación de LUIS en la aplicación cliente que lo llama. La aplicación nueva puede devolver puntuaciones de LUIS ligeramente distintas a las de la aplicación original.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Una entidad creada previamente se etiqueta en una declaración de ejemplo en lugar de mi entidad personalizada. ¿Cómo puedo solucionar esto? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Una entidad creada previamente se etiqueta en una declaración de ejemplo en lugar de mi entidad personalizada. ¿Cómo lo soluciono? 
 
 Consulte [solución de problemas de entidades precompiladas](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
 

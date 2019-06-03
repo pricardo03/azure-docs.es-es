@@ -55,7 +55,7 @@ Para configurar la integración de Trakstar en Azure AD, será preciso que agreg
 
 **Para agregar Trakstar desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -78,12 +78,12 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 
 Para configurar y probar el inicio de sesión único de Azure AD con Trakstar, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único en Trakstar](#configure-trakstar-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación del usuario de prueba en Trakstar](#create-trakstar-test-user)**: para tener un homólogo de Britta Simon en Trakstar vinculado a la representación del usuario en Azure AD.
-6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único en Trakstar](#configure-trakstar-single-sign-on)** : para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación del usuario de prueba en Trakstar](#create-trakstar-test-user)** : para tener un homólogo de Britta Simon en Trakstar vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -107,9 +107,9 @@ Para configurar el inicio de sesión único de Azure AD con Trakstar, siga estos
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Trakstar](common/sp-identifier.png)
 
-     a. En el cuadro de texto **Dirección URL de inicio de sesión**, copie el valor de **ACS (Consumer) URL** (Dirección URL de ACS [Consumidor]) en Trakstar (Settings > Authentication & SSO [Configuración > Autenticación y SSO]) con el formato:`https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
+    a. En el cuadro de texto **Dirección URL de inicio de sesión**, copie el valor de **ACS (Consumer) URL** (Dirección URL de ACS [Consumidor]) en Trakstar (Settings > Authentication & SSO [Configuración > Autenticación y SSO]) con el formato:`https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, deje el valor predeterminado: `https://app.trakstar.com`
+    b. En el cuadro de texto **Identificador (id. de entidad)** , deje el valor predeterminado: `https://app.trakstar.com`
 
     > [!NOTE]
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Inicie sesión en Trakstar como administrador para obtener estos valores.
@@ -165,7 +165,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **@Trakstar**.
+2. En la lista de aplicaciones, seleccione **Trakstar**.
 
     ![Vínculo a Trakstar en la lista de aplicaciones](common/all-applications.png)
 

@@ -837,6 +837,8 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: Implementación de una acción de Logic App
                   href: platform/action-groups-logic-app.md
+                - name: Integración del esquema común de alertas con Logic Apps
+                  href: platform/alerts-common-schema-integrations.md
             - name: Solución de Alert Management
               href: platform/alert-management-solution.md
             - name: Interfaz de usuario para alertas

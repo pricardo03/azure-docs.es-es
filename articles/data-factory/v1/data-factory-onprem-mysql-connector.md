@@ -71,7 +71,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | type |La propiedad type debe establecerse en: **OnPremisesMySql** |Sí |
 | server |Nombre del servidor MySQL. |Sí |
 | database |Nombre de la base de datos MySQL. |Sí |
-| schema |Nombre del esquema de la base de datos. |Sin  |
+| schema |Nombre del esquema de la base de datos. |Sin |
 | authenticationType |Tipo de autenticación usado para conectarse a la Base de datos MySQL. Los valores posibles son: `Basic`. |Sí |
 | username |Especifique el nombre de usuario para conectarse a la base de datos de MySQL. |Sí |
 | password |Especifique la contraseña de la cuenta de usuario especificada. |Sí |
@@ -333,7 +333,7 @@ Al mover datos a MySQL, se usarán las asignaciones siguientes de tipos MySQL a 
 | smallint |Int16 |
 | text |string |
 | time |TimeSpan |
-|  timestamp |DateTime |
+| timestamp |DateTime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |

@@ -97,7 +97,7 @@
           href: create-vmss-template.md
     - name: Configuración del equilibrador de carga interno
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: configure-application-gateway-with-private-frontend-ip.md
         - name: Azure PowerShell
           href: application-gateway-ilb-arm.md
@@ -135,7 +135,7 @@
           href: tutorial-restrict-web-traffic-cli.md
     - name: Configuración de conjuntos de reglas de WAF
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: application-gateway-customize-waf-rules-portal.md
         - name: Azure PowerShell
           href: application-gateway-customize-waf-rules-powershell.md
@@ -179,7 +179,7 @@
           href: tutorial-url-redirect-powershell.md
     - name: Reescritura de encabezados HTTP
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: rewrite-http-headers-portal.md
         - name: Azure PowerShell
           href: add-http-header-rewrite-rule-powershell.md
@@ -209,6 +209,8 @@
           href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
         - name: Errores de puerta de enlace incorrecta (502)
           href: application-gateway-troubleshooting-502.md
+    - name: Migración de v1 a v2
+      href: migrate-v1-v2.md
 - name: Referencia
   items:
     - name: Reglas CRS
