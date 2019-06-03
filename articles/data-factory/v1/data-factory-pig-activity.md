@@ -85,15 +85,15 @@ La actividad de Pig para HDInsight en una [canalización](data-factory-create-pi
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Nombre |Nombre de la actividad |Sí |
+| name |Nombre de la actividad |Sí |
 | description |Texto que describe para qué se usa la actividad. |Sin  |
-| Tipo |HDinsightPig |Sí |
+| type |HDinsightPig |Sí |
 | inputs |Una o varias entradas consumidas por la actividad de Pig |Sin  |
 | outputs |Una o varias salidas producidas por la actividad de Pig |Sí |
 | linkedServiceName |Referencia al clúster de HDInsight registrado como un servicio vinculado en la factoría de datos |Sí |
 | script |Especifica el script de Pig en línea |Sin  |
-| ruta de acceso de script |Almacena el script de Pig en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |Sin  |
-| define los campos |Especifique parámetros como pares de clave y valor para referencia en el script de Pig |Sin  |
+| scriptPath |Almacena el script de Pig en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |Sin  |
+| defines |Especifique parámetros como pares de clave y valor para referencia en el script de Pig |Sin  |
 
 ## <a name="example"></a>Ejemplo
 Veamos un ejemplo de análisis de registros de juegos en el que desea identificar el tiempo dedicado por los usuarios a los juegos de su compañía.
