@@ -65,7 +65,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **OnPremisesTeradata** |Sí |
-| Servidor |Nombre del servidor de Teradata. |Sí |
+| server |Nombre del servidor de Teradata. |Sí |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos Teradata. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
 | username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
 | password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
