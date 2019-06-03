@@ -286,25 +286,25 @@ Consulte [Propiedades del tipo RelationalSource](#copy-activity-properties) para
 
 | Tipo de Salesforce | Tipo basado en .NET |
 | --- | --- |
-| Numeración automática |string |
-| Casilla de verificación |Boolean |
-| Moneda |Decimal |
-| Date |Datetime |
-| Fecha y hora |Datetime |
-| Email |string |
-| Id |string |
-| Relación de búsqueda |string |
-| Lista desplegable de selección múltiple |string |
+| Auto Number |String |
+| Checkbox |Boolean |
+| Currency |Decimal |
+| Date |DateTime |
+| Date/Time |DateTime |
+| Email |String |
+| Id |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
 | Number |Decimal |
 | Percent |Decimal |
-| Teléfono |string |
-| Lista desplegable |string |
-| Text |string |
-| Área de texto |string |
-| Área de texto (largo) |string |
-| Área de texto (enriquecido) |string |
-| Texto (cifrado) |string |
-| URL |string |
+| Phone |String |
+| Picklist |String |
+| Text |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
+| URL |String |
 
 > [!NOTE]
 > Para asignar columnas del conjunto de datos de origen a columnas del conjunto de datos del receptor, consulte [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Asignación de columnas de conjunto de datos en Azure Data Factory).
