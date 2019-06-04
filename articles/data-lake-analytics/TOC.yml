@@ -6,7 +6,7 @@
       href: data-lake-analytics-overview.md
 - name: Introducción
   items:
-    - name: Azure Portal
+    - name: Portal de Azure
       href: data-lake-analytics-get-started-portal.md
     - name: Visual Studio
       href: data-lake-analytics-data-lake-tools-get-started.md
@@ -20,7 +20,7 @@
   items:
     - name: Administración con Data Lake Analytics
       items:
-        - name: Azure Portal
+        - name: Portal de Azure
           href: data-lake-analytics-manage-use-portal.md
         - name: Línea de comandos
           items:
@@ -48,6 +48,8 @@
           href: data-lake-analytics-diagnostic-logs.md
         - name: Ajuste de los límites de cuota
           href: data-lake-analytics-quota-limits.md
+        - name: Recuperación ante desastres
+          href: data-lake-analytics-disaster-recovery.md
     - name: Desarrollo de programas U-SQL
       items:
         - name: Lenguaje U-SQL
