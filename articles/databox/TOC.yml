@@ -111,7 +111,7 @@
           items:
             - name: Administrar mediante Azure Portal
               href: data-box-portal-ui-admin.md
-            - name: Solución de problemas de disco
+            - name: Solución de problemas de Data Box Heavy
               href: data-box-disk-troubleshoot.md
             - name: Ponerse en contacto con el servicio de soporte técnico
               href: data-box-disk-contact-microsoft-support.md
@@ -121,12 +121,32 @@
           items:
             - name: ¿Qué es Data Box Heavy?
               href: data-box-heavy-overview.md
+        - name: Tutoriales
+          items:
+            - name: 1 - Pedido
+              href: data-box-heavy-deploy-ordered.md
+            - name: 2 - Configuración
+              href: data-box-heavy-deploy-set-up.md
+            - name: 3 - Conexión y copia
+              items:
+                - name: A través de SMB
+                  href: data-box-heavy-deploy-copy-data.md
+            - name: '4 - Devolución, carga y comprobación'
+              href: data-box-heavy-deploy-picked-up.md
         - name: Conceptos
           items:
             - name: Revisión de los requisitos
               href: data-box-heavy-system-requirements.md
             - name: Conocimiento de los límites
               href: data-box-heavy-limits.md
+        - name: Procedimientos
+          items:
+            - name: Administrar mediante Azure Portal
+              href: data-box-portal-admin.md
+            - name: Solución de problemas de dispositivo
+              href: data-box-troubleshoot.md
+            - name: Ponerse en contacto con el servicio de soporte técnico
+              href: data-box-disk-contact-microsoft-support.md
     - name: Recursos
       items:
         - name: Producto de Data Box

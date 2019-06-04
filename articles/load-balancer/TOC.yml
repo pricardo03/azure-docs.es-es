@@ -18,6 +18,9 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: 'Creación de instancia de Standard Load Balancer: Azure PowerShell'
       href: quickstart-create-standard-load-balancer-powershell.md
+    - name: 'Creación de instancia de Standard Load Balancer: Plantilla de Azure Resource Manager'
+      displayName: ARM
+      href: quickstart-load-balancer-standard-public-template.md
 - name: Tutoriales
   items:
     - name: Equilibrio de carga del tráfico de Internet a las máquinas virtuales

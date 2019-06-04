@@ -229,8 +229,6 @@
                   href: msal-js-initializing-client-applications.md
             - name: Control de errores y excepciones
               href: msal-handling-exceptions.md
-            - name: Prueba de aplicaciones de MSAL
-              href: msal-testing.md
             - name: Registro
               href: msal-logging.md
             - name: Inicio de sesión único (JS)
@@ -366,6 +364,12 @@
                   href: msal-net-user-gets-consent-for-multiple-resources.md
                 - name: Proporcionar su propio HttpClient
                   href: msal-net-provide-httpclient.md
+            - name: MSAL.js
+              items:
+                - name: Evitar recargas de página
+                  href: msal-js-avoid-page-reloads.md
+                - name: Paso de estado personalizado en solicitudes de autenticación
+                  href: msal-js-pass-custom-state-authentication-request.md
         - name: Trabajo con Visual Studio
           items:
             - name: Uso del servicio conectado Active Directory

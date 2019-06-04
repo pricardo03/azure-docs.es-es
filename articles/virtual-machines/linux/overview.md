@@ -23,7 +23,7 @@ ms.lasthandoff: 05/27/2019
 ms.locfileid: "60542533"
 ---
 # <a name="azure-and-linux"></a>Azure y Linux
-Microsoft Azure es una colección cada vez mayor de servicios en la nube, públicos e integrados, que incluyen servicios de análisis, máquinas virtuales, bases de datos, móviles, de red, de almacenamiento y web,&mdash;ideales para hospedar sus soluciones.  Microsoft Azure proporciona una plataforma informática escalable que permite pagar solo por lo que use, cuando lo desee, sin tener que invertir en hardware local.  Azure está listo cuando tenga que escalar sus soluciones vertical y horizontalmente a cualquier escala que necesite para atender las necesidades de sus clientes.
+Microsoft Azure es una colección cada vez mayor de servicios en la nube públicos e integrados, que incluyen análisis, máquinas virtuales, bases de datos, dispositivos móviles, redes, almacenamiento y web, ideales para hospedar sus soluciones.  Microsoft Azure proporciona una plataforma informática escalable que permite pagar solo por lo que use, cuando lo desee, sin tener que invertir en hardware local.  Azure está listo cuando tenga que escalar sus soluciones vertical y horizontalmente a cualquier escala que necesite para atender las necesidades de sus clientes.
 
 Si está familiarizado con las distintas características de AWS de Amazon, puede examinar el [documento de asignación de definiciones](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)donde se comparan Azure y AWS.
 

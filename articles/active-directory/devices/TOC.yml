@@ -22,6 +22,8 @@
   items:
     - name: Inicio de sesión único en recursos locales
       href: azuread-join-sso.md
+    - name: Tokens de actualización principales
+      href: concept-primary-refresh-token.md
     - name: Estaciones de trabajo administradas de Azure
       href: concept-azure-managed-workstation.md
 - name: Guías de procedimientos
@@ -35,7 +37,7 @@
       href: azureadjoin-plan.md
     - name: Planeación de la implementación de la unión a Azure AD híbrido
       href: hybrid-azuread-join-plan.md
-    - name: Control de la unión a Azure AD híbrido de los dispositivos
+    - name: Validación controlada de la unión a Azure AD híbrido
       href: hybrid-azuread-join-control.md
     - name: Asignación de administradores locales en dispositivos unidos a Azure AD
       href: assign-local-admin.md

@@ -69,10 +69,10 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | type |La propiedad type debe establecerse en: **OnPremisesSybase** |Sí |
 | server |Nombre del servidor de Sybase. |Sí |
 | database |Nombre de la base de datos Sybase. |Sí |
-| schema |Nombre del esquema de la base de datos. |Sin  |
+| schema |Nombre del esquema de la base de datos. |Sin |
 | authenticationType |Tipo de autenticación usado para conectarse a la base de datos Sybase. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
-| username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin  |
-| password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin  |
+| username |Especifique el nombre de usuario si usa la autenticación Basic o Windows. |Sin |
+| password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |Sin |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos de Sybase local. |Sí |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
