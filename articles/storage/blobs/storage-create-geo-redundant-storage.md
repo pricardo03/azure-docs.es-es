@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 24869981595cd68eb833f7b176e17a2683127945
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787926"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306755"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage
 
@@ -40,7 +40,7 @@ Para completar este tutorial:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
+* Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
   - **Desarrollo de Azure**
 
   ![Desarrollo de Azure (en web y la nube)](media/storage-create-geo-redundant-storage/workloads.png)
@@ -82,6 +82,8 @@ Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográ
    | **Modelo de implementación** | Resource Manager  | Resource Manager contiene las características más recientes.|
    | **Tipo de cuenta** | StorageV2 | Para más información sobre los tipos de cuenta, consulte [Tipos de cuentas de almacenamiento](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Rendimiento** | Estándar | Suficiente para el escenario de ejemplo. |
+   | **Replicación**| Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). | Esta configuración es necesaria para el ejemplo funcione. |
+   |**Suscripción** | Su suscripción |Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
    | **Replicación**| Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). | Necesario para el ejemplo funcione. |
    |**Suscripción** | Su suscripción |Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.azure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
@@ -139,7 +141,7 @@ En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acce
 export storageconnectionstring=<yourconnectionstring>
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 setx storageconnectionstring "<yourconnectionstring>"
@@ -158,7 +160,7 @@ export accountname=<youraccountname>
 export accountkey=<youraccountkey>
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 setx accountname "<youraccountname>"
@@ -194,7 +196,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 Puede encontrar esta información en Azure Portal; vaya a la cuenta de almacenamiento y seleccione **Claves de acceso** en la sección **Configuración**.
 
-También debe instalar las dependencias necesarias. Para ello, abra un símbolo del sistema, vaya a la carpeta de ejemplo y escriba `npm install`.
+Instale las dependencias necesarias. Para ello, abra un símbolo del sistema, vaya a la carpeta de ejemplo y escriba `npm install`.
 
 ---
 
@@ -231,11 +233,11 @@ Para ejecutar el ejemplo, use Maven en la línea de comandos.
 
 Este ejemplo crea un archivo de prueba en el directorio predeterminado. Para los usuarios de Windows, este directorio es **AppData\Local\Temp**. El ejemplo, a continuación, presenta las siguientes opciones de comandos que puede escribir:
 
-- Escriba **P** para ejecutar una operación put blob, que carga un archivo temporal en la cuenta de almacenamiento.
-- Escriba **L** para llevar a cabo una operación list blob; de este modo, se enumeran los blobs que están actualmente en el contenedor.
-- Escriba **G** para llevar a cabo una operación get blob, que descarga un archivo de la cuenta de almacenamiento en la máquina local.
-- Escriba **D** para ejecutar una operación delete blob, que elimina el blob de la cuenta de almacenamiento.
-- Escriba **E** para cerrar el ejemplo; de este modo, también se eliminan todos los recursos en el ejemplo creado.
+- Escriba **P** para ejecutar una operación put blob; este comando carga un archivo temporal en la cuenta de almacenamiento.
+- Escriba **L** para llevar a cabo una operación list blob; este comando enumera los blobs que están actualmente en el contenedor.
+- Escriba **G** para llevar a cabo una operación get blob; este comando descarga un archivo de la cuenta de almacenamiento en la máquina local.
+- Escriba **D** para ejecutar una operación delete blob; este comando elimina el blob de la cuenta de almacenamiento.
+- Escriba **E** para cerrar el ejemplo; de este modo; este comando también elimina todos los recursos en el ejemplo creado.
 
 En este ejemplo aparece la salida si ejecuta la aplicación en Windows.
 

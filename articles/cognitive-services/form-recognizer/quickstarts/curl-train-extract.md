@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: bd68e2803b3b538011cfa37378890f2cc7b22223
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906993"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235604"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Inicio rápido: Entrenamiento de un modelo de Form Recognizer y extracción de los datos del formulario mediante la API de REST con cURL
 
@@ -108,7 +108,7 @@ A continuación, analizará un documento y extraerá de él tanto los pares clav
 
 1. Reemplace `<Endpoint>` por el punto de conexión que obtuvo de la clave de suscripción de Form Recognizer. Lo encontrará en la pestaña **Información general** del recurso Form Recognizer.
 1. Reemplace `<modelID>` por el identificador de modelo que recibió en la sección anterior.
-1. Reemplace `<path to your form>` por la ruta de acceso al archivo del formulario.
+1. Reemplace `<path to your form>` por la ruta de acceso al archivo del formulario. Por ejemplo c:\temp\file.pdf. 
 1. Reemplace `<file type>` por el tipo de archivo. Tipos compatibles: pdf, image/jpeg e image/png.
 1. Reemplace `<subscription key>` por la clave de suscripción.
 

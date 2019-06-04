@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2018
 ms.author: kumud
-ms.openlocfilehash: 44094a38fff17908fd5ea851209130f89a49c988
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 23093cd8bcb5793b9e5b9abc835f64233e666ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707025"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241740"
 ---
 # <a name="what-is-azure-virtual-network"></a>¿Qué es Azure Virtual Network?
 
-Azure Virtual Network permite muchos tipos de recursos de Azure, como máquinas virtuales (VM) de Azure, para comunicarse de forma segura entre ellos, con Internet y con las redes locales. El ámbito de una red virtual es una sola región; sin embargo, se pueden conectar entre sí varias redes virtuales de diferentes regiones mediante el emparejamiento de red virtual.
+Azure Virtual Network permite muchos tipos de recursos de Azure, como máquinas virtuales (VM) de Azure, para comunicarse de forma segura entre ellos, con Internet y con las redes locales. El ámbito de una red virtual es una región individual de Azure. Una [región](https://azure.microsoft.com/global-infrastructure/regions/) de Azure es un conjunto de centros de datos implementados dentro de un perímetro definido por la latencia y conectados a través de una red regional dedicada de baja latencia. 
+
+Las redes virtuales se componen de subredes. Una subred es un rango de direcciones IP de una red virtual. El ámbito de las subredes, como el de las redes virtuales, es una región individual de Azure. 
+
+Se pueden conectar entre sí varias redes virtuales de diferentes regiones mediante el emparejamiento de red virtual.
 
 Azure Virtual Network proporciona las siguientes funcionalidades importantes:
 
@@ -65,7 +69,7 @@ Puede filtrar el tráfico de red entre subredes mediante una o ambas de las sigu
 
 De forma predeterminada Azure enruta el tráfico entre subredes, redes virtuales conectadas, redes locales e Internet. Puede implementar una o ambas de las siguientes opciones para reemplazar las rutas predeterminadas que crea Azure:
 - **Tablas de ruta**: puede crear tablas de ruta personalizadas con las rutas que controlan a dónde se enruta el tráfico para cada subred. Más información sobre las [tablas de rutas](virtual-networks-udr-overview.md#user-defined).
-- **Rutas de Protocolo de puerta de enlace de borde (BGP)**: si conecta la red virtual a su red local mediante una conexión de Azure VPN Gateway o ExpressRoute, puede propagar las rutas BGP locales a sus redes virtuales. Más información sobre el uso de BGP con [Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
+- **Rutas de Protocolo de puerta de enlace de borde (BGP)** : si conecta la red virtual a su red local mediante una conexión de Azure VPN Gateway o ExpressRoute, puede propagar las rutas BGP locales a sus redes virtuales. Más información sobre el uso de BGP con [Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
 
 ## <a name="connect-virtual-networks"></a>Conexión de redes virtuales
 

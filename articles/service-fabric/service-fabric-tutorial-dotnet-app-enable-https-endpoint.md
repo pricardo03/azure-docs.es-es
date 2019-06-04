@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: a8f4e89adec0a6be001f3e6d6df1a252677c5916
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48dd09bf70e99adc250027df872266bea39a786b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158134"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302404"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Incorporación de un punto de conexión HTTPS a un servicio de front-end de API Web de ASP.NET Core mediante Kestrel
 
@@ -52,7 +52,7 @@ En esta serie de tutoriales, se aprende a:
 Antes de empezar este tutorial:
 
 * Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Instale Visual Studio 2017](https://www.visualstudio.com/) versión 15.5 o posteriores con las cargas de trabajo de **Desarrollo de Azure** y de **Desarrollo de ASP.NET y web**.
+* [Instale Visual Studio 2019](https://www.visualstudio.com/) versión 15.5 o posteriores con las cargas de trabajo de **desarrollo de Azure** y de **desarrollo de ASP.NET y web**.
 * [Instale el SDK de Service Fabric](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Obtención de un certificado o creación de un certificado de desarrollo autofirmado
@@ -185,7 +185,7 @@ private X509Certificate2 GetCertificateFromStore()
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>Conceder a NETWORK SERVICE acceso a la clave privada del certificado
 
-En un paso anterior, se importa el certificado del almacén `Cert:\LocalMachine\My` en el equipo de desarrollo.  Debe proporcionar también explícitamente a la cuenta que ejecuta el servicio (NETWORK SERVICE de forma predeterminada) acceso a la clave privada del certificado. Puede hacerlo manualmente (mediante la herramienta certlm.msc), pero es mejor ejecutar automáticamente un script de PowerShell realizando la [configuración de un script de inicio](service-fabric-run-script-at-service-startup.md) en el punto **SetupEntryPoint** del manifiesto de servicio.
+En un paso anterior, se importa el certificado del almacén `Cert:\LocalMachine\My` en el equipo de desarrollo.  Ahora, proporcione explícitamente a la cuenta que ejecuta el servicio (NETWORK SERVICE de forma predeterminada) acceso a la clave privada del certificado. Puede hacerlo manualmente (mediante la herramienta certlm.msc), pero es mejor ejecutar automáticamente un script de PowerShell realizando la [configuración de un script de inicio](service-fabric-run-script-at-service-startup.md) en el punto **SetupEntryPoint** del manifiesto de servicio.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Configuración del punto de entrada de instalación del servicio
 

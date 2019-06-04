@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c081a6296e1fae89f24a2c3ddb1ae66f7a3f94aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: fe01d55b17c0f6f6dd6a621fbac0cf4d3a268ee3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662557"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306784"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Creación de imágenes de contenedor en un clúster de Service Fabric de Linux
 
@@ -116,7 +116,7 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 En el resto de este tutorial, usamos "acrName" como un marcador de posición para el nombre del registro del contenedor que eligió. Anote este valor.
 
-## <a name="log-in-to-your-container-registry"></a>Iniciar sesión en el registro de contenedor
+## <a name="sign-in-to-your-container-registry"></a>Inicio de sesión en el registro de contenedor
 
 Inicie sesión en la instancia de ACR antes de insertar imágenes en ella. Use el comando **az acr login** para completar la operación. Proporcione el nombre único que se especificó para el registro de contenedor cuando se creó.
 

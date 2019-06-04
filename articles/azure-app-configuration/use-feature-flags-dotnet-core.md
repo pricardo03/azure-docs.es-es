@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 28ba4397ca5a5fd3c281555238fc7eec8a82943d
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: b0e48a0db63eded9e9c4921d33b03af39656ce0d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413666"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299262"
 ---
 # <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>Tutorial: Uso de marcas de características en una aplicación de .NET Core
 
@@ -66,7 +66,7 @@ public class Startup
 }
 ```
 
-Si usa el filtro en sus marcas de características, deberá incluir una biblioteca adicional y registrarla. El ejemplo siguiente muestra cómo usar un filtro de características integrado que se llama **"PercentageFilter"**.
+Si usa el filtros en sus marcas de características, deberá incluir una biblioteca adicional y registrarla. El ejemplo siguiente muestra cómo usar un filtro de características integrado que se llama **"PercentageFilter"** .
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -262,6 +262,6 @@ app.UseForFeature(featureName, appBuilder => {
 
 En este tutorial, ha aprendido a implementar marcas de características en la aplicación ASP.NET Core mediante el uso de la bibliotecas `Microsoft.FeatureManagement`. Consulte los siguientes recursos para obtener más información sobre la compatibilidad de administración de características en ASP.NET Core y App Configuration.
 
-* [ASP.NET Core feature flag sample code]() (Código de ejemplo de marca de características de ASP.NET Core)
-* [Microsoft.FeatureManagement documentation]() (Documentación de Microsoft.FeatureManagement)
+* [ASP.NET Core feature flag sample code](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core) (Código de ejemplo de marca de características de ASP.NET Core)
+* [Microsoft.FeatureManagement documentation](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement) (Documentación de Microsoft.FeatureManagement)
 * [Administración de marcas de características](./manage-feature-flags.md)

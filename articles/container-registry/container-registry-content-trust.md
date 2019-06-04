@@ -5,23 +5,25 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 08/20/2018
+ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ca9ef32a830f56edb471256b3b9175ba0fbec51d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727353"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65069219"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confianza en el contenido en Azure Container Registry
 
-En cualquier sistema distribuido diseñado teniendo en cuenta la seguridad es importante comprobar tanto el *origen* como la *integridad* de los datos que entran en el sistema. Los consumidores de los datos deben ser capaces tanto de comprobar el publicador (origen) de los datos, así como de asegurarse de que no se han modificado después de ser publicados (integridad). Azure Container Registry admite ambos mediante la implementación del modelo de [confianza en el contenido][docker-content-trust] de Docker y este artículo le ayuda a comenzar.
+Azure Container Registry implementa el modelo de [confianza del contenido][docker-content-trust] de Docker, lo que permite insertar y extraer las imágenes firmadas. Este artículo le permite comenzar a habilitar la confianza del contenido en los registros del contenedor.
 
-> [!IMPORTANT]
-> Esta funcionalidad actualmente está en su versión preliminar. Las versiones preliminares están a su disposición a condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
+> [!NOTE]
+> La confianza de contenido es una característica de la [SKU Premium](container-registry-skus.md) de Azure Container Registry.
 
 ## <a name="how-content-trust-works"></a>Cómo funciona la confianza en el contenido
+
+En cualquier sistema distribuido diseñado teniendo en cuenta la seguridad es importante comprobar tanto el *origen* como la *integridad* de los datos que entran en el sistema. Los consumidores de los datos deben ser capaces tanto de comprobar el publicador (origen) de los datos, así como de asegurarse de que no se han modificado después de ser publicados (integridad). 
 
 Como publicador de imágenes, la confianza en el contenido le permite **firmar** las imágenes que inserta en el registro. Los consumidores de las imágenes (personas o sistemas que extraen imágenes del registro) pueden configurar sus clientes para extraer *solo* imágenes firmadas. Cuando un consumidor de imágenes extrae una imagen firmada, su cliente de Docker comprueba la integridad de la imagen. En este modelo, los consumidores se aseguran de que las imágenes firmadas del registro fueron publicadas por usted y no se han modificado desde su publicación.
 
@@ -40,7 +42,7 @@ La confianza en el contenido se administra mediante el uso de un conjunto de cla
 
 El primer paso es habilitar la confianza en el contenido en el nivel de registro. Una vez que habilite la confianza en el contenido, los clientes (usuarios o servicios) pueden insertar imágenes firmadas en el registro. Habilitar la confianza en el contenido en el registro no restringe el uso del registro solo a los consumidores con la confianza en el contenido habilitada. Los consumidores sin la confianza en el contenido habilitada pueden seguir usando el registro de la forma habitual. Los consumidores que han habilitado la confianza en el contenido en sus clientes, sin embargo, serán capaces de ver *solo* las imágenes firmadas del registro.
 
-Para habilitar la confianza en el contenido para el registro, primero vaya al registro en Azure Portal. En **Directivas**, seleccione **Confianza en el contenido (versión preliminar)** > **Habilitada** > **Guardar**.
+Para habilitar la confianza en el contenido para el registro, primero vaya al registro en Azure Portal. En **Directivas**, seleccione **Confianza del contenido** > **Habilitada** > **Guardar**.
 
 ![Habilitación de la confianza en el contenido para un registro en Azure Portal][content-trust-01-portal]
 
@@ -71,13 +73,13 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 ## <a name="grant-image-signing-permissions"></a>Concesión de permisos de firma de imágenes
 
-Solo los usuarios o sistemas a los que se ha concedido permiso pueden insertar imágenes de confianza en el registro. Para conceder permiso de inserción de imágenes de confianza a un usuario (o a un sistema con una entidad de servicio), debe conceder a sus identidades de Azure Active Directory el rol `AcrImageSigner`. Esto es además del rol `Contributor` (u `Owner`) necesario para insertar imágenes en el registro.
+Solo los usuarios o sistemas a los que se ha concedido permiso pueden insertar imágenes de confianza en el registro. Para conceder permiso de inserción de imágenes de confianza a un usuario (o a un sistema con una entidad de servicio), debe conceder a sus identidades de Azure Active Directory el rol `AcrImageSigner`. Esto se agrega al rol `AcrPush` (o equivalente) necesario para insertar imágenes en el registro. Para más información, consulte [Roles y permisos de Azure Container Registry](container-registry-roles.md).
 
 A continuación, puede ver los detalles de la concesión del rol `AcrImageSigner` en Azure Portal y la CLI de Azure.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Vaya al registro en Azure Portal y, a continuación, seleccione **Control de acceso (IAM)** > **Agregar asignación de rol**. En **Agregar asignación de rol**, seleccione `AcrImageSigner` para el **Rol**, **seleccione** uno o más usuarios o entidades de servicio y, a continuación, **Guardar**.
+Vaya al registro en Azure Portal y, a continuación, seleccione **Control de acceso (IAM)**  > **Agregar asignación de rol**. En **Agregar asignación de rol**, seleccione `AcrImageSigner` para el **Rol**, **seleccione** uno o más usuarios o entidades de servicio y, a continuación, **Guardar**.
 
 En este ejemplo, se ha asignado el rol `AcrImageSigner` a dos entidades: una entidad de servicio llamada "service-principal" y un usuario llamado "Azure User".
 
@@ -110,6 +112,8 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 `<service principal ID>` puede ser el valor de **appId**, de **objectId** o uno de los valores de **servicePrincipalNames** de la entidad de servicio. Para más información sobre cómo trabajar con entidades de servicio y Azure Container Registry, consulte [Autenticación de Azure Container Registry con entidades de servicio](container-registry-auth-service-principal.md).
 
+Después de realizar cualquier cambio de rol, ejecute `az acr login` para actualizar el token de identidad local para la CLI de Azure, con el fin de que los nuevos roles surtan efecto.
+
 ## <a name="push-a-trusted-image"></a>Inserción de una imagen de confianza
 
 Para insertar una etiqueta de imagen de confianza en el registro de contenedor, habilite la confianza en el contenido e inserte la imagen con `docker push`. La primera vez que inserte una etiqueta firmada, se le solicitará que cree una frase de contraseña para una clave de firma de raíz y una clave de firma del repositorio. Las claves de raíz y del repositorio se generan y almacenan localmente en su equipo.
@@ -138,7 +142,7 @@ Después del primer uso de `docker push` con la confianza en el contenido habili
 
 ## <a name="pull-a-trusted-image"></a>Extracción de una imagen de confianza
 
-Para extraer una imagen de confianza, habilite la confianza en el contenido y ejecute el comando `docker pull` como hace habitualmente. Los consumidores con la confianza en el contenido habilitada pueden extraer solo imágenes con etiquetas firmadas. Este es un ejemplo de extracción de una etiqueta firmada:
+Para extraer una imagen de confianza, habilite la confianza en el contenido y ejecute el comando `docker pull` como hace habitualmente. Para extraer imágenes de confianza, el rol `AcrPull` es suficiente para los usuarios normales. No se requieren roles adicionales, como `AcrImageSigner`. Los consumidores con la confianza en el contenido habilitada pueden extraer solo imágenes con etiquetas firmadas. Este es un ejemplo de extracción de una etiqueta firmada:
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:signed
@@ -184,15 +188,13 @@ Si pierde el acceso a la clave de raíz, perderá el acceso a las etiquetas firm
 > [!WARNING]
 > Deshabilitar y volver a habilitar la confianza en el contenido en el registro **elimina todos los datos de confianza de todas las etiquetas firmadas de cada repositorio del registro**. Esta acción es irreversible: Azure Container Registry no puede recuperar los datos de confianza eliminados. La deshabilitación de la confianza en el contenido no elimina las imágenes en sí.
 
-Para deshabilitar la confianza en el contenido para el registro, vaya al registro en Azure Portal. En **Directivas**, seleccione **Confianza en el contenido (versión preliminar)** > **Deshabilitada** > **Guardar**. Se le advertirá de la pérdida de todas las firmas del registro. Seleccione **Aceptar** para eliminar permanentemente todas las firmas del registro.
+Para deshabilitar la confianza en el contenido para el registro, vaya al registro en Azure Portal. En **Directivas**, seleccione **Confianza del contenido** > **Deshabilitada** > **Guardar**. Se le advertirá de la pérdida de todas las firmas del registro. Seleccione **Aceptar** para eliminar permanentemente todas las firmas del registro.
 
 ![Deshabilitación de la confianza en el contenido para un registro en Azure Portal][content-trust-03-portal]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la documentación de Docker para más información acerca de la confianza en el contenido. Aunque se han tratado varios aspectos importantes en este artículo, la confianza en el contenido es un tema amplio y se describe con más profundidad en la documentación de Docker.
-
-[Confianza en el contenido en Docker][docker-content-trust]
+Para más información acerca de la confianza del contenido, consulte [Content trust in Docker][docker-content-trust] (Confianza del contenido en Docker). Aunque se han tratado varios aspectos importantes en este artículo, la confianza en el contenido es un tema amplio y se describe con más profundidad en la documentación de Docker.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

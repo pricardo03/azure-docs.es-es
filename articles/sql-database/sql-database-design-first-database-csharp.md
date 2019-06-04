@@ -10,12 +10,12 @@ ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
 ms.date: 02/08/2019
-ms.openlocfilehash: ce46a6b8d4e2bc57625f9202349718dfbaedc660
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 31246f44be5645715c5c7041d0cf9bcff9c0fa52
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995696"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303300"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Tutorial: Diseño de una base de datos relacional en una base de datos única en Azure SQL Database con C# y ADO.NET
 
@@ -23,7 +23,7 @@ Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Micr
 
 > [!div class="checklist"]
 > * Creación de una base de datos única mediante Azure Portal*
-> * Configuración de una regla de firewall de IP de nivel de servidor mediante Azure Portal
+> * Configuración de una regla de firewall por IP de nivel a servidor mediante Azure Portal
 > * Conectarse a la base de datos con ADO.NET y Visual Studio
 > * Crear tablas con ADO.NET
 > * Insertar, actualizar y eliminar datos con ADO.NET
@@ -33,7 +33,7 @@ Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Micr
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Una instalación de [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+Una instalación de [Visual Studio 2019](https://www.visualstudio.com/downloads/) o posterior.
 
 ## <a name="create-a-blank-single-database"></a>Crear una base de datos única en blanco
 
@@ -81,7 +81,7 @@ Siga estos pasos para crear una base de datos única en blanco.
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Creación de una regla de firewall de IP de nivel de servidor
 
-El servicio SQL Database crea un firewall por IP en el nivel de servidor. Este firewall evita que las herramientas y aplicaciones externas se conecten al servidor o a las bases de datos de este, a menos que una regla de firewall permita sus direcciones IP. Para habilitar la conectividad externa a la base de datos única, primero debe agregar una regla de firewall de IP para su dirección IP (o intervalo de direcciones IP). Siga estos pasos para crear una [regla de firewall de IP de nivel de servidor de SQL Database](sql-database-firewall-configure.md).
+El servicio SQL Database crea un firewall por IP en el nivel de servidor. Este firewall evita que las herramientas y aplicaciones externas se conecten al servidor o a las bases de datos de este, a menos que una regla de firewall permita sus direcciones IP. Para habilitar la conectividad externa a la base de datos única, primero debe agregar una regla de firewall para la dirección IP (o un intervalo de direcciones IP). Siga estos pasos para crear una [regla de firewall de IP de nivel de servidor de SQL Database](sql-database-firewall-configure.md).
 
 > [!IMPORTANT]
 > El servicio SQL Database se comunica a través del puerto 1433. Si intenta conectarse a este servicio desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. En ese caso, no puede conectarse a la base de datos única, salvo que el administrador abra el puerto 1433.
@@ -96,7 +96,7 @@ El servicio SQL Database crea un firewall por IP en el nivel de servidor. Este f
 
    ![Regla de firewall de IP en el nivel de servidor](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall de IP. La regla de firewall de IP puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
+4. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall por IP. La regla de firewall de IP puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
 5. Haga clic en **Save**(Guardar). Se crea una regla de firewall de IP en el nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor de SQL Database.
 

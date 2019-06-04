@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 24c6df6a06d08249f236fc36d64b4204b0103b3c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8af927bee11d66c473707b603951fa693f6840e3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540900"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299030"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>¿Qué es la "búsqueda cognitiva" en Azure Search?
 
@@ -86,7 +86,7 @@ Los índices se generan a partir de un esquema de índice que define los campos,
 | Procesamiento de lenguaje natural | Procesamiento de texto para obtener conclusiones e información sobre entradas de texto. La detección de idioma, el análisis de sentimiento y la extracción de frases clave son aptitudes que se enmarcan en el procesamiento de lenguaje natural.  | [Key Phrase Extraction Skill](cognitive-search-skill-keyphrases.md) (Aptitud de Extracción de frases clave), [Language Detection Skill](cognitive-search-skill-language-detection.md) (Aptitud de Detección de idioma), [Sentiment Analysis Skill](cognitive-search-skill-sentiment.md) (Aptitud de Análisis de sentimiento) |
 | Descifrado de documentos | Proceso de extraer o crear contenido de texto a partir de orígenes que no son de texto durante el indexado. El reconocimiento óptico de caracteres (OCR) es un ejemplo pero, en general, se refiere a la funcionalidad de indexador principal cuando el indexador extrae contenido los archivos de aplicación. El origen de datos que proporciona la ubicación del archivo de origen y la definición del indexador que brinda las asignaciones de campo son factores clave en el descifrado de documentos. | Consulte [Indexers](search-indexer-overview.md) (Indexador) |
 | Formas | Consolide los fragmentos de texto en una estructura más grande o, a la inversa, desglose fragmentos de texto de gran tamaño a un tamaño que se pueda administrar para un procesamiento adicional. | [Shaper Skill](cognitive-search-skill-shaper.md) (Aptitud de conformador), [Text Merger Skill](cognitive-search-skill-textmerger.md) (Aptitud de combinación de texto), [Text Split Skill](cognitive-search-skill-textsplit.md) (Aptitud de división de texto) |
-| Documentos enriquecidos | Estructura interna transitoria, sin acceso directo en el código. Los documentos enriquecidos se generan durante el procesamiento, pero solo las salidas finales persisten en un índice de búsqueda. Las asignaciones de campos determinan los elementos de datos que se agregan al índice. | Consulte [Accessing enriched documents](cognitive-search-tutorial-blob.md#access-enriched-document) (Acceso a documentos enriquecidos). |
+| Documentos enriquecidos | Una estructura interna transitoria, generada durante el procesamiento, con el resultado final reflejado en un índice de búsqueda. Un conjunto de aptitudes determina qué enriquecimientos se llevan a cabo. Las asignaciones de campos determinan los elementos de datos que se agregan al índice. Opcionalmente, puede crear un almacén de conocimientos para conservar y explorar documentos enriquecidos mediante herramientas como Explorador de Storage, Power BI o cualquier otra herramienta que se conecte a Azure Blob Storage. | Consulte [Knowledge Store (versión preliminar)](knowledge-store-concept-intro.md). |
 | Indexer |  Un rastreador (crawler) que extrae datos y metadatos utilizables en búsquedas de un origen de datos externo y rellena un índice basado en las asignaciones de un campo a otro entre el índice y su origen de datos para el descifrado de documentos. En el caso de Cognitive Search, el indexador invoca un conjunto de aptitudes y contiene las asignaciones de campos que asocian la salida de enriquecimiento con los campos de destino del índice. La definición del indexador contiene todas las instrucciones y referencias de las operaciones de la canalización y esta se invoca cuando se ejecuta el indexador. | [Indexadores](search-indexer-overview.md) |
 | Origen de datos  | Un objeto que un indexador usa para conectarse a un origen de datos externo de tipos compatibles en Azure. | Consulte [Indexers](search-indexer-overview.md) (Indexador) |
 | Índice | Índice de búsqueda persistente en Azure Search; se crea a partir de un esquema de índice que define el uso y estructura de los campos. | [Indexes in Azure Search](search-what-is-an-index.md) (Índices en Azure Search) | 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: aa62c06d0c12a42d34ef9b13b8b4533d197d8d19
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715822"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233883"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Supervisión de la comunicación de red entre dos máquinas virtuales mediante Azure Portal
 
@@ -77,7 +77,7 @@ Complete los pasos de [Creación de la primera máquina virtual](#create-the-fir
 | 3 | NOMBRE                                  | myVm2                                                                   |
 | 3 | Tipo de autenticación                   | Pegue la clave pública SSH o seleccione **Contraseña** y escriba una contraseña. |
 | 3 | Grupos de recursos                        | Seleccione **Usar existente** y, a continuación, **myResourceGroup**.                 |
-| 6 | Extensiones                            | **Agente de red para Linux**                                             |
+| 6 | Extensiones                            | **Agente de Network Watcher para Linux**                                             |
 
 La maquina virtual tarda unos minutos en implementarse. Espere a que la VM finalice la implementación antes de continuar con los pasos restantes.
 
@@ -109,7 +109,7 @@ Cree un monitor de conexión para supervisar la comunicación a través del puer
 
     ![Monitores de conexión](./media/connection-monitor/connection-monitors.png)
 
-2. Seleccione el monitor con el nombre **myVm1-myVm2(22)**, tal y como se muestra en la imagen anterior, para ver los detalles del monitor que se muestran en la siguiente imagen:
+2. Seleccione el monitor con el nombre **myVm1-myVm2(22)** , tal y como se muestra en la imagen anterior, para ver los detalles del monitor que se muestran en la siguiente imagen:
 
     ![Detalles del monitor](./media/connection-monitor/vm-monitor.png)
 

@@ -10,22 +10,22 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: c147023635f337e203f02779ef6df3d0a0f0088c
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 0d78e6eaca708073c3a216507b320fe8783a25b6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015565"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239236"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
 
 Aprenda a recuperar los secretos de Azure Key Vault y a usarlos como parámetros durante la implementación de Resource Manager. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./resource-manager-keyvault-parameter.md)
 
-En el tutorial [Establecimiento del orden de implementación de los recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), se crean una máquina virtual, una red virtual y algunos otros recursos dependientes. En este tutorial se personaliza la plantilla para recuperar la contraseña de administrador de la máquina virtual desde un almacén de claves.
+En el tutorial [Establecimiento del orden de implementación de los recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), cree una máquina virtual. Tendrá que proporcionar el nombre de usuario y la contraseña del administrador de la máquina virtual. En lugar de proporcionar la contraseña, puede almacenar previamente la contraseña en Azure Key Vault y, a continuación, personalizar la plantilla para recuperar la contraseña desde el almacén de claves durante la implementación.
 
 ![Diagrama de la integración de Key Vault en la plantilla de Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-template-key-vault-diagram.png)
 
@@ -57,80 +57,52 @@ Para completar este artículo, necesitará lo siguiente:
 
 ## <a name="prepare-a-key-vault"></a>Preparación de un almacén de claves
 
-En esta sección se usa una plantilla de Resource Manager para crear un almacén de claves y un secreto. Esta plantilla:
+En esta sección, creará un almacén de claves y agregará un secreto al almacén de claves, de manera que pueda recuperar el secreto al implementar la plantilla. Un almacén de claves se puede crear de muchas maneras. En este tutorial, se usa Azure PowerShell para implementar una [plantilla de Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json). Esta plantilla:
 
 * Cree un almacén de claves con la propiedad `enabledForTemplateDeployment` habilitada. El valor de esta propiedad debe ser true para que el proceso de implementación de plantilla pueda acceder a los secretos definidos en este almacén de claves.
 * Agregue un secreto al almacén de claves.  El secreto almacena la contraseña del administrador de la máquina virtual.
 
-Si usted (como usuario que va a implementar la plantilla de máquina virtual) no es propietario ni colaborador del almacén de claves, para poder acceder a Microsoft.KeyVault/vaults/deploy/action el propietario o colaborador debe concederle el permiso pertinente. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./resource-manager-keyvault-parameter.md)
+> [!NOTE]
+> Si usted (como usuario que va a implementar la plantilla de máquina virtual) no es propietario ni colaborador del almacén de claves, para poder acceder a Microsoft.KeyVault/vaults/deploy/action el propietario o colaborador debe concederle el permiso pertinente. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./resource-manager-keyvault-parameter.md)
 
-La plantilla necesita el identificador de objeto de usuario de Azure AD para configurar los permisos. El procedimiento siguiente permite obtener el identificador de objeto (GUID).
+Para ejecutar el siguiente script de PowerShell, seleccione **Pruébelo** para abrir Cloud Shell. Para pegar el script, haga clic con el botón derecho en el panel del shell y, a continuación, seleccione **Pegar**.
 
-1. Ejecute el siguiente comando de Azure PowerShell o de la CLI de Azure.  
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$upn = Read-Host -Prompt "Enter your user principal name (email address) used to sign in to Azure"
+$secretValue = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 
-    # <a name="clitabcli"></a>[CLI](#tab/CLI)
-    ```azurecli-interactive
-    echo "Enter your email address that is associated with your Azure subscription):" &&
-    read upn &&
-    az ad user show --upn-or-object-id $upn --query "objectId" &&
-    ```   
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
-    ```azurepowershell-interactive
-    $upn = Read-Host -Prompt "Enter your user principal name (email address) used to sign in to Azure"
-    (Get-AzADUser -UserPrincipalName $upn).Id
-    ```
-    o
-    ```azurepowershell-interactive
-    $displayName = Read-Host -Prompt "Enter your user display name (i.e. John Dole, see the upper right corner of the Azure portal)"
-    (Get-AzADUser -DisplayName $displayName).Id
-    ```
-    ---
-2. Anote el identificador de objeto. Los necesitará más adelante en este tutorial.
+$resourceGroupName = "${projectName}rg"
+$keyVaultName = $projectName
+$adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json"
 
-Para crear un almacén de claves:
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
+```
 
-1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir una plantilla. La plantilla crea un almacén de claves y un secreto.
+Algunos datos importantes:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatekeyvault%2FCreateKeyVault.json"><img src="./media/resource-manager-tutorial-use-key-vault/deploy-to-azure.png" alt="deploy to azure"/></a>
+* El nombre del grupo de recursos es el nombre del proyecto con **rg** anexado. Para que resulte más fácil [limpiar los recursos creados en este tutorial](#clean-up-resources), use el mismo nombre de proyecto y de grupo de recursos al [implementar la siguiente plantilla](#deploy-the-template).
+* El nombre predeterminado para el secreto es **vmAdminPassword**. Está codificado de forma rígida en la plantilla.
+* Para que la plantilla pueda recuperar el secreto, debe habilitar una directiva de acceso llamada **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** para el almacén de claves. Esta directiva está habilitada en la plantilla. Para obtener más información acerca de esta directiva de acceso, consulte [Implementación de almacenes de claves y secretos](./resource-manager-keyvault-parameter.md#deploy-key-vaults-and-secrets).
 
-2. Seleccione o escriba los siguientes valores.  No seleccione **Comprar** después de escribir los valores.
+La plantilla tiene un valor de salida denominado **keyVaultId**. Anote el valor. Este identificador es necesario cuando se implementa la máquina virtual. El formato del identificador de recurso es:
 
-    ![Portal de implementación de la integración de Key Vault en la plantilla de Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-key-vault-portal.png)
+```json
+/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
+```
 
-    * **Suscripción**: seleccione una suscripción de Azure.
-    * **Grupo de recursos**: asigne un nombre único. Anote este nombre y utilice el mismo grupo de recursos para implementar la máquina virtual en la siguiente sesión. La colocación del almacén de claves y la máquina virtual en el mismo grupo de recursos facilita la limpieza del recurso al final del tutorial.
-    * **Ubicación**: seleccione una ubicación.  La ubicación predeterminada es **Centro de EE. UU.**
-    * **Nombre del almacén de claves**: asigne un nombre único. 
-    * **Id. de inquilino**: la función de plantilla recupera automáticamente el identificador del inquilino.  No cambie el valor predeterminado
-    * **Id. de usuario de AD**: escriba el identificador del objeto de usuario de Azure AD que recuperó del último procedimiento.
-    * **Nombre del secreto**: el nombre predeterminado es **vmAdminPassword**. Si cambia el nombre de secreto aquí, deberá actualizar el nombre de secreto al implementar la máquina virtual.
-    * **Valor del secreto**: escriba el secreto.  El secreto es la contraseña utilizada para iniciar sesión en la máquina virtual. Se recomienda usar la contraseña generada que creó en el último procedimiento.
-    * **Acepto los términos y condiciones anteriores**: Seleccionar.
-3. Seleccione **Editar parámetros** en la parte superior para echar un vistazo a la plantilla.
-4. Vaya a la línea 28 del archivo JSON de la plantilla. Se trata de la definición de recursos del almacén de claves.
-5. Vaya a la línea 35:
+Cuando copie y pegue el identificador, este puede dividirse en varias líneas. Debe combinar las líneas y recortar los espacios adicionales.
 
-    ```json
-    "enabledForTemplateDeployment": true,
-    ```
-    `enabledForTemplateDeployment` es una propiedad de Key Vault. El valor de esta propiedad debe ser true para poder recuperar los secretos de este almacén de claves durante la implementación.
-6. Vaya a la línea 89. Se trata de la definición de secreto de Key Vault.
-7. Seleccione **Descartar** en la parte inferior de la página. No ha realizado ningún cambio.
-8. Compruebe que ha especificado todos los valores como se muestra en la captura de pantalla anterior y haga clic en **Comprar** en la parte inferior de la página.
-9. Seleccione el icono de la campana (notificación) en la parte superior de la página para abrir el panel **Notificaciones**. Espere hasta que el recurso se implemente correctamente.
-10. Seleccione **Ir al grupo de recursos** en el panel **Notificaciones**. 
-11. Seleccione el nombre del almacén de claves para abrirlo.
-12. Seleccione **Secretos** en el panel izquierdo. **vmAdminPassword** debe aparecer allí.
-13. Seleccione **Directivas de acceso** en el panel izquierdo. Su nombre (Active Directory) debe aparecer en la lista. Si no aparece, significa que no tiene permiso para acceder al almacén de claves.
-14. Seleccione **Haga clic para mostrar las directivas de acceso avanzado**. Observe que **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** está seleccionado. Este valor es otra condición para que la integración con Key Vault funcione.
+Para validar la implementación, ejecute el siguiente comando de PowerShell en el mismo panel de shell para recuperar el secreto en texto no cifrado. El comando solo funciona en la misma sesión de shell porque usa una variable $keyVaultName definida en el script de PowerShell anterior.
 
-    ![Directivas de acceso de la integración de Key Vault en la plantilla de Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
-15. Seleccione **Propiedades** en el panel izquierdo.
-16. Realice una copia del valor de **Identificador de recurso**. Este identificador es necesario cuando se implementa la máquina virtual.  El formato del identificador de recurso es:
+```azurepowershell
+(Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
+```
 
-    ```json
-    /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
-    ```
+Ahora que ha preparado un almacén de claves y un secreto, las secciones siguientes muestran cómo personalizar una plantilla existente para recuperar el secreto durante la implementación.
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
@@ -142,6 +114,7 @@ Las plantillas de inicio rápido de Azure consisten en un repositorio de plantil
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
+
 3. Seleccione **Abrir** para abrir el archivo. Es el mismo escenario que se ha usado en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
 4. La plantilla define cinco recursos:
 
@@ -177,13 +150,17 @@ No es necesario hacer ningún cambio en el archivo de plantilla.
     },
     ```
 
-    Reemplace **id** por el identificador del recurso del almacén de claves que creó en el último procedimiento.  
+    > [!IMPORTANT]
+    > Reemplace el valor de **id** por el identificador del recurso del almacén de claves que creó en el último procedimiento.
 
     ![Integrar el almacén de claves y el archivo de parámetros de implementación de máquina virtual de la plantilla de Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
 3. Asigne los valores a:
 
     * **adminUsername**: nombre de la cuenta de administrador de la máquina virtual.
     * **dnsLabelPrefix**: nombre de dnsLabelPrefix.
+
+    Vea un ejemplo en la captura de pantalla anterior.
+
 4. Guarde los cambios.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
@@ -191,10 +168,10 @@ No es necesario hacer ningún cambio en el archivo de plantilla.
 Para implementar la plantilla, siga las instrucciones que se indican en [Implementación de la plantilla](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Es preciso cargar **azuredeploy.json** y **azuredeploy.parameters.json** en el shell en la nube y, después, usar el siguiente script de PowerShell para implementar la plantilla:
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
+$location = Read-Host -Prompt "Enter the same location that is used for creating the key vault (i.e. centralus)"
+$resourceGroupName = "${projectName}rg"
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile "$HOME/azuredeploy.json" `
@@ -208,7 +185,7 @@ Al implementar la plantilla, use el mismo grupo de recursos que el almacén de c
 Cuando haya implementado correctamente la máquina virtual, use la contraseña almacenada en el almacén de claves para probar el inicio de sesión.
 
 1. Abra [Azure Portal](https://portal.azure.com).
-2. Seleccione **Grupos de recursos**/**NombreDeSuGrupoDeRecursos>**/**simpleWinVM**
+2. Seleccione **Grupos de recursos**/**NombreDeSuGrupoDeRecursos>** /**simpleWinVM**
 3. Seleccione **conectar** en la parte superior.
 4. Seleccione **Descargar archivo RDP** y siga las instrucciones para iniciar sesión en la máquina virtual con la contraseña almacenada en el almacén de claves.
 
@@ -216,10 +193,12 @@ Cuando haya implementado correctamente la máquina virtual, use la contraseña a
 
 Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos.
 
-1. En Azure Portal, seleccione **Grupos de recursos** en el menú de la izquierda.
-2. Escriba el nombre del grupo de recursos en el campo **Filtrar por nombre**.
-3. Seleccione el nombre del grupo de recursos.  Verá un total de seis recursos en el grupo de recursos.
-4. Seleccione **Eliminar grupo de recursos** del menú superior.
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter the same project name that is used for creating the key vault"
+$resourceGroupName = "${projectName}rg"
+
+Remove-AzResourceGroup -Name $resourceGroupName
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

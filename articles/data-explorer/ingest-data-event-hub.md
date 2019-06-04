@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: d5bd291758d6bb445b757b93fd91a4c2321b97db
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.date: 05/29/2019
+ms.openlocfilehash: 18ce5e9d7cff0d32021e97cd85f1e18c0309f00b
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898943"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357681"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer
 
@@ -118,15 +118,18 @@ Ahora puede conectarse al centro de eventos desde Azure Data Explorer. Cuando se
 
     Tabla de destino:
 
-    Hay dos opciones para el enrutamiento: *estático* y *dinámico*. En esta guía de inicio rápido usará el enrutamiento estático (predeterminado), en el que se especifican el nombre de la tabla, el formato de archivo y la asignación. Por tanto, deje **My data includes routing info** (Mis datos incluyen información de enrutamiento) sin seleccionar.
-    También puede usar el enrutamiento dinámico, en el que los datos incluyen la información de enrutamiento necesaria.
+    Hay dos opciones para el enrutamiento de los datos ingeridos: *estático* y *dinámico*. 
+    En este artículo, usará el enrutamiento estático, en el que se especifican el nombre de la tabla, el formato de los datos y la asignación. Por tanto, deje **My data includes routing info** (Mis datos incluyen información de enrutamiento) sin seleccionar.
 
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
     | Tabla | *TestTable* | La tabla que creó en **TestDatabase**. |
     | Formato de datos | *JSON* | Los formatos admitidos son Avro, CSV, JSON, JSON de varias líneas, PSV, SOH, SCSV, TSV y TXT. |
-    | Asignación de columnas | *TestMapping* | La asignación que creó en **TestDatabase**, que asigna los datos JSON entrantes a los nombres de columnas y tipos de datos de **TestTable**.|
+    | Asignación de columnas | *TestMapping* | La asignación que creó en **TestDatabase**, que asigna los datos JSON entrantes a los nombres de columnas y tipos de datos de **TestTable**. Se requiere para JSON, MULTILINE JSON o AVRO, y es opcional para otros formatos.|
     | | |
+
+    > [!NOTE]
+    > Seleccione **My data includes routing info** (Mis datos incluyen información de enrutamiento) para usar el enrutamiento dinámico, donde los datos incluyen la información de enrutamiento necesaria, tal como se muestra en los comentarios de la [aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Si se establecen propiedades estáticas y dinámicas, las propiedades dinámicas reemplazan a las estáticas. 
 
 ## <a name="copy-the-connection-string"></a>Copiar la cadena de conexión
 

@@ -1,19 +1,19 @@
 ---
-title: Tutorial sobre la supervisión y ajuste en Azure Database for PostgreSQL
-description: Este tutorial trata sobre la supervisión y el ajuste en Azure Database for PostgreSQL.
+title: 'Tutorial sobre la supervisión y ajuste en Azure Database for PostgreSQL: Single Server'
+description: 'Este tutorial trata sobre la supervisión y el ajuste en Azure Database for PostgreSQL: Single Server.'
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: f05e0eef7680b08ce116cc0243d944f6a1db597c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 5/6/2019
+ms.openlocfilehash: dcd8363db33809e2a33885f43e570c53807505fd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536448"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073087"
 ---
-# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>Tutorial: Supervisión y ajuste en Azure Database for PostgreSQL
+# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Supervisión y ajuste en Azure Database for PostgreSQL: Single Server
 
 Azure Database for PostgreSQL tiene características que le ayudarán a comprender y mejorar el rendimiento del servidor. En este tutorial, aprenderá a:
 > [!div class="checklist"]

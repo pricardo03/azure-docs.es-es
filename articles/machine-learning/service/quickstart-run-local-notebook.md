@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c814f4bb0cc24350e45400d141c97d1b2eb4998d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864379"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237795"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Uso de su propio servidor de cuadernos para empezar a trabajar con Azure Machine Learning
 
@@ -33,14 +33,29 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 
 * Un servidor de cuadernos de Python 3.6 con el SDK de Azure Machine Learning instalado.
 * Un área de trabajo de Azure Machine Learning Service.
-* Un archivo de configuración de área de trabajo ( **.azureml/config.json**).
+* Un archivo de configuración del área de trabajo ( **.azureml/config.json**).
 
-Consiga todos estos requisitos previos en [Creación de un área de trabajo de Azure Machine Learning Service](setup-create-workspace.md#portal).
+Consiga todos estos requisitos previos en [Creación de un área de trabajo de Azure Machine Learning Service](setup-create-workspace.md#sdk).
+
 
 
 ## <a name="use-the-workspace"></a>Uso del área de trabajo
 
-Cree un script o inicie un cuaderno en el mismo directorio que el archivo de configuración de área de trabajo. Ejecute este código, que usa las API básicas del SDK para realizar un seguimiento de las ejecuciones del experimento:
+Cree un script o inicie un cuaderno en el mismo directorio que el archivo de configuración del área de trabajo ( **.azureml/config.json**).
+
+### <a name="attach-to-workspace"></a>Asociación a un área de trabajo
+
+Este código lee la información del archivo de configuración para adjuntarlo al área de trabajo.
+
+```
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+### <a name="log-values"></a>Valores del registro
+
+Ejecute este código, que usa las API básicas del SDK para realizar un seguimiento de las ejecuciones del experimento:
 
 1. Cree un experimento en el área de trabajo.
 1. Registre un valor individual en el experimento.

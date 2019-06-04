@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 2b021975983858386cd7c847ba11a26f4feb9562
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150458"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236293"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas frecuentes
 
@@ -74,7 +74,7 @@ Compruebe su suscripción. Data Box solo está disponible para las ofertas de su
 
 Si tiene un tipo de oferta compatible para la suscripción, compruebe el nivel de acceso de la suscripción. Debe ser un colaborador o propietario de la suscripción para poder realizar un pedido.
 
-### <a name="q-i-ordered-a-couple-of-data-box-devices-i-am-not-able-to-create-any-additional-orders-why-would-this-be"></a>P: Pedí un par de dispositivos de Data Box,  y ahora no puedo hacer pedidos adicionales. ¿Por qué?
+### <a name="q-i-ordered-a-couple-of-data-box-devices-i-am-not-able-to-create-any-additional-orders-why-would-this-be"></a>P: Pedí un par de dispositivos de Data Box, y ahora no puedo hacer pedidos adicionales. ¿Por qué?
 A. Permitimos un máximo de cinco pedidos activos según la suscripción y el límite comercial (esto es, la combinación del país y la región seleccionados). Si necesita pedir un dispositivo adicional, póngase en contacto con el soporte técnico de Microsoft para aumentar el límite de su suscripción.
 
 ### <a name="q-when-i-try-to-create-an-order-i-receive-a-notification-that-the-data-box-service-is-not-available-what-does-this-mean"></a>P: Cuando intento crear un pedido, recibo una notificación de que el servicio de Data Box no está disponible. ¿Qué significa?
@@ -184,7 +184,7 @@ A. Si su dispositivo ha llegado dañado o hay evidencia de que lo hayan alterado
 A. En cuanto al servicio Data Box, Microsoft se encarga de administrar el envío desde y hasta el centro de datos de Azure. Si quiere usar su propio transportista, puede usar el servicio de importación y exportación de Azure. Para obtener más información, vaya a [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md) (¿Qué es el servicio de importación y exportación de Azure?).
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>P: ¿Mis dispositivos Data Box cruzarán fronteras internacionales durante el envío?
-A. Todos los dispositivos Data Box se envían desde el mismo país de destino y no cruzarán ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los dispositivos se pueden enviar desde y hasta cualquier país de la UE.
+A. Todos los dispositivos Data Box se envían desde el mismo país de destino y no cruzarán ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los dispositivos se pueden enviar desde y hasta cualquier país de la UE. Esto se aplica tanto a los dispositivos de Data Box como a los de Data Box Heavy.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>P: La pantalla E-Ink no muestra la etiqueta del envío de devolución. ¿Cuál debo hacer?
 A. Si la pantalla E-Ink no muestra la etiqueta del envío de devolución, realice los siguientes pasos:
@@ -247,7 +247,7 @@ A.  Los siguientes informes están disponibles para garantizar la cadena de cust
 A.  Los registros de seguimiento del transportista se obtienen en el historial de pedidos de Data Box. Podrá obtener acceso a este informe una vez que el dispositivo haya llegado al centro de datos de Azure, y se hayan borrado los datos de los discos del mismo. Si lo necesita de forma urgente, también puede ir directamente al sitio web del transportista con el número de seguimiento del pedido y obtener la información del seguimiento.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>¿Puedo transportar Data Box al centro de datos de Azure? 
-A.   No. Actualmente, el centro de datos de Azure no acepta la entrega de Data Box de clientes o transportistas que no sean UPS.
+A.  No. Actualmente, el centro de datos de Azure no acepta la entrega de Data Box de clientes o transportistas que no sean UPS.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

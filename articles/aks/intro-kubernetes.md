@@ -5,21 +5,21 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a147d95701af166c650411a91fb24e3448cfec09
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b14e4b452c1dcd92cc3e5447428c28f1d2c5b18e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995037"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073812"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 Azure Kubernetes Service (AKS) simplifica la implementación de los clústeres de Kubernetes administrados en Azure. AKS reduce la complejidad y la sobrecarga operativa de la administración de Kubernetes al descargar gran parte de esa responsabilidad en Azure. Como servicio hospedado de Kubernetes, Azure maneja tareas críticas como la supervisión del estado y el mantenimiento para usted. Azure administra los maestros de Kubernetes. Solo debe administrar y mantener los nodos de agente. Como servicio de Kubernetes administrado, AKS es gratuito: solo tiene que pagar los nodos de agente incluidos en sus clústeres, no los maestros.
 
-Puede crear un clúster de AKS en Azure Portal con la CLI de Azure, o bien opciones de implementación controladas por plantillas como las plantillas de Resource Manager y Terraform. Al implementar un clúster de AKS, el maestro y todos los nodos de Kubernetes se implementan y configuran automáticamente. Otras características como redes avanzadas, integración con Azure Active Directory y supervisión se pueden configurar también durante el proceso de implementación.
+Puede crear un clúster de AKS en Azure Portal con la CLI de Azure, o bien opciones de implementación controladas por plantillas como las plantillas de Resource Manager y Terraform. Al implementar un clúster de AKS, el maestro y todos los nodos de Kubernetes se implementan y configuran automáticamente. Otras características como redes avanzadas, integración con Azure Active Directory y supervisión se pueden configurar también durante el proceso de implementación. La compatibilidad de los contenedores de Windows Server está actualmente en versión preliminar en AKS.
 
 Para más información sobre los conceptos básicos de Kubernetes, consulte [Conceptos básicos de Kubernetes para AKS][concepts-clusters-workloads].
 
@@ -43,9 +43,9 @@ Para conocer el rendimiento de su clúster de AKS y las aplicaciones implementad
 
 Para más información, consulte [Supervisión del mantenimiento de contenedores de Azure Kubernetes Service][container-health].
 
-## <a name="cluster-and-node"></a>Clúster y nodo
+## <a name="clusters-and-nodes"></a>Clústeres y nodos
 
-Los nodos de AKS se ejecutan en máquinas virtuales de Azure. Puede conectar el almacenamiento a nodos y pods, actualizar los componentes de clúster y usar GPU.
+Los nodos de AKS se ejecutan en máquinas virtuales de Azure. Puede conectar el almacenamiento a nodos y pods, actualizar los componentes de clúster y usar GPU. AKS es compatible con clústeres de Kubernetes que ejecutan varios grupos de nodos, con el fin de que se puedan usar sistemas operativos mixtos y contenedores de Windows Server (actualmente en versión preliminar). Los nodos de Linux ejecutan una imagen personalizada del sistema operativo Ubuntu y los nodos de Windows Server ejecutan una imagen personalizada del sistema operativo Windows Server 2019.
 
 ### <a name="cluster-node-and-pod-scaling"></a>Escalado de pods y nodos de clúster
 
@@ -99,7 +99,7 @@ Para más información, consulte [Proyecto de Azure DevOps][azure-devops].
 
 ## <a name="docker-image-support-and-private-container-registry"></a>Compatibilidad con imágenes de Docker y registro de contenedor privado
 
-AKS admite el formato de imagen de Docker. Para el almacenamiento privado de las imágenes de Docker, puede realizar la integración de AKS con Azure Container Registry (ACR).
+AKS admite el formato de imagen de Docker. Para el almacenamiento privado de las imágenes de Docker, puede realizar la integración de ASK con Azure Container Registry (ACR).
 
 Para crear un almacén de imágenes privado, consulte [Azure Container Registry][acr-docs].
 

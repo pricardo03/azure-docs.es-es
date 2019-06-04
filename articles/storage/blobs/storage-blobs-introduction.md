@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 01/03/2019
+ms.date: 05/24/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 498dd3be75cb27263c811d9db541b2e040599156
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e8a68ca87307e1265c200f2e05464ff87983c1e6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788023"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258402"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introducción a Azure Blob Storage
 
@@ -68,8 +68,8 @@ Existen varias soluciones para migrar datos existentes a Blob Storage:
 - La **Biblioteca de movimiento de datos de Azure Storage** es una biblioteca de .NET para mover datos entre los servicios de Azure Storage. La utilidad AzCopy está creada con la Biblioteca de movimiento de datos. Para más información, consulte la [documentación de referencia](/dotnet/api/microsoft.azure.storage.datamovement) de la Biblioteca de movimiento de datos. 
 - **Azure Data Factory** admite operaciones de copia de datos con Blob Storage en ambas direcciones mediante el uso de una clave de cuenta, una firma de acceso compartido, una entidad de servicio o identidades administradas paras las autenticaciones de recursos de Azure. Para más información, consulte [Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 - **Blobfuse** es un controlador de sistema de archivos virtual para Azure Blob Storage. Puede usar blobfuse para acceder a los datos de blob de bloque existentes en la cuenta de Storage a través del sistema de archivos de Linux. Para más información, consulte [Cómo montar el almacenamiento de blobs como sistema de archivos con blobfuse](storage-how-to-mount-container-linux.md).
-- **Azure Data Box Disk** es un servicio para transferir datos locales al almacenamiento de blobs cuando los grandes conjuntos de datos o las restricciones de red hacen que la carga de datos a través del cable no sea realista. Puede usar [discos de Azure Data Box](../../databox/data-box-disk-overview.md) para solicitar discos de estado sólido (SSD) a Microsoft. A continuación, puede copiar los datos en esos discos y enviarlos de vuelta a Microsoft para su carga en Blob Storage.
-- El **servicio Azure Import/Export** proporciona una forma de exportar grandes cantidades de datos de la cuenta de almacenamiento a unidades de discos duros que usted proporciona y que Microsoft después le devuelve con los datos. Para más información, consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blog Storage](../common/storage-import-export-service.md).
+- El servicio **Azure Data Box Disk** está disponible para transferir datos locales al almacenamiento de blobs cuando los grandes conjuntos de datos o las restricciones de red hacen que la carga de datos a través del cable no sea realista. Según el tamaño de los datos, puede solicitar dispositivos [Azure Data Box Disk](../../databox/data-box-disk-overview.md), [Azure Data Box](../../databox/data-box-overview.md) o [Azure Data Box Heavy](../../databox/data-box-heavy-overview.md) de Microsoft. A continuación, puede copiar los datos en esos dispositivos y enviarlos de vuelta a Microsoft para su carga en Blob Storage.
+- El **servicio Azure Import/Export** ofrece una forma de importar o exportar grandes cantidades de datos de la cuenta de almacenamiento a unidades de discos duros que el usuario proporciona. Para más información, consulte [Uso del servicio Microsoft Azure Import/Export para transferir datos a Blog Storage](../common/storage-import-export-service.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

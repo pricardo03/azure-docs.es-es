@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 69068304a6bc72f503ed85edf05229f10e4a8bc0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258783"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236350"
 ---
 # <a name="what-is-azure-data-box-disk"></a>¿Qué es Azure Data Box Disk?
 
@@ -56,13 +56,16 @@ A.  Para ver dónde están disponibles actualmente las instancias de Data Box Di
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>P: ¿En qué regiones puedo almacenar datos con los discos de Data Box?
 A. Data Box Disk se admite en todas las regiones de Estados Unidos, Canadá, Australia, Oeste de Europa y Norte de Europa, Corea y Japón. Solo se admiten las regiones con nube pública de Azure. Azure Government u otras nubes soberanas no se admiten.
 
+### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>P: ¿Mi disco de Data Box atravesará fronteras internacionales durante el envío?
+A. Los discos de Data Box se envían desde el mismo país de destino y no cruzan ninguna frontera internacional. La única excepción es en el caso de los pedidos dentro de la Unión Europea (UE), donde los discos se pueden enviar desde y hasta cualquier país de la UE.
+
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>P: ¿Con quién debo ponerme en contacto si surge algún problemas con los discos de Data Box?
 A. Si surge algún problema con Data Box Disk, póngase en contacto con el [Soporte técnico de Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
 
 ## <a name="configure-and-connect"></a>Configuración y conexión
  
 ### <a name="q-can-i-specify-the-number-of-data-box-disks-in-the-order"></a>P: ¿Se puede especificar el número de discos de Data Box en el pedido?
-A.   No. Recibe discos de 8 TB (un máximo de cinco) en función del tamaño de los datos y de la disponibilidad de los discos.  
+A.  No. Recibe discos de 8 TB (un máximo de cinco) en función del tamaño de los datos y de la disponibilidad de los discos.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>P: ¿Cómo se desbloquean los discos de Data Box? 
 A.  En Azure Portal, vaya a su pedido de discos de Data Box y, después, a **Detalles del dispositivo**. Copie la clave de paso. Descargue y extraiga la herramienta de desbloqueo Data Box Disk para su sistema operativo desde Azure Portal. Ejecute la herramienta en el equipo que contiene los datos que desea copiar en los discos. Escriba la clave de paso para desbloquear los discos. La misma clave desbloquea todos los discos. 
@@ -120,7 +123,7 @@ A.  Para acelerar el proceso de copia:
 - Copie los archivos al disco de la máquina virtual.
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box-disks"></a>P: ¿Se pueden usar varias cuentas de almacenamiento con los discos de Data Box?
-A.   No. Actualmente, los discos de Data Box solo admiten una cuenta de almacenamiento, general o clásica. Se admiten blobs frecuentes y esporádicos. En la actualidad, solo se admiten las cuentas de almacenamiento de Estados Unidos, Europa Occidental y Europa del Norte en la nube pública de Azure.
+A.  No. Actualmente, los discos de Data Box solo admiten una cuenta de almacenamiento, general o clásica. Se admiten blobs frecuentes y esporádicos. En la actualidad, solo se admiten las cuentas de almacenamiento de Estados Unidos, Europa Occidental y Europa del Norte en la nube pública de Azure.
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>P: ¿Qué contiene el conjunto de herramientas disponible para mis datos con Data Box Disk?
 A. El conjunto de herramientas disponible con Data Box Disk contiene tres herramientas:
@@ -164,9 +167,9 @@ A. Puede clonar el pedido anterior. La clonación crea el mismo pedido que antes
 
 ### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>P: Copié los datos en la carpeta ManagedDisk. No veo ningún disco administrado con el grupo de recursos especificado para los discos administrados. ¿Se cargaron mis datos en Azure? ¿cómo puedo encontrarlos?
 A. Sí. Sus datos se cargaron en Azure, pero si no ve ningún disco administrado con los grupos de recursos especificados, probablemente se deba a que los datos no eran válidos. Si los blobs en páginas, blobs en bloques, Azure Files y discos administrados no eran válidos, estos irían a las siguientes carpetas:
- - Los blobs en páginas irían a un contenedor de blobs en bloques que empieza por *databoxdisk-invalid-pb-*.
- - Azure Files iría a un contenedor de blobs en bloques que empieza por *databoxdisk-invalid-af-*.
- - Los discos administrados irían a un contenedor de blob en bloques que empieza por *databoxdisk-invalid-md-*.
+ - Los blobs en páginas irían a un contenedor de blobs en bloques que empieza por *databoxdisk-invalid-pb-* .
+ - Azure Files iría a un contenedor de blobs en bloques que empieza por *databoxdisk-invalid-af-* .
+ - Los discos administrados irían a un contenedor de blob en bloques que empieza por *databoxdisk-invalid-md-* .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

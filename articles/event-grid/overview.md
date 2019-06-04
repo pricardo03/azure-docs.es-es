@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 04/04/2019
+ms.date: 05/25/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 8ceb3d2d97c63bd19333336314beb6c7444288e9
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: bfc8b62c61e2b9d01ffa0c582468b6236c92cccc
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578414"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257939"
 ---
 # <a name="what-is-azure-event-grid"></a>¿Qué es Azure Event Grid?
 
@@ -22,7 +22,7 @@ Azure Event Grid permite crear fácilmente aplicaciones con arquitecturas basada
 
 Puede usar filtros para enrutar eventos específicos a distintos puntos de conexión, multidifusión a varios puntos de conexión y asegurarse de que los eventos se entregan de forma confiable.
 
-Actualmente, Azure Event Grid está disponible en todas las regiones públicas. No está aún disponible en las nubes Azure Alemania, Azure China 21Vianet o Azure Government.
+Azure Event Grid se implementa para maximizar la disponibilidad mediante la distribución nativa por múltiples dominios de error en cada región, y por zonas de disponibilidad (en regiones que los admiten). Actualmente, Azure Event Grid está disponible en todas las regiones públicas. No está aún disponible en las nubes Azure Alemania, Azure China 21Vianet o Azure Government.
 
 Este artículo ofrece información general sobre Azure Event Grid. Para comenzar a usar rápidamente Event Grid, consulte [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md). 
 

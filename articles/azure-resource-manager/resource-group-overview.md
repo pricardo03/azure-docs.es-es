@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
+ms.date: 05/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269306"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225916"
 ---
 # <a name="azure-resource-manager-overview"></a>Información general del Administrador de recursos de Azure
 
@@ -34,7 +34,7 @@ La siguiente imagen muestra cómo todas las herramientas interactúan con la mis
 Si no conoce Azure Resource Manager, estos son algunos términos con los que puede no estar familiarizado.
 
 * **recurso** : elemento administrable que está disponible a través de Azure. Las máquinas virtuales, cuentas de almacenamiento, aplicaciones web, bases de datos y redes virtuales son ejemplos de recursos.
-* **grupo de recursos** : contenedor que almacena los recursos relacionados con una solución de Azure. El grupo de recursos incluye los recursos que se desean administrar como grupo. Para decidir cómo asignar los recursos a los grupos de recursos, tenga en cuenta lo que más conviene a su organización. Consulte [Grupos de recursos](#resource-groups).
+* **grupo de recursos**: contenedor que almacena los recursos relacionados con una solución de Azure. El grupo de recursos incluye los recursos que se desean administrar como grupo. Para decidir cómo asignar los recursos a los grupos de recursos, tenga en cuenta lo que más conviene a su organización. Consulte [Grupos de recursos](#resource-groups).
 * **proveedor de recursos**: un servicio que proporciona recursos de Azure. Por ejemplo, un proveedor de recursos común es **Microsoft.Compute**, que proporciona el recurso de máquina virtual. **Microsoft.Storage** es otro proveedor de recursos común. Consulte [Proveedores de recursos](#resource-providers).
 * **Plantilla de Resource Manager**: archivo de notación de objetos JavaScript (JSON) que define uno o más recursos para implementar en un grupo de recursos o suscripción. La plantilla se puede usar para implementar los recursos de manera repetida y uniforme. Consulte [Implementación de plantilla](#template-deployment).
 * **sintaxis declarativa** : sintaxis que permite establecer lo que pretende crear sin tener que escribir la secuencia de comandos de programación para crearla. La plantilla de Resource Manager es un ejemplo de sintaxis declarativa. En el archivo, puede definir las propiedades de la infraestructura que se va a implementar en Azure.
@@ -91,7 +91,7 @@ Si la región del grupo de recursos no está disponible temporalmente, no puede 
 
 Cada proveedor de recursos ofrece un conjunto de recursos y operaciones para trabajar con esos recursos. Por ejemplo, si desea almacenar claves y secretos, trabajará con el proveedor de recursos **Microsoft.KeyVault**. Este proveedor de recursos ofrece un tipo de recurso denominado **almacenes** para crear el almacén de claves.
 
-El nombre de un tipo de recurso tiene el formato: **{proveedor de recursos}/{tipo de recurso}**. El tipo de recurso para un almacén de claves es **Microsoft.KeyVault/vaults**.
+El nombre de un tipo de recurso tiene el formato: **{proveedor de recursos}/{tipo de recurso}** . El tipo de recurso para un almacén de claves es **Microsoft.KeyVault/vaults**.
 
 Antes de comenzar a implementar los recursos, debe conocer los proveedores de recursos disponibles. Conocer los nombres de los recursos y sus proveedores ayuda a definir los recursos que desea implementar en Azure. Además, es necesario que conozca las ubicaciones y las versiones de API válidas de cada tipo de recurso. Para más información, consulte [Tipos y proveedores de recursos](resource-manager-supported-services.md).
 
@@ -174,7 +174,21 @@ Después de definir la plantilla, está listo para implementar los recursos en A
 
 Al implementar un servicio complejo en Azure, es posible que necesite implementar el servicio en varias regiones y comprobar su estado antes de continuar con el paso siguiente. Use [Azure Deployment Manager](deployment-manager-overview.md) para coordinar un lanzamiento por fases del servicio. Mediante el establecimiento de fases en el lanzamiento del servicio, puede encontrar posibles problemas antes de que se haya implementado en todas las regiones. Si no necesita estas precauciones, las operaciones de implementación de la sección anterior son la mejor opción.
 
-Deployment Manager se encuentra actualmente en versión preliminar privada.
+Deployment Manager se encuentra actualmente en versión preliminar pública.
+
+## <a name="resiliency-of-azure-resource-manager"></a>Resistencia de Azure Resource Manager
+
+El servicio Azure Resource Manager está diseñado para proporcionar resistencia y disponibilidad continua. Las operaciones de Resource Manager y del plano de control (solicitudes enviadas a management.azure.com) en la API REST:
+
+* Se distribuyen entre regiones. Algunos servicios son regionales.
+
+* Se distribuyen entre las zonas de disponibilidad (así como regiones) en aquellas ubicaciones que tienen varias zonas de disponibilidad.
+
+* No dependen de un solo centro de datos lógicos.
+
+* Nunca se interrumpen debido a actividades de mantenimiento.
+
+Esta resistencia se aplica a los servicios que reciben las solicitudes a través de Resource Manager. Por ejemplo, Key Vault se beneficia de esta resistencia.
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 04/23/2019
+ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 93910fd0baeace9da474073960dbdb83251a1a63
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 79f3b125a4cb88b3555cf13aa4d4bc5c430df166
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576142"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303882"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desarrollo de un módulo de IoT Edge en C para dispositivos Windows
 
@@ -23,7 +23,7 @@ Use Visual Studio para desarrollar código C e implementarlo en un dispositivo d
 Los módulos Azure IoT Edge se pueden usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos IoT Edge. En este tutorial, se detallan los pasos para crear e implementar un módulo de IoT Edge que filtra los datos de sensor. En este tutorial, aprenderá a:    
 
 > [!div class="checklist"]
-> * Usar Visual Studio para crear un módulo de IoT Edge basado en el SDK de .NET Core 2.1.
+> * Usar Visual Studio Code para crear un módulo de IoT Edge basado en el SDK de C.
 > * Usar Visual Studio y Docker para crear una imagen de Docker y publicarla en el Registro.
 > * Implementar el módulo en el dispositivo IoT Edge.
 > * Ver datos generados.
@@ -34,11 +34,11 @@ El módulo IoT Edge que creó en este tutorial filtra lo datos sobre la temperat
 
 ## <a name="solution-scope"></a>Ámbito de la solución
 
-Este tutorial muestra cómo desarrollar un módulo en **C** mediante **Visual Studio 2017** y cómo se implementa en un **dispositivo Windows**. Si va a desarrollar módulos para dispositivos Linux, vaya a [Desarrollo de un módulo de IoT Edge en C para dispositivos Linux](tutorial-c-module.md) en su lugar. 
+Este tutorial muestra cómo desarrollar un módulo en **C** mediante **Visual Studio 2019** y cómo se implementa en un **dispositivo Windows**. Si va a desarrollar módulos para dispositivos Linux, vaya a [Desarrollo de un módulo de IoT Edge en C para dispositivos Linux](tutorial-c-module.md) en su lugar. 
 
 Utilice la tabla siguiente si desea conocer las opciones para desarrollar e implementar módulos de C para dispositivos de Windows: 
 
-| C | Visual Studio Code | Visual Studio 2017 | 
+| C | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Desarrollo de módulos C para WinAMD64 en Visual Studio](./media/tutorial-c-module/green-check.png) |
 
@@ -49,34 +49,38 @@ Antes de comenzar este tutorial, debe haber realizado el anterior para configura
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) de nivel estándar o gratis en Azure.
 * Un [dispositivo de Windows que ejecute Azure IoT Edge](quickstart.md).
 * Un registro de contenedor, como [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017), versión 15.7 o posterior, configurado con la extensión [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
+* [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configurado con la extensión [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 * [Docker CE](https://docs.docker.com/install/) configurado para ejecutar contenedores de Windows.
 * El SDK de Azure IoT para C. 
 
+> [!TIP]
+> Si usa Visual Studio 2017 (versión 15.7 o superior), descargue e instale [Azure IoT Edge Tools (versión preliminar)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) para VS 2017 desde Visual Studio Marketplace.
+
 ## <a name="create-a-module-project"></a>Creación de un proyecto de módulo
 
-En los siguientes pasos creará un proyecto de módulo de IoT Edge basado en el SDK de .NET Core 2.0 mediante Visual Studio y la extensión Azure IoT Edge Tools. Una vez que se crea una plantilla de proyecto, se agrega código nuevo para que el módulo filtre los mensajes en función de sus propiedades notificadas. 
+En los siguientes pasos creará un proyecto de módulo de IoT Edge basado en el SDK de C mediante Visual Studio y la extensión Azure IoT Edge Tools. Una vez que se crea una plantilla de proyecto, se agrega código nuevo para que el módulo filtre los mensajes en función de sus propiedades notificadas. 
 
 ### <a name="create-a-new-project"></a>Creación de un nuevo proyecto
 
 Cree una plantilla de solución de C que pueda personalizar con su propio código.
 
-1. Ejecute Visual Studio como administrador.
+1. Inicie Visual Studio 2019 y seleccione **Creación de un proyecto**.
 
-2. Seleccione **Archivo** > **Nuevo** > **Proyecto**. 
+2. En la ventana del nuevo proyecto, busque el proyecto **IoT Edge** y seleccione el proyecto **Azure IoT Edge (Windows amd64)** . Haga clic en **Next**. 
 
-3. En la ventana del nuevo proyecto, seleccione el tipo de proyecto **Azure IoT** y elija el proyecto **Azure IoT Edge**. Cambie el nombre del proyecto y de la solución por otro descriptivo como **CTutorialApp**. Haga clic en **Aceptar** para crear el proyecto. 
+   ![Creación de un nuevo proyecto de Azure IoT Edge](./media/tutorial-c-module-windows/new-project.png)
 
-   ![Creación de un nuevo proyecto de Azure IoT Edge](./media/tutorial-c-module-windows/new-project.png)
+3. En la ventana de configuración del nuevo proyecto, cambie el nombre del proyecto y de la solución por otro descriptivo como **CTutorialApp**. Haga clic en **Crear** para crear el proyecto. 
 
-4. En la ventana del módulo y la aplicación de IoT Edge, configure el proyecto con los valores siguientes: 
+   ![Configuración de un nuevo proyecto de Azure IoT Edge](./media/tutorial-c-module-windows/configure-project.png)
+
+4. En la ventana del módulo y la aplicación de IoT Edge, configure el proyecto con los valores siguientes: 
 
    | Campo | Valor |
    | ----- | ----- |
-   | Plataforma de aplicaciones | Desactive la opción **Linux Amd64** y active **WindowsAmd64**. |
    | Seleccione una plantilla: | Seleccione **Módulo C**. | 
    | Nombre del proyecto de módulo | Llame al módulo **CModule**. | 
-   | Repositorio de imágenes de Docker | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen del contenedor se rellena previamente con el valor del nombre del proyecto del módulo. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. <br><br> El repositorio de imágenes final será similar a \<nombre del Registro\>.azurecr.io/cmodule. |
+   | Repositorio de imágenes de Docker | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente con el valor del nombre del proyecto del módulo. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el servidor de inicio de sesión de la página de información general del registro de contenedor en Azure Portal. <br><br> El repositorio de imágenes final será similar a \<nombre del Registro\>.azurecr.io/cmodule. |
 
    ![Configuración del proyecto para el dispositivo de destino, el tipo de módulo y el registro de contenedor](./media/tutorial-c-module-windows/add-application-and-module.png)
 
@@ -84,7 +88,7 @@ Cree una plantilla de solución de C que pueda personalizar con su propio códig
 
 ### <a name="add-your-registry-credentials"></a>Adición de las credenciales del Registro
 
-El manifiesto de implementación comparte las credenciales del Registro de contenedor con el entorno de ejecución de Azure IoT Edge. El entorno de ejecución necesita estas credenciales para extraer las imágenes privadas e insertarlas en el dispositivo IoT Edge. Use las credenciales de la sección **Claves de acceso** del Registro de contenedor de Azure. 
+El manifiesto de implementación comparte las credenciales del registro de contenedor con el entorno de ejecución de Azure IoT Edge. El entorno de ejecución necesita estas credenciales para extraer las imágenes privadas e insertarlas en el dispositivo IoT Edge. Use las credenciales de la sección **Claves de acceso** de Azure Container Registry. 
 
 1. En el explorador de soluciones de Visual Studio, abra el archivo **deployment.template.json**. 
 
@@ -155,7 +159,7 @@ The default module code receives messages on an input queue and passes them alon
 
    Las nuevas líneas de código en la instrucción else agregan una nueva propiedad al mensaje, que etiqueta el mensaje como una alerta. Este código etiqueta todos los mensajes como alertas, dado que se agregará una funcionalidad que solo envía mensajes a IoT Hub si notifican altas temperaturas. 
 
-4. Busque la función `InputQueue1Callback` y reemplace toda la función por el código siguiente. Esta función implementa el filtro de mensajería real. Cuando se recibe un mensaje, el filtro comprueba si la temperatura notificada supera el umbral. Si es así, se reenvía el mensaje a través de su cola de salida. De lo contrario, se omite el mensaje. 
+4. Busque la función `InputQueue1Callback` y reemplace toda la función por el código siguiente. Esta función implementa el filtro de mensajería real. Cuando se recibe un mensaje, el filtro comprueba si la temperatura notificada supera el umbral. Si es así, se reenvía el mensaje mediante su cola de salida. De lo contrario, se omite el mensaje. 
 
     ```c
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -287,19 +291,19 @@ The default module code receives messages on an input queue and passes them alon
 
 En la sección anterior, creó una solución de IoT Edge y agregó código a **CModule** para filtrar los mensajes en los que la temperatura registrada por la máquina está por debajo del umbral aceptable. Ahora, tiene que compilar la solución como una imagen de contenedor e insertarla en el registro de contenedor. 
 
-1. Utilice el siguiente comando para iniciar sesión en Docker en la máquina de desarrollo. Inicie sesión con el nombre de usuario, la contraseña y el servidor de inicio de sesión de Azure Container Registry. Puede recuperar estos valores en la sección **Claves de acceso** del Registro en Azure Portal.
+1. Utilice el siguiente comando para iniciar sesión en Docker en la máquina de desarrollo. Inicie sesión con el nombre de usuario, la contraseña y el servidor de inicio de sesión de Azure Container Registry. Puede recuperar estos valores en la sección **Claves de acceso** del Registro en Azure Portal.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Puede recibir una advertencia de seguridad que recomiende el uso de `--password-stdin`. Aunque ese procedimiento se recomienda para escenarios de producción, está fuera del ámbito de este tutorial. Para más información, vea la referencia de [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
+   Puede recibir una advertencia de seguridad en la que se recomiende el uso de `--password-stdin`. Aunque ese procedimiento se recomienda para escenarios de producción, está fuera del ámbito de este tutorial. Para más información, vea la referencia de [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
 
 2. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el nombre del proyecto que desea compilar. El nombre predeterminado es **AzureIotEdgeApp1** y puesto que va a compilar un módulo de Windows, la extensión debe ser **Windows.Amd64**. 
 
 3. Seleccione **Build and Push IoT Edge Modules** (Compilación e inserción de los módulos de IoT Edge). 
 
-   El comando de compilación e inserción inicia tres operaciones. En primer lugar, se crea una nueva carpeta en la solución denominada **config** que contiene los archivos del manifiesto de la implementación completa, con la información de la plantilla de implementación y otros archivos de la solución. En segundo lugar, ejecuta `docker build` para generar la imagen de contenedor basándose en el Dockerfile adecuado para la arquitectura de destino. A continuación, ejecuta `docker push` para insertar el repositorio de imágenes en el Registro de contenedor. 
+   El comando de compilación e inserción inicia tres operaciones. En primer lugar, se crea una nueva carpeta en la solución denominada **config** que contiene los archivos del manifiesto de la implementación completa, con la información de la plantilla de implementación y otros archivos de la solución. En segundo lugar, ejecuta `docker build` para generar la imagen de contenedor basándose en el Dockerfile adecuado para la arquitectura de destino. A continuación, ejecuta `docker push` para insertar el repositorio de imágenes en el registro de contenedor. 
 
 ## <a name="deploy-modules-to-device"></a>Implementación de módulos en el dispositivo
 
@@ -326,11 +330,11 @@ Puede usar la extensión IoT Edge Tools para ver los mensajes a medida que llega
 
 1. En el explorador en la nube de Visual Studio, seleccione el nombre del dispositivo de IoT Edge. 
 
-2. En la lista **Acciones**, seleccione **Iniciar supervisión del mensaje D2C**. 
+2. En la lista **Acciones**, seleccione **Start Monitoring Built-in Event Endpoint** (Iniciar supervisión del punto de conexión del evento integrado). 
 
-3. Vea los mensajes que llegan a IoT Hub. Los mensajes pueden tardar un rato en llegar, ya que el dispositivo IoT Edge tiene que recibir su nueva implementación e iniciar todos los módulos. Después, los cambios realizados en el código CModule esperan hasta que la temperatura de la máquina alcanza los 25 grados antes de enviar los mensajes. También agrega el tipo de mensaje **Alerta** a los mensajes que llegan a ese umbral de temperatura. 
+3. Vea los mensajes que llegan a IoT Hub. Los mensajes pueden tardar un rato en llegar, ya que el dispositivo IoT Edge tiene que recibir su nueva implementación e iniciar todos los módulos. Después, los cambios realizados en el código CModule esperan hasta que la temperatura de la máquina alcanza los 25 grados antes de enviar los mensajes. También agrega el tipo de mensaje **Alerta** a los mensajes que llegan a ese umbral de temperatura. 
 
-   ![Visualización de los mensajes que llegan a IoT Hub](./media/tutorial-c-module-windows/view-d2c-message.png)
+   ![Visualización de los mensajes que llegan a IoT Hub](./media/tutorial-c-module-windows/view-d2c-message.png)
 
 ## <a name="edit-the-module-twin"></a>Edición del módulo gemelo
 
@@ -350,7 +354,7 @@ El módulo gemelo CModule se usa para establecer el umbral de temperatura en 25�
 
 Si prevé seguir con el siguiente artículo recomendado, puede mantener los recursos y las configuraciones que ya ha creado y volverlos a utilizar. También puede seguir usando el mismo dispositivo de IoT Edge como dispositivo de prueba. 
 
-En caso contrario, para evitar gastos, puede eliminar las configuraciones locales y los recursos de Azure que usó en este artículo. 
+En caso contrario, para evitar gastos, puede eliminar las configuraciones locales y los recursos de Azure que creó en este artículo. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 

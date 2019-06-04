@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 3959eb789102cd3d54fc7bab32e585b3c09d897b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7870322746d8cb647547e5c85036579611ac3292
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792149"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303303"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Guía de inicio rápido: uso de .NET y C# en Visual Studio para conectar a una base de datos de Azure SQL Database y consultarla
 
@@ -43,7 +43,7 @@ Para completar este inicio rápido necesita instalar:
   > [!IMPORTANT]
   > Los scripts de este artículo se escriben para utilizar la base de datos Adventure Works. Con una instancia administrada, debe importar la base de datos Adventure Works en una base de datos de instancia o modificar los scripts de este artículo para utilizar la base de datos Wide World Importers.
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional o Enterprise.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community, Professional o Enterprise.
 
 ## <a name="get-sql-server-connection-information"></a>Obtención de información de conexión de SQL Server
 
@@ -59,7 +59,7 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
 1. Abra Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto**. 
    
-1. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Visual C#** y, luego, **Aplicación de consola (.NET Framework)**.
+1. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Visual C#** y, luego, **Aplicación de consola (.NET Framework)** .
    
 1. Escriba *sqltest* en el nombre del proyecto y, luego, seleccione **Aceptar**. El proyecto nuevo se crea. 
    
@@ -73,7 +73,7 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
    
 1. Cuando se complete la instalación, puede cerrar el **Administrador de paquetes NuGet**. 
    
-1. En el editor de código, reemplace el contenido de **Program.cs** por el código siguiente. Sustituya los valores por `<server>`, `<username>`, `<password>` y `<database>`.
+1. En el editor de código, reemplace el contenido de **Program.cs** por el código siguiente. Reemplace los valores de `<server>`, `<username>`, `<password>` y `<database>`.
    
    >[!IMPORTANT]
    >El código de este ejemplo usa los datos de AdventureWorksLT de ejemplo, que puede elegir como origen al crear la base de datos. Si la base de datos tiene datos distintos, use las tablas de su propia base de datos en la consulta SELECT. 

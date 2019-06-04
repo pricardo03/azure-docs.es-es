@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861529"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253065"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión
 
@@ -29,7 +29,7 @@ En este tutorial va a permitir a los usuarios restablecer sus contraseñas desde
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Debe ejecutar al menos la actualización de abril de 2018 de Windows 10 y los dispositivos deben estar:
+* Debe ejecutar al menos la actualización de abril de 2018 (v1803) de Windows 10 y los dispositivos deben estar:
    * [Unidos a Azure AD](../device-management-azure-portal.md) o
    * [Unidos a Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md), con conectividad de red a un controlador de dominio.
 * Debe habilitar el autoservicio de restablecimiento de contraseña de Azure AD.
@@ -122,7 +122,7 @@ Al probar esta funcionalidad con Escritorio remoto o con una sesión de máquina
 
 * El restablecimiento de contraseña no se admite actualmente desde Escritorio remoto.
 
-Si en versiones de Windows 10 anteriores a la 1809 la directiva requiere Ctrl+Alt+Del, no funcionará el vínculo **Restablecer contraseña**.
+Si en versiones de Windows 10 anteriores a la 1809 la directiva requiere Ctrl+Alt+Del, no funcionará el vínculo **Restablecer contraseña**.
 
 Si las notificaciones de la pantalla de bloqueo están desactivadas, tampoco funcionará el vínculo **Restablecer contraseña**.
 

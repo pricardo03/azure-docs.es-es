@@ -1,6 +1,6 @@
 ---
-title: Información general del restablecimiento de contraseñas en Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo registrar y restablecer la contraseña sin ayuda del administrador.
+title: Introducción al restablecimiento de las contraseñas profesionales o educativas propias en Azure Active Directory | Microsoft Docs
+description: Una lista de vínculos a artículos acerca de cómo registrar y restablecer contraseñas profesionales o educativas sin ayuda del administrador.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,24 +9,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 07/30/2018
+ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d03cdc8093651605839f813c264880b778167a6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f1dae1b8577c4f90211c3b377dbf88efe6907326
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165061"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243885"
 ---
-# <a name="reset-password-overview"></a>Información general del restablecimiento de contraseña
+# <a name="reset-your-own-work-or-school-password-overview"></a>Introducción al restablecimiento de las contraseñas profesionales o educativas propias
 
-Si olvidó su contraseña, nunca obtuvo ninguna del servicio de soporte técnico de su empresa o ha sido bloqueado en su cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña.
+Si alguna vez ha olvidado su contraseña en el trabajo o en la escuela, en su organización no ha tenido nunca contraseña o le han bloqueado la cuenta, puede usar la información de seguridad y el dispositivo móvil para restablecer su contraseña profesional o educativa.
+
+Para poder registrar sus datos y restablecer su contraseña es preciso que el administrador active esta característica. Si no ve la opción **He olvidado mi contraseña**, significa que el administrador no ha activado la característica para su organización. Si cree que no es correcto, solicite ayuda al departamento de soporte técnico.
 
 >[!Important]
 >Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
+## <a name="reset-your-own-work-or-school-password-related-articles"></a>Artículos relacionados con el restablecimiento de sus propias contraseñas profesionales o educativas
+
+Para obtener información detallada e instrucciones acerca de cómo registrar una cuenta para poder restablecer la contraseña y acerca de cómo restablecer la contraseña, consulte los artículos siguientes:
+
 |Artículo |DESCRIPCIÓN |
 |------|------------|
-|[Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md)| Describe cómo realizar el registro de manera que pueda restablecer su contraseña.|
-|[Restablecimiento de la contraseña](user-help-reset-password.md)| Describe cómo restablecer su contraseña.|
+|[Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md)| Instrucciones para comprobar los métodos de autenticación y cómo registrarse en el autoservicio de restablecimiento de contraseña para que pueda restablecer la contraseña.|
+|[Restablecimiento de la contraseña](user-help-reset-password.md)| Instrucciones para restablecer o desbloquear la contraseña de una cuenta profesional o educativa.|

@@ -5,26 +5,21 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/14/2017
+ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 5c10edc4f11aad23801045011b67592b6cc537e4
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 64d79abd1e142a231c08e02e7d62e8bfbab7b90e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65912153"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244743"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Tutorial: Migración de datos locales al almacenamiento en la nube mediante AzCopy
 
 AzCopy es una herramienta de línea de comandos para copiar datos de Azure Blob Storage, Azure Files y Azure Table Storage (o en ellos) mediante comandos simples. Los comandos están diseñados para optimizar el rendimiento. Con AzCopy, puede copiar datos entre un sistema de archivos y una cuenta de almacenamiento o entre cuentas de almacenamiento. AzCopy se puede usar para copiar datos desde los datos locales a una cuenta de almacenamiento.
 
-Descargue la versión de AzCopy adecuada para su sistema operativo:
-
-* [AzCopy en Linux](storage-use-azcopy-linux.md) se compila con .NET Core Framework. Tiene como destino plataformas Linux, ya que ofrece opciones de línea de comandos de estilo POSIX. 
-* [AzCopy en Windows](storage-use-azcopy.md) se compila con .NET Framework. Ofrece opciones de línea de comandos de estilo Windows. 
- 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
@@ -37,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, descargue la versión más reciente de AzCopy en [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) o [Windows](https://aka.ms/downloadazcopy).
+Para completar este tutorial, descargue la versión más reciente de AzCopy. Consulte [Introducción a AzCopy](storage-use-azcopy-v10.md).
 
 Si tiene Windows, necesitará [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx), ya que este tutorial lo utiliza para programar una tarea. Los usuarios de Linux utilizarán en su lugar el comando crontab.
 
@@ -45,77 +40,97 @@ Si tiene Windows, necesitará [Schtasks](https://msdn.microsoft.com/library/wind
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-El primer paso es crear un contenedor, ya que los blobs siempre se deben cargar en un contenedor. Los contenedores se utilizan como un método para organizar grupos de blobs de la misma forma que los archivos en el equipo, en carpetas. 
+El primer paso es crear un contenedor, ya que los blobs siempre se deben cargar en un contenedor. Los contenedores se utilizan como un método para organizar grupos de blobs de la misma forma que los archivos en el equipo, en carpetas.
 
 Siga estos pasos para crear un contenedor:
 
 1. Seleccione el botón **Cuentas de almacenamiento** de la página principal y la cuenta de almacenamiento que ha creado.
-2. Seleccione **Blobs** en **Servicios** y **Contenedor**. 
+2. Seleccione **Blobs** en **Servicios** y **Contenedor**.
 
    ![Crear un contenedor](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 El nombre de contenedor debe empezar por una letra o un número. Solo puede contener letras, números y el carácter de guion (-). Para conocer más reglas sobre la nomenclatura de los contenedores de almacenamiento, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
+## <a name="download-azcopy"></a>Descargar AzCopy
+
+Descargue el archivo ejecutable AzCopy V10.
+
+- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
+- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+
+Coloque el archivo AzCopy en cualquier lugar en el equipo. Agregue la ubicación del archivo a la variable de la ruta de acceso del sistema para que pueda hacer referencia a este archivo ejecutable desde cualquier carpeta del equipo.
+
+## <a name="authenticate-with-azure-ad"></a>Autenticación mediante Azure Active Directory
+
+En primer lugar, asigne el rol de [Colaborador de datos de Storage Blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) a su identidad. Consulte [Concesión de acceso a datos de blob y cola de Azure con RBAC en Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
+
+A continuación, abra un símbolo del sistema, escriba el siguiente comando y presione la tecla ENTRAR.
+
+```azcopy
+azcopy login
+```
+
+Este comando devuelve un código de autenticación y la dirección URL de un sitio web. Abra el sitio web, proporcione el código y, después, elija el botón **Siguiente**.
+
+![Crear un contenedor](media/storage-use-azcopy-v10/azcopy-login.png)
+
+Aparece una ventana de inicio de sesión. En esa ventana, inicie sesión en la cuenta de Azure con sus credenciales de la cuenta de Azure. Cuando haya iniciado sesión correctamente, puede cerrar la ventana del explorador y comenzar a usar AzCopy.
+
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>Carga del contenido en una carpeta en Blob Storage
 
 Puede usar AzCopy para cargar todos los archivos en una carpeta en Blob Storage en [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) o [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download). Para cargar todos los blobs en una carpeta, escriba el siguiente comando de AzCopy:
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+```AzCopy
+azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
+```
 
-    azcopy \
-        --source /mnt/myfolder \
-        --destination https://myaccount.blob.core.windows.net/mycontainer \
-        --dest-key <key> \
-        --recursive
+* Reemplace el marcador de posición `<local-folder-path>` por la ruta de acceso a una carpeta que contiene los archivos (por ejemplo: `C:\myFolder` o `/mnt/myFolder`).
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+* Reemplace el marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
----
+* Reemplace el marcador de posición `<container-name>` por el nombre del contenedor que ha creado.
 
-Reemplace `<key>` y `key` por el la clave de cuenta. En Azure Portal, la clave de cuenta se recupera al seleccionar **Claves de acceso** en **Configuración** en la cuenta de almacenamiento. Seleccione una clave y péguela en el comando de AzCopy. Si el contenedor de destino especificado no existe, AzCopy lo crea y carga el archivo en él. Actualice la ruta de acceso de origen al directorio de datos y reemplace **myaccount** en la dirección URL de destino con el nombre de la cuenta de almacenamiento.
-
-Para cargar el contenido del directorio especificado repetidamente en Blob Storage, especifique la opción `--recursive` (Linux) o `/S` (Windows). Al ejecutar AzCopy con una de estas opciones, se cargan también todas las subcarpetas y sus archivos.
+Para cargar el contenido del directorio especificado repetidamente en el almacenamiento de blob, especifique la opción `--recursive`. Al ejecutar AzCopy con esta opción, se cargan también todas las subcarpetas y sus archivos.
 
 ## <a name="upload-modified-files-to-blob-storage"></a>Carga de archivos modificados en Blob Storage
 
-Puede utilizar AzCopy para [cargar archivos](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#other-azcopy-features) según la hora de la última modificación. Para probar esto, modifique o cree archivos en el directorio de origen para fines de prueba. Para cargar solo los archivos nuevos o actualizados, agregue el parámetro `--exclude-older` (Linux) o `/XO` (Windows) al comando AzCopy.
+Puede utilizar AzCopy para cargar archivos según la hora de la última modificación. 
 
-Si solo desea copiar los recursos de origen que no existen en el destino, especifique ambos parámetros `--exclude-older` y `--exclude-newer` (Linux) o `/XO` y `/XN` (Windows) en el comando de AzCopy. AzCopy carga solo los datos actualizados, en función de su marca de tiempo.
+Para probar esto, modifique o cree archivos en el directorio de origen para fines de prueba. A continuación, utilice el comando `sync` de AzCopy.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+```AzCopy
+azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
+```
 
-    azcopy \
-    --source /mnt/myfolder \
-    --destination https://myaccount.blob.core.windows.net/mycontainer \
-    --dest-key <key> \
-    --recursive \
-    --exclude-older
+* Reemplace el marcador de posición `<local-folder-path>` por la ruta de acceso a una carpeta que contiene los archivos (por ejemplo: `C:\myFolder` o `/mnt/myFolder`).
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+* Reemplace el marcador de posición `<storage-account-name>` por el nombre de la cuenta de almacenamiento.
 
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
----
+* Reemplace el marcador de posición `<container-name>` por el nombre del contenedor que ha creado.
+
+Para más información sobre el comando `sync`, consulte [Sincronizar archivos](storage-use-azcopy-blobs.md#synchronize-files).
 
 ## <a name="create-a-scheduled-task"></a>Creación de una tarea programada
 
 Puede crear una tarea programada o un trabajo cron que ejecute un script de AzCopy. El script identifica y carga los datos locales nuevos en el almacenamiento en la nube en un intervalo de tiempo específico.
 
-Copie el comando de AzCopy en un editor de texto. Actualice los valores de parámetro del comando de AzCopy con los valores adecuados. Guarde el archivo como `script.sh` (Linux) o `script.bat` (Windows) para AzCopy.
+Copie el comando de AzCopy en un editor de texto. Actualice los valores de parámetro del comando de AzCopy con los valores adecuados. Guarde el archivo como `script.sh` (Linux) o `script.bat` (Windows) para AzCopy. 
+
+En estos ejemplos se supone que la carpeta se denomina `myFolder`, que el nombre de la cuenta de almacenamiento es `mystorageaccount` y que el nombre del contenedor es `mycontainer`.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-    azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --recursive --exclude-older --exclude-newer --verbose >> Path/to/logfolder/`date +\%Y\%m\%d\%H\%M\%S`-cron.log
+    azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-    cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
+    azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true
+
 ---
 
-AzCopy se ejecuta con la opción detallada `--verbose` (Linux) o `/V` (Windows). La salida se redirige a un archivo de registro.
-
 En este tutorial, se utiliza [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) para crear una tarea programada en Windows. El comando [Crontab](http://crontab.org/) se utiliza para crear un trabajo cron en Linux.
+
  **Schtasks** permite a un administrador crear, eliminar, consultar, cambiar, ejecutar y finalizar tareas programadas en un equipo local o remoto. **Cron** permite a los usuarios de Unix y Linux ejecutar comandos o scripts en una fecha y hora especificadas mediante [expresiones cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
@@ -133,8 +148,10 @@ Especificar la expresión cron `*/5 * * * *` en el comando indica que el script 
 
 Para crear una tarea programada en Windows, escriba el siguiente comando en un símbolo del sistema o en PowerShell:
 
+En este ejemplo se asume que el script se encuentra en la unidad raíz del equipo, pero su el puede estar en cualquier lugar que quiera.
+
 ```cmd
-schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\Users\username\Documents\script.bat
+schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\script.bat
 ```
 
 El comando utiliza:
@@ -147,17 +164,22 @@ Para más información sobre cómo crear una tarea programada en Windows, consul
 
 ---
 
-Para asegurarse de que la tarea programada o el trabajo cron se ejecutan correctamente, cree nuevos archivos en el directorio `myfolder`. Espere cinco minutos para confirmar que los nuevos archivos se han cargado en la cuenta de almacenamiento. Vaya al directorio de registro para ver los registros de salida de la tarea programada o el trabajo cron.
+Para asegurarse de que la tarea programada o el trabajo cron se ejecutan correctamente, cree nuevos archivos en el directorio `myFolder`. Espere cinco minutos para confirmar que los nuevos archivos se han cargado en la cuenta de almacenamiento. Vaya al directorio de registro para ver los registros de salida de la tarea programada o el trabajo cron.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre las formas de mover datos locales a Azure Storage y viceversa, siga este vínculo:
 
-> [!div class="nextstepaction"]
-> [Movimiento de datos hacia Azure Storage y desde este](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)  
+* [Movimiento de datos hacia Azure Storage y desde este](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)  
 
-Para más información sobre AzCopy explícitamente, elija el artículo apropiado a su sistema operativo:
+Para más información sobre AzCopy, consulte cualquiera de estos artículos:
 
-> [!div class="nextstepaction"]
-> [Transferencia de datos con AzCopy en Windows](storage-use-azcopy.md)
-> [Transferencia de datos con AzCopy en Linux](storage-use-azcopy-linux.md)
+* [Introducción a AzCopy](storage-use-azcopy-v10.md)
+
+* [Transferencia de datos con AzCopy y Blob Storage](storage-use-azcopy-blobs.md)
+
+* [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
+
+* [Transferencia de datos con AzCopy y cubos de Amazon S3](storage-use-azcopy-s3.md)
+ 
+* [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)

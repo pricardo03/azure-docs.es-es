@@ -1,66 +1,63 @@
 ---
 title: Introducción al servicio de base de datos relacional Azure Database for PostgreSQL
 description: Proporciona información general sobre el servicio de base de datos relacional de Azure Database for MySQL.
-author: rachel-msft
-ms.author: raagyema
+author: jonels-msft
+ms.author: jonels
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 11/14/2018
-ms.openlocfilehash: 318778a83c82b0ddb88f8bbd852442ab389fedb3
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 05/06/2019
+ms.openlocfilehash: f4023fa84215a0319669de0d812d8306b62278e3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352264"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073281"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>¿Qué es Azure Database for PostgreSQL?
+Azure Database for PostgreSQL es un servicio de base de datos relacional en la nube de Microsoft diseñado para desarrolladores. Se basa en la versión de comunidad del motor de base de datos [PostgreSQL](https://www.postgresql.org/) de código abierto y está disponible en dos opciones de implementación: Un solo servidor y Citus (versión preliminar).
 
-Azure Database for PostgreSQL es un servicio de base de datos relacional en la nube de Microsoft creado para desarrolladores y basado en la versión de comunidad del motor de base de datos [PostgreSQL](https://www.postgresql.org/) de código abierto, versiones 9.5, 9.6 y 10. Azure Database for PostgreSQL ofrece:
+## <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL: Un solo servidor
+La opción de implementación Un solo servidor ofrece:
 
-- Alta disponibilidad integrada sin costo adicional.
+- Alta disponibilidad integrada sin coste adicional (99,99 % en contrato de nivel de servicio)
 - Rendimiento predecible, con precios de pago por uso inclusivos.
-- Escalado inmediato según las necesidades
+- Escalado inmediato, cuando sea necesario, en cuestión de segundos
+- Supervisión y alertas para evaluar rápidamente el impacto del escalado
 - Protección de información confidencial en reposo y en movimiento.
 - Copias de seguridad automáticas y restauración a un momento dado durante un máximo de 35 días.
 - Seguridad y cumplimiento de nivel empresarial.
 
-Todas estas funcionalidades apenas requieren tareas de administración y todas se proporcionan sin costo adicional. Estas funcionalidades permiten centrarse en el desarrollo rápido de aplicaciones y en reducir el plazo de acceso al mercado, en lugar de tener que dedicar tiempo y recursos a la administración tanto de máquinas virtuales como de infraestructura. Además, puede seguir desarrollando su aplicación con las herramientas y la plataforma de código abierto de su elección, y entregar con la velocidad y eficacia que exige su negocio sin tener que aprender nuevas habilidades. 
+Todas estas funcionalidades apenas requieren tareas de administración y todas se proporcionan sin costo adicional. Le permiten centrarse en el desarrollo rápido de aplicaciones y en reducir el plazo de acceso al mercado, en lugar de tener que dedicar tiempo y recursos a la administración tanto de las máquinas virtuales como de la infraestructura. Puede seguir desarrollando la aplicación con las herramientas de código abierto y en la plataforma de que prefiera sin necesidad de adquirir nuevos conocimientos.
 
-En este artículo se presentan los principales conceptos y características de Azure Database for PostgreSQL relacionados con el rendimiento, la escalabilidad y la manejabilidad. Consulte estas guías de inicio rápido para comenzar:
+La opción de implementación Un solo servidor ofrece tres planes de tarifa: Básico, De uso general y Optimizado para memoria. Cada plan ofrece capacidades de recursos diferente para admitir sus cargas de trabajo de la base de datos. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite. Para obtener más información, consulte los  [planes de tarifa](concepts-pricing-tiers.md).
 
-- [Create an Azure Database for PostgreSQL using Azure portal](quickstart-create-server-database-portal.md) (Creación de una base de datos Azure Database for PostgreSQL con Azure Portal)
-- [Create an Azure Database for PostgreSQL using the Azure CLI](quickstart-create-server-database-azure-cli.md) (Creación de una base de datos Azure Database for PostgreSQL con la CLI de Azure)
+## <a name="azure-database-for-postgresql---hyperscale-citus-preview"></a>Azure Database for PostgreSQL: Citus (versión preliminar)
+La opción Citus escala horizontalmente las consultas entre varias máquinas mediante particionamiento. Su motor de consultas paraleliza las consultas SQL entrantes en estos servidores para agilizar las respuestas en conjuntos de datos grandes. Sirve aplicaciones que requieren mayor escala y mejor rendimiento, por lo general cargas de trabajo que se aproximan a los 100 GB de datos (o que ya los superan).
 
-Para ver ejemplos de la CLI de Azure, consulte:
+La opción de implementación Citus ofrece:
 
-- [Azure CLI samples for Azure Database for PostgreSQL](./sample-scripts-azure-cli.md) (Ejemplos de la CLI de Azure para Azure Database for PostgreSQL)
+- Escalado horizontal entre varias máquinas mediante particionamiento
+- Paralelización de consultas entre estos servidores, lo que agiliza las respuestas en conjuntos de datos grandes
+- Una excelente compatibilidad con aplicaciones de varios inquilinos, análisis operativos en tiempo real y cargas de trabajo transaccionales de alto rendimiento
 
-## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar el rendimiento y la escala en cuestión de segundos
-El servicio Azure Database for PostgreSQL ofrece tres planes de tarifa: Básico, De uso general y Optimizado para memoria. Cada plan ofrece capacidades de recursos diferente para admitir sus cargas de trabajo de la base de datos. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que necesite y cuando los necesite. Para obtener más información, consulte los  [planes de tarifa](concepts-pricing-tiers.md).
+Las aplicaciones compiladas para PostgreSQL puede ejecutar consultas distribuidas en Citus con las [bibliotecas de conexiones](./concepts-connection-libraries.md) estándar y unos cambios mínimos.
 
-## <a name="monitoring-and-alerting"></a>Supervisión y alertas
-¿Cómo se decide cuándo escalar? Use las características de supervisión y alertas integradas de Azure. Con estas herramientas, puede evaluar rápidamente cómo le afectará el ajuste de la escala en función de sus necesidades de rendimiento o almacenamiento actuales o futuras. Vea las [Alertas](howto-alert-on-metric.md) para obtener más información.
+Tenga en cuenta que Citus está en versión preliminar pública y, por tanto, aún no ofrece un contrato de nivel de servicio.
 
-## <a name="keep-your-app-and-business-running"></a>Mantenimiento de la aplicación y el negocio en funcionamiento
-El Acuerdo de Nivel de Servicio (SLA) de Azure, con una disponibilidad del 99,99 % líder del sector y con la tecnología de una red global de centros de datos administrados por Microsoft, ayuda a mantener las aplicaciones en funcionamiento de forma ininterrumpida. Con cada servidor de Azure Database for PostgreSQL, se saca provecho de las ventajas de la seguridad integrada, la tolerancia a errores y la protección de datos, algo que de lo contrario tendría que adquirir o diseñar, compilar y administrar. Con Azure Database for PostgreSQL, cada plan de tarifa ofrece un conjunto completo de opciones y características de continuidad empresarial que puede usar para empezar a trabajar y no dejar de hacerlo. Puede usar la [restauración a un momento dado](howto-restore-server-portal.md) para devolver una base de datos a un estado anterior, con un plazo máximo de 35 días. Además, si el centro de datos que hospeda las bases de datos sufre una interrupción, puede restaurar las bases de datos a partir de copias con redundancia geográfica de copias de seguridad recientes.
+## <a name="data-security"></a>Seguridad de los datos
+Azure Database for PostgreSQL mantiene la tradicional seguridad de datos de los servicios de base de datos de Azure. Tiene características que limitan el acceso, protegen los datos en reposo y en movimiento, y le ayudan a supervisar la actividad. Para obtener más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://azure.microsoft.com/overview/trusted-cloud/).
 
-## <a name="secure-your-data"></a>Protección de los datos
-Los servicios de bases de datos de Azure tienen una tradición de seguridad de datos que conserva Azure Database for PostgreSQL con características que limitan el acceso, protegen los datos en reposo y en movimiento, y le ayudan a supervisar la actividad. Para obtener más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://azure.microsoft.com/overview/trusted-cloud/).
-
-El servicio Azure Database for PostgreSQL usa el cifrado de almacenamiento de los datos en reposo y cumple la norma FIPS 140-2. Los datos, incluidas las copias de seguridad, se cifran en el disco (a excepción de los archivos temporales creados por el motor durante la ejecución de consultas). El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de almacenamiento de Azure y las claves están administradas por el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
-
-De forma predeterminada, la base de datos de Azure para el servicio MySQL está configurada para requerir la [seguridad de la conexión SSL](./concepts-ssl-connection-security.md) para los datos en movimiento en la red. Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación. Tiene la opción de deshabilitar el requisito de SSL para conectar el servicio de base de datos en caso de que la aplicación cliente no admita la conectividad SSL.
+El servicio Azure Database for PostgreSQL usa el cifrado de almacenamiento de los datos en reposo y cumple la norma FIPS 140-2. Los datos, incluidas las copias de seguridad, se cifran en el disco. El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de almacenamiento de Azure y las claves las administra el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar. De forma predeterminada, el servicio Azure Database for PostgreSQL requiere conexiones seguras para los datos en movimiento tanto a través de la red como entre la aplicación cliente y la base de datos.
 
 ## <a name="contacts"></a>Contactos
-Para cualquier pregunta o sugerencia que pueda tener con respecto al uso de Azure Database for PostgreSQL, envíe un correo electrónico al equipo de Azure Database for PostgreSQL ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Tenga en cuenta que esto no es un alias de soporte técnico.
+Para cualquier pregunta o sugerencia acerca del uso de Azure Database for PostgreSQL, envíe un correo electrónico al equipo de Azure Database for PostgreSQL ([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Esta dirección es para preguntas generales, no para incidencias de soporte técnico.
 
-Además, tenga en cuenta los siguientes puntos de contacto según corresponda:
-- Para ponerse en contacto con el servicio de soporte técnico de Azure, [presente una incidencia de soporte técnico en Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- Para corregir un problema con la cuenta, envíe una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en Azure Portal.
+Además, tenga en cuenta estos puntos de contacto según corresponda:
+- Para ponerse en contacto con el servicio de soporte técnico de Azure o solucionar cualquier problema de su cuenta, [presente una incidencia desde Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Para proporcionar comentarios o solicitar nuevas características, cree una entrada mediante [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte la [página de precios](https://azure.microsoft.com/pricing/details/postgresql/) para ver comparaciones de costos y calculadoras.
-- Comience por [crear su primera base de datos de Azure Database for PostgreSQL](./quickstart-create-server-database-portal.md).
+- Comience por crear su primera base de datos de Azure Database for PostgreSQL [Un solo servidor](./quickstart-create-server-database-portal.md) o [Citus (versión preliminar)](./quickstart-create-hyperscale-portal.md)
 - Compile la primera aplicación en Python, PHP, Ruby, C\#, Java, Node.js: [Bibliotecas de conexiones](./concepts-connection-libraries.md)

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: aljo,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 451cfde133955b987b97bc2447724d2e00010892
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4b3922ea97391a83d729bcf8b25c489a45119046
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667385"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302447"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementación de una aplicación de Service Fabric en un clúster en Azure
 
@@ -44,7 +44,7 @@ En esta serie de tutoriales, se aprende a:
 Antes de empezar este tutorial:
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Instale Visual Studio 2017](https://www.visualstudio.com/) y las cargas de trabajo de **desarrollo de Azure** y de **desarrollo web y de ASP.NET**.
+* [Instale Visual Studio 2019](https://www.visualstudio.com/) y las cargas de trabajo de **desarrollo de Azure** y de **desarrollo web y de ASP.NET**.
 * [Instale el SDK de Service Fabric](service-fabric-get-started.md).
 
 ## <a name="download-the-voting-sample-application"></a>Descarga de la aplicación de ejemplo de votación
@@ -75,7 +75,7 @@ El servicio web de front-end de la aplicación de votación está escuchando un 
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-Tome nota del punto de conexión de servicio, ya que se necesita en un paso posterior.  Si va a realizar la implementación en un clúster existente, abra este puerto mediante la creación de una regla y un sondeo de equilibrio de carga en Azure Load Balancer mediante un [script de PowerShell](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) o a través del equilibrador de carga de este clúster de [Azure Portal](https://portal.azure.com).
+Tome nota del punto de conexión de servicio, ya que se necesita en un paso posterior.  Si va a realizar la implementación en un clúster existente, abra este puerto mediante la creación de una regla y un sondeo de equilibrio de carga en Azure Load Balancer mediante un [script de PowerShell](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) o a través del equilibrador de carga de este clúster de [Azure Portal](https://portal.azure.com).
 
 ### <a name="create-a-test-cluster-in-azure"></a>Creación de un clúster de prueba en Azure
 En el Explorador de soluciones, haga clic con el botón derecho en **Voting** y seleccione **Publicar**.
@@ -86,7 +86,7 @@ En la pestaña **Clúster**, escriba el **nombre del clúster** (por ejemplo, "m
 
 ![Creación de un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-En la pestaña **Certificado**, escriba la contraseña y la ruta de acceso de salida del certificado del clúster. Los certificados autofirmados se crean como los archivos PFX y se guardan en la ruta de acceso de salida especificada.  El certificado se usa tanto para la seguridad de nodo a nodo como para la de cliente a nodo.  No se deben usar certificados autofirmados en clústeres de producción.  Este certificado lo usa Visual Studio para autenticarse con el clúster e implementar aplicaciones. Seleccione **Importar certificado** para instalar el archivo PFX en el almacén CurrentUser\My certificate del equipo.  Haga clic en **Next**.
+En la pestaña **Certificado**, escriba la contraseña y la ruta de acceso de salida del certificado del clúster. Los certificados autofirmados se crean como los archivos PFX y se guardan en la ruta de acceso de salida especificada.  El certificado se usa tanto para la seguridad de nodo a nodo como para la de cliente a nodo.  No use un certificado autofirmado para clústeres de producción.  Este certificado lo usa Visual Studio para autenticarse con el clúster e implementar aplicaciones. Seleccione **Importar certificado** para instalar el archivo PFX en el almacén CurrentUser\My certificate del equipo.  Haga clic en **Next**.
 
 ![Creación de un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

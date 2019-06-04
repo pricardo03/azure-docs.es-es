@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 41589dccae4e1259e4dc9368d5825ba770b4bdcc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 11fa72f5853350c76b2a8d0aa4fd7b96b598b670
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146695"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303849"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desarrollo de módulos IoT Edge para dispositivos Linux
 
@@ -38,22 +38,22 @@ En este tutorial, aprenderá a:
 
 ## <a name="key-concepts"></a>Conceptos clave
 
-En este tutorial se realiza un recorrido por el desarrollo de un módulo IoT Edge. Un *módulo IoT Edge*, o a veces simplemente *módulo* para abreviar, es un contenedor que alberga código ejecutable. En un dispositivo IoT Edge se pueden implementar uno o varios módulos. Los módulos realizan tareas concretas, como la ingesta de datos de sensores, la realización de análisis de datos o de operaciones de limpieza de datos, o el envío a un centro de IoT. Para más información, consulte [Información sobre los módulos Azure IoT Edge](iot-edge-modules.md).
+En este tutorial se realiza un recorrido por el desarrollo de un módulo IoT Edge. Un *módulo IoT Edge*, o a veces simplemente *módulo* para abreviar, es un contenedor que alberga código ejecutable. En un dispositivo IoT Edge se pueden implementar uno o varios módulos. Los módulos realizan tareas concretas, como la ingesta de datos de sensores, la realización de análisis de datos o de operaciones de limpieza de datos, o el envío a un centro de IoT. Para más información, consulte [Información sobre los módulos Azure IoT Edge](iot-edge-modules.md).
 
 Cuando se desarrollan módulos IoT Edge, es importante conocer la diferencia entre la máquina de desarrollo y el dispositivo IoT Edge de destino en el que finalmente se implementará el módulo. El contenedor que cree para contener el código del módulo debe coincidir con el sistema operativo del *dispositivo de destino*. Por ejemplo, el escenario más común es que alguien desarrolle un módulo en un equipo Windows que pretende tener como destino un dispositivo Linux en el que se ejecuta IoT Edge. En ese caso, el sistema operativo del contenedor sería Linux. A medida que avance en este tutorial, tenga en cuenta la diferencia entre el *sistema operativo de la máquina de desarrollo* y el *sistema operativo del contenedor*.
 
-Este tutorial va dirigido a dispositivos Linux que ejecutan IoT Edge. Puede usar el sistema operativo de la máquina de desarrollo que prefiera, siempre que dicha máquina pueda ejecutar contenedores de Linux. Se recomienda usar Visual Studio Code para desarrollar para dispositivos Linux, así que es lo que se va a usar en este tutorial. También se puede usar Visual Studio 2017, aunque hay diferencias en lo relativo a la compatibilidad entre ambas herramientas.
+Este tutorial va dirigido a dispositivos Linux que ejecutan IoT Edge. Puede usar el sistema operativo de la máquina de desarrollo que prefiera, siempre que dicha máquina pueda ejecutar contenedores de Linux. Se recomienda usar Visual Studio Code para desarrollar para dispositivos Linux, así que es lo que se va a usar en este tutorial. También se puede usar Visual Studio, aunque hay diferencias en lo relativo a la compatibilidad entre ambas herramientas.
 
-En la tabla siguiente se enumeran los escenarios de desarrollo compatibles con los **contenedores de Linux** en Visual Studio Code y Visual Studio 2017.
+En la tabla siguiente se enumeran los escenarios de desarrollo compatibles con los **contenedores de Linux** en Visual Studio Code y Visual Studio.
 
-|   | Visual Studio Code | Visual Studio 2017 |
+|   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Arquitectura de dispositivos Linux** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Servicios de Azure** | Azure Functions <br> Azure Stream Analytics <br> Azure Machine Learning |   |
 | **Idiomas** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **Más información** | [Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **Más información** | [Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [Azure IoT Edge Tools para Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-En este tutorial se enseñan los pasos del desarrollo en Visual Studio Code. Si prefiere usar Visual Studio 2017, consulte las instrucciones de [Uso de Visual Studio 2017 para desarrollar y depurar los módulos Azure IoT Edge](how-to-visual-studio-develop-module.md).
+En este tutorial se enseñan los pasos del desarrollo en Visual Studio Code. Si prefiere usar Visual Studio, consulte las instrucciones de [Uso de Visual Studio 2019 para desarrollar y depurar los módulos Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -284,7 +284,7 @@ Ha verificado que las imágenes de contenedor creadas se almacenan en el registr
 
 El código SampleModule recibe mensajes mediante la cola de entrada y los pasa por la cola de salida. El manifiesto de implementación declaraba las rutas que pasaban a SampleModule los mensajes de tempSensor, y luego enviaban los mensajes de SampleModule a la instancia de IoT Hub. Las herramientas de Azure IoT para Visual Studio Code permiten ver los mensajes que llegan a IoT Hub desde dispositivos individuales. 
 
-1. En el explorador de Visual Studio Code, haga clic con el botón derecho en el dispositivo IoT Edge que desea supervisar y seleccione **Start Monitoring D2C Message** (Iniciar supervisión del mensaje D2C). 
+1. En el explorador de Visual Studio Code, haga clic con el botón derecho en el dispositivo IoT Edge que desea supervisar y seleccione **Start Monitoring Built-in Event Endpoint** (Iniciar supervisión del punto de conexión del evento integrado). 
 
 2. En la ventana de salida podrá ver si llegan mensajes al centro de IoT. 
 
@@ -292,7 +292,7 @@ El código SampleModule recibe mensajes mediante la cola de entrada y los pasa p
 
 ## <a name="view-changes-on-device"></a>Visualización de los cambios en el dispositivo
 
-Si desea ver lo que está ocurriendo en su propio dispositivo, utilice los comandos de esta sección para inspeccionar el entorno de ejecución de Azure IoT Edge y los módulos que se ejecutan en el dispositivo. 
+Si desea ver lo que está ocurriendo en su propio dispositivo, utilice los comandos de esta sección para inspeccionar el entorno de ejecución de Azure IoT Edge y los módulos que se ejecutan en el dispositivo. 
 
 Los comandos de esta sección son para el dispositivo IoT Edge, no en la máquina de desarrollo. Si usa una máquina virtual para el dispositivo IoT Edge, conéctese a ella ahora. En Azure, vaya a la página de información general de la máquina virtual y seleccione **Conectar** para acceder a la conexión de Secure Shell. 
 
@@ -312,7 +312,7 @@ Los comandos de esta sección son para el dispositivo IoT Edge, no en la máquin
 
    Los módulos IoT Edge distinguen mayúsculas de minúsculas. 
 
-   Los registros de tempSensor y SamplModule deben mostrar los mensajes que están procesando. El módulo edgeAgent es responsable de iniciar los otros módulos, por lo que sus registros tendrá información sobre cómo implementar el manifiesto de implementación. Si algún módulo no aparece en la lista o no se está ejecutando, es probable que los registros de edgeAgent contengan los errores. El módulo edgeHub es responsable de las comunicaciones entre los módulos e IoT Hub. Si los módulos están en funcionamiento, pero los mensajes no llegan al centro de IoT, los registros de edgeHub probablemente contendrán los errores. 
+   Los registros de tempSensor y SamplModule deben mostrar los mensajes que están procesando. El módulo edgeAgent es responsable de iniciar los otros módulos, por lo que sus registros tendrá información sobre cómo implementar el manifiesto de implementación. Si algún módulo no aparece en la lista o no se está ejecutando, es probable que los registros de edgeAgent contengan los errores. El módulo edgeHub es responsable de las comunicaciones entre los módulos e IoT Hub. Si los módulos están en funcionamiento, pero los mensajes no llegan al centro de IoT, los registros de edgeHub probablemente contendrán los errores. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

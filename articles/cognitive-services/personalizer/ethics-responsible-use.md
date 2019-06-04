@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 7b1e972b5516aa79d1754e32e487e17c9e68ac1d
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035426"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239888"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Directrices para la implementación responsable de Personalizer
 
@@ -49,7 +49,7 @@ La implementación de Personalizer puede ser de gran valor para los usuarios y p
 
 El uso de un servicio que aprende a personalizar contenido e interfaces de usuario resulta útil. También se pueden aplicar de forma incorrecta si la aplicación genera efectos secundarios negativos en el mundo real, incluyendo el hecho de que los usuarios no sean conscientes de la personalización del contenido. 
 
-Entre los ejemplos de usos de Personalizer con una posibilidad elevada de efectos secundarios negativos o una falta de transparencia se incluyen los escenarios en los que la "recompensa" depende de muchos factores complejos a largo plazo que, cuando se simplifican en una recompensa inmediata pueden tener resultados desfavorables para los usuarios. Estas opciones se suelen considerar como "consecuencias indirectas" u opciones que conllevan un riesgo de perjuicio. Por ejemplo:  
+Entre los ejemplos de usos de Personalizer con una posibilidad elevada de efectos secundarios negativos o una falta de transparencia se incluyen los escenarios en los que la "recompensa" depende de muchos factores complejos a largo plazo que, cuando se simplifican en una recompensa inmediata pueden tener resultados desfavorables para los usuarios. Estas opciones se suelen considerar como "consecuencias indirectas" u opciones que conllevan un riesgo de perjuicio. Por ejemplo: 
 
 
 * **Finanzas**: La personalización de ofertas en préstamos, productos financieros o de seguros en los que los factores de riesgo se basan en datos que los individuos no conocen, no pueden obtener ni pueden impugnar. 
@@ -128,17 +128,13 @@ Las siguientes son áreas de diseño para implementaciones responsables de intel
 * Archive la información y los recursos como, por ejemplo, los modelos, las directivas de aprendizaje y el resto de la información que usa Personalizer, para que se puedan reproducir los resultados.
 
 ### <a name="transparency"></a>Transparencia
-*Los sistemas de inteligencia artificial debe ser comprensibles*. Con Personalizer
+*Los sistemas de inteligencia artificial debe ser comprensibles*. Con Personalizer:
 
-• Ofrezca a los usuarios información sobre cómo se ha personalizado el contenido. Por ejemplo, puede mostrar a los usuarios un botón que diga "¿Por qué estoy viendo estas sugerencias?" que indique qué características principales del usuario y qué acciones jugaron un papel importante en los resultados de Personalizer.
-• Asegúrese de que los términos de uso mencionen que se usará la información sobre los usuarios y su comportamiento para personalizar la experiencia.
-
-
-* *Proporcione a los usuarios información acerca de cómo se ha personalizado el contenido.* Por ejemplo, puede mostrar a los usuarios un botón que diga `Why These Suggestions?` (¿Por qué estoy viendo estas sugerencias?) que indique qué características principales del usuario y qué acciones jugaron un papel importante en la personalización.
-* Asegúrese de que los términos de uso mencionen que se usará la información sobre los usuarios para personalizar la experiencia.
+* *Proporcione a los usuarios información acerca de cómo se ha personalizado el contenido.* Por ejemplo, puede mostrar a los usuarios un botón con la etiqueta `Why These Suggestions?` que muestre indique qué características principales del usuario y qué acciones han desempeñado un rol importante en los resultados de Personalizer.
+* Asegúrese de que las condiciones de uso mencionen que usará la información de los usuarios y su comportamiento para personalizar la experiencia.
 
 ### <a name="fairness"></a>Imparcialidad
-* Los sistemas de inteligencia artificial deben tratar a todas las personas de forma imparcial.
+*Los sistemas de inteligencia artificial deben tratar a todas las personas de forma imparcial*.
 
 * No use Personalizer para casos de uso en que los resultados sean a largo plazo, indirectos o impliquen daños reales.
 * No utilice características que no sean adecuadas para personalizar el contenido o que ayuden a propagar prejuicios no deseados. Por ejemplo, cualquier persona con una situación financiera similar debería ver las mismas recomendaciones personalizadas de productos financieros.

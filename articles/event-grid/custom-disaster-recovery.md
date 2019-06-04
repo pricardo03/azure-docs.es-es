@@ -5,20 +5,22 @@ services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 05/16/2019
 ms.author: babanisa
-ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863175"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305072"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Creación de una recuperación ante desastres propia para temas personalizados en Event Grid
-
 La recuperación ante desastres se ocupa de recuperarse tras una pérdida grave de funcionalidad de la aplicación. Este tutorial le guía por los pasos para configurar la arquitectura de eventos para recuperación en caso de que el servicio Event Grid deje de funcionar correctamente en una región determinada.
 
 En este tutorial, aprenderá a crear una arquitectura de conmutación por error activo-pasivo para temas personalizados en Event Grid. Para realizar la conmutación por error, creará un reflejo de sus temas y suscripciones entre dos regiones y, luego, administrará una conmutación por error cuando un tema deje de tener un estado correcto. La arquitectura de este tutorial conmuta por error todo el tráfico nuevo. Es importante tener en cuenta que, con esta configuración, los eventos ya en ejecución no se recuperarán hasta que la región comprometida vuelva a tener un estado correcto.
+
+> [!NOTE]
+> Event Grid admite ahora la recuperación ante desastres geográfica automática (GeoDR) en el servidor. Aún puede implementar la lógica de recuperación ante desastres en el lado del cliente si desea un mayor control sobre el proceso de conmutación por error. Para obtener más información acerca de GeoDR automática, consulte [Recuperación de desastres geográfica del lado servidor en Azure Event Grid](geo-disaster-recovery.md).
 
 ## <a name="create-a-message-endpoint"></a>Creación de un punto de conexión de mensaje
 
