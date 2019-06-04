@@ -71,7 +71,7 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | appctxsender |
 | appid |
 | appidacr |
-| Aserción |
+| assertion |
 | at_hash |
 | aud |
 | auth_data |
@@ -87,7 +87,7 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | cloud_graph_host_name |
 | cloud_instance_name |
 | cnf |
-| código |
+| code |
 | controls |
 | credential_keys |
 | csr |
@@ -105,7 +105,7 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | grant_type |
 | graph |
 | group_sids |
-| Grupos |
+| groups |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -136,7 +136,7 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | nameid |
 | nbf |
 | netbios_name |
-| valor de seguridad |
+| nonce |
 | oid |
 | on_prem_id |
 | onprem_sam_account_name |
@@ -156,10 +156,10 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| Recurso |
-| rol |
+| resource |
+| role |
 | roles |
-| ámbito |
+| scope |
 | scp |
 | sid |
 | signature |
