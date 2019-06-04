@@ -70,7 +70,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **Salesforce**. |Sí |
-| environmentUrl | Especifique la URL de la instancia de Salesforce. <br><br> -Valor predeterminado es "https:\//login.salesforce.com". <br> - Para copiar datos desde el espacio aislado, especifique "https://test.salesforce.com". <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, "https://[dominio].my.salesforce.com". |Sin  |
+| environmentUrl | Especifique la URL de la instancia de Salesforce. <br><br> -Valor predeterminado es "https:\//login.salesforce.com". <br> - Para copiar datos desde el espacio aislado, especifique "https://test.salesforce.com". <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, "https://[dominio].my.salesforce.com". |Sin |
 | username |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
 | password |Especifique la contraseña para la cuenta de usuario. |Sí |
 | securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API). |Sí |
@@ -107,12 +107,12 @@ En la actividad de copia cuando el origen es del tipo **RelationalSource** (lo q
 
 ## <a name="query-tips"></a>Sugerencias de consulta
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recuperación de datos mediante la cláusula WHERE en la columna DateTime
-Cuando se especifica la consulta SQL o SOQL, preste atención a la diferencia del formato de fecha y hora. Por ejemplo: 
+Cuando se especifica la consulta SQL o SOQL, preste atención a la diferencia del formato de fecha y hora. Por ejemplo:
 
 * **Ejemplo SOQL**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **Ejemplo de SQL**:
-    * **Uso del Asistente para copia para especificar la consulta:**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
-    * **Uso de la edición JSON para especificar la consulta (carácter de escape adecuado):**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
+    * **Uso del Asistente para copia para especificar la consulta:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
+    * **Uso de la edición JSON para especificar la consulta (carácter de escape adecuado):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Recuperación de datos de informes de Salesforce
 Puede recuperar datos de informes de Salesforce especificando las consultas como `{call "<report name>"}`; por ejemplo,. `"query": "{call \"TestReport\"}"`.
@@ -290,20 +290,20 @@ Consulte [Propiedades del tipo RelationalSource](#copy-activity-properties) para
 | Checkbox |Boolean |
 | Currency |Decimal |
 | Date |DateTime |
-| Date/Time |DateTime |
+| Fecha y hora |DateTime |
 | Email |String |
 | Id |String |
-| Lookup Relationship |String |
-| Multi-Select Picklist |String |
+| Relación de búsqueda |String |
+| Lista desplegable de selección múltiple |String |
 | Number |Decimal |
 | Percent |Decimal |
-| Phone |String |
-| Picklist |String |
+| Teléfono |String |
+| Lista desplegable |String |
 | Text |String |
-| Text Area |String |
-| Text Area (Long) |String |
-| Text Area (Rich) |String |
-| Text (Encrypted) |String |
+| Área de texto |String |
+| Área de texto (largo) |String |
+| Área de texto (enriquecido) |String |
+| Texto (cifrado) |String |
 | URL |String |
 
 > [!NOTE]

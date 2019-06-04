@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-pawal
-ms.openlocfilehash: 153fd5a8202ca0d919a2254449d846f8798bd10d
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 1cfe4038ff422ecba68f110707e9535226ccd4a5
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382491"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66472106"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 
@@ -213,6 +213,7 @@ Los siguientes idiomas están disponibles para la personalización a o desde ing
 | Bosnio (latino)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Chino simplificado      | `zh-Hans`          |
+|Chino tradicional|   `zh-Hant`   |
 | Croata      | `hr`          |
 | Checo      | `cs`          |
 | Danés      | `da`          |

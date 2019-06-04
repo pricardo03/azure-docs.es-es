@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 2677c993b759988b0a9906b357bcd352b243b5a7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b599beb6a8d14d0e62d236251fb5f5b1e1a8bcfd
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792677"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496939"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedimientos recomendados para una base de conocimiento de QnA Maker
 El artículo sobre el [ciclo de vida de desarrollo de una base de conocimiento](../Concepts/development-lifecycle-knowledge-base.md) indica cómo administrar una base de conocimiento de principio a fin. Siga estos procedimientos recomendados para mejorar la base de conocimiento y ofrecer mejores resultados a los usuarios finales del bot de chat o de la aplicación.
@@ -61,7 +61,7 @@ Se recomienda hacer que las siguientes preguntas y respuestas de charla sean má
 
 * ¿Quién es usted?
 * ¿Qué puede hacer?
-* Es necesario indicar la edad
+* ¿Cuántos años tiene?
 * ¿Quién le ha creado?
 * Hola
    
@@ -72,10 +72,13 @@ Asegúrese de aprovechar al máximo las características de clasificación que Q
 ### <a name="choosing-a-threshold"></a>Selección de un umbral
 La puntuación de confianza predeterminada que se usa como umbral es de 50, pero puede cambiarla para su base de conocimiento según sus necesidades. Dado que cada base de conocimiento es diferente, conviene probar y elegir el umbral que mejor se adapte a cada caso. Obtenga más información sobre la [puntuación de confianza](../Concepts/confidence-score.md). 
 
+### <a name="choosing-ranker-type"></a>Elegir tipo de clasificador
+De forma predeterminada, QnA Maker busca a través de preguntas y respuestas. Si desea buscar sólo las preguntas, para generar una respuesta, utilice el `RankerType=QuestionOnly` en el cuerpo de POST de la solicitud GenerateAnswer.
+
 ### <a name="add-alternate-questions"></a>Agregar preguntas alternativas
 [Alternar las preguntas](../How-To/edit-knowledge-base.md) aumenta las probabilidades de encontrar una coincidencia con una consulta de usuario. Las preguntas alternativas son útiles cuando hay varias maneras de plantear la misma pregunta. Esto puede incluir cambios en la estructura de la frase y el estilo de redacción.
 
-|Consulta original|Consultas alternativas|Cambio| 
+|Consulta original|Consultas alternativas|Change| 
 |--|--|--|
 |¿Hay estacionamiento disponible?|¿Dispone de estacionamiento?|estructura de la frase|
  |Hola|Buenas<br>¿Cómo estamos?|estilo de redacción o jerga|
@@ -103,7 +106,7 @@ Por ejemplo, puede tener dos preguntas y respuestas independientes con las sigui
 |dónde está *ubicado* el estacionamiento|
 |dónde está *ubicado* el cajero automático|
 
-Puesto que estas dos preguntas y respuestas están expresadas con palabras muy similares, esta similitud podría provocar que las puntuaciones sean muy parecidas para muchas de las consultas de usuario que están expresadas como *dónde está ubicado `<x>`*. Como alternativa, intente diferenciarlas claramente con consultas como *"dónde está el estacionamiento"* y *"dónde está el cajero automático"*, evitando palabras como "ubicado", que pueden estar en muchas preguntas en la base de conocimiento. 
+Puesto que estas dos preguntas y respuestas están expresadas con palabras muy similares, esta similitud podría provocar que las puntuaciones sean muy parecidas para muchas de las consultas de usuario que están expresadas como *dónde está ubicado `<x>`* . Como alternativa, intente diferenciarlas claramente con consultas como *"dónde está el estacionamiento"* y *"dónde está el cajero automático"* , evitando palabras como "ubicado", que pueden estar en muchas preguntas en la base de conocimiento. 
 
 ## <a name="collaborate"></a>Colaborar
 QnA Maker permite a los usuarios [colaborar](../How-to/collaborate-knowledge-base.md) en una base de conocimiento. Los usuarios necesitan acceso al grupo de recursos de QnA Maker en Azure para tener acceso a las bases de conocimiento. Algunas organizaciones quizás quieran externalizar la edición y el mantenimiento de la base de conocimiento, sin dejar de proteger el acceso a sus recursos de Azure. Para realizar este modelo de editor-aprobador, se configuran dos [servicios QnA Maker](../How-to/set-up-qnamaker-service-azure.md) idénticos en suscripciones distintas y seleccionar uno para el ciclo de pruebas de edición. Una vez finalizada la prueba, se transfiere el contenido de la base de conocimiento con un proceso de [importación y exportación](../Tutorials/migrate-knowledge-base.md) al servicio QnA Maker del aprobador que, finalmente, publicará la base de conocimiento y actualizará el punto de conexión.

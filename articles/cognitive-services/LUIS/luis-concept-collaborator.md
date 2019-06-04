@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956986"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66473522"
 ---
 # <a name="collaborating-with-other-authors"></a>Colaboración con otros creadores
 
@@ -31,7 +31,7 @@ Consulte [Usuario inquilino de Azure Active Directory](luis-how-to-collaborate.m
 
 ## <a name="luis-app-owner"></a>Propietario de la aplicación de LUIS
 
-La cuenta que se crea una aplicación es el propietario y cada aplicación tiene un único propietario. El propietario se muestra en la aplicación **[configuración](luis-how-to-collaborate.md)** página. El propietario puede eliminar la aplicación recibir correo electrónico cuando llega a la cuota de punto de conexión 75% del límite mensual. 
+La cuenta que se crea una aplicación es el propietario y cada aplicación tiene un único propietario. El propietario se muestra en la aplicación **[configuración](luis-how-to-collaborate.md)** página. El propietario recibe correo electrónico cuando llega la cuota de punto de conexión a un 75% del límite mensual. 
 
 ## <a name="authorization-roles"></a>Roles de autorización
 LUIS no es compatible con distintos roles para propietarios y colaboradores, salvo por una excepción. La cuenta de propietario es la única que puede eliminar la aplicación.

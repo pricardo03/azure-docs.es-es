@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.author: tulasim
-ms.openlocfilehash: 2454e07e4fc4600f846acc7afbcc19cc0b677450
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3088d0f161496cfd2e1cb8897cef36365ece9962
+ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792233"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66496955"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obtener una respuesta de conocimiento con la API de GenerateAnswer y metadatos
 
@@ -67,7 +67,7 @@ El **URL de solicitud** tiene el formato siguiente:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|Propiedad de la solicitud HTTP|NOMBRE|Type|Propósito|
+|Propiedad de la solicitud HTTP|Name|Type|Propósito|
 |--|--|--|--|
 |Parámetro de ruta de dirección URL|Id. de base de conocimiento|string|GUID de Knowledge Base.|
 |Parámetro de ruta de dirección URL|Host del punto de conexión de QnAMaker|string|nombre de host del punto de conexión implementado en la suscripción de Azure. Esto está disponible en la página de configuración después de publicar la base de conocimiento. |
@@ -86,6 +86,7 @@ El cuerpo JSON tiene varias opciones:
 |`scoreThreshold`|opcional|integer|Se devolverá sólo las respuestas con la puntuación de confianza por encima del umbral. El valor predeterminado es 0.|
 |`isTest`|opcional|boolean|Si establece en true, devuelve los resultados desde `testkb` índice de búsqueda en lugar de índice publicado.|
 |`strictFilters`|opcional|string|si se especifica, indica a QnA Maker que solo devuelva las respuestas que tienen los metadatos especificados. Use `none` para indicar la respuesta no debe tener ningún filtro de metadatos. |
+|`RankerType`|opcional|string|Si se especifica como `QuestionOnly`, indica a QnA Maker para buscar sólo las preguntas. Si no se especifica, QnA Maker busca en preguntas y respuestas.
 
 Un cuerpo JSON de ejemplo tiene el siguiente aspecto:
 
@@ -113,13 +114,13 @@ Una respuesta correcta devuelve el estado de 200 y una respuesta JSON.
 |Propiedad de respuestas (se ordenan por puntuación)|Propósito|
 |--|--|
 |de la aplicación|puntuación de clasificación entre 0 y 100.|
-|Identificador|identificador único asignado a la respuesta.|
+|Id|identificador único asignado a la respuesta.|
 |Preguntas|preguntas proporcionadas por el usuario.|
 |answer (responder)|la respuesta a la pregunta.|
 |source|nombre del origen desde el que se extrajo la respuesta o se guardó en la base de conocimiento.|
-|metadatos|metadatos asociados a la respuesta.|
+|metadata|metadatos asociados a la respuesta.|
 |metadata.name|nombre de los metadatos. (cadena, longitud máx.: 100, requerido)|
-|metadata.value: valor de los metadatos. (cadena, longitud máx.: 100, requerido)|
+|metadata.value|valor de los metadatos. (cadena, longitud máx.: 100, requerido)|
 
 
 ```json
@@ -172,7 +173,7 @@ Puesto que los resultados solo son necesarios para el restaurante "Paradise", pu
 }
 ```
 
-<name="keep-context"></a>
+<a name="keep-context"></a>
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Use resultados de preguntas y respuestas para mantener el contexto de la conversación
 
@@ -201,6 +202,21 @@ La respuesta a la GenerateAnswer contiene la información de metadatos correspon
             ]
         }
     ]
+}
+```
+
+## <a name="match-questions-only-by-text"></a>Coincide con preguntas, por texto
+
+De forma predeterminada, QnA Maker busca a través de preguntas y respuestas. Si desea buscar sólo las preguntas, para generar una respuesta, utilice el `RankerType=QuestionOnly` en el cuerpo de POST de la solicitud GenerateAnswer.
+
+Puede buscar a través de la kb publicados, mediante `isTest=false`, o en la prueba con kb `isTest=true`.
+
+```json
+{
+  "question": "Hi",
+  "top": 30,
+  "isTest": true,
+  "RankerType":"QuestionOnly"
 }
 ```
 
