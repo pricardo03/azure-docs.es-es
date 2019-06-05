@@ -11,7 +11,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/21/2019
+  ms.date: 06/04/2019
   ms.author: v-jansko
 abstract:
   description: 'Translator Text es un servicio de traducción automática basado en la nube que puede utilizar para traducir texto casi en tiempo real mediante una sola llamada API REST. La API usa la tecnología de traducción automática neuronal más moderna, al tiempo que también ofrece la tecnología de traducción automática estadística. Custom Translator es una extensión de Translator Text API que le permite compilar sistemas de traducción neuronal. El sistema de traducción personalizado se puede usar para traducir texto con Translator Text API o con los <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">servicios de voz de Microsoft</a>. Para obtener la lista de los idiomas admitidos, tanto para traducción neuronal como para traducción estadística, consulte <a href="languages.md">Idiomas admitidos</a>.'
