@@ -74,7 +74,11 @@
         - name: Configuración del cifrado de token SAML (versión preliminar)
           href: howto-saml-token-encryption.md
     - name: Inicio de sesión único
-      href: what-is-single-sign-on.md
+      items:
+        - name: ¿Qué es el inicio de sesión único?
+          href: what-is-single-sign-on.md
+        - name: Plan de implementación del inicio de sesión único
+          href: plan-sso-deployment.md
     - name: Portales de usuario final
       href: end-user-experiences.md
 - name: Guías de procedimientos
@@ -93,7 +97,9 @@
           href: application-proxy-configure-for-claims-aware-applications.md
         - name: 'Registro del conector: instalación silenciosa'
           href: application-proxy-register-connector-powershell.md
-        - name: Configuración de aplicaciones de cliente nativo
+        - name: Concesión de acceso a API locales para aplicaciones móviles y de escritorio
+          href: application-proxy-secure-api-access.md
+        - name: Configuración de aplicaciones cliente móviles y de escritorio
           href: application-proxy-configure-native-client-application.md
         - name: Configuración de una página principal personalizada
           href: application-proxy-configure-custom-home-page.md

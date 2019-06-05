@@ -7,34 +7,10 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Creación de un clúster y una base de datos
-      items:
-        - name: Portal de Azure
-          href: create-cluster-database-portal.md
-        - name: Azure CLI
-          href: create-cluster-database-cli.md
-        - name: PowerShell
-          href: create-cluster-database-powershell.md
-        - name: 'C#'
-          href: create-cluster-database-csharp.md
-        - name: Python
-          href: create-cluster-database-python.md
-    - name: Introducción de datos
-      items:
-        - name: 'Streaming de datos: centro de eventos'
-          href: ingest-data-event-hub.md
-        - name: 'Streaming de datos: Event Grid'
-          href: ingest-data-event-grid.md
-        - name: 'Streaming de datos: Kafka'
-          href: ingest-data-kafka.md
-        - name: 'Procesamiento por lotes de datos: Python'
-          href: python-ingest-data.md
-        - name: 'Procesamiento por lotes de datos: SDK de Node'
-          href: node-ingest-data.md
-        - name: 'Procesamiento por lotes de datos: SDK de .NET Standard'
-          href: net-standard-ingest-data.md
-        - name: 'Procesamiento por lotes de datos: Logstash'
-          href: ingest-data-logstash.md
+    - name: 'Creación de un clúster y una base de datos: Azure Portal'
+      href: create-cluster-database-portal.md
+    - name: Ingesta de datos de ejemplo
+      href: ingest-sample-data.md
     - name: Datos de consulta
       items:
         - name: UI Web
@@ -52,12 +28,38 @@
     - name: Información general de ingesta de datos
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
+    - name: Introducción a la visualización de datos
+      href: viz-overview.md
 - name: Guías de procedimientos
   items:
-    - name: Introducción
+    - name: Creación de un clúster y una base de datos
       items:
-        - name: Ingesta de datos de ejemplo
-          href: ingest-sample-data.md
+        - name: Azure CLI
+          href: create-cluster-database-cli.md
+        - name: PowerShell
+          href: create-cluster-database-powershell.md
+        - name: 'C#'
+          href: create-cluster-database-csharp.md
+        - name: Python
+          href: create-cluster-database-python.md
+    - name: Introducción de datos
+      items:
+        - name: Centro de eventos
+          href: ingest-data-event-hub.md
+        - name: Event Grid
+          href: ingest-data-event-grid.md
+        - name: Kafka
+          href: ingest-data-kafka.md
+        - name: Python
+          href: python-ingest-data.md
+        - name: SDK de Node
+          href: node-ingest-data.md
+        - name: SDK de .NET Standard
+          href: net-standard-ingest-data.md
+        - name: Logstash
+          href: ingest-data-logstash.md
+        - name: Copia de datos mediante Azure Data Factory
+          href: data-factory-load-data.md
     - name: Implementación
       items:
         - name: Tarea de DevOps
@@ -82,10 +84,14 @@
               href: power-bi-imported-query.md
             - name: Consulta SQL
               href: power-bi-sql-query.md
+        - name: Conector ODBC
+          href: connect-odbc.md
         - name: Sisense
           href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: Tableau
+          href: tableau.md
     - name: administración
       items:
         - name: Administración de permisos de la base de datos
@@ -104,7 +110,7 @@
       items:
         - name: Uso de métricas para supervisar el estado del clúster
           href: using-metrics.md
-    - name: Uso de otras herramientas
+    - name: Integración con otras herramientas
       items:
         - name: Conector de Apache Spark
           href: spark-connector.md
@@ -112,10 +118,6 @@
           href: connect-from-databricks.md
         - name: Análisis de datos en Jupyter Notebooks y Kqlmagic
           href: kqlmagic.md
-        - name: Copia de datos mediante Azure Data Factory
-          href: data-factory-load-data.md
-        - name: Conexión con ODBC
-          href: connect-odbc.md
     - name: Solución de problemas
       items:
         - name: Creación de un clúster

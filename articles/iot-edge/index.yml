@@ -1,55 +1,104 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure IoT Edge
-metadata:
-  title: 'Azure IoT Edge: Tutoriales, referencia de API'
-  description: Use Azure IoT Edge para implementar servicios de Azure y lógica de negocios personalizada en dispositivos perimetrales.
-  author: kgremban
-  manager: philmea
-  ms.service: iot-edge
-  services: iot-edge
-  ms.topic: landing-page
-  ms.date: 03/13/2019
-  ms.author: kgremban
-abstract:
-  description: 'Azure IoT Edge es un servicio de Internet de las cosas (IoT) que se basa en IoT Hub. Este servicio está pensado para los clientes que desean analizar datos en dispositivos, situación también conocida como "en el perímetro", en lugar de en la nube. Al mover elementos de la carga de trabajo al perímetro, los dispositivos pueden dedicar menos tiempo a enviar mensajes a la nube y reaccionan más rápidamente a los cambios de estado.'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ./media/index/iot-edge-thumbnail.png
-      width: 250
-    title: 'Creación de inteligencia perimetral con Azure IoT Edge (6:59)'
-    href: 'https://channel9.msdn.com/Shows/Internet-of-Things-Show/Creating-the-intelligent-edge-with-Azure-IoT-Edge'
-    width: 250
-sections:
-  - title: Inicio rápido en 5 minutos
-    items:
-      - type: paragraph
-        text: 'Cree una máquina virtual de Azure, configúrela para que se ejecute como un dispositivo de IoT Edge e implemente código en ella:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
-            text: ' Windows'
-            href: /azure/iot-edge/quickstart
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux-color.svg'
-            text: Linux
-            href: /azure/iot-edge/quickstart-linux
-  - title: Tutoriales detallados
-    items:
-      - type: paragraph
-        text: 'Aprenda a instalar y configurar IoT Edge, a implementar módulos y a utilizar servicios de Azure como Stream Analytics y Custom Vision en el perímetro.'
-      - type: list
-        style: ordered
-        items:
-          - html: Configuración del equipo de desarrollo e información adicional sobre los módulos de IoT Edge para <a href="/azure/iot-edge/tutorial-develop-for-linux">dispositivos Linux</a> o <a href="/azure/iot-edge/tutorial-develop-for-windows">Windows</a>.
-          - html: 'Desarrollo de módulos de código personalizados para dispositivos Linux en <a href="/azure/iot-edge/tutorial-c-module">C</a>, <a href="/azure/iot-edge/tutorial-csharp-module">C#</a>, <a href="/azure/iot-edge/tutorial-python-module">Python</a>, <a href="/azure/iot-edge/tutorial-node-module">Node.js</a> o en <a href="/azure/iot-edge/tutorial-java-module">Java</a>.'
-          - html: 'Desarrollo de módulos de código personalizados para dispositivos Windows en <a href="/azure/iot-edge/tutorial-c-module-windows">C</a> o <a href="/azure/iot-edge/tutorial-csharp-module-windows">C#</a>.'
-          - html: <a href="/azure/iot-edge/tutorial-deploy-function">Filtrado de mensajes con Azure Functions</a>
-          - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Búsqueda de promedios con Azure Stream Analytics como módulo</a>
-          - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Puntuación de datos con Azure Machine Learning como un módulo</a>
-          - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">Clasificación de imágenes con Custom Vision Service como módulo</a>
-          - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Almacenamiento de datos en el perímetro con SQL Server</a>
+summary: 'Azure IoT Edge es un servicio de Internet de las cosas (IoT) que se basa en IoT Hub. Este servicio está pensado para los clientes que desean analizar datos en dispositivos o "en el perímetro" en vez de en la nube. Al mover elementos de la carga de trabajo al perímetro, los dispositivos pueden dedicar menos tiempo a enviar mensajes a la nube y reaccionan más rápidamente a los eventos.'
+landingContent:
+  - title: Desarrollo para dispositivos Linux
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Implementación del primer módulo de IoT Edge en un dispositivo Linux
+            url: quickstart-linux.md
+      - linkListType: tutorial
+        links:
+          - text: Desarrollo de módulos IoT Edge para dispositivos Linux
+            url: tutorial-develop-for-linux.md
+      - linkListType: how-to-guide
+        links:
+          - text: Uso de Visual Studio Code para desarrollar y depurar módulos
+            url: how-to-vs-code-develop-module.md
+  - title: Desarrollo para dispositivos Windows
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Implementación del primer módulo de IoT Edge en un dispositivo Windows
+            url: quickstart.md
+      - linkListType: tutorial
+        links:
+          - text: "Desarrollo de módulos IoT\_Edge para dispositivos Windows"
+            url: tutorial-develop-for-windows.md
+      - linkListType: how-to-guide
+        links:
+          - text: Uso de Visual Studio 2017 para desarrollar y depurar módulos
+            url: how-to-visual-studio-develop-module.md
+  - title: Aprovisionamiento de dispositivos IoT Edge
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Instalación de IoT Edge en Linux x64
+            url: how-to-install-iot-edge-linux.md
+          - text: Instalación de IoT Edge en Linux ARM32
+            url: how-to-install-iot-edge-linux-arm.md
+          - text: Instalación de IoT Edge en Windows x64
+            url: how-to-install-iot-edge-windows.md
+          - text: Aprovisionamiento automático de dispositivos Linux
+            url: how-to-auto-provision-simulated-device-linux.md
+          - text: Aprovisionamiento automático de dispositivos Windows
+            url: how-to-auto-provision-simulated-device-windows.md
+  - title: Ponerse en contacto con la comunidad de código abierto
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Repositorio de IoT Edge
+            url: 'https://github.com/Azure/iotedge'
+          - text: Problemas de IoT Edge en GitHub
+            url: 'https://github.com/Azure/iotedge/issues'
+          - text: Versiones y registros de cambios más recientes
+            url: 'https://github.com/Azure/azure-iotedge/releases'
+  - title: Uso de dispositivos de IoT Edge como puertas de enlace
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Uso de un dispositivo IoT Edge como puerta de enlace
+            url: iot-edge-as-gateway.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configuración de una puerta de enlace transparente
+            url: how-to-create-transparent-gateway.md
+          - text: Conexión de un dispositivo de bajada
+            url: how-to-connect-downstream-device.md
+  - title: Preparación para escenarios de producción
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Descripción de implementaciones automáticas
+            url: module-deployment-monitoring.md
+          - text: Compatibilidad con plataformas
+            url: support.md
+          - text: Lista de comprobación de implementación de producción
+            url: production-checklist.md
+          - text: Descripción del uso de los certificados de IoT Edge
+            url: iot-edge-certs.md
+          - text: Estándares de seguridad para IoT Edge
+            url: security.md
+      - linkListType: how-to-guide
+        links:
+          - text: Implementación y supervisión a escala mediante la CLI de Azure
+            url: how-to-deploy-monitor-cli.md
+          - text: "Creación de una canalización de CI/CD con Azure\_Pipelines"
+            url: how-to-ci-cd.md
+      - linkListType: deploy
+        links:
+          - text: API REST de IoT Hub
+            url: 'https://docs.microsoft.com/rest/api/iothub/'
+  - title: Implementación de inteligencia artificial en el perímetro
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Implementación de Azure Machine Learning como un módulo de IoT Edge
+            url: tutorial-deploy-machine-learning.md
+          - text: Clasificación de imágenes en el perímetro con Custom Vision Service
+            url: tutorial-deploy-custom-vision.md
+      - linkListType: deploy
+        links:
+          - text: Búsqueda de módulos de Azure Cognitive Services en Azure Marketplace
+            url: 'https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&search=azure%20cognitive%20services'

@@ -470,8 +470,12 @@
           href: ./partner-center-portal/manage-account.md
         - name: Búsqueda o creación de una cuenta profesional de empresa
           href: ./partner-center-portal/company-work-accounts.md
+        - name: Migración de cuentas de CPP al Centro de partners
+          href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
     - name: Crear una nueva oferta
       items:
+        - name: Lista de comprobación de creación de ofertas
+          href: ./partner-center-portal/offer-creation-checklist.md
         - name: Creación de una oferta SaaS
           href: ./partner-center-portal/create-new-saas-offer.md
         - name: API de suministro de SaaS

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentación sobre la administración de dispositivos de Azure AD
+title: Documentación sobre la administración de identidades de dispositivo de Azure AD
 metadata:
   document_id: null
-  title: 'Documentación sobre la administración de dispositivos de Azure Active Directory: Tutoriales, conceptos, referencias | Microsoft Docs'
-  description: Aprenda a configurar y probar la administración de dispositivos de Azure Active Directory.
+  title: 'Documentación sobre la administración de identidades de dispositivo de Azure Active Directory: Tutoriales, conceptos, referencias | Microsoft Docs'
+  description: Aprenda a configurar y administrar identidades de dispositivo en Azure AD.
   services: active-directory
   ms.subservice: devices
   author: MicrosoftGuyJFlo
@@ -16,7 +16,7 @@ metadata:
   ms.date: 08/14/2018
   ms.author: joflore
 abstract:
-  description: 'Los usuarios acceden a los recursos corporativos a través de sus dispositivos. Para proteger los recursos corporativos, como administrador de TI, desea tener control sobre estos dispositivos. De esta forma, se asegura de que los usuarios acceden a los recursos desde dispositivos que satisfacen los estándares de seguridad y cumplimiento.<br>La administración de dispositivos también es la base del acceso condicional basado en dispositivos. Con el acceso condicional basado en dispositivos, puede asegurarse de que el acceso a los recursos del entorno solo es posible con dispositivos administrados.'
+  description: 'Los usuarios acceden a los recursos corporativos a través de sus dispositivos de Azure AD. Para proteger los recursos corporativos, como administrador de TI, desea administrar estas identidades de dispositivo en Azure AD. De esta forma, se asegura de que los usuarios acceden a los recursos desde dispositivos que satisfacen los estándares de seguridad y cumplimiento.<br>La administración de identidades de dispositivo también es la base del acceso condicional basado en dispositivos. Con el acceso condicional basado en dispositivos, puede asegurarse de que el acceso a los recursos del entorno solo es posible con dispositivos administrados.'
 sections:
   - title: Tutoriales detallados
     items:

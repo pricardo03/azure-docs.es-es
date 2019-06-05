@@ -39,6 +39,8 @@
           href: create-uidefinition-overview.md
         - name: Prueba de la interfaz del portal
           href: test-createuidefinition.md
+        - name: Solicitud de acceso Just-In-Time
+          href: request-just-in-time-access.md
         - name: Actualización de los recursos administrados
           href: update-managed-resources.md
         - name: Uso del portal para publicar la definición de aplicación
@@ -51,6 +53,8 @@
       items:
         - name: Supervisión de una aplicación administrada
           href: monitor-managed-application-portal.md
+        - name: Aprobación de acceso Just-In-Time
+          href: approve-just-in-time-access.md
 - name: Referencia
   items:
     - name: CLI de Azure
@@ -96,7 +100,7 @@
               href: microsoft-network-publicipaddresscombo.md
             - name: VirtualNetworkCombo
               href: microsoft-network-virtualnetworkcombo.md
-        - name: Almacenamiento
+        - name: Storage
           items:
             - name: MultiStorageAccountCombo
               href: microsoft-storage-multistorageaccountcombo.md

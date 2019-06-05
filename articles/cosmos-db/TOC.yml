@@ -600,6 +600,8 @@
       items:
         - name: Consejos de rendimiento
           items:
+            - name: Obtención de métricas de ejecución de consultas
+              href: profile-sql-api-query.md
             - name: Ajustar rendimiento de consulta
               href: sql-api-query-metrics.md
             - name: Sugerencias de rendimiento para SDK de .NET

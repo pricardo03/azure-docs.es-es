@@ -13,6 +13,9 @@
       href: quick-backup-vm-powershell.md
     - name: 'Copia de seguridad de una máquina virtual: CLI'
       href: quick-backup-vm-cli.md
+    - name: 'Copia de seguridad de una máquina virtual: Plantilla de Resource Manager'
+      displayName: ARM
+      href: quick-backup-vm-template.md
 - name: Tutoriales
   items:
     - name: Copia de seguridad de máquinas virtuales de Azure a escala
@@ -249,6 +252,8 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: Estado del sistema
+          href: backup-azure-system-state-troubleshoot.md
     - name: Supervisión de las cargas de trabajo de Azure Backup
       items:
         - name: Uso de Azure Portal

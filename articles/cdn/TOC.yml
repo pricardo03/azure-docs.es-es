@@ -94,7 +94,7 @@
         - name: Supervisión de recursos
           href: cdn-resource-health.md
         - name: Invalidar el comportamiento con reglas
-          href: cdn-rules-engine.md
+          href: cdn-verizon-premium-rules-engine.md
         - name: Uso de Traffic Manager
           href: cdn-traffic-manager.md
     - name: Análisis
@@ -134,15 +134,15 @@
           href: cdn-troubleshoot-allowed-ca.md
 - name: Referencia
   items:
-    - name: Referencia del motor de reglas
-      href: cdn-rules-engine-reference.md
+    - name: Referencia del motor de reglas de Verizon Premium
+      href: cdn-verizon-premium-rules-engine-reference.md
       items:
         - name: Expresiones condicionales del motor de reglas
-          href: cdn-rules-engine-reference-conditional-expressions.md
+          href: cdn-verizon-premium-rules-engine-reference-conditional-expressions.md
         - name: Condiciones de coincidencia del motor de reglas
-          href: cdn-rules-engine-reference-match-conditions.md
+          href: cdn-verizon-premium-rules-engine-reference-match-conditions.md
         - name: Características del motor de reglas
-          href: cdn-rules-engine-reference-features.md
+          href: cdn-verizon-premium-rules-engine-reference-features.md
         - name: Variables HTTP
           href: cdn-http-variables.md
     - name: Encabezados HTTP específicos de Verizon
@@ -158,8 +158,6 @@
       href: /java/api/com.microsoft.azure.management.cdn
     - name: REST
       href: /rest/api/cdn/
-    - name: Plantilla de Resource Manager
-      href: /azure/templates/microsoft.cdn/allversions
 - name: Recursos
   items:
     - name: Ubicaciones POP de Azure CDN

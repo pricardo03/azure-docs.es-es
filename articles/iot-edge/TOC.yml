@@ -43,7 +43,7 @@
       items:
         - name: Filtrado de datos con Azure Functions
           href: tutorial-deploy-function.md
-        - name: Búsqueda de promedios con ASA
+        - name: Búsqueda de promedios con Azure Stream Analytics
           href: tutorial-deploy-stream-analytics.md
         - name: Puntuación de datos con el servicio Azure Machine Learning
           href: tutorial-deploy-machine-learning.md

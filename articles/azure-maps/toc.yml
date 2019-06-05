@@ -164,6 +164,8 @@
       items:
         - name: Control de mapa
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+        - name: Diseño de herramientas
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/'
         - name: Módulo de servicio
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
     - name: Plantilla de Resource Manager
